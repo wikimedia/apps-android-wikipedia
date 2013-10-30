@@ -62,8 +62,6 @@ public abstract class ExceptionHandlingAsyncTask<T> {
      */
     public void execute() {
         underlyingTask.executeOnExecutor(executor);
-        java.util.concurrent.SynchronousQueue q;
-        java.util.concurrent.AbstractExecutorService e;
     }
 
     /**
