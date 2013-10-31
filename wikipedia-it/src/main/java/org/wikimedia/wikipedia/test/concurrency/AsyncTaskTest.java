@@ -28,49 +28,59 @@ public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
         startActivity(new Intent(), null, null);
     }
 
-    public void testFinishHandling() throws Exception {
+    public void testFinishHandling() throws Throwable {
         final CountDownLatch onFinishLatch = new CountDownLatch(1);
         final Integer returned = 42;
-        new ExceptionHandlingAsyncTask<Integer>(getDefaultExecutor()) {
+        runTestOnUiThread(new Runnable() {
             @Override
-            public void onFinish(Integer result) {
-                assertEquals(returned, result);
-                onFinishLatch.countDown();
-            }
+            public void run() {
+                new ExceptionHandlingAsyncTask<Integer>(getDefaultExecutor()) {
+                    @Override
+                    public void onFinish(Integer result) {
+                        assertEquals(returned, result);
+                        onFinishLatch.countDown();
+                    }
 
-            @Override
-            public void onCatch(Throwable caught) {
-                assertTrue("Exception called despite success", false);
-            }
+                    @Override
+                    public void onCatch(Throwable caught) {
+                        assertTrue("Exception called despite success", false);
+                    }
 
-            @Override
-            public Integer performTask() throws Throwable {
-                return returned;
+                    @Override
+                    public Integer performTask() throws Throwable {
+                        return returned;
+                    }
+                }.execute();
             }
-        }.execute();
+        });
         assertTrue(onFinishLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
     }
 
-    public void testExceptionHandling() throws Exception {
+    public void testExceptionHandling() throws Throwable {
         final CountDownLatch exceptionLatch = new CountDownLatch(1);
         final Throwable thrown = new Exception();
-        new ExceptionHandlingAsyncTask<Void>(getDefaultExecutor()) {
+        runTestOnUiThread(new Runnable() {
             @Override
-            public void onFinish(Void result) {
-                assertTrue("onFinish called despite exception", false);
-            }
+            public void run() {
+                new ExceptionHandlingAsyncTask<Void>(getDefaultExecutor()) {
+                    @Override
+                    public void onFinish(Void result) {
+                        assertTrue("onFinish called despite exception", false);
+                    }
 
-            @Override
-            public void onCatch(Throwable caught) {
-                assertSame(caught, thrown);
-                exceptionLatch.countDown();
-            }
+                    @Override
+                    public void onCatch(Throwable caught) {
+                        assertSame(caught, thrown);
+                        exceptionLatch.countDown();
+                    }
 
-            @Override
-            public Void performTask() throws Throwable {
-                throw thrown;
+                    @Override
+                    public Void performTask() throws Throwable {
+                        throw thrown;
+                    }
+                }.execute();
             }
-        }.execute();
+        });
         assertTrue(exceptionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
     }
 
