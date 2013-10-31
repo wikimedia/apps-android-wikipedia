@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 
 import java.util.concurrent.Executor;
 
-public abstract class ExceptionHandlingAsyncTask<T> {
+public abstract class SaneAsyncTask<T> {
     private final BackingAsyncTask underlyingTask;
 
     private final Executor executor;
@@ -12,7 +12,7 @@ public abstract class ExceptionHandlingAsyncTask<T> {
     /**
      * @param executor The executor on which this Task will run.
      */
-    public ExceptionHandlingAsyncTask(Executor executor) {
+    public SaneAsyncTask(Executor executor) {
         this.executor = executor;
         underlyingTask =  new BackingAsyncTask();
     }

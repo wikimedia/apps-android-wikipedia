@@ -2,7 +2,7 @@ package org.wikimedia.wikipedia.test.concurrency;
 
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
-import org.wikimedia.wikipedia.concurrency.ExceptionHandlingAsyncTask;
+import org.wikimedia.wikipedia.concurrency.SaneAsyncTask;
 import org.wikimedia.wikipedia.test.TestDummyActivity;
 
 import java.util.concurrent.*;
@@ -34,7 +34,7 @@ public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new ExceptionHandlingAsyncTask<Integer>(getDefaultExecutor()) {
+                new SaneAsyncTask<Integer>(getDefaultExecutor()) {
                     @Override
                     public void onFinish(Integer result) {
                         assertEquals(returned, result);
@@ -62,7 +62,7 @@ public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new ExceptionHandlingAsyncTask<Void>(getDefaultExecutor()) {
+                new SaneAsyncTask<Void>(getDefaultExecutor()) {
                     @Override
                     public void onFinish(Void result) {
                         assertTrue("onFinish called despite exception", false);
@@ -90,7 +90,7 @@ public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
             @Override
             public void run() {
                 final Thread callingThread = Thread.currentThread();
-                new ExceptionHandlingAsyncTask<Thread>(getDefaultExecutor()) {
+                new SaneAsyncTask<Thread>(getDefaultExecutor()) {
                     @Override
                     public void onBeforeExecute() {
                         assertSame(callingThread, Thread.currentThread());
