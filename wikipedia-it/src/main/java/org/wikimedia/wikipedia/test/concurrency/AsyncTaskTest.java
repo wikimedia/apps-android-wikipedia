@@ -1,19 +1,31 @@
 package org.wikimedia.wikipedia.test.concurrency;
 
-import android.test.AndroidTestCase;
-import com.sun.corba.se.spi.orbutil.threadpool.ThreadPool;
+import android.content.Intent;
+import android.test.ActivityUnitTestCase;
 import org.wikimedia.wikipedia.concurrency.ExceptionHandlingAsyncTask;
+import org.wikimedia.wikipedia.test.TestDummyActivity;
 
 import java.util.concurrent.*;
 
-public class AsyncTaskTest extends AndroidTestCase {
-    public static final int TASK_COMPLETION_TIMEOUT = 100;
+public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
+    public static final int TASK_COMPLETION_TIMEOUT = 1000;
     private Executor executor;
+
+    public AsyncTaskTest() {
+        super(TestDummyActivity.class);
+    }
+
     private Executor getDefaultExecutor() {
         if (executor == null) {
             executor = new ScheduledThreadPoolExecutor(1);
         }
         return executor;
+    }
+
+    @Override
+    public void setUp() throws Exception {
+        super.setUp();
+        startActivity(new Intent(), null, null);
     }
 
     public void testFinishHandling() throws Exception {
@@ -60,5 +72,35 @@ public class AsyncTaskTest extends AndroidTestCase {
             }
         }.execute();
         assertTrue(exceptionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+    }
+
+    public void testAppropriateThreadFinish() throws Throwable {
+        final CountDownLatch completionLatch = new CountDownLatch(1);
+        runTestOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                final Thread callingThread = Thread.currentThread();
+                new ExceptionHandlingAsyncTask<Thread>(getDefaultExecutor()) {
+                    @Override
+                    public void onBeforeExecute() {
+                        assertSame(callingThread, Thread.currentThread());
+                    }
+
+                    @Override
+                    public void onFinish(Thread result) {
+                        assertNotSame(result, Thread.currentThread());
+                        assertSame(Thread.currentThread(), callingThread);
+                        completionLatch.countDown();
+                    }
+
+                    @Override
+                    public Thread performTask() throws Throwable {
+                        assertNotSame(callingThread, Thread.currentThread());
+                        return Thread.currentThread();
+                    }
+                }.execute();
+            }
+        });
+        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
     }
 }

@@ -4,6 +4,7 @@
 
   <application android:icon="@drawable/icon" android:label="@string/app_name">
     <uses-library android:name="android.test.runner" />
+      <activity android:name=".TestDummyActivity"/>
   </application>
 
   <instrumentation android:targetPackage="org.wikimedia.wikipedia"
