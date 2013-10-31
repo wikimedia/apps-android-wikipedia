@@ -113,4 +113,39 @@ public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
         });
         assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
     }
+
+    public void testAppropriateThreadException() throws Throwable {
+        final CountDownLatch completionLatch = new CountDownLatch(1);
+        final Throwable thrown = new Exception();
+        runTestOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                final Thread callingThread = Thread.currentThread();
+                new SaneAsyncTask<Thread>(getDefaultExecutor()) {
+                    @Override
+                    public void onBeforeExecute() {
+                        assertSame(callingThread, Thread.currentThread());
+                    }
+
+                    @Override
+                    public void onFinish(Thread result) {
+                        assertTrue("onFinish called even when there is an exception", false);
+                    }
+
+                    @Override
+                    public void onCatch(Throwable caught) {
+                        assertSame(callingThread, Thread.currentThread());
+                        completionLatch.countDown();
+                    }
+
+                    @Override
+                    public Thread performTask() throws Throwable {
+                        assertNotSame(callingThread, Thread.currentThread());
+                        throw thrown;
+                    }
+                }.execute();
+            }
+        });
+        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+    }
 }
