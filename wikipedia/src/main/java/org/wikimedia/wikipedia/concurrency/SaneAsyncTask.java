@@ -42,10 +42,12 @@ public abstract class SaneAsyncTask<T> {
      * <p/>
      * Called on the UI Thread.
      *
+     * Default implementation just throws it as a RuntimeException, so exceptions are never swallowed.
+     *
      * @param caught The exception that was thrown.
      */
     public void onCatch(Throwable caught) {
-
+        throw new RuntimeException(caught);
     }
 
 
