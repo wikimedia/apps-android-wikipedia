@@ -4,10 +4,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <!-- The main content view -->
-    <FrameLayout
-            android:id="@+id/content_frame"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" >
+            <EditText
+                    android:id="@+id/pageNameText"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Type a page name"
+                    />
+            <Button
+                    android:id="@+id/pageGoButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Go!"
+                    />
+        </LinearLayout>
+        <FrameLayout
+                android:id="@+id/content_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        </FrameLayout>
+
+    </LinearLayout>
     <!-- The navigation drawer -->
     <LinearLayout android:id="@+id/left_drawer"
               android:layout_width="240dp"
@@ -15,11 +40,5 @@
               android:layout_gravity="start"
               android:orientation="vertical"
               android:background="#111">
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/test_text"
-                android:text="Test"
-            />
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
