@@ -37,7 +37,7 @@ public class Section implements Parcelable {
     }
 
     public boolean isLead() {
-        return level == 0;
+        return id == 0;
     }
 
     public int getId() {
