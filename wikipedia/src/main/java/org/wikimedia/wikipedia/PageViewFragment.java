@@ -2,10 +2,13 @@ package org.wikimedia.wikipedia;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 
 public class PageViewFragment extends Fragment {
@@ -16,6 +19,8 @@ public class PageViewFragment extends Fragment {
     private WebView view;
     private Page page;
 
+    private CommunicationBridge bridge;
+
     public PageViewFragment(PageTitle title) {
         this.title = title;
     }
@@ -24,7 +29,16 @@ public class PageViewFragment extends Fragment {
     }
 
     private void displayPage(Page page) {
-        view.loadData(page.getHTML(), "text/html", "utf8");
+        JSONObject leadSectionPayload = new JSONObject();
+        try {
+            leadSectionPayload.put("title", page.getTitle().getTitle());
+            leadSectionPayload.put("leadSectionHTML", page.getSections().get(0).toHTML());
+        } catch (JSONException e) {
+            // This should never happen
+            throw new RuntimeException(e);
+        }
+
+        bridge.sendMessage("displayLeadSection", leadSectionPayload);
     }
 
     @Override
@@ -38,6 +52,9 @@ public class PageViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         view = (WebView) inflater.inflate(R.layout.fragment_page, container, false);
 
+        bridge = new CommunicationBridge(view);
+        view.getSettings().setJavaScriptEnabled(true);
+        view.loadUrl("file:///android_asset/index.html");
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {
             title = savedInstanceState.getParcelable(KEY_TITLE);
             if (savedInstanceState.containsKey(KEY_PAGE)) {

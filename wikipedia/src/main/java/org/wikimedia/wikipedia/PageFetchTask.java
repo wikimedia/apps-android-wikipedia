@@ -24,7 +24,8 @@ public class PageFetchTask extends SaneAsyncTask<Page> {
     public Page performTask() throws Throwable {
         ApiResult result = api.action("mobileview")
                 .param("page", title.getTitle()) //TODO: Support non main NS!
-                .param("sections", "all")
+                .param("prop", "text|sections")
+                .param("sections", "0")
                 .param("sectionprop", "toclevel|line|anchor")
                 .param("noheadings", "true")
                 .get();
