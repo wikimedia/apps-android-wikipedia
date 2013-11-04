@@ -37,7 +37,7 @@ public class PageActivity extends FragmentActivity {
     private void displayNewPage(PageTitle title) {
         PageViewFragment pageFragment = new PageViewFragment(title);
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.content_frame, pageFragment)
+                .replace(R.id.content_frame, pageFragment)
                 .addToBackStack(null)
                 .commit();
     }
