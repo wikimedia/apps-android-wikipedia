@@ -1,13 +1,20 @@
 package org.wikimedia.wikipedia;
 
 import android.app.Application;
+import com.squareup.otto.Bus;
 import org.mediawiki.api.json.Api;
 
 public class WikipediaApp extends Application {
+    private Bus bus;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        bus = new Bus();
+    }
+
+    public Bus getBus() {
+        return bus;
     }
 
     Api primarySiteAPI;

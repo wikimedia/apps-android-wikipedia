@@ -20,6 +20,7 @@ public class PageViewFragment extends Fragment {
     private Page page;
 
     private CommunicationBridge bridge;
+    private LinkHandler linkHandler;
 
     public PageViewFragment(PageTitle title) {
         this.title = title;
@@ -51,10 +52,12 @@ public class PageViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         view = (WebView) inflater.inflate(R.layout.fragment_page, container, false);
-
-        bridge = new CommunicationBridge(view);
         view.getSettings().setJavaScriptEnabled(true);
         view.loadUrl("file:///android_asset/index.html");
+
+        bridge = new CommunicationBridge(view);
+        linkHandler = new LinkHandler(getActivity(), bridge);
+
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {
             title = savedInstanceState.getParcelable(KEY_TITLE);
             if (savedInstanceState.containsKey(KEY_PAGE)) {

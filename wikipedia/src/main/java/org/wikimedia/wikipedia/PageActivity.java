@@ -4,16 +4,24 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.*;
 import android.widget.*;
+import com.squareup.otto.Bus;
+import com.squareup.otto.Subscribe;
 
 public class PageActivity extends FragmentActivity {
 
     Button pageGoButton;
     EditText pageNameText;
 
+    private Bus bus;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        bus = ((WikipediaApp)getApplicationContext()).getBus();
+        bus.register(this);
+
         pageGoButton = (Button) findViewById(R.id.pageGoButton);
         pageNameText = (EditText) findViewById(R.id.pageNameText);
 
@@ -21,14 +29,22 @@ public class PageActivity extends FragmentActivity {
             @Override
             public void onClick(View view) {
                 PageTitle title = new PageTitle(null, pageNameText.getText().toString());
-
-                PageViewFragment pageFragment = new PageViewFragment(title);
-                getSupportFragmentManager().beginTransaction()
-                        .add(R.id.content_frame, pageFragment)
-                        .addToBackStack(null)
-                        .commit();
+                displayNewPage(title);
             }
         });
+    }
+
+    private void displayNewPage(PageTitle title) {
+        PageViewFragment pageFragment = new PageViewFragment(title);
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.content_frame, pageFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Subscribe
+    public void onNewWikiPageNavigationEvent(LinkHandler.NewWikiPageNavigationEvent event) {
+        displayNewPage(event.getTitle());
     }
 
     @Override

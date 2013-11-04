@@ -27,4 +27,8 @@
     };
 
     window.bridge = new Bridge();
+
+    window.onload = function() {
+        bridge.sendMessage( "DOMLoaded", {} );
+    };
 } )();
