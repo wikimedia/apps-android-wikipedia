@@ -1,6 +1,8 @@
 package org.wikimedia.wikipedia;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import com.squareup.otto.Bus;
 import org.json.JSONException;
@@ -34,16 +36,30 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
         this.bridge.addListener("linkClicked", this);
     }
 
+    private void handleExternalLink(String href) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(href));
+        context.startActivity(intent);
+    }
+
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
             String href = messagePayload.getString("href");
+            if (href.startsWith("//")) {
+                // That's a protocol specific link! Make it https!
+                href = "https:" + href;
+            }
+            Log.d("Wikipedia", "Link clicked was " + href);
             if (href.startsWith("/wiki/")) {
                 // TODO: Handle fragments
                 String pageName = href.replace("/wiki/", "");
                 bus.post(new NewWikiPageNavigationEvent(new PageTitle(null, pageName)));
+            } else {
+                // Assume everything else is an external link... for now!
+                handleExternalLink(href);
             }
-            Log.d("Wikipedia", "Link clicked was " + href);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
