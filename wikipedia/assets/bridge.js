@@ -28,6 +28,13 @@
 
     window.bridge = new Bridge();
 
+    bridge.registerListener( "injectScript", function( payload ) {
+        var script = document.createElement( "script" );
+        script.type = "text/javascript";
+        script.src = payload.src;
+        document.head.appendChild( script );
+    });
+
     window.onload = function() {
         bridge.sendMessage( "DOMLoaded", {} );
     };
