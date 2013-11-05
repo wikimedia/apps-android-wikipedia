@@ -54,8 +54,7 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
             Log.d("Wikipedia", "Link clicked was " + href);
             if (href.startsWith("/wiki/")) {
                 // TODO: Handle fragments
-                String pageName = href.replace("/wiki/", "");
-                bus.post(new NewWikiPageNavigationEvent(new PageTitle(null, pageName)));
+                bus.post(new NewWikiPageNavigationEvent(PageTitle.fromInternalLink(href)));
             } else {
                 // Assume everything else is an external link... for now!
                 handleExternalLink(href);
