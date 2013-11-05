@@ -32,7 +32,7 @@ public class PageViewFragment extends Fragment {
     private void displayPage(Page page) {
         JSONObject leadSectionPayload = new JSONObject();
         try {
-            leadSectionPayload.put("title", page.getTitle().getTitle());
+            leadSectionPayload.put("title", page.getTitle().getPrefixedText());
             leadSectionPayload.put("leadSectionHTML", page.getSections().get(0).toHTML());
         } catch (JSONException e) {
             // This should never happen

@@ -4,26 +4,30 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Immutable value object representing the title of a page.
+ * Immutable value object representing the text of a page.
  *
  * Points to a specific page in a specific namespace on a specific site.
  * Is immutable.
  */
 public class PageTitle implements Parcelable {
     private final String namespace;
-    private final String title;
+    private final String text;
 
-    public PageTitle(final String namesapce, final String title) {
-        this.namespace = namesapce;
-        this.title = title; //FIXME: Actually normalize this!
+    public PageTitle(final String namespace, final String text) {
+        this.namespace = namespace;
+        this.text = text;
     }
 
     public String getNamespace() {
         return namespace;
     }
 
-    public String getTitle() {
-        return title;
+    public String getText() {
+        return text;
+    }
+
+    public String getPrefixedText() {
+        return namespace == null ? text : namespace + ":" + text;
     }
 
     @Override
@@ -44,12 +48,12 @@ public class PageTitle implements Parcelable {
 
     private PageTitle(Parcel in) {
         namespace = in.readString();
-        title = in.readString();
+        text = in.readString();
     }
 
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeString(namespace);
-        parcel.writeString(title);
+        parcel.writeString(text);
     }
 }

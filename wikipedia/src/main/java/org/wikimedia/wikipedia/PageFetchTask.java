@@ -1,6 +1,5 @@
 package org.wikimedia.wikipedia;
 
-import android.content.Context;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
@@ -23,7 +22,7 @@ public class PageFetchTask extends SaneAsyncTask<Page> {
     @Override
     public Page performTask() throws Throwable {
         ApiResult result = api.action("mobileview")
-                .param("page", title.getTitle()) //TODO: Support non main NS!
+                .param("page", title.getPrefixedText())
                 .param("prop", "text|sections")
                 .param("sections", "0")
                 .param("sectionprop", "toclevel|line|anchor")
