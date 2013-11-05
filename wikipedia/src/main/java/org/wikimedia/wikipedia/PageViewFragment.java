@@ -52,10 +52,8 @@ public class PageViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         view = (WebView) inflater.inflate(R.layout.fragment_page, container, false);
-        view.getSettings().setJavaScriptEnabled(true);
-        view.loadUrl("file:///android_asset/index.html");
 
-        bridge = new CommunicationBridge(view);
+        bridge = new CommunicationBridge(view, "file:///android_asset/index.html");
         linkHandler = new LinkHandler(getActivity(), bridge);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {

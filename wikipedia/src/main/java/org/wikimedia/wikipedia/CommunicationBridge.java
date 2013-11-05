@@ -26,8 +26,12 @@ public class CommunicationBridge {
         public void onMessage(String messageType, JSONObject messagePayload);
     }
 
-    public CommunicationBridge(final WebView webView) {
+    public CommunicationBridge(final WebView webView, final String baseURL) {
         this.webView = webView;
+
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl(baseURL);
+
         webView.setWebChromeClient(new CommunicatingChrome());
         eventListeners = new HashMap<String, ArrayList<JSEventListener>>();
         this.addListener("DOMLoaded", new JSEventListener() {
