@@ -13,13 +13,15 @@ public class PageActivity extends FragmentActivity {
     EditText pageNameText;
 
     private Bus bus;
+    private WikipediaApp app;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bus = ((WikipediaApp)getApplicationContext()).getBus();
+        app = ((WikipediaApp)getApplicationContext());
+        bus = app.getBus();
         bus.register(this);
 
         pageGoButton = (Button) findViewById(R.id.pageGoButton);
@@ -28,7 +30,7 @@ public class PageActivity extends FragmentActivity {
         pageGoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PageTitle title = new PageTitle(null, pageNameText.getText().toString());
+                PageTitle title = new PageTitle(null, pageNameText.getText().toString(), app.getPrimarySite());
                 displayNewPage(title);
             }
         });

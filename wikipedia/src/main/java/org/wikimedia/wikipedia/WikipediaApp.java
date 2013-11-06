@@ -20,9 +20,17 @@ public class WikipediaApp extends Application {
     Api primarySiteAPI;
     public Api getPrimarySiteAPI() {
         if (primarySiteAPI == null) {
-            //TODO: Make this configurable
-            primarySiteAPI =  new Api("en.wikipedia.org");
+            primarySiteAPI =  new Api(getPrimarySite().getDomain());
         }
         return primarySiteAPI;
+    }
+
+    private Site primarySite;
+    public Site getPrimarySite() {
+        if (primarySite == null) {
+            // FIXME: Actually read from SharedPreferences or something
+            primarySite = new Site("en.wikipedia.org");
+        }
+        return primarySite;
     }
 }
