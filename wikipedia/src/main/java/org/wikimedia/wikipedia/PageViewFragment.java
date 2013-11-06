@@ -1,12 +1,15 @@
 package org.wikimedia.wikipedia;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
@@ -16,7 +19,9 @@ public class PageViewFragment extends Fragment {
     public static final String KEY_PAGE = "page";
 
     private PageTitle title;
-    private WebView view;
+    private WebView webView;
+    private ProgressBar loadProgress;
+
     private Page page;
 
     private CommunicationBridge bridge;
@@ -40,6 +45,23 @@ public class PageViewFragment extends Fragment {
         }
 
         bridge.sendMessage("displayLeadSection", leadSectionPayload);
+
+        webView.setAlpha(0f);
+        webView.setVisibility(View.VISIBLE);
+        webView.animate()
+                .alpha(1.0f)
+                .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
+                .setListener(null);
+
+        loadProgress.animate()
+                .alpha(0f)
+                .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        loadProgress.setVisibility(View.GONE);
+                    }
+                });
     }
 
     @Override
@@ -51,9 +73,12 @@ public class PageViewFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
-        view = (WebView) inflater.inflate(R.layout.fragment_page, container, false);
+        FrameLayout parentView = (FrameLayout) inflater.inflate(R.layout.fragment_page, container, false);
 
-        bridge = new CommunicationBridge(view, "file:///android_asset/index.html");
+        webView = (WebView) parentView.findViewById(R.id.pageWebView);
+        loadProgress = (ProgressBar) parentView.findViewById(R.id.pageLoadProgress);
+
+        bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         linkHandler = new LinkHandler(getActivity(), bridge);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {
@@ -78,6 +103,6 @@ public class PageViewFragment extends Fragment {
         } else {
             displayPage(page);
         }
-        return view;
+        return parentView;
     }
 }

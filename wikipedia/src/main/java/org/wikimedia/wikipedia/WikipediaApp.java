@@ -1,5 +1,7 @@
 package org.wikimedia.wikipedia;
 
+import android.*;
+import android.R;
 import android.app.Application;
 import com.squareup.otto.Bus;
 import org.mediawiki.api.json.Api;
@@ -7,10 +9,17 @@ import org.mediawiki.api.json.Api;
 public class WikipediaApp extends Application {
     private Bus bus;
 
+    public static long SHORT_ANIMATION_DURATION;
+    public static long MEDIUM_ANIMATION_DURATION;
+
     @Override
     public void onCreate() {
         super.onCreate();
         bus = new Bus();
+
+        SHORT_ANIMATION_DURATION = getResources().getInteger(R.integer.config_shortAnimTime);
+        MEDIUM_ANIMATION_DURATION = getResources().getInteger(R.integer.config_mediumAnimTime);
+
     }
 
     public Bus getBus() {
