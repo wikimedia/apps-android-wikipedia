@@ -56,6 +56,6 @@ public class Page implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeParcelable(title, flags);
-        parcel.writeTypedList(sections);
+        parcel.writeList(sections);
     }
 }
