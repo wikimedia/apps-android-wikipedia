@@ -98,7 +98,7 @@ public class Section implements Parcelable {
         parcel.writeString(getHeading());
         parcel.writeString(getAnchor());
         parcel.writeString(getContent());
-        parcel.writeTypedList(subSections);
+        parcel.writeList(subSections);
     }
 
     public static final Parcelable.Creator<Section> CREATOR
