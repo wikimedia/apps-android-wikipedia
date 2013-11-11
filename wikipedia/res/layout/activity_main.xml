@@ -4,35 +4,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <!-- The main content view -->
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent" >
-            <EditText
-                    android:id="@+id/pageNameText"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:hint="Type a page name"
-                    />
-            <Button
-                    android:id="@+id/pageGoButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Go!"
-                    />
-        </LinearLayout>
         <FrameLayout
                 android:id="@+id/content_frame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
         </FrameLayout>
+        <fragment
+                android:id="@+id/search_fragment"
+                android:name="org.wikimedia.wikipedia.SearchArticlesFragment"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_margin="12dp"
+                />
 
-    </LinearLayout>
+
+
+    </FrameLayout>
     <!-- The navigation drawer -->
     <LinearLayout android:id="@+id/left_drawer"
               android:layout_width="240dp"

@@ -67,6 +67,13 @@ public abstract class SaneAsyncTask<T> {
     }
 
     /**
+     * Cancel the underlying operation.
+     */
+    public void cancel() {
+        underlyingTask.cancel(true);
+    }
+
+    /**
      * Private AsyncTask that actually performs the operations.
      */
     private class BackingAsyncTask extends AsyncTask<Void, Void, T> {

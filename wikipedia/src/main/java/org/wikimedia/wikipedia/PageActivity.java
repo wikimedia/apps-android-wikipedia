@@ -8,10 +8,6 @@ import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
 public class PageActivity extends FragmentActivity {
-
-    Button pageGoButton;
-    EditText pageNameText;
-
     private Bus bus;
     private WikipediaApp app;
 
@@ -23,17 +19,6 @@ public class PageActivity extends FragmentActivity {
         app = ((WikipediaApp)getApplicationContext());
         bus = app.getBus();
         bus.register(this);
-
-        pageGoButton = (Button) findViewById(R.id.pageGoButton);
-        pageNameText = (EditText) findViewById(R.id.pageNameText);
-
-        pageGoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PageTitle title = new PageTitle(null, pageNameText.getText().toString(), app.getPrimarySite());
-                displayNewPage(title);
-            }
-        });
     }
 
     private void displayNewPage(PageTitle title) {

@@ -6,6 +6,8 @@ import android.app.Application;
 import com.squareup.otto.Bus;
 import org.mediawiki.api.json.Api;
 
+import java.util.HashMap;
+
 public class WikipediaApp extends Application {
     private Bus bus;
 
@@ -19,19 +21,22 @@ public class WikipediaApp extends Application {
 
         SHORT_ANIMATION_DURATION = getResources().getInteger(R.integer.config_shortAnimTime);
         MEDIUM_ANIMATION_DURATION = getResources().getInteger(R.integer.config_mediumAnimTime);
-
     }
 
     public Bus getBus() {
         return bus;
     }
 
-    Api primarySiteAPI;
     public Api getPrimarySiteAPI() {
-        if (primarySiteAPI == null) {
-            primarySiteAPI =  new Api(getPrimarySite().getDomain());
+        return getAPIForSite(getPrimarySite());
+    }
+
+    private HashMap<String, Api> apis = new HashMap<String, Api>();
+    public Api getAPIForSite(Site site) {
+        if (!apis.containsKey(site.getDomain()))  {
+            apis.put(site.getDomain(), new Api(site.getDomain()));
         }
-        return primarySiteAPI;
+        return apis.get(site.getDomain());
     }
 
     private Site primarySite;

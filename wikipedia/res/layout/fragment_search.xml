@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/container_dropshadow"
+        >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+                android:id="@+id/searchTermText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search Wikipedia"
+                android:background="@null"
+                android:padding="8dp"
+                />
+        <ProgressBar
+                android:id="@+id/searchProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="8dp"
+                android:indeterminate="true"
+                android:visibility="gone"
+                style="@android:style/Widget.ProgressBar.Small"
+                />
+    </FrameLayout>
+
+    <ListView
+            android:id="@+id/searchResultsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        />
+</LinearLayout>
