@@ -53,7 +53,6 @@ public class BridgeTests extends ActivityUnitTestCase<TestDummyActivity> {
                 } catch (JSONException e) {
                     throw new RuntimeException(e); // JESUS CHRIST, JAVA!
                 }
-                bridge.sendMessage("injectScript", payload);
                 bridge.addListener("pingBackLoaded", new CommunicationBridge.JSEventListener() {
                     @Override
                     public void onMessage(String messageType, JSONObject messagePayload) {
@@ -69,6 +68,7 @@ public class BridgeTests extends ActivityUnitTestCase<TestDummyActivity> {
                         });
                     }
                 });
+                bridge.sendMessage("injectScript", payload);
             }
         });
         assertTrue(completionLatch.await(TEST_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
