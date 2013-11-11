@@ -65,4 +65,14 @@ public class PageTitle implements Parcelable {
         parcel.writeParcelable(site, flags);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof PageTitle)) {
+            return false;
+        }
+
+        PageTitle other = (PageTitle)o;
+        // Not using namespace directly since that can be null
+        return other.getPrefixedText().equals(getPrefixedText()) && other.getSite().equals(getSite());
+    }
 }

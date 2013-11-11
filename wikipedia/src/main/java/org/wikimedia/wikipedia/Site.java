@@ -46,6 +46,10 @@ public class Site implements Parcelable {
 
     @Override
     public boolean equals(Object o) {
+        if (!(o instanceof Site)) {
+            return false;
+        }
+
         return ((Site)o).getDomain().equals(domain);
     }
 

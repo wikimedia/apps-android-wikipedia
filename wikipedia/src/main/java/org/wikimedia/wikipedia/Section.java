@@ -36,6 +36,22 @@ public class Section implements Parcelable {
         subSections = in.readArrayList(Section.class.getClassLoader());
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Section)) {
+            return false;
+        }
+
+        Section other = (Section) o;
+        return getId() == other.getId()
+                && getLevel() == other.getLevel()
+                && Utils.compareStrings(getHeading(), other.getHeading())
+                && Utils.compareStrings(getAnchor(), other.getAnchor())
+                && Utils.compareStrings(getContent(), other.getContent())
+                && getSubSections().equals(other.getSubSections());
+
+    }
+
     public boolean isLead() {
         return id == 0;
     }

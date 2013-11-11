@@ -54,6 +54,16 @@ public class Page implements Parcelable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Page)) {
+            return false;
+        }
+
+        Page other = (Page) o;
+        return getTitle().equals(other.getTitle()) && getSections().equals(other.getSections());
+    }
+
+    @Override
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeParcelable(title, flags);
         parcel.writeList(sections);
