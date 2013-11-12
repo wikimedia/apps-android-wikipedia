@@ -22,8 +22,29 @@ public class SearchArticlesFragment extends Fragment {
     private List<PageTitle> currentResults = new ArrayList<PageTitle>();
 
     private SearchArticlesTask currentTask;
+    private boolean isSearchActive = false;
 
     private ParcelableLruCache<List<PageTitle>> searchResultsCache = new ParcelableLruCache<List<PageTitle>>(4, List.class);
+    private String lastSearchedText;
+
+    /**
+     * Displays results passed to it as search suggestions.
+     *
+     * @param results List of results to display. If null, clears the list of suggestions & hides it.
+     */
+    private void displayResults(List<PageTitle> results) {
+        currentResults.clear();
+        if (results != null) {
+            currentResults.addAll(results);
+        }
+        ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
+        if (currentResults.size() == 0) {
+            searchResultsList.setVisibility(View.GONE);
+            isSearchActive = false;
+        } else {
+            searchResultsList.setVisibility(View.VISIBLE);
+        }
+    }
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,6 +53,8 @@ public class SearchArticlesFragment extends Fragment {
 
         if (savedInstanceState != null) {
             searchResultsCache = savedInstanceState.getParcelable("searchResultsCache");
+            lastSearchedText = savedInstanceState.getString("lastSearchedText");
+            isSearchActive = savedInstanceState.getBoolean("isSearchActive");
         }
 
         searchTermText = (EditText) parentLayout.findViewById(R.id.searchTermText);
@@ -51,8 +74,7 @@ public class SearchArticlesFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle title = (PageTitle) searchResultsList.getAdapter().getItem(position);
                 app.getBus().post(new NewWikiPageNavigationEvent(title));
-                currentResults.clear();
-                ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
+                displayResults(null);
                 // Stupid android, making me hide the keyboard manually
                 InputMethodManager inputManager = (InputMethodManager)
                         getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -74,30 +96,31 @@ public class SearchArticlesFragment extends Fragment {
 
             @Override
             public void afterTextChanged(final Editable s) {
+                if (Utils.compareStrings(s.toString(), lastSearchedText) && !isSearchActive) {
+                    return; // Nothing has changed!
+                }
                 if (currentTask != null) {
                     currentTask.cancel();
                 }
 
                 List<PageTitle> cacheResult = searchResultsCache.get(s.toString());
                 if (cacheResult != null) {
-                    currentResults.clear();
-                    currentResults.addAll(cacheResult);
-                    ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
+                    displayResults(cacheResult);
                     return;
                 }
                 SearchArticlesTask searchTask = new SearchArticlesTask(getActivity(), app.getPrimarySite(), s.toString()) {
                     @Override
                     public void onFinish(List<PageTitle> result) {
-                        currentResults.clear();
-                        currentResults.addAll(result);
-                        ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
+                        displayResults(result);
                         searchProgress.setVisibility(View.GONE);
                         searchResultsCache.put(s.toString(), result);
+                        lastSearchedText = s.toString();
                     }
 
                     @Override
                     public void onBeforeExecute() {
                         searchProgress.setVisibility(View.VISIBLE);
+                        isSearchActive = true;
                     }
                 };
                 if (currentTask != null) {
@@ -144,5 +167,7 @@ public class SearchArticlesFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable("searchResultsCache", searchResultsCache);
+        outState.putString("lastSearchedText", lastSearchedText);
+        outState.putBoolean("isSearchActive", isSearchActive);
     }
 }
