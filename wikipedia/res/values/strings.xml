@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Wikipedia</string>
+
+    <string name="search_hint">Search Wikipedia</string>
 </resources>

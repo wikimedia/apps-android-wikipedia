@@ -14,7 +14,7 @@
                 android:id="@+id/searchTermText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Search Wikipedia"
+                android:hint="@string/search_hint"
                 android:background="@null"
                 android:padding="8dp"
                 />
