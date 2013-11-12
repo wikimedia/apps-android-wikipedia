@@ -23,10 +23,16 @@ public class SearchArticlesFragment extends Fragment {
 
     private SearchArticlesTask currentTask;
 
+    private ParcelableLruCache<List<PageTitle>> searchResultsCache = new ParcelableLruCache<List<PageTitle>>(4, List.class);
+
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         app = (WikipediaApp)getActivity().getApplicationContext();
         LinearLayout parentLayout = (LinearLayout) inflater.inflate(R.layout.fragment_search, container, false);
+
+        if (savedInstanceState != null) {
+            searchResultsCache = savedInstanceState.getParcelable("searchResultsCache");
+        }
 
         searchTermText = (EditText) parentLayout.findViewById(R.id.searchTermText);
         searchResultsList = (ListView) parentLayout.findViewById(R.id.searchResultsList);
@@ -67,7 +73,18 @@ public class SearchArticlesFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
+            public void afterTextChanged(final Editable s) {
+                if (currentTask != null) {
+                    currentTask.cancel();
+                }
+
+                List<PageTitle> cacheResult = searchResultsCache.get(s.toString());
+                if (cacheResult != null) {
+                    currentResults.clear();
+                    currentResults.addAll(cacheResult);
+                    ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
+                    return;
+                }
                 SearchArticlesTask searchTask = new SearchArticlesTask(getActivity(), app.getPrimarySite(), s.toString()) {
                     @Override
                     public void onFinish(List<PageTitle> result) {
@@ -75,6 +92,7 @@ public class SearchArticlesFragment extends Fragment {
                         currentResults.addAll(result);
                         ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
                         searchProgress.setVisibility(View.GONE);
+                        searchResultsCache.put(s.toString(), result);
                     }
 
                     @Override
@@ -120,5 +138,11 @@ public class SearchArticlesFragment extends Fragment {
         });
 
         return parentLayout;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable("searchResultsCache", searchResultsCache);
     }
 }
