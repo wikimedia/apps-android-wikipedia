@@ -14,7 +14,7 @@ public class PageFetchTask extends SaneAsyncTask<Page> {
     Api api;
 
     public PageFetchTask(Api api, PageTitle title) {
-        super(ExecutorService.getSingleton().getExecutor(PageFetchTask.class));
+        super(ExecutorService.getSingleton().getExecutor(PageFetchTask.class, 1));
         this.title = title;
         this.api = api;
     }

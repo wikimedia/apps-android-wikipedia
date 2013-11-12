@@ -22,10 +22,9 @@ public class ExecutorService {
         executors = new HashMap<Class, Executor>();
     }
 
-    public Executor getExecutor(Class cls) {
+    public Executor getExecutor(Class cls, int threads) {
         if (!executors.containsKey(cls)) {
-            // TODO: Custom number of threads for services
-            executors.put(cls, new ScheduledThreadPoolExecutor(1));
+            executors.put(cls, new ScheduledThreadPoolExecutor(threads));
         }
         return executors.get(cls);
     }

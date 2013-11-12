@@ -18,7 +18,7 @@ public class SearchArticlesTask extends SaneAsyncTask<List<PageTitle>>{
     private ApiResult result;
 
     public SearchArticlesTask(Context context, Site site, String prefix) {
-        super(ExecutorService.getSingleton().getExecutor(PageFetchTask.class));
+        super(ExecutorService.getSingleton().getExecutor(PageFetchTask.class, 2));
         this.app = (WikipediaApp)context.getApplicationContext();
         this.site = site;
         this.prefix = prefix;
