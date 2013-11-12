@@ -1,5 +1,6 @@
 package org.wikimedia.wikipedia;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import com.squareup.otto.Bus;
@@ -44,9 +45,16 @@ public class PageActivity extends FragmentActivity {
 
     @Override
     protected void onStart() {
-        super.onResume();
+        super.onStart();
         bus = app.getBus();
         bus.register(this);
+
+        Intent intent = getIntent();
+        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+            Site site = new Site(intent.getData().getAuthority());
+            PageTitle title = site.titleForInternalLink(intent.getData().getPath());
+            bus.post(new NewWikiPageNavigationEvent(title));
+        }
     }
 
     @Override
