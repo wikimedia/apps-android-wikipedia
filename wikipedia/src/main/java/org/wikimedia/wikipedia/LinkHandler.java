@@ -7,6 +7,7 @@ import android.util.Log;
 import com.squareup.otto.Bus;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
 
 /**
  * Handles any html links coming from a {@link PageViewFragment}
@@ -16,18 +17,6 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
     private final CommunicationBridge bridge;
     private final Bus bus;
     private final WikipediaApp app;
-
-    public static class NewWikiPageNavigationEvent {
-        private final PageTitle title;
-
-        public NewWikiPageNavigationEvent(PageTitle title) {
-            this.title = title;
-        }
-
-        public PageTitle getTitle() {
-            return title;
-        }
-    }
 
     public LinkHandler(Context context, CommunicationBridge bridge) {
         this.context = context;

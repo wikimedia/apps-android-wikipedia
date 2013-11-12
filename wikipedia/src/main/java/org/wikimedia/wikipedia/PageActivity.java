@@ -2,10 +2,9 @@ package org.wikimedia.wikipedia;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.view.*;
-import android.widget.*;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
+import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
 
 public class PageActivity extends FragmentActivity {
     private Bus bus;
@@ -29,7 +28,7 @@ public class PageActivity extends FragmentActivity {
     }
 
     @Subscribe
-    public void onNewWikiPageNavigationEvent(LinkHandler.NewWikiPageNavigationEvent event) {
+    public void onNewWikiPageNavigationEvent(NewWikiPageNavigationEvent event) {
         displayNewPage(event.getTitle());
     }
 

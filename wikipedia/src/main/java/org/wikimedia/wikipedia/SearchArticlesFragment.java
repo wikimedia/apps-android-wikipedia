@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.*;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
+import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,7 @@ public class SearchArticlesFragment extends Fragment {
         searchTermText.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                app.getBus().post(new LinkHandler.NewWikiPageNavigationEvent(new PageTitle(null, searchTermText.getText().toString(), app.getPrimarySite())));
+                app.getBus().post(new NewWikiPageNavigationEvent(new PageTitle(null, searchTermText.getText().toString(), app.getPrimarySite())));
                 return true;
             }
         });
@@ -43,7 +44,7 @@ public class SearchArticlesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle title = (PageTitle) searchResultsList.getAdapter().getItem(position);
-                app.getBus().post(new LinkHandler.NewWikiPageNavigationEvent(title));
+                app.getBus().post(new NewWikiPageNavigationEvent(title));
                 currentResults.clear();
                 ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
                 // Stupid android, making me hide the keyboard manually
