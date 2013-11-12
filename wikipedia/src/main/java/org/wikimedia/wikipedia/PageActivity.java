@@ -17,8 +17,6 @@ public class PageActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         app = ((WikipediaApp)getApplicationContext());
-        bus = app.getBus();
-        bus.register(this);
     }
 
     private void displayNewPage(PageTitle title) {
@@ -38,5 +36,18 @@ public class PageActivity extends FragmentActivity {
     @Override
     public void onBackPressed() {
         getSupportFragmentManager().popBackStack();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onResume();
+        bus = app.getBus();
+        bus.register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        bus.unregister(this);
     }
 }
