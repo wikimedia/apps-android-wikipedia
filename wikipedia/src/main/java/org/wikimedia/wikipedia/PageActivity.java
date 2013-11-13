@@ -10,12 +10,15 @@ public class PageActivity extends FragmentActivity {
     private Bus bus;
     private WikipediaApp app;
 
+    private SearchArticlesFragment searchAriclesFragment;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         app = ((WikipediaApp)getApplicationContext());
+        searchAriclesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
     }
 
     private void displayNewPage(PageTitle title) {
@@ -34,7 +37,9 @@ public class PageActivity extends FragmentActivity {
 
     @Override
     public void onBackPressed() {
-        getSupportFragmentManager().popBackStack();
+        if (!searchAriclesFragment.handleBackPressed()) {
+            getSupportFragmentManager().popBackStack();
+        }
     }
 
     @Override

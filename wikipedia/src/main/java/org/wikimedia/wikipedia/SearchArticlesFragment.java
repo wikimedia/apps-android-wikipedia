@@ -177,4 +177,17 @@ public class SearchArticlesFragment extends Fragment {
             return convertView;
         }
     }
+
+    /**
+     * Handle back button being pressed.
+     *
+     * @return true if the back button press was handled, false otherwise
+     */
+    public boolean handleBackPressed() {
+        if (isSearchActive) {
+            displayResults(null);
+            return true;
+        }
+        return false;
+    }
 }
