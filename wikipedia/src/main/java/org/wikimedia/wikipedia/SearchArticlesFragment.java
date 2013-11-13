@@ -41,6 +41,12 @@ public class SearchArticlesFragment extends Fragment {
         if (currentResults.size() == 0) {
             searchResultsList.setVisibility(View.GONE);
             isSearchActive = false;
+            // Stupid android, making me hide the keyboard manually
+            InputMethodManager inputManager = (InputMethodManager)
+                    getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
+                    InputMethodManager.HIDE_NOT_ALWAYS);
+            getActivity().getCurrentFocus().clearFocus();
         } else {
             searchResultsList.setVisibility(View.VISIBLE);
         }
@@ -75,11 +81,6 @@ public class SearchArticlesFragment extends Fragment {
                 PageTitle title = (PageTitle) searchResultsList.getAdapter().getItem(position);
                 app.getBus().post(new NewWikiPageNavigationEvent(title));
                 displayResults(null);
-                // Stupid android, making me hide the keyboard manually
-                InputMethodManager inputManager = (InputMethodManager)
-                        getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
             }
         });
 
