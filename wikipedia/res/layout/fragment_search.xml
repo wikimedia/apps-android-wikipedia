@@ -17,6 +17,7 @@
                 android:hint="@string/search_hint"
                 android:background="@null"
                 android:padding="8dp"
+                android:selectAllOnFocus="true"
                 />
         <ProgressBar
                 android:id="@+id/searchProgress"
