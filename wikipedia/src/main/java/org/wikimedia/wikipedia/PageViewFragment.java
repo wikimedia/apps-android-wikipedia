@@ -78,6 +78,10 @@ public class PageViewFragment extends Fragment {
         webView = (WebView) parentView.findViewById(R.id.pageWebView);
         loadProgress = (ProgressBar) parentView.findViewById(R.id.pageLoadProgress);
 
+        // Enable Pinch-Zoom
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(false);
+
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         linkHandler = new LinkHandler(getActivity(), bridge);
 
