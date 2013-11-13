@@ -10,7 +10,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SearchArticlesFragment extends Fragment {
@@ -19,7 +18,7 @@ public class SearchArticlesFragment extends Fragment {
     private ListView searchResultsList;
     private ProgressBar searchProgress;
 
-    private List<PageTitle> currentResults = new ArrayList<PageTitle>();
+    private SearchResultAdapter adapter;
 
     private SearchArticlesTask currentTask;
     private boolean isSearchActive = false;
@@ -33,12 +32,9 @@ public class SearchArticlesFragment extends Fragment {
      * @param results List of results to display. If null, clears the list of suggestions & hides it.
      */
     private void displayResults(List<PageTitle> results) {
-        currentResults.clear();
-        if (results != null) {
-            currentResults.addAll(results);
-        }
+        adapter.setResults(results);
         ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
-        if (currentResults.size() == 0) {
+        if (adapter.getCount() == 0) {
             searchResultsList.setVisibility(View.GONE);
             isSearchActive = false;
             // Stupid android, making me hide the keyboard manually
@@ -124,34 +120,8 @@ public class SearchArticlesFragment extends Fragment {
             }
         });
 
-        searchResultsList.setAdapter(new BaseAdapter() {
-            @Override
-            public int getCount() {
-                return currentResults == null ? 0 : currentResults.size();
-            }
-
-            @Override
-            public Object getItem(int position) {
-                return currentResults.get(position);
-            }
-
-            @Override
-            public long getItemId(int position) {
-                return position;
-            }
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                if (convertView == null) {
-                    convertView = inflater.inflate(R.layout.item_search_result, parent, false);
-                }
-                TextView pageTitleText = (TextView) convertView.findViewById(R.id.result_text);
-                PageTitle title = (PageTitle) getItem(position);
-                pageTitleText.setText(title.getText());
-
-                return convertView;
-            }
-        });
+        adapter = new SearchResultAdapter(inflater);
+        searchResultsList.setAdapter(adapter);
 
         return parentLayout;
     }
@@ -162,5 +132,49 @@ public class SearchArticlesFragment extends Fragment {
         outState.putParcelable("searchResultsCache", searchResultsCache);
         outState.putString("lastSearchedText", lastSearchedText);
         outState.putBoolean("isSearchActive", isSearchActive);
+    }
+
+    private static class SearchResultAdapter extends BaseAdapter {
+        private List<PageTitle> results;
+        private final LayoutInflater inflater;
+
+        private SearchResultAdapter(LayoutInflater inflater) {
+            this.inflater = inflater;
+        }
+
+        private List<PageTitle> getResults() {
+            return results;
+        }
+
+        private void setResults(List<PageTitle> results) {
+            this.results = results;
+        }
+
+        @Override
+        public int getCount() {
+            return results == null ? 0 : results.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return results.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                convertView = inflater.inflate(R.layout.item_search_result, parent, false);
+            }
+            TextView pageTitleText = (TextView) convertView.findViewById(R.id.result_text);
+            PageTitle title = (PageTitle) getItem(position);
+            pageTitleText.setText(title.getText());
+
+            return convertView;
+        }
     }
 }
