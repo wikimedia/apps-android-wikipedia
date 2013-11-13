@@ -30,14 +30,6 @@ public class Page implements Parcelable {
         return sections;
     }
 
-    public String getHTML() {
-        String html = "";
-        for (Section s : sections) {
-            html += s.toHTML();
-        }
-        return html;
-    }
-
     public static final Parcelable.Creator<Page> CREATOR
             = new Parcelable.Creator<Page>() {
         public Page createFromParcel(Parcel in) {
