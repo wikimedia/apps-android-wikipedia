@@ -67,14 +67,6 @@ public class SearchArticlesFragment extends Fragment {
         searchResultsList = (ListView) parentLayout.findViewById(R.id.searchResultsList);
         searchProgress = (ProgressBar) parentLayout.findViewById(R.id.searchProgress);
 
-        searchTermText.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                app.getBus().post(new NewWikiPageNavigationEvent(new PageTitle(null, searchTermText.getText().toString(), app.getPrimarySite())));
-                return true;
-            }
-        });
-
         searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
