@@ -4,31 +4,31 @@
     <!-- Drop Shadow Stack -->
     <item>
         <shape>
-            <padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />
+            <padding android:bottom="1dp" />
             <solid android:color="#00888888" />
         </shape>
     </item>
     <item>
         <shape>
-            <padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />
+            <padding android:bottom="1dp" />
             <solid android:color="#10888888" />
         </shape>
     </item>
     <item>
         <shape>
-            <padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />
+            <padding android:bottom="1dp" />
             <solid android:color="#20888888" />
         </shape>
     </item>
     <item>
         <shape>
-            <padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />
+            <padding android:bottom="1dp" />
             <solid android:color="#30888888" />
         </shape>
     </item>
     <item>
         <shape>
-            <padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />
+            <padding android:bottom="1dp" />
             <solid android:color="#50888888" />
         </shape>
     </item>

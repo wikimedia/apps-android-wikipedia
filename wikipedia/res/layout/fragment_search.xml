@@ -3,37 +3,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="48dp"
               android:background="@drawable/container_dropshadow"
         >
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <EditText
-                android:id="@+id/searchTermText"
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            >
+        <ImageView
+                android:layout_height="32dp"
+                android:layout_width="32dp"
+                android:layout_margin="8dp"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/background_dark"
+                />
+        <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/search_hint"
-                android:background="@null"
-                android:padding="8dp"
-                android:selectAllOnFocus="true"
-                />
-        <ProgressBar
-                android:id="@+id/searchProgress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|center_vertical"
-                android:layout_marginRight="8dp"
-                android:indeterminate="true"
-                android:visibility="gone"
-                style="@android:style/Widget.ProgressBar.Small"
-                />
-    </FrameLayout>
-
+                android:layout_gravity="center_vertical"
+                >
+            <EditText
+                    android:id="@+id/searchTermText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/search_hint"
+                    android:background="@null"
+                    android:padding="8dp"
+                    android:selectAllOnFocus="true"
+                    />
+            <ProgressBar
+                    android:id="@+id/searchProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="8dp"
+                    android:indeterminate="true"
+                    android:visibility="gone"
+                    style="@android:style/Widget.ProgressBar.Small"
+                    />
+        </FrameLayout>
+    </LinearLayout>
     <ListView
             android:id="@+id/searchResultsList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-        />
+            />
 </LinearLayout>
