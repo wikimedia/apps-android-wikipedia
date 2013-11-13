@@ -32,9 +32,14 @@ public class ParcelableLruCache<V> extends LruCache<String, V>  implements Parce
         super(in.readInt());
         isList = in.readInt() != 0;
         Bundle contents = in.readBundle();
+        contents.setClassLoader(getClass().getClassLoader());
         Set<String> keys = contents.keySet();
         for (String key : keys) {
-            put(key, (V) contents.get(key));
+            if (isList) {
+                put(key, (V) contents.getParcelableArrayList(key));
+            } else {
+                put(key, (V) contents.getParcelable(key));
+            }
         }
     }
 

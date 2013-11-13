@@ -3,12 +3,10 @@ package org.wikimedia.wikipedia.test;
 import android.os.Parcel;
 import android.os.Parcelable;
 import junit.framework.TestCase;
-import org.wikimedia.wikipedia.Page;
-import org.wikimedia.wikipedia.PageTitle;
-import org.wikimedia.wikipedia.Section;
-import org.wikimedia.wikipedia.Site;
+import org.wikimedia.wikipedia.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ParcelableTest extends TestCase {
     private void parcelAndTestObjects(Parcelable p) throws Exception {
@@ -52,4 +50,21 @@ public class ParcelableTest extends TestCase {
         parcelAndTestObjects(page);
     }
 
+    public void testLruCache() throws Exception {
+        ParcelableLruCache<Site> oldCache = new ParcelableLruCache<Site>(2, Site.class);
+        oldCache.put("english", new Site("en.wikipedia.org"));
+        oldCache.put("tamil", new Site("ta.wikipedia.org"));
+
+        Parcel parcel = Parcel.obtain();
+        oldCache.writeToParcel(parcel, 0);
+
+        parcel.setDataPosition(0);
+        Parcelable.Creator creator = (Parcelable.Creator) oldCache.getClass().getField("CREATOR").get(null);
+        ParcelableLruCache<Site> newCache = (ParcelableLruCache<Site>) creator.createFromParcel(parcel);
+
+        assertEquals(newCache.maxSize(), oldCache.maxSize());
+        assertEquals(newCache.size(), oldCache.size());
+        assertEquals(newCache.get("english"), oldCache.get("english"));
+        assertEquals(newCache.get("tamil"), oldCache.get("tamil"));
+    }
 }
