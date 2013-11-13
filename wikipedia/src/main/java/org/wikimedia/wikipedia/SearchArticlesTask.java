@@ -27,7 +27,7 @@ public class SearchArticlesTask extends SaneAsyncTask<List<PageTitle>>{
     @Override
     public List<PageTitle> performTask() throws Throwable {
         Api api = app.getAPIForSite(site);
-        result = api.action("opensearch").param("search", prefix).get();
+        result = api.action("opensearch").param("search", prefix).param("limit", "5").get();
         JSONArray searchResults = result.asArray().optJSONArray(1);
 
         ArrayList<PageTitle> pageTitles = new ArrayList<PageTitle>();
