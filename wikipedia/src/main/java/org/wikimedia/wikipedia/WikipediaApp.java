@@ -30,10 +30,6 @@ public class WikipediaApp extends Application {
         return bus;
     }
 
-    public Api getPrimarySiteAPI() {
-        return getAPIForSite(getPrimarySite());
-    }
-
     private HashMap<String, Api> apis = new HashMap<String, Api>();
     public Api getAPIForSite(Site site) {
         if (!apis.containsKey(site.getDomain()))  {
@@ -43,6 +39,11 @@ public class WikipediaApp extends Application {
     }
 
     private Site primarySite;
+
+    /**
+     * Default site of the application
+     * You should use PageTitle.getSite() to get the currently browsed site
+     */
     public Site getPrimarySite() {
         if (primarySite == null) {
             // FIXME: Actually read from SharedPreferences or something

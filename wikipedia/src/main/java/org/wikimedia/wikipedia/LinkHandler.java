@@ -16,13 +16,13 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
     private final Context context;
     private final CommunicationBridge bridge;
     private final Bus bus;
-    private final WikipediaApp app;
+    private final Site currentSite;
 
-    public LinkHandler(Context context, CommunicationBridge bridge) {
+    public LinkHandler(Context context, CommunicationBridge bridge, Site currentSite) {
         this.context = context;
         this.bridge = bridge;
-        this.app = ((WikipediaApp)context.getApplicationContext());
-        this.bus = app.getBus();
+        this.bus = ((WikipediaApp)context.getApplicationContext()).getBus();
+        this.currentSite = currentSite;
 
         this.bridge.addListener("linkClicked", this);
     }
@@ -45,7 +45,7 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
             Log.d("Wikipedia", "Link clicked was " + href);
             if (href.startsWith("/wiki/")) {
                 // TODO: Handle fragments
-                bus.post(new NewWikiPageNavigationEvent(app.getPrimarySite().titleForInternalLink(href)));
+                bus.post(new NewWikiPageNavigationEvent(currentSite.titleForInternalLink(href)));
             } else {
                 // Assume everything else is an external link... for now!
                 handleExternalLink(href);

@@ -94,7 +94,7 @@ public class PageViewFragment extends Fragment {
         webView.getSettings().setDisplayZoomControls(false);
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
-        linkHandler = new LinkHandler(getActivity(), bridge);
+        linkHandler = new LinkHandler(getActivity(), bridge, title.getSite());
 
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {
             title = savedInstanceState.getParcelable(KEY_TITLE);
@@ -108,7 +108,7 @@ public class PageViewFragment extends Fragment {
         }
 
         if (state == STATE_NO_FETCH) {
-            Api api = ((WikipediaApp)getActivity().getApplicationContext()).getPrimarySiteAPI();
+            Api api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
             new SectionsFetchTask(api, title, "0") {
                 @Override
                 public void onFinish(List<Section> result) {
