@@ -39,7 +39,12 @@ public class PageActivity extends FragmentActivity {
     @Override
     public void onBackPressed() {
         if (!searchAriclesFragment.handleBackPressed()) {
-            getSupportFragmentManager().popBackStack();
+            if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+                // Everything we could pop has been popped....
+                finish();
+            } else {
+                getSupportFragmentManager().popBackStack();
+            }
         }
     }
 
