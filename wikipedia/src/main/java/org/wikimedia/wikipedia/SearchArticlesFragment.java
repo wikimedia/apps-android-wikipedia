@@ -1,6 +1,7 @@
 package org.wikimedia.wikipedia;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,9 +12,14 @@ import android.util.Log;
 import android.view.*;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
+import com.squareup.picasso.Picasso;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SearchArticlesFragment extends Fragment {
     private static final int DELAY_MILLIS = 300;
@@ -33,6 +39,8 @@ public class SearchArticlesFragment extends Fragment {
     private String lastSearchedText;
 
     private Handler searchHandler;
+    private Map<String,String> pageThumbnails = new HashMap<String,String>();
+    private PageImagesTask currentThumbnailTask;
 
     /**
      * Displays results passed to it as search suggestions.
@@ -54,6 +62,33 @@ public class SearchArticlesFragment extends Fragment {
         } else {
             searchResultsList.setVisibility(View.VISIBLE);
         }
+    }
+
+    /**
+     * @fixme show the list before we finish, then update the images
+     * @param results
+     */
+    private void fetchThumbnails(final List<PageTitle> results) {
+        Log.d("Wikipedia", "QQQ start");
+        PageImagesTask thumbnailTask = new PageImagesTask(getActivity(), app.getPrimarySite(), results, 48) {
+            @Override
+            public void onFinish(Map<PageTitle,String> thumbs) {
+                Log.d("Wikipedia", "QQQ finish");
+                for (PageTitle title : thumbs.keySet()) {
+                    String thumbUrl = thumbs.get(title);
+                    Log.d("Wikipedia", "QQQ " + title.getPrefixedText() + ": " + thumbUrl);
+                    if (thumbUrl != null) {
+                        pageThumbnails.put(title.getPrefixedText(), thumbUrl);
+                    }
+                }
+                displayResults(results);
+            }
+        };
+        if (currentThumbnailTask != null) {
+            currentThumbnailTask.cancel();
+        }
+        thumbnailTask.execute();
+        currentThumbnailTask = thumbnailTask;
     }
 
     @Override
@@ -79,7 +114,7 @@ public class SearchArticlesFragment extends Fragment {
                 SearchArticlesTask searchTask = new SearchArticlesTask(getActivity(), app.getPrimarySite(), searchTerm) {
                     @Override
                     public void onFinish(List<PageTitle> result) {
-                        displayResults(result);
+                        fetchThumbnails(result);
                         searchProgress.setVisibility(View.GONE);
                         searchResultsCache.put(searchTerm, result);
                         lastSearchedText = searchTerm;
@@ -121,10 +156,13 @@ public class SearchArticlesFragment extends Fragment {
                 if (Utils.compareStrings(s.toString(), lastSearchedText) && !isSearchActive) {
                     return; // Nothing has changed!
                 }
+                if (s.toString().equals("")) {
+                	return; // nothing!
+                }
 
                 List<PageTitle> cacheResult = searchResultsCache.get(s.toString());
                 if (cacheResult != null) {
-                    displayResults(cacheResult);
+                    fetchThumbnails(cacheResult);
                     return;
                 }
                 searchHandler.removeMessages(MESSAGE_SEARCH);
@@ -150,7 +188,7 @@ public class SearchArticlesFragment extends Fragment {
         outState.putBoolean("isSearchActive", isSearchActive);
     }
 
-    private static class SearchResultAdapter extends BaseAdapter {
+    private class SearchResultAdapter extends BaseAdapter {
         private List<PageTitle> results;
         private final LayoutInflater inflater;
 
@@ -189,6 +227,20 @@ public class SearchArticlesFragment extends Fragment {
             TextView pageTitleText = (TextView) convertView.findViewById(R.id.result_text);
             PageTitle title = (PageTitle) getItem(position);
             pageTitleText.setText(title.getText());
+            ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
+
+            String thumbnail = pageThumbnails.get(title.getPrefixedText());
+            if (thumbnail == null) {
+                Log.d("Wikipedia", "QQQ thumb is empty for " + title.getPrefixedText());
+                imageView.setImageResource(R.drawable.ic_pageimage_placeholder);
+            } else {
+                Log.d("Wikipedia", "QQQ thumb is " + thumbnail + " for " + title.getPrefixedText());
+                Picasso.with(getActivity())
+                	   .load(thumbnail)
+                	   .placeholder(R.drawable.ic_pageimage_placeholder)
+					   .error(R.drawable.ic_pageimage_placeholder)
+                	   .into(imageView);
+            }
 
             return convertView;
         }

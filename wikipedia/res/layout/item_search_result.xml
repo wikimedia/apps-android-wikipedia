@@ -6,12 +6,11 @@
               android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/result_image"
-        android:layout_width="32dp"
-        android:layout_margin="8dp"
+        android:layout_width="48dp"
+        android:layout_margin="0dp"
         android:layout_marginRight="0dp"
-        android:layout_height="32dp"
-        android:background="@android:color/darker_gray"
-        />
+        android:layout_height="48dp"
+        android:scaleType="centerCrop"/>
     <TextView android:id="@+id/result_text"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
