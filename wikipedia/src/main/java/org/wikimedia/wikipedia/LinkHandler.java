@@ -27,10 +27,10 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
         this.bridge.addListener("linkClicked", this);
     }
 
-    private void handleExternalLink(String href) {
+    private void handleExternalLink(Uri uri) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(href));
+        intent.setData(uri);
         context.startActivity(intent);
     }
 
@@ -47,8 +47,15 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
                 // TODO: Handle fragments
                 bus.post(new NewWikiPageNavigationEvent(currentSite.titleForInternalLink(href)));
             } else {
-                // Assume everything else is an external link... for now!
-                handleExternalLink(href);
+                Uri uri = Uri.parse(href);
+                String authority = uri.getAuthority();
+                if(authority != null && Site.isSupportedSite(authority)) {
+                    Site site = new Site(authority);
+                    //TODO: Handle fragments
+                    bus.post(new NewWikiPageNavigationEvent(site.titleForInternalLink(uri.getPath())));
+                } else {
+                    handleExternalLink(uri);
+                }
             }
         } catch (JSONException e) {
             throw new RuntimeException(e);

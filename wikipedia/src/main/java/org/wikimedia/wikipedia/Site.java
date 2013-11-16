@@ -12,7 +12,11 @@ public class Site implements Parcelable {
     private final String domain;
 
     public Site(String domain) {
-        this.domain = domain;
+        this.domain = normalizeDomainName(domain);
+    }
+
+    protected String normalizeDomainName(String domain) {
+        return domain.replace(".m.", ".");
     }
 
     public Site(Parcel in) {
@@ -80,5 +84,14 @@ public class Site implements Parcelable {
             throw new RuntimeException("Did not  match internalLinkPattern: " + internalLink);
         }
 
+    }
+
+    /**
+     * Returns if the site is supported
+     * @param domain the site domain
+     * @return boolean
+     */
+    public static boolean isSupportedSite(String domain) {
+        return domain.matches("[a-z\\-]+\\.(m\\.)?wikipedia\\.org");
     }
 }
