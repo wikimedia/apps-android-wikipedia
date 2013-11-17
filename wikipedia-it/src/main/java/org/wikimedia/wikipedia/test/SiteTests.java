@@ -5,6 +5,13 @@ import org.wikimedia.wikipedia.Site;
 
 public class SiteTests extends TestCase {
 
+    public void testEquals() throws Exception {
+        assertTrue(new Site("en.wikipedia.org").equals(new Site("en.wikipedia.org")));
+
+        assertFalse(new Site("ta.wikipedia.org").equals(new Site("en.wikipedia.org")));
+        assertFalse(new Site("ta.wikipedia.org").equals("ta.wikipedia.org"));
+    }
+
     public void testNormalization() throws Exception {
         assertEquals(new Site("en.wikipedia.org"), new Site("en.m.wikipedia.org"));
         assertEquals("bm.wikipedia.org", (new Site("bm.wikipedia.org")).getDomain());

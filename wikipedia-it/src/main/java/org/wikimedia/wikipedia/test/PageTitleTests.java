@@ -5,6 +5,16 @@ import org.wikimedia.wikipedia.PageTitle;
 import org.wikimedia.wikipedia.Site;
 
 public class PageTitleTests extends TestCase {
+
+    public void testEquals() throws Exception {
+        assertTrue(new PageTitle(null, "India", new Site("en.wikipedia.org")).equals(new PageTitle(null, "India", new Site("en.wikipedia.org"))));
+        assertTrue(new PageTitle("Talk", "India", new Site("en.wikipedia.org")).equals(new PageTitle("Talk", "India", new Site("en.wikipedia.org"))));
+
+        assertFalse(new PageTitle(null, "India", new Site("ta.wikipedia.org")).equals(new PageTitle(null, "India", new Site("en.wikipedia.org"))));
+        assertFalse(new PageTitle("Talk", "India", new Site("ta.wikipedia.org")).equals(new PageTitle("Talk", "India", new Site("en.wikipedia.org"))));
+        assertFalse(new PageTitle("Talk", "India", new Site("ta.wikipedia.org")).equals("Something else"));
+    }
+
     public void testPrefixedText() throws Exception {
         Site enwiki = new Site("en.wikipedia.org");
 
