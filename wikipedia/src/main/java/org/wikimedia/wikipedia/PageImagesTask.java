@@ -1,6 +1,7 @@
 package org.wikimedia.wikipedia;
 
 import android.content.Context;
+import android.util.Log;
 import org.json.JSONObject;
 import org.mediawiki.api.json.RequestBuilder;
 
@@ -26,6 +27,7 @@ public class PageImagesTask extends PageQueryTask<String> {
 
     @Override
     public String processPage(int pageId, PageTitle pageTitle, JSONObject pageData) throws Throwable {
+        Log.d("Wikipedia", "thumb info: " + pageData.toString());
         JSONObject thumbnail = pageData.optJSONObject("thumbnail");
         if (thumbnail == null) {
             return null;

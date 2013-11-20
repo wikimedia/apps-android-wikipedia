@@ -31,13 +31,14 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle,T>> {
         StringBuilder str = new StringBuilder();
         boolean first = true;
         for (PageTitle title : titles) {
-            str.append(title.getPrefixedText());
             if (first) {
                 first = false;
             } else {
                 str.append('|');
             }
+            str.append(title.getPrefixedText());
         }
+        Log.d("Wikipedia", "thumb list: " + str.toString());
         return str.toString();
     }
 
@@ -47,10 +48,12 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle,T>> {
         JSONObject data = result.asObject();
         JSONObject query = data.getJSONObject("query");
         JSONObject pages = query.getJSONObject("pages");
+        Log.d("Wikipedia", "thumbs pages are: " + pages.toString());
 
         // You would think you could use foreach on an Iterator, but you can't.
         Iterator<String> keys = pages.keys();
-        for (String key = keys.next(); keys.hasNext(); key = keys.next()) {
+        while (keys.hasNext()) {
+            String key = keys.next();
             int pageId = Integer.parseInt(key);
             JSONObject pageData = pages.getJSONObject(key);
             PageTitle pageTitle = processPageTitle(pageData);
