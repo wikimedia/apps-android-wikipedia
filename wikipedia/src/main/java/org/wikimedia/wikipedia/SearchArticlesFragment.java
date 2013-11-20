@@ -2,9 +2,12 @@ package org.wikimedia.wikipedia;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.*;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
@@ -13,6 +16,10 @@ import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
 import java.util.List;
 
 public class SearchArticlesFragment extends Fragment {
+    private static final int DELAY_MILLIS = 300;
+
+    private static final int MESSAGE_SEARCH = 1;
+
     private WikipediaApp app;
     private EditText searchTermText;
     private ListView searchResultsList;
@@ -20,11 +27,12 @@ public class SearchArticlesFragment extends Fragment {
 
     private SearchResultAdapter adapter;
 
-    private SearchArticlesTask currentTask;
     private boolean isSearchActive = false;
 
     private ParcelableLruCache<List<PageTitle>> searchResultsCache = new ParcelableLruCache<List<PageTitle>>(4, List.class);
     private String lastSearchedText;
+
+    private Handler searchHandler;
 
     /**
      * Displays results passed to it as search suggestions.
@@ -63,6 +71,31 @@ public class SearchArticlesFragment extends Fragment {
         searchResultsList = (ListView) parentLayout.findViewById(R.id.searchResultsList);
         searchProgress = (ProgressBar) parentLayout.findViewById(R.id.searchProgress);
 
+        searchHandler = new Handler(new Handler.Callback(){
+            @Override
+            public boolean handleMessage(Message msg) {
+                final String searchTerm = (String) msg.obj;
+                Log.d("Wikipedia", "Searching for " + searchTerm);
+                SearchArticlesTask searchTask = new SearchArticlesTask(getActivity(), app.getPrimarySite(), searchTerm) {
+                    @Override
+                    public void onFinish(List<PageTitle> result) {
+                        displayResults(result);
+                        searchProgress.setVisibility(View.GONE);
+                        searchResultsCache.put(searchTerm, result);
+                        lastSearchedText = searchTerm;
+                    }
+
+                    @Override
+                    public void onBeforeExecute() {
+                        searchProgress.setVisibility(View.VISIBLE);
+                        isSearchActive = true;
+                    }
+                };
+                searchTask.execute();
+                return true;
+            }
+        });
+
         searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -88,35 +121,18 @@ public class SearchArticlesFragment extends Fragment {
                 if (Utils.compareStrings(s.toString(), lastSearchedText) && !isSearchActive) {
                     return; // Nothing has changed!
                 }
-                if (currentTask != null) {
-                    currentTask.cancel();
-                }
 
                 List<PageTitle> cacheResult = searchResultsCache.get(s.toString());
                 if (cacheResult != null) {
                     displayResults(cacheResult);
                     return;
                 }
-                SearchArticlesTask searchTask = new SearchArticlesTask(getActivity(), app.getPrimarySite(), s.toString()) {
-                    @Override
-                    public void onFinish(List<PageTitle> result) {
-                        displayResults(result);
-                        searchProgress.setVisibility(View.GONE);
-                        searchResultsCache.put(s.toString(), result);
-                        lastSearchedText = s.toString();
-                    }
+                searchHandler.removeMessages(MESSAGE_SEARCH);
+                Message searchMessage = Message.obtain();
+                searchMessage.what = MESSAGE_SEARCH;
+                searchMessage.obj = s.toString();
 
-                    @Override
-                    public void onBeforeExecute() {
-                        searchProgress.setVisibility(View.VISIBLE);
-                        isSearchActive = true;
-                    }
-                };
-                if (currentTask != null) {
-                    currentTask.cancel();
-                }
-                searchTask.execute();
-                currentTask = searchTask;
+                searchHandler.sendMessageDelayed(searchMessage, DELAY_MILLIS);
             }
         });
 
