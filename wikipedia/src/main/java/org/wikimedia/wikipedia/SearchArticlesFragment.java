@@ -232,7 +232,9 @@ public class SearchArticlesFragment extends Fragment {
             String thumbnail = pageThumbnails.get(title.getPrefixedText());
             if (thumbnail == null) {
                 Log.d("Wikipedia", "QQQ thumb is empty for " + title.getPrefixedText());
-                imageView.setImageResource(R.drawable.ic_pageimage_placeholder);
+                Picasso.with(getActivity())
+                	   .load(R.drawable.ic_pageimage_placeholder)
+                	   .into(imageView);
             } else {
                 Log.d("Wikipedia", "QQQ thumb is " + thumbnail + " for " + title.getPrefixedText());
                 Picasso.with(getActivity())
