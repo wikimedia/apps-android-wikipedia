@@ -48,5 +48,6 @@
             android:id="@+id/searchResultsList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:dividerHeight="0dp"
             />
 </LinearLayout>
