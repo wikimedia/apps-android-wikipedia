@@ -14,6 +14,8 @@ public class WikipediaApp extends Application {
     public static long SHORT_ANIMATION_DURATION;
     public static long MEDIUM_ANIMATION_DURATION;
 
+    public static float SCREEN_DENSITY;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -21,6 +23,7 @@ public class WikipediaApp extends Application {
 
         SHORT_ANIMATION_DURATION = getResources().getInteger(R.integer.config_shortAnimTime);
         MEDIUM_ANIMATION_DURATION = getResources().getInteger(R.integer.config_mediumAnimTime);
+        SCREEN_DENSITY = getResources().getDisplayMetrics().density;
     }
 
     public Bus getBus() {

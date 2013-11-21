@@ -56,7 +56,11 @@ public class SearchArticlesFragment extends Fragment {
             getActivity().getCurrentFocus().clearFocus();
         } else {
             searchResultsList.setVisibility(View.VISIBLE);
-            PageImagesTask imagesTask = new PageImagesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), results, 48) {
+            PageImagesTask imagesTask = new PageImagesTask(
+                    app.getAPIForSite(app.getPrimarySite()),
+                    app.getPrimarySite(),
+                    results,
+                    (int)(48f * WikipediaApp.SCREEN_DENSITY)) {
                 @Override
                 public void onFinish(Map<PageTitle, String> result) {
                     for(Map.Entry<PageTitle, String> entry : result.entrySet()) {
