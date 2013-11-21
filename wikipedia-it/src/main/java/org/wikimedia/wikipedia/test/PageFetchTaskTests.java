@@ -3,11 +3,9 @@ package org.wikimedia.wikipedia.test;
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import org.mediawiki.api.json.Api;
-import org.wikimedia.wikipedia.Page;
-import org.wikimedia.wikipedia.PageFetchTask;
-import org.wikimedia.wikipedia.PageTitle;
-import org.wikimedia.wikipedia.Site;
+import org.wikimedia.wikipedia.*;
 
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -35,13 +33,13 @@ public class PageFetchTaskTests extends ActivityUnitTestCase<TestDummyActivity> 
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new PageFetchTask(enwikiAPI, new PageTitle(null, "India", enwiki)) {
+                new SectionsFetchTask(enwikiAPI, new PageTitle(null, "India", enwiki), "all") {
                     @Override
-                    public void onFinish(Page result) {
+                    public void onFinish(List<Section> result) {
                         assertNotNull(result);
                         // FIXME: SUPER FLAKY TEST BELOW! 15 is count of first level sections + 1 in en:India article!
-                        assertEquals(15, result.getSections().size());
-                        assertEquals(4, result.getSections().get(2).getSubSections().size());
+                        assertEquals(15, result.size());
+                        assertEquals(4, result.get(2).getSubSections().size());
                         completionLatch.countDown();
                     }
                 }.execute();

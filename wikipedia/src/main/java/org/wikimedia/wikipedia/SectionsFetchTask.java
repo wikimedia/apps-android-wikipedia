@@ -5,31 +5,34 @@ import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.wikimedia.wikipedia.concurrency.ExecutorService;
-import org.wikimedia.wikipedia.concurrency.SaneAsyncTask;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class PageFetchTask extends SaneAsyncTask<Page> {
-    PageTitle title;
-    Api api;
+public class SectionsFetchTask extends ApiTask<List<Section>> {
+    private final PageTitle title;
+    private final String sections;
 
-    public PageFetchTask(Api api, PageTitle title) {
-        super(ExecutorService.getSingleton().getExecutor(PageFetchTask.class, 1));
+    public SectionsFetchTask(Api api, PageTitle title, String sections) {
+        super(ExecutorService.getSingleton().getExecutor(SectionsFetchTask.class, 1), api);
         this.title = title;
-        this.api = api;
+        this.sections = sections;
     }
 
     @Override
-    public Page performTask() throws Throwable {
-        ApiResult result = api.action("mobileview")
+    public ApiResult buildRequest(Api api) {
+        return api.action("mobileview")
                 .param("page", title.getPrefixedText())
                 .param("prop", "text|sections")
-                .param("sections", "0")
+                .param("sections", sections)
                 .param("sectionprop", "toclevel|line|anchor")
                 .param("noheadings", "true")
                 .get();
-        JSONArray sectionsJSON = result.asObject().optJSONObject("mobileview").optJSONArray("sections");
+    }
 
+    @Override
+    public List<Section> processResult(ApiResult result) throws Throwable {
+        JSONArray sectionsJSON = result.asObject().optJSONObject("mobileview").optJSONArray("sections");
         ArrayList<Section> sections = new ArrayList<Section>();
         Section curSection = null;
 
@@ -48,7 +51,6 @@ public class PageFetchTask extends SaneAsyncTask<Page> {
                 curSection.insertSection(newSection);
             }
         }
-
-        return new Page(title, sections);
+        return sections;
     }
 }

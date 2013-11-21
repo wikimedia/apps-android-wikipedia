@@ -14,9 +14,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PageViewFragment extends Fragment {
-    public static final String KEY_TITLE = "title";
-    public static final String KEY_PAGE = "page";
+    private static final String KEY_TITLE = "title";
+    private static final String KEY_PAGE = "page";
+    private static final String KEY_STATE = "state";
+
+    private static final int STATE_NO_FETCH = 1;
+    private static final int STATE_INITIAL_FETCH = 2;
+    private static final int STATE_COMPLETE_FETCH = 3;
+
+    private int state = STATE_NO_FETCH;
 
     private PageTitle title;
     private WebView webView;
@@ -69,6 +79,7 @@ public class PageViewFragment extends Fragment {
         super.onSaveInstanceState(outState);
         outState.putParcelable(KEY_TITLE, title);
         outState.putParcelable(KEY_PAGE, page);
+        outState.putInt(KEY_STATE, state);
     }
 
     @Override
@@ -90,18 +101,20 @@ public class PageViewFragment extends Fragment {
             if (savedInstanceState.containsKey(KEY_PAGE)) {
                 page = savedInstanceState.getParcelable(KEY_PAGE);
             }
+            state = savedInstanceState.getInt(KEY_STATE);
         }
         if (title == null) {
             throw new RuntimeException("No PageTitle passed in to constructor or in instanceState");
         }
 
-        if (page == null) {
+        if (state == STATE_NO_FETCH) {
             Api api = ((WikipediaApp)getActivity().getApplicationContext()).getPrimarySiteAPI();
-            new PageFetchTask(api, title) {
+            new SectionsFetchTask(api, title, "0") {
                 @Override
-                public void onFinish(Page result) {
-                    page = result;
-                    displayPage(result);
+                public void onFinish(List<Section> result) {
+                    page = new Page(title, (ArrayList<Section>) result);
+                    displayPage(page);
+                    state = STATE_INITIAL_FETCH;
                 }
             }.execute();
         } else {
