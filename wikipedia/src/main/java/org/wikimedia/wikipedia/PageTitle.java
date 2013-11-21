@@ -75,4 +75,9 @@ public class PageTitle implements Parcelable {
         // Not using namespace directly since that can be null
         return other.getPrefixedText().equals(getPrefixedText()) && other.getSite().equals(getSite());
     }
+
+    @Override
+    public String toString() {
+        return getPrefixedText();
+    }
 }

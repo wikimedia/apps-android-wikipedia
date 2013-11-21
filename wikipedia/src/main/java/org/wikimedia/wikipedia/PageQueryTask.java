@@ -1,6 +1,7 @@
 package org.wikimedia.wikipedia;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
@@ -22,24 +23,9 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle,T>> {
 
     @Override
     public ApiResult buildRequest(Api api) {
-        RequestBuilder builder = api.action("query").param("titles", joinTitles());
+        RequestBuilder builder = api.action("query").param("titles", TextUtils.join("|", titles));
         buildQueryParams(builder);
         return builder.get();
-    }
-
-    public String joinTitles() {
-        StringBuilder str = new StringBuilder();
-        boolean first = true;
-        for (PageTitle title : titles) {
-            if (first) {
-                first = false;
-            } else {
-                str.append('|');
-            }
-            str.append(title.getPrefixedText());
-        }
-        Log.d("Wikipedia", "thumb list: " + str.toString());
-        return str.toString();
     }
 
     @Override
