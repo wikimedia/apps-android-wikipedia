@@ -22,23 +22,39 @@ import java.util.Set;
  * V can either be a Parcelable or a List<Parcelable>
  */
 public class ParcelableLruCache<V> extends LruCache<String, V>  implements Parcelable {
-    public final boolean isList;
+    private static final int TYPE_LIST = 1;
+    private static final int TYPE_PARCELABLE = 2;
+    private static final int TYPE_STRING = 3;
+
+    private final int type;
     public ParcelableLruCache(int maxSize, Class valueClass) {
         super(maxSize);
-        isList = valueClass.isAssignableFrom(List.class);
+        if (valueClass.equals(String.class)) {
+            type = TYPE_STRING;
+        } else if (valueClass.isAssignableFrom(List.class)) {
+            type = TYPE_LIST;
+        } else {
+            type = TYPE_PARCELABLE;
+        }
     }
 
     private ParcelableLruCache(Parcel in) {
         super(in.readInt());
-        isList = in.readInt() != 0;
+        type = in.readInt();
         Bundle contents = in.readBundle();
         contents.setClassLoader(getClass().getClassLoader());
         Set<String> keys = contents.keySet();
         for (String key : keys) {
-            if (isList) {
-                put(key, (V) contents.getParcelableArrayList(key));
-            } else {
-                put(key, (V) contents.getParcelable(key));
+            switch (type) {
+                case TYPE_LIST:
+                    put(key, (V) contents.getParcelableArrayList(key));
+                    break;
+                case TYPE_PARCELABLE:
+                    put(key, (V) contents.getParcelable(key));
+                    break;
+                case TYPE_STRING:
+                    put(key, (V) contents.getString(key));
+                    break;
             }
         }
     }
@@ -51,14 +67,20 @@ public class ParcelableLruCache<V> extends LruCache<String, V>  implements Parce
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(maxSize());
-        dest.writeInt(isList ? 1 : 0);
+        dest.writeInt(type);
         Map<String, V> snapshot = snapshot();
         Bundle bundle = new Bundle();
         for (Map.Entry<String, V> entry : snapshot.entrySet()) {
-            if (isList) {
-                bundle.putParcelableArrayList(entry.getKey(), (ArrayList)entry.getValue());
-            } else {
-                bundle.putParcelable(entry.getKey(), (Parcelable) entry.getValue());
+            switch (type) {
+                case TYPE_LIST:
+                    bundle.putParcelableArrayList(entry.getKey(), (ArrayList)entry.getValue());
+                    break;
+                case TYPE_PARCELABLE:
+                    bundle.putParcelable(entry.getKey(), (Parcelable) entry.getValue());
+                    break;
+                case TYPE_STRING:
+                    bundle.putString(entry.getKey(), (String) entry.getValue());
+                    break;
             }
         }
         dest.writeBundle(bundle);
