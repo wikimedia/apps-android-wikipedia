@@ -1,44 +1,23 @@
 package org.wikimedia.wikipedia;
 
-import android.content.Context;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
-import org.wikimedia.wikipedia.concurrency.ExecutorService;
 import org.wikimedia.wikipedia.concurrency.SaneAsyncTask;
 
+import java.util.concurrent.Executor;
+
 abstract public class ApiTask<T> extends SaneAsyncTask<T> {
-    private Site site;
-    private WikipediaApp app;
+    private final Api api;
 
-    private ApiResult result;
-
-    public ApiTask(Context context, Site site) {
-        super(ExecutorService.getSingleton().getExecutor(PageFetchTask.class, 2));
-        this.site = site;
-        this.app = (WikipediaApp)context.getApplicationContext();
+    public ApiTask(Executor executor, Api api) {
+        super(executor);
+        this.api = api;
     }
 
     @Override
     public T performTask() throws Throwable {
-        Api api = app.getAPIForSite(site);
-        result = buildRequest(api);
+        ApiResult result = buildRequest(api);
         return processResult(result);
-    }
-
-    // @fixme ApiResult.cancel doesn't actually cancel, instead causes app to crash if run on main thread
-    // uncomment this once fixed in java-mwapi
-    /*
-    @Override
-    public void cancel() {
-        super.cancel();
-        if (result != null) {
-            result.cancel();
-        }
-    }
-    */
-
-    public Site getSite() {
-        return site;
     }
 
     abstract public ApiResult buildRequest(Api api);

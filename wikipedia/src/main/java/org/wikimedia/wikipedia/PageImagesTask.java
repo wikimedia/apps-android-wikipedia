@@ -1,20 +1,21 @@
 package org.wikimedia.wikipedia;
 
-import android.content.Context;
 import android.util.Log;
 import org.json.JSONObject;
+import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikimedia.wikipedia.concurrency.ExecutorService;
 
 import java.util.List;
 
 public class PageImagesTask extends PageQueryTask<String> {
-    private int thumbSize;
-    private int maxThumbs;
+    private final int thumbSize;
+    private final int thumbsCount;
 
-    public PageImagesTask(Context context, Site site, List<PageTitle> titles, int thumbSize) {
-        super(context, site, titles);
+    public PageImagesTask(Api api, Site site, List<PageTitle> titles, int thumbSize) {
+        super(ExecutorService.getSingleton().getExecutor(PageImagesTask.class, 2), api, site, titles);
         this.thumbSize = thumbSize;
-        maxThumbs = titles.size();
+        this.thumbsCount = titles.size();
     }
 
     @Override
@@ -22,7 +23,7 @@ public class PageImagesTask extends PageQueryTask<String> {
         builder.param("prop", "pageimages")
                .param("piprop", "thumbnail")
                .param("pithumbsize", Integer.toString(thumbSize))
-               .param("pilimit", Integer.toString(maxThumbs));
+               .param("pilimit", Integer.toString(thumbsCount));
     }
 
     @Override

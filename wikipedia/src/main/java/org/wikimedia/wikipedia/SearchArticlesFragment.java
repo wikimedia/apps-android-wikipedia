@@ -56,7 +56,7 @@ public class SearchArticlesFragment extends Fragment {
             getActivity().getCurrentFocus().clearFocus();
         } else {
             searchResultsList.setVisibility(View.VISIBLE);
-            PageImagesTask imagesTask = new PageImagesTask(getActivity(), app.getPrimarySite(), results, 48) {
+            PageImagesTask imagesTask = new PageImagesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), results, 48) {
                 @Override
                 public void onFinish(Map<PageTitle, String> result) {
                     for(Map.Entry<PageTitle, String> entry : result.entrySet()) {
@@ -93,7 +93,7 @@ public class SearchArticlesFragment extends Fragment {
             public boolean handleMessage(Message msg) {
                 final String searchTerm = (String) msg.obj;
                 Log.d("Wikipedia", "Searching for " + searchTerm);
-                SearchArticlesTask searchTask = new SearchArticlesTask(getActivity(), app.getPrimarySite(), searchTerm) {
+                SearchArticlesTask searchTask = new SearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm) {
                     @Override
                     public void onFinish(List<PageTitle> result) {
                         searchProgress.setVisibility(View.GONE);

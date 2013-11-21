@@ -1,6 +1,5 @@
 package org.wikimedia.wikipedia;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import org.json.JSONObject;
@@ -12,13 +11,16 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Executor;
 
 public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle,T>> {
-    private List<PageTitle> titles;
+    private final List<PageTitle> titles;
+    private final Site site;
 
-    public PageQueryTask(Context context, Site site, List<PageTitle> titles) {
-        super(context, site);
+    public PageQueryTask(Executor executor, Api api, Site site, List<PageTitle> titles) {
+        super(executor, api);
         this.titles = titles;
+        this.site = site;
     }
 
     @Override
@@ -42,17 +44,13 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle,T>> {
             String key = keys.next();
             int pageId = Integer.parseInt(key);
             JSONObject pageData = pages.getJSONObject(key);
-            PageTitle pageTitle = processPageTitle(pageData);
+            String titleString = pageData.getString("title");
+            PageTitle pageTitle = new PageTitle(null, titleString, site);
             T pageResult = processPage(pageId, pageTitle, pageData);
             map.put(pageTitle, pageResult);
         }
 
         return map;
-    }
-
-    public PageTitle processPageTitle(JSONObject pageData) throws Throwable {
-        String title = pageData.getString("title");
-        return new PageTitle(null, title, getSite());
     }
 
     abstract public void buildQueryParams(RequestBuilder buildQueryParams);
