@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
@@ -37,6 +38,8 @@ public class PageViewFragment extends Fragment {
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
 
+    private Api api;
+
     public PageViewFragment(PageTitle title) {
         this.title = title;
     }
@@ -44,11 +47,11 @@ public class PageViewFragment extends Fragment {
     public PageViewFragment() {
     }
 
-    private void displayPage(Page page) {
+    private void displayLeadSection(Page page) {
         JSONObject leadSectionPayload = new JSONObject();
         try {
             leadSectionPayload.put("title", page.getTitle().getPrefixedText());
-            leadSectionPayload.put("leadSectionHTML", page.getSections().get(0).toHTML());
+            leadSectionPayload.put("leadSectionHTML", page.getSections().get(0).toHTML(true));
         } catch (JSONException e) {
             // This should never happen
             throw new RuntimeException(e);
@@ -74,6 +77,24 @@ public class PageViewFragment extends Fragment {
                 });
     }
 
+    private void populateAllSections(Page page) {
+        try {
+            JSONObject wrapper = new JSONObject();
+            JSONArray allSectionsPayload = new JSONArray();
+            for (int i=1; i < page.getSections().size(); i++) {
+                JSONObject sectionPayload = new JSONObject();
+                sectionPayload.putOpt("index", i);
+                sectionPayload.putOpt("heading", page.getSections().get(i).getHeading());
+                sectionPayload.putOpt("content", page.getSections().get(i).toHTML(true));
+                allSectionsPayload.put(sectionPayload);
+            }
+            wrapper.putOpt("sectionHeadings", allSectionsPayload);
+            bridge.sendMessage("displaySectionsList", wrapper);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -95,6 +116,7 @@ public class PageViewFragment extends Fragment {
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         linkHandler = new LinkHandler(getActivity(), bridge, title.getSite());
+        api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {
             title = savedInstanceState.getParcelable(KEY_TITLE);
@@ -107,19 +129,49 @@ public class PageViewFragment extends Fragment {
             throw new RuntimeException("No PageTitle passed in to constructor or in instanceState");
         }
 
-        if (state == STATE_NO_FETCH) {
-            Api api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
-            new SectionsFetchTask(api, title, "0") {
-                @Override
-                public void onFinish(List<Section> result) {
-                    page = new Page(title, (ArrayList<Section>) result);
-                    displayPage(page);
-                    state = STATE_INITIAL_FETCH;
-                }
-            }.execute();
-        } else {
-            displayPage(page);
+
+        switch (state) {
+            case STATE_NO_FETCH:
+                new LeadSectionFetchTask().execute();
+                break;
+            case STATE_INITIAL_FETCH:
+                new RestSectionsFetchTask().execute();
+                break;
+            case STATE_COMPLETE_FETCH:
+                displayLeadSection(page);
+                populateAllSections(page);
+                break;
         }
         return parentView;
+    }
+
+    private class LeadSectionFetchTask extends SectionsFetchTask {
+        public LeadSectionFetchTask() {
+            super(api, title, "0");
+        }
+
+        @Override
+        public void onFinish(List<Section> result) {
+            page = new Page(title, (ArrayList<Section>) result);
+            displayLeadSection(page);
+            state = STATE_INITIAL_FETCH;
+            new RestSectionsFetchTask().execute();
+        }
+    }
+
+    private class RestSectionsFetchTask extends SectionsFetchTask {
+        public RestSectionsFetchTask() {
+            super(api,  title, "1-");
+        }
+
+        @Override
+        public void onFinish(List<Section> result) {
+            result.remove(0); // Remove when bug 57402 is fixed
+            ArrayList<Section> newSections = (ArrayList<Section>) page.getSections().clone();
+            newSections.addAll(result);
+            page = new Page(page.getTitle(), newSections);
+            populateAllSections(page);
+            state = STATE_COMPLETE_FETCH;
+        }
     }
 }

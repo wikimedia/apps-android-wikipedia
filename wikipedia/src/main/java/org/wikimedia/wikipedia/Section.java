@@ -84,22 +84,20 @@ public class Section implements Parcelable {
         return subSections;
     }
 
-    public String toHTML() {
+    public String toHTML(boolean forceNoHeadings) {
         StringBuilder builder = new StringBuilder();
 
-        if (!isLead()) {
+        if (!isLead() && !forceNoHeadings) {
             int headingLevel = getLevel() + 1;
             builder.append("<h").append(headingLevel).append(">")
                     .append(getHeading())
                     .append("</h").append(headingLevel).append(">");
         }
 
-        builder.append("<div>")
-                .append(getContent());
+        builder.append(getContent());
         for (Section s : subSections) {
-            builder.append(s.toHTML());
+            builder.append(s.toHTML(false));
         }
-        builder.append("</div>");
 
         return builder.toString();
     }
