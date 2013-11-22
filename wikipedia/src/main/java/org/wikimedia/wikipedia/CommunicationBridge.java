@@ -1,10 +1,8 @@
 package org.wikimedia.wikipedia;
 
+import android.os.Bundle;
 import android.util.Log;
-import android.webkit.ConsoleMessage;
-import android.webkit.JsPromptResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import android.webkit.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,6 +17,8 @@ public class CommunicationBridge {
 
     private final HashMap<String, ArrayList<JSEventListener>> eventListeners;
 
+    private final BridgeMarshaller marshaller;
+
     private boolean isDOMReady = false;
     private final ArrayList<String> pendingJSMessages = new ArrayList<String>();
 
@@ -28,11 +28,13 @@ public class CommunicationBridge {
 
     public CommunicationBridge(final WebView webView, final String baseURL) {
         this.webView = webView;
+        this.marshaller = new BridgeMarshaller();
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(baseURL);
 
         webView.setWebChromeClient(new CommunicatingChrome());
+        webView.addJavascriptInterface(marshaller, "marshaller");
         eventListeners = new HashMap<String, ArrayList<JSEventListener>>();
         this.addListener("DOMLoaded", new JSEventListener() {
             @Override
@@ -56,12 +58,13 @@ public class CommunicationBridge {
     }
 
     public void sendMessage(String messageName, JSONObject messageData) {
+        String messagePointer =  marshaller.putPayload(messageData.toString());
 
         StringBuilder jsString = new StringBuilder();
         jsString.append("javascript:bridge.handleMessage( ")
-                .append("\"").append(messageName).append("\",")
-                .append(messageData.toString())
-                .append(" );");
+                .append("\"").append(messageName).append("\", \"")
+                .append(messagePointer)
+                .append("\" );");
         if (!isDOMReady) {
             pendingJSMessages.add(jsString.toString());
         } else {
@@ -93,6 +96,34 @@ public class CommunicationBridge {
         public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
             Log.d("WikipediaWeb", consoleMessage.sourceId() + ":" + consoleMessage.lineNumber() + " - " + consoleMessage.message());
             return true;
+        }
+    }
+
+    private static class BridgeMarshaller {
+        private HashMap<String, String> queueItems = new HashMap<String, String>();
+        private int counter = 0;
+
+        /**
+         * Called from the JS via the JSBridge to get actual payload from a messagePointer.
+         *
+         * Warning: This is going to be called on an indeterminable background thread, not main thread.
+         *
+         * @param pointer Key returned from #putPayload
+         */
+        @JavascriptInterface
+        public String getPayload(String pointer) {
+            synchronized (this) {
+                return queueItems.remove(pointer);
+            }
+        }
+
+        public String putPayload(String payload) {
+            String key = "pointerKey_" + counter;
+            counter++;
+            synchronized (this) {
+                queueItems.put(key, payload);
+            }
+            return key;
         }
     }
 }

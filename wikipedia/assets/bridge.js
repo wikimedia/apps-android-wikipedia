@@ -4,8 +4,9 @@
         this.eventHandlers = {};
     };
 
-    Bridge.prototype.handleMessage = function( type, payload ) {
+    Bridge.prototype.handleMessage = function( type, msgPointer ) {
         var that = this;
+        var payload = JSON.parse( marshaller.getPayload( msgPointer ) );
         if ( this.eventHandlers.hasOwnProperty( type ) ) {
             this.eventHandlers[type].forEach( function( callback ) {
                 callback.call( that, payload );
