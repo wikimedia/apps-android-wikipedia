@@ -3,6 +3,7 @@ package org.wikimedia.wikipedia;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -139,7 +140,14 @@ public class PageViewFragment extends Fragment {
                 break;
             case STATE_COMPLETE_FETCH:
                 displayLeadSection(page);
-                populateAllSections(page);
+                // Delay the full section population a little bit
+                // To give the webview time to catch up.
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        populateAllSections(page);
+                    }
+                }, 500);
                 break;
         }
         return parentView;
