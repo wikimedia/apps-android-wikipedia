@@ -31,6 +31,7 @@
                     android:background="@null"
                     android:padding="8dp"
                     android:selectAllOnFocus="true"
+                    android:singleLine="true"
                     />
             <ProgressBar
                     android:id="@+id/searchProgress"
