@@ -115,14 +115,6 @@ public class PageViewFragment extends Fragment {
         webView = (WebView) parentView.findViewById(R.id.pageWebView);
         loadProgress = (ProgressBar) parentView.findViewById(R.id.pageLoadProgress);
 
-        // Enable Pinch-Zoom
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().setDisplayZoomControls(false);
-
-        bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
-        linkHandler = new LinkHandler(getActivity(), bridge, title.getSite());
-        api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
-
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {
             title = savedInstanceState.getParcelable(KEY_TITLE);
             if (savedInstanceState.containsKey(KEY_PAGE)) {
@@ -135,6 +127,13 @@ public class PageViewFragment extends Fragment {
             throw new RuntimeException("No PageTitle passed in to constructor or in instanceState");
         }
 
+        // Enable Pinch-Zoom
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(false);
+
+        bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
+        linkHandler = new LinkHandler(getActivity(), bridge, title.getSite());
+        api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 
         switch (state) {
             case STATE_NO_FETCH:
