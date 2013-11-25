@@ -23,6 +23,7 @@ public class PageViewFragment extends Fragment {
     private static final String KEY_TITLE = "title";
     private static final String KEY_PAGE = "page";
     private static final String KEY_STATE = "state";
+    private static final String KEY_SCROLL_Y = "scrollY";
 
     private static final int STATE_NO_FETCH = 1;
     private static final int STATE_INITIAL_FETCH = 2;
@@ -40,6 +41,8 @@ public class PageViewFragment extends Fragment {
     private LinkHandler linkHandler;
 
     private Api api;
+
+    private int scrollY;
 
     public PageViewFragment(PageTitle title) {
         this.title = title;
@@ -102,6 +105,7 @@ public class PageViewFragment extends Fragment {
         outState.putParcelable(KEY_TITLE, title);
         outState.putParcelable(KEY_PAGE, page);
         outState.putInt(KEY_STATE, state);
+        outState.putInt(KEY_SCROLL_Y, webView.getScrollY());
     }
 
     @Override
@@ -125,6 +129,7 @@ public class PageViewFragment extends Fragment {
                 page = savedInstanceState.getParcelable(KEY_PAGE);
             }
             state = savedInstanceState.getInt(KEY_STATE);
+            scrollY = savedInstanceState.getInt(KEY_SCROLL_Y);
         }
         if (title == null) {
             throw new RuntimeException("No PageTitle passed in to constructor or in instanceState");
@@ -146,6 +151,7 @@ public class PageViewFragment extends Fragment {
                     @Override
                     public void run() {
                         populateAllSections(page);
+                        webView.setScrollY(scrollY);
                     }
                 }, 500);
                 break;
