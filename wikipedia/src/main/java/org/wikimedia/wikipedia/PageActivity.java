@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikimedia.wikipedia.history.HistoryEntry;
 
 public class PageActivity extends FragmentActivity {
     private Bus bus;
@@ -58,7 +59,8 @@ public class PageActivity extends FragmentActivity {
         if (Intent.ACTION_VIEW.equals(intent.getAction())) {
             Site site = new Site(intent.getData().getAuthority());
             PageTitle title = site.titleForInternalLink(intent.getData().getPath());
-            bus.post(new NewWikiPageNavigationEvent(title));
+            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
+            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
         }
     }
 
