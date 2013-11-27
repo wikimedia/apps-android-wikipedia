@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import com.squareup.picasso.Picasso;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikimedia.wikipedia.history.HistoryEntry;
 
 import java.util.List;
 import java.util.Map;
@@ -121,7 +122,8 @@ public class SearchArticlesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle title = (PageTitle) searchResultsList.getAdapter().getItem(position);
-                app.getBus().post(new NewWikiPageNavigationEvent(title));
+                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
+                app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
                 displayResults(null);
             }
         });

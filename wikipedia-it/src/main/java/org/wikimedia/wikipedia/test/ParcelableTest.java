@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import junit.framework.TestCase;
 import org.wikimedia.wikipedia.*;
+import org.wikimedia.wikipedia.history.HistoryEntry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,5 +67,13 @@ public class ParcelableTest extends TestCase {
         assertEquals(newCache.size(), oldCache.size());
         assertEquals(newCache.get("english"), oldCache.get("english"));
         assertEquals(newCache.get("tamil"), oldCache.get("tamil"));
+    }
+
+    public void testHistoryEntry() throws Exception {
+        Site site = new Site("en.wikipedia.org");
+        PageTitle title = new PageTitle("Talk", "India", site);
+        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
+
+        parcelAndTestObjects(historyEntry);
     }
 }

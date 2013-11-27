@@ -8,6 +8,7 @@ import com.squareup.otto.Bus;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikimedia.wikipedia.history.HistoryEntry;
 
 /**
  * Handles any html links coming from a {@link PageViewFragment}
@@ -45,14 +46,18 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
             Log.d("Wikipedia", "Link clicked was " + href);
             if (href.startsWith("/wiki/")) {
                 // TODO: Handle fragments
-                bus.post(new NewWikiPageNavigationEvent(currentSite.titleForInternalLink(href)));
+                PageTitle title = currentSite.titleForInternalLink(href);
+                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+                bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
             } else {
                 Uri uri = Uri.parse(href);
                 String authority = uri.getAuthority();
                 if(authority != null && Site.isSupportedSite(authority)) {
                     Site site = new Site(authority);
                     //TODO: Handle fragments
-                    bus.post(new NewWikiPageNavigationEvent(site.titleForInternalLink(uri.getPath())));
+                    PageTitle title = site.titleForInternalLink(uri.getPath());
+                    HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+                    bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
                 } else {
                     handleExternalLink(uri);
                 }
