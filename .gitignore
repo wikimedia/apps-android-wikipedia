@@ -1,0 +1,17 @@
+# Generated temporary files
+*.class
+target
+bin
+gen
+local.properties
+default.properties
+
+# IDE files
+*.iml
+.idea
+out
+*.tmproj
+
+# OS specific files
+*~
+.DS_Store
