@@ -7,6 +7,7 @@ import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikimedia.wikipedia.history.HistoryEntry;
+import org.wikimedia.wikipedia.history.HistoryEntryPersister;
 
 public class PageActivity extends FragmentActivity {
     private Bus bus;
@@ -32,9 +33,14 @@ public class PageActivity extends FragmentActivity {
                 .commit();
     }
 
+    private HistoryEntryPersister historyEntryPersister;
     @Subscribe
     public void onNewWikiPageNavigationEvent(NewWikiPageNavigationEvent event) {
         displayNewPage(event.getTitle());
+        if (historyEntryPersister == null) {
+            historyEntryPersister = new HistoryEntryPersister(this);
+        }
+        historyEntryPersister.persist(event.getHistoryEntry());
     }
 
     @Override
@@ -68,5 +74,7 @@ public class PageActivity extends FragmentActivity {
     protected void onStop() {
         super.onStop();
         bus.unregister(this);
+        historyEntryPersister.cleanup();
+        historyEntryPersister = null;
     }
 }

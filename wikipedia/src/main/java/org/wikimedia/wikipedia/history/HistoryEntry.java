@@ -7,6 +7,8 @@ import org.wikimedia.wikipedia.PageTitle;
 import java.util.Date;
 
 public class HistoryEntry implements Parcelable {
+    public static final HistoryEntryPersistanceHelper persistanceHelper = new HistoryEntryPersistanceHelper();
+
     public static final int SOURCE_SEARCH = 1;
     public static final int SOURCE_INTERNAL_LINK = 2;
     public static final int SOURCE_EXTERNAL_LINK = 3;
