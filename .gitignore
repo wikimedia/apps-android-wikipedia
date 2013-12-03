@@ -15,3 +15,7 @@ out
 # OS specific files
 *~
 .DS_Store
+
+# Data pulled out of device with scripts/pullfiles.bash
+scripts/apps
+scripts/backup.ab
