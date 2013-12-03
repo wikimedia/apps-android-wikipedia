@@ -5,6 +5,7 @@ import android.R;
 import android.app.Application;
 import com.squareup.otto.Bus;
 import org.mediawiki.api.json.Api;
+import org.wikimedia.wikipedia.data.DBOpenHelper;
 
 import java.util.HashMap;
 
@@ -51,4 +52,13 @@ public class WikipediaApp extends Application {
         }
         return primarySite;
     }
+
+    private DBOpenHelper dbOpenHelper;
+    public DBOpenHelper getDbOpenHelper() {
+        if (dbOpenHelper == null) {
+            dbOpenHelper = new DBOpenHelper(this);
+        }
+        return dbOpenHelper;
+    }
+
 }

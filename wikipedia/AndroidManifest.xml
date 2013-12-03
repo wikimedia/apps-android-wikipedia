@@ -29,6 +29,12 @@
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="https" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:authorities="org.wikimedia.wikipedia.history"
+            android:name=".history.HistoryEntryContentProvider"
+            />
+
     </application>
 
 </manifest>
