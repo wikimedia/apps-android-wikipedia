@@ -74,7 +74,9 @@ public class PageActivity extends FragmentActivity {
     protected void onStop() {
         super.onStop();
         bus.unregister(this);
-        historyEntryPersister.cleanup();
-        historyEntryPersister = null;
+        if (historyEntryPersister != null) {
+            historyEntryPersister.cleanup();
+            historyEntryPersister = null;
+        }
     }
 }
