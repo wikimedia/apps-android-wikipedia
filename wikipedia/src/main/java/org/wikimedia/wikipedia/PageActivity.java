@@ -28,6 +28,21 @@ public class PageActivity extends FragmentActivity {
 
         app = ((WikipediaApp)getApplicationContext());
         searchAriclesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
+
+        bus = app.getBus();
+        bus.register(this);
+
+        Intent intent = getIntent();
+        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+            Site site = new Site(intent.getData().getAuthority());
+            PageTitle title = site.titleForInternalLink(intent.getData().getPath());
+            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
+            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+        } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
+            PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
+            HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
+            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+        }
     }
 
     private void displayNewPage(PageTitle title) {
@@ -64,19 +79,9 @@ public class PageActivity extends FragmentActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        bus = app.getBus();
-        bus.register(this);
-
-        Intent intent = getIntent();
-        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
-            Site site = new Site(intent.getData().getAuthority());
-            PageTitle title = site.titleForInternalLink(intent.getData().getPath());
-            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
-            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
-        } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
-            PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
-            HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
-            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+        if (bus == null) {
+            bus = app.getBus();
+            bus.register(this);
         }
     }
 
@@ -84,6 +89,7 @@ public class PageActivity extends FragmentActivity {
     protected void onStop() {
         super.onStop();
         bus.unregister(this);
+        bus = null;
         if (historyEntryPersister != null) {
             historyEntryPersister.cleanup();
             historyEntryPersister = null;
