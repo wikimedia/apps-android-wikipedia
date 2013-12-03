@@ -3,6 +3,8 @@ package org.wikimedia.wikipedia;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
@@ -10,6 +12,10 @@ import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.history.HistoryEntryPersister;
 
 public class PageActivity extends FragmentActivity {
+    public static final String ACTION_PAGE_FOR_TITLE = "org.wikimedia.wikipedia.page_for_title";
+    public static final String EXTRA_PAGETITLE = "org.wikimedia.wikipedia.pagetitle";
+    public static final String EXTRA_HISTORYENTRY  = "org.wikimedia.wikipedia.history.historyentry";
+
     private Bus bus;
     private WikipediaApp app;
 
@@ -66,6 +72,10 @@ public class PageActivity extends FragmentActivity {
             Site site = new Site(intent.getData().getAuthority());
             PageTitle title = site.titleForInternalLink(intent.getData().getPath());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
+            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+        } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
+            PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
+            HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
             bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
         }
     }
