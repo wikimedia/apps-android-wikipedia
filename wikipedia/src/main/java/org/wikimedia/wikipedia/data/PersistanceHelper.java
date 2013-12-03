@@ -2,6 +2,7 @@ package org.wikimedia.wikipedia.data;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.net.Uri;
 import android.text.TextUtils;
 
 import java.util.ArrayList;
@@ -57,5 +58,13 @@ public abstract class PersistanceHelper<T> {
                 .append(" );");
 
         return builder.toString();
+    }
+
+    private Uri baseContentURI;
+    public Uri getBaseContentURI() {
+        if (baseContentURI == null) {
+            baseContentURI = Uri.parse("content://" + SQLiteContentProvider.getAuthorityForTable(getTableName()) + "/" + getTableName());
+        }
+        return baseContentURI;
     }
 }

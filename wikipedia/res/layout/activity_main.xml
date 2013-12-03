@@ -2,6 +2,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
+        android:saveEnabled="false"
         android:layout_height="match_parent">
     <!-- The main content view -->
     <FrameLayout
@@ -18,16 +19,10 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 />
-
-
-
     </FrameLayout>
     <!-- The navigation drawer -->
-    <LinearLayout android:id="@+id/left_drawer"
-              android:layout_width="240dp"
-              android:layout_height="match_parent"
+    <fragment android:layout_width="match_parent" android:layout_height="match_parent"
+              android:name="org.wikimedia.wikipedia.NavDrawerFragment"
               android:layout_gravity="start"
-              android:orientation="vertical"
-              android:background="#111">
-    </LinearLayout>
+            />
 </android.support.v4.widget.DrawerLayout>

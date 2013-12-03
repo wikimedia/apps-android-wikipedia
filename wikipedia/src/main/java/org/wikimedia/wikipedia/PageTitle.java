@@ -32,6 +32,10 @@ public class PageTitle implements Parcelable {
         return text;
     }
 
+    public String getDisplayText() {
+        return getText().replace("_", " ");
+    }
+
     public String getPrefixedText() {
         return namespace == null ? text : namespace + ":" + text;
     }
