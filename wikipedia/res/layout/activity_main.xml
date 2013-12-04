@@ -10,6 +10,9 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             />
+    <!-- Android has no easy way to give us a light border -->
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+          android:background="@color/border" />
     <android.support.v4.widget.DrawerLayout
             android:id="@+id/drawer_layout"
             android:layout_width="match_parent"
