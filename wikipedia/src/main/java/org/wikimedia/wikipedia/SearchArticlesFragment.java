@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -24,6 +25,8 @@ public class SearchArticlesFragment extends Fragment {
     private static final int MESSAGE_SEARCH = 1;
 
     private WikipediaApp app;
+
+    private ImageView searchBarIcon;
     private EditText searchTermText;
     private ListView searchResultsList;
     private ProgressBar searchProgress;
@@ -37,6 +40,8 @@ public class SearchArticlesFragment extends Fragment {
     private String lastSearchedText;
 
     private Handler searchHandler;
+
+    private DrawerLayout drawerLayout;
 
     /**
      * Displays results passed to it as search suggestions.
@@ -92,6 +97,7 @@ public class SearchArticlesFragment extends Fragment {
         searchTermText = (EditText) parentLayout.findViewById(R.id.searchTermText);
         searchResultsList = (ListView) parentLayout.findViewById(R.id.searchResultsList);
         searchProgress = (ProgressBar) parentLayout.findViewById(R.id.searchProgress);
+        searchBarIcon = (ImageView) parentLayout.findViewById(R.id.searchBarIcon);
 
         searchHandler = new Handler(new Handler.Callback(){
             @Override
@@ -165,7 +171,22 @@ public class SearchArticlesFragment extends Fragment {
         adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
+        searchBarIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawerLayout.isDrawerVisible(Gravity.START)) {
+                    drawerLayout.closeDrawer(Gravity.START);
+                } else {
+                    drawerLayout.openDrawer(Gravity.START);
+                }
+            }
+        });
+
         return parentLayout;
+    }
+
+    void setDrawerLayout(DrawerLayout drawerLayout) {
+        this.drawerLayout = drawerLayout;
     }
 
     @Override

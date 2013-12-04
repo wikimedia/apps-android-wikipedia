@@ -20,6 +20,7 @@ public class PageActivity extends FragmentActivity {
     private WikipediaApp app;
 
     private SearchArticlesFragment searchAriclesFragment;
+    private DrawerLayout drawerLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class PageActivity extends FragmentActivity {
 
         app = ((WikipediaApp)getApplicationContext());
         searchAriclesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         bus = app.getBus();
         bus.register(this);
@@ -43,6 +45,8 @@ public class PageActivity extends FragmentActivity {
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
             bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
         }
+
+        searchAriclesFragment.setDrawerLayout(drawerLayout);
     }
 
     private void displayNewPage(PageTitle title) {
