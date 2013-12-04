@@ -13,10 +13,7 @@ import android.text.format.DateUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.*;
 import org.wikimedia.wikipedia.PageActivity;
 import org.wikimedia.wikipedia.R;
 import org.wikimedia.wikipedia.WikipediaApp;
@@ -108,11 +105,28 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
             return DateFormat.getDateInstance().format(date);
         }
 
+        private int getImageForSource(int source) {
+            switch (source) {
+                case HistoryEntry.SOURCE_INTERNAL_LINK:
+                    return R.drawable.link;
+                case HistoryEntry.SOURCE_EXTERNAL_LINK:
+                    return R.drawable.external;
+                case HistoryEntry.SOURCE_HISTORY:
+                    return R.drawable.external;
+                case HistoryEntry.SOURCE_SEARCH:
+                    return R.drawable.search;
+                default:
+                    throw new RuntimeException("Unknown source id encountered");
+            }
+        }
+
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
             TextView title = (TextView) view.findViewById(R.id.history_title);
+            ImageView source = (ImageView) view.findViewById(R.id.history_source);
             HistoryEntry entry = HistoryEntry.persistanceHelper.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
+            source.setImageResource(getImageForSource(entry.getSource()));
             view.setTag(entry);
 
             // Check the previous item, see if the times differe enough
