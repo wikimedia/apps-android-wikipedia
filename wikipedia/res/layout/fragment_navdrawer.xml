@@ -2,13 +2,24 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="wrap_content"
+              android:minWidth="196dp"
               android:orientation="vertical"
               android:background="#111">
-    <Button
-            android:id="@+id/nav_item_history"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="@string/nav_item_history"
-            />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:id="@+id/nav_item_history">
+        <ImageView android:layout_width="32dp" android:layout_height="32dp"
+                   android:layout_margin="8dp"
+                   android:background="@android:drawable/ic_menu_recent_history"
+                   android:layout_gravity="center_vertical"
+                />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/nav_item_history"
+                style="?android:textAppearanceMediumInverse"
+                />
+    </LinearLayout>
 </LinearLayout>
