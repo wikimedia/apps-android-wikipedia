@@ -5,11 +5,11 @@
 	 width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
 <g>
 	<g>
-		<polygon fill="#CCCCCC" points="10.111,26.361 10.111,22.361 22.336,22.359 22.336,9.991 26.336,9.991 26.336,26.359 		"/>
+		<polygon fill="#AAAAAA" points="10.111,26.361 10.111,22.361 22.336,22.359 22.336,9.991 26.336,9.991 26.336,26.359 		"/>
 	</g>
 	<g>
 		
-			<rect x="3.577" y="13.507" transform="matrix(0.7071 0.7071 -0.7071 0.7071 15.5135 -6.4419)" fill="#CCCCCC" width="23.913" height="4"/>
+			<rect x="3.576" y="13.507" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 15.55 37.4544)" fill="#AAAAAA" width="23.912" height="4"/>
 	</g>
 </g>
 </svg>
