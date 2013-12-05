@@ -6,7 +6,10 @@ import org.acra.ACRA;
 import org.acra.ReportingInteractionMode;
 import org.acra.annotation.ReportsCrashes;
 import org.mediawiki.api.json.Api;
+import org.wikimedia.wikipedia.data.ContentPersister;
 import org.wikimedia.wikipedia.data.DBOpenHelper;
+import org.wikimedia.wikipedia.history.HistoryEntry;
+import org.wikimedia.wikipedia.history.HistoryEntryPersister;
 
 import java.util.HashMap;
 
@@ -71,4 +74,17 @@ public class WikipediaApp extends Application {
         return dbOpenHelper;
     }
 
+    private HashMap<String, ContentPersister> persisters = new HashMap<String, ContentPersister>();
+    public ContentPersister getPersister(Class cls) {
+        if (!persisters.containsKey(cls.getCanonicalName())) {
+            ContentPersister persister;
+            if (cls.equals(HistoryEntry.class)) {
+                persister = new HistoryEntryPersister(this);
+            } else {
+                throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
+            }
+            persisters.put(cls.getCanonicalName(), persister);
+        }
+        return persisters.get(cls.getCanonicalName());
+    }
 }

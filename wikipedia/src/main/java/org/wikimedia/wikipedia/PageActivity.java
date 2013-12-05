@@ -49,8 +49,8 @@ public class PageActivity extends FragmentActivity {
         searchAriclesFragment.setDrawerLayout(drawerLayout);
     }
 
-    private void displayNewPage(PageTitle title) {
-        PageViewFragment pageFragment = new PageViewFragment(title);
+    private void displayNewPage(PageTitle title, HistoryEntry entry) {
+        PageViewFragment pageFragment = new PageViewFragment(title, entry);
         getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                 .replace(R.id.content_frame, pageFragment)
@@ -58,14 +58,9 @@ public class PageActivity extends FragmentActivity {
                 .commit();
     }
 
-    private HistoryEntryPersister historyEntryPersister;
     @Subscribe
     public void onNewWikiPageNavigationEvent(NewWikiPageNavigationEvent event) {
-        displayNewPage(event.getTitle());
-        if (historyEntryPersister == null) {
-            historyEntryPersister = new HistoryEntryPersister(this);
-        }
-        historyEntryPersister.persist(event.getHistoryEntry());
+        displayNewPage(event.getTitle(), event.getHistoryEntry());
     }
 
     @Override
@@ -94,9 +89,5 @@ public class PageActivity extends FragmentActivity {
         super.onStop();
         bus.unregister(this);
         bus = null;
-        if (historyEntryPersister != null) {
-            historyEntryPersister.cleanup();
-            historyEntryPersister = null;
-        }
     }
 }

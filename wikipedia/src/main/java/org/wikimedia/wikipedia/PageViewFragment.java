@@ -15,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
+import org.wikimedia.wikipedia.history.HistoryEntry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class PageViewFragment extends Fragment {
     private static final String KEY_PAGE = "page";
     private static final String KEY_STATE = "state";
     private static final String KEY_SCROLL_Y = "scrollY";
+    private static final String KEY_CURRENT_HISTORY_ENTRY = "currentHistoryEntry";
 
     private static final int STATE_NO_FETCH = 1;
     private static final int STATE_INITIAL_FETCH = 2;
@@ -36,16 +38,19 @@ public class PageViewFragment extends Fragment {
     private ProgressBar loadProgress;
 
     private Page page;
+    private HistoryEntry curEntry;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
 
+    private WikipediaApp app;
     private Api api;
 
     private int scrollY;
 
-    public PageViewFragment(PageTitle title) {
+    public PageViewFragment(PageTitle title, HistoryEntry historyEntry) {
         this.title = title;
+        this.curEntry = historyEntry;
     }
 
     public PageViewFragment() {
@@ -106,6 +111,7 @@ public class PageViewFragment extends Fragment {
         outState.putParcelable(KEY_PAGE, page);
         outState.putInt(KEY_STATE, state);
         outState.putInt(KEY_SCROLL_Y, webView.getScrollY());
+        outState.putParcelable(KEY_CURRENT_HISTORY_ENTRY, curEntry);
     }
 
     @Override
@@ -122,6 +128,7 @@ public class PageViewFragment extends Fragment {
             }
             state = savedInstanceState.getInt(KEY_STATE);
             scrollY = savedInstanceState.getInt(KEY_SCROLL_Y);
+            curEntry = savedInstanceState.getParcelable(KEY_CURRENT_HISTORY_ENTRY);
         }
         if (title == null) {
             throw new RuntimeException("No PageTitle passed in to constructor or in instanceState");
@@ -133,6 +140,7 @@ public class PageViewFragment extends Fragment {
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         linkHandler = new LinkHandler(getActivity(), bridge, title.getSite());
+        app = (WikipediaApp)getActivity().getApplicationContext();
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 
         switch (state) {
@@ -169,6 +177,9 @@ public class PageViewFragment extends Fragment {
             displayLeadSection(page);
             state = STATE_INITIAL_FETCH;
             new RestSectionsFetchTask().execute();
+
+            // Add history entry now
+            app.getPersister(HistoryEntry.class).persist(curEntry);
         }
     }
 
