@@ -6,7 +6,14 @@
     }
 
     bridge.registerListener( "displayLeadSection", function( payload ) {
-        document.getElementById( "content" ).innerHTML += payload.leadSectionHTML;
+        var title = document.createElement( "h1" );
+        title.textContent = payload.title;
+        document.getElementById( "content" ).appendChild( title );
+
+        var content = document.createElement( "div" );
+        content.innerHTML = payload.leadSectionHTML;
+        content.id = "#content_block_0";
+        document.getElementById( "content" ).appendChild( content );
     });
 
     bridge.registerListener( "displaySectionsList", function( payload ) {
