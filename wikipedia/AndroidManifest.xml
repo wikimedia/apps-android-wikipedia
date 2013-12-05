@@ -36,6 +36,11 @@
                 android:label="@string/history_activity_title">
         </activity>
 
+        <activity android:name="org.acra.CrashReportDialog"
+                  android:theme="@android:style/Theme.Dialog"
+                  android:launchMode="singleInstance"
+                  android:excludeFromRecents="true"
+                  android:finishOnTaskLaunch="true" />
 
         <provider
             android:authorities="org.wikimedia.wikipedia.history"

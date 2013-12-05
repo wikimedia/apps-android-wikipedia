@@ -1,14 +1,22 @@
 package org.wikimedia.wikipedia;
 
-import android.*;
-import android.R;
 import android.app.Application;
 import com.squareup.otto.Bus;
+import org.acra.ACRA;
+import org.acra.ReportingInteractionMode;
+import org.acra.annotation.ReportsCrashes;
 import org.mediawiki.api.json.Api;
 import org.wikimedia.wikipedia.data.DBOpenHelper;
 
 import java.util.HashMap;
 
+@ReportsCrashes(
+        formKey="",
+        mode= ReportingInteractionMode.DIALOG,
+        resDialogTitle=R.string.acra_report_dialog_title,
+        resDialogText=R.string.acra_report_dialog_text,
+        resDialogCommentPrompt=R.string.acra_report_dialog_comment,
+        mailTo="yuvipanda@wikimedia.org")
 public class WikipediaApp extends Application {
     private Bus bus;
 
@@ -20,10 +28,12 @@ public class WikipediaApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        ACRA.init(this);
+
         bus = new Bus();
 
-        SHORT_ANIMATION_DURATION = getResources().getInteger(R.integer.config_shortAnimTime);
-        MEDIUM_ANIMATION_DURATION = getResources().getInteger(R.integer.config_mediumAnimTime);
+        SHORT_ANIMATION_DURATION = getResources().getInteger(android.R.integer.config_shortAnimTime);
+        MEDIUM_ANIMATION_DURATION = getResources().getInteger(android.R.integer.config_mediumAnimTime);
         SCREEN_DENSITY = getResources().getDisplayMetrics().density;
     }
 
