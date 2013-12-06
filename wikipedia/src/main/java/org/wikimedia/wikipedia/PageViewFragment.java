@@ -68,22 +68,7 @@ public class PageViewFragment extends Fragment {
 
         bridge.sendMessage("displayLeadSection", leadSectionPayload);
 
-        webView.setAlpha(0f);
-        webView.setVisibility(View.VISIBLE);
-        webView.animate()
-                .alpha(1.0f)
-                .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
-                .setListener(null);
-
-        loadProgress.animate()
-                .alpha(0f)
-                .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        loadProgress.setVisibility(View.GONE);
-                    }
-                });
+        Utils.crossFade(loadProgress, webView);
     }
 
     private void populateAllSections(Page page) {
