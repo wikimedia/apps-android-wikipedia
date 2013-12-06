@@ -70,7 +70,23 @@ abstract public class SQLiteContentProvider<T> extends ContentProvider {
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        throw new IllegalArgumentException("Delete functionality not implemented");
+        int rows = 0;
+        int uriType = uriMatcher.match(uri);
+
+        SQLiteDatabase db = getDbOpenHelper().getReadableDatabase();
+
+        switch(uriType) {
+            case MATCH_ALL:
+                rows = db.delete(persistanceHelper.getTableName(),
+                        selection,
+                        selectionArgs
+                );
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown URI" + uri);
+        }
+        getContext().getContentResolver().notifyChange(uri, null);
+        return rows;
     }
 
     @Override

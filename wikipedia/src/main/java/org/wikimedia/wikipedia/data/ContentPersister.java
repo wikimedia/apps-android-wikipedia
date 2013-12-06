@@ -26,6 +26,16 @@ abstract public class ContentPersister<T> {
         }
     }
 
+    public void deleteAll() {
+        Uri uri = persistanceHelper.getBaseContentURI();
+        try {
+            client.delete(uri, "", new String[] {});
+        } catch (RemoteException e) {
+            // This also shouldn't happen
+            throw new RuntimeException(e);
+        }
+    }
+
     public void cleanup() {
         this.client.release();
     }

@@ -1,7 +1,9 @@
 package org.wikimedia.wikipedia.history;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -10,9 +12,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.*;
 import android.support.v4.widget.CursorAdapter;
 import android.text.format.DateUtils;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.*;
 import org.wikimedia.wikipedia.PageActivity;
 import org.wikimedia.wikipedia.R;
@@ -56,18 +56,6 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
 
         getSupportLoaderManager().initLoader(0, null, this);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-            default:
-                throw new RuntimeException("Unknown menu item selected");
-        }
-        return true;
     }
 
     @Override
@@ -147,6 +135,44 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
                 sectionHeader.setVisibility(View.GONE);
             }
 
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_history, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            case R.id.menu_clear_all_history:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage(R.string.dialog_title_clear_history)
+                        .setMessage(R.string.dialog_message_clear_history);
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Clear history!
+                        app.getPersister(HistoryEntry.class).deleteAll();
+                    }
+                });
+
+                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Uh, do nothing?
+                    }
+                });
+                builder.create().show();
+                return true;
+            default:
+                throw new RuntimeException("Unknown menu item clicked!");
         }
     }
 }
