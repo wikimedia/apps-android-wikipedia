@@ -48,10 +48,26 @@
                     />
         </FrameLayout>
     </LinearLayout>
+    <!-- Android has no easy way to give us a light border -->
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+          android:background="@color/border" />
+    <Button
+            android:id="@+id/searchNetworkError"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="@string/search_network_error"
+            style="?android:textAppearanceMedium"
+            android:visibility="gone"
+            android:background="?android:attr/selectableItemBackground"
+            />
     <ListView
             android:id="@+id/searchResultsList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:dividerHeight="0dp"
             />
+    <!-- Android has no easy way to give us a light border -->
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+          android:background="@color/border" />
 </LinearLayout>

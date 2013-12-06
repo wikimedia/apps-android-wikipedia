@@ -30,6 +30,7 @@ public class SearchArticlesFragment extends Fragment {
     private EditText searchTermText;
     private ListView searchResultsList;
     private ProgressBar searchProgress;
+    private View searchNetworkError;
 
     private SearchResultAdapter adapter;
 
@@ -77,6 +78,12 @@ public class SearchArticlesFragment extends Fragment {
                     }
                     ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
                 }
+
+                @Override
+                public void onCatch(Throwable caught) {
+                    // Don't actually do anything.
+                    // Thumbnails are expendable
+                }
             };
             imagesTask.execute();
         }
@@ -98,6 +105,7 @@ public class SearchArticlesFragment extends Fragment {
         searchResultsList = (ListView) parentLayout.findViewById(R.id.searchResultsList);
         searchProgress = (ProgressBar) parentLayout.findViewById(R.id.searchProgress);
         searchBarIcon = (ImageView) parentLayout.findViewById(R.id.searchBarIcon);
+        searchNetworkError = parentLayout.findViewById(R.id.searchNetworkError);
 
         searchHandler = new Handler(new Handler.Callback(){
             @Override
@@ -108,9 +116,17 @@ public class SearchArticlesFragment extends Fragment {
                     @Override
                     public void onFinish(List<PageTitle> result) {
                         searchProgress.setVisibility(View.GONE);
+                        searchNetworkError.setVisibility(View.GONE);
                         displayResults(result);
                         searchResultsCache.put(searchTerm, result);
                         lastSearchedText = searchTerm;
+                    }
+
+                    @Override
+                    public void onCatch(Throwable caught) {
+                        searchProgress.setVisibility(View.GONE);
+                        searchNetworkError.setVisibility(View.VISIBLE);
+                        searchResultsList.setVisibility(View.GONE);
                     }
 
                     @Override
@@ -134,6 +150,15 @@ public class SearchArticlesFragment extends Fragment {
             }
         });
 
+        searchNetworkError.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Just retry!
+                startSearch(searchTermText.getText().toString());
+                searchNetworkError.setVisibility(View.GONE);
+            }
+        });
+
         searchTermText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -147,24 +172,7 @@ public class SearchArticlesFragment extends Fragment {
 
             @Override
             public void afterTextChanged(final Editable s) {
-                if (Utils.compareStrings(s.toString(), lastSearchedText) && !isSearchActive) {
-                    return; // Nothing has changed!
-                }
-                if (s.toString().equals("")) {
-                	return; // nothing!
-                }
-
-                List<PageTitle> cacheResult = searchResultsCache.get(s.toString());
-                if (cacheResult != null) {
-                    displayResults(cacheResult);
-                    return;
-                }
-                searchHandler.removeMessages(MESSAGE_SEARCH);
-                Message searchMessage = Message.obtain();
-                searchMessage.what = MESSAGE_SEARCH;
-                searchMessage.obj = s.toString();
-
-                searchHandler.sendMessageDelayed(searchMessage, DELAY_MILLIS);
+                startSearch(s.toString());
             }
         });
 
@@ -183,6 +191,27 @@ public class SearchArticlesFragment extends Fragment {
         });
 
         return parentLayout;
+    }
+
+    private void startSearch(String term) {
+        if (Utils.compareStrings(term, lastSearchedText) && !isSearchActive) {
+            return; // Nothing has changed!
+        }
+        if (term.equals("")) {
+            return; // nothing!
+        }
+
+        List<PageTitle> cacheResult = searchResultsCache.get(term);
+        if (cacheResult != null) {
+            displayResults(cacheResult);
+            return;
+        }
+        searchHandler.removeMessages(MESSAGE_SEARCH);
+        Message searchMessage = Message.obtain();
+        searchMessage.what = MESSAGE_SEARCH;
+        searchMessage.obj = term;
+
+        searchHandler.sendMessageDelayed(searchMessage, DELAY_MILLIS);
     }
 
     void setDrawerLayout(DrawerLayout drawerLayout) {
