@@ -39,6 +39,7 @@ public class Utils {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         curView.setVisibility(View.GONE);
+                        curView.setAlpha(1.0f);
                     }
                 });
     }

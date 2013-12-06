@@ -37,7 +37,8 @@ public class PageViewFragment extends Fragment {
     private PageTitle title;
     private WebView webView;
     private ProgressBar loadProgress;
-    private FrameLayout networkError;
+    private View networkError;
+    private View retryButton;
 
     private Page page;
     private HistoryEntry curEntry;
@@ -107,7 +108,8 @@ public class PageViewFragment extends Fragment {
 
         webView = (WebView) parentView.findViewById(R.id.pageWebView);
         loadProgress = (ProgressBar) parentView.findViewById(R.id.pageLoadProgress);
-        networkError = (FrameLayout) parentView.findViewById(R.id.pageError);
+        networkError = parentView.findViewById(R.id.pageError);
+        retryButton = parentView.findViewById(R.id.pageErrorRetry);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {
             title = savedInstanceState.getParcelable(KEY_TITLE);
@@ -131,6 +133,20 @@ public class PageViewFragment extends Fragment {
         app = (WikipediaApp)getActivity().getApplicationContext();
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 
+        startDisplayPage();
+
+        retryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.crossFade(networkError, loadProgress);
+                startDisplayPage();
+            }
+        });
+
+        return parentView;
+    }
+
+    private void startDisplayPage() {
         switch (state) {
             case STATE_NO_FETCH:
                 new LeadSectionFetchTask().execute();
@@ -151,7 +167,6 @@ public class PageViewFragment extends Fragment {
                 }, 500);
                 break;
         }
-        return parentView;
     }
 
     private class LeadSectionFetchTask extends SectionsFetchTask {
@@ -175,6 +190,9 @@ public class PageViewFragment extends Fragment {
             // Should check for the source of the error and have different things turn up
             // But good enough for now
             Utils.crossFade(loadProgress, networkError);
+            // Not sure why this is required, but without it tapping retry hides networkError
+            // FIXME: INVESTIGATE WHY THIS HAPPENS!
+            networkError.setVisibility(View.VISIBLE);
         }
     }
 
