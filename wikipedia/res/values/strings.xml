@@ -9,4 +9,5 @@
     <string name="search_hint">Search Wikipedia</string>
     <string name="history_activity_title">History</string>
     <string name="nav_item_history">History</string>
+    <string name="error_network_error">Could not reach the network :(</string>
 </resources>

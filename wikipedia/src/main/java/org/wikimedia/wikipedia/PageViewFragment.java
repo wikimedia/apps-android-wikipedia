@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.wikimedia.wikipedia.history.HistoryEntry;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class PageViewFragment extends Fragment {
     private PageTitle title;
     private WebView webView;
     private ProgressBar loadProgress;
+    private FrameLayout networkError;
 
     private Page page;
     private HistoryEntry curEntry;
@@ -105,6 +107,7 @@ public class PageViewFragment extends Fragment {
 
         webView = (WebView) parentView.findViewById(R.id.pageWebView);
         loadProgress = (ProgressBar) parentView.findViewById(R.id.pageLoadProgress);
+        networkError = (FrameLayout) parentView.findViewById(R.id.pageError);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {
             title = savedInstanceState.getParcelable(KEY_TITLE);
@@ -165,6 +168,13 @@ public class PageViewFragment extends Fragment {
 
             // Add history entry now
             app.getPersister(HistoryEntry.class).persist(curEntry);
+        }
+
+        @Override
+        public void onCatch(Throwable caught) {
+            // Should check for the source of the error and have different things turn up
+            // But good enough for now
+            Utils.crossFade(loadProgress, networkError);
         }
     }
 
