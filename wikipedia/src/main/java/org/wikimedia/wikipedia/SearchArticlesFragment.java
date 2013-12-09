@@ -44,6 +44,8 @@ public class SearchArticlesFragment extends Fragment {
 
     private DrawerLayout drawerLayout;
 
+    private SearchArticlesTask curSearchTask;
+
     /**
      * Displays results passed to it as search suggestions.
      *
@@ -120,6 +122,7 @@ public class SearchArticlesFragment extends Fragment {
                         displayResults(result);
                         searchResultsCache.put(searchTerm, result);
                         lastSearchedText = searchTerm;
+                        curSearchTask = null;
                     }
 
                     @Override
@@ -127,6 +130,7 @@ public class SearchArticlesFragment extends Fragment {
                         searchProgress.setVisibility(View.GONE);
                         searchNetworkError.setVisibility(View.VISIBLE);
                         searchResultsList.setVisibility(View.GONE);
+                        curSearchTask = null;
                     }
 
                     @Override
@@ -135,6 +139,14 @@ public class SearchArticlesFragment extends Fragment {
                         isSearchActive = true;
                     }
                 };
+                if (curSearchTask != null) {
+                    // This does not cancel the HTTP request itself
+                    // But it does cancel th execution of onFinish
+                    // This makes sure that a slower previous search query does not override
+                    // the results of a newer search query
+                    curSearchTask.cancel();
+                }
+                curSearchTask = searchTask;
                 searchTask.execute();
                 return true;
             }
