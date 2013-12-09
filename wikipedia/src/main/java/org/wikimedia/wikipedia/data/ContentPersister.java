@@ -27,9 +27,13 @@ abstract public class ContentPersister<T> {
     }
 
     public void deleteAll() {
+        deleteWhere("", new String[] {});
+    }
+
+    public void deleteWhere(String selection, String[] selectionArgs) {
         Uri uri = persistanceHelper.getBaseContentURI();
         try {
-            client.delete(uri, "", new String[] {});
+            client.delete(uri, selection, selectionArgs);
         } catch (RemoteException e) {
             // This also shouldn't happen
             throw new RuntimeException(e);
