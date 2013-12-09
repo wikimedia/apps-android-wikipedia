@@ -10,6 +10,7 @@ import com.squareup.otto.Subscribe;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.history.HistoryEntryPersister;
+import org.wikimedia.wikipedia.recurring.RecurringTasksExecutor;
 
 public class PageActivity extends FragmentActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikimedia.wikipedia.page_for_title";
@@ -47,6 +48,9 @@ public class PageActivity extends FragmentActivity {
         }
 
         searchAriclesFragment.setDrawerLayout(drawerLayout);
+
+        // Conditionally execute all recurring tasks
+        new RecurringTasksExecutor(this).run();
     }
 
     private void displayNewPage(PageTitle title, HistoryEntry entry) {
