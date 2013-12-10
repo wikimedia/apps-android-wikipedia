@@ -8,7 +8,8 @@ import java.util.Date;
 
 public class HistoryRotateTask extends RecurringTask {
     // Clear things older than 30 days
-    private static final long CLEAR_INTERVAL_MILLI =  30 * 24 * 60 * 60 * 1000;
+    private static final long RUN_INTERVAL_MILLI =  24 * 60 * 60 * 1000;
+    private static final long CLEAR_INTERVAL_MILLI = 30 * 24 * 60 * 60 * 1000;
 
     public HistoryRotateTask(Context context) {
         super(context);
@@ -16,7 +17,7 @@ public class HistoryRotateTask extends RecurringTask {
 
     @Override
     protected boolean shouldRun(Date lastRun) {
-        return System.currentTimeMillis() - lastRun.getTime() >= CLEAR_INTERVAL_MILLI;
+        return System.currentTimeMillis() - lastRun.getTime() >= RUN_INTERVAL_MILLI;
     }
 
     @Override
