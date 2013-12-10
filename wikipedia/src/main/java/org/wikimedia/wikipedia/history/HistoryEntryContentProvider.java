@@ -34,7 +34,9 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-
+        if (projection != null) {
+            throw new UnsupportedOperationException("Projection is pre-set, must always be null");
+        }
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
         int uriType = uriMatcher.match(uri);
@@ -49,7 +51,15 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
                                 HistoryEntry.persistanceHelper.getTableName(), PageImage.persistanceHelper.getTableName()
                                 )
                 );
-                cursor = queryBuilder.query(db, projection, selection, selectionArgs, null, null, sortOrder);
+                String[] actualProjection = new String[] {
+                        "history._id",
+                        "history.site",
+                        "history.title",
+                        "history.timestamp",
+                        "history.source",
+                        "pageimages.imageName"
+                };
+                cursor = queryBuilder.query(db, actualProjection, selection, selectionArgs, null, null, sortOrder);
                 break;
             default:
                 return super.query(uri, projection, selection, selectionArgs, sortOrder);

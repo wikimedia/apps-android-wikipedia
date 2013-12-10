@@ -66,7 +66,7 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
         return new CursorLoader(
                 this,
                 Uri.parse(HistoryEntry.persistanceHelper.getBaseContentURI().toString() + "/" + PageImage.persistanceHelper.getTableName()),
-                new String[] {"history._id, history.site, history.title, history.timestamp, history.source, pageimages.imageName" },
+                null,
                 null,
                 null,
                 "timestamp DESC");
