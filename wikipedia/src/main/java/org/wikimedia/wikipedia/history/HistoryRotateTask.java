@@ -7,9 +7,9 @@ import org.wikimedia.wikipedia.recurring.RecurringTask;
 import java.util.Date;
 
 public class HistoryRotateTask extends RecurringTask {
-    // Clear things older than 30 days
-    private static final long RUN_INTERVAL_MILLI =  24 * 60 * 60 * 1000;
-    private static final long CLEAR_INTERVAL_MILLI = 30 * 24 * 60 * 60 * 1000;
+    // The 'l' suffix is needed because stupid Java overflows constants otherwise
+    private static final long RUN_INTERVAL_MILLI =  24L * 60L * 60L * 1000L;
+    private static final long CLEAR_INTERVAL_MILLI = 30L * 24L * 60L * 60L * 1000L;
 
     public HistoryRotateTask(Context context) {
         super(context);
