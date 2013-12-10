@@ -41,6 +41,9 @@ public abstract class PersistanceHelper<T> {
 
     abstract public Column[] getColumnsAdded(int version);
 
+    protected abstract String getPrimaryKeySelection();
+    protected abstract String[] getPrimaryKeySelectionArgs(T obj);
+
     public ArrayList<Column> getElements(int version) {
          ArrayList<Column> columns = new ArrayList<Column>();
          for (int i = 1; i <= version; i++) {

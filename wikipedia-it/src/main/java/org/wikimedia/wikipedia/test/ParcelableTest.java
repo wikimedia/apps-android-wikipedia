@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import junit.framework.TestCase;
 import org.wikimedia.wikipedia.*;
 import org.wikimedia.wikipedia.history.HistoryEntry;
+import org.wikimedia.wikipedia.pageimages.PageImage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,5 +76,13 @@ public class ParcelableTest extends TestCase {
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
 
         parcelAndTestObjects(historyEntry);
+    }
+
+    public void testPageImage() throws Exception {
+        Site site = new Site("en.wikipedia.org");
+        PageTitle title = new PageTitle("Talk", "India", site);
+        PageImage pageImage = new PageImage(title, "Testing image");
+
+        parcelAndTestObjects(pageImage);
     }
 }

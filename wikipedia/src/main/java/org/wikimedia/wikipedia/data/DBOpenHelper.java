@@ -3,6 +3,7 @@ package org.wikimedia.wikipedia.data;
 import android.content.*;
 import android.database.sqlite.*;
 import org.wikimedia.wikipedia.history.HistoryEntry;
+import org.wikimedia.wikipedia.pageimages.PageImage;
 
 public class DBOpenHelper  extends SQLiteOpenHelper{
 
@@ -16,6 +17,7 @@ public class DBOpenHelper  extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(HistoryEntry.persistanceHelper.getSchema(DATABASE_VERSION));
+        sqLiteDatabase.execSQL(PageImage.persistanceHelper.getSchema(DATABASE_VERSION));
     }
 
     @Override

@@ -9,14 +9,14 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
 abstract public class SQLiteContentProvider<T> extends ContentProvider {
-    private final PersistanceHelper<T> persistanceHelper;
+    protected final PersistanceHelper<T> persistanceHelper;
     protected SQLiteContentProvider(PersistanceHelper<T> persistanceHelper) {
         this.persistanceHelper = persistanceHelper;
     }
 
     abstract protected DBOpenHelper getDbOpenHelper();
 
-    private final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+    protected final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     private static final int MATCH_ALL = 1;
 
     @Override
@@ -91,7 +91,18 @@ abstract public class SQLiteContentProvider<T> extends ContentProvider {
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        throw new IllegalArgumentException("Update functionality not implemented");
+        int uriType = uriMatcher.match(uri);
+        SQLiteDatabase sqlDB = getDbOpenHelper().getWritableDatabase();
+        int modifiedRows;
+        switch (uriType) {
+            case MATCH_ALL:
+                modifiedRows = sqlDB.update(persistanceHelper.getTableName(), values, selection, selectionArgs);
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown URI: " + uri);
+        }
+        getContext().getContentResolver().notifyChange(uri, null);
+        return modifiedRows;
     }
 
     @Override

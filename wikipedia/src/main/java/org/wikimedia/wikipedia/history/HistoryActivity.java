@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager;
@@ -14,10 +15,12 @@ import android.support.v4.widget.CursorAdapter;
 import android.text.format.DateUtils;
 import android.view.*;
 import android.widget.*;
+import com.squareup.picasso.Picasso;
 import org.wikimedia.wikipedia.PageActivity;
 import org.wikimedia.wikipedia.R;
 import org.wikimedia.wikipedia.WikipediaApp;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikimedia.wikipedia.pageimages.PageImage;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -62,8 +65,8 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         return new CursorLoader(
                 this,
-                HistoryEntry.persistanceHelper.getBaseContentURI(),
-                new String[] {"*"},
+                Uri.parse(HistoryEntry.persistanceHelper.getBaseContentURI().toString() + "/" + PageImage.persistanceHelper.getTableName()),
+                new String[] {"history._id, history.site, history.title, history.timestamp, history.source, pageimages.imageName" },
                 null,
                 null,
                 "timestamp DESC");
@@ -112,10 +115,17 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
         public void bindView(View view, Context context, Cursor cursor) {
             TextView title = (TextView) view.findViewById(R.id.history_title);
             ImageView source = (ImageView) view.findViewById(R.id.history_source);
+            ImageView thumbnail = (ImageView) view.findViewById(R.id.history_thumbnail);
             HistoryEntry entry = HistoryEntry.persistanceHelper.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
             source.setImageResource(getImageForSource(entry.getSource()));
             view.setTag(entry);
+
+            Picasso.with(HistoryActivity.this)
+                    .load(cursor.getString(5))
+                    .placeholder(R.drawable.ic_pageimage_placeholder)
+                    .error(R.drawable.ic_pageimage_placeholder)
+                    .into(thumbnail);
 
             // Check the previous item, see if the times differe enough
             // If they do, display the section header.

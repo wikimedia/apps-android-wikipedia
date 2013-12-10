@@ -10,6 +10,8 @@ import org.wikimedia.wikipedia.data.ContentPersister;
 import org.wikimedia.wikipedia.data.DBOpenHelper;
 import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.history.HistoryEntryPersister;
+import org.wikimedia.wikipedia.pageimages.PageImage;
+import org.wikimedia.wikipedia.pageimages.PageImagePersister;
 
 import java.util.HashMap;
 
@@ -80,6 +82,8 @@ public class WikipediaApp extends Application {
             ContentPersister persister;
             if (cls.equals(HistoryEntry.class)) {
                 persister = new HistoryEntryPersister(this);
+            } else if (cls.equals(PageImage.class)) {
+                persister = new PageImagePersister(this);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }

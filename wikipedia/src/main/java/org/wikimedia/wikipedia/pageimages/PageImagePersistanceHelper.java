@@ -1,38 +1,37 @@
-package org.wikimedia.wikipedia.history;
+package org.wikimedia.wikipedia.pageimages;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import org.wikimedia.wikipedia.PageTitle;
 import org.wikimedia.wikipedia.Site;
 import org.wikimedia.wikipedia.data.PersistanceHelper;
+import org.wikimedia.wikipedia.history.HistoryEntry;
 
 import java.util.Date;
 
-public class HistoryEntryPersistanceHelper extends PersistanceHelper<HistoryEntry> {
+public class PageImagePersistanceHelper extends PersistanceHelper<PageImage> {
     @Override
-    public HistoryEntry fromCursor(Cursor c) {
+    public PageImage fromCursor(Cursor c) {
         // Carefully, get them back by using position only
         Site site = new Site(c.getString(1));
         // FIXME: Does not handle non mainspace pages
         PageTitle title = new PageTitle(null, c.getString(2), site);
-        Date timestamp = new Date(c.getLong(3));
-        int source = c.getInt(4);
-        return new HistoryEntry(title, timestamp, source);
+        String imageName = c.getString(3);
+        return new PageImage(title, imageName);
     }
 
     @Override
-    protected ContentValues toContentValues(HistoryEntry obj) {
+    protected ContentValues toContentValues(PageImage obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("title", obj.getTitle().getPrefixedText());
-        contentValues.put("timestamp", obj.getTimestamp().getTime());
-        contentValues.put("source", obj.getSource());
         contentValues.put("site", obj.getTitle().getSite().getDomain());
+        contentValues.put("title", obj.getTitle().getPrefixedText());
+        contentValues.put("imageName", obj.getImageName());
         return contentValues;
     }
 
     @Override
     public String getTableName() {
-        return "history";
+        return "pageimages";
     }
 
     @Override
@@ -43,8 +42,7 @@ public class HistoryEntryPersistanceHelper extends PersistanceHelper<HistoryEntr
                         new Column("_id", "integer primary key"),
                         new Column("site", "string"),
                         new Column("title", "string"),
-                        new Column("timestamp", "integer"),
-                        new Column("source", "integer"),
+                        new Column("imageName", "string"),
                 };
             default:
                 return new Column[0];
@@ -53,13 +51,14 @@ public class HistoryEntryPersistanceHelper extends PersistanceHelper<HistoryEntr
 
     @Override
     protected String getPrimaryKeySelection() {
-        throw new UnsupportedOperationException("No Primary Keys make sense for History");
+        return "site = ? AND title = ?";
     }
 
     @Override
-    protected String[] getPrimaryKeySelectionArgs(HistoryEntry obj) {
-        throw new UnsupportedOperationException("No Primary Keys make sense for History");
+    protected String[] getPrimaryKeySelectionArgs(PageImage obj) {
+        return new String[] {
+                obj.getTitle().getSite().getDomain(),
+                obj.getTitle().getPrefixedText()
+        };
     }
-
-
 }

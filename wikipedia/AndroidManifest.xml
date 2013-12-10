@@ -47,6 +47,11 @@
             android:name=".history.HistoryEntryContentProvider"
             />
 
+        <provider
+                android:authorities="org.wikimedia.wikipedia.pageimages"
+                android:name=".pageimages.PageImageContentProvider"
+                />
+
     </application>
 
 </manifest>

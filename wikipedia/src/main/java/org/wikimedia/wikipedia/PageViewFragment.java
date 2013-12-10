@@ -16,6 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.wikimedia.wikipedia.history.HistoryEntry;
+import org.wikimedia.wikipedia.pageimages.PageImageSaveTask;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -183,6 +184,7 @@ public class PageViewFragment extends Fragment {
 
             // Add history entry now
             app.getPersister(HistoryEntry.class).persist(curEntry);
+            new PageImageSaveTask(app, api, title).execute();
         }
 
         @Override

@@ -14,10 +14,7 @@ abstract public class ContentPersister<T> {
     }
 
     public void persist(T obj) {
-        Uri uri = Uri.parse("content://" +
-                        SQLiteContentProvider.getAuthorityForTable(persistanceHelper.getTableName()) +
-                        "/" + persistanceHelper.getTableName());
-
+        Uri uri = persistanceHelper.getBaseContentURI();
         try {
             client.insert(uri, persistanceHelper.toContentValues(obj));
         } catch (RemoteException e) {
@@ -39,6 +36,26 @@ abstract public class ContentPersister<T> {
             throw new RuntimeException(e);
         }
     }
+
+    public void upsert(T obj) {
+        Uri uri = persistanceHelper.getBaseContentURI();
+        try {
+            int rowsUpdated = client.update(
+                    uri,
+                    persistanceHelper.toContentValues(obj),
+                    persistanceHelper.getPrimaryKeySelection(),
+                    persistanceHelper.getPrimaryKeySelectionArgs(obj)
+            );
+            if (rowsUpdated == 0) {
+                // Insert!
+                persist(obj);
+            }
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
     public void cleanup() {
         this.client.release();

@@ -30,7 +30,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_gravity="center_vertical"
-                android:background="@android:color/background_dark"
+                android:background="@android:color/transparent"
                 />
 
         <TextView

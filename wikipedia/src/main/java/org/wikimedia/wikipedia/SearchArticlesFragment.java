@@ -15,6 +15,7 @@ import android.widget.*;
 import com.squareup.picasso.Picasso;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikimedia.wikipedia.history.HistoryEntry;
+import org.wikimedia.wikipedia.pageimages.PageImagesTask;
 
 import java.util.List;
 import java.util.Map;
