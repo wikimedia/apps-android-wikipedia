@@ -27,12 +27,13 @@ public class SearchArticlesFragment extends Fragment {
 
     private WikipediaApp app;
 
-    private ImageView searchBarIcon;
+    private View searchBarIcon;
     private EditText searchTermText;
     private ListView searchResultsList;
     private ProgressBar searchProgress;
     private View searchNetworkError;
     private View searchBarMenuButton;
+    private View drawerIndicator;
 
     private SearchResultAdapter adapter;
 
@@ -108,9 +109,10 @@ public class SearchArticlesFragment extends Fragment {
         searchTermText = (EditText) parentLayout.findViewById(R.id.searchTermText);
         searchResultsList = (ListView) parentLayout.findViewById(R.id.searchResultsList);
         searchProgress = (ProgressBar) parentLayout.findViewById(R.id.searchProgress);
-        searchBarIcon = (ImageView) parentLayout.findViewById(R.id.searchBarIcon);
+        searchBarIcon = parentLayout.findViewById(R.id.searchBarIcon);
         searchNetworkError = parentLayout.findViewById(R.id.searchNetworkError);
         searchBarMenuButton = parentLayout.findViewById(R.id.searchBarShowMenu);
+        drawerIndicator = parentLayout.findViewById(R.id.searchDrawerIndicator);
 
         PopupMenu pageActionsMenu = new PopupMenu(getActivity(), searchBarMenuButton);
         PageActionsHandler pageActionsHandler = new PageActionsHandler(app.getBus(), pageActionsMenu, searchBarMenuButton);
@@ -234,6 +236,21 @@ public class SearchArticlesFragment extends Fragment {
 
     void setDrawerLayout(DrawerLayout drawerLayout) {
         this.drawerLayout = drawerLayout;
+
+        drawerLayout.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                // Animation for sliding drawer open and close
+                // -4dp seems to match how much farther GMail's indicator goes, so sticking with it
+                // Shift left and right margins appropriately to make sure that the rest of the layout does not shift
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(drawerIndicator.getLayoutParams());
+                params.leftMargin = (int)(-4 * WikipediaApp.SCREEN_DENSITY * (slideOffset));
+                params.rightMargin = -params.leftMargin;
+                params.gravity = Gravity.CENTER_VERTICAL; // Needed because this seems to get reset otherwise. hmpf.
+                drawerIndicator.setLayoutParams(params);
+            }
+        });
+
     }
 
     @Override
