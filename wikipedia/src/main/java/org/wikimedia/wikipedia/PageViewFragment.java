@@ -213,7 +213,6 @@ public class PageViewFragment extends Fragment {
 
         @Override
         public void onFinish(List<Section> result) {
-            result.remove(0); // Remove when bug 57402 is fixed
             ArrayList<Section> newSections = (ArrayList<Section>) page.getSections().clone();
             newSections.addAll(result);
             page = new Page(page.getTitle(), newSections);

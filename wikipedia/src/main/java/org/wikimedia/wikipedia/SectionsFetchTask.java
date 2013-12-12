@@ -21,10 +21,10 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
 
     @Override
     public ApiResult buildRequest(Api api) {
-        String prop = sections.equals("0") ? "text" : "text|sections"; // Can be taken out once bug 57402 is fixed
         return api.action("mobileview")
                 .param("page", title.getPrefixedText())
-                .param("prop", prop)
+                .param("prop", "text|sections")
+                .param("onlyrequestedsections", "1") // Stupid mediawiki & stupid backwardscompat
                 .param("sections", sections)
                 .param("sectionprop", "toclevel|line|anchor")
                 .param("noheadings", "true")
