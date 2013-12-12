@@ -19,4 +19,7 @@
 
     <string name="dialog_title_clear_history">Clear history?</string>
     <string name="dialog_message_clear_history">Are you sure you want to clear all history?</string>
+    <string name="saved_pages_activity_title">Saved pages</string>
+    <string name="nav_item_saved_pages">Saved pages</string>
+    <string name="menu_save_page">Save page</string>
 </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_save_page"
+          android:icon="@android:drawable/ic_menu_save"
+          android:title="@string/menu_save_page"
+          android:showAsAction="always"
+          />
+</menu>

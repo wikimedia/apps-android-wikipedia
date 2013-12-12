@@ -22,9 +22,10 @@
                 android:background="@drawable/ic_w_transparent_48dp"
                 />
         <FrameLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
                 >
             <EditText
                     android:id="@+id/searchTermText"
@@ -47,6 +48,14 @@
                     style="@android:style/Widget.ProgressBar.Small"
                     />
         </FrameLayout>
+        <ImageView
+                android:id="@+id/searchBarShowMenu"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_menu_moreoverflow_normal_holo_light"
+                android:background="?android:attr/selectableItemBackground"
+                />
     </LinearLayout>
     <!-- Android has no easy way to give us a light border -->
     <View android:layout_width="match_parent" android:layout_height="1dp"

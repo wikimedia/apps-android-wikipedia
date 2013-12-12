@@ -36,6 +36,11 @@
                 android:label="@string/history_activity_title">
         </activity>
 
+        <activity
+                android:name=".savedpages.SavedPagesActivity"
+                android:label="@string/saved_pages_activity_title">
+        </activity>
+
         <activity android:name="org.acra.CrashReportDialog"
                   android:theme="@android:style/Theme.Dialog"
                   android:launchMode="singleInstance"
@@ -50,6 +55,11 @@
         <provider
                 android:authorities="org.wikimedia.wikipedia.pageimages"
                 android:name=".pageimages.PageImageContentProvider"
+                />
+
+        <provider
+                android:authorities="org.wikimedia.wikipedia.savedpage"
+                android:name=".savedpages.SavedPageContentProvider"
                 />
 
     </application>

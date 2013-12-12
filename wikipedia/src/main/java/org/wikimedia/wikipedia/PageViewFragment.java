@@ -60,6 +60,14 @@ public class PageViewFragment extends Fragment {
     public PageViewFragment() {
     }
 
+    public PageTitle getTitle() {
+        return title;
+    }
+
+    public Page getPage() {
+        return page;
+    }
+
     private void displayLeadSection(Page page) {
         JSONObject leadSectionPayload = new JSONObject();
         try {

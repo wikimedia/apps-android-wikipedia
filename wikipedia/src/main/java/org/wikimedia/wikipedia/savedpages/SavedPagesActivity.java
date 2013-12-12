@@ -1,6 +1,5 @@
-package org.wikimedia.wikipedia.history;
+package org.wikimedia.wikipedia.savedpages;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,24 +9,27 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager;
-import android.support.v4.content.*;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
-import android.text.format.DateUtils;
 import android.view.*;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import org.wikimedia.wikipedia.PageActivity;
 import org.wikimedia.wikipedia.R;
 import org.wikimedia.wikipedia.WikipediaApp;
-import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.pageimages.PageImage;
 
 import java.text.DateFormat;
 import java.util.Date;
 
-public class HistoryActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<Cursor> {
-    private ListView historyEntryList;
-    private HistoryEntryAdapter adapter;
+public class SavedPagesActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+    private ListView savedPagesList;
+    private SavedPagesAdapter adapter;
 
     private WikipediaApp app;
 
@@ -37,21 +39,21 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
         app = (WikipediaApp)getApplicationContext();
 
         setContentView(R.layout.activity_history);
-        historyEntryList = (ListView) findViewById(R.id.history_entry_list);
+        savedPagesList = (ListView) findViewById(R.id.history_entry_list);
 
-        adapter = new HistoryEntryAdapter(this, null, true);
-        historyEntryList.setAdapter(adapter);
+        adapter = new SavedPagesAdapter(this, null, true);
+        savedPagesList.setAdapter(adapter);
 
-        historyEntryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        savedPagesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                HistoryEntry oldEntry = (HistoryEntry)view.getTag();
-                HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
+                SavedPage savedPage = (SavedPage) view.getTag();
+                HistoryEntry newEntry = new HistoryEntry(savedPage.getTitle(), HistoryEntry.SOURCE_SAVED_PAGE);
 
                 Intent intent = new Intent();
-                intent.setClass(HistoryActivity.this, PageActivity.class);
+                intent.setClass(SavedPagesActivity.this, PageActivity.class);
                 intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-                intent.putExtra(PageActivity.EXTRA_PAGETITLE, oldEntry.getTitle());
+                intent.putExtra(PageActivity.EXTRA_PAGETITLE, savedPage.getTitle());
                 intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, newEntry);
                 startActivity(intent);
             }
@@ -65,7 +67,7 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         return new CursorLoader(
                 this,
-                Uri.parse(HistoryEntry.persistanceHelper.getBaseContentURI().toString() + "/" + PageImage.persistanceHelper.getTableName()),
+                Uri.parse(SavedPage.persistanceHelper.getBaseContentURI().toString() + "/" + PageImage.persistanceHelper.getTableName()),
                 null,
                 null,
                 null,
@@ -82,49 +84,30 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
         adapter.changeCursor(null);
     }
 
-    private class HistoryEntryAdapter extends CursorAdapter {
-        public HistoryEntryAdapter(Context context, Cursor c, boolean autoRequery) {
+    private class SavedPagesAdapter extends CursorAdapter {
+        public SavedPagesAdapter(Context context, Cursor c, boolean autoRequery) {
             super(context, c, autoRequery);
         }
 
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-            return getLayoutInflater().inflate(R.layout.item_history_entry, viewGroup, false);
+            return getLayoutInflater().inflate(R.layout.item_saved_page_entry, viewGroup, false);
         }
 
         private String getDateString(Date date) {
             return DateFormat.getDateInstance().format(date);
         }
 
-        private int getImageForSource(int source) {
-            switch (source) {
-                case HistoryEntry.SOURCE_INTERNAL_LINK:
-                    return R.drawable.link;
-                case HistoryEntry.SOURCE_EXTERNAL_LINK:
-                    return R.drawable.external;
-                case HistoryEntry.SOURCE_HISTORY:
-                    return R.drawable.external;
-                case HistoryEntry.SOURCE_SEARCH:
-                    return R.drawable.search;
-                case HistoryEntry.SOURCE_SAVED_PAGE:
-                    return R.drawable.external;
-                default:
-                    throw new RuntimeException("Unknown source id encountered");
-            }
-        }
-
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
-            TextView title = (TextView) view.findViewById(R.id.history_title);
-            ImageView source = (ImageView) view.findViewById(R.id.history_source);
-            ImageView thumbnail = (ImageView) view.findViewById(R.id.history_thumbnail);
-            HistoryEntry entry = HistoryEntry.persistanceHelper.fromCursor(cursor);
+            TextView title = (TextView) view.findViewById(R.id.saved_page_title);
+            ImageView thumbnail = (ImageView) view.findViewById(R.id.saved_page_thumbnail);
+            SavedPage entry = SavedPage.persistanceHelper.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
-            source.setImageResource(getImageForSource(entry.getSource()));
             view.setTag(entry);
 
-            Picasso.with(HistoryActivity.this)
-                    .load(cursor.getString(5))
+            Picasso.with(SavedPagesActivity.this)
+                    .load(cursor.getString(4))
                     .placeholder(R.drawable.ic_pageimage_placeholder)
                     .error(R.drawable.ic_pageimage_placeholder)
                     .into(thumbnail);
@@ -135,11 +118,11 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
             String curTime, prevTime = "";
             if (cursor.getPosition() != 0) {
                 Cursor prevCursor = (Cursor) getItem(cursor.getPosition() - 1);
-                HistoryEntry prevEntry = HistoryEntry.persistanceHelper.fromCursor(prevCursor);
+                SavedPage prevEntry = SavedPage.persistanceHelper.fromCursor(prevCursor);
                 prevTime = getDateString(prevEntry.getTimestamp());
             }
             curTime = getDateString(entry.getTimestamp());
-            TextView sectionHeader = (TextView) view.findViewById(R.id.history_section_header_text);
+            TextView sectionHeader = (TextView) view.findViewById(R.id.saved_page_section_header_text);
             if (!curTime.equals(prevTime)) {
                 sectionHeader.setText(curTime);
                 sectionHeader.setVisibility(View.VISIBLE);
@@ -153,7 +136,7 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_history, menu);
+        inflater.inflate(R.menu.menu_saved_pages, menu);
         return true;
     }
 
@@ -163,7 +146,7 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
             case android.R.id.home:
                 finish();
                 return true;
-            case R.id.menu_clear_all_history:
+            case R.id.menu_clear_all_saved_pages:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(R.string.dialog_title_clear_history)
                         .setMessage(R.string.dialog_message_clear_history);
@@ -171,7 +154,7 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Clear history!
-                        app.getPersister(HistoryEntry.class).deleteAll();
+                        app.getPersister(SavedPage.class).deleteAll();
                     }
                 });
 

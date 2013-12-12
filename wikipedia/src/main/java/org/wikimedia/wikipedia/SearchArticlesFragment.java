@@ -32,6 +32,7 @@ public class SearchArticlesFragment extends Fragment {
     private ListView searchResultsList;
     private ProgressBar searchProgress;
     private View searchNetworkError;
+    private View searchBarMenuButton;
 
     private SearchResultAdapter adapter;
 
@@ -109,6 +110,10 @@ public class SearchArticlesFragment extends Fragment {
         searchProgress = (ProgressBar) parentLayout.findViewById(R.id.searchProgress);
         searchBarIcon = (ImageView) parentLayout.findViewById(R.id.searchBarIcon);
         searchNetworkError = parentLayout.findViewById(R.id.searchNetworkError);
+        searchBarMenuButton = parentLayout.findViewById(R.id.searchBarShowMenu);
+
+        PopupMenu pageActionsMenu = new PopupMenu(getActivity(), searchBarMenuButton);
+        PageActionsHandler pageActionsHandler = new PageActionsHandler(app.getBus(), pageActionsMenu, searchBarMenuButton);
 
         searchHandler = new Handler(new Handler.Callback(){
             @Override

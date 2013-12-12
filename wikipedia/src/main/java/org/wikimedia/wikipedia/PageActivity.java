@@ -8,9 +8,11 @@ import android.view.Gravity;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikimedia.wikipedia.events.SavePageEvent;
 import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.history.HistoryEntryPersister;
 import org.wikimedia.wikipedia.recurring.RecurringTasksExecutor;
+import org.wikimedia.wikipedia.savedpages.SavePageTask;
 
 public class PageActivity extends FragmentActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikimedia.wikipedia.page_for_title";
@@ -22,6 +24,8 @@ public class PageActivity extends FragmentActivity {
 
     private SearchArticlesFragment searchAriclesFragment;
     private DrawerLayout drawerLayout;
+
+    private PageViewFragment curPageFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,11 +64,17 @@ public class PageActivity extends FragmentActivity {
                 .replace(R.id.content_frame, pageFragment)
                 .addToBackStack(null)
                 .commit();
+        this.curPageFragment = pageFragment;
     }
 
     @Subscribe
     public void onNewWikiPageNavigationEvent(NewWikiPageNavigationEvent event) {
         displayNewPage(event.getTitle(), event.getHistoryEntry());
+    }
+
+    @Subscribe
+    public void onPageSaveEvent(SavePageEvent event) {
+        new SavePageTask(this, curPageFragment.getPage()).execute();
     }
 
     @Override
