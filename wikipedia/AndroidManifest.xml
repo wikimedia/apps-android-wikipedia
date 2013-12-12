@@ -17,6 +17,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".PageActivity"
                   android:theme="@style/NoTitle"
+                  android:windowSoftInputMode="stateHidden"
                 >
 
             <intent-filter>
