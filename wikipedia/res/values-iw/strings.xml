@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ויקיפדיה</string>
+
+    <string name="yes">כן</string>
+    <string name="no">לא</string>
+
+    <string name="acra_report_dialog_title">יישום ויקיפדיה קרס :(</string>
+    <string name="acra_report_dialog_text">לשלוח ליובי דיווח קריסה</string>
+    <string name="acra_report_dialog_comment">מה עשית כשהתרחשה הקריסה?</string>
+
+    <string name="search_hint">חיפוש בוויקיפדיה</string>
+    <string name="history_activity_title">היסטוריה</string>
+    <string name="nav_item_history">היסטוריה</string>
+    <string name="error_network_error">הרשת אינה זמינה :(</string>
+    <string name="search_network_error">שגיאת רשת. נא ללחוץ כדי לנסות שוב</string>
+    <string name="page_error_retry">לנסות שוב</string>
+    <string name="menu_clear_all_history">ניקוי היסטוריה</string>
+
+    <string name="dialog_title_clear_history">לנקות את ההיסטוריה?</string>
+    <string name="dialog_message_clear_history">האם ברצונך באמת לנקות את ההיסטוריה?</string>
+    <string name="saved_pages_activity_title">דפים שמורים</string>
+    <string name="nav_item_saved_pages">דפים שמורים</string>
+    <string name="menu_save_page">שמירת דף</string>
+</resources>
