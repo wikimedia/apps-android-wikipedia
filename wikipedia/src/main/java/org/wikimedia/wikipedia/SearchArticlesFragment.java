@@ -12,8 +12,10 @@ import android.util.Log;
 import android.view.*;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
+import com.squareup.otto.Subscribe;
 import com.squareup.picasso.Picasso;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikimedia.wikipedia.events.PageStateChangeEvent;
 import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.pageimages.PageImagesTask;
 

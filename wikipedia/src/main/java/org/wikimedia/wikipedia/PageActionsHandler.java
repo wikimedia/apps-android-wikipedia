@@ -5,6 +5,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
 import com.squareup.otto.Bus;
+import com.squareup.otto.Subscribe;
+import org.wikimedia.wikipedia.events.PageStateChangeEvent;
 import org.wikimedia.wikipedia.events.SavePageEvent;
 import org.wikimedia.wikipedia.savedpages.SavePageTask;
 
@@ -18,6 +20,8 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
         menu.getMenuInflater().inflate(R.menu.menu_page_actions, menu.getMenu());
         menu.setOnMenuItemClickListener(this);
 
+        bus.register(this);
+
         trigger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,6 +29,22 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
             }
         });
 
+    }
+
+    @Subscribe
+    public void onPageStateChange(PageStateChangeEvent event) {
+        switch (event.getState()) {
+            case PageViewFragment.STATE_NO_FETCH:
+            case PageViewFragment.STATE_INITIAL_FETCH:
+                menu.getMenu().findItem(R.id.menu_save_page).setEnabled(false);
+                break;
+            case PageViewFragment.STATE_COMPLETE_FETCH:
+                menu.getMenu().findItem(R.id.menu_save_page).setEnabled(true);
+                break;
+            default:
+                // How can this happen?!
+                throw new RuntimeException("This can't happen");
+        }
     }
 
     @Override
