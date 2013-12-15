@@ -56,7 +56,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
-                    android:layout_marginRight="8dp"
                     android:indeterminate="true"
                     android:visibility="gone"
                     style="@android:style/Widget.ProgressBar.Small"
