@@ -148,12 +148,12 @@ public class SavedPagesActivity extends FragmentActivity implements LoaderManage
                 return true;
             case R.id.menu_clear_all_saved_pages:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage(R.string.dialog_title_clear_history)
-                        .setMessage(R.string.dialog_message_clear_history);
+                builder.setMessage(R.string.dialog_title_clear_saved_pages)
+                        .setMessage(R.string.dialog_message_clear_saved_pages);
                 builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // Clear history!
+                        // Clear Saved Pages!
                         app.getPersister(SavedPage.class).deleteAll();
                     }
                 });
