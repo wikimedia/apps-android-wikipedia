@@ -15,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
+import org.wikimedia.wikipedia.events.PageStateChangeEvent;
 import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.pageimages.PageImageSaveTask;
 
@@ -29,9 +30,9 @@ public class PageViewFragment extends Fragment {
     private static final String KEY_SCROLL_Y = "scrollY";
     private static final String KEY_CURRENT_HISTORY_ENTRY = "currentHistoryEntry";
 
-    private static final int STATE_NO_FETCH = 1;
-    private static final int STATE_INITIAL_FETCH = 2;
-    private static final int STATE_COMPLETE_FETCH = 3;
+    public static final int STATE_NO_FETCH = 1;
+    public static final int STATE_INITIAL_FETCH = 2;
+    public static final int STATE_COMPLETE_FETCH = 3;
 
     private int state = STATE_NO_FETCH;
 
@@ -152,6 +153,7 @@ public class PageViewFragment extends Fragment {
             }
         });
 
+        app.getBus().post(new PageStateChangeEvent(state));
         return parentView;
     }
 
@@ -188,6 +190,7 @@ public class PageViewFragment extends Fragment {
             page = new Page(title, (ArrayList<Section>) result);
             displayLeadSection(page);
             state = STATE_INITIAL_FETCH;
+            app.getBus().post(new PageStateChangeEvent(state));
             new RestSectionsFetchTask().execute();
 
             // Add history entry now
@@ -218,6 +221,7 @@ public class PageViewFragment extends Fragment {
             page = new Page(page.getTitle(), newSections);
             populateAllSections(page);
             state = STATE_COMPLETE_FETCH;
+            app.getBus().post(new PageStateChangeEvent(state));
         }
     }
 }

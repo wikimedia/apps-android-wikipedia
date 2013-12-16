@@ -6,5 +6,6 @@
           android:icon="@android:drawable/ic_menu_save"
           android:title="@string/menu_save_page"
           android:showAsAction="always"
+          android:enabled="false"
           />
 </menu>
