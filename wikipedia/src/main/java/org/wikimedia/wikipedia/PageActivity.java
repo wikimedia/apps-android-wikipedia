@@ -9,6 +9,7 @@ import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikimedia.wikipedia.events.SavePageEvent;
+import org.wikimedia.wikipedia.events.SharePageEvent;
 import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.history.HistoryEntryPersister;
 import org.wikimedia.wikipedia.recurring.RecurringTasksExecutor;
@@ -75,6 +76,15 @@ public class PageActivity extends FragmentActivity {
     @Subscribe
     public void onPageSaveEvent(SavePageEvent event) {
         new SavePageTask(this, curPageFragment.getPage()).execute();
+    }
+
+    @Subscribe
+    public void onSharePageEvent(SharePageEvent event) {
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, curPageFragment.getTitle().getDisplayText() + " " + curPageFragment.getTitle().getCanonicalUri());
+        shareIntent.setType("text/plain");
+        startActivity(shareIntent);
     }
 
     @Override

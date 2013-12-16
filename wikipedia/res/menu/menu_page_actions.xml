@@ -8,4 +8,10 @@
           android:showAsAction="always"
           android:enabled="false"
           />
+    <item android:id="@+id/menu_share_page"
+          android:icon="@android:drawable/ic_menu_share"
+          android:title="@string/menu_share_page"
+          android:showAsAction="always"
+          android:enabled="false"
+            />
 </menu>

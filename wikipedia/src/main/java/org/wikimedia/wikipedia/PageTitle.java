@@ -1,7 +1,11 @@
 package org.wikimedia.wikipedia;
 
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 /**
  * Immutable value object representing the text of a page.
@@ -35,6 +39,21 @@ public class PageTitle implements Parcelable {
     public String getDisplayText() {
         return getText().replace("_", " ");
     }
+
+    public String getCanonicalUri() {
+        try {
+            return String.format(
+                    "%1$s://%2$s/wiki/%3$s",
+                    WikipediaApp.PROTOCOL,
+                    getSite().getDomain(),
+                    URLEncoder.encode(getPrefixedText().replace(" ", "_"), "utf-8")
+            );
+        } catch (UnsupportedEncodingException e) {
+            // This shouldn't happen
+            throw new RuntimeException(e);
+        }
+    }
+
 
     public String getPrefixedText() {
         return namespace == null ? text : namespace + ":" + text;

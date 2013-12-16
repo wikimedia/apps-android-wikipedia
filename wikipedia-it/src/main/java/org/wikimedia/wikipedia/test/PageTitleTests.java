@@ -37,6 +37,14 @@ public class PageTitleTests extends TestCase {
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#History").getText(), "India");
     }
 
+    public void testCanonicalURL() throws Exception {
+        Site enwiki = new Site("en.wikipedia.org");
+
+        assertEquals(enwiki.titleForInternalLink("/wiki/India").getCanonicalUri(), "https://en.wikipedia.org/wiki/India");
+        assertEquals(enwiki.titleForInternalLink("/wiki/India Gate").getCanonicalUri(), "https://en.wikipedia.org/wiki/India_Gate");
+        assertEquals(enwiki.titleForInternalLink("/wiki/India's Gate").getCanonicalUri(), "https://en.wikipedia.org/wiki/India%27s_Gate");
+    }
+
     public void testSite() throws Exception {
         Site enwiki = new Site("en.wikipedia.org");
 

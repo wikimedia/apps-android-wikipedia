@@ -31,6 +31,8 @@ public class WikipediaApp extends Application {
     public static long MEDIUM_ANIMATION_DURATION;
 
     public static float SCREEN_DENSITY;
+    // Reload in onCreate to override
+    public static String PROTOCOL = "https";
 
     @Override
     public void onCreate() {
@@ -42,6 +44,9 @@ public class WikipediaApp extends Application {
         SHORT_ANIMATION_DURATION = getResources().getInteger(android.R.integer.config_shortAnimTime);
         MEDIUM_ANIMATION_DURATION = getResources().getInteger(android.R.integer.config_mediumAnimTime);
         SCREEN_DENSITY = getResources().getDisplayMetrics().density;
+
+        PROTOCOL = "https"; // Move this to a preference or something later on
+
     }
 
     public Bus getBus() {
