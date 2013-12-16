@@ -13,6 +13,7 @@
         var content = document.createElement( "div" );
         content.innerHTML = payload.leadSectionHTML;
         content.id = "#content_block_0";
+        content = transforms.transform( "lead", content );
         document.getElementById( "content" ).appendChild( content );
     });
 
