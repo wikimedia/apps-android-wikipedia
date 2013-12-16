@@ -198,6 +198,15 @@ public class SearchArticlesFragment extends Fragment {
             }
         });
 
+        searchTermText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawerLayout.isDrawerOpen(Gravity.START)) {
+                    drawerLayout.closeDrawer(Gravity.START);
+                }
+            }
+        });
+
         adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
