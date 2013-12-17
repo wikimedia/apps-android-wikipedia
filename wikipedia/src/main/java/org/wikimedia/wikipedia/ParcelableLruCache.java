@@ -19,7 +19,7 @@ import java.util.Set;
  *
  * FIXME: This also resets the LRUcounters when recreated.
  *
- * V can either be a Parcelable or a List<Parcelable>
+ * V can either be a String, Parcelable or a List<Parcelable>
  */
 public class ParcelableLruCache<V> extends LruCache<String, V>  implements Parcelable {
     private static final int TYPE_LIST = 1;
