@@ -36,7 +36,6 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle,T>> {
         JSONObject data = result.asObject();
         JSONObject query = data.getJSONObject("query");
         JSONObject pages = query.getJSONObject("pages");
-        Log.d("Wikipedia", "thumbs pages are: " + pages.toString());
 
         // You would think you could use foreach on an Iterator, but you can't.
         Iterator<String> keys = pages.keys();

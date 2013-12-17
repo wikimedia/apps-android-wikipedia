@@ -123,7 +123,6 @@ public class SearchArticlesFragment extends Fragment {
             @Override
             public boolean handleMessage(Message msg) {
                 final String searchTerm = (String) msg.obj;
-                Log.d("Wikipedia", "Searching for " + searchTerm);
                 SearchArticlesTask searchTask = new SearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm) {
                     @Override
                     public void onFinish(List<PageTitle> result) {
