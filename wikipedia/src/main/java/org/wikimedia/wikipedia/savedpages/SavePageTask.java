@@ -23,9 +23,7 @@ public class SavePageTask extends SaneAsyncTask<Void> {
     public Void performTask() throws Throwable {
         SavedPagePerister persister = (SavedPagePerister) app.getPersister(SavedPage.class);
 
-        FileOutputStream out = app.openFileOutput("savedpage-" + page.getTitle().getHashedItentifier(), Context.MODE_PRIVATE);
-        out.write(page.toJSON().toString().getBytes("utf-8"));
-        out.close();
+        persister.savePageContent(page);
 
         SavedPage savedPage = new SavedPage(page.getTitle());
 

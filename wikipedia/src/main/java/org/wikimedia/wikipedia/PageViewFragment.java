@@ -18,6 +18,7 @@ import org.mediawiki.api.json.Api;
 import org.wikimedia.wikipedia.events.PageStateChangeEvent;
 import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.pageimages.PageImageSaveTask;
+import org.wikimedia.wikipedia.savedpages.LoadSavedPageTask;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -158,6 +159,27 @@ public class PageViewFragment extends Fragment {
     }
 
     private void startDisplayPage() {
+        if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE && state < STATE_COMPLETE_FETCH) {
+            new LoadSavedPageTask(this.getActivity(), curEntry.getTitle()) {
+                @Override
+                public void onFinish(Page result) {
+                    page = result;
+                    displayLeadSection(page);
+                    // Delay the full section population a little bit
+                    // To give the webview time to catch up.
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            populateAllSections(page);
+                            webView.setScrollY(scrollY);
+                            state = STATE_COMPLETE_FETCH;
+                            app.getBus().post(new PageStateChangeEvent(state));
+                        }
+                    }, 500);
+                }
+            }.execute();
+            return;
+        }
         switch (state) {
             case STATE_NO_FETCH:
                 new LeadSectionFetchTask().execute();
