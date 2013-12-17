@@ -1,6 +1,8 @@
 package org.wikimedia.wikipedia;
 
 import android.app.Application;
+import android.os.Build;
+import android.webkit.WebView;
 import com.squareup.otto.Bus;
 import org.acra.ACRA;
 import org.acra.ReportingInteractionMode;
@@ -47,6 +49,10 @@ public class WikipediaApp extends Application {
 
         PROTOCOL = "https"; // Move this to a preference or something later on
 
+        // Enable debugging on the webview
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            WebView.setWebContentsDebuggingEnabled(true);
+        }
     }
 
     public Bus getBus() {
