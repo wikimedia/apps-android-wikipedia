@@ -2,7 +2,12 @@ package org.wikimedia.wikipedia;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.util.Base64;
 import android.view.View;
+
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?
@@ -42,5 +47,28 @@ public class Utils {
                         curView.setAlpha(1.0f);
                     }
                 });
+    }
+
+    /**
+     * Creates an MD5 hash of the provided string & returns its base64 representation
+     * @param s String to hash
+     * @return Base64'd MD5 representation of the string passed in
+     */
+    public static final String md5(final String s) {
+        try {
+            // Create MD5 Hash
+            MessageDigest digest = java.security.MessageDigest
+                    .getInstance("MD5");
+            digest.update(s.getBytes("utf-8"));
+            byte messageDigest[] = digest.digest();
+
+            return Base64.encodeToString(messageDigest, Base64.URL_SAFE | Base64.NO_WRAP);
+        } catch (NoSuchAlgorithmException e) {
+            // This will never happen, yes.
+            throw new RuntimeException(e);
+        } catch (UnsupportedEncodingException e) {
+            // This will never happen, yes.
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -3,6 +3,8 @@ package org.wikimedia.wikipedia;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -38,6 +40,23 @@ public class PageTitle implements Parcelable {
 
     public String getDisplayText() {
         return getText().replace("_", " ");
+    }
+
+    public String getHashedItentifier() {
+        return Utils.md5(String.format("%1$s/%2$s", getSite().getDomain(), getPrefixedText()));
+    }
+
+    public JSONObject toJSON() {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("site", site.getDomain());
+            json.put("namespace", getNamespace());
+            json.put("text", getText());
+            return json;
+        } catch (JSONException e) {
+            // This will also never happen
+            throw new RuntimeException(e);
+        }
     }
 
     public String getCanonicalUri() {

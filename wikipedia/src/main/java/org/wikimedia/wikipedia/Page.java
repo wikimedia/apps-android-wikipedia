@@ -2,6 +2,9 @@ package org.wikimedia.wikipedia;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -59,5 +62,21 @@ public class Page implements Parcelable {
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeParcelable(title, flags);
         parcel.writeList(sections);
+    }
+
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        try {
+            json.putOpt("title", getTitle().toJSON());
+            JSONArray sections = new JSONArray();
+            for (Section section : getSections()) {
+                sections.put(section.toJSON());
+            }
+            json.putOpt("sections", sections);
+            return json;
+        } catch (JSONException e) {
+            // This will never happen. Java stinks.
+            throw new RuntimeException(e);
+        }
     }
 }

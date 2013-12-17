@@ -6,6 +6,7 @@ import org.wikimedia.wikipedia.WikipediaApp;
 import org.wikimedia.wikipedia.concurrency.ExecutorService;
 import org.wikimedia.wikipedia.concurrency.SaneAsyncTask;
 
+import java.io.FileOutputStream;
 import java.util.concurrent.Executor;
 
 public class SavePageTask extends SaneAsyncTask<Void> {
@@ -21,6 +22,10 @@ public class SavePageTask extends SaneAsyncTask<Void> {
     @Override
     public Void performTask() throws Throwable {
         SavedPagePerister persister = (SavedPagePerister) app.getPersister(SavedPage.class);
+
+        FileOutputStream out = app.openFileOutput("savedpage-" + page.getTitle().getHashedItentifier(), Context.MODE_PRIVATE);
+        out.write(page.toJSON().toString().getBytes("utf-8"));
+        out.close();
 
         SavedPage savedPage = new SavedPage(page.getTitle());
 
