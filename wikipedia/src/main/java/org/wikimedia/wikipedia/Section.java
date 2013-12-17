@@ -125,6 +125,18 @@ public class Section implements Parcelable {
         }
     }
 
+    public Section(JSONObject json) {
+        id = json.optInt("id");
+        level = json.optInt("level");
+        heading = json.optString("heading", null);
+        anchor = json.optString("anchor", null);
+        content = json.optString("content", null);
+        JSONArray subsectionsJSON = json.optJSONArray("subsections");
+        for (int i = 0; i < subsectionsJSON.length(); i++) {
+            subSections.add(new Section(subsectionsJSON.optJSONObject(i)));
+        }
+    }
+
     @Override
     public int describeContents() {
         return 0;

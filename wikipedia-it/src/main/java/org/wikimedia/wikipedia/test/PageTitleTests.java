@@ -15,6 +15,15 @@ public class PageTitleTests extends TestCase {
         assertFalse(new PageTitle("Talk", "India", new Site("ta.wikipedia.org")).equals("Something else"));
     }
 
+    public void testJSONSerialization() throws Exception {
+        Site enwiki = new Site("en.wikipedia.org");
+        PageTitle title = new PageTitle(null, "Test title", enwiki);
+        assertEquals(title, new PageTitle(title.toJSON()));
+
+        title = new PageTitle("Talk", "Test title", enwiki);
+        assertEquals(title, new PageTitle(title.toJSON()));
+    }
+
     public void testPrefixedText() throws Exception {
         Site enwiki = new Site("en.wikipedia.org");
 

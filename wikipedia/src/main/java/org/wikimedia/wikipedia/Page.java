@@ -68,15 +68,24 @@ public class Page implements Parcelable {
         JSONObject json = new JSONObject();
         try {
             json.putOpt("title", getTitle().toJSON());
-            JSONArray sections = new JSONArray();
+            JSONArray sectionsJSON = new JSONArray();
             for (Section section : getSections()) {
-                sections.put(section.toJSON());
+                sectionsJSON.put(section.toJSON());
             }
-            json.putOpt("sections", sections);
+            json.putOpt("sections", sectionsJSON);
             return json;
         } catch (JSONException e) {
             // This will never happen. Java stinks.
             throw new RuntimeException(e);
+        }
+    }
+
+    public Page(JSONObject json) {
+        title = new PageTitle(json.optJSONObject("title"));
+        JSONArray sectionsJSON = json.optJSONArray("sections");
+        sections = new ArrayList<Section>(sectionsJSON.length());
+        for (int i = 0; i < sectionsJSON.length(); i++) {
+            sections.add(new Section(sectionsJSON.optJSONObject(i)));
         }
     }
 }

@@ -59,6 +59,12 @@ public class PageTitle implements Parcelable {
         }
     }
 
+    public PageTitle(JSONObject json) {
+        this.site = new Site(json.optString("site"));
+        this.namespace = json.optString("namespace", null);
+        this.text = json.optString("text", null);
+    }
+
     public String getCanonicalUri() {
         try {
             return String.format(

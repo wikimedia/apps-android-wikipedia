@@ -19,4 +19,15 @@ public class SectionTests extends AndroidTestCase {
         section = new Section(1, 0, "Heading", "Heading", "Content");
         assertFalse(section.isLead());
     }
+
+    @Test
+    public void testJSONSerialization() {
+        Section parentSection = new Section(1, 1, null, null, "Hi there!");
+        for (int i = 2; i <= 10; i++) {
+            parentSection.insertSection(new Section(i, 1, "Something " + i, "Something_" + i, "Content Something" + i));
+        }
+
+        assertEquals(parentSection, new Section(parentSection.toJSON()));
+    }
+
 }
