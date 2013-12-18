@@ -1,7 +1,5 @@
 package org.wikimedia.wikipedia;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -20,7 +18,6 @@ import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.pageimages.PageImageSaveTask;
 import org.wikimedia.wikipedia.savedpages.LoadSavedPageTask;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,7 +82,7 @@ public class PageViewFragment extends Fragment {
         Utils.crossFade(loadProgress, webView);
     }
 
-    private void populateAllSections(Page page) {
+    private void populateNonLeadSections(Page page) {
         try {
             JSONObject wrapper = new JSONObject();
             JSONArray allSectionsPayload = new JSONArray();
@@ -144,42 +141,25 @@ public class PageViewFragment extends Fragment {
         app = (WikipediaApp)getActivity().getApplicationContext();
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 
-        startDisplayPage();
-
         retryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Utils.crossFade(networkError, loadProgress);
-                startDisplayPage();
+                performActionForState(state);
             }
         });
 
-        app.getBus().post(new PageStateChangeEvent(state));
+        setState(state);
+        if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE && state < STATE_COMPLETE_FETCH) {
+            new SavedPageFetchTask().execute();
+        } else {
+            performActionForState(state);
+        }
+
         return parentView;
     }
 
-    private void startDisplayPage() {
-        if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE && state < STATE_COMPLETE_FETCH) {
-            new LoadSavedPageTask(this.getActivity(), curEntry.getTitle()) {
-                @Override
-                public void onFinish(Page result) {
-                    page = result;
-                    displayLeadSection(page);
-                    // Delay the full section population a little bit
-                    // To give the webview time to catch up.
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            populateAllSections(page);
-                            webView.setScrollY(scrollY);
-                            state = STATE_COMPLETE_FETCH;
-                            app.getBus().post(new PageStateChangeEvent(state));
-                        }
-                    }, 500);
-                }
-            }.execute();
-            return;
-        }
+    private void performActionForState(int state) {
         switch (state) {
             case STATE_NO_FETCH:
                 new LeadSectionFetchTask().execute();
@@ -194,12 +174,17 @@ public class PageViewFragment extends Fragment {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        populateAllSections(page);
+                        populateNonLeadSections(page);
                         webView.setScrollY(scrollY);
                     }
                 }, 500);
                 break;
         }
+    }
+
+    private void setState(int state) {
+        this.state = state;
+        app.getBus().post(new PageStateChangeEvent(state));
     }
 
     private class LeadSectionFetchTask extends SectionsFetchTask {
@@ -211,8 +196,7 @@ public class PageViewFragment extends Fragment {
         public void onFinish(List<Section> result) {
             page = new Page(title, (ArrayList<Section>) result);
             displayLeadSection(page);
-            state = STATE_INITIAL_FETCH;
-            app.getBus().post(new PageStateChangeEvent(state));
+            setState(STATE_INITIAL_FETCH);
             new RestSectionsFetchTask().execute();
 
             // Add history entry now
@@ -241,9 +225,22 @@ public class PageViewFragment extends Fragment {
             ArrayList<Section> newSections = (ArrayList<Section>) page.getSections().clone();
             newSections.addAll(result);
             page = new Page(page.getTitle(), newSections);
-            populateAllSections(page);
-            state = STATE_COMPLETE_FETCH;
-            app.getBus().post(new PageStateChangeEvent(state));
+            populateNonLeadSections(page);
+            setState(STATE_COMPLETE_FETCH);
+        }
+    }
+
+    private class SavedPageFetchTask extends LoadSavedPageTask {
+
+        public SavedPageFetchTask() {
+            super(getActivity(), title);
+        }
+
+        @Override
+        public void onFinish(Page result) {
+            page = result;
+            performActionForState(STATE_COMPLETE_FETCH);
+            setState(STATE_COMPLETE_FETCH);
         }
     }
 }
