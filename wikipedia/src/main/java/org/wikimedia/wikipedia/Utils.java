@@ -2,9 +2,14 @@ package org.wikimedia.wikipedia;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.view.View;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
@@ -84,5 +89,26 @@ public class Utils {
         String[] protocolParts = url.split("://");
         return "saved-image-"
                 + md5(protocolParts[protocolParts.length - 1]);
+    }
+
+    /**
+     * Add some utility methods to a communuication bridge, that can be called synchronously from JS
+     */
+    public static final void addUtilityMethodsToBridge(final Context context, CommunicationBridge bridge) {
+        bridge.addListener( "imageUrlToFilePath", new CommunicationBridge.JSEventListener() {
+            @Override
+            public JSONObject onMessage(String messageType, JSONObject messagePayload) {
+                String imageUrl = messagePayload.optString("imageUrl");
+                JSONObject ret = new JSONObject();
+                try {
+                    File imageFile = new File(context.getFilesDir(), imageUrlToFileName(imageUrl));
+                    ret.put("filePath", imageFile.getAbsolutePath());
+                    return ret;
+                } catch (JSONException e) {
+                    // stupid, stupid, stupid
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 }

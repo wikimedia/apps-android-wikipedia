@@ -28,6 +28,7 @@
             var content = document.createElement( "div" );
             content.innerHTML = section.content;
             content.id = "#content_block_" + section.index;
+            content = transforms.transform( "body", content );
             document.getElementById( "content" ).appendChild( content );
         } );
     });

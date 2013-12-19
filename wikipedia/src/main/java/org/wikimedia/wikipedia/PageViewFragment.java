@@ -140,6 +140,7 @@ public class PageViewFragment extends Fragment {
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         linkHandler = new LinkHandler(getActivity(), bridge, title.getSite());
+        Utils.addUtilityMethodsToBridge(getActivity(), bridge);
         app = (WikipediaApp)getActivity().getApplicationContext();
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 
