@@ -47,7 +47,12 @@
             <artifactId>acra</artifactId>
             <version>4.5.0</version>
         </dependency>
-	</dependencies>
+        <dependency>
+            <groupId>com.squareup.okhttp</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+    </dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>

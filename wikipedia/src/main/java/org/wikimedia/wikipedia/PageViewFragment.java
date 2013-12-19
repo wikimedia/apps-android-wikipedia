@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,6 +18,7 @@ import org.wikimedia.wikipedia.events.PageStateChangeEvent;
 import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.pageimages.PageImageSaveTask;
 import org.wikimedia.wikipedia.savedpages.LoadSavedPageTask;
+import org.wikimedia.wikipedia.savedpages.SavePageTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -217,7 +219,7 @@ public class PageViewFragment extends Fragment {
 
     private class RestSectionsFetchTask extends SectionsFetchTask {
         public RestSectionsFetchTask() {
-            super(api,  title, "1-");
+            super(api, title, "1-");
         }
 
         @Override
@@ -242,5 +244,19 @@ public class PageViewFragment extends Fragment {
             performActionForState(STATE_COMPLETE_FETCH);
             setState(STATE_COMPLETE_FETCH);
         }
+    }
+
+    public void savePage() {
+        new SavePageTask(getActivity(), bridge, page) {
+            @Override
+            public void onBeforeExecute() {
+                Toast.makeText(getActivity(), R.id.toast_saving_page, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFinish(Void result) {
+                Toast.makeText(getActivity(), R.id.toast_saved_page, Toast.LENGTH_LONG).show();
+            }
+        }.execute();
     }
 }

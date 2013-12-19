@@ -32,6 +32,15 @@
         } );
     });
 
+    bridge.registerListener( "requestImagesList", function ( payload ) {
+        var imageURLs = [];
+        var images = document.querySelectorAll( "img" );
+        for ( var i = 0; i < images.length; i++ ) {
+            imageURLs.push( images[i].src );
+        }
+        bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
+    } );
+
     document.onclick = function() {
         if ( event.target.tagName === "A" ) {
             bridge.sendMessage( 'linkClicked', { href: event.target.getAttribute( "href" ) });

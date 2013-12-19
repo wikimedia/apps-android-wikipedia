@@ -6,6 +6,7 @@ import android.util.Base64;
 import android.view.View;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -70,5 +71,17 @@ public class Utils {
             // This will never happen, yes.
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * Returns the local file name for a remote image.
+     *
+     * Warning: Should be kept stable between releases.
+     * @param url URL of the thumbnail image. Expects them in Mediawiki format
+     * @return
+     */
+    public static final String imageUrlToFileName(String url) {
+        String[] urlParts = url.split("/");
+        return "saved-image-" + urlParts[urlParts.length - 1];
     }
 }

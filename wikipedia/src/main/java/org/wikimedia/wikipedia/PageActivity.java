@@ -75,7 +75,7 @@ public class PageActivity extends FragmentActivity {
 
     @Subscribe
     public void onPageSaveEvent(SavePageEvent event) {
-        new SavePageTask(this, curPageFragment.getPage()).execute();
+        curPageFragment.savePage();
     }
 
     @Subscribe
