@@ -24,7 +24,10 @@
 
     Bridge.prototype.sendMessage = function( messageType, payload ) {
         var messagePack = { type: messageType, payload: payload };
-        return prompt( JSON.stringify( messagePack) );
+        var ret = prompt( JSON.stringify( messagePack) );
+        if ( ret ) {
+            return JSON.parse( ret );
+        }
     };
 
     window.bridge = new Bridge();

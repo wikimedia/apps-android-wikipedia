@@ -1,8 +1,8 @@
 package org.wikimedia.wikipedia;
 
-import android.os.Bundle;
 import android.util.Log;
 import android.webkit.*;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,7 +23,7 @@ public class CommunicationBridge {
     private final ArrayList<String> pendingJSMessages = new ArrayList<String>();
 
     public interface JSEventListener {
-        public void onMessage(String messageType, JSONObject messagePayload);
+        public JSONObject onMessage(String messageType, JSONObject messagePayload);
     }
 
     public CommunicationBridge(final WebView webView, final String baseURL) {
@@ -38,11 +38,12 @@ public class CommunicationBridge {
         eventListeners = new HashMap<String, ArrayList<JSEventListener>>();
         this.addListener("DOMLoaded", new JSEventListener() {
             @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
+            public JSONObject onMessage(String messageType, JSONObject messagePayload) {
                 isDOMReady = true;
                 for(String jsString : pendingJSMessages) {
                     CommunicationBridge.this.webView.loadUrl(jsString);
                 }
+                return null;
             }
         });
     }
@@ -86,10 +87,24 @@ public class CommunicationBridge {
                     throw new RuntimeException("No such message type registered: " + type);
                 }
                 ArrayList<JSEventListener> listeners = eventListeners.get(type);
+                JSONArray returns = new JSONArray();
                 for (JSEventListener listener : listeners) {
-                    listener.onMessage(type, messagePack.getJSONObject("payload"));
+                    JSONObject ret = listener.onMessage(type, messagePack.getJSONObject("payload"));
+                    if (ret != null) {
+                        returns.put(ret);
+                    }
                 }
-                result.confirm();
+                switch (returns.length()) {
+                    case 0:
+                        result.confirm();
+                        break;
+                    case 1:
+                        result.confirm(returns.optJSONObject(0).toString());
+                        break;
+                    default:
+                        result.confirm(returns.toString());
+                        break;
+                }
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }

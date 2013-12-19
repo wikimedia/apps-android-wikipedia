@@ -50,7 +50,7 @@ public class SavePageTask extends SaneAsyncTask<Void> {
         final CommunicationBridge.JSEventListener processImages = new CommunicationBridge.JSEventListener() {
             // This runs on the main thread
             @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
+            public JSONObject onMessage(String messageType, JSONObject messagePayload) {
                 final JSONArray imagesList = messagePayload.optJSONArray("images");
                 final HashSet<String> hashSet = new HashSet<String>();
                 imagesDownloadedLatch = new CountDownLatch(imagesList.length());
@@ -70,6 +70,7 @@ public class SavePageTask extends SaneAsyncTask<Void> {
                         imagesDownloadedLatch.countDown();
                     }
                 }
+                return null;
             }
         };
 

@@ -29,9 +29,10 @@ public class BridgeTests extends ActivityUnitTestCase<TestDummyActivity> {
                 bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
                 bridge.addListener("DOMLoaded", new CommunicationBridge.JSEventListener() {
                     @Override
-                    public void onMessage(String messageType, JSONObject messagePayload) {
+                    public JSONObject onMessage(String messageType, JSONObject messagePayload) {
                         assertEquals(messageType, "DOMLoaded");
                         completionLatch.countDown();
+                        return null;
                     }
                 });
             }
@@ -55,17 +56,19 @@ public class BridgeTests extends ActivityUnitTestCase<TestDummyActivity> {
                 }
                 bridge.addListener("pingBackLoaded", new CommunicationBridge.JSEventListener() {
                     @Override
-                    public void onMessage(String messageType, JSONObject messagePayload) {
+                    public JSONObject onMessage(String messageType, JSONObject messagePayload) {
                         assertEquals(messageType, "pingBackLoaded");
                         bridge.sendMessage("ping", payload);
                         bridge.addListener("pong", new CommunicationBridge.JSEventListener() {
                             @Override
-                            public void onMessage(String messageType, JSONObject messagePayload) {
+                            public JSONObject onMessage(String messageType, JSONObject messagePayload) {
                                 assertEquals(messageType, "pong");
                                 assertEquals(messagePayload.toString(), payload.toString());
                                 completionLatch.countDown();
+                                return null;
                             }
                         });
+                        return null;
                     }
                 });
                 bridge.sendMessage("injectScript", payload);
