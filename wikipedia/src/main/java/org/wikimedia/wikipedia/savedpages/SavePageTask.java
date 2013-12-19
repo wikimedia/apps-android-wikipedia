@@ -20,6 +20,8 @@ public class SavePageTask extends SaneAsyncTask<Void> {
     private final Page page;
     private final CommunicationBridge bridge;
 
+    private final static int MESSAGE_START_SAVING = 1;
+    private final static int MESSAGE_SAVING_DONE = 2;
     /**
      * Latch that opens when the imagesDownloadedLatch has been initialized.
      * This is needed because the count of the imagesDownloadedLatch needs to
@@ -73,16 +75,26 @@ public class SavePageTask extends SaneAsyncTask<Void> {
             // This also runs on the main thread - you can access the bridge only from the Main thread
             @Override
             public boolean handleMessage(Message msg) {
-                bridge.addListener("imagesListResponse", processImages);
-                bridge.sendMessage("requestImagesList", new JSONObject());
-                return true;
+                switch (msg.what) {
+                    case MESSAGE_START_SAVING:
+                        bridge.addListener("imagesListResponse", processImages);
+                        bridge.sendMessage("requestImagesList", new JSONObject());
+                        return true;
+                    case MESSAGE_SAVING_DONE:
+                        bridge.clearAllListeners("imagesListResponse");
+                        return true;
+                    default:
+                        throw new RuntimeException("Unknown WHAT! passed");
+                }
             }
         });
 
-        mainThreadHandler.sendEmptyMessage(0);
+        mainThreadHandler.sendEmptyMessage(MESSAGE_START_SAVING);
 
         imagesDownloadLatchInitialized.await();
         imagesDownloadedLatch.await();
+
+        mainThreadHandler.sendEmptyMessage(MESSAGE_SAVING_DONE);
 
         SavedPage savedPage = new SavedPage(page.getTitle());
 

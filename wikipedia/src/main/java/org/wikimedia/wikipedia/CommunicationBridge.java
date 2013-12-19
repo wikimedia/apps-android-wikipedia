@@ -57,6 +57,10 @@ public class CommunicationBridge {
         }
     }
 
+    public void clearAllListeners(String type) {
+        eventListeners.remove(type);
+    }
+
     public void sendMessage(String messageName, JSONObject messageData) {
         String messagePointer =  marshaller.putPayload(messageData.toString());
 
