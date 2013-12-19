@@ -48,6 +48,7 @@ public class SavedPagePerister extends ContentPersister<SavedPage> {
             // Somehow we have a newline in there! THROW UP!
             throw new RuntimeException("Raw newline found in Saved Page for " + title);
         }
+        reader.close();
         try {
             return new Page(new JSONObject(contents));
         } catch (JSONException e) {
