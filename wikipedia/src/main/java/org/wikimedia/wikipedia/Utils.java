@@ -77,11 +77,12 @@ public class Utils {
      * Returns the local file name for a remote image.
      *
      * Warning: Should be kept stable between releases.
-     * @param url URL of the thumbnail image. Expects them in Mediawiki format
+     * @param url URL of the thumbnail image. Expects them to be not protocol relative & have an extension.
      * @return
      */
     public static final String imageUrlToFileName(String url) {
-        String[] urlParts = url.split("/");
-        return "saved-image-" + urlParts[urlParts.length - 1];
+        String[] protocolParts = url.split("://");
+        return "saved-image-"
+                + md5(protocolParts[protocolParts.length - 1]);
     }
 }
