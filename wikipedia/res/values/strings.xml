@@ -25,4 +25,7 @@
     <string name="menu_share_page">Share</string>
     <string name="dialog_title_clear_saved_pages">Clear saved pages?</string>
     <string name="dialog_message_clear_saved_pages">Are you sure you want to clear all saved pages?</string>
+    <string name="toast_saving_page">Saving page...</string>
+    <string name="toast_saved_page">Saved page</string>
+    <string name="toast_save_page_failed">Saving page failed :(</string>
 </resources>

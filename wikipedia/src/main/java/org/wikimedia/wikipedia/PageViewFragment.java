@@ -250,12 +250,12 @@ public class PageViewFragment extends Fragment {
         new SavePageTask(getActivity(), bridge, page) {
             @Override
             public void onBeforeExecute() {
-                Toast.makeText(getActivity(), R.id.toast_saving_page, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), R.string.toast_saving_page, Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFinish(Void result) {
-                Toast.makeText(getActivity(), R.id.toast_saved_page, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
             }
         }.execute();
     }
