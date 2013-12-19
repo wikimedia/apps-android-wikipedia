@@ -66,6 +66,8 @@ public class SavePageTask extends SaneAsyncTask<Void> {
                                 Log.d("Wikipedia", "Downloaded image " + imageUrl);
                             }
                         }.execute();
+                    } else {
+                        imagesDownloadedLatch.countDown();
                     }
                 }
             }
