@@ -12,11 +12,9 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
+import android.util.Log;
 import android.view.*;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.*;
 import com.squareup.picasso.Picasso;
 import org.wikimedia.wikipedia.PageActivity;
 import org.wikimedia.wikipedia.R;
@@ -38,8 +36,8 @@ public class SavedPagesActivity extends FragmentActivity implements LoaderManage
 
         app = (WikipediaApp)getApplicationContext();
 
-        setContentView(R.layout.activity_history);
-        savedPagesList = (ListView) findViewById(R.id.history_entry_list);
+        setContentView(R.layout.activity_saved_pages);
+        savedPagesList = (ListView) findViewById(R.id.saved_pages_list);
 
         adapter = new SavedPagesAdapter(this, null, true);
         savedPagesList.setAdapter(adapter);
