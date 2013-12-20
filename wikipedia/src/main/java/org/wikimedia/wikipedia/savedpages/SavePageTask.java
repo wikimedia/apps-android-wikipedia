@@ -57,7 +57,8 @@ public class SavePageTask extends SaneAsyncTask<Void> {
                 imagesDownloadLatchInitialized.countDown();
                 for (int i = 0; i < imagesList.length(); i++) {
                     final String imageUrl = imagesList.optString(i);
-                    if (!hashSet.contains(imageUrl)) {
+                    // Do not download duplicates or file:// URL images
+                    if (imageUrl.startsWith("http") && !hashSet.contains(imageUrl)) {
                         hashSet.add(imageUrl);
                         new DownloadImageTask(app, imageUrl) {
                             @Override
