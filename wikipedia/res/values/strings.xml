@@ -28,4 +28,5 @@
     <string name="toast_saving_page">Saving page...</string>
     <string name="toast_saved_page">Saved page</string>
     <string name="toast_save_page_failed">Saving page failed :(</string>
+    <string name="delete_selected_saved_pages">Delete</string>
 </resources>

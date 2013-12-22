@@ -31,6 +31,8 @@ public class SavedPagesActivity extends FragmentActivity implements LoaderManage
 
     private WikipediaApp app;
 
+    private ActionMode actionMode;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -42,18 +44,60 @@ public class SavedPagesActivity extends FragmentActivity implements LoaderManage
         adapter = new SavedPagesAdapter(this, null, true);
         savedPagesList.setAdapter(adapter);
 
+        savedPagesList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                if (actionMode != null) {
+                    return false;
+                }
+                savedPagesList.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
+                actionMode = startActionMode(new ActionMode.Callback() {
+                    @Override
+                    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                        mode.getMenuInflater().inflate(R.menu.menu_saved_pages_context, menu);
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                        return false;
+                    }
+
+                    @Override
+                    public void onDestroyActionMode(ActionMode mode) {
+                        savedPagesList.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+                        actionMode = null;
+                        // Clear all selections
+                        savedPagesList.clearChoices();
+                        savedPagesList.requestLayout(); // Required to immediately redraw unchecked states
+
+                    }
+                });
+                savedPagesList.setItemChecked(position, true);
+                return true;
+            }
+        });
+
         savedPagesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SavedPage savedPage = (SavedPage) view.getTag();
-                HistoryEntry newEntry = new HistoryEntry(savedPage.getTitle(), HistoryEntry.SOURCE_SAVED_PAGE);
+                // We shouldn't do anything if the user is multiselecting things
+                if (actionMode == null) {
+                    SavedPage savedPage = (SavedPage) view.getTag();
+                    HistoryEntry newEntry = new HistoryEntry(savedPage.getTitle(), HistoryEntry.SOURCE_SAVED_PAGE);
 
-                Intent intent = new Intent();
-                intent.setClass(SavedPagesActivity.this, PageActivity.class);
-                intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-                intent.putExtra(PageActivity.EXTRA_PAGETITLE, savedPage.getTitle());
-                intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, newEntry);
-                startActivity(intent);
+                    Intent intent = new Intent();
+                    intent.setClass(SavedPagesActivity.this, PageActivity.class);
+                    intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
+                    intent.putExtra(PageActivity.EXTRA_PAGETITLE, savedPage.getTitle());
+                    intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, newEntry);
+                    startActivity(intent);
+                }
             }
         });
 
