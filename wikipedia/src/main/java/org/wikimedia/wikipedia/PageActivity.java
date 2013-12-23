@@ -2,12 +2,15 @@ package org.wikimedia.wikipedia;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikimedia.wikipedia.events.PageStateChangeEvent;
 import org.wikimedia.wikipedia.events.SavePageEvent;
 import org.wikimedia.wikipedia.events.SharePageEvent;
 import org.wikimedia.wikipedia.history.HistoryEntry;
@@ -85,6 +88,26 @@ public class PageActivity extends FragmentActivity {
         shareIntent.putExtra(Intent.EXTRA_TEXT, curPageFragment.getTitle().getDisplayText() + " " + curPageFragment.getTitle().getCanonicalUri());
         shareIntent.setType("text/plain");
         startActivity(shareIntent);
+    }
+
+    @Subscribe
+    public void onPageStateChange(PageStateChangeEvent event) {
+        if (event.getState() == PageViewFragment.STATE_COMPLETE_FETCH) {
+            // This could potentially be called *before* onCreateView of the PageViewFragment is done
+            // And for *some* reason, that causes all the internal variables to be null
+            // That is super weird and makes no sense to me - I verified they are the same objects
+            // Using the debugger. But expanding them has all member variables that were not set in the
+            // constructor to be null.
+            // So this 'hack' works around it by delaying the setup by 100ms.
+            // FIXME: Find out if this is a WTF Java or a WTF Android
+            new Handler(new Handler.Callback() {
+                @Override
+                public boolean handleMessage(Message msg) {
+                    new QuickReturnHandler(curPageFragment.getObservableWebView(), searchAriclesFragment.getView());
+                    return true;
+                }
+            }).sendEmptyMessageDelayed(0, 100);
+        }
     }
 
     @Override

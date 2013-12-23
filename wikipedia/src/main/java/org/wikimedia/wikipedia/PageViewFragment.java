@@ -37,7 +37,7 @@ public class PageViewFragment extends Fragment {
     private int state = STATE_NO_FETCH;
 
     private PageTitle title;
-    private WebView webView;
+    private ObservableWebView webView;
     private ProgressBar loadProgress;
     private View networkError;
     private View retryButton;
@@ -116,7 +116,7 @@ public class PageViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         FrameLayout parentView = (FrameLayout) inflater.inflate(R.layout.fragment_page, container, false);
 
-        webView = (WebView) parentView.findViewById(R.id.pageWebView);
+        webView = (ObservableWebView) parentView.findViewById(R.id.pageWebView);
         loadProgress = (ProgressBar) parentView.findViewById(R.id.pageLoadProgress);
         networkError = parentView.findViewById(R.id.pageError);
         retryButton = parentView.findViewById(R.id.pageErrorRetry);
@@ -259,5 +259,9 @@ public class PageViewFragment extends Fragment {
                 Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
             }
         }.execute();
+    }
+
+    public ObservableWebView getObservableWebView() {
+        return webView;
     }
 }

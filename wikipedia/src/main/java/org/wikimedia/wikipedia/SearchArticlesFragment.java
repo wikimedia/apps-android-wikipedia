@@ -250,6 +250,10 @@ public class SearchArticlesFragment extends Fragment {
         drawerLayout.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
+                // Make sure that the entire search bar is visible
+                if (getView().getTranslationY() != 0) {
+                    getView().animate().translationY(0).setDuration(WikipediaApp.SHORT_ANIMATION_DURATION).start();
+                }
                 // Animation for sliding drawer open and close
                 // -4dp seems to match how much farther GMail's indicator goes, so sticking with it
                 // Shift left and right margins appropriately to make sure that the rest of the layout does not shift
