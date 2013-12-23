@@ -37,6 +37,19 @@ abstract public class ContentPersister<T> {
         }
     }
 
+    public void delete(T obj) {
+        Uri uri = persistanceHelper.getBaseContentURI();
+        try {
+            client.delete(
+                    uri,
+                    persistanceHelper.getPrimaryKeySelection(),
+                    persistanceHelper.getPrimaryKeySelectionArgs(obj)
+            );
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void upsert(T obj) {
         Uri uri = persistanceHelper.getBaseContentURI();
         try {

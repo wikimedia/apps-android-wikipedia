@@ -56,4 +56,8 @@ public class SavedPagePerister extends ContentPersister<SavedPage> {
             throw new IOException(e);
         }
     }
+
+    public boolean deletePageContent(PageTitle title) throws IOException {
+        return context.deleteFile(getSavePageName(title));
+    }
 }

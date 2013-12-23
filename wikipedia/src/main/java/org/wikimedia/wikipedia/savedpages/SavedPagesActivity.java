@@ -13,6 +13,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.*;
 import android.widget.*;
 import com.squareup.picasso.Picasso;
@@ -65,7 +66,26 @@ public class SavedPagesActivity extends FragmentActivity implements LoaderManage
 
                     @Override
                     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                        return false;
+                        switch (item.getItemId()) {
+                            case R.id.menu_delete_selected_saved_pages:
+                                SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
+                                for (int i = 0; i < checkedItems.size(); i++) {
+                                    if (checkedItems.valueAt(i)) {
+                                        final SavedPage page = SavedPage.persistanceHelper.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
+                                        new DeleteSavedPageTask(SavedPagesActivity.this, page) {
+                                            @Override
+                                            public void onFinish(Boolean result) {
+                                                Toast.makeText(SavedPagesActivity.this, R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
+                                            }
+                                        }.execute();
+                                    }
+                                }
+                                actionMode.finish();
+                                return true;
+                            default:
+                                // This can't happen
+                                throw new RuntimeException("Unknown context menu item clicked");
+                        }
                     }
 
                     @Override
