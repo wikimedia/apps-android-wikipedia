@@ -29,6 +29,7 @@ public class PageViewFragment extends Fragment {
     private static final String KEY_STATE = "state";
     private static final String KEY_SCROLL_Y = "scrollY";
     private static final String KEY_CURRENT_HISTORY_ENTRY = "currentHistoryEntry";
+    private static final String KEY_QUICK_RETURN_BAR_ID = "quickReturnBarId";
 
     public static final int STATE_NO_FETCH = 1;
     public static final int STATE_INITIAL_FETCH = 2;
@@ -52,10 +53,13 @@ public class PageViewFragment extends Fragment {
     private Api api;
 
     private int scrollY;
+    private int quickReturnBarId;
 
-    public PageViewFragment(PageTitle title, HistoryEntry historyEntry) {
+    // Pass in the id rather than the View object itself for the quickReturn bar, to help it survive rotates
+    public PageViewFragment(PageTitle title, HistoryEntry historyEntry, int quickReturnBarId) {
         this.title = title;
         this.curEntry = historyEntry;
+        this.quickReturnBarId = quickReturnBarId;
     }
 
     public PageViewFragment() {
@@ -110,6 +114,7 @@ public class PageViewFragment extends Fragment {
         outState.putInt(KEY_STATE, state);
         outState.putInt(KEY_SCROLL_Y, webView.getScrollY());
         outState.putParcelable(KEY_CURRENT_HISTORY_ENTRY, curEntry);
+        outState.putInt(KEY_QUICK_RETURN_BAR_ID, quickReturnBarId);
     }
 
     @Override
@@ -129,6 +134,7 @@ public class PageViewFragment extends Fragment {
             state = savedInstanceState.getInt(KEY_STATE);
             scrollY = savedInstanceState.getInt(KEY_SCROLL_Y);
             curEntry = savedInstanceState.getParcelable(KEY_CURRENT_HISTORY_ENTRY);
+            quickReturnBarId = savedInstanceState.getInt(KEY_QUICK_RETURN_BAR_ID);
         }
         if (title == null) {
             throw new RuntimeException("No PageTitle passed in to constructor or in instanceState");
@@ -158,6 +164,8 @@ public class PageViewFragment extends Fragment {
         } else {
             performActionForState(state);
         }
+
+        new QuickReturnHandler(webView, getActivity().findViewById(quickReturnBarId));
 
         return parentView;
     }
@@ -259,9 +267,5 @@ public class PageViewFragment extends Fragment {
                 Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
             }
         }.execute();
-    }
-
-    public ObservableWebView getObservableWebView() {
-        return webView;
     }
 }

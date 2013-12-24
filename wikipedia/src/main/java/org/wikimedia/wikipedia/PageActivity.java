@@ -62,7 +62,7 @@ public class PageActivity extends FragmentActivity {
     }
 
     private void displayNewPage(PageTitle title, HistoryEntry entry) {
-        PageViewFragment pageFragment = new PageViewFragment(title, entry);
+        PageViewFragment pageFragment = new PageViewFragment(title, entry, R.id.search_fragment);
         getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                 .replace(R.id.content_frame, pageFragment)
@@ -88,26 +88,6 @@ public class PageActivity extends FragmentActivity {
         shareIntent.putExtra(Intent.EXTRA_TEXT, curPageFragment.getTitle().getDisplayText() + " " + curPageFragment.getTitle().getCanonicalUri());
         shareIntent.setType("text/plain");
         startActivity(shareIntent);
-    }
-
-    @Subscribe
-    public void onPageStateChange(PageStateChangeEvent event) {
-        if (event.getState() == PageViewFragment.STATE_COMPLETE_FETCH) {
-            // This could potentially be called *before* onCreateView of the PageViewFragment is done
-            // And for *some* reason, that causes all the internal variables to be null
-            // That is super weird and makes no sense to me - I verified they are the same objects
-            // Using the debugger. But expanding them has all member variables that were not set in the
-            // constructor to be null.
-            // So this 'hack' works around it by delaying the setup by 100ms.
-            // FIXME: Find out if this is a WTF Java or a WTF Android
-            new Handler(new Handler.Callback() {
-                @Override
-                public boolean handleMessage(Message msg) {
-                    new QuickReturnHandler(curPageFragment.getObservableWebView(), searchAriclesFragment.getView());
-                    return true;
-                }
-            }).sendEmptyMessageDelayed(0, 100);
-        }
     }
 
     @Override
