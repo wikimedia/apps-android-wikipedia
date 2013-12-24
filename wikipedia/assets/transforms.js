@@ -17,7 +17,12 @@
         var infobox = leadContent.querySelector( "table.infobox" );
         if ( infobox ) {
             infobox.parentNode.removeChild( infobox );
-            leadContent.appendChild( infobox );
+            var pTags = leadContent.getElementsByTagName( "p" );
+            if ( pTags.length ) {
+                pTags[0].appendChild( infobox );
+            } else {
+                leadContent.appendChild( infobox );
+            }
         }
         return leadContent;
     }
