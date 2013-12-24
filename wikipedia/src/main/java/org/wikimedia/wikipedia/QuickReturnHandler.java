@@ -33,13 +33,13 @@ public class QuickReturnHandler implements  ObservableWebView.OnScrollChangeList
         int animMargin;
         if (oldScrollY > scrollY) {
             int minMargin = 0;
-            int scrollDelta = (oldScrollY - scrollY) / 2;
+            int scrollDelta = oldScrollY - scrollY;
             int newMargin = (int)quickReturnView.getTranslationY() + scrollDelta;
             animMargin = Math.min(minMargin, newMargin);
         } else {
             // scroll downn!
             int minMargin = -quickReturnView.getHeight();
-            int scrollDelta = (scrollY - oldScrollY) / 2;
+            int scrollDelta = scrollY - oldScrollY;
             int newMargin = (int)quickReturnView.getTranslationY() - scrollDelta;
             animMargin = Math.max(minMargin, newMargin);
         }
