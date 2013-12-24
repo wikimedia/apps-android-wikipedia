@@ -346,4 +346,28 @@ public class SearchArticlesFragment extends Fragment {
         }
         return false;
     }
+
+    @Subscribe
+    public void onNewWikiPageNavigationEvent(NewWikiPageNavigationEvent event) {
+        if (event.getHistoryEntry().getSource() != HistoryEntry.SOURCE_SEARCH) {
+            // Clear navigation text if we used something other than search to go to the new page
+            searchTermText.setText("");
+        }
+        if (getView().getTranslationY() != 0) {
+            // If search bar isn't fully visible, make it so!
+            getView().animate().translationY(0).setDuration(WikipediaApp.SHORT_ANIMATION_DURATION).start();
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        app.getBus().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        app.getBus().unregister(this);
+    }
 }
