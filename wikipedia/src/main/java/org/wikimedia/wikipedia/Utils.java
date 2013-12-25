@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
 import android.util.Base64;
 import android.view.View;
 import org.json.JSONException;
@@ -14,6 +15,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?
@@ -111,4 +115,29 @@ public class Utils {
             }
         });
     }
+
+    /**
+     * Parses dates from the format MediaWiki uses.
+     *
+     * @param mwDate String representing Date returned from a MW API call
+     * @return A {@link java.util.Date} object representing that particular date
+     */
+    public static Date parseMWDate(String mwDate) {
+        SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'"); // Assuming MW always gives me UTC
+        try {
+            return isoFormat.parse(mwDate);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Formats provided date relative to the current system time
+     * @param date Date to format
+     * @return String representing the relative time difference of the paramter from current time
+     */
+    public static String formatDateRelative(Date date) {
+        return DateUtils.getRelativeTimeSpanString(date.getTime(), System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS, 0).toString();
+    }
+
 }

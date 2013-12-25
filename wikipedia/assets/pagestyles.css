@@ -1,12 +1,17 @@
 /* Should be moved out to the MobileApp extension at some point */
 body {
     background-color: #FAFAFA;
-    padding: 8px 24px;
     color: #333;
     font-family: sans-serif;
     font-size: 16px;
     line-height: 24px;
+    margin: 0;
+    padding: 0;
     margin-top: 48px;
+}
+
+#content {
+    padding: 8px 24px;
 }
 
 a {
@@ -62,4 +67,16 @@ table {
     overflow-x: auto;
     display: block;
     border: 1px solid #ccc;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
+
+/* Last updated info */
+#attribution {
+    border-top: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+    color: #888;
+    font-size: 80%;
+}
+

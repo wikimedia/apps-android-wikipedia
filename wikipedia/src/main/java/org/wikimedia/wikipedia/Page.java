@@ -14,15 +14,18 @@ import java.util.ArrayList;
 public class Page implements Parcelable {
     private final PageTitle title;
     private final ArrayList<Section> sections;
+    private final PageProperties pageProperties;
 
-    public Page(PageTitle title, ArrayList<Section> sections) {
+    public Page(PageTitle title, ArrayList<Section> sections, PageProperties pageProperties) {
         this.title = title;
         this.sections = sections;
+        this.pageProperties = pageProperties;
     }
 
     public Page(Parcel in) {
         title = in.readParcelable(PageTitle.class.getClassLoader());
         sections = in.readArrayList(Section.class.getClassLoader());
+        pageProperties = in.readParcelable(PageProperties.class.getClassLoader());
     }
 
     public PageTitle getTitle() {
@@ -55,13 +58,18 @@ public class Page implements Parcelable {
         }
 
         Page other = (Page) o;
-        return getTitle().equals(other.getTitle()) && getSections().equals(other.getSections());
+        return getTitle().equals(other.getTitle()) && getSections().equals(other.getSections()) && pageProperties.equals(other.getPageProperties());
+    }
+
+    public PageProperties getPageProperties() {
+        return pageProperties;
     }
 
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeParcelable(title, flags);
         parcel.writeList(sections);
+        parcel.writeParcelable(pageProperties, flags);
     }
 
     public JSONObject toJSON() {
@@ -73,6 +81,7 @@ public class Page implements Parcelable {
                 sectionsJSON.put(section.toJSON());
             }
             json.putOpt("sections", sectionsJSON);
+            json.putOpt("properties", pageProperties.toJSON());
             return json;
         } catch (JSONException e) {
             // This will never happen. Java stinks.
@@ -87,5 +96,6 @@ public class Page implements Parcelable {
         for (int i = 0; i < sectionsJSON.length(); i++) {
             sections.add(new Section(sectionsJSON.optJSONObject(i)));
         }
+        pageProperties = new PageProperties(json.optJSONObject("properties"));
     }
 }

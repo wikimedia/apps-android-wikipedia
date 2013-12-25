@@ -4,6 +4,7 @@ import android.content.Context;
 import org.json.JSONArray;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
+import org.mediawiki.api.json.RequestBuilder;
 import org.wikimedia.wikipedia.concurrency.ExecutorService;
 
 import java.util.ArrayList;
@@ -20,8 +21,8 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>>{
     }
 
     @Override
-    public ApiResult buildRequest(Api api) {
-        return api.action("opensearch").param("search", prefix).param("limit", "5").get();
+    public RequestBuilder buildRequest(Api api) {
+        return api.action("opensearch").param("search", prefix).param("limit", "5");
     }
 
     @Override

@@ -24,10 +24,10 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle,T>> {
     }
 
     @Override
-    public ApiResult buildRequest(Api api) {
+    public RequestBuilder buildRequest(Api api) {
         RequestBuilder builder = api.action("query").param("titles", TextUtils.join("|", titles));
         buildQueryParams(builder);
-        return builder.get();
+        return builder;
     }
 
     @Override

@@ -30,4 +30,8 @@
     <string name="toast_save_page_failed">Saving page failed :(</string>
     <string name="delete_selected_saved_pages">Delete</string>
     <string name="toast_saved_page_deleted">Saved page(s) deleted</string>
+
+    <string name="last_updated_text">Last updated %1$s</string>
+    <string name="content_license_html">
+        <![CDATA[Content is available under <a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
 </resources>

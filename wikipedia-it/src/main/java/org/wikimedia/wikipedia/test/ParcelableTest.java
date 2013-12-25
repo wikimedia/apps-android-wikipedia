@@ -8,6 +8,7 @@ import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.pageimages.PageImage;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ParcelableTest extends TestCase {
@@ -48,7 +49,8 @@ public class ParcelableTest extends TestCase {
             sections.add(new Section(i, 1, "Something " + i, "Something_" + i, "Content Something" + i ));
         }
         PageTitle title = new PageTitle(null, "Test", new Site("en.wikipedia.org"));
-        Page page = new Page(title, sections);
+        PageProperties props = new PageProperties(new Date());
+        Page page = new Page(title, sections, props);
         parcelAndTestObjects(page);
     }
 

@@ -52,7 +52,9 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
             } else {
                 Uri uri = Uri.parse(href);
                 String authority = uri.getAuthority();
-                if(authority != null && Site.isSupportedSite(authority)) {
+                // We don't want to handle /w/ URIs.
+                // FIXME: Make this more complete, only to not handle URIs that contain unsupported actions
+                if(authority != null && Site.isSupportedSite(authority) && uri.getPath().startsWith("/wiki/")) {
                     Site site = new Site(authority);
                     //TODO: Handle fragments
                     PageTitle title = site.titleForInternalLink(uri.getPath());

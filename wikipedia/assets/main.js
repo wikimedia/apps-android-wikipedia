@@ -33,6 +33,14 @@
         } );
     });
 
+    bridge.registerListener( "displayAttribution", function( payload ) {
+        var lastUpdatedA = document.getElementById( "lastupdated" );
+        lastUpdatedA.innerText = payload.historyText;
+        lastUpdatedA.href = payload.historyTarget;
+        var licenseText = document.getElementById( "licensetext" );
+        licenseText.innerHTML = payload.licenseHTML;
+    });
+
     bridge.registerListener( "requestImagesList", function ( payload ) {
         var imageURLs = [];
         var images = document.querySelectorAll( "img" );

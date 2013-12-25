@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -14,6 +13,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiResult;
+import org.mediawiki.api.json.RequestBuilder;
 import org.wikimedia.wikipedia.events.PageStateChangeEvent;
 import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.pageimages.PageImageSaveTask;
@@ -78,12 +79,19 @@ public class PageViewFragment extends Fragment {
         try {
             leadSectionPayload.put("title", page.getTitle().getDisplayText());
             leadSectionPayload.put("leadSectionHTML", page.getSections().get(0).toHTML(true));
+
+            bridge.sendMessage("displayLeadSection", leadSectionPayload);
+
+            JSONObject attributionPayload = new JSONObject();
+            String lastUpdatedText = getString(R.string.last_updated_text, Utils.formatDateRelative(page.getPageProperties().getLastModified()));
+            attributionPayload.put("historyText", lastUpdatedText);
+            attributionPayload.put("historyTarget", page.getTitle().getUriForAction("history"));
+            attributionPayload.put("licenseHTML", getString(R.string.content_license_html));
+            bridge.sendMessage("displayAttribution", attributionPayload);
         } catch (JSONException e) {
             // This should never happen
             throw new RuntimeException(e);
         }
-
-        bridge.sendMessage("displayLeadSection", leadSectionPayload);
 
         Utils.crossFade(loadProgress, webView);
     }
@@ -204,8 +212,23 @@ public class PageViewFragment extends Fragment {
         }
 
         @Override
+        public RequestBuilder buildRequest(Api api) {
+            RequestBuilder builder =  super.buildRequest(api);
+            builder.param("prop", builder.getParams().get("prop") + "|lastmodified");
+            return builder;
+        }
+
+        private PageProperties pageProperties;
+
+        @Override
+        public List<Section> processResult(ApiResult result) throws Throwable {
+            pageProperties = new PageProperties(Utils.parseMWDate(result.asObject().optJSONObject("mobileview").optString("lastmodified")));
+            return super.processResult(result);
+        }
+
+        @Override
         public void onFinish(List<Section> result) {
-            page = new Page(title, (ArrayList<Section>) result);
+            page = new Page(title, (ArrayList<Section>) result, pageProperties);
             displayLeadSection(page);
             setState(STATE_INITIAL_FETCH);
             new RestSectionsFetchTask().execute();
@@ -235,7 +258,7 @@ public class PageViewFragment extends Fragment {
         public void onFinish(List<Section> result) {
             ArrayList<Section> newSections = (ArrayList<Section>) page.getSections().clone();
             newSections.addAll(result);
-            page = new Page(page.getTitle(), newSections);
+            page = new Page(page.getTitle(), newSections, page.getPageProperties());
             populateNonLeadSections(page);
             setState(STATE_COMPLETE_FETCH);
         }

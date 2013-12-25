@@ -79,6 +79,20 @@ public class PageTitle implements Parcelable {
         }
     }
 
+    public String getUriForAction(String action) {
+        try {
+            return String.format(
+                    "%1$s://%2$s/w/index.php?title=%3$s&action=%4$s",
+                    WikipediaApp.PROTOCOL,
+                    getSite().getDomain(),
+                    URLEncoder.encode(getPrefixedText().replace(" ", "_"), "utf-8"),
+                    action
+            );
+        } catch (UnsupportedEncodingException e) {
+            // This shouldn't happen
+            throw new RuntimeException(e);
+        }
+    }
 
     public String getPrefixedText() {
         return namespace == null ? text : namespace + ":" + text;

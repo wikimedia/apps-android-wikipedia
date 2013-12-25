@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
+import org.mediawiki.api.json.RequestBuilder;
 import org.wikimedia.wikipedia.concurrency.ExecutorService;
 
 import java.util.ArrayList;
@@ -20,15 +21,14 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
     }
 
     @Override
-    public ApiResult buildRequest(Api api) {
+    public RequestBuilder buildRequest(Api api) {
         return api.action("mobileview")
                 .param("page", title.getPrefixedText())
                 .param("prop", "text|sections")
                 .param("onlyrequestedsections", "1") // Stupid mediawiki & stupid backwardscompat
                 .param("sections", sections)
                 .param("sectionprop", "toclevel|line|anchor")
-                .param("noheadings", "true")
-                .get();
+                .param("noheadings", "true");
     }
 
     @Override
