@@ -140,4 +140,18 @@ public class Utils {
         return DateUtils.getRelativeTimeSpanString(date.getTime(), System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS, 0).toString();
     }
 
+    /**
+     * Ensures that the translationY of a particular view is the given value.
+     *
+     * If it isn't the current value, then it performs a short animation to make it so.
+     *
+     * @param view The view to translate
+     * @param translation The value to ensure it is translated by
+     */
+    public static void ensureTranslationY(View view, int translation) {
+        if (view.getTranslationY() != translation) {
+            view.animate().translationY(translation).setDuration(WikipediaApp.SHORT_ANIMATION_DURATION).start();
+        }
+    }
+
 }

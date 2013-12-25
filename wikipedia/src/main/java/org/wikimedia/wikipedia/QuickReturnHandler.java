@@ -25,9 +25,7 @@ public class QuickReturnHandler implements  ObservableWebView.OnScrollChangeList
     public void onScrollChanged(int oldScrollY, int scrollY) {
         if (scrollY <= webview.getHeight()) {
             // For the first screenful, ensure it always exists.
-            if (quickReturnView.getTranslationY() != 0) {
-                quickReturnView.animate().translationY(0).setDuration(WikipediaApp.SHORT_ANIMATION_DURATION).start();
-            }
+            Utils.ensureTranslationY(quickReturnView, 0);
             return;
         }
         int animMargin;
@@ -53,10 +51,10 @@ public class QuickReturnHandler implements  ObservableWebView.OnScrollChangeList
         if (transY != 0 && transY > -height) {
             if (transY > -height / 2 ) {
                 // Fully display it
-                quickReturnView.animate().translationY(0).setDuration(WikipediaApp.SHORT_ANIMATION_DURATION).start();
+                Utils.ensureTranslationY(quickReturnView, 0);
             } else {
                 // Fully hide it
-                quickReturnView.animate().translationY(-height).setDuration(WikipediaApp.SHORT_ANIMATION_DURATION).start();
+                Utils.ensureTranslationY(quickReturnView, -height);
             }
         }
     }
