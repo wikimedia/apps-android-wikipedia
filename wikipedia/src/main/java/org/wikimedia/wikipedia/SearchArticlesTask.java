@@ -15,7 +15,7 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>>{
     private final Site site;
 
     public SearchArticlesTask(Api api, Site site, String prefix) {
-        super(ExecutorService.getSingleton().getExecutor(SearchArticlesTask.class, 2), api);
+        super(ExecutorService.getSingleton().getExecutor(SearchArticlesTask.class, 4), api);
         this.prefix = prefix;
         this.site = site;
     }
