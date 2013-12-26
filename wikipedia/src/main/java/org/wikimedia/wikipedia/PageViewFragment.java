@@ -13,6 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikimedia.wikipedia.events.PageStateChangeEvent;
@@ -240,12 +241,16 @@ public class PageViewFragment extends Fragment {
 
         @Override
         public void onCatch(Throwable caught) {
-            // Should check for the source of the error and have different things turn up
-            // But good enough for now
-            Utils.crossFade(loadProgress, networkError);
-            // Not sure why this is required, but without it tapping retry hides networkError
-            // FIXME: INVESTIGATE WHY THIS HAPPENS!
-            networkError.setVisibility(View.VISIBLE);
+            if (caught instanceof ApiException) {
+                // Should check for the source of the error and have different things turn up
+                // But good enough for now
+                Utils.crossFade(loadProgress, networkError);
+                // Not sure why this is required, but without it tapping retry hides networkError
+                // FIXME: INVESTIGATE WHY THIS HAPPENS!
+                networkError.setVisibility(View.VISIBLE);
+            } else {
+                throw new RuntimeException(caught);
+            }
         }
     }
 
