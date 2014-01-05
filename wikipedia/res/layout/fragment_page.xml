@@ -5,20 +5,20 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <ProgressBar
-        android:id="@+id/pageLoadProgress"
+        android:id="@+id/page_load_progress"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminate="true"
         />
     <org.wikimedia.wikipedia.ObservableWebView
-        android:id="@+id/pageWebView"
+        android:id="@+id/page_web_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
         />
     <LinearLayout
-            android:id="@+id/pageError"
+            android:id="@+id/page_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -32,7 +32,7 @@
                 />
 
         <Button
-                android:id="@+id/pageErrorRetry"
+                android:id="@+id/page_error_retry"
                 android:text="@string/page_error_retry"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>

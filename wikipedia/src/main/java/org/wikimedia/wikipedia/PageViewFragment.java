@@ -130,10 +130,10 @@ public class PageViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         FrameLayout parentView = (FrameLayout) inflater.inflate(R.layout.fragment_page, container, false);
 
-        webView = (ObservableWebView) parentView.findViewById(R.id.pageWebView);
-        loadProgress = (ProgressBar) parentView.findViewById(R.id.pageLoadProgress);
-        networkError = parentView.findViewById(R.id.pageError);
-        retryButton = parentView.findViewById(R.id.pageErrorRetry);
+        webView = (ObservableWebView) parentView.findViewById(R.id.page_web_view);
+        loadProgress = (ProgressBar) parentView.findViewById(R.id.page_load_progress);
+        networkError = parentView.findViewById(R.id.page_error);
+        retryButton = parentView.findViewById(R.id.page_error_retry);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {
             title = savedInstanceState.getParcelable(KEY_TITLE);

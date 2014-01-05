@@ -12,12 +12,12 @@
             android:layout_width="match_parent"
             >
             <LinearLayout
-                    android:id="@+id/searchBarIcon"
+                    android:id="@+id/search_bar_icon"
                     android:layout_width="wrap_content"
                     android:background="?android:attr/selectableItemBackground"
                     android:layout_height="wrap_content">
                 <ImageView
-                        android:id="@+id/searchDrawerIndicator"
+                        android:id="@+id/search_drawer_indicator"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_marginLeft="0dp"
@@ -45,7 +45,7 @@
                 android:layout_weight="1"
                 >
             <EditText
-                    android:id="@+id/searchTermText"
+                    android:id="@+id/search_term_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/search_hint"
@@ -55,7 +55,7 @@
                     android:singleLine="true"
                     />
             <ProgressBar
-                    android:id="@+id/searchProgress"
+                    android:id="@+id/search_progress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical|end"
@@ -65,7 +65,7 @@
                     />
         </FrameLayout>
         <ImageView
-                android:id="@+id/searchBarShowMenu"
+                android:id="@+id/search_bar_show_menu"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:padding="8dp"
@@ -77,7 +77,7 @@
     <View android:layout_width="match_parent" android:layout_height="1dp"
           android:background="@color/border" />
     <Button
-            android:id="@+id/searchNetworkError"
+            android:id="@+id/search_network_error"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:gravity="center"
@@ -87,7 +87,7 @@
             android:background="?android:attr/selectableItemBackground"
             />
     <ListView
-            android:id="@+id/searchResultsList"
+            android:id="@+id/search_results_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:dividerHeight="0dp"

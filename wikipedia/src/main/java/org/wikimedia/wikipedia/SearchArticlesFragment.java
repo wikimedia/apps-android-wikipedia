@@ -108,13 +108,13 @@ public class SearchArticlesFragment extends Fragment {
             isSearchActive = savedInstanceState.getBoolean("isSearchActive");
         }
 
-        searchTermText = (EditText) parentLayout.findViewById(R.id.searchTermText);
-        searchResultsList = (ListView) parentLayout.findViewById(R.id.searchResultsList);
-        searchProgress = (ProgressBar) parentLayout.findViewById(R.id.searchProgress);
-        searchBarIcon = parentLayout.findViewById(R.id.searchBarIcon);
-        searchNetworkError = parentLayout.findViewById(R.id.searchNetworkError);
-        searchBarMenuButton = parentLayout.findViewById(R.id.searchBarShowMenu);
-        drawerIndicator = parentLayout.findViewById(R.id.searchDrawerIndicator);
+        searchTermText = (EditText) parentLayout.findViewById(R.id.search_term_text);
+        searchResultsList = (ListView) parentLayout.findViewById(R.id.search_results_list);
+        searchProgress = (ProgressBar) parentLayout.findViewById(R.id.search_progress);
+        searchBarIcon = parentLayout.findViewById(R.id.search_bar_icon);
+        searchNetworkError = parentLayout.findViewById(R.id.search_network_error);
+        searchBarMenuButton = parentLayout.findViewById(R.id.search_bar_show_menu);
+        drawerIndicator = parentLayout.findViewById(R.id.search_drawer_indicator);
 
         PopupMenu pageActionsMenu = new PopupMenu(getActivity(), searchBarMenuButton);
         PageActionsHandler pageActionsHandler = new PageActionsHandler(app.getBus(), pageActionsMenu, searchBarMenuButton);
