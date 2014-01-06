@@ -129,7 +129,7 @@ public class SearchArticlesFragment extends Fragment {
                         searchProgress.setVisibility(View.GONE);
                         searchNetworkError.setVisibility(View.GONE);
                         displayResults(result);
-                        searchResultsCache.put(searchTerm, result);
+                        searchResultsCache.put(app.getPrimaryLanguage() + "-" + searchTerm, result);
                         lastSearchedText = searchTerm;
                         curSearchTask = null;
                     }
@@ -231,7 +231,7 @@ public class SearchArticlesFragment extends Fragment {
             return; // nothing!
         }
 
-        List<PageTitle> cacheResult = searchResultsCache.get(term);
+        List<PageTitle> cacheResult = searchResultsCache.get(app.getPrimaryLanguage() + "-" + term);
         if (cacheResult != null) {
             displayResults(cacheResult);
             return;
