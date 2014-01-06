@@ -43,9 +43,14 @@ This will load a GUI tool called "Android SDK Manager" for managing the Android-
 
 Tools:
  Android SDK Tools (Rev 22.3)
- Android SDK Platform-tools (Rev 19)
+ Android SDK Platform-tools (Rev 19.0.1)
+ Android SDK Build-tools (Rev 19.0.1)
  Android SDK Build-tools (Rev 19)
  Android SDK Build-tools (Rev 18.1)
+
+Android 4.4 (API 19):
+ SDK Platform Android 4.4.2 (API 19, Rev 2)
+ ARM EABI v7a System Image (API 19, Rev 2)
 
 Android 4.3 (API 18):
  SDK Platform (API 18, Rev 1)
@@ -102,7 +107,7 @@ The defaults on the next screen need one tweak: check the checkbox labeled "Impo
 
 On the next screen, there should be one checkbox checked for the project to import. Leave it as is, and then click Next.
 
-In the next screen, on the lefthand pane, highlight the "Android API 18 Platform", ensure that Build Target of 4.3 and and Java SDK of 1.6 are set before clicking Next. If you didn't see the "Android API 18 Platform" option, you will probably need to (1) click the "+" symbol and choose "JDK" on this dialog box to first add the base SDK '1.6' value; IntelliJ kind of just figures out where the Java SDK is based for you, so don't be surprised if it has dug several folders deep...then (2) click the "+" symbol again choose "Android SDK", then navigate to the "sdk" folder of the ADT folder.
+In the next screen, on the lefthand pane, highlight the "Android API 19 Platform", ensure that Build Target of 4.4 and and Java SDK of 1.6 are set before clicking Next. If you didn't see the "Android API 19 Platform" option, you will probably need to (1) click the "+" symbol and choose "JDK" on this dialog box to first add the base SDK '1.6' value; IntelliJ kind of just figures out where the Java SDK is based for you, so don't be surprised if it has dug several folders deep...then (2) click the "+" symbol again choose "Android SDK", then navigate to the "sdk" folder of the ADT folder.
 
 On the next screen accept the default of "wikipedia-parent" and click Finish.
 
@@ -118,9 +123,9 @@ symbol: class Javascriptinterface
 
 You can double click on that error to see the part of the code causing problems.
 
-15. To resolve this error, go to File > Project Structure, click on Modules, ensure the "wikipedia" module is highlighted in the middle pane, in the rightmost pane click on the "Dependencies" tab, then ensure that "Android API 18 Platform" is chosen for the "Module SDK". Now highlight the "wikipedia-it" module in the middle pane and set its "Module SDK" to "Android API 18 Platform" as well.
+15. To resolve this error, go to File > Project Structure, click on Modules, ensure the "wikipedia" module is highlighted in the middle pane, in the rightmost pane click on the "Dependencies" tab, then ensure that "Android API 19 Platform" is chosen for the "Module SDK". Now highlight the "wikipedia-it" module in the middle pane and set its "Module SDK" to "Android API 19 Platform" as well.
 
-WARNING. Sometimes you'll get a build error about some "v4" library that seems to be clearly from Google. In that case, you'll want go to the bottom of the Dependencies tab click the "+" symbol and choose "Jars or libraries" for the each module. And in the file picker dialog box, navigate into the "sdk" folder of the ADT you added to the system earlier, then go into extras/android/support/v4/ and select "android-support-v4.jar" and then click OK and try building again. Search engines are your friend when these sorts of errors arise. Usually, if Maven stuff breaks down it is a problem someone has experienced...sometimes it's just that the downloads are brittle when your internet connection is unstable or slow.
+WARNING. Sometimes you'll get a build error about some "v4" library that seems to be clearly from Google. In that case, you'll want go to the bottom of the Dependencies tab click the "+" symbol and choose "Jars or libraries" for the each module. And in the file picker dialog box, navigate into the "sdk" folder of the ADT you added to the system earlier, then go into extras/android/support/v4/ and select "android-support-v4.jar" and then make sure its "Scope" dropdown is set to "Provided" and then click OK and try building again. Search engines are your friend when these sorts of errors arise. Usually, if Maven stuff breaks down it is a problem someone has experienced...sometimes it's just that the downloads are brittle when your internet connection is unstable or slow.
 
 16. If you're having a really good day, everything will have compiled neatly. There may be a few warnings, but no fatal errors.
 
@@ -149,7 +154,7 @@ this.webView = webView;
 
 android avd
 
-This will launch the Android Virtual Device Manager application where you can create different virtual machines with specs representative of devices in the wild. Again, the emulator is slow, but it's nice to be able to see how things work out on different screen sizes when you don't have lots of devices handy. To create a device, just go to the Device Definitions tab of Android Virtual Device Manager, click on one of the profiles, and then click "Create AVD". And in the ensuing dialog box set the Target to, for example, Android 4.3 - API Level 18, then click OK. You'll now see the virtual machine in the Android Virtual Devices tab.
+This will launch the Android Virtual Device Manager application where you can create different virtual machines with specs representative of devices in the wild. Again, the emulator is slow, but it's nice to be able to see how things work out on different screen sizes when you don't have lots of devices handy. To create a device, just go to the Device Definitions tab of Android Virtual Device Manager, click on one of the profiles, and then click "Create AVD". And in the ensuing dialog box set the Target to, for example, Android 4.4 - API Level 19, then click OK. You'll now see the virtual machine in the Android Virtual Devices tab.
 
 Note: you can also go to the Tools > Android > AVD Manager in IntelliJ to get to the same interface.
 
