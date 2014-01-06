@@ -18,6 +18,7 @@ import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?
@@ -154,4 +155,47 @@ public class Utils {
         }
     }
 
+    /**
+     * Converts Java Language codes to Wikipedia ones.
+     *
+     * Is inverse of {@link #toJavaLanguageCode(String)}
+     *
+     * @param langCode 2 letter language code as used by Java
+     * @return language code as used by Wikipedia
+     */
+    public static String toWikiLanguageCode(String langCode) {
+        if (langCode.equals("iw")) {
+            return "he";
+        }
+        return langCode;
+    }
+
+    /**
+     * Converts Wikipedia Language codes to Java ones.
+     *
+     * Is inverse of {@link #toWikiLanguageCode(String)}
+     *
+     * @param langCode language code as used by Wikipedia
+     * @return 2 letter language code as used by Java
+     */
+    public static String toJavaLanguageCode(String langCode) {
+        if (langCode.equals("he")) {
+            return "iw";
+        }
+        return langCode;
+    }
+
+    public static String getLangDisplayString(String lang) {
+        Locale locale = new Locale(toJavaLanguageCode(lang));
+        return locale.getDisplayLanguage(locale);
+    }
+
+    /**
+     * Return the default content language to be used, when one is not set
+     *
+     * @return The 2 letter language code as used by Wikipedia
+     */
+    public static String getDefaultContentLanguage() {
+        return Utils.toWikiLanguageCode(Locale.getDefault().getLanguage());
+    }
 }

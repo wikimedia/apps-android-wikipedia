@@ -48,6 +48,7 @@
                   android:launchMode="singleInstance"
                   android:excludeFromRecents="true"
                   android:finishOnTaskLaunch="true" />
+        <activity android:name=".settings.SettingsActivity"/>
 
         <provider
             android:authorities="org.wikimedia.wikipedia.history"

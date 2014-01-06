@@ -1,7 +1,9 @@
 package org.wikimedia.wikipedia;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.webkit.WebView;
 import com.squareup.otto.Bus;
 import org.acra.ACRA;
@@ -18,6 +20,7 @@ import org.wikimedia.wikipedia.savedpages.SavedPage;
 import org.wikimedia.wikipedia.savedpages.SavedPagePerister;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 @ReportsCrashes(
         formKey="",
@@ -31,6 +34,8 @@ public class WikipediaApp extends Application {
 
     public static long SHORT_ANIMATION_DURATION;
     public static long MEDIUM_ANIMATION_DURATION;
+
+    public static String PREFERENCE_CONTENT_LANGUAGE;
 
     public static float SCREEN_DENSITY;
     // Reload in onCreate to override
@@ -46,6 +51,8 @@ public class WikipediaApp extends Application {
         SHORT_ANIMATION_DURATION = getResources().getInteger(android.R.integer.config_shortAnimTime);
         MEDIUM_ANIMATION_DURATION = getResources().getInteger(android.R.integer.config_mediumAnimTime);
         SCREEN_DENSITY = getResources().getDisplayMetrics().density;
+
+        PREFERENCE_CONTENT_LANGUAGE = getResources().getString(R.string.preference_key_language);
 
         PROTOCOL = "https"; // Move this to a preference or something later on
 
@@ -75,11 +82,28 @@ public class WikipediaApp extends Application {
      */
     public Site getPrimarySite() {
         if (primarySite == null) {
-            // FIXME: Actually read from SharedPreferences or something
-            primarySite = new Site("en.wikipedia.org");
+            primarySite = new Site(getPrimaryLanguage() + ".wikipedia.org");
         }
+
         return primarySite;
     }
+
+    private String primaryLanguage;
+    public String getPrimaryLanguage() {
+        if (primaryLanguage == null) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            primaryLanguage = prefs.getString(PREFERENCE_CONTENT_LANGUAGE, Utils.getDefaultContentLanguage());
+        }
+        return primaryLanguage;
+    }
+
+    public void setPrimaryLanguage(String language) {
+        primaryLanguage = language;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit().putString(PREFERENCE_CONTENT_LANGUAGE, language).commit();
+        primarySite = null;
+    }
+
 
     private DBOpenHelper dbOpenHelper;
     public DBOpenHelper getDbOpenHelper() {
