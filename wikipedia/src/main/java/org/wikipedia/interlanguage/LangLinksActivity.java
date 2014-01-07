@@ -1,16 +1,15 @@
 package org.wikipedia.interlanguage;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import org.wikipedia.Page;
-import org.wikipedia.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.Utils;
+import org.wikipedia.*;
+import org.wikipedia.history.HistoryEntry;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -60,6 +59,20 @@ public class LangLinksActivity extends Activity {
             public void onClick(View v) {
                 Utils.crossFade(langLinksError, langLinksProgress);
                 fetchLangLinks();
+            }
+        });
+
+        langLinksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                PageTitle langLink = (PageTitle) parent.getAdapter().getItem(position);
+                HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
+                Intent intent = new Intent();
+                intent.setClass(LangLinksActivity.this, PageActivity.class);
+                intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
+                intent.putExtra(PageActivity.EXTRA_PAGETITLE, langLink);
+                intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, historyEntry);
+                startActivity(intent);
             }
         });
     }

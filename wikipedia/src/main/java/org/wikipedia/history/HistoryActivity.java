@@ -105,6 +105,8 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
                     return R.drawable.search;
                 case HistoryEntry.SOURCE_SAVED_PAGE:
                     return R.drawable.external;
+                case HistoryEntry.SOURCE_LANGUAGE_LINK:
+                    return R.drawable.link;
                 default:
                     throw new RuntimeException("Unknown source id encountered");
             }
