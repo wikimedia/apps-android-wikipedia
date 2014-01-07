@@ -3,6 +3,7 @@ package org.wikipedia.interlanguage;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
@@ -32,6 +33,7 @@ public class LangLinksActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_langlinks);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (!getIntent().getAction().equals(ACTION_LANGLINKS_FOR_TITLE)) {
             throw new RuntimeException("Only ACTION_LANGLINKS_FOR_TITLE is supported");
@@ -60,6 +62,16 @@ public class LangLinksActivity extends Activity {
                 fetchLangLinks();
             }
         });
+    }
+
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                throw new RuntimeException("WAT");
+        }
     }
 
     @Override
