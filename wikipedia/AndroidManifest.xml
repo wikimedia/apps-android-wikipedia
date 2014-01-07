@@ -48,8 +48,12 @@
                   android:launchMode="singleInstance"
                   android:excludeFromRecents="true"
                   android:finishOnTaskLaunch="true" />
-        <activity android:name=".settings.SettingsActivity"/>
-        <activity android:name=".interlanguage.LangLinksActivity"/>
+        <activity android:name=".settings.SettingsActivity"
+                  android:label="@string/settings_activity_title"
+                />
+        <activity android:name=".interlanguage.LangLinksActivity"
+                  android:label="@string/langlinks_activity_title"
+                />
 
         <provider
             android:authorities="org.wikipedia.history"
