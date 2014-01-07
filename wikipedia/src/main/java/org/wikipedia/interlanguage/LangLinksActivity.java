@@ -127,6 +127,16 @@ public class LangLinksActivity extends Activity {
                 @Override
                 public void onFinish(ArrayList<PageTitle> result) {
                     langLinks = result;
+
+                    // If preferred language exists in list, move it to the top
+                    WikipediaApp app = (WikipediaApp)getApplicationContext();
+                    for (int i = 0; i < result.size(); i++) {
+                        if (langLinks.get(i).getSite().getLanguage().equals(app.getPrimaryLanguage())) {
+                            PageTitle preferredLink = langLinks.remove(i);
+                            langLinks.add(0, preferredLink);
+                            break;
+                        }
+                    }
                     displayLangLinks();
                 }
 
