@@ -3,6 +3,8 @@ package org.wikipedia.interlanguage;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -75,6 +77,21 @@ public class LangLinksActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        langLinksFilter.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                ((LangLinksAdapter) langLinksList.getAdapter()).setFilterText(s.toString());
+            }
+        });
     }
 
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
@@ -136,6 +153,19 @@ public class LangLinksActivity extends Activity {
             this.langLinks = new ArrayList<PageTitle>(origLangLinks);
         }
 
+        public void setFilterText(String filter) {
+            this.langLinks.clear();
+            filter = filter.toLowerCase();
+            for (PageTitle l: origLangLinks) {
+                Locale locale = new Locale(Utils.toJavaLanguageCode(l.getSite().getLanguage()));
+                if (l.getDisplayText().toLowerCase().contains(filter)
+                        || locale.getDisplayLanguage().toLowerCase().contains(filter)
+                        || locale.getDisplayLanguage(locale).toLowerCase().contains(filter)) {
+                    this.langLinks.add(l);
+                }
+            }
+            notifyDataSetInvalidated();
+        }
         @Override
         public int getCount() {
             return langLinks.size();
