@@ -15,14 +15,14 @@
         <!-- The navigation drawer -->
         <!-- Don't set marginTop here, it somehow also affects marginBottom. wtf?! -->
         <fragment android:layout_width="wrap_content" android:layout_height="match_parent"
-                  android:name="org.wikimedia.wikipedia.NavDrawerFragment"
+                  android:name="org.wikipedia.NavDrawerFragment"
                   android:layout_gravity="start"
                 />
 
     </android.support.v4.widget.DrawerLayout>
     <fragment
             android:id="@+id/search_fragment"
-            android:name="org.wikimedia.wikipedia.SearchArticlesFragment"
+            android:name="org.wikipedia.SearchArticlesFragment"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_gravity="top"

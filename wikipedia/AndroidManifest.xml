@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.wikimedia.wikipedia"
+    package="org.wikipedia"
     android:versionCode="1"
     android:versionName="1.0-SNAPSHOT" >
 
@@ -52,17 +52,17 @@
         <activity android:name=".interlanguage.LangLinksActivity"/>
 
         <provider
-            android:authorities="org.wikimedia.wikipedia.history"
+            android:authorities="org.wikipedia.history"
             android:name=".history.HistoryEntryContentProvider"
             />
 
         <provider
-                android:authorities="org.wikimedia.wikipedia.pageimages"
+                android:authorities="org.wikipedia.pageimages"
                 android:name=".pageimages.PageImageContentProvider"
                 />
 
         <provider
-                android:authorities="org.wikimedia.wikipedia.savedpage"
+                android:authorities="org.wikipedia.savedpage"
                 android:name=".savedpages.SavedPageContentProvider"
                 />
 
