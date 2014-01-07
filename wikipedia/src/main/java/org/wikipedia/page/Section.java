@@ -1,10 +1,11 @@
-package org.wikipedia;
+package org.wikipedia.page;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.Utils;
 
 import java.util.ArrayList;
 

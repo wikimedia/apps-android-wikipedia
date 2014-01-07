@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.page;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,10 +6,12 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
+import org.wikipedia.*;
 import org.wikipedia.events.*;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.recurring.RecurringTasksExecutor;
+import org.wikipedia.search.SearchArticlesFragment;
 
 public class PageActivity extends FragmentActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";

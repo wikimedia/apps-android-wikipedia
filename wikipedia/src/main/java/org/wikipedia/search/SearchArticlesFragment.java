@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.search;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,8 +13,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import com.squareup.otto.Subscribe;
 import com.squareup.picasso.Picasso;
+import org.wikipedia.*;
 import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageActionsHandler;
 import org.wikipedia.pageimages.PageImagesTask;
 
 import java.util.List;
@@ -127,7 +129,7 @@ public class SearchArticlesFragment extends Fragment {
                         searchProgress.setVisibility(View.GONE);
                         searchNetworkError.setVisibility(View.GONE);
                         displayResults(result);
-                        searchResultsCache.put(app.getPrimaryLanguage() + "-" + searchTerm, result);
+                       searchResultsCache.put(app.getPrimaryLanguage() + "-" + searchTerm, result);
                         lastSearchedText = searchTerm;
                         curSearchTask = null;
                     }
@@ -242,7 +244,7 @@ public class SearchArticlesFragment extends Fragment {
         searchHandler.sendMessageDelayed(searchMessage, DELAY_MILLIS);
     }
 
-    void setDrawerLayout(DrawerLayout drawerLayout) {
+    public void setDrawerLayout(DrawerLayout drawerLayout) {
         this.drawerLayout = drawerLayout;
 
         drawerLayout.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {

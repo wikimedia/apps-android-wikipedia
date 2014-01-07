@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 import org.wikipedia.*;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageActivity;
 
 import java.util.ArrayList;
 import java.util.Locale;

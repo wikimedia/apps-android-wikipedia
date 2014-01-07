@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.page;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,11 +7,15 @@ import android.util.Log;
 import com.squareup.otto.Bus;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.CommunicationBridge;
+import org.wikipedia.PageTitle;
+import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.history.HistoryEntry;
 
 /**
- * Handles any html links coming from a {@link PageViewFragment}
+ * Handles any html links coming from a {@link org.wikipedia.page.PageViewFragment}
  */
 public class LinkHandler implements CommunicationBridge.JSEventListener {
     private final Context context;

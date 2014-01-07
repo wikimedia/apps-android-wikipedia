@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.*;
+import org.wikipedia.page.Section;
+import org.wikipedia.page.SectionsFetchTask;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;

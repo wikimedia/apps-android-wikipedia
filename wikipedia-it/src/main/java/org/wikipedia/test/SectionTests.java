@@ -2,7 +2,7 @@ package org.wikipedia.test;
 
 import android.test.AndroidTestCase;
 import org.junit.Test;
-import org.wikipedia.Section;
+import org.wikipedia.page.Section;
 
 public class SectionTests extends AndroidTestCase {
     @Test

@@ -1,10 +1,12 @@
-package org.wikipedia;
+package org.wikipedia.page;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.ApiTask;
+import org.wikipedia.PageTitle;
 import org.wikipedia.concurrency.ExecutorService;
 
 import java.util.ArrayList;

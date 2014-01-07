@@ -5,6 +5,9 @@ import android.os.Parcelable;
 import junit.framework.TestCase;
 import org.wikipedia.*;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageProperties;
+import org.wikipedia.page.Section;
 import org.wikipedia.pageimages.PageImage;
 
 import java.util.ArrayList;

@@ -16,7 +16,7 @@ import android.util.SparseBooleanArray;
 import android.view.*;
 import android.widget.*;
 import com.squareup.picasso.Picasso;
-import org.wikipedia.PageActivity;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;

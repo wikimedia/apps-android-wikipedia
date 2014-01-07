@@ -1,15 +1,18 @@
-package org.wikipedia;
+package org.wikipedia.search;
 
 import org.json.JSONArray;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.ApiTask;
+import org.wikipedia.PageTitle;
+import org.wikipedia.Site;
 import org.wikipedia.concurrency.ExecutorService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchArticlesTask extends ApiTask<List<PageTitle>>{
+public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
     private final String prefix;
     private final Site site;
 

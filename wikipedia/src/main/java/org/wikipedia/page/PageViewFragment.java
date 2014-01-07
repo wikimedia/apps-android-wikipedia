@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.page;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +16,7 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.*;
 import org.wikipedia.events.PageStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImageSaveTask;

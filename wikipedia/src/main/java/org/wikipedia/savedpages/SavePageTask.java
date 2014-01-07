@@ -7,7 +7,7 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.wikipedia.CommunicationBridge;
-import org.wikipedia.Page;
+import org.wikipedia.page.Page;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.ExecutorService;
 import org.wikipedia.concurrency.SaneAsyncTask;

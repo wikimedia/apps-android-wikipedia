@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.page;
 
 import android.os.Parcel;
 import android.os.Parcelable;

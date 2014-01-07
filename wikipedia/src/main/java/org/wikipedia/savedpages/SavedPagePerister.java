@@ -3,7 +3,7 @@ package org.wikipedia.savedpages;
 import android.content.Context;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.Page;
+import org.wikipedia.page.Page;
 import org.wikipedia.PageTitle;
 import org.wikipedia.data.ContentPersister;
 

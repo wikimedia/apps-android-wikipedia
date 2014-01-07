@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:name=".WikipediaApp"
         android:theme="@style/AppTheme">
-        <activity android:name=".PageActivity"
+        <activity android:name=".page.PageActivity"
                   android:theme="@style/NoTitle"
                   android:windowSoftInputMode="stateHidden"
                 >

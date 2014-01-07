@@ -14,7 +14,7 @@ import android.support.v4.widget.CursorAdapter;
 import android.view.*;
 import android.widget.*;
 import com.squareup.picasso.Picasso;
-import org.wikipedia.PageActivity;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.pageimages.PageImage;

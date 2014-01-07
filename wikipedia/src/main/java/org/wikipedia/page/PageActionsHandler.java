@@ -1,10 +1,11 @@
-package org.wikipedia;
+package org.wikipedia.page;
 
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
+import org.wikipedia.R;
 import org.wikipedia.events.PageStateChangeEvent;
 import org.wikipedia.events.SavePageEvent;
 import org.wikipedia.events.SharePageEvent;

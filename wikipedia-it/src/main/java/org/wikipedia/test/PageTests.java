@@ -2,6 +2,9 @@ package org.wikipedia.test;
 
 import junit.framework.TestCase;
 import org.wikipedia.*;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageProperties;
+import org.wikipedia.page.Section;
 
 import java.util.ArrayList;
 import java.util.Date;
