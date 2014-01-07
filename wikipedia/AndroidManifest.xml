@@ -49,6 +49,7 @@
                   android:excludeFromRecents="true"
                   android:finishOnTaskLaunch="true" />
         <activity android:name=".settings.SettingsActivity"/>
+        <activity android:name=".interlanguage.LangLinksActivity"/>
 
         <provider
             android:authorities="org.wikimedia.wikipedia.history"

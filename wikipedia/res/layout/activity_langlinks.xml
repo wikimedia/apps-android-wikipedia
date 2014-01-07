@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <ProgressBar
+            android:id="@+id/langlinks_load_progress"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:id="@+id/langlinks_empty"
+              android:text="@string/langlinks_empty"
+              android:textAlignment="center"
+              style="?android:textAppearanceLarge"
+              android:visibility="gone"
+            />
+
+    <LinearLayout
+            android:id="@+id/langlinks_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:text="@string/error_network_error"
+                  style="?android:textAppearanceLarge"
+                />
+
+        <Button
+                android:id="@+id/langlinks_error_retry"
+                android:text="@string/langlinks_error_retry"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/langlinks_list_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+        <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:id="@+id/langlinks_filter"
+                  android:hint="@string/langlinks_filter_hint"
+                />
+        <ListView android:layout_width="fill_parent" android:layout_height="fill_parent"
+                  android:id="@+id/langlinks_list" />
+    </LinearLayout>
+</FrameLayout>

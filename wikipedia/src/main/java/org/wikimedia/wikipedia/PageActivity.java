@@ -9,12 +9,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
-import org.wikimedia.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikimedia.wikipedia.events.PageStateChangeEvent;
-import org.wikimedia.wikipedia.events.SavePageEvent;
-import org.wikimedia.wikipedia.events.SharePageEvent;
+import org.wikimedia.wikipedia.events.*;
 import org.wikimedia.wikipedia.history.HistoryEntry;
 import org.wikimedia.wikipedia.history.HistoryEntryPersister;
+import org.wikimedia.wikipedia.interlanguage.LangLinksActivity;
 import org.wikimedia.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikimedia.wikipedia.savedpages.SavePageTask;
 
@@ -87,6 +85,15 @@ public class PageActivity extends FragmentActivity {
         shareIntent.setAction(Intent.ACTION_SEND);
         shareIntent.putExtra(Intent.EXTRA_TEXT, curPageFragment.getTitle().getDisplayText() + " " + curPageFragment.getTitle().getCanonicalUri());
         shareIntent.setType("text/plain");
+        startActivity(shareIntent);
+    }
+
+    @Subscribe
+    public void onOtherLanguagesEvent(ShowOtherLanguagesEvent event) {
+        Intent shareIntent = new Intent();
+        shareIntent.setClass(this, LangLinksActivity.class);
+        shareIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
+        shareIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, curPageFragment.getTitle());
         startActivity(shareIntent);
     }
 

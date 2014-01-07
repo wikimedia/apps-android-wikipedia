@@ -86,6 +86,18 @@ public class Site implements Parcelable {
 
     }
 
+    private String language;
+    public String getLanguage() {
+        if (language == null) {
+            language = domain.split("\\.")[0];
+        }
+        return language;
+    }
+
+    public static Site forLang(String lang) {
+        return new Site(lang + ".wikipedia.org");
+    }
+
     /**
      * Returns if the site is supported
      * @param domain the site domain

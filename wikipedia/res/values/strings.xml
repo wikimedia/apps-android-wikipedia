@@ -38,4 +38,8 @@
     <string name="preference_summary_language">Content language</string>
     <string name="nav_item_preferences">Settings</string>
     <string name="preference_languages_filter_hint">Search</string>
+    <string name="langlinks_filter_hint">Search</string>
+    <string name="menu_other_languages">Other languages</string>
+    <string name="langlinks_error_retry">Retry</string>
+    <string name="langlinks_empty">This article not available in other languages</string>
 </resources>

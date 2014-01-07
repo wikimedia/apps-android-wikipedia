@@ -9,6 +9,7 @@ import com.squareup.otto.Subscribe;
 import org.wikimedia.wikipedia.events.PageStateChangeEvent;
 import org.wikimedia.wikipedia.events.SavePageEvent;
 import org.wikimedia.wikipedia.events.SharePageEvent;
+import org.wikimedia.wikipedia.events.ShowOtherLanguagesEvent;
 import org.wikimedia.wikipedia.savedpages.SavePageTask;
 
 public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
@@ -29,7 +30,6 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
                 menu.show();
             }
         });
-
     }
 
     @Subscribe
@@ -39,10 +39,12 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
             case PageViewFragment.STATE_INITIAL_FETCH:
                 menu.getMenu().findItem(R.id.menu_save_page).setEnabled(false);
                 menu.getMenu().findItem(R.id.menu_share_page).setEnabled(false);
+                menu.getMenu().findItem(R.id.menu_other_languages).setEnabled(false);
                 break;
             case PageViewFragment.STATE_COMPLETE_FETCH:
                 menu.getMenu().findItem(R.id.menu_save_page).setEnabled(true);
                 menu.getMenu().findItem(R.id.menu_share_page).setEnabled(true);
+                menu.getMenu().findItem(R.id.menu_other_languages).setEnabled(true);
                 break;
             default:
                 // How can this happen?!
@@ -58,6 +60,9 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
                 break;
             case R.id.menu_share_page:
                 bus.post(new SharePageEvent());
+                break;
+            case R.id.menu_other_languages:
+                bus.post(new ShowOtherLanguagesEvent());
                 break;
             default:
                 throw new RuntimeException("Unexpected menu item clicked");
