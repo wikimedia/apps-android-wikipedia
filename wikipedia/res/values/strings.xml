@@ -44,4 +44,5 @@
     <string name="langlinks_empty">This article not available in other languages</string>
     <string name="settings_activity_title">Settings</string>
     <string name="langlinks_activity_title">Other languages</string>
+    <string name="editsection_activity_title">Editing %1$s</string>
 </resources>

@@ -22,7 +22,7 @@
             var heading = document.createElement( "h2" );
             heading.textContent = section.heading;
             heading.id = "#heading_" + section.index;
-            heading.attributes['data-index'] = section.index;
+            heading.attributes['data-id'] = section.id;
             document.getElementById( "content" ).appendChild( heading );
 
             var content = document.createElement( "div" );
@@ -53,6 +53,9 @@
     document.onclick = function() {
         if ( event.target.tagName === "A" ) {
             bridge.sendMessage( 'linkClicked', { href: event.target.getAttribute( "href" ) });
+            event.preventDefault();
+        } else if ( event.target.tagName.match(/H\d/) ) {
+            bridge.sendMessage( 'editSectionClicked', { sectionID: event.target.attributes['data-id'] } );
             event.preventDefault();
         }
     };

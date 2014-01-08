@@ -17,6 +17,7 @@ import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.*;
+import org.wikipedia.editing.EditHandler;
 import org.wikipedia.events.PageStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImageSaveTask;
@@ -51,6 +52,7 @@ public class PageViewFragment extends Fragment {
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
+    private EditHandler editHandler;
 
     private WikipediaApp app;
     private Api api;
@@ -104,13 +106,14 @@ public class PageViewFragment extends Fragment {
             JSONArray allSectionsPayload = new JSONArray();
             for (int i=1; i < page.getSections().size(); i++) {
                 JSONObject sectionPayload = new JSONObject();
-                sectionPayload.putOpt("index", i);
+                sectionPayload.putOpt("id", page.getSections().get(i).getId());
                 sectionPayload.putOpt("heading", page.getSections().get(i).getHeading());
                 sectionPayload.putOpt("content", page.getSections().get(i).toHTML(true));
                 allSectionsPayload.put(sectionPayload);
             }
             wrapper.putOpt("sectionHeadings", allSectionsPayload);
             bridge.sendMessage("displaySectionsList", wrapper);
+            editHandler = new EditHandler(getActivity(), bridge, page);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
