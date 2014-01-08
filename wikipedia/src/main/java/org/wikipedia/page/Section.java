@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import org.wikipedia.Utils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents a particular section of an article.
@@ -162,4 +163,23 @@ public class Section implements Parcelable {
             return new Section[size];
         }
     };
+
+    public static Section findSectionForID(List<Section> sections, int id) {
+        // We could use binary search here, but meh. Fast enough.
+        for (int i = 0; i < sections.size(); i++) {
+            Section curSection = sections.get(i);
+            if (curSection.getId() == id) {
+                return curSection;
+            }
+            if (i + 1 < sections.size()) {
+                Section nextSection = sections.get(i + 1);
+                if (id < nextSection.getId() && id > curSection.getId()) {
+                    return findSectionForID(curSection.getSubSections(), id);
+                }
+            } else {
+                return findSectionForID(curSection.getSubSections(), id);
+            }
+        }
+        throw new RuntimeException("We can't find that section with id " + id + " AND THIS IS NOT SUPPOSED TO HAPPEN");
+    }
 }

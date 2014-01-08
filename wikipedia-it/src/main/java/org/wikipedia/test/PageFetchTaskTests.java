@@ -42,6 +42,10 @@ public class PageFetchTaskTests extends ActivityUnitTestCase<TestDummyActivity> 
                         // FIXME: SUPER FLAKY TEST BELOW! 16 is count of first level sections + 1 in en:India article!
                         assertEquals(16, result.size());
                         assertEquals(4, result.get(2).getSubSections().size());
+                        assertEquals(result.get(1), Section.findSectionForID(result, 1));
+                        assertEquals(result.get(2).getSubSections().get(0), Section.findSectionForID(result, 3));
+                        assertEquals(result.get(result.size() - 1), Section.findSectionForID(result, 28));
+                        assertEquals(result.get(10).getSubSections().get(6), Section.findSectionForID(result, 23));
                         completionLatch.countDown();
                     }
                 }.execute();
