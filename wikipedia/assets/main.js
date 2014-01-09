@@ -21,13 +21,19 @@
         payload.sectionHeadings.forEach( function( section ) {
             var heading = document.createElement( "h2" );
             heading.textContent = section.heading;
-            heading.id = "#heading_" + section.index;
-            heading.attributes['data-id'] = section.id;
+            heading.id = "#heading_" + section.id;
+            heading.setAttribute( 'data-id', section.id );
             document.getElementById( "content" ).appendChild( heading );
+
+            var editButton = document.createElement( "a" );
+            editButton.setAttribute( 'data-id', section.id );
+            editButton.setAttribute( 'data-action', "edit_section" );
+            editButton.className = "edit_section_button";
+            heading.appendChild( editButton );
 
             var content = document.createElement( "div" );
             content.innerHTML = section.content;
-            content.id = "#content_block_" + section.index;
+            content.id = "#content_block_" + section.id;
             content = transforms.transform( "body", content );
             document.getElementById( "content" ).appendChild( content );
         } );
@@ -50,13 +56,22 @@
         bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
     } );
 
+    var actionHandlers = {
+        "edit_section": function( el, event ) {
+            bridge.sendMessage( 'editSectionClicked', { sectionID: el.getAttribute( 'data-id' ) } );
+            event.preventDefault();
+        }
+    };
+
     document.onclick = function() {
         if ( event.target.tagName === "A" ) {
-            bridge.sendMessage( 'linkClicked', { href: event.target.getAttribute( "href" ) });
-            event.preventDefault();
-        } else if ( event.target.tagName.match(/H\d/) ) {
-            bridge.sendMessage( 'editSectionClicked', { sectionID: event.target.attributes['data-id'] } );
-            event.preventDefault();
+            if ( event.target.hasAttribute( "data-action" ) ) {
+                var action = event.target.getAttribute( "data-action" );
+                actionHandlers[ action ]( event.target, event );
+            } else {
+                bridge.sendMessage( 'linkClicked', { href: event.target.getAttribute( "href" ) });
+                event.preventDefault();
+            }
         }
     };
 
