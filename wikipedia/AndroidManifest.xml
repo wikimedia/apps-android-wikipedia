@@ -54,7 +54,9 @@
         <activity android:name=".interlanguage.LangLinksActivity"
                   android:label="@string/langlinks_activity_title"
                 />
-        <activity android:name=".editing.EditSectionActivity"/>
+        <activity android:name=".editing.EditSectionActivity"
+                  android:windowSoftInputMode="adjustResize"
+                />
 
         <provider
             android:authorities="org.wikipedia.history"
