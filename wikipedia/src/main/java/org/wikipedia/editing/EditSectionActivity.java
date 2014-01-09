@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
+import org.wikipedia.Utils;
 import org.wikipedia.page.Section;
 
 public class EditSectionActivity extends Activity {
@@ -21,6 +24,10 @@ public class EditSectionActivity extends Activity {
     private String sectionWikitext;
 
     private EditText sectionText;
+    private View sectionProgress;
+    private View sectionContainer;
+    private View sectionError;
+    private Button sectionErrorRetry;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +45,22 @@ public class EditSectionActivity extends Activity {
         getActionBar().setTitle(getString(R.string.editsection_activity_title, section.getHeading()));
 
         sectionText = (EditText) findViewById(R.id.edit_section_text);
+        sectionProgress = findViewById(R.id.edit_section_load_progress);
+        sectionContainer = findViewById(R.id.edit_section_container);
+        sectionError = findViewById(R.id.edit_section_error);
+        sectionErrorRetry = (Button) findViewById(R.id.edit_section_error_retry);
 
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
             sectionWikitext = savedInstanceState.getString("sectionWikitext");
         }
+
+        sectionErrorRetry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.crossFade(sectionError, sectionProgress);
+                fetchSectionText();
+            }
+        });
 
         fetchSectionText();
     }
@@ -79,6 +98,15 @@ public class EditSectionActivity extends Activity {
                     sectionWikitext = result;
                     displaySectionText();
                 }
+
+                @Override
+                public void onCatch(Throwable caught) {
+                    Utils.crossFade(sectionProgress, sectionError);
+                    // Not sure why this is required, but without it tapping retry hides langLinksError
+                    // FIXME: INVESTIGATE WHY THIS HAPPENS!
+                    // Also happens in {@link PageViewFragment}
+                    sectionError.setVisibility(View.VISIBLE);
+                }
             }.execute();
         } else {
             displaySectionText();
@@ -87,6 +115,8 @@ public class EditSectionActivity extends Activity {
 
     private void displaySectionText() {
         sectionText.setText(sectionWikitext);
+        Utils.crossFade(sectionProgress, sectionContainer);
+        invalidateOptionsMenu();
     }
 
 }

@@ -3,11 +3,45 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <EditText
-            android:id="@+id/edit_section_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="monospace"
+    <ProgressBar
+            android:id="@+id/edit_section_load_progress"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
             />
+    <LinearLayout
+            android:id="@+id/edit_section_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:text="@string/error_network_error"
+                  style="?android:textAppearanceLarge"
+                />
+
+        <Button
+                android:id="@+id/edit_section_error_retry"
+                android:text="@string/edit_section_error_retry"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/edit_section_container"
+            android:visibility="gone"
+            android:layout_width="match_parent" android:layout_height="match_parent">
+        <EditText
+                android:id="@+id/edit_section_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="monospace"
+                android:gravity="top|left"
+                />
+    </LinearLayout>
 
 </FrameLayout>

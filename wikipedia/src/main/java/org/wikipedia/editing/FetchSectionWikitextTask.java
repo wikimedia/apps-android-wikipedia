@@ -45,11 +45,6 @@ public class FetchSectionWikitextTask extends ApiTask<String> {
                 .optJSONObject("pages");
         String pageId = (String) pagesJSON.keys().next();
 
-        if (!pagesJSON.optJSONObject(pageId).has("revisions")) {
-            // No links found
-            return "";
-        }
-
         JSONObject revisionJSON = pagesJSON.optJSONObject(pageId).optJSONArray("revisions").getJSONObject(0);
         return revisionJSON.optString("*");
     }
