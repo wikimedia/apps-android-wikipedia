@@ -42,7 +42,7 @@ public class EditSectionActivity extends Activity {
         title = getIntent().getParcelableExtra(EXTRA_TITLE);
         section = getIntent().getParcelableExtra(EXTRA_SECTION);
 
-        getActionBar().setTitle(getString(R.string.editsection_activity_title, section.getHeading()));
+        getActionBar().setTitle(getString(R.string.editsection_activity_title));
 
         sectionText = (EditText) findViewById(R.id.edit_section_text);
         sectionProgress = findViewById(R.id.edit_section_load_progress);
