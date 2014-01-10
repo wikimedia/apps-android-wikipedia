@@ -1,6 +1,7 @@
 package org.wikipedia.editing;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -65,13 +66,33 @@ public class EditSectionActivity extends Activity {
         fetchSectionText();
     }
 
+    private void doSave() {
+        final ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setIndeterminate(true);
+        dialog.setCancelable(false);
+        dialog.setMessage(getString(R.string.dialog_saving_in_progress));
+        new DoEditTask(this, title, sectionText.getText().toString(), section.getId()) {
+            @Override
+            public void onBeforeExecute() {
+                dialog.show();
+            }
+
+            @Override
+            public void onFinish(String result) {
+                dialog.hide();
+                finish();
+            }
+        }.execute();
+
+    }
+
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 return true;
             case R.id.menu_save_section:
-                Toast.makeText(this, "This will save things, eventually", Toast.LENGTH_LONG).show();
+                doSave();
                 return true;
             default:
                 throw new RuntimeException("WAT");
