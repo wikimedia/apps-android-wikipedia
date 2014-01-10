@@ -6,6 +6,9 @@
     }
 
     bridge.registerListener( "displayLeadSection", function( payload ) {
+        // This might be a refresh! Clear out all contents!
+        document.getElementById( "content" ).innerHTML = "";
+
         var title = document.createElement( "h1" );
         title.textContent = payload.title;
         document.getElementById( "content" ).appendChild( title );

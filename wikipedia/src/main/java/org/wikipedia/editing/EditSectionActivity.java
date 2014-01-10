@@ -12,6 +12,7 @@ import android.widget.Toast;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.Section;
 
 public class EditSectionActivity extends Activity {
@@ -80,6 +81,7 @@ public class EditSectionActivity extends Activity {
             @Override
             public void onFinish(String result) {
                 dialog.hide();
+                setResult(EditHandler.RESULT_REFRESH_PAGE);
                 finish();
             }
         }.execute();

@@ -1,11 +1,13 @@
 package org.wikipedia.page;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -113,7 +115,7 @@ public class PageViewFragment extends Fragment {
             }
             wrapper.putOpt("sectionHeadings", allSectionsPayload);
             bridge.sendMessage("displaySectionsList", wrapper);
-            editHandler = new EditHandler(getActivity(), bridge, page);
+            editHandler = new EditHandler(this, bridge, page);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -158,8 +160,8 @@ public class PageViewFragment extends Fragment {
         webView.getSettings().setDisplayZoomControls(false);
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
-        linkHandler = new LinkHandler(getActivity(), bridge, title.getSite());
         Utils.addUtilityMethodsToBridge(getActivity(), bridge);
+        linkHandler = new LinkHandler(getActivity(), bridge, title.getSite());
         app = (WikipediaApp)getActivity().getApplicationContext();
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 
@@ -181,6 +183,16 @@ public class PageViewFragment extends Fragment {
         new QuickReturnHandler(webView, getActivity().findViewById(quickReturnBarId));
 
         return parentView;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == EditHandler.RESULT_REFRESH_PAGE) {
+            Utils.crossFade(webView, loadProgress);
+            setState(STATE_NO_FETCH);
+            performActionForState(state);
+        }
     }
 
     private void performActionForState(int state) {
