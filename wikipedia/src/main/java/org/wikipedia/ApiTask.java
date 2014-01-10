@@ -17,8 +17,12 @@ abstract public class ApiTask<T> extends SaneAsyncTask<T> {
 
     @Override
     public T performTask() throws Throwable {
-        ApiResult result = buildRequest(api).get();
+        ApiResult result = makeRequest(buildRequest(api));
         return processResult(result);
+    }
+
+    protected ApiResult makeRequest(RequestBuilder builder) {
+        return builder.get();
     }
 
     abstract public RequestBuilder buildRequest(Api api);
