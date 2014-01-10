@@ -82,6 +82,7 @@ public class EditSectionActivity extends Activity {
             public void onFinish(String result) {
                 dialog.hide();
                 setResult(EditHandler.RESULT_REFRESH_PAGE);
+                Toast.makeText(EditSectionActivity.this, R.string.edit_saved_successfully, Toast.LENGTH_LONG).show();
                 finish();
             }
         }.execute();
