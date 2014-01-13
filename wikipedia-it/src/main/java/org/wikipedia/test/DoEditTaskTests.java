@@ -21,7 +21,7 @@ public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     public void testPageFetch() throws Throwable {
         startActivity(new Intent(), null, null);
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", new Site("test.wikipedia.org"));
-        final String wikitext = "== Section 2 ==\n\nEditing section test at " + System.currentTimeMillis();
+        final String wikitext = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at " + System.currentTimeMillis();
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override
