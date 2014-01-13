@@ -1,10 +1,14 @@
 package org.wikipedia;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.webkit.WebView;
+import com.github.kevinsawicki.http.HttpRequest;
+import com.squareup.okhttp.HttpResponseCache;
+import com.squareup.okhttp.OkHttpClient;
 import com.squareup.otto.Bus;
 import org.acra.ACRA;
 import org.acra.ReportingInteractionMode;
@@ -19,6 +23,11 @@ import org.wikipedia.pageimages.PageImagePersister;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.savedpages.SavedPagePerister;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.Proxy;
+import java.net.URL;
 import java.util.HashMap;
 
 @ReportsCrashes(
@@ -59,6 +68,8 @@ public class WikipediaApp extends Application {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
+
+        Api.setConnectionFactory(new OkHttpConnectionFactory(this));
     }
 
     public Bus getBus() {
