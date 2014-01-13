@@ -14,31 +14,46 @@
         document.getElementById( "content" ).appendChild( title );
 
         var content = document.createElement( "div" );
-        content.innerHTML = payload.leadSectionHTML;
+        content.innerHTML = payload.section.text;
         content.id = "#content_block_0";
         content = transforms.transform( "lead", content );
         document.getElementById( "content" ).appendChild( content );
     });
 
+    function elementsForSection( section ) {
+        var heading = document.createElement( "h2" );
+        heading.textContent = section.line;
+        heading.id = "heading_" + section.id;
+        heading.setAttribute( 'data-id', section.id );
+
+        var editButton = document.createElement( "a" );
+        editButton.setAttribute( 'data-id', section.id );
+        editButton.setAttribute( 'data-action', "edit_section" );
+        editButton.className = "edit_section_button";
+        heading.appendChild( editButton );
+
+        var content = document.createElement( "div" );
+        content.innerHTML = section.text;
+        content.id = "content_block_" + section.id;
+        content = transforms.transform( "body", content );
+
+        if ( section.subSections ) {
+            section.subSections.forEach( function ( subSection ) {
+                elementsForSection( subSection).forEach( function( element ) {
+                    content.appendChild( element );
+                } );
+            } );
+        }
+
+        return [ heading, content ];
+    }
+
     bridge.registerListener( "displaySectionsList", function( payload ) {
-        payload.sectionHeadings.forEach( function( section ) {
-            var heading = document.createElement( "h2" );
-            heading.textContent = section.heading;
-            heading.id = "#heading_" + section.id;
-            heading.setAttribute( 'data-id', section.id );
-            document.getElementById( "content" ).appendChild( heading );
-
-            var editButton = document.createElement( "a" );
-            editButton.setAttribute( 'data-id', section.id );
-            editButton.setAttribute( 'data-action', "edit_section" );
-            editButton.className = "edit_section_button";
-            heading.appendChild( editButton );
-
-            var content = document.createElement( "div" );
-            content.innerHTML = section.content;
-            content.id = "#content_block_" + section.id;
-            content = transforms.transform( "body", content );
-            document.getElementById( "content" ).appendChild( content );
+        var content_wrapper = document.getElementById( "content" );
+        payload.sections.forEach( function( section ) {
+            elementsForSection( section).forEach( function( element ) {
+                content_wrapper.appendChild( element );
+            });
         } );
     });
 

@@ -41,12 +41,7 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
 
         for (int i=0; i < sectionsJSON.length(); i++) {
             JSONObject sectionJSON = sectionsJSON.getJSONObject(i);
-            Section newSection = new Section(sectionJSON.optInt("id"),
-                    sectionJSON.optInt("toclevel", 1), // Assume all sections are 1st level if they don't have that info
-                    sectionJSON.optString("line", null),
-                    sectionJSON.optString("anchor", null),
-                    sectionJSON.optString("text")
-            );
+            Section newSection = new Section(sectionJSON);
             if (curSection == null || newSection.getLevel() <= curSection.getLevel())  {
                 curSection = newSection;
                 sections.add(newSection);

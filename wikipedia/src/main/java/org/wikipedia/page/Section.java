@@ -14,30 +14,40 @@ import java.util.List;
  * Represents a particular section of an article.
  */
 public class Section implements Parcelable {
-    private int id;
-    private int level;
-    private String heading;
-    private String anchor;
-    private String content;
+
+    private final JSONObject data;
 
     private ArrayList<Section> subSections = new ArrayList<Section>();
 
-    public Section(int id, int level, String heading, String anchor, String content) {
-        this.id = id;
-        this.level = level;
-        this.heading = heading;
-        this.anchor = anchor;
-        this.content = content;
+    public Section(JSONObject json) {
+        this.data = json;
+        if (data.has("subSections")) {
+            JSONArray subsectionsJSON = data.optJSONArray("subSections");
+            for (int i = 0; i < subsectionsJSON.length(); i++) {
+                subSections.add(new Section(subsectionsJSON.optJSONObject(i)));
+            }
+        }
     }
 
-    public Section(Parcel in) {
-        id = in.readInt();
-        level = in.readInt();
-        heading = in.readString();
-        anchor = in.readString();
-        content = in.readString();
+    // Use this only for tests and such.
+    public Section(int id, int level, String heading, String anchor, String content) {
+        try {
+            JSONObject obj = new JSONObject();
+            obj.put("id", id);
+            obj.put("toclevel", level);
+            obj.put("line", heading);
+            obj.put("anchor", anchor);
+            obj.put("text", content);
+            data = obj;
+        } catch (JSONException e) {
+            // This, also, will never happen. Very similar to Java being sane, some say.
+            throw new RuntimeException(e);
+        }
+    }
 
-        subSections = in.readArrayList(Section.class.getClassLoader());
+    // This won't actually throw
+    private Section(Parcel in) throws JSONException {
+        this(new JSONObject(in.readString()));
     }
 
     @Override
@@ -57,27 +67,27 @@ public class Section implements Parcelable {
     }
 
     public boolean isLead() {
-        return id == 0;
+        return getId() == 0;
     }
 
     public int getId() {
-        return id;
+        return data.optInt("id");
     }
 
     public int getLevel() {
-        return level;
+        return data.optInt("toclevel", 1);
     }
 
     public String getHeading() {
-        return heading;
+        return data.optString("line");
     }
 
     public String getAnchor() {
-        return anchor;
+        return data.optString("anchor");
     }
 
     public String getContent() {
-        return content;
+        return data.optString("text");
     }
 
     public void insertSection(Section subSection) {
@@ -88,54 +98,20 @@ public class Section implements Parcelable {
         return subSections;
     }
 
-    public String toHTML(boolean forceNoHeadings) {
-        StringBuilder builder = new StringBuilder();
-
-        if (!isLead() && !forceNoHeadings) {
-            int headingLevel = getLevel() + 1;
-            builder.append("<h").append(headingLevel).append(">")
-                    .append(getHeading())
-                    .append("</h").append(headingLevel).append(">");
-        }
-
-        builder.append(getContent());
-        for (Section s : subSections) {
-            builder.append(s.toHTML(false));
-        }
-
-        return builder.toString();
-    }
-
     public JSONObject toJSON() {
-        JSONObject json = new JSONObject();
+        // Always regenerate the subsections, since that's mutable.
+        JSONArray subSectionsJSON = new JSONArray();
+        for (Section s : getSubSections()) {
+            subSectionsJSON.put(s.toJSON());
+        }
+
         try {
-            json.putOpt("id", getId());
-            json.putOpt("level", getLevel());
-            json.putOpt("heading", getHeading());
-            json.putOpt("anchor", getAnchor());
-            json.putOpt("content", getContent());
-            JSONArray subsectionsJSON = new JSONArray();
-            for (Section section : getSubSections()) {
-                subsectionsJSON.put(section.toJSON());
-            }
-            json.putOpt("subsections", subsectionsJSON);
-            return json;
+            data.put("subSections", subSectionsJSON);
         } catch (JSONException e) {
-            // This will never happen. Java stinks.
+            // Won't happen
             throw new RuntimeException(e);
         }
-    }
-
-    public Section(JSONObject json) {
-        id = json.optInt("id");
-        level = json.optInt("level");
-        heading = json.optString("heading", null);
-        anchor = json.optString("anchor", null);
-        content = json.optString("content", null);
-        JSONArray subsectionsJSON = json.optJSONArray("subsections");
-        for (int i = 0; i < subsectionsJSON.length(); i++) {
-            subSections.add(new Section(subsectionsJSON.optJSONObject(i)));
-        }
+        return data;
     }
 
     @Override
@@ -145,18 +121,18 @@ public class Section implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeInt(getId());
-        parcel.writeInt(getLevel());
-        parcel.writeString(getHeading());
-        parcel.writeString(getAnchor());
-        parcel.writeString(getContent());
-        parcel.writeList(subSections);
+        parcel.writeString(toJSON().toString());
     }
 
     public static final Parcelable.Creator<Section> CREATOR
             = new Parcelable.Creator<Section>() {
         public Section createFromParcel(Parcel in) {
-            return new Section(in);
+            try {
+                return new Section(in);
+            } catch (JSONException e) {
+                // This won't happen
+                throw new RuntimeException(e);
+            }
         }
 
         public Section[] newArray(int size) {

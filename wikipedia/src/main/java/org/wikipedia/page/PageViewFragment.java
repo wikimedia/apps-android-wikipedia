@@ -84,7 +84,7 @@ public class PageViewFragment extends Fragment {
         JSONObject leadSectionPayload = new JSONObject();
         try {
             leadSectionPayload.put("title", page.getTitle().getDisplayText());
-            leadSectionPayload.put("leadSectionHTML", page.getSections().get(0).toHTML(true));
+            leadSectionPayload.put("section", page.getSections().get(0).toJSON());
 
             bridge.sendMessage("displayLeadSection", leadSectionPayload);
 
@@ -106,14 +106,10 @@ public class PageViewFragment extends Fragment {
         try {
             JSONObject wrapper = new JSONObject();
             JSONArray allSectionsPayload = new JSONArray();
-            for (int i=1; i < page.getSections().size(); i++) {
-                JSONObject sectionPayload = new JSONObject();
-                sectionPayload.putOpt("id", page.getSections().get(i).getId());
-                sectionPayload.putOpt("heading", page.getSections().get(i).getHeading());
-                sectionPayload.putOpt("content", page.getSections().get(i).toHTML(true));
-                allSectionsPayload.put(sectionPayload);
+            for (int i = 1; i < page.getSections().size(); i++) {
+                allSectionsPayload.put(page.getSections().get(i).toJSON());
             }
-            wrapper.putOpt("sectionHeadings", allSectionsPayload);
+            wrapper.putOpt("sections", allSectionsPayload);
             bridge.sendMessage("displaySectionsList", wrapper);
             editHandler = new EditHandler(this, bridge, page);
         } catch (JSONException e) {
