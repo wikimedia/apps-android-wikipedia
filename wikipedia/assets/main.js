@@ -18,6 +18,8 @@
         content.id = "#content_block_0";
         content = transforms.transform( "lead", content );
         document.getElementById( "content" ).appendChild( content );
+
+        document.getElementById( "loading_sections").className = "loading";
     });
 
     function elementsForSection( section ) {
@@ -56,6 +58,8 @@
         });
         if ( !payload.isLast ) {
             bridge.sendMessage( "requestSection", { index: payload.index + 1 } );
+        } else {
+            document.getElementById( "loading_sections").className = "";
         }
     });
 
