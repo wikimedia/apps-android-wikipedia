@@ -102,19 +102,26 @@ public class PageViewFragment extends Fragment {
         Utils.crossFade(loadProgress, webView);
     }
 
-    private void populateNonLeadSections(Page page) {
-        try {
-            JSONObject wrapper = new JSONObject();
-            JSONArray allSectionsPayload = new JSONArray();
-            for (int i = 1; i < page.getSections().size(); i++) {
-                allSectionsPayload.put(page.getSections().get(i).toJSON());
+    private void populateNonLeadSections(final Page page) {
+        bridge.addListener("requestSection", new CommunicationBridge.JSEventListener() {
+            @Override
+            public JSONObject onMessage(String messageType, JSONObject messagePayload) {
+                try {
+                    int index = messagePayload.optInt("index");
+                    JSONObject wrapper = new JSONObject();
+                    wrapper.put("section", page.getSections().get(index).toJSON());
+                    wrapper.put("index", index);
+                    wrapper.put("isLast", index == page.getSections().size() - 1);
+                    bridge.sendMessage("displaySection", wrapper);
+                    return null;
+                } catch (JSONException e) {
+                    // Won't happen
+                    throw new RuntimeException(e);
+                }
             }
-            wrapper.putOpt("sections", allSectionsPayload);
-            bridge.sendMessage("displaySectionsList", wrapper);
-            editHandler = new EditHandler(this, bridge, page);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+        });
+        editHandler = new EditHandler(this, bridge, page);
+        bridge.sendMessage("startSectionsDisplay", new JSONObject());
     }
 
     @Override

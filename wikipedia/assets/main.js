@@ -48,13 +48,19 @@
         return [ heading, content ];
     }
 
-    bridge.registerListener( "displaySectionsList", function( payload ) {
+    bridge.registerListener( "displaySection", function ( payload ) {
         var content_wrapper = document.getElementById( "content" );
-        payload.sections.forEach( function( section ) {
-            elementsForSection( section).forEach( function( element ) {
-                content_wrapper.appendChild( element );
-            });
-        } );
+
+        elementsForSection( payload.section ).forEach( function( element ) {
+            content_wrapper.appendChild( element );
+        });
+        if ( !payload.isLast ) {
+            bridge.sendMessage( "requestSection", { index: payload.index + 1 } );
+        }
+    });
+
+    bridge.registerListener( "startSectionsDisplay", function( payload ) {
+        bridge.sendMessage( "requestSection", { index: 1 } );
     });
 
     bridge.registerListener( "displayAttribution", function( payload ) {
