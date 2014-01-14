@@ -31,10 +31,12 @@ public class CommunicationBridge {
         this.marshaller = new BridgeMarshaller();
 
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(baseURL);
 
         webView.setWebChromeClient(new CommunicatingChrome());
         webView.addJavascriptInterface(marshaller, "marshaller");
+
+        webView.loadUrl(baseURL);
+
         eventListeners = new HashMap<String, ArrayList<JSEventListener>>();
         this.addListener("DOMLoaded", new JSEventListener() {
             @Override
