@@ -3,6 +3,8 @@ package org.wikipedia;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.regex.*;
 
 /**
@@ -77,9 +79,14 @@ public class Site implements Parcelable {
         //TODO: Handle fragments better!
         Matcher matches = internalLinkMatchPattern.matcher(internalLink);
         if (matches.matches()) {
-            String namespace = matches.group(1);
-            String pageText = matches.group(2);
-            return new PageTitle(namespace, pageText, this);
+            try {
+                String namespace = matches.group(1) != null ? URLDecoder.decode(matches.group(1), "utf-8") : null;
+                String pageText = URLDecoder.decode(matches.group(2), "utf-8");
+                return new PageTitle(namespace, pageText, this);
+            } catch (UnsupportedEncodingException e) {
+                // NOT HAPPENING! JESUS CHRIST JAVA!
+                throw new RuntimeException(e);
+            }
         } else {
             throw new RuntimeException("Did not  match internalLinkPattern: " + internalLink);
         }
