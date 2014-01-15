@@ -1,14 +1,18 @@
 package org.wikipedia.editing;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.github.kevinsawicki.http.HttpRequest;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
@@ -68,19 +72,45 @@ public class EditSectionActivity extends Activity {
     }
 
     private void doSave() {
-        final ProgressDialog dialog = new ProgressDialog(this);
-        dialog.setIndeterminate(true);
-        dialog.setCancelable(false);
-        dialog.setMessage(getString(R.string.dialog_saving_in_progress));
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage(getString(R.string.dialog_saving_in_progress));
         new DoEditTask(this, title, sectionText.getText().toString(), section.getId()) {
             @Override
             public void onBeforeExecute() {
-                dialog.show();
+                progressDialog.show();
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                if (!(caught instanceof HttpRequest.HttpRequestException)) {
+                    throw new RuntimeException(caught);
+                }
+                Log.d("Wikipedia", caught.toString());
+                final AlertDialog retryDialog = new AlertDialog.Builder(EditSectionActivity.this)
+                        .setMessage(R.string.dialog_message_edit_failed)
+                        .setPositiveButton(R.string.dialog_message_edit_failed_retry, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                doSave();
+                                dialog.dismiss();
+                                progressDialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton(R.string.dialog_message_edit_failed_cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                progressDialog.dismiss();
+                            }
+                        }).create();
+                retryDialog.show();
             }
 
             @Override
             public void onFinish(String result) {
-                dialog.hide();
+                progressDialog.hide();
                 setResult(EditHandler.RESULT_REFRESH_PAGE);
                 Toast.makeText(EditSectionActivity.this, R.string.edit_saved_successfully, Toast.LENGTH_LONG).show();
                 finish();

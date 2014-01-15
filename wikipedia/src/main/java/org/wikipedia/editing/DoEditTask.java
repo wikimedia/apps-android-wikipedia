@@ -47,9 +47,10 @@ public class DoEditTask extends ApiTask<String> {
     public String processResult(ApiResult result) throws Throwable {
         JSONObject resultJSON = result.asObject();
         Log.d("Wikipedia", resultJSON.toString(4));
-        if (resultJSON.has("edit")) {
-            return resultJSON.optJSONObject("edit").optString("result");
+        if (resultJSON.has("error")) {
+            JSONObject errorJSON = resultJSON.optJSONObject("error");
+            throw new EditingException(errorJSON.optString("code"), errorJSON.optString("info"));
         }
-        throw new RuntimeException("Edit failed. Handle all cases, will you?");
+        return resultJSON.optJSONObject("edit").optString("result");
     }
 }

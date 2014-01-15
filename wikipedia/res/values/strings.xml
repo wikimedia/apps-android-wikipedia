@@ -48,4 +48,7 @@
     <string name="edit_section_error_retry">Retry</string>
     <string name="dialog_saving_in_progress">Saving...</string>
     <string name="edit_saved_successfully">Edit saved!</string>
+    <string name="dialog_message_edit_failed">Edit failed!</string>
+    <string name="dialog_message_edit_failed_retry">Retry</string>
+    <string name="dialog_message_edit_failed_cancel">Cancel</string>
 </resources>
