@@ -23,7 +23,7 @@
     });
 
     function elementsForSection( section ) {
-        var heading = document.createElement( "h2" );
+        var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
         heading.textContent = section.line;
         heading.id = "heading_" + section.id;
         heading.setAttribute( 'data-id', section.id );
@@ -38,14 +38,6 @@
         content.innerHTML = section.text;
         content.id = "content_block_" + section.id;
         content = transforms.transform( "body", content );
-
-        if ( section.subSections ) {
-            section.subSections.forEach( function ( subSection ) {
-                elementsForSection( subSection).forEach( function( element ) {
-                    content.appendChild( element );
-                } );
-            } );
-        }
 
         return [ heading, content ];
     }

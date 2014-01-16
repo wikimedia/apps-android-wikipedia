@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -228,7 +229,7 @@ public class PageViewFragment extends Fragment {
 
     private class LeadSectionFetchTask extends SectionsFetchTask {
         public LeadSectionFetchTask() {
-            super(api, title, "0");
+            super(getActivity(), title, "0");
         }
 
         @Override
@@ -242,6 +243,7 @@ public class PageViewFragment extends Fragment {
 
         @Override
         public List<Section> processResult(ApiResult result) throws Throwable {
+            Log.d("Wikipedia", result.asObject().toString(4));
             pageProperties = new PageProperties(Utils.parseMWDate(result.asObject().optJSONObject("mobileview").optString("lastmodified")));
             return super.processResult(result);
         }
@@ -275,7 +277,7 @@ public class PageViewFragment extends Fragment {
 
     private class RestSectionsFetchTask extends SectionsFetchTask {
         public RestSectionsFetchTask() {
-            super(api, title, "1-");
+            super(getActivity(), title, "1-");
         }
 
         @Override

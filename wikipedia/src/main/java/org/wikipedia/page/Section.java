@@ -17,16 +17,8 @@ public class Section implements Parcelable {
 
     private final JSONObject data;
 
-    private ArrayList<Section> subSections = new ArrayList<Section>();
-
     public Section(JSONObject json) {
         this.data = json;
-        if (data.has("subSections")) {
-            JSONArray subsectionsJSON = data.optJSONArray("subSections");
-            for (int i = 0; i < subsectionsJSON.length(); i++) {
-                subSections.add(new Section(subsectionsJSON.optJSONObject(i)));
-            }
-        }
     }
 
     // Use this only for tests and such.
@@ -61,8 +53,7 @@ public class Section implements Parcelable {
                 && getLevel() == other.getLevel()
                 && Utils.compareStrings(getHeading(), other.getHeading())
                 && Utils.compareStrings(getAnchor(), other.getAnchor())
-                && Utils.compareStrings(getContent(), other.getContent())
-                && getSubSections().equals(other.getSubSections());
+                && Utils.compareStrings(getContent(), other.getContent());
 
     }
 
@@ -90,27 +81,7 @@ public class Section implements Parcelable {
         return data.optString("text");
     }
 
-    public void insertSection(Section subSection) {
-        subSections.add(subSection);
-    }
-
-    public ArrayList<Section> getSubSections() {
-        return subSections;
-    }
-
     public JSONObject toJSON() {
-        // Always regenerate the subsections, since that's mutable.
-        JSONArray subSectionsJSON = new JSONArray();
-        for (Section s : getSubSections()) {
-            subSectionsJSON.put(s.toJSON());
-        }
-
-        try {
-            data.put("subSections", subSectionsJSON);
-        } catch (JSONException e) {
-            // Won't happen
-            throw new RuntimeException(e);
-        }
         return data;
     }
 
@@ -141,21 +112,6 @@ public class Section implements Parcelable {
     };
 
     public static Section findSectionForID(List<Section> sections, int id) {
-        // We could use binary search here, but meh. Fast enough.
-        for (int i = 0; i < sections.size(); i++) {
-            Section curSection = sections.get(i);
-            if (curSection.getId() == id) {
-                return curSection;
-            }
-            if (i + 1 < sections.size()) {
-                Section nextSection = sections.get(i + 1);
-                if (id < nextSection.getId() && id > curSection.getId()) {
-                    return findSectionForID(curSection.getSubSections(), id);
-                }
-            } else {
-                return findSectionForID(curSection.getSubSections(), id);
-            }
-        }
-        throw new RuntimeException("We can't find that section with id " + id + " AND THIS IS NOT SUPPOSED TO HAPPEN");
+        return sections.get(id);
     }
 }

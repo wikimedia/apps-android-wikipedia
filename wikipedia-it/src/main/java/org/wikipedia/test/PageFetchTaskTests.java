@@ -14,38 +14,21 @@ import java.util.concurrent.TimeUnit;
 public class PageFetchTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;
 
-    private Api enwikiAPI;
-    private Site enwiki;
-
     public PageFetchTaskTests() {
         super(TestDummyActivity.class);
     }
 
-    @Override
-    public void setUp() throws Exception {
-        super.setUp();
-        enwiki = new Site("en.wikipedia.org");
-        enwikiAPI = new Api("en.wikipedia.org");
-
-        startActivity(new Intent(), null, null);
-    }
-
     public void testPageFetch() throws Throwable {
         final CountDownLatch completionLatch = new CountDownLatch(1);
+        startActivity(new Intent(), null, null);
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new SectionsFetchTask(enwikiAPI, new PageTitle(null, "India", enwiki), "all") {
+                new SectionsFetchTask(getInstrumentation().getTargetContext(), new PageTitle(null, "Test_page_for_app_testing/Section1", new Site("test.wikipedia.org")), "all") {
                     @Override
                     public void onFinish(List<Section> result) {
                         assertNotNull(result);
-                        // FIXME: SUPER FLAKY TEST BELOW! 16 is count of first level sections + 1 in en:India article!
-                        assertEquals(16, result.size());
-                        assertEquals(4, result.get(2).getSubSections().size());
-                        assertEquals(result.get(1), Section.findSectionForID(result, 1));
-                        assertEquals(result.get(2).getSubSections().get(0), Section.findSectionForID(result, 3));
-                        assertEquals(result.get(result.size() - 1), Section.findSectionForID(result, 28));
-                        assertEquals(result.get(10).getSubSections().get(6), Section.findSectionForID(result, 23));
+                        assertEquals(4, result.size());
                         completionLatch.countDown();
                     }
                 }.execute();
