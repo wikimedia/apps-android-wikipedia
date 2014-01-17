@@ -51,4 +51,5 @@
     <string name="dialog_message_edit_failed">Edit failed!</string>
     <string name="dialog_message_edit_failed_retry">Retry</string>
     <string name="dialog_message_edit_failed_cancel">Cancel</string>
+    <string name="menu_show_toc">Table of Contents</string>
 </resources>

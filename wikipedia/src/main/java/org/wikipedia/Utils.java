@@ -39,21 +39,37 @@ public class Utils {
      * @param newView The new view that should be faded in
      */
     public static void crossFade(final View curView, final View newView) {
-        newView.setAlpha(0f);
-        newView.setVisibility(View.VISIBLE);
-        newView.animate()
+        fadeIn(newView);
+        fadeOut(curView);
+    }
+
+    /**
+     * Fades in a view.
+     * @param view The currently invisible view to be faded in
+     */
+    public static void fadeIn(final View view) {
+        view.setAlpha(0f);
+        view.setVisibility(View.VISIBLE);
+        view.animate()
                 .alpha(1.0f)
                 .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
-                .setListener(null);
+                .setListener(null)
+                .start();
+    }
 
-        curView.animate()
+    /**
+     * Fades out a view.
+     * @param view The currently visible view to be faded out
+     */
+    public static void fadeOut(final View view) {
+        view.animate()
                 .alpha(0f)
                 .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        curView.setVisibility(View.GONE);
-                        curView.setAlpha(1.0f);
+                        view.setVisibility(View.GONE);
+                        view.setAlpha(1.0f);
                     }
                 });
     }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import org.json.JSONArray;
@@ -50,6 +51,8 @@ public class PageViewFragment extends Fragment {
     private View networkError;
     private View retryButton;
 
+    private ListView tocList;
+
     private Page page;
     private HistoryEntry curEntry;
 
@@ -62,6 +65,8 @@ public class PageViewFragment extends Fragment {
 
     private int scrollY;
     private int quickReturnBarId;
+
+    private View quickReturnBar;
 
     // Pass in the id rather than the View object itself for the quickReturn bar, to help it survive rotates
     public PageViewFragment(PageTitle title, HistoryEntry historyEntry, int quickReturnBarId) {
@@ -144,6 +149,8 @@ public class PageViewFragment extends Fragment {
         loadProgress = (ProgressBar) parentView.findViewById(R.id.page_load_progress);
         networkError = parentView.findViewById(R.id.page_error);
         retryButton = parentView.findViewById(R.id.page_error_retry);
+        tocList = (ListView) parentView.findViewById(R.id.page_toc_list);
+        quickReturnBar = getActivity().findViewById(quickReturnBarId);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {
             title = savedInstanceState.getParcelable(KEY_TITLE);
@@ -184,7 +191,7 @@ public class PageViewFragment extends Fragment {
             performActionForState(state);
         }
 
-        new QuickReturnHandler(webView, getActivity().findViewById(quickReturnBarId));
+        new QuickReturnHandler(webView, quickReturnBar);
 
         return parentView;
     }
@@ -316,5 +323,21 @@ public class PageViewFragment extends Fragment {
                 Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
             }
         }.execute();
+    }
+
+    private ToCHandler tocHandler;
+    public void showToC() {
+        if (tocHandler == null) {
+            tocHandler = new ToCHandler(tocList, page, quickReturnBar, bridge);
+        }
+        tocHandler.show();
+    }
+
+    public boolean handleBackPressed() {
+        if (tocHandler != null && tocHandler.isVisible()) {
+            tocHandler.hide();
+            return true;
+        }
+        return false;
     }
 }

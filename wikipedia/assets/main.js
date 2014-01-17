@@ -11,6 +11,7 @@
 
         var title = document.createElement( "h1" );
         title.textContent = payload.title;
+        title.id = "heading_" + payload.section.id;
         document.getElementById( "content" ).appendChild( title );
 
         var content = document.createElement( "div" );
@@ -75,6 +76,13 @@
         }
         bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
     } );
+
+    bridge.registerListener( "scrollToSection", function ( payload ) {
+        // The 52 is for dealing with the search header
+        var scrollY = document.getElementById( "heading_" + payload.sectionID).offsetTop - 52;
+        window.scrollTo(0, scrollY);
+    });
+
 
     var actionHandlers = {
         "edit_section": function( el, event ) {

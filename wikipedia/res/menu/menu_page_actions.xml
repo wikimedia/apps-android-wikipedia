@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item android:id="@+id/menu_show_toc"
+          android:title="@string/menu_show_toc"
+          android:enabled="false"
+          android:showAsAction="always"
+          />
     <item android:id="@+id/menu_other_languages"
           android:title="@string/menu_other_languages"
           android:enabled="false"

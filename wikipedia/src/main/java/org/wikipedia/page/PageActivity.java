@@ -94,9 +94,14 @@ public class PageActivity extends FragmentActivity {
         startActivity(shareIntent);
     }
 
+    @Subscribe
+    public void onShowToCEvent(ShowToCEvent event) {
+        curPageFragment.showToC();
+    }
     @Override
     public void onBackPressed() {
-        if (!searchAriclesFragment.handleBackPressed()) {
+        if ((curPageFragment != null && !curPageFragment.handleBackPressed())
+                || searchAriclesFragment.handleBackPressed()) {
             if (getSupportFragmentManager().getBackStackEntryCount() <= 1) {
                 // Everything we could pop has been popped....
                 finish();
