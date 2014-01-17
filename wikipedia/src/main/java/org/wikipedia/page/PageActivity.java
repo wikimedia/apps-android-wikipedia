@@ -1,6 +1,8 @@
 package org.wikipedia.page;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +13,7 @@ import org.wikipedia.*;
 import org.wikipedia.events.*;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
+import org.wikipedia.networking.ConnectionChangeReceiver;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
 
@@ -26,6 +29,8 @@ public class PageActivity extends ActionBarActivity {
     private DrawerLayout drawerLayout;
 
     private PageViewFragment curPageFragment;
+
+    private ConnectionChangeReceiver connChangeReceiver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,12 @@ public class PageActivity extends ActionBarActivity {
         }
 
         searchAriclesFragment.setDrawerLayout(drawerLayout);
+
+        IntentFilter connFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        connChangeReceiver = new ConnectionChangeReceiver();
+        this.registerReceiver(connChangeReceiver, connFilter);
+        // Kickstart network ops. currently, just to initiate Wikipedia Zero check
+        connChangeReceiver.onReceive(app, intent);
 
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(this).run();
@@ -126,5 +137,13 @@ public class PageActivity extends ActionBarActivity {
         super.onStop();
         bus.unregister(this);
         bus = null;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (connChangeReceiver != null) {
+            this.unregisterReceiver(connChangeReceiver);
+        }
     }
 }

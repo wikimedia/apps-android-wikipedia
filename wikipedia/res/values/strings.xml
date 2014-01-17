@@ -67,4 +67,6 @@
     <string name="menu_login">Log in</string>
     <string name="login_activity_title">Login to Wikipedia</string>
     <string name="login_in_progress_dialog_message">Logging you in...</string>
+    <string name="zero_free_verbiage">Wikipedia Zero On (No Data Charges)</string>
+    <string name="zero_charged_verbiage">Wikipedia Zero OFF (STANDARD DATA CHARGES MAY APPLY)</string>
 </resources>
