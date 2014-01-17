@@ -34,6 +34,7 @@ public class SearchArticlesFragment extends Fragment {
     private ListView searchResultsList;
     private ProgressBar searchProgress;
     private View searchNetworkError;
+    private View searchNoResults;
     private View searchBarMenuButton;
     private View drawerIndicator;
 
@@ -59,15 +60,11 @@ public class SearchArticlesFragment extends Fragment {
     private void displayResults(List<PageTitle> results) {
         adapter.setResults(results);
         ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
-        if (adapter.getCount() == 0) {
+        if (results == null) {
             searchResultsList.setVisibility(View.GONE);
             isSearchActive = false;
-            // Stupid android, making me hide the keyboard manually
-            InputMethodManager inputManager = (InputMethodManager)
-                    getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
-                    InputMethodManager.HIDE_NOT_ALWAYS);
-            getActivity().getCurrentFocus().clearFocus();
+        } else if (results.size() == 0) {
+            searchNoResults.setVisibility(View.VISIBLE);
         } else {
             searchResultsList.setVisibility(View.VISIBLE);
             PageImagesTask imagesTask = new PageImagesTask(
@@ -115,6 +112,7 @@ public class SearchArticlesFragment extends Fragment {
         searchNetworkError = parentLayout.findViewById(R.id.search_network_error);
         searchBarMenuButton = parentLayout.findViewById(R.id.search_bar_show_menu);
         drawerIndicator = parentLayout.findViewById(R.id.search_drawer_indicator);
+        searchNoResults = parentLayout.findViewById(R.id.search_results_empty);
 
         PopupMenu pageActionsMenu = new PopupMenu(getActivity(), searchBarMenuButton);
         PageActionsHandler pageActionsHandler = new PageActionsHandler(app.getBus(), pageActionsMenu, searchBarMenuButton);
@@ -129,7 +127,7 @@ public class SearchArticlesFragment extends Fragment {
                         searchProgress.setVisibility(View.GONE);
                         searchNetworkError.setVisibility(View.GONE);
                         displayResults(result);
-                       searchResultsCache.put(app.getPrimaryLanguage() + "-" + searchTerm, result);
+                        searchResultsCache.put(app.getPrimaryLanguage() + "-" + searchTerm, result);
                         lastSearchedText = searchTerm;
                         curSearchTask = null;
                     }
@@ -193,6 +191,7 @@ public class SearchArticlesFragment extends Fragment {
 
             @Override
             public void afterTextChanged(final Editable s) {
+                searchNoResults.setVisibility(View.GONE);
                 startSearch(s.toString());
             }
         });

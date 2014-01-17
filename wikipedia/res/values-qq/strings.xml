@@ -46,4 +46,5 @@
     <string name="dialog_message_edit_failed_retry">Button text to retry a failed edit save</string>
     <string name="dialog_message_edit_failed_cancel">Button text to cancel retrying a failed edit save</string>
     <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article</string>
+    <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>
 </resources>
