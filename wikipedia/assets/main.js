@@ -78,8 +78,10 @@
     } );
 
     bridge.registerListener( "scrollToSection", function ( payload ) {
-        // The 52 is for dealing with the search header
-        var scrollY = document.getElementById( "heading_" + payload.sectionID).offsetTop - 52;
+        var el = document.getElementById( "heading_" + payload.sectionID);
+        // Make sure there's exactly as much space on the left as on the top.
+        // The 48 accounts for the search bar
+        var scrollY = el.offsetTop - 48 - el.offsetLeft;
         window.scrollTo(0, scrollY);
     });
 
