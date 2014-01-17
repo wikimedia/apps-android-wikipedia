@@ -24,7 +24,7 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
 
     @Override
     public RequestBuilder buildRequest(Api api) {
-        return api.action("opensearch").param("search", prefix).param("limit", "5");
+        return api.action("opensearch").param("search", prefix).param("limit", "12");
     }
 
     @Override
