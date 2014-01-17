@@ -79,7 +79,7 @@ public class WikipediaApp extends Application {
     private HashMap<String, Api> apis = new HashMap<String, Api>();
     public Api getAPIForSite(Site site) {
         if (!apis.containsKey(site.getDomain()))  {
-            apis.put(site.getDomain(), new Api(site.getDomain()));
+            apis.put(site.getDomain(), new Api(site.getApiDomain()));
         }
         return apis.get(site.getDomain());
     }

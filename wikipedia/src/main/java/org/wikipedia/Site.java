@@ -14,11 +14,11 @@ public class Site implements Parcelable {
     private final String domain;
 
     public Site(String domain) {
-        this.domain = normalizeDomainName(domain);
+        this.domain = domain;
     }
 
-    protected String normalizeDomainName(String domain) {
-        return domain.replace(".m.", ".");
+    protected String getApiDomain() {
+        return domain.replaceFirst("\\.", ".m.");
     }
 
     public Site(Parcel in) {
