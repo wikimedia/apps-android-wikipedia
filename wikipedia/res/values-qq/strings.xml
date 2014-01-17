@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Name of the application</string>
+
+    <string name="yes">Affirmative answer to a dialog box</string>
+    <string name="no">Negative answer to a dialog box</string>
+
+    <string name="search_hint">Placeholder text for the search textbox</string>
+    <string name="history_activity_title">Title for the screen that shows history of articles you have read</string>
+    <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen</string>
+    <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
+    <string name="search_network_error">Error message shown when network cannot be reached when searching. Tapping the message retries the search.</string>
+    <string name="page_error_retry">Text for button that retries page loading when tapped</string>
+    <string name="menu_clear_all_history">Menu item text for clearing your reading history</string>
+
+    <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history</string>
+    <string name="dialog_message_clear_history">Message for dialog box asking if you want to clear your reading history</string>
+    <string name="saved_pages_activity_title">Title for screen that shows list of locally saved pages</string>
+    <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the Saved Pages screen</string>
+    <string name="menu_save_page">Menu item text for saving the currently active page</string>
+    <string name="menu_share_page">Menu item text for sharing the currently active page</string>
+    <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your saved pages</string>
+    <string name="dialog_message_clear_saved_pages">Message for dialog box asking if you want to clear all your saved pages</string>
+    <string name="toast_saving_page">Small toast (popup) message saying that a page is being saved</string>
+    <string name="toast_saved_page">Small toast (popup) message saying that a page has been saved</string>
+    <string name="toast_save_page_failed">Small toast (popup) message saying that a page has failed to save</string>
+    <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected saved pages</string>
+    <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected saved pages have been deleted</string>
+
+    <string name="last_updated_text">Message in footer of article indicating when the article was last updated. Parameter 1 refers to appropriately formatted timestamp</string>
+    <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page </string>
+    <string name="preference_title_language">Title for preference in settings screen for setting which language wikipedia to use</string>
+    <string name="nav_item_preferences">Text in navigation sidebar that when tapped leads to the Settings screen</string>
+    <string name="preference_languages_filter_hint">Placeholder text for the textbox that when typed filters list of language wikipedias from which user can pick a language to use</string>
+    <string name="langlinks_filter_hint">Search</string>
+    <string name="menu_other_languages">Menu item for showing list of languages in which this article is available</string>
+    <string name="langlinks_error_retry">Text for button that when tapped retries fetching the list of languages in which the current article is available</string>
+    <string name="langlinks_empty">Message shown when the user requested a list of languages in which the current article is available, but the current article is not available in any other language</string>
+    <string name="settings_activity_title">Title for settings screen</string>
+    <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in</string>
+    <string name="editsection_activity_title">Title for screen where user is editing a single section</string>
+    <string name="edit_section_error_retry">Text for button that retries page loading when tapped</string>
+    <string name="dialog_saving_in_progress">Text for progress dialog shown when an edit save is in progress</string>
+    <string name="edit_saved_successfully">Small toast (popup) message saying that the edit was successful</string>
+    <string name="dialog_message_edit_failed">Message for dialog box specifying that an edit save had failed</string>
+    <string name="dialog_message_edit_failed_retry">Button text to retry a failed edit save</string>
+    <string name="dialog_message_edit_failed_cancel">Button text to cancel retrying a failed edit save</string>
+    <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article</string>
+</resources>
