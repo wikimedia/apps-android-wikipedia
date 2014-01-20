@@ -1,24 +1,25 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 function Bridge() {
-    this.eventHandlers = {};
 }
 
-// This is called directly from Java, and hence needs to be available
-Bridge.prototype.handleMessage = function( type, msgPointer ) {
+var eventHandlers = {};
+
+// This is called directly from Java
+window.handleMessage = function( type, msgPointer ) {
     var that = this;
     var payload = JSON.parse( marshaller.getPayload( msgPointer ) );
-    if ( this.eventHandlers.hasOwnProperty( type ) ) {
-        this.eventHandlers[type].forEach( function( callback ) {
+    if ( eventHandlers.hasOwnProperty( type ) ) {
+        eventHandlers[type].forEach( function( callback ) {
             callback.call( that, payload );
         } );
     }
 };
 
 Bridge.prototype.registerListener = function( messageType, callback ) {
-    if ( this.eventHandlers.hasOwnProperty( messageType ) ) {
-        this.eventHandlers[messageType].push( callback );
+    if ( eventHandlers.hasOwnProperty( messageType ) ) {
+        eventHandlers[messageType].push( callback );
     } else {
-        this.eventHandlers[messageType] = [ callback ];
+        eventHandlers[messageType] = [ callback ];
     }
 };
 
@@ -38,8 +39,6 @@ window.onload = function() {
 },{}],2:[function(require,module,exports){
 var bridge = require("./bridge");
 var transforms = require("./transforms");
-
-window.bridge = bridge;
 
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!

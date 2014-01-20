@@ -1,8 +1,6 @@
 var bridge = require("./bridge");
 var transforms = require("./transforms");
 
-window.bridge = bridge;
-
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!
     document.getElementById( "content" ).innerHTML = "";

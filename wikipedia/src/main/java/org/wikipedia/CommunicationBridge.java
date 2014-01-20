@@ -68,7 +68,7 @@ public class CommunicationBridge {
         String messagePointer =  marshaller.putPayload(messageData.toString());
 
         StringBuilder jsString = new StringBuilder();
-        jsString.append("javascript:bridge.handleMessage( ")
+        jsString.append("javascript:handleMessage( ")
                 .append("\"").append(messageName).append("\", \"")
                 .append(messagePointer)
                 .append("\" );");
