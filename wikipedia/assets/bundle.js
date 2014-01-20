@@ -24,7 +24,7 @@ Bridge.prototype.registerListener = function( messageType, callback ) {
 
 Bridge.prototype.sendMessage = function( messageType, payload ) {
     var messagePack = { type: messageType, payload: payload };
-    var ret = prompt( JSON.stringify( messagePack) );
+    var ret = window.prompt( JSON.stringify( messagePack) );
     if ( ret ) {
         return JSON.parse( ret );
     }
@@ -34,18 +34,12 @@ module.exports = new Bridge();
 // FIXME: Move this to somwehere else, eh?
 window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
-}
+};
 },{}],2:[function(require,module,exports){
 var bridge = require("./bridge");
 var transforms = require("./transforms");
 
 window.bridge = bridge;
-
-function forEach( list, fun ) {
-    // Hack from https://developer.mozilla.org/en-US/docs/Web/API/NodeList#Workarounds
-    // To let me use forEach on things like NodeList objects
-    Array.prototype.forEach.call( list, fun );
-}
 
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!
@@ -86,10 +80,10 @@ function elementsForSection( section ) {
 }
 
 bridge.registerListener( "displaySection", function ( payload ) {
-    var content_wrapper = document.getElementById( "content" );
+    var contentWrapper = document.getElementById( "content" );
 
     elementsForSection( payload.section ).forEach( function( element ) {
-        content_wrapper.appendChild( element );
+        contentWrapper.appendChild( element );
     });
     if ( !payload.isLast ) {
         bridge.sendMessage( "requestSection", { index: payload.index + 1 } );
@@ -98,7 +92,7 @@ bridge.registerListener( "displaySection", function ( payload ) {
     }
 });
 
-bridge.registerListener( "startSectionsDisplay", function( payload ) {
+bridge.registerListener( "startSectionsDisplay", function() {
     bridge.sendMessage( "requestSection", { index: 1 } );
 });
 
@@ -110,7 +104,7 @@ bridge.registerListener( "displayAttribution", function( payload ) {
     licenseText.innerHTML = payload.licenseHTML;
 });
 
-bridge.registerListener( "requestImagesList", function ( payload ) {
+bridge.registerListener( "requestImagesList", function () {
     var imageURLs = [];
     var images = document.querySelectorAll( "img" );
     for ( var i = 0; i < images.length; i++ ) {
@@ -147,18 +141,8 @@ document.onclick = function() {
     }
 };
 },{"./bridge":1,"./transforms":3}],3:[function(require,module,exports){
+var bridge = require("./bridge");
 var Transforms = function () {};
-
-// List of transformation functions by their target type
-var transformsByType = {
-    'lead': [
-        moveInfobox,
-        useLocalImagesForSavedPages
-    ],
-    'body': [
-        useLocalImagesForSavedPages
-    ]
-}
 
 function moveInfobox( leadContent ) {
     // Move infobox to the bottom of the lead section
@@ -193,6 +177,17 @@ function useLocalImagesForSavedPages( content ) {
     return content;
 }
 
+// List of transformation functions by their target type
+var transformsByType = {
+    'lead': [
+        moveInfobox,
+        useLocalImagesForSavedPages
+    ],
+    'body': [
+        useLocalImagesForSavedPages
+    ]
+};
+
 Transforms.prototype.transform = function( type, content ) {
     var transforms = transformsByType[ type ];
     if ( transforms.length ) {
@@ -204,4 +199,4 @@ Transforms.prototype.transform = function( type, content ) {
 };
 
 module.exports = new Transforms();
-},{}]},{},[2,3,1])
+},{"./bridge":1}]},{},[2,3,1])

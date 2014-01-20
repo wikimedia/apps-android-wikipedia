@@ -1,15 +1,5 @@
+var bridge = require("./bridge");
 var Transforms = function () {};
-
-// List of transformation functions by their target type
-var transformsByType = {
-    'lead': [
-        moveInfobox,
-        useLocalImagesForSavedPages
-    ],
-    'body': [
-        useLocalImagesForSavedPages
-    ]
-}
 
 function moveInfobox( leadContent ) {
     // Move infobox to the bottom of the lead section
@@ -43,6 +33,17 @@ function useLocalImagesForSavedPages( content ) {
     }
     return content;
 }
+
+// List of transformation functions by their target type
+var transformsByType = {
+    'lead': [
+        moveInfobox,
+        useLocalImagesForSavedPages
+    ],
+    'body': [
+        useLocalImagesForSavedPages
+    ]
+};
 
 Transforms.prototype.transform = function( type, content ) {
     var transforms = transformsByType[ type ];

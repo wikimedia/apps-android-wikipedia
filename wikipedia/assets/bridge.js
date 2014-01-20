@@ -23,7 +23,7 @@ Bridge.prototype.registerListener = function( messageType, callback ) {
 
 Bridge.prototype.sendMessage = function( messageType, payload ) {
     var messagePack = { type: messageType, payload: payload };
-    var ret = prompt( JSON.stringify( messagePack) );
+    var ret = window.prompt( JSON.stringify( messagePack) );
     if ( ret ) {
         return JSON.parse( ret );
     }
@@ -33,4 +33,4 @@ module.exports = new Bridge();
 // FIXME: Move this to somwehere else, eh?
 window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
-}
+};

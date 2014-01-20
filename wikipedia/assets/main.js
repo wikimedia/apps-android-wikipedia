@@ -3,12 +3,6 @@ var transforms = require("./transforms");
 
 window.bridge = bridge;
 
-function forEach( list, fun ) {
-    // Hack from https://developer.mozilla.org/en-US/docs/Web/API/NodeList#Workarounds
-    // To let me use forEach on things like NodeList objects
-    Array.prototype.forEach.call( list, fun );
-}
-
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!
     document.getElementById( "content" ).innerHTML = "";
@@ -48,10 +42,10 @@ function elementsForSection( section ) {
 }
 
 bridge.registerListener( "displaySection", function ( payload ) {
-    var content_wrapper = document.getElementById( "content" );
+    var contentWrapper = document.getElementById( "content" );
 
     elementsForSection( payload.section ).forEach( function( element ) {
-        content_wrapper.appendChild( element );
+        contentWrapper.appendChild( element );
     });
     if ( !payload.isLast ) {
         bridge.sendMessage( "requestSection", { index: payload.index + 1 } );
@@ -60,7 +54,7 @@ bridge.registerListener( "displaySection", function ( payload ) {
     }
 });
 
-bridge.registerListener( "startSectionsDisplay", function( payload ) {
+bridge.registerListener( "startSectionsDisplay", function() {
     bridge.sendMessage( "requestSection", { index: 1 } );
 });
 
@@ -72,7 +66,7 @@ bridge.registerListener( "displayAttribution", function( payload ) {
     licenseText.innerHTML = payload.licenseHTML;
 });
 
-bridge.registerListener( "requestImagesList", function ( payload ) {
+bridge.registerListener( "requestImagesList", function () {
     var imageURLs = [];
     var images = document.querySelectorAll( "img" );
     for ( var i = 0; i < images.length; i++ ) {

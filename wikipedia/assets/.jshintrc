@@ -1,0 +1,40 @@
+{
+	/* Common */
+
+	// Enforcing
+	"camelcase": true,
+	"curly": true,
+	"eqeqeq": true,
+	"immed": true,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": true,
+	"trailing": true,
+	"undef": true,
+	"unused": true,
+
+	/* Local */
+
+	// Enforcing
+	"bitwise": true,
+	"forin": false,
+	"regexp": false,
+	"strict": false,
+	// Relaxing
+	"laxbreak": true,
+	"smarttabs": true,
+	"multistr": true,
+	// Environment
+	"browser": true,
+	// Legacy
+	"nomen": true,
+
+	"predef": [
+		"marshaller",
+        "require",
+        "console",
+        "module"
+	]
+}
