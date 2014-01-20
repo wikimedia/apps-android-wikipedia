@@ -1,6 +1,26 @@
 See also https://git.wikimedia.org/summary/apps%2Fandroid%2Fjava-mwapi.git
 
 
+== Updating bundled JavaScript ==
+
+Portions of JavaScript code run inside the WebView component that displays articles.
+This code is prepackaged using a [Grunt-js task](http://gruntjs.com/getting-started), which must be re-run every time the master .js files are edited before building.
+
+Preparing:
+
+First, install the Grunt CLI tool:
+* npm install -g grunt-cli
+
+Install dependencies for packaging:
+* cd wikipedia/assets
+* npm install
+
+Building:
+
+* cd wikipedia/assets
+* grunt
+
+
 == Updating icons from SVG ==
 
 Many of our icons are maintained as SVG originals, rasterized to PNG at the

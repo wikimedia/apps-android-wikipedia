@@ -1,0 +1,10 @@
+{
+    "name": "wikipedia-android",
+    "description": "JS files required for the Wikipedia Android app",
+    "repository": "https://gerrit.wikimedia.org/r/apps/android/wikipedia",
+    "version": "0.1.0",
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-browserify": "~1.3.0"
+    }
+}

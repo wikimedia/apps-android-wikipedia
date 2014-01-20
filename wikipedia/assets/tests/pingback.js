@@ -1,6 +1,5 @@
-(function() {
-    bridge.registerListener( "ping", function( payload ) {
-        bridge.sendMessage( "pong", payload );
-    });
-    bridge.sendMessage( "pingBackLoaded", {} );
-} )();
+var bridge = require("../bridge");
+console.log("Something!");
+bridge.registerListener( "ping", function( payload ) {
+    bridge.sendMessage( "pong", payload );
+});

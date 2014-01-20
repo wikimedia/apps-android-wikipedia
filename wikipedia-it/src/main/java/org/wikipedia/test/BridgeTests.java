@@ -26,7 +26,7 @@ public class BridgeTests extends ActivityUnitTestCase<TestDummyActivity> {
             public void run() {
                 startActivity(new Intent(), null, null);
                 WebView webView = new WebView(getActivity());
-                bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
+                bridge = new CommunicationBridge(webView, "file:///android_asset/tests.html");
                 bridge.addListener("DOMLoaded", new CommunicationBridge.JSEventListener() {
                     @Override
                     public JSONObject onMessage(String messageType, JSONObject messagePayload) {
@@ -47,27 +47,20 @@ public class BridgeTests extends ActivityUnitTestCase<TestDummyActivity> {
             public void run() {
                 startActivity(new Intent(), null, null);
                 WebView webView = new WebView(getActivity());
-                bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
+                bridge = new CommunicationBridge(webView, "file:///android_asset/tests.html");
                 final JSONObject payload = new JSONObject();
                 try {
-                    payload.put("src", "file:///android_asset/tests/pingback.js");
+                    payload.put("src", "./pingback");
                 } catch (JSONException e) {
                     throw new RuntimeException(e); // JESUS CHRIST, JAVA!
                 }
-                bridge.addListener("pingBackLoaded", new CommunicationBridge.JSEventListener() {
+                bridge.sendMessage("ping", payload);
+                bridge.addListener("pong", new CommunicationBridge.JSEventListener() {
                     @Override
                     public JSONObject onMessage(String messageType, JSONObject messagePayload) {
-                        assertEquals(messageType, "pingBackLoaded");
-                        bridge.sendMessage("ping", payload);
-                        bridge.addListener("pong", new CommunicationBridge.JSEventListener() {
-                            @Override
-                            public JSONObject onMessage(String messageType, JSONObject messagePayload) {
-                                assertEquals(messageType, "pong");
-                                assertEquals(messagePayload.toString(), payload.toString());
-                                completionLatch.countDown();
-                                return null;
-                            }
-                        });
+                        assertEquals(messageType, "pong");
+                        assertEquals(messagePayload.toString(), payload.toString());
+                        completionLatch.countDown();
                         return null;
                     }
                 });
