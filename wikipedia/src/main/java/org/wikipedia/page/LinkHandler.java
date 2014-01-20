@@ -40,7 +40,7 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
     }
 
     @Override
-    public JSONObject onMessage(String messageType, JSONObject messagePayload) {
+    public void onMessage(String messageType, JSONObject messagePayload) {
         try {
             String href = messagePayload.getString("href");
             if (href.startsWith("//")) {
@@ -71,6 +71,5 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-        return null;
     }
 }

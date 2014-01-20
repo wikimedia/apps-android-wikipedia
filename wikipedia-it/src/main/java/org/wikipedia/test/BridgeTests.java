@@ -29,10 +29,9 @@ public class BridgeTests extends ActivityUnitTestCase<TestDummyActivity> {
                 bridge = new CommunicationBridge(webView, "file:///android_asset/tests/index.html");
                 bridge.addListener("DOMLoaded", new CommunicationBridge.JSEventListener() {
                     @Override
-                    public JSONObject onMessage(String messageType, JSONObject messagePayload) {
+                    public void onMessage(String messageType, JSONObject messagePayload) {
                         assertEquals(messageType, "DOMLoaded");
                         completionLatch.countDown();
-                        return null;
                     }
                 });
             }
@@ -57,11 +56,10 @@ public class BridgeTests extends ActivityUnitTestCase<TestDummyActivity> {
                 bridge.sendMessage("ping", payload);
                 bridge.addListener("pong", new CommunicationBridge.JSEventListener() {
                     @Override
-                    public JSONObject onMessage(String messageType, JSONObject messagePayload) {
+                    public void onMessage(String messageType, JSONObject messagePayload) {
                         assertEquals(messageType, "pong");
                         assertEquals(messagePayload.toString(), payload.toString());
                         completionLatch.countDown();
-                        return null;
                     }
                 });
                 bridge.sendMessage("injectScript", payload);

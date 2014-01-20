@@ -1,5 +1,8 @@
 package org.wikipedia;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.webkit.*;
 import org.json.JSONArray;
@@ -23,7 +26,7 @@ public class CommunicationBridge {
     private final ArrayList<String> pendingJSMessages = new ArrayList<String>();
 
     public interface JSEventListener {
-        public JSONObject onMessage(String messageType, JSONObject messagePayload);
+        public void onMessage(String messageType, JSONObject messagePayload);
     }
 
     public CommunicationBridge(final WebView webView, final String baseURL) {
@@ -40,12 +43,11 @@ public class CommunicationBridge {
         eventListeners = new HashMap<String, ArrayList<JSEventListener>>();
         this.addListener("DOMLoaded", new JSEventListener() {
             @Override
-            public JSONObject onMessage(String messageType, JSONObject messagePayload) {
+            public void onMessage(String messageType, JSONObject messagePayload) {
                 isDOMReady = true;
                 for(String jsString : pendingJSMessages) {
                     CommunicationBridge.this.webView.loadUrl(jsString);
                 }
-                return null;
             }
         });
     }
@@ -79,34 +81,31 @@ public class CommunicationBridge {
         }
     }
 
+    private static final int MESSAGE_HANDLE_MESSAGE_FROM_JS = 1;
+    private Handler incomingMessageHandler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            JSONObject messagePack = (JSONObject) msg.obj;
+            String type = messagePack.optString("type");
+            if (!eventListeners.containsKey(type)) {
+                throw new RuntimeException("No such message type registered: " + type);
+            }
+            ArrayList<JSEventListener> listeners = eventListeners.get(type);
+            for (JSEventListener listener : listeners) {
+                listener.onMessage(type, messagePack.optJSONObject("payload"));
+            }
+            return false;
+        }
+    });
+
     private class CommunicatingChrome extends WebChromeClient {
         @Override
         public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
             try {
                 JSONObject messagePack = new JSONObject(message);
-                String type = messagePack.getString("type");
-                if (!eventListeners.containsKey(type)) {
-                    throw new RuntimeException("No such message type registered: " + type);
-                }
-                ArrayList<JSEventListener> listeners = eventListeners.get(type);
-                JSONArray returns = new JSONArray();
-                for (JSEventListener listener : listeners) {
-                    JSONObject ret = listener.onMessage(type, messagePack.getJSONObject("payload"));
-                    if (ret != null) {
-                        returns.put(ret);
-                    }
-                }
-                switch (returns.length()) {
-                    case 0:
-                        result.confirm();
-                        break;
-                    case 1:
-                        result.confirm(returns.optJSONObject(0).toString());
-                        break;
-                    default:
-                        result.confirm(returns.toString());
-                        break;
-                }
+                Message msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS, messagePack);
+                incomingMessageHandler.sendMessage(msg);
+                result.confirm();
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }

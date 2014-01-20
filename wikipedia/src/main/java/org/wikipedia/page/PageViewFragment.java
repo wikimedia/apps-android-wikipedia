@@ -8,12 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
@@ -111,7 +109,7 @@ public class PageViewFragment extends Fragment {
     private void populateNonLeadSections(final Page page) {
         bridge.addListener("requestSection", new CommunicationBridge.JSEventListener() {
             @Override
-            public JSONObject onMessage(String messageType, JSONObject messagePayload) {
+            public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
                     int index = messagePayload.optInt("index");
                     JSONObject wrapper = new JSONObject();
@@ -119,7 +117,6 @@ public class PageViewFragment extends Fragment {
                     wrapper.put("index", index);
                     wrapper.put("isLast", index == page.getSections().size() - 1);
                     bridge.sendMessage("displaySection", wrapper);
-                    return null;
                 } catch (JSONException e) {
                     // Won't happen
                     throw new RuntimeException(e);

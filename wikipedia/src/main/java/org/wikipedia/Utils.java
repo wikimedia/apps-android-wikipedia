@@ -116,13 +116,14 @@ public class Utils {
     public static final void addUtilityMethodsToBridge(final Context context, CommunicationBridge bridge) {
         bridge.addListener( "imageUrlToFilePath", new CommunicationBridge.JSEventListener() {
             @Override
-            public JSONObject onMessage(String messageType, JSONObject messagePayload) {
+            public void onMessage(String messageType, JSONObject messagePayload) {
                 String imageUrl = messagePayload.optString("imageUrl");
                 JSONObject ret = new JSONObject();
                 try {
                     File imageFile = new File(context.getFilesDir(), imageUrlToFileName(imageUrl));
                     ret.put("filePath", imageFile.getAbsolutePath());
-                    return ret;
+                    // FIXME: THIS IS BROKEN NOW!!!1
+                    throw new RuntimeException("FIX THIS YUVI!");
                 } catch (JSONException e) {
                     // stupid, stupid, stupid
                     throw new RuntimeException(e);

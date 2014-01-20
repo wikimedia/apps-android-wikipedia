@@ -1,16 +1,11 @@
 package org.wikipedia.editing;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import org.json.JSONObject;
 import org.wikipedia.CommunicationBridge;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.Section;
-
-import java.util.List;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {
     public static final int REQUEST_EDIT_SECTION = 1;
@@ -29,7 +24,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
     }
 
     @Override
-    public JSONObject onMessage(String messageType, JSONObject messagePayload) {
+    public void onMessage(String messageType, JSONObject messagePayload) {
         if (messageType.equals("editSectionClicked")) {
             int id = Integer.valueOf(messagePayload.optInt("sectionID"));
             Section section = Section.findSectionForID(currentPage.getSections(), id);
@@ -39,6 +34,5 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
             intent.putExtra(EditSectionActivity.EXTRA_TITLE, currentPage.getTitle());
             fragment.startActivityForResult(intent, REQUEST_EDIT_SECTION);
         }
-        return null;
     }
 }
