@@ -23,6 +23,14 @@ Building:
 This will produce output files under wikipedia/assets which will be included in the .apk.
 
 
+You can also have grunt run continuously, watching the effected files for updates and running the build tasks automatically.
+This might be useful.
+
+* cd www
+* grunt watch
+* ... update files ...
+
+
 == Updating icons from SVG ==
 
 Many of our icons are maintained as SVG originals, rasterized to PNG at the

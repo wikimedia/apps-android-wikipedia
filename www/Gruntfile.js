@@ -1,4 +1,19 @@
 module.exports = function( grunt ) {
+    var allScriptFiles = [
+        "main.js",
+        "transforms.js",
+        "bridge.js",
+        "linkactions.js",
+        "tests/*.js"
+    ];
+    var allStyleFiles = [
+        "pagestyles.css",
+        "ui.css"
+    ];
+    var allHTMLFiles = [
+        "index.html",
+        "tests.html"
+    ];
     grunt.initConfig( {
         pkg: grunt.file.readJSON( "package.json" ),
         browserify: {
@@ -10,13 +25,7 @@ module.exports = function( grunt ) {
             }
         },
         jshint: {
-            allFiles: [
-                "main.js",
-                "transforms.js",
-                "bridge.js",
-                "linkactions.js",
-                "tests/*.js"
-            ],
+            allFiles: allScriptFiles,
             options: {
                 jshintrc: ".jshintrc"
             }
@@ -34,12 +43,19 @@ module.exports = function( grunt ) {
                     {src: ["images/*"], dest:"../wikipedia/assets/"}
                 ]
             }
+        },
+        watch: {
+            scripts: {
+                files: allScriptFiles.concat( allStyleFiles ).concat( allHTMLFiles ),
+                tasks: ["default"]
+            }
         }
     } );
 
     grunt.loadNpmTasks( 'grunt-browserify' );
     grunt.loadNpmTasks( 'grunt-contrib-jshint' );
     grunt.loadNpmTasks( 'grunt-contrib-copy' );
+    grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
     grunt.registerTask( 'default', [ 'browserify', 'copy' ] );
 };
