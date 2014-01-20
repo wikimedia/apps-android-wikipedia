@@ -20,11 +20,26 @@ module.exports = function( grunt ) {
             options: {
                 jshintrc: ".jshintrc"
             }
+        },
+        copy: {
+            main: {
+                files: [
+                    // App files
+                    {src: ["bundle.js", "index.html", "pagestyles.css", "ui.css"], dest: "../wikipedia/assets/"},
+
+                    // Test files
+                    {src: ["bundle-test.js", "pagestlyes.css", "ui.css"], dest: "../wikipedia/assets/"},
+
+                    // Images
+                    {src: ["images/*"], dest:"../wikipedia/assets/"}
+                ]
+            }
         }
     } );
 
     grunt.loadNpmTasks( 'grunt-browserify' );
     grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+    grunt.loadNpmTasks( 'grunt-contrib-copy' );
 
-    grunt.registerTask( 'default', [ 'browserify' ] );
+    grunt.registerTask( 'default', [ 'browserify', 'copy' ] );
 };

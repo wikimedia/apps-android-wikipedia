@@ -19,3 +19,7 @@ out
 # Data pulled out of device with scripts/pullfiles.bash
 scripts/apps
 scripts/backup.ab
+
+# Node modules for the js
+www/node_modules
+www/bundle*.js

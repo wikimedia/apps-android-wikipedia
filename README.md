@@ -12,13 +12,15 @@ First, install the Grunt CLI tool:
 * npm install -g grunt-cli
 
 Install dependencies for packaging:
-* cd wikipedia/assets
+* cd www
 * npm install
 
 Building:
 
-* cd wikipedia/assets
+* cd www
 * grunt
+
+This will produce output files under wikipedia/assets which will be included in the .apk.
 
 
 == Updating icons from SVG ==
