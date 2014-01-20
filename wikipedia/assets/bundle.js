@@ -59,6 +59,24 @@ document.onclick = function() {
 };
 },{"./bridge":1}],3:[function(require,module,exports){
 var bridge = require("./bridge");
+bridge.registerListener( "displayAttribution", function( payload ) {
+    var lastUpdatedA = document.getElementById( "lastupdated" );
+    lastUpdatedA.innerText = payload.historyText;
+    lastUpdatedA.href = payload.historyTarget;
+    var licenseText = document.getElementById( "licensetext" );
+    licenseText.innerHTML = payload.licenseHTML;
+});
+
+bridge.registerListener( "requestImagesList", function () {
+    var imageURLs = [];
+    var images = document.querySelectorAll( "img" );
+    for ( var i = 0; i < images.length; i++ ) {
+        imageURLs.push( images[i].src );
+    }
+    bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
+} );
+},{"./bridge":1}],4:[function(require,module,exports){
+var bridge = require("./bridge");
 var transforms = require("./transforms");
 
 bridge.registerListener( "displayLeadSection", function( payload ) {
@@ -116,23 +134,6 @@ bridge.registerListener( "startSectionsDisplay", function() {
     bridge.sendMessage( "requestSection", { index: 1 } );
 });
 
-bridge.registerListener( "displayAttribution", function( payload ) {
-    var lastUpdatedA = document.getElementById( "lastupdated" );
-    lastUpdatedA.innerText = payload.historyText;
-    lastUpdatedA.href = payload.historyTarget;
-    var licenseText = document.getElementById( "licensetext" );
-    licenseText.innerHTML = payload.licenseHTML;
-});
-
-bridge.registerListener( "requestImagesList", function () {
-    var imageURLs = [];
-    var images = document.querySelectorAll( "img" );
-    for ( var i = 0; i < images.length; i++ ) {
-        imageURLs.push( images[i].src );
-    }
-    bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
-} );
-
 bridge.registerListener( "scrollToSection", function ( payload ) {
     var el = document.getElementById( "heading_" + payload.sectionID);
     // Make sure there's exactly as much space on the left as on the top.
@@ -141,26 +142,7 @@ bridge.registerListener( "scrollToSection", function ( payload ) {
     window.scrollTo(0, scrollY);
 });
 
-
-var actionHandlers = {
-    "edit_section": function( el, event ) {
-        bridge.sendMessage( 'editSectionClicked', { sectionID: el.getAttribute( 'data-id' ) } );
-        event.preventDefault();
-    }
-};
-
-document.onclick = function() {
-    if ( event.target.tagName === "A" ) {
-        if ( event.target.hasAttribute( "data-action" ) ) {
-            var action = event.target.getAttribute( "data-action" );
-            actionHandlers[ action ]( event.target, event );
-        } else {
-            bridge.sendMessage( 'linkClicked', { href: event.target.getAttribute( "href" ) });
-            event.preventDefault();
-        }
-    }
-};
-},{"./bridge":1,"./transforms":4}],4:[function(require,module,exports){
+},{"./bridge":1,"./transforms":5}],5:[function(require,module,exports){
 var bridge = require("./bridge");
 var Transforms = function () {};
 
@@ -219,4 +201,4 @@ Transforms.prototype.transform = function( type, content ) {
 };
 
 module.exports = new Transforms();
-},{"./bridge":1}]},{},[3,4,1,2])
+},{"./bridge":1}]},{},[3,5,1,2,4])

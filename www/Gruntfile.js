@@ -4,6 +4,7 @@ module.exports = function( grunt ) {
         "js/transforms.js",
         "js/bridge.js",
         "js/linkactions.js",
+        "js/sections.js",
         "tests/*.js"
     ];
     var allStyleFiles = [
@@ -19,7 +20,7 @@ module.exports = function( grunt ) {
         browserify: {
             dist: {
                 files: {
-                    "bundle.js": [ "js/main.js", "js/transforms.js", "js/bridge.js", "js/linkactions.js"],
+                    "bundle.js": [ "js/main.js", "js/transforms.js", "js/bridge.js", "js/linkactions.js", "js/sections.js"],
                     "bundle-test.js": [ "js/main.js", "js/bridge.js", "tests/*.js" ]
                 }
             }
