@@ -8,8 +8,7 @@ module.exports = function( grunt ) {
         "tests/*.js"
     ];
     var allStyleFiles = [
-        "pagestyles.css",
-        "ui.css"
+        "less/*.less"
     ];
     var allHTMLFiles = [
         "index.html",
@@ -48,7 +47,10 @@ module.exports = function( grunt ) {
                     {src: ["bundle-test.js", "tests/index.html"], dest: "../wikipedia/assets/"},
 
                     // Images
-                    {src: ["images/*"], dest:"../wikipedia/assets/"}
+                    {src: ["images/*"], dest:"../wikipedia/assets/"},
+
+                    // Fonts
+                    {src: ["fonts/*"], dest:"../wikipedia/assets/"}
                 ]
             }
         },
