@@ -26,7 +26,7 @@ public class BridgeTests extends ActivityUnitTestCase<TestDummyActivity> {
             public void run() {
                 startActivity(new Intent(), null, null);
                 WebView webView = new WebView(getActivity());
-                bridge = new CommunicationBridge(webView, "file:///android_asset/tests.html");
+                bridge = new CommunicationBridge(webView, "file:///android_asset/tests/index.html");
                 bridge.addListener("DOMLoaded", new CommunicationBridge.JSEventListener() {
                     @Override
                     public JSONObject onMessage(String messageType, JSONObject messagePayload) {
@@ -47,7 +47,7 @@ public class BridgeTests extends ActivityUnitTestCase<TestDummyActivity> {
             public void run() {
                 startActivity(new Intent(), null, null);
                 WebView webView = new WebView(getActivity());
-                bridge = new CommunicationBridge(webView, "file:///android_asset/tests.html");
+                bridge = new CommunicationBridge(webView, "file:///android_asset/tests/index.html");
                 final JSONObject payload = new JSONObject();
                 try {
                     payload.put("src", "./pingback");

@@ -1,9 +1,9 @@
 module.exports = function( grunt ) {
     var allScriptFiles = [
-        "main.js",
-        "transforms.js",
-        "bridge.js",
-        "linkactions.js",
+        "js/main.js",
+        "js/transforms.js",
+        "js/bridge.js",
+        "js/linkactions.js",
         "tests/*.js"
     ];
     var allStyleFiles = [
@@ -12,15 +12,15 @@ module.exports = function( grunt ) {
     ];
     var allHTMLFiles = [
         "index.html",
-        "tests.html"
+        "tests/index.html"
     ];
     grunt.initConfig( {
         pkg: grunt.file.readJSON( "package.json" ),
         browserify: {
             dist: {
                 files: {
-                    "bundle.js": [ "main.js", "transforms.js", "bridge.js", "linkactions.js"],
-                    "bundle-test.js": [ "main.js", "bridge.js", "tests/*.js" ]
+                    "bundle.js": [ "js/main.js", "js/transforms.js", "js/bridge.js", "js/linkactions.js"],
+                    "bundle-test.js": [ "js/main.js", "js/bridge.js", "tests/*.js" ]
                 }
             }
         },
@@ -37,7 +37,7 @@ module.exports = function( grunt ) {
                     {src: ["bundle.js", "index.html", "pagestyles.css", "ui.css"], dest: "../wikipedia/assets/"},
 
                     // Test files
-                    {src: ["bundle-test.js", "pagestlyes.css", "ui.css"], dest: "../wikipedia/assets/"},
+                    {src: ["bundle-test.js", "tests/index.html"], dest: "../wikipedia/assets/"},
 
                     // Images
                     {src: ["images/*"], dest:"../wikipedia/assets/"}

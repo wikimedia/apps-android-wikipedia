@@ -139,19 +139,7 @@ document.onclick = function() {
         }
     }
 };
-},{"./bridge":1,"./transforms":5}],3:[function(require,module,exports){
-var bridge = require("../bridge");
-bridge.registerListener( "injectScript", function( payload ) {
-    require(payload.src);
-});
-},{"../bridge":1}],4:[function(require,module,exports){
-var bridge = require("../bridge");
-console.log("Something!");
-bridge.registerListener( "ping", function( payload ) {
-    bridge.sendMessage( "pong", payload );
-});
-
-},{"../bridge":1}],5:[function(require,module,exports){
+},{"./bridge":1,"./transforms":3}],3:[function(require,module,exports){
 var bridge = require("./bridge");
 var Transforms = function () {};
 
@@ -210,4 +198,16 @@ Transforms.prototype.transform = function( type, content ) {
 };
 
 module.exports = new Transforms();
-},{"./bridge":1}]},{},[2,1,3,4])
+},{"./bridge":1}],4:[function(require,module,exports){
+var bridge = require("../js/bridge");
+bridge.registerListener( "injectScript", function( payload ) {
+    require(payload.src);
+});
+},{"../js/bridge":1}],5:[function(require,module,exports){
+var bridge = require("../js/bridge");
+console.log("Something!");
+bridge.registerListener( "ping", function( payload ) {
+    bridge.sendMessage( "pong", payload );
+});
+
+},{"../js/bridge":1}]},{},[2,1,4,5])
