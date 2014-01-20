@@ -23,3 +23,4 @@ scripts/backup.ab
 # Node modules for the js
 www/node_modules
 www/bundle*.js
+www/styles.css

@@ -25,6 +25,13 @@ module.exports = function( grunt ) {
                 }
             }
         },
+        less: {
+            all: {
+                files: [
+                    { src: ["less/*.less"], dest: "styles.css"}
+                ]
+            }
+        },
         jshint: {
             allFiles: allScriptFiles,
             options: {
@@ -35,7 +42,7 @@ module.exports = function( grunt ) {
             main: {
                 files: [
                     // App files
-                    {src: ["bundle.js", "index.html", "pagestyles.css", "ui.css"], dest: "../wikipedia/assets/"},
+                    {src: ["bundle.js", "index.html", "styles.css"], dest: "../wikipedia/assets/"},
 
                     // Test files
                     {src: ["bundle-test.js", "tests/index.html"], dest: "../wikipedia/assets/"},
@@ -57,6 +64,7 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks( 'grunt-contrib-jshint' );
     grunt.loadNpmTasks( 'grunt-contrib-copy' );
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
+    grunt.loadNpmTasks( 'grunt-contrib-less' );
 
-    grunt.registerTask( 'default', [ 'browserify', 'copy' ] );
+    grunt.registerTask( 'default', [ 'browserify', 'less', 'copy' ] );
 };
