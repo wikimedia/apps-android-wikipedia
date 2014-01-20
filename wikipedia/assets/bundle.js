@@ -37,6 +37,27 @@ window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
 };
 },{}],2:[function(require,module,exports){
+var bridge = require('./bridge');
+
+var actionHandlers = {
+    "edit_section": function( el, event ) {
+        bridge.sendMessage( 'editSectionClicked', { sectionID: el.getAttribute( 'data-id' ) } );
+        event.preventDefault();
+    }
+};
+
+document.onclick = function() {
+    if ( event.target.tagName === "A" ) {
+        if ( event.target.hasAttribute( "data-action" ) ) {
+            var action = event.target.getAttribute( "data-action" );
+            actionHandlers[ action ]( event.target, event );
+        } else {
+            bridge.sendMessage( 'linkClicked', { href: event.target.getAttribute( "href" ) });
+            event.preventDefault();
+        }
+    }
+};
+},{"./bridge":1}],3:[function(require,module,exports){
 var bridge = require("./bridge");
 var transforms = require("./transforms");
 
@@ -139,7 +160,7 @@ document.onclick = function() {
         }
     }
 };
-},{"./bridge":1,"./transforms":3}],3:[function(require,module,exports){
+},{"./bridge":1,"./transforms":4}],4:[function(require,module,exports){
 var bridge = require("./bridge");
 var Transforms = function () {};
 
@@ -198,4 +219,4 @@ Transforms.prototype.transform = function( type, content ) {
 };
 
 module.exports = new Transforms();
-},{"./bridge":1}]},{},[2,3,1])
+},{"./bridge":1}]},{},[3,4,1,2])
