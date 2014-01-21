@@ -50,6 +50,8 @@
         <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:id="@+id/langlinks_filter"
                   android:hint="@string/langlinks_filter_hint"
+                  android:singleLine="true"
+                  android:imeOptions="actionDone"
                 />
         <ListView android:layout_width="fill_parent" android:layout_height="fill_parent"
                   android:id="@+id/langlinks_list" />

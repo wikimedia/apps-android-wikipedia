@@ -53,6 +53,7 @@
                     android:padding="8dp"
                     android:selectAllOnFocus="true"
                     android:singleLine="true"
+                    android:imeOptions="actionDone"
                     />
             <ProgressBar
                     android:id="@+id/search_progress"
