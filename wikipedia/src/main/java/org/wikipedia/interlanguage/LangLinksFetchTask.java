@@ -8,14 +8,18 @@ import org.wikipedia.concurrency.*;
 
 import java.util.*;
 
+import org.wikipedia.Utils;
+
 public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
     private final PageTitle title;
+    private final WikipediaApp app;
     public LangLinksFetchTask(Context context, PageTitle title) {
         super(
                 ExecutorService.getSingleton().getExecutor(LangLinksFetchTask.class, 1),
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
         );
         this.title = title;
+        this.app = (WikipediaApp)context.getApplicationContext();
     }
 
     @Override
@@ -36,6 +40,9 @@ public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
         String fullJSON = result.asObject().toString(4);
         if (!pagesJSON.optJSONObject(pageId).has("langlinks")) {
             // No links found
+            if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
+                Utils.processHeadersForZero(app, result);
+            }
             return linkTitles;
         }
 
@@ -47,6 +54,13 @@ public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
                     langlinkJSON.optString("*"),
                     Site.forLang(langlinkJSON.optString("lang")));
             linkTitles.add(linkTitle);
+        }
+        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
+            // As with page edit text retrieval, the next or calling activity
+            // will reflect the side effect of the header processing. It seems
+            // having a bus in the calling activity may not make much sense.
+            // TODO: ??? add bus to calling activity?
+            Utils.processHeadersForZero(app, result);
         }
 
         return linkTitles;

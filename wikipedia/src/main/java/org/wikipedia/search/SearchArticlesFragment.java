@@ -5,6 +5,8 @@ import android.os.*;
 import android.support.v4.app.*;
 import android.support.v4.widget.*;
 import android.text.*;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.*;
 import android.view.inputmethod.*;
 import android.widget.*;
@@ -26,14 +28,21 @@ public class SearchArticlesFragment extends Fragment {
 
     private WikipediaApp app;
 
+    private LinearLayout searchBarContainer;
+    private LinearLayout navbar;
     private View searchBarIcon;
     private EditText searchTermText;
     private ListView searchResultsList;
     private ProgressBar searchProgress;
     private View searchNetworkError;
     private View searchNoResults;
-    private View searchBarMenuButton;
-    private View drawerIndicator;
+    private ImageView searchBarMenuButton;
+    private ImageView drawerIndicator;
+    private ImageView wikipediaIcon;
+
+    private int navbarColor;
+    private int searchTermTextColor;
+    private int searchTermHintTextColor;
 
     private SearchResultAdapter adapter;
 
@@ -48,6 +57,8 @@ public class SearchArticlesFragment extends Fragment {
     private DrawerLayout drawerLayout;
 
     private SearchArticlesTask curSearchTask;
+
+    private boolean pausedStateOfZero;
 
     /**
      * Displays results passed to it as search suggestions.
@@ -106,15 +117,29 @@ public class SearchArticlesFragment extends Fragment {
             pageImagesCache = savedInstanceState.getParcelable("pageImagesCache");
             lastSearchedText = savedInstanceState.getString("lastSearchedText");
             isSearchActive = savedInstanceState.getBoolean("isSearchActive");
+            pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
         }
 
+        searchBarContainer = (LinearLayout) parentLayout.findViewById(R.id.search_bar_container);
+        navbar = (LinearLayout) parentLayout.findViewById(R.id.navbar);
         searchTermText = (EditText) parentLayout.findViewById(R.id.search_term_text);
+        try {
+            navbarColor = ((ColorDrawable)(searchBarContainer.getBackground())).getColor();
+            searchTermTextColor = searchTermText.getCurrentTextColor();
+            searchTermHintTextColor = searchTermText.getCurrentHintTextColor();
+        } catch (Exception e) {
+            // just in case something in the layout changes out from underneath this code
+            navbarColor = Color.WHITE;
+            searchTermTextColor = Color.BLACK;
+            searchTermHintTextColor = Color.GRAY;
+        }
         searchResultsList = (ListView) parentLayout.findViewById(R.id.search_results_list);
         searchProgress = (ProgressBar) parentLayout.findViewById(R.id.search_progress);
         searchBarIcon = parentLayout.findViewById(R.id.search_bar_icon);
         searchNetworkError = parentLayout.findViewById(R.id.search_network_error);
-        searchBarMenuButton = parentLayout.findViewById(R.id.search_bar_show_menu);
-        drawerIndicator = parentLayout.findViewById(R.id.search_drawer_indicator);
+        searchBarMenuButton = (ImageView)parentLayout.findViewById(R.id.search_bar_show_menu);
+        drawerIndicator = (ImageView)parentLayout.findViewById(R.id.search_drawer_indicator);
+        wikipediaIcon = (ImageView)parentLayout.findViewById(R.id.wikipedia_icon);
         searchNoResults = parentLayout.findViewById(R.id.search_results_empty);
 
         PopupMenu pageActionsMenu = new PopupMenu(getActivity(), searchBarMenuButton);
@@ -124,7 +149,7 @@ public class SearchArticlesFragment extends Fragment {
             @Override
             public boolean handleMessage(Message msg) {
                 final String searchTerm = (String) msg.obj;
-                SearchArticlesTask searchTask = new SearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm) {
+                SearchArticlesTask searchTask = new SearchArticlesTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm) {
                     @Override
                     public void onFinish(List<PageTitle> result) {
                         searchProgress.setVisibility(View.GONE);
@@ -278,6 +303,7 @@ public class SearchArticlesFragment extends Fragment {
         outState.putParcelable("pageImagesCache", pageImagesCache);
         outState.putString("lastSearchedText", lastSearchedText);
         outState.putBoolean("isSearchActive", isSearchActive);
+        outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
     }
 
     private class SearchResultAdapter extends BaseAdapter {
@@ -359,6 +385,53 @@ public class SearchArticlesFragment extends Fragment {
         }
         // If search bar isn't fully visible, make it so!
         Utils.ensureTranslationY(getView(), 0);
+    }
+
+    @Subscribe
+    public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
+        if (app.getWikipediaZeroDisposition()) {
+            setWikipediaZeroChrome();
+        } else {
+            setNormalChrome();
+        }
+    }
+
+    private void setWikipediaZeroChrome() {
+        navbar.setBackgroundColor(Color.BLACK);
+        drawerIndicator.setColorFilter(Color.WHITE);
+        wikipediaIcon.setColorFilter(Color.WHITE);
+        searchTermText.setTextColor(Color.WHITE);
+        searchTermText.setHint(R.string.zero_search_hint);
+        searchBarMenuButton.setColorFilter(Color.WHITE);
+        Utils.ensureTranslationY(getView(), 0);
+    }
+
+    private void setNormalChrome() {
+        navbar.setBackgroundColor(navbarColor);
+        drawerIndicator.clearColorFilter();
+        wikipediaIcon.clearColorFilter();
+        searchTermText.setTextColor(searchTermTextColor);
+        searchTermText.setHintTextColor(searchTermHintTextColor);
+        searchTermText.setHint(R.string.search_hint);
+        searchBarMenuButton.clearColorFilter();
+        Utils.ensureTranslationY(getView(), 0);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        pausedStateOfZero = app.getWikipediaZeroDisposition();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        boolean latestWikipediaZeroDispostion = app.getWikipediaZeroDisposition();
+        if (pausedStateOfZero != latestWikipediaZeroDispostion) {
+            app.getBus().post(new WikipediaZeroStateChangeEvent());
+        } else if (latestWikipediaZeroDispostion) {
+            setWikipediaZeroChrome();
+        }
     }
 
     @Override

@@ -15,6 +15,13 @@ import java.security.*;
 import java.text.*;
 import java.util.*;
 
+import org.mediawiki.api.json.ApiResult;
+import org.wikipedia.events.WikipediaZeroStateChangeEvent;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageInfo;
+import org.wikipedia.zero.WikipediaZeroTask;
+import com.squareup.otto.*;
+
 /**
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?
  */
@@ -187,4 +194,89 @@ public class Utils {
             keyboard.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
         }
     }
+
+     /* Inspect an API response, and fire an event to update the UI for Wikipedia Zero On/Off.
+     *
+     * @param app The application object
+     * @param result An API result to inspect for Wikipedia Zero headers
+     */
+    public static void processHeadersForZero(final WikipediaApp app, final ApiResult result) {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                Map<String, List<String>> headers = result.getHeaders();
+                boolean responseZeroState = headers.containsKey("X-CS");
+                if (responseZeroState) {
+                    String xcs = headers.get("X-CS").get(0);
+                    if (!xcs.equals(app.getXcs())) {
+                        identifyZeroCarrier(app, xcs);
+                    }
+                } else if (app.getWikipediaZeroDisposition()) {
+                    app.setXcs("");
+                    app.setCarrierMessage("");
+                    app.setWikipediaZeroDisposition(responseZeroState);
+                    app.getBus().post(new WikipediaZeroStateChangeEvent());
+                }
+            }
+        });
+    }
+
+    private static final int MESSAGE_ZERO = 1;
+
+    public static void identifyZeroCarrier(final WikipediaApp app, final String xcs) {
+        Handler wikipediaZeroHandler = new Handler(new Handler.Callback(){
+            private WikipediaZeroTask curZeroTask;
+
+            @Override
+            public boolean handleMessage(Message msg) {
+                WikipediaZeroTask zeroTask = new WikipediaZeroTask(app.getAPIForSite(app.getPrimarySite()), app) {
+                    @Override
+                    public void onFinish(String message) {
+                        Log.d("Wikipedia", "Wikipedia Zero message: " + message);
+
+                        if (message != null) {
+                            app.setXcs(xcs);
+                            app.setCarrierMessage(message);
+                            app.setWikipediaZeroDisposition(true);
+                            Bus bus = app.getBus();
+                            bus.post(new WikipediaZeroStateChangeEvent());
+                            curZeroTask = null;
+                        }
+                    }
+
+                    @Override
+                    public void onCatch(Throwable caught) {
+                        // oh snap
+                        Log.d("Wikipedia", "Wikipedia Zero Eligibility Check Exception Caught");
+                        curZeroTask = null;
+                    }
+                };
+                if (curZeroTask != null) {
+                    // if this connection was hung, clean up a bit
+                    curZeroTask.cancel();
+                }
+                curZeroTask = zeroTask;
+                curZeroTask.execute();
+                return true;
+            }
+        });
+
+        wikipediaZeroHandler.removeMessages(MESSAGE_ZERO);
+        Message zeroMessage = Message.obtain();
+        zeroMessage.what = MESSAGE_ZERO;
+        zeroMessage.obj = "zero_eligible_check";
+
+        wikipediaZeroHandler.sendMessage(zeroMessage);
+    }
+
+    public static String getAppNameAndVersion(final Context ctx) {
+        try {
+            PackageManager pm = ctx.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(ctx.getPackageName(), 0);
+            return pi.packageName + "-" + pi.versionCode + "-" + pi.versionName;
+        } catch (Exception e) {
+            return "wikipedia-android-official";
+        }
+    }
 }
+

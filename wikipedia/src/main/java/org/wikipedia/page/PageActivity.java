@@ -14,10 +14,21 @@ import org.wikipedia.networking.*;
 import org.wikipedia.recurring.*;
 import org.wikipedia.search.*;
 
+import android.app.AlertDialog;
+import android.app.DialogFragment;
+import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
+import android.widget.Toast;
+import org.wikipedia.settings.SettingsActivity;
+
 public class PageActivity extends ActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
+    private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
+    private static final String ZERO_OFF_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOffNoticePresented";
 
     private Bus bus;
     private WikipediaApp app;
@@ -27,14 +38,27 @@ public class PageActivity extends ActionBarActivity {
 
     private PageViewFragment curPageFragment;
 
-    private ConnectionChangeReceiver connChangeReceiver;
+    private boolean pausedStateOfZero;
+    private String pausedXcsOfZero;
+    private static final int MESSAGE_START_SCREEN = 1;
+    private AlertDialog.Builder alert;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         setContentView(R.layout.activity_main);
 
         app = ((WikipediaApp)getApplicationContext());
+
+        searchAriclesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        if (savedInstanceState != null) {
+            pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
+            pausedXcsOfZero = savedInstanceState.getString("pausedXcsOfZero");
+        }
+
         bus = app.getBus();
         bus.register(this);
 
@@ -57,12 +81,6 @@ public class PageActivity extends ActionBarActivity {
                 bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
             }
         }
-
-        IntentFilter connFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
-        connChangeReceiver = new ConnectionChangeReceiver();
-        this.registerReceiver(connChangeReceiver, connFilter);
-        // Kickstart network ops. currently, just to initiate Wikipedia Zero check
-        connChangeReceiver.onReceive(app, getIntent());
 
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(this).run();
@@ -123,6 +141,81 @@ public class PageActivity extends ActionBarActivity {
         }
     }
 
+    @Subscribe
+    public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
+        boolean latestWikipediaZeroDisposition = app.getWikipediaZeroDisposition();
+
+        if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
+            String verbiage = getString(R.string.zero_charged_verbiage);
+            Toast.makeText(app, verbiage, Toast.LENGTH_LONG).show();
+            showDialogAboutZero(ZERO_OFF_NOTICE_PRESENTED, verbiage);
+        } else if ((!pausedStateOfZero || !pausedXcsOfZero.equals(app.getXcs())) && latestWikipediaZeroDisposition) {
+            String verbiage = app.getCarrierMessage();
+            Toast.makeText(app, verbiage, Toast.LENGTH_LONG).show();
+            showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, verbiage);
+        }
+        pausedStateOfZero = latestWikipediaZeroDisposition;
+        pausedXcsOfZero = app.getXcs();
+    }
+
+    private void showDialogAboutZero(String prefsKey, String verbiage) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(app);
+        if (!prefs.getBoolean(prefsKey, false)) {
+            prefs.edit().putBoolean(prefsKey, true).commit();
+
+            alert = new AlertDialog.Builder(this);
+            alert.setTitle(verbiage);
+            alert.setMessage(getString(R.string.zero_learn_more));
+            alert.setPositiveButton(getString(R.string.zero_learn_more_learn_more), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    visitExternalLink(Uri.parse(getString(R.string.zero_webpage_url)));
+                }
+            });
+            alert.setNegativeButton(getString(R.string.zero_learn_more_no_thanks), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.dismiss();
+                }
+            });
+            alert.create().show();
+        }
+    }
+
+    @Subscribe
+    public void onWikipediaZeroInterstitialEvent(final WikipediaZeroInterstitialEvent event) {
+        alert = new AlertDialog.Builder(this);
+        alert.setTitle(getString(R.string.zero_interstitial_title));
+        alert.setMessage(getString(R.string.zero_interstitial_leave_app));
+        alert.setPositiveButton(getString(R.string.zero_interstitial_continue), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                visitExternalLink(event.getUri());
+            }
+        });
+        alert.setNegativeButton(getString(R.string.zero_interstitial_cancel), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        alert.setNeutralButton(getString(R.string.nav_item_preferences), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                visitSettings();
+            }
+        });
+        alert.create().show();
+    }
+
+    private void visitSettings() {
+        Intent intent = new Intent();
+        intent.setClass(getApplicationContext(), SettingsActivity.class);
+        startActivity(intent);
+    }
+
+    private void visitExternalLink(Uri uri) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setData(uri);
+        startActivity(intent);
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -133,17 +226,32 @@ public class PageActivity extends ActionBarActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        boolean latestWikipediaZeroDispostion = app.getWikipediaZeroDisposition();
+        if (WikipediaApp.isWikipediaZeroDevmodeOn() && pausedStateOfZero && !latestWikipediaZeroDispostion) {
+            bus.post(new WikipediaZeroStateChangeEvent());
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        pausedStateOfZero = app.getWikipediaZeroDisposition();
+        pausedXcsOfZero = app.getXcs();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
+        outState.putString("pausedXcsOfZero", pausedXcsOfZero);
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         bus.unregister(this);
         bus = null;
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (connChangeReceiver != null) {
-            this.unregisterReceiver(connChangeReceiver);
-        }
     }
 }

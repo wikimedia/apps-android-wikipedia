@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <org.wikipedia.settings.LanguagePreference
-        android:key="@string/preference_key_language"
-        android:title="@string/preference_title_language"
-        />
+    <PreferenceCategory android:title="@string/preferences_general_heading">
+        <org.wikipedia.settings.LanguagePreference
+                android:key="@string/preference_key_language"
+                android:title="@string/preference_title_language"
+                />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/zero_wikipedia_zero_heading">
+        <CheckBoxPreference
+                android:key="zero_warn_when_leaving"
+                android:title="@string/zero_warn_when_leaving"
+                android:defaultValue="true"
+                android:summary="@string/zero_warn_when_leaving_summary"
+                />
+        <Preference android:title="@string/zero_webpage_title"
+                android:summary="@string/zero_webpage_url">
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="@string/zero_webpage_url"
+                    />
+        </Preference>
+        <CheckBoxPreference
+                android:key="zero_dev_option_on"
+                android:title="@string/zero_settings_devmode"
+                android:defaultValue="false"
+                android:summary="@string/zero_settings_devmode_summary"
+                />
+
+    </PreferenceCategory>
 </PreferenceScreen>

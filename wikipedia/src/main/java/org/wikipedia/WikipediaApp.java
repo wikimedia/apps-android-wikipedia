@@ -19,6 +19,10 @@ import org.wikipedia.savedpages.*;
 
 import java.util.*;
 
+import android.net.ConnectivityManager;
+import org.wikipedia.networking.ConnectionChangeReceiver;
+
+
 @ReportsCrashes(
         formKey="",
         mode= ReportingInteractionMode.DIALOG,
@@ -37,14 +41,20 @@ public class WikipediaApp extends Application {
     public static String PREFERENCE_COOKIES_FOR_DOMAINS;
     public static String PREFERENCE_EDITTOKEN_WIKIS;
     public static String PREFERENCE_EDITTOKEN_FOR_WIKI;
+    public static String PREFERENCE_ZERO_INTERSTITIAL;
+    public static String PREFERENCE_ZERO_DEVMODE;
+    private static WikipediaApp app;
 
     public static float SCREEN_DENSITY;
     // Reload in onCreate to override
     public static String PROTOCOL = "https";
 
+    private ConnectionChangeReceiver connChangeReceiver;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        app = this;
         ACRA.init(this);
 
         bus = new Bus();
@@ -58,6 +68,8 @@ public class WikipediaApp extends Application {
         PREFERENCE_COOKIES_FOR_DOMAINS = getString(R.string.preference_cookies_for_domain);
         PREFERENCE_EDITTOKEN_WIKIS = getString(R.string.preference_edittoken_wikis);
         PREFERENCE_EDITTOKEN_FOR_WIKI = getString(R.string.preference_edittoken_for_wiki);
+        PREFERENCE_ZERO_INTERSTITIAL = getResources().getString(R.string.preference_key_zero_interstitial);
+        PREFERENCE_ZERO_DEVMODE = getResources().getString(R.string.preference_key_zero_devmode);
 
         PROTOCOL = "https"; // Move this to a preference or something later on
 
@@ -67,6 +79,13 @@ public class WikipediaApp extends Application {
         }
 
         Api.setConnectionFactory(new OkHttpConnectionFactory(this));
+
+        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
+            IntentFilter connFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+            connChangeReceiver = new ConnectionChangeReceiver();
+            this.registerReceiver(connChangeReceiver, connFilter);
+        }
+
     }
 
     public Bus getBus() {
@@ -154,7 +173,6 @@ public class WikipediaApp extends Application {
         }
         return primaryType;
     }
-
     private String[] wikiCodes;
     public int findWikiIndex(String wikiCode) {
         if (wikiCodes == null) {
@@ -221,5 +239,27 @@ public class WikipediaApp extends Application {
             userInfoStorage = new UserInfoStorage(PreferenceManager.getDefaultSharedPreferences(this));
         }
         return userInfoStorage;
+    }
+
+    private static boolean wikipediaZeroDisposition = false;
+    public static void setWikipediaZeroDisposition(boolean b) {
+        wikipediaZeroDisposition = b;
+    }
+    public static boolean getWikipediaZeroDisposition() {
+        return wikipediaZeroDisposition;
+    }
+
+    private static String xcs = "";
+    public static void setXcs(String s) { xcs = s; }
+    public static String getXcs() { return xcs; }
+
+    private static String carrierMessage = "";
+    public static void setCarrierMessage(String m) { carrierMessage = m; }
+    public static String getCarrierMessage() { return carrierMessage; }
+
+    private static boolean wikipediaZeroDevModeOn = false;
+    public static boolean isWikipediaZeroDevmodeOn() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(app);
+        return prefs.getBoolean(PREFERENCE_ZERO_DEVMODE, false);
     }
 }

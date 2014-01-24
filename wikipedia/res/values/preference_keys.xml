@@ -5,4 +5,6 @@
     <string name="preference_cookies_for_domain">cookies_for_domain_%1$s</string>
     <string name="preference_edittoken_wikis">edittoken_wikis</string>
     <string name="preference_edittoken_for_wiki">edittoken_for_wiki_%1$s</string>
+    <string name="preference_key_zero_interstitial">zero_warn_when_leaving</string>
+    <string name="preference_key_zero_devmode">zero_dev_option_on</string>
 </resources>

@@ -7,14 +7,19 @@ import org.wikipedia.concurrency.*;
 
 import java.util.*;
 
+import android.content.Context;
+
 public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
     private final String prefix;
     private final Site site;
+    private final WikipediaApp app;
 
-    public SearchArticlesTask(Api api, Site site, String prefix) {
+    public SearchArticlesTask(Context context, Api api, Site site, String prefix) {
         super(ExecutorService.getSingleton().getExecutor(SearchArticlesTask.class, 4), api);
         this.prefix = prefix;
         this.site = site;
+        this.app = (WikipediaApp)context.getApplicationContext();
+
     }
 
     @Override
@@ -23,7 +28,7 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
     }
 
     @Override
-    public List<PageTitle> processResult(ApiResult result) throws Throwable {
+    public List<PageTitle> processResult(final ApiResult result) throws Throwable {
         JSONArray searchResults = result.asArray().optJSONArray(1);
 
         ArrayList<PageTitle> pageTitles = new ArrayList<PageTitle>();
@@ -31,6 +36,9 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
             pageTitles.add(new PageTitle(null, searchResults.optString(i), site));
         }
 
+        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
+            Utils.processHeadersForZero(app, result);
+        }
         return pageTitles;
     }
 }

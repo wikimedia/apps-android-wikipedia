@@ -1,22 +1,31 @@
 package org.wikipedia.networking;
 
-import android.content.*;
-import android.net.*;
-import android.os.*;
-import android.util.*;
-import android.widget.*;
-import org.wikipedia.*;
-import org.wikipedia.zero.*;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import com.squareup.otto.Bus;
+import com.squareup.otto.ThreadEnforcer;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.events.WikipediaZeroStateChangeEvent;
+import org.wikipedia.random.RandomArticleIdTask;
+import org.wikipedia.zero.WikipediaZeroTask;
+import org.wikipedia.R;
+
 
 
 public class ConnectionChangeReceiver extends BroadcastReceiver {
-    private static boolean previousZeroState = false;
     private WikipediaApp app;
-    private WikipediaZeroTask curZeroTask;
-    private static final int MESSAGE_ZERO = 1;
+    private RandomArticleIdTask curRandomArticleIdTask;
+    private static final int MESSAGE_ZERO_RND = 1;
+    private static Bus bus;
 
     public void onReceive(final Context context, Intent intent) {
-        app = (WikipediaApp)context.getApplicationContext();
+        app = (WikipediaApp)context;
         ConnectivityManager conn = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = conn.getActiveNetworkInfo();
 
@@ -24,55 +33,53 @@ public class ConnectionChangeReceiver extends BroadcastReceiver {
         if (networkInfo != null) {
             NetworkInfo.State currentState = networkInfo.getState();
 
-            // we care both if a new network connection was made or when one of 2 or more connections is closed
-            if (currentState == NetworkInfo.State.CONNECTED || currentState == NetworkInfo.State.DISCONNECTED) {
+            /*
+            We care both if a new network connection was made or when one of 2 or more connections is closed.
+            NetworkInfo.State.CONNECTED => isConnected(), but let's call isConnected as documentation suggests.
+            We don't need to check against the zeroconfig API unless the (latest) W0 state is *on* (true).
+             */
+            if (app.getWikipediaZeroDisposition() &&
+                    (currentState == NetworkInfo.State.CONNECTED || currentState == NetworkInfo.State.DISCONNECTED) &&
+                    networkInfo.isConnected()
+               ) {
 
-                // OK, now check if we're eligible for zero-rating
-                Handler wikipediaZeroHandler = new Handler(new Handler.Callback(){
+                // OK, now check if we're still eligible for zero-rating
+                Handler wikipediaZeroRandomHandler = new Handler(new Handler.Callback(){
                     @Override
                     public boolean handleMessage(Message msg) {
-                        WikipediaZeroTask zeroTask = new WikipediaZeroTask(app.getAPIForSite(app.getPrimarySite())) {
+                        RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getPrimarySite()), context) {
                             @Override
-                            public void onFinish(Boolean result) {
-                                Log.d("Wikipedia", "Wikipedia Zero Eligibility Status: " + result);
+                            public void onFinish(String message) {
+                                Log.d("Wikipedia", "Random article title pulled: " + message);
 
-                                String toastVerbiage;
-                                if (!previousZeroState && result) {
-                                    toastVerbiage = context.getString(R.string.zero_free_verbiage);
-                                } else if (previousZeroState && !result) {
-                                    toastVerbiage = context.getString(R.string.zero_charged_verbiage);
-                                } else {
-                                    return;
+                                if (message != null) {
+                                    // future state, let's persist this somewhere to make Random work snappily
                                 }
-                                previousZeroState = result;
-                                Toast.makeText(context, toastVerbiage, Toast.LENGTH_LONG).show();
-
-                                curZeroTask = null;
                             }
 
                             @Override
                             public void onCatch(Throwable caught) {
                                 // oh snap
-                                Log.d("Wikipedia", "Wikipedia Zero Eligibility Check Exception Caught");
-                                curZeroTask = null;
+                                Log.d("Wikipedia", "Random article ID retrieval failed");
+                                curRandomArticleIdTask = null;
                             }
                         };
-                        if (curZeroTask != null) {
+                        if (curRandomArticleIdTask != null) {
                             // if this connection was hung, clean up a bit
-                            curZeroTask.cancel();
+                            curRandomArticleIdTask.cancel();
                         }
-                        curZeroTask = zeroTask;
-                        curZeroTask.execute();
+                        curRandomArticleIdTask = randomTask;
+                        curRandomArticleIdTask.execute();
                         return true;
                     }
                 });
 
-                wikipediaZeroHandler.removeMessages(MESSAGE_ZERO);
+                wikipediaZeroRandomHandler.removeMessages(MESSAGE_ZERO_RND);
                 Message zeroMessage = Message.obtain();
-                zeroMessage.what = MESSAGE_ZERO;
-                zeroMessage.obj = "zero_eligible_check";
+                zeroMessage.what = MESSAGE_ZERO_RND;
+                zeroMessage.obj = "zero_eligible_random_check";
 
-                wikipediaZeroHandler.sendMessage(zeroMessage);
+                wikipediaZeroRandomHandler.sendMessage(zeroMessage);
             }
         }
     }

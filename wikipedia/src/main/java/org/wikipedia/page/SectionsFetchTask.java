@@ -11,6 +11,7 @@ import java.util.*;
 public class SectionsFetchTask extends ApiTask<List<Section>> {
     private final PageTitle title;
     private final String sections;
+    private final WikipediaApp app;
 
     public SectionsFetchTask(Context context, PageTitle title, String sections) {
         super(
@@ -19,6 +20,7 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
         );
         this.title = title;
         this.sections = sections;
+        this.app = (WikipediaApp)context.getApplicationContext();
     }
 
     @Override
@@ -41,6 +43,10 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
             Section newSection = new Section(sectionsJSON.getJSONObject(i));
             sections.add(newSection);
         }
+        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
+            Utils.processHeadersForZero(app, result);
+        }
+
         return sections;
     }
 }

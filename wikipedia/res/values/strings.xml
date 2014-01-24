@@ -67,8 +67,6 @@
     <string name="menu_login">Log in</string>
     <string name="login_activity_title">Login to Wikipedia</string>
     <string name="login_in_progress_dialog_message">Logging you in...</string>
-    <string name="zero_free_verbiage">Wikipedia Zero On (No Data Charges)</string>
-    <string name="zero_charged_verbiage">Wikipedia Zero OFF (STANDARD DATA CHARGES MAY APPLY)</string>
     <string name="login_error_wrong_password">Incorrect password</string>
     <string name="login_error_wrong_username">Incorrect username</string>
     <string name="login_success_toast">Login Success!</string>
@@ -95,4 +93,23 @@
     <string name="create_account_ip_throttle_error">Too many accounts created from this IP. Try again later.</string>
     <string name="create_account_open_proxy_error">This IP has been blocked from creating accounts.</string>
     <string name="create_account_generic_error">Could not create account</string>
+    <string name="preferences_general_heading">General</string>
+    <string name="zero_free_verbiage">Free Wikipedia access from your mobile operator (data charges waived)</string>
+    <string name="zero_charged_verbiage">Wikipedia Zero OFF (STANDARD DATA CHARGES MAY APPLY)</string>
+    <string name="zero_search_hint">Search Wikipedia Zero</string>
+    <string name="zero_warn_when_leaving">Warn if leaving Wikipedia Zero</string>
+    <string name="zero_warn_when_leaving_summary">If your mobile operator waives data access charges for the Wikipedia app through a Wikipedia Zero partnership, leaving this setting checked helps you know when you are leaving the Wikipedia app and could be charged.</string>
+    <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
+    <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
+    <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+    <string name="zero_interstitial_title">Leaving Wikipedia Zero</string>
+    <string name="zero_interstitial_leave_app">Continue to external site? Standard data charges may apply.</string>
+    <string name="zero_interstitial_continue">Continue</string>
+    <string name="zero_interstitial_cancel">Cancel</string>
+    <string name="zero_learn_more">Want to learn about Wikipedia Zero?</string>
+    <string name="zero_learn_more_learn_more">Learn more</string>
+    <string name="zero_learn_more_no_thanks">No thanks</string>
+    <string name="zero_settings">Settings</string>
+    <string name="zero_settings_devmode">Zero Devmode</string>
+    <string name="zero_settings_devmode_summary">During development this enables code execution of W0 things.</string>
 </resources>

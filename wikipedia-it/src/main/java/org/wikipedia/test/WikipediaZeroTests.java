@@ -3,6 +3,7 @@ package org.wikipedia.test;
 import android.content.*;
 import android.test.*;
 import org.mediawiki.api.json.*;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.zero.*;
 
 import java.util.concurrent.*;
@@ -20,9 +21,9 @@ public class WikipediaZeroTests extends ActivityUnitTestCase<TestDummyActivity> 
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new WikipediaZeroTask(new Api("en.wikipedia.org")) {
+                new WikipediaZeroTask(new Api("en.wikipedia.org"), (WikipediaApp)getInstrumentation().getTargetContext().getApplicationContext()) {
                     @Override
-                    public void onFinish(Boolean result) {
+                    public void onFinish(String result) {
                         assertNotNull(result);
                         completionLatch.countDown();
                     }

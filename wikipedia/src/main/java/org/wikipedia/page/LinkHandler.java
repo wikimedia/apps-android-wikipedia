@@ -9,6 +9,8 @@ import org.wikipedia.*;
 import org.wikipedia.events.*;
 import org.wikipedia.history.*;
 
+import android.preference.PreferenceManager;
+
 /**
  * Handles any html links coming from a {@link org.wikipedia.page.PageViewFragment}
  */
@@ -17,17 +19,32 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
     private final CommunicationBridge bridge;
     private final Bus bus;
     private final Site currentSite;
+    private WikipediaApp app;
 
     public LinkHandler(Context context, CommunicationBridge bridge, Site currentSite) {
         this.context = context;
         this.bridge = bridge;
-        this.bus = ((WikipediaApp)context.getApplicationContext()).getBus();
+        this.app = (WikipediaApp)context.getApplicationContext();
+        this.bus = app.getBus();
         this.currentSite = currentSite;
 
         this.bridge.addListener("linkClicked", this);
     }
 
-    private void handleExternalLink(Uri uri) {
+    private void handleExternalLink(final Uri uri) {
+        if (WikipediaApp.isWikipediaZeroDevmodeOn() && app.getWikipediaZeroDisposition()) {
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+            if (sharedPref.getBoolean(app.PREFERENCE_ZERO_INTERSTITIAL, true)) {
+                bus.post(new WikipediaZeroInterstitialEvent(uri));
+            } else {
+                visitExternalLink(uri);
+            }
+        } else {
+            visitExternalLink(uri);
+        }
+    }
+
+    private void visitExternalLink(Uri uri) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.setData(uri);

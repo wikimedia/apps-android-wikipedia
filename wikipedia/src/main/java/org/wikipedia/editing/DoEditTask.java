@@ -7,11 +7,14 @@ import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.concurrency.*;
 
+import java.util.concurrent.Executor;
+
 public class DoEditTask extends ApiTask<EditingResult> {
     private final PageTitle title;
     private final String sectionWikitext;
     private final int sectionID;
     private final String editToken;
+    private final WikipediaApp app;
 
     public DoEditTask(Context context, PageTitle title, String sectionWikitext, int sectionID, String editToken) {
         super(
@@ -22,6 +25,7 @@ public class DoEditTask extends ApiTask<EditingResult> {
         this.sectionWikitext = sectionWikitext;
         this.sectionID = sectionID;
         this.editToken = editToken;
+        this.app = (WikipediaApp)context.getApplicationContext();
     }
 
     @Override
@@ -41,6 +45,12 @@ public class DoEditTask extends ApiTask<EditingResult> {
     @Override
     public EditingResult processResult(ApiResult result) throws Throwable {
         JSONObject resultJSON = result.asObject();
+
+        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
+            // TODO: ??? not sure if this is a better place for this or down below,
+            // but the block seems to be ready for revisions, so clean up then?
+            Utils.processHeadersForZero(app, result);
+        }
         Log.d("Wikipedia", resultJSON.toString(4));
         if (resultJSON.has("error")) {
             JSONObject errorJSON = resultJSON.optJSONObject("error");

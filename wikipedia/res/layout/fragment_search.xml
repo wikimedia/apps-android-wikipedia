@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/search_bar_container"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="48dp"
               android:background="@android:color/background_light"
         >
     <LinearLayout
+            android:id="@+id/navbar"
             android:orientation="horizontal"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
@@ -26,6 +28,7 @@
                         android:src="@drawable/ic_drawer"
                         />
                 <ImageView
+                        android:id="@+id/wikipedia_icon"
                         android:layout_height="32dp"
                         android:layout_width="32dp"
                         android:layout_marginRight="0dp"
@@ -54,6 +57,7 @@
                     android:selectAllOnFocus="true"
                     android:singleLine="true"
                     android:imeOptions="actionDone"
+                    android:textCursorDrawable="@null"
                     />
             <ProgressBar
                     android:id="@+id/search_progress"
