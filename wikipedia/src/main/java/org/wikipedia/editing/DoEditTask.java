@@ -51,9 +51,17 @@ public class DoEditTask extends ApiTask<EditingResult> {
             JSONObject errorJSON = resultJSON.optJSONObject("error");
             throw new EditingException(errorJSON.optString("code"), errorJSON.optString("info"));
         }
-        String status = resultJSON.optJSONObject("edit").optString("result");
+        JSONObject edit = resultJSON.optJSONObject("edit");
+        String status = edit.optString("result");
         if (status.equals("Success")) {
             return new SuccessEditResult();
+        } else if (status.equals("Failure")) {
+            if (edit.has("captcha")) {
+                return new CaptchaEditResult(
+                        edit.optJSONObject("captcha").optString("id"),
+                        edit.optJSONObject("captcha").optString("url")
+                );
+            }
         }
         // Handle other type of return codes here
         throw new RuntimeException("Failure happens");

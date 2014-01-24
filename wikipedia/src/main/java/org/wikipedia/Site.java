@@ -59,6 +59,10 @@ public class Site implements Parcelable {
         return ((Site)o).getDomain().equals(domain);
     }
 
+    public String getFullUrl(String path) {
+        return WikipediaApp.PROTOCOL + "://" + getDomain() + path;
+    }
+
     /**
      * Regex to match internal relative wikilinks.
      *
