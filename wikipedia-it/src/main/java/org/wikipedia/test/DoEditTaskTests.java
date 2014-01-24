@@ -6,6 +6,7 @@ import android.test.ActivityUnitTestCase;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.editing.DoEditTask;
+import org.wikipedia.editing.EditingResult;
 import org.wikipedia.editing.FetchSectionWikitextTask;
 
 import java.util.concurrent.CountDownLatch;
@@ -28,9 +29,9 @@ public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
             public void run() {
                 new DoEditTask(getInstrumentation().getTargetContext(), title, wikitext, 3) {
                     @Override
-                    public void onFinish(String result) {
+                    public void onFinish(EditingResult result) {
                         assertNotNull(result);
-                        assertEquals("Success", result);
+                        assertEquals("Success", result.getResult());
                         new FetchSectionWikitextTask(getInstrumentation().getTargetContext(),title, 3) {
                             @Override
                             public void onFinish(String result) {

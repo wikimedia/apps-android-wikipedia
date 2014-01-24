@@ -14,7 +14,7 @@ import org.wikipedia.page.Section;
 
 import java.util.concurrent.Executor;
 
-public class DoEditTask extends ApiTask<String> {
+public class DoEditTask extends ApiTask<EditingResult> {
     private final PageTitle title;
     private final String sectionWikitext;
     private final int sectionID;
@@ -44,13 +44,18 @@ public class DoEditTask extends ApiTask<String> {
     }
 
     @Override
-    public String processResult(ApiResult result) throws Throwable {
+    public EditingResult processResult(ApiResult result) throws Throwable {
         JSONObject resultJSON = result.asObject();
         Log.d("Wikipedia", resultJSON.toString(4));
         if (resultJSON.has("error")) {
             JSONObject errorJSON = resultJSON.optJSONObject("error");
             throw new EditingException(errorJSON.optString("code"), errorJSON.optString("info"));
         }
-        return resultJSON.optJSONObject("edit").optString("result");
+        String status = resultJSON.optJSONObject("edit").optString("result");
+        if (status.equals("Success")) {
+            return new SuccessEditResult();
+        }
+        // Handle other type of return codes here
+        throw new RuntimeException("Failure happens");
     }
 }
