@@ -164,6 +164,8 @@ public class SearchArticlesFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle title = (PageTitle) searchResultsList.getAdapter().getItem(position);
                 HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
+                InputMethodManager keyboard = (InputMethodManager)app.getSystemService(Context.INPUT_METHOD_SERVICE);
+                keyboard.hideSoftInputFromWindow(searchTermText.getWindowToken(), 0);
                 app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
                 displayResults(null);
             }
