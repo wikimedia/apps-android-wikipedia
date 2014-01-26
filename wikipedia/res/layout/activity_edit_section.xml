@@ -45,4 +45,35 @@
                 />
     </LinearLayout>
 
+    <LinearLayout
+            android:id="@+id/edit_section_captcha_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@android:color/background_light"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:text="@string/edit_section_captcha_message"
+                  style="?android:textAppearanceMedium"
+                  android:layout_margin="16dp"
+                />
+        <ImageView
+                android:id="@+id/edit_section_captcha_image"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:scaleType="centerInside"
+                android:layout_height="wrap_content"
+                />
+        <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:layout_margin="16dp"
+                  style="?android:textAppearanceMedium"
+                  android:layout_gravity="center_horizontal"
+                  android:id="@+id/edit_section_captcha_text"
+                  android:hint="@string/edit_section_captcha_hint"
+                  android:padding="8dp"
+                />
+
+    </LinearLayout>
 </FrameLayout>

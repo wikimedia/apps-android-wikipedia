@@ -4,15 +4,20 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.*;
 import com.github.kevinsawicki.http.HttpRequest;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
@@ -34,6 +39,12 @@ public class EditSectionActivity extends Activity {
     private View sectionContainer;
     private View sectionError;
     private Button sectionErrorRetry;
+    private View captchaContainer;
+    private ImageView captchaImage;
+    private EditText captchaText;
+    private Button captchaConfirm;
+
+    private CaptchaEditResult captchaEditResult;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +59,8 @@ public class EditSectionActivity extends Activity {
         title = getIntent().getParcelableExtra(EXTRA_TITLE);
         section = getIntent().getParcelableExtra(EXTRA_SECTION);
 
+        progressDialog = new ProgressDialog(this);
+
         getActionBar().setTitle(getString(R.string.editsection_activity_title));
 
         sectionText = (EditText) findViewById(R.id.edit_section_text);
@@ -56,8 +69,17 @@ public class EditSectionActivity extends Activity {
         sectionError = findViewById(R.id.edit_section_error);
         sectionErrorRetry = (Button) findViewById(R.id.edit_section_error_retry);
 
+        captchaContainer = findViewById(R.id.edit_section_captcha_container);
+        captchaImage = (ImageView) findViewById(R.id.edit_section_captcha_image);
+        captchaText = (EditText) findViewById(R.id.edit_section_captcha_text);
+
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
             sectionWikitext = savedInstanceState.getString("sectionWikitext");
+        }
+
+        if (savedInstanceState != null && savedInstanceState.containsKey("captcha")) {
+            captchaEditResult = savedInstanceState.getParcelable("captcha");
+            handleCaptcha();
         }
 
         sectionErrorRetry.setOnClickListener(new View.OnClickListener() {
@@ -71,15 +93,29 @@ public class EditSectionActivity extends Activity {
         fetchSectionText();
     }
 
+    private ProgressDialog progressDialog;
     private void doSave() {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.setMessage(getString(R.string.dialog_saving_in_progress));
+        if (captchaEditResult != null) {
+            // Show the wikitext in the background when captcha is being saved=
+            Utils.crossFade(captchaContainer, sectionContainer);
+        }
         new DoEditTask(this, title, sectionText.getText().toString(), section.getId()) {
             @Override
             public void onBeforeExecute() {
                 progressDialog.show();
+            }
+
+            @Override
+            public RequestBuilder buildRequest(Api api) {
+                RequestBuilder builder = super.buildRequest(api);
+                if (captchaEditResult != null) {
+                    builder.param("captchaid", captchaEditResult.getCaptchaId())
+                            .param("captchaword", captchaText.getText().toString());
+                }
+                return builder;
             }
 
             @Override
@@ -115,6 +151,9 @@ public class EditSectionActivity extends Activity {
                     setResult(EditHandler.RESULT_REFRESH_PAGE);
                     Toast.makeText(EditSectionActivity.this, R.string.edit_saved_successfully, Toast.LENGTH_LONG).show();
                     finish();
+                } else if (result instanceof CaptchaEditResult) {
+                    captchaEditResult = (CaptchaEditResult) result;
+                    handleCaptcha();
                 } else {
                     // Expand to do everything.
                     onCatch(null);
@@ -122,7 +161,35 @@ public class EditSectionActivity extends Activity {
 
             }
         }.execute();
+    }
 
+    private void handleCaptcha() {
+        Picasso.with(EditSectionActivity.this)
+                .load(Uri.parse(captchaEditResult.getCaptchaUrl(title.getSite())))
+                        // Don't use .fit() here - seems to cause the loading to fail
+                        // See https://github.com/square/picasso/issues/249
+                .into(captchaImage, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        getActionBar().setTitle(R.string.edit_section_title_captcha);
+                        progressDialog.hide();
+
+                        // In case there was a captcha attempt before
+                        captchaText.setText("");
+                        Utils.crossFade(sectionContainer, captchaContainer);
+                    }
+
+                    @Override
+                    public void onError() {
+                    }
+                });
+    }
+
+    private void cancelCaptcha() {
+        captchaEditResult = null;
+        captchaText.setText("");
+        getActionBar().setTitle(R.string.editsection_activity_title);
+        Utils.crossFade(captchaContainer, sectionContainer);
     }
 
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
@@ -148,6 +215,7 @@ public class EditSectionActivity extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("sectionWikitext", sectionWikitext);
+        outState.putParcelable("captcha", captchaEditResult);
     }
 
     private void fetchSectionText() {
@@ -179,4 +247,12 @@ public class EditSectionActivity extends Activity {
         invalidateOptionsMenu();
     }
 
+    @Override
+    public void onBackPressed() {
+        if (captchaEditResult != null) {
+            cancelCaptcha();
+        } else {
+            finish();
+        }
+    }
 }
