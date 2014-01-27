@@ -127,14 +127,14 @@ a.edit_section_button {
   border: 4px solid rgba(0, 0, 0, 0.1);
   border-top: 4px solid rgba(0, 0, 0, 0.4);
   border-radius: 100%;
-  animation: rot .6s infinite linear;
+  -webkit-animation: rot .6s infinite linear;
 }
-@keyframes rot {
+@-webkit-keyframes rot {
   from {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
   }
   to {
-    transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
   }
 }
 #loading_sections {
