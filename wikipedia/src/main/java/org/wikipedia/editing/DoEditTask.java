@@ -58,8 +58,7 @@ public class DoEditTask extends ApiTask<EditingResult> {
         } else if (status.equals("Failure")) {
             if (edit.has("captcha")) {
                 return new CaptchaEditResult(
-                        edit.optJSONObject("captcha").optString("id"),
-                        edit.optJSONObject("captcha").optString("url")
+                        edit.optJSONObject("captcha").optString("id")
                 );
             }
         }

@@ -7,18 +7,15 @@ import org.wikipedia.Site;
 // Handles only Image Captchas
 public class CaptchaEditResult extends EditingResult {
     private final String captchaId;
-    private final String captchaPath;
 
-    public CaptchaEditResult(String captchaId, String captchaPath) {
+    public CaptchaEditResult(String captchaId) {
         super("Failure");
         this.captchaId = captchaId;
-        this.captchaPath = captchaPath;
     }
 
     protected CaptchaEditResult(Parcel in) {
         super(in);
         captchaId = in.readString();
-        captchaPath = in.readString();
     }
 
     public String getCaptchaId() {
@@ -26,14 +23,13 @@ public class CaptchaEditResult extends EditingResult {
     }
 
     public String getCaptchaUrl(Site site) {
-        return site.getFullUrl(captchaPath);
+        return site.getFullUrl("/w/index.php?title=Special:Captcha/image&wpCaptchaId=" + captchaId);
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeString(captchaId);
-        dest.writeString(captchaPath);
     }
 
     public static final Parcelable.Creator<CaptchaEditResult> CREATOR
