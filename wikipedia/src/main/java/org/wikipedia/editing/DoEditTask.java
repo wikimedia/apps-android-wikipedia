@@ -61,6 +61,9 @@ public class DoEditTask extends ApiTask<EditingResult> {
                         edit.optJSONObject("captcha").optString("id")
                 );
             }
+            if (edit.has("code") && edit.optString("code").startsWith("abusefilter-")) {
+                return new AbuseFilterEditResult(edit);
+            }
         }
         // Handle other type of return codes here
         throw new RuntimeException("Failure happens");
