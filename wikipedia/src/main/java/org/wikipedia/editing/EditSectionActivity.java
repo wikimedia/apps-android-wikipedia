@@ -3,25 +3,25 @@ package org.wikipedia.editing;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebView;
 import android.widget.*;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Transformation;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.*;
 import org.wikipedia.page.Section;
 
 public class EditSectionActivity extends Activity {
@@ -42,9 +42,14 @@ public class EditSectionActivity extends Activity {
     private View captchaContainer;
     private ImageView captchaImage;
     private EditText captchaText;
-    private Button captchaConfirm;
+
+    private View abusefilterContainer;
+    private WebView abusefilterWebView;
+    private CommunicationBridge abusefilterBridge;
+    private View abuseFilterBackAction;
 
     private CaptchaEditResult captchaEditResult;
+    private AbuseFilterEditResult abusefilterEditResult;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +78,11 @@ public class EditSectionActivity extends Activity {
         captchaImage = (ImageView) findViewById(R.id.edit_section_captcha_image);
         captchaText = (EditText) findViewById(R.id.edit_section_captcha_text);
 
+        abusefilterContainer = findViewById(R.id.edit_section_abusefilter_container);
+        abusefilterWebView = (WebView) findViewById(R.id.edit_section_abusefilter_webview);
+        abusefilterBridge = new CommunicationBridge(abusefilterWebView, "file:///android_asset/abusefilter.html");
+        abuseFilterBackAction = findViewById(R.id.edit_section_abusefilter_back);
+
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
             sectionWikitext = savedInstanceState.getString("sectionWikitext");
         }
@@ -82,11 +92,23 @@ public class EditSectionActivity extends Activity {
             handleCaptcha();
         }
 
+        if (savedInstanceState != null && savedInstanceState.containsKey("abusefilter")) {
+            abusefilterEditResult = savedInstanceState.getParcelable("abusefilter");
+            handleAbuseFilter();
+        }
+
         sectionErrorRetry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Utils.crossFade(sectionError, sectionProgress);
                 fetchSectionText();
+            }
+        });
+
+        abuseFilterBackAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancelAbuseFilter();
             }
         });
 
@@ -154,6 +176,9 @@ public class EditSectionActivity extends Activity {
                 } else if (result instanceof CaptchaEditResult) {
                     captchaEditResult = (CaptchaEditResult) result;
                     handleCaptcha();
+                } else if (result instanceof AbuseFilterEditResult) {
+                    abusefilterEditResult = (AbuseFilterEditResult) result;
+                    handleAbuseFilter();
                 } else {
                     // Expand to do everything.
                     onCatch(null);
@@ -163,11 +188,34 @@ public class EditSectionActivity extends Activity {
         }.execute();
     }
 
+    private void handleAbuseFilter() {
+        if (abusefilterEditResult == null) {
+            return;
+        }
+        JSONObject payload = new JSONObject();
+        try {
+            payload.putOpt("html", abusefilterEditResult.getWarning());
+        } catch (JSONException e) {
+            // Goddamn Java
+            throw new RuntimeException(e);
+        }
+        abusefilterBridge.sendMessage("displayWarning", payload);
+        if (getCurrentFocus() != null) {
+            InputMethodManager keyboard = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            keyboard.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+        Utils.fadeIn(abusefilterContainer);
+        progressDialog.dismiss();
+    }
+
     private void handleCaptcha() {
+        if (captchaEditResult == null) {
+            return;
+        }
         Picasso.with(EditSectionActivity.this)
                 .load(Uri.parse(captchaEditResult.getCaptchaUrl(title.getSite())))
-                        // Don't use .fit() here - seems to cause the loading to fail
-                        // See https://github.com/square/picasso/issues/249
+                // Don't use .fit() here - seems to cause the loading to fail
+                // See https://github.com/square/picasso/issues/249
                 .into(captchaImage, new Callback() {
                     @Override
                     public void onSuccess() {
@@ -190,6 +238,12 @@ public class EditSectionActivity extends Activity {
         captchaText.setText("");
         getActionBar().setTitle(R.string.editsection_activity_title);
         Utils.crossFade(captchaContainer, sectionContainer);
+    }
+
+    private void cancelAbuseFilter() {
+        abusefilterEditResult = null;
+        getActionBar().setTitle(R.string.editsection_activity_title);
+        Utils.crossFade(abusefilterContainer, sectionContainer);
     }
 
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
@@ -216,6 +270,7 @@ public class EditSectionActivity extends Activity {
         super.onSaveInstanceState(outState);
         outState.putString("sectionWikitext", sectionWikitext);
         outState.putParcelable("captcha", captchaEditResult);
+        outState.putParcelable("abusefilter", abusefilterEditResult);
     }
 
     private void fetchSectionText() {
@@ -251,6 +306,8 @@ public class EditSectionActivity extends Activity {
     public void onBackPressed() {
         if (captchaEditResult != null) {
             cancelCaptcha();
+        } else if (abusefilterEditResult != null) {
+            cancelAbuseFilter();
         } else {
             finish();
         }

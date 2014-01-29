@@ -58,4 +58,5 @@
     </string>
     <string name="edit_section_captcha_hint">Repeat words from above</string>
     <string name="edit_section_title_captcha">Enter captcha</string>
+    <string name="edit_section_abusefilter_back_text">Make changes to my edit</string>
 </resources>

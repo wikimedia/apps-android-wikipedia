@@ -77,4 +77,34 @@
                 />
 
     </LinearLayout>
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/edit_section_abusefilter_container"
+                android:visibility="gone"
+                android:background="@android:color/background_light"
+            >
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+            <WebView
+                    android:id="@+id/edit_section_abusefilter_webview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/border"/>
+            <TextView
+                    android:id="@+id/edit_section_abusefilter_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/edit_section_abusefilter_back_text"
+                    android:padding="8dp"
+                    android:background="?android:attr/activatedBackgroundIndicator"
+                    style="?android:textAppearanceMedium"
+                    />
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/border"/>
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

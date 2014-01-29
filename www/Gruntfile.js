@@ -20,14 +20,16 @@ module.exports = function( grunt ) {
             dist: {
                 files: {
                     "bundle.js": [ "js/main.js", "js/transforms.js", "js/bridge.js", "js/linkactions.js", "js/sections.js"],
-                    "bundle-test.js": [ "js/main.js", "js/bridge.js", "tests/*.js" ]
+                    "bundle-test.js": [ "js/main.js", "js/bridge.js", "tests/*.js" ],
+                    "abusefilter.js": [ "js/bridge.js", "js/abusefilter.js" ]
                 }
             }
         },
         less: {
             all: {
                 files: [
-                    { src: ["less/*.less"], dest: "styles.css"}
+                    { src: ["less/fonts.less", "less/pagestyles.less", "less/ui.less"], dest: "styles.css"},
+                    { src: ["less/fonts.less", "less/pagestyles.less"], dest: "abusefilter.css"}
                 ]
             }
         },
@@ -45,6 +47,9 @@ module.exports = function( grunt ) {
 
                     // Test files
                     {src: ["bundle-test.js", "tests/index.html"], dest: "../wikipedia/assets/"},
+
+                    // Abusefilter files
+                    { src: ["abusefilter.js", "abusefilter.css", "abusefilter.html"], dest: "../wikipedia/assets/" },
 
                     // Images
                     {src: ["images/*"], dest:"../wikipedia/assets/"},
