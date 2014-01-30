@@ -1,8 +1,8 @@
 var bridge = require("./bridge");
-var Transforms = function () {};
+var transformer = require("./transformer");
 
-function moveInfobox( leadContent ) {
-    // Move infobox to the bottom of the lead section
+// Move infobox to the bottom of the lead section
+transformer.register( "leadSection", function( leadContent ) {
     var infobox = leadContent.querySelector( "table.infobox" );
     if ( infobox ) {
         infobox.parentNode.removeChild( infobox );
@@ -14,9 +14,10 @@ function moveInfobox( leadContent ) {
         }
     }
     return leadContent;
-}
+} );
 
-function useLocalImagesForSavedPages( content ) {
+// Use locally cached images as fallback in saved pages
+transformer.register( "section", function( content ) {
     var images = content.querySelectorAll( "img" );
     function onError() {
         var img = event.target;
@@ -32,27 +33,4 @@ function useLocalImagesForSavedPages( content ) {
         images[i].onerror = onError;
     }
     return content;
-}
-
-// List of transformation functions by their target type
-var transformsByType = {
-    'lead': [
-        moveInfobox,
-        useLocalImagesForSavedPages
-    ],
-    'body': [
-        useLocalImagesForSavedPages
-    ]
-};
-
-Transforms.prototype.transform = function( type, content ) {
-    var transforms = transformsByType[ type ];
-    if ( transforms.length ) {
-        transforms.forEach( function ( transform ) {
-            content = transform( content );
-        } );
-    }
-    return content;
-};
-
-module.exports = new Transforms();
+} );

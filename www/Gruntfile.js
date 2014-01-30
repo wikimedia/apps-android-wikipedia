@@ -1,6 +1,7 @@
 module.exports = function( grunt ) {
     var allScriptFiles = [
         "js/main.js",
+        "js/tranformer.js",
         "js/transforms.js",
         "js/bridge.js",
         "js/linkactions.js",
@@ -19,7 +20,7 @@ module.exports = function( grunt ) {
         browserify: {
             dist: {
                 files: {
-                    "bundle.js": [ "js/main.js", "js/transforms.js", "js/bridge.js", "js/linkactions.js", "js/sections.js"],
+                    "bundle.js": [ "js/main.js", "js/transformer.js", "js/transforms.js", "js/bridge.js", "js/linkactions.js", "js/sections.js"],
                     "bundle-test.js": [ "js/main.js", "js/bridge.js", "tests/*.js" ],
                     "abusefilter.js": [ "js/bridge.js", "js/abusefilter.js" ]
                 }

@@ -1,5 +1,5 @@
 var bridge = require("./bridge");
-var transforms = require("./transforms");
+var transformer = require("./transformer");
 
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!
@@ -13,7 +13,8 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     var content = document.createElement( "div" );
     content.innerHTML = payload.section.text;
     content.id = "#content_block_0";
-    content = transforms.transform( "lead", content );
+    content = transformer.transform( "leadSection", content );
+    content = transformer.transform( "section", content );
     document.getElementById( "content" ).appendChild( content );
 
     document.getElementById( "loading_sections").className = "loading";
@@ -34,7 +35,7 @@ function elementsForSection( section ) {
     var content = document.createElement( "div" );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
-    content = transforms.transform( "body", content );
+    content = transformer.transform( "section", content );
 
     return [ heading, content ];
 }

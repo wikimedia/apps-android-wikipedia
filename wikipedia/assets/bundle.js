@@ -77,7 +77,7 @@ bridge.registerListener( "requestImagesList", function () {
 } );
 },{"./bridge":1}],4:[function(require,module,exports){
 var bridge = require("./bridge");
-var transforms = require("./transforms");
+var transformer = require("./transformer");
 
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!
@@ -91,7 +91,8 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     var content = document.createElement( "div" );
     content.innerHTML = payload.section.text;
     content.id = "#content_block_0";
-    content = transforms.transform( "lead", content );
+    content = transformer.transform( "leadSection", content );
+    content = transformer.transform( "section", content );
     document.getElementById( "content" ).appendChild( content );
 
     document.getElementById( "loading_sections").className = "loading";
@@ -112,7 +113,7 @@ function elementsForSection( section ) {
     var content = document.createElement( "div" );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
-    content = transforms.transform( "body", content );
+    content = transformer.transform( "section", content );
 
     return [ heading, content ];
 }
@@ -142,12 +143,36 @@ bridge.registerListener( "scrollToSection", function ( payload ) {
     window.scrollTo(0, scrollY);
 });
 
-},{"./bridge":1,"./transforms":5}],5:[function(require,module,exports){
-var bridge = require("./bridge");
-var Transforms = function () {};
+},{"./bridge":1,"./transformer":5}],5:[function(require,module,exports){
+function Transformer() {
+}
 
-function moveInfobox( leadContent ) {
-    // Move infobox to the bottom of the lead section
+var transforms = {};
+
+Transformer.prototype.register = function( transform, fun ) {
+    if ( transform in transforms ) {
+        transforms[transform].append( fun );
+    } else {
+        transforms[transform] = [ fun ];
+    }
+};
+
+Transformer.prototype.transform = function( transform, element ) {
+    var functions = transforms[transform];
+    for ( var i = 0; i < functions.length; i++ ) {
+        element = functions[i](element);
+    }
+    return element;
+}
+
+module.exports = new Transformer();
+
+},{}],6:[function(require,module,exports){
+var bridge = require("./bridge");
+var transformer = require("./transformer");
+
+// Move infobox to the bottom of the lead section
+transformer.register( "leadSection", function( leadContent ) {
     var infobox = leadContent.querySelector( "table.infobox" );
     if ( infobox ) {
         infobox.parentNode.removeChild( infobox );
@@ -159,9 +184,10 @@ function moveInfobox( leadContent ) {
         }
     }
     return leadContent;
-}
+} );
 
-function useLocalImagesForSavedPages( content ) {
+// Use locally cached images as fallback in saved pages
+transformer.register( "section", function( content ) {
     var images = content.querySelectorAll( "img" );
     function onError() {
         var img = event.target;
@@ -177,28 +203,6 @@ function useLocalImagesForSavedPages( content ) {
         images[i].onerror = onError;
     }
     return content;
-}
+} );
 
-// List of transformation functions by their target type
-var transformsByType = {
-    'lead': [
-        moveInfobox,
-        useLocalImagesForSavedPages
-    ],
-    'body': [
-        useLocalImagesForSavedPages
-    ]
-};
-
-Transforms.prototype.transform = function( type, content ) {
-    var transforms = transformsByType[ type ];
-    if ( transforms.length ) {
-        transforms.forEach( function ( transform ) {
-            content = transform( content );
-        } );
-    }
-    return content;
-};
-
-module.exports = new Transforms();
-},{"./bridge":1}]},{},[3,5,1,2,4])
+},{"./bridge":1,"./transformer":5}]},{},[3,5,6,1,2,4])
