@@ -40,6 +40,7 @@ public class EditSectionActivity extends Activity {
     private View sectionError;
     private Button sectionErrorRetry;
     private View captchaContainer;
+    private View captchaProgress;
     private ImageView captchaImage;
     private EditText captchaText;
 
@@ -77,6 +78,7 @@ public class EditSectionActivity extends Activity {
         captchaContainer = findViewById(R.id.edit_section_captcha_container);
         captchaImage = (ImageView) findViewById(R.id.edit_section_captcha_image);
         captchaText = (EditText) findViewById(R.id.edit_section_captcha_text);
+        captchaProgress = findViewById(R.id.edit_section_captcha_image_progress);
 
         abusefilterContainer = findViewById(R.id.edit_section_abusefilter_container);
         abusefilterWebView = (WebView) findViewById(R.id.edit_section_abusefilter_webview);
@@ -102,6 +104,25 @@ public class EditSectionActivity extends Activity {
             public void onClick(View v) {
                 Utils.crossFade(sectionError, sectionProgress);
                 fetchSectionText();
+            }
+        });
+
+        captchaImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new RefreshCaptchaTask(EditSectionActivity.this, title) {
+                    @Override
+                    public void onBeforeExecute() {
+                        Utils.crossFade(captchaImage, captchaProgress);
+                    }
+
+                    @Override
+                    public void onFinish(CaptchaEditResult result) {
+                        captchaEditResult = result;
+                        handleCaptcha(true);
+                    }
+                }.execute();
+
             }
         });
 
@@ -209,6 +230,10 @@ public class EditSectionActivity extends Activity {
     }
 
     private void handleCaptcha() {
+        handleCaptcha(false);
+    }
+
+    private void handleCaptcha(final boolean isReload) {
         if (captchaEditResult == null) {
             return;
         }
@@ -224,7 +249,11 @@ public class EditSectionActivity extends Activity {
 
                         // In case there was a captcha attempt before
                         captchaText.setText("");
-                        Utils.crossFade(sectionContainer, captchaContainer);
+                        if (isReload) {
+                            Utils.crossFade(captchaProgress, captchaImage);
+                        } else {
+                            Utils.crossFade(sectionContainer, captchaContainer);
+                        }
                     }
 
                     @Override
