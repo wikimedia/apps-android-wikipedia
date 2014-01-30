@@ -163,7 +163,7 @@ Transformer.prototype.transform = function( transform, element ) {
         element = functions[i](element);
     }
     return element;
-}
+};
 
 module.exports = new Transformer();
 
