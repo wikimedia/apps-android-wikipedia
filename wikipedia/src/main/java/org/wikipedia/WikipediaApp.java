@@ -3,6 +3,7 @@ package org.wikipedia;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.webkit.WebView;
@@ -139,5 +140,13 @@ public class WikipediaApp extends Application {
             persisters.put(cls.getCanonicalName(), persister);
         }
         return persisters.get(cls.getCanonicalName());
+    }
+
+    private Typeface primaryType;
+    public Typeface getPrimaryType() {
+        if (primaryType == null) {
+            primaryType = Typeface.createFromAsset(getAssets(), "fonts/OpenSans.ttf");
+        }
+        return primaryType;
     }
 }

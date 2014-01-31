@@ -9,7 +9,7 @@
           android:id="@+id/page_toc_filler"
           />
 
-    <TextView
+    <org.wikipedia.styledviews.StyledTextView
             android:id="@+id/page_toc_item_text"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
