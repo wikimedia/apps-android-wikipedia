@@ -10,7 +10,7 @@
             android:layout_height="wrap_content"
             android:indeterminate="true"
             />
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+    <org.wikipedia.styledviews.StyledTextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:layout_gravity="center"
               android:id="@+id/langlinks_empty"
               android:text="@string/langlinks_empty"
@@ -27,13 +27,13 @@
             android:orientation="vertical"
             android:visibility="gone"
             >
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        <org.wikipedia.styledviews.StyledTextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:layout_gravity="center"
                   android:text="@string/error_network_error"
                   style="?android:textAppearanceLarge"
                 />
 
-        <Button
+        <org.wikipedia.styledviews.StylizedButton
                 android:id="@+id/langlinks_error_retry"
                 android:text="@string/langlinks_error_retry"
                 android:layout_gravity="center"
@@ -47,7 +47,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:visibility="gone">
-        <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+        <org.wikipedia.styledviews.StylizedEditText android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:id="@+id/langlinks_filter"
                   android:hint="@string/langlinks_filter_hint"
                   android:singleLine="true"

@@ -7,7 +7,7 @@
               android:paddingStart="16dip"
               android:paddingEnd="12dip"
               android:minHeight="?android:attr/listPreferredItemHeightSmall">
-    <TextView android:id="@+id/language_list_page_title"
+    <org.wikipedia.styledviews.StyledTextView android:id="@+id/language_list_page_title"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:textAppearance="?android:attr/textAppearanceMedium"
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
-        <TextView android:id="@+id/language_list_language_name"
+        <org.wikipedia.styledviews.StyledTextView android:id="@+id/language_list_language_name"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:textAppearance="?android:attr/textAppearanceSmall"
@@ -30,7 +30,7 @@
                   android:singleLine="true"
                   android:ellipsize="marquee"
                 />
-        <TextView android:id="@+id/language_list_language_local_name"
+        <org.wikipedia.styledviews.StyledTextView android:id="@+id/language_list_language_local_name"
                   android:layout_width="0dp"
                   android:layout_weight="1"
                   android:layout_height="wrap_content"

@@ -18,13 +18,13 @@
             android:orientation="vertical"
             android:visibility="gone"
             >
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        <org.wikipedia.styledviews.StyledTextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:layout_gravity="center"
                   android:text="@string/error_network_error"
                   style="?android:textAppearanceLarge"
                 />
 
-        <Button
+        <org.wikipedia.styledviews.StylizedButton
                 android:id="@+id/edit_section_error_retry"
                 android:text="@string/edit_section_error_retry"
                 android:layout_gravity="center"
@@ -35,7 +35,7 @@
             android:id="@+id/edit_section_container"
             android:visibility="gone"
             android:layout_width="match_parent" android:layout_height="match_parent">
-        <EditText
+        <org.wikipedia.styledviews.StylizedEditText
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -54,7 +54,7 @@
             android:orientation="vertical"
             android:visibility="gone"
             >
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        <org.wikipedia.styledviews.StyledTextView android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:text="@string/edit_section_captcha_message"
                   style="?android:textAppearanceMedium"
                   android:layout_margin="16dp"
@@ -75,12 +75,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
         </FrameLayout>
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        <org.wikipedia.styledviews.StyledTextView android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:text="@string/edit_section_captcha_reload"
                   style="?android:textAppearanceSmall"
                   android:gravity="center"
                 />
-        <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+        <org.wikipedia.styledviews.StylizedEditText android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:layout_margin="16dp"
                   style="?android:textAppearanceMedium"
                   android:layout_gravity="center_horizontal"
@@ -107,7 +107,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/border"/>
-            <TextView
+            <org.wikipedia.styledviews.StyledTextView
                     android:id="@+id/edit_section_abusefilter_back"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
