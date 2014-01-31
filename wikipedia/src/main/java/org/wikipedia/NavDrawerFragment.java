@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import org.wikipedia.history.HistoryActivity;
+import org.wikipedia.login.LoginActivity;
 import org.wikipedia.savedpages.SavedPagesActivity;
 import org.wikipedia.settings.SettingsActivity;
 
@@ -15,12 +16,14 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
     private static final int[] ACTION_ITEMS_TEXT = {
             R.string.nav_item_history,
             R.string.nav_item_saved_pages,
-            R.string.nav_item_preferences
+            R.string.nav_item_preferences,
+            R.string.nav_item_login
     };
     private static final int[] ACTION_ITEM_IMAGES = {
             android.R.drawable.ic_menu_recent_history,
             android.R.drawable.ic_menu_save,
-            android.R.drawable.ic_menu_preferences
+            android.R.drawable.ic_menu_preferences,
+            android.R.drawable.ic_menu_add
     };
 
     private ListView navList;
@@ -49,6 +52,9 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
                 break;
             case R.string.nav_item_preferences:
                 intent.setClass(this.getActivity(), SettingsActivity.class);
+                break;
+            case R.string.nav_item_login:
+                intent.setClass(this.getActivity(), LoginActivity.class);
                 break;
             default:
                 throw new RuntimeException("Unknown ID clicked!");

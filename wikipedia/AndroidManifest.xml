@@ -57,6 +57,10 @@
         <activity android:name=".editing.EditSectionActivity"
                   android:windowSoftInputMode="adjustResize"
                 />
+        <activity android:name=".login.LoginActivity"
+                  android:label="@string/login_activity_title"
+                  android:windowSoftInputMode="stateAlwaysVisible"
+                />
 
         <provider
             android:authorities="org.wikipedia.history"
