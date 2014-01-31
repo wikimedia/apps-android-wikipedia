@@ -88,6 +88,7 @@
                   android:hint="@string/edit_section_captcha_hint"
                   android:padding="8dp"
                   android:singleLine="true"
+                  android:inputType="textNoSuggestions"
                 />
 
     </LinearLayout>
