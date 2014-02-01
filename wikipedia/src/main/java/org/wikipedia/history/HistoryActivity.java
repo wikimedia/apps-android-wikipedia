@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.*;
 import android.support.v4.widget.CursorAdapter;
+import android.support.v7.app.ActionBarActivity;
 import android.view.*;
 import android.widget.*;
 import com.squareup.picasso.Picasso;
@@ -22,7 +23,7 @@ import org.wikipedia.pageimages.PageImage;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class HistoryActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class HistoryActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private ListView historyEntryList;
     private HistoryEntryAdapter adapter;
 
@@ -157,7 +158,7 @@ public class HistoryActivity extends FragmentActivity implements LoaderManager.L
     }
 
     @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();

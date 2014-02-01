@@ -12,6 +12,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
+import android.support.v7.app.ActionBarActivity;
 import android.util.SparseBooleanArray;
 import android.view.*;
 import android.widget.*;
@@ -25,7 +26,7 @@ import org.wikipedia.pageimages.PageImage;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class SavedPagesActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class SavedPagesActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private ListView savedPagesList;
     private SavedPagesAdapter adapter;
 
@@ -202,7 +203,7 @@ public class SavedPagesActivity extends FragmentActivity implements LoaderManage
     }
 
     @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();

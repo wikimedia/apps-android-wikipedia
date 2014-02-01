@@ -2,6 +2,7 @@ package org.wikipedia.login;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +11,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import org.wikipedia.R;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends ActionBarActivity {
     private EditText usernameText;
     private EditText passwordText;
     private CheckBox showPassword;
@@ -47,7 +48,7 @@ public class LoginActivity extends Activity {
     }
 
     @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();

@@ -3,6 +3,7 @@ package org.wikipedia.interlanguage;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -17,7 +18,7 @@ import org.wikipedia.page.PageActivity;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class LangLinksActivity extends Activity {
+public class LangLinksActivity extends ActionBarActivity {
     public static final String ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
 
@@ -99,7 +100,8 @@ public class LangLinksActivity extends Activity {
         });
     }
 
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();

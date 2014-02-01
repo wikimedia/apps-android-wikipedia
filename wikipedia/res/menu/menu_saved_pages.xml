@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
     <item android:id="@+id/menu_clear_all_saved_pages"
           android:icon="@android:drawable/ic_menu_delete"
           android:title="@string/menu_clear_all_history"
-          android:showAsAction="always" />
+          app:showAsAction="always" />
 
 </menu>

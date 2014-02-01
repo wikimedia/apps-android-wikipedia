@@ -50,6 +50,17 @@
             <artifactId>okhttp</artifactId>
             <version>1.3.0</version>
         </dependency>
+        <dependency>
+            <groupId>android.support</groupId>
+            <artifactId>compatibility-v7-appcompat</artifactId>
+            <type>apklib</type>
+        </dependency>
+
+        <dependency>
+            <groupId>android.support</groupId>
+            <artifactId>compatibility-v7-appcompat</artifactId>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>

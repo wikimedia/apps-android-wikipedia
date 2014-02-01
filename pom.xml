@@ -21,6 +21,20 @@
 				<version>4.4_r1</version>
 				<scope>provided</scope>
 			</dependency>
+            <dependency>
+                <groupId>android.support</groupId>
+                <artifactId>compatibility-v7-appcompat</artifactId>
+                <version>19.0.0</version>
+                <type>apklib</type>
+            </dependency>
+
+            <dependency>
+                <groupId>android.support</groupId>
+                <artifactId>compatibility-v7-appcompat</artifactId>
+                <version>19.0.0</version>
+                <type>jar</type>
+            </dependency>
+
 			<dependency>
 				<groupId>com.google.android</groupId>
 				<artifactId>android-test</artifactId>
