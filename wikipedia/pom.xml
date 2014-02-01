@@ -17,15 +17,13 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.google.android</groupId>
+			<groupId>android</groupId>
 			<artifactId>android</artifactId>
-			<version>${platform.version}</version>
-			<scope>provided</scope>
+			<version>4.4_r1</version>
 		</dependency>
         <dependency>
-            <groupId>com.android.support</groupId>
-            <artifactId>support-v4</artifactId>
-            <type>jar</type>
+            <groupId>android.support</groupId>
+            <artifactId>compatibility-v4</artifactId>
         </dependency>
         <dependency>
             <groupId>org.mediawiki.api</groupId>
