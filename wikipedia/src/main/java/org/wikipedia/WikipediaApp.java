@@ -149,4 +149,34 @@ public class WikipediaApp extends Application {
         }
         return primaryType;
     }
+
+    private String[] wikiCodes;
+    public int findWikiIndex(String wikiCode) {
+        if (wikiCodes == null) {
+            wikiCodes = getResources().getStringArray(R.array.preference_language_keys);
+        }
+        for (int i = 0; i < wikiCodes.length; i++) {
+            if (wikiCodes[i].equals(wikiCode)) {
+                return i;
+            }
+        }
+
+        throw new RuntimeException("WikiCode " + wikiCode + " + not found+");
+    }
+
+    private String[] canonicalNames;
+    public String canonicalNameFor(int index) {
+        if (canonicalNames == null) {
+            canonicalNames = getResources().getStringArray(R.array.preference_language_canonical_names);
+        }
+        return canonicalNames[index];
+    }
+
+    private String[] localNames;
+    public String localNameFor(int index) {
+        if (localNames == null) {
+            localNames = getResources().getStringArray(R.array.preference_language_local_names);
+        }
+        return localNames[index];
+    }
 }

@@ -39,7 +39,7 @@ public class LanguagePreference extends DialogPreference {
         languagesFilter = (EditText) view.findViewById(R.id.preference_languages_filter);
         languagesList = (ListView) view.findViewById(R.id.preference_languages_list);
 
-        languagesList.setAdapter(new LanguagesAdapter(languages));
+        languagesList.setAdapter(new LanguagesAdapter(languages, app));
 
         int selectedLangIndex = Arrays.asList(languages).indexOf(app.getPrimaryLanguage());
         languagesList.setItemChecked(selectedLangIndex, true);
@@ -80,10 +80,12 @@ public class LanguagePreference extends DialogPreference {
     private static class LanguagesAdapter extends BaseAdapter {
         private final String[] originalLanguages;
         private final ArrayList<String> languages;
+        private final WikipediaApp app;
 
-        private LanguagesAdapter(String[] languages) {
+        private LanguagesAdapter(String[] languages, WikipediaApp app) {
             this.originalLanguages = languages;
             this.languages = new ArrayList(Arrays.asList(languages));
+            this.app = app;
         }
 
         public void setFilterText(String filter) {
@@ -124,10 +126,12 @@ public class LanguagePreference extends DialogPreference {
             TextView nameText = (TextView) convertView.findViewById(android.R.id.text1);
             TextView localNameText = (TextView) convertView.findViewById(android.R.id.text2);
 
-            Locale locale = new Locale(Utils.toJavaLanguageCode((String) getItem(position)));
+            String wikiCode = (String) getItem(position);
 
-            nameText.setText(locale.getDisplayLanguage(locale));
-            localNameText.setText(locale.getDisplayLanguage());
+            int langIndex = app.findWikiIndex(wikiCode);
+
+            nameText.setText(app.canonicalNameFor(langIndex));
+            localNameText.setText(app.localNameFor(langIndex));
             return convertView;
         }
     }
