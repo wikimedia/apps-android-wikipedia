@@ -30,6 +30,7 @@ import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Locale;
 
 @ReportsCrashes(
         formKey="",
@@ -103,7 +104,16 @@ public class WikipediaApp extends Application {
     public String getPrimaryLanguage() {
         if (primaryLanguage == null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            primaryLanguage = prefs.getString(PREFERENCE_CONTENT_LANGUAGE, Utils.getDefaultContentLanguage());
+            primaryLanguage = prefs.getString(PREFERENCE_CONTENT_LANGUAGE, null);
+            if (primaryLanguage == null) {
+                // No preference set!
+                String langCode = Locale.getDefault().getLanguage();
+                if (isWikiLanguage(langCode)) {
+                    return langCode;
+                } else {
+                    return "en"; // Default in case we don't get a lang match. Not very commont
+                }
+            }
         }
         return primaryLanguage;
     }
@@ -162,6 +172,20 @@ public class WikipediaApp extends Application {
         }
 
         throw new RuntimeException("WikiCode " + wikiCode + " + not found+");
+    }
+
+    private boolean isWikiLanguage(String lang) {
+        if (wikiCodes == null) {
+            wikiCodes = getResources().getStringArray(R.array.preference_language_keys);
+        }
+
+        for (int i = 0; i < wikiCodes.length; i++) {
+            if (wikiCodes[i].equals(lang)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private String[] canonicalNames;

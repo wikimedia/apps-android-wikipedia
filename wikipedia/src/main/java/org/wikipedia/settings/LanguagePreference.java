@@ -30,7 +30,8 @@ public class LanguagePreference extends DialogPreference {
         setDialogLayoutResource(R.layout.dialog_preference_languages);
         languages = context.getResources().getStringArray(R.array.preference_language_keys);
         app = (WikipediaApp) context.getApplicationContext();
-        setSummary(Utils.getLangDisplayString(app.getPrimaryLanguage()));
+        int langIndex = app.findWikiIndex(app.getPrimaryLanguage());
+        setSummary(app.localNameFor(langIndex));
     }
 
     @Override
@@ -68,7 +69,8 @@ public class LanguagePreference extends DialogPreference {
         if (positiveResult) {
             String lang = (String) languagesList.getAdapter().getItem(languagesList.getCheckedItemPosition());
             app.setPrimaryLanguage(lang);
-            setSummary(Utils.getLangDisplayString(lang));
+            int langIndex = app.findWikiIndex(app.getPrimaryLanguage());
+            setSummary(app.localNameFor(langIndex));
         }
     }
 
@@ -92,10 +94,12 @@ public class LanguagePreference extends DialogPreference {
             this.languages.clear();
             filter = filter.toLowerCase();
             for (String s: originalLanguages) {
-                Locale locale = new Locale(Utils.toJavaLanguageCode(s));
+                int langIndex = app.findWikiIndex(s);
+                String canonicalLang = app.canonicalNameFor(langIndex);
+                String localLang = app.localNameFor(langIndex);
                 if (s.contains(filter)
-                        || locale.getDisplayLanguage().toLowerCase().contains(filter)
-                        || locale.getDisplayLanguage(locale).toLowerCase().contains(filter)) {
+                        || canonicalLang.toLowerCase().contains(filter)
+                        || localLang.toLowerCase().contains(filter)) {
                     this.languages.add(s);
                 }
             }

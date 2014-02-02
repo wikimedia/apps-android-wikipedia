@@ -169,48 +169,4 @@ public class Utils {
             view.animate().translationY(translation).setDuration(WikipediaApp.SHORT_ANIMATION_DURATION).start();
         }
     }
-
-    /**
-     * Converts Java Language codes to Wikipedia ones.
-     *
-     * Is inverse of {@link #toJavaLanguageCode(String)}
-     *
-     * @param langCode 2 letter language code as used by Java
-     * @return language code as used by Wikipedia
-     */
-    public static String toWikiLanguageCode(String langCode) {
-        if (langCode.equals("iw")) {
-            return "he";
-        }
-        return langCode;
-    }
-
-    /**
-     * Converts Wikipedia Language codes to Java ones.
-     *
-     * Is inverse of {@link #toWikiLanguageCode(String)}
-     *
-     * @param langCode language code as used by Wikipedia
-     * @return 2 letter language code as used by Java
-     */
-    public static String toJavaLanguageCode(String langCode) {
-        if (langCode.equals("he")) {
-            return "iw";
-        }
-        return langCode;
-    }
-
-    public static String getLangDisplayString(String lang) {
-        Locale locale = new Locale(toJavaLanguageCode(lang));
-        return locale.getDisplayLanguage(locale);
-    }
-
-    /**
-     * Return the default content language to be used, when one is not set
-     *
-     * @return The 2 letter language code as used by Wikipedia
-     */
-    public static String getDefaultContentLanguage() {
-        return Utils.toWikiLanguageCode(Locale.getDefault().getLanguage());
-    }
 }

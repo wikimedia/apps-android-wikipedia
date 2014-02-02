@@ -24,6 +24,8 @@ public class LangLinksActivity extends Activity {
     private ArrayList<PageTitle> langLinks;
     private PageTitle title;
 
+    private WikipediaApp app;
+
     private ListView langLinksList;
     private EditText langLinksFilter;
     private View langLinksProgress;
@@ -40,6 +42,8 @@ public class LangLinksActivity extends Activity {
         if (!getIntent().getAction().equals(ACTION_LANGLINKS_FOR_TITLE)) {
             throw new RuntimeException("Only ACTION_LANGLINKS_FOR_TITLE is supported");
         }
+
+        app = (WikipediaApp)getApplicationContext();
 
         langLinksList = (ListView) findViewById(R.id.langlinks_list);
         langLinksFilter = (EditText) findViewById(R.id.langlinks_filter);
@@ -117,7 +121,7 @@ public class LangLinksActivity extends Activity {
         if (langLinks.size() == 0) {
             Utils.crossFade(langLinksProgress, langLinksEmpty);
         } else {
-            langLinksList.setAdapter(new LangLinksAdapter(langLinks));
+            langLinksList.setAdapter(new LangLinksAdapter(langLinks, app));
             Utils.crossFade(langLinksProgress, langLinksContainer);
         }
     }
@@ -130,11 +134,18 @@ public class LangLinksActivity extends Activity {
                     langLinks = result;
 
                     // If preferred language exists in list, move it to the top
-                    WikipediaApp app = (WikipediaApp)getApplicationContext();
                     for (int i = 0; i < result.size(); i++) {
                         if (langLinks.get(i).getSite().getLanguage().equals(app.getPrimaryLanguage())) {
                             PageTitle preferredLink = langLinks.remove(i);
                             langLinks.add(0, preferredLink);
+                            break;
+                        }
+                    }
+
+                    // Also get rid of goddamn 'got', since that just segfaults android everywhere
+                    for (int i = 0; i < result.size(); i++) {
+                        if (langLinks.get(i).getSite().getLanguage().equals("got")) {
+                            langLinks.remove(i);
                             break;
                         }
                     }
@@ -158,20 +169,24 @@ public class LangLinksActivity extends Activity {
     private static class LangLinksAdapter extends BaseAdapter {
         private final ArrayList<PageTitle> origLangLinks;
         private final ArrayList<PageTitle> langLinks;
+        private final WikipediaApp app;
 
-        private LangLinksAdapter(ArrayList<PageTitle> langLinks) {
+        private LangLinksAdapter(ArrayList<PageTitle> langLinks, WikipediaApp app) {
             this.origLangLinks = langLinks;
             this.langLinks = new ArrayList<PageTitle>(origLangLinks);
+            this.app = app;
         }
 
         public void setFilterText(String filter) {
             this.langLinks.clear();
             filter = filter.toLowerCase();
             for (PageTitle l: origLangLinks) {
-                Locale locale = new Locale(Utils.toJavaLanguageCode(l.getSite().getLanguage()));
+                int langIndex = app.findWikiIndex(l.getSite().getLanguage());
+                String canonicalLang = app.canonicalNameFor(langIndex);
+                String localLang = app.localNameFor(langIndex);
                 if (l.getDisplayText().toLowerCase().contains(filter)
-                        || locale.getDisplayLanguage().toLowerCase().contains(filter)
-                        || locale.getDisplayLanguage(locale).toLowerCase().contains(filter)) {
+                        || canonicalLang.toLowerCase().contains(filter)
+                        || localLang.toLowerCase().contains(filter)) {
                     this.langLinks.add(l);
                 }
             }
@@ -204,14 +219,12 @@ public class LangLinksActivity extends Activity {
 
             PageTitle langLink = (PageTitle) getItem(position);
 
-            Locale locale = new Locale(Utils.toJavaLanguageCode(langLink.getSite().getLanguage()));
+            String wikiCode = langLink.getSite().getLanguage();
 
-            langNameText.setText(locale.getDisplayLanguage(locale));
-            if (locale.getDisplayLanguage().equals(langNameText.getText().toString())) {
-                langLocalNameText.setText("");
-            } else {
-                langLocalNameText.setText(locale.getDisplayLanguage());
-            }
+            int langIndex = app.findWikiIndex(wikiCode);
+
+            langNameText.setText(app.canonicalNameFor(langIndex));
+            langLocalNameText.setText(app.localNameFor(langIndex));
             titleText.setText(langLink.getDisplayText());
 
             return convertView;
