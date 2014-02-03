@@ -26,8 +26,8 @@
     <item>ko</item>
     <item>ar</item>
     <item>hu</item>
-    <item>sr</item>
     <item>ms</item>
+    <item>sr</item>
     <item>ro</item>
     <item>tr</item>
     <item>min</item>
@@ -174,9 +174,9 @@
     <item>lad</item>
     <item>sc</item>
     <item>wuu</item>
-    <item>lij</item>
-    <item>zh-classical</item>
     <item>ug</item>
+    <item>zh-classical</item>
+    <item>lij</item>
     <item>fur</item>
     <item>mt</item>
     <item>pi</item>
@@ -239,8 +239,8 @@
     <item>zu</item>
     <item>chy</item>
     <item>rmy</item>
-    <item>chr</item>
     <item>cu</item>
+    <item>chr</item>
     <item>tn</item>
     <item>cdo</item>
     <item>roa-rup</item>
@@ -287,6 +287,7 @@
     <item>mus</item>
     <item>kr</item>
     <item>hz</item>
+    <item>test</item>
   </string-array>
   <string-array name="preference_language_local_names">
     <item>English</item>
@@ -314,8 +315,8 @@
     <item>&#54620;&#44397;&#50612;</item>
     <item>&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</item>
     <item>Magyar</item>
-    <item>&#1057;&#1088;&#1087;&#1089;&#1082;&#1080; / Srpski</item>
     <item>Bahasa Melayu</item>
+    <item>&#1057;&#1088;&#1087;&#1089;&#1082;&#1080; / Srpski</item>
     <item>Rom&#226;n&#259;</item>
     <item>T&#252;rk&#231;e</item>
     <item>Baso Minangkabau</item>
@@ -462,9 +463,9 @@
     <item>Dzhudezmo</item>
     <item>Sardu</item>
     <item>&#21556;&#35821;</item>
-    <item>L&#237;guru</item>
-    <item>&#21476;&#25991; / &#25991;&#35328;&#25991;</item>
     <item>&#1574;&#1735;&#1610;&#1594;&#1735;&#1585; &#1578;&#1609;&#1604;&#1609;</item>
+    <item>&#21476;&#25991; / &#25991;&#35328;&#25991;</item>
+    <item>L&#237;guru</item>
     <item>Furlan</item>
     <item>Malti</item>
     <item>&#2346;&#2366;&#2356;&#2367;</item>
@@ -527,8 +528,8 @@
     <item>isiZulu</item>
     <item>Tsets&#234;hest&#226;hese</item>
     <item>romani - &#2352;&#2379;&#2350;&#2366;&#2344;&#2368;</item>
-    <item>&#5091;&#5043;&#5033;</item>
     <item>&#1057;&#1083;&#1086;&#1074;&#1123;&#1085;&#1100;&#1089;&#1082;&#1098;</item>
+    <item>&#5091;&#5043;&#5033;</item>
     <item>Setswana</item>
     <item>M&#236;ng-d&#277;&#804;ng-ng&#7795;&#772;</item>
     <item>Arm&#227;neashce</item>
@@ -575,6 +576,7 @@
     <item>Muskogee</item>
     <item>Kanuri</item>
     <item>Otsiherero</item>
+    <item>Test</item>
   </string-array>
   <string-array name="preference_language_canonical_names">
     <item>English</item>
@@ -602,8 +604,8 @@
     <item>Korean</item>
     <item>Arabic</item>
     <item>Hungarian</item>
-    <item>Serbian</item>
     <item>Malay</item>
+    <item>Serbian</item>
     <item>Romanian</item>
     <item>Turkish</item>
     <item>Minangkabau</item>
@@ -750,9 +752,9 @@
     <item>Ladino</item>
     <item>Sardinian</item>
     <item>Wu</item>
-    <item>Ligurian</item>
-    <item>Classical Chinese</item>
     <item>Uyghur</item>
+    <item>Classical Chinese</item>
+    <item>Ligurian</item>
     <item>Friulian</item>
     <item>Maltese</item>
     <item>Pali</item>
@@ -815,8 +817,8 @@
     <item>Zulu</item>
     <item>Cheyenne</item>
     <item>Romani</item>
-    <item>Cherokee</item>
     <item>Old Church Slavonic</item>
+    <item>Cherokee</item>
     <item>Tswana</item>
     <item>Min Dong</item>
     <item>Aromanian</item>
@@ -863,5 +865,6 @@
     <item>Muscogee</item>
     <item>Kanuri</item>
     <item>Herero</item>
+    <item>Test</item>
   </string-array>
 </resources>
