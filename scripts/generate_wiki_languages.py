@@ -27,6 +27,10 @@ for row in data:
     lang_local_names.append(row[10].replace("'", "\\'"))
     lang_eng_names.append(row[1].replace("'", "\\'"))
 
+lang_keys.append('test')
+lang_local_names.append('Test')
+lang_eng_names.append('Test')
+
 # Generate the XML, for Android
 x = lb.E
 
