@@ -1,4 +1,37 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var bridge = require('./bridge');
+
+function ActionsHandler() {
+}
+
+var actionHandlers = {};
+
+ActionsHandler.prototype.register = function( action, fun ) {
+    if ( action in actionHandlers ) {
+        actionHandlers[action].push( fun );
+    } else {
+        actionHandlers[action] = [ fun ];
+    }
+};
+
+document.onclick = function() {
+    if ( event.target.tagName === "A" ) {
+        if ( event.target.hasAttribute( "data-action" ) ) {
+            var action = event.target.getAttribute( "data-action" );
+            var handlers = actionHandlers[ action ];
+            for ( var i = 0; i < handlers.length; i++ ) {
+                handlers[i]( event.target, event );
+            }
+        } else {
+            bridge.sendMessage( 'linkClicked', { href: event.target.getAttribute( "href" ) });
+            event.preventDefault();
+        }
+    }
+};
+
+module.exports = new ActionsHandler();
+
+},{"./bridge":2}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -36,28 +69,16 @@ module.exports = new Bridge();
 window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
 };
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
+var actions = require('./actions');
 var bridge = require('./bridge');
 
-var actionHandlers = {
-    "edit_section": function( el, event ) {
-        bridge.sendMessage( 'editSectionClicked', { sectionID: el.getAttribute( 'data-id' ) } );
-        event.preventDefault();
-    }
-};
+actions.register( "edit_section", function( el, event ) {
+    bridge.sendMessage( 'editSectionClicked', { sectionID: el.getAttribute( 'data-id' ) } );
+    event.preventDefault();
+} );
 
-document.onclick = function() {
-    if ( event.target.tagName === "A" ) {
-        if ( event.target.hasAttribute( "data-action" ) ) {
-            var action = event.target.getAttribute( "data-action" );
-            actionHandlers[ action ]( event.target, event );
-        } else {
-            bridge.sendMessage( 'linkClicked', { href: event.target.getAttribute( "href" ) });
-            event.preventDefault();
-        }
-    }
-};
-},{"./bridge":1}],3:[function(require,module,exports){
+},{"./actions":1,"./bridge":2}],4:[function(require,module,exports){
 var bridge = require("./bridge");
 bridge.registerListener( "displayAttribution", function( payload ) {
     var lastUpdatedA = document.getElementById( "lastupdated" );
@@ -75,7 +96,7 @@ bridge.registerListener( "requestImagesList", function () {
     }
     bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
 } );
-},{"./bridge":1}],4:[function(require,module,exports){
+},{"./bridge":2}],5:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 
@@ -143,7 +164,7 @@ bridge.registerListener( "scrollToSection", function ( payload ) {
     window.scrollTo(0, scrollY);
 });
 
-},{"./bridge":1,"./transformer":5}],5:[function(require,module,exports){
+},{"./bridge":2,"./transformer":6}],6:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -167,7 +188,7 @@ Transformer.prototype.transform = function( transform, element ) {
 
 module.exports = new Transformer();
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 
@@ -205,4 +226,4 @@ transformer.register( "section", function( content ) {
     return content;
 } );
 
-},{"./bridge":1,"./transformer":5}]},{},[3,5,6,1,2,4])
+},{"./bridge":2,"./transformer":6}]},{},[4,6,7,2,1,3,5])
