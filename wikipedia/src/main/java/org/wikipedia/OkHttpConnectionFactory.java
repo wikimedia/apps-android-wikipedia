@@ -1,6 +1,8 @@
 package org.wikipedia;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.squareup.okhttp.HttpResponseCache;
@@ -19,9 +21,7 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
 
     public OkHttpConnectionFactory(Context context) {
         client = new OkHttpClient();
-        CookieManager cm = new CookieManager();
-        cm.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
-        client.setCookieHandler(cm);
+        client.setCookieHandler(new SharedPreferenceCookieManager(PreferenceManager.getDefaultSharedPreferences(context)));
 
         try {
             client.setResponseCache(new HttpResponseCache(context.getCacheDir(), HTTP_CACHE_SIZE));

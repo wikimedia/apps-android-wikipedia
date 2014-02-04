@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="preference_key_language">content_language</string>
+    <string name="preference_cookie_domains">cookie_domains</string>
+    <string name="preference_cookies_for_domain">cookies_for_domain_%1$s</string>
 </resources>

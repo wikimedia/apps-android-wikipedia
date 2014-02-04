@@ -46,6 +46,8 @@ public class WikipediaApp extends Application {
     public static long MEDIUM_ANIMATION_DURATION;
 
     public static String PREFERENCE_CONTENT_LANGUAGE;
+    public static String PREFERENCE_COOKIE_DOMAINS;
+    public static String PREFERENCE_COOKIES_FOR_DOMAINS;
 
     public static float SCREEN_DENSITY;
     // Reload in onCreate to override
@@ -63,6 +65,8 @@ public class WikipediaApp extends Application {
         SCREEN_DENSITY = getResources().getDisplayMetrics().density;
 
         PREFERENCE_CONTENT_LANGUAGE = getResources().getString(R.string.preference_key_language);
+        PREFERENCE_COOKIE_DOMAINS = getString(R.string.preference_cookie_domains);
+        PREFERENCE_COOKIES_FOR_DOMAINS = getString(R.string.preference_cookies_for_domain);
 
         PROTOCOL = "https"; // Move this to a preference or something later on
 
