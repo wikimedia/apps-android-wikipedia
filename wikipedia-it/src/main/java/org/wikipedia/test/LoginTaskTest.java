@@ -9,6 +9,7 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.editing.DoEditTask;
 import org.wikipedia.editing.EditingResult;
+import org.wikipedia.editing.FetchEditTokenTask;
 import org.wikipedia.editing.FetchSectionWikitextTask;
 import org.wikipedia.login.LoginTask;
 
@@ -43,7 +44,14 @@ public class LoginTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
                     public void onFinish(String result) {
                         assertNotNull(result);
                         assertEquals(result, "Success");
-                        completionLatch.countDown();
+                        new FetchEditTokenTask(getInstrumentation().getTargetContext(), testWiki) {
+                            @Override
+                            public void onFinish(String result) {
+                                assertNotNull(result);
+                                assertFalse(result.equals("+\\"));
+                                completionLatch.countDown();
+                            }
+                        }.execute();
                     }
                 }.execute();
             }
