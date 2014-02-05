@@ -89,6 +89,9 @@ public class SharedPreferenceCookieManager extends CookieManager {
     private HashMap<String, String> makeCookieMap(List<String> cookies) {
         HashMap<String, String> cookiesMap = new HashMap<String, String>();
         for (String cookie : cookies) {
+            if (!cookie.contains("=")) {
+                throw new RuntimeException("Cookie " + cookie + " is invalid!");
+            }
             String[] parts = cookie.split("=");
             cookiesMap.put(parts[0], parts[1]);
         }

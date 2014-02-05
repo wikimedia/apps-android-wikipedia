@@ -18,8 +18,9 @@ public class DoEditTask extends ApiTask<EditingResult> {
     private final PageTitle title;
     private final String sectionWikitext;
     private final int sectionID;
+    private final String editToken;
 
-    public DoEditTask(Context context, PageTitle title, String sectionWikitext, int sectionID) {
+    public DoEditTask(Context context, PageTitle title, String sectionWikitext, int sectionID, String editToken) {
         super(
                 ExecutorService.getSingleton().getExecutor(DoEditTask.class, 1),
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
@@ -27,6 +28,7 @@ public class DoEditTask extends ApiTask<EditingResult> {
         this.title = title;
         this.sectionWikitext = sectionWikitext;
         this.sectionID = sectionID;
+        this.editToken = editToken;
     }
 
     @Override
@@ -35,7 +37,7 @@ public class DoEditTask extends ApiTask<EditingResult> {
                 .param("title", title.getPrefixedText())
                 .param("section", String.valueOf(sectionID))
                 .param("text", sectionWikitext)
-                .param("token", "+\\"); // Anonymous token. Replace properly when we have login
+                .param("token", editToken);
     }
 
     @Override

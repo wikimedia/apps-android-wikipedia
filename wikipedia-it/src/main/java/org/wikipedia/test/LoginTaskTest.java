@@ -3,14 +3,10 @@ package org.wikipedia.test;
 
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
-import android.util.Log;
 import org.wikimedia.wikipedia.test.R;
-import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.editing.DoEditTask;
-import org.wikipedia.editing.EditingResult;
-import org.wikipedia.editing.FetchEditTokenTask;
-import org.wikipedia.editing.FetchSectionWikitextTask;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.login.LoginTask;
 
 import java.util.concurrent.CountDownLatch;
@@ -28,6 +24,7 @@ public class LoginTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
         final Site testWiki = new Site("test.wikipedia.org");
         final String username = getInstrumentation().getContext().getString(R.string.test_username);
         final String password = getInstrumentation().getContext().getString(R.string.test_password);
+        final WikipediaApp app = (WikipediaApp)getInstrumentation().getTargetContext().getApplicationContext();
 
         if (username.equals("Insert-your-test-username-here")) {
             throw new RuntimeException("Use a custom username and password in wikipedia-it/res/values/credentials.xml");
@@ -44,14 +41,14 @@ public class LoginTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
                     public void onFinish(String result) {
                         assertNotNull(result);
                         assertEquals(result, "Success");
-                        new FetchEditTokenTask(getInstrumentation().getTargetContext(), testWiki) {
+                        app.getEditTokenStorage().get(testWiki, new EditTokenStorage.TokenRetreivedCallback() {
                             @Override
-                            public void onFinish(String result) {
-                                assertNotNull(result);
-                                assertFalse(result.equals("+\\"));
+                            public void onTokenRetreived(String token) {
+                                assertNotNull(token);
+                                assertFalse(token.equals("+\\"));
                                 completionLatch.countDown();
                             }
-                        }.execute();
+                        });
                     }
                 }.execute();
             }

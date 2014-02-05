@@ -1,15 +1,11 @@
 package org.wikipedia;
 
 import android.app.Application;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.webkit.WebView;
-import com.github.kevinsawicki.http.HttpRequest;
-import com.squareup.okhttp.HttpResponseCache;
-import com.squareup.okhttp.OkHttpClient;
 import com.squareup.otto.Bus;
 import org.acra.ACRA;
 import org.acra.ReportingInteractionMode;
@@ -19,16 +15,12 @@ import org.wikipedia.data.ContentPersister;
 import org.wikipedia.data.DBOpenHelper;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryEntryPersister;
+import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagePersister;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.savedpages.SavedPagePerister;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.Proxy;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -48,6 +40,8 @@ public class WikipediaApp extends Application {
     public static String PREFERENCE_CONTENT_LANGUAGE;
     public static String PREFERENCE_COOKIE_DOMAINS;
     public static String PREFERENCE_COOKIES_FOR_DOMAINS;
+    public static String PREFERENCE_EDITTOKEN_WIKIS;
+    public static String PREFERENCE_EDITTOKEN_FOR_WIKI;
 
     public static float SCREEN_DENSITY;
     // Reload in onCreate to override
@@ -67,6 +61,8 @@ public class WikipediaApp extends Application {
         PREFERENCE_CONTENT_LANGUAGE = getResources().getString(R.string.preference_key_language);
         PREFERENCE_COOKIE_DOMAINS = getString(R.string.preference_cookie_domains);
         PREFERENCE_COOKIES_FOR_DOMAINS = getString(R.string.preference_cookies_for_domain);
+        PREFERENCE_EDITTOKEN_WIKIS = getString(R.string.preference_edittoken_wikis);
+        PREFERENCE_EDITTOKEN_FOR_WIKI = getString(R.string.preference_edittoken_for_wiki);
 
         PROTOCOL = "https"; // Move this to a preference or something later on
 
@@ -206,5 +202,13 @@ public class WikipediaApp extends Application {
             localNames = getResources().getStringArray(R.array.preference_language_local_names);
         }
         return localNames[index];
+    }
+
+    private EditTokenStorage editTokenStorage;
+    public EditTokenStorage getEditTokenStorage() {
+        if (editTokenStorage == null) {
+            editTokenStorage = new EditTokenStorage(this);
+        }
+        return editTokenStorage;
     }
 }

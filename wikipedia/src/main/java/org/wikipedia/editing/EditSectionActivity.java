@@ -29,6 +29,8 @@ public class EditSectionActivity extends Activity {
     public static final String EXTRA_TITLE = "org.wikipedia.edit_section.title";
     public static final String EXTRA_SECTION = "org.wikipedia.edit_section.section";
 
+    private WikipediaApp app;
+
     private PageTitle title;
     private Section section;
 
@@ -61,6 +63,8 @@ public class EditSectionActivity extends Activity {
         if (!getIntent().getAction().equals(ACTION_EDIT_SECTION)) {
             throw new RuntimeException("Much wrong action. Such exception. Wow");
         }
+
+        app = (WikipediaApp)getApplicationContext();
 
         title = getIntent().getParcelableExtra(EXTRA_TITLE);
         section = getIntent().getParcelableExtra(EXTRA_SECTION);
@@ -145,68 +149,74 @@ public class EditSectionActivity extends Activity {
             // Show the wikitext in the background when captcha is being saved=
             Utils.crossFade(captchaContainer, sectionContainer);
         }
-        new DoEditTask(this, title, sectionText.getText().toString(), section.getId()) {
+        app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetreivedCallback() {
             @Override
-            public void onBeforeExecute() {
-                progressDialog.show();
-            }
+            public void onTokenRetreived(final String token) {
 
-            @Override
-            public RequestBuilder buildRequest(Api api) {
-                RequestBuilder builder = super.buildRequest(api);
-                if (captchaEditResult != null) {
-                    builder.param("captchaid", captchaEditResult.getCaptchaId())
-                            .param("captchaword", captchaText.getText().toString());
-                }
-                return builder;
-            }
+                new DoEditTask(EditSectionActivity.this, title, sectionText.getText().toString(), section.getId(), token) {
+                    @Override
+                    public void onBeforeExecute() {
+                        progressDialog.show();
+                    }
 
-            @Override
-            public void onCatch(Throwable caught) {
-                if (!(caught instanceof HttpRequest.HttpRequestException)) {
-                    throw new RuntimeException(caught);
-                }
-                Log.d("Wikipedia", caught.toString());
-                final AlertDialog retryDialog = new AlertDialog.Builder(EditSectionActivity.this)
-                        .setMessage(R.string.dialog_message_edit_failed)
-                        .setPositiveButton(R.string.dialog_message_edit_failed_retry, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                doSave();
-                                dialog.dismiss();
-                                progressDialog.dismiss();
-                            }
-                        })
-                        .setNegativeButton(R.string.dialog_message_edit_failed_cancel, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                                progressDialog.dismiss();
-                            }
-                        }).create();
-                retryDialog.show();
-            }
+                    @Override
+                    public RequestBuilder buildRequest(Api api) {
+                        RequestBuilder builder = super.buildRequest(api);
+                        if (captchaEditResult != null) {
+                            builder.param("captchaid", captchaEditResult.getCaptchaId())
+                                    .param("captchaword", captchaText.getText().toString());
+                        }
+                        return builder;
+                    }
 
-            @Override
-            public void onFinish(EditingResult result) {
-                if (result instanceof SuccessEditResult) {
-                    progressDialog.hide();
-                    setResult(EditHandler.RESULT_REFRESH_PAGE);
-                    Toast.makeText(EditSectionActivity.this, R.string.edit_saved_successfully, Toast.LENGTH_LONG).show();
-                    finish();
-                } else if (result instanceof CaptchaEditResult) {
-                    captchaEditResult = (CaptchaEditResult) result;
-                    handleCaptcha();
-                } else if (result instanceof AbuseFilterEditResult) {
-                    abusefilterEditResult = (AbuseFilterEditResult) result;
-                    handleAbuseFilter();
-                } else {
-                    // Expand to do everything.
-                    onCatch(null);
-                }
+                    @Override
+                    public void onCatch(Throwable caught) {
+                        if (!(caught instanceof HttpRequest.HttpRequestException)) {
+                            throw new RuntimeException(caught);
+                        }
+                        Log.d("Wikipedia", caught.toString());
+                        final AlertDialog retryDialog = new AlertDialog.Builder(EditSectionActivity.this)
+                                .setMessage(R.string.dialog_message_edit_failed)
+                                .setPositiveButton(R.string.dialog_message_edit_failed_retry, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        doSave();
+                                        dialog.dismiss();
+                                        progressDialog.dismiss();
+                                    }
+                                })
+                                .setNegativeButton(R.string.dialog_message_edit_failed_cancel, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                        progressDialog.dismiss();
+                                    }
+                                }).create();
+                        retryDialog.show();
+                    }
 
+                    @Override
+                    public void onFinish(EditingResult result) {
+                        if (result instanceof SuccessEditResult) {
+                            progressDialog.hide();
+                            setResult(EditHandler.RESULT_REFRESH_PAGE);
+                            Toast.makeText(EditSectionActivity.this, R.string.edit_saved_successfully, Toast.LENGTH_LONG).show();
+                            finish();
+                        } else if (result instanceof CaptchaEditResult) {
+                            captchaEditResult = (CaptchaEditResult) result;
+                            handleCaptcha();
+                        } else if (result instanceof AbuseFilterEditResult) {
+                            abusefilterEditResult = (AbuseFilterEditResult) result;
+                            handleAbuseFilter();
+                        } else {
+                            // Expand to do everything.
+                            onCatch(null);
+                        }
+
+                    }
+                }.execute();
             }
-        }.execute();
+        });
     }
 
     private void handleAbuseFilter() {

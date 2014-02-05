@@ -66,4 +66,5 @@
     <string name="login_password_show_check">Display password</string>
     <string name="menu_login">Log in</string>
     <string name="login_activity_title">Login to Wikipedia</string>
+    <string name="login_in_progress_dialog_message">Logging you in...</string>
 </resources>

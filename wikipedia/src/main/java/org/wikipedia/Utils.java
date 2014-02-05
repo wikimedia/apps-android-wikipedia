@@ -3,6 +3,7 @@ package org.wikipedia;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.os.Looper;
 import android.text.format.DateUtils;
 import android.util.Base64;
 import android.view.View;
@@ -167,6 +168,15 @@ public class Utils {
     public static void ensureTranslationY(View view, int translation) {
         if (view.getTranslationY() != translation) {
             view.animate().translationY(translation).setDuration(WikipediaApp.SHORT_ANIMATION_DURATION).start();
+        }
+    }
+
+    /**
+     * Ensures that the calling method is on the main thread.
+     */
+    public static void ensureMainThread() {
+        if (Looper.getMainLooper().getThread() != Thread.currentThread()) {
+            throw new IllegalStateException("Method must be called from the Main Thread");
         }
     }
 }
