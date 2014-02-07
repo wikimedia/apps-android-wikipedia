@@ -186,8 +186,7 @@ public class LangLinksActivity extends ActionBarActivity {
                 int langIndex = app.findWikiIndex(l.getSite().getLanguage());
                 String canonicalLang = app.canonicalNameFor(langIndex);
                 String localLang = app.localNameFor(langIndex);
-                if (l.getDisplayText().toLowerCase().contains(filter)
-                        || canonicalLang.toLowerCase().contains(filter)
+                if (canonicalLang.toLowerCase().contains(filter)
                         || localLang.toLowerCase().contains(filter)) {
                     this.langLinks.add(l);
                 }
@@ -215,7 +214,6 @@ public class LangLinksActivity extends ActionBarActivity {
                 convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_language_list_entry, parent, false);
             }
 
-            TextView titleText = (TextView) convertView.findViewById(R.id.language_list_page_title);
             TextView langNameText = (TextView) convertView.findViewById(R.id.language_list_language_name);
             TextView langLocalNameText = (TextView) convertView.findViewById(R.id.language_list_language_local_name);
 
@@ -227,7 +225,6 @@ public class LangLinksActivity extends ActionBarActivity {
 
             langNameText.setText(app.canonicalNameFor(langIndex));
             langLocalNameText.setText(app.localNameFor(langIndex));
-            titleText.setText(langLink.getDisplayText());
 
             return convertView;
         }

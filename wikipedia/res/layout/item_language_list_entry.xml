@@ -4,41 +4,29 @@
               android:layout_height="wrap_content"
               android:orientation="vertical"
               android:gravity="center_vertical"
-              android:paddingStart="16dip"
-              android:paddingEnd="12dip"
-              android:minHeight="?android:attr/listPreferredItemHeightSmall">
-    <org.wikipedia.styledviews.StyledTextView android:id="@+id/language_list_page_title"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:textAppearance="?android:attr/textAppearanceMedium"
-              android:textColor="?android:attr/textColorAlertDialogListItem"
-              android:gravity="center_vertical|start"
-              android:singleLine="true"
-              android:ellipsize="marquee"
-            />
-    <LinearLayout
-            android:layout_width="match_parent"
+              android:paddingLeft="16dp"
+              android:paddingTop="8dp"
+              android:paddingBottom="8dp"
+              android:background="@android:drawable/list_selector_background"
+              >
+    <org.wikipedia.styledviews.StyledTextView
+            android:id="@+id/language_list_language_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-        <org.wikipedia.styledviews.StyledTextView android:id="@+id/language_list_language_name"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:textAppearance="?android:attr/textAppearanceSmall"
-                  android:textColor="?android:attr/textColorAlertDialogListItem"
-                  android:gravity="center_vertical|start"
-                  android:singleLine="true"
-                  android:ellipsize="marquee"
-                />
-        <org.wikipedia.styledviews.StyledTextView android:id="@+id/language_list_language_local_name"
-                  android:layout_width="0dp"
-                  android:layout_weight="1"
-                  android:layout_height="wrap_content"
-                  android:textAppearance="?android:attr/textAppearanceSmall"
-                  android:textColor="?android:attr/textColorAlertDialogListItem"
-                  android:gravity="center_vertical|end|right"
-                  android:singleLine="true"
-                  android:ellipsize="marquee"
-                />
-    </LinearLayout>
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="?android:attr/textColorAlertDialogListItem"
+            android:gravity="center_vertical|start"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            />
+    <org.wikipedia.styledviews.StyledTextView
+            android:id="@+id/language_list_language_local_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="?android:attr/textColorAlertDialogListItem"
+            android:gravity="center_vertical|start"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            />
 </LinearLayout>
