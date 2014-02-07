@@ -93,6 +93,13 @@ public class LoginActivity extends ActionBarActivity {
             }
 
             @Override
+            public void onCatch(Throwable caught) {
+                Log.d("Wikipedia", "Caught " + caught.toString());
+                progressDialog.dismiss();
+                Crouton.makeText(LoginActivity.this, R.string.login_error_no_network, Style.ALERT).show();
+            }
+
+            @Override
             public void onFinish(String result) {
                 progressDialog.dismiss();
                 if (result.equals("Success")) {

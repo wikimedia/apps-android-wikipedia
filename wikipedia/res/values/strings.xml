@@ -76,4 +76,5 @@
     <string name="login_error_throttled">
         <![CDATA[Too many login attempts. Wait for a few minutes & try again?]]></string>
     <string name="login_error_unknown">Login failed :(</string>
+    <string name="login_error_no_network">No network connection</string>
 </resources>
