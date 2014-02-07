@@ -143,4 +143,10 @@ public class LoginActivity extends ActionBarActivity {
             Log.d("Wikipedia", "Login failed with result " + result);
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Crouton.cancelAllCroutons();
+    }
 }
