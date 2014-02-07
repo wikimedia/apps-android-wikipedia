@@ -52,6 +52,12 @@
                 <artifactId>compatibility-v4</artifactId>
                 <version>19.0.0</version>
             </dependency>
+
+            <dependency>
+                <groupId>de.keyboardsurfer.android.widget</groupId>
+                <artifactId>crouton</artifactId>
+                <version>1.8.3</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

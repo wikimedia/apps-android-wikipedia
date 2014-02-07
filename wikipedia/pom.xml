@@ -55,11 +55,15 @@
             <artifactId>compatibility-v7-appcompat</artifactId>
             <type>apklib</type>
         </dependency>
-
         <dependency>
             <groupId>android.support</groupId>
             <artifactId>compatibility-v7-appcompat</artifactId>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>de.keyboardsurfer.android.widget</groupId>
+            <artifactId>crouton</artifactId>
+            <version>1.8.3</version>
         </dependency>
     </dependencies>
     <build>
