@@ -16,11 +16,13 @@ import org.wikipedia.data.DBOpenHelper;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryEntryPersister;
 import org.wikipedia.editing.EditTokenStorage;
+import org.wikipedia.login.UserInfoStorage;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagePersister;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.savedpages.SavedPagePerister;
 
+import java.net.CookieManager;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -210,5 +212,21 @@ public class WikipediaApp extends Application {
             editTokenStorage = new EditTokenStorage(this);
         }
         return editTokenStorage;
+    }
+
+    private SharedPreferenceCookieManager cookieManager;
+    public SharedPreferenceCookieManager getCookieManager() {
+        if (cookieManager == null) {
+            cookieManager = new SharedPreferenceCookieManager(PreferenceManager.getDefaultSharedPreferences(this));
+        }
+        return cookieManager;
+    }
+
+    private UserInfoStorage userInfoStorage;
+    public UserInfoStorage getUserInfoStorage() {
+        if (userInfoStorage == null) {
+            userInfoStorage = new UserInfoStorage(PreferenceManager.getDefaultSharedPreferences(this));
+        }
+        return userInfoStorage;
     }
 }

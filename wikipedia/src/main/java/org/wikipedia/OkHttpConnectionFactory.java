@@ -21,7 +21,7 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
 
     public OkHttpConnectionFactory(Context context) {
         client = new OkHttpClient();
-        client.setCookieHandler(new SharedPreferenceCookieManager(PreferenceManager.getDefaultSharedPreferences(context)));
+        client.setCookieHandler(((WikipediaApp)context.getApplicationContext()).getCookieManager());
 
         try {
             client.setResponseCache(new HttpResponseCache(context.getCacheDir(), HTTP_CACHE_SIZE));

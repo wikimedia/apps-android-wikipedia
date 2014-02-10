@@ -54,6 +54,17 @@ public class EditTokenStorage {
         }.execute();
     }
 
+    public void clearAllTokens() {
+        SharedPreferences.Editor editor = prefs.edit();
+        for (String domain: tokenJar.keySet()) {
+            String key = String.format(WikipediaApp.PREFERENCE_EDITTOKEN_FOR_WIKI, domain);
+            editor.remove(key);
+        }
+        editor.remove(WikipediaApp.PREFERENCE_EDITTOKEN_WIKIS);
+        editor.commit();
+        tokenJar.clear();
+    }
+
     private void updatePrefs(String wiki, String token) {
         tokenJar.put(wiki, token);
         String wikisList = makeString(tokenJar.keySet());

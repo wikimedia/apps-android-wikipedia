@@ -86,6 +86,17 @@ public class SharedPreferenceCookieManager extends CookieManager {
         throw new UnsupportedOperationException("We poor. We no have CookieStore");
     }
 
+    public void clearAllCookies() {
+        SharedPreferences.Editor editor = prefs.edit();
+        for (String domain: cookieJar.keySet()) {
+            String key = String.format(WikipediaApp.PREFERENCE_COOKIES_FOR_DOMAINS, domain);
+            editor.remove(key);
+        }
+        editor.remove(WikipediaApp.PREFERENCE_COOKIE_DOMAINS);
+        editor.commit();
+        cookieJar.clear();
+    }
+
     private HashMap<String, String> makeCookieMap(List<String> cookies) {
         HashMap<String, String> cookiesMap = new HashMap<String, String>();
         for (String cookie : cookies) {

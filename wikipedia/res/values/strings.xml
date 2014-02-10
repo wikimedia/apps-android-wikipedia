@@ -77,4 +77,6 @@
         <![CDATA[Too many login attempts. Wait for a few minutes & try again?]]></string>
     <string name="login_error_unknown">Login failed :(</string>
     <string name="login_error_no_network">No network connection</string>
+    <string name="nav_item_logout">Log out</string>
+    <string name="logging_out_progress">Logging out...</string>
 </resources>

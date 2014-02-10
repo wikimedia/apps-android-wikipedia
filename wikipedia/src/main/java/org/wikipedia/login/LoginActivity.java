@@ -23,6 +23,8 @@ import org.wikipedia.login.LoginTask;
 import javax.sql.rowset.serial.SerialStruct;
 
 public class LoginActivity extends ActionBarActivity {
+    public static final int REQUEST_CODE_LOGIN = 1;
+    public static final int LOG_IN_SUCCESSFUL = 1;
     private EditText usernameText;
     private EditText passwordText;
     private CheckBox showPassword;
@@ -84,8 +86,8 @@ public class LoginActivity extends ActionBarActivity {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
 
-        String username = usernameText.getText().toString();
-        String password = passwordText.getText().toString();
+        final String username = usernameText.getText().toString();
+        final String password = passwordText.getText().toString();
         new LoginTask(this, app.getPrimarySite(), username, password) {
             @Override
             public void onBeforeExecute() {
@@ -104,6 +106,8 @@ public class LoginActivity extends ActionBarActivity {
                 progressDialog.dismiss();
                 if (result.equals("Success")) {
                     Toast.makeText(LoginActivity.this, R.string.login_success_toast, Toast.LENGTH_LONG).show();
+                    app.getUserInfoStorage().setUser(new User(username, password));
+                    setResult(LOG_IN_SUCCESSFUL);
                     finish();
                 } else {
                     handleError(result);
