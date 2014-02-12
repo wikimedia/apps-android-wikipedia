@@ -34,12 +34,20 @@ public class SharedPreferenceCookieManager extends CookieManager {
         }
 
         Map<String, List<String>> cookieMap = new HashMap<String, List<String>>();
+        ArrayList<String> cookiesList = new ArrayList<String>();
 
-        Map<String, String> cookies = cookieJar.get(uri.getAuthority());
+        String domain = uri.getAuthority();
 
-        if (cookies != null) {
-            cookieMap.put("Cookie", makeCookieList(cookies));
+        for (String domainSpec: cookieJar.keySet()) {
+            // Very weak domain matching.
+            // Primarily to make sure that cookies set for .wikipedia.org are sent for en.wikipedia.org
+            // FIXME: Whitelist the domains we accept cookies from/send cookies to. SECURITY!!!1
+            if (domain.endsWith(domainSpec)) {
+                cookiesList.addAll(makeCookieList(cookieJar.get(domainSpec)));
+            }
         }
+
+        cookieMap.put("Cookie", cookiesList);
 
         return Collections.unmodifiableMap(cookieMap);
     }
@@ -51,33 +59,41 @@ public class SharedPreferenceCookieManager extends CookieManager {
             throw new IllegalArgumentException("Argument is null");
         }
 
+        HashSet<String> domainsModified = new HashSet<String>();
+
         for (String headerKey : responseHeaders.keySet()) {
             if (headerKey == null || !headerKey.equalsIgnoreCase("Set-Cookie")) {
                 continue;
             }
 
-            String domain = uri.getAuthority();
-
             for (String headerValue : responseHeaders.get(headerKey)) {
                 try {
                     List<HttpCookie> cookies = HttpCookie.parse(headerValue);
-                    if (!cookieJar.containsKey(domain)) {
-                        cookieJar.put(domain, new HashMap<String, String>());
-                    }
                     for (HttpCookie cookie : cookies) {
-                        cookieJar.get(domain).put(cookie.getName(), cookie.getValue());
+                        // Default to the URI's domain if domain is not explicitly set
+                        String domainSpec = cookie.getDomain() == null ? uri.getAuthority() : cookie.getDomain();
+                        if (!cookieJar.containsKey(domainSpec)) {
+                            cookieJar.put(domainSpec, new HashMap<String, String>());
+                        }
+                        cookieJar.get(domainSpec).put(cookie.getName(), cookie.getValue());
+                        domainsModified.add(domainSpec);
                     }
                 } catch (IllegalArgumentException e) {
                     // invalid set-cookie header string
                     // no-op
                 }
             }
-            String prefKey = String.format(WikipediaApp.PREFERENCE_COOKIES_FOR_DOMAINS, domain);
-            prefs.edit()
-                    .putString(prefKey, makeString(makeCookieList(cookieJar.get(domain))))
-                    .putString(WikipediaApp.PREFERENCE_COOKIE_DOMAINS, makeString(cookieJar.keySet()))
-                    .commit();
         }
+
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(WikipediaApp.PREFERENCE_COOKIE_DOMAINS, makeString(cookieJar.keySet()));
+
+        for (String domain : domainsModified) {
+            String prefKey = String.format(WikipediaApp.PREFERENCE_COOKIES_FOR_DOMAINS, domain);
+            editor.putString(prefKey, makeString(makeCookieList(cookieJar.get(domain))));
+
+        }
+        editor.commit();
     }
 
     @Override
