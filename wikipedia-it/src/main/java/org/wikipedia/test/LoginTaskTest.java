@@ -30,8 +30,6 @@ public class LoginTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
             throw new RuntimeException("Use a custom username and password in wikipedia-it/res/values/credentials.xml");
         }
 
-        Log.d("Wikipedia", "username is " + username);
-
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override
