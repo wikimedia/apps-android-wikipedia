@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +25,7 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.*;
 import org.wikipedia.page.Section;
 
-public class EditSectionActivity extends Activity {
+public class EditSectionActivity extends ActionBarActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";
     public static final String EXTRA_TITLE = "org.wikipedia.edit_section.title";
     public static final String EXTRA_SECTION = "org.wikipedia.edit_section.section";
@@ -285,7 +286,8 @@ public class EditSectionActivity extends Activity {
         Utils.crossFade(abusefilterContainer, sectionContainer);
     }
 
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
