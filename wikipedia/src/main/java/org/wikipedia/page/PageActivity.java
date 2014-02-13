@@ -38,31 +38,34 @@ public class PageActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         app = ((WikipediaApp)getApplicationContext());
-        searchAriclesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
         bus = app.getBus();
         bus.register(this);
 
-        Intent intent = getIntent();
-        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
-            Site site = new Site(intent.getData().getAuthority());
-            PageTitle title = site.titleForInternalLink(intent.getData().getPath());
-            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
-            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
-        } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
-            PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
-            HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
-            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
-        }
+        searchAriclesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         searchAriclesFragment.setDrawerLayout(drawerLayout);
+
+        if (savedInstanceState == null) {
+            // Don't do this if we are just rotating the phone
+            Intent intent = getIntent();
+            if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+                Site site = new Site(intent.getData().getAuthority());
+                PageTitle title = site.titleForInternalLink(intent.getData().getPath());
+                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
+                bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+            } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
+                PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
+                HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
+                bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+            }
+        }
 
         IntentFilter connFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         connChangeReceiver = new ConnectionChangeReceiver();
         this.registerReceiver(connChangeReceiver, connFilter);
         // Kickstart network ops. currently, just to initiate Wikipedia Zero check
-        connChangeReceiver.onReceive(app, intent);
+        connChangeReceiver.onReceive(app, getIntent());
 
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(this).run();

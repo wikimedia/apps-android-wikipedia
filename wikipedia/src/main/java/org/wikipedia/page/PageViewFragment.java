@@ -140,15 +140,12 @@ public class PageViewFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
-        FrameLayout parentView = (FrameLayout) inflater.inflate(R.layout.fragment_page, container, false);
+        return inflater.inflate(R.layout.fragment_page, container, false);
+    }
 
-        webView = (ObservableWebView) parentView.findViewById(R.id.page_web_view);
-        loadProgress = (ProgressBar) parentView.findViewById(R.id.page_load_progress);
-        networkError = parentView.findViewById(R.id.page_error);
-        retryButton = parentView.findViewById(R.id.page_error_retry);
-        tocList = (ListView) parentView.findViewById(R.id.page_toc_list);
-        quickReturnBar = getActivity().findViewById(quickReturnBarId);
-
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {
             title = savedInstanceState.getParcelable(KEY_TITLE);
             if (savedInstanceState.containsKey(KEY_PAGE)) {
@@ -162,6 +159,13 @@ public class PageViewFragment extends Fragment {
         if (title == null) {
             throw new RuntimeException("No PageTitle passed in to constructor or in instanceState");
         }
+
+        webView = (ObservableWebView) getView().findViewById(R.id.page_web_view);
+        loadProgress = (ProgressBar) getView().findViewById(R.id.page_load_progress);
+        networkError = getView().findViewById(R.id.page_error);
+        retryButton = getView().findViewById(R.id.page_error_retry);
+        tocList = (ListView) getView().findViewById(R.id.page_toc_list);
+        quickReturnBar = getActivity().findViewById(quickReturnBarId);
 
         // Enable Pinch-Zoom
         webView.getSettings().setBuiltInZoomControls(true);
@@ -189,8 +193,6 @@ public class PageViewFragment extends Fragment {
         }
 
         new QuickReturnHandler(webView, quickReturnBar);
-
-        return parentView;
     }
 
     @Override
@@ -213,15 +215,8 @@ public class PageViewFragment extends Fragment {
                 break;
             case STATE_COMPLETE_FETCH:
                 displayLeadSection(page);
-                // Delay the full section population a little bit
-                // To give the webview time to catch up.
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        populateNonLeadSections(page);
-                        webView.setScrollY(scrollY);
-                    }
-                }, 500);
+                populateNonLeadSections(page);
+                webView.setScrollY(scrollY);
                 break;
         }
     }
