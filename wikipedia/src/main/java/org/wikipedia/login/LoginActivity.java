@@ -118,6 +118,10 @@ public class LoginActivity extends ActionBarActivity {
                     Toast.makeText(LoginActivity.this, R.string.login_success_toast, Toast.LENGTH_LONG).show();
                     app.getUserInfoStorage().setUser(new User(username, password));
                     setResult(LOG_IN_SUCCESSFUL);
+
+                    // Clear the edit tokens - clears out any anon tokens we might have had
+                    app.getEditTokenStorage().clearAllTokens();
+
                     finish();
                 } else {
                     handleError(result);
