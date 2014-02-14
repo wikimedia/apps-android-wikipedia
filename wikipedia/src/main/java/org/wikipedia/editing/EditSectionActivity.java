@@ -186,7 +186,13 @@ public class EditSectionActivity extends ActionBarActivity {
                                 new LoginTask(app, app.getPrimarySite(), user.getUsername(), user.getPassword()) {
                                     @Override
                                     public void onFinish(String result) {
-                                        doSave();
+                                        if (result.equals("Success")) {
+                                            doSave();
+                                        } else {
+                                            progressDialog.dismiss();
+                                            Utils.crossFade(sectionText, sectionError);
+                                            sectionError.setVisibility(View.VISIBLE);
+                                        }
                                     }
                                 }.execute();
                                 return;
