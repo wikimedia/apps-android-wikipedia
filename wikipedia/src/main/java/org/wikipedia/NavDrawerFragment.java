@@ -34,8 +34,13 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View parentView = inflater.inflate(R.layout.fragment_navdrawer, container, false);
-        navList = (ListView) parentView.findViewById(R.id.nav_list);
+        return inflater.inflate(R.layout.fragment_navdrawer, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        navList = (ListView) getView().findViewById(R.id.nav_list);
         adapter = new NavListAdapter();
         app = (WikipediaApp)getActivity().getApplicationContext();
 
@@ -43,8 +48,6 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
 
         navList.setAdapter(adapter);
         navList.setOnItemClickListener(this);
-
-        return parentView;
     }
 
     @Override
@@ -77,9 +80,17 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == LoginActivity.LOG_IN_SUCCESSFUL) {
-            setupDynamicItems();
-            ((NavListAdapter)navList.getAdapter()).notifyDataSetChanged();
+        // Okay, so this is really, really stupid, but
+        // sometimes if the previous activity was destroyed before the callback is done
+        // onActivityResult may be called *before* the onCreate, onActivityAttach, etc are called
+        // This, of course, is fucking stupid. However, in this particular case (updating the login status)
+        // we can just ignore it if that is the case and keep going.
+        // BUGS! GRR!
+        if (getView() != null) {
+            if (resultCode == LoginActivity.LOG_IN_SUCCESSFUL) {
+                setupDynamicItems();
+                ((NavListAdapter)navList.getAdapter()).notifyDataSetChanged();
+            }
         }
     }
 
