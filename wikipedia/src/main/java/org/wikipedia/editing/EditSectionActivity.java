@@ -23,6 +23,9 @@ import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.*;
+import org.wikipedia.login.LoginTask;
+import org.wikipedia.login.LogoutTask;
+import org.wikipedia.login.User;
 import org.wikipedia.page.Section;
 
 public class EditSectionActivity extends ActionBarActivity {
@@ -172,6 +175,23 @@ public class EditSectionActivity extends ActionBarActivity {
 
                     @Override
                     public void onCatch(Throwable caught) {
+                        if (caught instanceof EditingException) {
+                            EditingException ee = (EditingException) caught;
+                            if (app.getUserInfoStorage().isLoggedIn() && ee.getCode() == "badtoken") {
+                                // looks like our session expired.
+                                app.getEditTokenStorage().clearAllTokens();
+                                app.getCookieManager().clearAllCookies();
+
+                                User user = app.getUserInfoStorage().getUser();
+                                new LoginTask(app, app.getPrimarySite(), user.getUsername(), user.getPassword()) {
+                                    @Override
+                                    public void onFinish(String result) {
+                                        doSave();
+                                    }
+                                }.execute();
+                                return;
+                            }
+                        }
                         if (!(caught instanceof HttpRequest.HttpRequestException)) {
                             throw new RuntimeException(caught);
                         }
