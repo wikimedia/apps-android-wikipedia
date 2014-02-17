@@ -228,6 +228,7 @@ public class EditSectionActivity extends ActionBarActivity {
                             progressDialog.hide();
                             setResult(EditHandler.RESULT_REFRESH_PAGE);
                             Toast.makeText(EditSectionActivity.this, R.string.edit_saved_successfully, Toast.LENGTH_LONG).show();
+                            Utils.hideSoftKeyboard(EditSectionActivity.this);
                             finish();
                         } else if (result instanceof CaptchaEditResult) {
                             captchaEditResult = (CaptchaEditResult) result;
@@ -258,10 +259,7 @@ public class EditSectionActivity extends ActionBarActivity {
             throw new RuntimeException(e);
         }
         abusefilterBridge.sendMessage("displayWarning", payload);
-        if (getCurrentFocus() != null) {
-            InputMethodManager keyboard = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            keyboard.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-        }
+        Utils.hideSoftKeyboard(this);
         Utils.fadeIn(abusefilterContainer);
         progressDialog.dismiss();
     }
@@ -316,6 +314,7 @@ public class EditSectionActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                Utils.hideSoftKeyboard(this);
                 finish();
                 return true;
             case R.id.menu_save_section:
@@ -376,6 +375,7 @@ public class EditSectionActivity extends ActionBarActivity {
         } else if (abusefilterEditResult != null) {
             cancelAbuseFilter();
         } else {
+            Utils.hideSoftKeyboard(this);
             finish();
         }
     }
