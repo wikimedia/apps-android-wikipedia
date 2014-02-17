@@ -80,4 +80,5 @@
     <string name="nav_item_logout">Log out</string>
     <string name="logging_out_progress">Logging out...</string>
     <string name="saved_pages_empty_message">No saved pages.</string>
+    <string name="history_empty_message">Your history is empty.</string>
 </resources>

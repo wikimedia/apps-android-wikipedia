@@ -25,6 +25,7 @@ import java.util.Date;
 
 public class HistoryActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private ListView historyEntryList;
+    private View historyEmptyMessage;
     private HistoryEntryAdapter adapter;
 
     private WikipediaApp app;
@@ -36,9 +37,11 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
 
         setContentView(R.layout.activity_history);
         historyEntryList = (ListView) findViewById(R.id.history_entry_list);
+        historyEmptyMessage = findViewById(R.id.history_empty_message);
 
         adapter = new HistoryEntryAdapter(this, null, true);
         historyEntryList.setAdapter(adapter);
+        historyEntryList.setEmptyView(historyEmptyMessage);
 
         historyEntryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
