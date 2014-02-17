@@ -28,6 +28,7 @@ import java.util.Date;
 
 public class SavedPagesActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private ListView savedPagesList;
+    private View savedPagesEmpty;
     private SavedPagesAdapter adapter;
 
     private WikipediaApp app;
@@ -41,9 +42,11 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
 
         setContentView(R.layout.activity_saved_pages);
         savedPagesList = (ListView) findViewById(R.id.saved_pages_list);
+        savedPagesEmpty = findViewById(R.id.saved_pages_empty_message);
 
         adapter = new SavedPagesAdapter(this, null, true);
         savedPagesList.setAdapter(adapter);
+        savedPagesList.setEmptyView(savedPagesEmpty);
 
         savedPagesList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override

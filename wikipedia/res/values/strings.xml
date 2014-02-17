@@ -79,4 +79,5 @@
     <string name="login_error_no_network">No network connection</string>
     <string name="nav_item_logout">Log out</string>
     <string name="logging_out_progress">Logging out...</string>
+    <string name="saved_pages_empty_message">No saved pages.</string>
 </resources>
