@@ -2,11 +2,14 @@ package org.wikipedia;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Looper;
+import android.support.v7.app.ActionBarActivity;
 import android.text.format.DateUtils;
 import android.util.Base64;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -177,6 +180,18 @@ public class Utils {
     public static void ensureMainThread() {
         if (Looper.getMainLooper().getThread() != Thread.currentThread()) {
             throw new IllegalStateException("Method must be called from the Main Thread");
+        }
+    }
+
+    /**
+     * Attempt to hide the Android Keyboard
+     *
+     * @param activity The current activity
+     */
+    public static void hideSoftKeyboard(Activity activity) {
+        if (activity.getCurrentFocus() != null) {
+            InputMethodManager keyboard = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            keyboard.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
         }
     }
 }

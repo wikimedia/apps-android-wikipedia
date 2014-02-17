@@ -60,7 +60,7 @@
                 />
         <activity android:name=".login.LoginActivity"
                   android:label="@string/login_activity_title"
-                  android:windowSoftInputMode="stateAlwaysVisible"
+                  android:windowSoftInputMode="stateVisible"
                 />
 
         <provider

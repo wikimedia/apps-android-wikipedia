@@ -16,6 +16,7 @@ import android.widget.*;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import org.wikipedia.R;
+import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.login.LoginTask;
 
@@ -122,6 +123,8 @@ public class LoginActivity extends ActionBarActivity {
                     // Clear the edit tokens - clears out any anon tokens we might have had
                     app.getEditTokenStorage().clearAllTokens();
 
+                    Utils.hideSoftKeyboard(LoginActivity.this);
+
                     finish();
                 } else {
                     handleError(result);
@@ -134,6 +137,7 @@ public class LoginActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                Utils.hideSoftKeyboard(LoginActivity.this);
                 finish();
                 break;
             case R.id.menu_login:
