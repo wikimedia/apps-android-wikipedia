@@ -1,14 +1,12 @@
 package org.wikipedia.test;
 
-import android.content.Intent;
-import android.test.ActivityUnitTestCase;
-import android.webkit.WebView;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.wikipedia.CommunicationBridge;
+import android.content.*;
+import android.test.*;
+import android.webkit.*;
+import org.json.*;
+import org.wikipedia.*;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class BridgeTests extends ActivityUnitTestCase<TestDummyActivity> {
     public static final int TEST_COMPLETION_TIMEOUT = 2000;

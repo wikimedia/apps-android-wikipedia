@@ -1,21 +1,14 @@
 package org.wikipedia.settings;
 
-import android.content.Context;
-import android.preference.DialogPreference;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.*;
+import android.preference.*;
+import android.text.*;
+import android.util.*;
+import android.view.*;
 import android.widget.*;
-import org.wikipedia.R;
-import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Locale;
+import java.util.*;
 
 public class LanguagePreference extends DialogPreference {
     private ListView languagesList;

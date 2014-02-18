@@ -1,10 +1,9 @@
 package org.wikipedia.styledviews;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.widget.EditText;
-import android.widget.TextView;
-import org.wikipedia.WikipediaApp;
+import android.content.*;
+import android.util.*;
+import android.widget.*;
+import org.wikipedia.*;
 
 public class StylizedEditText extends EditText {
     public StylizedEditText(Context context) {

@@ -1,16 +1,14 @@
 
 package org.wikipedia.test;
 
-import android.content.Intent;
-import android.test.ActivityUnitTestCase;
+import android.content.*;
+import android.test.*;
 import org.wikimedia.wikipedia.test.R;
-import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.editing.EditTokenStorage;
-import org.wikipedia.login.LoginTask;
+import org.wikipedia.*;
+import org.wikipedia.editing.*;
+import org.wikipedia.login.*;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class LoginTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;

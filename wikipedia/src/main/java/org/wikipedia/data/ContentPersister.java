@@ -1,8 +1,8 @@
 package org.wikipedia.data;
 
-import android.content.ContentProviderClient;
-import android.net.Uri;
-import android.os.RemoteException;
+import android.content.*;
+import android.net.*;
+import android.os.*;
 
 abstract public class ContentPersister<T> {
     private final ContentProviderClient client;

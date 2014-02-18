@@ -1,26 +1,15 @@
 package org.wikipedia.login;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.text.Editable;
-import android.text.InputType;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.inputmethod.EditorInfo;
+import android.app.*;
+import android.os.*;
+import android.support.v7.app.*;
+import android.text.*;
+import android.util.*;
+import android.view.*;
+import android.view.inputmethod.*;
 import android.widget.*;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
-import org.wikipedia.R;
-import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.login.LoginTask;
-
-import javax.sql.rowset.serial.SerialStruct;
+import de.keyboardsurfer.android.widget.crouton.*;
+import org.wikipedia.*;
 
 public class LoginActivity extends ActionBarActivity {
     public static final int REQUEST_CODE_LOGIN = 1;

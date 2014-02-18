@@ -1,16 +1,12 @@
 package org.wikipedia.savedpages;
 
-import android.content.Context;
-import com.squareup.okhttp.OkHttpClient;
-import org.wikipedia.Utils;
-import org.wikipedia.concurrency.ExecutorService;
-import org.wikipedia.concurrency.SaneAsyncTask;
+import android.content.*;
+import com.squareup.okhttp.*;
+import org.wikipedia.*;
+import org.wikipedia.concurrency.*;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.*;
+import java.net.*;
 
 public class DownloadImageTask extends SaneAsyncTask<Boolean> {
     private final Context context;

@@ -1,17 +1,12 @@
 package org.wikipedia.networking;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import android.widget.Toast;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.zero.WikipediaZeroTask;
-import org.wikipedia.R;
+import android.content.*;
+import android.net.*;
+import android.os.*;
+import android.util.*;
+import android.widget.*;
+import org.wikipedia.*;
+import org.wikipedia.zero.*;
 
 
 public class ConnectionChangeReceiver extends BroadcastReceiver {

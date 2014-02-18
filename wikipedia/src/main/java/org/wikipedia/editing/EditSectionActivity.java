@@ -1,32 +1,22 @@
 package org.wikipedia.editing;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.webkit.WebView;
+import android.app.*;
+import android.content.*;
+import android.net.*;
+import android.os.*;
+import android.support.v7.app.*;
+import android.util.*;
+import android.view.*;
+import android.webkit.*;
 import android.widget.*;
-import com.github.kevinsawicki.http.HttpRequest;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.RequestBuilder;
+import com.github.kevinsawicki.http.*;
+import com.squareup.picasso.*;
+import org.json.*;
+import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.login.LoginTask;
-import org.wikipedia.login.LogoutTask;
-import org.wikipedia.login.User;
-import org.wikipedia.page.Section;
+import org.wikipedia.Utils;
+import org.wikipedia.login.*;
+import org.wikipedia.page.*;
 
 public class EditSectionActivity extends ActionBarActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";

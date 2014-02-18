@@ -1,7 +1,7 @@
 package org.wikipedia.test;
 
-import junit.framework.TestCase;
-import org.wikipedia.Site;
+import junit.framework.*;
+import org.wikipedia.*;
 
 public class SiteTests extends TestCase {
 

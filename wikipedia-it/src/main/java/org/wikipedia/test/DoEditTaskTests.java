@@ -1,18 +1,12 @@
 
 package org.wikipedia.test;
 
-import android.content.Intent;
-import android.test.ActivityUnitTestCase;
-import org.wikipedia.PageTitle;
-import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.editing.DoEditTask;
-import org.wikipedia.editing.EditingResult;
-import org.wikipedia.editing.FetchSectionWikitextTask;
-import org.wikipedia.editing.EditTokenStorage;
+import android.content.*;
+import android.test.*;
+import org.wikipedia.*;
+import org.wikipedia.editing.*;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;

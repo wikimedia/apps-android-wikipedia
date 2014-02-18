@@ -1,22 +1,16 @@
 package org.wikipedia.interlanguage;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.*;
+import android.os.*;
+import android.support.v7.app.*;
+import android.text.*;
+import android.view.*;
 import android.widget.*;
 import org.wikipedia.*;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.history.*;
+import org.wikipedia.page.*;
 
-import java.util.ArrayList;
-import java.util.Locale;
+import java.util.*;
 
 public class LangLinksActivity extends ActionBarActivity {
     public static final String ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title";

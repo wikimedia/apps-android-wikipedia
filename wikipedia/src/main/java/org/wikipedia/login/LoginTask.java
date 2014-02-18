@@ -1,15 +1,10 @@
 package org.wikipedia.login;
 
-import android.content.Context;
-import org.json.JSONObject;
-import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.ApiResult;
-import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.ExecutorService;
-import org.wikipedia.concurrency.SaneAsyncTask;
-
-import java.util.concurrent.Executor;
+import android.content.*;
+import org.json.*;
+import org.mediawiki.api.json.*;
+import org.wikipedia.*;
+import org.wikipedia.concurrency.*;
 
 public class LoginTask extends SaneAsyncTask<String> {
     private final String username;

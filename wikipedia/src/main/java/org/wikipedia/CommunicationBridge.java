@@ -1,16 +1,11 @@
 package org.wikipedia;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
+import android.os.*;
+import android.util.*;
 import android.webkit.*;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * Two way communications bridge between JS in a WebView and Java.

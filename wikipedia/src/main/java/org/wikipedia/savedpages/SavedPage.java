@@ -1,10 +1,9 @@
 package org.wikipedia.savedpages;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import org.wikipedia.PageTitle;
+import android.os.*;
+import org.wikipedia.*;
 
-import java.util.Date;
+import java.util.*;
 
 public class SavedPage implements Parcelable {
     public static final SavedPagePersistanceHelper persistanceHelper = new SavedPagePersistanceHelper();

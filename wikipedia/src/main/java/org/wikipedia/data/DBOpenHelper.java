@@ -2,9 +2,9 @@ package org.wikipedia.data;
 
 import android.content.*;
 import android.database.sqlite.*;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.savedpages.SavedPage;
+import org.wikipedia.history.*;
+import org.wikipedia.pageimages.*;
+import org.wikipedia.savedpages.*;
 
 public class DBOpenHelper  extends SQLiteOpenHelper{
 

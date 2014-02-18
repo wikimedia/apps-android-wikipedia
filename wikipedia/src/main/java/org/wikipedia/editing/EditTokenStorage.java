@@ -1,19 +1,10 @@
 package org.wikipedia.editing;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
-import org.wikipedia.Site;
-import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.editing.FetchEditTokenTask;
+import android.content.*;
+import android.preference.*;
+import android.text.*;
+import org.wikipedia.*;
 
-import java.io.IOException;
-import java.net.CookieManager;
-import java.net.CookieStore;
-import java.net.HttpCookie;
-import java.net.URI;
 import java.util.*;
 
 public class EditTokenStorage {

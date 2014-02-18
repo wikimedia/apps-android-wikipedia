@@ -1,19 +1,16 @@
 package org.wikipedia.savedpages;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.wikipedia.CommunicationBridge;
-import org.wikipedia.page.Page;
-import org.wikipedia.WikipediaApp;
+import android.content.*;
+import android.os.*;
+import android.util.*;
+import org.json.*;
+import org.wikipedia.*;
 import org.wikipedia.concurrency.ExecutorService;
-import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.concurrency.*;
+import org.wikipedia.page.*;
 
-import java.util.HashSet;
-import java.util.concurrent.CountDownLatch;
+import java.util.*;
+import java.util.concurrent.*;
 
 public class SavePageTask extends SaneAsyncTask<Void> {
     private final WikipediaApp app;

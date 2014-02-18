@@ -1,10 +1,9 @@
 package org.wikipedia.styledviews;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.widget.Button;
-import android.widget.EditText;
-import org.wikipedia.WikipediaApp;
+import android.content.*;
+import android.util.*;
+import android.widget.*;
+import org.wikipedia.*;
 
 public class StylizedButton extends Button {
     public StylizedButton(Context context) {

@@ -1,18 +1,15 @@
 package org.wikipedia;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.Bundle;
+import android.app.*;
+import android.content.*;
+import android.os.*;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.*;
-import org.wikipedia.history.HistoryActivity;
-import org.wikipedia.login.LoginActivity;
-import org.wikipedia.login.LogoutTask;
-import org.wikipedia.savedpages.SavedPagesActivity;
-import org.wikipedia.settings.SettingsActivity;
+import org.wikipedia.history.*;
+import org.wikipedia.login.*;
+import org.wikipedia.savedpages.*;
+import org.wikipedia.settings.*;
 
 public class NavDrawerFragment extends Fragment implements AdapterView.OnItemClickListener {
     private static final int[] ACTION_ITEMS_TEXT = {

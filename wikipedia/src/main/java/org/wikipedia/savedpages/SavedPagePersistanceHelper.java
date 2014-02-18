@@ -1,12 +1,11 @@
 package org.wikipedia.savedpages;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import org.wikipedia.PageTitle;
-import org.wikipedia.Site;
-import org.wikipedia.data.PersistanceHelper;
+import android.content.*;
+import android.database.*;
+import org.wikipedia.*;
+import org.wikipedia.data.*;
 
-import java.util.Date;
+import java.util.*;
 
 public class SavedPagePersistanceHelper extends PersistanceHelper<SavedPage> {
     @Override

@@ -1,26 +1,19 @@
 package org.wikipedia;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.app.Activity;
-import android.content.Context;
-import android.os.Looper;
-import android.support.v7.app.ActionBarActivity;
-import android.text.format.DateUtils;
-import android.util.Base64;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.animation.*;
+import android.app.*;
+import android.content.*;
+import android.os.*;
+import android.text.format.*;
+import android.util.*;
+import android.view.*;
+import android.view.inputmethod.*;
+import org.json.*;
 
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.io.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
 
 /**
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?

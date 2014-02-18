@@ -1,9 +1,9 @@
 package org.wikipedia.test.concurrency;
 
-import android.content.Intent;
-import android.test.ActivityUnitTestCase;
-import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.test.TestDummyActivity;
+import android.content.*;
+import android.test.*;
+import org.wikipedia.concurrency.*;
+import org.wikipedia.test.*;
 
 import java.util.concurrent.*;
 

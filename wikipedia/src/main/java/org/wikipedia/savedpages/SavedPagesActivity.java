@@ -1,30 +1,26 @@
 package org.wikipedia.savedpages;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.app.*;
+import android.content.*;
+import android.database.*;
+import android.net.*;
+import android.os.*;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
-import android.support.v7.app.ActionBarActivity;
-import android.util.SparseBooleanArray;
+import android.support.v7.app.*;
+import android.util.*;
 import android.view.*;
 import android.widget.*;
-import com.squareup.picasso.Picasso;
-import org.wikipedia.page.PageActivity;
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.pageimages.PageImage;
+import com.squareup.picasso.*;
+import org.wikipedia.*;
+import org.wikipedia.history.*;
+import org.wikipedia.page.*;
+import org.wikipedia.pageimages.*;
 
-import java.text.DateFormat;
-import java.util.Date;
+import java.text.*;
+import java.util.*;
 
 public class SavedPagesActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private ListView savedPagesList;

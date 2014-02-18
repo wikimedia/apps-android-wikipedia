@@ -1,8 +1,8 @@
 package org.wikipedia.concurrency;
 
-import android.os.AsyncTask;
+import android.os.*;
 
-import java.util.concurrent.Executor;
+import java.util.concurrent.*;
 
 public abstract class SaneAsyncTask<T> {
     private final BackingAsyncTask underlyingTask;

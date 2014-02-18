@@ -1,13 +1,10 @@
 package org.wikipedia.settings;
 
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
-import android.view.MenuItem;
-import org.wikipedia.R;
-import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
+import android.content.*;
+import android.os.*;
+import android.preference.*;
+import android.view.*;
+import org.wikipedia.*;
 
 public class SettingsActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     public void onCreate(Bundle savedInstanceState) {

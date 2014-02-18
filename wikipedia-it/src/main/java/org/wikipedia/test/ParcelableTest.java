@@ -1,17 +1,13 @@
 package org.wikipedia.test;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import junit.framework.TestCase;
+import android.os.*;
+import junit.framework.*;
 import org.wikipedia.*;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.Page;
-import org.wikipedia.page.PageProperties;
-import org.wikipedia.page.Section;
-import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.history.*;
+import org.wikipedia.page.*;
+import org.wikipedia.pageimages.*;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
 public class ParcelableTest extends TestCase {
     private void parcelAndTestObjects(Parcelable p) throws Exception {

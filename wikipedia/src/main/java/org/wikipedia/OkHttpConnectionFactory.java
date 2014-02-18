@@ -1,18 +1,11 @@
 package org.wikipedia;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.util.Log;
-import com.github.kevinsawicki.http.HttpRequest;
-import com.squareup.okhttp.HttpResponseCache;
-import com.squareup.okhttp.OkHttpClient;
-import org.apache.http.impl.client.BasicCookieStore;
+import android.content.*;
+import com.github.kevinsawicki.http.*;
+import com.squareup.okhttp.*;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.*;
-import java.util.List;
-import java.util.Map;
 
 public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
     private static final long HTTP_CACHE_SIZE = 16 * 1024 * 1024;

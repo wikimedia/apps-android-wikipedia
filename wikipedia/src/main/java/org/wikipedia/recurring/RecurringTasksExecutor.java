@@ -1,11 +1,11 @@
 package org.wikipedia.recurring;
 
-import android.content.Context;
+import android.content.*;
 import org.wikipedia.concurrency.ExecutorService;
-import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.history.HistoryRotateTask;
+import org.wikipedia.concurrency.*;
+import org.wikipedia.history.*;
 
-import java.util.concurrent.Executor;
+import java.util.concurrent.*;
 
 public class RecurringTasksExecutor {
     private final Context context;

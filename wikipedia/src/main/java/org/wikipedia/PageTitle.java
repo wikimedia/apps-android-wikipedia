@@ -1,12 +1,10 @@
 package org.wikipedia;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.os.*;
+import org.json.*;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.io.*;
+import java.net.*;
 
 /**
  * Immutable value object representing the text of a page.

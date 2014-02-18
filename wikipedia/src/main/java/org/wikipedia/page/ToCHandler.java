@@ -1,17 +1,12 @@
 package org.wikipedia.page;
 
-import android.graphics.Color;
-import android.util.TypedValue;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.graphics.*;
+import android.view.*;
 import android.widget.*;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.*;
 import org.wikipedia.*;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class ToCHandler {
     private final ListView tocList;

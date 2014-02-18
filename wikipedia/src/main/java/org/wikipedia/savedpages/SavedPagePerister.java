@@ -1,11 +1,10 @@
 package org.wikipedia.savedpages;
 
-import android.content.Context;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.wikipedia.page.Page;
-import org.wikipedia.PageTitle;
-import org.wikipedia.data.ContentPersister;
+import android.content.*;
+import org.json.*;
+import org.wikipedia.*;
+import org.wikipedia.data.*;
+import org.wikipedia.page.*;
 
 import java.io.*;
 

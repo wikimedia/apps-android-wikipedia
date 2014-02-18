@@ -1,8 +1,7 @@
 package org.wikipedia.editing;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import org.wikipedia.Site;
+import android.os.*;
+import org.wikipedia.*;
 
 // Handles only Image Captchas
 public class CaptchaEditResult extends EditingResult {

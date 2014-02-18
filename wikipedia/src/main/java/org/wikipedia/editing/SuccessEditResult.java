@@ -1,7 +1,6 @@
 package org.wikipedia.editing;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.os.*;
 
 public class SuccessEditResult extends EditingResult {
     public SuccessEditResult() {

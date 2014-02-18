@@ -1,8 +1,7 @@
 package org.wikipedia.pageimages;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import org.wikipedia.PageTitle;
+import android.os.*;
+import org.wikipedia.*;
 
 public class PageImage implements Parcelable {
     public static final PageImagePersistanceHelper persistanceHelper = new PageImagePersistanceHelper();

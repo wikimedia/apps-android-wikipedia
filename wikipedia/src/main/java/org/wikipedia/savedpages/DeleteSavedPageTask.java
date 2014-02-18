@@ -1,9 +1,8 @@
 package org.wikipedia.savedpages;
 
-import android.content.Context;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.ExecutorService;
-import org.wikipedia.concurrency.SaneAsyncTask;
+import android.content.*;
+import org.wikipedia.*;
+import org.wikipedia.concurrency.*;
 
 public class DeleteSavedPageTask extends SaneAsyncTask<Boolean> {
     private final WikipediaApp app;

@@ -1,26 +1,23 @@
 package org.wikipedia.search;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.DrawerLayout;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.content.*;
+import android.os.*;
+import android.support.v4.app.*;
+import android.support.v4.widget.*;
+import android.text.*;
 import android.view.*;
-import android.view.inputmethod.InputMethodManager;
+import android.view.inputmethod.*;
 import android.widget.*;
-import com.squareup.otto.Subscribe;
-import com.squareup.picasso.Picasso;
+import com.squareup.otto.*;
+import com.squareup.picasso.*;
 import org.wikipedia.*;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActionsHandler;
-import org.wikipedia.pageimages.PageImagesTask;
+import org.wikipedia.Utils;
+import org.wikipedia.events.*;
+import org.wikipedia.history.*;
+import org.wikipedia.page.*;
+import org.wikipedia.pageimages.*;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SearchArticlesFragment extends Fragment {
     private static final int DELAY_MILLIS = 300;

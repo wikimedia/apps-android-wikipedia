@@ -1,7 +1,7 @@
 package org.wikipedia.events;
 
-import org.wikipedia.PageTitle;
-import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.*;
+import org.wikipedia.history.*;
 
 public class NewWikiPageNavigationEvent {
     private final PageTitle title;

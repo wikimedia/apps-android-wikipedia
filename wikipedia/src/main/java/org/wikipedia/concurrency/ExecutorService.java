@@ -1,8 +1,7 @@
 package org.wikipedia.concurrency;
 
-import java.util.HashMap;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.*;
+import java.util.concurrent.*;
 
 /**
  * Service registry for providing Executors for various purposes.

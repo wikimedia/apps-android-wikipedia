@@ -1,15 +1,9 @@
 package org.wikipedia.editing;
 
-import android.content.Context;
-import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.ApiResult;
-import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.ApiTask;
-import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.ExecutorService;
-
-import java.util.concurrent.Executor;
+import android.content.*;
+import org.mediawiki.api.json.*;
+import org.wikipedia.*;
+import org.wikipedia.concurrency.*;
 
 public class FetchEditTokenTask extends ApiTask<String> {
     public FetchEditTokenTask(Context context, Site site) {

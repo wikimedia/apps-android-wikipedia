@@ -1,33 +1,21 @@
 package org.wikipedia.page;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.Toast;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.ApiException;
-import org.mediawiki.api.json.ApiResult;
-import org.mediawiki.api.json.RequestBuilder;
+import android.content.*;
+import android.os.*;
+import android.support.v4.app.*;
+import android.util.*;
+import android.view.*;
+import android.widget.*;
+import org.json.*;
+import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.editing.EditHandler;
-import org.wikipedia.events.PageStateChangeEvent;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.pageimages.PageImageSaveTask;
-import org.wikipedia.savedpages.LoadSavedPageTask;
-import org.wikipedia.savedpages.SavePageTask;
+import org.wikipedia.editing.*;
+import org.wikipedia.events.*;
+import org.wikipedia.history.*;
+import org.wikipedia.pageimages.*;
+import org.wikipedia.savedpages.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class PageViewFragment extends Fragment {
     private static final String KEY_TITLE = "title";

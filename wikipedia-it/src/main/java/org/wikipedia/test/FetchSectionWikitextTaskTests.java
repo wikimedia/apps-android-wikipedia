@@ -1,16 +1,12 @@
 
 package org.wikipedia.test;
 
-import android.content.Context;
-import android.content.Intent;
-import android.test.ActivityUnitTestCase;
-import org.mediawiki.api.json.Api;
-import org.wikipedia.editing.*;
+import android.content.*;
+import android.test.*;
 import org.wikipedia.*;
+import org.wikipedia.editing.*;
 
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class FetchSectionWikitextTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;

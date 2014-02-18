@@ -1,18 +1,11 @@
 package org.wikipedia.editing;
 
-import android.content.Context;
-import android.util.Log;
-import org.json.JSONObject;
-import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.ApiResult;
-import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.ApiTask;
-import org.wikipedia.PageTitle;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.ExecutorService;
-import org.wikipedia.page.Section;
-
-import java.util.concurrent.Executor;
+import android.content.*;
+import android.util.*;
+import org.json.*;
+import org.mediawiki.api.json.*;
+import org.wikipedia.*;
+import org.wikipedia.concurrency.*;
 
 public class DoEditTask extends ApiTask<EditingResult> {
     private final PageTitle title;

@@ -1,16 +1,10 @@
 package org.wikipedia.editing;
 
-import android.content.Context;
-import android.util.Log;
-import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.ApiResult;
-import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.ApiTask;
-import org.wikipedia.PageTitle;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.ExecutorService;
-
-import java.util.concurrent.Executor;
+import android.content.*;
+import android.util.*;
+import org.mediawiki.api.json.*;
+import org.wikipedia.*;
+import org.wikipedia.concurrency.*;
 
 public class RefreshCaptchaTask extends ApiTask<CaptchaEditResult> {
     public RefreshCaptchaTask(Context context, PageTitle title) {

@@ -1,11 +1,9 @@
 package org.wikipedia.page;
 
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.PopupMenu;
-import com.squareup.otto.Bus;
-import com.squareup.otto.Subscribe;
-import org.wikipedia.R;
+import android.view.*;
+import android.widget.*;
+import com.squareup.otto.*;
+import org.wikipedia.*;
 import org.wikipedia.events.*;
 
 public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {

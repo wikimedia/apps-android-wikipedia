@@ -1,10 +1,9 @@
 package org.wikipedia.history;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import org.wikipedia.PageTitle;
+import android.os.*;
+import org.wikipedia.*;
 
-import java.util.Date;
+import java.util.*;
 
 public class HistoryEntry implements Parcelable {
     public static final HistoryEntryPersistanceHelper persistanceHelper = new HistoryEntryPersistanceHelper();

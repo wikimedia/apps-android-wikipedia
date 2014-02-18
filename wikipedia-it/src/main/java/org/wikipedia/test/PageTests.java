@@ -1,13 +1,10 @@
 package org.wikipedia.test;
 
-import junit.framework.TestCase;
+import junit.framework.*;
 import org.wikipedia.*;
-import org.wikipedia.page.Page;
-import org.wikipedia.page.PageProperties;
-import org.wikipedia.page.Section;
+import org.wikipedia.page.*;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
 public class PageTests extends TestCase {
 

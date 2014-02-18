@@ -1,10 +1,10 @@
 package org.wikipedia.history;
 
-import android.content.Context;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.recurring.RecurringTask;
+import android.content.*;
+import org.wikipedia.*;
+import org.wikipedia.recurring.*;
 
-import java.util.Date;
+import java.util.*;
 
 public class HistoryRotateTask extends RecurringTask {
     // The 'l' suffix is needed because stupid Java overflows constants otherwise

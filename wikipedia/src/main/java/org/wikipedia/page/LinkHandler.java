@@ -1,18 +1,13 @@
 package org.wikipedia.page;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.util.Log;
-import com.squareup.otto.Bus;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.wikipedia.CommunicationBridge;
-import org.wikipedia.PageTitle;
-import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikipedia.history.HistoryEntry;
+import android.content.*;
+import android.net.*;
+import android.util.*;
+import com.squareup.otto.*;
+import org.json.*;
+import org.wikipedia.*;
+import org.wikipedia.events.*;
+import org.wikipedia.history.*;
 
 /**
  * Handles any html links coming from a {@link org.wikipedia.page.PageViewFragment}

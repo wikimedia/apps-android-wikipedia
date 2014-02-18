@@ -1,10 +1,9 @@
 package org.wikipedia;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.os.*;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import java.io.*;
+import java.net.*;
 import java.util.regex.*;
 
 /**

@@ -1,12 +1,10 @@
 package org.wikipedia.pageimages;
 
-import org.mediawiki.api.json.Api;
-import org.wikipedia.PageTitle;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.ExecutorService;
+import org.mediawiki.api.json.*;
+import org.wikipedia.*;
+import org.wikipedia.concurrency.*;
 
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 
 public class PageImageSaveTask extends PageImagesTask {
     private final WikipediaApp app;

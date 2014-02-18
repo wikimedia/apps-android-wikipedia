@@ -1,30 +1,23 @@
 package org.wikipedia;
 
-import android.app.Application;
-import android.content.SharedPreferences;
-import android.graphics.Typeface;
-import android.os.Build;
-import android.preference.PreferenceManager;
-import android.webkit.WebView;
-import com.squareup.otto.Bus;
-import org.acra.ACRA;
-import org.acra.ReportingInteractionMode;
-import org.acra.annotation.ReportsCrashes;
-import org.mediawiki.api.json.Api;
-import org.wikipedia.data.ContentPersister;
-import org.wikipedia.data.DBOpenHelper;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.history.HistoryEntryPersister;
-import org.wikipedia.editing.EditTokenStorage;
-import org.wikipedia.login.UserInfoStorage;
-import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImagePersister;
-import org.wikipedia.savedpages.SavedPage;
-import org.wikipedia.savedpages.SavedPagePerister;
+import android.app.*;
+import android.content.*;
+import android.graphics.*;
+import android.os.*;
+import android.preference.*;
+import android.webkit.*;
+import com.squareup.otto.*;
+import org.acra.*;
+import org.acra.annotation.*;
+import org.mediawiki.api.json.*;
+import org.wikipedia.data.*;
+import org.wikipedia.editing.*;
+import org.wikipedia.history.*;
+import org.wikipedia.login.*;
+import org.wikipedia.pageimages.*;
+import org.wikipedia.savedpages.*;
 
-import java.net.CookieManager;
-import java.util.HashMap;
-import java.util.Locale;
+import java.util.*;
 
 @ReportsCrashes(
         formKey="",
