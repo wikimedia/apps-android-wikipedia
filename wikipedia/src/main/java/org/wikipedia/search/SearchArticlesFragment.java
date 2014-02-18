@@ -226,7 +226,13 @@ public class SearchArticlesFragment extends Fragment {
             return; // Nothing has changed!
         }
         if (term.equals("")) {
-            return; // nothing!
+            displayResults(null);
+            searchHandler.removeMessages(MESSAGE_SEARCH);
+            if (curSearchTask != null) {
+                curSearchTask.cancel();
+                curSearchTask = null;
+            }
+            return;
         }
 
         List<PageTitle> cacheResult = searchResultsCache.get(app.getPrimaryLanguage() + "-" + term);
