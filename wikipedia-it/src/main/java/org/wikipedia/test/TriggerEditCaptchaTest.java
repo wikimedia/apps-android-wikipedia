@@ -27,8 +27,8 @@ public class TriggerEditCaptchaTest extends ActivityUnitTestCase<TestDummyActivi
                     @Override
                     public void onFinish(EditingResult result) {
                         assertNotNull(result);
-                        assertTrue(result instanceof CaptchaEditResult);
-                        CaptchaEditResult captchaResult = (CaptchaEditResult) result;
+                        assertTrue(result instanceof CaptchaResult);
+                        CaptchaResult captchaResult = (CaptchaResult) result;
                         String captchaUrl = captchaResult.getCaptchaUrl(new Site("test.wikipedia.org"));
                         assertTrue(captchaUrl.startsWith(WikipediaApp.PROTOCOL + "://test.wikipedia.org/w/index.php?title=Special:Captcha/image"));
                         completionLatch.countDown();

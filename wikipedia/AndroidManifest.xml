@@ -62,7 +62,7 @@
                   android:label="@string/login_activity_title"
                   android:windowSoftInputMode="stateVisible|adjustResize"
                 />
-        <activity android:name=".login.CreateAccountActivity" android:label="@string/create_account_activity_title"/>
+        <activity android:name=".createaccount.CreateAccountActivity" android:label="@string/create_account_activity_title"/>
 
         <provider
             android:authorities="org.wikipedia.history"

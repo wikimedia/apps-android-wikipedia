@@ -52,7 +52,7 @@ public class DoEditTask extends ApiTask<EditingResult> {
             return new SuccessEditResult();
         } else if (status.equals("Failure")) {
             if (edit.has("captcha")) {
-                return new CaptchaEditResult(
+                return new CaptchaResult(
                         edit.optJSONObject("captcha").optString("id")
                 );
             }

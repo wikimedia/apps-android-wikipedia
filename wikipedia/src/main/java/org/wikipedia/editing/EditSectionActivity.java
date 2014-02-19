@@ -45,7 +45,7 @@ public class EditSectionActivity extends ActionBarActivity {
     private CommunicationBridge abusefilterBridge;
     private View abuseFilterBackAction;
 
-    private CaptchaEditResult captchaEditResult;
+    private CaptchaResult captchaEditResult;
     private AbuseFilterEditResult abusefilterEditResult;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -115,7 +115,7 @@ public class EditSectionActivity extends ActionBarActivity {
                     }
 
                     @Override
-                    public void onFinish(CaptchaEditResult result) {
+                    public void onFinish(CaptchaResult result) {
                         captchaEditResult = result;
                         handleCaptcha(true);
                     }
@@ -220,8 +220,8 @@ public class EditSectionActivity extends ActionBarActivity {
                             Toast.makeText(EditSectionActivity.this, R.string.edit_saved_successfully, Toast.LENGTH_LONG).show();
                             Utils.hideSoftKeyboard(EditSectionActivity.this);
                             finish();
-                        } else if (result instanceof CaptchaEditResult) {
-                            captchaEditResult = (CaptchaEditResult) result;
+                        } else if (result instanceof CaptchaResult) {
+                            captchaEditResult = (CaptchaResult) result;
                             handleCaptcha();
                         } else if (result instanceof AbuseFilterEditResult) {
                             abusefilterEditResult = (AbuseFilterEditResult) result;

@@ -11,6 +11,7 @@ import android.view.inputmethod.*;
 import android.widget.*;
 import de.keyboardsurfer.android.widget.crouton.*;
 import org.wikipedia.*;
+import org.wikipedia.createaccount.*;
 
 public class LoginActivity extends ActionBarActivity {
     public static final int REQUEST_CODE_LOGIN = 1;

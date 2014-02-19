@@ -4,15 +4,15 @@ import android.os.*;
 import org.wikipedia.*;
 
 // Handles only Image Captchas
-public class CaptchaEditResult extends EditingResult {
+public class CaptchaResult extends EditingResult {
     private final String captchaId;
 
-    public CaptchaEditResult(String captchaId) {
+    public CaptchaResult(String captchaId) {
         super("Failure");
         this.captchaId = captchaId;
     }
 
-    protected CaptchaEditResult(Parcel in) {
+    protected CaptchaResult(Parcel in) {
         super(in);
         captchaId = in.readString();
     }
@@ -31,15 +31,14 @@ public class CaptchaEditResult extends EditingResult {
         dest.writeString(captchaId);
     }
 
-    public static final Parcelable.Creator<CaptchaEditResult> CREATOR
-            = new Parcelable.Creator<CaptchaEditResult>() {
-        public CaptchaEditResult createFromParcel(Parcel in) {
-            return new CaptchaEditResult(in);
+    public static final Parcelable.Creator<CaptchaResult> CREATOR
+            = new Parcelable.Creator<CaptchaResult>() {
+        public CaptchaResult createFromParcel(Parcel in) {
+            return new CaptchaResult(in);
         }
 
-        public CaptchaEditResult[] newArray(int size) {
-            return new CaptchaEditResult[size];
+        public CaptchaResult[] newArray(int size) {
+            return new CaptchaResult[size];
         }
     };
-
 }
