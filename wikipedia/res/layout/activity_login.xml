@@ -33,5 +33,18 @@
             style="?android:textAppearanceMedium"
             />
 
+    <!-- Padding to push the create account to the bottom -->
+    <View android:layout_width="match_parent" android:layout_height="0dp"
+          android:layout_weight="1" />
+
+    <org.wikipedia.styledviews.StyledTextView
+            android:id="@+id/login_create_account_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:padding="8dp"
+            android:text="@string/login_create_account_link"
+            style="?android:textAppearanceMedium"
+            />
 
 </LinearLayout>

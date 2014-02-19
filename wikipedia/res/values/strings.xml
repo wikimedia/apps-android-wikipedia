@@ -81,4 +81,8 @@
     <string name="logging_out_progress">Logging out...</string>
     <string name="saved_pages_empty_message">No saved pages.</string>
     <string name="history_empty_message">Your history is empty.</string>
+    <string name="create_account_username_hint">Username</string>
+    <string name="create_account_password_hint">Password</string>
+    <string name="login_create_account_link">Create account</string>
+    <string name="create_account_activity_title">Create an account</string>
 </resources>

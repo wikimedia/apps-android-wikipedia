@@ -1,6 +1,7 @@
 package org.wikipedia.login;
 
 import android.app.*;
+import android.content.*;
 import android.os.*;
 import android.support.v7.app.*;
 import android.text.*;
@@ -17,6 +18,7 @@ public class LoginActivity extends ActionBarActivity {
     private EditText usernameText;
     private EditText passwordText;
     private CheckBox showPassword;
+    private View createAccountLink;
 
     private WikipediaApp app;
 
@@ -31,6 +33,7 @@ public class LoginActivity extends ActionBarActivity {
         usernameText = (EditText) findViewById(R.id.login_username_text);
         passwordText = (EditText) findViewById(R.id.login_password_text);
         showPassword = (CheckBox) findViewById(R.id.login_show_password);
+        createAccountLink = findViewById(R.id.login_create_account_link);
 
         TextWatcher enableActionWhenNonEmptyWatcher = new TextWatcher() {
             @Override
@@ -69,6 +72,15 @@ public class LoginActivity extends ActionBarActivity {
                     passwordText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 }
                 passwordText.setSelection(curPos);
+            }
+        });
+
+        createAccountLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

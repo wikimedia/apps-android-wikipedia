@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="16dp"
+        >
+    <org.wikipedia.styledviews.StylizedEditText
+            android:id="@+id/create_account_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/create_account_username_hint"
+            android:singleLine="true"
+            />
+
+    <org.wikipedia.styledviews.StylizedEditText
+            android:id="@+id/create_account_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/create_account_password_hint"
+            android:singleLine="true"
+            />
+</LinearLayout>
