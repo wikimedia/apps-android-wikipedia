@@ -1,4 +1,4 @@
-package org.wikipedia.login;
+package org.wikipedia.createaccount;
 
 import android.app.Activity;
 import android.os.Bundle;
