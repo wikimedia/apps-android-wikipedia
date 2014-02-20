@@ -21,6 +21,8 @@ public class LoginActivity extends ActionBarActivity {
     private CheckBox showPassword;
     private View createAccountLink;
 
+    private NonEmptyValidator nonEmptyValidator;
+
     private WikipediaApp app;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -36,20 +38,12 @@ public class LoginActivity extends ActionBarActivity {
         showPassword = (CheckBox) findViewById(R.id.login_show_password);
         createAccountLink = findViewById(R.id.login_create_account_link);
 
-        TextWatcher enableActionWhenNonEmptyWatcher = new TextWatcher() {
+        nonEmptyValidator = new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
-
-            @Override
-            public void afterTextChanged(Editable editable) {
+            public void onValidationChanged(boolean isValid) {
                 invalidateOptionsMenu();
             }
-        };
-
-        usernameText.addTextChangedListener(enableActionWhenNonEmptyWatcher);
-        passwordText.addTextChangedListener(enableActionWhenNonEmptyWatcher);
+        }, usernameText, passwordText);
 
         passwordText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -89,9 +83,7 @@ public class LoginActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_login, menu);
-        menu.findItem(R.id.menu_login).setEnabled(
-                usernameText.getText().length() != 0 && passwordText.getText().length() != 0
-        );
+        menu.findItem(R.id.menu_login).setEnabled(nonEmptyValidator.isValid());
         return true;
     }
 
