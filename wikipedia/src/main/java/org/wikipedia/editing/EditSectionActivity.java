@@ -73,7 +73,7 @@ public class EditSectionActivity extends ActionBarActivity {
         abusefilterBridge = new CommunicationBridge(abusefilterWebView, "file:///android_asset/abusefilter.html");
         abuseFilterBackAction = findViewById(R.id.edit_section_abusefilter_back);
 
-        captchaHandler = new CaptchaHandler(this, title, progressDialog, sectionContainer, R.string.edit_section_activity_title);
+        captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, R.string.edit_section_activity_title);
 
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
             sectionWikitext = savedInstanceState.getString("sectionWikitext");

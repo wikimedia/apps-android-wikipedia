@@ -7,10 +7,10 @@ import org.wikipedia.*;
 import org.wikipedia.concurrency.*;
 
 public class RefreshCaptchaTask extends ApiTask<CaptchaResult> {
-    public RefreshCaptchaTask(Context context, PageTitle title) {
+    public RefreshCaptchaTask(Context context, Site site) {
         super(
                 ExecutorService.getSingleton().getExecutor(DoEditTask.class, 1),
-                ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
+                ((WikipediaApp)context.getApplicationContext()).getAPIForSite(site)
         );
     }
 
