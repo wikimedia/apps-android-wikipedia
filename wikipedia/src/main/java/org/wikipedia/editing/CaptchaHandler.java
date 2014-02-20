@@ -16,7 +16,7 @@ public class CaptchaHandler {
     private View captchaProgress;
     private ImageView captchaImage;
     private EditText captchaText;
-    private PageTitle title;
+    private Site site;
     private ProgressDialog progressDialog;
     private View primaryView;
 
@@ -24,9 +24,9 @@ public class CaptchaHandler {
 
     private CaptchaResult captchaResult;
 
-    public CaptchaHandler(final Activity activity, final PageTitle title, final ProgressDialog progressDialog, final View primaryView, final int prevTitleId) {
+    public CaptchaHandler(final Activity activity, final Site site, final ProgressDialog progressDialog, final View primaryView, final int prevTitleId) {
         this.activity = activity;
-        this.title = title;
+        this.site = site;
         this.progressDialog = progressDialog;
         this.primaryView = primaryView;
         this.prevTitleId = prevTitleId;
@@ -39,7 +39,7 @@ public class CaptchaHandler {
         captchaImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new RefreshCaptchaTask(activity, title) {
+                new RefreshCaptchaTask(activity, site) {
                     @Override
                     public void onBeforeExecute() {
                         Utils.crossFade(captchaImage, captchaProgress);
@@ -76,7 +76,7 @@ public class CaptchaHandler {
             return;
         }
         Picasso.with(activity)
-                .load(Uri.parse(captchaResult.getCaptchaUrl(title.getSite())))
+                .load(Uri.parse(captchaResult.getCaptchaUrl(site)))
                         // Don't use .fit() here - seems to cause the loading to fail
                         // See https://github.com/square/picasso/issues/249
                 .into(captchaImage, new Callback() {
