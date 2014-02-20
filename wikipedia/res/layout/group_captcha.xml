@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/edit_section_captcha_container"
+        android:id="@+id/captcha_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -16,14 +16,14 @@
             />
     <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
         <ImageView
-                android:id="@+id/edit_section_captcha_image"
+                android:id="@+id/captcha_image"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:scaleType="centerInside"
                 android:layout_height="wrap_content"
                 />
         <ProgressBar
-                android:id="@+id/edit_section_captcha_image_progress"
+                android:id="@+id/captcha_image_progress"
                 android:indeterminate="true"
                 style="?android:progressBarStyleSmall"
                 android:visibility="gone"
@@ -39,7 +39,7 @@
                                                 android:layout_margin="16dp"
                                                 style="?android:textAppearanceMedium"
                                                 android:layout_gravity="center_horizontal"
-                                                android:id="@+id/edit_section_captcha_text"
+                                                android:id="@+id/captcha_text"
                                                 android:hint="@string/edit_section_captcha_hint"
                                                 android:padding="8dp"
                                                 android:singleLine="true"

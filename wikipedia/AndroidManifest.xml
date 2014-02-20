@@ -57,6 +57,7 @@
                 />
         <activity android:name=".editing.EditSectionActivity"
                   android:windowSoftInputMode="adjustResize|stateVisible"
+                  android:label="@string/edit_section_activity_title"
                 />
         <activity android:name=".login.LoginActivity"
                   android:label="@string/login_activity_title"

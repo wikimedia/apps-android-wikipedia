@@ -2,7 +2,6 @@ package org.wikipedia.editing;
 
 import android.app.*;
 import android.content.*;
-import android.net.*;
 import android.os.*;
 import android.support.v7.app.*;
 import android.util.*;
@@ -10,7 +9,6 @@ import android.view.*;
 import android.webkit.*;
 import android.widget.*;
 import com.github.kevinsawicki.http.*;
-import com.squareup.picasso.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
@@ -35,18 +33,15 @@ public class EditSectionActivity extends ActionBarActivity {
     private View sectionContainer;
     private View sectionError;
     private Button sectionErrorRetry;
-    private View captchaContainer;
-    private View captchaProgress;
-    private ImageView captchaImage;
-    private EditText captchaText;
 
     private View abusefilterContainer;
     private WebView abusefilterWebView;
     private CommunicationBridge abusefilterBridge;
     private View abuseFilterBackAction;
 
-    private CaptchaResult captchaEditResult;
     private AbuseFilterEditResult abusefilterEditResult;
+
+    private CaptchaHandler captchaHandler;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,24 +68,18 @@ public class EditSectionActivity extends ActionBarActivity {
         sectionError = findViewById(R.id.edit_section_error);
         sectionErrorRetry = (Button) findViewById(R.id.edit_section_error_retry);
 
-        captchaContainer = findViewById(R.id.edit_section_captcha_container);
-        captchaImage = (ImageView) findViewById(R.id.edit_section_captcha_image);
-        captchaText = (EditText) findViewById(R.id.edit_section_captcha_text);
-        captchaProgress = findViewById(R.id.edit_section_captcha_image_progress);
-
         abusefilterContainer = findViewById(R.id.edit_section_abusefilter_container);
         abusefilterWebView = (WebView) findViewById(R.id.edit_section_abusefilter_webview);
         abusefilterBridge = new CommunicationBridge(abusefilterWebView, "file:///android_asset/abusefilter.html");
         abuseFilterBackAction = findViewById(R.id.edit_section_abusefilter_back);
 
+        captchaHandler = new CaptchaHandler(this, title, progressDialog, sectionContainer, R.string.edit_section_activity_title);
+
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
             sectionWikitext = savedInstanceState.getString("sectionWikitext");
         }
 
-        if (savedInstanceState != null && savedInstanceState.containsKey("captcha")) {
-            captchaEditResult = savedInstanceState.getParcelable("captcha");
-            handleCaptcha();
-        }
+        captchaHandler.restoreState(savedInstanceState);
 
         if (savedInstanceState != null && savedInstanceState.containsKey("abusefilter")) {
             abusefilterEditResult = savedInstanceState.getParcelable("abusefilter");
@@ -102,25 +91,6 @@ public class EditSectionActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Utils.crossFade(sectionError, sectionProgress);
                 fetchSectionText();
-            }
-        });
-
-        captchaImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new RefreshCaptchaTask(EditSectionActivity.this, title) {
-                    @Override
-                    public void onBeforeExecute() {
-                        Utils.crossFade(captchaImage, captchaProgress);
-                    }
-
-                    @Override
-                    public void onFinish(CaptchaResult result) {
-                        captchaEditResult = result;
-                        handleCaptcha(true);
-                    }
-                }.execute();
-
             }
         });
 
@@ -139,10 +109,7 @@ public class EditSectionActivity extends ActionBarActivity {
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.setMessage(getString(R.string.dialog_saving_in_progress));
-        if (captchaEditResult != null) {
-            // Show the wikitext in the background when captcha is being saved=
-            Utils.crossFade(captchaContainer, sectionContainer);
-        }
+        captchaHandler.hideCaptcha();
         app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetreivedCallback() {
             @Override
             public void onTokenRetreived(final String token) {
@@ -155,12 +122,7 @@ public class EditSectionActivity extends ActionBarActivity {
 
                     @Override
                     public RequestBuilder buildRequest(Api api) {
-                        RequestBuilder builder = super.buildRequest(api);
-                        if (captchaEditResult != null) {
-                            builder.param("captchaid", captchaEditResult.getCaptchaId())
-                                    .param("captchaword", captchaText.getText().toString());
-                        }
-                        return builder;
+                        return captchaHandler.populateBuilder(super.buildRequest(api));
                     }
 
                     @Override
@@ -221,8 +183,7 @@ public class EditSectionActivity extends ActionBarActivity {
                             Utils.hideSoftKeyboard(EditSectionActivity.this);
                             finish();
                         } else if (result instanceof CaptchaResult) {
-                            captchaEditResult = (CaptchaResult) result;
-                            handleCaptcha();
+                            captchaHandler.handleCaptcha((CaptchaResult) result);
                         } else if (result instanceof AbuseFilterEditResult) {
                             abusefilterEditResult = (AbuseFilterEditResult) result;
                             handleAbuseFilter();
@@ -254,45 +215,6 @@ public class EditSectionActivity extends ActionBarActivity {
         progressDialog.dismiss();
     }
 
-    private void handleCaptcha() {
-        handleCaptcha(false);
-    }
-
-    private void handleCaptcha(final boolean isReload) {
-        if (captchaEditResult == null) {
-            return;
-        }
-        Picasso.with(EditSectionActivity.this)
-                .load(Uri.parse(captchaEditResult.getCaptchaUrl(title.getSite())))
-                // Don't use .fit() here - seems to cause the loading to fail
-                // See https://github.com/square/picasso/issues/249
-                .into(captchaImage, new Callback() {
-                    @Override
-                    public void onSuccess() {
-                        getActionBar().setTitle(R.string.edit_section_title_captcha);
-                        progressDialog.hide();
-
-                        // In case there was a captcha attempt before
-                        captchaText.setText("");
-                        if (isReload) {
-                            Utils.crossFade(captchaProgress, captchaImage);
-                        } else {
-                            Utils.crossFade(sectionContainer, captchaContainer);
-                        }
-                    }
-
-                    @Override
-                    public void onError() {
-                    }
-                });
-    }
-
-    private void cancelCaptcha() {
-        captchaEditResult = null;
-        captchaText.setText("");
-        getActionBar().setTitle(R.string.editsection_activity_title);
-        Utils.crossFade(captchaContainer, sectionContainer);
-    }
 
     private void cancelAbuseFilter() {
         abusefilterEditResult = null;
@@ -325,8 +247,8 @@ public class EditSectionActivity extends ActionBarActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("sectionWikitext", sectionWikitext);
-        outState.putParcelable("captcha", captchaEditResult);
         outState.putParcelable("abusefilter", abusefilterEditResult);
+        captchaHandler.saveState(outState);
     }
 
     private void fetchSectionText() {
@@ -360,9 +282,7 @@ public class EditSectionActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        if (captchaEditResult != null) {
-            cancelCaptcha();
-        } else if (abusefilterEditResult != null) {
+        if (!captchaHandler.cancelCaptcha() && abusefilterEditResult != null) {
             cancelAbuseFilter();
         } else {
             Utils.hideSoftKeyboard(this);

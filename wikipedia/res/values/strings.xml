@@ -57,7 +57,7 @@
         appear below
     </string>
     <string name="edit_section_captcha_hint">Repeat words from above</string>
-    <string name="edit_section_title_captcha">Enter captcha</string>
+    <string name="title_captcha">Enter captcha</string>
     <string name="edit_section_abusefilter_back_text">Make changes to my edit</string>
     <string name="edit_section_captcha_reload">Tap captcha to reload</string>
     <string name="nav_item_login">Log in</string>
@@ -85,4 +85,5 @@
     <string name="create_account_password_hint">Password</string>
     <string name="login_create_account_link">Create account</string>
     <string name="create_account_activity_title">Create an account</string>
+    <string name="edit_section_activity_title">Edit Section</string>
 </resources>
