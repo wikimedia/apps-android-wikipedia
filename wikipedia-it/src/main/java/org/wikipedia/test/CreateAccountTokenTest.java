@@ -4,11 +4,8 @@ package org.wikipedia.test;
 import android.content.*;
 import android.test.*;
 import android.text.*;
-import org.wikimedia.wikipedia.test.R;
 import org.wikipedia.*;
 import org.wikipedia.createaccount.*;
-import org.wikipedia.editing.*;
-import org.wikipedia.login.*;
 
 import java.util.concurrent.*;
 
@@ -30,9 +27,11 @@ public class CreateAccountTokenTest extends ActivityUnitTestCase<TestDummyActivi
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new CreateAccountTokenFetchTask(getInstrumentation().getTargetContext(), username, password) {
+                new CreateAccountTask(getInstrumentation().getTargetContext(), username, password, null, null) {
                     @Override
-                    public void onFinish(CreateAccountTokenFetchTask.CreateAccountTokenResult result) {
+                    public void onFinish(CreateAccountResult baseResult) {
+                        assertTrue(baseResult instanceof CreateAccountTokenResult);
+                        CreateAccountTokenResult result = (CreateAccountTokenResult)baseResult;
                         assertNotNull(result);
                         assertNotNull(result.getCaptchaResult());
                         assertFalse(TextUtils.isEmpty(result.getToken()));

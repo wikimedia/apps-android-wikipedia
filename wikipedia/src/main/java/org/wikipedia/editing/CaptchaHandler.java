@@ -3,6 +3,7 @@ package org.wikipedia.editing;
 import android.app.*;
 import android.net.*;
 import android.os.*;
+import android.util.*;
 import android.view.*;
 import android.widget.*;
 import com.squareup.picasso.*;

@@ -86,4 +86,6 @@
     <string name="login_create_account_link">Create account</string>
     <string name="create_account_activity_title">Create an account</string>
     <string name="edit_section_activity_title">Edit Section</string>
+    <string name="dialog_create_account_checking_progress">Verifying</string>
+    <string name="create_account_email_hint">Email (Optional)</string>
 </resources>
