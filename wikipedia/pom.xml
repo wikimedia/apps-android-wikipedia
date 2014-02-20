@@ -64,6 +64,12 @@
             <groupId>de.keyboardsurfer.android.widget</groupId>
             <artifactId>crouton</artifactId>
             <version>1.8.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.android.support</groupId>
+                    <artifactId>support-v4</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
     <build>
