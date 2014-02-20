@@ -83,18 +83,23 @@ public class CreateAccountActivity extends ActionBarActivity {
 
             @Override
             public void onFinish(final CreateAccountResult result) {
+                createAccountResult = result;
                 if (result instanceof CreateAccountTokenResult) {
                     captchaHandler.handleCaptcha(((CreateAccountTokenResult)result).getCaptchaResult());
                 } else {
                     // Returns lowercase 'success', unlike every other API. GRR man, GRR
                     // Replace wen https://bugzilla.wikimedia.org/show_bug.cgi?id=61663 is fixed?
-                    if (result.getResult().equals("success")) {
+                    if (result.getResult().toLowerCase().equals("success")) {
                         finish();
+                    } else if (result.getResult().equals("captcha-createaccount-fail")) {
+                        // So for now we just need to do the entire set of requests again. sigh
+                        // Eventually this should be fixed to have the new captcha info come back.
+                        createAccountResult = null;
+                        doCreateAccount();
                     } else {
                         throw new RuntimeException("Errored with " + result.getResult());
                     }
                 }
-                createAccountResult = result;
             }
         }.execute();
     }

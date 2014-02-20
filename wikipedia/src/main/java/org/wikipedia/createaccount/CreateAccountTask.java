@@ -55,7 +55,7 @@ public class CreateAccountTask extends ApiTask<CreateAccountResult> {
         }
         JSONObject ca = response.asObject().optJSONObject("createaccount");
         String result = ca.optString("result");
-        if (result.equals("needtoken")) {
+        if (result.toLowerCase().equals("needtoken")) {
             String token = ca.optString("token");
             CaptchaResult captchaResult = new CaptchaResult(ca.optJSONObject("captcha").optString("id"));
             return new CreateAccountTokenResult(captchaResult, token);
