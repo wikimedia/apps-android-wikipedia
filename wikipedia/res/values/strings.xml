@@ -89,4 +89,6 @@
     <string name="dialog_create_account_checking_progress">Verifying</string>
     <string name="create_account_email_hint">Email (Optional)</string>
     <string name="create_account_password_repeat_hint">Repeat password</string>
+    <string name="create_account_passwords_mismatch_error">Passwords don\'t match</string>
+    <string name="create_account_email_error">Invalid email address</string>
 </resources>

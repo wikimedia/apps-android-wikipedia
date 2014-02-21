@@ -5,15 +5,23 @@ import android.os.Bundle;
 import android.support.v7.app.*;
 import android.view.*;
 import android.widget.*;
+import com.mobsandgeeks.saripaar.*;
+import com.mobsandgeeks.saripaar.annotation.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.editing.*;
 
 public class CreateAccountActivity extends ActionBarActivity {
+    @Required(order=1)
     private EditText usernameEdit;
+    @Required(order=2)
+    @Password(order=3)
     private EditText passwordEdit;
+    @ConfirmPassword(order=4, messageResId=R.string.create_account_passwords_mismatch_error)
     private EditText passwordRepeatEdit;
+    @Email(order=5, messageResId=R.string.create_account_email_error)
     private EditText emailEdit;
+
     private View primaryContainer;
 
     private WikipediaApp app;
@@ -25,6 +33,8 @@ public class CreateAccountActivity extends ActionBarActivity {
     private NonEmptyValidator nonEmptyValidator;
 
     private CreateAccountResult createAccountResult;
+
+    private Validator validator;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +55,25 @@ public class CreateAccountActivity extends ActionBarActivity {
         progressDialog.setMessage(getString(R.string.dialog_create_account_checking_progress));
 
         captchaHandler = new CaptchaHandler(this, app.getPrimarySite(), progressDialog, primaryContainer, R.string.create_account_activity_title);
+
+        // We enable the menu item as soon as the username and password fields are filled
+        // Tapping does further validation
+        validator = new Validator(this);
+        validator.setValidationListener(new Validator.ValidationListener() {
+            @Override
+            public void onValidationSucceeded() {
+                doCreateAccount();
+            }
+
+            @Override
+            public void onValidationFailed(View view, Rule<?> rule) {
+                if (view instanceof EditText) {
+                    ((EditText) view).setError(rule.getFailureMessage());
+                } else {
+                    throw new RuntimeException("This should not be happening");
+                }
+            }
+        });
 
         nonEmptyValidator = new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
             @Override
@@ -113,7 +142,7 @@ public class CreateAccountActivity extends ActionBarActivity {
                 finish();
                 return true;
             case R.id.menu_create_account:
-                doCreateAccount();
+                validator.validate();
                 return true;
         }
         return super.onOptionsItemSelected(item);
