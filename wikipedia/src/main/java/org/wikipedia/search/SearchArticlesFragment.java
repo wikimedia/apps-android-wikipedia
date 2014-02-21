@@ -60,6 +60,12 @@ public class SearchArticlesFragment extends Fragment {
         if (results == null) {
             searchResultsList.setVisibility(View.GONE);
             isSearchActive = false;
+            searchHandler.removeMessages(MESSAGE_SEARCH);
+            if (curSearchTask != null) {
+                curSearchTask.cancel();
+                curSearchTask = null;
+            }
+            searchProgress.setVisibility(View.GONE);
         } else if (results.size() == 0) {
             searchNoResults.setVisibility(View.VISIBLE);
         } else {
@@ -213,6 +219,7 @@ public class SearchArticlesFragment extends Fragment {
                 if (drawerLayout.isDrawerVisible(Gravity.START)) {
                     drawerLayout.closeDrawer(Gravity.START);
                 } else {
+                    displayResults(null);
                     drawerLayout.openDrawer(Gravity.START);
                 }
             }
@@ -227,11 +234,6 @@ public class SearchArticlesFragment extends Fragment {
         }
         if (term.equals("")) {
             displayResults(null);
-            searchHandler.removeMessages(MESSAGE_SEARCH);
-            if (curSearchTask != null) {
-                curSearchTask.cancel();
-                curSearchTask = null;
-            }
             return;
         }
 
