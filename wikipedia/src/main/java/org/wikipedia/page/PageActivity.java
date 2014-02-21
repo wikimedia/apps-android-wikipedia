@@ -113,7 +113,7 @@ public class PageActivity extends ActionBarActivity {
     @Override
     public void onBackPressed() {
         if ((curPageFragment != null && !curPageFragment.handleBackPressed())
-                || !searchAriclesFragment.handleBackPressed()) {
+                && !searchAriclesFragment.handleBackPressed()) {
             if (getSupportFragmentManager().getBackStackEntryCount() <= 1) {
                 // Everything we could pop has been popped....
                 finish();
