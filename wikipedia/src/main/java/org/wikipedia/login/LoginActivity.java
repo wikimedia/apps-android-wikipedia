@@ -146,10 +146,10 @@ public class LoginActivity extends ActionBarActivity {
     private void handleError(String result) {
         if (result.equals("WrongPass")) {
             passwordText.requestFocus();
-            Crouton.makeText(this, R.string.login_error_wrong_password, Style.ALERT).show();
+            passwordText.setError(getString(R.string.login_error_wrong_password));
         } else if (result.equals("NotExists")) {
             usernameText.requestFocus();
-            Crouton.makeText(this, R.string.login_error_wrong_username, Style.ALERT).show();
+            usernameText.setError(getString(R.string.login_error_wrong_username));
         } else if (result.equals("Blocked")) {
             Crouton.makeText(this, R.string.login_error_blocked, Style.ALERT).show();
         } else if (result.equals("Throttled")) {
