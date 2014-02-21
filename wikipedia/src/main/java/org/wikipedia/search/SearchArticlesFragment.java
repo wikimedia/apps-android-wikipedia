@@ -66,6 +66,7 @@ public class SearchArticlesFragment extends Fragment {
                 curSearchTask = null;
             }
             searchProgress.setVisibility(View.GONE);
+            searchNoResults.setVisibility(View.GONE);
         } else if (results.size() == 0) {
             searchNoResults.setVisibility(View.VISIBLE);
         } else {
