@@ -6,7 +6,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     document.getElementById( "content" ).innerHTML = "";
 
     var title = document.createElement( "h1" );
-    title.textContent = payload.title;
+    title.innerHTML = payload.title;
     title.id = "heading_" + payload.section.id;
     document.getElementById( "content" ).appendChild( title );
 
@@ -22,7 +22,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
 function elementsForSection( section ) {
     var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
-    heading.textContent = section.line;
+    heading.innerHTML = section.line;
     heading.id = "heading_" + section.id;
     heading.setAttribute( 'data-id', section.id );
 
