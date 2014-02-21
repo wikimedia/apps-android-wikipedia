@@ -82,6 +82,19 @@ public class CreateAccountActivity extends ActionBarActivity {
                 supportInvalidateOptionsMenu();
             }
         }, usernameEdit, passwordEdit, passwordRepeatEdit);
+
+        if (savedInstanceState != null && savedInstanceState.containsKey("result")) {
+            createAccountResult = savedInstanceState.getParcelable("result");
+            if (createAccountResult instanceof CreateAccountTokenResult) {
+                captchaHandler.handleCaptcha(((CreateAccountTokenResult) createAccountResult).getCaptchaResult());
+            }
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable("result", createAccountResult);
     }
 
     @Override
