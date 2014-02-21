@@ -91,4 +91,8 @@
     <string name="create_account_password_repeat_hint">Repeat password</string>
     <string name="create_account_passwords_mismatch_error">Passwords don\'t match</string>
     <string name="create_account_email_error">Invalid email address</string>
+    <string name="create_account_username_exists_error">Username already in use</string>
+    <string name="create_account_ip_throttle_error">Too many accounts created from this IP. Try again later.</string>
+    <string name="create_account_open_proxy_error">This IP has been blocked from creating accounts.</string>
+    <string name="create_account_generic_error">Could not create account</string>
 </resources>

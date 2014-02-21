@@ -7,6 +7,7 @@ import android.view.*;
 import android.widget.*;
 import com.mobsandgeeks.saripaar.*;
 import com.mobsandgeeks.saripaar.annotation.*;
+import de.keyboardsurfer.android.widget.crouton.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.editing.*;
@@ -90,6 +91,19 @@ public class CreateAccountActivity extends ActionBarActivity {
         return true;
     }
 
+    public void handleError(CreateAccountResult result) {
+        String errorCode = result.getResult();
+        if (errorCode.equals("userexists")) {
+            usernameEdit.setError(getString(R.string.create_account_username_exists_error));
+        } else if (errorCode.equals("acct_creation_throttle_hit")) {
+            Crouton.makeText(this, R.string.create_account_ip_throttle_error, Style.ALERT).show();
+        } else if (errorCode.equals("sorbs_create_account_reason")) {
+            Crouton.makeText(this, R.string.create_account_open_proxy_error, Style.ALERT).show();
+        } else {
+            Crouton.makeText(this, R.string.create_account_generic_error, Style.ALERT).show();
+        }
+    }
+
     public void doCreateAccount() {
         String token = null, email = null;
         if (createAccountResult != null && createAccountResult instanceof CreateAccountTokenResult) {
@@ -118,6 +132,8 @@ public class CreateAccountActivity extends ActionBarActivity {
                 if (result instanceof CreateAccountTokenResult) {
                     captchaHandler.handleCaptcha(((CreateAccountTokenResult)result).getCaptchaResult());
                 } else {
+                    progressDialog.dismiss();
+                    captchaHandler.cancelCaptcha();
                     // Returns lowercase 'success', unlike every other API. GRR man, GRR
                     // Replace wen https://bugzilla.wikimedia.org/show_bug.cgi?id=61663 is fixed?
                     if (result.getResult().toLowerCase().equals("success")) {
@@ -128,7 +144,7 @@ public class CreateAccountActivity extends ActionBarActivity {
                         createAccountResult = null;
                         doCreateAccount();
                     } else {
-                        throw new RuntimeException("Errored with " + result.getResult());
+                        handleError(result);
                     }
                 }
             }
