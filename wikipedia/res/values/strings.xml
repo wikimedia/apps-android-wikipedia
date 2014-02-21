@@ -88,4 +88,5 @@
     <string name="edit_section_activity_title">Edit Section</string>
     <string name="dialog_create_account_checking_progress">Verifying</string>
     <string name="create_account_email_hint">Email (Optional)</string>
+    <string name="create_account_password_repeat_hint">Repeat password</string>
 </resources>

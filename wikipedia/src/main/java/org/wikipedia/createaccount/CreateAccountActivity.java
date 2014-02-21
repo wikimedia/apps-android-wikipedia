@@ -12,6 +12,7 @@ import org.wikipedia.editing.*;
 public class CreateAccountActivity extends ActionBarActivity {
     private EditText usernameEdit;
     private EditText passwordEdit;
+    private EditText passwordRepeatEdit;
     private EditText emailEdit;
     private View primaryContainer;
 
@@ -35,6 +36,7 @@ public class CreateAccountActivity extends ActionBarActivity {
 
         usernameEdit = (EditText) findViewById(R.id.create_account_username);
         passwordEdit = (EditText) findViewById(R.id.create_account_password);
+        passwordRepeatEdit = (EditText) findViewById(R.id.create_account_password_repeat);
         emailEdit = (EditText) findViewById(R.id.create_account_email);
         primaryContainer = findViewById(R.id.create_account_primary_container);
 
@@ -49,7 +51,7 @@ public class CreateAccountActivity extends ActionBarActivity {
             public void onValidationChanged(boolean isValid) {
                 supportInvalidateOptionsMenu();
             }
-        }, usernameEdit, passwordEdit);
+        }, usernameEdit, passwordEdit, passwordRepeatEdit);
     }
 
     @Override
