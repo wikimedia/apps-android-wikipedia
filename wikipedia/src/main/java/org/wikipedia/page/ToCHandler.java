@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import android.graphics.*;
+import android.text.*;
 import android.view.*;
 import android.widget.*;
 import org.json.*;
@@ -112,7 +113,7 @@ public class ToCHandler {
             indentLayoutParameters.width = (section.getLevel() - 1) * (int)(16 * WikipediaApp.SCREEN_DENSITY);
             sectionFiller.setLayoutParams(indentLayoutParameters);
 
-            sectionHeading.setText(section.getHeading());
+            sectionHeading.setText(Html.fromHtml(section.getHeading()));
 
             if (section.getLevel() > 1) {
                 sectionHeading.setTextColor(Color.parseColor("#898989"));
