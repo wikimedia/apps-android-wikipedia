@@ -112,3 +112,8 @@ table {
   color: #888;
   font-size: 80%;
 }
+
+/* Hide the stupid editlink */
+.edit-page {
+  display: none;
+}
