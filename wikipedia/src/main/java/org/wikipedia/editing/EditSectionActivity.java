@@ -43,6 +43,8 @@ public class EditSectionActivity extends ActionBarActivity {
 
     private CaptchaHandler captchaHandler;
 
+    private EditPreviewFragment editPreviewFragment;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_section);
@@ -74,6 +76,8 @@ public class EditSectionActivity extends ActionBarActivity {
         abuseFilterBackAction = findViewById(R.id.edit_section_abusefilter_back);
 
         captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, R.string.edit_section_activity_title);
+
+        editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
 
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
             sectionWikitext = savedInstanceState.getString("sectionWikitext");
@@ -230,7 +234,11 @@ public class EditSectionActivity extends ActionBarActivity {
                 finish();
                 return true;
             case R.id.menu_save_section:
-                doSave();
+                if (editPreviewFragment.handleBackPressed()) {
+                    doSave();
+                } else {
+                    editPreviewFragment.showPreview(title, sectionText.getText().toString());
+                }
                 return true;
             default:
                 throw new RuntimeException("WAT");
@@ -282,11 +290,13 @@ public class EditSectionActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        if (!captchaHandler.cancelCaptcha() && abusefilterEditResult != null) {
-            cancelAbuseFilter();
-        } else {
-            Utils.hideSoftKeyboard(this);
-            finish();
+        if (!editPreviewFragment.handleBackPressed()) {
+            if (!captchaHandler.cancelCaptcha() && abusefilterEditResult != null) {
+                cancelAbuseFilter();
+            } else {
+                Utils.hideSoftKeyboard(this);
+                finish();
+            }
         }
     }
 }

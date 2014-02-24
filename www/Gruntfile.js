@@ -1,4 +1,4 @@
-module.exports = function( grunt ) {
+module.exports = function ( grunt ) {
     var allScriptFiles = [
         "js/main.js",
         "js/tranformer.js",
@@ -38,6 +38,11 @@ module.exports = function( grunt ) {
                     "abusefilter.js": [
                         "js/bridge.js",
                         "js/abusefilter.js"
+                    ],
+                    "preview.js": [
+                        "js/bridge.js",
+                        "js/actions.js",
+                        "js/preview.js"
                     ]
                 }
             }
@@ -46,7 +51,8 @@ module.exports = function( grunt ) {
             all: {
                 files: [
                     { src: ["less/fonts.less", "less/pagestyles.less", "less/ui.less"], dest: "styles.css"},
-                    { src: ["less/fonts.less", "less/pagestyles.less"], dest: "abusefilter.css"}
+                    { src: ["less/fonts.less", "less/pagestyles.less"], dest: "abusefilter.css"},
+                    { src: ["less/fonts.less", "less/pagestyles.less"], dest: "preview.css"}
                 ]
             }
         },
@@ -68,11 +74,14 @@ module.exports = function( grunt ) {
                     // Abusefilter files
                     { src: ["abusefilter.js", "abusefilter.css", "abusefilter.html"], dest: "../wikipedia/assets/" },
 
+                    // Preview files
+                    { src: ["preview.js", "preview.css", "preview.html"], dest: "../wikipedia/assets/" },
+
                     // Images
-                    {src: ["images/*"], dest:"../wikipedia/assets/"},
+                    {src: ["images/*"], dest: "../wikipedia/assets/"},
 
                     // Fonts
-                    {src: ["fonts/*"], dest:"../wikipedia/assets/"}
+                    {src: ["fonts/*"], dest: "../wikipedia/assets/"}
                 ]
             }
         },
