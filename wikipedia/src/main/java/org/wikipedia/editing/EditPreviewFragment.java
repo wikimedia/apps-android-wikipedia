@@ -68,7 +68,7 @@ public class EditPreviewFragment extends Fragment {
             public void onFinish(String result) {
                 displayPreview(result);
                 previewHTML = result;
-                dialog.hide();
+                dialog.dismiss();
             }
         }.execute();
     }

@@ -181,7 +181,7 @@ public class EditSectionActivity extends ActionBarActivity {
                     @Override
                     public void onFinish(EditingResult result) {
                         if (result instanceof SuccessEditResult) {
-                            progressDialog.hide();
+                            progressDialog.dismiss();
                             setResult(EditHandler.RESULT_REFRESH_PAGE);
                             Toast.makeText(EditSectionActivity.this, R.string.edit_saved_successfully, Toast.LENGTH_LONG).show();
                             Utils.hideSoftKeyboard(EditSectionActivity.this);
