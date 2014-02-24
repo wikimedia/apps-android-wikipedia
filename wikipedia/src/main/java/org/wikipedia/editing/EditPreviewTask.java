@@ -31,6 +31,11 @@ public class EditPreviewTask extends ApiTask<String> {
     }
 
     @Override
+    protected ApiResult makeRequest(RequestBuilder builder) {
+        return builder.post();
+    }
+
+    @Override
     public String processResult(ApiResult result) throws Throwable {
         return result.asObject().optJSONObject("parse").optJSONObject("text").optString("*");
     }
