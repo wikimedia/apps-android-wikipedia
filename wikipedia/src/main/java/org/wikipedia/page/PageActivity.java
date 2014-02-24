@@ -3,6 +3,7 @@ package org.wikipedia.page;
 import android.content.*;
 import android.net.*;
 import android.os.*;
+import android.support.v4.app.*;
 import com.squareup.otto.*;
 import org.wikipedia.*;
 import org.wikipedia.events.*;
@@ -49,6 +50,9 @@ public class PageActivity extends ActionBarActivity {
         if (savedInstanceState != null) {
             pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
             pausedXcsOfZero = savedInstanceState.getString("pausedXcsOfZero");
+            if (savedInstanceState.containsKey("curPageFragment")) {
+                curPageFragment = (PageViewFragment) getSupportFragmentManager().getFragment(savedInstanceState, "curPageFragment");
+            }
         }
 
         bus = app.getBus();
@@ -82,8 +86,8 @@ public class PageActivity extends ActionBarActivity {
         PageViewFragment pageFragment = new PageViewFragment(title, entry, R.id.search_fragment);
         getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
-                .replace(R.id.content_frame, pageFragment)
-                .addToBackStack(null)
+                .add(R.id.content_frame, pageFragment, title.getCanonicalUri())
+                .addToBackStack(title.getCanonicalUri())
                 .commit();
         this.curPageFragment = pageFragment;
     }
@@ -128,7 +132,9 @@ public class PageActivity extends ActionBarActivity {
                 // Everything we could pop has been popped....
                 finish();
             } else {
-                getSupportFragmentManager().popBackStack();
+                getSupportFragmentManager().popBackStackImmediate();
+                String tag = getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName();
+                curPageFragment = (PageViewFragment) getSupportFragmentManager().findFragmentByTag(tag);
             }
         }
     }
@@ -238,6 +244,9 @@ public class PageActivity extends ActionBarActivity {
         super.onSaveInstanceState(outState);
         outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
         outState.putString("pausedXcsOfZero", pausedXcsOfZero);
+        if (curPageFragment != null) {
+            getSupportFragmentManager().putFragment(outState, "curPageFragment", curPageFragment);
+        }
     }
 
     @Override
