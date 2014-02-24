@@ -3,24 +3,24 @@ package org.wikipedia;
 import android.animation.*;
 import android.app.*;
 import android.content.*;
+import android.content.pm.*;
 import android.os.*;
+import android.text.*;
 import android.text.format.*;
 import android.util.*;
 import android.view.*;
 import android.view.inputmethod.*;
+import android.widget.*;
+import com.squareup.otto.*;
 import org.json.*;
+import org.mediawiki.api.json.*;
+import org.wikipedia.events.*;
+import org.wikipedia.zero.*;
 
 import java.io.*;
 import java.security.*;
 import java.text.*;
 import java.util.*;
-
-import org.mediawiki.api.json.ApiResult;
-import org.wikipedia.events.WikipediaZeroStateChangeEvent;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageInfo;
-import org.wikipedia.zero.WikipediaZeroTask;
-import com.squareup.otto.*;
 
 /**
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?
@@ -193,6 +193,22 @@ public class Utils {
             InputMethodManager keyboard = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
             keyboard.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
         }
+    }
+
+    public static void setupShowPasswordCheck(final CheckBox check, final EditText edit) {
+        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                // EditText loses the cursor position when you change the InputType
+                int curPos = edit.getSelectionStart();
+                if (isChecked) {
+                    edit.setInputType(InputType.TYPE_CLASS_TEXT);
+                } else {
+                    edit.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+                edit.setSelection(curPos);
+            }
+        });
     }
 
      /* Inspect an API response, and fire an event to update the UI for Wikipedia Zero On/Off.

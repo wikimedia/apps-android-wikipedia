@@ -4,7 +4,6 @@ import android.app.*;
 import android.content.*;
 import android.os.*;
 import android.support.v7.app.*;
-import android.text.*;
 import android.util.*;
 import android.view.*;
 import android.view.inputmethod.*;
@@ -56,19 +55,7 @@ public class LoginActivity extends ActionBarActivity {
             }
         });
 
-        showPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // EditText loses the cursor position when you change the InputType
-                int curPos = passwordText.getSelectionStart();
-                if (isChecked) {
-                    passwordText.setInputType(InputType.TYPE_CLASS_TEXT);
-                } else {
-                    passwordText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                }
-                passwordText.setSelection(curPos);
-            }
-        });
+        Utils.setupShowPasswordCheck(showPassword, passwordText);
 
         createAccountLink.setOnClickListener(new View.OnClickListener() {
             @Override

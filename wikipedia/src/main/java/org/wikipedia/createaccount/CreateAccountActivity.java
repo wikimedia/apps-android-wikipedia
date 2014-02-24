@@ -23,6 +23,9 @@ public class CreateAccountActivity extends ActionBarActivity {
     @Email(order=5, messageResId=R.string.create_account_email_error)
     private EditText emailEdit;
 
+    private CheckBox showPasswordCheck;
+    private CheckBox showPasswordRepeatCheck;
+
     private View primaryContainer;
 
     private WikipediaApp app;
@@ -50,6 +53,8 @@ public class CreateAccountActivity extends ActionBarActivity {
         passwordRepeatEdit = (EditText) findViewById(R.id.create_account_password_repeat);
         emailEdit = (EditText) findViewById(R.id.create_account_email);
         primaryContainer = findViewById(R.id.create_account_primary_container);
+        showPasswordCheck = (CheckBox) findViewById(R.id.create_account_show_password);
+        showPasswordRepeatCheck = (CheckBox) findViewById(R.id.create_account_show_password_repeat);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);
@@ -82,6 +87,9 @@ public class CreateAccountActivity extends ActionBarActivity {
                 supportInvalidateOptionsMenu();
             }
         }, usernameEdit, passwordEdit, passwordRepeatEdit);
+
+        Utils.setupShowPasswordCheck(showPasswordCheck, passwordEdit);
+        Utils.setupShowPasswordCheck(showPasswordRepeatCheck, passwordRepeatEdit);
 
         if (savedInstanceState != null && savedInstanceState.containsKey("result")) {
             createAccountResult = savedInstanceState.getParcelable("result");
