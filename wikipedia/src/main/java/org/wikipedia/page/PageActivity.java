@@ -3,21 +3,16 @@ package org.wikipedia.page;
 import android.content.*;
 import android.net.*;
 import android.os.*;
-import android.support.v4.widget.*;
-import android.support.v7.app.*;
 import com.squareup.otto.*;
 import org.wikipedia.*;
 import org.wikipedia.events.*;
 import org.wikipedia.history.*;
 import org.wikipedia.interlanguage.*;
-import org.wikipedia.networking.*;
 import org.wikipedia.recurring.*;
 import org.wikipedia.search.*;
 
 import android.app.AlertDialog;
-import android.app.DialogFragment;
 import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.Toast;
@@ -50,9 +45,6 @@ public class PageActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         app = ((WikipediaApp)getApplicationContext());
-
-        searchAriclesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         if (savedInstanceState != null) {
             pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
@@ -143,19 +135,19 @@ public class PageActivity extends ActionBarActivity {
 
     @Subscribe
     public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
-        boolean latestWikipediaZeroDisposition = app.getWikipediaZeroDisposition();
+        boolean latestWikipediaZeroDisposition = WikipediaApp.getWikipediaZeroDisposition();
 
         if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
             String verbiage = getString(R.string.zero_charged_verbiage);
             Toast.makeText(app, verbiage, Toast.LENGTH_LONG).show();
             showDialogAboutZero(ZERO_OFF_NOTICE_PRESENTED, verbiage);
-        } else if ((!pausedStateOfZero || !pausedXcsOfZero.equals(app.getXcs())) && latestWikipediaZeroDisposition) {
-            String verbiage = app.getCarrierMessage();
+        } else if ((!pausedStateOfZero || !pausedXcsOfZero.equals(WikipediaApp.getXcs())) && latestWikipediaZeroDisposition) {
+            String verbiage = WikipediaApp.getCarrierMessage();
             Toast.makeText(app, verbiage, Toast.LENGTH_LONG).show();
             showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, verbiage);
         }
         pausedStateOfZero = latestWikipediaZeroDisposition;
-        pausedXcsOfZero = app.getXcs();
+        pausedXcsOfZero = WikipediaApp.getXcs();
     }
 
     private void showDialogAboutZero(String prefsKey, String verbiage) {
@@ -228,7 +220,7 @@ public class PageActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        boolean latestWikipediaZeroDispostion = app.getWikipediaZeroDisposition();
+        boolean latestWikipediaZeroDispostion = WikipediaApp.getWikipediaZeroDisposition();
         if (WikipediaApp.isWikipediaZeroDevmodeOn() && pausedStateOfZero && !latestWikipediaZeroDispostion) {
             bus.post(new WikipediaZeroStateChangeEvent());
         }
@@ -237,8 +229,8 @@ public class PageActivity extends ActionBarActivity {
     @Override
     public void onPause() {
         super.onPause();
-        pausedStateOfZero = app.getWikipediaZeroDisposition();
-        pausedXcsOfZero = app.getXcs();
+        pausedStateOfZero = WikipediaApp.getWikipediaZeroDisposition();
+        pausedXcsOfZero = WikipediaApp.getXcs();
     }
 
     @Override

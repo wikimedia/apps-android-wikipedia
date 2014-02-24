@@ -33,7 +33,7 @@
                   style="?android:textAppearanceLarge"
                 />
 
-        <org.wikipedia.styledviews.StylizedButton
+        <org.wikipedia.styledviews.StyledButton
                 android:id="@+id/langlinks_error_retry"
                 android:text="@string/langlinks_error_retry"
                 android:layout_gravity="center"
@@ -47,7 +47,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:visibility="gone">
-        <org.wikipedia.styledviews.StylizedEditText android:layout_width="match_parent" android:layout_height="wrap_content"
+        <org.wikipedia.styledviews.StyledEditText android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:id="@+id/langlinks_filter"
                   android:hint="@string/langlinks_filter_hint"
                   android:singleLine="true"

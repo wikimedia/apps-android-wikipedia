@@ -7,17 +7,11 @@ import org.wikipedia.*;
 
 public class StyledCheckBox extends CheckBox {
     public StyledCheckBox(Context context) {
-        super(context);
-        if (!isInEditMode()) {
-            setTypeface(((WikipediaApp)context.getApplicationContext()).getPrimaryType());
-        }
+        this(context, null);
     }
 
     public StyledCheckBox(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        if (!isInEditMode()) {
-            setTypeface(((WikipediaApp)context.getApplicationContext()).getPrimaryType());
-        }
+        this(context, attrs, android.R.attr.checkboxStyle);
     }
 
     public StyledCheckBox(Context context, AttributeSet attrs, int defStyle) {

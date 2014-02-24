@@ -24,7 +24,7 @@
                   style="?android:textAppearanceLarge"
                 />
 
-        <org.wikipedia.styledviews.StylizedButton
+        <org.wikipedia.styledviews.StyledButton
                 android:id="@+id/edit_section_error_retry"
                 android:text="@string/edit_section_error_retry"
                 android:layout_gravity="center"
@@ -35,7 +35,7 @@
             android:id="@+id/edit_section_container"
             android:visibility="gone"
             android:layout_width="match_parent" android:layout_height="match_parent">
-        <org.wikipedia.styledviews.StylizedEditText
+        <org.wikipedia.styledviews.StyledEditText
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

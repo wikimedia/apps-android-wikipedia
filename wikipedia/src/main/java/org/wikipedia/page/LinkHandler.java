@@ -32,9 +32,9 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
     }
 
     private void handleExternalLink(final Uri uri) {
-        if (WikipediaApp.isWikipediaZeroDevmodeOn() && app.getWikipediaZeroDisposition()) {
+        if (WikipediaApp.isWikipediaZeroDevmodeOn() && WikipediaApp.getWikipediaZeroDisposition()) {
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-            if (sharedPref.getBoolean(app.PREFERENCE_ZERO_INTERSTITIAL, true)) {
+            if (sharedPref.getBoolean(WikipediaApp.PREFERENCE_ZERO_INTERSTITIAL, true)) {
                 bus.post(new WikipediaZeroInterstitialEvent(uri));
             } else {
                 visitExternalLink(uri);

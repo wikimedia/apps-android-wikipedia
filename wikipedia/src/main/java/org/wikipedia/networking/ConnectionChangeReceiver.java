@@ -38,7 +38,7 @@ public class ConnectionChangeReceiver extends BroadcastReceiver {
             NetworkInfo.State.CONNECTED => isConnected(), but let's call isConnected as documentation suggests.
             We don't need to check against the zeroconfig API unless the (latest) W0 state is *on* (true).
              */
-            if (app.getWikipediaZeroDisposition() &&
+            if (WikipediaApp.getWikipediaZeroDisposition() &&
                     (currentState == NetworkInfo.State.CONNECTED || currentState == NetworkInfo.State.DISCONNECTED) &&
                     networkInfo.isConnected()
                ) {

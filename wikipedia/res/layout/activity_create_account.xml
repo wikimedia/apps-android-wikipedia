@@ -11,7 +11,7 @@
             android:orientation="vertical"
             android:padding="16dp"
             >
-        <org.wikipedia.styledviews.StylizedEditText
+        <org.wikipedia.styledviews.StyledEditText
                 android:id="@+id/create_account_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
                 android:inputType="textNoSuggestions"
                 />
 
-        <org.wikipedia.styledviews.StylizedEditText
+        <org.wikipedia.styledviews.StyledEditText
                 android:id="@+id/create_account_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
                 android:inputType="textPassword"
                 />
 
-        <org.wikipedia.styledviews.StylizedEditText
+        <org.wikipedia.styledviews.StyledEditText
                 android:id="@+id/create_account_password_repeat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
                 android:inputType="textPassword"
                 />
 
-        <org.wikipedia.styledviews.StylizedEditText
+        <org.wikipedia.styledviews.StyledEditText
                 android:id="@+id/create_account_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

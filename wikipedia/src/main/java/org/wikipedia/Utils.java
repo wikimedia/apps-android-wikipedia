@@ -208,13 +208,13 @@ public class Utils {
                 boolean responseZeroState = headers.containsKey("X-CS");
                 if (responseZeroState) {
                     String xcs = headers.get("X-CS").get(0);
-                    if (!xcs.equals(app.getXcs())) {
+                    if (!xcs.equals(WikipediaApp.getXcs())) {
                         identifyZeroCarrier(app, xcs);
                     }
-                } else if (app.getWikipediaZeroDisposition()) {
-                    app.setXcs("");
-                    app.setCarrierMessage("");
-                    app.setWikipediaZeroDisposition(responseZeroState);
+                } else if (WikipediaApp.getWikipediaZeroDisposition()) {
+                    WikipediaApp.setXcs("");
+                    WikipediaApp.setCarrierMessage("");
+                    WikipediaApp.setWikipediaZeroDisposition(responseZeroState);
                     app.getBus().post(new WikipediaZeroStateChangeEvent());
                 }
             }
@@ -235,9 +235,9 @@ public class Utils {
                         Log.d("Wikipedia", "Wikipedia Zero message: " + message);
 
                         if (message != null) {
-                            app.setXcs(xcs);
-                            app.setCarrierMessage(message);
-                            app.setWikipediaZeroDisposition(true);
+                            WikipediaApp.setXcs(xcs);
+                            WikipediaApp.setCarrierMessage(message);
+                            WikipediaApp.setWikipediaZeroDisposition(true);
                             Bus bus = app.getBus();
                             bus.post(new WikipediaZeroStateChangeEvent());
                             curZeroTask = null;

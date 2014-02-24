@@ -153,7 +153,7 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
 
             if (ACTION_ITEMS_TEXT[position] == R.string.zero_free_verbiage) {
                 if (WikipediaApp.getWikipediaZeroDisposition()) {
-                    navText.setText(app.getCarrierMessage());
+                    navText.setText(WikipediaApp.getCarrierMessage());
                     navText.setTextColor(Color.GRAY);
                     navText.setTextSize(11.0f);
                 } else {

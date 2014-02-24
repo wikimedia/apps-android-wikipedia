@@ -52,9 +52,7 @@ public class PageProperties implements Parcelable {
 
         PageProperties that = (PageProperties) o;
 
-        if (!lastModified.equals(that.lastModified)) return false;
-
-        return true;
+        return lastModified.equals(that.lastModified);
     }
 
     public JSONObject toJSON() {

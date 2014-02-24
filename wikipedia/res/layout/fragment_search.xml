@@ -47,7 +47,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 >
-            <org.wikipedia.styledviews.StylizedEditText
+            <org.wikipedia.styledviews.StyledEditText
                     android:id="@+id/search_term_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
             style="?android:textAppearanceMedium"
             android:visibility="gone"
             />
-    <org.wikipedia.styledviews.StylizedButton
+    <org.wikipedia.styledviews.StyledButton
             android:id="@+id/search_network_error"
             android:layout_width="match_parent"
             android:layout_height="48dp"

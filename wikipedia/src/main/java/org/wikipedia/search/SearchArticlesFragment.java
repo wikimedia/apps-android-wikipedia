@@ -390,7 +390,7 @@ public class SearchArticlesFragment extends Fragment {
 
     @Subscribe
     public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
-        if (app.getWikipediaZeroDisposition()) {
+        if (WikipediaApp.getWikipediaZeroDisposition()) {
             setWikipediaZeroChrome();
         } else {
             setNormalChrome();
@@ -421,13 +421,13 @@ public class SearchArticlesFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        pausedStateOfZero = app.getWikipediaZeroDisposition();
+        pausedStateOfZero = WikipediaApp.getWikipediaZeroDisposition();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        boolean latestWikipediaZeroDispostion = app.getWikipediaZeroDisposition();
+        boolean latestWikipediaZeroDispostion = WikipediaApp.getWikipediaZeroDisposition();
         if (pausedStateOfZero != latestWikipediaZeroDispostion) {
             app.getBus().post(new WikipediaZeroStateChangeEvent());
         } else if (latestWikipediaZeroDispostion) {

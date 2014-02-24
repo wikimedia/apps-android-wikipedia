@@ -40,7 +40,7 @@
                   style="?android:textAppearanceLarge"
                 />
 
-        <org.wikipedia.styledviews.StylizedButton
+        <org.wikipedia.styledviews.StyledButton
                 android:id="@+id/page_error_retry"
                 android:text="@string/page_error_retry"
                 android:layout_gravity="center"

@@ -35,7 +35,7 @@
                                               style="?android:textAppearanceSmall"
                                               android:gravity="center"
             />
-    <org.wikipedia.styledviews.StylizedEditText android:layout_width="match_parent" android:layout_height="wrap_content"
+    <org.wikipedia.styledviews.StyledEditText android:layout_width="match_parent" android:layout_height="wrap_content"
                                                 android:layout_margin="16dp"
                                                 style="?android:textAppearanceMedium"
                                                 android:layout_gravity="center_horizontal"
