@@ -70,10 +70,21 @@ public class Utils {
                 .alpha(0f)
                 .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
                 .setListener(new AnimatorListenerAdapter() {
+                    boolean wasCanceled = false;
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+                        wasCanceled = true;
+                    }
+
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        view.setVisibility(View.GONE);
-                        view.setAlpha(1.0f);
+                        if (!wasCanceled) {
+                            // Detect if we got canceled, and if so DON'T hide...
+                            // There's another animation now pushing the alpha back up
+                            view.setVisibility(View.GONE);
+                            view.setAlpha(1.0f);
+                        }
                     }
                 });
     }
