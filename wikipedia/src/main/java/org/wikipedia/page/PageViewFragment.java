@@ -95,22 +95,6 @@ public class PageViewFragment extends Fragment {
     }
 
     private void populateNonLeadSections(final Page page) {
-        bridge.addListener("requestSection", new CommunicationBridge.JSEventListener() {
-            @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
-                try {
-                    int index = messagePayload.optInt("index");
-                    JSONObject wrapper = new JSONObject();
-                    wrapper.put("section", page.getSections().get(index).toJSON());
-                    wrapper.put("index", index);
-                    wrapper.put("isLast", index == page.getSections().size() - 1);
-                    bridge.sendMessage("displaySection", wrapper);
-                } catch (JSONException e) {
-                    // Won't happen
-                    throw new RuntimeException(e);
-                }
-            }
-        });
         editHandler = new EditHandler(this, bridge, page);
         bridge.sendMessage("startSectionsDisplay", new JSONObject());
     }
@@ -160,7 +144,7 @@ public class PageViewFragment extends Fragment {
         webView.getSettings().setDisplayZoomControls(false);
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
-        Utils.addUtilityMethodsToBridge(getActivity(), bridge);
+        setupMessageHandlers();
         linkHandler = new LinkHandler(getActivity(), bridge, title.getSite());
         app = (WikipediaApp)getActivity().getApplicationContext();
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
@@ -181,6 +165,26 @@ public class PageViewFragment extends Fragment {
         }
 
         new QuickReturnHandler(webView, quickReturnBar);
+    }
+
+    private void setupMessageHandlers() {
+        Utils.addUtilityMethodsToBridge(getActivity(), bridge);
+        bridge.addListener("requestSection", new CommunicationBridge.JSEventListener() {
+            @Override
+            public void onMessage(String messageType, JSONObject messagePayload) {
+                try {
+                    int index = messagePayload.optInt("index");
+                    JSONObject wrapper = new JSONObject();
+                    wrapper.put("section", page.getSections().get(index).toJSON());
+                    wrapper.put("index", index);
+                    wrapper.put("isLast", index == page.getSections().size() - 1);
+                    bridge.sendMessage("displaySection", wrapper);
+                } catch (JSONException e) {
+                    // Won't happen
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 
     @Override
