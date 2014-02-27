@@ -23,7 +23,13 @@ document.onclick = function() {
                 handlers[i]( event.target, event );
             }
         } else {
-            bridge.sendMessage( 'linkClicked', { href: event.target.getAttribute( "href" ) });
+            var href = event.target.getAttribute( "href" );
+            if ( href[0] === "#" ) {
+                // If it is a link to an anchor in the current page, just scroll to it
+                document.getElementById( href.substring( 1 ) ).scrollIntoView();
+            } else {
+                bridge.sendMessage( 'linkClicked', { "href": href } );
+            }
             event.preventDefault();
         }
     }
