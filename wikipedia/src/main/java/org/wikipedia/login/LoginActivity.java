@@ -13,8 +13,6 @@ import org.wikipedia.*;
 import org.wikipedia.createaccount.*;
 
 public class LoginActivity extends ActionBarActivity {
-    public static final int REQUEST_CODE_LOGIN = 1;
-    public static final int LOG_IN_SUCCESSFUL = 1;
     private EditText usernameText;
     private EditText passwordText;
     private CheckBox showPassword;
@@ -99,7 +97,6 @@ public class LoginActivity extends ActionBarActivity {
                 progressDialog.dismiss();
                 if (result.equals("Success")) {
                     Toast.makeText(LoginActivity.this, R.string.login_success_toast, Toast.LENGTH_LONG).show();
-                    setResult(LOG_IN_SUCCESSFUL);
 
                     Utils.hideSoftKeyboard(LoginActivity.this);
 

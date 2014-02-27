@@ -2,10 +2,8 @@ package org.wikipedia;
 
 import android.app.*;
 import android.content.*;
+import android.graphics.*;
 import android.os.*;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.*;
 import android.widget.*;
@@ -13,7 +11,6 @@ import org.wikipedia.history.*;
 import org.wikipedia.login.*;
 import org.wikipedia.savedpages.*;
 import org.wikipedia.settings.*;
-import org.wikipedia.WikipediaApp;
 
 public class NavDrawerFragment extends Fragment implements AdapterView.OnItemClickListener {
     private static final int[] ACTION_ITEMS_TEXT = {
@@ -40,13 +37,20 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        // Ensure that Login / Logout status is accurate
+        setupDynamicItems();
+        ((NavListAdapter)navList.getAdapter()).notifyDataSetChanged();
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         navList = (ListView) getView().findViewById(R.id.nav_list);
         adapter = new NavListAdapter();
         app = (WikipediaApp)getActivity().getApplicationContext();
-
-        setupDynamicItems();
 
         navList.setAdapter(adapter);
         navList.setOnItemClickListener(this);
@@ -70,7 +74,7 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
                 break;
             case R.string.nav_item_login:
                 intent.setClass(this.getActivity(), LoginActivity.class);
-                startActivityForResult(intent, LoginActivity.REQUEST_CODE_LOGIN);
+                startActivity(intent);
                 break;
             case R.string.nav_item_logout:
                 doLogout();
@@ -79,22 +83,6 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
                 return;
             default:
                 throw new RuntimeException("Unknown ID clicked!");
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // Okay, so this is really, really stupid, but
-        // sometimes if the previous activity was destroyed before the callback is done
-        // onActivityResult may be called *before* the onCreate, onActivityAttach, etc are called
-        // This, of course, is fucking stupid. However, in this particular case (updating the login status)
-        // we can just ignore it if that is the case and keep going.
-        // BUGS! GRR!
-        if (getView() != null) {
-            if (resultCode == LoginActivity.LOG_IN_SUCCESSFUL) {
-                setupDynamicItems();
-                ((NavListAdapter)navList.getAdapter()).notifyDataSetChanged();
-            }
         }
     }
 
