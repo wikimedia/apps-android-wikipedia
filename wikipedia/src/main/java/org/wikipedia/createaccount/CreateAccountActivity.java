@@ -189,6 +189,7 @@ public class CreateAccountActivity extends ActionBarActivity {
                 super.onFinish(result);
                 if (result.equals("Success")) {
                     dialog.dismiss();
+                    Utils.hideSoftKeyboard(CreateAccountActivity.this);
                     finish();
                 } else {
                     // FIXME: Have better error handling here, m'kay?
@@ -204,6 +205,7 @@ public class CreateAccountActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                Utils.hideSoftKeyboard(this);
                 finish();
                 return true;
             case R.id.menu_create_account:
