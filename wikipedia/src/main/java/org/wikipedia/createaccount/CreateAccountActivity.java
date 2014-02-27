@@ -11,6 +11,7 @@ import de.keyboardsurfer.android.widget.crouton.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.editing.*;
+import org.wikipedia.login.*;
 
 public class CreateAccountActivity extends ActionBarActivity {
     @Required(order=1)
@@ -158,7 +159,7 @@ public class CreateAccountActivity extends ActionBarActivity {
                     // Returns lowercase 'success', unlike every other API. GRR man, GRR
                     // Replace wen https://bugzilla.wikimedia.org/show_bug.cgi?id=61663 is fixed?
                     if (result.getResult().toLowerCase().equals("success")) {
-                        finish();
+                        doLogin();
                     } else if (result.getResult().equals("captcha-createaccount-fail")) {
                         // So for now we just need to do the entire set of requests again. sigh
                         // Eventually this should be fixed to have the new captcha info come back.
@@ -167,6 +168,33 @@ public class CreateAccountActivity extends ActionBarActivity {
                     } else {
                         handleError(result);
                     }
+                }
+            }
+        }.execute();
+    }
+
+    private void doLogin() {
+        final ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setMessage(getString(R.string.create_account_logging_in));
+        dialog.setIndeterminate(true);
+
+        new LoginTask(this, app.getPrimarySite(), usernameEdit.getText().toString(), passwordEdit.getText().toString()) {
+            @Override
+            public void onBeforeExecute() {
+                dialog.show();
+            }
+
+            @Override
+            public void onFinish(String result) {
+                super.onFinish(result);
+                if (result.equals("Success")) {
+                    dialog.dismiss();
+                    finish();
+                } else {
+                    // FIXME: Have better error handling here, m'kay?
+                    // I think the only way this can fail is: too many attempts, network error.
+                    // I wonder how we should handle either.
+                    throw new RuntimeException("Whelp, let's fix this");
                 }
             }
         }.execute();

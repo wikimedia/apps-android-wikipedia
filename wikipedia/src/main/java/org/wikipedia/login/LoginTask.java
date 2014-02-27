@@ -10,12 +10,23 @@ public class LoginTask extends SaneAsyncTask<String> {
     private final String username;
     private final String password;
     private final Api api;
+    private final WikipediaApp app;
 
     public LoginTask(Context context, Site site, String username, String password) {
         super(ExecutorService.getSingleton().getExecutor(LoginTask.class, 1));
-        api = ((WikipediaApp)context.getApplicationContext()).getAPIForSite(site);
+        app = (WikipediaApp)context.getApplicationContext();
+        api = app.getAPIForSite(site);
         this.username = username;
         this.password = password;
+    }
+
+    @Override
+    public void onFinish(String result) {
+        // Clear the edit tokens - clears out any anon tokens we might have had
+        app.getEditTokenStorage().clearAllTokens();
+
+        // Set userinfo
+        app.getUserInfoStorage().setUser(new User(username, password));
     }
 
     @Override
