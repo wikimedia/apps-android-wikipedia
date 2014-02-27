@@ -1,13 +1,9 @@
 package org.wikipedia.editing;
 
 import android.app.*;
-import android.os.Bundle;
-import android.support.v4.app.*;
+import android.os.*;
 import android.support.v4.app.Fragment;
-import android.util.*;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import org.json.*;
 import org.wikipedia.*;
 
@@ -52,11 +48,18 @@ public class EditPreviewFragment extends Fragment {
         bridge.sendMessage("displayPreviewHTML", payload);
     }
 
+    private boolean isDirectionSetup = false;
+
     public void showPreview(PageTitle title, String wikiText) {
         Utils.hideSoftKeyboard(getActivity());
         final ProgressDialog dialog = new ProgressDialog(getActivity());
         dialog.setIndeterminate(true);
         dialog.setMessage(getString(R.string.edit_preview_fetching_dialog_message));
+
+        if (!isDirectionSetup) {
+            Utils.setupDirectionality(title.getSite().getLanguage(), bridge);
+            isDirectionSetup = true;
+        }
 
         new EditPreviewTask(getActivity(), wikiText, title) {
             @Override

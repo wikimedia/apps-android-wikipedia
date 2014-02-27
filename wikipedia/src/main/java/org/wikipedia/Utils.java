@@ -305,5 +305,30 @@ public class Utils {
             return "wikipedia-android-official";
         }
     }
+
+    /**
+     * List of wiki language codes for which the content is primarily RTL.
+     *
+     * Ensure that this is always sorted alphabetically.
+     */
+    private static String[] rtlLangs = {
+            "arc", "arz", "ar", "bcc", "bqi", "ckb", "dv", "fa", "glk", "ha", "he",
+            "khw", "ks", "mzn", "pnb", "ps", "sd", "ug", "ur", "yi"
+    };
+    public static void setupDirectionality(String lang, CommunicationBridge bridge) {
+        JSONObject payload = new JSONObject();
+        try {
+            if (Arrays.binarySearch(rtlLangs, lang, null) < 0) {
+                payload.put("dir", "ltr");
+            } else {
+                payload.put("dir", "rtl");
+            }
+            Log.d("Wikipedia", lang);
+            Log.d("Wikipedia", payload.toString(4));
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        bridge.sendMessage("setDirectionality", payload);
+    }
 }
 

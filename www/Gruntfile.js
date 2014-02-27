@@ -7,6 +7,7 @@ module.exports = function ( grunt ) {
         "js/actions.js",
         "js/editaction.js",
         "js/sections.js",
+        "js/rtlsupport.js",
         "tests/*.js"
     ];
     var allStyleFiles = [
@@ -28,7 +29,8 @@ module.exports = function ( grunt ) {
                         "js/bridge.js",
                         "js/actions.js",
                         "js/editaction.js",
-                        "js/sections.js"
+                        "js/sections.js",
+                        "js/rtlsupport.js"
                     ],
                     "bundle-test.js": [
                         "js/main.js",
@@ -37,12 +39,14 @@ module.exports = function ( grunt ) {
                     ],
                     "abusefilter.js": [
                         "js/bridge.js",
-                        "js/abusefilter.js"
+                        "js/abusefilter.js",
+                        "js/rtlsupport.js"
                     ],
                     "preview.js": [
                         "js/bridge.js",
                         "js/actions.js",
-                        "js/preview.js"
+                        "js/preview.js",
+                        "js/rtlsupport.js"
                     ]
                 }
             }

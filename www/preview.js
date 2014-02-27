@@ -77,4 +77,10 @@ bridge.registerListener( "displayPreviewHTML", function( payload ) {
     content.innerHTML = payload.html;
 } );
 
-},{"./bridge":2}]},{},[2,1,3])
+},{"./bridge":2}],4:[function(require,module,exports){
+var bridge = require("./bridge");
+
+bridge.registerListener( "setDirectionality", function( payload ) {
+    document.getElementsByTagName( "html" )[0].setAttribute( "dir", payload.dir );
+} );
+},{"./bridge":2}]},{},[2,1,3,4])

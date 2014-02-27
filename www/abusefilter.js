@@ -21,7 +21,7 @@ bridge.registerListener( 'displayWarning', function( payload ) {
     content.appendChild( warning );
 } );
 
-},{"./bridge":2,"./transformer":3}],2:[function(require,module,exports){
+},{"./bridge":2,"./transformer":4}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -60,6 +60,12 @@ window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
 };
 },{}],3:[function(require,module,exports){
+var bridge = require("./bridge");
+
+bridge.registerListener( "setDirectionality", function( payload ) {
+    document.getElementsByTagName( "html" )[0].setAttribute( "dir", payload.dir );
+} );
+},{"./bridge":2}],4:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -83,4 +89,4 @@ Transformer.prototype.transform = function( transform, element ) {
 
 module.exports = new Transformer();
 
-},{}]},{},[2,1])
+},{}]},{},[2,1,3])
