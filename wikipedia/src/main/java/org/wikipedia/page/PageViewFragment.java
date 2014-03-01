@@ -180,6 +180,7 @@ public class PageViewFragment extends Fragment {
                     wrapper.put("section", page.getSections().get(index).toJSON());
                     wrapper.put("index", index);
                     wrapper.put("isLast", index == page.getSections().size() - 1);
+                    wrapper.put("fragment", page.getTitle().getFragment());
                     bridge.sendMessage("displaySection", wrapper);
                 } catch (JSONException e) {
                     // Won't happen

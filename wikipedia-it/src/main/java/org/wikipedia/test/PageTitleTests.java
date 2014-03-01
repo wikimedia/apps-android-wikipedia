@@ -7,29 +7,29 @@ public class PageTitleTests extends TestCase {
 
     public void testEquals() throws Exception {
         assertTrue(new PageTitle(null, "India", new Site("en.wikipedia.org")).equals(new PageTitle(null, "India", new Site("en.wikipedia.org"))));
-        assertTrue(new PageTitle("Talk", "India", new Site("en.wikipedia.org")).equals(new PageTitle("Talk", "India", new Site("en.wikipedia.org"))));
+        assertTrue(new PageTitle("Talk", "India",  new Site("en.wikipedia.org")).equals(new PageTitle("Talk", "India", new Site("en.wikipedia.org"))));
 
-        assertFalse(new PageTitle(null, "India", new Site("ta.wikipedia.org")).equals(new PageTitle(null, "India", new Site("en.wikipedia.org"))));
-        assertFalse(new PageTitle("Talk", "India", new Site("ta.wikipedia.org")).equals(new PageTitle("Talk", "India", new Site("en.wikipedia.org"))));
-        assertFalse(new PageTitle("Talk", "India", new Site("ta.wikipedia.org")).equals("Something else"));
+        assertFalse(new PageTitle(null, "India",  new Site("ta.wikipedia.org")).equals(new PageTitle(null, "India", new Site("en.wikipedia.org"))));
+        assertFalse(new PageTitle("Talk", "India",  new Site("ta.wikipedia.org")).equals(new PageTitle("Talk", "India", new Site("en.wikipedia.org"))));
+        assertFalse(new PageTitle("Talk", "India",  new Site("ta.wikipedia.org")).equals("Something else"));
     }
 
     public void testJSONSerialization() throws Exception {
         Site enwiki = new Site("en.wikipedia.org");
-        PageTitle title = new PageTitle(null, "Test title", enwiki);
+        PageTitle title = new PageTitle(null, "Test title",  enwiki);
         assertEquals(title, new PageTitle(title.toJSON()));
 
-        title = new PageTitle("Talk", "Test title", enwiki);
+        title = new PageTitle("Talk", "Test title",  enwiki);
         assertEquals(title, new PageTitle(title.toJSON()));
     }
 
     public void testPrefixedText() throws Exception {
         Site enwiki = new Site("en.wikipedia.org");
 
-        assertEquals(new PageTitle(null, "Test  title", enwiki).getPrefixedText(), "Test  title");
-        assertEquals(new PageTitle(null, "Test title", enwiki).getPrefixedText(), "Test title");
-        assertEquals(new PageTitle("Talk", "Test title", enwiki).getPrefixedText(), "Talk:Test title");
-        assertEquals(new PageTitle(null, "Test   title", enwiki).getText(), "Test   title");
+        assertEquals(new PageTitle(null, "Test  title",  enwiki).getPrefixedText(), "Test  title");
+        assertEquals(new PageTitle(null, "Test title",  enwiki).getPrefixedText(), "Test title");
+        assertEquals(new PageTitle("Talk", "Test title",  enwiki).getPrefixedText(), "Talk:Test title");
+        assertEquals(new PageTitle(null, "Test   title",  enwiki).getText(), "Test   title");
     }
 
     public void testFromInternalLink() throws Exception {
@@ -40,9 +40,15 @@ public class PageTitleTests extends TestCase {
 
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India").getNamespace(), "Talk");
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India").getText(), "India");
+        assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India").getFragment(), null);
+
+        assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#").getNamespace(), "Talk");
+        assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#").getText(), "India");
+        assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#").getFragment(), "");
 
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#History").getNamespace(), "Talk");
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#History").getText(), "India");
+        assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#History").getFragment(), "History");
     }
 
     public void testCanonicalURL() throws Exception {

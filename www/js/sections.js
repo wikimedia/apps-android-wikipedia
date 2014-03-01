@@ -23,7 +23,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 function elementsForSection( section ) {
     var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
     heading.innerHTML = section.line;
-    heading.id = "heading_" + section.id;
+    heading.id = section.anchor;
     heading.setAttribute( 'data-id', section.id );
 
     var editButton = document.createElement( "a" );
@@ -50,6 +50,9 @@ bridge.registerListener( "displaySection", function ( payload ) {
         bridge.sendMessage( "requestSection", { index: payload.index + 1 } );
     } else {
         document.getElementById( "loading_sections").className = "";
+        if ( typeof payload.fragment === "string" ) {
+            scrollToSection( payload.fragment );
+        }
     }
 });
 
@@ -58,9 +61,13 @@ bridge.registerListener( "startSectionsDisplay", function() {
 });
 
 bridge.registerListener( "scrollToSection", function ( payload ) {
-    var el = document.getElementById( "heading_" + payload.sectionID);
+    scrollToSection( payload.anchor );
+});
+
+function scrollToSection( anchor ) {
+    var el = document.getElementById( anchor );
     // Make sure there's exactly as much space on the left as on the top.
     // The 48 accounts for the search bar
     var scrollY = el.offsetTop - 48 - el.offsetLeft;
-    window.scrollTo(0, scrollY);
-});
+    window.scrollTo( 0, scrollY );
+}

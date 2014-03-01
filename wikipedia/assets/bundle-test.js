@@ -54,6 +54,7 @@ bridge.registerListener( "requestImagesList", function () {
     }
     bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
 } );
+
 },{"./bridge":1}],3:[function(require,module,exports){
 var bridge = require("../js/bridge");
 bridge.registerListener( "injectScript", function( payload ) {

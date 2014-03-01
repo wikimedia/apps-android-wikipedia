@@ -15,12 +15,18 @@ import java.net.*;
 public class PageTitle implements Parcelable {
     private final String namespace;
     private final String text;
+    private final String fragment;
     private final Site site;
 
-    public PageTitle(final String namespace, final String text, final Site site) {
+    public PageTitle(final String namespace, final String text, final String fragment, final Site site) {
         this.namespace = namespace;
         this.text = text;
+        this.fragment = fragment;
         this.site = site;
+    }
+
+    public PageTitle(final String namespace, final String text, final Site site) {
+        this(namespace, text, null, site);
     }
 
     public String getNamespace() {
@@ -34,6 +40,8 @@ public class PageTitle implements Parcelable {
     public String getText() {
         return text;
     }
+
+    public String getFragment() { return fragment; }
 
     public String getDisplayText() {
         return getText().replace("_", " ");
@@ -49,6 +57,7 @@ public class PageTitle implements Parcelable {
             json.put("site", site.getDomain());
             json.put("namespace", getNamespace());
             json.put("text", getText());
+            json.put("fragment", getFragment());
             return json;
         } catch (JSONException e) {
             // This will also never happen
@@ -59,16 +68,18 @@ public class PageTitle implements Parcelable {
     public PageTitle(JSONObject json) {
         this.site = new Site(json.optString("site"));
         this.namespace = json.optString("namespace", null);
+        this.fragment = json.optString("fragment", null);
         this.text = json.optString("text", null);
     }
 
     public String getCanonicalUri() {
         try {
             return String.format(
-                    "%1$s://%2$s/wiki/%3$s",
+                    "%1$s://%2$s/wiki/%3$s%4$s",
                     WikipediaApp.PROTOCOL,
                     getSite().getDomain(),
-                    URLEncoder.encode(getPrefixedText().replace(" ", "_"), "utf-8")
+                    URLEncoder.encode(getPrefixedText().replace(" ", "_"), "utf-8"),
+                    (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
             );
         } catch (UnsupportedEncodingException e) {
             // This shouldn't happen
@@ -114,6 +125,7 @@ public class PageTitle implements Parcelable {
     private PageTitle(Parcel in) {
         namespace = in.readString();
         text = in.readString();
+        fragment = in.readString();
         site = in.readParcelable(Site.class.getClassLoader());
     }
 
@@ -121,6 +133,7 @@ public class PageTitle implements Parcelable {
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeString(namespace);
         parcel.writeString(text);
+        parcel.writeString(fragment);
         parcel.writeParcelable(site, flags);
     }
 

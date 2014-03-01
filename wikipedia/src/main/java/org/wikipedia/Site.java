@@ -68,7 +68,7 @@ public class Site implements Parcelable {
      * Start with /wiki/, can contain a Namespace indicator and a fragment.
      * Capturing Group 1 is namespace (or null for no namespace). 2 is Page Title text. 3 is Fragment.
      */
-    public static Pattern internalLinkMatchPattern = Pattern.compile("/wiki/(?:([^:]+):)?([^#]*)(?:#(.+))?");
+    public static Pattern internalLinkMatchPattern = Pattern.compile("/wiki/(?:([^:]+):)?([^#]*)(?:#(.*))?");
 
     /**
      * Create a PageTitle object from an internal link string.
@@ -85,7 +85,8 @@ public class Site implements Parcelable {
             try {
                 String namespace = matches.group(1) != null ? URLDecoder.decode(matches.group(1), "utf-8") : null;
                 String pageText = URLDecoder.decode(matches.group(2), "utf-8");
-                return new PageTitle(namespace, pageText, this);
+                String fragment = matches.group(3);
+                return new PageTitle(namespace, pageText, fragment, this);
             } catch (UnsupportedEncodingException e) {
                 // NOT HAPPENING! JESUS CHRIST JAVA!
                 throw new RuntimeException(e);
