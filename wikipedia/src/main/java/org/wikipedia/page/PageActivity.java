@@ -169,7 +169,7 @@ public class PageActivity extends ActionBarActivity {
                     visitExternalLink(Uri.parse(getString(R.string.zero_webpage_url)));
                 }
             });
-            alert.setNegativeButton(getString(R.string.zero_learn_more_no_thanks), new DialogInterface.OnClickListener() {
+            alert.setNegativeButton(getString(R.string.zero_learn_more_dismiss), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     dialog.dismiss();
                 }

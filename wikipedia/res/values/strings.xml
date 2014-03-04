@@ -108,7 +108,7 @@
     <string name="zero_interstitial_cancel">Cancel</string>
     <string name="zero_learn_more">Want to learn about Wikipedia Zero?</string>
     <string name="zero_learn_more_learn_more">Learn more</string>
-    <string name="zero_learn_more_no_thanks">No thanks</string>
+    <string name="zero_learn_more_dismiss">Dismiss</string>
     <string name="zero_settings">Settings</string>
     <string name="zero_settings_devmode">Zero Devmode</string>
     <string name="zero_settings_devmode_summary">During development this enables code execution of W0 things.</string>
