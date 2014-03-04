@@ -20,6 +20,7 @@
         <activity android:name=".page.PageActivity"
                   android:theme="@style/NoTitle"
                   android:windowSoftInputMode="stateHidden"
+                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 >
 
             <intent-filter>
