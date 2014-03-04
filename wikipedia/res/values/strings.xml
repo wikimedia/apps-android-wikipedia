@@ -32,8 +32,7 @@
     <string name="toast_saved_page_deleted">Saved page(s) deleted</string>
 
     <string name="last_updated_text">Last updated %1$s</string>
-    <string name="content_license_html">
-        <![CDATA[Content is available under <a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
+    <string name="content_license_html"><![CDATA[Content is available under <a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
     <string name="preference_title_language">Language</string>
     <string name="preference_summary_language">Content language</string>
     <string name="nav_item_preferences">Settings</string>
@@ -53,9 +52,7 @@
     <string name="dialog_message_edit_failed_cancel">Cancel</string>
     <string name="menu_show_toc">Table of Contents</string>
     <string name="search_no_results_found">No results found</string>
-    <string name="edit_section_captcha_message">To help protect against automated spam, please enter the words that
-        appear below
-    </string>
+    <string name="edit_section_captcha_message">To help protect against automated spam, please enter the words that appear below</string>
     <string name="edit_section_captcha_hint">Repeat words from above</string>
     <string name="title_captcha">Enter captcha</string>
     <string name="edit_section_abusefilter_back_text">Make changes to my edit</string>
@@ -71,8 +68,7 @@
     <string name="login_error_wrong_username">Incorrect username</string>
     <string name="login_success_toast">Login Success!</string>
     <string name="login_error_blocked">This user has been blocked</string>
-    <string name="login_error_throttled">
-        <![CDATA[Too many login attempts. Wait for a few minutes & try again?]]></string>
+    <string name="login_error_throttled"><![CDATA[Too many login attempts. Wait for a few minutes & try again?]]></string>
     <string name="login_error_unknown">Login failed :(</string>
     <string name="login_error_no_network">No network connection</string>
     <string name="nav_item_logout">Log out</string>
