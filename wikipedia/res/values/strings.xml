@@ -111,4 +111,5 @@
     <string name="edit_preview_fetching_dialog_message">Fetching preview...</string>
     <string name="edit_preview_activity_title">Preview edit</string>
     <string name="create_account_logging_in">Logging in...</string>
+    <string name="nav_item_send_feedback">Send feedback</string>
 </resources>

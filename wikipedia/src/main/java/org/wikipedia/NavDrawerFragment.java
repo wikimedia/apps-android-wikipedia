@@ -3,6 +3,7 @@ package org.wikipedia;
 import android.app.*;
 import android.content.*;
 import android.graphics.*;
+import android.net.*;
 import android.os.*;
 import android.support.v4.app.Fragment;
 import android.view.*;
@@ -18,13 +19,15 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
             R.string.nav_item_saved_pages,
             R.string.nav_item_preferences,
             R.string.nav_item_login,
+            R.string.nav_item_send_feedback,
             R.string.zero_free_verbiage
     };
     private static final int[] ACTION_ITEM_IMAGES = {
             android.R.drawable.ic_menu_recent_history,
             android.R.drawable.ic_menu_save,
             android.R.drawable.ic_menu_preferences,
-            android.R.drawable.ic_menu_add
+            android.R.drawable.ic_menu_add,
+            android.R.drawable.ic_menu_send
     };
 
     private ListView navList;
@@ -81,6 +84,14 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
                 break;
             case R.string.zero_free_verbiage:
                 return;
+            case R.string.nav_item_send_feedback:
+                // Will be stripped out in prod builds
+                intent.setAction(Intent.ACTION_SENDTO);
+                // Will be moved to a better email address at some point
+                // FIXME: Have build info here, perhaps? We can't access it anywhere yet
+                intent.setData(Uri.parse("mailto:yuvipanda@wikimedia.org?subject=Android App Feedback"));
+                startActivity(intent);
+                break;
             default:
                 throw new RuntimeException("Unknown ID clicked!");
         }
