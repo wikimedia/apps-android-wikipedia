@@ -7,16 +7,15 @@ import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.concurrency.*;
 
-import java.util.concurrent.Executor;
-
 public class DoEditTask extends ApiTask<EditingResult> {
     private final PageTitle title;
     private final String sectionWikitext;
     private final int sectionID;
+    private final String summary;
     private final String editToken;
     private final WikipediaApp app;
 
-    public DoEditTask(Context context, PageTitle title, String sectionWikitext, int sectionID, String editToken) {
+    public DoEditTask(Context context, PageTitle title, String sectionWikitext, int sectionID, String editToken, String summary) {
         super(
                 ExecutorService.getSingleton().getExecutor(DoEditTask.class, 1),
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
@@ -25,6 +24,7 @@ public class DoEditTask extends ApiTask<EditingResult> {
         this.sectionWikitext = sectionWikitext;
         this.sectionID = sectionID;
         this.editToken = editToken;
+        this.summary = summary;
         this.app = (WikipediaApp)context.getApplicationContext();
     }
 
@@ -34,7 +34,8 @@ public class DoEditTask extends ApiTask<EditingResult> {
                 .param("title", title.getPrefixedText())
                 .param("section", String.valueOf(sectionID))
                 .param("text", sectionWikitext)
-                .param("token", editToken);
+                .param("token", editToken)
+                .param("summary", summary);
     }
 
     @Override

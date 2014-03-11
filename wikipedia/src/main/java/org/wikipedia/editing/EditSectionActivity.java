@@ -42,6 +42,7 @@ public class EditSectionActivity extends ActionBarActivity {
     private AbuseFilterEditResult abusefilterEditResult;
 
     private CaptchaHandler captchaHandler;
+    private EditSummaryHandler editSummaryHandler;
 
     private EditPreviewFragment editPreviewFragment;
 
@@ -77,7 +78,7 @@ public class EditSectionActivity extends ActionBarActivity {
         abuseFilterBackAction = findViewById(R.id.edit_section_abusefilter_back);
 
         captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, R.string.edit_section_activity_title);
-
+        editSummaryHandler = new EditSummaryHandler(this);
         editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
 
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
@@ -119,7 +120,7 @@ public class EditSectionActivity extends ActionBarActivity {
             @Override
             public void onTokenRetreived(final String token) {
 
-                new DoEditTask(EditSectionActivity.this, title, sectionText.getText().toString(), section.getId(), token) {
+                new DoEditTask(EditSectionActivity.this, title, sectionText.getText().toString(), section.getId(), token, editSummaryHandler.getSummary(section.getHeading())) {
                     @Override
                     public void onBeforeExecute() {
                         progressDialog.show();
@@ -235,10 +236,11 @@ public class EditSectionActivity extends ActionBarActivity {
                 finish();
                 return true;
             case R.id.menu_save_section:
-                if (editPreviewFragment.handleBackPressed()) {
+                if (editPreviewFragment.handleBackPressed() && editSummaryHandler.handleBackPressed()) {
                     doSave();
                 } else {
                     editPreviewFragment.showPreview(title, sectionText.getText().toString());
+                    editSummaryHandler.show();
                 }
                 return true;
             default:
@@ -291,7 +293,7 @@ public class EditSectionActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        if (!editPreviewFragment.handleBackPressed()) {
+        if (!(editPreviewFragment.handleBackPressed() && editSummaryHandler.handleBackPressed())) {
             if (!captchaHandler.cancelCaptcha() && abusefilterEditResult != null) {
                 cancelAbuseFilter();
             } else {

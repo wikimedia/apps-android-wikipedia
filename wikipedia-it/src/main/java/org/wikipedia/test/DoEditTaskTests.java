@@ -27,7 +27,7 @@ public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
                 app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetreivedCallback() {
                     @Override
                     public void onTokenRetreived(String token) {
-                        new DoEditTask(getInstrumentation().getTargetContext(), title, wikitext, 3, token) {
+                        new DoEditTask(getInstrumentation().getTargetContext(), title, wikitext, 3, token, "") {
                             @Override
                             public void onFinish(EditingResult result) {
                                 assertNotNull(result);
