@@ -134,7 +134,7 @@ public class EditSectionActivity extends ActionBarActivity {
                     public void onCatch(Throwable caught) {
                         if (caught instanceof EditingException) {
                             EditingException ee = (EditingException) caught;
-                            if (app.getUserInfoStorage().isLoggedIn() && ee.getCode() == "badtoken") {
+                            if (app.getUserInfoStorage().isLoggedIn() && ee.getCode().equals("badtoken")) {
                                 // looks like our session expired.
                                 app.getEditTokenStorage().clearAllTokens();
                                 app.getCookieManager().clearAllCookies();
