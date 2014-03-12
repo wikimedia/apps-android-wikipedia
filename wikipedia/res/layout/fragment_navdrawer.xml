@@ -3,11 +3,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="196dp"
               android:layout_height="match_parent"
-              android:orientation="vertical" >
-    <!-- Match marginTop with height of Search Fragment -->
-    <ListView android:layout_width="match_parent" android:layout_height="match_parent"
-              android:layout_marginTop="48dp"
-              android:id="@+id/nav_list"
+              android:orientation="vertical"
               android:background="#111">
+    <!-- Match marginTop with height of Search Fragment -->
+    <ListView android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:layout_marginTop="48dp"
+              android:id="@+id/nav_list">
     </ListView>
+    <org.wikipedia.styledviews.StyledTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#777"
+            android:padding="4dp"
+            android:id="@+id/nav_drawer_version"
+            android:gravity="right"
+            />
 </LinearLayout>

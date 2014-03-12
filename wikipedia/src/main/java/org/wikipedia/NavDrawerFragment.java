@@ -59,6 +59,8 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
         adapter = new NavListAdapter();
         app = (WikipediaApp)getActivity().getApplicationContext();
 
+        ((TextView)getView().findViewById(R.id.nav_drawer_version)).setText(WikipediaApp.APP_VERSION_STRING);
+
         navList.setAdapter(adapter);
         navList.setOnItemClickListener(this);
 
@@ -98,7 +100,7 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
                 intent.setAction(Intent.ACTION_SENDTO);
                 // Will be moved to a better email address at some point
                 // FIXME: Have build info here, perhaps? We can't access it anywhere yet
-                intent.setData(Uri.parse("mailto:yuvipanda@wikimedia.org?subject=Android App Feedback"));
+                intent.setData(Uri.parse("mailto:yuvipanda@wikimedia.org?subject=Android App " + WikipediaApp.APP_VERSION_STRING + " Feedback"));
                 startActivity(intent);
                 break;
             default:

@@ -2,6 +2,7 @@ package org.wikipedia;
 
 import android.app.*;
 import android.content.*;
+import android.content.pm.*;
 import android.graphics.*;
 import android.net.*;
 import android.os.*;
@@ -49,6 +50,8 @@ public class WikipediaApp extends Application {
     // Reload in onCreate to override
     public static String PROTOCOL = "https";
 
+    public static String APP_VERSION_STRING;
+
     private ConnectionChangeReceiver connChangeReceiver;
 
     @Override
@@ -84,6 +87,13 @@ public class WikipediaApp extends Application {
             IntentFilter connFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
             connChangeReceiver = new ConnectionChangeReceiver();
             this.registerReceiver(connChangeReceiver, connFilter);
+        }
+
+        try {
+            APP_VERSION_STRING = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            // This will never happen!
+            throw new RuntimeException(e);
         }
 
     }
