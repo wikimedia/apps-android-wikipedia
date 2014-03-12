@@ -75,6 +75,11 @@
             />
 
         <provider
+                android:authorities="org.wikipedia.editsummaries"
+                android:name=".editing.summaries.EditSummaryContentProvider"
+                />
+
+        <provider
                 android:authorities="org.wikipedia.pageimages"
                 android:name=".pageimages.PageImageContentProvider"
                 />

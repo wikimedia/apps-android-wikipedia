@@ -2,8 +2,10 @@ package org.wikipedia.data;
 
 import android.content.*;
 import android.database.*;
+import android.database.sqlite.*;
 import android.net.*;
 import android.text.*;
+import android.util.*;
 
 import java.util.*;
 
@@ -43,23 +45,51 @@ public abstract class PersistanceHelper<T> {
     protected abstract String getPrimaryKeySelection();
     protected abstract String[] getPrimaryKeySelectionArgs(T obj);
 
-    public ArrayList<Column> getElements(int version) {
+    protected int getDBVersionIntroducedAt() {
+        return 1;
+    }
+
+    public ArrayList<Column> getElements(int fromVersion, int toVersion) {
          ArrayList<Column> columns = new ArrayList<Column>();
-         for (int i = 1; i <= version; i++) {
+         for (int i = fromVersion; i <= toVersion; i++) {
              columns.addAll(Arrays.asList(getColumnsAdded(i)));
          }
          return columns;
      }
 
-    public String getSchema(int version) {
+    public void createTables(SQLiteDatabase db, int version) {
         String tableName = getTableName();
-        ArrayList<Column> columns = getElements(version);
+        ArrayList<Column> columns = getElements(1, version);
         StringBuilder builder = new StringBuilder();
         builder.append("CREATE TABLE ").append(tableName).append(" ( ")
                 .append(TextUtils.join(", ", columns))
                 .append(" );");
 
-        return builder.toString();
+        db.execSQL(builder.toString());
+    }
+
+    public void upgradeSchema(SQLiteDatabase db, int fromVersion, int toVersion) {
+        if (fromVersion < getDBVersionIntroducedAt()) {
+            createTables(db, toVersion);
+            return;
+        }
+        String tableName = getTableName();
+        ArrayList<Column> columns = getElements(fromVersion + 1, toVersion);
+        if (columns.size() == 0) {
+            return;
+        }
+        ArrayList<String> columnCommands = new ArrayList<String>(columns.size());
+        for (Column column : columns) {
+            columnCommands.add("ADD COLUMN " + column);
+        }
+        StringBuilder builder = new StringBuilder();
+        builder.append("ALTER TABLE ").append(tableName).append(" ")
+                .append(TextUtils.join(", ", columnCommands))
+                .append(";");
+
+        Log.d("Wikipedia", builder.toString());
+
+        db.execSQL(builder.toString());
     }
 
     private Uri baseContentURI;

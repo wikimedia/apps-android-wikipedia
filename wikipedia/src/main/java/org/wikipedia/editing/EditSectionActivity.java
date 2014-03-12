@@ -13,6 +13,7 @@ import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.Utils;
+import org.wikipedia.editing.summaries.*;
 import org.wikipedia.login.*;
 import org.wikipedia.page.*;
 
@@ -238,6 +239,7 @@ public class EditSectionActivity extends ActionBarActivity {
             case R.id.menu_save_section:
                 if (editPreviewFragment.handleBackPressed() && editSummaryHandler.handleBackPressed()) {
                     doSave();
+                    editSummaryHandler.persistSummary();
                 } else {
                     editPreviewFragment.showPreview(title, sectionText.getText().toString());
                     editSummaryHandler.show();

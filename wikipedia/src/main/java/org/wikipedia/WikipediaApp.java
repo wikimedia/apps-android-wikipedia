@@ -3,6 +3,7 @@ package org.wikipedia;
 import android.app.*;
 import android.content.*;
 import android.graphics.*;
+import android.net.*;
 import android.os.*;
 import android.preference.*;
 import android.webkit.*;
@@ -12,15 +13,14 @@ import org.acra.annotation.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.data.*;
 import org.wikipedia.editing.*;
+import org.wikipedia.editing.summaries.*;
 import org.wikipedia.history.*;
 import org.wikipedia.login.*;
+import org.wikipedia.networking.*;
 import org.wikipedia.pageimages.*;
 import org.wikipedia.savedpages.*;
 
 import java.util.*;
-
-import android.net.ConnectivityManager;
-import org.wikipedia.networking.ConnectionChangeReceiver;
 
 
 @ReportsCrashes(
@@ -158,6 +158,8 @@ public class WikipediaApp extends Application {
                 persister = new PageImagePersister(this);
             } else if (cls.equals(SavedPage.class)) {
                 persister = new SavedPagePerister(this);
+            } else if (cls.equals(EditSummary.class)) {
+                persister = new EditSummaryPersister(this);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }
