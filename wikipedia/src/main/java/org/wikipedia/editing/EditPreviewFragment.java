@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.*;
 import org.json.*;
 import org.wikipedia.*;
+import org.wikipedia.editing.summaries.*;
 
 public class EditPreviewFragment extends Fragment {
     private ObservableWebView webview;
@@ -14,6 +15,7 @@ public class EditPreviewFragment extends Fragment {
     private String previewHTML;
 
     private CommunicationBridge bridge;
+    private EditSummaryHandler editSummaryHandler;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -24,6 +26,10 @@ public class EditPreviewFragment extends Fragment {
         bridge = new CommunicationBridge(webview, "file:///android_asset/preview.html");
 
         return parent;
+    }
+
+    public void setEditSummaryHandler(EditSummaryHandler editSummaryHandler) {
+        this.editSummaryHandler = editSummaryHandler;
     }
 
     @Override
@@ -46,6 +52,8 @@ public class EditPreviewFragment extends Fragment {
             throw new RuntimeException(e);
         }
         bridge.sendMessage("displayPreviewHTML", payload);
+
+        editSummaryHandler.show();
     }
 
     private boolean isDirectionSetup = false;
@@ -86,7 +94,7 @@ public class EditPreviewFragment extends Fragment {
         if (previewContainer.getVisibility() == View.VISIBLE) {
             Utils.crossFade(previewContainer, getActivity().findViewById(R.id.edit_section_container));
             getActivity().getActionBar().setTitle(R.string.edit_section_activity_title);
-            return true;
+            return true && editSummaryHandler.handleBackPressed();
         }
         return false;
     }

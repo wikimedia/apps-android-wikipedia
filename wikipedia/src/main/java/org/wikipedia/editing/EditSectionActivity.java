@@ -82,6 +82,8 @@ public class EditSectionActivity extends ActionBarActivity {
         editSummaryHandler = new EditSummaryHandler(this);
         editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
 
+        editPreviewFragment.setEditSummaryHandler(editSummaryHandler);
+
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
             sectionWikitext = savedInstanceState.getString("sectionWikitext");
         }
@@ -237,12 +239,11 @@ public class EditSectionActivity extends ActionBarActivity {
                 finish();
                 return true;
             case R.id.menu_save_section:
-                if (editPreviewFragment.handleBackPressed() && editSummaryHandler.handleBackPressed()) {
+                if (editPreviewFragment.handleBackPressed()) {
                     doSave();
                     editSummaryHandler.persistSummary();
                 } else {
                     editPreviewFragment.showPreview(title, sectionText.getText().toString());
-                    editSummaryHandler.show();
                 }
                 return true;
             default:
@@ -295,7 +296,7 @@ public class EditSectionActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        if (!(editPreviewFragment.handleBackPressed() && editSummaryHandler.handleBackPressed())) {
+        if (!(editPreviewFragment.handleBackPressed())) {
             if (!captchaHandler.cancelCaptcha() && abusefilterEditResult != null) {
                 cancelAbuseFilter();
             } else {
