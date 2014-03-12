@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Wikipédia</string>
+  <string name="yes">Igen</string>
+  <string name="no">Nem</string>
+  <string name="acra_report_dialog_title">A Wikipédia összeomlott :(</string>
+  <string name="acra_report_dialog_text">Összeomlási jelentés küldése a Yuvi részére.</string>
+  <string name="acra_report_dialog_comment">Mit csináltál, amikor az alkalmazás összeomlott?</string>
+  <string name="search_hint">Keresés a Wikipédiában</string>
+  <string name="history_activity_title">Előzmények</string>
+  <string name="nav_item_history">Előzmények</string>
+  <string name="error_network_error">Nem sikerült elérni a hálózatot :(</string>
+  <string name="search_network_error">Hálózati hiba. Koppints az újrapróbálkozáshoz.</string>
+  <string name="page_error_retry">Újra</string>
+  <string name="menu_clear_all_history">Előzmények törlése</string>
+  <string name="dialog_title_clear_history">Törlöd az előzményeket?</string>
+  <string name="dialog_message_clear_history">Biztosan törölni szeretnéd az előzményeket?</string>
+  <string name="saved_pages_activity_title">Elmentett lapok</string>
+  <string name="nav_item_saved_pages">Elmentett lapok</string>
+  <string name="menu_save_page">Lap mentése</string>
+  <string name="menu_share_page">Megosztás</string>
+  <string name="dialog_title_clear_saved_pages">Törlöd a összes mentett lapot?</string>
+  <string name="dialog_message_clear_saved_pages">Biztosan törölni szeretnéd az összes mentett lapot?</string>
+  <string name="toast_saving_page">Oldal mentése...</string>
+  <string name="toast_saved_page">Elmentett lap</string>
+  <string name="toast_save_page_failed">Az oldal mentése sikertelen :(</string>
+  <string name="delete_selected_saved_pages">Törlés</string>
+  <string name="toast_saved_page_deleted">Mentett oldal(ak) törölve</string>
+  <string name="last_updated_text">Utoljára frissítve: %1$</string>
+  <string name="content_license_html">A tartalom a &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt elérhető, ha nincs másképp feltüntetve</string>
+  <string name="preference_title_language">Nyelv</string>
+  <string name="preference_summary_language">A tartalom nyelve</string>
+  <string name="nav_item_preferences">Beállítások</string>
+  <string name="preference_languages_filter_hint">Keresés</string>
+  <string name="langlinks_filter_hint">Keresés</string>
+  <string name="menu_other_languages">További nyelvek</string>
+  <string name="langlinks_error_retry">Újra</string>
+  <string name="langlinks_empty">Ez a szócikk nem érhető el más nyelveken</string>
+  <string name="settings_activity_title">Beállítások</string>
+  <string name="langlinks_activity_title">További nyelvek</string>
+  <string name="editsection_activity_title">Szakasz szerkesztése</string>
+  <string name="edit_section_error_retry">Újra</string>
+  <string name="dialog_saving_in_progress">Mentés...</string>
+  <string name="edit_saved_successfully">Szerkesztése elmentve!</string>
+  <string name="dialog_message_edit_failed">Szerkesztés nem sikerült!</string>
+  <string name="dialog_message_edit_failed_retry">Újra</string>
+  <string name="dialog_message_edit_failed_cancel">Mégse</string>
+  <string name="menu_show_toc">Tartalomjegyzék</string>
+</resources>
