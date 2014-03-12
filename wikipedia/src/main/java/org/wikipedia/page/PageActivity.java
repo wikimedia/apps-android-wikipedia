@@ -4,6 +4,7 @@ import android.content.*;
 import android.net.*;
 import android.os.*;
 import android.support.v4.app.*;
+import android.view.Gravity;
 import com.squareup.otto.*;
 import org.wikipedia.*;
 import org.wikipedia.events.*;
@@ -94,6 +95,9 @@ public class PageActivity extends ActionBarActivity {
 
     @Subscribe
     public void onNewWikiPageNavigationEvent(NewWikiPageNavigationEvent event) {
+        if (drawerLayout.isDrawerOpen(Gravity.START)) {
+            drawerLayout.closeDrawer(Gravity.START);
+        }
         displayNewPage(event.getTitle(), event.getHistoryEntry());
     }
 

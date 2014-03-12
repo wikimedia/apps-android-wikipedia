@@ -10,6 +10,7 @@ import android.view.*;
 import android.widget.*;
 import org.wikipedia.history.*;
 import org.wikipedia.login.*;
+import org.wikipedia.random.RandomHandler;
 import org.wikipedia.savedpages.*;
 import org.wikipedia.settings.*;
 
@@ -19,6 +20,7 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
             R.string.nav_item_saved_pages,
             R.string.nav_item_preferences,
             R.string.nav_item_login,
+            R.string.nav_item_random,
             R.string.nav_item_send_feedback,
             R.string.zero_free_verbiage
     };
@@ -27,12 +29,14 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
             android.R.drawable.ic_menu_save,
             android.R.drawable.ic_menu_preferences,
             android.R.drawable.ic_menu_add,
+            android.R.drawable.ic_menu_directions,
             android.R.drawable.ic_menu_send
     };
 
     private ListView navList;
     private NavListAdapter adapter;
     private WikipediaApp app;
+    private RandomHandler randomHandler;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -57,6 +61,8 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
 
         navList.setAdapter(adapter);
         navList.setOnItemClickListener(this);
+
+        randomHandler = new RandomHandler(getActivity());
     }
 
     @Override
@@ -78,6 +84,9 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
             case R.string.nav_item_login:
                 intent.setClass(this.getActivity(), LoginActivity.class);
                 startActivity(intent);
+                break;
+            case R.string.nav_item_random:
+                randomHandler.doVistRandomArticle();
                 break;
             case R.string.nav_item_logout:
                 doLogout();

@@ -10,6 +10,7 @@ import android.os.Message;
 import android.util.Log;
 import com.squareup.otto.Bus;
 import com.squareup.otto.ThreadEnforcer;
+import org.wikipedia.PageTitle;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.random.RandomArticleIdTask;
@@ -47,12 +48,12 @@ public class ConnectionChangeReceiver extends BroadcastReceiver {
                 Handler wikipediaZeroRandomHandler = new Handler(new Handler.Callback(){
                     @Override
                     public boolean handleMessage(Message msg) {
-                        RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getPrimarySite()), context) {
+                        RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), context) {
                             @Override
-                            public void onFinish(String message) {
-                                Log.d("Wikipedia", "Random article title pulled: " + message);
+                            public void onFinish(PageTitle title) {
+                                Log.d("Wikipedia", "Random article title pulled: " + title);
 
-                                if (message != null) {
+                                if (title != null) {
                                     // future state, let's persist this somewhere to make Random work snappily
                                 }
                             }

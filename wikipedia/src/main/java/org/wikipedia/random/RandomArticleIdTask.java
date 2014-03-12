@@ -6,12 +6,14 @@ import org.wikipedia.*;
 import org.wikipedia.concurrency.*;
 import android.content.Context;
 
-public class RandomArticleIdTask extends ApiTask<String> {
+public class RandomArticleIdTask extends ApiTask<PageTitle> {
 
     private Context ctx;
+    private Site site;
 
-    public RandomArticleIdTask(Api api, Context context) {
+    public RandomArticleIdTask(Api api, Site site, Context context) {
         super(ExecutorService.getSingleton().getExecutor(RandomArticleIdTask.class, 1), api);
+        this.site = site;
         this.ctx = context;
     }
 
@@ -19,11 +21,12 @@ public class RandomArticleIdTask extends ApiTask<String> {
     public RequestBuilder buildRequest(Api api) {
         return api.action("query")
                 .param("list", "random")
+                .param("rnnamespace", "0")
                 .param("rnlimit", "1"); // maybe we grab 10 in the future and persist it somewhere
     }
 
     @Override
-    public String processResult(ApiResult result) throws Throwable {
+    public PageTitle processResult(ApiResult result) throws Throwable {
         try {
             JSONArray results = result.asObject().optJSONObject("query").optJSONArray("random");
             JSONObject random = (JSONObject)results.get(0);
@@ -32,7 +35,7 @@ public class RandomArticleIdTask extends ApiTask<String> {
                 Utils.processHeadersForZero((WikipediaApp)ctx, result);
             }
 
-            return random.getString("title");
+            return new PageTitle(null, random.getString("title"), site);
         } catch (Exception e) {
             return null;
         }
