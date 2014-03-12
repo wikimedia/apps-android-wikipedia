@@ -122,6 +122,12 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     title.id = "heading_" + payload.section.id;
     document.getElementById( "content" ).appendChild( title );
 
+    var editButton = document.createElement( "a" );
+    editButton.setAttribute( 'data-id', payload.section.id );
+    editButton.setAttribute( 'data-action', "edit_section" );
+    editButton.className = "edit_section_button";
+    title.appendChild( editButton );
+
     var content = document.createElement( "div" );
     content.innerHTML = payload.section.text;
     content.id = "#content_block_0";
