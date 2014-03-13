@@ -300,7 +300,7 @@ public class Utils {
         try {
             PackageManager pm = ctx.getPackageManager();
             PackageInfo pi = pm.getPackageInfo(ctx.getPackageName(), 0);
-            return pi.packageName + "-" + pi.versionCode + "-" + pi.versionName;
+            return "android-" + pi.packageName + "-" + pi.versionCode + "-" + pi.versionName;
         } catch (Exception e) {
             return "wikipedia-android-official";
         }
