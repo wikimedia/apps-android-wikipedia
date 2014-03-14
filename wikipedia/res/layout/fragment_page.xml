@@ -28,6 +28,7 @@
                     android:divider="#ededed"
                     android:dividerHeight="0.5dp"
                     android:visibility="gone"
+                    android:choiceMode="singleChoice"
                     />
             <ProgressBar
                     android:id="@+id/page_toc_in_progress"

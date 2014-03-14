@@ -3,6 +3,7 @@ package org.wikipedia.page;
 import android.graphics.*;
 import android.support.v4.widget.*;
 import android.text.*;
+import android.util.*;
 import android.view.*;
 import android.widget.*;
 import org.json.*;
@@ -18,7 +19,7 @@ public class ToCHandler {
     private final CommunicationBridge bridge;
     private final SlidingPaneLayout slidingPane;
 
-    public ToCHandler(SlidingPaneLayout slidingPane, final View quickReturnBar, CommunicationBridge bridge) {
+    public ToCHandler(final SlidingPaneLayout slidingPane, final View quickReturnBar, final CommunicationBridge bridge) {
         this.quickReturnBar = quickReturnBar;
         this.bridge = bridge;
         this.slidingPane = slidingPane;
@@ -35,6 +36,7 @@ public class ToCHandler {
             @Override
             public void onPanelOpened(View view) {
                 prevTranslateY = quickReturnBar.getTranslationY();
+                bridge.sendMessage("requestCurrentSection", new JSONObject());
                 Utils.ensureTranslationY(quickReturnBar, -quickReturnBar.getHeight());
             }
 
@@ -62,6 +64,19 @@ public class ToCHandler {
         this.page = page;
         tocProgress.setVisibility(View.GONE);
         tocList.setVisibility(View.VISIBLE);
+
+        bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {
+            @Override
+            public void onMessage(String messageType, JSONObject messagePayload) {
+                int sectionID = messagePayload.optInt("sectionID");
+
+                tocList.setItemChecked(sectionID, true);
+                tocList.smoothScrollToPosition(Math.max(sectionID - 1, 0));
+
+                Log.d("Wikipedia", "current section is is " + sectionID);
+            }
+        });
+
         if (tocList.getAdapter() == null) {
             TextView headerView = (TextView) LayoutInflater.from(tocList.getContext()).inflate(R.layout.header_toc_list, null, false);
             headerView.setText(page.getTitle().getDisplayText());

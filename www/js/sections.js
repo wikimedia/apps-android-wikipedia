@@ -8,6 +8,8 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     var title = document.createElement( "h1" );
     title.innerHTML = payload.title;
     title.id = "heading_" + payload.section.id;
+    title.className =  "section_heading";
+    title.setAttribute( "data-id", 0 );
     document.getElementById( "content" ).appendChild( title );
 
     var editButton = document.createElement( "a" );
@@ -30,6 +32,7 @@ function elementsForSection( section ) {
     var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
     heading.innerHTML = section.line;
     heading.id = section.anchor;
+    heading.className = "section_heading";
     heading.setAttribute( 'data-id', section.id );
 
     var editButton = document.createElement( "a" );
@@ -77,3 +80,31 @@ function scrollToSection( anchor ) {
     var scrollY = el.offsetTop - 48 - el.offsetLeft;
     window.scrollTo( 0, scrollY );
 }
+
+/**
+ * Returns the section id of the section that has the header closest to but above midpoint of screen
+ */
+function getCurrentSection() {
+    var sectionHeaders = document.getElementsByClassName( "section_heading" );
+    var topCutoff = window.scrollY + ( document.documentElement.clientHeight / 2 );
+    var curClosest = null;
+    for ( var i = 0; i < sectionHeaders.length; i++ ) {
+        var el = sectionHeaders[i];
+        if ( curClosest === null ) {
+            curClosest = el;
+            continue;
+        }
+        if ( el.offsetTop >= topCutoff ) {
+            break;
+        }
+        if ( Math.abs(el.offsetTop - topCutoff) < Math.abs(curClosest.offsetTop - topCutoff) ) {
+            curClosest = el;
+        }
+    }
+
+    return curClosest.getAttribute( "data-id" );
+}
+
+bridge.registerListener( "requestCurrentSection", function( payload ) {
+    bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
+} );
