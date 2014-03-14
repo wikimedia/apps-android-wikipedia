@@ -1,10 +1,14 @@
 package org.wikipedia.page;
 
+import android.app.*;
 import android.content.*;
 import android.net.*;
 import android.os.*;
-import android.support.v4.app.*;
-import android.view.Gravity;
+import android.preference.*;
+import android.support.v4.widget.*;
+import android.support.v7.app.*;
+import android.view.*;
+import android.widget.*;
 import com.squareup.otto.*;
 import org.wikipedia.*;
 import org.wikipedia.events.*;
@@ -12,13 +16,7 @@ import org.wikipedia.history.*;
 import org.wikipedia.interlanguage.*;
 import org.wikipedia.recurring.*;
 import org.wikipedia.search.*;
-
-import android.app.AlertDialog;
-import android.preference.PreferenceManager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
-import android.widget.Toast;
-import org.wikipedia.settings.SettingsActivity;
+import org.wikipedia.settings.*;
 
 public class PageActivity extends ActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
@@ -132,6 +130,10 @@ public class PageActivity extends ActionBarActivity {
     }
     @Override
     public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(Gravity.START)) {
+            drawerLayout.closeDrawer(Gravity.START);
+            return;
+        }
         if ((curPageFragment != null && !curPageFragment.handleBackPressed())
                 && !searchAriclesFragment.handleBackPressed()) {
             if (getSupportFragmentManager().getBackStackEntryCount() <= 1) {
