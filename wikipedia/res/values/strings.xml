@@ -23,6 +23,8 @@
     <string name="nav_item_saved_pages">Saved pages</string>
     <string name="menu_save_page">Save page</string>
     <string name="menu_share_page">Share</string>
+    <string name="share_via">Share via</string>
+    <string name="share_lead_in_text">Found with Wikipedia App:</string>
     <string name="dialog_title_clear_saved_pages">Clear saved pages?</string>
     <string name="dialog_message_clear_saved_pages">Are you sure you want to clear all saved pages?</string>
     <string name="toast_saving_page">Saving page...</string>

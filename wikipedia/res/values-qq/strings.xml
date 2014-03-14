@@ -16,6 +16,8 @@
   <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the Saved Pages screen</string>
   <string name="menu_save_page">Menu item text for saving the currently active page</string>
   <string name="menu_share_page">Menu item text for sharing the currently active page</string>
+  <string name="share_via">Dialog title text for Share list</string>
+  <string name="share_lead_in_text">Lead in text for app receiving URL for sharing</string>
   <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your saved pages</string>
   <string name="dialog_message_clear_saved_pages">Message for dialog box asking if you want to clear all your saved pages</string>
   <string name="toast_saving_page">Small toast (popup) message saying that a page is being saved</string>
@@ -44,5 +46,22 @@
   <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article</string>
   <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>
   <string name="random_progress">Message shown in progress popup dialog while waiting for a random article to be fetched</string>
+  <string name="zero_free_verbiage">Generic text for connoting that access is free thanks to mobile operator participation in Wikipedia Zero</string>
+  <string name="zero_charged_verbiage">Text for toast connoting that Wikipedia Zero status went to OFF and standard data charges may now apply</string>
+  <string name="zero_search_hint">Searchbar hint incorporting notion that user is searching via Wikipedia Zero so it is free</string>
+  <string name="zero_warn_when_leaving">Settings label for option for warning a Wikipedia Zero user if tapping on an external link</string>
+  <string name="zero_warn_when_leaving_summary">Lengthy explanation of Wikipedia Zero for settings screen</string>
+  <string name="zero_webpage_title">Link title for the Wikipedia Zero FAQ for the app</string>
+  <string name="zero_wikipedia_zero_heading">Settings heading for Wikipedia Zero</string>
+  <string name="zero_interstitial_title">Dialog title text to inform Wikipedia Zero user that the user is about to leave the app for an external link</string>
+  <string name="zero_interstitial_leave_app">Dialog text to ask Wikipedia Zero user whether the user wants to continue to an external site where standard data charges may apply</string>
+  <string name="zero_interstitial_continue">Dialog button text for Wikipedia Zero user to continue to an external site where standard data charges may apply</string>
+  <string name="zero_interstitial_cancel">Dialog button text for Wikipedia Zero user to not continue to an external site where standard data charges may apply</string>
+  <string name="zero_learn_more">The first time Wikipedia Zero mode is On and the first time it is detected as transitioning from On to Off this is the question posed to the Wikipedia Zero user as to whether the user wants to read the Wikipedia Zero FAQ</string>
+  <string name="zero_learn_more_learn_more">Dialog button text for Wikipedia Zero user to learn more about Wikipedia Zero at the Wikipedia Zero FAQ for the app</string>
+  <string name="zero_learn_more_dismiss">Dialog button text for Wikipedia Zero user to dismiss the prompt about visiting the Wikipedia Zero FAQ for the app</string>
+  <string name="zero_settings">Generic Settings heading for Wikipedia Zero</string>
+  <string name="zero_settings_devmode">Prerelease label text for enabling Wikipedia Zero Devmode to enable Wikipedia Zero support</string>
+  <string name="zero_settings_devmode_summary">Prerelease explanation text explaining that Wikipedia Zero Devmode on means that Wikipedia Zero detection will be turned on</string>
 
 </resources>
