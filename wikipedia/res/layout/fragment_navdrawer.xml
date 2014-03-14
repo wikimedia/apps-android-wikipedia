@@ -1,24 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="196dp"
               android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:background="#111">
-    <!-- Match marginTop with height of Search Fragment -->
-    <ListView android:layout_width="match_parent"
-              android:layout_height="0dp"
-              android:layout_weight="1"
-              android:layout_marginTop="48dp"
-              android:id="@+id/nav_list">
-    </ListView>
-    <org.wikipedia.styledviews.StyledTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="#777"
-            android:padding="4dp"
-            android:id="@+id/nav_drawer_version"
-            android:gravity="right"
-            />
-</LinearLayout>
+              android:fillViewport="true"
+              android:background="#00af89">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:id="@+id/nav_item_container"
+            >
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:id="@+id/nav_item_login"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:paddingTop="8dp"
+                      android:paddingBottom="8dp"
+                      android:paddingRight="8dp"
+                >
+            <ImageView android:layout_width="32dp" android:layout_height="32dp"
+                       android:layout_margin="8dp"
+                       android:layout_gravity="top"
+                       android:background="#ffffff"
+                    />
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                    >
+                <org.wikipedia.styledviews.StyledTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/nav_item_login"
+                        style="?android:textAppearanceMediumInverse"
+                        />
+                <org.wikipedia.styledviews.StyledTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/nav_item_login_benefits"
+                        style="?android:textAppearanceSmallInverse"
+                        />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:id="@+id/nav_item_username"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:paddingTop="8dp"
+                      android:paddingBottom="8dp"
+                      android:paddingRight="8dp"
+                      android:visibility="gone"
+                >
+            <ImageView android:layout_width="32dp" android:layout_height="32dp"
+                       android:layout_margin="8dp"
+                       android:layout_gravity="center_vertical"
+                       android:background="#ffffff"
+                    />
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                    >
+                <org.wikipedia.styledviews.StyledTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/nav_item_username_primary_text"
+                        style="?android:textAppearanceMediumInverse"
+                        />
+                <org.wikipedia.styledviews.StyledTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/nav_item_tap_to_logout"
+                        style="?android:textAppearanceSmallInverse"
+                        />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#038368" />
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:id="@+id/nav_item_history"
+                      android:background="?android:attr/selectableItemBackground"
+                >
+            <ImageView android:layout_width="32dp" android:layout_height="32dp"
+                       android:layout_margin="8dp"
+                       android:layout_gravity="center_vertical"
+                       android:background="#ffffff"
+                    />
+            <org.wikipedia.styledviews.StyledTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/nav_item_history"
+                    style="?android:textAppearanceMediumInverse"
+                    />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:id="@+id/nav_item_saved_pages"
+                      android:background="?android:attr/selectableItemBackground"
+                >
+            <ImageView android:layout_width="32dp" android:layout_height="32dp"
+                       android:layout_margin="8dp"
+                       android:layout_gravity="center_vertical"
+                       android:background="#ffffff"
+                    />
+            <org.wikipedia.styledviews.StyledTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/nav_item_saved_pages"
+                    style="?android:textAppearanceMediumInverse"
+                    />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:id="@+id/nav_item_random"
+                      android:background="?android:attr/selectableItemBackground"
+                >
+            <ImageView android:layout_width="32dp" android:layout_height="32dp"
+                       android:layout_margin="8dp"
+                       android:layout_gravity="center_vertical"
+                       android:background="#ffffff"
+                    />
+            <org.wikipedia.styledviews.StyledTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/nav_item_random"
+                    style="?android:textAppearanceMediumInverse"
+                    />
+        </LinearLayout>
+
+        <!-- Separator view for providing gap between top items and bottom ones -->
+        <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
+
+        <org.wikipedia.styledviews.StyledTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#fff"
+                android:padding="4dp"
+                android:id="@+id/nav_drawer_version"
+                android:gravity="right"
+                />
+
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#038368" />
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:id="@+id/nav_item_settings"
+                      android:background="?android:attr/selectableItemBackground"
+                >
+            <ImageView android:layout_width="32dp" android:layout_height="32dp"
+                       android:layout_margin="8dp"
+                       android:layout_gravity="center_vertical"
+                       android:background="#ffffff"
+                    />
+            <org.wikipedia.styledviews.StyledTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/nav_item_preferences"
+                    style="?android:textAppearanceMediumInverse"
+                    />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:id="@+id/nav_item_send_feedback"
+                      android:background="?android:attr/selectableItemBackground"
+                >
+            <ImageView android:layout_width="32dp" android:layout_height="32dp"
+                       android:layout_margin="8dp"
+                       android:layout_gravity="center_vertical"
+                       android:background="#ffffff"
+                    />
+            <org.wikipedia.styledviews.StyledTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/nav_item_send_feedback"
+                    style="?android:textAppearanceMediumInverse"
+                    />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

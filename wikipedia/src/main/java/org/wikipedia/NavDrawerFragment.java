@@ -2,7 +2,6 @@ package org.wikipedia;
 
 import android.app.*;
 import android.content.*;
-import android.graphics.*;
 import android.net.*;
 import android.os.*;
 import android.support.v4.app.Fragment;
@@ -10,31 +9,22 @@ import android.view.*;
 import android.widget.*;
 import org.wikipedia.history.*;
 import org.wikipedia.login.*;
-import org.wikipedia.random.RandomHandler;
+import org.wikipedia.random.*;
 import org.wikipedia.savedpages.*;
 import org.wikipedia.settings.*;
 
-public class NavDrawerFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class NavDrawerFragment extends Fragment implements View.OnClickListener {
     private static final int[] ACTION_ITEMS_TEXT = {
-            R.string.nav_item_history,
-            R.string.nav_item_saved_pages,
-            R.string.nav_item_preferences,
-            R.string.nav_item_login,
-            R.string.nav_item_random,
-            R.string.nav_item_send_feedback,
-            R.string.zero_free_verbiage
-    };
-    private static final int[] ACTION_ITEM_IMAGES = {
-            android.R.drawable.ic_menu_recent_history,
-            android.R.drawable.ic_menu_save,
-            android.R.drawable.ic_menu_preferences,
-            android.R.drawable.ic_menu_add,
-            android.R.drawable.ic_menu_directions,
-            android.R.drawable.ic_menu_send
+            R.id.nav_item_history,
+            R.id.nav_item_saved_pages,
+            R.id.nav_item_settings,
+            R.id.nav_item_login,
+            R.id.nav_item_username,
+            R.id.nav_item_random,
+            R.id.nav_item_send_feedback
     };
 
-    private ListView navList;
-    private NavListAdapter adapter;
+    private View[] actionViews = new View[ACTION_ITEMS_TEXT.length];
     private WikipediaApp app;
     private RandomHandler randomHandler;
 
@@ -49,71 +39,40 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
 
         // Ensure that Login / Logout status is accurate
         setupDynamicItems();
-        ((NavListAdapter)navList.getAdapter()).notifyDataSetChanged();
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        navList = (ListView) getView().findViewById(R.id.nav_list);
-        adapter = new NavListAdapter();
         app = (WikipediaApp)getActivity().getApplicationContext();
 
         ((TextView)getView().findViewById(R.id.nav_drawer_version)).setText(WikipediaApp.APP_VERSION_STRING);
 
-        navList.setAdapter(adapter);
-        navList.setOnItemClickListener(this);
+        for (int i = 0; i < ACTION_ITEMS_TEXT.length; i++) {
+            actionViews[i] = getView().findViewById(ACTION_ITEMS_TEXT[i]);
+            actionViews[i].setOnClickListener(this);
+        }
 
         randomHandler = new RandomHandler(getActivity());
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent();
-        switch ((Integer)view.getTag()) {
-            case R.string.nav_item_history:
-                intent.setClass(this.getActivity(), HistoryActivity.class);
-                getActivity().startActivity(intent);
-                break;
-            case R.string.nav_item_saved_pages:
-                intent.setClass(this.getActivity(), SavedPagesActivity.class);
-                startActivity(intent);
-                break;
-            case R.string.nav_item_preferences:
-                intent.setClass(this.getActivity(), SettingsActivity.class);
-                startActivity(intent);
-                break;
-            case R.string.nav_item_login:
-                intent.setClass(this.getActivity(), LoginActivity.class);
-                startActivity(intent);
-                break;
-            case R.string.nav_item_random:
-                randomHandler.doVistRandomArticle();
-                break;
-            case R.string.nav_item_logout:
-                doLogout();
-                break;
-            case R.string.zero_free_verbiage:
-                return;
-            case R.string.nav_item_send_feedback:
-                // Will be stripped out in prod builds
-                intent.setAction(Intent.ACTION_SENDTO);
-                // Will be moved to a better email address at some point
-                // FIXME: Have build info here, perhaps? We can't access it anywhere yet
-                intent.setData(Uri.parse("mailto:yuvipanda@wikimedia.org?subject=Android App " + WikipediaApp.APP_VERSION_STRING + " Feedback"));
-                startActivity(intent);
-                break;
-            default:
-                throw new RuntimeException("Unknown ID clicked!");
-        }
-    }
-
+    private View usernameContainer;
+    private View loginContainer;
+    private TextView usernamePrimaryText;
     private void setupDynamicItems() {
+        if (usernameContainer == null) {
+            usernameContainer = getView().findViewById(R.id.nav_item_username);
+            usernamePrimaryText = (TextView) usernameContainer.findViewById(R.id.nav_item_username_primary_text);
+            loginContainer = getView().findViewById(R.id.nav_item_login);
+        }
         // Do login / logout swap
         if (app.getUserInfoStorage().isLoggedIn()) {
-            ACTION_ITEMS_TEXT[3] = R.string.nav_item_logout;
+            loginContainer.setVisibility(View.GONE);
+            usernameContainer.setVisibility(View.VISIBLE);
+            usernamePrimaryText.setText(app.getUserInfoStorage().getUser().getUsername());
         } else {
-            ACTION_ITEMS_TEXT[3] = R.string.nav_item_login;
+            usernameContainer.setVisibility(View.GONE);
+            loginContainer.setVisibility(View.VISIBLE);
         }
     }
 
@@ -132,65 +91,46 @@ public class NavDrawerFragment extends Fragment implements AdapterView.OnItemCli
             public void onFinish(Boolean result) {
                 progressDialog.dismiss();
                 setupDynamicItems();
-                ((NavListAdapter)navList.getAdapter()).notifyDataSetChanged();
             }
         }.execute();
     }
 
-    private class NavListAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return ACTION_ITEMS_TEXT.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return ACTION_ITEMS_TEXT[position];
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = getActivity().getLayoutInflater().inflate(R.layout.item_nav_item, parent, false);
-            }
-            TextView navText = (TextView)convertView.findViewById(R.id.nav_item_text);
-
-            if (ACTION_ITEMS_TEXT[position] == R.string.zero_free_verbiage) {
-                if (WikipediaApp.getWikipediaZeroDisposition()) {
-                    navText.setText(WikipediaApp.getCarrierMessage());
-                    navText.setTextColor(Color.GRAY);
-                    navText.setTextSize(11.0f);
-                } else {
-                    navText.setText("");
-                }
-
-                convertView.setTag(ACTION_ITEMS_TEXT[position]);
-                boolean a = true;
-                return convertView;
-            }
-
-            ImageView navImage = (ImageView)convertView.findViewById(R.id.nav_item_image);
-            navText.setText(ACTION_ITEMS_TEXT[position]);
-            navImage.setImageResource(ACTION_ITEM_IMAGES[position]);
-            convertView.setTag(ACTION_ITEMS_TEXT[position]);
-
-            return convertView;
-        }
-
-        @Override
-        public boolean areAllItemsEnabled() {
-            return false;
-        }
-
-        @Override
-        public boolean isEnabled(int position) {
-            return ACTION_ITEMS_TEXT[position] == R.string.zero_free_verbiage ? WikipediaApp.getWikipediaZeroDisposition() : true;
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent();
+        switch (view.getId()) {
+            case R.id.nav_item_history:
+                intent.setClass(this.getActivity(), HistoryActivity.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.nav_item_saved_pages:
+                intent.setClass(this.getActivity(), SavedPagesActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_item_settings:
+                intent.setClass(this.getActivity(), SettingsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_item_login:
+                intent.setClass(this.getActivity(), LoginActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_item_random:
+                randomHandler.doVistRandomArticle();
+                break;
+            case R.id.nav_item_username:
+                doLogout();
+                break;
+            case R.id.nav_item_send_feedback:
+                // Will be stripped out in prod builds
+                intent.setAction(Intent.ACTION_SENDTO);
+                // Will be moved to a better email address at some point
+                intent.setData(Uri.parse("mailto:yuvipanda@wikimedia.org?subject=Android App " + WikipediaApp.APP_VERSION_STRING + " Feedback"));
+                startActivity(intent);
+                break;
+            default:
+                throw new RuntimeException("Unknown ID clicked!");
         }
     }
+
 }

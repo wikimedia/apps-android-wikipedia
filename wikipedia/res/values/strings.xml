@@ -116,4 +116,6 @@
     <string name="edit_summary_hint">Edit summary</string>
     <string name="nav_item_random">Random</string>
     <string name="random_progress">Fetching random page...</string>
+    <string name="nav_item_login_benefits">If you Log in, your edits will be associated with your username and your IP will not be publicly visible.</string>
+    <string name="nav_item_tap_to_logout">Tap to log out</string>
 </resources>
