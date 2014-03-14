@@ -3,6 +3,7 @@ package org.wikipedia.page;
 import android.content.*;
 import android.os.*;
 import android.support.v4.app.*;
+import android.support.v4.widget.*;
 import android.util.*;
 import android.view.*;
 import android.widget.*;
@@ -36,8 +37,7 @@ public class PageViewFragment extends Fragment {
     private ProgressBar loadProgress;
     private View networkError;
     private View retryButton;
-
-    private ListView tocList;
+    private SlidingPaneLayout tocSlider;
 
     private Page page;
     private HistoryEntry curEntry;
@@ -136,8 +136,8 @@ public class PageViewFragment extends Fragment {
         loadProgress = (ProgressBar) getView().findViewById(R.id.page_load_progress);
         networkError = getView().findViewById(R.id.page_error);
         retryButton = getView().findViewById(R.id.page_error_retry);
-        tocList = (ListView) getView().findViewById(R.id.page_toc_list);
         quickReturnBar = getActivity().findViewById(quickReturnBarId);
+        tocSlider = (SlidingPaneLayout) getView().findViewById(R.id.page_toc_slider);
 
         // Enable Pinch-Zoom
         webView.getSettings().setBuiltInZoomControls(true);
@@ -219,6 +219,13 @@ public class PageViewFragment extends Fragment {
     private void setState(int state) {
         this.state = state;
         app.getBus().post(new PageStateChangeEvent(state));
+        // FIXME: Move this out into a PageComplete event of sorts
+        if (state == STATE_COMPLETE_FETCH) {
+            if (tocHandler == null) {
+                tocHandler = new ToCHandler(tocSlider, quickReturnBar, bridge);
+            }
+            tocHandler.setupToC(page);
+        }
     }
 
     private class LeadSectionFetchTask extends SectionsFetchTask {
@@ -314,9 +321,6 @@ public class PageViewFragment extends Fragment {
 
     private ToCHandler tocHandler;
     public void showToC() {
-        if (tocHandler == null) {
-            tocHandler = new ToCHandler(tocList, page, quickReturnBar, bridge);
-        }
         tocHandler.show();
     }
 

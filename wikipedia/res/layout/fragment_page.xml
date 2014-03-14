@@ -13,21 +13,38 @@
         android:layout_height="wrap_content"
         android:indeterminate="true"
         />
-    <org.wikipedia.ObservableWebView
-        android:id="@+id/page_web_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        />
-    <ListView
-            android:id="@+id/page_toc_list"
+    <android.support.v4.widget.SlidingPaneLayout
+            android:id="@+id/page_toc_slider"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            android:background="@android:color/background_light"
-            android:divider="#ededed"
-            android:dividerHeight="0.5dp"
-            />
+            >
+        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+
+            <ListView
+                    android:id="@+id/page_toc_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/background_light"
+                    android:divider="#ededed"
+                    android:dividerHeight="0.5dp"
+                    android:visibility="gone"
+                    />
+            <ProgressBar
+                    android:id="@+id/page_toc_in_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:progressBarStyleLarge"
+                    android:indeterminate="true"
+                    android:layout_gravity="center"
+                    />
+        </FrameLayout>
+        <org.wikipedia.ObservableWebView
+                android:id="@+id/page_web_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                />
+    </android.support.v4.widget.SlidingPaneLayout>
     <LinearLayout
             android:id="@+id/page_error"
             android:layout_width="match_parent"

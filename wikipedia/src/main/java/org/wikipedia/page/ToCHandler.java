@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import android.graphics.*;
+import android.support.v4.widget.*;
 import android.text.*;
 import android.view.*;
 import android.widget.*;
@@ -11,15 +12,38 @@ import java.util.*;
 
 public class ToCHandler {
     private final ListView tocList;
-    private final Page page;
+    private final ProgressBar tocProgress;
+    private Page page;
     private final View quickReturnBar;
     private final CommunicationBridge bridge;
+    private final SlidingPaneLayout slidingPane;
 
-    public ToCHandler(ListView tocList, Page page, View quickReturnBar, CommunicationBridge bridge) {
-        this.tocList = tocList;
-        this.page = page;
+    public ToCHandler(SlidingPaneLayout slidingPane, final View quickReturnBar, CommunicationBridge bridge) {
         this.quickReturnBar = quickReturnBar;
         this.bridge = bridge;
+        this.slidingPane = slidingPane;
+
+        this.tocList = (ListView) slidingPane.findViewById(R.id.page_toc_list);
+        this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
+
+        slidingPane.setPanelSlideListener(new SlidingPaneLayout.PanelSlideListener() {
+            @Override
+            public void onPanelSlide(View panel, float slideOffset) {
+            }
+
+            private float prevTranslateY;
+            @Override
+            public void onPanelOpened(View view) {
+                prevTranslateY = quickReturnBar.getTranslationY();
+                Utils.ensureTranslationY(quickReturnBar, -quickReturnBar.getHeight());
+            }
+
+            @Override
+            public void onPanelClosed(View view) {
+                Utils.ensureTranslationY(quickReturnBar, (int)prevTranslateY);
+
+            }
+        });
     }
 
     private void scrollToSection(Section section) {
@@ -34,7 +58,10 @@ public class ToCHandler {
         bridge.sendMessage("scrollToSection", payload);
     }
 
-    public void show() {
+    public void setupToC(final Page page) {
+        this.page = page;
+        tocProgress.setVisibility(View.GONE);
+        tocList.setVisibility(View.VISIBLE);
         if (tocList.getAdapter() == null) {
             TextView headerView = (TextView) LayoutInflater.from(tocList.getContext()).inflate(R.layout.header_toc_list, null, false);
             headerView.setText(page.getTitle().getDisplayText());
@@ -57,13 +84,14 @@ public class ToCHandler {
                 }
             });
         }
-        Utils.ensureTranslationY(quickReturnBar, -quickReturnBar.getHeight());
-        Utils.fadeIn(tocList);
+    }
+
+    public void show() {
+        slidingPane.openPane();
     }
 
     public void hide() {
-        Utils.fadeOut(tocList);
-        Utils.ensureTranslationY(quickReturnBar, 0);
+        slidingPane.closePane();
     }
 
     public boolean isVisible() {
