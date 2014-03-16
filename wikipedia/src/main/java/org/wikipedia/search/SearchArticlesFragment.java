@@ -60,6 +60,18 @@ public class SearchArticlesFragment extends Fragment {
 
     private boolean pausedStateOfZero;
 
+    private void hideSearchResults() {
+        searchResultsList.setVisibility(View.GONE);
+        isSearchActive = false;
+        searchHandler.removeMessages(MESSAGE_SEARCH);
+        if (curSearchTask != null) {
+            curSearchTask.cancel();
+            curSearchTask = null;
+        }
+        searchProgress.setVisibility(View.GONE);
+        searchNoResults.setVisibility(View.GONE);
+    }
+
     /**
      * Displays results passed to it as search suggestions.
      *
@@ -68,17 +80,7 @@ public class SearchArticlesFragment extends Fragment {
     private void displayResults(List<PageTitle> results) {
         adapter.setResults(results);
         ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
-        if (results == null) {
-            searchResultsList.setVisibility(View.GONE);
-            isSearchActive = false;
-            searchHandler.removeMessages(MESSAGE_SEARCH);
-            if (curSearchTask != null) {
-                curSearchTask.cancel();
-                curSearchTask = null;
-            }
-            searchProgress.setVisibility(View.GONE);
-            searchNoResults.setVisibility(View.GONE);
-        } else if (results.size() == 0) {
+        if (results.size() == 0) {
             searchNoResults.setVisibility(View.VISIBLE);
         } else {
             searchResultsList.setVisibility(View.VISIBLE);
@@ -196,7 +198,7 @@ public class SearchArticlesFragment extends Fragment {
                 InputMethodManager keyboard = (InputMethodManager)app.getSystemService(Context.INPUT_METHOD_SERVICE);
                 keyboard.hideSoftInputFromWindow(searchTermText.getWindowToken(), 0);
                 app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
-                displayResults(null);
+                hideSearchResults();
             }
         });
 
@@ -245,7 +247,7 @@ public class SearchArticlesFragment extends Fragment {
                 if (drawerLayout.isDrawerVisible(Gravity.START)) {
                     drawerLayout.closeDrawer(Gravity.START);
                 } else {
-                    displayResults(null);
+                    hideSearchResults();
                     drawerLayout.openDrawer(Gravity.START);
                 }
             }
@@ -259,7 +261,7 @@ public class SearchArticlesFragment extends Fragment {
             return; // Nothing has changed!
         }
         if (term.equals("")) {
-            displayResults(null);
+            hideSearchResults();
             return;
         }
 
@@ -372,7 +374,7 @@ public class SearchArticlesFragment extends Fragment {
      */
     public boolean handleBackPressed() {
         if (isSearchActive) {
-            displayResults(null);
+            hideSearchResults();
             return true;
         }
         return false;
