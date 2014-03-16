@@ -269,6 +269,7 @@ public class SearchArticlesFragment extends Fragment {
         List<PageTitle> cacheResult = searchResultsCache.get(app.getPrimaryLanguage() + "-" + term);
         if (cacheResult != null) {
             displayResults(cacheResult);
+            isSearchActive = true;
             return;
         }
         searchHandler.removeMessages(MESSAGE_SEARCH);
