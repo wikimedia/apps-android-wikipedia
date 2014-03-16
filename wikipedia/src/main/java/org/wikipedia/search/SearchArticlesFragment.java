@@ -235,6 +235,7 @@ public class SearchArticlesFragment extends Fragment {
                 if (drawerLayout.isDrawerOpen(Gravity.START)) {
                     drawerLayout.closeDrawer(Gravity.START);
                 }
+                startSearch(searchTermText.getText().toString());
             }
         });
 
@@ -257,7 +258,7 @@ public class SearchArticlesFragment extends Fragment {
     }
 
     private void startSearch(String term) {
-        if (Utils.compareStrings(term, lastSearchedText) && !isSearchActive) {
+        if (Utils.compareStrings(term, lastSearchedText) && isSearchActive) {
             return; // Nothing has changed!
         }
         if (term.equals("")) {
