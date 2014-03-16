@@ -134,8 +134,8 @@ public class PageActivity extends ActionBarActivity {
             drawerLayout.closeDrawer(Gravity.START);
             return;
         }
-        if ((curPageFragment != null && !curPageFragment.handleBackPressed())
-                && !searchAriclesFragment.handleBackPressed()) {
+        if (!searchAriclesFragment.handleBackPressed() &&
+                (curPageFragment != null && !curPageFragment.handleBackPressed())) {
             if (getSupportFragmentManager().getBackStackEntryCount() <= 1) {
                 // Everything we could pop has been popped....
                 finish();
