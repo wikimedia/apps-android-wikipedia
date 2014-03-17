@@ -307,6 +307,20 @@ public class Utils {
     }
 
     /**
+     * Takes a language code (as returned by Android) and returns a wiki code, as used by wikipedia.
+     *
+     * @param langCode Language code (as returned by Android)
+     * @return Wiki code, as used by wikipedia.
+     */
+    public static String langCodeToWikiLang(String langCode) {
+        if (langCode.equals("iw")) {
+            return "he";
+        }
+
+        return langCode;
+    }
+
+    /**
      * List of wiki language codes for which the content is primarily RTL.
      *
      * Ensure that this is always sorted alphabetically.

@@ -20,7 +20,6 @@ import org.wikipedia.login.*;
 import org.wikipedia.networking.*;
 import org.wikipedia.pageimages.*;
 import org.wikipedia.savedpages.*;
-import org.wikipedia.Utils;
 
 import java.util.*;
 
@@ -132,12 +131,8 @@ public class WikipediaApp extends Application {
             primaryLanguage = prefs.getString(PREFERENCE_CONTENT_LANGUAGE, null);
             if (primaryLanguage == null) {
                 // No preference set!
-                String langCode = Locale.getDefault().getLanguage();
-                if (isWikiLanguage(langCode)) {
-                    return langCode;
-                } else {
-                    return "en"; // Default in case we don't get a lang match. Not very commont
-                }
+                String wikiCode = Utils.langCodeToWikiLang(Locale.getDefault().getLanguage());
+                return wikiCode;
             }
         }
         return primaryLanguage;
