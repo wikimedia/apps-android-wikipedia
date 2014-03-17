@@ -110,7 +110,7 @@ public class ToCHandler {
     }
 
     public boolean isVisible() {
-        return tocList.getVisibility() == View.VISIBLE;
+        return slidingPane.isOpen();
     }
 
     private static class ToCAdapter extends BaseAdapter {
