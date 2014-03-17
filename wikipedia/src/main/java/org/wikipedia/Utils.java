@@ -313,8 +313,14 @@ public class Utils {
      * @return Wiki code, as used by wikipedia.
      */
     public static String langCodeToWikiLang(String langCode) {
+        // Convert deprecated language codes to modern ones.
+        // See https://developer.android.com/reference/java/util/Locale.html
         if (langCode.equals("iw")) {
-            return "he";
+            return "he"; // Hebrew
+        } else if (langCode.equals("in")) {
+            return "id"; // Indonesian
+        } else if (langCode.equals("ji")) {
+            return "yi"; // Yiddish
         }
 
         return langCode;
