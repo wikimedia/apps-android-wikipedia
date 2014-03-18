@@ -221,7 +221,6 @@ bridge.registerListener( "requestCurrentSection", function( payload ) {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-
 },{"./bridge":2,"./transformer":7}],7:[function(require,module,exports){
 function Transformer() {
 }

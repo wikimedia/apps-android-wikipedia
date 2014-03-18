@@ -104,14 +104,6 @@ table {
   margin-top: 4px;
   margin-bottom: 4px;
 }
-/* Last updated info */
-#attribution {
-  border-top: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-  color: #888;
-  font-size: 80%;
-}
 
 a.edit_section_button {
   height: 32px;
@@ -141,4 +133,12 @@ a.edit_section_button {
   margin: 8px auto;
   height: 24px;
   width: 24px;
+}
+/* Last updated info */
+#attribution {
+  border-top: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  color: #888;
+  font-size: 80%;
 }
