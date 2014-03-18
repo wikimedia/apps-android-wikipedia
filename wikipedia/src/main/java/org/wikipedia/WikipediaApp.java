@@ -30,7 +30,7 @@ import java.util.*;
         resDialogTitle=R.string.acra_report_dialog_title,
         resDialogText=R.string.acra_report_dialog_text,
         resDialogCommentPrompt=R.string.acra_report_dialog_comment,
-        mailTo="android@wikimedia.org")
+        mailTo="yuvipanda@wikimedia.org")
 public class WikipediaApp extends Application {
     private Bus bus;
 
