@@ -108,8 +108,7 @@ public class PageActivity extends ActionBarActivity {
     public void onSharePageEvent(SharePageEvent event) {
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.share_lead_in_text) +
-                " " + curPageFragment.getTitle().getDisplayText() + " " + curPageFragment.getTitle().getCanonicalUri());
+        shareIntent.putExtra(Intent.EXTRA_TEXT, curPageFragment.getTitle().getDisplayText() + " " + curPageFragment.getTitle().getCanonicalUri());
         shareIntent.setType("text/plain");
         Intent chooser = Intent.createChooser(shareIntent, getResources().getString(R.string.share_via));
         startActivity(chooser);
