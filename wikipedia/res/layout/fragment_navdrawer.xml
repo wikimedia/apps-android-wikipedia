@@ -144,6 +144,16 @@
                     />
         </LinearLayout>
 
+        <org.wikipedia.styledviews.StyledTextView
+                android:id="@+id/nav_item_zero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="11dp"
+                android:text=""
+                style="?android:textAppearanceSmallInverse"
+                />
+
         <!-- Separator view for providing gap between top items and bottom ones -->
         <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
 
