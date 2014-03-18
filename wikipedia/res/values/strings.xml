@@ -58,7 +58,7 @@
     <string name="edit_section_captcha_hint">Repeat words from above</string>
     <string name="title_captcha">Enter captcha</string>
     <string name="edit_section_abusefilter_back_text">Make changes to my edit</string>
-    <string name="edit_section_captcha_reload">Tap captcha to reload</string>
+    <string name="edit_section_captcha_reload">Tap CAPTCHA to reload</string>
     <string name="nav_item_login">Log in</string>
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
@@ -70,7 +70,7 @@
     <string name="login_error_wrong_username">Incorrect username</string>
     <string name="login_success_toast">Login Success!</string>
     <string name="login_error_blocked">This user has been blocked</string>
-    <string name="login_error_throttled"><![CDATA[Too many login attempts. Wait for a few minutes & try again?]]></string>
+    <string name="login_error_throttled"><![CDATA[Too many login attempts. Wait for a few minutes and try again.]]></string>
     <string name="login_error_unknown">Login failed :(</string>
     <string name="login_error_no_network">No network connection</string>
     <string name="nav_item_logout">Log out</string>
@@ -88,8 +88,8 @@
     <string name="create_account_passwords_mismatch_error">Passwords don\'t match</string>
     <string name="create_account_email_error">Invalid email address</string>
     <string name="create_account_username_exists_error">Username already in use</string>
-    <string name="create_account_ip_throttle_error">Too many accounts created from this IP. Try again later.</string>
-    <string name="create_account_open_proxy_error">This IP has been blocked from creating accounts.</string>
+    <string name="create_account_ip_throttle_error">Too many accounts created from this IP address. Try again later.</string>
+    <string name="create_account_open_proxy_error">This IP address has been blocked from creating accounts.</string>
     <string name="create_account_generic_error">Could not create account</string>
     <string name="preferences_general_heading">General</string>
     <string name="zero_free_verbiage">Free Wikipedia access from your mobile operator (data charges waived)</string>
@@ -109,7 +109,7 @@
     <string name="zero_learn_more_dismiss">Dismiss</string>
     <string name="zero_settings">Settings</string>
     <string name="zero_settings_devmode">Zero Devmode</string>
-    <string name="zero_settings_devmode_summary">During development this enables code execution of W0 things.</string>
+    <string name="zero_settings_devmode_summary">During development this enables code execution of Wikipedia Zero things.</string>
     <string name="edit_preview_fetching_dialog_message">Fetching preview...</string>
     <string name="edit_preview_activity_title">Preview edit</string>
     <string name="create_account_logging_in">Logging in...</string>
@@ -118,6 +118,6 @@
     <string name="edit_summary_hint">Edit summary</string>
     <string name="nav_item_random">Random</string>
     <string name="random_progress">Fetching random page...</string>
-    <string name="nav_item_login_benefits">If you Log in, your edits will be associated with your username and your IP will not be publicly visible.</string>
+    <string name="nav_item_login_benefits">If you Log in, your edits will be associated with your username and your IP address will not be publicly visible.</string>
     <string name="nav_item_tap_to_logout">Tap to log out</string>
 </resources>
