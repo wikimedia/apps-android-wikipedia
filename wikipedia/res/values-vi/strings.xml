@@ -106,4 +106,7 @@
   <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem trước…</string>
   <string name="edit_preview_activity_title">Xem trước sửa đổi</string>
   <string name="create_account_logging_in">Đang đăng nhập…</string>
+  <string name="nav_item_send_feedback">Gửi phản hồi</string>
+  <string name="edit_summary_guide_text">Hãy cho biết bạn đã cải thiện bài này thế nào, để cho người khác có thể xem qua sửa đổi của bạn một cách nhanh chóng.</string>
+  <string name="edit_summary_hint">Tóm lược sửa đổi</string>
 </resources>

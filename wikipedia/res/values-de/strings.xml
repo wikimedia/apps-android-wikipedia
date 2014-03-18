@@ -106,4 +106,7 @@
   <string name="edit_preview_fetching_dialog_message">Vorschau wird abgerufen …</string>
   <string name="edit_preview_activity_title">Vorschau der Bearbeitung anzeigen</string>
   <string name="create_account_logging_in">Anmelden …</string>
+  <string name="nav_item_send_feedback">Rückmeldung senden</string>
+  <string name="edit_summary_guide_text">Erzähle uns, wie du diesen Artikel verbessert hast. Dies hilft anderen Autoren, deine Bearbeitung schnell zu überprüfen.</string>
+  <string name="edit_summary_hint">Bearbeitungszusammenfassung</string>
 </resources>

@@ -19,6 +19,8 @@
   <string name="nav_item_saved_pages">Pages enregistrées</string>
   <string name="menu_save_page">Enregistrer la page</string>
   <string name="menu_share_page">Partager</string>
+  <string name="share_via">Partager via</string>
+  <string name="share_lead_in_text">Trouvé avec l’application Wikipédia :</string>
   <string name="dialog_title_clear_saved_pages">Effacer les pages enregistrées ?</string>
   <string name="dialog_message_clear_saved_pages">Êtes-vous sûr de vouloir effacer toutes les pages enregistrées ?</string>
   <string name="toast_saving_page">Enregistrement de la page…</string>
@@ -106,4 +108,11 @@
   <string name="edit_preview_fetching_dialog_message">Recherche d’un aperçu…</string>
   <string name="edit_preview_activity_title">Aperçu de la modification</string>
   <string name="create_account_logging_in">Connexion en cours…</string>
+  <string name="nav_item_send_feedback">Envoyer un commentaire</string>
+  <string name="edit_summary_guide_text">Dites-nous comment vous avez amélioré cet article. Cela aide les autres éditeurs à relire plus rapidement votre modification.</string>
+  <string name="edit_summary_hint">Modifier le résumé</string>
+  <string name="nav_item_random">Aléatoire</string>
+  <string name="random_progress">Extraction d’une page au hasard…</string>
+  <string name="nav_item_login_benefits">Si vous vous connectez, vos modifications seront associées avec votre nom d’utilisateur et votre adresse IP ne sera pas visible publiquement.</string>
+  <string name="nav_item_tap_to_logout">Appuyez pour vous deconnecter</string>
 </resources>

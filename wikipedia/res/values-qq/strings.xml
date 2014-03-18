@@ -45,7 +45,6 @@
   <string name="dialog_message_edit_failed_cancel">Button text to cancel retrying a failed edit save</string>
   <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article</string>
   <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>
-  <string name="random_progress">Message shown in progress popup dialog while waiting for a random article to be fetched</string>
   <string name="zero_free_verbiage">Generic text for connoting that access is free thanks to mobile operator participation in Wikipedia Zero</string>
   <string name="zero_charged_verbiage">Text for toast connoting that Wikipedia Zero status went to OFF and standard data charges may now apply</string>
   <string name="zero_search_hint">Searchbar hint incorporting notion that user is searching via Wikipedia Zero so it is free</string>
@@ -63,5 +62,5 @@
   <string name="zero_settings">Generic Settings heading for Wikipedia Zero</string>
   <string name="zero_settings_devmode">Prerelease label text for enabling Wikipedia Zero Devmode to enable Wikipedia Zero support</string>
   <string name="zero_settings_devmode_summary">Prerelease explanation text explaining that Wikipedia Zero Devmode on means that Wikipedia Zero detection will be turned on</string>
-
+  <string name="random_progress">Message shown in progress popup dialog while waiting for a random article to be fetched</string>
 </resources>

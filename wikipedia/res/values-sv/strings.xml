@@ -14,7 +14,7 @@
   <string name="page_error_retry">Försök igen</string>
   <string name="menu_clear_all_history">Rensa historik</string>
   <string name="dialog_title_clear_history">Rensa historik?</string>
-  <string name="dialog_message_clear_history">Är du säker på att du vill rensa all historik?</string>
+  <string name="dialog_message_clear_history">Är du säker på att du vill rensa bort all historik?</string>
   <string name="saved_pages_activity_title">Sparade sidor</string>
   <string name="nav_item_saved_pages">Sparade sidor</string>
   <string name="menu_save_page">Spara sida</string>
@@ -92,15 +92,19 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Lämnar Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app">Fortsätta till extern webbplats? Standarddataavgifter kan tillkomma.</string>
+  <string name="zero_interstitial_leave_app">Fortsätt till extern webbplats? Standarddataavgifter kan tillkomma.</string>
   <string name="zero_interstitial_continue">Fortsätt</string>
   <string name="zero_interstitial_cancel">Avbryt</string>
-  <string name="zero_learn_more">Vill du läsa om Wikipedia Zero?</string>
+  <string name="zero_learn_more">Vill du veta mer om Wikipedia Zero?</string>
   <string name="zero_learn_more_learn_more">Läs mer</string>
   <string name="zero_learn_more_dismiss">Stäng</string>
   <string name="zero_settings">Inställningar</string>
   <string name="zero_settings_devmode">Zero-utvecklarläge</string>
+  <string name="zero_settings_devmode_summary">Under utveckling aktiverar detta kodkörning för W0 saker.</string>
   <string name="edit_preview_fetching_dialog_message">Hämtar förhandsgranskning...</string>
   <string name="edit_preview_activity_title">Förhandsgranska redigering</string>
   <string name="create_account_logging_in">Loggar in...</string>
+  <string name="nav_item_send_feedback">Ge återkoppling</string>
+  <string name="edit_summary_guide_text">Berätta hur du förbättrade denna artikel. Detta hjälper andra redigerare att granska din redigering snabbt.</string>
+  <string name="edit_summary_hint">Redigeringssammanfattning</string>
 </resources>

@@ -95,4 +95,5 @@
   <string name="zero_learn_more_dismiss">Zrušiť</string>
   <string name="zero_settings">Nastavenia</string>
   <string name="create_account_logging_in">Prihlasujem...</string>
+  <string name="nav_item_send_feedback">Poslať spätnú väzbu</string>
 </resources>

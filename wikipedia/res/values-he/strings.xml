@@ -106,4 +106,7 @@
   <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה...</string>
   <string name="edit_preview_activity_title">תצוגה מקדימה של עריכה</string>
   <string name="create_account_logging_in">כניסה...</string>
+  <string name="nav_item_send_feedback">שליחת משוב</string>
+  <string name="edit_summary_guide_text">נא לספר איך שיפרת את הערך הזה. זה עוזר לעורכים אחרים לסקור את העריכה שלך מהר.</string>
+  <string name="edit_summary_hint">תקציר העריכה</string>
 </resources>

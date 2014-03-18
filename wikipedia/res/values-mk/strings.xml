@@ -86,14 +86,14 @@
   <string name="create_account_generic_error">Не можам да направам корисничка сметка</string>
   <string name="preferences_general_heading">Општи</string>
   <string name="zero_free_verbiage">Бесплатнен пристап до Википедија преку вашиот мобилен оператор (податочниот сообраќај не се наплаќа)</string>
-  <string name="zero_charged_verbiage">ИСКЛУЧИ ја Википедија Нулта (МОЖЕ ДА СЕ НАПЛАЌА СТАНДАРДНО)</string>
+  <string name="zero_charged_verbiage">Википедија Нулта е ИСКЛУЧЕНА (ПОДАТОЧНИОТ ПРОМЕТ МОЖЕ ДА СЕ НАПЛАЌА СТДАНДАРДНО)</string>
   <string name="zero_search_hint">Пребарај ја Википедија Нулта</string>
   <string name="zero_warn_when_leaving">Предупреди ме доколку ја напуштам Википедија Нулта</string>
   <string name="zero_warn_when_leaving_summary">Ако вашиот мобилен оператор се откажува од трошоците за пристап до податоци за прилогот на Википедија преку партнероство со Википедија Нулта, оставајќи ја поставкава избрана ќе знаете кога излегувате од нејзиниот бесплатен режим и почнува наплата.</string>
   <string name="zero_webpage_title">ЧПП за Википедија Нулта</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Википедија Нулта</string>
-  <string name="zero_interstitial_title">Напуштање на Википедија Нулта</string>
+  <string name="zero_interstitial_title">Ја напуштате Википедија Нулта</string>
   <string name="zero_interstitial_leave_app">Да продолжам кон надворешно место? За ова може да се наплаќа по стандардна цена.</string>
   <string name="zero_interstitial_continue">Продолжи</string>
   <string name="zero_interstitial_cancel">Откажи</string>
@@ -106,4 +106,7 @@
   <string name="edit_preview_fetching_dialog_message">Испишувам преглед...</string>
   <string name="edit_preview_activity_title">Преглед</string>
   <string name="create_account_logging_in">Ве најавувам...</string>
+  <string name="nav_item_send_feedback">Испрати мислење</string>
+  <string name="edit_summary_guide_text">Кажете на кој начин ја подобривте статијава. Со тоа другите уредници ќе можат да ја проверат многу побргу.</string>
+  <string name="edit_summary_hint">Опис на уредувањето</string>
 </resources>

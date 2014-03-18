@@ -83,4 +83,6 @@
   <string name="edit_preview_fetching_dialog_message">Хьалха хьажар гучудолуш ю...</string>
   <string name="edit_preview_activity_title">Нисдаре хьалха хьажар</string>
   <string name="create_account_logging_in">Системан чудахар...</string>
+  <string name="nav_item_send_feedback">Дахьийта хетарг</string>
+  <string name="edit_summary_hint">Хийцамах лаьцна</string>
 </resources>
