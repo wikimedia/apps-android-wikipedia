@@ -1,17 +1,16 @@
 package org.wikipedia.zero;
 
+import android.content.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.concurrency.*;
-import android.content.Context;
 
 public class WikipediaZeroTask extends ApiTask<String> {
 
     private Context ctx;
 
     public WikipediaZeroTask(Api api, Context context) {
-        super(ExecutorService.getSingleton().getExecutor(WikipediaZeroTask.class, 1), api);
+        super(1, api);
         this.ctx = context;
     }
 

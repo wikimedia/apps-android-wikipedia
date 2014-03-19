@@ -5,7 +5,6 @@ import android.util.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.concurrency.*;
 
 public class DoEditTask extends ApiTask<EditingResult> {
     private final PageTitle title;
@@ -17,7 +16,7 @@ public class DoEditTask extends ApiTask<EditingResult> {
 
     public DoEditTask(Context context, PageTitle title, String sectionWikitext, int sectionID, String editToken, String summary) {
         super(
-                ExecutorService.getSingleton().getExecutor(DoEditTask.class, 1),
+                1,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
         );
         this.title = title;

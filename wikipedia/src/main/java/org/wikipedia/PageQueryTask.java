@@ -5,14 +5,13 @@ import org.json.*;
 import org.mediawiki.api.json.*;
 
 import java.util.*;
-import java.util.concurrent.*;
 
 public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle,T>> {
     private final List<PageTitle> titles;
     private final Site site;
 
-    public PageQueryTask(Executor executor, Api api, Site site, List<PageTitle> titles) {
-        super(executor, api);
+    public PageQueryTask(int threadCount, Api api, Site site, List<PageTitle> titles) {
+        super(threadCount, api);
         this.titles = titles;
         this.site = site;
     }

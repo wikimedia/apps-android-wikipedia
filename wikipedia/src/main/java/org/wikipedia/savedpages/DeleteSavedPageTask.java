@@ -8,7 +8,7 @@ public class DeleteSavedPageTask extends SaneAsyncTask<Boolean> {
     private final WikipediaApp app;
     private final SavedPage savedPage;
     public DeleteSavedPageTask(Context context, SavedPage savedPage) {
-        super(ExecutorService.getSingleton().getExecutor(DeleteSavedPageTask.class, 1));
+        super(1);
         app = (WikipediaApp) context.getApplicationContext();
         this.savedPage = savedPage;
     }

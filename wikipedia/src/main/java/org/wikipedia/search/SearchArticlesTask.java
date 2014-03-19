@@ -1,13 +1,11 @@
 package org.wikipedia.search;
 
+import android.content.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.concurrency.*;
 
 import java.util.*;
-
-import android.content.Context;
 
 public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
     private final String prefix;
@@ -15,7 +13,7 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
     private final WikipediaApp app;
 
     public SearchArticlesTask(Context context, Api api, Site site, String prefix) {
-        super(ExecutorService.getSingleton().getExecutor(SearchArticlesTask.class, 4), api);
+        super(4, api);
         this.prefix = prefix;
         this.site = site;
         this.app = (WikipediaApp)context.getApplicationContext();

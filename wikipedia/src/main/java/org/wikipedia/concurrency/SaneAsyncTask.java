@@ -18,6 +18,16 @@ public abstract class SaneAsyncTask<T> {
     }
 
     /**
+     * Creates an executor using the default ExecutorService.
+     *
+     * @param threadCount Number of threads to use at max for this thread pool.
+     */
+    public SaneAsyncTask(int threadCount) {
+        this.executor = ExecutorService.getSingleton().getExecutor(getClass(), threadCount);
+        this.underlyingTask = new BackingAsyncTask();
+    }
+
+    /**
      * Called before the background task is executed.
      * <p/>
      * Called on the UI Thread.

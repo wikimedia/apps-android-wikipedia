@@ -3,14 +3,13 @@ package org.wikipedia.login;
 import android.content.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.concurrency.*;
 
 public class LogoutTask extends ApiTask<Boolean> {
     private final WikipediaApp app;
 
     public LogoutTask(Context context, Site site) {
         super(
-                ExecutorService.getSingleton().getExecutor(LogoutTask.class, 1),
+                1,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(site)
         );
         app = (WikipediaApp)context.getApplicationContext();

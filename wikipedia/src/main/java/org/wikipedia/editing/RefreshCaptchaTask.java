@@ -4,12 +4,11 @@ import android.content.*;
 import android.util.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.concurrency.*;
 
 public class RefreshCaptchaTask extends ApiTask<CaptchaResult> {
     public RefreshCaptchaTask(Context context, Site site) {
         super(
-                ExecutorService.getSingleton().getExecutor(DoEditTask.class, 1),
+                1,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(site)
         );
     }

@@ -13,7 +13,7 @@ public class DownloadImageTask extends SaneAsyncTask<Boolean> {
     private final URL imageUrl;
 
     public DownloadImageTask(Context context, String imageUrl) {
-        super(ExecutorService.getSingleton().getExecutor(DownloadImageTask.class, 4));
+        super(4);
         this.context = context;
         try {
             this.imageUrl = new URL(imageUrl);

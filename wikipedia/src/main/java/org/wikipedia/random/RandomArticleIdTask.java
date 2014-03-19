@@ -1,10 +1,9 @@
 package org.wikipedia.random;
 
+import android.content.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.concurrency.*;
-import android.content.Context;
 
 public class RandomArticleIdTask extends ApiTask<PageTitle> {
 
@@ -12,7 +11,7 @@ public class RandomArticleIdTask extends ApiTask<PageTitle> {
     private Site site;
 
     public RandomArticleIdTask(Api api, Site site, Context context) {
-        super(ExecutorService.getSingleton().getExecutor(RandomArticleIdTask.class, 1), api);
+        super(1, api);
         this.site = site;
         this.ctx = context;
     }

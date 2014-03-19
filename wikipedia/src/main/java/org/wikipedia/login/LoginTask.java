@@ -13,7 +13,7 @@ public class LoginTask extends SaneAsyncTask<String> {
     private final WikipediaApp app;
 
     public LoginTask(Context context, Site site, String username, String password) {
-        super(ExecutorService.getSingleton().getExecutor(LoginTask.class, 1));
+        super(1);
         app = (WikipediaApp)context.getApplicationContext();
         api = app.getAPIForSite(site);
         this.username = username;

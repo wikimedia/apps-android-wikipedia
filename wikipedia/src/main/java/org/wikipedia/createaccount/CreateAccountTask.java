@@ -5,9 +5,7 @@ import android.util.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.concurrency.*;
 import org.wikipedia.editing.*;
-import org.wikipedia.interlanguage.*;
 
 public class CreateAccountTask extends ApiTask<CreateAccountResult> {
 
@@ -18,7 +16,7 @@ public class CreateAccountTask extends ApiTask<CreateAccountResult> {
     private final String token;
     public CreateAccountTask(Context context, String username, String password, String email, String token) {
         super(
-                ExecutorService.getSingleton().getExecutor(LangLinksFetchTask.class, 1),
+                1,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(
                         ((WikipediaApp)context.getApplicationContext()).getPrimarySite()
                 )

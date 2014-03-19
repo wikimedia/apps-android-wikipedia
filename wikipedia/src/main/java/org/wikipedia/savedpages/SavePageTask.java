@@ -5,7 +5,6 @@ import android.os.*;
 import android.util.*;
 import org.json.*;
 import org.wikipedia.*;
-import org.wikipedia.concurrency.ExecutorService;
 import org.wikipedia.concurrency.*;
 import org.wikipedia.page.*;
 
@@ -30,7 +29,7 @@ public class SavePageTask extends SaneAsyncTask<Void> {
     private CountDownLatch imagesDownloadedLatch;
 
     public SavePageTask(Context context, CommunicationBridge bridge, Page page) {
-        super(ExecutorService.getSingleton().getExecutor(SavePageTask.class, 1));
+        super(1);
         app = (WikipediaApp) context.getApplicationContext();
         this.page = page;
         this.bridge = bridge;

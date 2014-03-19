@@ -3,7 +3,6 @@ package org.wikipedia.editing;
 import android.content.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.concurrency.*;
 
 
 public class EditPreviewTask extends ApiTask<String> {
@@ -12,7 +11,7 @@ public class EditPreviewTask extends ApiTask<String> {
 
     public EditPreviewTask(Context context, String wikiText, PageTitle title) {
         super(
-                ExecutorService.getSingleton().getExecutor(EditPreviewTask.class, 1),
+                1,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
         );
         this.wikiText = wikiText;

@@ -4,7 +4,6 @@ import android.content.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.concurrency.*;
 
 import java.util.*;
 
@@ -15,7 +14,7 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
 
     public SectionsFetchTask(Context context, PageTitle title, String sections) {
         super(
-                ExecutorService.getSingleton().getExecutor(SectionsFetchTask.class, 1),
+                1,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
         );
         this.title = title;

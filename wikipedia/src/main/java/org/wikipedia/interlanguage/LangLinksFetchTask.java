@@ -4,18 +4,15 @@ import android.content.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.concurrency.*;
 
 import java.util.*;
-
-import org.wikipedia.Utils;
 
 public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
     private final PageTitle title;
     private final WikipediaApp app;
     public LangLinksFetchTask(Context context, PageTitle title) {
         super(
-                ExecutorService.getSingleton().getExecutor(LangLinksFetchTask.class, 1),
+                1,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
         );
         this.title = title;
