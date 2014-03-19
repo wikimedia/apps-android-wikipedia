@@ -54,9 +54,9 @@ module.exports = function ( grunt ) {
         less: {
             all: {
                 files: [
-                    { src: ["less/fonts.less", "less/pagestyles.less", "less/ui.less"], dest: "styles.css"},
-                    { src: ["less/fonts.less", "less/pagestyles.less"], dest: "abusefilter.css"},
-                    { src: ["less/fonts.less", "less/pagestyles.less", "less/preview.less"], dest: "preview.css"}
+                    { src: ["less/fonts.less", "less/pagestyles.less", "less/ui.less", "less/wikihacks.less"], dest: "styles.css"},
+                    { src: ["less/fonts.less", "less/pagestyles.less", "less/wikihacks.less"], dest: "abusefilter.css"},
+                    { src: ["less/fonts.less", "less/pagestyles.less", "less/preview.less", "less/wikihacks.less"], dest: "preview.css"}
                 ]
             }
         },

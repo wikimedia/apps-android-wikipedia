@@ -1,0 +1,52 @@
+/*
+Imported from MobileFrontend. Should be made into a live link later.
+A file for css that corrects known rendering issues on known Wikimedia wikis.
+
+the following definitions exist to deal with certain inline styles
+present in wikitext.
+This file should not need to exist
+It will become redundant when the following RFC is resolved:
+https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templates
+
+FIXME: Review all of these hacks to see if they still apply.
+*/
+
+/* Hide some on-wiki defined classes
+   - Issue boxes, Nav Boxes, co-ordinates are hidden
+   - Investigate alternative ways of surfacing those */
+
+.ambox,
+#coordinates,
+  // Hide article badges, clean-up notices, stub notices, and navigation boxes
+.navbox, .vertical-navbox, .topicon, .metadata {
+  // It's important as some of these are tables which become display: table on larger screens
+  display: none !important;
+}
+
+/* Galleries */
+/* See https://www.mediawiki.org/wiki/Help:Images#Rendering_a_gallery_of_images */
+
+ul.gallery {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  li.gallerybox {
+    width: auto !important;
+
+    > div {
+      width: auto !important;
+
+      > div.thumb {
+        width: auto !important;
+      }
+    }
+  }
+}
+
+.hlist > ul, // FIXME: to support hlists on enwiki projects - this should be deprecated
+ul.hlist {
+  li {
+    display: inline-block;
+    margin-right: 8px;
+  }
+}
