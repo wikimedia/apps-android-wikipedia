@@ -22,6 +22,8 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
             R.id.nav_item_username,
             R.id.nav_item_random,
             R.id.nav_item_send_feedback
+            // We don't actually need R.id.nav_item_zero here because we add it programmatically
+            // below, and we don't need an on-tap as of now
     };
 
     private View[] actionViews = new View[ACTION_ITEMS_TEXT.length];
@@ -37,10 +39,11 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
     public void onResume() {
         super.onResume();
 
-        // Ensure that Login / Logout status is accurate
+        // Ensure that Login / Logout and Wikipedia Zero status is accurate
         setupDynamicItems();
     }
 
+    private TextView wikipediaZeroText;
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -52,6 +55,8 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
             actionViews[i] = getView().findViewById(ACTION_ITEMS_TEXT[i]);
             actionViews[i].setOnClickListener(this);
         }
+
+        wikipediaZeroText = (TextView) getView().findViewById(R.id.nav_item_zero);
 
         randomHandler = new RandomHandler(getActivity());
     }
@@ -73,6 +78,14 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
         } else {
             usernameContainer.setVisibility(View.GONE);
             loginContainer.setVisibility(View.VISIBLE);
+        }
+
+        // Show Wikipedia Zero if ON, otherwise hide it
+        if (WikipediaApp.isWikipediaZeroDevmodeOn() && WikipediaApp.getWikipediaZeroDisposition()) {
+            wikipediaZeroText.setText(WikipediaApp.getCarrierMessage());
+            wikipediaZeroText.setVisibility(View.VISIBLE);
+        } else {
+            wikipediaZeroText.setVisibility(View.GONE);
         }
     }
 
