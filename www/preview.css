@@ -104,14 +104,6 @@ table {
   margin-top: 4px;
   margin-bottom: 4px;
 }
-/* Last updated info */
-#attribution {
-  border-top: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-  color: #888;
-  font-size: 80%;
-}
 
 /* Hide the stupid editlink */
 .edit-page {
