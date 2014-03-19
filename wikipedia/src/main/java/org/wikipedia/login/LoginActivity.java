@@ -59,10 +59,19 @@ public class LoginActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
-                startActivity(intent);
-                finish();
+                startActivityForResult(intent, CreateAccountActivity.ACTION_CREATE_ACCOUNT);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == CreateAccountActivity.RESULT_ACCOUNT_CREATED) {
+            usernameText.setText(data.getStringExtra("username"));
+            passwordText.setText(data.getStringExtra("password"));
+            doLogin();
+        }
     }
 
     @Override

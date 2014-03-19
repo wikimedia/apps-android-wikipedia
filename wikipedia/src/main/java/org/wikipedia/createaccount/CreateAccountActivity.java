@@ -1,7 +1,8 @@
 package org.wikipedia.createaccount;
 
 import android.app.*;
-import android.os.Bundle;
+import android.content.*;
+import android.os.*;
 import android.support.v7.app.*;
 import android.view.*;
 import android.widget.*;
@@ -11,9 +12,13 @@ import de.keyboardsurfer.android.widget.crouton.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.editing.*;
-import org.wikipedia.login.*;
 
 public class CreateAccountActivity extends ActionBarActivity {
+    public static final int RESULT_ACCOUNT_CREATED = 1;
+    public static final int RESULT_ACCOUNT_NOT_CREATED = 2;
+
+    public static final int ACTION_CREATE_ACCOUNT = 1;
+
     @Required(order=1)
     private EditText usernameEdit;
     @Required(order=2)
@@ -98,6 +103,9 @@ public class CreateAccountActivity extends ActionBarActivity {
                 captchaHandler.handleCaptcha(((CreateAccountTokenResult) createAccountResult).getCaptchaResult());
             }
         }
+
+        // Set default result to failed, so we can override if it did not
+        setResult(RESULT_ACCOUNT_NOT_CREATED);
     }
 
     @Override
@@ -159,7 +167,13 @@ public class CreateAccountActivity extends ActionBarActivity {
                     // Returns lowercase 'success', unlike every other API. GRR man, GRR
                     // Replace wen https://bugzilla.wikimedia.org/show_bug.cgi?id=61663 is fixed?
                     if (result.getResult().toLowerCase().equals("success")) {
-                        doLogin();
+                        Utils.hideSoftKeyboard(CreateAccountActivity.this);
+                        Intent resultIntent = new Intent();
+                        resultIntent.putExtra("username", usernameEdit.getText().toString());
+                        resultIntent.putExtra("password", passwordEdit.getText().toString());
+                        setResult(RESULT_ACCOUNT_CREATED, resultIntent);
+                        Toast.makeText(CreateAccountActivity.this, R.string.create_account_account_created_toast, Toast.LENGTH_LONG).show();
+                        finish();
                     } else if (result.getResult().equals("captcha-createaccount-fail")) {
                         // So for now we just need to do the entire set of requests again. sigh
                         // Eventually this should be fixed to have the new captcha info come back.
@@ -168,34 +182,6 @@ public class CreateAccountActivity extends ActionBarActivity {
                     } else {
                         handleError(result);
                     }
-                }
-            }
-        }.execute();
-    }
-
-    private void doLogin() {
-        final ProgressDialog dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.create_account_logging_in));
-        dialog.setIndeterminate(true);
-
-        new LoginTask(this, app.getPrimarySite(), usernameEdit.getText().toString(), passwordEdit.getText().toString()) {
-            @Override
-            public void onBeforeExecute() {
-                dialog.show();
-            }
-
-            @Override
-            public void onFinish(String result) {
-                super.onFinish(result);
-                if (result.equals("Success")) {
-                    dialog.dismiss();
-                    Utils.hideSoftKeyboard(CreateAccountActivity.this);
-                    finish();
-                } else {
-                    // FIXME: Have better error handling here, m'kay?
-                    // I think the only way this can fail is: too many attempts, network error.
-                    // I wonder how we should handle either.
-                    throw new RuntimeException("Whelp, let's fix this");
                 }
             }
         }.execute();
