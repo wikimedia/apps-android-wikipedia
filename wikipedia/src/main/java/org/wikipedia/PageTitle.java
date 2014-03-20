@@ -1,10 +1,12 @@
 package org.wikipedia;
 
 import android.os.*;
+import android.text.*;
 import org.json.*;
 
 import java.io.*;
 import java.net.*;
+import java.util.*;
 
 /**
  * Immutable value object representing the text of a page.
@@ -27,6 +29,33 @@ public class PageTitle implements Parcelable {
 
     public PageTitle(final String namespace, final String text, final Site site) {
         this(namespace, text, null, site);
+    }
+
+    public PageTitle(final String text, final Site site) {
+        // FIXME: Does not handle mainspace articles with a colon in the title well at all
+        String parts[];
+        if (text.indexOf("#") != -1) {
+            try {
+                this.fragment = URLDecoder.decode(text.split("#")[1], "utf-8");
+                parts = text.split("#")[0].split(":");
+            } catch (UnsupportedEncodingException e) {
+                // STUPID STUPID JAVA
+                throw new RuntimeException(e);
+            }
+        } else {
+            this.fragment = null;
+            parts = text.split(":");
+        }
+
+        if (parts.length > 1) {
+            this.namespace = parts[0];
+            this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
+        } else {
+            this.namespace = null;
+            this.text = parts[0];
+        }
+
+        this.site = site;
     }
 
     public String getNamespace() {

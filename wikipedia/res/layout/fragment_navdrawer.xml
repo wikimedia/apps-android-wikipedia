@@ -78,6 +78,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/nav_item_tap_to_logout"
                         style="?android:textAppearanceSmallInverse"
+                        android:visibility="gone"
                         />
             </LinearLayout>
         </LinearLayout>

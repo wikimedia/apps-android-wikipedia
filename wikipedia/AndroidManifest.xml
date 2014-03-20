@@ -68,6 +68,8 @@
                   android:label="@string/create_account_activity_title"
                   android:windowSoftInputMode="stateVisible|adjustResize"
                 />
+        <activity android:name=".pagehistory.usercontributions.UserContribsActivity"
+                  android:label="@string/activity_my_contributions_title"/>
 
         <provider
             android:authorities="org.wikipedia.history"

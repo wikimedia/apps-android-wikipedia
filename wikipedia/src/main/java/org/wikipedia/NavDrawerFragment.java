@@ -9,6 +9,7 @@ import android.view.*;
 import android.widget.*;
 import org.wikipedia.history.*;
 import org.wikipedia.login.*;
+import org.wikipedia.pagehistory.usercontributions.*;
 import org.wikipedia.random.*;
 import org.wikipedia.savedpages.*;
 import org.wikipedia.settings.*;
@@ -132,7 +133,8 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 randomHandler.doVistRandomArticle();
                 break;
             case R.id.nav_item_username:
-                doLogout();
+                intent.setClass(this.getActivity(), UserContribsActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_item_send_feedback:
                 // Will be stripped out in prod builds

@@ -64,4 +64,6 @@
   <string name="zero_settings_devmode_summary">Prerelease explanation text explaining that Wikipedia Zero Devmode on means that Wikipedia Zero detection will be turned on</string>
   <string name="random_progress">Message shown in progress popup dialog while waiting for a random article to be fetched</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.</string>
+  <string name="user_contribs_more_action">Text shown as a button at the end of lists that let the user load more items.</string>
+  <string name="activity_my_contributions_title">Title for screen showing list of edits by current user.</string>
 </resources>
