@@ -57,7 +57,7 @@
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
-                       android:layout_gravity="center_vertical"
+                       android:layout_gravity="top"
                        android:src="@drawable/face_smile_white"
                     />
             <LinearLayout android:layout_width="match_parent"
