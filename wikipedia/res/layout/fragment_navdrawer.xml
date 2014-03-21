@@ -113,7 +113,7 @@
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
                        android:layout_gravity="center_vertical"
-                       android:background="#fff"
+                       android:src="@drawable/bookmark_white"
                     />
             <org.wikipedia.styledviews.StyledTextView
                     android:layout_width="match_parent"
