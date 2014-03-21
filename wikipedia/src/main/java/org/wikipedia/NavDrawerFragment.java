@@ -15,19 +15,27 @@ import org.wikipedia.savedpages.*;
 import org.wikipedia.settings.*;
 
 public class NavDrawerFragment extends Fragment implements View.OnClickListener {
-    private static final int[] ACTION_ITEMS_TEXT = {
+    private static final int[] ACTION_ITEMS_ALL = {
             R.id.nav_item_history,
             R.id.nav_item_saved_pages,
             R.id.nav_item_settings,
             R.id.nav_item_login,
-            R.id.nav_item_username,
+            R.id.nav_item_my_contributions,
             R.id.nav_item_random,
-            R.id.nav_item_send_feedback
+            R.id.nav_item_send_feedback,
+            R.id.nav_item_logout
             // We don't actually need R.id.nav_item_zero here because we add it programmatically
             // below, and we don't need an on-tap as of now
     };
 
-    private View[] actionViews = new View[ACTION_ITEMS_TEXT.length];
+    private static final int[] ACTION_ITEMS_LOGGED_IN_ONLY = {
+            R.id.nav_item_my_contributions,
+            R.id.nav_item_username,
+            R.id.nav_item_logout
+    };
+
+    private View[] actionViews = new View[ACTION_ITEMS_ALL.length];
+    private View[] loggedInOnyActionViews = new View[ACTION_ITEMS_LOGGED_IN_ONLY.length];
     private WikipediaApp app;
     private RandomHandler randomHandler;
 
@@ -52,9 +60,13 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
 
         ((TextView)getView().findViewById(R.id.nav_drawer_version)).setText(WikipediaApp.APP_VERSION_STRING);
 
-        for (int i = 0; i < ACTION_ITEMS_TEXT.length; i++) {
-            actionViews[i] = getView().findViewById(ACTION_ITEMS_TEXT[i]);
+        for (int i = 0; i < ACTION_ITEMS_ALL.length; i++) {
+            actionViews[i] = getView().findViewById(ACTION_ITEMS_ALL[i]);
             actionViews[i].setOnClickListener(this);
+        }
+
+        for (int i = 0; i < ACTION_ITEMS_LOGGED_IN_ONLY.length; i++) {
+            loggedInOnyActionViews[i] = getView().findViewById(ACTION_ITEMS_LOGGED_IN_ONLY[i]);
         }
 
         wikipediaZeroText = (TextView) getView().findViewById(R.id.nav_item_zero);
@@ -74,11 +86,15 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
         // Do login / logout swap
         if (app.getUserInfoStorage().isLoggedIn()) {
             loginContainer.setVisibility(View.GONE);
-            usernameContainer.setVisibility(View.VISIBLE);
+            for (int i = 0; i < loggedInOnyActionViews.length; i++) {
+                loggedInOnyActionViews[i].setVisibility(View.VISIBLE);
+            }
             usernamePrimaryText.setText(app.getUserInfoStorage().getUser().getUsername());
         } else {
-            usernameContainer.setVisibility(View.GONE);
             loginContainer.setVisibility(View.VISIBLE);
+            for (int i = 0; i < loggedInOnyActionViews.length; i++) {
+                loggedInOnyActionViews[i].setVisibility(View.GONE);
+            }
         }
 
         // Show Wikipedia Zero if ON, otherwise hide it
@@ -132,7 +148,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
             case R.id.nav_item_random:
                 randomHandler.doVistRandomArticle();
                 break;
-            case R.id.nav_item_username:
+            case R.id.nav_item_my_contributions:
                 intent.setClass(this.getActivity(), UserContribsActivity.class);
                 startActivity(intent);
                 break;
@@ -142,6 +158,9 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 // Will be moved to a better email address at some point
                 intent.setData(Uri.parse("mailto:yuvipanda@wikimedia.org?subject=Android App " + WikipediaApp.APP_VERSION_STRING + " Feedback"));
                 startActivity(intent);
+                break;
+            case R.id.nav_item_logout:
+                doLogout();
                 break;
             default:
                 throw new RuntimeException("Unknown ID clicked!");
