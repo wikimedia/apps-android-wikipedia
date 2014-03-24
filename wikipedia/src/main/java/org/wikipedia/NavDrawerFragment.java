@@ -156,7 +156,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 // Will be stripped out in prod builds
                 intent.setAction(Intent.ACTION_SENDTO);
                 // Will be moved to a better email address at some point
-                intent.setData(Uri.parse("mailto:yuvipanda@wikimedia.org?subject=Android App " + WikipediaApp.APP_VERSION_STRING + " Feedback"));
+                intent.setData(Uri.parse("mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App " + WikipediaApp.APP_VERSION_STRING + " Feedback"));
                 startActivity(intent);
                 break;
             case R.id.nav_item_logout:
