@@ -265,9 +265,8 @@ public class WikipediaApp extends Application {
     public static void setCarrierMessage(String m) { carrierMessage = m; }
     public static String getCarrierMessage() { return carrierMessage; }
 
-    private static boolean wikipediaZeroDevModeOn = false;
+    private static final boolean WIKIPEDIA_ZERO_DEV_MODE_ON = true;
     public static boolean isWikipediaZeroDevmodeOn() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(app);
-        return prefs.getBoolean(PREFERENCE_ZERO_DEVMODE, false);
+        return WIKIPEDIA_ZERO_DEV_MODE_ON;
     }
 }

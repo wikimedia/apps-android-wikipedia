@@ -20,12 +20,6 @@
                     android:data="@string/zero_webpage_url"
                     />
         </Preference>
-        <CheckBoxPreference
-                android:key="zero_dev_option_on"
-                android:title="@string/zero_settings_devmode"
-                android:defaultValue="false"
-                android:summary="@string/zero_settings_devmode_summary"
-                />
 
     </PreferenceCategory>
 </PreferenceScreen>
