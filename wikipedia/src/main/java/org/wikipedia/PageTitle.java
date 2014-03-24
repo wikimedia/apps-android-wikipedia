@@ -73,7 +73,7 @@ public class PageTitle implements Parcelable {
     public String getFragment() { return fragment; }
 
     public String getDisplayText() {
-        return getText().replace("_", " ");
+        return getPrefixedText().replace("_", " ");
     }
 
     public String getHashedItentifier() {

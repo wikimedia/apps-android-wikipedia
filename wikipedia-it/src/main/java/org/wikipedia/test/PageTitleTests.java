@@ -65,4 +65,14 @@ public class PageTitleTests extends TestCase {
         assertEquals(enwiki, new PageTitle(null, "Test", enwiki).getSite());
         assertEquals(enwiki, new Site("en.wikipedia.org"));
     }
+
+    public void testParsing() throws Exception {
+        Site enwiki = new Site("en.wikipedia.org");
+
+        assertEquals("Hello", new PageTitle("Hello", enwiki).getDisplayText());
+        assertEquals("Talk:Hello", new PageTitle("Talk:Hello", enwiki).getDisplayText());
+        assertEquals("Hello", new PageTitle("Talk:Hello", enwiki).getText());
+        assertEquals("Talk", new PageTitle("Talk:Hello", enwiki).getNamespace());
+        assertEquals("Wikipedia talk:Hello world", new PageTitle("Wikipedia_talk:Hello world", enwiki).getDisplayText());
+    }
 }
