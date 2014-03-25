@@ -47,6 +47,10 @@ public class EditSectionActivity extends ActionBarActivity {
 
     private EditPreviewFragment editPreviewFragment;
 
+    private View editSaveOptionsContainer;
+    private View editSaveOptionAnon;
+    private View editSaveOptionLogIn;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_section);
@@ -82,6 +86,10 @@ public class EditSectionActivity extends ActionBarActivity {
         editSummaryHandler = new EditSummaryHandler(this);
         editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
 
+        editSaveOptionsContainer = findViewById(R.id.edit_section_save_options_container);
+        editSaveOptionLogIn = findViewById(R.id.edit_section_save_option_login);
+        editSaveOptionAnon = findViewById(R.id.edit_section_save_option_anon);
+
         editPreviewFragment.setEditSummaryHandler(editSummaryHandler);
 
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
@@ -110,7 +118,33 @@ public class EditSectionActivity extends ActionBarActivity {
             }
         });
 
+        editSaveOptionAnon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Utils.fadeOut(editSaveOptionsContainer);
+                doSave();
+            }
+        });
+
+        editSaveOptionLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loginIntent = new Intent(EditSectionActivity.this, LoginActivity.class);
+                startActivityForResult(loginIntent, LoginActivity.REQUEST_LOGIN);
+            }
+        });
+
         fetchSectionText();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == LoginActivity.REQUEST_LOGIN) {
+            if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+                Utils.fadeOut(editSaveOptionsContainer);
+                doSave();
+            }
+        }
     }
 
     private ProgressDialog progressDialog;
@@ -231,6 +265,14 @@ public class EditSectionActivity extends ActionBarActivity {
         Utils.crossFade(abusefilterContainer, sectionContainer);
     }
 
+    private void showSaveOptions() {
+        if (editSaveOptionsContainer.getVisibility() == View.VISIBLE) {
+            doSave();
+        } else {
+            Utils.fadeIn(editSaveOptionsContainer);
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -239,10 +281,16 @@ public class EditSectionActivity extends ActionBarActivity {
                 finish();
                 return true;
             case R.id.menu_save_section:
-                if (editPreviewFragment.handleBackPressed()) {
-                    doSave();
+                if (editPreviewFragment.isActive()) {
+                    if (app.getUserInfoStorage().isLoggedIn()) {
+                        editPreviewFragment.hide();
+                        doSave();
+                    } else {
+                        showSaveOptions();
+                    }
                     editSummaryHandler.persistSummary();
                 } else {
+                    Utils.hideSoftKeyboard(this);
                     editPreviewFragment.showPreview(title, sectionText.getText().toString());
                 }
                 return true;
@@ -296,6 +344,10 @@ public class EditSectionActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
+        if (editSaveOptionsContainer.getVisibility() == View.VISIBLE) {
+            Utils.fadeOut(editSaveOptionsContainer);
+            return;
+        }
         if (!(editPreviewFragment.handleBackPressed())) {
             if (!captchaHandler.cancelCaptcha() && abusefilterEditResult != null) {
                 cancelAbuseFilter();

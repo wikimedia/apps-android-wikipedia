@@ -68,4 +68,8 @@
   <string name="activity_my_contributions_title">Title for screen showing list of edits by current user.</string>
   <string name="nav_item_my_contributions">Text for item in nav menu that when tapped shows list of edits made by the user.</string>
   <string name="nav_item_send_feedback">Text for button to send app feedback</string>
+  <string name="edit_save_action_login">Title of action that takes user to login screen so they can login before saving an edit</string>
+  <string name="edit_save_action_ip">Title of action that lets the user save the current edit anonymously</string>
+  <string name="edit_save_action_ip_description">Description for action that takes user to login screen so they can login before saving an edit</string>
+  <string name="edit_save_action_login_description">Description for action that lets the user save the current edit anonymously</string>
 </resources>

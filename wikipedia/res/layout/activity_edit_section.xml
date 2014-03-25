@@ -92,4 +92,5 @@
                 />
         <include layout="@layout/group_edit_summary" />
     </LinearLayout>
+    <include layout="@layout/group_edit_save_options"/>
 </FrameLayout>

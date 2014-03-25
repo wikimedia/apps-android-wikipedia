@@ -123,4 +123,8 @@
     <string name="user_contribs_more_action">Load more</string>
     <string name="activity_my_contributions_title">My Contributions</string>
     <string name="nav_item_my_contributions">My contributions</string>
+    <string name="edit_save_action_login">Log in and save</string>
+    <string name="edit_save_action_ip">Save anonymously</string>
+    <string name="edit_save_action_login_description">Your edits will be publicly attributed to your username and other editors can connect with you better</string>
+    <string name="edit_save_action_ip_description">Your edits will be publicly attributed to your IP address, which changes frequently</string>
 </resources>

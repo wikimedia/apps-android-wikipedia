@@ -13,6 +13,11 @@ import org.wikipedia.*;
 import org.wikipedia.createaccount.*;
 
 public class LoginActivity extends ActionBarActivity {
+    public static final int REQUEST_LOGIN = 1;
+
+    public static final int RESULT_LOGIN_SUCCESS = 1;
+    public static final int RESULT_LOGIN_FAIL = 2;
+
     private EditText usernameText;
     private EditText passwordText;
     private CheckBox showPassword;
@@ -62,6 +67,9 @@ public class LoginActivity extends ActionBarActivity {
                 startActivityForResult(intent, CreateAccountActivity.ACTION_CREATE_ACCOUNT);
             }
         });
+
+        // Assume no login by default
+        setResult(RESULT_LOGIN_FAIL);
     }
 
     @Override
@@ -108,6 +116,7 @@ public class LoginActivity extends ActionBarActivity {
                     Toast.makeText(LoginActivity.this, R.string.login_success_toast, Toast.LENGTH_LONG).show();
 
                     Utils.hideSoftKeyboard(LoginActivity.this);
+                    setResult(RESULT_LOGIN_SUCCESS);
 
                     finish();
                 } else {

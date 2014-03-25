@@ -91,12 +91,21 @@ public class EditPreviewFragment extends Fragment {
     }
 
     public boolean handleBackPressed() {
-        if (previewContainer.getVisibility() == View.VISIBLE) {
-            Utils.crossFade(previewContainer, getActivity().findViewById(R.id.edit_section_container));
-            getActivity().getActionBar().setTitle(R.string.edit_section_activity_title);
-            return true && editSummaryHandler.handleBackPressed();
+        if (isActive()) {
+            hide();
+            return editSummaryHandler.handleBackPressed();
         }
         return false;
+    }
+
+    public void hide() {
+        Utils.crossFade(previewContainer, getActivity().findViewById(R.id.edit_section_container));
+        getActivity().getActionBar().setTitle(R.string.edit_section_activity_title);
+    }
+
+
+    public boolean isActive() {
+        return previewContainer.getVisibility() == View.VISIBLE;
     }
 
     @Override
