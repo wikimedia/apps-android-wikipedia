@@ -194,11 +194,7 @@ public class SearchArticlesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle title = (PageTitle) searchResultsList.getAdapter().getItem(position);
-                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-                InputMethodManager keyboard = (InputMethodManager)app.getSystemService(Context.INPUT_METHOD_SERVICE);
-                keyboard.hideSoftInputFromWindow(searchTermText.getWindowToken(), 0);
-                app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
-                hideSearchResults();
+                navigateToTitle(title);
             }
         });
 
@@ -239,6 +235,23 @@ public class SearchArticlesFragment extends Fragment {
             }
         });
 
+        searchTermText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int action, KeyEvent keyEvent) {
+                if (action == EditorInfo.IME_ACTION_GO) {
+                    String searchTerm = searchTermText.getText().toString();
+                    if (searchTerm.length() > 0) {
+                        PageTitle title = new PageTitle(searchTermText.getText().toString(), app.getPrimarySite());
+                        navigateToTitle(title);
+                    } else {
+                        hideSearchResults();
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
         adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
@@ -255,6 +268,14 @@ public class SearchArticlesFragment extends Fragment {
         });
 
         return parentLayout;
+    }
+
+    private void navigateToTitle(PageTitle title) {
+        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
+        InputMethodManager keyboard = (InputMethodManager)app.getSystemService(Context.INPUT_METHOD_SERVICE);
+        keyboard.hideSoftInputFromWindow(searchTermText.getWindowToken(), 0);
+        app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
+        hideSearchResults();
     }
 
     private void startSearch(String term) {
