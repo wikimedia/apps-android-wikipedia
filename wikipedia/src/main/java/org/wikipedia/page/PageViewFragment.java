@@ -245,7 +245,12 @@ public class PageViewFragment extends Fragment {
         @Override
         public List<Section> processResult(ApiResult result) throws Throwable {
             Log.d("Wikipedia", result.asObject().toString(4));
-            pageProperties = new PageProperties(Utils.parseMWDate(result.asObject().optJSONObject("mobileview").optString("lastmodified")));
+            JSONObject mobileView = result.asObject().optJSONObject("mobileview");
+            pageProperties = new PageProperties(Utils.parseMWDate(mobileView.optString("lastmodified")));
+            if (mobileView.has("redirected")) {
+                // Handle redirects properly.
+                title = new PageTitle(mobileView.optString("redirected"), title.getSite());
+            }
             return super.processResult(result);
         }
 
