@@ -114,6 +114,12 @@ a.edit_section_button {
   float: right;
   display: inline-float;
 }
+.content-rtl a.edit_section_button {
+  float: left;
+  /* Flip it! */
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
 /* Loading animation in pure CSS
    Thanks to http://dabblet.com/gist/7708654 */
 .loading {
