@@ -19,7 +19,7 @@
   <string name="nav_item_saved_pages">Elmentett lapok</string>
   <string name="menu_save_page">Lap mentése</string>
   <string name="menu_share_page">Megosztás</string>
-  <string name="dialog_title_clear_saved_pages">Törlöd a összes mentett lapot?</string>
+  <string name="dialog_title_clear_saved_pages">Törlöd az összes mentett lapot?</string>
   <string name="dialog_message_clear_saved_pages">Biztosan törölni szeretnéd az összes mentett lapot?</string>
   <string name="toast_saving_page">Oldal mentése...</string>
   <string name="toast_saved_page">Elmentett lap</string>

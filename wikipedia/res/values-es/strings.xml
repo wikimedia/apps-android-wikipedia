@@ -5,7 +5,7 @@
   <string name="no">No</string>
   <string name="acra_report_dialog_title">Wikipedia falló :(</string>
   <string name="acra_report_dialog_text">Enviar un informe de accidente a tontos</string>
-  <string name="acra_report_dialog_comment">¿Qué hacías cuando ocurrió el accidente?</string>
+  <string name="acra_report_dialog_comment">¿Qué hacías cuando ocurrió el fallo?</string>
   <string name="search_hint">Buscar en Wikipedia</string>
   <string name="history_activity_title">Historial</string>
   <string name="nav_item_history">Historial</string>
@@ -19,6 +19,7 @@
   <string name="nav_item_saved_pages">Páginas guardadas</string>
   <string name="menu_save_page">Guardar la página</string>
   <string name="menu_share_page">Compartir</string>
+  <string name="share_via">Compartir mediante</string>
   <string name="dialog_title_clear_saved_pages">¿Quieres limpiar todas las páginas guardadas?</string>
   <string name="dialog_message_clear_saved_pages">¿Estás seguro que deseas limpiar todas páginas guardadas?</string>
   <string name="toast_saving_page">Guardando la página…</string>
@@ -86,7 +87,7 @@
   <string name="create_account_generic_error">No se puede crear la cuenta</string>
   <string name="preferences_general_heading">General</string>
   <string name="zero_free_verbiage">Acceso libre a Wikipedia desde tu operador de telefonía móvil (cargos de datos renunciados)</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia cero apagado (pueden aplicar cargos de datos estándar)</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero desactivado (pueden aplicar cargos de uso de datos)</string>
   <string name="zero_search_hint">Buscar en Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avisar al salir de Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Si tu operador de telefonía móvil renuncia a cargos de acceso de datos para la aplicación de Wikipedia a través de una asociación de Wikipedia cero, dejando este valor comprobado te ayuda a saber cuando vas a la aplicación de Wikipedia y podría ser acusado.</string>
@@ -102,8 +103,13 @@
   <string name="zero_learn_more_dismiss">Descartar</string>
   <string name="zero_settings">Configuración</string>
   <string name="zero_settings_devmode">Modo de desarrollador Zero</string>
-  <string name="zero_settings_devmode_summary">Durante el desarrollo de este permite la ejecución de código de W0 cosas.</string>
+  <string name="zero_settings_devmode_summary" fuzzy="true">Durante el desarrollo de este permite la ejecución de código de W0 cosas.</string>
   <string name="edit_preview_fetching_dialog_message">Procesando la previsualización…</string>
   <string name="edit_preview_activity_title">Vista previa de edición</string>
   <string name="create_account_logging_in">Iniciando sesión...</string>
+  <string name="nav_item_send_feedback" fuzzy="true">Enviar comentarios</string>
+  <string name="edit_summary_hint">Resumen de edición</string>
+  <string name="nav_item_random">Al azar</string>
+  <string name="random_progress">Obteniendo una página al azar…</string>
+  <string name="nav_item_tap_to_logout">Toca para cerrar sesión</string>
 </resources>

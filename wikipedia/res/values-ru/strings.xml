@@ -19,6 +19,7 @@
   <string name="nav_item_saved_pages">Сохранённые страницы</string>
   <string name="menu_save_page">Сохранить страницу</string>
   <string name="menu_share_page">Поделиться</string>
+  <string name="share_via">Поделиться через</string>
   <string name="dialog_title_clear_saved_pages">Очистить сохранённые страницы?</string>
   <string name="dialog_message_clear_saved_pages">Вы уверены, что хотите очистить все сохранённые страницы?</string>
   <string name="toast_saving_page">Сохранение страницы…</string>
@@ -102,11 +103,19 @@
   <string name="zero_learn_more_dismiss">Закрыть</string>
   <string name="zero_settings">Настройки</string>
   <string name="zero_settings_devmode">Режим разработчика Zero</string>
-  <string name="zero_settings_devmode_summary">В процессе разработки это позволяет выполнять код, относящийся к W0.</string>
+  <string name="zero_settings_devmode_summary">В процессе разработки это позволяет выполнять код, относящийся к Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Получение предварительного просмотра…</string>
   <string name="edit_preview_activity_title">Предварительный просмотр правки</string>
   <string name="create_account_logging_in">Вход в систему…</string>
-  <string name="nav_item_send_feedback">Отправить отзыв</string>
+  <string name="nav_item_send_feedback" fuzzy="true">Отправить отзыв</string>
   <string name="edit_summary_guide_text">Расскажите нам, как вы улучшили эту статью. Это помогает другим редакторам быстро отпатрулировать вашу правку.</string>
   <string name="edit_summary_hint">Описание изменений</string>
+  <string name="nav_item_random">Случайная</string>
+  <string name="random_progress">Выбор случайной страницы…</string>
+  <string name="nav_item_login_benefits">Если вы войдёте в систему, ваши правкии будут связаны с вашим именем участника и ваш IP не будет быть отображаться публично.</string>
+  <string name="nav_item_tap_to_logout">Нажмите, чтобы выйти</string>
+  <string name="create_account_account_created_toast">Учётная запись создана!</string>
+  <string name="user_contribs_more_action">Загрузить ещё</string>
+  <string name="activity_my_contributions_title">Вклад</string>
+  <string name="nav_item_my_contributions">Вклад</string>
 </resources>

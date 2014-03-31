@@ -20,7 +20,6 @@
   <string name="menu_save_page">Pagina opslaan</string>
   <string name="menu_share_page">Delen</string>
   <string name="share_via">Delen via</string>
-  <string name="share_lead_in_text">Gevonden met de Wikipedia App:</string>
   <string name="dialog_title_clear_saved_pages">Opgeslagen pagina\'s wissen?</string>
   <string name="dialog_message_clear_saved_pages">Weet u zeker dat u alle opgeslagen pagina\'s wilt wissen?</string>
   <string name="toast_saving_page">Pagina opslaan...</string>
@@ -29,6 +28,7 @@
   <string name="delete_selected_saved_pages">Wissen</string>
   <string name="toast_saved_page_deleted">Opgeslagen pagina\'s gewist</string>
   <string name="last_updated_text">%1$s voor het laatst bijgewerkt</string>
+  <string name="content_license_html">Inhoud is beschikbaar onder de licentie &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
   <string name="preference_title_language">Taal</string>
   <string name="preference_summary_language">Taal inhoud</string>
   <string name="nav_item_preferences">Instellingen</string>
@@ -48,6 +48,8 @@
   <string name="dialog_message_edit_failed_cancel">Annuleren</string>
   <string name="menu_show_toc">Inhoudsopgave</string>
   <string name="search_no_results_found">Geen resultaten gevonden</string>
+  <string name="edit_section_captcha_message">Voer de onderstaande woorden in om te beschermen tegen geautomatiseerde spam</string>
+  <string name="edit_section_captcha_hint">Herhaal de bovenstaande woorden</string>
   <string name="title_captcha">Voer CAPTCHA in</string>
   <string name="edit_section_abusefilter_back_text">Mijn bewerking wijzigen</string>
   <string name="edit_section_captcha_reload">Klik om opnieuw te laden</string>
@@ -62,6 +64,7 @@
   <string name="login_error_wrong_username">Onjuiste gebruikersnaam</string>
   <string name="login_success_toast">Aangemeld</string>
   <string name="login_error_blocked">Deze gebruiker is geblokkeerd</string>
+  <string name="login_error_throttled">Te veel aanmeldpogingen. Wacht een paar minuten en probeer het daarna opnieuw.</string>
   <string name="login_error_unknown">Aanmelden mislukt :(</string>
   <string name="login_error_no_network">Geen netwerkverbinding</string>
   <string name="nav_item_logout">Afmelden</string>
@@ -87,6 +90,7 @@
   <string name="zero_charged_verbiage">Wikipedia Zero UIT (ER KUNNEN KOSTEN GEREKEND WORDEN VOOR MOBIELE DATA)</string>
   <string name="zero_search_hint">In Wikipedia Zero zoeken</string>
   <string name="zero_warn_when_leaving">Waarschuwen bij het verlaten van Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving_summary">Als u mobiele provider geen kosten rekent voor de Wikipedia vanwege een Wikipedia Zero partnerschap, dan zorgt het inschakelen van deze instelling ervoor dat u wordt gewaarschuwd als u Wikipedia verlaat en mogelijk kosten voor data moet betalen.</string>
   <string name="zero_webpage_title">Veel gestelde vragen over Wikipedia Zero</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
@@ -99,10 +103,23 @@
   <string name="zero_learn_more_dismiss">Sluiten</string>
   <string name="zero_settings">Instellingen</string>
   <string name="zero_settings_devmode">Zero ontwikkelmodus</string>
+  <string name="zero_settings_devmode_summary">Deze instelling schakelt tijdens de ontwikkeling de uitvoering van code voor Wikipedia Zero in.</string>
   <string name="edit_preview_fetching_dialog_message">Ophalen van voorbeeld...</string>
   <string name="edit_preview_activity_title">Voorbeeld bewerken</string>
   <string name="create_account_logging_in">Aan het aanmelden...</string>
-  <string name="nav_item_send_feedback">Terugkoppeling verzenden</string>
+  <string name="nav_item_send_feedback">Terugkoppeling over app geven</string>
+  <string name="edit_summary_guide_text">Geef aan hoe u de deze pagina hebt verbeterd. Dit helpt andere redacteuren uw bewerkingen sneller te controleren.</string>
   <string name="edit_summary_hint">Bewerkingssamenvatting</string>
   <string name="nav_item_random">Willekeurig</string>
+  <string name="random_progress">Willekeurige pagina ophalen...</string>
+  <string name="nav_item_login_benefits">Als u aanmeldt, worden uw bewerkingen gekoppeld aan uw gebruikersnaam en dan is uw IP-adres niet openbaar zichtbaar.</string>
+  <string name="nav_item_tap_to_logout">Klik om af te melden</string>
+  <string name="create_account_account_created_toast">Gebruiker aangemaakt</string>
+  <string name="user_contribs_more_action">Meer laden</string>
+  <string name="activity_my_contributions_title">Uw bijdragen</string>
+  <string name="nav_item_my_contributions">Uw bijdragen</string>
+  <string name="edit_save_action_login">Aanmelden en opslaan</string>
+  <string name="edit_save_action_ip">Als anoniem opslaan</string>
+  <string name="edit_save_action_login_description">Uw bewerkingen wordt openbaar toegeschreven aan uw gebruikersnaam en andere bewerkers kunnen dan eenvoudiger met u in contact treden</string>
+  <string name="edit_save_action_ip_description">Uw bewerkingen worden openbaar toegeschreven aan uw IP-adres, dat mogelijk vaak wijzigt</string>
 </resources>

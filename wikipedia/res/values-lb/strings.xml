@@ -16,10 +16,12 @@
   <string name="menu_save_page">Säit späicheren</string>
   <string name="menu_share_page">Deelen</string>
   <string name="dialog_title_clear_saved_pages">Gespäichert Säiten eidelmaachen?</string>
+  <string name="dialog_message_clear_saved_pages">Sidd Dir sécher datt Dir all gespäichert Säite läsche wëllt?</string>
   <string name="toast_saving_page">Späichere vun der Säit...</string>
   <string name="toast_saved_page">Gespäichert Säit</string>
   <string name="toast_save_page_failed">D\'Späichere vun der Säit huet net funktionéiert :(</string>
   <string name="delete_selected_saved_pages">Läschen</string>
+  <string name="toast_saved_page_deleted">Gespäichert Säit(e) geläscht</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>
   <string name="preference_title_language">Sprooch</string>
   <string name="preference_summary_language">Sprooch vum Inhalt</string>
@@ -40,6 +42,7 @@
   <string name="dialog_message_edit_failed_cancel">Ofbriechen</string>
   <string name="menu_show_toc">Inhaltsverzeechnes</string>
   <string name="search_no_results_found">Näischt fonnt</string>
+  <string name="edit_section_captcha_hint">D\'Wierder hei driwwer widderhuelen</string>
   <string name="title_captcha">Captcha aginn</string>
   <string name="edit_section_abusefilter_back_text">Ännerungen u menger Ännerung maachen</string>
   <string name="nav_item_login">Aloggen</string>
@@ -82,6 +85,12 @@
   <string name="zero_learn_more_dismiss">Verwerfen</string>
   <string name="zero_settings">Astellungen</string>
   <string name="create_account_logging_in">Aloggen...</string>
-  <string name="nav_item_send_feedback">Feedback schécken</string>
+  <string name="nav_item_send_feedback" fuzzy="true">Feedback schécken</string>
+  <string name="edit_summary_guide_text">Sot eis wéi Dir dësen Artikel verbessert hutt. Dat hëlleft aneren Auteure fir Är Ännerung séier nozekucken.</string>
   <string name="edit_summary_hint">Resumé vun der Ännerung</string>
+  <string name="nav_item_random">Zoufall</string>
+  <string name="nav_item_login_benefits">Wann Dir Iech aloggt sinn Är Ännerunge mat Ärem Benotzernumm associéiert an Är IP-Adress ass net ëffentlech ze gesinn.</string>
+  <string name="user_contribs_more_action">Méi lueden</string>
+  <string name="activity_my_contributions_title">Meng Kontributiounen</string>
+  <string name="nav_item_my_contributions">Meng Kontributiounen</string>
 </resources>

@@ -19,6 +19,7 @@
   <string name="nav_item_saved_pages">Trang đã lưu</string>
   <string name="menu_save_page">Lưu trang</string>
   <string name="menu_share_page">Chia sẻ</string>
+  <string name="share_via">Chia sẻ qua</string>
   <string name="dialog_title_clear_saved_pages">Xóa các trang đã lưu?</string>
   <string name="dialog_message_clear_saved_pages">Bạn có chắc chắn muốn xóa tất cả các trang đã lưu?</string>
   <string name="toast_saving_page">Đang lưu trang…</string>
@@ -102,11 +103,19 @@
   <string name="zero_learn_more_dismiss">Bỏ qua</string>
   <string name="zero_settings">Tùy chọn</string>
   <string name="zero_settings_devmode">Chế độ phát triển Miễn phí</string>
-  <string name="zero_settings_devmode_summary">Trong quá trình phát triển, hộp này cho phép thực thi mã vật W0.</string>
+  <string name="zero_settings_devmode_summary">Trong quá trình phát triển, hộp này cho phép thực thi mã vật Wikipedia Miễn phí.</string>
   <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem trước…</string>
   <string name="edit_preview_activity_title">Xem trước sửa đổi</string>
   <string name="create_account_logging_in">Đang đăng nhập…</string>
-  <string name="nav_item_send_feedback">Gửi phản hồi</string>
+  <string name="nav_item_send_feedback" fuzzy="true">Gửi phản hồi</string>
   <string name="edit_summary_guide_text">Hãy cho biết bạn đã cải thiện bài này thế nào, để cho người khác có thể xem qua sửa đổi của bạn một cách nhanh chóng.</string>
   <string name="edit_summary_hint">Tóm lược sửa đổi</string>
+  <string name="nav_item_random">Ngẫu nhiên</string>
+  <string name="random_progress">Đang lấy trang ngẫu nhiên…</string>
+  <string name="nav_item_login_benefits">Nếu bạn đăng nhập, các sửa đổi của bạn sẽ ghi nhận tên người dùng của bạn và địa chỉ IP sẽ không được hiển thị công khai.</string>
+  <string name="nav_item_tap_to_logout">Chạm để đăng xuất</string>
+  <string name="create_account_account_created_toast">Đã mở tài khoản thành công!</string>
+  <string name="user_contribs_more_action">Tải thêm</string>
+  <string name="activity_my_contributions_title">Đóng góp của Tôi</string>
+  <string name="nav_item_my_contributions">Đóng góp của tôi</string>
 </resources>

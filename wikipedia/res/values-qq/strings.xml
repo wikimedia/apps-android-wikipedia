@@ -17,7 +17,6 @@
   <string name="menu_save_page">Menu item text for saving the currently active page</string>
   <string name="menu_share_page">Menu item text for sharing the currently active page</string>
   <string name="share_via">Dialog title text for Share list</string>
-  <string name="share_lead_in_text">Lead in text for app receiving URL for sharing</string>
   <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your saved pages</string>
   <string name="dialog_message_clear_saved_pages">Message for dialog box asking if you want to clear all your saved pages</string>
   <string name="toast_saving_page">Small toast (popup) message saying that a page is being saved</string>
@@ -62,14 +61,18 @@
   <string name="zero_settings">Generic Settings heading for Wikipedia Zero</string>
   <string name="zero_settings_devmode">Prerelease label text for enabling Wikipedia Zero Devmode to enable Wikipedia Zero support</string>
   <string name="zero_settings_devmode_summary">Prerelease explanation text explaining that Wikipedia Zero Devmode on means that Wikipedia Zero detection will be turned on</string>
+  <string name="nav_item_send_feedback">Text for button to send app feedback</string>
+  <string name="nav_item_random">{{Identical|Random}}</string>
   <string name="random_progress">Message shown in progress popup dialog while waiting for a random article to be fetched</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.</string>
-  <string name="user_contribs_more_action">Text shown as a button at the end of lists that let the user load more items.</string>
-  <string name="activity_my_contributions_title">Title for screen showing list of edits by current user.</string>
-  <string name="nav_item_my_contributions">Text for item in nav menu that when tapped shows list of edits made by the user.</string>
-  <string name="nav_item_send_feedback">Text for button to send app feedback</string>
+  <string name="user_contribs_more_action">Text shown as a button at the end of lists that let the user load more items.
+{{Identical|Load more}}</string>
+  <string name="activity_my_contributions_title">Title for screen showing list of edits by current user.
+{{Identical|Contribution}}</string>
+  <string name="nav_item_my_contributions">Text for item in nav menu that when tapped shows list of edits made by the user.
+{{Identical|Contribution}}</string>
   <string name="edit_save_action_login">Title of action that takes user to login screen so they can login before saving an edit</string>
   <string name="edit_save_action_ip">Title of action that lets the user save the current edit anonymously</string>
-  <string name="edit_save_action_ip_description">Description for action that takes user to login screen so they can login before saving an edit</string>
   <string name="edit_save_action_login_description">Description for action that lets the user save the current edit anonymously</string>
+  <string name="edit_save_action_ip_description">Description for action that takes user to login screen so they can login before saving an edit</string>
 </resources>

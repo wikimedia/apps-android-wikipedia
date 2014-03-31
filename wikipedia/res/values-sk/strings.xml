@@ -19,6 +19,7 @@
   <string name="nav_item_saved_pages">Uložené stránky</string>
   <string name="menu_save_page">Uložiť stránku</string>
   <string name="menu_share_page">Zdieľať</string>
+  <string name="share_via">Zdieľať cez</string>
   <string name="dialog_title_clear_saved_pages">Vymazať všetky uložené stránky?</string>
   <string name="dialog_message_clear_saved_pages">Naozaj chcete vymazať všetky uložené stránky?</string>
   <string name="toast_saving_page">Ukladanie stránky...</string>
@@ -50,6 +51,8 @@
   <string name="edit_section_captcha_message">Kvôli ochrane pred automatizovaným spamom, prosím zadajte slová ktoré sa objavujú nižšie.</string>
   <string name="edit_section_captcha_hint">Zadajte text z obrázku vyššie</string>
   <string name="title_captcha">Zadajte text</string>
+  <string name="edit_section_abusefilter_back_text">Zmeniť moju úpravu</string>
+  <string name="edit_section_captcha_reload">Ťuknutím načítate captchu znovu</string>
   <string name="nav_item_login">Prihlásiť sa</string>
   <string name="login_username_hint">Používateľské meno</string>
   <string name="login_password_hint">Heslo</string>
@@ -75,6 +78,7 @@
   <string name="edit_section_activity_title">Upraviť sekciu</string>
   <string name="dialog_create_account_checking_progress">Overujem</string>
   <string name="create_account_email_hint">E-mail (voliteľné)</string>
+  <string name="create_account_password_repeat_hint">Zopakujte heslo</string>
   <string name="create_account_passwords_mismatch_error">Heslá sa nezhodujú</string>
   <string name="create_account_email_error">Neplatná e-mailová adresa</string>
   <string name="create_account_username_exists_error">Používateľské meno sa už používa</string>
@@ -83,10 +87,14 @@
   <string name="create_account_generic_error">Nepodarilo sa vytvoriť účet</string>
   <string name="preferences_general_heading">Všeobecné</string>
   <string name="zero_free_verbiage">Voľný prístup k Wikipédii od vášho mobilného operátora (neplatíte poplatky za prenos dát)</string>
-  <string name="zero_warn_when_leaving">Upozorniť ma ak opúšťam Wikipédia Zero</string>
+  <string name="zero_charged_verbiage">Wikipédia Zero je VYPNUTÁ (MÔŽU SA OBJAVIŤ ŠTANDARDNÉ POPLATKY ZA PRENOS DÁT)</string>
+  <string name="zero_search_hint">Hľadať vo Wikipédii Zero</string>
+  <string name="zero_warn_when_leaving">Upozorniť ma ak opúšťam Wikipédiu Zero</string>
+  <string name="zero_warn_when_leaving_summary">Pokiaľ váš mobilní operátor v rámci Wikipédie Zero neúčtuje poplatky za dátové pripojenie k Wikipédii, ponechaním tohto políčka zaškrtnutého zaistíte, že se dozviete o jej opustení a hrozbe platenia za dátové pripojenie.</string>
   <string name="zero_webpage_title">Wikipédia Zero FAQ</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipédia Zero</string>
+  <string name="zero_interstitial_title">Opúšťate Wikipédiu Zero</string>
   <string name="zero_interstitial_leave_app">Pokračovať na externú stránku? Môžu sa objaviť štandardné poplatky za prenos dát.</string>
   <string name="zero_interstitial_continue">Pokračovať</string>
   <string name="zero_interstitial_cancel">Zrušiť</string>
@@ -94,6 +102,20 @@
   <string name="zero_learn_more_learn_more">Ďalšie informácie</string>
   <string name="zero_learn_more_dismiss">Zrušiť</string>
   <string name="zero_settings">Nastavenia</string>
+  <string name="zero_settings_devmode">Vývojársky režim</string>
+  <string name="zero_settings_devmode_summary">Počas vývoja to umožňuje spustenie kódu týkajúceho sa Wikipédie Zero.</string>
+  <string name="edit_preview_fetching_dialog_message">Generujem náhľad...</string>
+  <string name="edit_preview_activity_title">Zobraziť úpravy</string>
   <string name="create_account_logging_in">Prihlasujem...</string>
-  <string name="nav_item_send_feedback">Poslať spätnú väzbu</string>
+  <string name="nav_item_send_feedback" fuzzy="true">Poslať spätnú väzbu</string>
+  <string name="edit_summary_guide_text">Povedzte nám, ako ste tento článok vylepšili. Toto pomôže ostatným redaktorom rýchlejšie skontrolovať vaše úpravy.</string>
+  <string name="edit_summary_hint">Zhrnutie úprav</string>
+  <string name="nav_item_random">Náhodná</string>
+  <string name="random_progress">Generujem náhodnú stránku...</string>
+  <string name="nav_item_login_benefits">Ak sa prihlásite, vaše úpravy budú spojené s vaším používateľským menom a vaša IP adresa nebude viditeľná pre ostatných.</string>
+  <string name="nav_item_tap_to_logout">Ťuknite na položku odhlásiť sa</string>
+  <string name="create_account_account_created_toast">Účet bol vytvorený!</string>
+  <string name="user_contribs_more_action">Načítať viac</string>
+  <string name="activity_my_contributions_title">Moje príspevky</string>
+  <string name="nav_item_my_contributions">Moje príspevky</string>
 </resources>

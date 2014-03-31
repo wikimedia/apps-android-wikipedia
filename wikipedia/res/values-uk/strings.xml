@@ -19,6 +19,7 @@
   <string name="nav_item_saved_pages">Збережені сторінки</string>
   <string name="menu_save_page">Зберегти сторінку</string>
   <string name="menu_share_page">Поділитися</string>
+  <string name="share_via">Поділитися через</string>
   <string name="dialog_title_clear_saved_pages">Очистити збережені сторінки?</string>
   <string name="dialog_message_clear_saved_pages">Ви впевнені, що хочете видалити усі збережені сторінки?</string>
   <string name="toast_saving_page">Збереження сторінки...</string>
@@ -102,11 +103,19 @@
   <string name="zero_learn_more_dismiss">Відхилити</string>
   <string name="zero_settings">Налаштування</string>
   <string name="zero_settings_devmode">Режим разрбника Zero</string>
-  <string name="zero_settings_devmode_summary">У процесі розробки це дозволяє виконувати код, що відноситься до W0.</string>
+  <string name="zero_settings_devmode_summary">У процесі розробки це дозволяє виконувати код, що відноситься до Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Отримання попереднього перегляду...</string>
   <string name="edit_preview_activity_title">Попередній перегляд редагування</string>
   <string name="create_account_logging_in">Входження до системи…</string>
-  <string name="nav_item_send_feedback">Надіслати відгук</string>
+  <string name="nav_item_send_feedback" fuzzy="true">Надіслати відгук</string>
   <string name="edit_summary_guide_text">Розкажіть нам, як ви поліпшили цю статтю. Це допомагає іншим редакторам швидко відстежити вашу правку.</string>
   <string name="edit_summary_hint">Редагувати підсумок</string>
+  <string name="nav_item_random">Випадково</string>
+  <string name="random_progress">Вибірка випадкової сторінки...</string>
+  <string name="nav_item_login_benefits">Якщо ви увійдете в систему, ваші правки будуть пов\'язані з вашим ім\'ям учасника і ваш IP не буде показаний.</string>
+  <string name="nav_item_tap_to_logout">Для виходу натисніть</string>
+  <string name="create_account_account_created_toast">Створено обліковий запис!</string>
+  <string name="user_contribs_more_action">Завантажити більше</string>
+  <string name="activity_my_contributions_title">Мій внесок</string>
+  <string name="nav_item_my_contributions">Мій внесок</string>
 </resources>

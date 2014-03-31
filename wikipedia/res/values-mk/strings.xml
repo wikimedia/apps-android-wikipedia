@@ -19,6 +19,7 @@
   <string name="nav_item_saved_pages">Зачувани страници</string>
   <string name="menu_save_page">Зачувај</string>
   <string name="menu_share_page">Сподели</string>
+  <string name="share_via">Сподели преку</string>
   <string name="dialog_title_clear_saved_pages">Да ги исчистам зачуваните страници?</string>
   <string name="dialog_message_clear_saved_pages">Дали сте сигурни дека сакате да ги исчистите сите зачувани страници?</string>
   <string name="toast_saving_page">Ја зачувувам страницата...</string>
@@ -102,11 +103,19 @@
   <string name="zero_learn_more_dismiss">Тргни</string>
   <string name="zero_settings">Нагодувања</string>
   <string name="zero_settings_devmode">Развоен режим на Нулта</string>
-  <string name="zero_settings_devmode_summary">При развојот ова овозможува исполнување на кодот од W0 пати.</string>
+  <string name="zero_settings_devmode_summary">При развојот ова овозможува исполнување на кодот што се однесува на Википедија Нулта.</string>
   <string name="edit_preview_fetching_dialog_message">Испишувам преглед...</string>
   <string name="edit_preview_activity_title">Преглед</string>
   <string name="create_account_logging_in">Ве најавувам...</string>
-  <string name="nav_item_send_feedback">Испрати мислење</string>
+  <string name="nav_item_send_feedback" fuzzy="true">Испрати мислење</string>
   <string name="edit_summary_guide_text">Кажете на кој начин ја подобривте статијава. Со тоа другите уредници ќе можат да ја проверат многу побргу.</string>
   <string name="edit_summary_hint">Опис на уредувањето</string>
+  <string name="nav_item_random">Случајна</string>
+  <string name="random_progress">Повикувам случајна страница...</string>
+  <string name="nav_item_login_benefits">Ако се најавите, Вашите уредувања ќе Ви се припишуваат Вам, т.е. на Вашето корисничко име. IP-адресата нема да биде видлива.</string>
+  <string name="nav_item_tap_to_logout">Допрете за да се одјавите</string>
+  <string name="create_account_account_created_toast">Сметката е создадена!</string>
+  <string name="user_contribs_more_action">Вчитај уште</string>
+  <string name="activity_my_contributions_title">Мои придонеси</string>
+  <string name="nav_item_my_contributions">Мои придонеси</string>
 </resources>

@@ -19,6 +19,7 @@
   <string name="nav_item_saved_pages">Sparade sidor</string>
   <string name="menu_save_page">Spara sida</string>
   <string name="menu_share_page">Dela</string>
+  <string name="share_via">Dela via</string>
   <string name="dialog_title_clear_saved_pages">Rensa sparade sidor?</string>
   <string name="dialog_message_clear_saved_pages">Är du säker på att du vill rensa alla sparade sidor?</string>
   <string name="toast_saving_page">Sparar sida...</string>
@@ -89,6 +90,8 @@
   <string name="zero_charged_verbiage">Wikipedia Zero INAKTIVERAD (STANDARDDATAAVGIFTER KAN TILLKOMMA)</string>
   <string name="zero_search_hint">Sök på Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Varna om jag lämnar Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving_summary">Om din mobiloperatör avfärdar dataåtkomstavgifter för Wikipedia-appen genom ett partnerskap för Wikipedia Zero hjälper den här inställningen dig att veta när du lämnar Wikipedia-appen och skulle behöva betala om du lämnar den markerad.</string>
+  <string name="zero_webpage_title">Vanliga frågor om Wikipedia Zero</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Lämnar Wikipedia Zero</string>
@@ -100,11 +103,19 @@
   <string name="zero_learn_more_dismiss">Stäng</string>
   <string name="zero_settings">Inställningar</string>
   <string name="zero_settings_devmode">Zero-utvecklarläge</string>
-  <string name="zero_settings_devmode_summary">Under utveckling aktiverar detta kodkörning för W0 saker.</string>
+  <string name="zero_settings_devmode_summary">Under utveckling aktiverar detta kodexekvering för Wikipedia Zero-relaterade saker.</string>
   <string name="edit_preview_fetching_dialog_message">Hämtar förhandsgranskning...</string>
   <string name="edit_preview_activity_title">Förhandsgranska redigering</string>
   <string name="create_account_logging_in">Loggar in...</string>
-  <string name="nav_item_send_feedback">Ge återkoppling</string>
+  <string name="nav_item_send_feedback" fuzzy="true">Ge återkoppling</string>
   <string name="edit_summary_guide_text">Berätta hur du förbättrade denna artikel. Detta hjälper andra redigerare att granska din redigering snabbt.</string>
   <string name="edit_summary_hint">Redigeringssammanfattning</string>
+  <string name="nav_item_random">Slumpartikel</string>
+  <string name="random_progress">Hämtar slumpartikel...</string>
+  <string name="nav_item_login_benefits">Om du loggar in kommer dina redigeringar associeras med ditt användarnamn och din IP-adress kommer inte att visas offentligt.</string>
+  <string name="nav_item_tap_to_logout">Tryck för att logga ut</string>
+  <string name="create_account_account_created_toast">Konto har skapats!</string>
+  <string name="user_contribs_more_action">Läs in fler</string>
+  <string name="activity_my_contributions_title">Mina bidrag</string>
+  <string name="nav_item_my_contributions">Mina bidrag</string>
 </resources>

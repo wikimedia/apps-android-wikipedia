@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">উইকিপিডিয়া</string>
+  <string name="yes">হ্যাঁ</string>
+  <string name="no">না</string>
+  <string name="acra_report_dialog_title">উইকিপিডিয়া কাজ করছে না :(</string>
+  <string name="acra_report_dialog_comment">অ্যাপটি অকার্যকর হওয়ার সময় আপনি কি করছিলেন?</string>
+  <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
+  <string name="history_activity_title">ইতিহাস</string>
+  <string name="nav_item_history">ইতিহাস</string>
+  <string name="error_network_error">নেটওয়ার্ক সংযোগ পাওয়া যাচ্ছে না :(</string>
+  <string name="search_network_error">নেটওয়ার্ক ত্রুটি। পুনরায় চেষ্টা করুন।</string>
+  <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
+  <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
+  <string name="dialog_title_clear_history">ইতিহাস অপসারণ?</string>
+  <string name="dialog_message_clear_history">আপনি নিশ্চিতভাবে ইতিহাস অপসারণ করতে চান?</string>
+  <string name="saved_pages_activity_title">সংরক্ষিত পাতাসমূহ</string>
+  <string name="nav_item_saved_pages">সংরক্ষিত পাতাসমূহ</string>
+  <string name="menu_save_page">পাতা সংরক্ষণ</string>
+  <string name="menu_share_page">শেয়ার</string>
+  <string name="share_via">শেয়ার</string>
+  <string name="dialog_title_clear_saved_pages">সংরক্ষিত সকল পাতা অপসারণ?</string>
+  <string name="dialog_message_clear_saved_pages">আপনি নিশ্চিতভাবে সকল সংরক্ষিত পাতা অপসারণ করতে চান?</string>
+  <string name="toast_saving_page">পাতা সংরক্ষন...</string>
+  <string name="toast_saved_page">সংরক্ষিত পাতাসমূহ</string>
+  <string name="toast_save_page_failed">পাতা সংরক্ষন করা যায়নি :(</string>
+  <string name="delete_selected_saved_pages">অপসারণ</string>
+  <string name="toast_saved_page_deleted">সংরক্ষিত পাতাগুলো অপসারণ করা হয়েছে</string>
+  <string name="last_updated_text">সর্বশেষ আপডেট %1$s</string>
+  <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; লাইসেন্সের অধিনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
+  <string name="preference_title_language">ভাষা</string>
+  <string name="preference_summary_language">ভাষা</string>
+  <string name="nav_item_preferences">সেটিং</string>
+  <string name="preference_languages_filter_hint">অনুসন্ধান</string>
+  <string name="langlinks_filter_hint">অনুসন্ধান</string>
+  <string name="menu_other_languages">অন্যান্য ভাষাসমূহ</string>
+  <string name="langlinks_error_retry">পুনঃচেষ্টা করুন</string>
+  <string name="langlinks_empty">এই নিবন্ধটি অন্য কোনো ভাষা সংস্করণ নেই</string>
+  <string name="settings_activity_title">সেটিং</string>
+  <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
+  <string name="editsection_activity_title">অনুচ্ছেদ সম্পাদনা</string>
+  <string name="edit_section_error_retry">পুনঃচেষ্টা</string>
+  <string name="dialog_saving_in_progress">সংরক্ষণ করা হচ্ছে ...</string>
+  <string name="edit_saved_successfully">সম্পাদনা সংরক্ষিত হয়েছে!</string>
+  <string name="dialog_message_edit_failed">সম্পাদনা সংরক্ষণ ব্যর্থ!</string>
+  <string name="dialog_message_edit_failed_retry">পুনঃচেষ্টা করুন</string>
+  <string name="dialog_message_edit_failed_cancel">বাতিল</string>
+  <string name="menu_show_toc">সূচিপত্র</string>
+  <string name="search_no_results_found">কোনো ফলাফল পাওয়া যায়নি</string>
+</resources>
