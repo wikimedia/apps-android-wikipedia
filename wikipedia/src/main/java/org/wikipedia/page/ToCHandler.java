@@ -6,6 +6,7 @@ import android.text.*;
 import android.util.*;
 import android.view.*;
 import android.widget.*;
+import com.nineoldandroids.view.ViewHelper;
 import org.json.*;
 import org.wikipedia.*;
 
@@ -35,7 +36,7 @@ public class ToCHandler {
             private float prevTranslateY;
             @Override
             public void onPanelOpened(View view) {
-                prevTranslateY = quickReturnBar.getTranslationY();
+                prevTranslateY = ViewHelper.getTranslationY(quickReturnBar);
                 bridge.sendMessage("requestCurrentSection", new JSONObject());
                 Utils.ensureTranslationY(quickReturnBar, -quickReturnBar.getHeight());
             }

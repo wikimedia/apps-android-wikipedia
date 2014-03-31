@@ -1,6 +1,9 @@
 package org.wikipedia;
 
-import android.animation.*;
+import com.nineoldandroids.animation.*;
+import com.nineoldandroids.view.*;
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
+
 import android.app.*;
 import android.content.*;
 import android.content.pm.*;
@@ -52,9 +55,9 @@ public class Utils {
      * @param view The currently invisible view to be faded in
      */
     public static void fadeIn(final View view) {
-        view.setAlpha(0f);
+        ViewHelper.setAlpha(view, 0f);
         view.setVisibility(View.VISIBLE);
-        view.animate()
+        animate(view)
                 .alpha(1.0f)
                 .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
                 .setListener(null)
@@ -66,7 +69,7 @@ public class Utils {
      * @param view The currently visible view to be faded out
      */
     public static void fadeOut(final View view) {
-        view.animate()
+        animate(view)
                 .alpha(0f)
                 .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
                 .setListener(new AnimatorListenerAdapter() {
@@ -83,7 +86,7 @@ public class Utils {
                             // Detect if we got canceled, and if so DON'T hide...
                             // There's another animation now pushing the alpha back up
                             view.setVisibility(View.GONE);
-                            view.setAlpha(1.0f);
+                            ViewHelper.setAlpha(view, 1.0f);
                         }
                     }
                 });
@@ -180,8 +183,8 @@ public class Utils {
      * @param translation The value to ensure it is translated by
      */
     public static void ensureTranslationY(View view, int translation) {
-        if (view.getTranslationY() != translation) {
-            view.animate().translationY(translation).setDuration(WikipediaApp.SHORT_ANIMATION_DURATION).start();
+        if (ViewHelper.getTranslationY(view) != translation) {
+            animate(view).translationY(translation).setDuration(WikipediaApp.SHORT_ANIMATION_DURATION).start();
         }
     }
 

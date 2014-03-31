@@ -1,6 +1,7 @@
 package org.wikipedia;
 
 import android.view.*;
+import com.nineoldandroids.view.ViewHelper;
 
 public class QuickReturnHandler implements  ObservableWebView.OnScrollChangeListener, ObservableWebView.OnUpOrCancelMotionEventListener, ObservableWebView.OnDownMotionEventListener {
     private final ObservableWebView webview;
@@ -26,21 +27,21 @@ public class QuickReturnHandler implements  ObservableWebView.OnScrollChangeList
         if (oldScrollY > scrollY) {
             int minMargin = 0;
             int scrollDelta = oldScrollY - scrollY;
-            int newMargin = (int)quickReturnView.getTranslationY() + scrollDelta;
+            int newMargin = (int) ViewHelper.getTranslationY(quickReturnView) + scrollDelta;
             animMargin = Math.min(minMargin, newMargin);
         } else {
             // scroll downn!
             int minMargin = -quickReturnView.getHeight();
             int scrollDelta = scrollY - oldScrollY;
-            int newMargin = (int)quickReturnView.getTranslationY() - scrollDelta;
+            int newMargin = (int)ViewHelper.getTranslationY(quickReturnView) - scrollDelta;
             animMargin = Math.max(minMargin, newMargin);
         }
-        quickReturnView.setTranslationY(animMargin);
+        ViewHelper.setTranslationY(quickReturnView, animMargin);
     }
 
     @Override
     public void onUpOrCancelMotionEvent() {
-        int transY = (int)quickReturnView.getTranslationY();
+        int transY = (int)ViewHelper.getTranslationY(quickReturnView);
         int height = quickReturnView.getHeight();
         if (transY != 0 && transY > -height) {
             if (transY > -height / 2 ) {
