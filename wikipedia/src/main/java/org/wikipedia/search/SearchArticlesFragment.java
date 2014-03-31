@@ -128,7 +128,11 @@ public class SearchArticlesFragment extends Fragment {
         navbar = (LinearLayout) parentLayout.findViewById(R.id.navbar);
         searchTermText = (EditText) parentLayout.findViewById(R.id.search_term_text);
         try {
-            navbarColor = ((ColorDrawable)(searchBarContainer.getBackground())).getColor();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                navbarColor = ((ColorDrawable) (searchBarContainer.getBackground())).getColor();
+            } else {
+                navbarColor = Color.WHITE;
+            }
             searchTermTextColor = searchTermText.getCurrentTextColor();
             searchTermHintTextColor = searchTermText.getCurrentHintTextColor();
         } catch (Exception e) {
