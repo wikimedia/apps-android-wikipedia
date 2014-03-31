@@ -70,7 +70,7 @@
                     android:gravity="center"
                     android:text="@string/edit_section_abusefilter_back_text"
                     android:padding="8dp"
-                    android:background="?android:attr/activatedBackgroundIndicator"
+                    android:background="@drawable/activated_background_holo_light"
                     style="?android:textAppearanceMedium"
                     />
             <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/border"/>

@@ -5,5 +5,5 @@
     <!-- Copied for 2.3 -->
     <color name="holo_green_light">#ff99cc00</color>
     <color name="holo_red_dark">#ffcc0000</color>
-
+    <color name="primary_text_holo_light">#ff000000</color>
 </resources>

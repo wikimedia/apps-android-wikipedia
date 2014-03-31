@@ -14,7 +14,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_login"
-                      android:background="?android:attr/selectableItemBackground"
+                      android:background="@drawable/item_background_holo_light"
                       android:paddingTop="8dp"
                       android:paddingBottom="8dp"
                 >
@@ -85,7 +85,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_my_contributions"
-                      android:background="?android:attr/selectableItemBackground"
+                      android:background="@drawable/item_background_holo_light"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
@@ -105,7 +105,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_history"
-                      android:background="?android:attr/selectableItemBackground"
+                      android:background="@drawable/item_background_holo_light"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
@@ -125,7 +125,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_saved_pages"
-                      android:background="?android:attr/selectableItemBackground"
+                      android:background="@drawable/item_background_holo_light"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
@@ -145,7 +145,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_random"
-                      android:background="?android:attr/selectableItemBackground"
+                      android:background="@drawable/item_background_holo_light"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
@@ -189,7 +189,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_settings"
-                      android:background="?android:attr/selectableItemBackground"
+                      android:background="@drawable/item_background_holo_light"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
@@ -209,7 +209,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_send_feedback"
-                      android:background="?android:attr/selectableItemBackground"
+                      android:background="@drawable/item_background_holo_light"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
@@ -228,7 +228,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_logout"
-                      android:background="?android:attr/selectableItemBackground"
+                      android:background="@drawable/item_background_holo_light"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"

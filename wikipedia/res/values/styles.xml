@@ -3,8 +3,7 @@
     </style>
 
     <style name="NoTitle" parent="AppTheme">
-        <item name="android:windowActionBar">false</item>
+        <item name="windowActionBar">false</item>
         <item name="android:windowTitleSize">0dp</item>
     </style>
-
 </resources>
