@@ -361,4 +361,18 @@ public class Utils {
     public static boolean isLangRTL(String lang) {
         return Arrays.binarySearch(rtlLangs, lang, null) >= 0;
     }
+
+    /**
+     * Sets text direction (RTL / LTR) for given view based on given lang.
+     *
+     * Doesn't do anything on pre Android 4.2, since their RTL support is terrible.
+     *
+     * @param view View to set direction of
+     * @param lang Wiki code for the language based on which to set direction
+     */
+    public static void setTextDirection(View view, String lang) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            view.setTextDirection(Utils.isLangRTL(lang) ? View.TEXT_DIRECTION_RTL : View.TEXT_DIRECTION_LTR);
+        }
+    }
 }

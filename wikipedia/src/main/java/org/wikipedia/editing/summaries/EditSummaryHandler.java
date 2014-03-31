@@ -17,7 +17,7 @@ public class EditSummaryHandler {
     private final AutoCompleteTextView summary_edit;
     private final EditSummaryAdapter adapter;
 
-    public EditSummaryHandler(final Activity activity) {
+    public EditSummaryHandler(final Activity activity, PageTitle title) {
         this.activity = activity;
 
         container = activity.findViewById(R.id.group_edit_summary_container);
@@ -32,6 +32,8 @@ public class EditSummaryHandler {
 
         adapter = new EditSummaryAdapter(activity, null, true);
         summary_edit.setAdapter(adapter);
+
+        Utils.setTextDirection(summary_edit, title.getSite().getLanguage());
 
         adapter.setFilterQueryProvider(new FilterQueryProvider() {
             @Override

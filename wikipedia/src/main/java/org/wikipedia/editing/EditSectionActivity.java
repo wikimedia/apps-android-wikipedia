@@ -85,7 +85,7 @@ public class EditSectionActivity extends ActionBarActivity {
         abuseFilterBackAction = findViewById(R.id.edit_section_abusefilter_back);
 
         captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, R.string.edit_section_activity_title);
-        editSummaryHandler = new EditSummaryHandler(this);
+        editSummaryHandler = new EditSummaryHandler(this, title);
         editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
 
         editSaveOptionsContainer = findViewById(R.id.edit_section_save_options_container);
