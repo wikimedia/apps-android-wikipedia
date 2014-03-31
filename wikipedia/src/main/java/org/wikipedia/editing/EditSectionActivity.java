@@ -57,7 +57,7 @@ public class EditSectionActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_section);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (!getIntent().getAction().equals(ACTION_EDIT_SECTION)) {
             throw new RuntimeException("Much wrong action. Such exception. Wow");
@@ -70,7 +70,7 @@ public class EditSectionActivity extends ActionBarActivity {
 
         progressDialog = new ProgressDialog(this);
 
-        getActionBar().setTitle(getString(R.string.editsection_activity_title));
+        getSupportActionBar().setTitle(getString(R.string.editsection_activity_title));
 
         sectionText = (EditText) findViewById(R.id.edit_section_text);
         sectionProgress = findViewById(R.id.edit_section_load_progress);
@@ -265,7 +265,7 @@ public class EditSectionActivity extends ActionBarActivity {
 
     private void cancelAbuseFilter() {
         abusefilterEditResult = null;
-        getActionBar().setTitle(R.string.editsection_activity_title);
+        getSupportActionBar().setTitle(R.string.editsection_activity_title);
         Utils.crossFade(abusefilterContainer, sectionContainer);
     }
 
@@ -343,7 +343,7 @@ public class EditSectionActivity extends ActionBarActivity {
     private void displaySectionText() {
         sectionText.setText(sectionWikitext);
         Utils.crossFade(sectionProgress, sectionContainer);
-        invalidateOptionsMenu();
+        supportInvalidateOptionsMenu();
     }
 
     @Override

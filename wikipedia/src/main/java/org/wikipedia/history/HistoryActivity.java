@@ -56,7 +56,7 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
         });
 
         getSupportLoaderManager().initLoader(0, null, this);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

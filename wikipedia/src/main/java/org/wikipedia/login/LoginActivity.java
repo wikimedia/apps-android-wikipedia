@@ -31,7 +31,7 @@ public class LoginActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         app = (WikipediaApp)getApplicationContext();
 
@@ -43,7 +43,7 @@ public class LoginActivity extends ActionBarActivity {
         nonEmptyValidator = new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
             @Override
             public void onValidationChanged(boolean isValid) {
-                invalidateOptionsMenu();
+                supportInvalidateOptionsMenu();
             }
         }, usernameText, passwordText);
 

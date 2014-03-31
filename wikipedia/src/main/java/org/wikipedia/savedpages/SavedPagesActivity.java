@@ -121,7 +121,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
         });
 
         getSupportLoaderManager().initLoader(0, null, this);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

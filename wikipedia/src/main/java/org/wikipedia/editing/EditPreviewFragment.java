@@ -3,6 +3,7 @@ package org.wikipedia.editing;
 import android.app.*;
 import android.os.*;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.*;
 import org.json.*;
 import org.wikipedia.*;
@@ -44,7 +45,7 @@ public class EditPreviewFragment extends Fragment {
     }
 
     private void displayPreview(final String html) {
-        getActivity().getActionBar().setTitle(R.string.edit_preview_activity_title);
+        ((ActionBarActivity)getActivity()).getSupportActionBar().setTitle(R.string.edit_preview_activity_title);
         Utils.crossFade(getActivity().findViewById(R.id.edit_section_container), previewContainer);
         JSONObject payload = new JSONObject();
         try {
@@ -102,7 +103,7 @@ public class EditPreviewFragment extends Fragment {
 
     public void hide() {
         Utils.crossFade(previewContainer, getActivity().findViewById(R.id.edit_section_container));
-        getActivity().getActionBar().setTitle(R.string.edit_section_activity_title);
+        ((ActionBarActivity)getActivity()).getSupportActionBar().setTitle(R.string.edit_section_activity_title);
     }
 
 

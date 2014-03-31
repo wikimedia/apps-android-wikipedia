@@ -11,7 +11,10 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        // Hmm. Can't use ActionBarActivity?
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     public boolean onMenuItemSelected(int featureId, MenuItem item) {

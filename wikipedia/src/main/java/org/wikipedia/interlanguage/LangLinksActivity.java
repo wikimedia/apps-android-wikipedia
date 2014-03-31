@@ -32,7 +32,7 @@ public class LangLinksActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_langlinks);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (!getIntent().getAction().equals(ACTION_LANGLINKS_FOR_TITLE)) {
             throw new RuntimeException("Only ACTION_LANGLINKS_FOR_TITLE is supported");

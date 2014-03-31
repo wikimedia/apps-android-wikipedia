@@ -3,6 +3,7 @@ package org.wikipedia.editing;
 import android.app.*;
 import android.net.*;
 import android.os.*;
+import android.support.v7.app.ActionBarActivity;
 import android.util.*;
 import android.view.*;
 import android.widget.*;
@@ -83,7 +84,7 @@ public class CaptchaHandler {
                 .into(captchaImage, new Callback() {
                     @Override
                     public void onSuccess() {
-                        activity.getActionBar().setTitle(R.string.title_captcha);
+                        ((ActionBarActivity)activity).getSupportActionBar().setTitle(R.string.title_captcha);
                         progressDialog.hide();
 
                         // In case there was a captcha attempt before
@@ -102,7 +103,7 @@ public class CaptchaHandler {
     }
 
     public void hideCaptcha() {
-        activity.getActionBar().setTitle(prevTitleId);
+        ((ActionBarActivity)activity).getSupportActionBar().setTitle(prevTitleId);
         Utils.crossFade(captchaContainer, primaryView);
     }
 
