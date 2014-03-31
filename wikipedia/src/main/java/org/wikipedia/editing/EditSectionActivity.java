@@ -17,6 +17,8 @@ import org.wikipedia.editing.summaries.*;
 import org.wikipedia.login.*;
 import org.wikipedia.page.*;
 
+import java.util.*;
+
 public class EditSectionActivity extends ActionBarActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";
     public static final String EXTRA_TITLE = "org.wikipedia.edit_section.title";
@@ -79,7 +81,7 @@ public class EditSectionActivity extends ActionBarActivity {
         abusefilterContainer = findViewById(R.id.edit_section_abusefilter_container);
         abusefilterWebView = (WebView) findViewById(R.id.edit_section_abusefilter_webview);
         abusefilterBridge = new CommunicationBridge(abusefilterWebView, "file:///android_asset/abusefilter.html");
-        Utils.setupDirectionality(title.getSite().getLanguage(), abusefilterBridge);
+        Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), abusefilterBridge);
         abuseFilterBackAction = findViewById(R.id.edit_section_abusefilter_back);
 
         captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, R.string.edit_section_activity_title);

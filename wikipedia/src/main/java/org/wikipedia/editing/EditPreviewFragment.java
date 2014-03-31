@@ -8,6 +8,8 @@ import org.json.*;
 import org.wikipedia.*;
 import org.wikipedia.editing.summaries.*;
 
+import java.util.*;
+
 public class EditPreviewFragment extends Fragment {
     private ObservableWebView webview;
     private View previewContainer;
@@ -65,7 +67,7 @@ public class EditPreviewFragment extends Fragment {
         dialog.setMessage(getString(R.string.edit_preview_fetching_dialog_message));
 
         if (!isDirectionSetup) {
-            Utils.setupDirectionality(title.getSite().getLanguage(), bridge);
+            Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
             isDirectionSetup = true;
         }
 

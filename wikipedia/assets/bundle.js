@@ -87,6 +87,10 @@ actions.register( "edit_section", function( el, event ) {
 },{"./actions":1,"./bridge":2}],4:[function(require,module,exports){
 var bridge = require("./bridge");
 bridge.registerListener( "displayAttribution", function( payload ) {
+    var directionality = document.getElementsByTagName( "html" )[0].classList.contains( "ui-rtl" ) ? "rtl" : "ltr";
+
+    var lastUpdatedDiv = document.getElementById( "lastupdated" );
+    lastUpdatedDiv.setAttribute( "dir", directionality );
     var lastUpdatedA = document.getElementById( "lastupdated" );
     lastUpdatedA.innerText = payload.historyText;
     lastUpdatedA.href = payload.historyTarget;
@@ -107,8 +111,12 @@ bridge.registerListener( "requestImagesList", function () {
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
-    document.getElementsByTagName( "html" )[0].setAttribute( "dir", payload.dir );
+    var html = document.getElementsByTagName( "html" )[0];
+    html.setAttribute( "dir", payload.contentDirection );
+    html.classList.add( "content-" + payload.contentDirection );
+    html.classList.add( "ui-" + payload.uiDirection );
 } );
+
 },{"./bridge":2}],6:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");

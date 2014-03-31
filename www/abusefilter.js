@@ -63,8 +63,12 @@ window.onload = function() {
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
-    document.getElementsByTagName( "html" )[0].setAttribute( "dir", payload.dir );
+    var html = document.getElementsByTagName( "html" )[0];
+    html.setAttribute( "dir", payload.contentDirection );
+    html.classList.add( "content-" + payload.contentDirection );
+    html.classList.add( "ui-" + payload.uiDirection );
 } );
+
 },{"./bridge":2}],4:[function(require,module,exports){
 function Transformer() {
 }

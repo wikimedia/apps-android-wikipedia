@@ -325,20 +325,40 @@ public class Utils {
             "arc", "arz", "ar", "bcc", "bqi", "ckb", "dv", "fa", "glk", "ha", "he",
             "khw", "ks", "mzn", "pnb", "ps", "sd", "ug", "ur", "yi"
     };
-    public static void setupDirectionality(String lang, CommunicationBridge bridge) {
+
+    /**
+     * Setup directionality for both UI and content elements in a webview.
+     *
+     * @param contentLang The Content language to use to set directionality. Wiki Language code.
+     * @param uiLang The UI language to use to set directionality. Java language code.
+     * @param bridge The CommunicationBridge to use to communicate with the WebView
+     */
+    public static void setupDirectionality(String contentLang, String uiLang, CommunicationBridge bridge) {
         JSONObject payload = new JSONObject();
         try {
-            if (Arrays.binarySearch(rtlLangs, lang, null) < 0) {
-                payload.put("dir", "ltr");
+            if (isLangRTL(contentLang)) {
+                payload.put("contentDirection", "rtl");
             } else {
-                payload.put("dir", "rtl");
+                payload.put("contentDirection", "ltr");
             }
-            Log.d("Wikipedia", lang);
-            Log.d("Wikipedia", payload.toString(4));
+            if (isLangRTL(langCodeToWikiLang(uiLang))) {
+                payload.put("uiDirection", "rtl");
+            } else {
+                payload.put("uiDirection", "ltr");
+            }
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
         bridge.sendMessage("setDirectionality", payload);
     }
-}
 
+    /**
+     * Returns true if the given wiki language is to be displayed RTL.
+     *
+     * @param lang Wiki code for the language to check for directionality
+     * @return true if it is RTL, false if LTR
+     */
+    public static boolean isLangRTL(String lang) {
+        return Arrays.binarySearch(rtlLangs, lang, null) >= 0;
+    }
+}

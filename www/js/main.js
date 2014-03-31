@@ -1,5 +1,9 @@
 var bridge = require("./bridge");
 bridge.registerListener( "displayAttribution", function( payload ) {
+    var directionality = document.getElementsByTagName( "html" )[0].classList.contains( "ui-rtl" ) ? "rtl" : "ltr";
+
+    var lastUpdatedDiv = document.getElementById( "lastupdated" );
+    lastUpdatedDiv.setAttribute( "dir", directionality );
     var lastUpdatedA = document.getElementById( "lastupdated" );
     lastUpdatedA.innerText = payload.historyText;
     lastUpdatedA.href = payload.historyTarget;
