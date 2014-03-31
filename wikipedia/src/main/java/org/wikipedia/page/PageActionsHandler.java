@@ -1,7 +1,7 @@
 package org.wikipedia.page;
 
 import android.view.*;
-import android.widget.*;
+import android.support.v7.widget.PopupMenu;
 import com.squareup.otto.*;
 import org.wikipedia.*;
 import org.wikipedia.events.*;
