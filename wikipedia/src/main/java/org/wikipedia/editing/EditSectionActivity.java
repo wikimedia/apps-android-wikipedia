@@ -136,6 +136,8 @@ public class EditSectionActivity extends ActionBarActivity {
             }
         });
 
+        Utils.setTextDirection(sectionText, title.getSite().getLanguage());
+
         fetchSectionText();
     }
 
