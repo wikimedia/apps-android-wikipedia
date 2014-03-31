@@ -139,9 +139,11 @@ public class PageViewFragment extends Fragment {
         quickReturnBar = getActivity().findViewById(quickReturnBarId);
         tocSlider = (SlidingPaneLayout) getView().findViewById(R.id.page_toc_slider);
 
-        // Enable Pinch-Zoom
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().setDisplayZoomControls(false);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            // Enable Pinch-Zoom
+            webView.getSettings().setBuiltInZoomControls(true);
+            webView.getSettings().setDisplayZoomControls(false);
+        }
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         setupMessageHandlers();
