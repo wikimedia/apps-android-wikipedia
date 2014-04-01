@@ -25,11 +25,18 @@ class ImagesBatch(object):
         output_file_path = os.path.join(OUTPUT_PATH_PREFIX, "drawable-" + density, file_name)
         px = int(DENSITIES[density] * self.dp)
         sh.rsvg_convert(input_path, "-a", h=px, o=output_file_path)
+        return output_file_path
+
+    def _do_flop(self, density, input_path):
+        folder_name = os.path.join(OUTPUT_PATH_PREFIX, "drawable-ldrtl-" + density)
+        output_file_path = os.path.join(folder_name, os.path.basename(input_path))
+        sh.mkdir("-p", folder_name)
+        sh.convert(input_path, "-flop", output_file_path)
 
     def convert(self):
         for svg in self.svgs:
             for density in DENSITIES.keys():
-                self._do_export(density, svg)
+                self._do_flop(density, self._do_export(density, svg))
             print u"\u2713 %s" % os.path.basename(svg)
 
         
