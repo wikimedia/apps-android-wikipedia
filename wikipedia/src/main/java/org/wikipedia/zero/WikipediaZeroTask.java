@@ -16,7 +16,9 @@ public class WikipediaZeroTask extends ApiTask<String> {
 
     @Override
     public RequestBuilder buildRequest(Api api) {
-        return api.action("zeroconfig").param("type", "message").param("agent", Utils.getAppNameAndVersion(ctx));
+        return api.action("zeroconfig")
+                .param("type", "message")
+                .param("agent", ((WikipediaApp)ctx.getApplicationContext()).getUserAgent());
     }
 
     @Override

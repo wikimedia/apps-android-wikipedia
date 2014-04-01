@@ -102,10 +102,19 @@ public class WikipediaApp extends Application {
         return bus;
     }
 
+
+    private String userAgent;
+    public String getUserAgent() {
+        if (userAgent == null) {
+            userAgent = String.format("WikipediaApp/%s (Android/%s)", WikipediaApp.APP_VERSION_STRING, Build.VERSION.RELEASE);
+        }
+        return userAgent;
+    }
+
     private HashMap<String, Api> apis = new HashMap<String, Api>();
     public Api getAPIForSite(Site site) {
         if (!apis.containsKey(site.getDomain()))  {
-            apis.put(site.getDomain(), new Api(site.getApiDomain(), Utils.getAppNameAndVersion(getApplicationContext())));
+            apis.put(site.getDomain(), new Api(site.getApiDomain(), getUserAgent()));
         }
         return apis.get(site.getDomain());
     }
