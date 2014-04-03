@@ -10,6 +10,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.*;
+import android.support.v7.view.ActionMode;
 import android.util.*;
 import android.view.*;
 import android.widget.*;
@@ -51,7 +52,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
                     return false;
                 }
                 savedPagesList.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
-                actionMode = startActionMode(new ActionMode.Callback() {
+                actionMode = startSupportActionMode(new ActionMode.Callback() {
                     @Override
                     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                         mode.getMenuInflater().inflate(R.menu.menu_saved_pages_context, menu);

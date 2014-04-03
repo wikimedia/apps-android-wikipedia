@@ -213,7 +213,7 @@ public class PageViewFragment extends Fragment {
             case STATE_COMPLETE_FETCH:
                 displayLeadSection(page);
                 populateNonLeadSections(page);
-                webView.setScrollY(scrollY);
+                webView.scrollTo(0, scrollY);
                 break;
         }
     }
