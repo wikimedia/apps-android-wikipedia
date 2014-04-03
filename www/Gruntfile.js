@@ -8,6 +8,7 @@ module.exports = function ( grunt ) {
         "js/editaction.js",
         "js/sections.js",
         "js/rtlsupport.js",
+        "js/polyfill/classList.js",
         "tests/*.js"
     ];
     var allStyleFiles = [
@@ -17,6 +18,11 @@ module.exports = function ( grunt ) {
         "index.html",
         "tests/index.html"
     ];
+    // FIXME: Unconditionally included polyfills. Should be included only for Android 2.3
+    var oldDroidPolyfills = [
+        "js/polyfill/classList.js"
+    ];
+
     grunt.initConfig( {
         pkg: grunt.file.readJSON( "package.json" ),
         browserify: {
@@ -31,23 +37,23 @@ module.exports = function ( grunt ) {
                         "js/editaction.js",
                         "js/sections.js",
                         "js/rtlsupport.js"
-                    ],
+                    ].concat( oldDroidPolyfills ),
                     "bundle-test.js": [
                         "js/main.js",
                         "js/bridge.js",
                         "tests/*.js"
-                    ],
+                    ].concat( oldDroidPolyfills ),
                     "abusefilter.js": [
                         "js/bridge.js",
                         "js/abusefilter.js",
                         "js/rtlsupport.js"
-                    ],
+                    ].concat( oldDroidPolyfills ),
                     "preview.js": [
                         "js/bridge.js",
                         "js/actions.js",
                         "js/preview.js",
                         "js/rtlsupport.js"
-                    ]
+                    ].concat( oldDroidPolyfills )
                 }
             }
         },
