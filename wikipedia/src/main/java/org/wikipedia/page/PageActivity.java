@@ -17,6 +17,7 @@ import org.wikipedia.interlanguage.*;
 import org.wikipedia.recurring.*;
 import org.wikipedia.search.*;
 import org.wikipedia.settings.*;
+import de.keyboardsurfer.android.widget.crouton.*;
 
 public class PageActivity extends ActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
@@ -153,15 +154,30 @@ public class PageActivity extends ActionBarActivity {
 
         if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
             String verbiage = getString(R.string.zero_charged_verbiage);
-            Toast.makeText(app, verbiage, Toast.LENGTH_LONG).show();
+            makeWikipediaZeroCrouton(R.color.holo_red_dark, android.R.color.white, verbiage);
             showDialogAboutZero(ZERO_OFF_NOTICE_PRESENTED, verbiage);
         } else if ((!pausedStateOfZero || !pausedXcsOfZero.equals(WikipediaApp.getXcs())) && latestWikipediaZeroDisposition) {
             String verbiage = WikipediaApp.getCarrierMessage();
-            Toast.makeText(app, verbiage, Toast.LENGTH_LONG).show();
+            makeWikipediaZeroCrouton(R.color.holo_green_light, android.R.color.black, verbiage);
             showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, verbiage);
         }
         pausedStateOfZero = latestWikipediaZeroDisposition;
         pausedXcsOfZero = WikipediaApp.getXcs();
+    }
+
+    private void makeWikipediaZeroCrouton(int bgcolor, int fgcolor, String verbiage) {
+        Style style = new Style.Builder()
+                .setBackgroundColor(bgcolor)
+                .setGravity(Gravity.CENTER)
+                // .setTextAppearance-driven font size is not being honored, so we'll do it manually
+                // Text size in library is in sp
+                .setTextSize(20)
+                .setTextColor(fgcolor)
+                // Height size in library is in px
+                .setHeight((int) Math.floor(192.0 * WikipediaApp.SCREEN_DENSITY))
+                .build();
+
+        Crouton.makeText(this, verbiage, style, R.id.zero_crouton_container).show();
     }
 
     private void showDialogAboutZero(String prefsKey, String verbiage) {
