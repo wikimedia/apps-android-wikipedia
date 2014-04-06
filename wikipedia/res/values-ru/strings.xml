@@ -107,7 +107,7 @@
   <string name="edit_preview_fetching_dialog_message">Получение предварительного просмотра…</string>
   <string name="edit_preview_activity_title">Предварительный просмотр правки</string>
   <string name="create_account_logging_in">Вход в систему…</string>
-  <string name="nav_item_send_feedback" fuzzy="true">Отправить отзыв</string>
+  <string name="nav_item_send_feedback">Отправить отзыв о приложении</string>
   <string name="edit_summary_guide_text">Расскажите нам, как вы улучшили эту статью. Это помогает другим редакторам быстро отпатрулировать вашу правку.</string>
   <string name="edit_summary_hint">Описание изменений</string>
   <string name="nav_item_random">Случайная</string>
@@ -118,4 +118,8 @@
   <string name="user_contribs_more_action">Загрузить ещё</string>
   <string name="activity_my_contributions_title">Вклад</string>
   <string name="nav_item_my_contributions">Вклад</string>
+  <string name="edit_save_action_login">Войти и сохранить</string>
+  <string name="edit_save_action_ip">Сохранить анонимно</string>
+  <string name="edit_save_action_login_description">Ваши правки будут публично связаны с вашим именем участника, и другим редакторам будет проще с вами связаться</string>
+  <string name="edit_save_action_ip_description">Ваши правки будут публично связаны с вашем IP-адресом, который может часто меняться</string>
 </resources>

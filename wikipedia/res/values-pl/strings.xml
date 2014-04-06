@@ -37,6 +37,7 @@
   <string name="login_error_wrong_username">Nieprawidłowa nazwa użytkownika</string>
   <string name="login_success_toast">Zalogowano pomyślnie!</string>
   <string name="login_error_blocked">Ten użytkownik został zablokowany</string>
+  <string name="login_error_throttled">Zbyt wiele prób logowania. Poczekaj kilka minut i spróbuj ponownie.</string>
   <string name="login_error_unknown">Logowanie nie powiodło się :(</string>
   <string name="login_error_no_network">Brak połączenia z siecią</string>
   <string name="nav_item_logout">Wyloguj</string>
@@ -56,4 +57,5 @@
   <string name="create_account_account_created_toast">Konto zostało utworzone!</string>
   <string name="user_contribs_more_action">Czytaj całość</string>
   <string name="nav_item_my_contributions">Mój wkład</string>
+  <string name="edit_save_action_ip">Zapisz anonimowo</string>
 </resources>

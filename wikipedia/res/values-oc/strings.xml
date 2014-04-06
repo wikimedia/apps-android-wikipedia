@@ -83,7 +83,7 @@
   <string name="edit_preview_fetching_dialog_message">Recèrca d’un apercebut…</string>
   <string name="edit_preview_activity_title">Apercebut de la modificacion</string>
   <string name="create_account_logging_in">Connexion en cors…</string>
-  <string name="nav_item_send_feedback" fuzzy="true">Mandar un comentari</string>
+  <string name="nav_item_send_feedback">Mandar un comentari sus l\'aplicacion</string>
   <string name="edit_summary_hint">Modificar lo resumit</string>
   <string name="create_account_account_created_toast">Compte creat !</string>
   <string name="user_contribs_more_action">Ne saber mai</string>

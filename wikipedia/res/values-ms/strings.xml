@@ -107,7 +107,7 @@
   <string name="edit_preview_fetching_dialog_message">Mengolah pralihat...</string>
   <string name="edit_preview_activity_title">Pralihatkan suntingan</string>
   <string name="create_account_logging_in">Sedang log masuk...</string>
-  <string name="nav_item_send_feedback" fuzzy="true">Kirim maklum balas</string>
+  <string name="nav_item_send_feedback">Kirim maklum balas aplikasi</string>
   <string name="edit_summary_guide_text">Ceritakan bagaimana anda menambah baik rencana ini supaya para penyunting lain senang menyemak suntingan anda dengan cepat.</string>
   <string name="edit_summary_hint">Ringkasan suntingan</string>
   <string name="nav_item_random">Rawak</string>
@@ -118,4 +118,8 @@
   <string name="user_contribs_more_action">Muatkan yang selanjutnya</string>
   <string name="activity_my_contributions_title">Sumbangan Saya</string>
   <string name="nav_item_my_contributions">Sumbangan saya</string>
+  <string name="edit_save_action_login">Log masuk dan simpan</string>
+  <string name="edit_save_action_ip">Simpan secara awanama</string>
+  <string name="edit_save_action_login_description">Suntingan anda akan diatribusikan secara umum kepada nama pengguna anda, supaya para penyunting lain boleh berhubung dengan anda dengan lebih lancar</string>
+  <string name="edit_save_action_ip_description">Suntingan anda akan diatribusikan secara umum kepada alamat IP anda yang sering berubah-ubah</string>
 </resources>

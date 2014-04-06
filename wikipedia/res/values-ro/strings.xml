@@ -107,7 +107,7 @@
   <string name="edit_preview_fetching_dialog_message">Se preia previzualizarea...</string>
   <string name="edit_preview_activity_title">Previzualizare modificare</string>
   <string name="create_account_logging_in">Autentificare în curs...</string>
-  <string name="nav_item_send_feedback" fuzzy="true">Trimite o părere</string>
+  <string name="nav_item_send_feedback">Trimite o părere despre aplicație</string>
   <string name="edit_summary_guide_text">Spuneți-ne cum ați îmbunătățit acest articol. Acest lucru le va fi de folos altor editori să vă revizuiască modificarea mai rapid.</string>
   <string name="edit_summary_hint">Descrierea modificării</string>
   <string name="nav_item_random">Aleatoriu</string>
@@ -118,4 +118,8 @@
   <string name="user_contribs_more_action">Încarcă mai multe</string>
   <string name="activity_my_contributions_title">Contribuțiile mele</string>
   <string name="nav_item_my_contributions">Contribuțiile mele</string>
+  <string name="edit_save_action_login">Autentificare și salvare</string>
+  <string name="edit_save_action_ip">Salvare ca anonim</string>
+  <string name="edit_save_action_login_description">Modificările dumneavoastră vor fi atribuite în mod public numelui dumneavoastră de utilizator, iar alți editori vă vor putea contacta mai ușor</string>
+  <string name="edit_save_action_ip_description">Modificările dumneavoastră vor fi atribuite în mod public adresei dumnevoastră IP, care se schimbă frecvent</string>
 </resources>

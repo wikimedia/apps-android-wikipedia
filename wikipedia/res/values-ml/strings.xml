@@ -102,7 +102,7 @@
   <string name="edit_preview_fetching_dialog_message">പ്രിവ്യൂ എടുക്കുന്നു...</string>
   <string name="edit_preview_activity_title">തിരുത്ത് എങ്ങനെയുണ്ടെന്ന് കാണുക</string>
   <string name="create_account_logging_in">പ്രവേശിക്കുന്നു...</string>
-  <string name="nav_item_send_feedback" fuzzy="true">അഭിപ്രായം അറിയിക്കുക</string>
+  <string name="nav_item_send_feedback">ആപിനെക്കുറിച്ചുള്ള അഭിപ്രായം അറിയിക്കുക</string>
   <string name="edit_summary_guide_text">ഈ ലേഖനം താങ്കൾ എപ്രകാരമാണ് മെച്ചപ്പെടുത്തിയതെന്ന് ഞങ്ങളുമായി പങ്ക് വെയ്ക്കുക. ഇതുവഴി താങ്കളുടെ തിരുത്ത് എളുപ്പത്തിൽ സംശോധനം ചെയ്യാൻ മറ്റുള്ളവർക്കാവുന്നതാണ്.</string>
   <string name="edit_summary_hint">തിരുത്തിന്റെ ചുരുക്കം</string>
   <string name="nav_item_random">ക്രമരഹിതം</string>
@@ -113,4 +113,8 @@
   <string name="user_contribs_more_action">കൂടുതൽ എടുക്കുക</string>
   <string name="activity_my_contributions_title">എന്റെ സം‌ഭാവനകൾ</string>
   <string name="nav_item_my_contributions">എന്റെ സം‌ഭാവനകൾ</string>
+  <string name="edit_save_action_login">പ്രവേശിക്കുക, സേവ് ചെയ്യുക</string>
+  <string name="edit_save_action_ip">പേര് വെളിപ്പെടുത്താതെ സേവ് ചെയ്യുക</string>
+  <string name="edit_save_action_login_description">താങ്കളുടെ സംഭാവനകൾ താങ്കളുടെ ഉപയോക്തൃനാമവുമായി ബന്ധപ്പെടുത്തി പ്രസിദ്ധപ്പെടുത്തുന്നതാണ്, അതുവഴി മറ്റുപയോക്താക്കൾക്ക് താങ്കളുമായി ബന്ധപ്പെടാനും കഴിയുന്നതാണ്.</string>
+  <string name="edit_save_action_ip_description">താങ്കളുടെ സംഭാവനകൾ താങ്കളുടെ ഐ.പി. വിലാസവുമായി ബന്ധപ്പെടുത്തി പ്രസിദ്ധപ്പെടുത്തുന്നതാണ്, ഐ.പി. വിലാസം അടിക്കടി മാറിയേക്കാം.</string>
 </resources>

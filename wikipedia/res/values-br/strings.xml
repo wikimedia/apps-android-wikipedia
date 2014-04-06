@@ -19,6 +19,7 @@
   <string name="nav_item_saved_pages">Pajennoù enrollet</string>
   <string name="menu_save_page">Enrollañ ar bajenn</string>
   <string name="menu_share_page">Rannañ</string>
+  <string name="share_via">Rannañ dre</string>
   <string name="dialog_title_clear_saved_pages">Diverkañ ar pajennoù enrollet ?</string>
   <string name="dialog_message_clear_saved_pages">Ha c\'hoant ho peus da ziverkañ an holl bajennoù enrollet ?</string>
   <string name="toast_saving_page">Oc\'h enrollañ ar bajenn...</string>
@@ -108,4 +109,9 @@
   <string name="create_account_logging_in">O kevreañ ouzh...</string>
   <string name="nav_item_send_feedback" fuzzy="true">Kasit hoc\'h evezhiadennoù</string>
   <string name="edit_summary_hint">Kemmañ an diverradenn</string>
+  <string name="nav_item_random">Dargouezhek</string>
+  <string name="user_contribs_more_action">Lenn muioc\'h</string>
+  <string name="activity_my_contributions_title">Ma degasadennoù</string>
+  <string name="nav_item_my_contributions">Ma degasadennoù</string>
+  <string name="edit_save_action_login">Kevreañ hag enrollañ</string>
 </resources>

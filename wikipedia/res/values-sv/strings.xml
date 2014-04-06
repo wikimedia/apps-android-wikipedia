@@ -107,7 +107,7 @@
   <string name="edit_preview_fetching_dialog_message">Hämtar förhandsgranskning...</string>
   <string name="edit_preview_activity_title">Förhandsgranska redigering</string>
   <string name="create_account_logging_in">Loggar in...</string>
-  <string name="nav_item_send_feedback" fuzzy="true">Ge återkoppling</string>
+  <string name="nav_item_send_feedback">Skicka appåterkoppling</string>
   <string name="edit_summary_guide_text">Berätta hur du förbättrade denna artikel. Detta hjälper andra redigerare att granska din redigering snabbt.</string>
   <string name="edit_summary_hint">Redigeringssammanfattning</string>
   <string name="nav_item_random">Slumpartikel</string>
@@ -118,4 +118,8 @@
   <string name="user_contribs_more_action">Läs in fler</string>
   <string name="activity_my_contributions_title">Mina bidrag</string>
   <string name="nav_item_my_contributions">Mina bidrag</string>
+  <string name="edit_save_action_login">Logga in och spara</string>
+  <string name="edit_save_action_ip">Spara anonymt</string>
+  <string name="edit_save_action_login_description">Dina ändringar kommer att offentligt tillskrivas ditt användarnamn och andra redigerare kan ansluta sig till dig bättre</string>
+  <string name="edit_save_action_ip_description">Dina ändringar kommer att offentligt tillskrivas din IP-adress, som ändras regelbundet</string>
 </resources>

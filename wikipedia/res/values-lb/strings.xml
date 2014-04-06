@@ -85,7 +85,7 @@
   <string name="zero_learn_more_dismiss">Verwerfen</string>
   <string name="zero_settings">Astellungen</string>
   <string name="create_account_logging_in">Aloggen...</string>
-  <string name="nav_item_send_feedback" fuzzy="true">Feedback schécken</string>
+  <string name="nav_item_send_feedback">Feedback vun der App schécken</string>
   <string name="edit_summary_guide_text">Sot eis wéi Dir dësen Artikel verbessert hutt. Dat hëlleft aneren Auteure fir Är Ännerung séier nozekucken.</string>
   <string name="edit_summary_hint">Resumé vun der Ännerung</string>
   <string name="nav_item_random">Zoufall</string>
@@ -93,4 +93,6 @@
   <string name="user_contribs_more_action">Méi lueden</string>
   <string name="activity_my_contributions_title">Meng Kontributiounen</string>
   <string name="nav_item_my_contributions">Meng Kontributiounen</string>
+  <string name="edit_save_action_login">Aloggen a späicheren</string>
+  <string name="edit_save_action_ip">Anonym späicheren</string>
 </resources>

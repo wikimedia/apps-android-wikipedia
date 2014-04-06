@@ -107,7 +107,7 @@
   <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה...</string>
   <string name="edit_preview_activity_title">תצוגה מקדימה של עריכה</string>
   <string name="create_account_logging_in">כניסה...</string>
-  <string name="nav_item_send_feedback" fuzzy="true">שליחת משוב</string>
+  <string name="nav_item_send_feedback">שליחת משוב על היישום</string>
   <string name="edit_summary_guide_text">נא לספר איך שיפרת את הערך הזה. זה עוזר לעורכים אחרים לסקור את העריכה שלך מהר.</string>
   <string name="edit_summary_hint">תקציר העריכה</string>
   <string name="nav_item_random">אקראי</string>
@@ -118,4 +118,8 @@
   <string name="user_contribs_more_action">לטעון עוד</string>
   <string name="activity_my_contributions_title">התרומות שלי</string>
   <string name="nav_item_my_contributions">התרומות שלי</string>
+  <string name="edit_save_action_login">כניסה ושמירה</string>
+  <string name="edit_save_action_ip">שמירה אלמונית</string>
+  <string name="edit_save_action_login_description">העריכות שלך תיוחסנה לשם המשתמש שלך ועורכים אחרים יוכלו לתקשר אתך טוב יותר</string>
+  <string name="edit_save_action_ip_description">העריכות שלך תיוחסנה לכתובת ה־IP לך, שמשתנה לעתים קרובות</string>
 </resources>

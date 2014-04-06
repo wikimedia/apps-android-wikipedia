@@ -107,7 +107,7 @@
   <string name="edit_preview_fetching_dialog_message">Vorschau wird abgerufen …</string>
   <string name="edit_preview_activity_title">Vorschau der Bearbeitung anzeigen</string>
   <string name="create_account_logging_in">Anmelden …</string>
-  <string name="nav_item_send_feedback" fuzzy="true">Rückmeldung senden</string>
+  <string name="nav_item_send_feedback">App-Rückmeldung senden</string>
   <string name="edit_summary_guide_text">Erzähle uns, wie du diesen Artikel verbessert hast. Dies hilft anderen Autoren, deine Bearbeitung schnell zu überprüfen.</string>
   <string name="edit_summary_hint">Bearbeitungszusammenfassung</string>
   <string name="nav_item_random">Zufällig</string>
@@ -118,4 +118,8 @@
   <string name="user_contribs_more_action">Mehr laden</string>
   <string name="activity_my_contributions_title">Meine Beiträge</string>
   <string name="nav_item_my_contributions">Meine Beiträge</string>
+  <string name="edit_save_action_login">Anmelden und speichern</string>
+  <string name="edit_save_action_ip">Anonym speichern</string>
+  <string name="edit_save_action_login_description">Deine Bearbeitungen werden öffentlich deinem Benutzernamen zugeordnet und andere Autoren können besser mit dir kontakt aufnehmen</string>
+  <string name="edit_save_action_ip_description">Deine Bearbeitungen werden öffentlich deiner IP-Adresse zugeordnet, die sich regelmäßig ändert.</string>
 </resources>

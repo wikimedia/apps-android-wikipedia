@@ -107,7 +107,7 @@
   <string name="edit_preview_fetching_dialog_message">Generujem náhľad...</string>
   <string name="edit_preview_activity_title">Zobraziť úpravy</string>
   <string name="create_account_logging_in">Prihlasujem...</string>
-  <string name="nav_item_send_feedback" fuzzy="true">Poslať spätnú väzbu</string>
+  <string name="nav_item_send_feedback">Poslať spätnú väzbu</string>
   <string name="edit_summary_guide_text">Povedzte nám, ako ste tento článok vylepšili. Toto pomôže ostatným redaktorom rýchlejšie skontrolovať vaše úpravy.</string>
   <string name="edit_summary_hint">Zhrnutie úprav</string>
   <string name="nav_item_random">Náhodná</string>
@@ -118,4 +118,6 @@
   <string name="user_contribs_more_action">Načítať viac</string>
   <string name="activity_my_contributions_title">Moje príspevky</string>
   <string name="nav_item_my_contributions">Moje príspevky</string>
+  <string name="edit_save_action_login">Prihlásiť sa a uložiť</string>
+  <string name="edit_save_action_ip">Uložiť anonymne</string>
 </resources>

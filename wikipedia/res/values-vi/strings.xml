@@ -107,7 +107,7 @@
   <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem trước…</string>
   <string name="edit_preview_activity_title">Xem trước sửa đổi</string>
   <string name="create_account_logging_in">Đang đăng nhập…</string>
-  <string name="nav_item_send_feedback" fuzzy="true">Gửi phản hồi</string>
+  <string name="nav_item_send_feedback">Gửi phản hồi về ứng dụng</string>
   <string name="edit_summary_guide_text">Hãy cho biết bạn đã cải thiện bài này thế nào, để cho người khác có thể xem qua sửa đổi của bạn một cách nhanh chóng.</string>
   <string name="edit_summary_hint">Tóm lược sửa đổi</string>
   <string name="nav_item_random">Ngẫu nhiên</string>
@@ -118,4 +118,8 @@
   <string name="user_contribs_more_action">Tải thêm</string>
   <string name="activity_my_contributions_title">Đóng góp của Tôi</string>
   <string name="nav_item_my_contributions">Đóng góp của tôi</string>
+  <string name="edit_save_action_login">Đăng nhập và lưu giữ</string>
+  <string name="edit_save_action_ip">Lưu vô danh</string>
+  <string name="edit_save_action_login_description">Các sửa đổi của bạn sẽ được ghi công với tên người dùng của bạn một cách công khai để cho những người sửa đổi khác có thể liên lạc với bạn</string>
+  <string name="edit_save_action_ip_description">Các sửa đổi của bạn sẽ được ghi công với địa chỉ IP của bạn, địa chỉ này thay đổi thường xuyên</string>
 </resources>

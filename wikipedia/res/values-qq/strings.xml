@@ -12,15 +12,18 @@
   <string name="menu_clear_all_history">Menu item text for clearing your reading history</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history</string>
   <string name="dialog_message_clear_history">Message for dialog box asking if you want to clear your reading history</string>
-  <string name="saved_pages_activity_title">Title for screen that shows list of locally saved pages</string>
-  <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the Saved Pages screen</string>
+  <string name="saved_pages_activity_title">Title for screen that shows list of locally saved pages.
+{{Identical|Saved page}}</string>
+  <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the Saved Pages screen.
+{{Identical|Saved page}}</string>
   <string name="menu_save_page">Menu item text for saving the currently active page</string>
   <string name="menu_share_page">Menu item text for sharing the currently active page</string>
   <string name="share_via">Dialog title text for Share list</string>
   <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your saved pages</string>
   <string name="dialog_message_clear_saved_pages">Message for dialog box asking if you want to clear all your saved pages</string>
   <string name="toast_saving_page">Small toast (popup) message saying that a page is being saved</string>
-  <string name="toast_saved_page">Small toast (popup) message saying that a page has been saved</string>
+  <string name="toast_saved_page">Small toast (popup) message saying that a page has been saved.
+{{Identical|Saved page}}</string>
   <string name="toast_save_page_failed">Small toast (popup) message saying that a page has failed to save</string>
   <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected saved pages</string>
   <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected saved pages have been deleted</string>
@@ -37,7 +40,8 @@
   <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in</string>
   <string name="editsection_activity_title">Title for screen where user is editing a single section</string>
   <string name="edit_section_error_retry">Text for button that retries page loading when tapped</string>
-  <string name="dialog_saving_in_progress">Text for progress dialog shown when an edit save is in progress</string>
+  <string name="dialog_saving_in_progress">Text for progress dialog shown when an edit save is in progress.
+{{Identical|Saving}}</string>
   <string name="edit_saved_successfully">Small toast (popup) message saying that the edit was successful</string>
   <string name="dialog_message_edit_failed">Message for dialog box specifying that an edit save had failed</string>
   <string name="dialog_message_edit_failed_retry">Button text to retry a failed edit save</string>
@@ -72,7 +76,8 @@
   <string name="nav_item_my_contributions">Text for item in nav menu that when tapped shows list of edits made by the user.
 {{Identical|Contribution}}</string>
   <string name="edit_save_action_login">Title of action that takes user to login screen so they can login before saving an edit</string>
-  <string name="edit_save_action_ip">Title of action that lets the user save the current edit anonymously</string>
+  <string name="edit_save_action_ip">Title of action that lets the user save the current edit anonymously
+{{Identical|Save anonymously}}</string>
   <string name="edit_save_action_login_description">Description for action that lets the user save the current edit anonymously</string>
   <string name="edit_save_action_ip_description">Description for action that takes user to login screen so they can login before saving an edit</string>
 </resources>
