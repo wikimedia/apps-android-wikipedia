@@ -117,7 +117,7 @@ public class LanguagePreference extends DialogPreference {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_activated_2, parent, false);
+                convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_list_item_activated_2, parent, false);
             }
 
             TextView nameText = (TextView) convertView.findViewById(android.R.id.text1);
