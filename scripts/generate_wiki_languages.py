@@ -17,7 +17,7 @@ is_first = True
 for row in data:
     if is_first:
         is_first = False
-        continue # skip headers!
+        continue  # skip headers!
     if row[2] == 'got':
         # 'got' is Gothic Runes, which lie ouotside the BMP
         # Android segfaults on these. So let's ignore those.

@@ -39,7 +39,7 @@ class ImagesBatch(object):
                 self._do_flop(density, self._do_export(density, svg))
             print u"\u2713 %s" % os.path.basename(svg)
 
-        
+
 if __name__ == "__main__":
     paths = glob(os.path.join(os.path.dirname(__file__), "../icon-svgs/*"))
     for path in paths:
