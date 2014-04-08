@@ -21,15 +21,13 @@
                    android:id="@+id/saved_page_source"
                    android:layout_gravity="center_vertical"
                    android:layout_marginLeft="8dp"
+                   android:layout_marginStart="8dp"
                 />
         <ImageView
                 android:id="@+id/saved_page_thumbnail"
                 android:layout_height="32dp"
                 android:layout_width="32dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_margin="8dp"
                 android:layout_gravity="center_vertical"
                 android:background="@android:color/transparent"
                 />
