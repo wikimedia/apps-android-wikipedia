@@ -37,12 +37,16 @@
         </activity>
         <activity
                 android:name=".history.HistoryActivity"
-                android:label="@string/history_activity_title">
+                android:label="@string/history_activity_title"
+                android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+                >
         </activity>
 
         <activity
                 android:name=".savedpages.SavedPagesActivity"
-                android:label="@string/saved_pages_activity_title">
+                android:label="@string/saved_pages_activity_title"
+                android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+                >
         </activity>
 
         <activity android:name="org.acra.CrashReportDialog"
@@ -52,24 +56,31 @@
                   android:finishOnTaskLaunch="true" />
         <activity android:name=".settings.SettingsActivity"
                   android:label="@string/settings_activity_title"
+                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
         <activity android:name=".interlanguage.LangLinksActivity"
                   android:label="@string/langlinks_activity_title"
+                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
         <activity android:name=".editing.EditSectionActivity"
                   android:windowSoftInputMode="adjustResize|stateVisible"
                   android:label="@string/edit_section_activity_title"
+                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
         <activity android:name=".login.LoginActivity"
                   android:label="@string/login_activity_title"
                   android:windowSoftInputMode="stateVisible|adjustResize"
+                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
         <activity android:name=".createaccount.CreateAccountActivity"
                   android:label="@string/create_account_activity_title"
                   android:windowSoftInputMode="stateVisible|adjustResize"
+                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
         <activity android:name=".pagehistory.usercontributions.UserContribsActivity"
-                  android:label="@string/activity_my_contributions_title"/>
+                  android:label="@string/activity_my_contributions_title"
+                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+                />
 
         <provider
             android:authorities="org.wikipedia.history"
