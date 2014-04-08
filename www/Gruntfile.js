@@ -8,7 +8,7 @@ module.exports = function ( grunt ) {
         "js/editaction.js",
         "js/sections.js",
         "js/rtlsupport.js",
-        "js/polyfill/classList.js",
+        "lib/js/classList.js",
         "tests/*.js"
     ];
     var allStyleFiles = [
@@ -20,7 +20,7 @@ module.exports = function ( grunt ) {
     ];
     // FIXME: Unconditionally included polyfills. Should be included only for Android 2.3
     var oldDroidPolyfills = [
-        "js/polyfill/classList.js"
+        "lib/js/classList.js"
     ];
 
     grunt.initConfig( {

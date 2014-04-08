@@ -105,6 +105,6 @@ function getCurrentSection() {
     return curClosest.getAttribute( "data-id" );
 }
 
-bridge.registerListener( "requestCurrentSection", function( payload ) {
+bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );

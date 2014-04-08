@@ -21,7 +21,7 @@ bridge.registerListener( 'displayWarning', function( payload ) {
     content.appendChild( warning );
 } );
 
-},{"./bridge":2,"./transformer":5}],2:[function(require,module,exports){
+},{"./bridge":2,"./transformer":4}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -60,6 +60,40 @@ window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
 };
 },{}],3:[function(require,module,exports){
+var bridge = require("./bridge");
+
+bridge.registerListener( "setDirectionality", function( payload ) {
+    var html = document.getElementsByTagName( "html" )[0];
+    html.setAttribute( "dir", payload.contentDirection );
+    html.classList.add( "content-" + payload.contentDirection );
+    html.classList.add( "ui-" + payload.uiDirection );
+} );
+
+},{"./bridge":2}],4:[function(require,module,exports){
+function Transformer() {
+}
+
+var transforms = {};
+
+Transformer.prototype.register = function( transform, fun ) {
+    if ( transform in transforms ) {
+        transforms[transform].append( fun );
+    } else {
+        transforms[transform] = [ fun ];
+    }
+};
+
+Transformer.prototype.transform = function( transform, element ) {
+    var functions = transforms[transform];
+    for ( var i = 0; i < functions.length; i++ ) {
+        element = functions[i](element);
+    }
+    return element;
+};
+
+module.exports = new Transformer();
+
+},{}],5:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills
@@ -136,38 +170,4 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}],4:[function(require,module,exports){
-var bridge = require("./bridge");
-
-bridge.registerListener( "setDirectionality", function( payload ) {
-    var html = document.getElementsByTagName( "html" )[0];
-    html.setAttribute( "dir", payload.contentDirection );
-    html.classList.add( "content-" + payload.contentDirection );
-    html.classList.add( "ui-" + payload.uiDirection );
-} );
-
-},{"./bridge":2}],5:[function(require,module,exports){
-function Transformer() {
-}
-
-var transforms = {};
-
-Transformer.prototype.register = function( transform, fun ) {
-    if ( transform in transforms ) {
-        transforms[transform].append( fun );
-    } else {
-        transforms[transform] = [ fun ];
-    }
-};
-
-Transformer.prototype.transform = function( transform, element ) {
-    var functions = transforms[transform];
-    for ( var i = 0; i < functions.length; i++ ) {
-        element = functions[i](element);
-    }
-    return element;
-};
-
-module.exports = new Transformer();
-
-},{}]},{},[2,1,4,3])
+},{}]},{},[2,1,3,5])

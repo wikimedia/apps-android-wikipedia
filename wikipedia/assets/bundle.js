@@ -108,83 +108,6 @@ bridge.registerListener( "requestImagesList", function () {
 } );
 
 },{"./bridge":2}],5:[function(require,module,exports){
-/**
- * MIT LICENSCE
- * From: https://github.com/remy/polyfills
- * FIXME: Don't copy paste libraries, use a dep management system.
- */
-(function () {
-
-if (typeof window.Element === "undefined" || "classList" in document.documentElement) return;
-
-var prototype = Array.prototype,
-    push = prototype.push,
-    splice = prototype.splice,
-    join = prototype.join;
-
-function DOMTokenList(el) {
-  this.el = el;
-  // The className needs to be trimmed and split on whitespace
-  // to retrieve a list of classes.
-  var classes = el.className.replace(/^\s+|\s+$/g,'').split(/\s+/);
-  for (var i = 0; i < classes.length; i++) {
-    push.call(this, classes[i]);
-  }
-};
-
-DOMTokenList.prototype = {
-  add: function(token) {
-    if(this.contains(token)) return;
-    push.call(this, token);
-    this.el.className = this.toString();
-  },
-  contains: function(token) {
-    return this.el.className.indexOf(token) != -1;
-  },
-  item: function(index) {
-    return this[index] || null;
-  },
-  remove: function(token) {
-    if (!this.contains(token)) return;
-    for (var i = 0; i < this.length; i++) {
-      if (this[i] == token) break;
-    }
-    splice.call(this, i, 1);
-    this.el.className = this.toString();
-  },
-  toString: function() {
-    return join.call(this, ' ');
-  },
-  toggle: function(token) {
-    if (!this.contains(token)) {
-      this.add(token);
-    } else {
-      this.remove(token);
-    }
-
-    return this.contains(token);
-  }
-};
-
-window.DOMTokenList = DOMTokenList;
-
-function defineElementGetter (obj, prop, getter) {
-    if (Object.defineProperty) {
-        Object.defineProperty(obj, prop,{
-            get : getter
-        });
-    } else {
-        obj.__defineGetter__(prop, getter);
-    }
-}
-
-defineElementGetter(Element.prototype, 'classList', function () {
-  return new DOMTokenList(this);
-});
-
-})();
-
-},{}],6:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -194,7 +117,7 @@ bridge.registerListener( "setDirectionality", function( payload ) {
     html.classList.add( "ui-" + payload.uiDirection );
 } );
 
-},{"./bridge":2}],7:[function(require,module,exports){
+},{"./bridge":2}],6:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 
@@ -302,11 +225,11 @@ function getCurrentSection() {
     return curClosest.getAttribute( "data-id" );
 }
 
-bridge.registerListener( "requestCurrentSection", function( payload ) {
+bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-},{"./bridge":2,"./transformer":8}],8:[function(require,module,exports){
+},{"./bridge":2,"./transformer":7}],7:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -330,7 +253,7 @@ Transformer.prototype.transform = function( transform, element ) {
 
 module.exports = new Transformer();
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 
@@ -368,4 +291,81 @@ transformer.register( "section", function( content ) {
     return content;
 } );
 
-},{"./bridge":2,"./transformer":8}]},{},[4,8,9,2,1,3,7,6,5])
+},{"./bridge":2,"./transformer":7}],9:[function(require,module,exports){
+/**
+ * MIT LICENSCE
+ * From: https://github.com/remy/polyfills
+ * FIXME: Don't copy paste libraries, use a dep management system.
+ */
+(function () {
+
+if (typeof window.Element === "undefined" || "classList" in document.documentElement) return;
+
+var prototype = Array.prototype,
+    push = prototype.push,
+    splice = prototype.splice,
+    join = prototype.join;
+
+function DOMTokenList(el) {
+  this.el = el;
+  // The className needs to be trimmed and split on whitespace
+  // to retrieve a list of classes.
+  var classes = el.className.replace(/^\s+|\s+$/g,'').split(/\s+/);
+  for (var i = 0; i < classes.length; i++) {
+    push.call(this, classes[i]);
+  }
+};
+
+DOMTokenList.prototype = {
+  add: function(token) {
+    if(this.contains(token)) return;
+    push.call(this, token);
+    this.el.className = this.toString();
+  },
+  contains: function(token) {
+    return this.el.className.indexOf(token) != -1;
+  },
+  item: function(index) {
+    return this[index] || null;
+  },
+  remove: function(token) {
+    if (!this.contains(token)) return;
+    for (var i = 0; i < this.length; i++) {
+      if (this[i] == token) break;
+    }
+    splice.call(this, i, 1);
+    this.el.className = this.toString();
+  },
+  toString: function() {
+    return join.call(this, ' ');
+  },
+  toggle: function(token) {
+    if (!this.contains(token)) {
+      this.add(token);
+    } else {
+      this.remove(token);
+    }
+
+    return this.contains(token);
+  }
+};
+
+window.DOMTokenList = DOMTokenList;
+
+function defineElementGetter (obj, prop, getter) {
+    if (Object.defineProperty) {
+        Object.defineProperty(obj, prop,{
+            get : getter
+        });
+    } else {
+        obj.__defineGetter__(prop, getter);
+    }
+}
+
+defineElementGetter(Element.prototype, 'classList', function () {
+  return new DOMTokenList(this);
+});
+
+})();
+
+},{}]},{},[4,7,8,2,1,3,6,5,9])
