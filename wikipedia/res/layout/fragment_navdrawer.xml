@@ -17,7 +17,6 @@
                       android:background="?android:attr/selectableItemBackground"
                       android:paddingTop="8dp"
                       android:paddingBottom="8dp"
-                      android:paddingRight="8dp"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
@@ -51,7 +50,6 @@
                       android:id="@+id/nav_item_username"
                       android:paddingTop="8dp"
                       android:paddingBottom="8dp"
-                      android:paddingRight="8dp"
                       android:visibility="gone"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
@@ -64,10 +62,9 @@
                           android:orientation="vertical"
                     >
                 <org.wikipedia.styledviews.StyledTextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:gravity="center_vertical"
-                        android:layout_gravity="center_vertical"
                         android:id="@+id/nav_item_username_primary_text"
                         style="?android:textAppearanceMediumInverse"
                         />
