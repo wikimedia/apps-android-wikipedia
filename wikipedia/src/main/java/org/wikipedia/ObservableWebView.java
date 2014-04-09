@@ -34,16 +34,16 @@ public class ObservableWebView extends WebView {
         this.onUpOrCancelMotionEventListener = onUpOrCancelMotionEventListener;
     }
 
-    public static interface OnScrollChangeListener {
-        public void onScrollChanged(int oldScrollY, int scrollY);
+    public interface OnScrollChangeListener {
+        void onScrollChanged(int oldScrollY, int scrollY);
     }
 
-    public static interface  OnDownMotionEventListener {
-        public void onDownMotionEvent();
+    public interface  OnDownMotionEventListener {
+        void onDownMotionEvent();
     }
 
-    public static interface OnUpOrCancelMotionEventListener {
-        public void onUpOrCancelMotionEvent();
+    public interface OnUpOrCancelMotionEventListener {
+        void onUpOrCancelMotionEvent();
     }
 
     public ObservableWebView(Context context) {

@@ -21,7 +21,7 @@ public class CommunicationBridge {
     private final ArrayList<String> pendingJSMessages = new ArrayList<String>();
 
     public interface JSEventListener {
-        public void onMessage(String messageType, JSONObject messagePayload);
+        void onMessage(String messageType, JSONObject messagePayload);
     }
 
     public CommunicationBridge(final WebView webView, final String baseURL) {
