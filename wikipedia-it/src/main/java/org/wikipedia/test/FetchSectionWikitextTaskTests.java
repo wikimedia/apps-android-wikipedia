@@ -22,7 +22,7 @@ public class FetchSectionWikitextTaskTests extends ActivityUnitTestCase<TestDumm
             @Override
             public void run() {
                 PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", new Site("test.wikipedia.org"));
-                new FetchSectionWikitextTask(getInstrumentation().getTargetContext(),title, 2) {
+                new FetchSectionWikitextTask(getInstrumentation().getTargetContext(), title, 2) {
                     @Override
                     public void onFinish(String result) {
                         assertNotNull(result);

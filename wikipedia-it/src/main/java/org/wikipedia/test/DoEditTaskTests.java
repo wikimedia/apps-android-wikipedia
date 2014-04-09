@@ -32,7 +32,7 @@ public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
                             public void onFinish(EditingResult result) {
                                 assertNotNull(result);
                                 assertEquals("Success", result.getResult());
-                                new FetchSectionWikitextTask(getInstrumentation().getTargetContext(),title, 3) {
+                                new FetchSectionWikitextTask(getInstrumentation().getTargetContext(), title, 3) {
                                     @Override
                                     public void onFinish(String result) {
                                         assertNotNull(result);
