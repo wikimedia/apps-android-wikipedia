@@ -1,19 +1,14 @@
 package org.wikipedia.random;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import android.widget.Toast;
-import com.squareup.otto.Bus;
-import org.wikipedia.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.random.RandomArticleIdTask;
+import android.app.*;
+import android.content.*;
+import android.os.*;
+import android.util.*;
+import android.widget.*;
+import com.squareup.otto.*;
+import org.wikipedia.*;
+import org.wikipedia.events.*;
+import org.wikipedia.history.*;
 
 public class RandomHandler {
     private Activity activity;
