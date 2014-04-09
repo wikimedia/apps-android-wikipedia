@@ -27,7 +27,14 @@ import static com.nineoldandroids.view.ViewPropertyAnimator.*;
 /**
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?
  */
-public class Utils {
+public final class Utils {
+    /**
+     * Private constructor, so nobody can construct Utils.
+     *
+     * THEIR EVIL PLANS HAVE BEEN THWARTED!!!1
+     */
+    private Utils() { }
+
     /**
      * Compares two strings properly, even when one of them is null - without throwing up
      *
