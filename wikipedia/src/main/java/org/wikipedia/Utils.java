@@ -138,7 +138,7 @@ public final class Utils {
      * Add some utility methods to a communuication bridge, that can be called synchronously from JS
      */
     public static final void addUtilityMethodsToBridge(final Context context, CommunicationBridge bridge) {
-        bridge.addListener( "imageUrlToFilePath", new CommunicationBridge.JSEventListener() {
+        bridge.addListener("imageUrlToFilePath", new CommunicationBridge.JSEventListener() {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
                 String imageUrl = messagePayload.optString("imageUrl");

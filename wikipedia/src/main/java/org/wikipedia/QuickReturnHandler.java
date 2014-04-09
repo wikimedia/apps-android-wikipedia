@@ -44,7 +44,7 @@ public class QuickReturnHandler implements  ObservableWebView.OnScrollChangeList
         int transY = (int)ViewHelper.getTranslationY(quickReturnView);
         int height = quickReturnView.getHeight();
         if (transY != 0 && transY > -height) {
-            if (transY > -height / 2 ) {
+            if (transY > -height / 2) {
                 // Fully display it
                 Utils.ensureTranslationY(quickReturnView, 0);
             } else {

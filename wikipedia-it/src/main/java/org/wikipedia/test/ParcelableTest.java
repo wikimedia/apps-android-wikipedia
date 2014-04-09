@@ -41,7 +41,7 @@ public class ParcelableTest extends TestCase {
         ArrayList<Section> sections = new ArrayList<Section>();
         Section headSection = new Section(0, 1, null, null, "Hi there!");
         for (int i = 1; i <= 10; i++) {
-            sections.add(new Section(i, 1, "Something " + i, "Something_" + i, "Content Something" + i ));
+            sections.add(new Section(i, 1, "Something " + i, "Something_" + i, "Content Something" + i));
         }
         PageTitle title = new PageTitle(null, "Test", new Site("en.wikipedia.org"));
         PageProperties props = new PageProperties(new Date());
