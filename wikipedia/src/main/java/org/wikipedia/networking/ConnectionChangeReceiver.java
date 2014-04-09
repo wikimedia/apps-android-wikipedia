@@ -1,21 +1,12 @@
 package org.wikipedia.networking;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import com.squareup.otto.Bus;
-import com.squareup.otto.ThreadEnforcer;
-import org.wikipedia.PageTitle;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.WikipediaZeroStateChangeEvent;
-import org.wikipedia.random.RandomArticleIdTask;
-import org.wikipedia.zero.WikipediaZeroTask;
-import org.wikipedia.R;
+import android.content.*;
+import android.net.*;
+import android.os.*;
+import android.util.*;
+import com.squareup.otto.*;
+import org.wikipedia.*;
+import org.wikipedia.random.*;
 
 
 
@@ -39,9 +30,10 @@ public class ConnectionChangeReceiver extends BroadcastReceiver {
             NetworkInfo.State.CONNECTED => isConnected(), but let's call isConnected as documentation suggests.
             We don't need to check against the zeroconfig API unless the (latest) W0 state is *on* (true).
              */
-            if (WikipediaApp.getWikipediaZeroDisposition() &&
-                    (currentState == NetworkInfo.State.CONNECTED || currentState == NetworkInfo.State.DISCONNECTED) &&
-                    networkInfo.isConnected()
+            if (WikipediaApp.getWikipediaZeroDisposition()
+                    && (currentState == NetworkInfo.State.CONNECTED
+                        || currentState == NetworkInfo.State.DISCONNECTED)
+                    && networkInfo.isConnected()
                ) {
 
                 // OK, now check if we're still eligible for zero-rating

@@ -8,8 +8,8 @@ import android.preference.*;
 import android.support.v4.widget.*;
 import android.support.v7.app.*;
 import android.view.*;
-import android.widget.*;
 import com.squareup.otto.*;
+import de.keyboardsurfer.android.widget.crouton.*;
 import org.wikipedia.*;
 import org.wikipedia.events.*;
 import org.wikipedia.history.*;
@@ -17,7 +17,6 @@ import org.wikipedia.interlanguage.*;
 import org.wikipedia.recurring.*;
 import org.wikipedia.search.*;
 import org.wikipedia.settings.*;
-import de.keyboardsurfer.android.widget.crouton.*;
 
 public class PageActivity extends ActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
@@ -135,8 +134,8 @@ public class PageActivity extends ActionBarActivity {
             drawerLayout.closeDrawer(Gravity.START);
             return;
         }
-        if (!searchAriclesFragment.handleBackPressed() &&
-                (curPageFragment != null && !curPageFragment.handleBackPressed())) {
+        if (!searchAriclesFragment.handleBackPressed()
+                && (curPageFragment != null && !curPageFragment.handleBackPressed())) {
             if (getSupportFragmentManager().getBackStackEntryCount() <= 1) {
                 // Everything we could pop has been popped....
                 finish();
