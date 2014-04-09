@@ -2,4 +2,8 @@
 <resources>
     <color name="border">#60888888</color>
 
+    <!-- Copied for 2.3 -->
+    <color name="holo_green_light">#ff99cc00</color>
+    <color name="holo_red_dark">#ffcc0000</color>
+
 </resources>
