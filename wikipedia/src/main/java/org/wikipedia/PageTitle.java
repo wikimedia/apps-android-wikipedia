@@ -33,7 +33,7 @@ public class PageTitle implements Parcelable {
 
     public PageTitle(final String text, final Site site) {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
-        String parts[];
+        String[] parts;
         if (text.indexOf("#") != -1) {
             try {
                 this.fragment = URLDecoder.decode(text.split("#")[1], "utf-8");

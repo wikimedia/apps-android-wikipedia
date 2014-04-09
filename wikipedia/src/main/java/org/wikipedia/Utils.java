@@ -1,12 +1,7 @@
 package org.wikipedia;
 
-import com.nineoldandroids.animation.*;
-import com.nineoldandroids.view.*;
-import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
-
 import android.app.*;
 import android.content.*;
-import android.content.pm.*;
 import android.os.*;
 import android.text.*;
 import android.text.format.*;
@@ -14,6 +9,8 @@ import android.util.*;
 import android.view.*;
 import android.view.inputmethod.*;
 import android.widget.*;
+import com.nineoldandroids.animation.*;
+import com.nineoldandroids.view.*;
 import com.squareup.otto.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
@@ -24,6 +21,8 @@ import java.io.*;
 import java.security.*;
 import java.text.*;
 import java.util.*;
+
+import static com.nineoldandroids.view.ViewPropertyAnimator.*;
 
 /**
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?
@@ -103,7 +102,7 @@ public class Utils {
             MessageDigest digest = java.security.MessageDigest
                     .getInstance("MD5");
             digest.update(s.getBytes("utf-8"));
-            byte messageDigest[] = digest.digest();
+            byte[] messageDigest = digest.digest();
 
             return Base64.encodeToString(messageDigest, Base64.URL_SAFE | Base64.NO_WRAP);
         } catch (NoSuchAlgorithmException e) {

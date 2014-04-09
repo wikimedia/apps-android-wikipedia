@@ -2,15 +2,12 @@ package org.wikipedia;
 
 import android.text.*;
 import android.widget.*;
-import com.sun.corba.se.spi.activation.*;
-
-import java.util.*;
 
 /**
  * Triggers events when one or more EdtiTexts are empty or not
  */
 public class NonEmptyValidator {
-    private final EditText editTexts[];
+    private final EditText[] editTexts;
     private final ValidationChangedCallback validationChanged;
 
     public interface ValidationChangedCallback {
