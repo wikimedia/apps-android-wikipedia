@@ -14,26 +14,26 @@ import java.util.*;
 public class EditSummaryHandler {
     private final Activity activity;
     private final View container;
-    private final AutoCompleteTextView summary_edit;
+    private final AutoCompleteTextView summaryEdit;
     private final EditSummaryAdapter adapter;
 
     public EditSummaryHandler(final Activity activity, PageTitle title) {
         this.activity = activity;
 
         container = activity.findViewById(R.id.group_edit_summary_container);
-        summary_edit = (AutoCompleteTextView)activity.findViewById(R.id.group_edit_summary_edit);
+        summaryEdit = (AutoCompleteTextView)activity.findViewById(R.id.group_edit_summary_edit);
 
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                summary_edit.requestFocus();
+                summaryEdit.requestFocus();
             }
         });
 
         adapter = new EditSummaryAdapter(activity, null, true);
-        summary_edit.setAdapter(adapter);
+        summaryEdit.setAdapter(adapter);
 
-        Utils.setTextDirection(summary_edit, title.getSite().getLanguage());
+        Utils.setTextDirection(summaryEdit, title.getSite().getLanguage());
 
         adapter.setFilterQueryProvider(new FilterQueryProvider() {
             @Override
@@ -60,15 +60,15 @@ public class EditSummaryHandler {
 
     public String getSummary(String sectionHeader) {
         if (TextUtils.isEmpty(sectionHeader)) {
-            return summary_edit.getText().toString();
+            return summaryEdit.getText().toString();
         } else {
-            return "/* " + sectionHeader + " */ " + summary_edit.getText().toString();
+            return "/* " + sectionHeader + " */ " + summaryEdit.getText().toString();
         }
     }
 
     public void persistSummary() {
         WikipediaApp app = (WikipediaApp)container.getContext().getApplicationContext();
-        EditSummary summary = new EditSummary(summary_edit.getText().toString(), new Date());
+        EditSummary summary = new EditSummary(summaryEdit.getText().toString(), new Date());
         app.getPersister(EditSummary.class).upsert(summary);
     }
 
