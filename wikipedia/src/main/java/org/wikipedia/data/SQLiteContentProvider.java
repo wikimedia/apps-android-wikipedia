@@ -5,13 +5,13 @@ import android.database.*;
 import android.database.sqlite.*;
 import android.net.*;
 
-abstract public class SQLiteContentProvider<T> extends ContentProvider {
+public abstract class SQLiteContentProvider<T> extends ContentProvider {
     protected final PersistanceHelper<T> persistanceHelper;
     protected SQLiteContentProvider(PersistanceHelper<T> persistanceHelper) {
         this.persistanceHelper = persistanceHelper;
     }
 
-    abstract protected DBOpenHelper getDbOpenHelper();
+    protected abstract DBOpenHelper getDbOpenHelper();
 
     protected final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     private static final int MATCH_ALL = 1;

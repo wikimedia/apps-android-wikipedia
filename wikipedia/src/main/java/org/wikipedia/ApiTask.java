@@ -3,7 +3,7 @@ package org.wikipedia;
 import org.mediawiki.api.json.*;
 import org.wikipedia.concurrency.*;
 
-abstract public class ApiTask<T> extends SaneAsyncTask<T> {
+public abstract class ApiTask<T> extends SaneAsyncTask<T> {
     private final Api api;
 
     public ApiTask(int threadCount, Api api) {
@@ -21,7 +21,7 @@ abstract public class ApiTask<T> extends SaneAsyncTask<T> {
         return builder.get();
     }
 
-    abstract public RequestBuilder buildRequest(Api api);
-    abstract public T processResult(ApiResult result) throws Throwable;
+    public abstract RequestBuilder buildRequest(Api api);
+    public abstract T processResult(ApiResult result) throws Throwable;
 
 }

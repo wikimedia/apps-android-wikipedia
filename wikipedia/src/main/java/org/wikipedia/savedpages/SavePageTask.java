@@ -16,8 +16,8 @@ public class SavePageTask extends SaneAsyncTask<Void> {
     private final Page page;
     private final CommunicationBridge bridge;
 
-    private final static int MESSAGE_START_SAVING = 1;
-    private final static int MESSAGE_SAVING_DONE = 2;
+    private static final int MESSAGE_START_SAVING = 1;
+    private static final int MESSAGE_SAVING_DONE = 2;
     /**
      * Latch that opens when the imagesDownloadedLatch has been initialized.
      * This is needed because the count of the imagesDownloadedLatch needs to

@@ -45,7 +45,7 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle,T>> {
         return map;
     }
 
-    abstract public void buildQueryParams(RequestBuilder buildQueryParams);
+    public abstract void buildQueryParams(RequestBuilder buildQueryParams);
 
-    abstract public T processPage(int pageId, PageTitle pageTitle, JSONObject page) throws Throwable;
+    public abstract T processPage(int pageId, PageTitle pageTitle, JSONObject page) throws Throwable;
 }
