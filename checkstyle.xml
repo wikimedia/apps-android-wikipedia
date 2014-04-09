@@ -70,7 +70,9 @@
         <module name="MethodName"/>
         <module name="PackageName"/>
         <module name="ParameterName"/>
-        <module name="StaticVariableName"/>
+        <module name="StaticVariableName">
+            <property name="format" value="^[A-Z0-9]*$" />
+        </module>
         <module name="TypeName"/>
 
         <!-- Checks for imports                              -->
