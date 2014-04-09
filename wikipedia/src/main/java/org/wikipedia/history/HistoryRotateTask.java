@@ -27,7 +27,7 @@ public class HistoryRotateTask extends RecurringTask {
         String timeUntil = String.valueOf(System.currentTimeMillis() - CLEAR_INTERVAL_MILLI);
         app.getPersister(HistoryEntry.class).deleteWhere(
                 "timestamp < ?",
-                new String[] { timeUntil }
+                new String[] {timeUntil}
         );
     }
 

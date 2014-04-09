@@ -44,7 +44,7 @@ public class EditSummaryHandler {
                             EditSummary.persistanceHelper.getBaseContentURI(),
                             null,
                             "summary LIKE ?",
-                            new String[] { charSequence + "%"},
+                            new String[] {charSequence + "%"},
                             "lastUsed DESC");
                 } catch (RemoteException e) {
                     // This shouldn't really be happening
