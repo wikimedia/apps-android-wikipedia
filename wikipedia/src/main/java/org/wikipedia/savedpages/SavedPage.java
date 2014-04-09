@@ -6,7 +6,7 @@ import org.wikipedia.*;
 import java.util.*;
 
 public class SavedPage implements Parcelable {
-    public static final SavedPagePersistanceHelper persistanceHelper = new SavedPagePersistanceHelper();
+    public static final SavedPagePersistanceHelper PERSISTANCE_HELPER = new SavedPagePersistanceHelper();
 
     private final PageTitle title;
     private final Date timestamp;

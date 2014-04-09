@@ -6,7 +6,7 @@ import org.wikipedia.*;
 import java.util.*;
 
 public class HistoryEntry implements Parcelable {
-    public static final HistoryEntryPersistanceHelper persistanceHelper = new HistoryEntryPersistanceHelper();
+    public static final HistoryEntryPersistanceHelper PERSISTANCE_HELPER = new HistoryEntryPersistanceHelper();
 
     public static final int SOURCE_SEARCH = 1;
     public static final int SOURCE_INTERNAL_LINK = 2;

@@ -38,10 +38,10 @@ public class EditSummaryHandler {
         adapter.setFilterQueryProvider(new FilterQueryProvider() {
             @Override
             public Cursor runQuery(CharSequence charSequence) {
-                ContentProviderClient client = activity.getContentResolver().acquireContentProviderClient(EditSummary.persistanceHelper.getBaseContentURI());
+                ContentProviderClient client = activity.getContentResolver().acquireContentProviderClient(EditSummary.PERSISTANCE_HELPER.getBaseContentURI());
                 try {
                     return client.query(
-                            EditSummary.persistanceHelper.getBaseContentURI(),
+                            EditSummary.PERSISTANCE_HELPER.getBaseContentURI(),
                             null,
                             "summary LIKE ?",
                             new String[] {charSequence + "%"},
@@ -97,7 +97,7 @@ public class EditSummaryHandler {
 
         @Override
         public CharSequence convertToString(Cursor cursor) {
-            return EditSummary.persistanceHelper.fromCursor(cursor).getSummary();
+            return EditSummary.PERSISTANCE_HELPER.fromCursor(cursor).getSummary();
         }
     }
 }

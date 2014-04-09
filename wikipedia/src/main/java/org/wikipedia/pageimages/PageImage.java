@@ -4,7 +4,7 @@ import android.os.*;
 import org.wikipedia.*;
 
 public class PageImage implements Parcelable {
-    public static final PageImagePersistanceHelper persistanceHelper = new PageImagePersistanceHelper();
+    public static final PageImagePersistanceHelper PERSISTANCE_HELPER = new PageImagePersistanceHelper();
 
     private final PageTitle title;
     private final String imageName;

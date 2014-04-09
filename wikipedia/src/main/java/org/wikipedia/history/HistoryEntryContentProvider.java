@@ -11,14 +11,14 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
     private static final int MATCH_WITH_PAGEIMAGES =  64;
 
     public HistoryEntryContentProvider() {
-        super(HistoryEntry.persistanceHelper);
+        super(HistoryEntry.PERSISTANCE_HELPER);
     }
 
     @Override
     public boolean onCreate() {
         boolean ret = super.onCreate();
         uriMatcher.addURI(getAuthority(),
-                persistanceHelper.getTableName() + "/" + PageImage.persistanceHelper.getTableName(),
+                persistanceHelper.getTableName() + "/" + PageImage.PERSISTANCE_HELPER.getTableName(),
                 MATCH_WITH_PAGEIMAGES);
         return ret;
     }
@@ -44,7 +44,7 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
             case MATCH_WITH_PAGEIMAGES:
                 queryBuilder.setTables(
                         String.format("%1$s LEFT OUTER JOIN %2$s ON (%1$s.site = %2$s.site and %1$s.title = %2$s.title)",
-                                HistoryEntry.persistanceHelper.getTableName(), PageImage.persistanceHelper.getTableName()
+                                HistoryEntry.PERSISTANCE_HELPER.getTableName(), PageImage.PERSISTANCE_HELPER.getTableName()
                                 )
                 );
                 String[] actualProjection = new String[] {

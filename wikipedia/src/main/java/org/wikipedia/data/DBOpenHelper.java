@@ -17,10 +17,10 @@ public class DBOpenHelper  extends SQLiteOpenHelper{
     }
 
     private PersistanceHelper[] persistanceHelpers = {
-            HistoryEntry.persistanceHelper,
-            PageImage.persistanceHelper,
-            SavedPage.persistanceHelper,
-            EditSummary.persistanceHelper
+            HistoryEntry.PERSISTANCE_HELPER,
+            PageImage.PERSISTANCE_HELPER,
+            SavedPage.PERSISTANCE_HELPER,
+            EditSummary.PERSISTANCE_HELPER
     };
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {

@@ -63,7 +63,7 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         return new CursorLoader(
                 this,
-                Uri.parse(HistoryEntry.persistanceHelper.getBaseContentURI().toString() + "/" + PageImage.persistanceHelper.getTableName()),
+                Uri.parse(HistoryEntry.PERSISTANCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTANCE_HELPER.getTableName()),
                 null,
                 null,
                 null,
@@ -120,7 +120,7 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
             TextView title = (TextView) view.findViewById(R.id.history_title);
             ImageView source = (ImageView) view.findViewById(R.id.history_source);
             ImageView thumbnail = (ImageView) view.findViewById(R.id.history_thumbnail);
-            HistoryEntry entry = HistoryEntry.persistanceHelper.fromCursor(cursor);
+            HistoryEntry entry = HistoryEntry.PERSISTANCE_HELPER.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
             source.setImageResource(getImageForSource(entry.getSource()));
             view.setTag(entry);
@@ -137,7 +137,7 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
             String curTime, prevTime = "";
             if (cursor.getPosition() != 0) {
                 Cursor prevCursor = (Cursor) getItem(cursor.getPosition() - 1);
-                HistoryEntry prevEntry = HistoryEntry.persistanceHelper.fromCursor(prevCursor);
+                HistoryEntry prevEntry = HistoryEntry.PERSISTANCE_HELPER.fromCursor(prevCursor);
                 prevTime = getDateString(prevEntry.getTimestamp());
             }
             curTime = getDateString(entry.getTimestamp());

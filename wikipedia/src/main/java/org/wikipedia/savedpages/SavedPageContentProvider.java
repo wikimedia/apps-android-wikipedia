@@ -11,14 +11,14 @@ public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {
     private static final int MATCH_WITH_PAGEIMAGES =  64;
 
     public SavedPageContentProvider() {
-        super(SavedPage.persistanceHelper);
+        super(SavedPage.PERSISTANCE_HELPER);
     }
 
     @Override
     public boolean onCreate() {
         boolean ret = super.onCreate();
         uriMatcher.addURI(getAuthority(),
-                persistanceHelper.getTableName() + "/" + PageImage.persistanceHelper.getTableName(),
+                persistanceHelper.getTableName() + "/" + PageImage.PERSISTANCE_HELPER.getTableName(),
                 MATCH_WITH_PAGEIMAGES);
         return ret;
     }
@@ -45,7 +45,7 @@ public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {
             case MATCH_WITH_PAGEIMAGES:
                 queryBuilder.setTables(
                         String.format("%1$s LEFT OUTER JOIN %2$s ON (%1$s.site = %2$s.site and %1$s.title = %2$s.title)",
-                                SavedPage.persistanceHelper.getTableName(), PageImage.persistanceHelper.getTableName()
+                                SavedPage.PERSISTANCE_HELPER.getTableName(), PageImage.PERSISTANCE_HELPER.getTableName()
                                 )
                 );
                 String[] actualProjection = new String[] {

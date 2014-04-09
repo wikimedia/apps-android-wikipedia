@@ -71,7 +71,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
                                 SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
                                 for (int i = 0; i < checkedItems.size(); i++) {
                                     if (checkedItems.valueAt(i)) {
-                                        final SavedPage page = SavedPage.persistanceHelper.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
+                                        final SavedPage page = SavedPage.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
                                         new DeleteSavedPageTask(SavedPagesActivity.this, page) {
                                             @Override
                                             public void onFinish(Boolean result) {
@@ -129,7 +129,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         return new CursorLoader(
                 this,
-                Uri.parse(SavedPage.persistanceHelper.getBaseContentURI().toString() + "/" + PageImage.persistanceHelper.getTableName()),
+                Uri.parse(SavedPage.PERSISTANCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTANCE_HELPER.getTableName()),
                 null,
                 null,
                 null,
@@ -164,7 +164,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
         public void bindView(View view, Context context, Cursor cursor) {
             TextView title = (TextView) view.findViewById(R.id.saved_page_title);
             ImageView thumbnail = (ImageView) view.findViewById(R.id.saved_page_thumbnail);
-            SavedPage entry = SavedPage.persistanceHelper.fromCursor(cursor);
+            SavedPage entry = SavedPage.PERSISTANCE_HELPER.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
 
@@ -180,7 +180,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
             String curTime, prevTime = "";
             if (cursor.getPosition() != 0) {
                 Cursor prevCursor = (Cursor) getItem(cursor.getPosition() - 1);
-                SavedPage prevEntry = SavedPage.persistanceHelper.fromCursor(prevCursor);
+                SavedPage prevEntry = SavedPage.PERSISTANCE_HELPER.fromCursor(prevCursor);
                 prevTime = getDateString(prevEntry.getTimestamp());
             }
             curTime = getDateString(entry.getTimestamp());

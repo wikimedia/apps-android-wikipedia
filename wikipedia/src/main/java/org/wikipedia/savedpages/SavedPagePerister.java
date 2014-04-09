@@ -14,9 +14,9 @@ public class SavedPagePerister extends ContentPersister<SavedPage> {
         // lolJava
         super(
                 context.getContentResolver().acquireContentProviderClient(
-                        SavedPage.persistanceHelper.getBaseContentURI()
+                        SavedPage.PERSISTANCE_HELPER.getBaseContentURI()
                 ),
-                SavedPage.persistanceHelper
+                SavedPage.PERSISTANCE_HELPER
         );
         this.context = context;
     }

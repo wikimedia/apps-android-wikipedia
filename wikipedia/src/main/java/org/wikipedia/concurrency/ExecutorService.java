@@ -9,10 +9,10 @@ import java.util.concurrent.*;
  * TODO: Make number of threads per executor configurable.
  */
 public class ExecutorService {
-    private static final ExecutorService singleton = new ExecutorService();
+    private static final ExecutorService SINGLETON = new ExecutorService();
 
     public static ExecutorService getSingleton() {
-        return singleton;
+        return SINGLETON;
     }
 
     private final HashMap<Class, Executor> executors;
