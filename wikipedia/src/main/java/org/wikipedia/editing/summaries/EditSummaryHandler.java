@@ -30,28 +30,43 @@ public class EditSummaryHandler {
             }
         });
 
-        adapter = new EditSummaryAdapter(activity, null, true);
-        summaryEdit.setAdapter(adapter);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            // For some reason the autocomplete popup view crashes on
+            // Gingerbread. This seems to be related to styles but I
+            // can't quite figure out why.
+            //
+            // This call in AutoCompleteTextView.buildDropDown ends up failing:
+            //
+            //             mDropDownList.setSelector(mDropDownListHighlight);
+            //
+            // because mDropDownListHighlight seems to be null instead
+            // of an expected drawable, and that ends up failing when used.
+
+            adapter = new EditSummaryAdapter(activity, null, true);
+            summaryEdit.setAdapter(adapter);
+
+            adapter.setFilterQueryProvider(new FilterQueryProvider() {
+                @Override
+                public Cursor runQuery(CharSequence charSequence) {
+                    ContentProviderClient client = activity.getContentResolver().acquireContentProviderClient(EditSummary.PERSISTANCE_HELPER.getBaseContentURI());
+                    try {
+                        return client.query(
+                                EditSummary.PERSISTANCE_HELPER.getBaseContentURI(),
+                                null,
+                                "summary LIKE ?",
+                                new String[] {charSequence + "%"},
+                                "lastUsed DESC");
+                    } catch (RemoteException e) {
+                        // This shouldn't really be happening
+                        throw new RuntimeException(e);
+                    }
+                }
+            });
+        } else {
+            adapter = null;
+        }
 
         Utils.setTextDirection(summaryEdit, title.getSite().getLanguage());
-
-        adapter.setFilterQueryProvider(new FilterQueryProvider() {
-            @Override
-            public Cursor runQuery(CharSequence charSequence) {
-                ContentProviderClient client = activity.getContentResolver().acquireContentProviderClient(EditSummary.PERSISTANCE_HELPER.getBaseContentURI());
-                try {
-                    return client.query(
-                            EditSummary.PERSISTANCE_HELPER.getBaseContentURI(),
-                            null,
-                            "summary LIKE ?",
-                            new String[] {charSequence + "%"},
-                            "lastUsed DESC");
-                } catch (RemoteException e) {
-                    // This shouldn't really be happening
-                    throw new RuntimeException(e);
-                }
-            }
-        });
     }
 
     public void show() {
