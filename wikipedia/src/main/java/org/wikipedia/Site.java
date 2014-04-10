@@ -68,7 +68,7 @@ public class Site implements Parcelable {
      * Start with /wiki/, can contain a Namespace indicator and a fragment.
      * Capturing Group 1 is namespace (or null for no namespace). 2 is Page Title text. 3 is Fragment.
      */
-    public static final Pattern INTERNAL_LINK_MATCH_PATTERN = Pattern.compile("/wiki/(?:([^:]+):)?([^#]*)(?:#(.*))?");
+    private static final Pattern INTERNAL_LINK_MATCH_PATTERN = Pattern.compile("/wiki/(?:([^:]+):)?([^#]*)(?:#(.*))?");
 
     /**
      * Create a PageTitle object from an internal link string.

@@ -79,7 +79,7 @@ public final class Utils {
                 .alpha(0f)
                 .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
                 .setListener(new AnimatorListenerAdapter() {
-                    boolean wasCanceled = false;
+                    private boolean wasCanceled = false;
 
                     @Override
                     public void onAnimationCancel(Animator animation) {
