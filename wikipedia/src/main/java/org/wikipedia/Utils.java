@@ -103,7 +103,7 @@ public final class Utils {
      * @param s String to hash
      * @return Base64'd MD5 representation of the string passed in
      */
-    public static final String md5(final String s) {
+    public static String md5(final String s) {
         try {
             // Create MD5 Hash
             MessageDigest digest = java.security.MessageDigest
@@ -128,7 +128,7 @@ public final class Utils {
      * @param url URL of the thumbnail image. Expects them to be not protocol relative & have an extension.
      * @return
      */
-    public static final String imageUrlToFileName(String url) {
+    public static String imageUrlToFileName(String url) {
         String[] protocolParts = url.split("://");
         return "saved-image-"
                 + md5(protocolParts[protocolParts.length - 1]);
@@ -137,7 +137,7 @@ public final class Utils {
     /**
      * Add some utility methods to a communuication bridge, that can be called synchronously from JS
      */
-    public static final void addUtilityMethodsToBridge(final Context context, CommunicationBridge bridge) {
+    public static void addUtilityMethodsToBridge(final Context context, CommunicationBridge bridge) {
         bridge.addListener("imageUrlToFilePath", new CommunicationBridge.JSEventListener() {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
