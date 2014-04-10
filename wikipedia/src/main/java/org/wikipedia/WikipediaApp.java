@@ -44,7 +44,6 @@ public class WikipediaApp extends Application {
     public static String PREFERENCE_EDITTOKEN_FOR_WIKI;
     public static String PREFERENCE_ZERO_INTERSTITIAL;
     public static String PREFERENCE_ZERO_DEVMODE;
-    private static WikipediaApp app;
 
     public static float SCREEN_DENSITY;
     // Reload in onCreate to override
@@ -57,7 +56,6 @@ public class WikipediaApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        app = this;
         ACRA.init(this);
 
         bus = new Bus();
@@ -266,13 +264,14 @@ public class WikipediaApp extends Application {
         return wikipediaZeroDisposition;
     }
 
-    private static String xcs = "";
-    public static void setXcs(String s) { xcs = s; }
-    public static String getXcs() { return xcs; }
+    // FIXME: Move this logic elsewhere
+    private static String XCS = "";
+    public static void setXcs(String s) { XCS = s; }
+    public static String getXcs() { return XCS; }
 
-    private static String carrierMessage = "";
-    public static void setCarrierMessage(String m) { carrierMessage = m; }
-    public static String getCarrierMessage() { return carrierMessage; }
+    private static String CARRIER_MESSAGE = "";
+    public static void setCarrierMessage(String m) { CARRIER_MESSAGE = m; }
+    public static String getCarrierMessage() { return CARRIER_MESSAGE; }
 
     private static final boolean WIKIPEDIA_ZERO_DEV_MODE_ON = true;
     public static boolean isWikipediaZeroDevmodeOn() {

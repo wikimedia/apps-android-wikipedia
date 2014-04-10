@@ -330,7 +330,7 @@ public final class Utils {
      *
      * Ensure that this is always sorted alphabetically.
      */
-    private static String[] rtlLangs = {
+    private static final String[] RTL_LANGS = {
             "arc", "arz", "ar", "bcc", "bqi", "ckb", "dv", "fa", "glk", "ha", "he",
             "khw", "ks", "mzn", "pnb", "ps", "sd", "ug", "ur", "yi"
     };
@@ -368,7 +368,7 @@ public final class Utils {
      * @return true if it is RTL, false if LTR
      */
     public static boolean isLangRTL(String lang) {
-        return Arrays.binarySearch(rtlLangs, lang, null) >= 0;
+        return Arrays.binarySearch(RTL_LANGS, lang, null) >= 0;
     }
 
     /**

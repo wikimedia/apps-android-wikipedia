@@ -68,7 +68,7 @@ public class Site implements Parcelable {
      * Start with /wiki/, can contain a Namespace indicator and a fragment.
      * Capturing Group 1 is namespace (or null for no namespace). 2 is Page Title text. 3 is Fragment.
      */
-    public static Pattern internalLinkMatchPattern = Pattern.compile("/wiki/(?:([^:]+):)?([^#]*)(?:#(.*))?");
+    public static final Pattern INTERNAL_LINK_MATCH_PATTERN = Pattern.compile("/wiki/(?:([^:]+):)?([^#]*)(?:#(.*))?");
 
     /**
      * Create a PageTitle object from an internal link string.
@@ -80,7 +80,7 @@ public class Site implements Parcelable {
     public PageTitle titleForInternalLink(String internalLink) {
         //TODO: Do better validation of internal links!
         //TODO: Handle fragments better!
-        Matcher matches = internalLinkMatchPattern.matcher(internalLink);
+        Matcher matches = INTERNAL_LINK_MATCH_PATTERN.matcher(internalLink);
         if (matches.matches()) {
             try {
                 String namespace = matches.group(1) != null ? URLDecoder.decode(matches.group(1), "utf-8") : null;

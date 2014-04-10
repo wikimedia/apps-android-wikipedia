@@ -4,7 +4,6 @@ import android.content.*;
 import android.net.*;
 import android.os.*;
 import android.util.*;
-import com.squareup.otto.*;
 import org.wikipedia.*;
 import org.wikipedia.random.*;
 
@@ -14,7 +13,6 @@ public class ConnectionChangeReceiver extends BroadcastReceiver {
     private WikipediaApp app;
     private RandomArticleIdTask curRandomArticleIdTask;
     private static final int MESSAGE_ZERO_RND = 1;
-    private static Bus bus;
 
     public void onReceive(final Context context, Intent intent) {
         app = (WikipediaApp)context;
