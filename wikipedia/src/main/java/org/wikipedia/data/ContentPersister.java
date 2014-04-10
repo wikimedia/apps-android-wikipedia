@@ -4,7 +4,7 @@ import android.content.*;
 import android.net.*;
 import android.os.*;
 
-abstract public class ContentPersister<T> {
+public abstract class ContentPersister<T> {
     private final ContentProviderClient client;
     private final PersistanceHelper<T> persistanceHelper;
 

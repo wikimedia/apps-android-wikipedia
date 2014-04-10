@@ -34,13 +34,13 @@ public abstract class PersistanceHelper<T> {
         }
     }
 
-    abstract public T fromCursor(Cursor c);
+    public abstract T fromCursor(Cursor c);
 
-    abstract protected ContentValues toContentValues(T obj);
+    protected abstract ContentValues toContentValues(T obj);
 
-    abstract public String getTableName();
+    public abstract String getTableName();
 
-    abstract public Column[] getColumnsAdded(int version);
+    public abstract Column[] getColumnsAdded(int version);
 
     protected abstract String getPrimaryKeySelection();
     protected abstract String[] getPrimaryKeySelectionArgs(T obj);
