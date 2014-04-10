@@ -71,7 +71,7 @@
         <module name="PackageName"/>
         <module name="ParameterName"/>
         <module name="StaticVariableName">
-            <property name="format" value="^[A-Z0-9]*$" />
+            <property name="format" value="^[A-Z0-9_]*$" />
         </module>
         <module name="TypeName"/>
 
