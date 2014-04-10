@@ -44,6 +44,7 @@ public class WikipediaApp extends Application {
     public static String PREFERENCE_EDITTOKEN_FOR_WIKI;
     public static String PREFERENCE_ZERO_INTERSTITIAL;
     public static String PREFERENCE_ZERO_DEVMODE;
+    public static String PREFERENCE_REMOTE_CONFIG;
 
     public static float SCREEN_DENSITY;
     // Reload in onCreate to override
@@ -71,6 +72,7 @@ public class WikipediaApp extends Application {
         PREFERENCE_EDITTOKEN_FOR_WIKI = getString(R.string.preference_edittoken_for_wiki);
         PREFERENCE_ZERO_INTERSTITIAL = getResources().getString(R.string.preference_key_zero_interstitial);
         PREFERENCE_ZERO_DEVMODE = getResources().getString(R.string.preference_key_zero_devmode);
+        PREFERENCE_REMOTE_CONFIG = getString(R.string.preference_key_remote_config);
 
         PROTOCOL = "https"; // Move this to a preference or something later on
 
@@ -214,6 +216,14 @@ public class WikipediaApp extends Application {
         }
 
         return false;
+    }
+
+    private RemoteConfig remoteConfig;
+    public RemoteConfig getRemoteConfig() {
+        if (remoteConfig == null) {
+            remoteConfig = new RemoteConfig(PreferenceManager.getDefaultSharedPreferences(this));
+        }
+        return remoteConfig;
     }
 
     private String[] canonicalNames;
