@@ -15,7 +15,7 @@ public class RecurringTasksExecutor {
     }
 
     public void run() {
-        Executor executor = ExecutorService.getSingleton().getExecutor(RecurringTasksExecutor.class, 1) ;
+        Executor executor = ExecutorService.getSingleton().getExecutor(RecurringTasksExecutor.class, 1);
         SaneAsyncTask<Void> task = new SaneAsyncTask<Void>(executor) {
             @Override
             public Void performTask() throws Throwable {
