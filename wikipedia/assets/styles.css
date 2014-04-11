@@ -114,6 +114,9 @@ a.edit_section_button {
   float: right;
   display: inline-float;
 }
+.no-editing .edit_section_button {
+  display: none;
+}
 .content-rtl a.edit_section_button {
   float: left;
   /* Flip it! */

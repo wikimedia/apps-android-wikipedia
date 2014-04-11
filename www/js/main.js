@@ -19,3 +19,7 @@ bridge.registerListener( "requestImagesList", function () {
     }
     bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
 } );
+
+bridge.registerListener( "hideEditButtons", function() {
+    document.getElementsByTagName( "html" )[0].classList.add( "no-editing" );
+} );

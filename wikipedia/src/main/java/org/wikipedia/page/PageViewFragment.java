@@ -132,6 +132,8 @@ public class PageViewFragment extends Fragment {
             throw new RuntimeException("No PageTitle passed in to constructor or in instanceState");
         }
 
+        app = (WikipediaApp)getActivity().getApplicationContext();
+
         webView = (ObservableWebView) getView().findViewById(R.id.page_web_view);
         loadProgress = (ProgressBar) getView().findViewById(R.id.page_load_progress);
         networkError = getView().findViewById(R.id.page_error);
@@ -150,7 +152,6 @@ public class PageViewFragment extends Fragment {
         Utils.addUtilityMethodsToBridge(getActivity(), bridge);
         Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
         linkHandler = new LinkHandler(getActivity(), bridge, title.getSite());
-        app = (WikipediaApp)getActivity().getApplicationContext();
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 
         retryButton.setOnClickListener(new View.OnClickListener() {
@@ -190,6 +191,11 @@ public class PageViewFragment extends Fragment {
                 }
             }
         });
+        if (app.getRemoteConfig().getConfig().has("disableAnonEditing")
+                && app.getRemoteConfig().getConfig().optBoolean("disableAnonEditing")
+                && !app.getUserInfoStorage().isLoggedIn()) {
+            bridge.sendMessage("hideEditButtons", new JSONObject());
+        }
     }
 
     @Override
