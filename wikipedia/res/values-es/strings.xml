@@ -112,4 +112,6 @@
   <string name="nav_item_random">Al azar</string>
   <string name="random_progress">Obteniendo una página al azar…</string>
   <string name="nav_item_tap_to_logout">Toca para cerrar sesión</string>
+  <string name="edit_save_action_login">Iniciar sesión y guardar</string>
+  <string name="edit_save_action_ip">Guardar anónimamente</string>
 </resources>

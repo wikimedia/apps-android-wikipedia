@@ -107,7 +107,7 @@
   <string name="edit_preview_fetching_dialog_message">Отримання попереднього перегляду...</string>
   <string name="edit_preview_activity_title">Попередній перегляд редагування</string>
   <string name="create_account_logging_in">Входження до системи…</string>
-  <string name="nav_item_send_feedback" fuzzy="true">Надіслати відгук</string>
+  <string name="nav_item_send_feedback">Надіслати відгук про програму</string>
   <string name="edit_summary_guide_text">Розкажіть нам, як ви поліпшили цю статтю. Це допомагає іншим редакторам швидко відстежити вашу правку.</string>
   <string name="edit_summary_hint">Редагувати підсумок</string>
   <string name="nav_item_random">Випадково</string>
@@ -118,4 +118,8 @@
   <string name="user_contribs_more_action">Завантажити більше</string>
   <string name="activity_my_contributions_title">Мій внесок</string>
   <string name="nav_item_my_contributions">Мій внесок</string>
+  <string name="edit_save_action_login">Увійти і зберегти</string>
+  <string name="edit_save_action_ip">Зберегти анонімно</string>
+  <string name="edit_save_action_login_description">Ваші правки будуть публічно пов\'язані з вашим ім\'ям учасника, та іншим редакторам буде простіше зв\'язатися з вами</string>
+  <string name="edit_save_action_ip_description">Ваші правки будуть публічно пов\'язані з вашою IP-адресою, яка може часто змінюватися</string>
 </resources>

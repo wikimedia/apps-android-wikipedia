@@ -89,4 +89,6 @@
   <string name="user_contribs_more_action">Ne saber mai</string>
   <string name="activity_my_contributions_title">Mas contribucions</string>
   <string name="nav_item_my_contributions">Mas contribucions</string>
+  <string name="edit_save_action_login">Se connectar e enregistrar</string>
+  <string name="edit_save_action_ip">Enregistrar anonimament</string>
 </resources>

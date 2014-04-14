@@ -19,6 +19,7 @@
   <string name="nav_item_saved_pages">صفحه‌های ذخیره‌شده</string>
   <string name="menu_save_page">ذخیرهٔ صفحه</string>
   <string name="menu_share_page">به‌اشتراک‌گذاشتن</string>
+  <string name="share_via">اشتراک با</string>
   <string name="dialog_title_clear_saved_pages">پاک‌کردن همهٔ صفحه‌های ذخیره‌شده؟</string>
   <string name="dialog_message_clear_saved_pages">آیا مطمئنید که می خواهید همهٔ  صفحه‌های ذخیره‌شده را پاک کنید؟</string>
   <string name="toast_saving_page">ذخیره کردن صفحه...</string>
@@ -102,8 +103,23 @@
   <string name="zero_learn_more_dismiss">نپذیرفتن</string>
   <string name="zero_settings">تنظیمات</string>
   <string name="zero_settings_devmode">وضعیت برنامه‌نویسی صفر</string>
-  <string name="zero_settings_devmode_summary" fuzzy="true">در طول توسعهٔ این اجرای کد W0 را فعال می‌کند.</string>
+  <string name="zero_settings_devmode_summary">در طول توسعهٔ این اجرای کد ویکی‌پدیا زیرو را فعال می‌کند.</string>
   <string name="edit_preview_fetching_dialog_message">واکشی پیش‌نمایش...</string>
   <string name="edit_preview_activity_title">ویرایش پیش‌نمایش</string>
   <string name="create_account_logging_in">ورود به سیستم...</string>
+  <string name="nav_item_send_feedback">فرستادن بازخورد برنامه</string>
+  <string name="edit_summary_guide_text">بگویید از چه لحاظ این مقاله را بهبود داده‌اید. این به سایر ویرایشگران کمک می‌کند ویرایش‌تان به‌سرعت بازبینی کنند.</string>
+  <string name="edit_summary_hint">خلاصهٔ ویرایش</string>
+  <string name="nav_item_random">تصادفی</string>
+  <string name="random_progress">واکشی صفحهٔ تصادفی...</string>
+  <string name="nav_item_login_benefits">اگر وارد شده‌باشید، ویرایش‌های شما با نام کاربری متصل خواهد شد و نشانی آی‌پی‌تان به‌صورت عمومی نمایان نخواهد بود.</string>
+  <string name="nav_item_tap_to_logout">برای خروج کلیک کنید</string>
+  <string name="create_account_account_created_toast">حساب ساخته شد!</string>
+  <string name="user_contribs_more_action">بارگیری بیشتر</string>
+  <string name="activity_my_contributions_title">مشارکت‌های من</string>
+  <string name="nav_item_my_contributions">مشارکت‌های من</string>
+  <string name="edit_save_action_login">ورود و ذخیره</string>
+  <string name="edit_save_action_ip">ذخیرهٔ ناشناس</string>
+  <string name="edit_save_action_login_description">ویرایش‌های شما به‌صورت عمومی به نام‌کاربری‌تان اختصاص داده خواهد شد و سایر ویرایشگران می‌توانند با شما بهتر متصل شوند</string>
+  <string name="edit_save_action_ip_description">ویرایش‌های شما به‌صورت عمومی به نشانی آی‌پی‌تان اختصاص می‌یابد که خیلی اوقات تغییر می‌یابد</string>
 </resources>

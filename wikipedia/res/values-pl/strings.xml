@@ -3,12 +3,16 @@
   <string name="app_name">Wikipedia</string>
   <string name="yes">Tak</string>
   <string name="no">Nie</string>
+  <string name="acra_report_dialog_title">Wikipedia padła :(</string>
+  <string name="acra_report_dialog_comment">Co robiłeś gdy zdarzyła się awaria?</string>
   <string name="history_activity_title">Historia</string>
   <string name="nav_item_history">Historia</string>
   <string name="page_error_retry">Ponów próbę</string>
+  <string name="dialog_title_clear_history">Wyczyścić historię?</string>
   <string name="saved_pages_activity_title">Zapisane strony</string>
   <string name="nav_item_saved_pages">Zapisane strony</string>
   <string name="menu_save_page">Zapisz stronę</string>
+  <string name="dialog_title_clear_saved_pages">Wyczyścić zapisane strony?</string>
   <string name="dialog_message_clear_saved_pages">Czy na pewno chcesz wyczyścić wszystkie zapisane strony?</string>
   <string name="toast_saving_page">Zapisywanie strony...</string>
   <string name="toast_saved_page">Zapisana strona</string>
@@ -27,6 +31,7 @@
   <string name="dialog_message_edit_failed">Edycja nie powiodła się!</string>
   <string name="dialog_message_edit_failed_retry">Ponów próbę</string>
   <string name="dialog_message_edit_failed_cancel">Anuluj</string>
+  <string name="menu_show_toc">Spis treści</string>
   <string name="search_no_results_found">Nie znaleziono</string>
   <string name="nav_item_login">Zaloguj się</string>
   <string name="login_username_hint">Nazwa użytkownika</string>
