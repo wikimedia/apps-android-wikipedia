@@ -7,7 +7,7 @@ import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.editing.*;
 
-abstract public class CreateAccountTask extends ApiTask<CreateAccountResult> {
+public abstract class CreateAccountTask extends ApiTask<CreateAccountResult> {
     private final String username;
     private final String password;
     private final String email;
