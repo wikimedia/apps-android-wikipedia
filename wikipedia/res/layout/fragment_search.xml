@@ -38,7 +38,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_w_transparent_48dp"
+                        android:src="@drawable/search_w"
                         />
             </LinearLayout>
         <LinearLayout
