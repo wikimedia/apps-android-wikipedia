@@ -204,15 +204,17 @@ public final class Utils {
     }
 
     /**
-     * Attempt to hide the Android Keyboard
+     * Attempt to hide the Android Keyboard.
+     *
+     * FIXME: This should not need to exist.
+     * I do not know why Android does not handle this automatically.
      *
      * @param activity The current activity
      */
     public static void hideSoftKeyboard(Activity activity) {
-        if (activity.getCurrentFocus() != null) {
-            InputMethodManager keyboard = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-            keyboard.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
-        }
+        InputMethodManager keyboard = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        // Not using getCurrentFocus as that sometimes is null, but the keyboard is still up.
+        keyboard.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
     }
 
     public static void setupShowPasswordCheck(final CheckBox check, final EditText edit) {
