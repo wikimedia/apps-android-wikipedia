@@ -50,6 +50,8 @@ public class ParcelableLruCache<V> extends LruCache<String, V>  implements Parce
                 case TYPE_STRING:
                     put(key, (V) contents.getString(key));
                     break;
+                default:
+                    throw new RuntimeException("Unknown key type encountered " + type);
             }
         }
     }
@@ -76,6 +78,8 @@ public class ParcelableLruCache<V> extends LruCache<String, V>  implements Parce
                 case TYPE_STRING:
                     bundle.putString(entry.getKey(), (String) entry.getValue());
                     break;
+                default:
+                    throw new RuntimeException("Unknown key type encountered " + type);
             }
         }
         dest.writeBundle(bundle);

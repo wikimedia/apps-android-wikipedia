@@ -93,9 +93,9 @@ public class UserContribsActivity extends ActionBarActivity {
             case android.R.id.home:
                 finish();
                 return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return false;
     }
 
     @Override

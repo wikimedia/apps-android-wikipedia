@@ -194,7 +194,8 @@ public class CreateAccountActivity extends ActionBarActivity {
             case R.id.menu_create_account:
                 validator.validate();
                 return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 }

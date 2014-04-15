@@ -221,6 +221,9 @@ public class PageViewFragment extends Fragment {
                 populateNonLeadSections(page);
                 webView.scrollTo(0, scrollY);
                 break;
+            default:
+                // This should never happen
+                throw new RuntimeException("Unknown state encountered " + state);
         }
     }
 

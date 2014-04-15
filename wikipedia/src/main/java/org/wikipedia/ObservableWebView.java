@@ -81,6 +81,9 @@ public class ObservableWebView extends WebView {
                 case MotionEvent.ACTION_CANCEL:
                     onUpOrCancelMotionEventListener.onUpOrCancelMotionEvent();
                     break;
+                default:
+                    // Do nothing for all the other things
+                    break;
             }
         }
         return super.onTouchEvent(event);
