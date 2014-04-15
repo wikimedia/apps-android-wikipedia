@@ -9,16 +9,16 @@ import java.util.*;
 
 public class SectionsFetchTask extends ApiTask<List<Section>> {
     private final PageTitle title;
-    private final String sections;
+    private final String sectionsRequested;
     private final WikipediaApp app;
 
-    public SectionsFetchTask(Context context, PageTitle title, String sections) {
+    public SectionsFetchTask(Context context, PageTitle title, String sectionsRequested) {
         super(
                 1,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
         );
         this.title = title;
-        this.sections = sections;
+        this.sectionsRequested = sectionsRequested;
         this.app = (WikipediaApp)context.getApplicationContext();
     }
 
@@ -28,7 +28,7 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
                 .param("page", title.getPrefixedText())
                 .param("prop", "text|sections")
                 .param("onlyrequestedsections", "1") // Stupid mediawiki & stupid backwardscompat
-                .param("sections", sections)
+                .param("sections", sectionsRequested)
                 .param("sectionprop", "toclevel|line|anchor")
                 .param("noheadings", "true");
     }
