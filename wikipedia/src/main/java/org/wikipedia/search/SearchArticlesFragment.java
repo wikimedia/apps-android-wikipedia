@@ -153,47 +153,7 @@ public class SearchArticlesFragment extends Fragment {
         PopupMenu pageActionsMenu = new PopupMenu(getActivity(), searchBarMenuButton);
         PageActionsHandler pageActionsHandler = new PageActionsHandler(app.getBus(), pageActionsMenu, searchBarMenuButton);
 
-        searchHandler = new Handler(new Handler.Callback(){
-            @Override
-            public boolean handleMessage(Message msg) {
-                final String searchTerm = (String) msg.obj;
-                SearchArticlesTask searchTask = new SearchArticlesTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm) {
-                    @Override
-                    public void onFinish(List<PageTitle> result) {
-                        searchProgress.setVisibility(View.GONE);
-                        searchNetworkError.setVisibility(View.GONE);
-                        displayResults(result);
-                        searchResultsCache.put(app.getPrimaryLanguage() + "-" + searchTerm, result);
-                        lastSearchedText = searchTerm;
-                        curSearchTask = null;
-                    }
-
-                    @Override
-                    public void onCatch(Throwable caught) {
-                        searchProgress.setVisibility(View.GONE);
-                        searchNetworkError.setVisibility(View.VISIBLE);
-                        searchResultsList.setVisibility(View.GONE);
-                        curSearchTask = null;
-                    }
-
-                    @Override
-                    public void onBeforeExecute() {
-                        searchProgress.setVisibility(View.VISIBLE);
-                        isSearchActive = true;
-                    }
-                };
-                if (curSearchTask != null) {
-                    // This does not cancel the HTTP request itself
-                    // But it does cancel th execution of onFinish
-                    // This makes sure that a slower previous search query does not override
-                    // the results of a newer search query
-                    curSearchTask.cancel();
-                }
-                curSearchTask = searchTask;
-                searchTask.execute();
-                return true;
-            }
-        });
+        searchHandler = new Handler(new SearchHandlerCallback());
 
         searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -475,5 +435,47 @@ public class SearchArticlesFragment extends Fragment {
     public void onStop() {
         super.onStop();
         app.getBus().unregister(this);
+    }
+
+    private class SearchHandlerCallback implements Handler.Callback {
+        @Override
+        public boolean handleMessage(Message msg) {
+            final String searchTerm = (String) msg.obj;
+            SearchArticlesTask searchTask = new SearchArticlesTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm) {
+                @Override
+                public void onFinish(List<PageTitle> result) {
+                    searchProgress.setVisibility(View.GONE);
+                    searchNetworkError.setVisibility(View.GONE);
+                    displayResults(result);
+                    searchResultsCache.put(app.getPrimaryLanguage() + "-" + searchTerm, result);
+                    lastSearchedText = searchTerm;
+                    curSearchTask = null;
+                }
+
+                @Override
+                public void onCatch(Throwable caught) {
+                    searchProgress.setVisibility(View.GONE);
+                    searchNetworkError.setVisibility(View.VISIBLE);
+                    searchResultsList.setVisibility(View.GONE);
+                    curSearchTask = null;
+                }
+
+                @Override
+                public void onBeforeExecute() {
+                    searchProgress.setVisibility(View.VISIBLE);
+                    isSearchActive = true;
+                }
+            };
+            if (curSearchTask != null) {
+                // This does not cancel the HTTP request itself
+                // But it does cancel th execution of onFinish
+                // This makes sure that a slower previous search query does not override
+                // the results of a newer search query
+                curSearchTask.cancel();
+            }
+            curSearchTask = searchTask;
+            searchTask.execute();
+            return true;
+        }
     }
 }
