@@ -72,7 +72,7 @@ public class LanguagePreference extends DialogPreference {
         return locale.getDisplayLanguage(locale);
     }
 
-    private static class LanguagesAdapter extends BaseAdapter {
+    private static final class LanguagesAdapter extends BaseAdapter {
         private final String[] originalLanguages;
         private final ArrayList<String> languages;
         private final WikipediaApp app;

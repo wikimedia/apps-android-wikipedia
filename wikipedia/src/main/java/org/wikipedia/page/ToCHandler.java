@@ -114,7 +114,7 @@ public class ToCHandler {
         return slidingPane.isOpen();
     }
 
-    private static class ToCAdapter extends BaseAdapter {
+    private static final class ToCAdapter extends BaseAdapter {
         private final ArrayList<Section> sections;
         private final PageTitle title;
 

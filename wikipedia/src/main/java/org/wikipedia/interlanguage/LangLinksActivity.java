@@ -162,7 +162,7 @@ public class LangLinksActivity extends ActionBarActivity {
         }
     }
 
-    private static class LangLinksAdapter extends BaseAdapter {
+    private static final class LangLinksAdapter extends BaseAdapter {
         private final ArrayList<PageTitle> origLangLinks;
         private final ArrayList<PageTitle> langLinks;
         private final WikipediaApp app;

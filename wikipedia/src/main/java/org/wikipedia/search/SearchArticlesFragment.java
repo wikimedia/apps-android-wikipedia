@@ -297,7 +297,7 @@ public class SearchArticlesFragment extends Fragment {
         outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
     }
 
-    private class SearchResultAdapter extends BaseAdapter {
+    private final class SearchResultAdapter extends BaseAdapter {
         private List<PageTitle> results;
         private final LayoutInflater inflater;
 
