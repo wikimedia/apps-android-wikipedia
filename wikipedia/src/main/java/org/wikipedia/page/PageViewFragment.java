@@ -75,7 +75,7 @@ public class PageViewFragment extends Fragment {
     private void displayLeadSection(Page page) {
         JSONObject leadSectionPayload = new JSONObject();
         try {
-            leadSectionPayload.put("title", page.getTitle().getDisplayText());
+            leadSectionPayload.put("title", page.getDisplayTitle());
             leadSectionPayload.put("section", page.getSections().get(0).toJSON());
 
             bridge.sendMessage("displayLeadSection", leadSectionPayload);
@@ -247,7 +247,7 @@ public class PageViewFragment extends Fragment {
         @Override
         public RequestBuilder buildRequest(Api api) {
             RequestBuilder builder =  super.buildRequest(api);
-            builder.param("prop", builder.getParams().get("prop") + "|lastmodified|normalizedtitle");
+            builder.param("prop", builder.getParams().get("prop") + "|lastmodified|normalizedtitle|displaytitle");
             return builder;
         }
 
@@ -257,7 +257,7 @@ public class PageViewFragment extends Fragment {
         public List<Section> processResult(ApiResult result) throws Throwable {
             Log.d("Wikipedia", result.asObject().toString(4));
             JSONObject mobileView = result.asObject().optJSONObject("mobileview");
-            pageProperties = new PageProperties(Utils.parseMWDate(mobileView.optString("lastmodified")));
+            pageProperties = new PageProperties(mobileView);
             if (mobileView.has("redirected")) {
                 // Handle redirects properly.
                 title = new PageTitle(mobileView.optString("redirected"), title.getSite());

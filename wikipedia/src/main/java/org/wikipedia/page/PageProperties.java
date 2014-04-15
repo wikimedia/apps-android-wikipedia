@@ -10,15 +10,21 @@ import java.util.*;
  */
 public class PageProperties implements Parcelable {
     private final Date lastModified;
+    private final String displayTitleText;
 
-    public PageProperties(Date lastModified) {
+
+    public PageProperties(Date lastModified, String displayTitleText) {
         this.lastModified = lastModified;
+        this.displayTitleText = displayTitleText;
     }
 
     public Date getLastModified() {
         return lastModified;
     }
 
+    public String getDisplayTitle() {
+        return displayTitleText;
+    }
 
     @Override
     public int describeContents() {
@@ -28,10 +34,12 @@ public class PageProperties implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeLong(lastModified.getTime());
+        parcel.writeString(displayTitleText);
     }
 
     private PageProperties(Parcel in) {
         lastModified = new Date(in.readLong());
+        displayTitleText = in.readString();
     }
 
     public static final Parcelable.Creator<PageProperties> CREATOR
@@ -56,13 +64,15 @@ public class PageProperties implements Parcelable {
 
         PageProperties that = (PageProperties) o;
 
-        return lastModified.equals(that.lastModified);
+        return lastModified.equals(that.lastModified)
+                && displayTitleText.equals(that.displayTitleText);
     }
 
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
         try {
             json.put("lastmodifieddate", getLastModified().getTime());
+            json.put("displaytitle", displayTitleText);
         } catch (JSONException e) {
             // Goddamn it Java
             throw new RuntimeException(e);
@@ -72,6 +82,9 @@ public class PageProperties implements Parcelable {
     }
 
     public PageProperties(JSONObject json) {
-        this(new Date(json.optLong("lastmodifieddate")));
+        this(
+                new Date(json.optLong("lastmodifieddate")),
+                json.optString("displaytitle")
+        );
     }
 }

@@ -34,6 +34,10 @@ public class Page implements Parcelable {
         return sections;
     }
 
+    public String getDisplayTitle() {
+        return pageProperties.getDisplayTitle();
+    }
+
     public static final Parcelable.Creator<Page> CREATOR
             = new Parcelable.Creator<Page>() {
         public Page createFromParcel(Parcel in) {
@@ -44,6 +48,7 @@ public class Page implements Parcelable {
             return new Page[size];
         }
     };
+
     @Override
     public int describeContents() {
         return 0;
