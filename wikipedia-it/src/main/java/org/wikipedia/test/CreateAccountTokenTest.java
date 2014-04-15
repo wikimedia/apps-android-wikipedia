@@ -27,14 +27,13 @@ public class CreateAccountTokenTest extends ActivityUnitTestCase<TestDummyActivi
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new CreateAccountTask(getInstrumentation().getTargetContext(), username, password, null, null) {
+                new CreateAccountTask(getInstrumentation().getTargetContext(), username, password, null) {
                     @Override
                     public void onFinish(CreateAccountResult baseResult) {
                         assertTrue(baseResult instanceof CreateAccountCaptchaResult);
                         CreateAccountCaptchaResult result = (CreateAccountCaptchaResult)baseResult;
                         assertNotNull(result);
                         assertNotNull(result.getCaptchaResult());
-                        assertFalse(TextUtils.isEmpty(result.getToken()));
                         assertFalse(TextUtils.isEmpty(result.getCaptchaResult().getCaptchaId()));
                         String captchaUrl = result.getCaptchaResult().getCaptchaUrl(testWiki);
                         assertTrue(captchaUrl.startsWith(WikipediaApp.PROTOCOL + "://test.wikipedia.org/w/index.php?title=Special:Captcha/image"));
