@@ -40,15 +40,6 @@ public class ConnectionChangeReceiver extends BroadcastReceiver {
                     public boolean handleMessage(Message msg) {
                         RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), context) {
                             @Override
-                            public void onFinish(PageTitle title) {
-                                Log.d("Wikipedia", "Random article title pulled: " + title);
-
-                                if (title != null) {
-                                    // future state, let's persist this somewhere to make Random work snappily
-                                }
-                            }
-
-                            @Override
                             public void onCatch(Throwable caught) {
                                 // oh snap
                                 Log.d("Wikipedia", "Random article ID retrieval failed");
