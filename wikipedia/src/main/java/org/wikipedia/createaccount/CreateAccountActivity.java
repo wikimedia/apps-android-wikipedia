@@ -99,8 +99,8 @@ public class CreateAccountActivity extends ActionBarActivity {
 
         if (savedInstanceState != null && savedInstanceState.containsKey("result")) {
             createAccountResult = savedInstanceState.getParcelable("result");
-            if (createAccountResult instanceof CreateAccountTokenResult) {
-                captchaHandler.handleCaptcha(((CreateAccountTokenResult) createAccountResult).getCaptchaResult());
+            if (createAccountResult instanceof CreateAccountCaptchaResult) {
+                captchaHandler.handleCaptcha(((CreateAccountCaptchaResult) createAccountResult).getCaptchaResult());
             }
         }
 
@@ -135,14 +135,11 @@ public class CreateAccountActivity extends ActionBarActivity {
     }
 
     public void doCreateAccount() {
-        String token = null, email = null;
-        if (createAccountResult != null && createAccountResult instanceof CreateAccountTokenResult) {
-            token = ((CreateAccountTokenResult) createAccountResult).getToken();
-        }
+        String email = null;
         if (emailEdit.getText().length() != 0) {
             email = emailEdit.getText().toString();
         }
-        new CreateAccountTask(this, usernameEdit.getText().toString(), passwordEdit.getText().toString(), email, token) {
+        new CreateAccountTask(this, usernameEdit.getText().toString(), passwordEdit.getText().toString(), email) {
             @Override
             public void onBeforeExecute() {
                 progressDialog.show();
@@ -150,7 +147,7 @@ public class CreateAccountActivity extends ActionBarActivity {
 
             @Override
             public RequestBuilder buildRequest(Api api) {
-                if (createAccountResult != null && createAccountResult instanceof CreateAccountTokenResult) {
+                if (createAccountResult != null && createAccountResult instanceof CreateAccountCaptchaResult) {
                    return captchaHandler.populateBuilder(super.buildRequest(api));
                 }
                 return super.buildRequest(api);
@@ -159,8 +156,8 @@ public class CreateAccountActivity extends ActionBarActivity {
             @Override
             public void onFinish(final CreateAccountResult result) {
                 createAccountResult = result;
-                if (result instanceof CreateAccountTokenResult) {
-                    captchaHandler.handleCaptcha(((CreateAccountTokenResult)result).getCaptchaResult());
+                if (result instanceof CreateAccountCaptchaResult) {
+                    captchaHandler.handleCaptcha(((CreateAccountCaptchaResult)result).getCaptchaResult());
                 } else {
                     progressDialog.dismiss();
                     captchaHandler.cancelCaptcha();

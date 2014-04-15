@@ -133,6 +133,15 @@ public class WikipediaApp extends Application {
         return primarySite;
     }
 
+    /**
+     * Convenience method to get an API object for the primary site.
+     *
+     * @return An API object that is equivalent to calling getAPIForSite(getPrimarySite)
+     */
+    public Api getPrimarySiteApi() {
+        return getAPIForSite(getPrimarySite());
+    }
+
     private String primaryLanguage;
     public String getPrimaryLanguage() {
         if (primaryLanguage == null) {

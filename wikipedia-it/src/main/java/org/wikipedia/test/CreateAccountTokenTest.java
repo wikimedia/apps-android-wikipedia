@@ -30,8 +30,8 @@ public class CreateAccountTokenTest extends ActivityUnitTestCase<TestDummyActivi
                 new CreateAccountTask(getInstrumentation().getTargetContext(), username, password, null, null) {
                     @Override
                     public void onFinish(CreateAccountResult baseResult) {
-                        assertTrue(baseResult instanceof CreateAccountTokenResult);
-                        CreateAccountTokenResult result = (CreateAccountTokenResult)baseResult;
+                        assertTrue(baseResult instanceof CreateAccountCaptchaResult);
+                        CreateAccountCaptchaResult result = (CreateAccountCaptchaResult)baseResult;
                         assertNotNull(result);
                         assertNotNull(result.getCaptchaResult());
                         assertFalse(TextUtils.isEmpty(result.getToken()));
