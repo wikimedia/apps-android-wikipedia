@@ -41,16 +41,18 @@
                         android:src="@drawable/ic_w_transparent_48dp"
                         />
             </LinearLayout>
-        <FrameLayout
+        <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:orientation="horizontal"
                 >
             <org.wikipedia.styledviews.StyledEditText
                     android:id="@+id/search_term_text"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:hint="@string/search_hint"
                     android:background="@null"
                     android:padding="8dp"
@@ -65,10 +67,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical|end"
                     android:indeterminate="true"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     style="@android:style/Widget.ProgressBar.Small"
                     />
-        </FrameLayout>
+        </LinearLayout>
         <ImageView
                 android:id="@+id/search_bar_show_menu"
                 android:layout_width="48dp"

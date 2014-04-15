@@ -69,7 +69,7 @@ public class SearchArticlesFragment extends Fragment {
             curSearchTask.cancel();
             curSearchTask = null;
         }
-        searchProgress.setVisibility(View.GONE);
+        searchProgress.setVisibility(View.INVISIBLE);
         searchNoResults.setVisibility(View.GONE);
     }
 
@@ -444,7 +444,7 @@ public class SearchArticlesFragment extends Fragment {
             SearchArticlesTask searchTask = new SearchArticlesTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm) {
                 @Override
                 public void onFinish(List<PageTitle> result) {
-                    searchProgress.setVisibility(View.GONE);
+                    searchProgress.setVisibility(View.INVISIBLE);
                     searchNetworkError.setVisibility(View.GONE);
                     displayResults(result);
                     searchResultsCache.put(app.getPrimaryLanguage() + "-" + searchTerm, result);
@@ -454,7 +454,7 @@ public class SearchArticlesFragment extends Fragment {
 
                 @Override
                 public void onCatch(Throwable caught) {
-                    searchProgress.setVisibility(View.GONE);
+                    searchProgress.setVisibility(View.INVISIBLE);
                     searchNetworkError.setVisibility(View.VISIBLE);
                     searchResultsList.setVisibility(View.GONE);
                     curSearchTask = null;
