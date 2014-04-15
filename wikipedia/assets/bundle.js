@@ -163,7 +163,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
 function elementsForSection( section ) {
     var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
-    heading.innerHTML = section.line;
+    heading.innerHTML = typeof section.line !== "undefined" ? section.line : "";
     heading.id = section.anchor;
     heading.className = "section_heading";
     heading.setAttribute( 'data-id', section.id );
