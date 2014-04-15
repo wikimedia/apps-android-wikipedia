@@ -92,7 +92,7 @@ public class SearchArticlesFragment extends Fragment {
                     (int)(48f * WikipediaApp.SCREEN_DENSITY)) {
                 @Override
                 public void onFinish(Map<PageTitle, String> result) {
-                    for(Map.Entry<PageTitle, String> entry : result.entrySet()) {
+                    for (Map.Entry<PageTitle, String> entry : result.entrySet()) {
                         if (entry.getValue() == null) {
                             continue;
                         }

@@ -38,7 +38,7 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
         JSONArray sectionsJSON = result.asObject().optJSONObject("mobileview").optJSONArray("sections");
         ArrayList<Section> sections = new ArrayList<Section>();
 
-        for (int i=0; i < sectionsJSON.length(); i++) {
+        for (int i = 0; i < sectionsJSON.length(); i++) {
             Section newSection = new Section(sectionsJSON.getJSONObject(i));
             sections.add(newSection);
         }

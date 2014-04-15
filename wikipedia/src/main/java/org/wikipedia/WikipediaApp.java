@@ -25,12 +25,12 @@ import java.util.*;
 
 
 @ReportsCrashes(
-        formKey="",
-        mode= ReportingInteractionMode.DIALOG,
-        resDialogTitle=R.string.acra_report_dialog_title,
-        resDialogText=R.string.acra_report_dialog_text,
-        resDialogCommentPrompt=R.string.acra_report_dialog_comment,
-        mailTo="mobile-android-wikipedia@wikimedia.org")
+        formKey = "",
+        mode = ReportingInteractionMode.DIALOG,
+        resDialogTitle = R.string.acra_report_dialog_title,
+        resDialogText = R.string.acra_report_dialog_text,
+        resDialogCommentPrompt = R.string.acra_report_dialog_comment,
+        mailTo = "mobile-android-wikipedia@wikimedia.org")
 public class WikipediaApp extends Application {
     private Bus bus;
 
@@ -77,7 +77,7 @@ public class WikipediaApp extends Application {
         PROTOCOL = "https"; // Move this to a preference or something later on
 
         // Enable debugging on the webview
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
 

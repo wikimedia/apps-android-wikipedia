@@ -19,14 +19,14 @@ public class CreateAccountActivity extends ActionBarActivity {
 
     public static final int ACTION_CREATE_ACCOUNT = 1;
 
-    @Required(order=1)
+    @Required(order = 1)
     private EditText usernameEdit;
-    @Required(order=2)
-    @Password(order=3)
+    @Required(order = 2)
+    @Password(order = 3)
     private EditText passwordEdit;
-    @ConfirmPassword(order=4, messageResId=R.string.create_account_passwords_mismatch_error)
+    @ConfirmPassword(order = 4, messageResId = R.string.create_account_passwords_mismatch_error)
     private EditText passwordRepeatEdit;
-    @Email(order=5, messageResId=R.string.create_account_email_error)
+    @Email(order = 5, messageResId = R.string.create_account_email_error)
     private EditText emailEdit;
 
     private CheckBox showPasswordCheck;

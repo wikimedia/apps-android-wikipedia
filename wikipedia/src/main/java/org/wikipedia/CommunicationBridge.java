@@ -40,7 +40,7 @@ public class CommunicationBridge {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
                 isDOMReady = true;
-                for(String jsString : pendingJSMessages) {
+                for (String jsString : pendingJSMessages) {
                     CommunicationBridge.this.webView.loadUrl(jsString);
                 }
             }

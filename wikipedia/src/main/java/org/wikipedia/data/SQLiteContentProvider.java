@@ -109,7 +109,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
         sqlDB.beginTransaction();
         switch (uriType) {
             case MATCH_ALL:
-                for(ContentValues value: values) {
+                for (ContentValues value: values) {
                     sqlDB.insert(persistanceHelper.getTableName(), null, value);
                 }
                 break;

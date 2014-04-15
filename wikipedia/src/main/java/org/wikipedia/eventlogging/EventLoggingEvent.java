@@ -56,7 +56,7 @@ public abstract class EventLoggingEvent {
             JSONObject event = new JSONObject();
 
             for (int i = 0; i < payload.length; i += 2) {
-                event.put(payload[i], payload[i+1]);
+                event.put(payload[i], payload[i + 1]);
             }
 
             data.put("event", event);
