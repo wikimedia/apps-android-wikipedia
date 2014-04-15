@@ -137,7 +137,7 @@ public final class Utils {
     /**
      * Add some utility methods to a communuication bridge, that can be called synchronously from JS
      */
-    public static void addUtilityMethodsToBridge(final Context context, CommunicationBridge bridge) {
+    public static void addUtilityMethodsToBridge(final Context context, final CommunicationBridge bridge) {
         bridge.addListener("imageUrlToFilePath", new CommunicationBridge.JSEventListener() {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
@@ -145,9 +145,9 @@ public final class Utils {
                 JSONObject ret = new JSONObject();
                 try {
                     File imageFile = new File(context.getFilesDir(), imageUrlToFileName(imageUrl));
-                    ret.put("filePath", imageFile.getAbsolutePath());
-                    // FIXME: THIS IS BROKEN NOW!!!1
-                    throw new RuntimeException("FIX THIS YUVI!");
+                    ret.put("originalURL", imageUrl);
+                    ret.put("newURL", imageFile.getAbsolutePath());
+                    bridge.sendMessage("replaceImageSrc", ret);
                 } catch (JSONException e) {
                     // stupid, stupid, stupid
                     throw new RuntimeException(e);

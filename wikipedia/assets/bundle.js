@@ -98,13 +98,22 @@ bridge.registerListener( "displayAttribution", function( payload ) {
     licenseText.innerHTML = payload.licenseHTML;
 });
 
-bridge.registerListener( "requestImagesList", function () {
+bridge.registerListener( "requestImagesList", function() {
     var imageURLs = [];
     var images = document.querySelectorAll( "img" );
     for ( var i = 0; i < images.length; i++ ) {
         imageURLs.push( images[i].src );
     }
     bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
+} );
+
+bridge.registerListener( "replaceImageSrc", function( payload ) {
+    var images = document.querySelectorAll( "img[src='" + payload.originalURL + "']" );
+    for ( var i = 0; i < images.length; i++ ) {
+        var img = images[i];
+        img.setAttribute( "src", payload.newURL );
+        img.setAttribute( "data-old-src", payload.originalURL );
+    }
 } );
 
 bridge.registerListener( "hideEditButtons", function() {
@@ -287,6 +296,8 @@ transformer.register( "section", function( content ) {
             var resp = bridge.sendMessage( "imageUrlToFilePath", { "imageUrl": img.src } );
             console.log( "new filepath is " + resp.filePath );
             img.src = "file://" + resp.filePath;
+        } else {
+            // If it *is* a file URL and also failed to load, just do nothing
         }
     }
     for ( var i = 0; i < images.length; i++ ) {

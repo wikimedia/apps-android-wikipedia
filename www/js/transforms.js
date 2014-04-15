@@ -27,6 +27,8 @@ transformer.register( "section", function( content ) {
             var resp = bridge.sendMessage( "imageUrlToFilePath", { "imageUrl": img.src } );
             console.log( "new filepath is " + resp.filePath );
             img.src = "file://" + resp.filePath;
+        } else {
+            // If it *is* a file URL and also failed to load, just do nothing
         }
     }
     for ( var i = 0; i < images.length; i++ ) {

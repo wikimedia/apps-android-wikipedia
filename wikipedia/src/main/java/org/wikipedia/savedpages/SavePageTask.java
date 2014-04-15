@@ -62,6 +62,13 @@ public class SavePageTask extends SaneAsyncTask<Void> {
                                 imagesDownloadedLatch.countDown();
                                 Log.d("Wikipedia", "Downloaded image " + imageUrl);
                             }
+
+                            @Override
+                            public void onCatch(Throwable caught) {
+                                // Do nothing for now. An image failed to download, but that is usually OK
+                                // FIXME: Make this more robust
+                                imagesDownloadedLatch.countDown();
+                            }
                         }.execute();
                     } else {
                         imagesDownloadedLatch.countDown();
