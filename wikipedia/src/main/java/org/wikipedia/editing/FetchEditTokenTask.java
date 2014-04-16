@@ -7,7 +7,7 @@ import org.wikipedia.*;
 public class FetchEditTokenTask extends ApiTask<String> {
     public FetchEditTokenTask(Context context, Site site) {
         super(
-                1,
+                SINGLE_THREAD,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(site)
         );
     }

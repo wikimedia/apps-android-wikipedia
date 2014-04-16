@@ -13,7 +13,7 @@ public class DownloadImageTask extends SaneAsyncTask<Boolean> {
     private final URL imageUrl;
 
     public DownloadImageTask(Context context, String imageUrl) {
-        super(4);
+        super(HIGH_CONCURRENCY);
         this.context = context;
         try {
             this.imageUrl = new URL(imageUrl);

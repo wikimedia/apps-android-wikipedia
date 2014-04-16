@@ -8,7 +8,7 @@ import java.util.*;
 public class PageImageSaveTask extends PageImagesTask {
     private final WikipediaApp app;
     public PageImageSaveTask(WikipediaApp app, Api api, PageTitle title) {
-        super(2, api, title.getSite(), Arrays.asList(new PageTitle[] {title}), 96);
+        super(api, title.getSite(), Arrays.asList(new PageTitle[] {title}), 96);
         this.app = app;
     }
 

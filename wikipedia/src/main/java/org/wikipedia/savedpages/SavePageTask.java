@@ -29,7 +29,7 @@ public class SavePageTask extends SaneAsyncTask<Void> {
     private CountDownLatch imagesDownloadedLatch;
 
     public SavePageTask(Context context, CommunicationBridge bridge, Page page) {
-        super(1);
+        super(SINGLE_THREAD);
         app = (WikipediaApp) context.getApplicationContext();
         this.page = page;
         this.bridge = bridge;

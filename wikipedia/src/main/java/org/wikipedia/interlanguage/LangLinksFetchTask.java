@@ -12,7 +12,7 @@ public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
     private final WikipediaApp app;
     public LangLinksFetchTask(Context context, PageTitle title) {
         super(
-                1,
+                SINGLE_THREAD,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
         );
         this.title = title;
@@ -34,7 +34,6 @@ public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
                 .optJSONObject("query")
                 .optJSONObject("pages");
         String pageId = (String) pagesJSON.keys().next();
-        String fullJSON = result.asObject().toString(4);
         if (!pagesJSON.optJSONObject(pageId).has("langlinks")) {
             // No links found
             if (WikipediaApp.isWikipediaZeroDevmodeOn()) {

@@ -4,7 +4,6 @@ import android.content.*;
 import android.os.*;
 import android.support.v4.app.*;
 import android.support.v4.widget.*;
-import android.util.*;
 import android.view.*;
 import android.widget.*;
 import org.json.*;
@@ -255,7 +254,6 @@ public class PageViewFragment extends Fragment {
 
         @Override
         public List<Section> processResult(ApiResult result) throws Throwable {
-            Log.d("Wikipedia", result.asObject().toString(4));
             JSONObject mobileView = result.asObject().optJSONObject("mobileview");
             pageProperties = new PageProperties(mobileView);
             if (mobileView.has("redirected")) {

@@ -10,7 +10,7 @@ public class LoadSavedPageTask extends SaneAsyncTask<Page> {
     private final PageTitle title;
 
     public LoadSavedPageTask(Context context, PageTitle title) {
-        super(1);
+        super(SINGLE_THREAD);
         app = (WikipediaApp) context.getApplicationContext();
         this.title = title;
     }

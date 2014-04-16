@@ -17,7 +17,7 @@ public class FetchUserContribsTask extends ApiTask<FetchUserContribsTask.UserCon
 
     public FetchUserContribsTask(Context context, Site site, String username, int numberToFetch, String queryContinue) {
         super(
-                1,
+                SINGLE_THREAD,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(site)
         );
         app = (WikipediaApp)context.getApplicationContext();

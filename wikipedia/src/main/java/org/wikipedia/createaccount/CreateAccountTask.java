@@ -1,7 +1,6 @@
 package org.wikipedia.createaccount;
 
 import android.content.*;
-import android.util.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
@@ -15,7 +14,7 @@ public abstract class CreateAccountTask extends ApiTask<CreateAccountResult> {
     private String token;
 
     public CreateAccountTask(Context context, String username, String password, String email) {
-        super(1, ((WikipediaApp)context.getApplicationContext()).getPrimarySiteApi());
+        super(SINGLE_THREAD, ((WikipediaApp)context.getApplicationContext()).getPrimarySiteApi());
 
         this.username = username;
         this.password = password;
@@ -43,7 +42,6 @@ public abstract class CreateAccountTask extends ApiTask<CreateAccountResult> {
 
     @Override
     public CreateAccountResult processResult(ApiResult result) throws Throwable {
-        Log.d("Wikipedia", result.asObject().toString(4));
         if (result.asObject().has("error")) {
             return new CreateAccountResult(result.asObject().optJSONObject("error").optString("code"));
         }

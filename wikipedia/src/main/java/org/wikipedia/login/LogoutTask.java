@@ -9,7 +9,7 @@ public class LogoutTask extends ApiTask<Boolean> {
 
     public LogoutTask(Context context, Site site) {
         super(
-                1,
+                SINGLE_THREAD,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(site)
         );
         app = (WikipediaApp)context.getApplicationContext();

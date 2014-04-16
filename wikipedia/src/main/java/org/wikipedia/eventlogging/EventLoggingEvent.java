@@ -77,7 +77,7 @@ public abstract class EventLoggingEvent {
     private static class LogEventTask extends SaneAsyncTask<Boolean> {
         private final JSONObject data;
         public LogEventTask(JSONObject data) {
-            super(1);
+            super(SINGLE_THREAD);
             this.data = data;
         }
 
