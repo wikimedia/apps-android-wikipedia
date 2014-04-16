@@ -13,7 +13,7 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
     private final WikipediaApp app;
 
     public SearchArticlesTask(Context context, Api api, Site site, String prefix) {
-        super(4, api);
+        super(HIGH_CONCURRENCY, api);
         this.prefix = prefix;
         this.site = site;
         this.app = (WikipediaApp)context.getApplicationContext();

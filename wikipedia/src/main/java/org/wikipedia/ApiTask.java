@@ -6,8 +6,8 @@ import org.wikipedia.concurrency.*;
 public abstract class ApiTask<T> extends SaneAsyncTask<T> {
     private final Api api;
 
-    public ApiTask(int threadCount, Api api) {
-        super(threadCount);
+    public ApiTask(int concurrency, Api api) {
+        super(concurrency);
         this.api = api;
     }
 

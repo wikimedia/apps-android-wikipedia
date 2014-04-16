@@ -12,7 +12,7 @@ public class FetchSectionWikitextTask extends ApiTask<String> {
 
     public FetchSectionWikitextTask(Context context, PageTitle title, int sectionID) {
         super(
-                1,
+                SINGLE_THREAD,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
         );
         this.title = title;

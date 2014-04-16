@@ -11,7 +11,7 @@ public class RandomArticleIdTask extends ApiTask<PageTitle> {
     private Site site;
 
     public RandomArticleIdTask(Api api, Site site, Context context) {
-        super(1, api);
+        super(SINGLE_THREAD, api);
         this.site = site;
         this.ctx = context;
     }

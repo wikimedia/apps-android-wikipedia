@@ -1,10 +1,12 @@
 package org.wikipedia.concurrency;
 
-import android.os.*;
-
 import java.util.concurrent.*;
 
 public abstract class SaneAsyncTask<T> {
+    public static final int SINGLE_THREAD = 1;
+    public static final int LOW_CONCURRENCY = 2;
+    public static final int HIGH_CONCURRENCY = 4;
+
     private final BackingAsyncTask underlyingTask;
 
     private final Executor executor;
@@ -20,10 +22,10 @@ public abstract class SaneAsyncTask<T> {
     /**
      * Creates an executor using the default ExecutorService.
      *
-     * @param threadCount Number of threads to use at max for this thread pool.
+     * @param concurrencyLevel Number of threads to use at max for this thread pool.
      */
-    public SaneAsyncTask(int threadCount) {
-        this.executor = ExecutorService.getSingleton().getExecutor(getClass(), threadCount);
+    public SaneAsyncTask(int concurrencyLevel) {
+        this.executor = ExecutorService.getSingleton().getExecutor(getClass(), concurrencyLevel);
         this.underlyingTask = new BackingAsyncTask();
     }
 

@@ -10,7 +10,7 @@ public class WikipediaZeroTask extends ApiTask<String> {
     private Context ctx;
 
     public WikipediaZeroTask(Api api, Context context) {
-        super(1, api);
+        super(SINGLE_THREAD, api);
         this.ctx = context;
     }
 

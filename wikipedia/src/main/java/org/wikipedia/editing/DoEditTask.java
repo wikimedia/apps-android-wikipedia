@@ -1,7 +1,6 @@
 package org.wikipedia.editing;
 
 import android.content.*;
-import android.util.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
@@ -16,7 +15,7 @@ public class DoEditTask extends ApiTask<EditingResult> {
 
     public DoEditTask(Context context, PageTitle title, String sectionWikitext, int sectionID, String editToken, String summary) {
         super(
-                1,
+                SINGLE_THREAD,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
         );
         this.title = title;
@@ -51,7 +50,6 @@ public class DoEditTask extends ApiTask<EditingResult> {
             // but the block seems to be ready for revisions, so clean up then?
             Utils.processHeadersForZero(app, result);
         }
-        Log.d("Wikipedia", resultJSON.toString(4));
         if (resultJSON.has("error")) {
             JSONObject errorJSON = resultJSON.optJSONObject("error");
             throw new EditingException(errorJSON.optString("code"), errorJSON.optString("info"));

@@ -14,7 +14,7 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
 
     public SectionsFetchTask(Context context, PageTitle title, String sectionsRequested) {
         super(
-                1,
+                SINGLE_THREAD,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
         );
         this.title = title;
