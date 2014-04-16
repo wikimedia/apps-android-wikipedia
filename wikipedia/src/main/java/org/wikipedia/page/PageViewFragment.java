@@ -72,7 +72,7 @@ public class PageViewFragment extends Fragment {
         return page;
     }
 
-    private void displayLeadSection(Page page) {
+    private void displayLeadSection() {
         JSONObject leadSectionPayload = new JSONObject();
         try {
             leadSectionPayload.put("title", page.getDisplayTitle());
@@ -94,7 +94,7 @@ public class PageViewFragment extends Fragment {
         Utils.crossFade(loadProgress, webView);
     }
 
-    private void populateNonLeadSections(final Page page) {
+    private void populateNonLeadSections() {
         editHandler = new EditHandler(this, bridge, page);
         bridge.sendMessage("startSectionsDisplay", new JSONObject());
     }
@@ -208,8 +208,8 @@ public class PageViewFragment extends Fragment {
         }
     }
 
-    private void performActionForState(int state) {
-        switch (state) {
+    private void performActionForState(int forState) {
+        switch (forState) {
             case STATE_NO_FETCH:
                 new LeadSectionFetchTask().execute();
                 break;
@@ -217,8 +217,8 @@ public class PageViewFragment extends Fragment {
                 new RestSectionsFetchTask().execute();
                 break;
             case STATE_COMPLETE_FETCH:
-                displayLeadSection(page);
-                populateNonLeadSections(page);
+                displayLeadSection();
+                populateNonLeadSections();
                 webView.scrollTo(0, scrollY);
                 break;
             default:
@@ -271,7 +271,7 @@ public class PageViewFragment extends Fragment {
         @Override
         public void onFinish(List<Section> result) {
             page = new Page(title, (ArrayList<Section>) result, pageProperties);
-            displayLeadSection(page);
+            displayLeadSection();
             setState(STATE_INITIAL_FETCH);
             new RestSectionsFetchTask().execute();
 
@@ -305,7 +305,7 @@ public class PageViewFragment extends Fragment {
             ArrayList<Section> newSections = (ArrayList<Section>) page.getSections().clone();
             newSections.addAll(result);
             page = new Page(page.getTitle(), newSections, page.getPageProperties());
-            populateNonLeadSections(page);
+            populateNonLeadSections();
             setState(STATE_COMPLETE_FETCH);
         }
     }
