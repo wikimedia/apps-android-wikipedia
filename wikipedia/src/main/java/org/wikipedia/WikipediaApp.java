@@ -106,7 +106,11 @@ public class WikipediaApp extends Application {
     private String userAgent;
     public String getUserAgent() {
         if (userAgent == null) {
-            userAgent = String.format("WikipediaApp/%s (Android/%s)", WikipediaApp.APP_VERSION_STRING, Build.VERSION.RELEASE);
+            userAgent = String.format("WikipediaApp/%s (Android %s; %s)",
+                    WikipediaApp.APP_VERSION_STRING,
+                    Build.VERSION.RELEASE,
+                    getString(R.string.device_type
+                    ));
         }
         return userAgent;
     }
