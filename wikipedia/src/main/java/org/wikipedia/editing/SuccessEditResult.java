@@ -3,12 +3,19 @@ package org.wikipedia.editing;
 import android.os.*;
 
 public class SuccessEditResult extends EditingResult {
-    public SuccessEditResult() {
+    private final int revID;
+    public SuccessEditResult(int revID) {
         super("Success");
+        this.revID = revID;
     }
 
     private SuccessEditResult(Parcel in) {
         super(in);
+        revID = in.readInt();
+    }
+
+    public int getRevID() {
+        return revID;
     }
 
     public static final Parcelable.Creator<SuccessEditResult> CREATOR

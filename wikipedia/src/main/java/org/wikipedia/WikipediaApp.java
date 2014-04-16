@@ -12,6 +12,7 @@ import com.squareup.otto.*;
 import org.acra.*;
 import org.acra.annotation.*;
 import org.mediawiki.api.json.*;
+import org.wikipedia.analytics.*;
 import org.wikipedia.data.*;
 import org.wikipedia.editing.*;
 import org.wikipedia.editing.summaries.*;
@@ -277,6 +278,15 @@ public class WikipediaApp extends Application {
             userInfoStorage = new UserInfoStorage(PreferenceManager.getDefaultSharedPreferences(this));
         }
         return userInfoStorage;
+    }
+
+    private FunnelManager funnelManager;
+    public FunnelManager getFunnelManager() {
+        if (funnelManager == null) {
+            funnelManager = new FunnelManager(this);
+        }
+
+        return funnelManager;
     }
 
     private static boolean wikipediaZeroDisposition = false;

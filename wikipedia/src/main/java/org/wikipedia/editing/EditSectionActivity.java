@@ -13,6 +13,7 @@ import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.Utils;
+import org.wikipedia.analytics.*;
 import org.wikipedia.editing.summaries.*;
 import org.wikipedia.login.*;
 import org.wikipedia.page.*;
@@ -52,6 +53,8 @@ public class EditSectionActivity extends ActionBarActivity {
     private View editSaveOptionsContainer;
     private View editSaveOptionAnon;
     private View editSaveOptionLogIn;
+
+    private EditFunnel funnel;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,6 +128,7 @@ public class EditSectionActivity extends ActionBarActivity {
             public void onClick(View view) {
                 wasSaveOptionsUsed = true;
                 Utils.fadeOut(editSaveOptionsContainer);
+                funnel.logSaveAnonExplicit();
                 doSave();
             }
         });
@@ -134,6 +138,7 @@ public class EditSectionActivity extends ActionBarActivity {
             public void onClick(View view) {
                 wasSaveOptionsUsed = true;
                 Intent loginIntent = new Intent(EditSectionActivity.this, LoginActivity.class);
+                funnel.logLoginAttempt();
                 startActivityForResult(loginIntent, LoginActivity.REQUEST_LOGIN);
             }
         });
@@ -141,6 +146,10 @@ public class EditSectionActivity extends ActionBarActivity {
         Utils.setTextDirection(sectionText, title.getSite().getLanguage());
 
         fetchSectionText();
+
+        funnel = app.getFunnelManager().getEditFunnel(title);
+
+        funnel.logStart();
     }
 
     @Override
@@ -149,6 +158,9 @@ public class EditSectionActivity extends ActionBarActivity {
             if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
                 Utils.fadeOut(editSaveOptionsContainer);
                 doSave();
+                funnel.logLoginSuccess();
+            } else {
+                funnel.logLoginFailure();
             }
         }
     }
@@ -162,7 +174,6 @@ public class EditSectionActivity extends ActionBarActivity {
         app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetreivedCallback() {
             @Override
             public void onTokenRetreived(final String token) {
-
                 new DoEditTask(EditSectionActivity.this, title, sectionText.getText().toString(), section.getId(), token, editSummaryHandler.getSummary(section.getHeading())) {
                     @Override
                     public void onBeforeExecute() {
@@ -226,17 +237,24 @@ public class EditSectionActivity extends ActionBarActivity {
                     @Override
                     public void onFinish(EditingResult result) {
                         if (result instanceof SuccessEditResult) {
+                            funnel.logSaved(((SuccessEditResult) result).getRevID());
                             progressDialog.dismiss();
                             setResult(EditHandler.RESULT_REFRESH_PAGE);
                             Toast.makeText(EditSectionActivity.this, R.string.edit_saved_successfully, Toast.LENGTH_LONG).show();
                             Utils.hideSoftKeyboard(EditSectionActivity.this);
                             finish();
                         } else if (result instanceof CaptchaResult) {
+                            if (captchaHandler.isActive()) {
+                                // Captcha entry failed!
+                                funnel.logCaptchaFailure();
+                            }
                             captchaHandler.handleCaptcha((CaptchaResult) result);
+                            funnel.logCaptchaShown();
                         } else if (result instanceof AbuseFilterEditResult) {
                             abusefilterEditResult = (AbuseFilterEditResult) result;
                             handleAbuseFilter();
                         } else {
+                            funnel.logError(result.getResult());
                             // Expand to do everything.
                             onCatch(null);
                         }
@@ -250,6 +268,11 @@ public class EditSectionActivity extends ActionBarActivity {
     private void handleAbuseFilter() {
         if (abusefilterEditResult == null) {
             return;
+        }
+        if (abusefilterEditResult.getType() == AbuseFilterEditResult.TYPE_ERROR) {
+            funnel.logAbuseFilterError(abusefilterEditResult.getCode());
+        } else {
+            funnel.logAbuseFilterWarning(abusefilterEditResult.getCode());
         }
         JSONObject payload = new JSONObject();
         try {
@@ -304,6 +327,7 @@ public class EditSectionActivity extends ActionBarActivity {
                 } else {
                     Utils.hideSoftKeyboard(this);
                     editPreviewFragment.showPreview(title, sectionText.getText().toString());
+                    funnel.logPreview();
                 }
                 return true;
             default:

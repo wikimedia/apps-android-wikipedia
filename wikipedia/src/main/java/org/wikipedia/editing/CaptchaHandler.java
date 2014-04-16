@@ -3,13 +3,13 @@ package org.wikipedia.editing;
 import android.app.*;
 import android.net.*;
 import android.os.*;
-import android.support.v7.app.ActionBarActivity;
-import android.util.*;
+import android.support.v7.app.*;
 import android.view.*;
 import android.widget.*;
 import com.squareup.picasso.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
+import org.wikipedia.Utils;
 
 public class CaptchaHandler {
     private final Activity activity;
@@ -66,6 +66,10 @@ public class CaptchaHandler {
 
     public void saveState(Bundle outState) {
         outState.putParcelable("captcha", captchaResult);
+    }
+
+    public boolean isActive() {
+        return captchaResult != null;
     }
 
     public void handleCaptcha(CaptchaResult captchaResult) {
