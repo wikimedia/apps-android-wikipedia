@@ -182,6 +182,14 @@ function elementsForSection( section ) {
     return [ heading, content ];
 }
 
+function sectionsAllDone() {
+    document.getElementById( "loading_sections").className = "";
+}
+
+bridge.registerListener( "noMoreSections", function() {
+    sectionsAllDone();
+} );
+
 bridge.registerListener( "displaySection", function ( payload ) {
     var contentWrapper = document.getElementById( "content" );
 
@@ -191,7 +199,7 @@ bridge.registerListener( "displaySection", function ( payload ) {
     if ( !payload.isLast ) {
         bridge.sendMessage( "requestSection", { index: payload.index + 1 } );
     } else {
-        document.getElementById( "loading_sections").className = "";
+        sectionsAllDone();
         if ( typeof payload.fragment === "string" ) {
             scrollToSection( payload.fragment );
         }

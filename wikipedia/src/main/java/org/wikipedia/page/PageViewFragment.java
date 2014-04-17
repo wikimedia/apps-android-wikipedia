@@ -178,12 +178,17 @@ public class PageViewFragment extends Fragment {
             public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
                     int index = messagePayload.optInt("index");
-                    JSONObject wrapper = new JSONObject();
-                    wrapper.put("section", page.getSections().get(index).toJSON());
-                    wrapper.put("index", index);
-                    wrapper.put("isLast", index == page.getSections().size() - 1);
-                    wrapper.put("fragment", page.getTitle().getFragment());
-                    bridge.sendMessage("displaySection", wrapper);
+                    if (index >= page.getSections().size()) {
+                        // Page has only one section yo
+                        bridge.sendMessage("noMoreSections", new JSONObject());
+                    } else {
+                        JSONObject wrapper = new JSONObject();
+                        wrapper.put("section", page.getSections().get(index).toJSON());
+                        wrapper.put("index", index);
+                        wrapper.put("isLast", index == page.getSections().size() - 1);
+                        wrapper.put("fragment", page.getTitle().getFragment());
+                        bridge.sendMessage("displaySection", wrapper);
+                    }
                 } catch (JSONException e) {
                     // Won't happen
                     throw new RuntimeException(e);
