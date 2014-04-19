@@ -123,6 +123,7 @@ public class EditSectionActivity extends ActionBarActivity {
         editSaveOptionAnon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                wasSaveOptionsUsed = true;
                 Utils.fadeOut(editSaveOptionsContainer);
                 doSave();
             }
@@ -131,6 +132,7 @@ public class EditSectionActivity extends ActionBarActivity {
         editSaveOptionLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                wasSaveOptionsUsed = true;
                 Intent loginIntent = new Intent(EditSectionActivity.this, LoginActivity.class);
                 startActivityForResult(loginIntent, LoginActivity.REQUEST_LOGIN);
             }
@@ -269,8 +271,14 @@ public class EditSectionActivity extends ActionBarActivity {
         Utils.crossFade(abusefilterContainer, sectionContainer);
     }
 
+    /**
+     * Set to true if the Save Options were ever used - if any one was tapped on.
+     * If they were, we do not show it again.
+     */
+    private boolean wasSaveOptionsUsed = false;
     private void showSaveOptions() {
-        if (editSaveOptionsContainer.getVisibility() == View.VISIBLE) {
+        if (editSaveOptionsContainer.getVisibility() == View.VISIBLE
+                || wasSaveOptionsUsed) {
             doSave();
         } else {
             Utils.fadeIn(editSaveOptionsContainer);
