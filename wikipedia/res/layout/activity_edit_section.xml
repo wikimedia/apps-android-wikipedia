@@ -45,6 +45,21 @@
                 />
     </LinearLayout>
 
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/edit_section_preview_container"
+            android:orientation="vertical"
+            >
+        <fragment android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:id="@+id/edit_section_preview_fragment"
+                  class="org.wikipedia.editing.EditPreviewFragment"
+                />
+        <include layout="@layout/group_edit_summary" />
+    </LinearLayout>
+
     <include layout="@layout/group_captcha" />
 
     <ScrollView android:layout_width="match_parent"
@@ -78,19 +93,5 @@
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/edit_section_preview_container"
-            android:orientation="vertical"
-            >
-        <fragment android:layout_width="match_parent"
-                  android:layout_height="0dp"
-                  android:layout_weight="1"
-                  android:id="@+id/edit_section_preview_fragment"
-                  class="org.wikipedia.editing.EditPreviewFragment"
-                />
-        <include layout="@layout/group_edit_summary" />
-    </LinearLayout>
     <include layout="@layout/group_edit_save_options"/>
 </FrameLayout>
