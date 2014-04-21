@@ -386,4 +386,16 @@ public final class Utils {
             view.setTextDirection(Utils.isLangRTL(lang) ? View.TEXT_DIRECTION_RTL : View.TEXT_DIRECTION_LTR);
         }
     }
+
+    /**
+     * Returns db name for given site
+     *
+     * WARNING: HARDCODED TO WORK FOR WIKIPEDIA ONLY
+     *
+     * @param site Site object to get dbname for
+     * @return dbname for given site object
+     */
+    public static String getDBNameForSite(Site site) {
+        return site.getLanguage() + "wiki";
+    }
 }

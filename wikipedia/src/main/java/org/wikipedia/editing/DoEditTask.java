@@ -57,7 +57,7 @@ public class DoEditTask extends ApiTask<EditingResult> {
         JSONObject edit = resultJSON.optJSONObject("edit");
         String status = edit.optString("result");
         if (status.equals("Success")) {
-            return new SuccessEditResult();
+            return new SuccessEditResult(edit.optInt("newrevid"));
         } else if (status.equals("Failure")) {
             if (edit.has("captcha")) {
                 return new CaptchaResult(

@@ -1,4 +1,4 @@
-package org.wikipedia.eventlogging;
+package org.wikipedia.analytics;
 
 import android.net.*;
 import android.util.*;
@@ -13,10 +13,11 @@ import org.wikipedia.concurrency.*;
  * to call from everywhere without having to duplicate param info at all places.
  * Updating schemas / revisions is also easier this way.
  */
-public abstract class EventLoggingEvent {
+public class EventLoggingEvent {
     private static final String EVENTLOG_URL = "https://bits.wikimedia.org/event.gif";
 
     private final JSONObject data;
+    private final String userAgent;
 
     /**
      * Create an EventLoggingEvent that logs to a given revision of a given schema with
@@ -24,45 +25,22 @@ public abstract class EventLoggingEvent {
      *
      * @param schema Schema name (as specified on meta.wikimedia.org)
      * @param revID Revision of the schema to log to
-     * @param payload Data for the actual event payload. Considered to be
-     *                an array of alternating key and value items (for easier
-     *                construction in subclass constructors).
+     * @param wiki DBName (enwiki, dewiki, etc) of the wiki in which we are operating
+     * @param userAgent User-Agent string to use for this request
+     * @param eventData Data for the actual event payload. Considered to be
      *
-     *                For example, what would be expressed in a more sane
-     *                language as:
-     *
-     *                new SomeSubClass("Schema", 4200, {
-     *                  "page": "List of mass murderers",
-     *                  "section": "2014"
-     *                });
-     *
-     *                would be expressed here as
-     *
-     *                new SomeSubClass("Schema", 4200,
-     *                  "page", "List of mass murderers",
-     *                  "section", "2014"
-     *                );
-     *
-     *                This format should be only used in subclass constructors.
-     *                The subclass constructors should take more explicit parameters
-     *                depending on what they are logging.
      */
-    protected EventLoggingEvent(String schema, int revID, String... payload) {
+    public EventLoggingEvent(String schema, int revID, String wiki, String userAgent, JSONObject eventData) {
         data = new JSONObject();
         try {
             data.put("schema", schema);
             data.put("revision", revID);
-
-            JSONObject event = new JSONObject();
-
-            for (int i = 0; i < payload.length; i += 2) {
-                event.put(payload[i], payload[i + 1]);
-            }
-
-            data.put("event", event);
+            data.put("wiki", wiki);
+            data.put("event", eventData);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
+        this.userAgent = userAgent;
     }
 
     /**
@@ -74,7 +52,7 @@ public abstract class EventLoggingEvent {
         new LogEventTask(data).execute();
     }
 
-    private static class LogEventTask extends SaneAsyncTask<Boolean> {
+    private class LogEventTask extends SaneAsyncTask<Integer> {
         private final JSONObject data;
         public LogEventTask(JSONObject data) {
             super(SINGLE_THREAD);
@@ -82,11 +60,17 @@ public abstract class EventLoggingEvent {
         }
 
         @Override
-        public Boolean performTask() throws Throwable {
+        public Integer performTask() throws Throwable {
             String dataURL = Uri.parse(EVENTLOG_URL)
                     .buildUpon().query(data.toString())
                     .build().toString();
-            return HttpRequest.get(dataURL).ok();
+            Log.d("Wikipedia", "hitting " + dataURL);
+            return HttpRequest.get(dataURL).header("User-Agent", userAgent).code();
+        }
+
+        @Override
+        public void onFinish(Integer result) {
+            Log.d("Wikipedia", "result is " + result);
         }
 
         @Override
