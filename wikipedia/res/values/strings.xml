@@ -73,7 +73,7 @@
     <string name="login_error_unknown">Login failed :(</string>
     <string name="login_error_no_network">No network connection</string>
     <string name="nav_item_logout">Log out</string>
-    <string name="logging_out_progress">Logging out...</string>
+    <string name="toast_logout_complete">Logged out</string>
     <string name="saved_pages_empty_message">No saved pages.</string>
     <string name="history_empty_message">Your history is empty.</string>
     <string name="create_account_username_hint">Username</string>
@@ -118,7 +118,6 @@
     <string name="nav_item_random">Random</string>
     <string name="random_progress">Fetching random page...</string>
     <string name="nav_item_login_benefits">If you Log in, your edits will be associated with your username and your IP address will not be publicly visible.</string>
-    <string name="nav_item_tap_to_logout">Tap to log out</string>
     <string name="create_account_account_created_toast">Account created!</string>
     <string name="user_contribs_more_action">Load more</string>
     <string name="activity_my_contributions_title">My Contributions</string>
