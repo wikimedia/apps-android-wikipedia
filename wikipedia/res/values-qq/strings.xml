@@ -81,4 +81,5 @@
 {{Identical|Save anonymously}}</string>
   <string name="edit_save_action_login_description">Description for action that lets the user save the current edit anonymously</string>
   <string name="edit_save_action_ip_description">Description for action that takes user to login screen so they can login before saving an edit</string>
+  <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out</string>
 </resources>

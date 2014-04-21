@@ -1,10 +1,9 @@
 package org.wikipedia;
 
-import android.app.*;
 import android.content.*;
 import android.net.*;
 import android.os.*;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.*;
 import android.view.*;
 import android.widget.*;
 import org.wikipedia.analytics.*;
@@ -108,22 +107,11 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
     }
 
     private void doLogout() {
-        final ProgressDialog progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage(getString(R.string.logging_out_progress));
-        progressDialog.setIndeterminate(true);
-
-        new LogoutTask(app, app.getPrimarySite()) {
-            @Override
-            public void onBeforeExecute() {
-                progressDialog.show();
-            }
-
-            @Override
-            public void onFinish(Boolean result) {
-                progressDialog.dismiss();
-                setupDynamicItems();
-            }
-        }.execute();
+        app.getEditTokenStorage().clearAllTokens();
+        app.getCookieManager().clearAllCookies();
+        app.getUserInfoStorage().clearUser();
+        Toast.makeText(getActivity(), R.string.toast_logout_complete, Toast.LENGTH_LONG).show();
+        setupDynamicItems();
     }
 
     @Override
