@@ -68,14 +68,6 @@
                         android:id="@+id/nav_item_username_primary_text"
                         style="?android:textAppearanceMediumInverse"
                         />
-                <org.wikipedia.styledviews.StyledTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="@string/nav_item_tap_to_logout"
-                        style="?android:textAppearanceSmallInverse"
-                        android:visibility="gone"
-                        />
             </LinearLayout>
         </LinearLayout>
 
@@ -234,6 +226,7 @@
                        android:layout_margin="12dp"
                        android:layout_gravity="center_vertical"
                        android:background="#fff"
+                       android:visibility="invisible"
                     />
             <org.wikipedia.styledviews.StyledTextView
                     android:layout_width="match_parent"
