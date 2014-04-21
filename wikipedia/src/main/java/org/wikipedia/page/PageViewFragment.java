@@ -9,6 +9,7 @@ import android.widget.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
+import org.wikipedia.analytics.*;
 import org.wikipedia.editing.*;
 import org.wikipedia.events.*;
 import org.wikipedia.history.*;
@@ -52,6 +53,8 @@ public class PageViewFragment extends Fragment {
     private int quickReturnBarId;
 
     private View quickReturnBar;
+
+    private ReadingActionFunnel readingActionFunnel;
 
     // Pass in the id rather than the View object itself for the quickReturn bar, to help it survive rotates
     public PageViewFragment(PageTitle title, HistoryEntry historyEntry, int quickReturnBarId) {

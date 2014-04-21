@@ -10,6 +10,7 @@ import android.view.inputmethod.*;
 import android.widget.*;
 import de.keyboardsurfer.android.widget.crouton.*;
 import org.wikipedia.*;
+import org.wikipedia.analytics.*;
 import org.wikipedia.createaccount.*;
 
 public class LoginActivity extends ActionBarActivity {
@@ -17,6 +18,9 @@ public class LoginActivity extends ActionBarActivity {
 
     public static final int RESULT_LOGIN_SUCCESS = 1;
     public static final int RESULT_LOGIN_FAIL = 2;
+
+    public static final String LOGIN_REQUEST_SOURCE = "login_request_source";
+    public static final String EDIT_SESSION_TOKEN = "edit_session_token";
 
     private EditText usernameText;
     private EditText passwordText;
@@ -26,6 +30,8 @@ public class LoginActivity extends ActionBarActivity {
     private NonEmptyValidator nonEmptyValidator;
 
     private WikipediaApp app;
+
+    private LoginFunnel funnel;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,10 +69,23 @@ public class LoginActivity extends ActionBarActivity {
         createAccountLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                funnel.logCreateAccountAttempt();
                 Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
                 startActivityForResult(intent, CreateAccountActivity.ACTION_CREATE_ACCOUNT);
             }
         });
+
+        funnel = new LoginFunnel(app);
+
+        // Log the start!
+        if (getIntent().getStringExtra(LOGIN_REQUEST_SOURCE).equals(LoginFunnel.SOURCE_EDIT)) {
+            funnel.logStart(
+                    LoginFunnel.SOURCE_EDIT,
+                    getIntent().getStringExtra(EDIT_SESSION_TOKEN)
+            );
+        } else {
+            funnel.logStart(getIntent().getStringExtra(LOGIN_REQUEST_SOURCE));
+        }
 
         // Assume no login by default
         setResult(RESULT_LOGIN_FAIL);
@@ -78,7 +97,10 @@ public class LoginActivity extends ActionBarActivity {
         if (resultCode == CreateAccountActivity.RESULT_ACCOUNT_CREATED) {
             usernameText.setText(data.getStringExtra("username"));
             passwordText.setText(data.getStringExtra("password"));
+            funnel.logCreateAccountSuccess();
             doLogin();
+        } else {
+            funnel.logCreateAccountFailure();
         }
     }
 
@@ -113,13 +135,16 @@ public class LoginActivity extends ActionBarActivity {
                 super.onFinish(result);
                 progressDialog.dismiss();
                 if (result.equals("Success")) {
+                    funnel.logSuccess();
                     Toast.makeText(LoginActivity.this, R.string.login_success_toast, Toast.LENGTH_LONG).show();
 
                     Utils.hideSoftKeyboard(LoginActivity.this);
                     setResult(RESULT_LOGIN_SUCCESS);
 
+
                     finish();
                 } else {
+                    funnel.logError(result);
                     handleError(result);
                 }
             }

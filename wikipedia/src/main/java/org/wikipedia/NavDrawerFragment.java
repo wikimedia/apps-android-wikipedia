@@ -7,6 +7,7 @@ import android.os.*;
 import android.support.v4.app.Fragment;
 import android.view.*;
 import android.widget.*;
+import org.wikipedia.analytics.*;
 import org.wikipedia.history.*;
 import org.wikipedia.login.*;
 import org.wikipedia.pagehistory.usercontributions.*;
@@ -143,6 +144,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 break;
             case R.id.nav_item_login:
                 intent.setClass(this.getActivity(), LoginActivity.class);
+                intent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_NAV);
                 startActivity(intent);
                 break;
             case R.id.nav_item_random:
