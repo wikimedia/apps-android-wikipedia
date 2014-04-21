@@ -11,6 +11,7 @@ import android.view.*;
 import com.squareup.otto.*;
 import de.keyboardsurfer.android.widget.crouton.*;
 import org.wikipedia.*;
+import org.wikipedia.analytics.*;
 import org.wikipedia.events.*;
 import org.wikipedia.history.*;
 import org.wikipedia.interlanguage.*;
@@ -38,6 +39,8 @@ public class PageActivity extends ActionBarActivity {
     private static final int MESSAGE_START_SCREEN = 1;
     private AlertDialog.Builder alert;
 
+    private ReadingActionFunnel readingActionFunnel;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,8 @@ public class PageActivity extends ActionBarActivity {
 
         bus = app.getBus();
         bus.register(this);
+
+        readingActionFunnel = new ReadingActionFunnel(app);
 
         searchAriclesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -97,6 +102,7 @@ public class PageActivity extends ActionBarActivity {
             drawerLayout.closeDrawer(Gravity.START);
         }
         displayNewPage(event.getTitle(), event.getHistoryEntry());
+        readingActionFunnel.logSomethingHappened(event.getTitle().getSite());
     }
 
     @Subscribe
