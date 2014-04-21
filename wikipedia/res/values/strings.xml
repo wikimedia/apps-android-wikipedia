@@ -126,4 +126,6 @@
     <string name="edit_save_action_ip">Save anonymously</string>
     <string name="edit_save_action_login_description">Your edits will be publicly attributed to your username and other editors can connect with you better</string>
     <string name="edit_save_action_ip_description">Your edits will be publicly attributed to your IP address, which changes frequently</string>
+    <string name="preference_title_eventlogging_opt_in">Send usage reports</string>
+    <string name="preference_summary_eventlogging_opt_in">Allow Wikimedia to collect information about how you use the app to make the app better</string>
 </resources>

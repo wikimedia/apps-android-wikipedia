@@ -6,6 +6,12 @@
                 android:key="@string/preference_key_language"
                 android:title="@string/preference_title_language"
                 />
+        <CheckBoxPreference
+            android:key="@string/preference_key_eventlogging_opt_in"
+            android:defaultValue="true"
+            android:title="@string/preference_title_eventlogging_opt_in"
+            android:summary="@string/preference_summary_eventlogging_opt_in"
+            />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/zero_wikipedia_zero_heading">
         <CheckBoxPreference
