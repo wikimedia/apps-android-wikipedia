@@ -11,6 +11,7 @@ import com.mobsandgeeks.saripaar.annotation.*;
 import de.keyboardsurfer.android.widget.crouton.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
+import org.wikipedia.analytics.*;
 import org.wikipedia.editing.*;
 
 public class CreateAccountActivity extends ActionBarActivity {
@@ -18,6 +19,8 @@ public class CreateAccountActivity extends ActionBarActivity {
     public static final int RESULT_ACCOUNT_NOT_CREATED = 2;
 
     public static final int ACTION_CREATE_ACCOUNT = 1;
+
+    public static final String LOGIN_SESSION_TOKEN = "login_session_token";
 
     @Required(order = 1)
     private EditText usernameEdit;
@@ -45,6 +48,8 @@ public class CreateAccountActivity extends ActionBarActivity {
     private CreateAccountResult createAccountResult;
 
     private Validator validator;
+
+    private CreateAccountFunnel funnel;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +109,10 @@ public class CreateAccountActivity extends ActionBarActivity {
             }
         }
 
+        funnel = new CreateAccountFunnel(app);
+
+        funnel.logStart(getIntent().getStringExtra(LOGIN_SESSION_TOKEN));
+
         // Set default result to failed, so we can override if it did not
         setResult(RESULT_ACCOUNT_NOT_CREATED);
     }
@@ -157,6 +166,11 @@ public class CreateAccountActivity extends ActionBarActivity {
             public void onFinish(final CreateAccountResult result) {
                 createAccountResult = result;
                 if (result instanceof CreateAccountCaptchaResult) {
+                    if (captchaHandler.isActive()) {
+                        funnel.logCaptchaFailure();
+                    } else {
+                        funnel.logCaptchaShown();
+                    }
                     captchaHandler.handleCaptcha(((CreateAccountCaptchaResult)result).getCaptchaResult());
                 } else {
                     progressDialog.dismiss();
@@ -164,6 +178,7 @@ public class CreateAccountActivity extends ActionBarActivity {
                     // Returns lowercase 'success', unlike every other API. GRR man, GRR
                     // Replace wen https://bugzilla.wikimedia.org/show_bug.cgi?id=61663 is fixed?
                     if (result.getResult().toLowerCase().equals("success")) {
+                        funnel.logSuccess();
                         Utils.hideSoftKeyboard(CreateAccountActivity.this);
                         Intent resultIntent = new Intent();
                         resultIntent.putExtra("username", usernameEdit.getText().toString());
@@ -177,6 +192,7 @@ public class CreateAccountActivity extends ActionBarActivity {
                         createAccountResult = null;
                         doCreateAccount();
                     } else {
+                        funnel.logError(result.getResult());
                         handleError(result);
                     }
                 }

@@ -71,6 +71,7 @@ public class LoginActivity extends ActionBarActivity {
             public void onClick(View view) {
                 funnel.logCreateAccountAttempt();
                 Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
+                intent.putExtra(CreateAccountActivity.LOGIN_SESSION_TOKEN, funnel.getLoginSessionToken());
                 startActivityForResult(intent, CreateAccountActivity.ACTION_CREATE_ACCOUNT);
             }
         });
