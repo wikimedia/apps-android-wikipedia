@@ -137,8 +137,10 @@ public class EditSectionActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 wasSaveOptionsUsed = true;
-                Intent loginIntent = new Intent(EditSectionActivity.this, LoginActivity.class);
                 funnel.logLoginAttempt();
+                Intent loginIntent = new Intent(EditSectionActivity.this, LoginActivity.class);
+                loginIntent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_EDIT);
+                loginIntent.putExtra(LoginActivity.EDIT_SESSION_TOKEN, funnel.getEditSessionToken());
                 startActivityForResult(loginIntent, LoginActivity.REQUEST_LOGIN);
             }
         });

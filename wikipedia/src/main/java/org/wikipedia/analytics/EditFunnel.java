@@ -33,6 +33,10 @@ public class EditFunnel extends Funnel {
         return eventData;
     }
 
+    public String getEditSessionToken() {
+        return editSessionToken;
+    }
+
     protected void log(Object... params) {
         super.log(title.getSite(), params);
     }
