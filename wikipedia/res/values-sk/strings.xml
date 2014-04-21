@@ -120,4 +120,6 @@
   <string name="nav_item_my_contributions">Moje príspevky</string>
   <string name="edit_save_action_login">Prihlásiť sa a uložiť</string>
   <string name="edit_save_action_ip">Uložiť anonymne</string>
+  <string name="edit_save_action_login_description">Vaše úpravy budú spojené s vašim používateľským menom a ostatný redaktori sa s vami budú môcť lepšie spojiť.</string>
+  <string name="edit_save_action_ip_description">Vaše úpravy budú spojené s vašou IP adresou, ktorá sa pravidelne mení.</string>
 </resources>

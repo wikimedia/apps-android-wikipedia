@@ -5,6 +5,7 @@
   <string name="no">Neen</string>
   <string name="acra_report_dialog_title">Wikipedia ass ofgestierzt :(</string>
   <string name="acra_report_dialog_text">Dem Yuvi e Rapport iwwer de Crash schécken</string>
+  <string name="acra_report_dialog_comment">Wat hutt Dir gemaach wéi de Crash geschitt ass?</string>
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="history_activity_title">Versiounen</string>
   <string name="nav_item_history">Versiounen</string>
@@ -84,6 +85,7 @@
   <string name="zero_interstitial_title">Wikipedia Zero verloossen</string>
   <string name="zero_interstitial_continue">Viru fueren</string>
   <string name="zero_interstitial_cancel">Ofbriechen</string>
+  <string name="zero_learn_more">Wëllt Dir Eppes iwwer Wikipedia Zero gewuer ginn?</string>
   <string name="zero_learn_more_learn_more">Fir méi ze wëssen</string>
   <string name="zero_learn_more_dismiss">Verwerfen</string>
   <string name="zero_settings">Astellungen</string>
