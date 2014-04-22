@@ -5,6 +5,7 @@ bin
 gen
 local.properties
 default.properties
+gen-external-apklibs
 
 # IDE files
 *.iml
