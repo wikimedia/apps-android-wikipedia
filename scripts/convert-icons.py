@@ -37,7 +37,7 @@ class ImagesBatch(object):
         for svg in self.svgs:
             for density in DENSITIES.keys():
                 self._do_flop(density, self._do_export(density, svg))
-            print u"\u2713 %s" % os.path.basename(svg)
+            print(u"\u2713 %s" % os.path.basename(svg))
 
 
 if __name__ == "__main__":
