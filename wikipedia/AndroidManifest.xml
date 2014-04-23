@@ -50,7 +50,7 @@
         </activity>
 
         <activity android:name="org.acra.CrashReportDialog"
-                  android:theme="@android:style/Theme.Dialog"
+                  android:theme="@style/Theme.AppCompat.Light"
                   android:launchMode="singleInstance"
                   android:excludeFromRecents="true"
                   android:finishOnTaskLaunch="true" />
