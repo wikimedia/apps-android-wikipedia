@@ -84,4 +84,7 @@
   <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out</string>
   <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
+  <string name="acra_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
+  <string name="acra_report_dialog_text">Text asking the user to send us a crash report</string>
+  <string name="acra_report_dialog_comment">Label for text box asking user to tell us what they were doing when the app crashed</string>
 </resources>

@@ -6,7 +6,7 @@
     <string name="no">No</string>
 
     <string name="acra_report_dialog_title">Wikipedia crashed :(</string>
-    <string name="acra_report_dialog_text">Send Yuvi a crash report</string>
+    <string name="acra_report_dialog_text">Send us a crash report</string>
     <string name="acra_report_dialog_comment">What were you doing when the crash happened?</string>
 
     <string name="search_hint">Search Wikipedia</string>
