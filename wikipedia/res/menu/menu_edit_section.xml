@@ -4,7 +4,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_save_section"
-        android:enabled="true"
+        android:enabled="false"
         android:icon="@android:drawable/ic_menu_save"
         app:showAsAction="always" />
 

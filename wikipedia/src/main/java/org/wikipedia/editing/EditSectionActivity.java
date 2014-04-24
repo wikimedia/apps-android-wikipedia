@@ -340,6 +340,7 @@ public class EditSectionActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_edit_section, menu);
+        menu.findItem(R.id.menu_save_section).setEnabled(sectionWikitext != null);
         return true;
     }
 
@@ -357,6 +358,7 @@ public class EditSectionActivity extends ActionBarActivity {
                 @Override
                 public void onFinish(String result) {
                     sectionWikitext = result;
+                    supportInvalidateOptionsMenu();
                     displaySectionText();
                 }
 
