@@ -54,6 +54,8 @@ public abstract class CreateAccountTask extends ApiTask<CreateAccountResult> {
             return performTask();
         } else if (apiResult.equals("NeedCaptcha")) {
             return new CreateAccountCaptchaResult(new CaptchaResult(ca.optJSONObject("captcha").optString("id")));
+        } else if (apiResult.equals("Success")) {
+            return new CreateAccountSuccessResult(ca.optString("username"));
         } else {
             return new CreateAccountResult(apiResult);
         }

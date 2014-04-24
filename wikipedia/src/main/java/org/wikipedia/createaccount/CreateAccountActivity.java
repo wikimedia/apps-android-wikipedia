@@ -172,21 +172,21 @@ public class CreateAccountActivity extends ActionBarActivity {
                         funnel.logCaptchaShown();
                     }
                     captchaHandler.handleCaptcha(((CreateAccountCaptchaResult)result).getCaptchaResult());
+                } else if (result instanceof CreateAccountSuccessResult) {
+                    progressDialog.dismiss();
+                    captchaHandler.cancelCaptcha();
+                    funnel.logSuccess();
+                    Utils.hideSoftKeyboard(CreateAccountActivity.this);
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra("username", ((CreateAccountSuccessResult) result).getUsername());
+                    resultIntent.putExtra("password", passwordEdit.getText().toString());
+                    setResult(RESULT_ACCOUNT_CREATED, resultIntent);
+                    Toast.makeText(CreateAccountActivity.this, R.string.create_account_account_created_toast, Toast.LENGTH_LONG).show();
+                    finish();
                 } else {
                     progressDialog.dismiss();
                     captchaHandler.cancelCaptcha();
-                    // Returns lowercase 'success', unlike every other API. GRR man, GRR
-                    // Replace wen https://bugzilla.wikimedia.org/show_bug.cgi?id=61663 is fixed?
-                    if (result.getResult().toLowerCase().equals("success")) {
-                        funnel.logSuccess();
-                        Utils.hideSoftKeyboard(CreateAccountActivity.this);
-                        Intent resultIntent = new Intent();
-                        resultIntent.putExtra("username", usernameEdit.getText().toString());
-                        resultIntent.putExtra("password", passwordEdit.getText().toString());
-                        setResult(RESULT_ACCOUNT_CREATED, resultIntent);
-                        Toast.makeText(CreateAccountActivity.this, R.string.create_account_account_created_toast, Toast.LENGTH_LONG).show();
-                        finish();
-                    } else if (result.getResult().equals("captcha-createaccount-fail")) {
+                    if (result.getResult().equals("captcha-createaccount-fail")) {
                         // So for now we just need to do the entire set of requests again. sigh
                         // Eventually this should be fixed to have the new captcha info come back.
                         createAccountResult = null;
