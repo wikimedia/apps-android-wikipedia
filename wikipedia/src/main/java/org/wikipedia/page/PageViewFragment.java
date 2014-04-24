@@ -97,7 +97,6 @@ public class PageViewFragment extends Fragment {
     }
 
     private void populateNonLeadSections() {
-        editHandler = new EditHandler(this, bridge, page);
         bridge.sendMessage("startSectionsDisplay", new JSONObject());
     }
 
@@ -171,6 +170,7 @@ public class PageViewFragment extends Fragment {
             performActionForState(state);
         }
 
+        editHandler = new EditHandler(this, bridge);
         new QuickReturnHandler(webView, quickReturnBar);
     }
 
@@ -277,6 +277,7 @@ public class PageViewFragment extends Fragment {
         @Override
         public void onFinish(List<Section> result) {
             page = new Page(title, (ArrayList<Section>) result, pageProperties);
+            editHandler.setPage(page);
             displayLeadSection();
             setState(STATE_INITIAL_FETCH);
             new RestSectionsFetchTask().execute();
@@ -311,6 +312,7 @@ public class PageViewFragment extends Fragment {
             ArrayList<Section> newSections = (ArrayList<Section>) page.getSections().clone();
             newSections.addAll(result);
             page = new Page(page.getTitle(), newSections, page.getPageProperties());
+            editHandler.setPage(page);
             populateNonLeadSections();
             setState(STATE_COMPLETE_FETCH);
         }

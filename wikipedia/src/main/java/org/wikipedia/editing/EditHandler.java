@@ -12,14 +12,17 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
 
     private final Fragment fragment;
     private final CommunicationBridge bridge;
-    private final Page currentPage;
+    private Page currentPage;
 
-    public EditHandler(Fragment fragment, CommunicationBridge bridge, Page currentPage) {
+    public EditHandler(Fragment fragment, CommunicationBridge bridge) {
         this.fragment = fragment;
         this.bridge = bridge;
-        this.currentPage = currentPage;
 
         this.bridge.addListener("editSectionClicked", this);
+    }
+
+    public void setPage(Page page) {
+        this.currentPage = page;
     }
 
     @Override
