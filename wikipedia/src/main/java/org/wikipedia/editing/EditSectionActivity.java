@@ -9,6 +9,7 @@ import android.view.*;
 import android.webkit.*;
 import android.widget.*;
 import com.github.kevinsawicki.http.*;
+import de.keyboardsurfer.android.widget.crouton.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
@@ -255,6 +256,14 @@ public class EditSectionActivity extends ActionBarActivity {
                         } else if (result instanceof AbuseFilterEditResult) {
                             abusefilterEditResult = (AbuseFilterEditResult) result;
                             handleAbuseFilter();
+                        } else if (result instanceof SpamBlacklistEditResult) {
+                            Crouton.makeText(
+                                    EditSectionActivity.this,
+                                    getString(R.string.editing_error_spamblacklist, ((SpamBlacklistEditResult) result).getDomain()),
+                                    Style.ALERT
+                                    ).show();
+                            progressDialog.dismiss();
+                            editPreviewFragment.hide();
                         } else {
                             funnel.logError(result.getResult());
                             // Expand to do everything.

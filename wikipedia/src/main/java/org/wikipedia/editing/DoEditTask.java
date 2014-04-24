@@ -67,6 +67,9 @@ public class DoEditTask extends ApiTask<EditingResult> {
             if (edit.has("code") && edit.optString("code").startsWith("abusefilter-")) {
                 return new AbuseFilterEditResult(edit);
             }
+            if (edit.has("spamblacklist")) {
+                return new SpamBlacklistEditResult(edit.optString("spamblacklist"));
+            }
         }
         // Handle other type of return codes here
         throw new RuntimeException("Failure happens");
