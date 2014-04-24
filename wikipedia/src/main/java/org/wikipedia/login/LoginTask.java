@@ -22,11 +22,13 @@ public class LoginTask extends SaneAsyncTask<String> {
 
     @Override
     public void onFinish(String result) {
-        // Clear the edit tokens - clears out any anon tokens we might have had
-        app.getEditTokenStorage().clearAllTokens();
+        if (result.equals("Success")) {
+            // Clear the edit tokens - clears out any anon tokens we might have had
+            app.getEditTokenStorage().clearAllTokens();
 
-        // Set userinfo
-        app.getUserInfoStorage().setUser(new User(username, password));
+            // Set userinfo
+            app.getUserInfoStorage().setUser(new User(username, password));
+        }
     }
 
     @Override
