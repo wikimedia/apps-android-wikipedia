@@ -141,7 +141,7 @@ public class PageActivity extends ActionBarActivity {
             return;
         }
         if (!searchAriclesFragment.handleBackPressed()
-                && (curPageFragment != null && !curPageFragment.handleBackPressed())) {
+                && !(curPageFragment != null && curPageFragment.handleBackPressed())) {
             if (getSupportFragmentManager().getBackStackEntryCount() <= 1) {
                 // Everything we could pop has been popped....
                 finish();
