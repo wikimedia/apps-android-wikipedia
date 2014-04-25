@@ -1,32 +1,32 @@
-<android.support.v4.widget.DrawerLayout
+<FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/drawer_layout"
-        android:layout_width="match_parent"
-        android:saveEnabled="false"
-        android:layout_height="match_parent">
-    <!-- The main content view -->
-    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent">
+    <android.support.v4.widget.DrawerLayout
+            android:id="@+id/drawer_layout"
+            android:layout_width="match_parent"
+            android:saveEnabled="false"
+            android:layout_height="match_parent">
+        <!-- The main content view -->
         <FrameLayout
                 android:id="@+id/content_frame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
         </FrameLayout>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/zero_crouton_container">
-            <fragment
-                    android:id="@+id/search_fragment"
-                    android:name="org.wikipedia.search.SearchArticlesFragment"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:layout_gravity="top"
-                    />
-        </LinearLayout>
+        <!-- The navigation drawer -->
+        <!-- Don't set marginTop here, it somehow also affects marginBottom. wtf?! -->
+        <fragment android:layout_width="wrap_content" android:layout_height="match_parent"
+                  android:name="org.wikipedia.NavDrawerFragment"
+                  android:layout_gravity="start"
+                  tools:layout="@layout/fragment_navdrawer"/>
 
-    </FrameLayout>
-    <!-- The navigation drawer -->
-    <!-- Don't set marginTop here, it somehow also affects marginBottom. wtf?! -->
-    <fragment android:layout_width="wrap_content" android:layout_height="match_parent"
-              android:name="org.wikipedia.NavDrawerFragment"
-              android:layout_gravity="start"
-            />
-
-</android.support.v4.widget.DrawerLayout>
+    </android.support.v4.widget.DrawerLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/zero_crouton_container">
+    <fragment
+            android:id="@+id/search_fragment"
+            android:name="org.wikipedia.search.SearchArticlesFragment"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_gravity="top"
+            tools:layout="@layout/fragment_search"/>
+    </LinearLayout>
+</FrameLayout>

@@ -5,9 +5,11 @@
               android:layout_height="match_parent"
               android:fillViewport="true"
               android:background="#00af89">
+    <!-- Match marginTop with height of Search Fragment -->
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:orientation="vertical"
+                  android:layout_marginTop="48dp"
                   android:id="@+id/nav_item_container"
             >
         <LinearLayout android:layout_width="match_parent"
