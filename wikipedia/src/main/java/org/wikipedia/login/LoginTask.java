@@ -55,6 +55,3 @@ public class LoginTask extends SaneAsyncTask<LoginResult> {
         return new LoginResult(result.optString("result"), user);
     }
 }
-
-
-

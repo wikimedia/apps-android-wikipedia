@@ -3,7 +3,7 @@ package org.wikipedia.test;
 
 import android.content.*;
 import android.test.*;
-import org.wikimedia.wikipedia.test.R;
+import android.util.*;
 import org.wikipedia.*;
 import org.wikipedia.editing.*;
 import org.wikipedia.login.*;
@@ -34,9 +34,10 @@ public class LoginTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
             public void run() {
                 new LoginTask(getInstrumentation().getTargetContext(), testWiki, username, password) {
                     @Override
-                    public void onFinish(String result) {
+                    public void onFinish(LoginResult result) {
+                        super.onFinish(result);
                         assertNotNull(result);
-                        assertEquals(result, "Success");
+                        assertEquals(result.getCode(), "Success");
                         app.getEditTokenStorage().get(testWiki, new EditTokenStorage.TokenRetreivedCallback() {
                             @Override
                             public void onTokenRetreived(String token) {
