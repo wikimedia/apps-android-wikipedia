@@ -6,7 +6,7 @@ import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.concurrency.*;
 
-public class LoginTask extends SaneAsyncTask<String> {
+public class LoginTask extends SaneAsyncTask<LoginResult> {
     private final String username;
     private final String password;
     private final Api api;
@@ -21,18 +21,18 @@ public class LoginTask extends SaneAsyncTask<String> {
     }
 
     @Override
-    public void onFinish(String result) {
-        if (result.equals("Success")) {
+    public void onFinish(LoginResult result) {
+        if (result.getCode().equals("Success")) {
             // Clear the edit tokens - clears out any anon tokens we might have had
             app.getEditTokenStorage().clearAllTokens();
 
             // Set userinfo
-            app.getUserInfoStorage().setUser(new User(username, password));
+            app.getUserInfoStorage().setUser(result.getUser());
         }
     }
 
     @Override
-    public String performTask() throws Throwable {
+    public LoginResult performTask() throws Throwable {
         ApiResult preReq = api.action("login")
                 .param("lgname", username)
                 .param("lgpassword", password)
@@ -46,8 +46,13 @@ public class LoginTask extends SaneAsyncTask<String> {
                 .param("lgtoken", token)
                 .post();
 
-        JSONObject result = req.asObject();
-        return result.optJSONObject("login").optString("result");
+        JSONObject result = req.asObject().optJSONObject("login");
+
+        User user = null;
+        if (result.optString("result").equals("Success")) {
+            user = new User(result.optString("lgusername"), password);
+        }
+        return new LoginResult(result.optString("result"), user);
     }
 }
 

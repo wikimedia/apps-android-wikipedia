@@ -132,21 +132,20 @@ public class LoginActivity extends ActionBarActivity {
             }
 
             @Override
-            public void onFinish(String result) {
+            public void onFinish(LoginResult result) {
                 super.onFinish(result);
                 progressDialog.dismiss();
-                if (result.equals("Success")) {
+                if (result.getCode().equals("Success")) {
                     funnel.logSuccess();
                     Toast.makeText(LoginActivity.this, R.string.login_success_toast, Toast.LENGTH_LONG).show();
 
                     Utils.hideSoftKeyboard(LoginActivity.this);
                     setResult(RESULT_LOGIN_SUCCESS);
 
-
                     finish();
                 } else {
-                    funnel.logError(result);
-                    handleError(result);
+                    funnel.logError(result.getCode());
+                    handleError(result.getCode());
                 }
             }
         }.execute();

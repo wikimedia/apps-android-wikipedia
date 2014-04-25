@@ -200,8 +200,8 @@ public class EditSectionActivity extends ActionBarActivity {
                                 User user = app.getUserInfoStorage().getUser();
                                 new LoginTask(app, app.getPrimarySite(), user.getUsername(), user.getPassword()) {
                                     @Override
-                                    public void onFinish(String result) {
-                                        if (result.equals("Success")) {
+                                    public void onFinish(LoginResult result) {
+                                        if (result.getCode().equals("Success")) {
                                             doSave();
                                         } else {
                                             progressDialog.dismiss();
