@@ -152,7 +152,13 @@ public class PageViewFragment extends Fragment {
         setupMessageHandlers();
         Utils.addUtilityMethodsToBridge(getActivity(), bridge);
         Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
-        linkHandler = new LinkHandler(getActivity(), bridge, title.getSite());
+        linkHandler = new LinkHandler(getActivity(), bridge, title.getSite()){
+            @Override
+            public void onInternalLinkClicked(PageTitle title) {
+                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+                app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
+            }
+        };
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 
         retryButton.setOnClickListener(new View.OnClickListener() {

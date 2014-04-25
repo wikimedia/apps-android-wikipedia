@@ -2,19 +2,17 @@ package org.wikipedia.page;
 
 import android.content.*;
 import android.net.*;
+import android.preference.*;
 import android.util.*;
 import com.squareup.otto.*;
 import org.json.*;
 import org.wikipedia.*;
 import org.wikipedia.events.*;
-import org.wikipedia.history.*;
-
-import android.preference.PreferenceManager;
 
 /**
  * Handles any html links coming from a {@link org.wikipedia.page.PageViewFragment}
  */
-public class LinkHandler implements CommunicationBridge.JSEventListener {
+public abstract class LinkHandler implements CommunicationBridge.JSEventListener {
     private final Context context;
     private final CommunicationBridge bridge;
     private final Bus bus;
@@ -51,6 +49,8 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
         context.startActivity(intent);
     }
 
+    public abstract void onInternalLinkClicked(PageTitle title);
+
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
@@ -62,9 +62,9 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
             Log.d("Wikipedia", "Link clicked was " + href);
             if (href.startsWith("/wiki/")) {
                 // TODO: Handle fragments
+
                 PageTitle title = currentSite.titleForInternalLink(href);
-                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-                bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+                onInternalLinkClicked(title);
             } else {
                 Uri uri = Uri.parse(href);
                 String authority = uri.getAuthority();
@@ -74,8 +74,7 @@ public class LinkHandler implements CommunicationBridge.JSEventListener {
                     Site site = new Site(authority);
                     //TODO: Handle fragments
                     PageTitle title = site.titleForInternalLink(uri.getPath());
-                    HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-                    bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+                    onInternalLinkClicked(title);
                 } else {
                     handleExternalLink(uri);
                 }

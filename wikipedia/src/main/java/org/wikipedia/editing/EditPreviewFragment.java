@@ -1,13 +1,16 @@
 package org.wikipedia.editing;
 
 import android.app.*;
+import android.content.*;
 import android.os.*;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.*;
 import android.view.*;
 import org.json.*;
 import org.wikipedia.*;
 import org.wikipedia.editing.summaries.*;
+import org.wikipedia.history.*;
+import org.wikipedia.page.*;
 
 import java.util.*;
 
@@ -71,6 +74,17 @@ public class EditPreviewFragment extends Fragment {
             Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
             isDirectionSetup = true;
         }
+
+        new LinkHandler(getActivity(), bridge, title.getSite()) {
+            @Override
+            public void onInternalLinkClicked(PageTitle title) {
+                Intent intent = new Intent(getActivity(), PageActivity.class);
+                intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
+                intent.putExtra(PageActivity.EXTRA_PAGETITLE, title);
+                intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK));
+                startActivity(intent);
+            }
+        };
 
         new EditPreviewTask(getActivity(), wikiText, title) {
             @Override
