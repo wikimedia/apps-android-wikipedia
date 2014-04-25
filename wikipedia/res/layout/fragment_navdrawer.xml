@@ -80,26 +80,6 @@
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
-                      android:id="@+id/nav_item_my_contributions"
-                      android:background="@drawable/item_background_holo_light"
-                >
-            <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                       android:layout_margin="12dp"
-                       android:layout_gravity="center_vertical"
-                       android:src="@drawable/puzzle_white"
-                    />
-            <org.wikipedia.styledviews.StyledTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/nav_item_my_contributions"
-                    style="?android:textAppearanceMediumInverse"
-                    />
-        </LinearLayout>
-
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal"
                       android:id="@+id/nav_item_history"
                       android:background="@drawable/item_background_holo_light"
                 >

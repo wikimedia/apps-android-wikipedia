@@ -9,7 +9,6 @@ import android.widget.*;
 import org.wikipedia.analytics.*;
 import org.wikipedia.history.*;
 import org.wikipedia.login.*;
-import org.wikipedia.pagehistory.usercontributions.*;
 import org.wikipedia.random.*;
 import org.wikipedia.savedpages.*;
 import org.wikipedia.settings.*;
@@ -20,7 +19,6 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
             R.id.nav_item_saved_pages,
             R.id.nav_item_settings,
             R.id.nav_item_login,
-            R.id.nav_item_my_contributions,
             R.id.nav_item_random,
             R.id.nav_item_send_feedback,
             R.id.nav_item_logout
@@ -29,7 +27,6 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
     };
 
     private static final int[] ACTION_ITEMS_LOGGED_IN_ONLY = {
-            R.id.nav_item_my_contributions,
             R.id.nav_item_username,
             R.id.nav_item_logout
     };
@@ -137,10 +134,6 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 break;
             case R.id.nav_item_random:
                 randomHandler.doVistRandomArticle();
-                break;
-            case R.id.nav_item_my_contributions:
-                intent.setClass(this.getActivity(), UserContribsActivity.class);
-                startActivity(intent);
                 break;
             case R.id.nav_item_send_feedback:
                 // Will be stripped out in prod builds
