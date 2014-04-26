@@ -25,6 +25,8 @@ public class LanguagePreference extends DialogPreference {
         app = (WikipediaApp) context.getApplicationContext();
         int langIndex = app.findWikiIndex(app.getPrimaryLanguage());
         setSummary(app.localNameFor(langIndex));
+        setPositiveButtonText(null);
+        setNegativeButtonText(null);
     }
 
     @Override
@@ -32,6 +34,17 @@ public class LanguagePreference extends DialogPreference {
         super.onBindDialogView(view);
         languagesFilter = (EditText) view.findViewById(R.id.preference_languages_filter);
         languagesList = (ListView) view.findViewById(R.id.preference_languages_list);
+
+        languagesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String lang = (String) languagesList.getAdapter().getItem(i);
+                app.setPrimaryLanguage(lang);
+                int langIndex = app.findWikiIndex(app.getPrimaryLanguage());
+                setSummary(app.localNameFor(langIndex));
+                LanguagePreference.this.getDialog().dismiss();
+            }
+        });
 
         languagesList.setAdapter(new LanguagesAdapter(languages, app));
 
@@ -54,17 +67,6 @@ public class LanguagePreference extends DialogPreference {
             }
         });
 
-    }
-
-    @Override
-    protected void onDialogClosed(boolean positiveResult) {
-        super.onDialogClosed(positiveResult);
-        if (positiveResult) {
-            String lang = (String) languagesList.getAdapter().getItem(languagesList.getCheckedItemPosition());
-            app.setPrimaryLanguage(lang);
-            int langIndex = app.findWikiIndex(app.getPrimaryLanguage());
-            setSummary(app.localNameFor(langIndex));
-        }
     }
 
     public String getCurrentLanguageDisplayString() {
