@@ -115,6 +115,7 @@ public class LoginActivity extends ActionBarActivity {
     private void doLogin() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
+        progressDialog.setCancelable(false);
 
         final String username = usernameText.getText().toString();
         final String password = passwordText.getText().toString();

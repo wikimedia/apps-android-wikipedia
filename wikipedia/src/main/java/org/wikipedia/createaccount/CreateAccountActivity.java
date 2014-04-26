@@ -69,6 +69,7 @@ public class CreateAccountActivity extends ActionBarActivity {
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
         progressDialog.setMessage(getString(R.string.dialog_create_account_checking_progress));
 
         captchaHandler = new CaptchaHandler(this, app.getPrimarySite(), progressDialog, primaryContainer, R.string.create_account_activity_title);

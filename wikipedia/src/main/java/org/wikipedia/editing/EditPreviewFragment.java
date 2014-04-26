@@ -69,6 +69,7 @@ public class EditPreviewFragment extends Fragment {
         final ProgressDialog dialog = new ProgressDialog(getActivity());
         dialog.setIndeterminate(true);
         dialog.setMessage(getString(R.string.edit_preview_fetching_dialog_message));
+        dialog.setCancelable(false);
 
         if (!isDirectionSetup) {
             Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
