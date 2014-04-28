@@ -73,6 +73,7 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoaderLoader, Cursor cursorLoader) {
         adapter.swapCursor(cursorLoader);
+        invalidateOptionsMenu();
     }
 
     @Override
@@ -157,6 +158,12 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_history, menu);
         return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_clear_all_history).setEnabled(historyEntryList.getCount() > 0);
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override

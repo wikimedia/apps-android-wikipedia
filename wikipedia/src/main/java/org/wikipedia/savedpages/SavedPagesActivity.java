@@ -139,6 +139,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoaderLoader, Cursor cursorLoader) {
         adapter.swapCursor(cursorLoader);
+        invalidateOptionsMenu();
     }
 
     @Override
@@ -200,6 +201,12 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_saved_pages, menu);
         return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_clear_all_saved_pages).setEnabled(savedPagesList.getCount() > 0);
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
