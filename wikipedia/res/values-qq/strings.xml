@@ -10,6 +10,7 @@
   <string name="search_network_error">Error message shown when network cannot be reached when searching. Tapping the message retries the search.</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped</string>
   <string name="menu_clear_all_history">Menu item text for clearing your reading history</string>
+  <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history</string>
   <string name="dialog_message_clear_history">Message for dialog box asking if you want to clear your reading history</string>
   <string name="saved_pages_activity_title">Title for screen that shows list of locally saved pages.
