@@ -8,11 +8,16 @@ import android.view.*;
 import android.widget.*;
 import com.mobsandgeeks.saripaar.*;
 import com.mobsandgeeks.saripaar.annotation.*;
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorListenerAdapter;
+import com.nineoldandroids.view.ViewHelper;
 import de.keyboardsurfer.android.widget.crouton.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.analytics.*;
 import org.wikipedia.editing.*;
+
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 
 public class CreateAccountActivity extends ActionBarActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;
@@ -33,7 +38,6 @@ public class CreateAccountActivity extends ActionBarActivity {
     private EditText emailEdit;
 
     private CheckBox showPasswordCheck;
-    private CheckBox showPasswordRepeatCheck;
 
     private View primaryContainer;
 
@@ -65,7 +69,6 @@ public class CreateAccountActivity extends ActionBarActivity {
         emailEdit = (EditText) findViewById(R.id.create_account_email);
         primaryContainer = findViewById(R.id.create_account_primary_container);
         showPasswordCheck = (CheckBox) findViewById(R.id.create_account_show_password);
-        showPasswordRepeatCheck = (CheckBox) findViewById(R.id.create_account_show_password_repeat);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);
@@ -101,7 +104,31 @@ public class CreateAccountActivity extends ActionBarActivity {
         }, usernameEdit, passwordEdit, passwordRepeatEdit);
 
         Utils.setupShowPasswordCheck(showPasswordCheck, passwordEdit);
-        Utils.setupShowPasswordCheck(showPasswordRepeatCheck, passwordRepeatEdit);
+        showPasswordCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (showPasswordCheck.isChecked()) {
+                    ViewAnimations.slideOutRight(passwordRepeatEdit, new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            // give it nonempty text, to appease NonEmptyValidator
+                            passwordRepeatEdit.setText(" ");
+                            passwordRepeatEdit.setVisibility(View.GONE);
+                        }
+                    });
+                } else {
+                    ViewAnimations.slideIn(passwordRepeatEdit, new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+                            super.onAnimationStart(animation);
+                            passwordRepeatEdit.setText("");
+                            passwordRepeatEdit.setVisibility(View.VISIBLE);
+                        }
+                    });
+                }
+            }
+        });
 
         if (savedInstanceState != null && savedInstanceState.containsKey("result")) {
             createAccountResult = savedInstanceState.getParcelable("result");

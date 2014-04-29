@@ -11,8 +11,6 @@ import android.util.*;
 import android.view.*;
 import android.view.inputmethod.*;
 import android.widget.*;
-import com.nineoldandroids.animation.*;
-import com.nineoldandroids.view.*;
 import com.squareup.otto.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
@@ -23,8 +21,6 @@ import java.io.*;
 import java.security.*;
 import java.text.*;
 import java.util.*;
-
-import static com.nineoldandroids.view.ViewPropertyAnimator.*;
 
 /**
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?
@@ -46,58 +42,6 @@ public final class Utils {
      */
     public static boolean compareStrings(String str1, String str2) {
         return (str1 == null ? str2 == null : str1.equals(str2));
-    }
-
-    /**
-     * Crossfades two views, one of which is assumed to be currently visible
-     * @param curView The view that is currently visible
-     * @param newView The new view that should be faded in
-     */
-    public static void crossFade(final View curView, final View newView) {
-        fadeIn(newView);
-        fadeOut(curView);
-    }
-
-    /**
-     * Fades in a view.
-     * @param view The currently invisible view to be faded in
-     */
-    public static void fadeIn(final View view) {
-        ViewHelper.setAlpha(view, 0f);
-        view.setVisibility(View.VISIBLE);
-        animate(view)
-                .alpha(1.0f)
-                .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
-                .setListener(null)
-                .start();
-    }
-
-    /**
-     * Fades out a view.
-     * @param view The currently visible view to be faded out
-     */
-    public static void fadeOut(final View view) {
-        animate(view)
-                .alpha(0f)
-                .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
-                .setListener(new AnimatorListenerAdapter() {
-                    private boolean wasCanceled = false;
-
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-                        wasCanceled = true;
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (!wasCanceled) {
-                            // Detect if we got canceled, and if so DON'T hide...
-                            // There's another animation now pushing the alpha back up
-                            view.setVisibility(View.GONE);
-                            ViewHelper.setAlpha(view, 1.0f);
-                        }
-                    }
-                });
     }
 
     /**
@@ -180,20 +124,6 @@ public final class Utils {
      */
     public static String formatDateRelative(Date date) {
         return DateUtils.getRelativeTimeSpanString(date.getTime(), System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS, 0).toString();
-    }
-
-    /**
-     * Ensures that the translationY of a particular view is the given value.
-     *
-     * If it isn't the current value, then it performs a short animation to make it so.
-     *
-     * @param view The view to translate
-     * @param translation The value to ensure it is translated by
-     */
-    public static void ensureTranslationY(View view, int translation) {
-        if (ViewHelper.getTranslationY(view) != translation) {
-            animate(view).translationY(translation).setDuration(WikipediaApp.SHORT_ANIMATION_DURATION).start();
-        }
     }
 
     /**

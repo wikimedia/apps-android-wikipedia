@@ -96,7 +96,7 @@ public class PageViewFragment extends Fragment {
             throw new RuntimeException(e);
         }
 
-        Utils.crossFade(loadProgress, webView);
+        ViewAnimations.crossFade(loadProgress, webView);
     }
 
     private void populateNonLeadSections() {
@@ -170,7 +170,7 @@ public class PageViewFragment extends Fragment {
         retryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.crossFade(networkError, loadProgress);
+                ViewAnimations.crossFade(networkError, loadProgress);
                 performActionForState(state);
             }
         });
@@ -221,7 +221,7 @@ public class PageViewFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            Utils.crossFade(webView, loadProgress);
+            ViewAnimations.crossFade(webView, loadProgress);
             setState(STATE_NO_FETCH);
             performActionForState(state);
         }
@@ -311,12 +311,12 @@ public class PageViewFragment extends Fragment {
 
             if (caught instanceof SectionsFetchException) {
                 if (((SectionsFetchException)caught).getCode().equals("missingtitle")){
-                    Utils.crossFade(loadProgress, pageDoesNotExistError);
+                    ViewAnimations.crossFade(loadProgress, pageDoesNotExistError);
 
                 }
             } else if (caught instanceof ApiException) {
                 // Check for the source of the error and have different things turn up
-                Utils.crossFade(loadProgress, networkError);
+                ViewAnimations.crossFade(loadProgress, networkError);
                 // Not sure why this is required, but without it tapping retry hides networkError
                 // FIXME: INVESTIGATE WHY THIS HAPPENS!
                 networkError.setVisibility(View.VISIBLE);

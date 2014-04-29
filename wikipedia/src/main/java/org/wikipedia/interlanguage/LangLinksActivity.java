@@ -59,7 +59,7 @@ public class LangLinksActivity extends ActionBarActivity {
         langLinksErrorRetry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.crossFade(langLinksError, langLinksProgress);
+                ViewAnimations.crossFade(langLinksError, langLinksProgress);
                 fetchLangLinks();
             }
         });
@@ -115,10 +115,10 @@ public class LangLinksActivity extends ActionBarActivity {
 
     private void displayLangLinks() {
         if (langLinks.size() == 0) {
-            Utils.crossFade(langLinksProgress, langLinksEmpty);
+            ViewAnimations.crossFade(langLinksProgress, langLinksEmpty);
         } else {
             langLinksList.setAdapter(new LangLinksAdapter(langLinks, app));
-            Utils.crossFade(langLinksProgress, langLinksContainer);
+            ViewAnimations.crossFade(langLinksProgress, langLinksContainer);
         }
     }
 
@@ -150,7 +150,7 @@ public class LangLinksActivity extends ActionBarActivity {
 
                 @Override
                 public void onCatch(Throwable caught) {
-                    Utils.crossFade(langLinksProgress, langLinksError);
+                    ViewAnimations.crossFade(langLinksProgress, langLinksError);
                     // Not sure why this is required, but without it tapping retry hides langLinksError
                     // FIXME: INVESTIGATE WHY THIS HAPPENS!
                     // Also happens in {@link PageViewFragment}

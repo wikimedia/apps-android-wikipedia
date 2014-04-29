@@ -38,12 +38,12 @@ public class ToCHandler {
             public void onPanelOpened(View view) {
                 prevTranslateY = ViewHelper.getTranslationY(quickReturnBar);
                 bridge.sendMessage("requestCurrentSection", new JSONObject());
-                Utils.ensureTranslationY(quickReturnBar, -quickReturnBar.getHeight());
+                ViewAnimations.ensureTranslationY(quickReturnBar, -quickReturnBar.getHeight());
             }
 
             @Override
             public void onPanelClosed(View view) {
-                Utils.ensureTranslationY(quickReturnBar, (int)prevTranslateY);
+                ViewAnimations.ensureTranslationY(quickReturnBar, (int)prevTranslateY);
 
             }
         });

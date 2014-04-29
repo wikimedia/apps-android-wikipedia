@@ -20,44 +20,29 @@
                 android:inputType="textNoSuggestions"
                 />
 
-        <LinearLayout
+        <org.wikipedia.styledviews.StyledEditText
+                android:id="@+id/create_account_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <org.wikipedia.styledviews.StyledEditText
-                    android:id="@+id/create_account_password"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/create_account_password_hint"
-                    android:singleLine="true"
-                    android:inputType="textPassword"
-                    />
-            <org.wikipedia.styledviews.StyledCheckBox
-                    android:id="@+id/create_account_show_password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-        </LinearLayout>
+                android:hint="@string/create_account_password_hint"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                />
 
-        <LinearLayout
+        <org.wikipedia.styledviews.StyledEditText
+                android:id="@+id/create_account_password_repeat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <org.wikipedia.styledviews.StyledEditText
-                    android:id="@+id/create_account_password_repeat"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/create_account_password_repeat_hint"
-                    android:singleLine="true"
-                    android:inputType="textPassword"
-                    />
+                android:hint="@string/create_account_password_repeat_hint"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                />
 
-            <org.wikipedia.styledviews.StyledCheckBox
-                    android:id="@+id/create_account_show_password_repeat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-        </LinearLayout>
+        <org.wikipedia.styledviews.StyledCheckBox
+                android:id="@+id/create_account_show_password"
+                android:text="@string/login_password_show_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
         <org.wikipedia.styledviews.StyledEditText
                 android:id="@+id/create_account_email"

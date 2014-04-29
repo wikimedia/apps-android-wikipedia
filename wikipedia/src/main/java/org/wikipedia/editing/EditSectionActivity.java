@@ -112,7 +112,7 @@ public class EditSectionActivity extends ActionBarActivity {
         sectionErrorRetry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.crossFade(sectionError, sectionProgress);
+                ViewAnimations.crossFade(sectionError, sectionProgress);
                 fetchSectionText();
             }
         });
@@ -128,7 +128,7 @@ public class EditSectionActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 wasSaveOptionsUsed = true;
-                Utils.fadeOut(editSaveOptionsContainer);
+                ViewAnimations.fadeOut(editSaveOptionsContainer);
                 funnel.logSaveAnonExplicit();
                 doSave();
             }
@@ -159,7 +159,7 @@ public class EditSectionActivity extends ActionBarActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == LoginActivity.REQUEST_LOGIN) {
             if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-                Utils.fadeOut(editSaveOptionsContainer);
+                ViewAnimations.fadeOut(editSaveOptionsContainer);
                 doSave();
                 funnel.logLoginSuccess();
             } else {
@@ -205,7 +205,7 @@ public class EditSectionActivity extends ActionBarActivity {
                                             doSave();
                                         } else {
                                             progressDialog.dismiss();
-                                            Utils.crossFade(sectionText, sectionError);
+                                            ViewAnimations.crossFade(sectionText, sectionError);
                                             sectionError.setVisibility(View.VISIBLE);
                                         }
                                     }
@@ -294,7 +294,7 @@ public class EditSectionActivity extends ActionBarActivity {
         }
         abusefilterBridge.sendMessage("displayWarning", payload);
         Utils.hideSoftKeyboard(this);
-        Utils.fadeIn(abusefilterContainer);
+        ViewAnimations.fadeIn(abusefilterContainer);
         progressDialog.dismiss();
     }
 
@@ -302,7 +302,7 @@ public class EditSectionActivity extends ActionBarActivity {
     private void cancelAbuseFilter() {
         abusefilterEditResult = null;
         getSupportActionBar().setTitle(R.string.editsection_activity_title);
-        Utils.crossFade(abusefilterContainer, sectionContainer);
+        ViewAnimations.crossFade(abusefilterContainer, sectionContainer);
     }
 
     /**
@@ -315,7 +315,7 @@ public class EditSectionActivity extends ActionBarActivity {
                 || wasSaveOptionsUsed) {
             doSave();
         } else {
-            Utils.fadeIn(editSaveOptionsContainer);
+            ViewAnimations.fadeIn(editSaveOptionsContainer);
         }
     }
 
@@ -373,7 +373,7 @@ public class EditSectionActivity extends ActionBarActivity {
 
                 @Override
                 public void onCatch(Throwable caught) {
-                    Utils.crossFade(sectionProgress, sectionError);
+                    ViewAnimations.crossFade(sectionProgress, sectionError);
                     // Not sure why this is required, but without it tapping retry hides langLinksError
                     // FIXME: INVESTIGATE WHY THIS HAPPENS!
                     // Also happens in {@link PageViewFragment}
@@ -387,14 +387,14 @@ public class EditSectionActivity extends ActionBarActivity {
 
     private void displaySectionText() {
         sectionText.setText(sectionWikitext);
-        Utils.crossFade(sectionProgress, sectionContainer);
+        ViewAnimations.crossFade(sectionProgress, sectionContainer);
         supportInvalidateOptionsMenu();
     }
 
     @Override
     public void onBackPressed() {
         if (editSaveOptionsContainer.getVisibility() == View.VISIBLE) {
-            Utils.fadeOut(editSaveOptionsContainer);
+            ViewAnimations.fadeOut(editSaveOptionsContainer);
             return;
         }
         if (!(editPreviewFragment.handleBackPressed())) {

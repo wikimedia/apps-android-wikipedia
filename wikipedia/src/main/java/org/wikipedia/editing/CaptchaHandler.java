@@ -44,7 +44,7 @@ public class CaptchaHandler {
                 new RefreshCaptchaTask(activity, site) {
                     @Override
                     public void onBeforeExecute() {
-                        Utils.crossFade(captchaImage, captchaProgress);
+                        ViewAnimations.crossFade(captchaImage, captchaProgress);
                     }
 
                     @Override
@@ -94,9 +94,9 @@ public class CaptchaHandler {
                         // In case there was a captcha attempt before
                         captchaText.setText("");
                         if (isReload) {
-                            Utils.crossFade(captchaProgress, captchaImage);
+                            ViewAnimations.crossFade(captchaProgress, captchaImage);
                         } else {
-                            Utils.crossFade(primaryView, captchaContainer);
+                            ViewAnimations.crossFade(primaryView, captchaContainer);
                         }
                     }
 
@@ -108,7 +108,7 @@ public class CaptchaHandler {
 
     public void hideCaptcha() {
         ((ActionBarActivity)activity).getSupportActionBar().setTitle(prevTitleId);
-        Utils.crossFade(captchaContainer, primaryView);
+        ViewAnimations.crossFade(captchaContainer, primaryView);
     }
 
     public boolean cancelCaptcha() {

@@ -49,7 +49,7 @@ public class EditPreviewFragment extends Fragment {
 
     private void displayPreview(final String html) {
         ((ActionBarActivity)getActivity()).getSupportActionBar().setTitle(R.string.edit_preview_activity_title);
-        Utils.crossFade(getActivity().findViewById(R.id.edit_section_container), previewContainer);
+        ViewAnimations.crossFade(getActivity().findViewById(R.id.edit_section_container), previewContainer);
         JSONObject payload = new JSONObject();
         try {
             payload.put("html", html);
@@ -117,7 +117,7 @@ public class EditPreviewFragment extends Fragment {
     }
 
     public void hide() {
-        Utils.crossFade(previewContainer, getActivity().findViewById(R.id.edit_section_container));
+        ViewAnimations.crossFade(previewContainer, getActivity().findViewById(R.id.edit_section_container));
         ((ActionBarActivity)getActivity()).getSupportActionBar().setTitle(R.string.edit_section_activity_title);
     }
 
