@@ -25,6 +25,8 @@ scripts/backup.ab
 www/node_modules
 www/bundle*.js
 www/styles.css
+www/abusefilter.css
+www/preview.css
 
 # Should never check in apk files
 *.apk
