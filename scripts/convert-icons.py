@@ -28,6 +28,8 @@ class ImagesBatch(object):
         return output_file_path
 
     def _do_flop(self, density, input_path):
+        if input_path.endswith(".noflip.svg"):
+            return
         folder_name = os.path.join(OUTPUT_PATH_PREFIX, "drawable-ldrtl-" + density)
         output_file_path = os.path.join(folder_name, os.path.basename(input_path))
         sh.mkdir("-p", folder_name)
