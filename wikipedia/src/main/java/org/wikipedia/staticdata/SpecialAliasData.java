@@ -9,7 +9,7 @@ public class SpecialAliasData {
 
     private static HashMap<String, String> dataMap;
     private static void setupData() {
-        dataMap = new HashMap<String, String>(286);
+        dataMap = new HashMap<String, String>(287);
         dataMap.put("en", "Special");
         dataMap.put("nl", "Speciaal");
         dataMap.put("de", "Spezial");
@@ -296,6 +296,7 @@ public class SpecialAliasData {
         dataMap.put("mus", "Special");
         dataMap.put("kr", "Special");
         dataMap.put("hz", "Special");
+        dataMap.put("test", "Special");
     }
 
     public static String valueFor(String key) {
