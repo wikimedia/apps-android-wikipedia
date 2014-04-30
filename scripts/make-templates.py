@@ -73,10 +73,22 @@ def list_from_wikistats():
 def populate_special_alias(wikis):
     for wiki in wikis.wikis:
         print "Fetching Special Page alias for %s" % wiki.lang
-        url = u"https://%s.wikipedia.org/w/api.php?action=query&meta=siteinfo&format=json&siprop=namespaces" % wiki.lang
+        url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
+              u"?action=query&meta=siteinfo&format=json&siprop=namespaces"
         data = json.load(urlopen(url))
         # -1 seems to be the ID for Special Pages
         wiki.props[u'special_alias'] = data['query']['namespaces']['-1']['*']
+    return wikis
+
+
+# Populates data on names of main page in each wiki
+def populate_main_pages(wikis):
+    for wiki in wikis.wikis:
+        print "Fetching Main Page for %s" % wiki.lang
+        url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
+              u"?action=query&meta=allmessages&format=json&ammessages=Mainpage"
+        data = json.load(urlopen(url))
+        wiki.props[u'main_page_name'] = data['query']['allmessages'][0]['*']
     return wikis
 
 
@@ -99,5 +111,7 @@ def chain(*funcs):
 chain(
     list_from_wikistats,
     populate_special_alias,
-    render_template(u'basichash.java.jinja', u'SpecialAliasData', key=u'special_alias')
+    render_template(u'basichash.java.jinja', u'SpecialAliasData', key=u'special_alias'),
+    populate_main_pages,
+    render_template(u'basichash.java.jinja', u'MainPageNameData', key=u'main_page_name')
 )
