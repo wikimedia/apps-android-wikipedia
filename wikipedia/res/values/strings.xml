@@ -16,6 +16,7 @@
     <string name="search_network_error">Network error. Tap to try again.</string>
     <string name="page_error_retry">Retry</string>
     <string name="menu_clear_all_history">Clear history</string>
+    <string name="page_does_not_exist_error">This page does not exist.</string>
 
     <string name="dialog_title_clear_history">Clear history?</string>
     <string name="dialog_message_clear_history">Are you sure you want to clear all history?</string>

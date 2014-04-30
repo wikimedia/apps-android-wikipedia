@@ -35,6 +35,11 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
 
     @Override
     public List<Section> processResult(ApiResult result) throws Throwable {
+        if (result.asObject().has("error")) {
+            JSONObject errorJSON = result.asObject().optJSONObject("error");
+            throw new SectionsFetchException(errorJSON.optString("code"), errorJSON.optString("info"));
+        }
+
         JSONArray sectionsJSON = result.asObject().optJSONObject("mobileview").optJSONArray("sections");
         ArrayList<Section> sections = new ArrayList<Section>();
 

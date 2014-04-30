@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import android.content.*;
+import android.net.Uri;
 import android.os.*;
 import android.support.v4.app.*;
 import android.support.v4.widget.*;
@@ -15,6 +16,7 @@ import org.wikipedia.events.*;
 import org.wikipedia.history.*;
 import org.wikipedia.pageimages.*;
 import org.wikipedia.savedpages.*;
+import org.wikipedia.styledviews.*;
 
 import java.util.*;
 
@@ -37,7 +39,8 @@ public class PageViewFragment extends Fragment {
     private ProgressBar loadProgress;
     private View networkError;
     private View retryButton;
-    private SlidingPaneLayout tocSlider;
+    private View pageDoesNotExistError;
+    private DisableableSlidingPaneLayout tocSlider;
 
     private Page page;
     private HistoryEntry curEntry;
@@ -139,8 +142,11 @@ public class PageViewFragment extends Fragment {
         loadProgress = (ProgressBar) getView().findViewById(R.id.page_load_progress);
         networkError = getView().findViewById(R.id.page_error);
         retryButton = getView().findViewById(R.id.page_error_retry);
+        pageDoesNotExistError = getView().findViewById(R.id.page_does_not_exist);
         quickReturnBar = getActivity().findViewById(quickReturnBarId);
-        tocSlider = (SlidingPaneLayout) getView().findViewById(R.id.page_toc_slider);
+        tocSlider = (DisableableSlidingPaneLayout) getView().findViewById(R.id.page_toc_slider);
+        // disable TOC slider until the page is loaded
+        tocSlider.setSlidingEnabled(false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             // Enable Pinch-Zoom
@@ -249,6 +255,8 @@ public class PageViewFragment extends Fragment {
                 tocHandler = new ToCHandler(tocSlider, quickReturnBar, bridge);
             }
             tocHandler.setupToC(page);
+            // enable sliding TOC
+            tocSlider.setSlidingEnabled(true);
         }
     }
 
@@ -269,13 +277,15 @@ public class PageViewFragment extends Fragment {
         @Override
         public List<Section> processResult(ApiResult result) throws Throwable {
             JSONObject mobileView = result.asObject().optJSONObject("mobileview");
-            pageProperties = new PageProperties(mobileView);
-            if (mobileView.has("redirected")) {
-                // Handle redirects properly.
-                title = new PageTitle(mobileView.optString("redirected"), title.getSite());
-            } else if (mobileView.has("normalizedtitle")) {
-                // We care about the normalized title only if we were not redirected
-                title = new PageTitle(mobileView.optString("normalizedtitle"), title.getSite());
+            if(mobileView != null){
+                pageProperties = new PageProperties(mobileView);
+                if (mobileView.has("redirected")) {
+                    // Handle redirects properly.
+                    title = new PageTitle(mobileView.optString("redirected"), title.getSite());
+                } else if (mobileView.has("normalizedtitle")) {
+                    // We care about the normalized title only if we were not redirected
+                    title = new PageTitle(mobileView.optString("normalizedtitle"), title.getSite());
+                }
             }
             return super.processResult(result);
         }
@@ -295,9 +305,17 @@ public class PageViewFragment extends Fragment {
 
         @Override
         public void onCatch(Throwable caught) {
-            if (caught instanceof ApiException) {
-                // Should check for the source of the error and have different things turn up
-                // But good enough for now
+            // in any case, make sure the TOC drawer is closed and disabled
+            tocSlider.closePane();
+            tocSlider.setSlidingEnabled(false);
+
+            if (caught instanceof SectionsFetchException) {
+                if (((SectionsFetchException)caught).getCode().equals("missingtitle")){
+                    Utils.crossFade(loadProgress, pageDoesNotExistError);
+
+                }
+            } else if (caught instanceof ApiException) {
+                // Check for the source of the error and have different things turn up
                 Utils.crossFade(loadProgress, networkError);
                 // Not sure why this is required, but without it tapping retry hides networkError
                 // FIXME: INVESTIGATE WHY THIS HAPPENS!

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:indeterminate="true"
         />
-    <android.support.v4.widget.SlidingPaneLayout
+    <org.wikipedia.styledviews.DisableableSlidingPaneLayout
             android:id="@+id/page_toc_slider"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -45,7 +45,7 @@
                 android:layout_height="match_parent"
                 android:visibility="gone"
                 />
-    </android.support.v4.widget.SlidingPaneLayout>
+    </org.wikipedia.styledviews.DisableableSlidingPaneLayout>
     <LinearLayout
             android:id="@+id/page_error"
             android:layout_width="match_parent"
@@ -65,7 +65,19 @@
                 android:text="@string/page_error_retry"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-
-
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/page_does_not_exist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+        <org.wikipedia.styledviews.StyledTextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:text="@string/page_does_not_exist_error"
+                  style="?android:textAppearanceLarge"
+                />
     </LinearLayout>
 </FrameLayout>
