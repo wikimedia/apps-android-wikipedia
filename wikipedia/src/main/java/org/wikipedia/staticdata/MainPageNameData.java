@@ -9,7 +9,7 @@ public class MainPageNameData {
 
     private static HashMap<String, String> dataMap;
     private static void setupData() {
-        dataMap = new HashMap<String, String>(286);
+        dataMap = new HashMap<String, String>(287);
         dataMap.put("en", "Main Page");
         dataMap.put("nl", "Hoofdpagina");
         dataMap.put("de", "Wikipedia:Hauptseite");
@@ -296,6 +296,7 @@ public class MainPageNameData {
         dataMap.put("mus", "Main Page");
         dataMap.put("kr", "Main Page");
         dataMap.put("hz", "Main Page");
+        dataMap.put("test", "Main Page");
     }
 
     public static String valueFor(String key) {

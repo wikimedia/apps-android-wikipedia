@@ -66,6 +66,13 @@ def list_from_wikistats():
         wiki.props[u"total_pages"] = row[3]
         wikis.append(wiki)
 
+    # Manually add TestWiki to this list
+    testWiki = Wiki(u"test")
+    testWiki.props[u"english_name"] = "Test"
+    testWiki.props[u"local_name"] = "Test"
+    testWiki.props[u"total_pages"] = 0
+    wikis.append(testWiki)
+
     return WikiList(wikis)
 
 
