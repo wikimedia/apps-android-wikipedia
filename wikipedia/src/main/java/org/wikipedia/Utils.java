@@ -2,6 +2,8 @@ package org.wikipedia;
 
 import android.app.*;
 import android.content.*;
+import android.content.pm.*;
+import android.net.Uri;
 import android.os.*;
 import android.text.*;
 import android.text.format.*;
@@ -398,4 +400,42 @@ public final class Utils {
     public static String getDBNameForSite(Site site) {
         return site.getLanguage() + "wiki";
     }
+
+    /**
+     * Open the specified URI in an external browser (even if our app's intent filter
+     * matches the given URI)
+     *
+     * @param context Context of the calling app
+     * @param uri URI to open in an external browser
+     */
+    public static void visitInExternalBrowser(final Context context, Uri uri){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setData(uri);
+        List<ResolveInfo> resInfo = context.getPackageManager().queryIntentActivities(intent, 0);
+        if (!resInfo.isEmpty()){
+            List<Intent> browserIntents = new ArrayList<Intent>();
+            for (ResolveInfo resolveInfo : resInfo) {
+                String packageName = resolveInfo.activityInfo.packageName;
+                // remove our app from the selection!
+                if(packageName.equals(context.getPackageName()))
+                    continue;
+                Intent newIntent = new Intent(Intent.ACTION_VIEW);
+                newIntent.setData(uri);
+                newIntent.setPackage(packageName);
+                browserIntents.add(newIntent);
+            }
+            if (browserIntents.size() > 0) {
+                // initialize the chooser intent with one of the browserIntents, and remove that
+                // intent from the list, since the chooser already has it, and we don't need to
+                // add it again in putExtra. (initialize with the last item in the list, to preserve order)
+                Intent chooserIntent = Intent.createChooser(browserIntents.remove(browserIntents.size() - 1), null);
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, browserIntents.toArray(new Parcelable[]{}));
+                context.startActivity(chooserIntent);
+                return;
+            }
+        }
+        context.startActivity(intent);
+    }
+
 }

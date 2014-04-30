@@ -102,12 +102,12 @@ public class PageTitle implements Parcelable {
         this.text = json.optString("text", null);
     }
 
-    public String getCanonicalUri() {
+    private String getUriForDomain(String domain) {
         try {
             return String.format(
                     "%1$s://%2$s/wiki/%3$s%4$s",
                     WikipediaApp.PROTOCOL,
-                    getSite().getDomain(),
+                    domain,
                     URLEncoder.encode(getPrefixedText().replace(" ", "_"), "utf-8"),
                     (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
             );
@@ -115,6 +115,14 @@ public class PageTitle implements Parcelable {
             // This shouldn't happen
             throw new RuntimeException(e);
         }
+    }
+
+    public String getCanonicalUri() {
+        return getUriForDomain(getSite().getDomain());
+    }
+
+    public String getMobileUri() {
+        return getUriForDomain(getSite().getApiDomain());
     }
 
     public String getUriForAction(String action) {

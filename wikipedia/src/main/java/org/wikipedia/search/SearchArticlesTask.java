@@ -31,7 +31,7 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
 
         ArrayList<PageTitle> pageTitles = new ArrayList<PageTitle>();
         for (int i = 0; i < searchResults.length(); i++) {
-            pageTitles.add(new PageTitle(null, searchResults.optString(i), site));
+            pageTitles.add(new PageTitle(searchResults.optString(i), site));
         }
 
         if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
