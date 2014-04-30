@@ -9,11 +9,11 @@ from jinja2 import Environment, FileSystemLoader
 
 # Wikis that cause problems and hence we pretend
 # do not exist.
-# - 'got' -> Gothic runes wiki. The name of got in got
+# - "got" -> Gothic runes wiki. The name of got in got
 #   contains characters outside the Unicode BMP. Android
 #   hard crashes on these. Let's ignore these fellas
 #   for now.
-OSTRITCH_WIKIS = [u'got']
+OSTRITCH_WIKIS = [u"got"]
 
 
 # Represents a single wiki, along with arbitrary properites of that wiki
@@ -30,7 +30,7 @@ class WikiList(object):
     def __init__(self, wikis):
         self.wikis = wikis
         self.template_env = Environment(loader=FileSystemLoader(
-            os.path.join(os.path.dirname(os.path.realpath(__file__)), u'templates')
+            os.path.join(os.path.dirname(os.path.realpath(__file__)), u"templates")
             ))
 
     def get_filtered_wiki_list(self):
@@ -43,7 +43,7 @@ class WikiList(object):
         }
         data.update(kwargs)
         rendered = self.template_env.get_template(template).render(**data)
-        out = codecs.open(class_name + ".java", u'w', u'utf-8')
+        out = codecs.open(class_name + u".java", u"w", u"utf-8")
         out.write(rendered)
         out.close()
 
@@ -51,7 +51,7 @@ class WikiList(object):
 def list_from_wikistats():
     URL = u"https://wikistats.wmflabs.org/api.php?action=dump&table=wikipedias&format=csv&s=good"
 
-    print "Fetching languages"
+    print(u"Fetching languages")
     data = csv.reader(urlopen(URL))
     wikis = []
 
@@ -61,34 +61,34 @@ def list_from_wikistats():
             is_first = False
             continue  # skip headers
         wiki = Wiki(row[2])
-        wiki.props[u'english_name'] = row[1]
-        wiki.props[u'local_name'] = row[10]
-        wiki.props[u'total_pages'] = row[3]
+        wiki.props[u"english_name"] = row[1]
+        wiki.props[u"local_name"] = row[10]
+        wiki.props[u"total_pages"] = row[3]
         wikis.append(wiki)
 
     return WikiList(wikis)
 
 
-# Populate the aliases for 'Special:' in all wikis
+# Populate the aliases for "Special:" in all wikis
 def populate_special_alias(wikis):
     for wiki in wikis.wikis:
-        print "Fetching Special Page alias for %s" % wiki.lang
+        print(u"Fetching Special Page alias for %s" % wiki.lang)
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
               u"?action=query&meta=siteinfo&format=json&siprop=namespaces"
         data = json.load(urlopen(url))
         # -1 seems to be the ID for Special Pages
-        wiki.props[u'special_alias'] = data['query']['namespaces']['-1']['*']
+        wiki.props[u"special_alias"] = data[u"query"][u"namespaces"][u"-1"][u"*"]
     return wikis
 
 
 # Populates data on names of main page in each wiki
 def populate_main_pages(wikis):
     for wiki in wikis.wikis:
-        print "Fetching Main Page for %s" % wiki.lang
+        print(u"Fetching Main Page for %s" % wiki.lang)
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
               u"?action=query&meta=allmessages&format=json&ammessages=Mainpage"
         data = json.load(urlopen(url))
-        wiki.props[u'main_page_name'] = data['query']['allmessages'][0]['*']
+        wiki.props[u"main_page_name"] = data[u"query"][u"allmessages"][0][u"*"]
     return wikis
 
 
