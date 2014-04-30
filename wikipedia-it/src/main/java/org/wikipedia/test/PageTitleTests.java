@@ -75,4 +75,11 @@ public class PageTitleTests extends TestCase {
         assertEquals("Talk", new PageTitle("Talk:Hello", enwiki).getNamespace());
         assertEquals("Wikipedia talk:Hello world", new PageTitle("Wikipedia_talk:Hello world", enwiki).getDisplayText());
     }
+
+    public void testSpecial() throws Exception {
+        assertTrue(new PageTitle("Special:Version", new Site("en.wikipedia.org")).isSpecial());
+        assertTrue(new PageTitle("特別:Version", new Site("ja.wikipedia.org")).isSpecial());
+        assertFalse(new PageTitle("Special:Version", new Site("ja.wikipedia.org")).isSpecial());
+        assertFalse(new PageTitle("特別:Version", new Site("en.wikipedia.org")).isSpecial());
+    }
 }

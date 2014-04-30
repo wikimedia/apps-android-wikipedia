@@ -3,6 +3,7 @@ package org.wikipedia;
 import android.os.*;
 import android.text.*;
 import org.json.*;
+import org.wikipedia.staticdata.*;
 
 import java.io.*;
 import java.net.*;
@@ -133,6 +134,16 @@ public class PageTitle implements Parcelable {
 
     public String getPrefixedText() {
         return namespace == null ? text : namespace + ":" + text;
+    }
+
+    private Boolean isSpecial = null;
+    public boolean isSpecial() {
+        if (isSpecial == null) {
+            isSpecial = getNamespace() != null
+                    && SpecialAliasData.valueFor(getSite().getLanguage()).equals(getNamespace());
+        }
+
+        return isSpecial;
     }
 
     @Override

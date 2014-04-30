@@ -1,0 +1,26 @@
+/* THIS IS AN AUTOMATICALLY GENERATED FILE
+   IF YOU MODIFY THIS BY HAND BE PREPARED!
+   TO HAVE YOUR CHANGES OVERWRITTEN */
+package org.wikipedia.staticdata;
+
+import java.util.*;
+
+public class {{ class_name }} {
+
+    private static HashMap<String, String> dataMap;
+    private static void setupData() {
+        dataMap = new HashMap<String, String>({{wikis|length}});
+
+        {%- for wiki in wikis %}
+        dataMap.put("{{wiki.lang}}", "{{wiki.props[key]}}");
+        {%- endfor %}
+    }
+
+    public static String valueFor(String key) {
+        if (dataMap == null) {
+            setupData();
+        }
+        
+        return dataMap.get(key);
+    }
+}
