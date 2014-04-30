@@ -283,6 +283,11 @@ public class SearchArticlesFragment extends Fragment {
                 params.gravity = Gravity.CENTER_VERTICAL; // Needed because this seems to get reset otherwise. hmpf.
                 drawerIndicator.setLayoutParams(params);
             }
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                // Hide the keyboard when the drawer is opened
+                Utils.hideSoftKeyboard(getActivity());
+            }
         });
 
     }
