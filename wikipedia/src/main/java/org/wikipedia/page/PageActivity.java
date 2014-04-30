@@ -18,6 +18,7 @@ import org.wikipedia.interlanguage.*;
 import org.wikipedia.recurring.*;
 import org.wikipedia.search.*;
 import org.wikipedia.settings.*;
+import org.wikipedia.staticdata.*;
 
 public class PageActivity extends ActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
@@ -78,6 +79,12 @@ public class PageActivity extends ActionBarActivity {
             } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
                 PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
                 HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
+                bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+            } else {
+                // Unrecognized, let us load the main page!
+                // FIXME: Design something better for this?
+                PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getPrimaryLanguage()), app.getPrimarySite());
+                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
                 bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
             }
         }

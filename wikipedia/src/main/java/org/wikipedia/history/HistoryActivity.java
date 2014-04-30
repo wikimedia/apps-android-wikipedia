@@ -111,6 +111,8 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
                     return R.drawable.link;
                 case HistoryEntry.SOURCE_RANDOM:
                     return R.drawable.random;
+                case HistoryEntry.SOURCE_MAIN_PAGE:
+                    return R.drawable.link;
                 default:
                     throw new RuntimeException("Unknown source id encountered");
             }
