@@ -20,7 +20,7 @@ import org.wikipedia.history.*;
 import org.wikipedia.login.*;
 import org.wikipedia.networking.*;
 import org.wikipedia.pageimages.*;
-import org.wikipedia.savedpages.*;
+import org.wikipedia.bookmarks.*;
 
 import java.util.*;
 
@@ -187,8 +187,8 @@ public class WikipediaApp extends Application {
                 persister = new HistoryEntryPersister(this);
             } else if (cls.equals(PageImage.class)) {
                 persister = new PageImagePersister(this);
-            } else if (cls.equals(SavedPage.class)) {
-                persister = new SavedPagePerister(this);
+            } else if (cls.equals(Bookmark.class)) {
+                persister = new BookmarkPersister(this);
             } else if (cls.equals(EditSummary.class)) {
                 persister = new EditSummaryPersister(this);
             } else {

@@ -1,4 +1,4 @@
-package org.wikipedia.savedpages;
+package org.wikipedia.bookmarks;
 
 import android.app.*;
 import android.content.*;
@@ -23,10 +23,10 @@ import org.wikipedia.pageimages.*;
 import java.text.*;
 import java.util.*;
 
-public class SavedPagesActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class BookmarksActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private ListView savedPagesList;
     private View savedPagesEmpty;
-    private SavedPagesAdapter adapter;
+    private BookmarksAdapter adapter;
 
     private WikipediaApp app;
 
@@ -41,7 +41,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
         savedPagesList = (ListView) findViewById(R.id.saved_pages_list);
         savedPagesEmpty = findViewById(R.id.saved_pages_empty_message);
 
-        adapter = new SavedPagesAdapter(this, null, true);
+        adapter = new BookmarksAdapter(this, null, true);
         savedPagesList.setAdapter(adapter);
         savedPagesList.setEmptyView(savedPagesEmpty);
 
@@ -71,11 +71,11 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
                                 SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
                                 for (int i = 0; i < checkedItems.size(); i++) {
                                     if (checkedItems.valueAt(i)) {
-                                        final SavedPage page = SavedPage.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
-                                        new DeleteSavedPageTask(SavedPagesActivity.this, page) {
+                                        final Bookmark page = Bookmark.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
+                                        new DeleteBookmarkTask(BookmarksActivity.this, page) {
                                             @Override
                                             public void onFinish(Boolean result) {
-                                                Toast.makeText(SavedPagesActivity.this, R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(BookmarksActivity.this, R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
                                             }
                                         }.execute();
                                     }
@@ -108,13 +108,13 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // We shouldn't do anything if the user is multiselecting things
                 if (actionMode == null) {
-                    SavedPage savedPage = (SavedPage) view.getTag();
-                    HistoryEntry newEntry = new HistoryEntry(savedPage.getTitle(), HistoryEntry.SOURCE_SAVED_PAGE);
+                    Bookmark bookmark = (Bookmark) view.getTag();
+                    HistoryEntry newEntry = new HistoryEntry(bookmark.getTitle(), HistoryEntry.SOURCE_SAVED_PAGE);
 
                     Intent intent = new Intent();
-                    intent.setClass(SavedPagesActivity.this, PageActivity.class);
+                    intent.setClass(BookmarksActivity.this, PageActivity.class);
                     intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-                    intent.putExtra(PageActivity.EXTRA_PAGETITLE, savedPage.getTitle());
+                    intent.putExtra(PageActivity.EXTRA_PAGETITLE, bookmark.getTitle());
                     intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, newEntry);
                     startActivity(intent);
                 }
@@ -129,7 +129,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         return new CursorLoader(
                 this,
-                Uri.parse(SavedPage.PERSISTANCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTANCE_HELPER.getTableName()),
+                Uri.parse(Bookmark.PERSISTANCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTANCE_HELPER.getTableName()),
                 null,
                 null,
                 null,
@@ -139,7 +139,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoaderLoader, Cursor cursorLoader) {
         adapter.swapCursor(cursorLoader);
-        invalidateOptionsMenu();
+        supportInvalidateOptionsMenu();
     }
 
     @Override
@@ -147,8 +147,8 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
         adapter.changeCursor(null);
     }
 
-    private class SavedPagesAdapter extends CursorAdapter {
-        public SavedPagesAdapter(Context context, Cursor c, boolean autoRequery) {
+    private class BookmarksAdapter extends CursorAdapter {
+        public BookmarksAdapter(Context context, Cursor c, boolean autoRequery) {
             super(context, c, autoRequery);
         }
 
@@ -165,11 +165,11 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
         public void bindView(View view, Context context, Cursor cursor) {
             TextView title = (TextView) view.findViewById(R.id.saved_page_title);
             ImageView thumbnail = (ImageView) view.findViewById(R.id.saved_page_thumbnail);
-            SavedPage entry = SavedPage.PERSISTANCE_HELPER.fromCursor(cursor);
+            Bookmark entry = Bookmark.PERSISTANCE_HELPER.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
 
-            Picasso.with(SavedPagesActivity.this)
+            Picasso.with(BookmarksActivity.this)
                     .load(cursor.getString(4))
                     .placeholder(R.drawable.ic_pageimage_placeholder)
                     .error(R.drawable.ic_pageimage_placeholder)
@@ -181,7 +181,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
             String curTime, prevTime = "";
             if (cursor.getPosition() != 0) {
                 Cursor prevCursor = (Cursor) getItem(cursor.getPosition() - 1);
-                SavedPage prevEntry = SavedPage.PERSISTANCE_HELPER.fromCursor(prevCursor);
+                Bookmark prevEntry = Bookmark.PERSISTANCE_HELPER.fromCursor(prevCursor);
                 prevTime = getDateString(prevEntry.getTimestamp());
             }
             curTime = getDateString(entry.getTimestamp());
@@ -223,7 +223,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Clear Saved Pages!
-                        app.getPersister(SavedPage.class).deleteAll();
+                        app.getPersister(Bookmark.class).deleteAll();
                     }
                 });
 
