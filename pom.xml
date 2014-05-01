@@ -67,7 +67,7 @@
             <dependency>
                 <groupId>com.mobsandgeeks</groupId>
                 <artifactId>android-saripaar</artifactId>
-                <version>1.0.2</version>
+                <version>1.0.3</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
