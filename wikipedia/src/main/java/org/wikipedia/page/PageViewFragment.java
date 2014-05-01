@@ -1,10 +1,8 @@
 package org.wikipedia.page;
 
 import android.content.*;
-import android.net.Uri;
 import android.os.*;
 import android.support.v4.app.*;
-import android.support.v4.widget.*;
 import android.view.*;
 import android.widget.*;
 import org.json.*;
@@ -15,7 +13,7 @@ import org.wikipedia.editing.*;
 import org.wikipedia.events.*;
 import org.wikipedia.history.*;
 import org.wikipedia.pageimages.*;
-import org.wikipedia.savedpages.*;
+import org.wikipedia.bookmarks.*;
 import org.wikipedia.styledviews.*;
 
 import java.util.*;
@@ -176,11 +174,7 @@ public class PageViewFragment extends Fragment {
         });
 
         setState(state);
-        if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE && state < STATE_COMPLETE_FETCH) {
-            new SavedPageFetchTask().execute();
-        } else {
-            performActionForState(state);
-        }
+        performActionForState(state);
 
         editHandler = new EditHandler(this, bridge);
         new QuickReturnHandler(webView, quickReturnBar);
@@ -342,27 +336,8 @@ public class PageViewFragment extends Fragment {
         }
     }
 
-    private class SavedPageFetchTask extends LoadSavedPageTask {
-
-        public SavedPageFetchTask() {
-            super(getActivity(), title);
-        }
-
-        @Override
-        public void onFinish(Page result) {
-            page = result;
-            performActionForState(STATE_COMPLETE_FETCH);
-            setState(STATE_COMPLETE_FETCH);
-        }
-    }
-
-    public void savePage() {
-        new SavePageTask(getActivity(), bridge, page) {
-            @Override
-            public void onBeforeExecute() {
-                Toast.makeText(getActivity(), R.string.toast_saving_page, Toast.LENGTH_LONG).show();
-            }
-
+    public void bookmarkPage() {
+        new BookmarkPageTask(getActivity(), title) {
             @Override
             public void onFinish(Void result) {
                 Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();

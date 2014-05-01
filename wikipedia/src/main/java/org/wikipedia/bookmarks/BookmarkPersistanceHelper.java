@@ -1,4 +1,4 @@
-package org.wikipedia.savedpages;
+package org.wikipedia.bookmarks;
 
 import android.content.*;
 import android.database.*;
@@ -7,19 +7,19 @@ import org.wikipedia.data.*;
 
 import java.util.*;
 
-public class SavedPagePersistanceHelper extends PersistanceHelper<SavedPage> {
+public class BookmarkPersistanceHelper extends PersistanceHelper<Bookmark> {
     @Override
-    public SavedPage fromCursor(Cursor c) {
+    public Bookmark fromCursor(Cursor c) {
         // Carefully, get them back by using position only
         Site site = new Site(c.getString(1));
         // FIXME: Does not handle non mainspace pages
         PageTitle title = new PageTitle(null, c.getString(2), site);
         Date timestamp = new Date(c.getLong(3));
-        return new SavedPage(title, timestamp);
+        return new Bookmark(title, timestamp);
     }
 
     @Override
-    protected ContentValues toContentValues(SavedPage obj) {
+    protected ContentValues toContentValues(Bookmark obj) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("title", obj.getTitle().getPrefixedText());
         contentValues.put("timestamp", obj.getTimestamp().getTime());
@@ -29,7 +29,12 @@ public class SavedPagePersistanceHelper extends PersistanceHelper<SavedPage> {
 
     @Override
     public String getTableName() {
-        return "savedpage";
+        return "bookmarks";
+    }
+
+    @Override
+    protected int getDBVersionIntroducedAt() {
+        return 3;
     }
 
     @Override
@@ -53,7 +58,7 @@ public class SavedPagePersistanceHelper extends PersistanceHelper<SavedPage> {
     }
 
     @Override
-    protected String[] getPrimaryKeySelectionArgs(SavedPage obj) {
+    protected String[] getPrimaryKeySelectionArgs(Bookmark obj) {
         return new String[] {
                 obj.getTitle().getSite().getDomain(),
                 obj.getTitle().getPrefixedText()

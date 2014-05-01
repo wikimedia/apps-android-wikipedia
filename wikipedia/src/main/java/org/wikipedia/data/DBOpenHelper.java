@@ -5,12 +5,12 @@ import android.database.sqlite.*;
 import org.wikipedia.editing.summaries.*;
 import org.wikipedia.history.*;
 import org.wikipedia.pageimages.*;
-import org.wikipedia.savedpages.*;
+import org.wikipedia.bookmarks.*;
 
 public class DBOpenHelper  extends SQLiteOpenHelper{
 
     private static final String DATABASE_NAME = "wikipedia.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     public DBOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -19,7 +19,7 @@ public class DBOpenHelper  extends SQLiteOpenHelper{
     private PersistanceHelper[] persistanceHelpers = {
             HistoryEntry.PERSISTANCE_HELPER,
             PageImage.PERSISTANCE_HELPER,
-            SavedPage.PERSISTANCE_HELPER,
+            Bookmark.PERSISTANCE_HELPER,
             EditSummary.PERSISTANCE_HELPER
     };
     @Override

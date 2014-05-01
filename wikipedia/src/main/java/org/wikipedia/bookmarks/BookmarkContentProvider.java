@@ -1,4 +1,4 @@
-package org.wikipedia.savedpages;
+package org.wikipedia.bookmarks;
 
 import android.database.*;
 import android.database.sqlite.*;
@@ -7,11 +7,11 @@ import org.wikipedia.*;
 import org.wikipedia.data.*;
 import org.wikipedia.pageimages.*;
 
-public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {
+public class BookmarkContentProvider extends SQLiteContentProvider<Bookmark> {
     private static final int MATCH_WITH_PAGEIMAGES =  64;
 
-    public SavedPageContentProvider() {
-        super(SavedPage.PERSISTANCE_HELPER);
+    public BookmarkContentProvider() {
+        super(Bookmark.PERSISTANCE_HELPER);
     }
 
     @Override
@@ -45,14 +45,14 @@ public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {
             case MATCH_WITH_PAGEIMAGES:
                 queryBuilder.setTables(
                         String.format("%1$s LEFT OUTER JOIN %2$s ON (%1$s.site = %2$s.site and %1$s.title = %2$s.title)",
-                                SavedPage.PERSISTANCE_HELPER.getTableName(), PageImage.PERSISTANCE_HELPER.getTableName()
+                                Bookmark.PERSISTANCE_HELPER.getTableName(), PageImage.PERSISTANCE_HELPER.getTableName()
                                 )
                 );
                 String[] actualProjection = new String[] {
-                        "savedpage._id",
-                        "savedpage.site",
-                        "savedpage.title",
-                        "savedpage.timestamp",
+                        "bookmarks._id",
+                        "bookmarks.site",
+                        "bookmarks.title",
+                        "bookmarks.timestamp",
                         "pageimages.imageName"
                 };
                 cursor = queryBuilder.query(db, actualProjection, selection, selectionArgs, null, null, sortOrder);

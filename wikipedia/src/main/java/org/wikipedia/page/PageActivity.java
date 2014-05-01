@@ -118,7 +118,7 @@ public class PageActivity extends ActionBarActivity {
 
     @Subscribe
     public void onPageSaveEvent(SavePageEvent event) {
-        curPageFragment.savePage();
+        curPageFragment.bookmarkPage();
     }
 
     @Subscribe

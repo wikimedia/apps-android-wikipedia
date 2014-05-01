@@ -20,18 +20,18 @@
 
     <string name="dialog_title_clear_history">Clear history?</string>
     <string name="dialog_message_clear_history">Are you sure you want to clear all history?</string>
-    <string name="saved_pages_activity_title">Saved pages</string>
-    <string name="nav_item_saved_pages">Saved pages</string>
-    <string name="menu_save_page">Save page</string>
+    <string name="saved_pages_activity_title">Bookmarks</string>
+    <string name="nav_item_saved_pages">Bookmarks</string>
+    <string name="menu_save_page">Bookmark</string>
     <string name="menu_share_page">Share</string>
     <string name="share_via">Share via</string>
-    <string name="dialog_title_clear_saved_pages">Clear saved pages?</string>
-    <string name="dialog_message_clear_saved_pages">Are you sure you want to clear all saved pages?</string>
-    <string name="toast_saving_page">Saving page...</string>
-    <string name="toast_saved_page">Saved page</string>
-    <string name="toast_save_page_failed">Saving page failed :(</string>
+    <string name="dialog_title_clear_saved_pages">Clear bookmarks?</string>
+    <string name="dialog_message_clear_saved_pages">Are you sure you want to clear all bookmarks?</string>
+    <string name="toast_saving_page">Bookmarking page...</string>
+    <string name="toast_saved_page">Bookmarked page</string>
+    <string name="toast_save_page_failed">Bookmarking page failed :(</string>
     <string name="delete_selected_saved_pages">Delete</string>
-    <string name="toast_saved_page_deleted">Saved page(s) deleted</string>
+    <string name="toast_saved_page_deleted">Bookmarks(s) deleted</string>
 
     <string name="last_updated_text">Last updated %1$s</string>
     <string name="content_license_html"><![CDATA[Content is available under <a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
@@ -75,7 +75,7 @@
     <string name="login_error_no_network">No network connection</string>
     <string name="nav_item_logout">Log out</string>
     <string name="toast_logout_complete">Logged out</string>
-    <string name="saved_pages_empty_message">No saved pages.</string>
+    <string name="saved_pages_empty_message">No bookmarks</string>
     <string name="history_empty_message">Your history is empty.</string>
     <string name="create_account_username_hint">Username</string>
     <string name="create_account_password_hint">Password</string>

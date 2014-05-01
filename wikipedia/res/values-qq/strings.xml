@@ -13,21 +13,21 @@
   <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history</string>
   <string name="dialog_message_clear_history">Message for dialog box asking if you want to clear your reading history</string>
-  <string name="saved_pages_activity_title">Title for screen that shows list of locally saved pages.
+  <string name="saved_pages_activity_title">Title for screen that shows list of locally bookmarks.
 {{Identical|Saved page}}</string>
-  <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the Saved Pages screen.
+  <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the bookmarks.
 {{Identical|Saved page}}</string>
-  <string name="menu_save_page">Menu item text for saving the currently active page</string>
+  <string name="menu_save_page">Menu item text for bookmarking the currently active page</string>
   <string name="menu_share_page">Menu item text for sharing the currently active page</string>
   <string name="share_via">Dialog title text for Share list</string>
-  <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your saved pages</string>
-  <string name="dialog_message_clear_saved_pages">Message for dialog box asking if you want to clear all your saved pages</string>
-  <string name="toast_saving_page">Small toast (popup) message saying that a page is being saved</string>
-  <string name="toast_saved_page">Small toast (popup) message saying that a page has been saved.
+  <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your bookmarks</string>
+  <string name="dialog_message_clear_saved_pages">Message for dialog box asking if you want to clear all your bookmarks</string>
+  <string name="toast_saving_page">Small toast (popup) message saying that a page is being bookmarked</string>
+  <string name="toast_saved_page">Small toast (popup) message saying that a page has been bookmarked.
 {{Identical|Saved page}}</string>
-  <string name="toast_save_page_failed">Small toast (popup) message saying that a page has failed to save</string>
-  <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected saved pages</string>
-  <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected saved pages have been deleted</string>
+  <string name="toast_save_page_failed">Small toast (popup) message saying that a page has failed to bookmark</string>
+  <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected bookmarks</string>
+  <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected bookmarks have been deleted</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. Parameter 1 refers to appropriately formatted timestamp</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="preference_title_language">Title for preference in settings screen for setting which language wikipedia to use</string>

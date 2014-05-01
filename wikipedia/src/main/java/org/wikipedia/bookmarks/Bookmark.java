@@ -1,22 +1,22 @@
-package org.wikipedia.savedpages;
+package org.wikipedia.bookmarks;
 
 import android.os.*;
 import org.wikipedia.*;
 
 import java.util.*;
 
-public class SavedPage implements Parcelable {
-    public static final SavedPagePersistanceHelper PERSISTANCE_HELPER = new SavedPagePersistanceHelper();
+public class Bookmark implements Parcelable {
+    public static final BookmarkPersistanceHelper PERSISTANCE_HELPER = new BookmarkPersistanceHelper();
 
     private final PageTitle title;
     private final Date timestamp;
 
-    public SavedPage(PageTitle title, Date timestamp) {
+    public Bookmark(PageTitle title, Date timestamp) {
         this.title = title;
         this.timestamp = timestamp;
     }
 
-    public SavedPage(PageTitle title) {
+    public Bookmark(PageTitle title) {
         this(title, new Date());
     }
 
@@ -30,10 +30,10 @@ public class SavedPage implements Parcelable {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof SavedPage)) {
+        if (!(o instanceof Bookmark)) {
             return false;
         }
-        SavedPage other = (SavedPage) o;
+        Bookmark other = (Bookmark) o;
         return getTitle().equals(other.getTitle());
     }
 
@@ -48,19 +48,19 @@ public class SavedPage implements Parcelable {
         dest.writeLong(getTimestamp().getTime());
     }
 
-    private SavedPage(Parcel in) {
+    private Bookmark(Parcel in) {
         this.title = in.readParcelable(PageTitle.class.getClassLoader());
         this.timestamp = new Date(in.readLong());
     }
 
-    public static final Creator<SavedPage> CREATOR
-            = new Creator<SavedPage>() {
-        public SavedPage createFromParcel(Parcel in) {
-            return new SavedPage(in);
+    public static final Creator<Bookmark> CREATOR
+            = new Creator<Bookmark>() {
+        public Bookmark createFromParcel(Parcel in) {
+            return new Bookmark(in);
         }
 
-        public SavedPage[] newArray(int size) {
-            return new SavedPage[size];
+        public Bookmark[] newArray(int size) {
+            return new Bookmark[size];
         }
     };
 }

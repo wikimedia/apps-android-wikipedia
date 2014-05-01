@@ -10,7 +10,7 @@ import org.wikipedia.analytics.*;
 import org.wikipedia.history.*;
 import org.wikipedia.login.*;
 import org.wikipedia.random.*;
-import org.wikipedia.savedpages.*;
+import org.wikipedia.bookmarks.*;
 import org.wikipedia.settings.*;
 
 public class NavDrawerFragment extends Fragment implements View.OnClickListener {
@@ -120,7 +120,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 getActivity().startActivity(intent);
                 break;
             case R.id.nav_item_saved_pages:
-                intent.setClass(this.getActivity(), SavedPagesActivity.class);
+                intent.setClass(this.getActivity(), BookmarksActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_item_settings:
