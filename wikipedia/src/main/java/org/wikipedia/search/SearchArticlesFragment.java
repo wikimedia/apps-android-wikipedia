@@ -340,7 +340,7 @@ public class SearchArticlesFragment extends Fragment {
             }
             TextView pageTitleText = (TextView) convertView.findViewById(R.id.result_text);
             PageTitle title = (PageTitle) getItem(position);
-            pageTitleText.setText(title.getText());
+            pageTitleText.setText(title.getDisplayText());
             ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
 
             String thumbnail = pageImagesCache.get(title.getPrefixedText());
