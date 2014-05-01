@@ -7,10 +7,12 @@ import android.graphics.*;
 import android.net.*;
 import android.os.*;
 import android.preference.*;
+import android.util.Log;
 import android.webkit.*;
 import com.squareup.otto.*;
 import org.acra.*;
 import org.acra.annotation.*;
+import org.json.JSONObject;
 import org.mediawiki.api.json.*;
 import org.wikipedia.analytics.*;
 import org.wikipedia.data.*;
@@ -18,6 +20,8 @@ import org.wikipedia.editing.*;
 import org.wikipedia.editing.summaries.*;
 import org.wikipedia.history.*;
 import org.wikipedia.login.*;
+import org.wikipedia.migration.ArticleImporter;
+import org.wikipedia.migration.DataMigrator;
 import org.wikipedia.networking.*;
 import org.wikipedia.pageimages.*;
 import org.wikipedia.bookmarks.*;
@@ -99,6 +103,24 @@ public class WikipediaApp extends Application {
             throw new RuntimeException(e);
         }
 
+        try {
+            DataMigrator dataMigrator = new DataMigrator(this);
+            if (dataMigrator.hasData()) {
+                // whee
+                Log.d("Wikipedia", "Migrating old app data...");
+                ArticleImporter articleImporter = new ArticleImporter(this);
+                List<JSONObject> pages = dataMigrator.extractSavedPages();
+                Log.d("Wikipedia", "Importing " + pages.size() + " old saved pages as bookmarks...");
+                articleImporter.importArticles(pages);
+                Log.d("Wikipedia", "Deleting old saved pages table");
+                dataMigrator.removeOldData();
+                Log.d("Wikipedia", "Migration done.");
+            } else {
+                Log.d("Wikipedia", "No old app data to migrate");
+            }
+        } catch (Exception e) {
+            Log.d("Wikipedia", "Migration code fail: " + e);
+        }
     }
 
     public Bus getBus() {
