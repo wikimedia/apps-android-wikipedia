@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.bridge;
 
 import android.os.*;
 import android.util.*;
@@ -59,6 +59,15 @@ public class CommunicationBridge {
 
     public void clearAllListeners(String type) {
         eventListeners.remove(type);
+    }
+
+    /**
+     * Inject the styles specified by the bundle into this webview.
+     *
+     * @param styleBundle The bundle representing the styles to load.
+     */
+    public void injectStyleBundle(StyleBundle styleBundle) {
+        sendMessage("injectStyles", styleBundle.toJSON());
     }
 
     public void sendMessage(String messageName, JSONObject messageData) {

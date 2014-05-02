@@ -4,7 +4,7 @@ import android.content.*;
 import android.test.*;
 import android.webkit.*;
 import org.json.*;
-import org.wikipedia.*;
+import org.wikipedia.bridge.*;
 
 import java.util.concurrent.*;
 

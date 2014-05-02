@@ -14,6 +14,7 @@ import android.widget.*;
 import com.squareup.otto.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
+import org.wikipedia.bridge.*;
 import org.wikipedia.events.*;
 import org.wikipedia.zero.*;
 

@@ -85,6 +85,23 @@ actions.register( "edit_section", function( el, event ) {
 } );
 
 },{"./actions":1,"./bridge":2}],4:[function(require,module,exports){
+var bridge = require( "./bridge" );
+
+function addStyleLink( href ) {
+    var link = document.createElement( "link" );
+    link.setAttribute( "rel", "stylesheet" );
+    link.setAttribute( "type", "text/css" );
+    link.setAttribute( "href", href );
+    document.getElementsByTagName( "head" )[0].appendChild( link );
+}
+
+bridge.registerListener( "injectStyles", function( payload ) {
+    var style_paths = payload.style_paths;
+    for ( var i = 0; i < style_paths.length; i++ ) {
+        addStyleLink( style_paths[i] );
+    }
+});
+},{"./bridge":2}],5:[function(require,module,exports){
 var bridge = require("./bridge");
 bridge.registerListener( "displayAttribution", function( payload ) {
     var directionality = document.getElementsByTagName( "html" )[0].classList.contains( "ui-rtl" ) ? "rtl" : "ltr";
@@ -120,7 +137,7 @@ bridge.registerListener( "hideEditButtons", function() {
     document.getElementsByTagName( "html" )[0].classList.add( "no-editing" );
 } );
 
-},{"./bridge":2}],5:[function(require,module,exports){
+},{"./bridge":2}],6:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -130,7 +147,7 @@ bridge.registerListener( "setDirectionality", function( payload ) {
     html.classList.add( "ui-" + payload.uiDirection );
 } );
 
-},{"./bridge":2}],6:[function(require,module,exports){
+},{"./bridge":2}],7:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 
@@ -250,7 +267,7 @@ bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-},{"./bridge":2,"./transformer":7}],7:[function(require,module,exports){
+},{"./bridge":2,"./transformer":8}],8:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -274,7 +291,7 @@ Transformer.prototype.transform = function( transform, element ) {
 
 module.exports = new Transformer();
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 
@@ -314,7 +331,7 @@ transformer.register( "section", function( content ) {
     return content;
 } );
 
-},{"./bridge":2,"./transformer":7}],9:[function(require,module,exports){
+},{"./bridge":2,"./transformer":8}],10:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills
@@ -391,4 +408,4 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}]},{},[4,7,8,2,1,3,6,5,9])
+},{}]},{},[4,5,8,9,2,1,3,7,6,10])

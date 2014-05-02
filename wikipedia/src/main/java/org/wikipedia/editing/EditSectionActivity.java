@@ -15,6 +15,7 @@ import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.Utils;
 import org.wikipedia.analytics.*;
+import org.wikipedia.bridge.*;
 import org.wikipedia.editing.summaries.*;
 import org.wikipedia.login.*;
 import org.wikipedia.page.*;
@@ -86,6 +87,7 @@ public class EditSectionActivity extends ActionBarActivity {
         abusefilterWebView = (WebView) findViewById(R.id.edit_section_abusefilter_webview);
         abusefilterBridge = new CommunicationBridge(abusefilterWebView, "file:///android_asset/abusefilter.html");
         Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), abusefilterBridge);
+        abusefilterBridge.injectStyleBundle(new PackagedStyleBundle("abusefilter.css"));
         abuseFilterBackAction = findViewById(R.id.edit_section_abusefilter_back);
 
         captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, R.string.edit_section_activity_title);

@@ -9,6 +9,7 @@ import android.widget.*;
 import com.nineoldandroids.view.ViewHelper;
 import org.json.*;
 import org.wikipedia.*;
+import org.wikipedia.bridge.*;
 
 import java.util.*;
 

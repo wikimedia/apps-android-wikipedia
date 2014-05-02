@@ -8,6 +8,7 @@ import android.support.v7.app.*;
 import android.view.*;
 import org.json.*;
 import org.wikipedia.*;
+import org.wikipedia.bridge.*;
 import org.wikipedia.editing.summaries.*;
 import org.wikipedia.history.*;
 import org.wikipedia.page.*;
@@ -30,6 +31,7 @@ public class EditPreviewFragment extends Fragment {
         previewContainer = parent.findViewById(R.id.edit_preview_container);
 
         bridge = new CommunicationBridge(webview, "file:///android_asset/preview.html");
+        bridge.injectStyleBundle(new PackagedStyleBundle("preview.css"));
 
         return parent;
     }

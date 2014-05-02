@@ -37,6 +37,23 @@ window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
 };
 },{}],2:[function(require,module,exports){
+var bridge = require( "./bridge" );
+
+function addStyleLink( href ) {
+    var link = document.createElement( "link" );
+    link.setAttribute( "rel", "stylesheet" );
+    link.setAttribute( "type", "text/css" );
+    link.setAttribute( "href", href );
+    document.getElementsByTagName( "head" )[0].appendChild( link );
+}
+
+bridge.registerListener( "injectStyles", function( payload ) {
+    var style_paths = payload.style_paths;
+    for ( var i = 0; i < style_paths.length; i++ ) {
+        addStyleLink( style_paths[i] );
+    }
+});
+},{"./bridge":1}],3:[function(require,module,exports){
 var bridge = require("./bridge");
 bridge.registerListener( "displayAttribution", function( payload ) {
     var directionality = document.getElementsByTagName( "html" )[0].classList.contains( "ui-rtl" ) ? "rtl" : "ltr";
@@ -72,7 +89,7 @@ bridge.registerListener( "hideEditButtons", function() {
     document.getElementsByTagName( "html" )[0].classList.add( "no-editing" );
 } );
 
-},{"./bridge":1}],3:[function(require,module,exports){
+},{"./bridge":1}],4:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills
@@ -149,16 +166,16 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var bridge = require("../js/bridge");
 bridge.registerListener( "injectScript", function( payload ) {
     require(payload.src);
 });
-},{"../js/bridge":1}],5:[function(require,module,exports){
+},{"../js/bridge":1}],6:[function(require,module,exports){
 var bridge = require("../js/bridge");
 console.log("Something!");
 bridge.registerListener( "ping", function( payload ) {
     bridge.sendMessage( "pong", payload );
 });
 
-},{"../js/bridge":1}]},{},[2,1,4,5,3])
+},{"../js/bridge":1}]},{},[2,3,1,5,6,4])

@@ -76,6 +76,23 @@ window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
 };
 },{}],3:[function(require,module,exports){
+var bridge = require( "./bridge" );
+
+function addStyleLink( href ) {
+    var link = document.createElement( "link" );
+    link.setAttribute( "rel", "stylesheet" );
+    link.setAttribute( "type", "text/css" );
+    link.setAttribute( "href", href );
+    document.getElementsByTagName( "head" )[0].appendChild( link );
+}
+
+bridge.registerListener( "injectStyles", function( payload ) {
+    var style_paths = payload.style_paths;
+    for ( var i = 0; i < style_paths.length; i++ ) {
+        addStyleLink( style_paths[i] );
+    }
+});
+},{"./bridge":2}],4:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "displayPreviewHTML", function( payload ) {
@@ -83,7 +100,7 @@ bridge.registerListener( "displayPreviewHTML", function( payload ) {
     content.innerHTML = payload.html;
 } );
 
-},{"./bridge":2}],4:[function(require,module,exports){
+},{"./bridge":2}],5:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -93,7 +110,7 @@ bridge.registerListener( "setDirectionality", function( payload ) {
     html.classList.add( "ui-" + payload.uiDirection );
 } );
 
-},{"./bridge":2}],5:[function(require,module,exports){
+},{"./bridge":2}],6:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills
@@ -170,4 +187,4 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}]},{},[2,1,3,4,5])
+},{}]},{},[3,2,1,4,5,6])

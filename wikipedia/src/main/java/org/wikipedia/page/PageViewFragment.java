@@ -9,6 +9,7 @@ import org.json.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.analytics.*;
+import org.wikipedia.bridge.*;
 import org.wikipedia.editing.*;
 import org.wikipedia.events.*;
 import org.wikipedia.history.*;
@@ -156,6 +157,7 @@ public class PageViewFragment extends Fragment {
         setupMessageHandlers();
         Utils.addUtilityMethodsToBridge(getActivity(), bridge);
         Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
+        bridge.injectStyleBundle(new PackagedStyleBundle("styles.css"));
         linkHandler = new LinkHandler(getActivity(), bridge, title.getSite()){
             @Override
             public void onInternalLinkClicked(PageTitle title) {

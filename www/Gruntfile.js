@@ -29,6 +29,7 @@ module.exports = function ( grunt ) {
             dist: {
                 files: {
                     "bundle.js": [
+                        "js/loader.js",
                         "js/main.js",
                         "js/transformer.js",
                         "js/transforms.js",
@@ -39,16 +40,19 @@ module.exports = function ( grunt ) {
                         "js/rtlsupport.js"
                     ].concat( oldDroidPolyfills ),
                     "bundle-test.js": [
+                        "js/loader.js",
                         "js/main.js",
                         "js/bridge.js",
                         "tests/*.js"
                     ].concat( oldDroidPolyfills ),
                     "abusefilter.js": [
+                        "js/loader.js",
                         "js/bridge.js",
                         "js/abusefilter.js",
                         "js/rtlsupport.js"
                     ].concat( oldDroidPolyfills ),
                     "preview.js": [
+                        "js/loader.js",
                         "js/bridge.js",
                         "js/actions.js",
                         "js/preview.js",
