@@ -12,7 +12,7 @@ public class Site implements Parcelable {
         this.domain = domain.replaceFirst("\\.m\\.", ".");
     }
 
-    protected String getApiDomain() {
+    public String getApiDomain() {
         return domain.replaceFirst("\\.", ".m.");
     }
 
