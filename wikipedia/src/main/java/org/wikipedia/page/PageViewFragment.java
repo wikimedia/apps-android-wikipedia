@@ -39,6 +39,7 @@ public class PageViewFragment extends Fragment {
     private View retryButton;
     private View pageDoesNotExistError;
     private DisableableSlidingPaneLayout tocSlider;
+    private FrameLayout pageFragmentContainer;
 
     private Page page;
     private HistoryEntry curEntry;
@@ -73,6 +74,23 @@ public class PageViewFragment extends Fragment {
 
     public Page getPage() {
         return page;
+    }
+
+    /*
+    Hide the entire fragment. This is necessary when displaying a new page fragment on top
+    of a previous one -- some devices have issues with rendering "heavy" components
+    (like WebView) when overlaid on top of many other Views.
+     */
+    public void hide() {
+        pageFragmentContainer.setVisibility(View.GONE);
+    }
+
+    /*
+    Make this fragment visible. Make sure to call this when going "back" through the
+    stack of fragments
+     */
+    public void show() {
+        pageFragmentContainer.setVisibility(View.VISIBLE);
     }
 
     private void displayLeadSection() {
@@ -136,6 +154,7 @@ public class PageViewFragment extends Fragment {
 
         app = (WikipediaApp)getActivity().getApplicationContext();
 
+        pageFragmentContainer = (FrameLayout) getView().findViewById(R.id.page_fragment_container);
         webView = (ObservableWebView) getView().findViewById(R.id.page_web_view);
         loadProgress = (ProgressBar) getView().findViewById(R.id.page_load_progress);
         networkError = getView().findViewById(R.id.page_error);

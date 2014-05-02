@@ -56,6 +56,7 @@ public class PageActivity extends ActionBarActivity {
             pausedXcsOfZero = savedInstanceState.getString("pausedXcsOfZero");
             if (savedInstanceState.containsKey("curPageFragment")) {
                 curPageFragment = (PageViewFragment) getSupportFragmentManager().getFragment(savedInstanceState, "curPageFragment");
+                curPageFragment.show();
             }
         }
 
@@ -107,7 +108,10 @@ public class PageActivity extends ActionBarActivity {
                 .add(R.id.content_frame, pageFragment, title.getCanonicalUri())
                 .addToBackStack(title.getCanonicalUri())
                 .commit();
-        this.curPageFragment = pageFragment;
+
+        if (curPageFragment != null)
+            curPageFragment.hide();
+        curPageFragment = pageFragment;
     }
 
     @Subscribe
@@ -167,6 +171,7 @@ public class PageActivity extends ActionBarActivity {
                 getSupportFragmentManager().popBackStackImmediate();
                 String tag = getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName();
                 curPageFragment = (PageViewFragment) getSupportFragmentManager().findFragmentByTag(tag);
+                curPageFragment.show();
             }
         }
     }
