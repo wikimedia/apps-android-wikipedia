@@ -52,7 +52,7 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_save_page:
-                bus.post(new SavePageEvent());
+                bus.post(new BookmarkPageEvent());
                 break;
             case R.id.menu_share_page:
                 bus.post(new SharePageEvent());
