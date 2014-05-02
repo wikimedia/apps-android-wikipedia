@@ -4,13 +4,16 @@ import android.content.*;
 import android.net.*;
 import android.os.*;
 import android.support.v4.app.*;
+import android.text.format.*;
+import android.util.*;
 import android.view.*;
 import android.widget.*;
 import org.wikipedia.analytics.*;
+import org.wikipedia.bookmarks.*;
+import org.wikipedia.events.*;
 import org.wikipedia.history.*;
 import org.wikipedia.login.*;
 import org.wikipedia.random.*;
-import org.wikipedia.bookmarks.*;
 import org.wikipedia.settings.*;
 
 public class NavDrawerFragment extends Fragment implements View.OnClickListener {
@@ -125,7 +128,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 break;
             case R.id.nav_item_settings:
                 intent.setClass(this.getActivity(), SettingsActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
                 break;
             case R.id.nav_item_login:
                 intent.setClass(this.getActivity(), LoginActivity.class);
@@ -150,4 +153,22 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
         }
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS
+                && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED) {
+            // Run the code a second later, to:
+            // - Make sure that onStart in PageActivity gets called, thus
+            //   registering the activity for the bus.
+            // - The 1s delay ensures a smoother transition, otherwise was
+            //   very jarring
+            getView().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    app.getBus().post(new RequestMainPageEvent());
+                    Log.d("Wikipedia", "Show da main page yo");
+                }
+            }, DateUtils.SECOND_IN_MILLIS);
+        }
+    }
 }

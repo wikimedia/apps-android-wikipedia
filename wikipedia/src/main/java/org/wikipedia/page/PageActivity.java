@@ -7,6 +7,7 @@ import android.os.*;
 import android.preference.*;
 import android.support.v4.widget.*;
 import android.support.v7.app.*;
+import android.util.*;
 import android.view.*;
 import com.squareup.otto.*;
 import de.keyboardsurfer.android.widget.crouton.*;
@@ -37,7 +38,7 @@ public class PageActivity extends ActionBarActivity {
 
     private boolean pausedStateOfZero;
     private String pausedXcsOfZero;
-    private static final int MESSAGE_START_SCREEN = 1;
+
     private AlertDialog.Builder alert;
 
     private ReadingActionFunnel readingActionFunnel;
@@ -83,9 +84,7 @@ public class PageActivity extends ActionBarActivity {
             } else {
                 // Unrecognized, let us load the main page!
                 // FIXME: Design something better for this?
-                PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getPrimaryLanguage()), app.getPrimarySite());
-                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
-                bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+                bus.post(new RequestMainPageEvent());
             }
         }
 
@@ -94,6 +93,10 @@ public class PageActivity extends ActionBarActivity {
     }
 
     private void displayNewPage(PageTitle title, HistoryEntry entry) {
+        readingActionFunnel.logSomethingHappened(title.getSite());
+        if (drawerLayout.isDrawerOpen(Gravity.START)) {
+            drawerLayout.closeDrawer(Gravity.START);
+        }
         if(title.isSpecial()) {
             Utils.visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
             return;
@@ -108,12 +111,16 @@ public class PageActivity extends ActionBarActivity {
     }
 
     @Subscribe
+    public void onRequestMainPageEvent(RequestMainPageEvent event) {
+        PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getPrimaryLanguage()), app.getPrimarySite());
+        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
+        displayNewPage(title, historyEntry);
+        Log.d("Wikipedia", "Doing for " + title);
+    }
+
+    @Subscribe
     public void onNewWikiPageNavigationEvent(NewWikiPageNavigationEvent event) {
-        if (drawerLayout.isDrawerOpen(Gravity.START)) {
-            drawerLayout.closeDrawer(Gravity.START);
-        }
         displayNewPage(event.getTitle(), event.getHistoryEntry());
-        readingActionFunnel.logSomethingHappened(event.getTitle().getSite());
     }
 
     @Subscribe
@@ -260,6 +267,7 @@ public class PageActivity extends ActionBarActivity {
         if (bus == null) {
             bus = app.getBus();
             bus.register(this);
+            Log.d("Wikipedia", "Registering bus");
         }
     }
 
@@ -294,5 +302,7 @@ public class PageActivity extends ActionBarActivity {
         super.onStop();
         bus.unregister(this);
         bus = null;
+        Log.d("Wikipedia", "Deregistering bus");
     }
+
 }

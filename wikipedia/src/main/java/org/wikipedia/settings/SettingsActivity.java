@@ -7,6 +7,8 @@ import android.view.*;
 import org.wikipedia.*;
 
 public class SettingsActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+    public static final int ACTIVITY_RESULT_LANGUAGE_CHANGED = 1;
+    public static final int ACTIVITY_REQUEST_SHOW_SETTINGS = 1;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +46,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
         if (key.equals(WikipediaApp.PREFERENCE_CONTENT_LANGUAGE)) {
             LanguagePreference pref = (LanguagePreference) findPreference(WikipediaApp.PREFERENCE_CONTENT_LANGUAGE);
             pref.setSummary(pref.getCurrentLanguageDisplayString());
+            setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
         }
-
     }
 }
