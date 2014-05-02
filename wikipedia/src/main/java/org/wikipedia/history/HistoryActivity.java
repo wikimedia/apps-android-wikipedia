@@ -176,7 +176,7 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
                 return true;
             case R.id.menu_clear_all_history:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage(R.string.dialog_title_clear_history)
+                builder.setTitle(R.string.dialog_title_clear_history)
                         .setMessage(R.string.dialog_message_clear_history);
                 builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
