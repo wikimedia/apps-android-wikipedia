@@ -14,7 +14,7 @@
         </FrameLayout>
         <!-- The navigation drawer -->
         <!-- Don't set marginTop here, it somehow also affects marginBottom. wtf?! -->
-        <fragment android:layout_width="wrap_content" android:layout_height="match_parent"
+        <fragment android:layout_width="288dp" android:layout_height="match_parent"
                   android:name="org.wikipedia.NavDrawerFragment"
                   android:layout_gravity="start"
                   tools:layout="@layout/fragment_navdrawer"/>
