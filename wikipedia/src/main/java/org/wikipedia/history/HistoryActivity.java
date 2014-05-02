@@ -73,7 +73,7 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoaderLoader, Cursor cursorLoader) {
         adapter.swapCursor(cursorLoader);
-        invalidateOptionsMenu();
+        supportInvalidateOptionsMenu();
     }
 
     @Override
