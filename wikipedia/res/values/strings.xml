@@ -16,6 +16,7 @@
     <string name="search_network_error">Network error. Tap to try again.</string>
     <string name="page_error_retry">Retry</string>
     <string name="menu_clear_all_history">Clear history</string>
+    <string name="menu_clear_all_bookmarks">Clear bookmarks</string>
     <string name="page_does_not_exist_error">This page does not exist.</string>
 
     <string name="dialog_title_clear_history">Clear history?</string>
@@ -79,6 +80,7 @@
     <string name="history_empty_message">Your history is empty.</string>
     <string name="create_account_username_hint">Username</string>
     <string name="create_account_password_hint">Password</string>
+    <string name="menu_create_account">Create account</string>
     <string name="login_create_account_link">Create account</string>
     <string name="create_account_activity_title">Create an account</string>
     <string name="edit_section_activity_title">Edit Section</string>

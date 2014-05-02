@@ -10,6 +10,7 @@
   <string name="search_network_error">Error message shown when network cannot be reached when searching. Tapping the message retries the search.</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped</string>
   <string name="menu_clear_all_history">Menu item text for clearing your reading history</string>
+  <string name="menu_clear_all_bookmarks">Menu item text for clearing bookmarks</string>
   <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history</string>
   <string name="dialog_message_clear_history">Message for dialog box asking if you want to clear your reading history</string>
@@ -69,6 +70,7 @@
   <string name="nav_item_send_feedback">Text for button to send app feedback</string>
   <string name="nav_item_random">{{Identical|Random}}</string>
   <string name="random_progress">Message shown in progress popup dialog while waiting for a random article to be fetched</string>
+  <string name="menu_create_account">Menu item title for creating an account</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.
 * {{msg-mw|Accountcreatedtext|message}}</string>
   <string name="user_contribs_more_action">Text shown as a button at the end of lists that let the user load more items.

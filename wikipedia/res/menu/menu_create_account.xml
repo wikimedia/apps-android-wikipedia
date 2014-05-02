@@ -5,5 +5,6 @@
     <item android:id="@+id/menu_create_account"
           android:icon="@android:drawable/ic_menu_send"
           android:enabled="false"
+          android:title="@string/menu_create_account"
           app:showAsAction="always" />
 </menu>
