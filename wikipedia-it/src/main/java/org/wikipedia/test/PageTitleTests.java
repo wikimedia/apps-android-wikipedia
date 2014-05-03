@@ -2,6 +2,7 @@ package org.wikipedia.test;
 
 import junit.framework.*;
 import org.wikipedia.*;
+import org.wikipedia.staticdata.*;
 
 public class PageTitleTests extends TestCase {
 
@@ -82,4 +83,11 @@ public class PageTitleTests extends TestCase {
         assertFalse(new PageTitle("Special:Version", new Site("ja.wikipedia.org")).isSpecial());
         assertFalse(new PageTitle("特別:Version", new Site("en.wikipedia.org")).isSpecial());
     }
+
+    public void testMainpage() throws Exception {
+        Site enwiki = new Site("en.wikipedia.org");
+        assertEquals(new PageTitle("", enwiki), new PageTitle(MainPageNameData.valueFor("en"), enwiki));
+
+    }
+
 }

@@ -2,10 +2,6 @@ package org.wikipedia;
 
 import android.os.*;
 
-import java.io.*;
-import java.net.*;
-import java.util.regex.*;
-
 /**
  * Represents a particular Wikimedia project.
  */
@@ -63,14 +59,6 @@ public class Site implements Parcelable {
     }
 
     /**
-     * Regex to match internal relative wikilinks.
-     *
-     * Start with /wiki/, can contain a Namespace indicator and a fragment.
-     * Capturing Group 1 is namespace (or null for no namespace). 2 is Page Title text. 3 is Fragment.
-     */
-    private static final Pattern INTERNAL_LINK_MATCH_PATTERN = Pattern.compile("/wiki/(?:([^:]+):)?([^#]*)(?:#(.*))?");
-
-    /**
      * Create a PageTitle object from an internal link string.
      *
      * @param internalLink Internal link target text (eg. /wiki/Target).
@@ -78,23 +66,8 @@ public class Site implements Parcelable {
      * @return A {@link PageTitle} object representing the internalLink passed in.
      */
     public PageTitle titleForInternalLink(String internalLink) {
-        //TODO: Do better validation of internal links!
-        //TODO: Handle fragments better!
-        Matcher matches = INTERNAL_LINK_MATCH_PATTERN.matcher(internalLink);
-        if (matches.matches()) {
-            try {
-                String namespace = matches.group(1) != null ? URLDecoder.decode(matches.group(1), "utf-8") : null;
-                String pageText = URLDecoder.decode(matches.group(2), "utf-8");
-                String fragment = matches.group(3);
-                return new PageTitle(namespace, pageText, fragment, this);
-            } catch (UnsupportedEncodingException e) {
-                // NOT HAPPENING! JESUS CHRIST JAVA!
-                throw new RuntimeException(e);
-            }
-        } else {
-            throw new RuntimeException("Did not  match internalLinkPattern: " + internalLink);
-        }
-
+        // FIXME: Handle language variant links properly
+        return new PageTitle(internalLink.replace("/wiki/", ""), this);
     }
 
     private String language;
