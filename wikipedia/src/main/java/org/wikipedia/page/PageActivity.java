@@ -56,7 +56,6 @@ public class PageActivity extends ActionBarActivity {
             pausedXcsOfZero = savedInstanceState.getString("pausedXcsOfZero");
             if (savedInstanceState.containsKey("curPageFragment")) {
                 curPageFragment = (PageViewFragment) getSupportFragmentManager().getFragment(savedInstanceState, "curPageFragment");
-                curPageFragment.show();
             }
         }
 
