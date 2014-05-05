@@ -270,8 +270,14 @@ public class SearchArticlesFragment extends Fragment {
         this.drawerLayout = drawerLayout;
 
         drawerLayout.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            private boolean hideKeyboardCalled = false;
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
+                // Hide the keyboard when the drawer is opened
+                if (!hideKeyboardCalled) {
+                    Utils.hideSoftKeyboard(getActivity());
+                    hideKeyboardCalled = true;
+                }
                 // Make sure that the entire search bar is visible
                 ViewAnimations.ensureTranslationY(getView(), 0);
                 // Animation for sliding drawer open and close
@@ -284,9 +290,10 @@ public class SearchArticlesFragment extends Fragment {
                 drawerIndicator.setLayoutParams(params);
             }
             @Override
-            public void onDrawerOpened(View drawerView) {
-                // Hide the keyboard when the drawer is opened
-                Utils.hideSoftKeyboard(getActivity());
+            public void onDrawerStateChanged(int newState) {
+                if (newState == DrawerLayout.STATE_IDLE) {
+                    hideKeyboardCalled = false;
+                }
             }
         });
 
