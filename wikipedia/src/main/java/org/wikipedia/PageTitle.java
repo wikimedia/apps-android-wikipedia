@@ -32,8 +32,12 @@ public class PageTitle implements Parcelable {
         this(namespace, text, null, site);
     }
 
-    public PageTitle(final String text, final Site site) {
+    public PageTitle(String text, final Site site) {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
+        if (text.equals("")) {
+            // If empty, this refers to the main page.
+            text = MainPageNameData.valueFor(site.getLanguage());
+        }
         String[] parts;
         if (text.indexOf("#") != -1) {
             try {
