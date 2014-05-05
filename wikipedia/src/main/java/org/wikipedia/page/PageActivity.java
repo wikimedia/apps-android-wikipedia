@@ -109,8 +109,9 @@ public class PageActivity extends ActionBarActivity {
                 .addToBackStack(title.getCanonicalUri())
                 .commit();
 
-        if (curPageFragment != null)
+        if (curPageFragment != null) {
             curPageFragment.hide();
+        }
         curPageFragment = pageFragment;
     }
 
