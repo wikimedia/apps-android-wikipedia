@@ -266,6 +266,10 @@ public class SearchArticlesFragment extends Fragment {
         searchHandler.sendMessageDelayed(searchMessage, DELAY_MILLIS);
     }
 
+    public void ensureVisible() {
+        ViewAnimations.ensureTranslationY(getView(), 0);
+    }
+
     public void setDrawerLayout(DrawerLayout drawerLayout) {
         this.drawerLayout = drawerLayout;
 
@@ -273,7 +277,7 @@ public class SearchArticlesFragment extends Fragment {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 // Make sure that the entire search bar is visible
-                ViewAnimations.ensureTranslationY(getView(), 0);
+                ensureVisible();
                 // Animation for sliding drawer open and close
                 // -4dp seems to match how much farther GMail's indicator goes, so sticking with it
                 // Shift left and right margins appropriately to make sure that the rest of the layout does not shift
@@ -380,7 +384,7 @@ public class SearchArticlesFragment extends Fragment {
             searchTermText.setText("");
         }
         // If search bar isn't fully visible, make it so!
-        ViewAnimations.ensureTranslationY(getView(), 0);
+        ensureVisible();
     }
 
     @Subscribe
@@ -399,7 +403,7 @@ public class SearchArticlesFragment extends Fragment {
         searchTermText.setTextColor(Color.WHITE);
         searchTermText.setHint(R.string.zero_search_hint);
         searchBarMenuButton.setColorFilter(Color.WHITE);
-        ViewAnimations.ensureTranslationY(getView(), 0);
+        ensureVisible();
     }
 
     private void setNormalChrome() {
@@ -410,7 +414,7 @@ public class SearchArticlesFragment extends Fragment {
         searchTermText.setHintTextColor(searchTermHintTextColor);
         searchTermText.setHint(R.string.search_hint);
         searchBarMenuButton.clearColorFilter();
-        ViewAnimations.ensureTranslationY(getView(), 0);
+        ensureVisible();
     }
 
     @Override
