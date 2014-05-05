@@ -163,8 +163,6 @@ public class PageViewFragment extends Fragment {
         pageDoesNotExistError = getView().findViewById(R.id.page_does_not_exist);
         quickReturnBar = getActivity().findViewById(quickReturnBarId);
         tocSlider = (DisableableSlidingPaneLayout) getView().findViewById(R.id.page_toc_slider);
-        // disable TOC slider until the page is loaded
-        tocSlider.setSlidingEnabled(false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             // Enable Pinch-Zoom
@@ -270,8 +268,6 @@ public class PageViewFragment extends Fragment {
                 tocHandler = new ToCHandler(tocSlider, quickReturnBar, bridge);
             }
             tocHandler.setupToC(page);
-            // enable sliding TOC
-            tocSlider.setSlidingEnabled(true);
         }
     }
 
@@ -320,9 +316,8 @@ public class PageViewFragment extends Fragment {
 
         @Override
         public void onCatch(Throwable caught) {
-            // in any case, make sure the TOC drawer is closed and disabled
-            tocSlider.closePane();
-            tocSlider.setSlidingEnabled(false);
+            // in any case, make sure the TOC drawer is disabled
+            tocHandler.setEnabled(false);
 
             if (caught instanceof SectionsFetchException) {
                 if (((SectionsFetchException)caught).getCode().equals("missingtitle")){

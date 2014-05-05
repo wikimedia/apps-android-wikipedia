@@ -10,6 +10,7 @@ import com.nineoldandroids.view.ViewHelper;
 import org.json.*;
 import org.wikipedia.*;
 import org.wikipedia.bridge.*;
+import org.wikipedia.styledviews.DisableableSlidingPaneLayout;
 
 import java.util.*;
 
@@ -19,9 +20,9 @@ public class ToCHandler {
     private Page page;
     private final View quickReturnBar;
     private final CommunicationBridge bridge;
-    private final SlidingPaneLayout slidingPane;
+    private final DisableableSlidingPaneLayout slidingPane;
 
-    public ToCHandler(final SlidingPaneLayout slidingPane, final View quickReturnBar, final CommunicationBridge bridge) {
+    public ToCHandler(final DisableableSlidingPaneLayout slidingPane, final View quickReturnBar, final CommunicationBridge bridge) {
         this.quickReturnBar = quickReturnBar;
         this.bridge = bridge;
         this.slidingPane = slidingPane;
@@ -101,6 +102,17 @@ public class ToCHandler {
                 }
             });
         }
+
+        // enable ToC slider, but only if there's more than one page section
+        this.setEnabled(page.getSections().size() > 1);
+    }
+
+    public void setEnabled(boolean enabled) {
+        //make sure we close the pane before disabling
+        if (!enabled) {
+            slidingPane.closePane();
+        }
+        slidingPane.setSlidingEnabled(enabled);
     }
 
     public void show() {
@@ -112,6 +124,9 @@ public class ToCHandler {
     }
 
     public boolean isVisible() {
+        if (!slidingPane.getSlidingEnabled()) {
+            return false;
+        }
         return slidingPane.isOpen();
     }
 
