@@ -3,7 +3,7 @@ package org.wikipedia.editing;
 import android.content.*;
 import android.support.v4.app.*;
 import org.json.*;
-import org.wikipedia.*;
+import org.wikipedia.bridge.*;
 import org.wikipedia.page.*;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {

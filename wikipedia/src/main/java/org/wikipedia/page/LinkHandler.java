@@ -7,6 +7,7 @@ import android.util.*;
 import com.squareup.otto.*;
 import org.json.*;
 import org.wikipedia.*;
+import org.wikipedia.bridge.*;
 import org.wikipedia.events.*;
 
 /**
