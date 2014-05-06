@@ -4,6 +4,7 @@ import android.app.*;
 import android.content.*;
 import android.os.*;
 import android.support.v7.app.*;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.mobsandgeeks.saripaar.*;
@@ -188,6 +189,13 @@ public class CreateAccountActivity extends ActionBarActivity {
                    return captchaHandler.populateBuilder(super.buildRequest(api));
                 }
                 return super.buildRequest(api);
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                Log.d("Wikipedia", "Caught " + caught.toString());
+                progressDialog.dismiss();
+                Crouton.makeText(CreateAccountActivity.this, R.string.create_account_no_network, Style.ALERT).show();
             }
 
             @Override
