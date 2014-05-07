@@ -7,9 +7,18 @@ import android.view.*;
 
 public class DisableableSlidingPaneLayout extends SlidingPaneLayout {
 
-    private boolean enableSliding = true;
-    public boolean getSlidingEnabled() { return enableSliding; }
-    public void setSlidingEnabled(boolean enable) { enableSliding = enable; }
+    public boolean getSlidingEnabled() {
+        if (this.getChildCount() > 0) {
+            return this.getChildAt(0).getVisibility() == View.VISIBLE;
+        }
+        return false;
+    }
+
+    public void setSlidingEnabled(boolean enable) {
+        if (this.getChildCount() > 0) {
+            this.getChildAt(0).setVisibility(enable ? View.VISIBLE : View.GONE);
+        }
+    }
 
     public DisableableSlidingPaneLayout(Context context) {
         super(context);
@@ -21,11 +30,5 @@ public class DisableableSlidingPaneLayout extends SlidingPaneLayout {
 
     public DisableableSlidingPaneLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        // if sliding is disabled, then consume the touch event.
-        return enableSliding ? super.onTouchEvent(ev) : true;
     }
 }
