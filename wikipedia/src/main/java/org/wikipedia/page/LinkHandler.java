@@ -10,6 +10,9 @@ import org.wikipedia.*;
 import org.wikipedia.bridge.*;
 import org.wikipedia.events.*;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 /**
  * Handles any html links coming from a {@link org.wikipedia.page.PageViewFragment}
  */
@@ -55,7 +58,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
-            String href = messagePayload.getString("href");
+            String href = URLDecoder.decode(messagePayload.getString("href"), "UTF-8");
             if (href.startsWith("//")) {
                 // That's a protocol specific link! Make it https!
                 href = "https:" + href;
@@ -83,6 +86,9 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
                     handleExternalLink(Uri.parse(href));
                 }
             }
+        } catch (UnsupportedEncodingException e) {
+            // will not happen
+            throw new RuntimeException(e);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
