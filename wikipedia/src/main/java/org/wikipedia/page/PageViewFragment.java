@@ -323,7 +323,8 @@ public class PageViewFragment extends Fragment {
             tocDrawer.setSlidingEnabled(false);
 
             if (caught instanceof SectionsFetchException) {
-                if (((SectionsFetchException)caught).getCode().equals("missingtitle")){
+                if (((SectionsFetchException)caught).getCode().equals("missingtitle")
+                        || ((SectionsFetchException)caught).getCode().equals("invalidtitle")){
                     ViewAnimations.crossFade(loadProgress, pageDoesNotExistError);
 
                 }
