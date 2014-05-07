@@ -10,7 +10,7 @@ import com.nineoldandroids.view.ViewHelper;
 import org.json.*;
 import org.wikipedia.*;
 import org.wikipedia.bridge.*;
-import org.wikipedia.styledviews.DisableableSlidingPaneLayout;
+import org.wikipedia.styledviews.DisableableDrawerLayout;
 
 import java.util.*;
 
@@ -20,9 +20,9 @@ public class ToCHandler {
     private Page page;
     private final View quickReturnBar;
     private final CommunicationBridge bridge;
-    private final DisableableSlidingPaneLayout slidingPane;
+    private final DisableableDrawerLayout slidingPane;
 
-    public ToCHandler(final DisableableSlidingPaneLayout slidingPane, final View quickReturnBar, final CommunicationBridge bridge) {
+    public ToCHandler(final DisableableDrawerLayout slidingPane, final View quickReturnBar, final CommunicationBridge bridge) {
         this.quickReturnBar = quickReturnBar;
         this.bridge = bridge;
         this.slidingPane = slidingPane;
@@ -30,23 +30,26 @@ public class ToCHandler {
         this.tocList = (ListView) slidingPane.findViewById(R.id.page_toc_list);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
 
-        slidingPane.setPanelSlideListener(new SlidingPaneLayout.PanelSlideListener() {
-            @Override
-            public void onPanelSlide(View panel, float slideOffset) {
-            }
-
+        slidingPane.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             private float prevTranslateY;
+
             @Override
-            public void onPanelOpened(View view) {
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
                 prevTranslateY = ViewHelper.getTranslationY(quickReturnBar);
                 bridge.sendMessage("requestCurrentSection", new JSONObject());
                 ViewAnimations.ensureTranslationY(quickReturnBar, -quickReturnBar.getHeight());
             }
 
             @Override
-            public void onPanelClosed(View view) {
-                ViewAnimations.ensureTranslationY(quickReturnBar, (int)prevTranslateY);
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                ViewAnimations.ensureTranslationY(quickReturnBar, (int) prevTranslateY);
+            }
 
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
             }
         });
     }
@@ -103,31 +106,20 @@ public class ToCHandler {
             });
         }
 
-        // enable ToC slider, but only if there's more than one page section
-        this.setEnabled(page.getSections().size() > 1);
-    }
-
-    public void setEnabled(boolean enabled) {
-        //make sure we close the pane before disabling
-        if (!enabled) {
-            slidingPane.closePane();
-        }
-        slidingPane.setSlidingEnabled(enabled);
+        //enable ToC, but only if we have more than one section
+        slidingPane.setSlidingEnabled(page.getSections().size() > 1);
     }
 
     public void show() {
-        slidingPane.openPane();
+        slidingPane.openDrawer(Gravity.RIGHT);
     }
 
     public void hide() {
-        slidingPane.closePane();
+        slidingPane.closeDrawer(Gravity.RIGHT);
     }
 
     public boolean isVisible() {
-        if (!slidingPane.getSlidingEnabled()) {
-            return false;
-        }
-        return slidingPane.isOpen();
+        return slidingPane.isDrawerOpen(Gravity.RIGHT);
     }
 
     private static final class ToCAdapter extends BaseAdapter {

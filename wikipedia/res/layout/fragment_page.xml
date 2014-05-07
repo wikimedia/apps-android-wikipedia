@@ -14,15 +14,21 @@
         android:layout_height="wrap_content"
         android:indeterminate="true"
         />
-    <org.wikipedia.styledviews.DisableableSlidingPaneLayout
-            android:id="@+id/page_toc_slider"
+    <org.wikipedia.styledviews.DisableableDrawerLayout
+            android:id="@+id/page_toc_drawer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
+        <org.wikipedia.ObservableWebView
+                android:id="@+id/page_web_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                />
         <FrameLayout
                 android:layout_width="288dp"
                 android:layout_height="match_parent"
-                android:visibility="gone">
+                android:layout_gravity="end">
 
             <ListView
                     android:id="@+id/page_toc_list"
@@ -43,13 +49,7 @@
                     android:layout_gravity="center"
                     />
         </FrameLayout>
-        <org.wikipedia.ObservableWebView
-                android:id="@+id/page_web_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone"
-                />
-    </org.wikipedia.styledviews.DisableableSlidingPaneLayout>
+    </org.wikipedia.styledviews.DisableableDrawerLayout>
     <LinearLayout
             android:id="@+id/page_error"
             android:layout_width="match_parent"

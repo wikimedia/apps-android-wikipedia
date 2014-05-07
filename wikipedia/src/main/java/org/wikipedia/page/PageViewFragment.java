@@ -3,6 +3,7 @@ package org.wikipedia.page;
 import android.content.*;
 import android.os.*;
 import android.support.v4.app.*;
+import android.support.v4.widget.*;
 import android.view.*;
 import android.widget.*;
 import org.json.*;
@@ -39,7 +40,7 @@ public class PageViewFragment extends Fragment {
     private View networkError;
     private View retryButton;
     private View pageDoesNotExistError;
-    private DisableableSlidingPaneLayout tocSlider;
+    private DisableableDrawerLayout tocDrawer;
     private FrameLayout pageFragmentContainer;
 
     private Page page;
@@ -162,7 +163,9 @@ public class PageViewFragment extends Fragment {
         retryButton = getView().findViewById(R.id.page_error_retry);
         pageDoesNotExistError = getView().findViewById(R.id.page_does_not_exist);
         quickReturnBar = getActivity().findViewById(quickReturnBarId);
-        tocSlider = (DisableableSlidingPaneLayout) getView().findViewById(R.id.page_toc_slider);
+        tocDrawer = (DisableableDrawerLayout) getView().findViewById(R.id.page_toc_drawer);
+        // disable TOC drawer until the page is loaded
+        tocDrawer.setSlidingEnabled(false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             // Enable Pinch-Zoom
@@ -265,7 +268,7 @@ public class PageViewFragment extends Fragment {
         // FIXME: Move this out into a PageComplete event of sorts
         if (state == STATE_COMPLETE_FETCH) {
             if (tocHandler == null) {
-                tocHandler = new ToCHandler(tocSlider, quickReturnBar, bridge);
+                tocHandler = new ToCHandler(tocDrawer, quickReturnBar, bridge);
             }
             tocHandler.setupToC(page);
         }
@@ -316,8 +319,8 @@ public class PageViewFragment extends Fragment {
 
         @Override
         public void onCatch(Throwable caught) {
-            // in any case, make sure the TOC drawer is disabled
-            tocHandler.setEnabled(false);
+            // in any case, make sure the TOC drawer is closed and disabled
+            tocDrawer.setSlidingEnabled(false);
 
             if (caught instanceof SectionsFetchException) {
                 if (((SectionsFetchException)caught).getCode().equals("missingtitle")){
