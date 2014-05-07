@@ -73,6 +73,7 @@
   <string name="menu_create_account">Menu item title for creating an account</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.
 * {{msg-mw|Accountcreatedtext|message}}</string>
+  <string name="create_account_no_network">Message shown when the network is unavailable during account creation</string>
   <string name="user_contribs_more_action">Text shown as a button at the end of lists that let the user load more items.
 {{Identical|Load more}}</string>
   <string name="activity_my_contributions_title">Title for screen showing list of edits by current user.

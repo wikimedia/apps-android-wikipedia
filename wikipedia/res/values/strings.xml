@@ -93,6 +93,7 @@
     <string name="create_account_ip_throttle_error">Too many accounts created from this IP address. Try again later.</string>
     <string name="create_account_open_proxy_error">This IP address has been blocked from creating accounts.</string>
     <string name="create_account_generic_error">Could not create account</string>
+    <string name="create_account_no_network">No network connection</string>
     <string name="preferences_general_heading">General</string>
     <string name="zero_free_verbiage">Free Wikipedia access from your mobile operator (data charges waived)</string>
     <string name="zero_charged_verbiage">Wikipedia Zero OFF (STANDARD DATA CHARGES MAY APPLY)</string>
