@@ -13,17 +13,17 @@
   <string name="menu_clear_all_history">Limpar o historial</string>
   <string name="dialog_title_clear_history">Quere limpar o historial?</string>
   <string name="dialog_message_clear_history">Está seguro de querer limpar todo o historial?</string>
-  <string name="saved_pages_activity_title">Páxinas gardadas</string>
-  <string name="nav_item_saved_pages">Páxinas gardadas</string>
-  <string name="menu_save_page">Gardar a páxina</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Páxinas gardadas</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Páxinas gardadas</string>
+  <string name="menu_save_page" fuzzy="true">Gardar a páxina</string>
   <string name="menu_share_page">Compartir</string>
   <string name="share_via">Compartir a través de...</string>
-  <string name="dialog_title_clear_saved_pages">Quere limpar as páxinas gardadas?</string>
-  <string name="toast_saving_page">Gardando a páxina...</string>
-  <string name="toast_saved_page">Páxina gardada</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Quere limpar as páxinas gardadas?</string>
+  <string name="toast_saving_page" fuzzy="true">Gardando a páxina...</string>
+  <string name="toast_saved_page" fuzzy="true">Páxina gardada</string>
   <string name="delete_selected_saved_pages">Borrar</string>
-  <string name="toast_saved_page_deleted">Páxina(s) gardada(s) eliminada(s)</string>
-  <string name="preference_title_language">Lingua</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Páxina(s) gardada(s) eliminada(s)</string>
+  <string name="preference_title_language" fuzzy="true">Lingua</string>
   <string name="preference_summary_language">Lingua do contido</string>
   <string name="nav_item_preferences">Configuracións</string>
   <string name="preference_languages_filter_hint">Procurar</string>
@@ -42,7 +42,7 @@
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
   <string name="menu_show_toc">Táboa de contidos</string>
   <string name="search_no_results_found">Non se atopou ningún resultado</string>
-  <string name="nav_item_login">Acceda ao sistema</string>
+  <string name="nav_item_login">Acceder ao sistema</string>
   <string name="login_username_hint">Nome de usuario</string>
   <string name="login_password_hint">Contrasinal</string>
   <string name="login_password_show_check">Mostrar o contrasinal</string>
@@ -54,7 +54,6 @@
   <string name="login_success_toast">Accedeu correctamente!</string>
   <string name="login_error_blocked">Este usuario está bloqueado</string>
   <string name="nav_item_logout">Saír</string>
-  <string name="logging_out_progress">Saíndo ao anonimato...</string>
   <string name="create_account_username_hint">Nome de usuario</string>
   <string name="create_account_password_hint">Contrasinal</string>
   <string name="login_create_account_link">Crear unha conta</string>

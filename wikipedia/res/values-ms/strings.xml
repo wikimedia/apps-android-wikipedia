@@ -4,7 +4,7 @@
   <string name="yes">Ya</string>
   <string name="no">Tidak</string>
   <string name="acra_report_dialog_title">Wikipedia dah runtuh :(</string>
-  <string name="acra_report_dialog_text">Laporkan kepada Yuvi</string>
+  <string name="acra_report_dialog_text">Laporkan crash</string>
   <string name="acra_report_dialog_comment">Apakah yang anda lakukan ketika Wikipedia runtuh?</string>
   <string name="search_hint">Cari dalam Wikipedia</string>
   <string name="history_activity_title">Sejarah</string>
@@ -13,23 +13,25 @@
   <string name="search_network_error">Ralat rangkaian. Ketik untuk cuba lagi.</string>
   <string name="page_error_retry">Cuba lagi</string>
   <string name="menu_clear_all_history">Padamkan sejarah</string>
+  <string name="menu_clear_all_bookmarks">Padamkan bookmark</string>
+  <string name="page_does_not_exist_error">Laman ini tidak wujud.</string>
   <string name="dialog_title_clear_history">Padamkan sejarah?</string>
   <string name="dialog_message_clear_history">Adakah anda betul-betul mahu memadamkan kesemua sejarah?</string>
-  <string name="saved_pages_activity_title">Laman tersimpan</string>
-  <string name="nav_item_saved_pages">Laman tersimpan</string>
-  <string name="menu_save_page">Simpan laman</string>
+  <string name="saved_pages_activity_title">Bookmark</string>
+  <string name="nav_item_saved_pages">Bookmark</string>
+  <string name="menu_save_page">Bookmark</string>
   <string name="menu_share_page">Sebarkan</string>
   <string name="share_via">Sebarkan melalui</string>
-  <string name="dialog_title_clear_saved_pages">Padamkan laman-laman tersimpan?</string>
-  <string name="dialog_message_clear_saved_pages">Adakah anda betul-betul mahu memadamkan kesemua laman tersimpan?</string>
-  <string name="toast_saving_page">Menyimpan laman...</string>
-  <string name="toast_saved_page">Laman disimpan</string>
-  <string name="toast_save_page_failed">Laman gagal disimpan :(</string>
+  <string name="dialog_title_clear_saved_pages">Padamkan bookmark?</string>
+  <string name="dialog_message_clear_saved_pages">Adakah anda betul-betul mahu memadamkan semua bookmark?</string>
+  <string name="toast_saving_page">Mem-bookmark laman...</string>
+  <string name="toast_saved_page">Laman bookmark</string>
+  <string name="toast_save_page_failed">Laman gagal di-bookmark :(</string>
   <string name="delete_selected_saved_pages">Hapuskan</string>
-  <string name="toast_saved_page_deleted">Halaman tersimpan yang terhapus</string>
+  <string name="toast_saved_page_deleted">Bookmark terpadam</string>
   <string name="last_updated_text">Mutakhir: %1$s</string>
   <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
-  <string name="preference_title_language">Bahasa</string>
+  <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="preference_summary_language">Bahasa kandungan</string>
   <string name="nav_item_preferences">Tetapan</string>
   <string name="preference_languages_filter_hint">Cari</string>
@@ -68,11 +70,12 @@
   <string name="login_error_unknown">Log masuk gagal :(</string>
   <string name="login_error_no_network">Tiada sambungan rangkaian</string>
   <string name="nav_item_logout">Log keluar</string>
-  <string name="logging_out_progress">Sedang log keluar...</string>
-  <string name="saved_pages_empty_message">Tiada laman tersimpan.</string>
+  <string name="toast_logout_complete">Log keluar</string>
+  <string name="saved_pages_empty_message">Tiada bookmark.</string>
   <string name="history_empty_message">Sejarah anda kosong.</string>
   <string name="create_account_username_hint">Nama pengguna</string>
   <string name="create_account_password_hint">Kata laluan</string>
+  <string name="menu_create_account">Buka akaun</string>
   <string name="login_create_account_link">Buka akaun</string>
   <string name="create_account_activity_title">Buka akaun</string>
   <string name="edit_section_activity_title">Sunting Bahagian</string>
@@ -113,7 +116,6 @@
   <string name="nav_item_random">Rawak</string>
   <string name="random_progress">Mengambil halaman rawak...</string>
   <string name="nav_item_login_benefits">Jika anda log masuk, suntingan-suntingan anda akan dikaitkan dengan nama pengguna anda, malah alamat IP anda tidak akan diperlihatkan kepada umum.</string>
-  <string name="nav_item_tap_to_logout">Ketik untuk log keluar</string>
   <string name="create_account_account_created_toast">Akaun dicipta!</string>
   <string name="user_contribs_more_action">Muatkan yang selanjutnya</string>
   <string name="activity_my_contributions_title">Sumbangan Saya</string>
@@ -122,4 +124,7 @@
   <string name="edit_save_action_ip">Simpan secara awanama</string>
   <string name="edit_save_action_login_description">Suntingan anda akan diatribusikan secara umum kepada nama pengguna anda, supaya para penyunting lain boleh berhubung dengan anda dengan lebih lancar</string>
   <string name="edit_save_action_ip_description">Suntingan anda akan diatribusikan secara umum kepada alamat IP anda yang sering berubah-ubah</string>
+  <string name="preference_title_eventlogging_opt_in">Laporkan penggunaan</string>
+  <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>
+  <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
 </resources>

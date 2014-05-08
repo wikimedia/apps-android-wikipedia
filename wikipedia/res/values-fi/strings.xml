@@ -4,7 +4,7 @@
   <string name="yes">Kyllä</string>
   <string name="no">Ei</string>
   <string name="acra_report_dialog_title">Wikipedia kaatui :(</string>
-  <string name="acra_report_dialog_text">Lähetä Yuvi-virheilmoitus</string>
+  <string name="acra_report_dialog_text" fuzzy="true">Lähetä Yuvi-virheilmoitus</string>
   <string name="acra_report_dialog_comment">Mitä olit tekemässä kaatumishetkellä?</string>
   <string name="search_hint">Wikipedia-haku</string>
   <string name="history_activity_title">Historia</string>
@@ -15,21 +15,21 @@
   <string name="menu_clear_all_history">Tyhjennä historia</string>
   <string name="dialog_title_clear_history">Tyhjennetäänkö historia?</string>
   <string name="dialog_message_clear_history">Oletko varma, että haluat tyhjentää koko historian?</string>
-  <string name="saved_pages_activity_title">Tallennetut sivut</string>
-  <string name="nav_item_saved_pages">Tallennetut sivut</string>
-  <string name="menu_save_page">Tallenna sivu</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Tallennetut sivut</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Tallennetut sivut</string>
+  <string name="menu_save_page" fuzzy="true">Tallenna sivu</string>
   <string name="menu_share_page">Jaa</string>
   <string name="share_via">Jaa palvelulla</string>
-  <string name="dialog_title_clear_saved_pages">Tyhjennä tallennetut sivut?</string>
-  <string name="dialog_message_clear_saved_pages">Oletko varma, että haluat tyhjentää kaikki tallennetut sivut?</string>
-  <string name="toast_saving_page">Tallennetaan sivua...</string>
-  <string name="toast_saved_page">Tallennetut sivut</string>
-  <string name="toast_save_page_failed">Sivun tallentaminen epäonnistui :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Tyhjennä tallennetut sivut?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Oletko varma, että haluat tyhjentää kaikki tallennetut sivut?</string>
+  <string name="toast_saving_page" fuzzy="true">Tallennetaan sivua...</string>
+  <string name="toast_saved_page" fuzzy="true">Tallennetut sivut</string>
+  <string name="toast_save_page_failed" fuzzy="true">Sivun tallentaminen epäonnistui :(</string>
   <string name="delete_selected_saved_pages">Poista</string>
-  <string name="toast_saved_page_deleted">Tallennetut sivu(t) poistettu</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Tallennetut sivu(t) poistettu</string>
   <string name="last_updated_text">Viimeksi päivitetty %1$s</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla, ellei toisin ilmoiteta</string>
-  <string name="preference_title_language">Kieli</string>
+  <string name="preference_title_language" fuzzy="true">Kieli</string>
   <string name="preference_summary_language">Sisällön kieli</string>
   <string name="nav_item_preferences">Asetukset</string>
   <string name="preference_languages_filter_hint">Haku</string>
@@ -64,8 +64,7 @@
   <string name="login_error_unknown">Kirjautuminen epäonnistui :(</string>
   <string name="login_error_no_network">Ei verkkoyhteyttä</string>
   <string name="nav_item_logout">Kirjaudu ulos</string>
-  <string name="logging_out_progress">Kirjaudutaan ulos...</string>
-  <string name="saved_pages_empty_message">Ei tallennettuja sivuja.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Ei tallennettuja sivuja.</string>
   <string name="history_empty_message">Historiasi on tyhjä.</string>
   <string name="create_account_username_hint">Käyttäjätunnus</string>
   <string name="create_account_password_hint">Salasana</string>
@@ -95,7 +94,6 @@
   <string name="nav_item_random">Satunnainen</string>
   <string name="random_progress">Noudetaan satunnaista sivua...</string>
   <string name="nav_item_login_benefits">Jos kirjaudut sisään, muokkauksesi liitetään käyttäjätunnukseesi ja IP-osoitteesi ei näy.</string>
-  <string name="nav_item_tap_to_logout">Kirjaudu ulos näpäyttämällä</string>
   <string name="create_account_account_created_toast">Käyttäjätunnus luotu!</string>
   <string name="user_contribs_more_action">Lataa lisää</string>
   <string name="activity_my_contributions_title">Muokkaukset</string>

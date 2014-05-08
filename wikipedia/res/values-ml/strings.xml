@@ -4,7 +4,7 @@
   <string name="yes">വേണം</string>
   <string name="no">വേണ്ട</string>
   <string name="acra_report_dialog_title">വിക്കിപീഡിയയിൽ പ്രശ്നമുണ്ടായി :(</string>
-  <string name="acra_report_dialog_text">പ്രശ്നത്തെക്കുറിച്ച് യുവിയെ അറിയിക്കുക</string>
+  <string name="acra_report_dialog_text" fuzzy="true">പ്രശ്നത്തെക്കുറിച്ച് യുവിയെ അറിയിക്കുക</string>
   <string name="acra_report_dialog_comment">പ്രശ്നമുണ്ടായപ്പോൾ താങ്കൾ എന്തുചെയ്യുകയായിരുന്നു?</string>
   <string name="search_hint">വിക്കിപീഡിയയിൽ തിരയുക</string>
   <string name="history_activity_title">നാൾവഴി</string>
@@ -15,21 +15,21 @@
   <string name="menu_clear_all_history">നാൾവഴി ശൂന്യമാക്കുക</string>
   <string name="dialog_title_clear_history">ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
   <string name="dialog_message_clear_history">എല്ലാ ഹിസ്റ്ററിയും ശൂന്യമാക്കണമെന്ന് താങ്കൾക്ക് ഉറപ്പാണോ?</string>
-  <string name="saved_pages_activity_title">സേവ് ചെയ്തിട്ടുള്ള താളുകൾ</string>
-  <string name="nav_item_saved_pages">സേവ് ചെയ്തിട്ടുള്ള താളുകൾ</string>
-  <string name="menu_save_page">താൾ സേവ് ചെയ്യുക</string>
+  <string name="saved_pages_activity_title" fuzzy="true">സേവ് ചെയ്തിട്ടുള്ള താളുകൾ</string>
+  <string name="nav_item_saved_pages" fuzzy="true">സേവ് ചെയ്തിട്ടുള്ള താളുകൾ</string>
+  <string name="menu_save_page" fuzzy="true">താൾ സേവ് ചെയ്യുക</string>
   <string name="menu_share_page">പങ്ക് വെയ്ക്കുക</string>
   <string name="share_via">ഇതുവഴി പങ്ക് വെയ്ക്കുക</string>
-  <string name="dialog_title_clear_saved_pages">സേവ് ചെയ്ത താളുകൾ ഒഴിവാക്കണോ?</string>
-  <string name="dialog_message_clear_saved_pages">സേവ് ചെയ്ത എല്ലാ താളുകളും ശൂന്യമാക്കണമെന്ന് താങ്കൾക്ക് ഉറപ്പാണോ?</string>
-  <string name="toast_saving_page">താൾ സേവ് ചെയ്യുന്നു...</string>
-  <string name="toast_saved_page">താൾ സേവ് ചെയ്തു</string>
-  <string name="toast_save_page_failed">താൾ സേവ് ചെയ്യൽ പരാജയപ്പെട്ടു :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">സേവ് ചെയ്ത താളുകൾ ഒഴിവാക്കണോ?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">സേവ് ചെയ്ത എല്ലാ താളുകളും ശൂന്യമാക്കണമെന്ന് താങ്കൾക്ക് ഉറപ്പാണോ?</string>
+  <string name="toast_saving_page" fuzzy="true">താൾ സേവ് ചെയ്യുന്നു...</string>
+  <string name="toast_saved_page" fuzzy="true">താൾ സേവ് ചെയ്തു</string>
+  <string name="toast_save_page_failed" fuzzy="true">താൾ സേവ് ചെയ്യൽ പരാജയപ്പെട്ടു :(</string>
   <string name="delete_selected_saved_pages">മായ്ക്കുക</string>
-  <string name="toast_saved_page_deleted">സേവ് ചെയ്ത താൾ (താളുകൾ) മായ്ച്ചു</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">സേവ് ചെയ്ത താൾ (താളുകൾ) മായ്ച്ചു</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %1$s</string>
   <string name="content_license_html">മറ്റുവിധത്തിൽ കുറിച്ചിട്ടില്ലെങ്കിൽ ഉള്ളടക്കം &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം</string>
-  <string name="preference_title_language">ഭാഷ</string>
+  <string name="preference_title_language" fuzzy="true">ഭാഷ</string>
   <string name="preference_summary_language">ഉള്ളടക്കത്തിന്റെ ഭാഷ</string>
   <string name="nav_item_preferences">സജ്ജീകരണങ്ങൾ</string>
   <string name="preference_languages_filter_hint">തിരയുക</string>
@@ -68,8 +68,7 @@
   <string name="login_error_unknown">പ്രവേശനം പരാജയപ്പെട്ടു :(</string>
   <string name="login_error_no_network">നെറ്റ്‌വർക്ക് ബന്ധം ഇല്ല</string>
   <string name="nav_item_logout">ലോഗൗട്ട്</string>
-  <string name="logging_out_progress">ലോഗൗട്ട് ചെയ്യുന്നു...</string>
-  <string name="saved_pages_empty_message">താളുകളൊന്നും സേവ് ചെയ്തിട്ടില്ല.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">താളുകളൊന്നും സേവ് ചെയ്തിട്ടില്ല.</string>
   <string name="history_empty_message">താങ്കളുടെ ഹിസ്റ്ററി ശൂന്യമാണ്.</string>
   <string name="create_account_username_hint">ഉപയോക്തൃനാമം</string>
   <string name="create_account_password_hint">രഹസ്യവാക്ക്</string>
@@ -108,7 +107,6 @@
   <string name="nav_item_random">ക്രമരഹിതം</string>
   <string name="random_progress">ഏതെങ്കിലും ഒരു താൾ എടുക്കുന്നു...</string>
   <string name="nav_item_login_benefits">താങ്കൾ പ്രവേശിക്കുകയാണെങ്കിൽ, താങ്കളുടെ തിരുത്തുകൾ താങ്കളുടെ ഉപയോക്തൃനാമവുമായി ബന്ധപ്പെടുത്തിയാവും അടയാളപ്പെടുത്തുക, അപ്പോൾ താങ്കളുടെ ഐ.പി. വിലാസം പൊതുജനങ്ങൾക്ക് കാണാൻ കഴിയുകയുമില്ല.</string>
-  <string name="nav_item_tap_to_logout">ലോഗൗട്ട് ചെയ്യാൻ ടാപ് ചെയ്യുക</string>
   <string name="create_account_account_created_toast">അംഗത്വം സൃഷ്ടിച്ചിരിക്കുന്നു!</string>
   <string name="user_contribs_more_action">കൂടുതൽ എടുക്കുക</string>
   <string name="activity_my_contributions_title">എന്റെ സം‌ഭാവനകൾ</string>

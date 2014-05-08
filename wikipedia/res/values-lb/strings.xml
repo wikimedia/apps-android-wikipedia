@@ -4,27 +4,28 @@
   <string name="yes">Jo</string>
   <string name="no">Neen</string>
   <string name="acra_report_dialog_title">Wikipedia ass ofgestierzt :(</string>
-  <string name="acra_report_dialog_text">Dem Yuvi e Rapport iwwer de Crash schécken</string>
+  <string name="acra_report_dialog_text">Schéckt eis e Rapport iwwer de Crash</string>
   <string name="acra_report_dialog_comment">Wat hutt Dir gemaach wéi de Crash geschitt ass?</string>
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="history_activity_title">Versiounen</string>
   <string name="nav_item_history">Versiounen</string>
   <string name="error_network_error">De Reseau gouf net fonnt :(</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
+  <string name="page_does_not_exist_error">Dës Säit gëtt et net.</string>
   <string name="dialog_title_clear_history">Historique läschen?</string>
-  <string name="saved_pages_activity_title">Gespäichert Säiten</string>
-  <string name="nav_item_saved_pages">Gespäichert Säiten</string>
-  <string name="menu_save_page">Säit späicheren</string>
+  <string name="saved_pages_activity_title">Lieszeechen</string>
+  <string name="nav_item_saved_pages">Lieszeechen</string>
+  <string name="menu_save_page">Lieszeechen</string>
   <string name="menu_share_page">Deelen</string>
-  <string name="dialog_title_clear_saved_pages">Gespäichert Säiten eidelmaachen?</string>
-  <string name="dialog_message_clear_saved_pages">Sidd Dir sécher datt Dir all gespäichert Säite läsche wëllt?</string>
-  <string name="toast_saving_page">Späichere vun der Säit...</string>
-  <string name="toast_saved_page">Gespäichert Säit</string>
-  <string name="toast_save_page_failed">D\'Späichere vun der Säit huet net funktionéiert :(</string>
+  <string name="dialog_title_clear_saved_pages">Lieszeeche läschen?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Sidd Dir sécher datt Dir all gespäichert Säite läsche wëllt?</string>
+  <string name="toast_saving_page" fuzzy="true">Späichere vun der Säit...</string>
+  <string name="toast_saved_page" fuzzy="true">Gespäichert Säit</string>
+  <string name="toast_save_page_failed" fuzzy="true">D\'Späichere vun der Säit huet net funktionéiert :(</string>
   <string name="delete_selected_saved_pages">Läschen</string>
-  <string name="toast_saved_page_deleted">Gespäichert Säit(e) geläscht</string>
+  <string name="toast_saved_page_deleted">Lieszeeche geläscht</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>
-  <string name="preference_title_language">Sprooch</string>
+  <string name="preference_title_language">Wikipedia-Sprooch</string>
   <string name="preference_summary_language">Sprooch vum Inhalt</string>
   <string name="nav_item_preferences">Astellungen</string>
   <string name="preference_languages_filter_hint">Sichen</string>
@@ -46,6 +47,7 @@
   <string name="edit_section_captcha_hint">D\'Wierder hei driwwer widderhuelen</string>
   <string name="title_captcha">Captcha aginn</string>
   <string name="edit_section_abusefilter_back_text">Ännerungen u menger Ännerung maachen</string>
+  <string name="edit_section_captcha_reload">CAPTCHA antippe fir nei ze lueden</string>
   <string name="nav_item_login">Aloggen</string>
   <string name="login_username_hint">Benotzernumm</string>
   <string name="login_password_hint">Passwuert</string>
@@ -60,8 +62,8 @@
   <string name="login_error_unknown">Aloggen huet net funktionéiert :(</string>
   <string name="login_error_no_network">Keng Verbindung mam Reseau</string>
   <string name="nav_item_logout">Ausloggen</string>
-  <string name="logging_out_progress">Ausloggen...</string>
-  <string name="saved_pages_empty_message">Keng gespäichert Säiten.</string>
+  <string name="toast_logout_complete">Ausgeloggt</string>
+  <string name="saved_pages_empty_message">Keng Lieszeechen</string>
   <string name="history_empty_message">Ären Historique ass eidel.</string>
   <string name="create_account_username_hint">Benotzernumm</string>
   <string name="create_account_password_hint">Passwuert</string>
@@ -104,4 +106,5 @@
   <string name="nav_item_my_contributions">Meng Kontributiounen</string>
   <string name="edit_save_action_login">Aloggen a späicheren</string>
   <string name="edit_save_action_ip">Anonym späicheren</string>
+  <string name="preference_title_eventlogging_opt_in">Rapporten iwwer d\'Benotze schécken</string>
 </resources>

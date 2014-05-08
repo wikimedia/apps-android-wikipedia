@@ -4,7 +4,7 @@
   <string name="yes">Oui</string>
   <string name="no">Non</string>
   <string name="acra_report_dialog_title">Wikipédia s’est planté :(</string>
-  <string name="acra_report_dialog_text">Envoyer un rapport de plantage à Yuvi</string>
+  <string name="acra_report_dialog_text">Nous envoyer un rapport de plantage</string>
   <string name="acra_report_dialog_comment">Que faisiez-vous lorsque le plantage s’est produit ?</string>
   <string name="search_hint">Rechercher dans Wikipédia</string>
   <string name="history_activity_title">Historique</string>
@@ -13,23 +13,25 @@
   <string name="search_network_error">Erreur de réseau. Appuyez pour réessayer.</string>
   <string name="page_error_retry">Réessayer</string>
   <string name="menu_clear_all_history">Effacer l’historique</string>
+  <string name="menu_clear_all_bookmarks">Effacer les signets</string>
+  <string name="page_does_not_exist_error">Cette page n’existe pas.</string>
   <string name="dialog_title_clear_history">Effacer l’historique ?</string>
   <string name="dialog_message_clear_history">Êtes-vous sûr de vouloir effacer tout l’historique ?</string>
-  <string name="saved_pages_activity_title">Pages enregistrées</string>
-  <string name="nav_item_saved_pages">Pages enregistrées</string>
-  <string name="menu_save_page">Enregistrer la page</string>
+  <string name="saved_pages_activity_title">Signets</string>
+  <string name="nav_item_saved_pages">Signets</string>
+  <string name="menu_save_page">Enregistrer comme signet</string>
   <string name="menu_share_page">Partager</string>
   <string name="share_via">Partager via</string>
-  <string name="dialog_title_clear_saved_pages">Effacer les pages enregistrées ?</string>
-  <string name="dialog_message_clear_saved_pages">Êtes-vous sûr de vouloir effacer toutes les pages enregistrées ?</string>
-  <string name="toast_saving_page">Enregistrement de la page…</string>
-  <string name="toast_saved_page">Page enregistrée</string>
-  <string name="toast_save_page_failed">L’enregistrement de la page a échoué :(</string>
+  <string name="dialog_title_clear_saved_pages">Effacer les signets ?</string>
+  <string name="dialog_message_clear_saved_pages">Êtes-vous sûr de vouloir effacer tous les signets ?</string>
+  <string name="toast_saving_page">Marquage de la page en signet…</string>
+  <string name="toast_saved_page">Page mise en signet</string>
+  <string name="toast_save_page_failed">Le marquage de la page comme signet a échoué :(</string>
   <string name="delete_selected_saved_pages">Supprimer</string>
-  <string name="toast_saved_page_deleted">Page(s) enregistrée(s) supprimée(s)</string>
+  <string name="toast_saved_page_deleted">Signet(s) supprimé(s)</string>
   <string name="last_updated_text">Dernière modification le %1$s</string>
   <string name="content_license_html">Le contenu est disponible sous &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
-  <string name="preference_title_language">Langue</string>
+  <string name="preference_title_language">Langue de Wikipédia</string>
   <string name="preference_summary_language">Langue du contenu</string>
   <string name="nav_item_preferences">Paramètres</string>
   <string name="preference_languages_filter_hint">Rechercher</string>
@@ -68,11 +70,12 @@
   <string name="login_error_unknown">Échec de la connexion :(</string>
   <string name="login_error_no_network">Pas de connexion au réseau</string>
   <string name="nav_item_logout">Déconnexion</string>
-  <string name="logging_out_progress">Déconnexion en cours…</string>
-  <string name="saved_pages_empty_message">Aucune page enregistrée.</string>
+  <string name="toast_logout_complete">Déconnecté</string>
+  <string name="saved_pages_empty_message">Aucun signet</string>
   <string name="history_empty_message">Votre historique est vide.</string>
   <string name="create_account_username_hint">Nom d’utilisateur</string>
   <string name="create_account_password_hint">Mot de passe</string>
+  <string name="menu_create_account">Créer un compte</string>
   <string name="login_create_account_link">Créer un compte</string>
   <string name="create_account_activity_title">Créer un compte</string>
   <string name="edit_section_activity_title">Modifier la section</string>
@@ -113,7 +116,6 @@
   <string name="nav_item_random">Aléatoire</string>
   <string name="random_progress">Extraction d’une page au hasard…</string>
   <string name="nav_item_login_benefits">Si vous vous connectez, vos modifications seront associées avec votre nom d’utilisateur et votre adresse IP ne sera pas visible publiquement.</string>
-  <string name="nav_item_tap_to_logout">Appuyez pour vous deconnecter</string>
   <string name="create_account_account_created_toast">Compte créé !</string>
   <string name="user_contribs_more_action">En savoir plus</string>
   <string name="activity_my_contributions_title">Mes contributions</string>
@@ -122,4 +124,7 @@
   <string name="edit_save_action_ip">Enregistrer anonymement</string>
   <string name="edit_save_action_login_description">Vos modifications seront publiquement attribuées à votre nom d’utilisateur et d’autres éditeurs pourront mieux se mettre en contact avec vous</string>
   <string name="edit_save_action_ip_description">Vos modifications seront attribuées publiquement à votre adresse IP, qui change régulièrement</string>
+  <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
+  <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
+  <string name="editing_error_spamblacklist">Liens depuis des domaines bloqués (%s) détectés. Veuillez les supprimer et réessayer.</string>
 </resources>

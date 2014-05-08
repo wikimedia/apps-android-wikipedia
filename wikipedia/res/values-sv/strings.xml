@@ -4,7 +4,7 @@
   <string name="yes">Ja</string>
   <string name="no">Nej</string>
   <string name="acra_report_dialog_title">Wikipedia kraschade :(</string>
-  <string name="acra_report_dialog_text">Skicka en kraschrapport till Yuvi</string>
+  <string name="acra_report_dialog_text">Skicka en kraschrapport till oss</string>
   <string name="acra_report_dialog_comment">Vad gjorde du när kraschen inträffade?</string>
   <string name="search_hint">Sök på Wikipedia</string>
   <string name="history_activity_title">Historik</string>
@@ -13,23 +13,25 @@
   <string name="search_network_error">Nätverksfel. Tryck för att försöka igen.</string>
   <string name="page_error_retry">Försök igen</string>
   <string name="menu_clear_all_history">Rensa historik</string>
+  <string name="menu_clear_all_bookmarks">Rensa bokmärken</string>
+  <string name="page_does_not_exist_error">Denna sidan finns inte.</string>
   <string name="dialog_title_clear_history">Rensa historik?</string>
   <string name="dialog_message_clear_history">Är du säker på att du vill rensa bort all historik?</string>
-  <string name="saved_pages_activity_title">Sparade sidor</string>
-  <string name="nav_item_saved_pages">Sparade sidor</string>
-  <string name="menu_save_page">Spara sida</string>
+  <string name="saved_pages_activity_title">Bokmärken</string>
+  <string name="nav_item_saved_pages">Bokmärken</string>
+  <string name="menu_save_page">Skapa bokmärke</string>
   <string name="menu_share_page">Dela</string>
   <string name="share_via">Dela via</string>
-  <string name="dialog_title_clear_saved_pages">Rensa sparade sidor?</string>
-  <string name="dialog_message_clear_saved_pages">Är du säker på att du vill rensa alla sparade sidor?</string>
-  <string name="toast_saving_page">Sparar sida...</string>
-  <string name="toast_saved_page">Sidan sparades</string>
-  <string name="toast_save_page_failed">Sidan kunde inte sparas :(</string>
+  <string name="dialog_title_clear_saved_pages">Rensa bokmärken?</string>
+  <string name="dialog_message_clear_saved_pages">Är du säker på att du vill rensa alla bokmärken?</string>
+  <string name="toast_saving_page">Skapar bokmärke...</string>
+  <string name="toast_saved_page">Bokmärke till sidan skapades</string>
+  <string name="toast_save_page_failed">Bokmärket kunde inte skapas :(</string>
   <string name="delete_selected_saved_pages">Radera</string>
-  <string name="toast_saved_page_deleted">Sparade sidor raderades</string>
+  <string name="toast_saved_page_deleted">Bokmärkena raderades</string>
   <string name="last_updated_text">Senast uppdaterad $1$s</string>
   <string name="content_license_html">Innehållet är tillgängligt under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
-  <string name="preference_title_language">Språk</string>
+  <string name="preference_title_language">Wikipediaspråk</string>
   <string name="preference_summary_language">Innehållsspråk</string>
   <string name="nav_item_preferences">Inställningar</string>
   <string name="preference_languages_filter_hint">Sök</string>
@@ -68,11 +70,12 @@
   <string name="login_error_unknown">Inloggningen misslyckades :(</string>
   <string name="login_error_no_network">Ingen nätverksanslutning</string>
   <string name="nav_item_logout">Logga ut</string>
-  <string name="logging_out_progress">Loggar ut...</string>
-  <string name="saved_pages_empty_message">Inga sparade sidor.</string>
+  <string name="toast_logout_complete">Utloggad</string>
+  <string name="saved_pages_empty_message">Inga bokmärken</string>
   <string name="history_empty_message">Din historik är tom.</string>
   <string name="create_account_username_hint">Användarnamn</string>
   <string name="create_account_password_hint">Lösenord</string>
+  <string name="menu_create_account">Skapa konto</string>
   <string name="login_create_account_link">Skapa konto</string>
   <string name="create_account_activity_title">Skapa ett konto</string>
   <string name="edit_section_activity_title">Redigera avsnitt</string>
@@ -113,7 +116,6 @@
   <string name="nav_item_random">Slumpartikel</string>
   <string name="random_progress">Hämtar slumpartikel...</string>
   <string name="nav_item_login_benefits">Om du loggar in kommer dina redigeringar associeras med ditt användarnamn och din IP-adress kommer inte att visas offentligt.</string>
-  <string name="nav_item_tap_to_logout">Tryck för att logga ut</string>
   <string name="create_account_account_created_toast">Konto har skapats!</string>
   <string name="user_contribs_more_action">Läs in fler</string>
   <string name="activity_my_contributions_title">Mina bidrag</string>
@@ -122,4 +124,7 @@
   <string name="edit_save_action_ip">Spara anonymt</string>
   <string name="edit_save_action_login_description">Dina ändringar kommer att offentligt tillskrivas ditt användarnamn och andra redigerare kan ansluta sig till dig bättre</string>
   <string name="edit_save_action_ip_description">Dina ändringar kommer att offentligt tillskrivas din IP-adress, som ändras regelbundet</string>
+  <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
+  <string name="preference_summary_eventlogging_opt_in">Tillåta Wikimedia att samla in information om hur du använder appen för att göra den bättre</string>
+  <string name="editing_error_spamblacklist">Länkar från blokerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
 </resources>

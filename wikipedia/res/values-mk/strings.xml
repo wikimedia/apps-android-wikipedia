@@ -4,7 +4,7 @@
   <string name="yes">Да</string>
   <string name="no">Не</string>
   <string name="acra_report_dialog_title">Википедија се урна :(</string>
-  <string name="acra_report_dialog_text">Испрати извештај за паѓањето на Yuvi</string>
+  <string name="acra_report_dialog_text">Испратете ни извештај за уривање</string>
   <string name="acra_report_dialog_comment">Што правевте кога се случи урнувањето?</string>
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="history_activity_title">Историја</string>
@@ -13,23 +13,25 @@
   <string name="search_network_error">Мрежна грешка. Допрете за да се обиде повторно.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="menu_clear_all_history">Исчисти историја</string>
+  <string name="menu_clear_all_bookmarks">Исчисти одбележани</string>
+  <string name="page_does_not_exist_error">Страницата не постои.</string>
   <string name="dialog_title_clear_history">Да ја исчистам историјата?</string>
   <string name="dialog_message_clear_history">Дали сте сигурни дека сакате да ја исчистите сета историја?</string>
-  <string name="saved_pages_activity_title">Зачувани страници</string>
-  <string name="nav_item_saved_pages">Зачувани страници</string>
-  <string name="menu_save_page">Зачувај</string>
+  <string name="saved_pages_activity_title">Одбележани</string>
+  <string name="nav_item_saved_pages">Одбележани</string>
+  <string name="menu_save_page">Одбележи</string>
   <string name="menu_share_page">Сподели</string>
   <string name="share_via">Сподели преку</string>
-  <string name="dialog_title_clear_saved_pages">Да ги исчистам зачуваните страници?</string>
-  <string name="dialog_message_clear_saved_pages">Дали сте сигурни дека сакате да ги исчистите сите зачувани страници?</string>
-  <string name="toast_saving_page">Ја зачувувам страницата...</string>
-  <string name="toast_saved_page">Зачувана страница</string>
-  <string name="toast_save_page_failed">Не успеа зачувувањето на страницата  :(</string>
+  <string name="dialog_title_clear_saved_pages">Да ги исчистам одбележаните?</string>
+  <string name="dialog_message_clear_saved_pages">Дали сте сигурни дека сакате да ги исчистите сите одбележани?</string>
+  <string name="toast_saving_page">Ја одбележувам страницата...</string>
+  <string name="toast_saved_page">Одбележана страница</string>
+  <string name="toast_save_page_failed">Не успеа одбележувањето на страницата  :(</string>
   <string name="delete_selected_saved_pages">Избриши</string>
-  <string name="toast_saved_page_deleted">Зачуваните страници се избришани</string>
+  <string name="toast_saved_page_deleted">Одбележувачите се избришани</string>
   <string name="last_updated_text">Последен пат изменето на %1$s</string>
   <string name="content_license_html">Содржината е достапна под &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
-  <string name="preference_title_language">Јазик</string>
+  <string name="preference_title_language">Јазик на Википедија</string>
   <string name="preference_summary_language">Јазик на содржината</string>
   <string name="nav_item_preferences">Нагодувања</string>
   <string name="preference_languages_filter_hint">Пребарајте</string>
@@ -68,11 +70,12 @@
   <string name="login_error_unknown">Најавата не успеа :(</string>
   <string name="login_error_no_network">Немате врска со мрежата</string>
   <string name="nav_item_logout">Одјава</string>
-  <string name="logging_out_progress">Ве одјавувам...</string>
-  <string name="saved_pages_empty_message">Нема зачувани страници.</string>
+  <string name="toast_logout_complete">Одјавени сте</string>
+  <string name="saved_pages_empty_message">Нема одбележани.</string>
   <string name="history_empty_message">Вашата историја е празна.</string>
   <string name="create_account_username_hint">Корисничко име</string>
   <string name="create_account_password_hint">Лозинка</string>
+  <string name="menu_create_account">Направи сметка</string>
   <string name="login_create_account_link">Направи сметка</string>
   <string name="create_account_activity_title">Направи кориничка сметка</string>
   <string name="edit_section_activity_title">Уреди поднаслов</string>
@@ -113,7 +116,6 @@
   <string name="nav_item_random">Случајна</string>
   <string name="random_progress">Повикувам случајна страница...</string>
   <string name="nav_item_login_benefits">Ако се најавите, Вашите уредувања ќе Ви се припишуваат Вам, т.е. на Вашето корисничко име. IP-адресата нема да биде видлива.</string>
-  <string name="nav_item_tap_to_logout">Допрете за да се одјавите</string>
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
   <string name="user_contribs_more_action">Вчитај уште</string>
   <string name="activity_my_contributions_title">Мои придонеси</string>
@@ -122,4 +124,7 @@
   <string name="edit_save_action_ip">Зачувај анонимно</string>
   <string name="edit_save_action_login_description">Вашите уредувања ќе му бидат јавно припишани на Вашето корисничко име, и така другите уредници ќе можат полесно да се поврзат со Вас</string>
   <string name="edit_save_action_ip_description">Вашите уредувања ќе ѝ бидат јавно припишани на Вашата IP-адреса, која често се менува</string>
+  <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
+  <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите прилогот, за да може да го подобри</string>
+  <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
 </resources>

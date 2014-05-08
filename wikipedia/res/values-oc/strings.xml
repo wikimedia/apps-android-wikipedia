@@ -4,7 +4,7 @@
   <string name="yes">Òc</string>
   <string name="no">Non</string>
   <string name="acra_report_dialog_title">Wikipèdia a fracassat :(</string>
-  <string name="acra_report_dialog_text">Mandar un rapòrt de fracàs a Yuvi</string>
+  <string name="acra_report_dialog_text" fuzzy="true">Mandar un rapòrt de fracàs a Yuvi</string>
   <string name="search_hint">Recercar dins Wikipèdia</string>
   <string name="history_activity_title">Istoric</string>
   <string name="nav_item_history">Istoric</string>
@@ -12,18 +12,18 @@
   <string name="page_error_retry">Ensajar tornarmai</string>
   <string name="menu_clear_all_history">Voidar l\'istoric</string>
   <string name="dialog_title_clear_history">Voidar l\'istoric ?</string>
-  <string name="saved_pages_activity_title">Paginas salvadas</string>
-  <string name="nav_item_saved_pages">Paginas salvadas</string>
-  <string name="menu_save_page">Salvar la pagina</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Paginas salvadas</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Paginas salvadas</string>
+  <string name="menu_save_page" fuzzy="true">Salvar la pagina</string>
   <string name="menu_share_page">Partejar</string>
-  <string name="dialog_title_clear_saved_pages">Escafar las paginas enregistradas ?</string>
-  <string name="toast_saving_page">Enregistrament de la pagina…</string>
-  <string name="toast_saved_page">Pagina salvada</string>
-  <string name="toast_save_page_failed">L’enregistrament de la pagina a fracassat :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Escafar las paginas enregistradas ?</string>
+  <string name="toast_saving_page" fuzzy="true">Enregistrament de la pagina…</string>
+  <string name="toast_saved_page" fuzzy="true">Pagina salvada</string>
+  <string name="toast_save_page_failed" fuzzy="true">L’enregistrament de la pagina a fracassat :(</string>
   <string name="delete_selected_saved_pages">Suprimir</string>
-  <string name="toast_saved_page_deleted">Pagina(s) enregistrada(s) suprimida(s)</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Pagina(s) enregistrada(s) suprimida(s)</string>
   <string name="last_updated_text">Darrièra modificacion lo %1$s</string>
-  <string name="preference_title_language">Lenga</string>
+  <string name="preference_title_language" fuzzy="true">Lenga</string>
   <string name="preference_summary_language">Lenga del contengut</string>
   <string name="nav_item_preferences">Paramètres</string>
   <string name="preference_languages_filter_hint">Recercar</string>
@@ -55,8 +55,7 @@
   <string name="login_error_unknown">Fracàs de la connexion :(</string>
   <string name="login_error_no_network">Pas de connexion a la ret</string>
   <string name="nav_item_logout">Desconnexion</string>
-  <string name="logging_out_progress">Desconnexion en cors…</string>
-  <string name="saved_pages_empty_message">Cap de pagina pas enregistrada.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Cap de pagina pas enregistrada.</string>
   <string name="history_empty_message">Vòstre istoric es void.</string>
   <string name="create_account_username_hint">Nom d\'utilizaire</string>
   <string name="create_account_password_hint">Senhal</string>

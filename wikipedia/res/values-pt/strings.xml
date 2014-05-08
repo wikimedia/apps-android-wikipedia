@@ -13,16 +13,16 @@
   <string name="menu_clear_all_history">Limpar histórico</string>
   <string name="dialog_title_clear_history">Limpar histórico?</string>
   <string name="dialog_message_clear_history">Tens a certeza que queres remover todo o histórico?</string>
-  <string name="saved_pages_activity_title">Páginas gravadas</string>
-  <string name="nav_item_saved_pages">Páginas gravadas</string>
-  <string name="menu_save_page">Gravar página</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Páginas gravadas</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Páginas gravadas</string>
+  <string name="menu_save_page" fuzzy="true">Gravar página</string>
   <string name="menu_share_page">Partilhar</string>
-  <string name="toast_saving_page">Guardando página...</string>
-  <string name="toast_saved_page">Página gravada</string>
-  <string name="toast_save_page_failed">Gravação da página falhou :(</string>
+  <string name="toast_saving_page" fuzzy="true">Guardando página...</string>
+  <string name="toast_saved_page" fuzzy="true">Página gravada</string>
+  <string name="toast_save_page_failed" fuzzy="true">Gravação da página falhou :(</string>
   <string name="delete_selected_saved_pages">Eliminar</string>
   <string name="content_license_html">O conteúdo está disponível sob &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
-  <string name="preference_title_language">Língua</string>
+  <string name="preference_title_language" fuzzy="true">Língua</string>
   <string name="preference_summary_language">Língua do conteúdo</string>
   <string name="nav_item_preferences">Configurações</string>
   <string name="preference_languages_filter_hint">Pesquisar</string>
@@ -58,7 +58,6 @@
   <string name="login_error_unknown">O início de sessão falhou :(</string>
   <string name="login_error_no_network">Nenhuma conexão de rede</string>
   <string name="nav_item_logout">Sair</string>
-  <string name="logging_out_progress">Saindo...</string>
   <string name="history_empty_message">O teu histórico está vazio.</string>
   <string name="create_account_username_hint">Nome de utilizador</string>
   <string name="create_account_password_hint">Senha</string>

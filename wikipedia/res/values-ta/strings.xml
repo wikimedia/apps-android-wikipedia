@@ -8,15 +8,15 @@
   <string name="page_error_retry">மறு முயற்சி செய்</string>
   <string name="menu_clear_all_history">வரலாற்றை நீக்கவும்</string>
   <string name="dialog_title_clear_history">வரலாற்றை நீக்கவும்</string>
-  <string name="saved_pages_activity_title">சேமிக்கப்பட்ட பக்கங்கள்</string>
-  <string name="menu_save_page">பக்கத்தைச் சேமி</string>
-  <string name="dialog_title_clear_saved_pages">சேமிக்கபட்ட பக்கங்கள் அனைத்தும் துடைக்கவா?</string>
-  <string name="toast_saving_page">பக்கம் சேமிக்கப்படுகின்றது...</string>
-  <string name="toast_saved_page">சேமிக்கப்பட்ட பக்கங்கள்</string>
-  <string name="toast_save_page_failed">பக்கத்தை சேமிப்பது தவறிவிட்டது: (</string>
+  <string name="saved_pages_activity_title" fuzzy="true">சேமிக்கப்பட்ட பக்கங்கள்</string>
+  <string name="menu_save_page" fuzzy="true">பக்கத்தைச் சேமி</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">சேமிக்கபட்ட பக்கங்கள் அனைத்தும் துடைக்கவா?</string>
+  <string name="toast_saving_page" fuzzy="true">பக்கம் சேமிக்கப்படுகின்றது...</string>
+  <string name="toast_saved_page" fuzzy="true">சேமிக்கப்பட்ட பக்கங்கள்</string>
+  <string name="toast_save_page_failed" fuzzy="true">பக்கத்தை சேமிப்பது தவறிவிட்டது: (</string>
   <string name="delete_selected_saved_pages">நீக்குக</string>
   <string name="last_updated_text">இறுதியாக புதுப்பிக்கப்பட்டது %1$s</string>
-  <string name="preference_title_language">மொழி</string>
+  <string name="preference_title_language" fuzzy="true">மொழி</string>
   <string name="preference_languages_filter_hint">தேடுக</string>
   <string name="langlinks_filter_hint">தேடுக</string>
   <string name="langlinks_error_retry">மறு முயற்சி செய்</string>
@@ -41,7 +41,6 @@
   <string name="login_error_throttled">பல முறை உள்நுழைய முயற்சிக்கப்பட்டுள்ளது. சில நிமிடங்கள் காத்திருந்தப்பின் மீண்டும் முயற்சிக்கலாமே?</string>
   <string name="login_error_unknown">புகுபதிகை தோல்வியடைந்தது</string>
   <string name="nav_item_logout">விடுபதிகை</string>
-  <string name="logging_out_progress">விடுபதிகையாகின்றது...</string>
   <string name="create_account_username_hint">பயனர் பெயர்</string>
   <string name="create_account_password_hint">கடவுச்சொல்</string>
   <string name="login_create_account_link">கணக்கு ஒன்றை உருவாக்கவும்</string>

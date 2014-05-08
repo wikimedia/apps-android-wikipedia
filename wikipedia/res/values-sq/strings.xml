@@ -9,10 +9,10 @@
   <string name="menu_clear_all_history">Fshij historikun?</string>
   <string name="dialog_title_clear_history">Fshij historikun?</string>
   <string name="dialog_message_clear_history">Jeni i sigurt se doni të fshini të gjithë historisë?</string>
-  <string name="saved_pages_activity_title">Faqet e ruajtura</string>
-  <string name="menu_save_page">Ruaj faqen</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Faqet e ruajtura</string>
+  <string name="menu_save_page" fuzzy="true">Ruaj faqen</string>
   <string name="menu_share_page">ndaj</string>
-  <string name="dialog_title_clear_saved_pages">Pastro të gjitha faqet e ruajtura</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Pastro të gjitha faqet e ruajtura</string>
   <string name="delete_selected_saved_pages">Fshij</string>
   <string name="content_license_html">Përmbajtja është nën disponim, &lt;a class=\"jashtëm\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; përveç rasteve kur tregohet ndryshe</string>
   <string name="preference_summary_language">Përmbajtja e gjuhës</string>

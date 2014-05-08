@@ -14,20 +14,20 @@
   <string name="menu_clear_all_history">امسح التاريخ</string>
   <string name="dialog_title_clear_history">مسح التاريخ؟</string>
   <string name="dialog_message_clear_history">هل أنت متأكد من أنك تريد مسح كل التاريخ؟</string>
-  <string name="saved_pages_activity_title">الصفحات المحفوظة</string>
-  <string name="nav_item_saved_pages">الصفحات المحفوظة</string>
-  <string name="menu_save_page">احفظ الصفحة</string>
+  <string name="saved_pages_activity_title" fuzzy="true">الصفحات المحفوظة</string>
+  <string name="nav_item_saved_pages" fuzzy="true">الصفحات المحفوظة</string>
+  <string name="menu_save_page" fuzzy="true">احفظ الصفحة</string>
   <string name="menu_share_page">مشاركة</string>
   <string name="share_via">مشاركة عبر</string>
-  <string name="dialog_title_clear_saved_pages">مسح كل الصفحات المحفوظة؟</string>
-  <string name="dialog_message_clear_saved_pages">هل أنت متأكد من أنك تريد مسح كل الصفحات المحفوظة؟</string>
-  <string name="toast_saving_page">يجري حفظ الصفحة...</string>
-  <string name="toast_saved_page">حُفظت الصفحة</string>
-  <string name="toast_save_page_failed">فشل حقظ الصفحة :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">مسح كل الصفحات المحفوظة؟</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">هل أنت متأكد من أنك تريد مسح كل الصفحات المحفوظة؟</string>
+  <string name="toast_saving_page" fuzzy="true">يجري حفظ الصفحة...</string>
+  <string name="toast_saved_page" fuzzy="true">حُفظت الصفحة</string>
+  <string name="toast_save_page_failed" fuzzy="true">فشل حقظ الصفحة :(</string>
   <string name="delete_selected_saved_pages">حذف</string>
-  <string name="toast_saved_page_deleted">حُذفت الصفحات المحفوظة</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">حُذفت الصفحات المحفوظة</string>
   <string name="last_updated_text">آخر تحديث %1$s</string>
-  <string name="preference_title_language">اللغة</string>
+  <string name="preference_title_language" fuzzy="true">اللغة</string>
   <string name="preference_summary_language">لغة المحتوى</string>
   <string name="nav_item_preferences">الإعدادات</string>
   <string name="preference_languages_filter_hint">بحث</string>
@@ -60,8 +60,8 @@
   <string name="login_error_unknown">تسجيل الدخول فشل :(</string>
   <string name="login_error_no_network">لا توجد شبكة اتصال</string>
   <string name="nav_item_logout">تسجيل الخروج</string>
-  <string name="logging_out_progress">يجري تسجيل خروجك...</string>
-  <string name="saved_pages_empty_message">لا توجد صفحات محفوظة.</string>
+  <string name="toast_logout_complete">تسجيل الخروج</string>
+  <string name="saved_pages_empty_message" fuzzy="true">لا توجد صفحات محفوظة.</string>
   <string name="history_empty_message">التاريخ الخاص بك فارغ.</string>
   <string name="create_account_username_hint">اسم المستخدم</string>
   <string name="create_account_password_hint">كلمة السر</string>
@@ -85,7 +85,6 @@
   <string name="edit_summary_hint">ملخص التعديل</string>
   <string name="nav_item_random">عشوائي</string>
   <string name="random_progress">جلب صفحة عشوائية...</string>
-  <string name="nav_item_tap_to_logout">اضغط لتسجيل الخروج</string>
   <string name="create_account_account_created_toast">تم إنشاء الحساب!</string>
   <string name="user_contribs_more_action">تحميل المزيد</string>
   <string name="activity_my_contributions_title">مساهماتي</string>

@@ -4,7 +4,7 @@
   <string name="yes">Có</string>
   <string name="no">Không</string>
   <string name="acra_report_dialog_title">Wikipedia đã gặp sự cố :(</string>
-  <string name="acra_report_dialog_text">Báo cáo sự cố cho Yuvi</string>
+  <string name="acra_report_dialog_text">Báo cáo sự cố cho chúng tôi</string>
   <string name="acra_report_dialog_comment">Bạn đang làm gì khi xảy ra sự cố?</string>
   <string name="search_hint">Tìm trong Wikipedia</string>
   <string name="history_activity_title">Lịch sử</string>
@@ -13,23 +13,25 @@
   <string name="search_network_error">Lỗi mạng. Chạm để thử lại.</string>
   <string name="page_error_retry">Thử lại</string>
   <string name="menu_clear_all_history">Xóa lịch sử</string>
+  <string name="menu_clear_all_bookmarks">Xóa tất cả dấu trang</string>
+  <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
   <string name="dialog_title_clear_history">Xóa lịch sử?</string>
   <string name="dialog_message_clear_history">Bạn có chắc chắn muốn xóa tất cả lịch sử?</string>
-  <string name="saved_pages_activity_title">Trang đã lưu</string>
-  <string name="nav_item_saved_pages">Trang đã lưu</string>
-  <string name="menu_save_page">Lưu trang</string>
+  <string name="saved_pages_activity_title">Dấu trang</string>
+  <string name="nav_item_saved_pages">Dấu trang</string>
+  <string name="menu_save_page">Dấu trang</string>
   <string name="menu_share_page">Chia sẻ</string>
   <string name="share_via">Chia sẻ qua</string>
-  <string name="dialog_title_clear_saved_pages">Xóa các trang đã lưu?</string>
-  <string name="dialog_message_clear_saved_pages">Bạn có chắc chắn muốn xóa tất cả các trang đã lưu?</string>
-  <string name="toast_saving_page">Đang lưu trang…</string>
-  <string name="toast_saved_page">Đã lưu trang</string>
-  <string name="toast_save_page_failed">Thất bại khi lưu trang :(</string>
+  <string name="dialog_title_clear_saved_pages">Xóa tất cả dấu trang?</string>
+  <string name="dialog_message_clear_saved_pages">Bạn có chắc chắn muốn xóa tất cả các dấu trang?</string>
+  <string name="toast_saving_page">Đang đánh dấu trang…</string>
+  <string name="toast_saved_page">Đã đánh dấu trang</string>
+  <string name="toast_save_page_failed">Thất bại khi đánh dấu trang :(</string>
   <string name="delete_selected_saved_pages">Xóa</string>
-  <string name="toast_saved_page_deleted">Đã xóa (các) trang đã lưu</string>
+  <string name="toast_saved_page_deleted">Đã xóa (các) dấu trang</string>
   <string name="last_updated_text">Cập nhật lần cuối vào %1$s</string>
   <string name="content_license_html">Nội dung được phát hành theo &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt; nếu không ghi giấy phép khác</string>
-  <string name="preference_title_language">Ngôn ngữ</string>
+  <string name="preference_title_language">Ngôn ngữ Wikipedia</string>
   <string name="preference_summary_language">Ngôn ngữ nội dung</string>
   <string name="nav_item_preferences">Tùy chọn</string>
   <string name="preference_languages_filter_hint">Tìm kiếm</string>
@@ -68,11 +70,12 @@
   <string name="login_error_unknown">Thất bại khi đăng nhập :(</string>
   <string name="login_error_no_network">Không có kết nối mạng</string>
   <string name="nav_item_logout">Đăng xuất</string>
-  <string name="logging_out_progress">Đang đăng xuất…</string>
-  <string name="saved_pages_empty_message">Không có trang đã lưu.</string>
+  <string name="toast_logout_complete">Đã đăng xuất</string>
+  <string name="saved_pages_empty_message">Không có dấu trang</string>
   <string name="history_empty_message">Lịch sử của bạn còn trống.</string>
   <string name="create_account_username_hint">Tên người dùng</string>
   <string name="create_account_password_hint">Mật khẩu</string>
+  <string name="menu_create_account">Mở tài khoản</string>
   <string name="login_create_account_link">Mở tài khoản</string>
   <string name="create_account_activity_title">Mở tài khoản</string>
   <string name="edit_section_activity_title">Sửa đổi phần</string>
@@ -113,7 +116,6 @@
   <string name="nav_item_random">Ngẫu nhiên</string>
   <string name="random_progress">Đang lấy trang ngẫu nhiên…</string>
   <string name="nav_item_login_benefits">Nếu bạn đăng nhập, các sửa đổi của bạn sẽ ghi nhận tên người dùng của bạn và địa chỉ IP sẽ không được hiển thị công khai.</string>
-  <string name="nav_item_tap_to_logout">Chạm để đăng xuất</string>
   <string name="create_account_account_created_toast">Đã mở tài khoản thành công!</string>
   <string name="user_contribs_more_action">Tải thêm</string>
   <string name="activity_my_contributions_title">Đóng góp của Tôi</string>
@@ -122,4 +124,7 @@
   <string name="edit_save_action_ip">Lưu vô danh</string>
   <string name="edit_save_action_login_description">Các sửa đổi của bạn sẽ được ghi công với tên người dùng của bạn một cách công khai để cho những người sửa đổi khác có thể liên lạc với bạn</string>
   <string name="edit_save_action_ip_description">Các sửa đổi của bạn sẽ được ghi công với địa chỉ IP của bạn, địa chỉ này thay đổi thường xuyên</string>
+  <string name="preference_title_eventlogging_opt_in">Gửi báo cáo sử dụng</string>
+  <string name="preference_summary_eventlogging_opt_in">Cho phép Wikimedia thu thập thông tin về cách bạn sử dụng ứng dụng để giúp cải thiện ứng dụng</string>
+  <string name="editing_error_spamblacklist">Đã chặn các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
 </resources>

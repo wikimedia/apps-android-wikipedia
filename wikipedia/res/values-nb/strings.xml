@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Wikipedia</string>
+  <string name="yes">Ja</string>
+  <string name="no">Nei</string>
+  <string name="acra_report_dialog_title">Wikipedia kræsjet :(</string>
+  <string name="acra_report_dialog_text">Send oss en kræsjrapport</string>
+  <string name="acra_report_dialog_comment">Hva gjorde du da kræsjet skjedde?</string>
+  <string name="search_hint">Søk i Wikipedia</string>
+  <string name="history_activity_title">Historikk</string>
+  <string name="nav_item_history">Historikk</string>
+  <string name="error_network_error">Kunne ikke nå nettverket :(</string>
+  <string name="search_network_error">Nettverksfeil. Trykk for å prøve igjen.</string>
+  <string name="page_error_retry">Prøv igjen</string>
+  <string name="menu_clear_all_history">Tøm historikk</string>
+  <string name="dialog_title_clear_history">Tøm logg?</string>
+  <string name="dialog_message_clear_history">Er du sikker på at du vil tømme hele loggen?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Lagrede sider</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Lagrede sider</string>
+  <string name="menu_save_page" fuzzy="true">Lagre side</string>
+  <string name="menu_share_page">Del</string>
+  <string name="share_via">Del via</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Fjern lagrede sider?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Er du sikker på at du vil fjerne alle lagrede sider?</string>
+  <string name="toast_saving_page" fuzzy="true">Lagrer side…</string>
+  <string name="toast_saved_page" fuzzy="true">Siden ble lagret</string>
+  <string name="toast_save_page_failed" fuzzy="true">Lagring av siden feilet :(</string>
+  <string name="delete_selected_saved_pages">Slett</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Siden(e) ble slettet</string>
+  <string name="last_updated_text">Sist oppdatert %1$s</string>
+  <string name="content_license_html">Innholdet er tilgjengelig under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om ikke annet er angitt</string>
+  <string name="preference_title_language" fuzzy="true">Språk</string>
+  <string name="preference_summary_language">Innholdsspråk</string>
+  <string name="nav_item_preferences">Innstillinger</string>
+  <string name="preference_languages_filter_hint">Søk</string>
+  <string name="langlinks_filter_hint">Søk</string>
+  <string name="menu_other_languages">Andre språk</string>
+  <string name="langlinks_error_retry">Prøv igjen</string>
+  <string name="langlinks_empty">Denne artikkelen er ikke tilgjengelig på andre språk</string>
+  <string name="settings_activity_title">Innstillinger</string>
+  <string name="langlinks_activity_title">Andre språk</string>
+  <string name="editsection_activity_title">Rediger avsnitt</string>
+  <string name="edit_section_error_retry">Prøv igjen</string>
+  <string name="dialog_saving_in_progress">Lagrer…</string>
+  <string name="edit_saved_successfully">Redigering lagret!</string>
+  <string name="dialog_message_edit_failed">Redigering feilet!</string>
+  <string name="dialog_message_edit_failed_retry">Prøv igjen</string>
+  <string name="dialog_message_edit_failed_cancel">Avbryt</string>
+  <string name="menu_show_toc">Innholdsfortegnelse</string>
+  <string name="search_no_results_found">Ingen resultater ble funnet</string>
+  <string name="edit_section_captcha_message">For å beskytte mot automatisk spam, vær vennlig å skrive inn ordene som vises under</string>
+  <string name="edit_section_captcha_hint">Gjenta ordene ovenfor</string>
+  <string name="title_captcha">Fyll inn captcha</string>
+  <string name="edit_section_abusefilter_back_text">Gjør endringer i min redigering</string>
+  <string name="edit_section_captcha_reload">Trykk på CAPTCHA for å laste inn på nytt</string>
+  <string name="nav_item_login">Logg inn</string>
+  <string name="login_username_hint">Brukernavn</string>
+  <string name="login_password_hint">Passord</string>
+  <string name="login_password_show_check">Vis passord</string>
+  <string name="menu_login">Logg inn</string>
+  <string name="login_activity_title">Logg inn på Wikipedia</string>
+  <string name="login_in_progress_dialog_message">Logger deg inn…</string>
+  <string name="login_error_wrong_password">Feil passord</string>
+  <string name="login_error_wrong_username">Feil brukernavn</string>
+  <string name="login_success_toast">Innlogging vellykket!</string>
+  <string name="login_error_blocked">Brukeren har blitt blokkert</string>
+  <string name="login_error_throttled">For mange innloggingsforsøk. Vent et par minutter og prøv igjen.</string>
+  <string name="login_error_unknown">Innlogging feilet :(</string>
+  <string name="login_error_no_network">Ingen nettverksforbindelse</string>
+  <string name="nav_item_logout">Logg ut</string>
+  <string name="toast_logout_complete">Logget ut</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Ingen lagrede sider.</string>
+  <string name="history_empty_message">Loggen din er tom.</string>
+  <string name="create_account_username_hint">Brukernavn</string>
+  <string name="create_account_password_hint">Passord</string>
+  <string name="login_create_account_link">Opprett konto</string>
+  <string name="create_account_activity_title">Opprett en konto</string>
+  <string name="edit_section_activity_title">Rediger avsnitt</string>
+  <string name="dialog_create_account_checking_progress">Verifiserer</string>
+  <string name="create_account_email_hint">Epost (valgfritt)</string>
+  <string name="create_account_password_repeat_hint">Gjenta passord</string>
+  <string name="create_account_passwords_mismatch_error">Passordene stemmer ikke overens</string>
+  <string name="create_account_email_error">Ugyldig epostadresse</string>
+  <string name="create_account_username_exists_error">Brukernavnet er allerede i bruk</string>
+  <string name="create_account_ip_throttle_error">For many kontoer opprettet fra denne IP-adressen. Prøv igjen senere.</string>
+  <string name="create_account_open_proxy_error">Denne IP-adressen har blitt blokkert fra å opprette kontoer.</string>
+  <string name="create_account_generic_error">Kunne ikke opprette konto</string>
+  <string name="preferences_general_heading">Generelt</string>
+  <string name="zero_free_verbiage">Gratis Wikipedia-tilgang fra din mobiloperatør (ingen datakostnader)</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero er INAKTIV (ORDINÆRE DATAKOSTNADER KAN FOREKOMME)</string>
+  <string name="zero_search_hint">Søk i Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving">Advar meg hvis jeg forlater WIkipedia Zero</string>
+  <string name="zero_warn_when_leaving_summary">Hvis mobiloperatøren din dekker datakostnader for Wikipedia-appen gjennom et Wikipedia Zero-samarbeid, kan denne innstillingen informere deg når du forlater Wikipedia-appen og datakostnader kan påløpe.</string>
+  <string name="zero_webpage_title">Wikipedia Zero OSS</string>
+  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
+  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+  <string name="zero_interstitial_title">Forlater Wikipedia Zero</string>
+  <string name="zero_interstitial_leave_app">Fortsette til eksternt nettsted? Ordinære datakostnader kan påløpe.</string>
+  <string name="zero_interstitial_continue">Fortsett</string>
+  <string name="zero_interstitial_cancel">Avbryt</string>
+  <string name="zero_learn_more">Vil du vite mer om Wikipedia Zero?</string>
+  <string name="zero_learn_more_learn_more">Lær mer</string>
+  <string name="zero_learn_more_dismiss">Lukk</string>
+  <string name="zero_settings">Innstillinger</string>
+  <string name="zero_settings_devmode">Zero-utviklermodus</string>
+  <string name="zero_settings_devmode_summary">Under utvikling aktiverer dette kodeeksekvering av Wikipedia Zero-ting.</string>
+  <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning…</string>
+  <string name="edit_preview_activity_title">Forhåndsvis redigering</string>
+  <string name="create_account_logging_in">Logger inn…</string>
+  <string name="nav_item_send_feedback">Send tilbakemelding på appen</string>
+  <string name="edit_summary_guide_text">Fortell om hvordan du forbedret denne artikkelen. Dette hjelper andre skribenter til å raskt gjennomgå redigeringen din.</string>
+  <string name="edit_summary_hint">Redigeringsforklaring</string>
+  <string name="nav_item_random">Tilfeldig</string>
+  <string name="random_progress">Henter tilfeldig side…</string>
+  <string name="nav_item_login_benefits">Hvis du logger inn, vil redigeringene dine bli knyttet til brukernavnet ditt og IP-adressen din vil ikke vises offentlig.</string>
+  <string name="create_account_account_created_toast">Konto opprettet!</string>
+  <string name="user_contribs_more_action">Last inn mer</string>
+  <string name="activity_my_contributions_title">Mine bidrag</string>
+  <string name="nav_item_my_contributions">Mine bidrag</string>
+  <string name="edit_save_action_login">Logg inn og lagre</string>
+  <string name="edit_save_action_ip">Lagre anonymt</string>
+  <string name="edit_save_action_login_description">Redigeringene dine vil tillegges brukernavnet ditt, og andre skribenter kan enklere komme i kontakt med deg</string>
+  <string name="edit_save_action_ip_description">Redigeringene dine vil tillegges IP-adressen din, som forandrer seg ofte</string>
+  <string name="preference_title_eventlogging_opt_in">Send bruksrapporter</string>
+</resources>

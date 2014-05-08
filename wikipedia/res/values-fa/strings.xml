@@ -4,7 +4,7 @@
   <string name="yes">بله</string>
   <string name="no">خیر</string>
   <string name="acra_report_dialog_title">ویکیپدیا در دسترس نیست :(</string>
-  <string name="acra_report_dialog_text">گزارش خروج از دسترس را بفرستید</string>
+  <string name="acra_report_dialog_text" fuzzy="true">گزارش خروج از دسترس را بفرستید</string>
   <string name="acra_report_dialog_comment">وقتی خروج از دسترس رخ داده چه کار می‌کردید؟</string>
   <string name="search_hint">جستجوی ویکی‌پدیا</string>
   <string name="history_activity_title">تاریخچه</string>
@@ -15,21 +15,21 @@
   <string name="menu_clear_all_history">پاک‌کردن تاریخچه</string>
   <string name="dialog_title_clear_history">پاک‌کردن تاریخچه؟</string>
   <string name="dialog_message_clear_history">آیا مطمئنید که می خواهید کل تاریخچه را پاک کنید؟</string>
-  <string name="saved_pages_activity_title">ذخیرهٔ صفحه‌ها</string>
-  <string name="nav_item_saved_pages">صفحه‌های ذخیره‌شده</string>
-  <string name="menu_save_page">ذخیرهٔ صفحه</string>
+  <string name="saved_pages_activity_title" fuzzy="true">ذخیرهٔ صفحه‌ها</string>
+  <string name="nav_item_saved_pages" fuzzy="true">صفحه‌های ذخیره‌شده</string>
+  <string name="menu_save_page" fuzzy="true">ذخیرهٔ صفحه</string>
   <string name="menu_share_page">به‌اشتراک‌گذاشتن</string>
   <string name="share_via">اشتراک با</string>
-  <string name="dialog_title_clear_saved_pages">پاک‌کردن همهٔ صفحه‌های ذخیره‌شده؟</string>
-  <string name="dialog_message_clear_saved_pages">آیا مطمئنید که می خواهید همهٔ  صفحه‌های ذخیره‌شده را پاک کنید؟</string>
-  <string name="toast_saving_page">ذخیره کردن صفحه...</string>
-  <string name="toast_saved_page">صفحهٔ ذخیره‌شده</string>
-  <string name="toast_save_page_failed">ذخیرهٔ صفحه انجام نشد :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">پاک‌کردن همهٔ صفحه‌های ذخیره‌شده؟</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">آیا مطمئنید که می خواهید همهٔ  صفحه‌های ذخیره‌شده را پاک کنید؟</string>
+  <string name="toast_saving_page" fuzzy="true">ذخیره کردن صفحه...</string>
+  <string name="toast_saved_page" fuzzy="true">صفحهٔ ذخیره‌شده</string>
+  <string name="toast_save_page_failed" fuzzy="true">ذخیرهٔ صفحه انجام نشد :(</string>
   <string name="delete_selected_saved_pages">حذف</string>
-  <string name="toast_saved_page_deleted">ذخیره صفحهٔ حذف شده</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">ذخیره صفحهٔ حذف شده</string>
   <string name="last_updated_text"> آخرین به‌روزرسانی %1$</string>
   <string name="content_license_html">مطلب زیر تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
-  <string name="preference_title_language">زبان</string>
+  <string name="preference_title_language" fuzzy="true">زبان</string>
   <string name="preference_summary_language">زبان محتوا</string>
   <string name="nav_item_preferences">تنظیمات</string>
   <string name="preference_languages_filter_hint">جستجو</string>
@@ -68,8 +68,7 @@
   <string name="login_error_unknown">ورود ناموفق :(</string>
   <string name="login_error_no_network">هیچ اتصال شبکه</string>
   <string name="nav_item_logout">خروج از سامانه</string>
-  <string name="logging_out_progress">خروج از سیستم...</string>
-  <string name="saved_pages_empty_message">هیچ صفحات ذخیره نشده‌است.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">هیچ صفحات ذخیره نشده‌است.</string>
   <string name="history_empty_message">تاریخچهٔ شما خالی می‌باشد.</string>
   <string name="create_account_username_hint">نام کاربری</string>
   <string name="create_account_password_hint">گذرواژه</string>
@@ -113,7 +112,6 @@
   <string name="nav_item_random">تصادفی</string>
   <string name="random_progress">واکشی صفحهٔ تصادفی...</string>
   <string name="nav_item_login_benefits">اگر وارد شده‌باشید، ویرایش‌های شما با نام کاربری متصل خواهد شد و نشانی آی‌پی‌تان به‌صورت عمومی نمایان نخواهد بود.</string>
-  <string name="nav_item_tap_to_logout">برای خروج کلیک کنید</string>
   <string name="create_account_account_created_toast">حساب ساخته شد!</string>
   <string name="user_contribs_more_action">بارگیری بیشتر</string>
   <string name="activity_my_contributions_title">مشارکت‌های من</string>

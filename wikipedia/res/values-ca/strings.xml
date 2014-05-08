@@ -4,7 +4,7 @@
   <string name="yes">Sí</string>
   <string name="no">No</string>
   <string name="acra_report_dialog_title">Viquipèdia s\'ha detingut :(</string>
-  <string name="acra_report_dialog_text">Enviar un informe d\'errors a Yuvi</string>
+  <string name="acra_report_dialog_text" fuzzy="true">Enviar un informe d\'errors a Yuvi</string>
   <string name="acra_report_dialog_comment">Què feies quan s\'ha detingut l\'aplicació?</string>
   <string name="search_hint">Cerca a la Viquipèdia</string>
   <string name="history_activity_title">Historial</string>
@@ -15,20 +15,20 @@
   <string name="menu_clear_all_history">Neteja l\'historial</string>
   <string name="dialog_title_clear_history">Netejar l\'historial?</string>
   <string name="dialog_message_clear_history">Estàs segur que vols esborrar tot l\'historial?</string>
-  <string name="saved_pages_activity_title">Pàgines desades</string>
-  <string name="nav_item_saved_pages">Pàgines desades</string>
-  <string name="menu_save_page">Desa la pàgina</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Pàgines desades</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Pàgines desades</string>
+  <string name="menu_save_page" fuzzy="true">Desa la pàgina</string>
   <string name="menu_share_page">Comparteix</string>
-  <string name="dialog_title_clear_saved_pages">Netejar les pàgines desades?</string>
-  <string name="dialog_message_clear_saved_pages">Estàs segur que vols esborrar totes les pàgines desades?</string>
-  <string name="toast_saving_page">Desant la pàgina...</string>
-  <string name="toast_saved_page">Pàgina desada</string>
-  <string name="toast_save_page_failed">No s\'ha pogut desar la pàgina :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Netejar les pàgines desades?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Estàs segur que vols esborrar totes les pàgines desades?</string>
+  <string name="toast_saving_page" fuzzy="true">Desant la pàgina...</string>
+  <string name="toast_saved_page" fuzzy="true">Pàgina desada</string>
+  <string name="toast_save_page_failed" fuzzy="true">No s\'ha pogut desar la pàgina :(</string>
   <string name="delete_selected_saved_pages">Esborrar</string>
-  <string name="toast_saved_page_deleted">S\'han esborrat les pàgines desades</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">S\'han esborrat les pàgines desades</string>
   <string name="last_updated_text">Última actualització %1$s</string>
   <string name="content_license_html">El contingut està disponible sota llicència &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
-  <string name="preference_title_language">Idioma</string>
+  <string name="preference_title_language" fuzzy="true">Idioma</string>
   <string name="preference_summary_language">Idioma del contingut</string>
   <string name="nav_item_preferences">Preferències</string>
   <string name="preference_languages_filter_hint">Cerca</string>
@@ -67,8 +67,7 @@
   <string name="login_error_unknown">Ha fallat l\'inici de sessió :(</string>
   <string name="login_error_no_network">No hi ha connexió de xarxa</string>
   <string name="nav_item_logout">Finalitza la sessió</string>
-  <string name="logging_out_progress">Finalitzant la sessió...</string>
-  <string name="saved_pages_empty_message">No hi ha pàgines desades.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">No hi ha pàgines desades.</string>
   <string name="history_empty_message">L\'historial és buit.</string>
   <string name="create_account_username_hint">Nom d\'usuari</string>
   <string name="create_account_password_hint">Contrasenya</string>

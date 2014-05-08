@@ -1,79 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Name of the application</string>
-  <string name="yes">Affirmative answer to a dialog box</string>
-  <string name="no">Negative answer to a dialog box</string>
+  <string name="app_name">Name of the application.
+{{Identical|Wikipedia}}</string>
+  <string name="yes">Affirmative answer to a dialog box.
+{{Identical|Yes}}</string>
+  <string name="no">Negative answer to a dialog box.
+{{Identical|No}}</string>
+  <string name="acra_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
+  <string name="acra_report_dialog_text">Text asking the user to send us a crash report</string>
+  <string name="acra_report_dialog_comment">Label for text box asking user to tell us what they were doing when the app crashed</string>
   <string name="search_hint">Placeholder text for the search textbox</string>
-  <string name="history_activity_title">Title for the screen that shows history of articles you have read</string>
-  <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen</string>
+  <string name="history_activity_title">Title for the screen that shows history of articles you have read.
+{{Identical|History}}</string>
+  <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.
+{{Identical|History}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="search_network_error">Error message shown when network cannot be reached when searching. Tapping the message retries the search.</string>
-  <string name="page_error_retry">Text for button that retries page loading when tapped</string>
-  <string name="menu_clear_all_history">Menu item text for clearing your reading history</string>
+  <string name="page_error_retry">Text for button that retries page loading when tapped.
+{{Identical|Retry}}</string>
+  <string name="menu_clear_all_history">Menu item text for clearing your reading history.
+{{Identical|Clear history}}</string>
   <string name="menu_clear_all_bookmarks">Menu item text for clearing bookmarks</string>
   <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
-  <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history</string>
+  <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.
+{{Identical|Clear history}}</string>
   <string name="dialog_message_clear_history">Message for dialog box asking if you want to clear your reading history</string>
   <string name="saved_pages_activity_title">Title for screen that shows list of locally bookmarks.
-{{Identical|Saved page}}</string>
+{{Identical|Bookmark}}</string>
   <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the bookmarks.
-{{Identical|Saved page}}</string>
-  <string name="menu_save_page">Menu item text for bookmarking the currently active page</string>
-  <string name="menu_share_page">Menu item text for sharing the currently active page</string>
+{{Identical|Bookmark}}</string>
+  <string name="menu_save_page">Menu item text for bookmarking the currently active page.
+{{Identical|Bookmark}}</string>
+  <string name="menu_share_page">Menu item text for sharing the currently active page.
+{{Identical|Share}}</string>
   <string name="share_via">Dialog title text for Share list</string>
   <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your bookmarks</string>
   <string name="dialog_message_clear_saved_pages">Message for dialog box asking if you want to clear all your bookmarks</string>
   <string name="toast_saving_page">Small toast (popup) message saying that a page is being bookmarked</string>
-  <string name="toast_saved_page">Small toast (popup) message saying that a page has been bookmarked.
-{{Identical|Saved page}}</string>
+  <string name="toast_saved_page">Small toast (popup) message saying that a page has been bookmarked.</string>
   <string name="toast_save_page_failed">Small toast (popup) message saying that a page has failed to bookmark</string>
   <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected bookmarks</string>
   <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected bookmarks have been deleted</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. Parameter 1 refers to appropriately formatted timestamp</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
-  <string name="preference_title_language">Title for preference in settings screen for setting which language wikipedia to use</string>
-  <string name="nav_item_preferences">Text in navigation sidebar that when tapped leads to the Settings screen</string>
-  <string name="preference_languages_filter_hint">Placeholder text for the textbox that when typed filters list of language wikipedias from which user can pick a language to use</string>
-  <string name="langlinks_filter_hint">Search</string>
-  <string name="menu_other_languages">Menu item for showing list of languages in which this article is available</string>
-  <string name="langlinks_error_retry">Text for button that when tapped retries fetching the list of languages in which the current article is available</string>
+  <string name="preference_title_language">Title for preference in settings screen for setting which language wikipedia to use.</string>
+  <string name="nav_item_preferences">Text in navigation sidebar that when tapped leads to the Settings screen.
+{{Identical|Settings}}</string>
+  <string name="preference_languages_filter_hint">Placeholder text for the textbox that when typed filters list of language wikipedias from which user can pick a language to use.
+{{Identical|Search}}</string>
+  <string name="langlinks_filter_hint">{{Identical|Search}}</string>
+  <string name="menu_other_languages">Menu item for showing list of languages in which this article is available.
+{{Identical|Otherlanguages}}</string>
+  <string name="langlinks_error_retry">Text for button that when tapped retries fetching the list of languages in which the current article is available.
+{{Identical|Retry}}</string>
   <string name="langlinks_empty">Message shown when the user requested a list of languages in which the current article is available, but the current article is not available in any other language</string>
-  <string name="settings_activity_title">Title for settings screen</string>
-  <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in</string>
+  <string name="settings_activity_title">Title for settings screen.
+{{Identical|Settings}}</string>
+  <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in.
+{{Identical|Otherlanguages}}</string>
   <string name="editsection_activity_title">Title for screen where user is editing a single section</string>
-  <string name="edit_section_error_retry">Text for button that retries page loading when tapped</string>
+  <string name="edit_section_error_retry">Text for button that retries page loading when tapped.
+{{Identical|Retry}}</string>
   <string name="dialog_saving_in_progress">Text for progress dialog shown when an edit save is in progress.
 {{Identical|Saving}}</string>
   <string name="edit_saved_successfully">Small toast (popup) message saying that the edit was successful</string>
   <string name="dialog_message_edit_failed">Message for dialog box specifying that an edit save had failed</string>
-  <string name="dialog_message_edit_failed_retry">Button text to retry a failed edit save</string>
-  <string name="dialog_message_edit_failed_cancel">Button text to cancel retrying a failed edit save</string>
-  <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article</string>
+  <string name="dialog_message_edit_failed_retry">Button text to retry a failed edit save.
+{{Identical|Retry}}</string>
+  <string name="dialog_message_edit_failed_cancel">Button text to cancel retrying a failed edit save.
+{{Identical|Cancel}}</string>
+  <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article.
+{{Identical|Table of contents}}</string>
   <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>
+  <string name="nav_item_login">{{Identical|Log in}}</string>
+  <string name="login_username_hint">{{Identical|Username}}</string>
+  <string name="login_password_hint">{{Identical|Password}}</string>
+  <string name="menu_login">{{Identical|Log in}}</string>
+  <string name="nav_item_logout">{{Identical|Log out}}</string>
+  <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out</string>
+  <string name="create_account_username_hint">{{Identical|Username}}</string>
+  <string name="create_account_password_hint">{{Identical|Password}}</string>
+  <string name="menu_create_account">Menu item title for creating an account</string>
+  <string name="login_create_account_link">{{Identical|Create account}}</string>
+  <string name="create_account_activity_title">{{Identical|Create account}}</string>
+  <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
+  <string name="create_account_no_network">Message shown when the network is unavailable during account creation</string>
+  <string name="preferences_general_heading">Genel</string>
   <string name="zero_free_verbiage">Generic text for connoting that access is free thanks to mobile operator participation in Wikipedia Zero</string>
   <string name="zero_charged_verbiage">Text for toast connoting that Wikipedia Zero status went to OFF and standard data charges may now apply</string>
   <string name="zero_search_hint">Searchbar hint incorporting notion that user is searching via Wikipedia Zero so it is free</string>
   <string name="zero_warn_when_leaving">Settings label for option for warning a Wikipedia Zero user if tapping on an external link</string>
   <string name="zero_warn_when_leaving_summary">Lengthy explanation of Wikipedia Zero for settings screen</string>
   <string name="zero_webpage_title">Link title for the Wikipedia Zero FAQ for the app</string>
-  <string name="zero_wikipedia_zero_heading">Settings heading for Wikipedia Zero</string>
+  <string name="zero_wikipedia_zero_heading">Settings heading for Wikipedia Zero.
+{{Identical|Wikipedia Zero}}</string>
   <string name="zero_interstitial_title">Dialog title text to inform Wikipedia Zero user that the user is about to leave the app for an external link</string>
   <string name="zero_interstitial_leave_app">Dialog text to ask Wikipedia Zero user whether the user wants to continue to an external site where standard data charges may apply</string>
-  <string name="zero_interstitial_continue">Dialog button text for Wikipedia Zero user to continue to an external site where standard data charges may apply</string>
-  <string name="zero_interstitial_cancel">Dialog button text for Wikipedia Zero user to not continue to an external site where standard data charges may apply</string>
+  <string name="zero_interstitial_continue">Dialog button text for Wikipedia Zero user to continue to an external site where standard data charges may apply.
+{{Identical|Continue}}</string>
+  <string name="zero_interstitial_cancel">Dialog button text for Wikipedia Zero user to not continue to an external site where standard data charges may apply.
+{{Identical|Cancel}}</string>
   <string name="zero_learn_more">The first time Wikipedia Zero mode is On and the first time it is detected as transitioning from On to Off this is the question posed to the Wikipedia Zero user as to whether the user wants to read the Wikipedia Zero FAQ</string>
   <string name="zero_learn_more_learn_more">Dialog button text for Wikipedia Zero user to learn more about Wikipedia Zero at the Wikipedia Zero FAQ for the app</string>
   <string name="zero_learn_more_dismiss">Dialog button text for Wikipedia Zero user to dismiss the prompt about visiting the Wikipedia Zero FAQ for the app</string>
-  <string name="zero_settings">Generic Settings heading for Wikipedia Zero</string>
+  <string name="zero_settings">Generic Settings heading for Wikipedia Zero.
+{{Identical|Settings}}</string>
   <string name="zero_settings_devmode">Prerelease label text for enabling Wikipedia Zero Devmode to enable Wikipedia Zero support</string>
   <string name="zero_settings_devmode_summary">Prerelease explanation text explaining that Wikipedia Zero Devmode on means that Wikipedia Zero detection will be turned on</string>
+  <string name="create_account_logging_in">{{Identical|Logging in}}</string>
   <string name="nav_item_send_feedback">Text for button to send app feedback</string>
   <string name="nav_item_random">{{Identical|Random}}</string>
   <string name="random_progress">Message shown in progress popup dialog while waiting for a random article to be fetched</string>
-  <string name="menu_create_account">Menu item title for creating an account</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.
 * {{msg-mw|Accountcreatedtext|message}}</string>
-  <string name="create_account_no_network">Message shown when the network is unavailable during account creation</string>
   <string name="user_contribs_more_action">Text shown as a button at the end of lists that let the user load more items.
 {{Identical|Load more}}</string>
   <string name="activity_my_contributions_title">Title for screen showing list of edits by current user.
@@ -85,10 +124,6 @@
 {{Identical|Save anonymously}}</string>
   <string name="edit_save_action_login_description">Description for action that lets the user save the current edit anonymously</string>
   <string name="edit_save_action_ip_description">Description for action that takes user to login screen so they can login before saving an edit</string>
-  <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out</string>
   <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
-  <string name="acra_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
-  <string name="acra_report_dialog_text">Text asking the user to send us a crash report</string>
-  <string name="acra_report_dialog_comment">Label for text box asking user to tell us what they were doing when the app crashed</string>
 </resources>

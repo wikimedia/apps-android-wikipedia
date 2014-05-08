@@ -10,18 +10,18 @@
   <string name="page_error_retry">ЮхагӀорта</string>
   <string name="menu_clear_all_history">ДӀацӀане истори?</string>
   <string name="dialog_title_clear_history">ДӀацӀане истори?</string>
-  <string name="saved_pages_activity_title">Ӏалашйина агӀонаш</string>
-  <string name="nav_item_saved_pages">Ӏалашйина агӀонаш</string>
-  <string name="menu_save_page">Ӏалашйе агӀо</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Ӏалашйина агӀонаш</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Ӏалашйина агӀонаш</string>
+  <string name="menu_save_page" fuzzy="true">Ӏалашйе агӀо</string>
   <string name="menu_share_page">Екха</string>
-  <string name="dialog_title_clear_saved_pages">ДӀацӀане Ӏалашйина агӀонаш?</string>
-  <string name="toast_saving_page">АгӀо Ӏалашяр...</string>
-  <string name="toast_saved_page">Ӏалашйина агӀонаш</string>
-  <string name="toast_save_page_failed">АгӀо Ӏалашъян цаелира :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">ДӀацӀане Ӏалашйина агӀонаш?</string>
+  <string name="toast_saving_page" fuzzy="true">АгӀо Ӏалашяр...</string>
+  <string name="toast_saved_page" fuzzy="true">Ӏалашйина агӀонаш</string>
+  <string name="toast_save_page_failed" fuzzy="true">АгӀо Ӏалашъян цаелира :(</string>
   <string name="delete_selected_saved_pages">ДӀаяккха</string>
-  <string name="toast_saved_page_deleted">Ӏалашйина агӀонаш дӀаяьхна</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Ӏалашйина агӀонаш дӀаяьхна</string>
   <string name="last_updated_text">ТӀаьхьарлера карлаяккхар: %1$s</string>
-  <string name="preference_title_language">Мотт</string>
+  <string name="preference_title_language" fuzzy="true">Мотт</string>
   <string name="preference_summary_language">Чулацаман мотт</string>
   <string name="nav_item_preferences">Параметраш</string>
   <string name="preference_languages_filter_hint">Лаха</string>
@@ -52,8 +52,7 @@
   <string name="login_error_unknown">Чудаха цаделира :(</string>
   <string name="login_error_no_network">ЗӀе цахилар</string>
   <string name="nav_item_logout">Болх дӀаберзор</string>
-  <string name="logging_out_progress">Системан арадалар...</string>
-  <string name="saved_pages_empty_message">Ӏалашйина агӀонаш яц.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Ӏалашйина агӀонаш яц.</string>
   <string name="history_empty_message">Хьа истори еса ю.</string>
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
   <string name="create_account_password_hint">Пароль</string>
@@ -86,6 +85,5 @@
   <string name="nav_item_send_feedback" fuzzy="true">Дахьийта хетарг</string>
   <string name="edit_summary_hint">Хийцамах лаьцна</string>
   <string name="random_progress">Цахууш нисъелла агӀо харжар...</string>
-  <string name="nav_item_tap_to_logout">ТӀетаӀе болх дӀаберза бан</string>
   <string name="user_contribs_more_action">Чуяха кхин</string>
 </resources>

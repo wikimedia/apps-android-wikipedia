@@ -4,7 +4,7 @@
   <string name="yes">כן</string>
   <string name="no">לא</string>
   <string name="acra_report_dialog_title">יישום ויקיפדיה התרסק :(</string>
-  <string name="acra_report_dialog_text">לשלוח ליובי דיווח קריסה</string>
+  <string name="acra_report_dialog_text">לשלוח לנו דיווח קריסה</string>
   <string name="acra_report_dialog_comment">מה עשית בזמן הקריסה?</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="history_activity_title">היסטוריה</string>
@@ -13,23 +13,25 @@
   <string name="search_network_error">שגיאת רשת. יש להקיש כדי לנסות שוב.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="menu_clear_all_history">ניקוי היסטוריה</string>
+  <string name="menu_clear_all_bookmarks">ניקוי סימניות</string>
+  <string name="page_does_not_exist_error">הדף הזה אינו קיים.</string>
   <string name="dialog_title_clear_history">לנקות את ההיסטוריה?</string>
   <string name="dialog_message_clear_history">האם באמת לנקות את כל ההיסטוריה?</string>
-  <string name="saved_pages_activity_title">דפים שמורים</string>
-  <string name="nav_item_saved_pages">דפים שמורים</string>
-  <string name="menu_save_page">שמירת דף</string>
+  <string name="saved_pages_activity_title">סימניות</string>
+  <string name="nav_item_saved_pages">סימניות</string>
+  <string name="menu_save_page">שמירת סימנייה</string>
   <string name="menu_share_page">שיתוף</string>
   <string name="share_via">שיתוף דרך</string>
-  <string name="dialog_title_clear_saved_pages">לנקות את הדפים השמורים?</string>
-  <string name="dialog_message_clear_saved_pages">האם באמת לנקות את כל הדפים השמורים?</string>
-  <string name="toast_saving_page">שמירת דף...</string>
-  <string name="toast_saved_page">דף שמור</string>
-  <string name="toast_save_page_failed">שמירת הדף נכשלה :(</string>
+  <string name="dialog_title_clear_saved_pages">לנקות את הסימניות?</string>
+  <string name="dialog_message_clear_saved_pages">האם באמת לנקות את כל הסימניות?</string>
+  <string name="toast_saving_page">שמירת סימנייה...</string>
+  <string name="toast_saved_page">נוספה סימנייה לדף</string>
+  <string name="toast_save_page_failed">הוספת סימנייה לדף נכשלה :(</string>
   <string name="delete_selected_saved_pages">מחיקה</string>
-  <string name="toast_saved_page_deleted">דפים שמורים נמחקו</string>
-  <string name="last_updated_text">עודכן לאחרונה %1$s</string>
+  <string name="toast_saved_page_deleted">הסימניות נמחקו</string>
+  <string name="last_updated_text">עודכן לאחרונה ב־%1$s</string>
   <string name="content_license_html">התוכן זמין לפי תנאי &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם נאמר אחרת</string>
-  <string name="preference_title_language">שפה</string>
+  <string name="preference_title_language">שפת הוויקיפדיה</string>
   <string name="preference_summary_language">שפת התוכן</string>
   <string name="nav_item_preferences">הגדרות</string>
   <string name="preference_languages_filter_hint">חיפוש</string>
@@ -48,7 +50,7 @@
   <string name="dialog_message_edit_failed_cancel">ביטול</string>
   <string name="menu_show_toc">תוכן עניינים</string>
   <string name="search_no_results_found">אין תוצאות</string>
-  <string name="edit_section_captcha_message">בתור הגנה מפני זיבול אוטומטי נא לרשום את המילים שמופיעות להלן</string>
+  <string name="edit_section_captcha_message">כדי לסייע בהגנה מפני ספאם, הזינו את המילים המופיעות להלן</string>
   <string name="edit_section_captcha_hint">נא לחזור על המילים לעיל</string>
   <string name="title_captcha">נא להזין קוד אימות אנוש</string>
   <string name="edit_section_abusefilter_back_text">לעשות שינויים לעריכה שלי</string>
@@ -68,11 +70,12 @@
   <string name="login_error_unknown">הכניסה נכשלה :(</string>
   <string name="login_error_no_network">אין חיבור רשת</string>
   <string name="nav_item_logout">יציאה מהחשבון</string>
-  <string name="logging_out_progress">יציאה...</string>
-  <string name="saved_pages_empty_message">אין דפים שמורים.</string>
+  <string name="toast_logout_complete">יצאת מהחשבון</string>
+  <string name="saved_pages_empty_message">אין סימניות</string>
   <string name="history_empty_message">ההיסטוריה שלך ריקה.</string>
   <string name="create_account_username_hint">שם משתמש</string>
   <string name="create_account_password_hint">ססמה</string>
+  <string name="menu_create_account">יצירת חשבון</string>
   <string name="login_create_account_link">יצירת חשבון</string>
   <string name="create_account_activity_title">יצירת חשבון</string>
   <string name="edit_section_activity_title">עריכת פסקה</string>
@@ -113,7 +116,6 @@
   <string name="nav_item_random">אקראי</string>
   <string name="random_progress">אחזור דף אקראי...</string>
   <string name="nav_item_login_benefits">אחרי כניסה לחשבון העריכות שלך תשויכנה לשם המשתמש וכתובת ה־IP שלך לא תוצג בפומבי.</string>
-  <string name="nav_item_tap_to_logout">ללחוץ ליציאה</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
   <string name="user_contribs_more_action">לטעון עוד</string>
   <string name="activity_my_contributions_title">התרומות שלי</string>
@@ -122,4 +124,7 @@
   <string name="edit_save_action_ip">שמירה אלמונית</string>
   <string name="edit_save_action_login_description">העריכות שלך תיוחסנה לשם המשתמש שלך ועורכים אחרים יוכלו לתקשר אתך טוב יותר</string>
   <string name="edit_save_action_ip_description">העריכות שלך תיוחסנה לכתובת ה־IP לך, שמשתנה לעתים קרובות</string>
+  <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
+  <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישום כדי לעשות את היישום טוב יותר</string>
+  <string name="editing_error_spamblacklist">יש כאן קישורים ממתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
 </resources>

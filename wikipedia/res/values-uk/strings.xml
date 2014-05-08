@@ -4,7 +4,7 @@
   <string name="yes">Так</string>
   <string name="no">Ні</string>
   <string name="acra_report_dialog_title">Вікіпедія зазнала краху :(</string>
-  <string name="acra_report_dialog_text">Відправити Юві звіт про збій</string>
+  <string name="acra_report_dialog_text" fuzzy="true">Відправити Юві звіт про збій</string>
   <string name="acra_report_dialog_comment">Що ви робили, коли трапився збій?</string>
   <string name="search_hint">Пошук по Вікіпедії</string>
   <string name="history_activity_title">Історія</string>
@@ -15,21 +15,21 @@
   <string name="menu_clear_all_history">Очистити журнал</string>
   <string name="dialog_title_clear_history">Очистити журнал?</string>
   <string name="dialog_message_clear_history">Ви впевнені, що хочете очистити всю історію?</string>
-  <string name="saved_pages_activity_title">Збережені сторінки</string>
-  <string name="nav_item_saved_pages">Збережені сторінки</string>
-  <string name="menu_save_page">Зберегти сторінку</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Збережені сторінки</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Збережені сторінки</string>
+  <string name="menu_save_page" fuzzy="true">Зберегти сторінку</string>
   <string name="menu_share_page">Поділитися</string>
   <string name="share_via">Поділитися через</string>
-  <string name="dialog_title_clear_saved_pages">Очистити збережені сторінки?</string>
-  <string name="dialog_message_clear_saved_pages">Ви впевнені, що хочете видалити усі збережені сторінки?</string>
-  <string name="toast_saving_page">Збереження сторінки...</string>
-  <string name="toast_saved_page">Збережена сторінка</string>
-  <string name="toast_save_page_failed">Збереження сторінки не вдалося виконати :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Очистити збережені сторінки?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Ви впевнені, що хочете видалити усі збережені сторінки?</string>
+  <string name="toast_saving_page" fuzzy="true">Збереження сторінки...</string>
+  <string name="toast_saved_page" fuzzy="true">Збережена сторінка</string>
+  <string name="toast_save_page_failed" fuzzy="true">Збереження сторінки не вдалося виконати :(</string>
   <string name="delete_selected_saved_pages">Вилучити</string>
-  <string name="toast_saved_page_deleted">Збережені сторінки видалені</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Збережені сторінки видалені</string>
   <string name="last_updated_text">Останнє оновлення %1$s</string>
   <string name="content_license_html">Вміст доступний згідно з &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.uk\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
-  <string name="preference_title_language">Мова</string>
+  <string name="preference_title_language" fuzzy="true">Мова</string>
   <string name="preference_summary_language">Мова вмісту</string>
   <string name="nav_item_preferences">Налаштування</string>
   <string name="preference_languages_filter_hint">Пошук</string>
@@ -68,8 +68,7 @@
   <string name="login_error_unknown">Увійти не вдалося :(</string>
   <string name="login_error_no_network">Немає з\'єднання з мережею</string>
   <string name="nav_item_logout">Вийти</string>
-  <string name="logging_out_progress">Виходимо із системи…</string>
-  <string name="saved_pages_empty_message">Немає збережених сторінок.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Немає збережених сторінок.</string>
   <string name="history_empty_message">Ваша історія порожня.</string>
   <string name="create_account_username_hint">Ім\'я користувача</string>
   <string name="create_account_password_hint">Пароль</string>
@@ -113,7 +112,6 @@
   <string name="nav_item_random">Випадково</string>
   <string name="random_progress">Вибірка випадкової сторінки...</string>
   <string name="nav_item_login_benefits">Якщо ви увійдете в систему, ваші правки будуть пов\'язані з вашим ім\'ям учасника і ваш IP не буде показаний.</string>
-  <string name="nav_item_tap_to_logout">Для виходу натисніть</string>
   <string name="create_account_account_created_toast">Створено обліковий запис!</string>
   <string name="user_contribs_more_action">Завантажити більше</string>
   <string name="activity_my_contributions_title">Мій внесок</string>

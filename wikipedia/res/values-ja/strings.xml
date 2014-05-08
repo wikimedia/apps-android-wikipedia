@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">ウィキペディア</string>
+  <string name="yes">はい</string>
+  <string name="no">いいえ</string>
+  <string name="history_activity_title">履歴</string>
+  <string name="nav_item_history">履歴</string>
+  <string name="page_error_retry">再試行</string>
+  <string name="menu_clear_all_history">履歴を消去</string>
+  <string name="dialog_title_clear_history">履歴を消去しますか?</string>
+  <string name="saved_pages_activity_title">ブックマーク</string>
+  <string name="nav_item_saved_pages">ブックマーク</string>
+  <string name="menu_save_page">ブックマークに保存</string>
+  <string name="menu_share_page">共有</string>
+  <string name="dialog_message_clear_saved_pages">すべてのブックマークを本当に消去しますか?</string>
+  <string name="toast_saving_page">ページをブックマーク中...</string>
+  <string name="toast_saved_page">ブックマークに保存したページ</string>
+  <string name="toast_save_page_failed">ページをブックマークに保存できませんでした :(</string>
+  <string name="delete_selected_saved_pages">削除</string>
+  <string name="preference_title_language" fuzzy="true">言語</string>
+  <string name="nav_item_preferences">設定</string>
+  <string name="preference_languages_filter_hint">検索</string>
+  <string name="langlinks_filter_hint">検索</string>
+  <string name="menu_other_languages">他の言語</string>
+  <string name="langlinks_error_retry">再試行</string>
+  <string name="langlinks_empty">この記事の他の言語版はありません</string>
+  <string name="settings_activity_title">設定</string>
+  <string name="langlinks_activity_title">他の言語</string>
+  <string name="edit_section_error_retry">再試行</string>
+  <string name="dialog_message_edit_failed_retry">再試行</string>
+  <string name="dialog_message_edit_failed_cancel">キャンセル</string>
+  <string name="menu_show_toc">目次</string>
+  <string name="nav_item_login">ログイン</string>
+  <string name="login_username_hint">利用者名</string>
+  <string name="login_password_hint">パスワード</string>
+  <string name="menu_login">ログイン</string>
+  <string name="nav_item_logout">ログアウト</string>
+  <string name="create_account_username_hint">利用者名</string>
+  <string name="create_account_password_hint">パスワード</string>
+  <string name="login_create_account_link">アカウント作成</string>
+  <string name="create_account_activity_title">アカウント作成</string>
+  <string name="create_account_email_hint">メール (省略可能)</string>
+  <string name="create_account_passwords_mismatch_error">パスワードが一致しません</string>
+  <string name="create_account_generic_error">アカウントを作成できませんでした</string>
+  <string name="zero_interstitial_continue">続行</string>
+  <string name="zero_interstitial_cancel">キャンセル</string>
+  <string name="zero_settings">設定</string>
+  <string name="create_account_logging_in">ログイン中...</string>
+  <string name="create_account_account_created_toast">アカウントを作成しました</string>
+  <string name="edit_save_action_login">ログインして保存</string>
+  <string name="edit_save_action_ip">匿名で保存</string>
+</resources>

@@ -6,19 +6,19 @@
   <string name="menu_clear_all_history">សម្អាត​ប្រវត្តិ</string>
   <string name="dialog_title_clear_history">សម្អាត​ប្រវត្តិ?</string>
   <string name="dialog_message_clear_history">តើ​អ្នក​ពិត​ជា​ចង់​សម្អាត​ប្រវត្តិ​ទាំង​អស់ មែន​ទេ?</string>
-  <string name="saved_pages_activity_title">ទំព័រដែលបានរក្សាទុក</string>
-  <string name="nav_item_saved_pages">ទំព័រដែលបានរក្សាទុក</string>
-  <string name="menu_save_page">រក្សា​ទុក​ទំព័រ</string>
+  <string name="saved_pages_activity_title" fuzzy="true">ទំព័រដែលបានរក្សាទុក</string>
+  <string name="nav_item_saved_pages" fuzzy="true">ទំព័រដែលបានរក្សាទុក</string>
+  <string name="menu_save_page" fuzzy="true">រក្សា​ទុក​ទំព័រ</string>
   <string name="menu_share_page">ចែក​រំលែក</string>
-  <string name="dialog_title_clear_saved_pages">សម្អាត​ទំព័រ​ដែល​បាន​រក្សា​ទុក?</string>
-  <string name="dialog_message_clear_saved_pages">តើ​អ្នក​ពិត​ជា​ចង់​សម្អាត​ទំព័រ​ដែល​បាន​រក្សា​ទុក​ទាំង​អស់ មែនទេ?</string>
-  <string name="toast_saving_page">កំពុង​រក្សា​ទុក​ទំព័រ...</string>
-  <string name="toast_saved_page">បាន​រក្សា​ទំព័រ</string>
-  <string name="toast_save_page_failed">រក្សា​ទុក​ទំព័រ​មិន​បាន​សម្រេច :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">សម្អាត​ទំព័រ​ដែល​បាន​រក្សា​ទុក?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">តើ​អ្នក​ពិត​ជា​ចង់​សម្អាត​ទំព័រ​ដែល​បាន​រក្សា​ទុក​ទាំង​អស់ មែនទេ?</string>
+  <string name="toast_saving_page" fuzzy="true">កំពុង​រក្សា​ទុក​ទំព័រ...</string>
+  <string name="toast_saved_page" fuzzy="true">បាន​រក្សា​ទំព័រ</string>
+  <string name="toast_save_page_failed" fuzzy="true">រក្សា​ទុក​ទំព័រ​មិន​បាន​សម្រេច :(</string>
   <string name="delete_selected_saved_pages">លុប</string>
-  <string name="toast_saved_page_deleted">បាន​លុប​ទំព័រ​ដែល​បាន​រក្សា​ទុក</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">បាន​លុប​ទំព័រ​ដែល​បាន​រក្សា​ទុក</string>
   <string name="last_updated_text">បាន​ធ្វើ​បច្ចុប្បន្នភាព​ចុង​ក្រោយ​នៅ %1$s</string>
-  <string name="preference_title_language">ភាសា</string>
+  <string name="preference_title_language" fuzzy="true">ភាសា</string>
   <string name="preference_summary_language">ភាសា​មាតិកា</string>
   <string name="nav_item_preferences">ការ​កំណត់</string>
   <string name="preference_languages_filter_hint">ស្វែងរក</string>
@@ -52,8 +52,7 @@
   <string name="login_error_unknown">ការ​ចូល​បាន​បរាជ័យ :(</string>
   <string name="login_error_no_network">មិន​មាន​ការ​តភ្ជាប់​បណ្ដាញ</string>
   <string name="nav_item_logout">ចាក​ចេញ</string>
-  <string name="logging_out_progress">កំពុង​ចាក​ចេញ...</string>
-  <string name="saved_pages_empty_message">មិន​មាន​ទំព័រ​ដែល​បាន​រក្សា​ទុក។</string>
+  <string name="saved_pages_empty_message" fuzzy="true">មិន​មាន​ទំព័រ​ដែល​បាន​រក្សា​ទុក។</string>
   <string name="history_empty_message">ប្រវត្តិ​របស់​អ្នក​នៅ​ទទេ។</string>
   <string name="create_account_username_hint">ឈ្មោះ​អ្នក​ប្រើ</string>
   <string name="create_account_password_hint">ពាក្យ​សម្ងាត់</string>

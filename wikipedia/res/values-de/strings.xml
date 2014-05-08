@@ -4,7 +4,7 @@
   <string name="yes">Ja</string>
   <string name="no">Nein</string>
   <string name="acra_report_dialog_title">Wikipedia ist abgestürzt :(</string>
-  <string name="acra_report_dialog_text">Einen Absturzbericht an Yuvi senden</string>
+  <string name="acra_report_dialog_text">Einen Absturzbericht an uns senden</string>
   <string name="acra_report_dialog_comment">Was hast du gemacht, als der Absturz passiert ist?</string>
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="history_activity_title">Verlauf</string>
@@ -13,23 +13,25 @@
   <string name="search_network_error">Netzwerkfehler. Tippen zum erneuten Versuchen.</string>
   <string name="page_error_retry">Erneut versuchen</string>
   <string name="menu_clear_all_history">Verlauf löschen</string>
+  <string name="menu_clear_all_bookmarks">Lesezeichen löschen</string>
+  <string name="page_does_not_exist_error">Diese Seite ist nicht vorhanden.</string>
   <string name="dialog_title_clear_history">Verlauf löschen?</string>
   <string name="dialog_message_clear_history">Bist du sicher, dass du den gesamten Verlauf löschen möchtest?</string>
-  <string name="saved_pages_activity_title">Gespeicherte Seiten</string>
-  <string name="nav_item_saved_pages">Gespeicherte Seiten</string>
-  <string name="menu_save_page">Seite speichern</string>
+  <string name="saved_pages_activity_title">Lesezeichen</string>
+  <string name="nav_item_saved_pages">Lesezeichen</string>
+  <string name="menu_save_page">Einmerken</string>
   <string name="menu_share_page">Teilen</string>
   <string name="share_via">Teilen über</string>
-  <string name="dialog_title_clear_saved_pages">Gespeicherte Seiten löschen?</string>
-  <string name="dialog_message_clear_saved_pages">Bist du sicher, dass du alle gespeicherten Seiten löschen möchtest?</string>
-  <string name="toast_saving_page">Speichere Seite …</string>
-  <string name="toast_saved_page">Seite gespeichert</string>
-  <string name="toast_save_page_failed">Das Speichern der Seite ist fehlgeschlagen :(</string>
+  <string name="dialog_title_clear_saved_pages">Lesezeichen löschen?</string>
+  <string name="dialog_message_clear_saved_pages">Bist du sicher, dass du alle Lesezeichen löschen möchtest?</string>
+  <string name="toast_saving_page">Merke Seite ein …</string>
+  <string name="toast_saved_page">Seite eingemerkt</string>
+  <string name="toast_save_page_failed">Das Einmerken der Seite ist fehlgeschlagen :(</string>
   <string name="delete_selected_saved_pages">Löschen</string>
-  <string name="toast_saved_page_deleted">Die gespeicherte(n) Seite(n) wurde(n) gelöscht</string>
+  <string name="toast_saved_page_deleted">Das/Die Lesezeichen wurde(n) gelöscht</string>
   <string name="last_updated_text">Zuletzt aktualisiert %1$s</string>
   <string name="content_license_html">Der Inhalt ist verfügbar unter &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA 3.0&lt;/a&gt;, sofern nicht anders angegeben.</string>
-  <string name="preference_title_language">Sprache</string>
+  <string name="preference_title_language">Wikipedia-Sprache</string>
   <string name="preference_summary_language">Inhaltssprache</string>
   <string name="nav_item_preferences">Einstellungen</string>
   <string name="preference_languages_filter_hint">Suche</string>
@@ -68,11 +70,12 @@
   <string name="login_error_unknown">Anmeldung fehlgeschlagen :(</string>
   <string name="login_error_no_network">Keine Netzwerkverbindung</string>
   <string name="nav_item_logout">Abmelden</string>
-  <string name="logging_out_progress">Abmelden …</string>
-  <string name="saved_pages_empty_message">Keine gespeicherten Seiten.</string>
+  <string name="toast_logout_complete">Abgemeldet</string>
+  <string name="saved_pages_empty_message">Keine Lesezeichen</string>
   <string name="history_empty_message">Dein Verlauf ist leer.</string>
   <string name="create_account_username_hint">Benutzername</string>
   <string name="create_account_password_hint">Passwort</string>
+  <string name="menu_create_account">Benutzerkonto erstellen</string>
   <string name="login_create_account_link">Benutzerkonto erstellen</string>
   <string name="create_account_activity_title">Ein Benutzerkonto erstellen</string>
   <string name="edit_section_activity_title">Abschnitt bearbeiten</string>
@@ -113,7 +116,6 @@
   <string name="nav_item_random">Zufällig</string>
   <string name="random_progress">Rufe zufällige Seite ab …</string>
   <string name="nav_item_login_benefits">Wenn du dich anmeldest, werden deine Bearbeitungen mit deinem Benutzernamen verknüpft und deine IP-Adresse wird nicht öffentlich sichtbar.</string>
-  <string name="nav_item_tap_to_logout">Tippen zum Abmelden</string>
   <string name="create_account_account_created_toast">Benutzerkonto erstellt!</string>
   <string name="user_contribs_more_action">Mehr laden</string>
   <string name="activity_my_contributions_title">Meine Beiträge</string>
@@ -122,4 +124,7 @@
   <string name="edit_save_action_ip">Anonym speichern</string>
   <string name="edit_save_action_login_description">Deine Bearbeitungen werden öffentlich deinem Benutzernamen zugeordnet und andere Autoren können besser mit dir kontakt aufnehmen</string>
   <string name="edit_save_action_ip_description">Deine Bearbeitungen werden öffentlich deiner IP-Adresse zugeordnet, die sich regelmäßig ändert.</string>
+  <string name="preference_title_eventlogging_opt_in">Nutzungsberichte senden</string>
+  <string name="preference_summary_eventlogging_opt_in">Wikimedia erlauben, Informationen über die Verwendung der App zu sammeln, um sie zu verbessern.</string>
+  <string name="editing_error_spamblacklist">Es wurden Links von gesperrten Domains (%s) entdeckt. Bitte entferne sie und versuche es erneut.</string>
 </resources>

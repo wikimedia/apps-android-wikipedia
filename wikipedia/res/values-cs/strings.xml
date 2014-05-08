@@ -4,7 +4,7 @@
   <string name="yes">Ano</string>
   <string name="no">Ne</string>
   <string name="acra_report_dialog_title">Wikipedie spadla :(</string>
-  <string name="acra_report_dialog_text">Poslat Yuvimu zprávu o pádu</string>
+  <string name="acra_report_dialog_text" fuzzy="true">Poslat Yuvimu zprávu o pádu</string>
   <string name="acra_report_dialog_comment">Co jste dělali, když došlo k pádu?</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="history_activity_title">Historie</string>
@@ -15,21 +15,21 @@
   <string name="menu_clear_all_history">Vymazat historii</string>
   <string name="dialog_title_clear_history">Vymazat historii?</string>
   <string name="dialog_message_clear_history">Jste si jisti, že chcete vymazat celou historii?</string>
-  <string name="saved_pages_activity_title">Uložené stránky</string>
-  <string name="nav_item_saved_pages">Uložené stránky</string>
-  <string name="menu_save_page">Uložit stránku</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Uložené stránky</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Uložené stránky</string>
+  <string name="menu_save_page" fuzzy="true">Uložit stránku</string>
   <string name="menu_share_page">Sdílet</string>
   <string name="share_via">Sdílet přes</string>
-  <string name="dialog_title_clear_saved_pages">Vymazat všechny uložené stránky?</string>
-  <string name="dialog_message_clear_saved_pages">Jste si jisti, že chcete vymazat všechny uložené stránky?</string>
-  <string name="toast_saving_page">Ukládání stránky…</string>
-  <string name="toast_saved_page">Uložená stránka</string>
-  <string name="toast_save_page_failed">Uložení stránky se nezdařilo :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Vymazat všechny uložené stránky?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Jste si jisti, že chcete vymazat všechny uložené stránky?</string>
+  <string name="toast_saving_page" fuzzy="true">Ukládání stránky…</string>
+  <string name="toast_saved_page" fuzzy="true">Uložená stránka</string>
+  <string name="toast_save_page_failed" fuzzy="true">Uložení stránky se nezdařilo :(</string>
   <string name="delete_selected_saved_pages">Vymazat</string>
-  <string name="toast_saved_page_deleted">Uložené stránky vymazány</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Uložené stránky vymazány</string>
   <string name="last_updated_text">Naposledy aktualizováno %1$s</string>
   <string name="content_license_html">Obsah je dostupný pod &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
-  <string name="preference_title_language">Jazyk</string>
+  <string name="preference_title_language" fuzzy="true">Jazyk</string>
   <string name="preference_summary_language">Jazyk obsahu</string>
   <string name="nav_item_preferences">Nastavení</string>
   <string name="preference_languages_filter_hint">Hledat</string>
@@ -68,8 +68,7 @@
   <string name="login_error_unknown">Přihlášení se nezdařilo :(</string>
   <string name="login_error_no_network">Bez připojení k síti</string>
   <string name="nav_item_logout">Odhlásit se</string>
-  <string name="logging_out_progress">Odhlašování…</string>
-  <string name="saved_pages_empty_message">Žádné uložené stránky.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Žádné uložené stránky.</string>
   <string name="history_empty_message">Vaše historie je prázdná.</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
   <string name="create_account_password_hint">Heslo</string>

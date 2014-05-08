@@ -4,7 +4,7 @@
   <string name="yes">Sí</string>
   <string name="no">No</string>
   <string name="acra_report_dialog_title">Wikipedia falló :(</string>
-  <string name="acra_report_dialog_text">Enviar un informe de accidente a tontos</string>
+  <string name="acra_report_dialog_text" fuzzy="true">Enviar un informe de accidente a tontos</string>
   <string name="acra_report_dialog_comment">¿Qué hacías cuando ocurrió el fallo?</string>
   <string name="search_hint">Buscar en Wikipedia</string>
   <string name="history_activity_title">Historial</string>
@@ -15,21 +15,21 @@
   <string name="menu_clear_all_history">Limpiar el historial</string>
   <string name="dialog_title_clear_history">¿Quieres limpiar el historial?</string>
   <string name="dialog_message_clear_history">¿Estás seguro que deseas limpiar todo el historial?</string>
-  <string name="saved_pages_activity_title">Páginas guardadas</string>
-  <string name="nav_item_saved_pages">Páginas guardadas</string>
-  <string name="menu_save_page">Guardar la página</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Páginas guardadas</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Páginas guardadas</string>
+  <string name="menu_save_page" fuzzy="true">Guardar la página</string>
   <string name="menu_share_page">Compartir</string>
   <string name="share_via">Compartir mediante</string>
-  <string name="dialog_title_clear_saved_pages">¿Quieres limpiar todas las páginas guardadas?</string>
-  <string name="dialog_message_clear_saved_pages">¿Estás seguro que deseas limpiar todas páginas guardadas?</string>
-  <string name="toast_saving_page">Guardando la página…</string>
-  <string name="toast_saved_page">Página guardada</string>
-  <string name="toast_save_page_failed">Error al guardar la página :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">¿Quieres limpiar todas las páginas guardadas?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">¿Estás seguro que deseas limpiar todas páginas guardadas?</string>
+  <string name="toast_saving_page" fuzzy="true">Guardando la página…</string>
+  <string name="toast_saved_page" fuzzy="true">Página guardada</string>
+  <string name="toast_save_page_failed" fuzzy="true">Error al guardar la página :(</string>
   <string name="delete_selected_saved_pages">Borrar</string>
-  <string name="toast_saved_page_deleted">Páginas guardadas eliminadas</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Páginas guardadas eliminadas</string>
   <string name="last_updated_text">Última actualización: $1</string>
   <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
-  <string name="preference_title_language">Idioma</string>
+  <string name="preference_title_language" fuzzy="true">Idioma</string>
   <string name="preference_summary_language">Idioma de contenido</string>
   <string name="nav_item_preferences">Configuración</string>
   <string name="preference_languages_filter_hint">Buscar</string>
@@ -68,8 +68,7 @@
   <string name="login_error_unknown">¡Inicio de sesión fallido!</string>
   <string name="login_error_no_network">No hay conexión de red</string>
   <string name="nav_item_logout">Cerrar sesión</string>
-  <string name="logging_out_progress">Cerrando la sesión…</string>
-  <string name="saved_pages_empty_message">No hay páginas guardadas.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">No hay páginas guardadas.</string>
   <string name="history_empty_message">Tu historia está vacía.</string>
   <string name="create_account_username_hint">Nombre de usuario</string>
   <string name="create_account_password_hint">Contraseña</string>
@@ -111,7 +110,6 @@
   <string name="edit_summary_hint">Resumen de edición</string>
   <string name="nav_item_random">Al azar</string>
   <string name="random_progress">Obteniendo una página al azar…</string>
-  <string name="nav_item_tap_to_logout">Toca para cerrar sesión</string>
   <string name="edit_save_action_login">Iniciar sesión y guardar</string>
   <string name="edit_save_action_ip">Guardar anónimamente</string>
 </resources>

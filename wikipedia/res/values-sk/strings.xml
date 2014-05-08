@@ -15,21 +15,21 @@
   <string name="menu_clear_all_history">Vymazať históriu</string>
   <string name="dialog_title_clear_history">Vymazať históriu?</string>
   <string name="dialog_message_clear_history">Naozaj chcete vymazať celú históriu?</string>
-  <string name="saved_pages_activity_title">Uložené stránky</string>
-  <string name="nav_item_saved_pages">Uložené stránky</string>
-  <string name="menu_save_page">Uložiť stránku</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Uložené stránky</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Uložené stránky</string>
+  <string name="menu_save_page" fuzzy="true">Uložiť stránku</string>
   <string name="menu_share_page">Zdieľať</string>
   <string name="share_via">Zdieľať cez</string>
-  <string name="dialog_title_clear_saved_pages">Vymazať všetky uložené stránky?</string>
-  <string name="dialog_message_clear_saved_pages">Naozaj chcete vymazať všetky uložené stránky?</string>
-  <string name="toast_saving_page">Ukladanie stránky...</string>
-  <string name="toast_saved_page">Stránka sa uložila</string>
-  <string name="toast_save_page_failed">Uloženie stránky zlyhalo :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Vymazať všetky uložené stránky?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Naozaj chcete vymazať všetky uložené stránky?</string>
+  <string name="toast_saving_page" fuzzy="true">Ukladanie stránky...</string>
+  <string name="toast_saved_page" fuzzy="true">Stránka sa uložila</string>
+  <string name="toast_save_page_failed" fuzzy="true">Uloženie stránky zlyhalo :(</string>
   <string name="delete_selected_saved_pages">Zmazať</string>
-  <string name="toast_saved_page_deleted">Uložené stránky odstránené</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Uložené stránky odstránené</string>
   <string name="last_updated_text">Posledná aktualizácia %1$s</string>
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="preference_title_language">Jazyk</string>
+  <string name="preference_title_language" fuzzy="true">Jazyk</string>
   <string name="preference_summary_language">Jazyk obsahu</string>
   <string name="nav_item_preferences">Nastavenia</string>
   <string name="preference_languages_filter_hint">Hľadať</string>
@@ -68,8 +68,8 @@
   <string name="login_error_unknown">Prihlásenie zlyhalo :(</string>
   <string name="login_error_no_network">Žiadne sieťové pripojenie</string>
   <string name="nav_item_logout">Odhlásiť sa</string>
-  <string name="logging_out_progress">Odhlasovanie...</string>
-  <string name="saved_pages_empty_message">Žiadne uložené stránky.</string>
+  <string name="toast_logout_complete">Ste odhlásení.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Žiadne uložené stránky.</string>
   <string name="history_empty_message">Vaša história je prázdna.</string>
   <string name="create_account_username_hint">Používateľské meno</string>
   <string name="create_account_password_hint">Heslo</string>
@@ -113,7 +113,6 @@
   <string name="nav_item_random">Náhodná</string>
   <string name="random_progress">Generujem náhodnú stránku...</string>
   <string name="nav_item_login_benefits">Ak sa prihlásite, vaše úpravy budú spojené s vaším používateľským menom a vaša IP adresa nebude viditeľná pre ostatných.</string>
-  <string name="nav_item_tap_to_logout">Ťuknite na položku odhlásiť sa</string>
   <string name="create_account_account_created_toast">Účet bol vytvorený!</string>
   <string name="user_contribs_more_action">Načítať viac</string>
   <string name="activity_my_contributions_title">Moje príspevky</string>
@@ -122,4 +121,5 @@
   <string name="edit_save_action_ip">Uložiť anonymne</string>
   <string name="edit_save_action_login_description">Vaše úpravy budú spojené s vašim používateľským menom a ostatný redaktori sa s vami budú môcť lepšie spojiť.</string>
   <string name="edit_save_action_ip_description">Vaše úpravy budú spojené s vašou IP adresou, ktorá sa pravidelne mení.</string>
+  <string name="preference_title_eventlogging_opt_in">Odoslať správu o používaní</string>
 </resources>

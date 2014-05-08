@@ -4,7 +4,7 @@
   <string name="yes">Да</string>
   <string name="no">Нет</string>
   <string name="acra_report_dialog_title">Приложение «Википедия» упало :(</string>
-  <string name="acra_report_dialog_text">Отправить Юви отчёт о сбоях</string>
+  <string name="acra_report_dialog_text">Отправить нам отчёт о сбоях</string>
   <string name="acra_report_dialog_comment">Что вы делали, когда произошёл сбой?</string>
   <string name="search_hint">Поиск по Википедии</string>
   <string name="history_activity_title">История</string>
@@ -13,23 +13,25 @@
   <string name="search_network_error">Ошибка сети. Нажмите, чтобы повторить попытку.</string>
   <string name="page_error_retry">Повторить</string>
   <string name="menu_clear_all_history">Очистить историю</string>
+  <string name="menu_clear_all_bookmarks">Очистить закладки</string>
+  <string name="page_does_not_exist_error">Такой страницы не существует.</string>
   <string name="dialog_title_clear_history">Очистить историю?</string>
   <string name="dialog_message_clear_history">Вы уверены, что хотите очистить всю историю?</string>
-  <string name="saved_pages_activity_title">Сохранённые страницы</string>
-  <string name="nav_item_saved_pages">Сохранённые страницы</string>
-  <string name="menu_save_page">Сохранить страницу</string>
+  <string name="saved_pages_activity_title">Закладки</string>
+  <string name="nav_item_saved_pages">Закладки</string>
+  <string name="menu_save_page">Закладка</string>
   <string name="menu_share_page">Поделиться</string>
   <string name="share_via">Поделиться через</string>
-  <string name="dialog_title_clear_saved_pages">Очистить сохранённые страницы?</string>
-  <string name="dialog_message_clear_saved_pages">Вы уверены, что хотите очистить все сохранённые страницы?</string>
-  <string name="toast_saving_page">Сохранение страницы…</string>
-  <string name="toast_saved_page">Сохранённые страницы</string>
-  <string name="toast_save_page_failed">Сохранение страницы не удалось :(</string>
+  <string name="dialog_title_clear_saved_pages">Очистить закладки?</string>
+  <string name="dialog_message_clear_saved_pages">Вы уверены, что хотите очистить все закладки?</string>
+  <string name="toast_saving_page">Добавление страницы в закладки…</string>
+  <string name="toast_saved_page">Добавлена в закладки</string>
+  <string name="toast_save_page_failed">Не удалось добавить в закладки :(</string>
   <string name="delete_selected_saved_pages">Удалить</string>
-  <string name="toast_saved_page_deleted">Сохранённые страницы удалены</string>
+  <string name="toast_saved_page_deleted">Закладки удалены</string>
   <string name="last_updated_text">Последнее обновление: %1$s</string>
   <string name="content_license_html">Содержимое доступно в соответствии &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; (если не указано иное)</string>
-  <string name="preference_title_language">Язык</string>
+  <string name="preference_title_language">Язык Википедии</string>
   <string name="preference_summary_language">Язык содержимого</string>
   <string name="nav_item_preferences">Настройки</string>
   <string name="preference_languages_filter_hint">Найти</string>
@@ -68,11 +70,12 @@
   <string name="login_error_unknown">Не удалось войти :(</string>
   <string name="login_error_no_network">Отсутствует сетевое подключение</string>
   <string name="nav_item_logout">Выйти</string>
-  <string name="logging_out_progress">Выход…</string>
-  <string name="saved_pages_empty_message">Нет сохранённых страниц.</string>
+  <string name="toast_logout_complete">Сеанс был завершён</string>
+  <string name="saved_pages_empty_message">Нет закладок</string>
   <string name="history_empty_message">Ваша история пуста.</string>
   <string name="create_account_username_hint">Имя участника</string>
   <string name="create_account_password_hint">Пароль</string>
+  <string name="menu_create_account">Создать учётную запись</string>
   <string name="login_create_account_link">Создать учётную запись</string>
   <string name="create_account_activity_title">Создать учётную запись</string>
   <string name="edit_section_activity_title">Редактировать раздел</string>
@@ -113,7 +116,6 @@
   <string name="nav_item_random">Случайная</string>
   <string name="random_progress">Выбор случайной страницы…</string>
   <string name="nav_item_login_benefits">Если вы войдёте в систему, ваши правкии будут связаны с вашим именем участника и ваш IP не будет быть отображаться публично.</string>
-  <string name="nav_item_tap_to_logout">Нажмите, чтобы выйти</string>
   <string name="create_account_account_created_toast">Учётная запись создана!</string>
   <string name="user_contribs_more_action">Загрузить ещё</string>
   <string name="activity_my_contributions_title">Вклад</string>
@@ -122,4 +124,7 @@
   <string name="edit_save_action_ip">Сохранить анонимно</string>
   <string name="edit_save_action_login_description">Ваши правки будут публично связаны с вашим именем участника, и другим редакторам будет проще с вами связаться</string>
   <string name="edit_save_action_ip_description">Ваши правки будут публично связаны с вашем IP-адресом, который может часто меняться</string>
+  <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
+  <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
+  <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
 </resources>
