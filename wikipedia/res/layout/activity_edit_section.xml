@@ -31,19 +31,20 @@
                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
 
     </LinearLayout>
-    <LinearLayout
+    <ScrollView
             android:id="@+id/edit_section_container"
             android:visibility="gone"
             android:layout_width="match_parent" android:layout_height="match_parent">
         <org.wikipedia.styledviews.StyledEditText
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:fontFamily="monospace"
                 android:gravity="top|start"
                 android:imeOptions="actionDone"
+                android:scrollbars="vertical"
                 />
-    </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
             android:layout_width="match_parent"
