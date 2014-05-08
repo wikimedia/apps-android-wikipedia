@@ -16,7 +16,7 @@ public class PageTests extends TestCase {
             sections.add(new Section(i, 1, "Something " + i, "Something_" + i, "Content Something" + i));
         }
         PageTitle title = new PageTitle(null, "Test", new Site("en.wikipedia.org"));
-        PageProperties props = new PageProperties(new Date(), "null");
+        PageProperties props = new PageProperties("", "null");
         Page page = new Page(title, sections, props);
         assertEquals(page, new Page(page.toJSON()));
     }

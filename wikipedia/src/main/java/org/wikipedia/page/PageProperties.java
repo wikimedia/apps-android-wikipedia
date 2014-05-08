@@ -1,8 +1,10 @@
 package org.wikipedia.page;
 
 import android.os.*;
+import android.util.*;
 import org.json.*;
 
+import java.text.*;
 import java.util.*;
 
 /**
@@ -11,10 +13,17 @@ import java.util.*;
 public class PageProperties implements Parcelable {
     private final Date lastModified;
     private final String displayTitleText;
+    private SimpleDateFormat sdf;
 
-
-    public PageProperties(Date lastModified, String displayTitleText) {
-        this.lastModified = lastModified;
+    public PageProperties(String lastModifiedText, String displayTitleText) {
+        lastModified = new Date();
+        sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        try {
+            lastModified.setTime(sdf.parse(lastModifiedText).getTime());
+        } catch (ParseException e) {
+            Log.d("PageProperties", "Failed to parse date: " + lastModifiedText);
+        }
         this.displayTitleText = displayTitleText;
     }
 
@@ -71,7 +80,7 @@ public class PageProperties implements Parcelable {
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
         try {
-            json.put("lastmodifieddate", getLastModified().getTime());
+            json.put("lastmodified", sdf.format(getLastModified()));
             json.put("displaytitle", displayTitleText);
         } catch (JSONException e) {
             // Goddamn it Java
@@ -83,7 +92,7 @@ public class PageProperties implements Parcelable {
 
     public PageProperties(JSONObject json) {
         this(
-                new Date(json.optLong("lastmodifieddate")),
+                json.optString("lastmodified"),
                 json.optString("displaytitle")
         );
     }
