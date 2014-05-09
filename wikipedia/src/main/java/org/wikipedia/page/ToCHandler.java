@@ -94,7 +94,7 @@ public class ToCHandler {
             }
         });
 
-        if (tocList.getAdapter() == null) {
+        if (tocList.getHeaderViewsCount() == 0) {
             TextView headerView = (TextView) LayoutInflater.from(tocList.getContext()).inflate(R.layout.header_toc_list, null, false);
             headerView.setText(page.getTitle().getDisplayText());
             tocList.addHeaderView(headerView);
@@ -107,19 +107,19 @@ public class ToCHandler {
                     hide();
                 }
             });
-
-            tocList.setAdapter(new ToCAdapter(page));
-            tocList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Section section = (Section) parent.getAdapter().getItem(position);
-                    scrollToSection(section);
-                    wasClicked = true;
-                    funnel.logClick();
-                    hide();
-                }
-            });
         }
+
+        tocList.setAdapter(new ToCAdapter(page));
+        tocList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Section section = (Section) parent.getAdapter().getItem(position);
+                scrollToSection(section);
+                wasClicked = true;
+                funnel.logClick();
+                hide();
+            }
+        });
 
         //enable ToC, but only if we have more than one section
         slidingPane.setSlidingEnabled(page.getSections().size() > 1);
