@@ -241,6 +241,8 @@ public class SearchArticlesFragment extends Fragment {
         keyboard.hideSoftInputFromWindow(searchTermText.getWindowToken(), 0);
         app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
         hideSearchResults();
+        // remove focus from the Search field, so that the cursor stops blinking
+        searchTermText.clearFocus();
     }
 
     private void startSearch(String term) {
