@@ -93,6 +93,8 @@ public class PageViewFragment extends Fragment {
      */
     public void show() {
         pageFragmentContainer.setVisibility(View.VISIBLE);
+        //refresh the fragment's state (ensures correct state of overflow menu)
+        setState(state);
     }
 
     private void displayLeadSection() {
