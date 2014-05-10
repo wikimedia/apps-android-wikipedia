@@ -9,6 +9,7 @@ import android.widget.*;
 import com.nineoldandroids.view.ViewHelper;
 import org.json.*;
 import org.wikipedia.*;
+import org.wikipedia.analytics.*;
 import org.wikipedia.bridge.*;
 import org.wikipedia.styledviews.DisableableDrawerLayout;
 
@@ -17,13 +18,18 @@ import java.util.*;
 public class ToCHandler {
     private final ListView tocList;
     private final ProgressBar tocProgress;
-    private Page page;
-    private final View quickReturnBar;
     private final CommunicationBridge bridge;
     private final DisableableDrawerLayout slidingPane;
+    private ToCInteractionFunnel funnel;
+
+    /**
+     * Flag to track if the drawer is closing because a link was clicked.
+     * Used to make sure that we don't track closes that are caused by
+     * the user clicking on a section.
+     */
+    private boolean wasClicked = false;
 
     public ToCHandler(final DisableableDrawerLayout slidingPane, final View quickReturnBar, final CommunicationBridge bridge) {
-        this.quickReturnBar = quickReturnBar;
         this.bridge = bridge;
         this.slidingPane = slidingPane;
 
@@ -39,12 +45,17 @@ public class ToCHandler {
                 prevTranslateY = ViewHelper.getTranslationY(quickReturnBar);
                 bridge.sendMessage("requestCurrentSection", new JSONObject());
                 ViewAnimations.ensureTranslationY(quickReturnBar, -quickReturnBar.getHeight());
+                funnel.logOpen();
+                wasClicked = false;
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
                 ViewAnimations.ensureTranslationY(quickReturnBar, (int) prevTranslateY);
+                if (!wasClicked) {
+                    funnel.logClose();
+                }
             }
 
             @Override
@@ -67,10 +78,10 @@ public class ToCHandler {
     }
 
     public void setupToC(final Page page) {
-        this.page = page;
         tocProgress.setVisibility(View.GONE);
         tocList.setVisibility(View.VISIBLE);
 
+        funnel = new ToCInteractionFunnel((WikipediaApp)slidingPane.getContext().getApplicationContext(), page.getTitle().getSite());
         bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
@@ -91,6 +102,8 @@ public class ToCHandler {
                 @Override
                 public void onClick(View v) {
                     scrollToSection(page.getSections().get(0));
+                    wasClicked = true;
+                    funnel.logClick();
                     hide();
                 }
             });
@@ -101,6 +114,8 @@ public class ToCHandler {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Section section = (Section) parent.getAdapter().getItem(position);
                     scrollToSection(section);
+                    wasClicked = true;
+                    funnel.logClick();
                     hide();
                 }
             });
@@ -124,8 +139,6 @@ public class ToCHandler {
 
     private static final class ToCAdapter extends BaseAdapter {
         private final ArrayList<Section> sections;
-        private final PageTitle title;
-
 
         private ToCAdapter(Page page) {
             sections = new ArrayList<Section>();
@@ -134,7 +147,6 @@ public class ToCHandler {
                     sections.add(s);
                 }
             }
-            this.title = page.getTitle();
         }
 
         @Override
