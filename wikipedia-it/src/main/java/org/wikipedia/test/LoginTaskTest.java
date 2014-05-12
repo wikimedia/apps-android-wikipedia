@@ -4,6 +4,7 @@ package org.wikipedia.test;
 import android.content.*;
 import android.test.*;
 import android.util.*;
+import org.wikimedia.wikipedia.test.R;
 import org.wikipedia.*;
 import org.wikipedia.editing.*;
 import org.wikipedia.login.*;
