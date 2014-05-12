@@ -13,15 +13,16 @@
   <string name="search_network_error">Fazi rouedad : pouezañ evit klask en-dro.</string>
   <string name="page_error_retry">Klask en-dro</string>
   <string name="menu_clear_all_history">Diverkañ an istor</string>
+  <string name="page_does_not_exist_error">N\'eus ket eus ar bajenn-se.</string>
   <string name="dialog_title_clear_history">Diverkañ an istor ?</string>
   <string name="dialog_message_clear_history">Ha c\'hoant ho peus da ziverkañ an istor penn-da-benn ?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Pajennoù enrollet</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Pajennoù enrollet</string>
-  <string name="menu_save_page" fuzzy="true">Enrollañ ar bajenn</string>
+  <string name="saved_pages_activity_title">Sinedoù</string>
+  <string name="nav_item_saved_pages">Sinedoù</string>
+  <string name="menu_save_page">Sined</string>
   <string name="menu_share_page">Rannañ</string>
   <string name="share_via">Rannañ dre</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Diverkañ ar pajennoù enrollet ?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Ha c\'hoant ho peus da ziverkañ an holl bajennoù enrollet ?</string>
+  <string name="dialog_title_clear_saved_pages">Diverkañ ar sinedoù ?</string>
+  <string name="dialog_message_clear_saved_pages">Ha c\'hoant ho peus da ziverkañ an holl sinedoù ?</string>
   <string name="toast_saving_page" fuzzy="true">Oc\'h enrollañ ar bajenn...</string>
   <string name="toast_saved_page" fuzzy="true">Pajenn enrollet</string>
   <string name="toast_save_page_failed" fuzzy="true">C\'hwitet eo enrolladur ar bajenn :(</string>
@@ -29,7 +30,7 @@
   <string name="toast_saved_page_deleted" fuzzy="true">Pajennoù enrollet dilamet</string>
   <string name="last_updated_text">Hizivadenn ziwezhañ %1$s</string>
   <string name="content_license_html">An endalc\'had a c\'haller kaout e &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
-  <string name="preference_title_language" fuzzy="true">Yezh</string>
+  <string name="preference_title_language">Yezh Wikipedia</string>
   <string name="preference_summary_language">Yezh an endalc\'had</string>
   <string name="nav_item_preferences">Arventennoù</string>
   <string name="preference_languages_filter_hint">Klask</string>
@@ -68,10 +69,12 @@
   <string name="login_error_unknown">C\'hwitet eo ar c\'hevreañ :(</string>
   <string name="login_error_no_network">Kevreadenn ebet ouzh ar rouedad</string>
   <string name="nav_item_logout">Digevreañ</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Pajenn enrollet ebet.</string>
+  <string name="toast_logout_complete">Digevreet</string>
+  <string name="saved_pages_empty_message">Sined ebet.</string>
   <string name="history_empty_message">Goullo eo ho roll-istor.</string>
   <string name="create_account_username_hint">Anv implijer</string>
   <string name="create_account_password_hint">Ger-tremen</string>
+  <string name="menu_create_account">Krouiñ ur gont</string>
   <string name="login_create_account_link">Krouiñ ur gont</string>
   <string name="create_account_activity_title">Krouiñ ur gont</string>
   <string name="edit_section_activity_title">Kemm rannskrid</string>

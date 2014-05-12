@@ -22,7 +22,7 @@
   <string name="toast_save_page_failed" fuzzy="true">Gravação da página falhou :(</string>
   <string name="delete_selected_saved_pages">Eliminar</string>
   <string name="content_license_html">O conteúdo está disponível sob &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
-  <string name="preference_title_language" fuzzy="true">Língua</string>
+  <string name="preference_title_language">Idioma da Wikipédia</string>
   <string name="preference_summary_language">Língua do conteúdo</string>
   <string name="nav_item_preferences">Configurações</string>
   <string name="preference_languages_filter_hint">Pesquisar</string>

@@ -88,6 +88,7 @@
   <string name="create_account_ip_throttle_error">För många konton har skapats från denna IP. Försök igen senare.</string>
   <string name="create_account_open_proxy_error">Denna IP har blockerats från att skapa konton.</string>
   <string name="create_account_generic_error">Kan inte skapa konto</string>
+  <string name="create_account_no_network">Ingen nätverksanslutning</string>
   <string name="preferences_general_heading">Allmänt</string>
   <string name="zero_free_verbiage">Gratis Wikipedia-tillgång från din mobiloperatör (avstår från dataavgifter)</string>
   <string name="zero_charged_verbiage">Wikipedia Zero INAKTIVERAD (STANDARDDATAAVGIFTER KAN TILLKOMMA)</string>

@@ -88,6 +88,7 @@
   <string name="create_account_ip_throttle_error">יותר מדי חשבונות נוצרו מכתובת ה־IP הזאת. נא לנסות שוב מאוחר יותר.</string>
   <string name="create_account_open_proxy_error">כתובת ה־IP נחסמה מיצירת חשבונות.</string>
   <string name="create_account_generic_error">לא היה ניתן ליצור חשבון</string>
+  <string name="create_account_no_network">אין קישור לרשת</string>
   <string name="preferences_general_heading">כללי</string>
   <string name="zero_free_verbiage">גישה חופשית לוויקיפדיה מספק התקשורת הניידת שלך (ללא חיוב על נתונים)</string>
   <string name="zero_charged_verbiage">ויקיפדיה אפס כבויה (ייתכן שיחולו חיובים רגילים על נתונים)</string>

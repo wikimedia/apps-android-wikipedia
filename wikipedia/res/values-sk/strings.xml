@@ -13,23 +13,25 @@
   <string name="search_network_error">Problém so sieťou. Ťuknutím to skúsite znova.</string>
   <string name="page_error_retry">Obnoviť</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
+  <string name="menu_clear_all_bookmarks">Vymazať záložky</string>
+  <string name="page_does_not_exist_error">Táto stránka neexistuje.</string>
   <string name="dialog_title_clear_history">Vymazať históriu?</string>
   <string name="dialog_message_clear_history">Naozaj chcete vymazať celú históriu?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Uložené stránky</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Uložené stránky</string>
-  <string name="menu_save_page" fuzzy="true">Uložiť stránku</string>
+  <string name="saved_pages_activity_title">Záložky</string>
+  <string name="nav_item_saved_pages">Záložky</string>
+  <string name="menu_save_page">Pridať medzi záložky</string>
   <string name="menu_share_page">Zdieľať</string>
   <string name="share_via">Zdieľať cez</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Vymazať všetky uložené stránky?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Naozaj chcete vymazať všetky uložené stránky?</string>
-  <string name="toast_saving_page" fuzzy="true">Ukladanie stránky...</string>
-  <string name="toast_saved_page" fuzzy="true">Stránka sa uložila</string>
-  <string name="toast_save_page_failed" fuzzy="true">Uloženie stránky zlyhalo :(</string>
+  <string name="dialog_title_clear_saved_pages">Vymazať záložky?</string>
+  <string name="dialog_message_clear_saved_pages">Naozaj chcete vymazať všetky záložky?</string>
+  <string name="toast_saving_page">Pridávanie stránky medzi záložky...</string>
+  <string name="toast_saved_page">Záložka bola vytvorená</string>
+  <string name="toast_save_page_failed">Pridávanie stránky medzi záložky zlyhalo :(</string>
   <string name="delete_selected_saved_pages">Zmazať</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Uložené stránky odstránené</string>
+  <string name="toast_saved_page_deleted">Záložky boli odstránené</string>
   <string name="last_updated_text">Posledná aktualizácia %1$s</string>
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="preference_title_language" fuzzy="true">Jazyk</string>
+  <string name="preference_title_language">Jazyk</string>
   <string name="preference_summary_language">Jazyk obsahu</string>
   <string name="nav_item_preferences">Nastavenia</string>
   <string name="preference_languages_filter_hint">Hľadať</string>
@@ -69,10 +71,11 @@
   <string name="login_error_no_network">Žiadne sieťové pripojenie</string>
   <string name="nav_item_logout">Odhlásiť sa</string>
   <string name="toast_logout_complete">Ste odhlásení.</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Žiadne uložené stránky.</string>
+  <string name="saved_pages_empty_message">Žiadne záložky</string>
   <string name="history_empty_message">Vaša história je prázdna.</string>
   <string name="create_account_username_hint">Používateľské meno</string>
   <string name="create_account_password_hint">Heslo</string>
+  <string name="menu_create_account">Vytvoriť účet</string>
   <string name="login_create_account_link">Vytvoriť účet</string>
   <string name="create_account_activity_title">Vytvoriť nový účet</string>
   <string name="edit_section_activity_title">Upraviť sekciu</string>
@@ -85,6 +88,7 @@
   <string name="create_account_ip_throttle_error">Z tejto IP adresy bolo vytvorených príliš veľa účtov. Skúste to znova neskôr.</string>
   <string name="create_account_open_proxy_error">Tejto IP nie je umožnené vytvárať účty.</string>
   <string name="create_account_generic_error">Nepodarilo sa vytvoriť účet</string>
+  <string name="create_account_no_network">Žiadne sieťové pripojenie</string>
   <string name="preferences_general_heading">Všeobecné</string>
   <string name="zero_free_verbiage">Voľný prístup k Wikipédii od vášho mobilného operátora (neplatíte poplatky za prenos dát)</string>
   <string name="zero_charged_verbiage">Wikipédia Zero je VYPNUTÁ (MÔŽU SA OBJAVIŤ ŠTANDARDNÉ POPLATKY ZA PRENOS DÁT)</string>

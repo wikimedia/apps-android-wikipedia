@@ -88,6 +88,7 @@
   <string name="create_account_ip_throttle_error">이 IP 주소에서 너무 많은 계정이 만들어졌습니다. 나중에 다시 시도하세요.</string>
   <string name="create_account_open_proxy_error">이 IP 주소는 계정 만들기에서 차단되어 있습니다.</string>
   <string name="create_account_generic_error">계정을 만들 수 없습니다</string>
+  <string name="create_account_no_network">네트워크 연결 없음</string>
   <string name="preferences_general_heading">일반</string>
   <string name="zero_free_verbiage">이동 통신사에서 무료로 위키백과에 접속하세요 (데이터 요금 면제)</string>
   <string name="zero_charged_verbiage">위키백과 제로 꺼짐 (표준 데이터 요금이 부과될 수 있음)</string>

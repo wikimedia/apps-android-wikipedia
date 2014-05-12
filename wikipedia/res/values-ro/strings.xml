@@ -88,6 +88,7 @@
   <string name="create_account_ip_throttle_error">Prea multe conturi create de la această adresă IP. Încercați din nou mai târziu.</string>
   <string name="create_account_open_proxy_error">Această adresă IP a fost blocată la crearea de conturi.</string>
   <string name="create_account_generic_error">Nu s-a putut crea contul</string>
+  <string name="create_account_no_network">Nicio conexiune la rețea</string>
   <string name="preferences_general_heading">General</string>
   <string name="zero_free_verbiage">Acces gratuit la Wikipedia de la operatorul dumneavoastră de telefonie mobilă (traficul de date nu va fi taxat)</string>
   <string name="zero_charged_verbiage">Wikipedia Zero DEZACTIVATĂ (SE POT PERCEPE TARIFE STANDARD PENTRU TRAFICUL DE DATE)</string>

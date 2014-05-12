@@ -18,10 +18,10 @@
   <string name="menu_save_page">Lieszeechen</string>
   <string name="menu_share_page">Deelen</string>
   <string name="dialog_title_clear_saved_pages">Lieszeeche läschen?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Sidd Dir sécher datt Dir all gespäichert Säite läsche wëllt?</string>
-  <string name="toast_saving_page" fuzzy="true">Späichere vun der Säit...</string>
-  <string name="toast_saved_page" fuzzy="true">Gespäichert Säit</string>
-  <string name="toast_save_page_failed" fuzzy="true">D\'Späichere vun der Säit huet net funktionéiert :(</string>
+  <string name="dialog_message_clear_saved_pages">Sidd Dir sécher datt Dir all Lieszeeche läsche wëllt?</string>
+  <string name="toast_saving_page">Säit als Lieszeeche späicheren...</string>
+  <string name="toast_saved_page">Säit als Lieszeeche gespäichert</string>
+  <string name="toast_save_page_failed">D\'Späichere vun der Säit als Lieszeechen huet net funktionéiert :(</string>
   <string name="delete_selected_saved_pages">Läschen</string>
   <string name="toast_saved_page_deleted">Lieszeeche geläscht</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>

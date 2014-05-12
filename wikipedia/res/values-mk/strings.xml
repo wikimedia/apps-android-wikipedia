@@ -88,6 +88,7 @@
   <string name="create_account_ip_throttle_error">Од овааа IP-адреса се направени премногу кориснички сметки. Обидете се подоцна.</string>
   <string name="create_account_open_proxy_error">Оваа IP-адреса е блокирана за создавање кориснички сметки.</string>
   <string name="create_account_generic_error">Не можам да направам корисничка сметка</string>
+  <string name="create_account_no_network">Немате врска со мрежата</string>
   <string name="preferences_general_heading">Општи</string>
   <string name="zero_free_verbiage">Бесплатнен пристап до Википедија преку Вашиот мобилен оператор (податочниот сообраќај не се наплаќа)</string>
   <string name="zero_charged_verbiage">Википедија Нулта е ИСКЛУЧЕНА (ПОДАТОЧНИОТ ПРОМЕТ МОЖЕ ДА СЕ НАПЛАЌА СТДАНДАРДНО)</string>
