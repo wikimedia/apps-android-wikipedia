@@ -46,8 +46,8 @@ public class NonEmptyValidator {
         }
 
         if (isValid != lastIsValidValue) {
-            validationChanged.onValidationChanged(isValid);
             lastIsValidValue = isValid;
+            validationChanged.onValidationChanged(isValid);
         }
     }
 
