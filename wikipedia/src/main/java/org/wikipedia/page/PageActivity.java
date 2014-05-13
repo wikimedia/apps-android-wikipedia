@@ -284,6 +284,10 @@ public class PageActivity extends ActionBarActivity {
         if (WikipediaApp.isWikipediaZeroDevmodeOn() && pausedStateOfZero && !latestWikipediaZeroDispostion) {
             bus.post(new WikipediaZeroStateChangeEvent());
         }
+        if (curPageFragment != null) {
+            //refresh the current fragment's state (ensures correct state of overflow menu)
+            curPageFragment.show();
+        }
     }
 
     @Override
