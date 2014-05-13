@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="org.wikimedia.wikipedia.test" android:versionCode="1" android:versionName="1.0-SNAPSHOT">
 
+  <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="17" />
   <uses-permission android:name="android.permission.INTERNET" />
   <application android:icon="@drawable/icon" android:label="@string/app_name">
     <uses-library android:name="android.test.runner" />
