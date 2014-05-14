@@ -3,7 +3,7 @@ package org.wikipedia.page;
 import android.content.*;
 import android.os.*;
 import android.support.v4.app.*;
-import android.support.v4.widget.*;
+import android.util.*;
 import android.view.*;
 import android.widget.*;
 import org.json.*;
@@ -308,6 +308,11 @@ public class PageViewFragment extends Fragment {
 
         @Override
         public void onFinish(List<Section> result) {
+            // have we been unwittingly detached from our Activity?
+            if (!isAdded()) {
+                Log.d("PageViewFragment", "Detached from activity, so stopping update.");
+                return;
+            }
             page = new Page(title, (ArrayList<Section>) result, pageProperties);
             editHandler.setPage(page);
             displayLeadSection();
@@ -349,6 +354,11 @@ public class PageViewFragment extends Fragment {
 
         @Override
         public void onFinish(List<Section> result) {
+            // have we been unwittingly detached from our Activity?
+            if (!isAdded()) {
+                Log.d("PageViewFragment", "Detached from activity, so stopping update.");
+                return;
+            }
             ArrayList<Section> newSections = (ArrayList<Section>) page.getSections().clone();
             newSections.addAll(result);
             page = new Page(page.getTitle(), newSections, page.getPageProperties());
