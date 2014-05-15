@@ -28,8 +28,23 @@ public class PageImage implements Parcelable {
             return false;
         }
         PageImage other = (PageImage) o;
-        return getTitle().equals(other.getTitle())
-                && getImageName().equals(other.getImageName());
+        return title.equals(other.title)
+                && imageName.equals(other.imageName);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title.hashCode();
+        result = 31 * result + imageName.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "PageImage{" +
+                "title=" + title +
+                ", imageName='" + imageName + '\'' +
+                '}';
     }
 
     @Override

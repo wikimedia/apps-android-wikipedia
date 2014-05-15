@@ -34,7 +34,20 @@ public class Bookmark implements Parcelable {
             return false;
         }
         Bookmark other = (Bookmark) o;
-        return getTitle().equals(other.getTitle());
+        return title.equals(other.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return title.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Bookmark{" +
+                "title=" + title +
+                ", timestamp=" + timestamp.getTime() +
+                '}';
     }
 
     @Override

@@ -49,9 +49,26 @@ public class HistoryEntry implements Parcelable {
             return false;
         }
         HistoryEntry other = (HistoryEntry) o;
-        return getTitle().equals(other.getTitle())
-                && getTimestamp().equals(other.getTimestamp())
-                && getSource() == other.getSource();
+        return title.equals(other.title)
+                && timestamp.equals(other.timestamp)
+                && source == other.source;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title.hashCode();
+        result = 31 * result + source;
+        result = 31 * result + timestamp.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "HistoryEntry{" +
+                "title=" + title +
+                ", source=" + source +
+                ", timestamp=" + timestamp.getTime() +
+                '}';
     }
 
     @Override

@@ -54,6 +54,18 @@ public class Site implements Parcelable {
         return ((Site)o).getDomain().equals(domain);
     }
 
+    @Override
+    public int hashCode() {
+        return domain.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Site{" +
+                "domain='" + domain + '\'' +
+                '}';
+    }
+
     public String getFullUrl(String path) {
         return WikipediaApp.PROTOCOL + "://" + getDomain() + path;
     }

@@ -77,6 +77,21 @@ public class PageProperties implements Parcelable {
                 && displayTitleText.equals(that.displayTitleText);
     }
 
+    @Override
+    public int hashCode() {
+        int result = lastModified.hashCode();
+        result = 31 * result + displayTitleText.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "PageProperties{" +
+                "displayTitleText='" + displayTitleText + '\'' +
+                ", lastModified=" + lastModified.getTime() +
+                '}';
+    }
+
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
         try {

@@ -53,6 +53,22 @@ public class Section implements Parcelable {
 
     }
 
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getHeading().hashCode();
+        result = 31 * result + getAnchor().hashCode();
+        result = 31 * result + getContent().hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Section{" +
+                "data=" + data +
+                '}';
+    }
+
     public boolean isLead() {
         return getId() == 0;
     }

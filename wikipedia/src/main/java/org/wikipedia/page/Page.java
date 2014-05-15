@@ -54,6 +54,10 @@ public class Page implements Parcelable {
         return 0;
     }
 
+    public PageProperties getPageProperties() {
+        return pageProperties;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Page)) {
@@ -61,11 +65,26 @@ public class Page implements Parcelable {
         }
 
         Page other = (Page) o;
-        return getTitle().equals(other.getTitle()) && getSections().equals(other.getSections()) && pageProperties.equals(other.getPageProperties());
+        return title.equals(other.title)
+                && sections.equals(other.sections)
+                && pageProperties.equals(other.pageProperties);
     }
 
-    public PageProperties getPageProperties() {
-        return pageProperties;
+    @Override
+    public int hashCode() {
+        int result = title.hashCode();
+        result = 31 * result + sections.hashCode();
+        result = 31 * result + pageProperties.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Page{" +
+                "title=" + title +
+                ", sections=" + sections +
+                ", pageProperties=" + pageProperties +
+                '}';
     }
 
     @Override
