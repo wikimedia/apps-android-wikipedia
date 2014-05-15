@@ -31,7 +31,6 @@ public class EditPreviewFragment extends Fragment {
         previewContainer = parent.findViewById(R.id.edit_preview_container);
 
         bridge = new CommunicationBridge(webview, "file:///android_asset/preview.html");
-        bridge.injectStyleBundle(new PackagedStyleBundle("preview.css"));
 
         return parent;
     }
@@ -64,7 +63,7 @@ public class EditPreviewFragment extends Fragment {
         editSummaryHandler.show();
     }
 
-    private boolean isDirectionSetup = false;
+    private boolean isWebViewSetup = false;
 
     public void showPreview(PageTitle title, String wikiText) {
         Utils.hideSoftKeyboard(getActivity());
@@ -73,9 +72,11 @@ public class EditPreviewFragment extends Fragment {
         dialog.setMessage(getString(R.string.edit_preview_fetching_dialog_message));
         dialog.setCancelable(false);
 
-        if (!isDirectionSetup) {
+        if (!isWebViewSetup) {
             Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
-            isDirectionSetup = true;
+            StyleLoader styleLoader = ((WikipediaApp)getActivity().getApplicationContext()).getStyleLoader();
+            bridge.injectStyleBundle(styleLoader.getAvailableBundle(StyleLoader.BUNDLE_PREVIEW, title.getSite()));
+            isWebViewSetup = true;
         }
 
         new LinkHandler(getActivity(), bridge, title.getSite()) {

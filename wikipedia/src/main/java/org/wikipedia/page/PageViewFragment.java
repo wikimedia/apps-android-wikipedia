@@ -179,7 +179,7 @@ public class PageViewFragment extends Fragment {
         setupMessageHandlers();
         Utils.addUtilityMethodsToBridge(getActivity(), bridge);
         Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
-        bridge.injectStyleBundle(new PackagedStyleBundle("styles.css"));
+        bridge.injectStyleBundle(app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_PAGEVIEW, title.getSite()));
         linkHandler = new LinkHandler(getActivity(), bridge, title.getSite()){
             @Override
             public void onInternalLinkClicked(PageTitle title) {

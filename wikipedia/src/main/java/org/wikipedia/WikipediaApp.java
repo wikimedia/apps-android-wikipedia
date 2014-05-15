@@ -15,6 +15,7 @@ import org.acra.annotation.*;
 import org.json.JSONObject;
 import org.mediawiki.api.json.*;
 import org.wikipedia.analytics.*;
+import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.data.*;
 import org.wikipedia.editing.*;
 import org.wikipedia.editing.summaries.*;
@@ -311,6 +312,14 @@ public class WikipediaApp extends Application {
         }
 
         return funnelManager;
+    }
+
+    private StyleLoader styleLoader;
+    public StyleLoader getStyleLoader() {
+        if (styleLoader == null) {
+            styleLoader = new StyleLoader(this);
+        }
+        return styleLoader;
     }
 
     private static boolean wikipediaZeroDisposition = false;
