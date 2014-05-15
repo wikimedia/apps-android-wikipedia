@@ -9,4 +9,5 @@
     <string name="preference_key_zero_devmode">zero_dev_option_on</string>
     <string name="preference_key_remote_config">remote_config</string>
     <string name="preference_key_eventlogging_opt_in">eventlogging_opt_in</string>
+    <string name="preference_key_styles_last_updated">styles_last_updated</string>
 </resources>

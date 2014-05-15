@@ -369,4 +369,53 @@ public final class Utils {
         context.startActivity(intent);
     }
 
+    /**
+     * Utility method to copy a stream into another stream.
+     *
+     * Uses a 16KB buffer.
+     *
+     * @param in Stream to copy from.
+     * @param out Stream to copy to.
+     * @throws IOException
+     */
+    public static void copyStreams(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[16 * 1024]; // 16kb buffer
+        int len;
+        while ((len = in.read(buffer)) != -1) {
+            out.write(buffer, 0, len);
+        }
+    }
+
+    /**
+     * Format for formatting/parsing dates to/from the ISO 8601 standard
+     */
+    private static final String ISO8601_FORMAT_STRING = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+
+    /**
+     * Parse a date formatted in ISO8601 format.
+     *
+     * @param dateString Date String to parse
+     * @return Parsed Date object.
+     * @throws ParseException
+     */
+    public static Date parseISO8601(String dateString) throws ParseException {
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat(ISO8601_FORMAT_STRING);
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        date.setTime(sdf.parse(dateString).getTime());
+        return date;
+    }
+
+    /**
+     * Format a date to an ISO8601 formatted string.
+     *
+     * @param date Date to format.
+     * @return The given date formatted in ISO8601 format.
+     */
+    public static String formatISO8601(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat(ISO8601_FORMAT_STRING);
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+        return sdf.format(date);
+    }
 }

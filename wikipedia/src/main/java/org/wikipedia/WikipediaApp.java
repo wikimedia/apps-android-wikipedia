@@ -52,6 +52,7 @@ public class WikipediaApp extends Application {
     public static String PREFERENCE_ZERO_DEVMODE;
     public static String PREFERENCE_REMOTE_CONFIG;
     public static String PREFERENCE_EVENTLOGGING_ENABLED;
+    public static String PREFERENCE_STYLES_LAST_UPDATED;
 
     public static float SCREEN_DENSITY;
     // Reload in onCreate to override
@@ -81,6 +82,7 @@ public class WikipediaApp extends Application {
         PREFERENCE_ZERO_DEVMODE = getResources().getString(R.string.preference_key_zero_devmode);
         PREFERENCE_REMOTE_CONFIG = getString(R.string.preference_key_remote_config);
         PREFERENCE_EVENTLOGGING_ENABLED = getString(R.string.preference_key_eventlogging_opt_in);
+        PREFERENCE_STYLES_LAST_UPDATED = getString(R.string.preference_key_styles_last_updated);
 
         PROTOCOL = "https"; // Move this to a preference or something later on
 
