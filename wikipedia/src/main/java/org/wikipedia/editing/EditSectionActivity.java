@@ -87,7 +87,7 @@ public class EditSectionActivity extends ActionBarActivity {
         abusefilterWebView = (WebView) findViewById(R.id.edit_section_abusefilter_webview);
         abusefilterBridge = new CommunicationBridge(abusefilterWebView, "file:///android_asset/abusefilter.html");
         Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), abusefilterBridge);
-        abusefilterBridge.injectStyleBundle(new PackagedStyleBundle("abusefilter.css"));
+        abusefilterBridge.injectStyleBundle(app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_ABUSEFILTER, title.getSite()));
         abuseFilterBackAction = findViewById(R.id.edit_section_abusefilter_back);
 
         captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, R.string.edit_section_activity_title);
