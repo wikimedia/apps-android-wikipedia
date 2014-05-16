@@ -1,11 +1,12 @@
 package org.wikipedia.page;
 
-import android.app.*;
+import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.content.*;
 import android.net.*;
 import android.os.*;
 import android.preference.*;
-import android.support.v4.widget.*;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.*;
 import android.util.*;
 import android.view.*;
@@ -13,9 +14,11 @@ import com.squareup.otto.*;
 import de.keyboardsurfer.android.widget.crouton.*;
 import org.wikipedia.*;
 import org.wikipedia.analytics.*;
+import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.events.*;
 import org.wikipedia.history.*;
 import org.wikipedia.interlanguage.*;
+import org.wikipedia.pageimages.PageImageSaveTask;
 import org.wikipedia.recurring.*;
 import org.wikipedia.search.*;
 import org.wikipedia.settings.*;
@@ -31,10 +34,22 @@ public class PageActivity extends ActionBarActivity {
     private Bus bus;
     private WikipediaApp app;
 
-    private SearchArticlesFragment searchAriclesFragment;
+    private SearchArticlesFragment searchArticlesFragment;
     private DrawerLayout drawerLayout;
 
+    /**
+     * Container that will hold our WebViews, and animate between them.
+     */
+    private PageFragmentPager fragmentPager;
+
     private PageViewFragment curPageFragment;
+
+    private PageFragmentAdapter fragmentAdapter;
+
+    /**
+     * Lightweight back-stack of history items
+     */
+    private BackStack backStack;
 
     private boolean pausedStateOfZero;
     private String pausedXcsOfZero;
@@ -54,9 +69,11 @@ public class PageActivity extends ActionBarActivity {
         if (savedInstanceState != null) {
             pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
             pausedXcsOfZero = savedInstanceState.getString("pausedXcsOfZero");
-            if (savedInstanceState.containsKey("curPageFragment")) {
-                curPageFragment = (PageViewFragment) getSupportFragmentManager().getFragment(savedInstanceState, "curPageFragment");
+            if (savedInstanceState.containsKey("backStack")) {
+                backStack = savedInstanceState.getParcelable("backStack");
             }
+        } else {
+            backStack = new BackStack();
         }
 
         bus = app.getBus();
@@ -64,10 +81,22 @@ public class PageActivity extends ActionBarActivity {
 
         readingActionFunnel = new ReadingActionFunnel(app);
 
-        searchAriclesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
+        searchArticlesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        searchAriclesFragment.setDrawerLayout(drawerLayout);
+        searchArticlesFragment.setDrawerLayout(drawerLayout);
+
+        fragmentPager = (PageFragmentPager) findViewById(R.id.content_pager);
+        // disable the default swipe motion to flip pages (we'll be doing it programmatically)
+        fragmentPager.setPagingEnabled(false);
+
+        fragmentAdapter = new PageFragmentAdapter(getSupportFragmentManager(), backStack);
+        fragmentPager.setAdapter(fragmentAdapter);
+
+        // Set the maximum number of fragments that will be kept in memory.
+        // Old Fragments will be automatically destroyed, but their state will be saved,
+        // so when the user goes back, they will be recreated.
+        fragmentPager.setOffscreenPageLimit(calculateMaxFragments());
 
         if (savedInstanceState == null) {
             // Don't do this if we are just rotating the phone
@@ -92,7 +121,25 @@ public class PageActivity extends ActionBarActivity {
         new RecurringTasksExecutor(this).run();
     }
 
-    private void displayNewPage(PageTitle title, HistoryEntry entry) {
+    private int calculateMaxFragments() {
+        // calculate the maximum number of WebViews to keep in memory, based on VM size
+        ActivityManager activityManager = (ActivityManager)getApplicationContext().getSystemService(ACTIVITY_SERVICE);
+        int memMegs = activityManager.getMemoryClass();
+        // allow up to 7MB for the app itself, 3 MB for spikes by WebView allocations,
+        // and 2 MB for each WebView stored in memory.
+        int maxFragments = (memMegs - 7 - 3) / 2;
+        if (maxFragments <= 0) {
+            // make sure there's at least one, for really low-memory devices.
+            maxFragments = 1;
+        } else if (maxFragments > 6) {
+            // more than this will probably break rendering.
+            maxFragments = 6;
+        }
+        Log.d("PageActivity", "Maximum Fragments in memory: " + maxFragments);
+        return maxFragments;
+    }
+
+    private void displayNewPage(final PageTitle title, final HistoryEntry entry) {
         readingActionFunnel.logSomethingHappened(title.getSite());
         if (drawerLayout.isDrawerOpen(Gravity.START)) {
             drawerLayout.closeDrawer(Gravity.START);
@@ -101,17 +148,56 @@ public class PageActivity extends ActionBarActivity {
             Utils.visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
             return;
         }
-        PageViewFragment pageFragment = new PageViewFragment(title, entry, R.id.search_fragment);
-        getSupportFragmentManager().beginTransaction()
-                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
-                .add(R.id.content_frame, pageFragment, title.getCanonicalUri())
-                .addToBackStack(title.getCanonicalUri())
-                .commit();
 
-        if (curPageFragment != null) {
-            curPageFragment.hide();
+        // Add history entry now
+        new HistorySaveTask(entry).execute();
+        // Save image for this page title
+        new PageImageSaveTask(app, app.getAPIForSite(title.getSite()), title).execute();
+
+        // animate the new fragment into place
+        // then hide the previous fragment.
+        final PageViewFragment prevFragment = curPageFragment;
+        fragmentPager.setOnAnimationListener(new PageFragmentPager.OnAnimationListener() {
+            @Override
+            public void OnAnimationFinished() {
+                if (prevFragment != null) {
+                    prevFragment.hide();
+                }
+                fragmentPager.setOnAnimationListener(null);
+            }
+        });
+
+        backStack.getStack().add(new BackStackItem(title, entry, 0));
+
+        fragmentAdapter.notifyDataSetChanged();
+        fragmentPager.setCurrentItem(backStack.size() - 1);
+
+        curPageFragment = (PageViewFragment)fragmentAdapter.getItem(fragmentPager.getCurrentItem());
+
+        Log.d("PageActivity", "pageBackStack has " + backStack.size() + " items");
+    }
+
+    /**
+     * Saving a history item needs to be in its own task, since the operation may
+     * actually block for several seconds, and should not be on the main thread.
+     */
+    private class HistorySaveTask extends SaneAsyncTask<Void> {
+        private final HistoryEntry entry;
+        public HistorySaveTask(HistoryEntry entry) {
+            super(SINGLE_THREAD);
+            this.entry = entry;
         }
-        curPageFragment = pageFragment;
+
+        @Override
+        public Void performTask() throws Throwable {
+            app.getPersister(HistoryEntry.class).persist(entry);
+            return null;
+        }
+
+        @Override
+        public void onCatch(Throwable caught) {
+            Log.d("HistorySaveTask", caught.getMessage());
+        }
     }
 
     @Subscribe
@@ -162,18 +248,35 @@ public class PageActivity extends ActionBarActivity {
             drawerLayout.closeDrawer(Gravity.START);
             return;
         }
-        if (!searchAriclesFragment.handleBackPressed()
+        if (!searchArticlesFragment.handleBackPressed()
                 && !(curPageFragment != null && curPageFragment.handleBackPressed())) {
-            if (getSupportFragmentManager().getBackStackEntryCount() <= 1) {
+            if (backStack.size() <= 1) {
                 // Everything we could pop has been popped....
                 finish();
             } else {
-                getSupportFragmentManager().popBackStackImmediate();
-                String tag = getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName();
-                curPageFragment = (PageViewFragment) getSupportFragmentManager().findFragmentByTag(tag);
+
+                // don't do anything if we're in the middle of an animation (looks better)
+                if (fragmentPager.isAnimating()) {
+                    return;
+                }
+
+                // let the Pager finish its animation, then remove the fragment that was moved off.
+                fragmentPager.setOnAnimationListener(new PageFragmentPager.OnAnimationListener() {
+                    @Override
+                    public void OnAnimationFinished() {
+                        fragmentAdapter.removeFragment(backStack.size() - 1);
+
+                        fragmentAdapter.notifyDataSetChanged();
+                        fragmentPager.setOnAnimationListener(null);
+                    }
+                });
+
+                fragmentPager.setCurrentItem(fragmentPager.getCurrentItem() - 1);
+                curPageFragment = fragmentAdapter.getFragmentAt(fragmentPager.getCurrentItem());
                 curPageFragment.show();
-                searchAriclesFragment.clearErrors();
-                searchAriclesFragment.ensureVisible();
+
+                searchArticlesFragment.clearErrors();
+                searchArticlesFragment.ensureVisible();
             }
         }
     }
@@ -274,13 +377,19 @@ public class PageActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        boolean latestWikipediaZeroDispostion = WikipediaApp.getWikipediaZeroDisposition();
-        if (WikipediaApp.isWikipediaZeroDevmodeOn() && pausedStateOfZero && !latestWikipediaZeroDispostion) {
+        boolean latestWikipediaZeroDisposition = WikipediaApp.getWikipediaZeroDisposition();
+        if (WikipediaApp.isWikipediaZeroDevmodeOn() && pausedStateOfZero && !latestWikipediaZeroDisposition) {
             bus.post(new WikipediaZeroStateChangeEvent());
         }
+        fragmentAdapter.onResume(this);
         if (curPageFragment != null) {
             //refresh the current fragment's state (ensures correct state of overflow menu)
             curPageFragment.show();
+        }
+        // if we're just being resumed from a saved state, then sync curPageFragment
+        // with the correct item in the pager.
+        if (curPageFragment == null && fragmentAdapter.getCount() > 0) {
+            curPageFragment = (PageViewFragment)fragmentAdapter.getItem(fragmentPager.getCurrentItem());
         }
     }
 
@@ -296,9 +405,7 @@ public class PageActivity extends ActionBarActivity {
         super.onSaveInstanceState(outState);
         outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
         outState.putString("pausedXcsOfZero", pausedXcsOfZero);
-        if (curPageFragment != null) {
-            getSupportFragmentManager().putFragment(outState, "curPageFragment", curPageFragment);
-        }
+        outState.putParcelable("backStack", backStack);
     }
 
     @Override

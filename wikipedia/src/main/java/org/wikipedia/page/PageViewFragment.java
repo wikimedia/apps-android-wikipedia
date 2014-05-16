@@ -27,12 +27,46 @@ public class PageViewFragment extends Fragment {
     private static final String KEY_SCROLL_Y = "scrollY";
     private static final String KEY_CURRENT_HISTORY_ENTRY = "currentHistoryEntry";
     private static final String KEY_QUICK_RETURN_BAR_ID = "quickReturnBarId";
+    private static final String KEY_PAGER_INDEX = "pagerIndex";
 
     public static final int STATE_NO_FETCH = 1;
     public static final int STATE_INITIAL_FETCH = 2;
     public static final int STATE_COMPLETE_FETCH = 3;
 
     private int state = STATE_NO_FETCH;
+
+    /**
+     * Indicates that the full state of this fragment will be saved when onSaveInstanceState
+     * is called, including the heavy Page object that contains the full page text. This is good
+     * when the fragment is destroyed due to the activity being closed.
+     */
+    public static final int SAVE_STATE_FULL = 0;
+
+    /**
+     * Indicates that only a partial state of this fragment will be saved when onSaveInstanceState
+     * is called, including the Title, HistoryItem, and scroll position. This is used when the
+     * fragment is destroyed by the ViewPager when the user slides it out of sight. The next time
+     * the fragment is recreated, we'll fetch the page contents from the network again.
+     */
+    public static final int SAVE_STATE_TITLE = 1;
+
+    /**
+     * Indicates that none of this fragment's state will be saved when onSaveInstanceState
+     * is called. This is used when the fragment is destroyed due to the user going "back"
+     * in the ViewPager.
+     */
+    public static final int SAVE_STATE_NONE = 2;
+
+    /**
+     * Determines how much of this fragment's state will be saved when it's destroyed.
+     * (when onSaveInstanceState is called)
+     */
+    private int saveState = SAVE_STATE_FULL;
+
+    /**
+     * Stores this fragment's position in the ViewPager in the parent activity.
+     */
+    private int pagerIndex;
 
     private PageTitle title;
     private ObservableWebView webView;
@@ -41,7 +75,7 @@ public class PageViewFragment extends Fragment {
     private View retryButton;
     private View pageDoesNotExistError;
     private DisableableDrawerLayout tocDrawer;
-    private FrameLayout pageFragmentContainer;
+    private View pageFragmentContainer;
 
     private Page page;
     private HistoryEntry curEntry;
@@ -61,7 +95,8 @@ public class PageViewFragment extends Fragment {
     private ReadingActionFunnel readingActionFunnel;
 
     // Pass in the id rather than the View object itself for the quickReturn bar, to help it survive rotates
-    public PageViewFragment(PageTitle title, HistoryEntry historyEntry, int quickReturnBarId) {
+    public PageViewFragment(int pagerIndex, PageTitle title, HistoryEntry historyEntry, int quickReturnBarId) {
+        this.pagerIndex = pagerIndex;
         this.title = title;
         this.curEntry = historyEntry;
         this.quickReturnBarId = quickReturnBarId;
@@ -78,12 +113,41 @@ public class PageViewFragment extends Fragment {
         return page;
     }
 
+    public HistoryEntry getHistoryEntry() {
+        return curEntry;
+    }
+
+    public int getScrollY() {
+        if (webView != null) {
+            scrollY = webView.getScrollY();
+        }
+        return scrollY;
+    }
+
+    public void setScrollY(int scrollY) {
+        this.scrollY = scrollY;
+        if (webView != null) {
+            webView.scrollTo(0, scrollY);
+        }
+    }
+
+    public void setSaveState(int saveState) {
+        this.saveState = saveState;
+    }
+
+    public int getPagerIndex() {
+        return pagerIndex;
+    }
+
     /*
     Hide the entire fragment. This is necessary when displaying a new page fragment on top
     of a previous one -- some devices have issues with rendering "heavy" components
     (like WebView) when overlaid on top of many other Views.
      */
     public void hide() {
+        if (pageFragmentContainer == null) {
+            return;
+        }
         pageFragmentContainer.setVisibility(View.GONE);
     }
 
@@ -92,6 +156,9 @@ public class PageViewFragment extends Fragment {
     stack of fragments
      */
     public void show() {
+        if (pageFragmentContainer == null) {
+            return;
+        }
         pageFragmentContainer.setVisibility(View.VISIBLE);
         //refresh the fragment's state (ensures correct state of overflow menu)
         setState(state);
@@ -126,12 +193,17 @@ public class PageViewFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(KEY_TITLE, title);
-        outState.putParcelable(KEY_PAGE, page);
-        outState.putInt(KEY_STATE, state);
-        outState.putInt(KEY_SCROLL_Y, webView.getScrollY());
-        outState.putParcelable(KEY_CURRENT_HISTORY_ENTRY, curEntry);
-        outState.putInt(KEY_QUICK_RETURN_BAR_ID, quickReturnBarId);
+        if (saveState != SAVE_STATE_NONE) {
+            outState.putInt(KEY_PAGER_INDEX, pagerIndex);
+            outState.putParcelable(KEY_TITLE, title);
+            outState.putInt(KEY_SCROLL_Y, webView.getScrollY());
+            outState.putParcelable(KEY_CURRENT_HISTORY_ENTRY, curEntry);
+            outState.putInt(KEY_QUICK_RETURN_BAR_ID, quickReturnBarId);
+            if (saveState == SAVE_STATE_FULL) {
+                outState.putParcelable(KEY_PAGE, page);
+                outState.putInt(KEY_STATE, state);
+            }
+        }
     }
 
     @Override
@@ -144,13 +216,14 @@ public class PageViewFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_TITLE)) {
             title = savedInstanceState.getParcelable(KEY_TITLE);
+            curEntry = savedInstanceState.getParcelable(KEY_CURRENT_HISTORY_ENTRY);
+            scrollY = savedInstanceState.getInt(KEY_SCROLL_Y);
+            quickReturnBarId = savedInstanceState.getInt(KEY_QUICK_RETURN_BAR_ID);
+            pagerIndex = savedInstanceState.getInt(KEY_PAGER_INDEX);
             if (savedInstanceState.containsKey(KEY_PAGE)) {
                 page = savedInstanceState.getParcelable(KEY_PAGE);
+                state = savedInstanceState.getInt(KEY_STATE);
             }
-            state = savedInstanceState.getInt(KEY_STATE);
-            scrollY = savedInstanceState.getInt(KEY_SCROLL_Y);
-            curEntry = savedInstanceState.getParcelable(KEY_CURRENT_HISTORY_ENTRY);
-            quickReturnBarId = savedInstanceState.getInt(KEY_QUICK_RETURN_BAR_ID);
         }
         if (title == null) {
             throw new RuntimeException("No PageTitle passed in to constructor or in instanceState");
@@ -158,7 +231,7 @@ public class PageViewFragment extends Fragment {
 
         app = (WikipediaApp)getActivity().getApplicationContext();
 
-        pageFragmentContainer = (FrameLayout) getView().findViewById(R.id.page_fragment_container);
+        pageFragmentContainer = getView().findViewById(R.id.page_fragment_container);
         webView = (ObservableWebView) getView().findViewById(R.id.page_web_view);
         loadProgress = (ProgressBar) getView().findViewById(R.id.page_load_progress);
         networkError = getView().findViewById(R.id.page_error);
@@ -319,10 +392,6 @@ public class PageViewFragment extends Fragment {
             displayLeadSection();
             setState(STATE_INITIAL_FETCH);
             new RestSectionsFetchTask().execute();
-
-            // Add history entry now
-            app.getPersister(HistoryEntry.class).persist(curEntry);
-            new PageImageSaveTask(app, api, title).execute();
         }
 
         @Override
@@ -389,5 +458,11 @@ public class PageViewFragment extends Fragment {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d("PageViewFragment", "Fragment destroyed.");
     }
 }
