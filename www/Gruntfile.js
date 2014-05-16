@@ -11,9 +11,6 @@ module.exports = function ( grunt ) {
         "lib/js/classList.js",
         "tests/*.js"
     ];
-    var allStyleFiles = [
-        "less/*.less"
-    ];
     var allHTMLFiles = [
         "index.html",
         "tests/index.html"
@@ -61,15 +58,6 @@ module.exports = function ( grunt ) {
                 }
             }
         },
-        less: {
-            all: {
-                files: [
-                    { src: ["less/fonts.less", "less/pagestyles.less", "less/ui.less", "less/wikihacks.less"], dest: "styles.css"},
-                    { src: ["less/fonts.less", "less/pagestyles.less", "less/wikihacks.less"], dest: "abusefilter.css"},
-                    { src: ["less/fonts.less", "less/pagestyles.less", "less/preview.less", "less/wikihacks.less"], dest: "preview.css"}
-                ]
-            }
-        },
         jshint: {
             allFiles: allScriptFiles,
             options: {
@@ -80,19 +68,16 @@ module.exports = function ( grunt ) {
             main: {
                 files: [
                     // App files
-                    {src: ["bundle.js", "index.html", "styles.css"], dest: "../wikipedia/assets/"},
+                    {src: ["bundle.js", "index.html"], dest: "../wikipedia/assets/"},
 
                     // Test files
                     {src: ["bundle-test.js", "tests/index.html"], dest: "../wikipedia/assets/"},
 
                     // Abusefilter files
-                    { src: ["abusefilter.js", "abusefilter.css", "abusefilter.html"], dest: "../wikipedia/assets/" },
+                    { src: ["abusefilter.js", "abusefilter.html"], dest: "../wikipedia/assets/" },
 
                     // Preview files
-                    { src: ["preview.js", "preview.css", "preview.html"], dest: "../wikipedia/assets/" },
-
-                    // Images
-                    {src: ["images/*"], dest: "../wikipedia/assets/"},
+                    { src: ["preview.js", "preview.html"], dest: "../wikipedia/assets/" },
 
                     // Fonts
                     {src: ["fonts/*"], dest: "../wikipedia/assets/"}
@@ -101,7 +86,7 @@ module.exports = function ( grunt ) {
         },
         watch: {
             scripts: {
-                files: allScriptFiles.concat( allStyleFiles ).concat( allHTMLFiles ),
+                files: allScriptFiles.concat( allHTMLFiles ),
                 tasks: ["default"]
             }
         }
@@ -111,7 +96,6 @@ module.exports = function ( grunt ) {
     grunt.loadNpmTasks( 'grunt-contrib-jshint' );
     grunt.loadNpmTasks( 'grunt-contrib-copy' );
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
-    grunt.loadNpmTasks( 'grunt-contrib-less' );
 
-    grunt.registerTask( 'default', [ 'browserify', 'less', 'copy' ] );
+    grunt.registerTask( 'default', [ 'browserify', 'copy' ] );
 };
