@@ -2,6 +2,7 @@ package org.wikipedia.test;
 
 import android.content.*;
 import android.test.*;
+import java.util.HashMap;
 import org.mediawiki.api.json.*;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.zero.*;
@@ -21,7 +22,9 @@ public class WikipediaZeroTests extends ActivityUnitTestCase<TestDummyActivity> 
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new WikipediaZeroTask(new Api("en.wikipedia.org"), (WikipediaApp)getInstrumentation().getTargetContext().getApplicationContext()) {
+                HashMap<String,String> customHeaders = new HashMap<String,String>();
+                customHeaders.put("X-CS", "TEST");
+                new WikipediaZeroTask(new Api("en.m.wikipedia.org", "WMF-Android-AutomationTest-testWikipediaZeroEligibility", customHeaders), (WikipediaApp)getInstrumentation().getTargetContext().getApplicationContext()) {
                     @Override
                     public void onFinish(String result) {
                         assertNotNull(result);
