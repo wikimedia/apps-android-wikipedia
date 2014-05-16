@@ -38,20 +38,21 @@ public class PageTitle implements Parcelable {
             // If empty, this refers to the main page.
             text = MainPageNameData.valueFor(site.getLanguage());
         }
-        String[] parts;
-        if (text.indexOf("#") != -1) {
+
+        String[] fragParts = text.split("#");
+        text = fragParts[0];
+        if (fragParts.length > 1) {
             try {
-                this.fragment = URLDecoder.decode(text.split("#")[1], "utf-8");
-                parts = text.split("#")[0].split(":");
+                this.fragment = URLDecoder.decode(fragParts[1], "utf-8");
             } catch (UnsupportedEncodingException e) {
                 // STUPID STUPID JAVA
                 throw new RuntimeException(e);
             }
         } else {
             this.fragment = null;
-            parts = text.split(":");
         }
 
+        String[] parts = text.split(":");
         if (parts.length > 1) {
             this.namespace = parts[0];
             this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));

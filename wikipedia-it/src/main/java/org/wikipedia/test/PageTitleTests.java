@@ -45,7 +45,7 @@ public class PageTitleTests extends TestCase {
 
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#").getNamespace(), "Talk");
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#").getText(), "India");
-        assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#").getFragment(), "");
+        assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#").getFragment(), null);
 
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#History").getNamespace(), "Talk");
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#History").getText(), "India");
