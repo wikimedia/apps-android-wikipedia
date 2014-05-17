@@ -126,4 +126,6 @@
   <string name="edit_save_action_ip_description">Description for action that takes user to login screen so they can login before saving an edit</string>
   <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
+  <string name="history_search_list_hint">Hint for textbox that searches list of items in browsing history as user typesj</string>
+  <string name="history_search_empty_message">Message shown when no history itmes were found that match the user\'s query. %s is replaced with the query string.</string>
 </resources>

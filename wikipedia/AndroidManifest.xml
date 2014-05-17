@@ -39,6 +39,7 @@
                 android:name=".history.HistoryActivity"
                 android:label="@string/history_activity_title"
                 android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+                android:windowSoftInputMode="stateHidden|adjustResize"
                 >
         </activity>
 

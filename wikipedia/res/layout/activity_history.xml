@@ -10,10 +10,26 @@
             android:gravity="center"
             android:text="@string/history_empty_message"
             />
-    <ListView
-        android:id="@+id/history_entry_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <org.wikipedia.styledviews.StyledEditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/history_search_list"
+                android:hint="@string/history_search_list_hint"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                />
+        <ListView
+            android:id="@+id/history_entry_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
 
 </FrameLayout>

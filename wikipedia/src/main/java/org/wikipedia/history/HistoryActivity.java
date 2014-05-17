@@ -10,6 +10,8 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.*;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.*;
 import android.widget.*;
 import com.squareup.picasso.*;
@@ -22,8 +24,9 @@ import java.util.*;
 
 public class HistoryActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private ListView historyEntryList;
-    private View historyEmptyMessage;
+    private TextView historyEmptyMessage;
     private HistoryEntryAdapter adapter;
+    private EditText entryFilter;
 
     private WikipediaApp app;
 
@@ -34,26 +37,50 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
 
         setContentView(R.layout.activity_history);
         historyEntryList = (ListView) findViewById(R.id.history_entry_list);
-        historyEmptyMessage = findViewById(R.id.history_empty_message);
+        historyEmptyMessage = (TextView) findViewById(R.id.history_empty_message);
+        entryFilter = (EditText) findViewById(R.id.history_search_list);
 
         adapter = new HistoryEntryAdapter(this, null, true);
         historyEntryList.setAdapter(adapter);
         historyEntryList.setEmptyView(historyEmptyMessage);
 
-        historyEntryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                HistoryEntry oldEntry = (HistoryEntry)view.getTag();
-                HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
+        entryFilter.addTextChangedListener(
+                new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                        // Do nothing
+                    }
 
-                Intent intent = new Intent();
-                intent.setClass(HistoryActivity.this, PageActivity.class);
-                intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-                intent.putExtra(PageActivity.EXTRA_PAGETITLE, oldEntry.getTitle());
-                intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, newEntry);
-                startActivity(intent);
-            }
-        });
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                        // Do nothing
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+                        getSupportLoaderManager().restartLoader(0, null, HistoryActivity.this) ;
+                        if (editable.length() == 0) {
+                            historyEmptyMessage.setText(R.string.history_empty_message);
+                        } else {
+                            historyEmptyMessage.setText(getString(R.string.history_search_empty_message, editable.toString()));
+                        }
+                    }
+                });
+
+            historyEntryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    HistoryEntry oldEntry = (HistoryEntry) view.getTag();
+                    HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
+
+                    Intent intent = new Intent();
+                    intent.setClass(HistoryActivity.this, PageActivity.class);
+                    intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
+                    intent.putExtra(PageActivity.EXTRA_PAGETITLE, oldEntry.getTitle());
+                    intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, newEntry);
+                    startActivity(intent);
+                }
+            });
 
         getSupportLoaderManager().initLoader(0, null, this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -61,12 +88,19 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+        String selection = null;
+        String selectionArgs[] = null;
+        if (entryFilter.getText().length() != 0) {
+            // FIXME: Find ways to not have to hard code column names
+            selection =  "history.title LIKE ?";
+            selectionArgs = new String[]{ entryFilter.getText().toString() + "%"};
+        }
         return new CursorLoader(
                 this,
                 Uri.parse(HistoryEntry.PERSISTANCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTANCE_HELPER.getTableName()),
                 null,
-                null,
-                null,
+                selection,
+                selectionArgs,
                 "timestamp DESC");
     }
 
