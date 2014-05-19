@@ -172,6 +172,7 @@ public class PageActivity extends ActionBarActivity {
                 String tag = getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName();
                 curPageFragment = (PageViewFragment) getSupportFragmentManager().findFragmentByTag(tag);
                 curPageFragment.show();
+                searchAriclesFragment.clearErrors();
                 searchAriclesFragment.ensureVisible();
             }
         }

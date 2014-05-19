@@ -217,6 +217,16 @@ public class SearchArticlesFragment extends Fragment {
             }
         });
 
+        searchTermText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && searchNetworkError.isShown()) {
+                    ViewAnimations.fadeOut(searchNetworkError);
+                }
+
+            }
+        });
+
         adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
@@ -227,6 +237,7 @@ public class SearchArticlesFragment extends Fragment {
                     drawerLayout.closeDrawer(Gravity.START);
                 } else {
                     hideSearchResults();
+                    clearErrors();
                     drawerLayout.openDrawer(Gravity.START);
                 }
             }
@@ -313,6 +324,10 @@ public class SearchArticlesFragment extends Fragment {
         outState.putString("lastSearchedText", lastSearchedText);
         outState.putBoolean("isSearchActive", isSearchActive);
         outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
+    }
+
+    public void clearErrors() {
+        searchNetworkError.setVisibility(View.GONE);
     }
 
     private final class SearchResultAdapter extends BaseAdapter {
