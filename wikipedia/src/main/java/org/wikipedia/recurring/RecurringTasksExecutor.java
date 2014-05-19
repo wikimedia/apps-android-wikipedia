@@ -23,7 +23,6 @@ public class RecurringTasksExecutor {
             public Void performTask() throws Throwable {
                 RecurringTask[] tasks = new RecurringTask[] {
                         // Has list of all rotating tasks that need to be run
-                        new HistoryRotateTask(context),
                         new RemoteConfigRefreshTask(context),
                         new StyleFetcherTask(context)
                 };
