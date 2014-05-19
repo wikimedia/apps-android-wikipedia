@@ -47,6 +47,7 @@
     <string name="settings_activity_title">Settings</string>
     <string name="langlinks_activity_title">Other languages</string>
     <string name="editsection_activity_title">Edit Section</string>
+    <string name="menu_save_changes">Save changes</string>
     <string name="edit_section_error_retry">Retry</string>
     <string name="dialog_saving_in_progress">Saving...</string>
     <string name="edit_saved_successfully">Edit saved!</string>
