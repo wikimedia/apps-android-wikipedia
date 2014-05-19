@@ -1,7 +1,12 @@
 package org.wikipedia.bridge;
 
 import android.content.*;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import org.wikipedia.*;
+
+import java.text.ParseException;
+import java.util.Date;
 
 /**
 * Class that helps with loading a style bundle for different scenarios.
@@ -12,9 +17,19 @@ public class StyleLoader {
     public static final String BUNDLE_ABUSEFILTER = "abusefilter.css";
 
     private final Context context;
+    private final Date assetsUpdated;
+    private final SharedPreferences prefs;
+
 
     public StyleLoader(Context context) {
         this.context = context;
+        this.prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        try {
+            this.assetsUpdated = Utils.parseISO8601(context.getString(R.string.bundled_styles_updated));
+        } catch (ParseException e) {
+            // This does not happen
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -28,6 +43,20 @@ public class StyleLoader {
      * @return
      */
     public StyleBundle getAvailableBundle(String type, Site site) {
+        if (prefs.contains(WikipediaApp.PREFERENCE_STYLES_LAST_UPDATED)) {
+            Date downloadUpdated;
+            try {
+                downloadUpdated = Utils.parseISO8601(prefs.getString(WikipediaApp.PREFERENCE_STYLES_LAST_UPDATED, ""));
+            } catch (ParseException e) {
+                // This does not happen
+                throw new RuntimeException(e);
+            }
+            if (downloadUpdated.getTime() - assetsUpdated.getTime() > 0) {
+                Log.d("Wikipedia", "Using downloaded styles");
+                return new DownloadedStyleBundle(type);
+            }
+        }
+        Log.d("Wikipedia", "Using packaged styles");
         return new PackagedStyleBundle(type);
     }
 }

@@ -2,6 +2,7 @@ package org.wikipedia.recurring;
 
 import android.content.*;
 import org.wikipedia.*;
+import org.wikipedia.bridge.StyleFetcherTask;
 import org.wikipedia.concurrency.ExecutorService;
 import org.wikipedia.concurrency.*;
 import org.wikipedia.history.*;
@@ -23,7 +24,8 @@ public class RecurringTasksExecutor {
                 RecurringTask[] tasks = new RecurringTask[] {
                         // Has list of all rotating tasks that need to be run
                         new HistoryRotateTask(context),
-                        new RemoteConfigRefreshTask(context)
+                        new RemoteConfigRefreshTask(context),
+                        new StyleFetcherTask(context)
                 };
                 for (RecurringTask task: tasks) {
                     task.runIfNecessary();
