@@ -53,25 +53,32 @@ public class StyleFetcherTask extends RecurringTask {
     @Override
     protected void run(Date lastRun) {
         WikipediaApp app = (WikipediaApp) context.getApplicationContext();
-        for (String[] styleSpec : STYLE_SPECS) {
-            String url = getRemoteURLFor(styleSpec[1]);
-            try {
-                OutputStream fo = context.openFileOutput(styleSpec[0], Context.MODE_PRIVATE);
-                Utils.copyStreams(HttpRequest.get(url).userAgent(app.getUserAgent()).stream(), fo);
-                fo.close();
-                Log.d("Wikipedia", String.format("Downloaded %s into %s", url, context.getFileStreamPath(styleSpec[0]).getAbsolutePath()));
-            } catch (FileNotFoundException e) {
-                // This doesn't actually seem to happen ever?
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                // FIXME: Do not crash!
-                throw new RuntimeException(e);
+        try {
+            for (String[] styleSpec : STYLE_SPECS) {
+                String url = getRemoteURLFor(styleSpec[1]);
+                    OutputStream fo = context.openFileOutput(styleSpec[0], Context.MODE_PRIVATE);
+                    Utils.copyStreams(HttpRequest.get(url).userAgent(app.getUserAgent()).stream(), fo);
+                    fo.close();
+                    Log.d("Wikipedia", String.format("Downloaded %s into %s", url, context.getFileStreamPath(styleSpec[0]).getAbsolutePath()));
             }
+
+            //if any of the above code throws an exception, the following last-updated date will not
+            //be updated, so the task will be retried on the next go.
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().putString(WikipediaApp.PREFERENCE_STYLES_LAST_UPDATED, Utils.formatISO8601(new Date())).commit();
+
+        } catch (FileNotFoundException e) {
+            // This doesn't actually seem to happen ever?
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            // FIXME: better error feedback?
+            Log.d("StyleFetcherTask", e.getMessage());
+            e.printStackTrace();
+        } catch (HttpRequest.HttpRequestException e) {
+            // FIXME: better error feedback?
+            Log.d("StyleFetcherTask", e.getMessage());
+            e.printStackTrace();
         }
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        prefs.edit().putString(WikipediaApp.PREFERENCE_STYLES_LAST_UPDATED, Utils.formatISO8601(new Date())).commit();
-
     }
 
     @Override
