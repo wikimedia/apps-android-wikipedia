@@ -129,4 +129,5 @@
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
   <string name="history_search_list_hint">Hint for textbox that searches list of items in browsing history as user typesj</string>
   <string name="history_search_empty_message">Message shown when no history itmes were found that match the user\'s query. %s is replaced with the query string.</string>
+  <string name="error_can_not_process_link">Message shown in a toast when the app encounters a link it can not process.</string>
 </resources>

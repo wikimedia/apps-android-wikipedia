@@ -366,7 +366,9 @@ public final class Utils {
                 return;
             }
         }
-        context.startActivity(intent);
+        // This means that there was no way to handle this link.
+        // We will just show a toast now. FIXME: Make this more visible?
+        Toast.makeText(context, R.string.error_can_not_process_link, Toast.LENGTH_LONG).show();
     }
 
     /**
