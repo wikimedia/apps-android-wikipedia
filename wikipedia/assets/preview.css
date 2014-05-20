@@ -4,16 +4,15 @@
 }
 
 /* Headers */
-/* Basic Thumbnails */
+/* Thumbnail styles from MobileFrontend */
 /* Makes sure that we don't have horizontal scrollbars for the entire page because
    an image is too wide to fit in to the current viewport */
-/* Basic tables */
 body {
   background-color: #F2F2F2;
   color: #333;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  line-height: 160%;
+  line-height: 1.6em;
   margin: 0;
   padding: 0;
   margin-top: 48px;
@@ -29,8 +28,8 @@ a {
 h1 {
   font-family: serif;
   color: #333;
-  font-size: 26px;
-  line-height: 36px;
+  font-size: 1.6em;
+  line-height: 2.25em;
   margin-bottom: 24px;
   font-weight: bold;
 }
@@ -42,47 +41,80 @@ h6 {
   font-family: "Open Sans", sans-serif;
 }
 h2 {
-  font-size: 22px;
+  font-size: 1.5em;
 }
 h3 {
-  font-size: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 h4 {
-  font-size: 18px;
-}
-h5,
-h6 {
-  font-size: 16px;
+  font-weight: bold;
 }
 .thumb {
-  /* Don't stick thumbnails to the text above and below it */
-  margin: 8px 0px;
-  /* Align everything inside a thumbnail to be centered */
+  margin: 15px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f9f9f9;
   text-align: center;
+  /* bug 20030 */
 }
 .thumb .thumbinner {
-  /* Make sure that thumb takes up full width */
-  width: 100% !important;
+  margin: 5px auto;
+  max-width: 100%;
 }
-.thumb .magnify {
-  display: none;
-  /* Our parser is STUPID */
+.thumb .thumbinner > div {
+  float: none !important;
+  width: auto !important;
+  clear: both !important;
+}
+.thumb .thumbcaption {
+  margin: 5px 10px 0;
+  text-align: center;
+  width: auto !important;
 }
 .thumb .noresize {
+  width: 100%;
   overflow-x: auto;
-  /* Scrollbars for images that shouldn't be squished */
+}
+.thumb .noresize img {
+  max-width: none !important;
+}
+ul {
+  list-style: square inside;
+}
+ol {
+  list-style: decimal inside;
+}
+table {
+  margin: 1em 0;
+  /* following 4 rules are needed for scrolling */
+  overflow: auto;
+  /* for browsers that don't support overflow-y */
+  overflow-y: hidden;
+  overflow-x: auto;
+  display: block;
+  width: 100% !important;
+}
+table td,
+table th {
+  padding: 3px;
+  border: 1px #ccc solid;
+}
+table th {
+  font-weight: bold;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+table caption {
+  display: block;
+  text-align: left;
+}
+div.magnify {
+  display: none;
 }
 img {
   max-width: 100% !important;
   height: auto !important;
-}
-table {
-  width: 100% !important;
-  overflow-x: auto;
-  display: block;
-  border: 1px solid #ccc;
-  margin-top: 4px;
-  margin-bottom: 4px;
 }
 
 /*
@@ -127,4 +159,14 @@ ul.gallery li.gallerybox > div > div.thumb {
 ul.hlist li {
   display: inline-block;
   margin-right: 8px;
+}
+table {
+  border-spacing: 0 !important;
+  float: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+table.infobox {
+  background: #f9f9f9;
+  text-align: center !important;
 }
