@@ -11,7 +11,7 @@ public abstract class StyleBundle {
      * Array containing full path of the CSS files in this
      * bundle.
      */
-    private final String stylePaths[];
+    private final String[] stylePaths;
 
     /**
      * Creates a new StyleBundle with a styles from a common prefix.
