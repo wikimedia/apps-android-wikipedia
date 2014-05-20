@@ -39,18 +39,11 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             if (sharedPref.getBoolean(WikipediaApp.PREFERENCE_ZERO_INTERSTITIAL, true)) {
                 bus.post(new WikipediaZeroInterstitialEvent(uri));
             } else {
-                visitExternalLink(uri);
+                Utils.visitInExternalBrowser(context, uri);
             }
         } else {
-            visitExternalLink(uri);
+            Utils.visitInExternalBrowser(context, uri);
         }
-    }
-
-    private void visitExternalLink(Uri uri) {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.setData(uri);
-        context.startActivity(intent);
     }
 
     public abstract void onInternalLinkClicked(PageTitle title);

@@ -219,7 +219,7 @@ public class PageActivity extends ActionBarActivity {
             alert.setMessage(getString(R.string.zero_learn_more));
             alert.setPositiveButton(getString(R.string.zero_learn_more_learn_more), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    visitExternalLink(Uri.parse(getString(R.string.zero_webpage_url)));
+                    Utils.visitInExternalBrowser(PageActivity.this, Uri.parse(getString(R.string.zero_webpage_url)));
                 }
             });
             alert.setNegativeButton(getString(R.string.zero_learn_more_dismiss), new DialogInterface.OnClickListener() {
@@ -238,7 +238,7 @@ public class PageActivity extends ActionBarActivity {
         alert.setMessage(getString(R.string.zero_interstitial_leave_app));
         alert.setPositiveButton(getString(R.string.zero_interstitial_continue), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                visitExternalLink(event.getUri());
+                Utils.visitInExternalBrowser(PageActivity.this, event.getUri());
             }
         });
         alert.setNegativeButton(getString(R.string.zero_interstitial_cancel), new DialogInterface.OnClickListener() {
@@ -257,13 +257,6 @@ public class PageActivity extends ActionBarActivity {
     private void visitSettings() {
         Intent intent = new Intent();
         intent.setClass(getApplicationContext(), SettingsActivity.class);
-        startActivity(intent);
-    }
-
-    private void visitExternalLink(Uri uri) {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.setData(uri);
         startActivity(intent);
     }
 

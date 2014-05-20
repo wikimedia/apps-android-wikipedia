@@ -136,4 +136,5 @@
     <string name="editing_error_spamblacklist">Links from blocked domains (%s) detected. Please remove them and try again.</string>
     <string name="history_search_list_hint">Search</string>
     <string name="history_search_empty_message">No pages found matching \'%s\'</string>
+    <string name="error_can_not_process_link">Could not display this link</string>
 </resources>
