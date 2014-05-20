@@ -61,9 +61,9 @@ public class Site implements Parcelable {
 
     @Override
     public String toString() {
-        return "Site{" +
-                "domain='" + domain + '\'' +
-                '}';
+        return "Site{"
+                + "domain='" + domain + '\''
+                + '}';
     }
 
     public String getFullUrl(String path) {

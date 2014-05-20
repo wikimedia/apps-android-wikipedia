@@ -80,11 +80,11 @@ public class Page implements Parcelable {
 
     @Override
     public String toString() {
-        return "Page{" +
-                "title=" + title +
-                ", sections=" + sections +
-                ", pageProperties=" + pageProperties +
-                '}';
+        return "Page{"
+                + "title=" + title
+                + ", sections=" + sections
+                + ", pageProperties=" + pageProperties
+                + '}';
     }
 
     @Override

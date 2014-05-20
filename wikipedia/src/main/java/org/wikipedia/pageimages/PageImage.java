@@ -41,10 +41,10 @@ public class PageImage implements Parcelable {
 
     @Override
     public String toString() {
-        return "PageImage{" +
-                "title=" + title +
-                ", imageName='" + imageName + '\'' +
-                '}';
+        return "PageImage{"
+                + "title=" + title
+                + ", imageName='" + imageName + '\''
+                + '}';
     }
 
     @Override

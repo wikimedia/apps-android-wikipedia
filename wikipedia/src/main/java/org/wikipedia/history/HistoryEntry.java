@@ -64,11 +64,11 @@ public class HistoryEntry implements Parcelable {
 
     @Override
     public String toString() {
-        return "HistoryEntry{" +
-                "title=" + title +
-                ", source=" + source +
-                ", timestamp=" + timestamp.getTime() +
-                '}';
+        return "HistoryEntry{"
+                + "title=" + title
+                + ", source=" + source
+                + ", timestamp=" + timestamp.getTime()
+                + '}';
     }
 
     @Override

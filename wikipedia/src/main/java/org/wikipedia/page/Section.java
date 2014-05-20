@@ -64,9 +64,9 @@ public class Section implements Parcelable {
 
     @Override
     public String toString() {
-        return "Section{" +
-                "data=" + data +
-                '}';
+        return "Section{"
+                + "data=" + data
+                + '}';
     }
 
     public boolean isLead() {

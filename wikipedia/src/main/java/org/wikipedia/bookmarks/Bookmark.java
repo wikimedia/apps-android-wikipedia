@@ -44,10 +44,10 @@ public class Bookmark implements Parcelable {
 
     @Override
     public String toString() {
-        return "Bookmark{" +
-                "title=" + title +
-                ", timestamp=" + timestamp.getTime() +
-                '}';
+        return "Bookmark{"
+                + "title=" + title
+                + ", timestamp=" + timestamp.getTime()
+                + '}';
     }
 
     @Override

@@ -86,10 +86,10 @@ public class PageProperties implements Parcelable {
 
     @Override
     public String toString() {
-        return "PageProperties{" +
-                "displayTitleText='" + displayTitleText + '\'' +
-                ", lastModified=" + lastModified.getTime() +
-                '}';
+        return "PageProperties{"
+                + "displayTitleText='" + displayTitleText + '\''
+                + ", lastModified=" + lastModified.getTime()
+                + '}';
     }
 
     public JSONObject toJSON() {
