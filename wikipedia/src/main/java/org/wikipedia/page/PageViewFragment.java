@@ -293,7 +293,7 @@ public class PageViewFragment extends Fragment {
         @Override
         public List<Section> processResult(ApiResult result) throws Throwable {
             JSONObject mobileView = result.asObject().optJSONObject("mobileview");
-            if(mobileView != null){
+            if (mobileView != null) {
                 pageProperties = new PageProperties(mobileView);
                 if (mobileView.has("redirected")) {
                     // Handle redirects properly.
@@ -331,7 +331,7 @@ public class PageViewFragment extends Fragment {
 
             if (caught instanceof SectionsFetchException) {
                 if (((SectionsFetchException)caught).getCode().equals("missingtitle")
-                        || ((SectionsFetchException)caught).getCode().equals("invalidtitle")){
+                        || ((SectionsFetchException)caught).getCode().equals("invalidtitle")) {
                     ViewAnimations.crossFade(loadProgress, pageDoesNotExistError);
 
                 }

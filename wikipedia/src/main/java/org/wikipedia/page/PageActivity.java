@@ -97,7 +97,7 @@ public class PageActivity extends ActionBarActivity {
         if (drawerLayout.isDrawerOpen(Gravity.START)) {
             drawerLayout.closeDrawer(Gravity.START);
         }
-        if(title.isSpecial()) {
+        if (title.isSpecial()) {
             Utils.visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
             return;
         }

@@ -58,7 +58,7 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
 
                     @Override
                     public void afterTextChanged(Editable editable) {
-                        getSupportLoaderManager().restartLoader(0, null, HistoryActivity.this) ;
+                        getSupportLoaderManager().restartLoader(0, null, HistoryActivity.this);
                         if (editable.length() == 0) {
                             historyEmptyMessage.setText(R.string.history_empty_message);
                         } else {
@@ -93,7 +93,7 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
         if (entryFilter.getText().length() != 0) {
             // FIXME: Find ways to not have to hard code column names
             selection =  "history.title LIKE ?";
-            selectionArgs = new String[]{ entryFilter.getText().toString() + "%"};
+            selectionArgs = new String[]{entryFilter.getText().toString() + "%"};
         }
         return new CursorLoader(
                 this,

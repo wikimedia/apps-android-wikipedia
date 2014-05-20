@@ -339,17 +339,17 @@ public final class Utils {
      * @param context Context of the calling app
      * @param uri URI to open in an external browser
      */
-    public static void visitInExternalBrowser(final Context context, Uri uri){
+    public static void visitInExternalBrowser(final Context context, Uri uri) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.setData(uri);
         List<ResolveInfo> resInfo = context.getPackageManager().queryIntentActivities(intent, 0);
-        if (!resInfo.isEmpty()){
+        if (!resInfo.isEmpty()) {
             List<Intent> browserIntents = new ArrayList<Intent>();
             for (ResolveInfo resolveInfo : resInfo) {
                 String packageName = resolveInfo.activityInfo.packageName;
                 // remove our app from the selection!
-                if(packageName.equals(context.getPackageName())) {
+                if (packageName.equals(context.getPackageName())) {
                     continue;
                 }
                 Intent newIntent = new Intent(Intent.ACTION_VIEW);
