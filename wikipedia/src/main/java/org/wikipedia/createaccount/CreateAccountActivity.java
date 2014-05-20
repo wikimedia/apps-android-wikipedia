@@ -11,14 +11,12 @@ import com.mobsandgeeks.saripaar.*;
 import com.mobsandgeeks.saripaar.annotation.*;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
-import com.nineoldandroids.view.ViewHelper;
 import de.keyboardsurfer.android.widget.crouton.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
 import org.wikipedia.analytics.*;
 import org.wikipedia.editing.*;
 
-import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 
 public class CreateAccountActivity extends ActionBarActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;

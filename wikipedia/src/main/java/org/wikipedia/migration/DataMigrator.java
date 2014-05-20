@@ -3,7 +3,6 @@ package org.wikipedia.migration;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 

@@ -9,7 +9,6 @@ import android.widget.*;
 import com.squareup.picasso.*;
 import org.mediawiki.api.json.*;
 import org.wikipedia.*;
-import org.wikipedia.Utils;
 
 public class CaptchaHandler {
     private final Activity activity;
