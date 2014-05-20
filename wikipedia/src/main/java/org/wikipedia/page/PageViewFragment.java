@@ -197,11 +197,11 @@ public class PageViewFragment extends Fragment {
             }
         });
 
-        setState(state);
-        performActionForState(state);
-
         editHandler = new EditHandler(this, bridge);
         new QuickReturnHandler(webView, quickReturnBar);
+
+        setState(state);
+        performActionForState(state);
     }
 
     private void setupMessageHandlers() {
@@ -254,6 +254,7 @@ public class PageViewFragment extends Fragment {
                 new RestSectionsFetchTask().execute();
                 break;
             case STATE_COMPLETE_FETCH:
+                editHandler.setPage(page);
                 displayLeadSection();
                 populateNonLeadSections();
                 webView.scrollTo(0, scrollY);
