@@ -349,8 +349,9 @@ public final class Utils {
             for (ResolveInfo resolveInfo : resInfo) {
                 String packageName = resolveInfo.activityInfo.packageName;
                 // remove our app from the selection!
-                if(packageName.equals(context.getPackageName()))
+                if(packageName.equals(context.getPackageName())) {
                     continue;
+                }
                 Intent newIntent = new Intent(Intent.ACTION_VIEW);
                 newIntent.setData(uri);
                 newIntent.setPackage(packageName);
