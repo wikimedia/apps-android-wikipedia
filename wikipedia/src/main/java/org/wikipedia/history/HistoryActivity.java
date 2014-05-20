@@ -89,7 +89,7 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         String selection = null;
-        String selectionArgs[] = null;
+        String[] selectionArgs = null;
         if (entryFilter.getText().length() != 0) {
             // FIXME: Find ways to not have to hard code column names
             selection =  "history.title LIKE ?";
