@@ -60,7 +60,25 @@ public class WikipediaApp extends Application {
 
     public static String APP_VERSION_STRING;
 
+    /**
+     * Singleton instance of WikipediaApp
+     */
+    private static WikipediaApp instance;
+
     private ConnectionChangeReceiver connChangeReceiver;
+
+    public WikipediaApp() {
+        instance = this;
+    }
+
+    /**
+     * Returns the singleton instance of the WikipediaApp
+     *
+     * This is ok, since android treats it as a singleton anyway.
+     */
+    public static WikipediaApp getInstance() {
+        return instance;
+    }
 
     @Override
     public void onCreate() {

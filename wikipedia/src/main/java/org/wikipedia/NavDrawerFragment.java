@@ -86,14 +86,14 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
         // Do login / logout swap
         if (app.getUserInfoStorage().isLoggedIn()) {
             loginContainer.setVisibility(View.GONE);
-            for (int i = 0; i < loggedInOnyActionViews.length; i++) {
-                loggedInOnyActionViews[i].setVisibility(View.VISIBLE);
+            for (View loggedInOnyActionView : loggedInOnyActionViews) {
+                loggedInOnyActionView.setVisibility(View.VISIBLE);
             }
             usernamePrimaryText.setText(app.getUserInfoStorage().getUser().getUsername());
         } else {
             loginContainer.setVisibility(View.VISIBLE);
-            for (int i = 0; i < loggedInOnyActionViews.length; i++) {
-                loggedInOnyActionViews[i].setVisibility(View.GONE);
+            for (View loggedInOnyActionView : loggedInOnyActionViews) {
+                loggedInOnyActionView.setVisibility(View.GONE);
             }
         }
 
@@ -162,10 +162,11 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
             //   registering the activity for the bus.
             // - The 1s delay ensures a smoother transition, otherwise was
             //   very jarring
-            getView().postDelayed(new Runnable() {
+            Handler uiThread = new Handler(Looper.getMainLooper());
+            uiThread.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    app.getBus().post(new RequestMainPageEvent());
+                    WikipediaApp.getInstance().getBus().post(new RequestMainPageEvent());
                     Log.d("Wikipedia", "Show da main page yo");
                 }
             }, DateUtils.SECOND_IN_MILLIS);
