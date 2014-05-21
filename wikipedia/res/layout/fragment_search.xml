@@ -58,6 +58,7 @@
                     android:padding="8dp"
                     android:selectAllOnFocus="true"
                     android:singleLine="true"
+                    android:maxLength="255"
                     android:imeOptions="actionGo"
                     android:textCursorDrawable="@null"
                     />
