@@ -19,6 +19,9 @@ public class TriggerAbuseFilterTest extends ActivityUnitTestCase<TestDummyActivi
         startActivity(new Intent(), null, null);
         final PageTitle title = new PageTitle(null, "User:Yuvipandaaaaaaaa", new Site("test.wikipedia.org"));
         final String wikitext = "Testing Abusefilter by simply editing this page. Triggering rule 94 at " + System.currentTimeMillis();
+        final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
+        app.getEditTokenStorage().clearAllTokens();
+        app.getCookieManager().clearAllCookies();
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override
@@ -41,6 +44,9 @@ public class TriggerAbuseFilterTest extends ActivityUnitTestCase<TestDummyActivi
         startActivity(new Intent(), null, null);
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/AbuseFilter", new Site("test.wikipedia.org"));
         final String wikitext = "== Section 2 ==\n\nTriggering AbuseFilter number 2 by saying poop many times at " + System.currentTimeMillis();
+        final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
+        app.getEditTokenStorage().clearAllTokens();
+        app.getCookieManager().clearAllCookies();
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override

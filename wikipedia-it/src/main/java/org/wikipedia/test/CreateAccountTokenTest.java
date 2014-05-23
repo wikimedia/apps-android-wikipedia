@@ -1,4 +1,3 @@
-
 package org.wikipedia.test;
 
 import android.content.*;
@@ -30,7 +29,8 @@ public class CreateAccountTokenTest extends ActivityUnitTestCase<TestDummyActivi
                 new CreateAccountTask(getInstrumentation().getTargetContext(), username, password, null) {
                     @Override
                     public void onFinish(CreateAccountResult baseResult) {
-                        assertTrue(baseResult instanceof CreateAccountCaptchaResult);
+                        assertTrue("got " + baseResult.getClass().getSimpleName(),
+                                baseResult instanceof CreateAccountCaptchaResult);
                         CreateAccountCaptchaResult result = (CreateAccountCaptchaResult)baseResult;
                         assertNotNull(result);
                         assertNotNull(result.getCaptchaResult());

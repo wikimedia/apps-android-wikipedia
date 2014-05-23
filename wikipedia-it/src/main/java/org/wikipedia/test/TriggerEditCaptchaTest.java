@@ -19,6 +19,9 @@ public class TriggerEditCaptchaTest extends ActivityUnitTestCase<TestDummyActivi
         startActivity(new Intent(), null, null);
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Captcha", new Site("test.wikipedia.org"));
         final String wikitext = "== Section 2 ==\n\nEditing by inserting an external link https://" + System.currentTimeMillis();
+        final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
+        app.getEditTokenStorage().clearAllTokens();
+        app.getCookieManager().clearAllCookies();
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override
