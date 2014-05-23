@@ -20,6 +20,17 @@
             <groupId>com.google.android</groupId>
             <artifactId>android-test</artifactId>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.wikimedia</groupId>
@@ -49,6 +60,7 @@
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
                 <configuration>
+                    <extractDuplicates>true</extractDuplicates>
                     <test>
                         <!--<skip>true|false|auto</skip> -->
                         <!--<instrumentationPackage>packageName</instrumentationPackage> -->
