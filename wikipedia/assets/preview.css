@@ -3,42 +3,312 @@
   display: none;
 }
 
-/* Headers */
-/* Thumbnail styles from MobileFrontend */
-/* Makes sure that we don't have horizontal scrollbars for the entire page because
-   an image is too wide to fit in to the current viewport */
-body {
-  background-color: #F2F2F2;
-  color: #333;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  line-height: 1.6em;
-  margin: 0;
-  padding: 0;
-  margin-top: 48px;
-  word-wrap: break-word;
-}
-#content {
-  padding: 8px 24px;
-}
-a {
-  color: #347BFF;
-  text-decoration: none;
-}
-h1 {
-  font-family: serif;
-  color: #333;
-  font-size: 1.6em;
-  line-height: 2.25em;
-  margin-bottom: 24px;
-  font-weight: bold;
-}
+/* Fork of http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/**
+ * Common LESS mixin library for MediaWiki
+ *
+ * By default the folder containing this file is included in $wgResourceLoaderLESSImportPaths,
+ * which makes this file importable by all less files via '@import "mediawiki.mixins";'.
+ *
+ * The mixins included below are considered a public interface for MediaWiki extensions.
+ * The signatures of parametrized mixins should be kept as stable as possible.
+ *
+ * See <http://lesscss.org/#-mixins> for more information about how to write mixins.
+ */
+/*
+ * SVG support using a transparent gradient to guarantee cross-browser
+ * compatibility (browsers able to understand gradient syntax support also SVG).
+ * http://pauginer.tumblr.com/post/36614680636/invisible-gradient-technique
+ *
+ * We use gzip compression, which means that it is okay to embed twice.
+ *
+ * We do not embed the fallback image on the assumption that the gain for old browsers
+ * is not worth the harm done to modern ones.
+ */
+/* Caution: Does not support localisable images */
+/* use -webkit prefix for older android browsers eg. nexus 1 */
+html,
+body,
+div,
+span,
+h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: "Open Sans", sans-serif;
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+ins,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+input,
+textarea,
+button,
+select,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  background: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+button {
+  border: none;
+  background-color: transparent;
+}
+body {
+  line-height: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+input {
+  line-height: normal;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+}
+
+/**
+ * Common LESS mixin library for MediaWiki
+ *
+ * By default the folder containing this file is included in $wgResourceLoaderLESSImportPaths,
+ * which makes this file importable by all less files via '@import "mediawiki.mixins";'.
+ *
+ * The mixins included below are considered a public interface for MediaWiki extensions.
+ * The signatures of parametrized mixins should be kept as stable as possible.
+ *
+ * See <http://lesscss.org/#-mixins> for more information about how to write mixins.
+ */
+/*
+ * SVG support using a transparent gradient to guarantee cross-browser
+ * compatibility (browsers able to understand gradient syntax support also SVG).
+ * http://pauginer.tumblr.com/post/36614680636/invisible-gradient-technique
+ *
+ * We use gzip compression, which means that it is okay to embed twice.
+ *
+ * We do not embed the fallback image on the assumption that the gain for old browsers
+ * is not worth the harm done to modern ones.
+ */
+/* Caution: Does not support localisable images */
+/* use -webkit prefix for older android browsers eg. nexus 1 */
+/* Plainlinks - this can be used to switch
+ * off special external link styling */
+html {
+  -webkit-text-size-adjust: none;
+  font-size: 90%;
+}
+body {
+  font-family: "Helvetica Neue", "Helvetica", "Nimbus Sans L", "Arial", "Liberation Sans", sans-serif;
+  line-height: 1.4;
+  color: #252525;
+  background: #fff;
+}
+#section_0 {
+  line-height: 1.3;
+}
+.content {
+  margin: .8em 16px 0;
+  word-wrap: break-word;
+}
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  line-height: 1.3;
+  font-family: Georgia, serif;
+  padding: .5em 0;
+}
+.content p {
+  margin-bottom: .7em;
+}
+.content .thumb {
+  margin: 15px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f9f9f9;
+  text-align: center;
+  /* bug 20030 */
+}
+.content .thumb .thumbinner {
+  margin: 5px auto;
+  max-width: 100%;
+}
+.content .thumb .thumbinner > div {
+  float: none !important;
+  width: auto !important;
+  clear: both !important;
+}
+.content .thumb .thumbcaption {
+  margin: 5px 10px 0;
+  text-align: center;
+  width: auto !important;
+}
+.content .thumb .noresize {
+  width: 100%;
+  overflow-x: auto;
+}
+.content .thumb .noresize img {
+  max-width: none !important;
+}
+.content .thumbborder {
+  border: 1px solid #ccc;
+}
+.content ol ol,
+.content ol ul,
+.content ul ol,
+.content ul ul {
+  margin-left: 1em;
+}
+.content a > img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+.content ul {
+  list-style: square inside;
+}
+.content ol {
+  list-style: decimal inside;
+}
+.content table {
+  margin: 1em 0;
+  /* following 4 rules are needed for scrolling */
+  overflow: auto;
+  /* for browsers that don't support overflow-y */
+  overflow-y: hidden;
+  overflow-x: auto;
+  display: block;
+  width: 100% !important;
+}
+.content table td,
+.content table th {
+  padding: 3px;
+  border: 1px #ccc solid;
+}
+.content table th {
+  font-weight: bold;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+.content table caption {
+  display: block;
+  text-align: left;
+}
+.content div.magnify {
+  display: none;
+}
+.content .return-link,
+.content #mw-mf-last-modified {
+  display: block;
+  font-size: .9em;
+  margin-top: 1.5em;
+}
+strong,
+b {
+  font-weight: bold;
+}
+em,
+i {
+  font-style: italic;
+}
+a.external {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVElEQVR42n3PgQkAIAhEUXdqJ3dqJ3e6IoTPUSQcgj4EQ5IlUiLE0Jil3PECXhcHGBhZ8kg4hwxAu3MZeCGeyFnAXp4hqNQPnt7QL0nADpD6wHccLvnAKksq8iiaAAAAAElFTkSuQmCC);
+  background-image: url(//bits.beta.wmflabs.org/static-master/extensions/MobileApp/../MobileFrontend/less/content/images/external-link-ltr-icon.png?2014-05-23T12:15:00Z)!ie;
+  /* We don't need the !ie hack because this old IE uses the fallback already */
+  background-image: -webkit-linear-gradient(transparent,transparent), url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+PGRlZnM+PG1hcmtlciBvcmllbnQ9ImF1dG8iIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBkPSJNLS45NTgtNC4yNTljLTEuMTM0IDAtMi4wNTYuOTIyLTIuMDU2IDIuMDU2IDAgLjM5NC4xNDMuNzM2LjMzNiAxLjA0OWwtLjA3LjA1NmMtLjM3My0uNTEzLS45NTQtLjg2Ny0xLjYzNi0uODY3LTEuMTM0IDAtMi4wNTYuOTIyLTIuMDU2IDIuMDU2cy45MjIgMi4wNTYgMi4wNTYgMi4wNTZjLjU5NiAwIDEuMTIxLS4yNjUgMS40OTYtLjY3MS0uMDc1LjIxMy0uMTI2LjQzMy0uMTI2LjY3MSAwIDEuMTM0LjkyMiAyLjA1NiAyLjA1NiAyLjA1NnMyLjA1Ni0uOTIyIDIuMDU2LTIuMDU2YzAtLjQ3Ni0uMTg5LS44OTYtLjQ2Mi0xLjI0NS44MTMuMTU4IDEuNjI3LjQ3NyAyLjIyNCAxLjM5OS0uNDQzLS40NDMtLjcyNy0xLjI0OC0uNzI3LTIuMzM2bC0uMzc4LS4wMjguMzUtLjAxNGMwLTEuMDg3LjI3LTEuODkzLjcxMy0yLjMzNi0uNTc1Ljg4OS0xLjM1NCAxLjIxNi0yLjE0IDEuMzg1LjI0My0uMzM3LjQyLS43MjguNDItMS4xNzUgMC0xLjEzNC0uOTIyLTIuMDU2LTIuMDU2LTIuMDU2eiIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iTmFOIi8+PC9tYXJrZXI+PG1hcmtlciBvcmllbnQ9ImF1dG8iIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBkPSJNMC0yLjgyOGwtMi44MjggMi44MjggMi44MjggMi44MjggMi44MjgtMi44MjgtMi44MjgtMi44Mjh6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSJOYU4iLz48L21hcmtlcj48bWFya2VyIG9yaWVudD0iYXV0byIgb3ZlcmZsb3c9InZpc2libGUiPjxwYXRoIGQ9Ik0xMCAwbDQtNC0xNCA0IDE0IDQtNC00eiIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iTmFOIi8+PC9tYXJrZXI+PC9kZWZzPjxwYXRoIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzA2YyIgZD0iTS41IDMuNTE4aDUuOTgydjUuOTgyaC01Ljk4MnoiLz48cGF0aCBkPSJNNC43NTUtLjE2aDUuMjM0djUuMzlsLTEuNTcxIDEuNTQ0LTEuMzEtMS4zMS0yLjcyNSAyLjcyNS0yLjY4OC0yLjY4OCAyLjgwOC0yLjgwOC0xLjMxLTEuMzF6IiBmaWxsPSIjMDZmIi8+PHBhdGggZD0iTTguOTg0Ljg0NWwuMDIyIDQuODg0LTEuODE3LTEuODE3LTIuODgxIDIuODgxLTEuMjI3LTEuMjI3IDIuODgxLTIuODgxLTEuODUtMS44NTF6IiBmaWxsPSIjZmZmIi8+PC9zdmc+);
+  background-image: linear-gradient(transparent,transparent), url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+PGRlZnM+PG1hcmtlciBvcmllbnQ9ImF1dG8iIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBkPSJNLS45NTgtNC4yNTljLTEuMTM0IDAtMi4wNTYuOTIyLTIuMDU2IDIuMDU2IDAgLjM5NC4xNDMuNzM2LjMzNiAxLjA0OWwtLjA3LjA1NmMtLjM3My0uNTEzLS45NTQtLjg2Ny0xLjYzNi0uODY3LTEuMTM0IDAtMi4wNTYuOTIyLTIuMDU2IDIuMDU2cy45MjIgMi4wNTYgMi4wNTYgMi4wNTZjLjU5NiAwIDEuMTIxLS4yNjUgMS40OTYtLjY3MS0uMDc1LjIxMy0uMTI2LjQzMy0uMTI2LjY3MSAwIDEuMTM0LjkyMiAyLjA1NiAyLjA1NiAyLjA1NnMyLjA1Ni0uOTIyIDIuMDU2LTIuMDU2YzAtLjQ3Ni0uMTg5LS44OTYtLjQ2Mi0xLjI0NS44MTMuMTU4IDEuNjI3LjQ3NyAyLjIyNCAxLjM5OS0uNDQzLS40NDMtLjcyNy0xLjI0OC0uNzI3LTIuMzM2bC0uMzc4LS4wMjguMzUtLjAxNGMwLTEuMDg3LjI3LTEuODkzLjcxMy0yLjMzNi0uNTc1Ljg4OS0xLjM1NCAxLjIxNi0yLjE0IDEuMzg1LjI0My0uMzM3LjQyLS43MjguNDItMS4xNzUgMC0xLjEzNC0uOTIyLTIuMDU2LTIuMDU2LTIuMDU2eiIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iTmFOIi8+PC9tYXJrZXI+PG1hcmtlciBvcmllbnQ9ImF1dG8iIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBkPSJNMC0yLjgyOGwtMi44MjggMi44MjggMi44MjggMi44MjggMi44MjgtMi44MjgtMi44MjgtMi44Mjh6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSJOYU4iLz48L21hcmtlcj48bWFya2VyIG9yaWVudD0iYXV0byIgb3ZlcmZsb3c9InZpc2libGUiPjxwYXRoIGQ9Ik0xMCAwbDQtNC0xNCA0IDE0IDQtNC00eiIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iTmFOIi8+PC9tYXJrZXI+PC9kZWZzPjxwYXRoIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzA2YyIgZD0iTS41IDMuNTE4aDUuOTgydjUuOTgyaC01Ljk4MnoiLz48cGF0aCBkPSJNNC43NTUtLjE2aDUuMjM0djUuMzlsLTEuNTcxIDEuNTQ0LTEuMzEtMS4zMS0yLjcyNSAyLjcyNS0yLjY4OC0yLjY4OCAyLjgwOC0yLjgwOC0xLjMxLTEuMzF6IiBmaWxsPSIjMDZmIi8+PHBhdGggZD0iTTguOTg0Ljg0NWwuMDIyIDQuODg0LTEuODE3LTEuODE3LTIuODgxIDIuODgxLTEuMjI3LTEuMjI3IDIuODgxLTIuODgxLTEuODUtMS44NTF6IiBmaWxsPSIjZmZmIi8+PC9zdmc+);
+  background-repeat: no-repeat;
+  background-position: center right;
+  padding-right: 13px;
+}
+ul.gallery .gallerybox {
+  display: inline-block;
+}
+ul.gallery .gallerybox .thumb img {
+  display: block;
+  margin: 0 auto;
+}
+ul.gallery .gallerybox .gallerytext {
+  overflow: hidden;
+  padding: 2px 4px;
+  word-wrap: break-word;
+}
+.hlist > ul li,
+ul.hlist li {
+  display: inline-block;
+  margin-right: 8px;
+}
+code,
+pre {
+  padding: 0.2em 0.5em;
+  font-family: monospace;
+  border: solid 1px #CCC;
+}
+pre {
+  white-space: pre-wrap;
+  padding: 1em;
+}
+dl {
+  margin-left: 1em;
+}
+dl dt {
+  font-weight: bold;
+}
+.pre-content h1,
+.content h1 {
+  font-family: Georgia, serif;
+  font-size: 1.8em;
 }
 h2 {
   font-size: 1.5em;
@@ -50,75 +320,49 @@ h3 {
 h4 {
   font-weight: bold;
 }
-.thumb {
-  margin: 15px 0 15px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background: #f9f9f9;
-  text-align: center;
-  /* bug 20030 */
+sup {
+  vertical-align: super;
 }
-.thumb .thumbinner {
-  margin: 5px auto;
-  max-width: 100%;
+sub {
+  vertical-align: sub;
 }
-.thumb .thumbinner > div {
-  float: none !important;
-  width: auto !important;
-  clear: both !important;
+sub,
+sup {
+  font-size: 0.75em;
 }
-.thumb .thumbcaption {
-  margin: 5px 10px 0;
-  text-align: center;
-  width: auto !important;
+@media all and (max-width: 280px) {
+  body {
+    font-size: .8em;
+  }
+  .content {
+    margin: 0 12px;
+  }
 }
-.thumb .noresize {
-  width: 100%;
-  overflow-x: auto;
+blockquote {
+  quotes: "\201C" "\201D";
+  padding: 1em 0 1em 10px;
+  position: relative;
 }
-.thumb .noresize img {
-  max-width: none !important;
+blockquote:before {
+  content: open-quote;
+  font-size: 3em;
 }
-ul {
-  list-style: square inside;
+blockquote:after {
+  font-size: 3em;
+  content: close-quote;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
-ol {
-  list-style: decimal inside;
-}
-table {
-  margin: 1em 0;
-  /* following 4 rules are needed for scrolling */
-  overflow: auto;
-  /* for browsers that don't support overflow-y */
-  overflow-y: hidden;
-  overflow-x: auto;
-  display: block;
-  width: 100% !important;
-}
-table td,
-table th {
-  padding: 3px;
-  border: 1px #ccc solid;
-}
-table th {
-  font-weight: bold;
-  background-color: #f2f2f2;
-  text-align: center;
-}
-table caption {
-  display: block;
-  text-align: left;
-}
-div.magnify {
+.nomobile {
   display: none;
 }
-img {
-  max-width: 100% !important;
-  height: auto !important;
+.plainlinks a {
+  background: none !important;
+  padding: 0 !important;
 }
 
 /*
-Imported from MobileFrontend. Should be made into a live link later.
 A file for css that corrects known rendering issues on known Wikimedia wikis.
 
 the following definitions exist to deal with certain inline styles
@@ -129,17 +373,43 @@ https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templates
 
 FIXME: Review all of these hacks to see if they still apply.
 */
-/* Hide some on-wiki defined classes
-   - Issue boxes, Nav Boxes, co-ordinates are hidden
-   - Investigate alternative ways of surfacing those */
+/**
+ * Common LESS mixin library for MediaWiki
+ *
+ * By default the folder containing this file is included in $wgResourceLoaderLESSImportPaths,
+ * which makes this file importable by all less files via '@import "mediawiki.mixins";'.
+ *
+ * The mixins included below are considered a public interface for MediaWiki extensions.
+ * The signatures of parametrized mixins should be kept as stable as possible.
+ *
+ * See <http://lesscss.org/#-mixins> for more information about how to write mixins.
+ */
+/*
+ * SVG support using a transparent gradient to guarantee cross-browser
+ * compatibility (browsers able to understand gradient syntax support also SVG).
+ * http://pauginer.tumblr.com/post/36614680636/invisible-gradient-technique
+ *
+ * We use gzip compression, which means that it is okay to embed twice.
+ *
+ * We do not embed the fallback image on the assumption that the gain for old browsers
+ * is not worth the harm done to modern ones.
+ */
+/* Caution: Does not support localisable images */
+/* use -webkit prefix for older android browsers eg. nexus 1 */
+/* Hide some on-wiki defined classes */
 /* Galleries */
 /* See https://www.mediawiki.org/wiki/Help:Images#Rendering_a_gallery_of_images */
-.ambox,
-#coordinates,
-.navbox,
-.vertical-navbox,
-.topicon,
-.metadata {
+/* force portals to use a one column layout on mobile */
+/* bug 34878: Set an optimal width for a column.
+ * Makes sure that on small screens column-count is only honored if column-width hint is not violated.
+ * https://developer.mozilla.org/en-US/docs/CSS/column-width
+ */
+.content .ambox,
+.content #coordinates,
+.content .navbox,
+.content .vertical-navbox,
+.content .topicon,
+.content .metadata {
   display: none !important;
 }
 ul.gallery {
@@ -155,18 +425,54 @@ ul.gallery li.gallerybox > div {
 ul.gallery li.gallerybox > div > div.thumb {
   width: auto !important;
 }
-.hlist > ul li,
-ul.hlist li {
-  display: inline-block;
-  margin-right: 8px;
+#filetoc,
+.editsection,
+.mw-editsection {
+  display: none;
 }
-table {
+.skin-minerva .portal-column-left-wide,
+.skin-minerva .portal-column-left,
+.skin-minerva .portal-column-right,
+.skin-minerva .portal-column-right-narrow {
+  float: none;
+  width: 100%;
+}
+.collapsible td {
+  width: auto !important;
+}
+.content table {
   border-spacing: 0 !important;
   float: none !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-table.infobox {
+.content table.infobox {
   background: #f9f9f9;
   text-align: center !important;
+}
+.references-column-count {
+  -moz-column-width: 35em;
+  -webkit-column-width: 35em;
+  column-width: 35em;
+}
+.references li:target {
+  background-color: #ddeeff;
+}
+.beta .dablink,
+.beta .rellink,
+.alpha .dablink,
+.alpha .rellink {
+  padding: 0 0 .6em 0;
+  color: #777;
+  font-size: .8em;
+  font-style: italic;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  padding-top: 48px;
+}
+a {
+  color: #347BFF;
+  text-decoration: none;
 }
