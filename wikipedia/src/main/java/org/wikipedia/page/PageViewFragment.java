@@ -392,6 +392,9 @@ public class PageViewFragment extends Fragment {
             displayLeadSection();
             setState(STATE_INITIAL_FETCH);
             new RestSectionsFetchTask().execute();
+
+            // Save image for this page title
+            new PageImageSaveTask(app, app.getAPIForSite(title.getSite()), title).execute();
         }
 
         @Override

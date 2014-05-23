@@ -151,8 +151,6 @@ public class PageActivity extends ActionBarActivity {
 
         // Add history entry now
         new HistorySaveTask(entry).execute();
-        // Save image for this page title
-        new PageImageSaveTask(app, app.getAPIForSite(title.getSite()), title).execute();
 
         // animate the new fragment into place
         // then hide the previous fragment.
