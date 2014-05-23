@@ -44,7 +44,11 @@ public class EditPreviewFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         if (savedInstanceState != null) {
             previewHTML = savedInstanceState.getString("previewHTML");
-            displayPreview(previewHTML);
+            boolean isActive = savedInstanceState.getBoolean("isActive");
+            previewContainer.setVisibility(isActive ? View.VISIBLE : View.GONE);
+            if (isActive) {
+                displayPreview(previewHTML);
+            }
         }
     }
 
@@ -133,5 +137,6 @@ public class EditPreviewFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("previewHTML", previewHTML);
+        outState.putBoolean("isActive", isActive());
     }
 }
