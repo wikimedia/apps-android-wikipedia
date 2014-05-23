@@ -1,4 +1,4 @@
-#+/bin/bash
+#!/bin/bash
 PREFIX="http://bits.beta.wmflabs.org/en.wikipedia.beta.wmflabs.org"
 BASE_PATH="`dirname $0`/.."
 
