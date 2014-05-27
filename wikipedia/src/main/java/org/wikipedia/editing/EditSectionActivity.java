@@ -4,6 +4,7 @@ import android.app.*;
 import android.content.*;
 import android.os.*;
 import android.support.v7.app.*;
+import android.text.TextUtils;
 import android.util.*;
 import android.view.*;
 import android.webkit.*;
@@ -26,11 +27,13 @@ public class EditSectionActivity extends ActionBarActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";
     public static final String EXTRA_TITLE = "org.wikipedia.edit_section.title";
     public static final String EXTRA_SECTION = "org.wikipedia.edit_section.section";
+    public static final String EXTRA_PAGE_PROPS = "org.wikipedia.edit_section.pageprops";
 
     private WikipediaApp app;
 
     private PageTitle title;
     private Section section;
+    private PageProperties pageProps;
 
     private String sectionWikitext;
 
@@ -72,6 +75,7 @@ public class EditSectionActivity extends ActionBarActivity {
 
         title = getIntent().getParcelableExtra(EXTRA_TITLE);
         section = getIntent().getParcelableExtra(EXTRA_SECTION);
+        pageProps = getIntent().getParcelableExtra(EXTRA_PAGE_PROPS);
 
         progressDialog = new ProgressDialog(this);
 
@@ -391,6 +395,20 @@ public class EditSectionActivity extends ActionBarActivity {
         sectionText.setText(sectionWikitext);
         ViewAnimations.crossFade(sectionProgress, sectionContainer);
         supportInvalidateOptionsMenu();
+
+        if (pageProps != null && pageProps.getEditProtectionStatus() != null) {
+            String message;
+            if (pageProps.getEditProtectionStatus().equals("sysop")) {
+                message = getString(R.string.page_protected_sysop);
+            } else if (pageProps.getEditProtectionStatus().equals("autoconfirmed")) {
+                message = getString(R.string.page_protected_autoconfirmed);
+            } else {
+                message = getString(R.string.page_protected_other, pageProps.getEditProtectionStatus());
+            }
+            Crouton.makeText(this,
+                    message,
+                    Style.INFO).show();
+        }
     }
 
     @Override

@@ -1,8 +1,10 @@
 package org.wikipedia.page;
 
 import android.os.*;
+import android.text.TextUtils;
 import android.util.*;
 import org.json.*;
+import org.wikipedia.Utils;
 
 import java.text.*;
 import java.util.*;
@@ -13,9 +15,17 @@ import java.util.*;
 public class PageProperties implements Parcelable {
     private final Date lastModified;
     private final String displayTitleText;
+    private final String editProtectionStatus;
     private SimpleDateFormat sdf;
 
-    public PageProperties(String lastModifiedText, String displayTitleText) {
+    /**
+     * Create a new PageProperties object.
+     *
+     * @param lastModifiedText Last modified date in ISO8601 format
+     * @param displayTitleText The title to be displayed for this page
+     * @param editProtectionStatus The edit protection status applied to this page
+     */
+    public PageProperties(String lastModifiedText, String displayTitleText, String editProtectionStatus) {
         lastModified = new Date();
         sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -25,6 +35,7 @@ public class PageProperties implements Parcelable {
             Log.d("PageProperties", "Failed to parse date: " + lastModifiedText);
         }
         this.displayTitleText = displayTitleText;
+        this.editProtectionStatus = editProtectionStatus;
     }
 
     public Date getLastModified() {
@@ -33,6 +44,10 @@ public class PageProperties implements Parcelable {
 
     public String getDisplayTitle() {
         return displayTitleText;
+    }
+
+    public String getEditProtectionStatus() {
+        return editProtectionStatus;
     }
 
     @Override
@@ -44,11 +59,13 @@ public class PageProperties implements Parcelable {
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeLong(lastModified.getTime());
         parcel.writeString(displayTitleText);
+        parcel.writeString(editProtectionStatus);
     }
 
     private PageProperties(Parcel in) {
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
+        editProtectionStatus = in.readString();
     }
 
     public static final Parcelable.Creator<PageProperties> CREATOR
@@ -74,22 +91,23 @@ public class PageProperties implements Parcelable {
         PageProperties that = (PageProperties) o;
 
         return lastModified.equals(that.lastModified)
-                && displayTitleText.equals(that.displayTitleText);
+                && displayTitleText.equals(that.displayTitleText)
+                && TextUtils.equals(editProtectionStatus, that.editProtectionStatus);
     }
 
     @Override
     public int hashCode() {
         int result = lastModified.hashCode();
         result = 31 * result + displayTitleText.hashCode();
+        if (editProtectionStatus != null) {
+            result = 63 * result + editProtectionStatus.hashCode();
+        }
         return result;
     }
 
     @Override
     public String toString() {
-        return "PageProperties{"
-                + "displayTitleText='" + displayTitleText + '\''
-                + ", lastModified=" + lastModified.getTime()
-                + '}';
+        return toJSON().toString();
     }
 
     public JSONObject toJSON() {
@@ -97,6 +115,15 @@ public class PageProperties implements Parcelable {
         try {
             json.put("lastmodified", sdf.format(getLastModified()));
             json.put("displaytitle", displayTitleText);
+            if (editProtectionStatus == null) {
+                json.put("protection", new JSONArray());
+            } else {
+                JSONObject protectionStatusObject = new JSONObject();
+                JSONArray editProtectionStatusArray = new JSONArray();
+                editProtectionStatusArray.put(editProtectionStatus);
+                protectionStatusObject.put("edit", editProtectionStatusArray);
+                json.put("protection", protectionStatusObject);
+            }
         } catch (JSONException e) {
             // Goddamn it Java
             throw new RuntimeException(e);
@@ -105,10 +132,23 @@ public class PageProperties implements Parcelable {
         return json;
     }
 
-    public PageProperties(JSONObject json) {
-        this(
+    /**
+     * Construct a PageProperties object from JSON returned either from mobileview or toJSON
+     *
+     * @param json JSON generated either by action=mobileview or by toJSON()
+     */
+    public static PageProperties parseJSON(JSONObject json) {
+        String editProtection = null;
+        // Mediawiki API is stupid!
+        if (!(json.opt("protection") instanceof JSONArray)
+                && json.optJSONObject("protection").has("edit")
+                ) {
+            editProtection = json.optJSONObject("protection").optJSONArray("edit").optString(0);
+        }
+        return new PageProperties(
                 json.optString("lastmodified"),
-                json.optString("displaytitle")
+                json.optString("displaytitle"),
+                editProtection
         );
     }
 }

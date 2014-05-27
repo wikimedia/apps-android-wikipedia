@@ -358,7 +358,7 @@ public class PageViewFragment extends Fragment {
         @Override
         public RequestBuilder buildRequest(Api api) {
             RequestBuilder builder =  super.buildRequest(api);
-            builder.param("prop", builder.getParams().get("prop") + "|lastmodified|normalizedtitle|displaytitle");
+            builder.param("prop", builder.getParams().get("prop") + "|lastmodified|normalizedtitle|displaytitle|protection");
             return builder;
         }
 
@@ -368,7 +368,7 @@ public class PageViewFragment extends Fragment {
         public List<Section> processResult(ApiResult result) throws Throwable {
             JSONObject mobileView = result.asObject().optJSONObject("mobileview");
             if (mobileView != null) {
-                pageProperties = new PageProperties(mobileView);
+                pageProperties = PageProperties.parseJSON(mobileView);
                 if (mobileView.has("redirected")) {
                     // Handle redirects properly.
                     title = new PageTitle(mobileView.optString("redirected"), title.getSite());

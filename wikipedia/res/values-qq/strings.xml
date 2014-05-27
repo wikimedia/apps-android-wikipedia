@@ -130,4 +130,7 @@
   <string name="history_search_list_hint">Hint for textbox that searches list of items in browsing history as user typesj</string>
   <string name="history_search_empty_message">Message shown when no history itmes were found that match the user\'s query. %s is replaced with the query string.</string>
   <string name="error_can_not_process_link">Message shown in a toast when the app encounters a link it can not process.</string>
+  <string name="page_protected_autoconfirmed">Message shown to users when editing a semi-protected page</string>
+  <string name="page_protected_sysop">Message shown to users when editing a fully protected page</string>
+  <string name="page_protected_other">Message shown to users when editing a page that is protected with a custom level of protection. %s refers to the name of the protection level. Examples include \'templateeditor\' on enwiki.</string>
 </resources>

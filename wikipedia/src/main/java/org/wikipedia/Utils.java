@@ -421,4 +421,21 @@ public final class Utils {
 
         return sdf.format(date);
     }
+
+    /**
+     * Convert a JSONArray object to a String Array.
+     *
+     * @param array A JSONArray containing only Strings
+     * @return A String[] with all the items in the JSONArray
+     */
+    public static String[] JSONArrayToStringArray(JSONArray array) {
+        if (array == null) {
+            return null;
+        }
+        String[] stringArray = new String[array.length()];
+        for (int i = 0; i < array.length(); i++) {
+            stringArray[i] = array.optString(i);
+        }
+        return stringArray;
+    }
 }

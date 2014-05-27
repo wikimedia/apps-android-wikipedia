@@ -137,4 +137,7 @@
     <string name="history_search_list_hint">Search</string>
     <string name="history_search_empty_message">No pages found matching \'%s\'</string>
     <string name="error_can_not_process_link">Could not display this link</string>
+    <string name="page_protected_autoconfirmed">This page has been semi-protected.</string>
+    <string name="page_protected_sysop">This page has been fully protected.</string>
+    <string name="page_protected_other">This page has been protected to the following levels: %s</string>
 </resources>

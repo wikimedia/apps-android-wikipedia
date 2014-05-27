@@ -118,6 +118,6 @@ public class Page implements Parcelable {
         for (int i = 0; i < sectionsJSON.length(); i++) {
             sections.add(new Section(sectionsJSON.optJSONObject(i)));
         }
-        pageProperties = new PageProperties(json.optJSONObject("properties"));
+        pageProperties = PageProperties.parseJSON(json.optJSONObject("properties"));
     }
 }
