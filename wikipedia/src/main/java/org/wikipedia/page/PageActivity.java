@@ -238,7 +238,7 @@ public class PageActivity extends ActionBarActivity {
 
     @Subscribe
     public void onShowToCEvent(ShowToCEvent event) {
-        curPageFragment.showToC();
+        curPageFragment.toggleToC();
     }
     @Override
     public void onBackPressed() {

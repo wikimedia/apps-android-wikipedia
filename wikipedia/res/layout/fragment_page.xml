@@ -30,16 +30,24 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="end">
 
-            <ListView
-                    android:id="@+id/page_toc_list"
+            <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@android:color/background_light"
-                    android:divider="#ededed"
-                    android:dividerHeight="0.5dp"
-                    android:visibility="gone"
-                    android:choiceMode="singleChoice"
-                    />
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+                <ListView
+                        android:id="@+id/page_toc_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/background_light"
+                        android:divider="#ededed"
+                        android:dividerHeight="0.5dp"
+                        android:visibility="gone"
+                        android:choiceMode="singleChoice"
+                        android:layout_marginTop="48dp"
+                        />
+            </LinearLayout>
             <ProgressBar
                     android:id="@+id/page_toc_in_progress"
                     android:layout_width="wrap_content"

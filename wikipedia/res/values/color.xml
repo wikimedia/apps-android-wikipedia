@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="border">#60888888</color>
+    <color name="nav_background">#ff000000</color>
+    <color name="nav_separator">#ff808080</color>
 
     <!-- Copied for 2.3 -->
     <color name="holo_green_light">#ff99cc00</color>

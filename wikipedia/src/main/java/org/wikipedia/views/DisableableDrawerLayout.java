@@ -3,11 +3,12 @@ package org.wikipedia.views;
 import android.content.*;
 import android.support.v4.widget.*;
 import android.util.*;
+import android.view.Gravity;
 
 public class DisableableDrawerLayout extends DrawerLayout {
 
     public boolean getSlidingEnabled() {
-        return getDrawerLockMode(this) == DrawerLayout.LOCK_MODE_UNLOCKED;
+        return getDrawerLockMode(Gravity.RIGHT) == DrawerLayout.LOCK_MODE_UNLOCKED;
     }
 
     public void setSlidingEnabled(boolean enable) {

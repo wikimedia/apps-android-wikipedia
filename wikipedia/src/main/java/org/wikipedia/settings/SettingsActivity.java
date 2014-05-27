@@ -3,30 +3,30 @@ package org.wikipedia.settings;
 import android.content.*;
 import android.os.*;
 import android.preference.*;
-import android.view.*;
 import org.wikipedia.*;
 
-public class SettingsActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class SettingsActivity extends PreferenceActivityWithBack implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static final int ACTIVITY_RESULT_LANGUAGE_CHANGED = 1;
+    public static final int ACTIVITY_RESULT_LOGOUT = 2;
     public static final int ACTIVITY_REQUEST_SHOW_SETTINGS = 1;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
-        // Hmm. Can't use ActionBarActivity?
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-    }
 
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-            default:
-                throw new RuntimeException("WAT");
+        Preference logoutPref = findPreference(getString(R.string.preference_key_logout));
+        if (!WikipediaApp.getInstance().getUserInfoStorage().isLoggedIn()) {
+            logoutPref.setEnabled(false);
+            logoutPref.setSummary(getString(R.string.preference_summary_notloggedin));
         }
+        logoutPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                setResult(ACTIVITY_RESULT_LOGOUT);
+                finish();
+                return false;
+            }
+        });
     }
 
     @Override

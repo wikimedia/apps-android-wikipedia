@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import android.support.v4.widget.DrawerLayout;
 import android.view.*;
 import android.support.v7.widget.PopupMenu;
 import com.squareup.otto.*;
@@ -9,10 +10,12 @@ import org.wikipedia.events.*;
 public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
     private final PopupMenu menu;
     private final Bus bus;
+    private final DrawerLayout navDrawer;
 
-    public PageActionsHandler(final Bus bus, final PopupMenu menu, final View trigger) {
+    public PageActionsHandler(final Bus bus, final PopupMenu menu, final View trigger, final DrawerLayout navDrawer) {
         this.menu = menu;
         this.bus = bus;
+        this.navDrawer = navDrawer;
         menu.getMenuInflater().inflate(R.menu.menu_page_actions, menu.getMenu());
         menu.setOnMenuItemClickListener(this);
 
@@ -21,6 +24,9 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
         trigger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (navDrawer.isDrawerOpen(Gravity.START)) {
+                    navDrawer.closeDrawer(Gravity.START);
+                }
                 menu.show();
             }
         });
@@ -34,13 +40,11 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
                 menu.getMenu().findItem(R.id.menu_save_page).setEnabled(false);
                 menu.getMenu().findItem(R.id.menu_share_page).setEnabled(false);
                 menu.getMenu().findItem(R.id.menu_other_languages).setEnabled(false);
-                menu.getMenu().findItem(R.id.menu_show_toc).setEnabled(false);
                 break;
             case PageViewFragment.STATE_COMPLETE_FETCH:
                 menu.getMenu().findItem(R.id.menu_save_page).setEnabled(true);
                 menu.getMenu().findItem(R.id.menu_share_page).setEnabled(true);
                 menu.getMenu().findItem(R.id.menu_other_languages).setEnabled(true);
-                menu.getMenu().findItem(R.id.menu_show_toc).setEnabled(true);
                 break;
             default:
                 // How can this happen?!
@@ -59,9 +63,6 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
                 break;
             case R.id.menu_other_languages:
                 bus.post(new ShowOtherLanguagesEvent());
-                break;
-            case R.id.menu_show_toc:
-                bus.post(new ShowToCEvent());
                 break;
             default:
                 throw new RuntimeException("Unexpected menu item clicked");

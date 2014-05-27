@@ -483,4 +483,17 @@ public final class Utils {
         }
         return stringArray;
     }
+
+    /**
+     * Detects whether the current device has a low-resolution screen
+     * (defined using a hard-coded threshold for low-resolution)
+     *
+     * @param ctx Application context for detecting screen size.
+     * @return True if this is a low-resolution device; false otherwise.
+     */
+    public static boolean isLowResolutionDevice(Context ctx) {
+        WindowManager wm = (WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        return (display.getHeight() <= 480);
+    }
 }

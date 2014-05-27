@@ -38,6 +38,7 @@ public class SearchArticlesFragment extends Fragment {
     private View searchNetworkError;
     private View searchNoResults;
     private ImageView searchBarMenuButton;
+    private ImageView searchBarTocButton;
     private ImageView drawerIndicator;
     private ImageView wikipediaIcon;
 
@@ -56,6 +57,8 @@ public class SearchArticlesFragment extends Fragment {
     private Handler searchHandler;
 
     private DrawerLayout drawerLayout;
+
+    private PopupMenu pageActionsMenu;
 
     private SearchArticlesTask curSearchTask;
 
@@ -146,12 +149,12 @@ public class SearchArticlesFragment extends Fragment {
         searchBarIcon = parentLayout.findViewById(R.id.search_bar_icon);
         searchNetworkError = parentLayout.findViewById(R.id.search_network_error);
         searchBarMenuButton = (ImageView)parentLayout.findViewById(R.id.search_bar_show_menu);
+        searchBarTocButton = (ImageView)parentLayout.findViewById(R.id.search_bar_show_toc);
         drawerIndicator = (ImageView)parentLayout.findViewById(R.id.search_drawer_indicator);
         wikipediaIcon = (ImageView)parentLayout.findViewById(R.id.wikipedia_icon);
         searchNoResults = parentLayout.findViewById(R.id.search_results_empty);
 
-        PopupMenu pageActionsMenu = new PopupMenu(getActivity(), searchBarMenuButton);
-        PageActionsHandler pageActionsHandler = new PageActionsHandler(app.getBus(), pageActionsMenu, searchBarMenuButton);
+        pageActionsMenu = new PopupMenu(getActivity(), searchBarMenuButton);
 
         searchHandler = new Handler(new SearchHandlerCallback());
 
@@ -243,6 +246,17 @@ public class SearchArticlesFragment extends Fragment {
             }
         });
 
+        searchBarTocButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (drawerLayout.isDrawerVisible(Gravity.START)) {
+                    drawerLayout.closeDrawer(Gravity.START);
+                }
+                Utils.hideSoftKeyboard(getActivity());
+                app.getBus().post(new ShowToCEvent());
+            }
+        });
+
         return parentLayout;
     }
 
@@ -286,6 +300,9 @@ public class SearchArticlesFragment extends Fragment {
     public void setDrawerLayout(DrawerLayout drawerLayout) {
         this.drawerLayout = drawerLayout;
 
+        PageActionsHandler pageActionsHandler = new PageActionsHandler(app.getBus(),
+                pageActionsMenu, searchBarMenuButton, drawerLayout);
+
         drawerLayout.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             private boolean hideKeyboardCalled = false;
             @Override
@@ -324,6 +341,10 @@ public class SearchArticlesFragment extends Fragment {
         outState.putString("lastSearchedText", lastSearchedText);
         outState.putBoolean("isSearchActive", isSearchActive);
         outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
+    }
+
+    public void setTocEnabled(boolean enable) {
+        searchBarTocButton.setEnabled(enable);
     }
 
     public void clearErrors() {
@@ -427,6 +448,7 @@ public class SearchArticlesFragment extends Fragment {
         searchTermText.setTextColor(Color.WHITE);
         searchTermText.setHint(R.string.zero_search_hint);
         searchBarMenuButton.setColorFilter(Color.WHITE);
+        searchBarTocButton.setColorFilter(Color.WHITE);
         ensureVisible();
     }
 
@@ -438,6 +460,7 @@ public class SearchArticlesFragment extends Fragment {
         searchTermText.setHintTextColor(searchTermHintTextColor);
         searchTermText.setHint(R.string.search_hint);
         searchBarMenuButton.clearColorFilter();
+        searchBarTocButton.clearColorFilter();
         ensureVisible();
     }
 

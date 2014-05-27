@@ -56,9 +56,17 @@
                   android:excludeFromRecents="true"
                   android:finishOnTaskLaunch="true" />
         <activity android:name=".settings.SettingsActivity"
-                  android:label="@string/settings_activity_title"
+                  android:label="@string/more_activity_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
+        <activity android:name=".settings.AboutActivity"
+                  android:label="@string/about_activity_title"
+                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize">
+            <intent-filter>
+                <action android:name=".settings.AboutActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".interlanguage.LangLinksActivity"
                   android:label="@string/langlinks_activity_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"

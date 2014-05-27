@@ -42,9 +42,11 @@ public class ToCHandler {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                prevTranslateY = ViewHelper.getTranslationY(quickReturnBar);
                 bridge.sendMessage("requestCurrentSection", new JSONObject());
-                ViewAnimations.ensureTranslationY(quickReturnBar, -quickReturnBar.getHeight());
+                if (quickReturnBar != null) {
+                    prevTranslateY = ViewHelper.getTranslationY(quickReturnBar);
+                    ViewAnimations.ensureTranslationY(quickReturnBar, -quickReturnBar.getHeight());
+                }
                 funnel.logOpen();
                 wasClicked = false;
             }
@@ -52,7 +54,9 @@ public class ToCHandler {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                ViewAnimations.ensureTranslationY(quickReturnBar, (int) prevTranslateY);
+                if (quickReturnBar != null) {
+                    ViewAnimations.ensureTranslationY(quickReturnBar, (int) prevTranslateY);
+                }
                 if (!wasClicked) {
                     funnel.logClose();
                 }
@@ -126,7 +130,9 @@ public class ToCHandler {
     }
 
     public void show() {
-        slidingPane.openDrawer(Gravity.RIGHT);
+        if (slidingPane.getSlidingEnabled()) {
+            slidingPane.openDrawer(Gravity.RIGHT);
+        }
     }
 
     public void hide() {

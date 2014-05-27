@@ -10,4 +10,7 @@
     <string name="preference_key_remote_config">remote_config</string>
     <string name="preference_key_eventlogging_opt_in">eventlogging_opt_in</string>
     <string name="preference_key_styles_last_updated">styles_last_updated</string>
+    <string name="preference_key_version">app_version</string>
+    <string name="preference_key_feedback">send_feedback</string>
+    <string name="preference_key_logout">log_out</string>
 </resources>

@@ -4,7 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:fillViewport="true"
-              android:background="#00af89">
+              android:background="@color/nav_background">
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
@@ -42,13 +42,6 @@
                         android:text="@string/nav_item_login"
                         style="?android:textAppearanceMediumInverse"
                         />
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="@string/nav_item_login_benefits"
-                        style="?android:textAppearanceSmallInverse"
-                        />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
@@ -78,7 +71,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#038368" />
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/nav_separator" />
 
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
@@ -153,21 +146,12 @@
         <!-- Separator view for providing gap between top items and bottom ones -->
         <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
 
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#fff"
-                android:padding="4dp"
-                android:id="@+id/nav_drawer_version"
-                android:gravity="right"
-                />
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/nav_separator" />
 
-        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#038368" />
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
-                      android:id="@+id/nav_item_settings"
+                      android:id="@+id/nav_item_more"
                       android:background="@drawable/item_background_holo_light"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
@@ -179,47 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="@string/nav_item_preferences"
-                    style="?android:textAppearanceMediumInverse"
-                    />
-        </LinearLayout>
-
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal"
-                      android:id="@+id/nav_item_send_feedback"
-                      android:background="@drawable/item_background_holo_light"
-                >
-            <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                       android:layout_margin="12dp"
-                       android:layout_gravity="center_vertical"
-                       android:src="@drawable/envelope_white"
-                    />
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/nav_item_send_feedback"
-                    style="?android:textAppearanceMediumInverse"
-                    />
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal"
-                      android:id="@+id/nav_item_logout"
-                      android:background="@drawable/item_background_holo_light"
-                >
-            <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                       android:layout_margin="12dp"
-                       android:layout_gravity="center_vertical"
-                       android:background="#fff"
-                       android:visibility="invisible"
-                    />
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/nav_item_logout"
+                    android:text="@string/more_item_preferences"
                     style="?android:textAppearanceMediumInverse"
                     />
         </LinearLayout>

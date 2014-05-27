@@ -17,7 +17,7 @@ import org.wikipedia.history.*;
 import org.wikipedia.pageimages.*;
 import org.wikipedia.bookmarks.*;
 import org.wikipedia.views.*;
-
+import org.wikipedia.search.SearchArticlesFragment;
 import java.util.*;
 
 public class PageViewFragment extends Fragment {
@@ -67,6 +67,8 @@ public class PageViewFragment extends Fragment {
      * Stores this fragment's position in the ViewPager in the parent activity.
      */
     private int pagerIndex;
+
+    private SearchArticlesFragment searchArticlesFragment;
 
     private PageTitle title;
     private ObservableWebView webView;
@@ -239,6 +241,7 @@ public class PageViewFragment extends Fragment {
 
         app = (WikipediaApp)getActivity().getApplicationContext();
 
+        searchArticlesFragment = (SearchArticlesFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.search_fragment);
         pageFragmentContainer = getView().findViewById(R.id.page_fragment_container);
         webView = (ObservableWebView) getView().findViewById(R.id.page_web_view);
         loadProgress = (ProgressBar) getView().findViewById(R.id.page_load_progress);
@@ -249,6 +252,7 @@ public class PageViewFragment extends Fragment {
         tocDrawer = (DisableableDrawerLayout) getView().findViewById(R.id.page_toc_drawer);
         // disable TOC drawer until the page is loaded
         tocDrawer.setSlidingEnabled(false);
+        searchArticlesFragment.setTocEnabled(false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             // Enable Pinch-Zoom
@@ -279,7 +283,10 @@ public class PageViewFragment extends Fragment {
         });
 
         editHandler = new EditHandler(this, bridge);
-        new QuickReturnHandler(webView, quickReturnBar);
+
+        if (Utils.isLowResolutionDevice(app)) {
+            new QuickReturnHandler(webView, quickReturnBar);
+        }
 
         setState(state);
         performActionForState(state);
@@ -352,9 +359,12 @@ public class PageViewFragment extends Fragment {
         // FIXME: Move this out into a PageComplete event of sorts
         if (state == STATE_COMPLETE_FETCH) {
             if (tocHandler == null) {
-                tocHandler = new ToCHandler(tocDrawer, quickReturnBar, bridge);
+                tocHandler = new ToCHandler(tocDrawer,
+                        Utils.isLowResolutionDevice(app) ? quickReturnBar : null,
+                        bridge);
             }
             tocHandler.setupToC(page);
+            searchArticlesFragment.setTocEnabled(true);
         }
     }
 
@@ -409,6 +419,7 @@ public class PageViewFragment extends Fragment {
         public void onCatch(Throwable caught) {
             // in any case, make sure the TOC drawer is closed and disabled
             tocDrawer.setSlidingEnabled(false);
+            searchArticlesFragment.setTocEnabled(false);
 
             if (caught instanceof SectionsFetchException) {
                 if (((SectionsFetchException)caught).getCode().equals("missingtitle")
@@ -459,8 +470,12 @@ public class PageViewFragment extends Fragment {
     }
 
     private ToCHandler tocHandler;
-    public void showToC() {
-        tocHandler.show();
+    public void toggleToC() {
+        if (tocHandler.isVisible()) {
+            tocHandler.hide();
+        } else {
+            tocHandler.show();
+        }
     }
 
     public boolean handleBackPressed() {

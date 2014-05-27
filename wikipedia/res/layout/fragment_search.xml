@@ -73,6 +73,13 @@
                     />
         </LinearLayout>
         <ImageView
+                android:id="@+id/search_bar_show_toc"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_toc"
+                android:background="@drawable/item_background_holo_light"
+                />
+        <ImageView
                 android:id="@+id/search_bar_show_menu"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
