@@ -176,13 +176,22 @@ Many of our icons are maintained as SVG originals, rasterized to PNG at the
 various output resolutions via a script. This rasterization is not part of
 the main build process, so needs to be re-run when adding new icons.
 
+=== Setup ===
+Install sh python module:
+* "sudo easy_install sh"
+
 Ensure you have librsvg and the 'rsvg-convert' command:
 
 * On Ubuntu, run "sudo apt-get install librsvg2-bin"
 * On Mac OS X using Homebrew, run "brew install librsvg"
 
-In "wikipedia" project subdirectory, run:
-* "./convertify.bash"
+You also need to have ImageMagick (for flipping of icons):
+* On Mac OS X using Homebrew, run "brew install imagemagick"
 
-Original files from icon-sources/*.svg are rendered and copied into the res/
+=== Convert ===
+
+Run:
+* "python scripts/convert-icons.py"
+
+Original files from icon-svgs/*/*.svg are rendered and copied into the res/
 subdirectories. Note that they are not automatically added to git!
