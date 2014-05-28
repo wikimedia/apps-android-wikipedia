@@ -6,6 +6,8 @@ import android.content.*;
 import android.support.v4.app.*;
 import org.json.*;
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
 import org.wikipedia.bridge.*;
 import org.wikipedia.page.*;
 
@@ -15,6 +17,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
 
     private final Fragment fragment;
     private final CommunicationBridge bridge;
+    private ProtectedEditAttemptFunnel funnel;
     private Page currentPage;
 
     public EditHandler(Fragment fragment, CommunicationBridge bridge) {
@@ -26,6 +29,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
 
     public void setPage(Page page) {
         this.currentPage = page;
+        this.funnel = new ProtectedEditAttemptFunnel(WikipediaApp.getInstance(), page.getTitle().getSite());
     }
 
     private void showUneditableDialog() {
@@ -40,6 +44,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                     }
                 })
                 .show();
+        funnel.log(currentPage.getPageProperties().getEditProtectionStatus());
     }
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
