@@ -19,13 +19,19 @@ public class PageProperties implements Parcelable {
     private SimpleDateFormat sdf;
 
     /**
+     * True if the user who first requested this page can edit this page
+     * FIXME: This is not a true page property, since it depends on current user.
+     */
+    private final boolean canEdit;
+
+    /**
      * Create a new PageProperties object.
      *
      * @param lastModifiedText Last modified date in ISO8601 format
      * @param displayTitleText The title to be displayed for this page
      * @param editProtectionStatus The edit protection status applied to this page
      */
-    public PageProperties(String lastModifiedText, String displayTitleText, String editProtectionStatus) {
+    public PageProperties(String lastModifiedText, String displayTitleText, String editProtectionStatus, boolean canEdit) {
         lastModified = new Date();
         sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -36,6 +42,7 @@ public class PageProperties implements Parcelable {
         }
         this.displayTitleText = displayTitleText;
         this.editProtectionStatus = editProtectionStatus;
+        this.canEdit = canEdit;
     }
 
     public Date getLastModified() {
@@ -50,6 +57,10 @@ public class PageProperties implements Parcelable {
         return editProtectionStatus;
     }
 
+    public boolean canEdit() {
+        return canEdit;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -60,12 +71,14 @@ public class PageProperties implements Parcelable {
         parcel.writeLong(lastModified.getTime());
         parcel.writeString(displayTitleText);
         parcel.writeString(editProtectionStatus);
+        parcel.writeInt(canEdit ? 1 : 0);
     }
 
     private PageProperties(Parcel in) {
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
         editProtectionStatus = in.readString();
+        canEdit = in.readInt() == 1;
     }
 
     public static final Parcelable.Creator<PageProperties> CREATOR
@@ -92,6 +105,7 @@ public class PageProperties implements Parcelable {
 
         return lastModified.equals(that.lastModified)
                 && displayTitleText.equals(that.displayTitleText)
+                && canEdit == that.canEdit
                 && TextUtils.equals(editProtectionStatus, that.editProtectionStatus);
     }
 
@@ -124,6 +138,7 @@ public class PageProperties implements Parcelable {
                 protectionStatusObject.put("edit", editProtectionStatusArray);
                 json.put("protection", protectionStatusObject);
             }
+            json.put("editable", canEdit);
         } catch (JSONException e) {
             // Goddamn it Java
             throw new RuntimeException(e);
@@ -148,7 +163,8 @@ public class PageProperties implements Parcelable {
         return new PageProperties(
                 json.optString("lastmodified"),
                 json.optString("displaytitle"),
-                editProtection
+                editProtection,
+                json.optBoolean("editable")
         );
     }
 }

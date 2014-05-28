@@ -178,6 +178,10 @@ public class PageViewFragment extends Fragment {
             attributionPayload.put("historyTarget", page.getTitle().getUriForAction("history"));
             attributionPayload.put("licenseHTML", getString(R.string.content_license_html));
             bridge.sendMessage("displayAttribution", attributionPayload);
+
+            if (!page.getPageProperties().canEdit()) {
+                bridge.sendMessage("setPageProtected", new JSONObject());
+            }
         } catch (JSONException e) {
             // This should never happen
             throw new RuntimeException(e);
@@ -358,7 +362,7 @@ public class PageViewFragment extends Fragment {
         @Override
         public RequestBuilder buildRequest(Api api) {
             RequestBuilder builder =  super.buildRequest(api);
-            builder.param("prop", builder.getParams().get("prop") + "|lastmodified|normalizedtitle|displaytitle|protection");
+            builder.param("prop", builder.getParams().get("prop") + "|lastmodified|normalizedtitle|displaytitle|protection|editable");
             return builder;
         }
 

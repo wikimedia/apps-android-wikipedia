@@ -32,3 +32,7 @@ bridge.registerListener( "replaceImageSrc", function( payload ) {
 bridge.registerListener( "hideEditButtons", function() {
     document.getElementsByTagName( "html" )[0].classList.add( "no-editing" );
 } );
+
+bridge.registerListener( "setPageProtected", function( payload ) {
+    document.getElementsByTagName( "html" )[0].classList.add( "page-protected" );
+} );
