@@ -249,13 +249,6 @@ public class WikipediaApp extends Application {
         return persisters.get(cls.getCanonicalName());
     }
 
-    private Typeface primaryType;
-    public Typeface getPrimaryType() {
-        if (primaryType == null) {
-            primaryType = Typeface.createFromAsset(getAssets(), "fonts/OpenSans.ttf");
-        }
-        return primaryType;
-    }
     private String[] wikiCodes;
     public int findWikiIndex(String wikiCode) {
         if (wikiCodes == null) {

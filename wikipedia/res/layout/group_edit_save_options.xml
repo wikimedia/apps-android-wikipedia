@@ -25,7 +25,7 @@
             android:padding="8dp"
             android:background="#3767B4"
             >
-        <org.wikipedia.styledviews.StyledTextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/edit_save_action_login"
@@ -34,7 +34,7 @@
                 android:layout_marginBottom="4dp"
                 />
 
-        <org.wikipedia.styledviews.StyledTextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/edit_save_action_login_description"
@@ -53,7 +53,7 @@
             android:padding="8dp"
             android:background="#585858"
             >
-        <org.wikipedia.styledviews.StyledTextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/edit_save_action_ip"
@@ -62,7 +62,7 @@
                 android:layout_marginBottom="4dp"
                 />
 
-        <org.wikipedia.styledviews.StyledTextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/edit_save_action_ip_description"

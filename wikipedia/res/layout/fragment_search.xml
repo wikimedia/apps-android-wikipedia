@@ -48,7 +48,7 @@
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 >
-            <org.wikipedia.styledviews.StyledEditText
+            <EditText
                     android:id="@+id/search_term_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
     <!-- Android has no easy way to give us a light border -->
     <View android:layout_width="match_parent" android:layout_height="1dp"
           android:background="@color/border" />
-    <org.wikipedia.styledviews.StyledTextView
+    <TextView
             android:id="@+id/search_results_empty"
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -93,7 +93,7 @@
             style="?android:textAppearanceMedium"
             android:visibility="gone"
             />
-    <org.wikipedia.styledviews.StyledButton
+    <Button
             android:id="@+id/search_network_error"
             android:layout_width="match_parent"
             android:layout_height="48dp"

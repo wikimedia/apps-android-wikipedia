@@ -11,7 +11,7 @@ import org.json.*;
 import org.wikipedia.*;
 import org.wikipedia.analytics.*;
 import org.wikipedia.bridge.*;
-import org.wikipedia.styledviews.DisableableDrawerLayout;
+import org.wikipedia.views.DisableableDrawerLayout;
 
 import java.util.*;
 

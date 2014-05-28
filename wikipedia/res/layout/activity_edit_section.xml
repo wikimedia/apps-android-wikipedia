@@ -18,13 +18,13 @@
             android:orientation="vertical"
             android:visibility="gone"
             >
-        <org.wikipedia.styledviews.StyledTextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:layout_gravity="center"
                   android:text="@string/error_network_error"
                   style="?android:textAppearanceLarge"
                 />
 
-        <org.wikipedia.styledviews.StyledButton
+        <Button
                 android:id="@+id/edit_section_error_retry"
                 android:text="@string/edit_section_error_retry"
                 android:layout_gravity="center"
@@ -35,7 +35,7 @@
             android:id="@+id/edit_section_container"
             android:visibility="gone"
             android:layout_width="match_parent" android:layout_height="match_parent">
-        <org.wikipedia.styledviews.StyledEditText
+        <EditText
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/border"/>
-            <org.wikipedia.styledviews.StyledTextView
+            <TextView
                     android:id="@+id/edit_section_abusefilter_back"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

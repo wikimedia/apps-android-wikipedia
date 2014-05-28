@@ -10,7 +10,7 @@
         android:layout_marginRight="8dp"
         android:layout_height="48dp"
         android:scaleType="centerCrop"/>
-    <org.wikipedia.styledviews.StyledTextView android:id="@+id/result_text"
+    <TextView android:id="@+id/result_text"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_gravity="center"

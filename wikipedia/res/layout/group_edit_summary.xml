@@ -11,7 +11,7 @@
     <View android:layout_width="match_parent" android:layout_height="1dp"
           android:background="@color/border" />
 
-    <org.wikipedia.styledviews.StyledTextView
+    <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/edit_summary_guide_text"
@@ -21,7 +21,7 @@
             android:paddingRight="16dp"
             android:textColor="#666"
             />
-    <org.wikipedia.styledviews.StyledAutocompleteEditText
+    <AutoCompleteTextView
             android:id="@+id/group_edit_summary_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

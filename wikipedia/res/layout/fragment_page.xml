@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:indeterminate="true"
         />
-    <org.wikipedia.styledviews.DisableableDrawerLayout
+    <org.wikipedia.views.DisableableDrawerLayout
             android:id="@+id/page_toc_drawer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -49,7 +49,7 @@
                     android:layout_gravity="center"
                     />
         </FrameLayout>
-    </org.wikipedia.styledviews.DisableableDrawerLayout>
+    </org.wikipedia.views.DisableableDrawerLayout>
     <LinearLayout
             android:id="@+id/page_error"
             android:layout_width="match_parent"
@@ -58,13 +58,13 @@
             android:orientation="vertical"
             android:visibility="gone"
             >
-        <org.wikipedia.styledviews.StyledTextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:layout_gravity="center"
                   android:text="@string/error_network_error"
                   style="?android:textAppearanceLarge"
                 />
 
-        <org.wikipedia.styledviews.StyledButton
+        <Button
                 android:id="@+id/page_error_retry"
                 android:text="@string/page_error_retry"
                 android:layout_gravity="center"
@@ -78,7 +78,7 @@
             android:orientation="vertical"
             android:visibility="gone"
             >
-        <org.wikipedia.styledviews.StyledTextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:layout_gravity="center"
                   android:text="@string/page_does_not_exist_error"
                   style="?android:textAppearanceLarge"

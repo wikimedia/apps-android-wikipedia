@@ -4,7 +4,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <org.wikipedia.styledviews.StyledTextView android:id="@+id/saved_page_section_header_text"
+    <TextView android:id="@+id/saved_page_section_header_text"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:gravity="center_vertical"
@@ -32,7 +32,7 @@
                 android:background="@android:color/transparent"
                 />
 
-        <org.wikipedia.styledviews.StyledTextView
+        <TextView
                 android:id="@+id/saved_page_title"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"

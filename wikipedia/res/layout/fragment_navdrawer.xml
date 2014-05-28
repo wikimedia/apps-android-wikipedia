@@ -34,7 +34,7 @@
                           android:layout_height="wrap_content"
                           android:orientation="vertical"
                     >
-                <org.wikipedia.styledviews.StyledTextView
+                <TextView
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:gravity="center_vertical"
@@ -42,7 +42,7 @@
                         android:text="@string/nav_item_login"
                         style="?android:textAppearanceMediumInverse"
                         />
-                <org.wikipedia.styledviews.StyledTextView
+                <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -68,7 +68,7 @@
                           android:layout_height="wrap_content"
                           android:orientation="vertical"
                     >
-                <org.wikipedia.styledviews.StyledTextView
+                <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:gravity="center_vertical"
@@ -91,7 +91,7 @@
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/clock_white"
                     />
-            <org.wikipedia.styledviews.StyledTextView
+            <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -111,7 +111,7 @@
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/bookmark_white"
                     />
-            <org.wikipedia.styledviews.StyledTextView
+            <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -131,7 +131,7 @@
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/dice_white"
                     />
-            <org.wikipedia.styledviews.StyledTextView
+            <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -140,7 +140,7 @@
                     />
         </LinearLayout>
 
-        <org.wikipedia.styledviews.StyledTextView
+        <TextView
                 android:id="@+id/nav_item_zero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -153,7 +153,7 @@
         <!-- Separator view for providing gap between top items and bottom ones -->
         <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
 
-        <org.wikipedia.styledviews.StyledTextView
+        <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
@@ -175,7 +175,7 @@
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/gear_white"
                     />
-            <org.wikipedia.styledviews.StyledTextView
+            <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -195,7 +195,7 @@
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/envelope_white"
                     />
-            <org.wikipedia.styledviews.StyledTextView
+            <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -215,7 +215,7 @@
                        android:background="#fff"
                        android:visibility="invisible"
                     />
-            <org.wikipedia.styledviews.StyledTextView
+            <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

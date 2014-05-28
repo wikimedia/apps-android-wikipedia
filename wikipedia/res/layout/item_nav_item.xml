@@ -9,7 +9,7 @@
                android:id="@+id/nav_item_image"
                android:layout_gravity="center_vertical"
             />
-    <org.wikipedia.styledviews.StyledTextView
+    <TextView
             android:id="@+id/nav_item_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

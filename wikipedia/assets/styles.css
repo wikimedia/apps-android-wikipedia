@@ -519,10 +519,49 @@ ul.gallery li.gallerybox > div > div.thumb {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
   padding-top: 48px;
 }
+
+/* Copied over from MobileFrontend.
+   FIXME: Remove when MobileFrontend CSS is componentized */
+/**
+ * Common LESS mixin library for MediaWiki
+ *
+ * By default the folder containing this file is included in $wgResourceLoaderLESSImportPaths,
+ * which makes this file importable by all less files via '@import "mediawiki.mixins";'.
+ *
+ * The mixins included below are considered a public interface for MediaWiki extensions.
+ * The signatures of parametrized mixins should be kept as stable as possible.
+ *
+ * See <http://lesscss.org/#-mixins> for more information about how to write mixins.
+ */
+/*
+ * SVG support using a transparent gradient to guarantee cross-browser
+ * compatibility (browsers able to understand gradient syntax support also SVG).
+ * http://pauginer.tumblr.com/post/36614680636/invisible-gradient-technique
+ *
+ * We use gzip compression, which means that it is okay to embed twice.
+ *
+ * We do not embed the fallback image on the assumption that the gain for old browsers
+ * is not worth the harm done to modern ones.
+ */
+/* Caution: Does not support localisable images */
+/* use -webkit prefix for older android browsers eg. nexus 1 */
 a {
-  color: #347BFF;
   text-decoration: none;
+  color: #002bb8;
+}
+a:visited {
+  color: #5a3696;
+}
+a:active {
+  color: #faa700;
+}
+a:hover {
+  text-decoration: underline;
+}
+a.new,
+a.new:visited,
+a.new:hover {
+  color: #CC0000;
 }

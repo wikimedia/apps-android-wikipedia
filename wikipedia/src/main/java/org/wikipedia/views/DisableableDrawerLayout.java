@@ -1,4 +1,4 @@
-package org.wikipedia.styledviews;
+package org.wikipedia.views;
 
 import android.content.*;
 import android.support.v4.widget.*;

@@ -8,7 +8,7 @@
         android:background="?selectableItemBackground"
         android:id="@+id/load_more_container"
         >
-    <org.wikipedia.styledviews.StyledTextView
+    <TextView
             android:id="@+id/load_more_text"
             android:layout_width="wrap_content"
             android:layout_height="32dp"

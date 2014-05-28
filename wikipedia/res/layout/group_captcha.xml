@@ -9,7 +9,7 @@
         android:orientation="vertical"
         android:visibility="gone"
         >
-    <org.wikipedia.styledviews.StyledTextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                                               android:text="@string/edit_section_captcha_message"
                                               style="?android:textAppearanceMedium"
                                               android:layout_margin="16dp"
@@ -30,12 +30,12 @@
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"/>
     </FrameLayout>
-    <org.wikipedia.styledviews.StyledTextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                                               android:text="@string/edit_section_captcha_reload"
                                               style="?android:textAppearanceSmall"
                                               android:gravity="center"
             />
-    <org.wikipedia.styledviews.StyledEditText android:layout_width="match_parent" android:layout_height="wrap_content"
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
                                                 android:layout_margin="16dp"
                                                 style="?android:textAppearanceMedium"
                                                 android:layout_gravity="center_horizontal"

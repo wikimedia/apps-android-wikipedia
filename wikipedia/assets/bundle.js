@@ -148,7 +148,7 @@ bridge.registerListener( "hideEditButtons", function() {
     document.getElementsByTagName( "html" )[0].classList.add( "no-editing" );
 } );
 
-bridge.registerListener( "setPageProtected", function( payload ) {
+bridge.registerListener( "setPageProtected", function() {
     document.getElementsByTagName( "html" )[0].classList.add( "page-protected" );
 } );
 

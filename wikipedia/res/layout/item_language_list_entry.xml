@@ -9,7 +9,7 @@
               android:paddingBottom="8dp"
               android:background="@android:drawable/list_selector_background"
               >
-    <org.wikipedia.styledviews.StyledTextView
+    <TextView
             android:id="@+id/language_list_language_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
             android:singleLine="true"
             android:ellipsize="marquee"
             />
-    <org.wikipedia.styledviews.StyledTextView
+    <TextView
             android:id="@+id/language_list_language_local_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

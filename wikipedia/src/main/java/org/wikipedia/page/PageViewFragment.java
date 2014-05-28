@@ -16,7 +16,7 @@ import org.wikipedia.events.*;
 import org.wikipedia.history.*;
 import org.wikipedia.pageimages.*;
 import org.wikipedia.bookmarks.*;
-import org.wikipedia.styledviews.*;
+import org.wikipedia.views.*;
 
 import java.util.*;
 

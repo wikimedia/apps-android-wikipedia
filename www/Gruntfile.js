@@ -78,9 +78,6 @@ module.exports = function ( grunt ) {
 
                     // Preview files
                     { src: ["preview.js", "preview.html"], dest: "../wikipedia/assets/" },
-
-                    // Fonts
-                    {src: ["fonts/*"], dest: "../wikipedia/assets/"}
                 ]
             }
         },

@@ -6,20 +6,20 @@
               android:layout_height="match_parent"
               android:padding="8dp"
         >
-    <org.wikipedia.styledviews.StyledTextView
+    <TextView
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:id="@+id/user_contrib_item_page_name"
             style="?android:textAppearanceMedium"
             android:textStyle="bold"
             />
 
-    <org.wikipedia.styledviews.StyledTextView
+    <TextView
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:id="@+id/user_contrib_item_edit_summary"
             style="?android:textAppearanceSmall"
             />
 
-    <org.wikipedia.styledviews.StyledTextView
+    <TextView
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:id="@+id/user_contrib_item_time_ago"
             style="?android:textAppearanceSmall"
