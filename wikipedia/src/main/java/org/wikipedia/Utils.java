@@ -266,9 +266,19 @@ public final class Utils {
      * Ensure that this is always sorted alphabetically.
      */
     private static final String[] RTL_LANGS = {
-            "arc", "arz", "ar", "bcc", "bqi", "ckb", "dv", "fa", "glk", "ha", "he",
+            "ar", "arc", "arz", "bcc", "bqi", "ckb", "dv", "fa", "glk", "ha", "he",
             "khw", "ks", "mzn", "pnb", "ps", "sd", "ug", "ur", "yi"
     };
+
+    /**
+     * Returns true if the given wiki language is to be displayed RTL.
+     *
+     * @param lang Wiki code for the language to check for directionality
+     * @return true if it is RTL, false if LTR
+     */
+    public static boolean isLangRTL(String lang) {
+        return Arrays.binarySearch(RTL_LANGS, lang, null) >= 0;
+    }
 
     /**
      * Setup directionality for both UI and content elements in a webview.
@@ -294,16 +304,6 @@ public final class Utils {
             throw new RuntimeException(e);
         }
         bridge.sendMessage("setDirectionality", payload);
-    }
-
-    /**
-     * Returns true if the given wiki language is to be displayed RTL.
-     *
-     * @param lang Wiki code for the language to check for directionality
-     * @return true if it is RTL, false if LTR
-     */
-    public static boolean isLangRTL(String lang) {
-        return Arrays.binarySearch(RTL_LANGS, lang, null) >= 0;
     }
 
     /**
