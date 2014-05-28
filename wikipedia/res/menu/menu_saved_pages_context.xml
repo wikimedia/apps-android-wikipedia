@@ -4,7 +4,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
         >
     <item android:id="@+id/menu_delete_selected_saved_pages"
-          android:icon="@android:drawable/ic_menu_delete"
+          android:icon="@drawable/ic_delete"
           android:title="@string/delete_selected_saved_pages"
           app:showAsAction="always" />
 </menu>

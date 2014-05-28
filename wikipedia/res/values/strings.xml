@@ -19,14 +19,13 @@
     <string name="menu_clear_all_bookmarks">Clear bookmarks</string>
     <string name="page_does_not_exist_error">This page does not exist.</string>
 
-    <string name="dialog_title_clear_history">Clear history?</string>
-    <string name="dialog_message_clear_history">Are you sure you want to clear all history?</string>
+    <string name="dialog_title_clear_history">Clear browsing history?</string>
     <string name="saved_pages_activity_title">Bookmarks</string>
     <string name="nav_item_saved_pages">Bookmarks</string>
     <string name="menu_save_page">Bookmark</string>
     <string name="menu_share_page">Share</string>
     <string name="share_via">Share via</string>
-    <string name="dialog_title_clear_saved_pages">Clear bookmarks?</string>
+    <string name="dialog_title_clear_saved_pages">Clear all bookmarks?</string>
     <string name="dialog_message_clear_saved_pages">Are you sure you want to clear all bookmarks?</string>
     <string name="toast_saving_page">Bookmarking page...</string>
     <string name="toast_saved_page">Bookmarked page</string>
