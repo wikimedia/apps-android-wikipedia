@@ -140,4 +140,6 @@
     <string name="page_protected_autoconfirmed">This page has been semi-protected.</string>
     <string name="page_protected_sysop">This page has been fully protected.</string>
     <string name="page_protected_other">This page has been protected to the following levels: %s</string>
+    <string name="page_protected_can_not_edit">You do not have the rights to edit this page</string>
+    <string name="page_protected_can_not_edit_title">This page is protected</string>
 </resources>

@@ -1,8 +1,11 @@
 package org.wikipedia.editing;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.*;
 import android.support.v4.app.*;
 import org.json.*;
+import org.wikipedia.R;
 import org.wikipedia.bridge.*;
 import org.wikipedia.page.*;
 
@@ -25,10 +28,27 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         this.currentPage = page;
     }
 
+    private void showUneditableDialog() {
+        new AlertDialog.Builder(fragment.getActivity())
+                .setCancelable(false)
+                .setTitle(R.string.page_protected_can_not_edit_title)
+                .setMessage(R.string.page_protected_can_not_edit)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .show();
+    }
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         if (messageType.equals("editSectionClicked")) {
-            int id = Integer.valueOf(messagePayload.optInt("sectionID"));
+            if (!currentPage.getPageProperties().canEdit()) {
+                showUneditableDialog();
+                return;
+            }
+            int id = messagePayload.optInt("sectionID");
             Section section = Section.findSectionForID(currentPage.getSections(), id);
             Intent intent = new Intent(fragment.getActivity(), EditSectionActivity.class);
             intent.setAction(EditSectionActivity.ACTION_EDIT_SECTION);

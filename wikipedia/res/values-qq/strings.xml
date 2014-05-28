@@ -133,4 +133,6 @@
   <string name="page_protected_autoconfirmed">Message shown to users when editing a semi-protected page</string>
   <string name="page_protected_sysop">Message shown to users when editing a fully protected page</string>
   <string name="page_protected_other">Message shown to users when editing a page that is protected with a custom level of protection. %s refers to the name of the protection level. Examples include \'templateeditor\' on enwiki.</string>
+  <string name="page_protected_can_not_edit">Message in dialog box telling the user that they can not edit this page because it is protected.</string>
+  <string name="page_protected_can_not_edit_title">Title of dialog box telling the user that they can not edit this page because it is protected.</string>
 </resources>
