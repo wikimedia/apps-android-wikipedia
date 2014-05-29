@@ -1,6 +1,5 @@
 package org.wikipedia.test;
 
-import android.util.Log;
 import junit.framework.*;
 import org.wikipedia.*;
 import org.wikipedia.page.*;
