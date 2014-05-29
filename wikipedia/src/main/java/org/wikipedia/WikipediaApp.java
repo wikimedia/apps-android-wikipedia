@@ -162,7 +162,14 @@ public class WikipediaApp extends Application {
     }
 
     private HashMap<String, Api> apis = new HashMap<String, Api>();
+    private MccMncStateHandler mccMncStateHandler = new MccMncStateHandler();
     public Api getAPIForSite(Site site) {
+        // http://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
+        Api api = mccMncStateHandler.makeApiWithMccMncHeaderEnrichment(this, site, getUserAgent());
+        if (api != null) {
+            return api;
+        }
+
         if (!apis.containsKey(site.getDomain()))  {
             apis.put(site.getDomain(), new Api(site.getApiDomain(), getUserAgent()));
         }

@@ -3,8 +3,11 @@ package org.wikipedia;
 import android.app.*;
 import android.content.*;
 import android.content.pm.*;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.*;
+import android.telephony.TelephonyManager;
 import android.text.*;
 import android.text.format.*;
 import android.util.*;
@@ -238,6 +241,48 @@ public final class Utils {
         zeroMessage.obj = "zero_eligible_check";
 
         wikipediaZeroHandler.sendMessage(zeroMessage);
+    }
+
+    /**
+     * Read the MCC-MNC (mobile operator code) if available and the cellular data connection is the active one.
+     * http://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
+     * @param ctx Application context.
+     * @return The MCC-MNC, typically as ###-##, or null if unable to ascertain (e.g., no actively used cellular)
+     */
+    public static String getMccMnc(Context ctx) {
+        String mccMnc = null;
+        try {
+            ConnectivityManager conn = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = conn.getActiveNetworkInfo();
+            if (networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED
+                    && (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE || networkInfo.getType() == ConnectivityManager.TYPE_WIMAX))
+            {
+                TelephonyManager t = (TelephonyManager)ctx.getSystemService(WikipediaApp.TELEPHONY_SERVICE);
+                if (t != null && t.getPhoneType() >= 0) {
+                    mccMnc = t.getNetworkOperator();
+                    if (mccMnc != null) {
+                        mccMnc = mccMnc.substring(0,3) + "-" + mccMnc.substring(3);
+                    }
+
+                    // TelephonyManager documentation refers to MCC-MNC unreliability on CDMA,
+                    // so we'll try to read the SIM and use the SIM MCC-MNC if there's a disagreement.
+                    // There may be a counterargument to go the other way, although we'll go this route for now.
+                    if (t.getPhoneType() == TelephonyManager.PHONE_TYPE_CDMA) {
+                        String simMccMnc = t.getSimOperator();
+                        if (simMccMnc != null) {
+                            simMccMnc = simMccMnc.substring(0,3) + "-" + simMccMnc.substring(3);
+                            if (!simMccMnc.equals(mccMnc)) {
+                                mccMnc = simMccMnc;
+                            }
+                        }
+                    }
+                }
+            }
+            return mccMnc;
+        } catch (Exception e) {
+            // Because, despite best efforts, things can go wrong and we don't want to crash the app:
+            return null;
+        }
     }
 
     /**
