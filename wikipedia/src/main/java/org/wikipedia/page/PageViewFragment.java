@@ -182,6 +182,10 @@ public class PageViewFragment extends Fragment {
             if (!page.getPageProperties().canEdit()) {
                 bridge.sendMessage("setPageProtected", new JSONObject());
             }
+
+            if (page.getPageProperties().isMainPage()) {
+                bridge.sendMessage("setMainPage", new JSONObject());
+            }
         } catch (JSONException e) {
             // This should never happen
             throw new RuntimeException(e);
