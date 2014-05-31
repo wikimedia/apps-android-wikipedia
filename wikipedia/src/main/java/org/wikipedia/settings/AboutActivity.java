@@ -1,28 +1,46 @@
 package org.wikipedia.settings;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.preference.Preference;
+import android.support.v7.app.ActionBarActivity;
+import android.text.method.LinkMovementMethod;
+import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 
-public class AboutActivity extends PreferenceActivityWithBack {
+public class AboutActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.about);
+        setContentView(R.layout.activity_about);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Preference pref = this.findPreference(getString(R.string.preference_key_version));
-        pref.setSummary(WikipediaApp.APP_VERSION_STRING);
-        pref.setSelectable(false);
+        ((TextView) findViewById(R.id.about_version_text)).setText(WikipediaApp.APP_VERSION_STRING);
 
-        pref = this.findPreference(getString(R.string.preference_key_feedback));
-        // Will be stripped out in prod builds
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_SENDTO);
-        // Will be moved to a better email address at some point
-        intent.setData(Uri.parse("mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App " + WikipediaApp.APP_VERSION_STRING + " Feedback"));
-        pref.setIntent(intent);
+        makeEverythingClickable((ViewGroup)getWindow().getDecorView());
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+            default:
+                throw new RuntimeException("Unclickable things have been clicked. The apocalypse is nearby");
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void makeEverythingClickable(ViewGroup vg) {
+        for (int i = 0; i < vg.getChildCount(); i++) {
+            if (vg.getChildAt(i) instanceof ViewGroup) {
+                makeEverythingClickable((ViewGroup)vg.getChildAt(i));
+            } else if (vg.getChildAt(i) instanceof TextView) {
+                TextView tv = (TextView) vg.getChildAt(i);
+                tv.setMovementMethod(LinkMovementMethod.getInstance());
+            }
+        }
+
+    }
 }

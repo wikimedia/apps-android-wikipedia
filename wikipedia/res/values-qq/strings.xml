@@ -145,4 +145,9 @@
   <string name="preference_title_send_feedback">Text for the preference item to send feedback.</string>
   <string name="preference_summary_send_feedback">Summary of the preference item to send feedback.</string>
   <string name="preference_title_version">Text for the preference item that shows the app version number.</string>
+  <string name="about_terms_of_use">Terms of use link that links to the WMF\'s Terms of Use</string>
+  <string name="about_privacy_policy">Privacy policy link that links to the WMF\'s Privacy Policy</string>
+  <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
+  <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app</string>
+  <string name="about_wmf">Text and link specifying that this app was developed by the Wikimedia Foundation</string>
 </resources>

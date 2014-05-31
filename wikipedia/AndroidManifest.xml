@@ -90,6 +90,7 @@
                   android:label="@string/activity_my_contributions_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
+        <activity android:name=".AboutActivity" android:label="@string/about_activity_title"/>
 
         <provider
             android:authorities="org.wikipedia.history"

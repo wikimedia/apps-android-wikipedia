@@ -1,29 +1,40 @@
 package org.wikipedia;
 
-import android.app.*;
-import android.content.*;
-import android.content.pm.*;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.*;
 import android.telephony.TelephonyManager;
-import android.text.*;
-import android.text.format.*;
-import android.util.*;
-import android.view.*;
-import android.view.inputmethod.*;
-import android.widget.*;
-import com.squareup.otto.*;
-import org.json.*;
-import org.mediawiki.api.json.*;
-import org.wikipedia.bridge.*;
-import org.wikipedia.events.*;
-import org.wikipedia.zero.*;
+import android.text.InputType;
+import android.text.format.DateUtils;
+import android.util.Base64;
+import android.util.Log;
+import android.view.Display;
+import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.Toast;
+import com.squareup.otto.Bus;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.mediawiki.api.json.ApiResult;
+import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.events.WikipediaZeroStateChangeEvent;
+import org.wikipedia.zero.WikipediaZeroTask;
 
 import java.io.*;
-import java.security.*;
-import java.text.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
