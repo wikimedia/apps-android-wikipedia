@@ -1,5 +1,7 @@
 package org.wikipedia.bridge;
 
+import org.wikipedia.WikipediaApp;
+
 /**
  * A bundle of CSS files that have been downloaded by the app,
  * independent of the ones shipped in the assets folder.
@@ -11,6 +13,6 @@ public class DownloadedStyleBundle extends StyleBundle {
      * @param styles Array of CSS File names that are available together in
      */
     public DownloadedStyleBundle(String... styles) {
-        super("file:///data/data/org.wikipedia/files/", styles);
+        super("file://" + WikipediaApp.getInstance().getFilesDir().toString() + "/", styles);
     }
 }
