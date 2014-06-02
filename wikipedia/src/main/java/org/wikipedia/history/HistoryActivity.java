@@ -23,6 +23,8 @@ import java.text.*;
 import java.util.*;
 
 public class HistoryActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+    public static final int ACTIVITY_RESULT_HISTORY_SELECT = 1;
+
     private ListView historyEntryList;
     private TextView historyEmptyMessage;
     private HistoryEntryAdapter adapter;
@@ -79,7 +81,8 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
                     intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
                     intent.putExtra(PageActivity.EXTRA_PAGETITLE, oldEntry.getTitle());
                     intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, newEntry);
-                    startActivity(intent);
+                    setResult(ACTIVITY_RESULT_HISTORY_SELECT, intent);
+                    finish();
                 }
             });
 

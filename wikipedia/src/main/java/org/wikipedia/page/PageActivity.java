@@ -14,6 +14,7 @@ import com.squareup.otto.*;
 import de.keyboardsurfer.android.widget.crouton.*;
 import org.wikipedia.*;
 import org.wikipedia.analytics.*;
+import org.wikipedia.bookmarks.BookmarksActivity;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.events.*;
 import org.wikipedia.history.*;
@@ -30,6 +31,10 @@ public class PageActivity extends ActionBarActivity {
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
     private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
     private static final String ZERO_OFF_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOffNoticePresented";
+
+    public static final int ACTIVITY_REQUEST_HISTORY = 0;
+    public static final int ACTIVITY_REQUEST_BOOKMARKS = 1;
+    public static final int ACTIVITY_REQUEST_LANGLINKS = 2;
 
     private Bus bus;
     private WikipediaApp app;
@@ -100,25 +105,28 @@ public class PageActivity extends ActionBarActivity {
 
         if (savedInstanceState == null) {
             // Don't do this if we are just rotating the phone
-            Intent intent = getIntent();
-            if (Intent.ACTION_VIEW.equals(intent.getAction())) {
-                Site site = new Site(intent.getData().getAuthority());
-                PageTitle title = site.titleForInternalLink(intent.getData().getPath());
-                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
-                bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
-            } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
-                PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
-                HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
-                bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
-            } else {
-                // Unrecognized, let us load the main page!
-                // FIXME: Design something better for this?
-                bus.post(new RequestMainPageEvent());
-            }
+            handleIntent(getIntent());
         }
 
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(this).run();
+    }
+
+    private void handleIntent(Intent intent) {
+        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+            Site site = new Site(intent.getData().getAuthority());
+            PageTitle title = site.titleForInternalLink(intent.getData().getPath());
+            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
+            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+        } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
+            PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
+            HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
+            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+        } else {
+            // Unrecognized, let us load the main page!
+            // FIXME: Design something better for this?
+            bus.post(new RequestMainPageEvent());
+        }
     }
 
     private int calculateMaxFragments() {
@@ -233,7 +241,7 @@ public class PageActivity extends ActionBarActivity {
         shareIntent.setClass(this, LangLinksActivity.class);
         shareIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
         shareIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, curPageFragment.getTitle());
-        startActivity(shareIntent);
+        startActivityForResult(shareIntent, ACTIVITY_REQUEST_LANGLINKS);
     }
 
     @Subscribe
@@ -414,4 +422,17 @@ public class PageActivity extends ActionBarActivity {
         Log.d("Wikipedia", "Deregistering bus");
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (bus == null) {
+            bus = app.getBus();
+            bus.register(this);
+            Log.d("Wikipedia", "Registering bus");
+        }
+        if ((requestCode == ACTIVITY_REQUEST_HISTORY && resultCode == HistoryActivity.ACTIVITY_RESULT_HISTORY_SELECT)
+            || (requestCode == ACTIVITY_REQUEST_BOOKMARKS && resultCode == BookmarksActivity.ACTIVITY_RESULT_BOOKMARK_SELECT)
+            || (requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT)) {
+            handleIntent(data);
+        }
+    }
 }

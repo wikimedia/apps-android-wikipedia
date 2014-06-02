@@ -13,6 +13,8 @@ import org.wikipedia.page.*;
 import java.util.*;
 
 public class LangLinksActivity extends ActionBarActivity {
+    public static final int ACTIVITY_RESULT_LANGLINK_SELECT = 1;
+
     public static final String ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
 
@@ -74,7 +76,8 @@ public class LangLinksActivity extends ActionBarActivity {
                 intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
                 intent.putExtra(PageActivity.EXTRA_PAGETITLE, langLink);
                 intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, historyEntry);
-                startActivity(intent);
+                setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
+                finish();
             }
         });
 

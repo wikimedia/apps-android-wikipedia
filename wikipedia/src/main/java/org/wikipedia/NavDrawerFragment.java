@@ -13,6 +13,7 @@ import org.wikipedia.bookmarks.*;
 import org.wikipedia.events.*;
 import org.wikipedia.history.*;
 import org.wikipedia.login.*;
+import org.wikipedia.page.*;
 import org.wikipedia.random.*;
 import org.wikipedia.settings.*;
 
@@ -115,11 +116,11 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
         switch (view.getId()) {
             case R.id.nav_item_history:
                 intent.setClass(this.getActivity(), HistoryActivity.class);
-                getActivity().startActivity(intent);
+                getActivity().startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_HISTORY);
                 break;
             case R.id.nav_item_saved_pages:
                 intent.setClass(this.getActivity(), BookmarksActivity.class);
-                startActivity(intent);
+                getActivity().startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_BOOKMARKS);
                 break;
             case R.id.nav_item_more:
                 intent.setClass(this.getActivity(), SettingsActivity.class);

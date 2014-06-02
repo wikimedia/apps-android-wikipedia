@@ -24,6 +24,8 @@ import java.text.*;
 import java.util.*;
 
 public class BookmarksActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+    public static final int ACTIVITY_RESULT_BOOKMARK_SELECT = 1;
+
     private ListView savedPagesList;
     private View savedPagesEmpty;
     private BookmarksAdapter adapter;
@@ -116,7 +118,8 @@ public class BookmarksActivity extends ActionBarActivity implements LoaderManage
                     intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
                     intent.putExtra(PageActivity.EXTRA_PAGETITLE, bookmark.getTitle());
                     intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, newEntry);
-                    startActivity(intent);
+                    setResult(ACTIVITY_RESULT_BOOKMARK_SELECT, intent);
+                    finish();
                 }
             }
         });
