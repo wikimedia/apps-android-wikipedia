@@ -433,6 +433,8 @@ public class PageActivity extends ActionBarActivity {
             || (requestCode == ACTIVITY_REQUEST_BOOKMARKS && resultCode == BookmarksActivity.ACTIVITY_RESULT_BOOKMARK_SELECT)
             || (requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT)) {
             handleIntent(data);
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 }
