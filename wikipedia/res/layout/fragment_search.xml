@@ -16,7 +16,7 @@
             <LinearLayout
                     android:id="@+id/search_bar_icon"
                     android:layout_width="wrap_content"
-                    android:background="@drawable/item_background_holo_light"
+                    android:background="@drawable/search_item_background"
                     android:layout_height="wrap_content">
                 <ImageView
                         android:id="@+id/search_drawer_indicator"
@@ -77,7 +77,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@drawable/ic_toc"
-                android:background="@drawable/item_background_holo_light"
+                android:background="@drawable/search_item_background"
                 />
         <ImageView
                 android:id="@+id/search_bar_show_menu"
@@ -85,7 +85,7 @@
                 android:layout_height="48dp"
                 android:padding="8dp"
                 android:src="@drawable/ic_menu_moreoverflow_normal_holo_light"
-                android:background="@drawable/item_background_holo_light"
+                android:background="@drawable/search_item_background"
                 />
     </LinearLayout>
     <!-- Android has no easy way to give us a light border -->
