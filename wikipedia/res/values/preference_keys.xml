@@ -13,4 +13,5 @@
     <string name="preference_key_version">app_version</string>
     <string name="preference_key_feedback">send_feedback</string>
     <string name="preference_key_logout">log_out</string>
+    <string name="preference_reading_app_install_id">readingAppInstallID</string>
 </resources>

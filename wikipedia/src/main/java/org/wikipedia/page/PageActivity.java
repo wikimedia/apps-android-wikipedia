@@ -2,27 +2,32 @@ package org.wikipedia.page;
 
 import android.app.ActivityManager;
 import android.app.AlertDialog;
-import android.content.*;
-import android.net.*;
-import android.os.*;
-import android.preference.*;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.*;
-import android.util.*;
-import android.view.*;
-import com.squareup.otto.*;
-import de.keyboardsurfer.android.widget.crouton.*;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.KeyEvent;
+import com.squareup.otto.Bus;
+import com.squareup.otto.Subscribe;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 import org.wikipedia.*;
-import org.wikipedia.analytics.*;
 import org.wikipedia.bookmarks.BookmarksActivity;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.events.*;
-import org.wikipedia.history.*;
-import org.wikipedia.interlanguage.*;
-import org.wikipedia.recurring.*;
-import org.wikipedia.search.*;
-import org.wikipedia.settings.*;
-import org.wikipedia.staticdata.*;
+import org.wikipedia.history.HistoryActivity;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.interlanguage.LangLinksActivity;
+import org.wikipedia.recurring.RecurringTasksExecutor;
+import org.wikipedia.search.SearchArticlesFragment;
+import org.wikipedia.settings.SettingsActivity;
+import org.wikipedia.staticdata.MainPageNameData;
 
 public class PageActivity extends ActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
@@ -60,8 +65,6 @@ public class PageActivity extends ActionBarActivity {
 
     private AlertDialog.Builder alert;
 
-    private ReadingActionFunnel readingActionFunnel;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,8 +85,6 @@ public class PageActivity extends ActionBarActivity {
 
         bus = app.getBus();
         bus.register(this);
-
-        readingActionFunnel = new ReadingActionFunnel(app);
 
         searchArticlesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -147,7 +148,6 @@ public class PageActivity extends ActionBarActivity {
     }
 
     private void displayNewPage(final PageTitle title, final HistoryEntry entry) {
-        readingActionFunnel.logSomethingHappened(title.getSite());
         if (drawerLayout.isDrawerOpen(Gravity.START)) {
             drawerLayout.closeDrawer(Gravity.START);
         }

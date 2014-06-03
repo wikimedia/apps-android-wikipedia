@@ -1,24 +1,36 @@
 package org.wikipedia.page;
 
-import android.content.*;
-import android.os.*;
-import android.support.v4.app.*;
-import android.util.*;
-import android.view.*;
-import android.widget.*;
-import org.json.*;
-import org.mediawiki.api.json.*;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiException;
+import org.mediawiki.api.json.ApiResult;
+import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.*;
-import org.wikipedia.analytics.*;
-import org.wikipedia.bridge.*;
-import org.wikipedia.editing.*;
-import org.wikipedia.events.*;
-import org.wikipedia.history.*;
-import org.wikipedia.pageimages.*;
-import org.wikipedia.bookmarks.*;
-import org.wikipedia.views.*;
+import org.wikipedia.bookmarks.BookmarkPageTask;
+import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.StyleLoader;
+import org.wikipedia.editing.EditHandler;
+import org.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikipedia.events.PageStateChangeEvent;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.pageimages.PageImageSaveTask;
 import org.wikipedia.search.SearchArticlesFragment;
-import java.util.*;
+import org.wikipedia.views.DisableableDrawerLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class PageViewFragment extends Fragment {
     private static final String KEY_TITLE = "title";
@@ -93,8 +105,6 @@ public class PageViewFragment extends Fragment {
     private int quickReturnBarId;
 
     private View quickReturnBar;
-
-    private ReadingActionFunnel readingActionFunnel;
 
     // Pass in the id rather than the View object itself for the quickReturn bar, to help it survive rotates
     public PageViewFragment(int pagerIndex, PageTitle title, HistoryEntry historyEntry, int quickReturnBarId) {
@@ -377,6 +387,7 @@ public class PageViewFragment extends Fragment {
         public RequestBuilder buildRequest(Api api) {
             RequestBuilder builder =  super.buildRequest(api);
             builder.param("prop", builder.getParams().get("prop") + "|lastmodified|normalizedtitle|displaytitle|protection|editable");
+            builder.param("appInstallID", app.getAppInstallReadActionID());
             return builder;
         }
 

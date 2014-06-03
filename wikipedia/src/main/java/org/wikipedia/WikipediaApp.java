@@ -1,33 +1,43 @@
 package org.wikipedia;
 
-import android.app.*;
-import android.content.*;
-import android.content.pm.*;
-import android.graphics.*;
-import android.net.*;
-import android.os.*;
-import android.preference.*;
+import android.app.Application;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.os.Build;
+import android.preference.PreferenceManager;
 import android.util.Log;
-import android.webkit.*;
-import com.squareup.otto.*;
-import org.acra.*;
-import org.acra.annotation.*;
+import android.webkit.WebView;
+import com.squareup.otto.Bus;
+import org.acra.ACRA;
+import org.acra.ReportingInteractionMode;
+import org.acra.annotation.ReportsCrashes;
 import org.json.JSONObject;
-import org.mediawiki.api.json.*;
-import org.wikipedia.analytics.*;
+import org.mediawiki.api.json.Api;
+import org.wikipedia.analytics.FunnelManager;
+import org.wikipedia.bookmarks.Bookmark;
+import org.wikipedia.bookmarks.BookmarkPersister;
 import org.wikipedia.bridge.StyleLoader;
-import org.wikipedia.data.*;
-import org.wikipedia.editing.*;
-import org.wikipedia.editing.summaries.*;
-import org.wikipedia.history.*;
-import org.wikipedia.login.*;
+import org.wikipedia.data.ContentPersister;
+import org.wikipedia.data.DBOpenHelper;
+import org.wikipedia.editing.EditTokenStorage;
+import org.wikipedia.editing.summaries.EditSummary;
+import org.wikipedia.editing.summaries.EditSummaryPersister;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.history.HistoryEntryPersister;
+import org.wikipedia.login.UserInfoStorage;
 import org.wikipedia.migration.ArticleImporter;
 import org.wikipedia.migration.DataMigrator;
-import org.wikipedia.networking.*;
-import org.wikipedia.pageimages.*;
-import org.wikipedia.bookmarks.*;
+import org.wikipedia.networking.ConnectionChangeReceiver;
+import org.wikipedia.networking.MccMncStateHandler;
+import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.pageimages.PageImagePersister;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.UUID;
 
 
 @ReportsCrashes(
@@ -53,6 +63,7 @@ public class WikipediaApp extends Application {
     public static String PREFERENCE_REMOTE_CONFIG;
     public static String PREFERENCE_EVENTLOGGING_ENABLED;
     public static String PREFERENCE_STYLES_LAST_UPDATED;
+    public static String PREFERENCE_READING_APP_INSTALL_ID;
 
     public static float SCREEN_DENSITY;
     // Reload in onCreate to override
@@ -101,6 +112,7 @@ public class WikipediaApp extends Application {
         PREFERENCE_REMOTE_CONFIG = getString(R.string.preference_key_remote_config);
         PREFERENCE_EVENTLOGGING_ENABLED = getString(R.string.preference_key_eventlogging_opt_in);
         PREFERENCE_STYLES_LAST_UPDATED = getString(R.string.preference_key_styles_last_updated);
+        PREFERENCE_READING_APP_INSTALL_ID = getString(R.string.preference_reading_app_install_id);
 
         PROTOCOL = "https"; // Move this to a preference or something later on
 
@@ -340,6 +352,20 @@ public class WikipediaApp extends Application {
             styleLoader = new StyleLoader(this);
         }
         return styleLoader;
+    }
+
+
+    private String appInstallReadActionID;
+    public String getAppInstallReadActionID() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.contains(PREFERENCE_READING_APP_INSTALL_ID)) {
+            appInstallReadActionID = prefs.getString(PREFERENCE_READING_APP_INSTALL_ID, null);
+        } else {
+            appInstallReadActionID = UUID.randomUUID().toString();
+            prefs.edit().putString(PREFERENCE_READING_APP_INSTALL_ID, appInstallReadActionID).commit();
+        }
+        Log.d("Wikipedia", "ID is" + appInstallReadActionID);
+        return appInstallReadActionID;
     }
 
     private static boolean wikipediaZeroDisposition = false;
