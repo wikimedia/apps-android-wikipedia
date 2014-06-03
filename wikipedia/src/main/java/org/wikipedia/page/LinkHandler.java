@@ -2,13 +2,10 @@ package org.wikipedia.page;
 
 import android.content.*;
 import android.net.*;
-import android.preference.*;
 import android.util.*;
-import com.squareup.otto.*;
 import org.json.*;
 import org.wikipedia.*;
 import org.wikipedia.bridge.*;
-import org.wikipedia.events.*;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -18,32 +15,13 @@ import java.net.URLDecoder;
  */
 public abstract class LinkHandler implements CommunicationBridge.JSEventListener {
     private final Context context;
-    private final CommunicationBridge bridge;
-    private final Bus bus;
     private final Site currentSite;
-    private WikipediaApp app;
 
     public LinkHandler(Context context, CommunicationBridge bridge, Site currentSite) {
         this.context = context;
-        this.bridge = bridge;
-        this.app = (WikipediaApp)context.getApplicationContext();
-        this.bus = app.getBus();
         this.currentSite = currentSite;
 
-        this.bridge.addListener("linkClicked", this);
-    }
-
-    private void handleExternalLink(final Uri uri) {
-        if (WikipediaApp.isWikipediaZeroDevmodeOn() && WikipediaApp.getWikipediaZeroDisposition()) {
-            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-            if (sharedPref.getBoolean(WikipediaApp.PREFERENCE_ZERO_INTERSTITIAL, true)) {
-                bus.post(new WikipediaZeroInterstitialEvent(uri));
-            } else {
-                Utils.visitInExternalBrowser(context, uri);
-            }
-        } else {
-            Utils.visitInExternalBrowser(context, uri);
-        }
+        bridge.addListener("linkClicked", this);
     }
 
     public abstract void onInternalLinkClicked(PageTitle title);
@@ -76,7 +54,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
                     if (href.startsWith("/w/")) {
                         href = String.format("%1$s://%2$s", WikipediaApp.PROTOCOL, currentSite.getDomain()) + href;
                     }
-                    handleExternalLink(Uri.parse(href));
+                    Utils.handleExternalLink(context, Uri.parse(href));
                 }
             }
         } catch (UnsupportedEncodingException e) {

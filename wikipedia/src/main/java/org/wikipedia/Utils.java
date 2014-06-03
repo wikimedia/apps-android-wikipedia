@@ -3,11 +3,13 @@ package org.wikipedia;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.*;
+import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
 import android.text.InputType;
 import android.text.format.DateUtils;
@@ -27,6 +29,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.ApiResult;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.events.WikipediaZeroInterstitialEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.zero.WikipediaZeroTask;
 
@@ -386,6 +389,19 @@ public final class Utils {
      */
     public static String getDBNameForSite(Site site) {
         return site.getLanguage() + "wiki";
+    }
+
+    public static void handleExternalLink(final Context context, final Uri uri) {
+        if (WikipediaApp.isWikipediaZeroDevmodeOn() && WikipediaApp.getWikipediaZeroDisposition()) {
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+            if (sharedPref.getBoolean(WikipediaApp.PREFERENCE_ZERO_INTERSTITIAL, true)) {
+                WikipediaApp.getInstance().getBus().post(new WikipediaZeroInterstitialEvent(uri));
+            } else {
+                Utils.visitInExternalBrowser(context, uri);
+            }
+        } else {
+            Utils.visitInExternalBrowser(context, uri);
+        }
     }
 
     /**

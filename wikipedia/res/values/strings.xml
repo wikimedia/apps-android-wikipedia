@@ -35,6 +35,7 @@
 
     <string name="last_updated_text">Last updated %1$s</string>
     <string name="content_license_html"><![CDATA[Content is available under <a href=\"//creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
+    <string name="edit_save_action_license">By saving, you agree to our <a href="https://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and release your contributions under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA 3.0</a> license.</string>
     <string name="preference_title_language">Wikipedia language</string>
     <string name="preference_summary_language">Content language</string>
     <string name="nav_item_preferences">Settings</string>

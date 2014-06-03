@@ -4,12 +4,13 @@ import android.app.*;
 import android.content.*;
 import android.os.*;
 import android.support.v7.app.*;
-import android.text.TextUtils;
 import android.util.*;
 import android.view.*;
 import android.webkit.*;
 import android.widget.*;
 import com.github.kevinsawicki.http.*;
+import com.squareup.otto.Bus;
+import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.*;
 import org.json.*;
 import org.mediawiki.api.json.*;
@@ -18,8 +19,10 @@ import org.wikipedia.Utils;
 import org.wikipedia.analytics.*;
 import org.wikipedia.bridge.*;
 import org.wikipedia.editing.summaries.*;
+import org.wikipedia.events.WikipediaZeroInterstitialEvent;
 import org.wikipedia.login.*;
 import org.wikipedia.page.*;
+import org.wikipedia.settings.SettingsActivity;
 
 import java.util.*;
 
@@ -30,6 +33,7 @@ public class EditSectionActivity extends ActionBarActivity {
     public static final String EXTRA_PAGE_PROPS = "org.wikipedia.edit_section.pageprops";
 
     private WikipediaApp app;
+    private Bus bus;
 
     private PageTitle title;
     private Section section;
@@ -58,6 +62,8 @@ public class EditSectionActivity extends ActionBarActivity {
     private View editSaveOptionsContainer;
     private View editSaveOptionAnon;
     private View editSaveOptionLogIn;
+    private View editLicenseContainer;
+    private TextView editLicenseText;
 
     private EditFunnel funnel;
 
@@ -101,8 +107,13 @@ public class EditSectionActivity extends ActionBarActivity {
         editSaveOptionsContainer = findViewById(R.id.edit_section_save_options_container);
         editSaveOptionLogIn = findViewById(R.id.edit_section_save_option_login);
         editSaveOptionAnon = findViewById(R.id.edit_section_save_option_anon);
+        editLicenseContainer = findViewById(R.id.edit_section_license_container);
+        editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
 
         editPreviewFragment.setEditSummaryHandler(editSummaryHandler);
+
+        bus = app.getBus();
+        bus.register(this);
 
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
             sectionWikitext = savedInstanceState.getString("sectionWikitext");
@@ -135,6 +146,7 @@ public class EditSectionActivity extends ActionBarActivity {
             public void onClick(View view) {
                 wasSaveOptionsUsed = true;
                 ViewAnimations.fadeOut(editSaveOptionsContainer);
+                ViewAnimations.fadeOut(editLicenseContainer);
                 funnel.logSaveAnonExplicit();
                 doSave();
             }
@@ -152,6 +164,8 @@ public class EditSectionActivity extends ActionBarActivity {
             }
         });
 
+        editLicenseText.setMovementMethod(new LinkMovementMethodExt(this));
+
         Utils.setTextDirection(sectionText, title.getSite().getLanguage());
 
         fetchSectionText();
@@ -161,11 +175,43 @@ public class EditSectionActivity extends ActionBarActivity {
         funnel.logStart();
     }
 
+    // TODO: refactor; same code in PageActivity
+    @Subscribe
+    public void onWikipediaZeroInterstitialEvent(final WikipediaZeroInterstitialEvent event) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(getString(R.string.zero_interstitial_title));
+        alert.setMessage(getString(R.string.zero_interstitial_leave_app));
+        alert.setPositiveButton(getString(R.string.zero_interstitial_continue), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Utils.visitInExternalBrowser(EditSectionActivity.this, event.getUri());
+            }
+        });
+        alert.setNegativeButton(getString(R.string.zero_interstitial_cancel), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        alert.setNeutralButton(getString(R.string.nav_item_preferences), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                visitSettings();
+            }
+        });
+        alert.create().show();
+    }
+
+    // TODO: refactor; same code in PageActivity
+    private void visitSettings() {
+        Intent intent = new Intent();
+        intent.setClass(getApplicationContext(), SettingsActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == LoginActivity.REQUEST_LOGIN) {
             if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
                 ViewAnimations.fadeOut(editSaveOptionsContainer);
+                ViewAnimations.fadeOut(editLicenseContainer);
                 doSave();
                 funnel.logLoginSuccess();
             } else {
@@ -267,7 +313,7 @@ public class EditSectionActivity extends ActionBarActivity {
                                     EditSectionActivity.this,
                                     getString(R.string.editing_error_spamblacklist, ((SpamBlacklistEditResult) result).getDomain()),
                                     Style.ALERT
-                                    ).show();
+                            ).show();
                             progressDialog.dismiss();
                             editPreviewFragment.hide();
                         } else {
@@ -325,6 +371,10 @@ public class EditSectionActivity extends ActionBarActivity {
         }
     }
 
+    private void showLicense() {
+        ViewAnimations.fadeIn(editLicenseContainer);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -339,11 +389,15 @@ public class EditSectionActivity extends ActionBarActivity {
                         doSave();
                     } else {
                         showSaveOptions();
+                        showLicense();
                     }
                     editSummaryHandler.persistSummary();
                 } else {
                     Utils.hideSoftKeyboard(this);
                     editPreviewFragment.showPreview(title, sectionText.getText().toString());
+                    if (app.getUserInfoStorage().isLoggedIn()) {
+                        showLicense();
+                    }
                     funnel.logPreview();
                 }
                 return true;
@@ -413,7 +467,10 @@ public class EditSectionActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        if (editSaveOptionsContainer.getVisibility() == View.VISIBLE) {
+        if (editLicenseContainer.isShown()) {
+            ViewAnimations.fadeOut(editLicenseContainer);
+        }
+        if (editSaveOptionsContainer.isShown()) {
             ViewAnimations.fadeOut(editSaveOptionsContainer);
             return;
         }
@@ -424,6 +481,16 @@ public class EditSectionActivity extends ActionBarActivity {
                 Utils.hideSoftKeyboard(this);
                 finish();
             }
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (bus != null) {
+            bus.unregister(this);
+            bus = null;
+            Log.d("Wikipedia", "Deregistering bus");
         }
     }
 }

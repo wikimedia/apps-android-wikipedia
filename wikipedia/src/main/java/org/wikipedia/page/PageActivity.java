@@ -19,7 +19,6 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.events.*;
 import org.wikipedia.history.*;
 import org.wikipedia.interlanguage.*;
-import org.wikipedia.pageimages.PageImageSaveTask;
 import org.wikipedia.recurring.*;
 import org.wikipedia.search.*;
 import org.wikipedia.settings.*;
@@ -424,14 +423,6 @@ public class PageActivity extends ActionBarActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        bus.unregister(this);
-        bus = null;
-        Log.d("Wikipedia", "Deregistering bus");
-    }
-
-    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (bus == null) {
             bus = app.getBus();
@@ -445,5 +436,13 @@ public class PageActivity extends ActionBarActivity {
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        bus.unregister(this);
+        bus = null;
+        Log.d("Wikipedia", "Deregistering bus");
     }
 }

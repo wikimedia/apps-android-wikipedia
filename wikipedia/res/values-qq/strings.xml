@@ -43,6 +43,7 @@
   <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected bookmarks have been deleted</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. Parameter 1 refers to appropriately formatted timestamp</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
+  <string name="edit_save_action_license">HTML specifying Terms of Use and CC license before saving edits</string>
   <string name="preference_title_language">Title for preference in settings screen for setting which language wikipedia to use.</string>
   <string name="nav_item_preferences">Text in navigation sidebar that when tapped leads to the Settings screen.
 {{Identical|Settings}}</string>

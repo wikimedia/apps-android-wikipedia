@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit_section_license_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@+id/edit_section_license_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/edit_save_action_license"
+        style="?android:textAppearanceSmall"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.3"
+        android:background="#ffffffff"
+        />
+    <!-- increased line height so the two links are separated a bit more -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#ccc"
+        />
+</LinearLayout>

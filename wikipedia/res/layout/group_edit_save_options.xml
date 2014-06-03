@@ -71,7 +71,7 @@
     </LinearLayout>
     <View android:layout_width="match_parent" android:layout_height="0.5dp"
           android:layout_alignParentLeft="true" android:layout_alignParentRight="true"
-           android:layout_below="@id/edit_section_save_option_anon"
+          android:layout_below="@id/edit_section_save_option_anon"
           android:background="#ccc"
           />
 </RelativeLayout>
