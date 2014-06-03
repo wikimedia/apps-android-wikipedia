@@ -17,9 +17,9 @@ import java.util.Date;
 public class StyleFetcherTask extends RecurringTask {
 
     private static final String[][] STYLE_SPECS = {
-            {StyleLoader.BUNDLE_PAGEVIEW, "mobile.app.pagestyle"},
+            {StyleLoader.BUNDLE_PAGEVIEW, "mobile.app.pagestyles.android"},
             {StyleLoader.BUNDLE_PREVIEW, "mobile.app.preview"},
-            {StyleLoader.BUNDLE_ABUSEFILTER, "mobile.app.pagestyle"}
+            {StyleLoader.BUNDLE_ABUSEFILTER, "mobile.app.pagestyles.android"}
     };
 
     // The 'l' suffix is needed because stupid Java overflows constants otherwise
