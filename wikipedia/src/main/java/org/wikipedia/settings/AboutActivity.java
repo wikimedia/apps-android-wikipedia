@@ -2,6 +2,7 @@ package org.wikipedia.settings;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.view.ViewGroup;
@@ -16,8 +17,14 @@ public class AboutActivity extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ((TextView) findViewById(R.id.about_version_text)).setText(WikipediaApp.APP_VERSION_STRING);
+        ((TextView) findViewById(R.id.send_feedback_text)).setText(Html.fromHtml(
+                "<a href=\"mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App " +
+                WikipediaApp.APP_VERSION_STRING +
+                " Feedback\">" +
+                getString(R.string.send_feedback) +
+                "</a>"));
 
-        makeEverythingClickable((ViewGroup)getWindow().getDecorView());
+        makeEverythingClickable((ViewGroup) getWindow().getDecorView());
     }
 
     @Override

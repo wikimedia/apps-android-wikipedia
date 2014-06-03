@@ -121,5 +121,16 @@
                       android:textColor="#555"
                     />
         </LinearLayout>
+
+        <TextView
+                android:id="@+id/send_feedback_text"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/send_feedback"
+                android:gravity="center_horizontal"
+                style="?android:textAppearanceSmall"
+                android:textColor="#555"
+                android:layout_marginTop="8dp"
+                />
+
     </LinearLayout>
 </ScrollView>

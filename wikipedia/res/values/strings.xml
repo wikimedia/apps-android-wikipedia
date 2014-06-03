@@ -119,8 +119,7 @@
     <string name="edit_preview_fetching_dialog_message">Fetching preview...</string>
     <string name="edit_preview_activity_title">Preview edit</string>
     <string name="create_account_logging_in">Logging in...</string>
-    <string name="preference_title_send_feedback">Send app feedback</string>
-    <string name="preference_summary_send_feedback">Tell us how we can improve the app.</string>
+    <string name="send_feedback">Send app feedback</string>
     <string name="edit_summary_guide_text">Tell us how you improved this article. This helps other editors review your edit quickly.</string>
     <string name="edit_summary_hint">Edit summary</string>
     <string name="nav_item_random">Random</string>
