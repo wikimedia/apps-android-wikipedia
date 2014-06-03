@@ -371,6 +371,15 @@ public class PageActivity extends ActionBarActivity {
     }
 
     @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_MENU) {
+            drawerLayout.openDrawer(Gravity.START);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         if (bus == null) {
