@@ -56,10 +56,19 @@ public class StyleFetcherTask extends RecurringTask {
         try {
             for (String[] styleSpec : STYLE_SPECS) {
                 String url = getRemoteURLFor(styleSpec[1]);
+
+                HttpRequest request = HttpRequest.get(url).userAgent(app.getUserAgent());
+                // Only overwrite files if we get a 200
+                // This prevents empty style files from being used when betalabs goes down
+                if (request.ok()) {
                     OutputStream fo = context.openFileOutput(styleSpec[0], Context.MODE_PRIVATE);
-                    Utils.copyStreams(HttpRequest.get(url).userAgent(app.getUserAgent()).stream(), fo);
+                    Utils.copyStreams(request.stream(), fo);
                     fo.close();
                     Log.d("Wikipedia", String.format("Downloaded %s into %s", url, context.getFileStreamPath(styleSpec[0]).getAbsolutePath()));
+                } else {
+                    Log.d("Wikipedia", String.format("Failed to download %s into %s", url, context.getFileStreamPath(styleSpec[0]).getAbsolutePath()));
+                    return;
+                }
             }
 
             //if any of the above code throws an exception, the following last-updated date will not
