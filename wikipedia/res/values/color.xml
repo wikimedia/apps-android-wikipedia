@@ -2,7 +2,8 @@
 <resources>
     <color name="border">#60888888</color>
     <color name="nav_background">#ff000000</color>
-    <color name="nav_separator">#ff808080</color>
+    <color name="nav_item_highlight">#ff404040</color>
+    <color name="nav_separator">#ff606060</color>
 
     <!-- Copied for 2.3 -->
     <color name="holo_green_light">#ff99cc00</color>

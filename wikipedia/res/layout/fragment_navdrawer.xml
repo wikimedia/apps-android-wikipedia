@@ -19,7 +19,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_login"
-                      android:background="@drawable/item_background_holo_light"
+                      android:background="@drawable/nav_item_background"
                       android:paddingTop="8dp"
                       android:paddingBottom="8dp"
                       android:paddingEnd="8dp"
@@ -77,7 +77,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_history"
-                      android:background="@drawable/item_background_holo_light"
+                      android:background="@drawable/nav_item_background"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
@@ -97,7 +97,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_saved_pages"
-                      android:background="@drawable/item_background_holo_light"
+                      android:background="@drawable/nav_item_background"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
@@ -117,7 +117,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_random"
-                      android:background="@drawable/item_background_holo_light"
+                      android:background="@drawable/nav_item_background"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
@@ -152,7 +152,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:id="@+id/nav_item_more"
-                      android:background="@drawable/item_background_holo_light"
+                      android:background="@drawable/nav_item_background"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
