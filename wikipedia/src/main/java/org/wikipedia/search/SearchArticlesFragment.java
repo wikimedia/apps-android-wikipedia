@@ -305,6 +305,8 @@ public class SearchArticlesFragment extends Fragment {
 
         drawerLayout.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             private boolean hideKeyboardCalled = false;
+            private float offsetWindow = 0.5f;
+            private float offsetWindowMax = offsetWindow, offsetWindowMin = 0f;
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 // Hide the keyboard when the drawer is opened
@@ -315,10 +317,17 @@ public class SearchArticlesFragment extends Fragment {
                 // Make sure that the entire search bar is visible
                 ensureVisible();
                 // Animation for sliding drawer open and close
-                // -4dp seems to match how much farther GMail's indicator goes, so sticking with it
+                // Modeled after the general behavior of Google apps
                 // Shift left and right margins appropriately to make sure that the rest of the layout does not shift
+                if (slideOffset >= offsetWindowMax) {
+                    offsetWindowMax = slideOffset;
+                    offsetWindowMin = offsetWindowMax - offsetWindow;
+                } else if (slideOffset < offsetWindowMin) {
+                    offsetWindowMin = slideOffset;
+                    offsetWindowMax = offsetWindowMin + offsetWindow;
+                }
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(drawerIndicator.getLayoutParams());
-                params.leftMargin = (int)(-4 * WikipediaApp.SCREEN_DENSITY * (slideOffset));
+                params.leftMargin = -(int)(10 * WikipediaApp.SCREEN_DENSITY * offsetWindowMin);
                 params.rightMargin = -params.leftMargin;
                 params.gravity = Gravity.CENTER_VERTICAL; // Needed because this seems to get reset otherwise. hmpf.
                 drawerIndicator.setLayoutParams(params);
