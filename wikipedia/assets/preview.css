@@ -1,8 +1,3 @@
-/* Hide the stupid editlink */
-.edit-page {
-  display: none;
-}
-
 /* Fork of http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -471,10 +466,6 @@ ul.gallery li.gallerybox > div > div.thumb {
   font-style: italic;
 }
 
-body {
-  padding-top: 48px;
-}
-
 /* Copied over from MobileFrontend.
    FIXME: Remove when MobileFrontend CSS is componentized */
 /**
@@ -517,4 +508,326 @@ a.new,
 a.new:visited,
 a.new:hover {
   color: #CC0000;
+}
+
+/* Hide the stupid editlink */
+.edit-page {
+  display: none;
+}
+
+/* FIXME: Copied over from http://en.wikipedia.org/w/index.php?title=MediaWiki:Mobile.css&oldid=609508028
+   This fixes some styling issues in the app, primarily hlists.
+   Eventually fix this by supporting loading Mobile.css in the app
+*/
+/* Copied from Common.css - allow for hiding text in compact form e.g. clean up templates */
+/* Mobile template hacks (see bug 54176) */
+/* Temporary fix for bug 53437 - nav boxes can disrupt reading experience on smaller screens
+TODO: Update template to have nomobile class */
+/* Tablet specific styling */
+/* For linked citation numbers and document IDs, where
+   the number need not be shown on a screen or a handheld,
+   but should be included in the printed version
+TODO: Move to Citation template when templates have stylesheets
+See https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templates
+*/
+/* Styling for citations (CSS3). Breaks long urls, etc., rather than overflowing box
+*/
+/* Default styling for Navbar template
+TODO: Move to Navbar template when templates have stylesheets
+See https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templates
+*/
+/* Navbar styling when nested in infobox and navbox */
+/* Style for horizontal lists (separator following item).
+   @source mediawiki.org/wiki/Snippets/Horizontal_lists
+   @revision 4.2 (2013-11-20)
+   @author: [[User:Edokter]]
+*/
+/* Display list items inline */
+/* Display nested lists inline */
+/* Generate interpuncts */
+/* Add parentheses around nested lists */
+/* Put ordinals in front of ordered list items */
+/* Unbulleted lists e.g. Barack Obama page */
+/* CODE FOR COMPACT AMBOX */
+/* Hide the images */
+/* Remove borders, backgrounds, padding, etc.
+Please document here what pages use this
+*/
+/* Style the text cell as a list item and remove its padding */
+/* Allow for hiding text in compact form */
+/* Hatnotes and disambiguation notices */
+/* Geographical coordinates defaults. See [[Template:Coord/link]]
+   for how these are used. The classes "geo", "longitude", and
+   "latitude" are used by the [[Geo microformat]]. */
+/* Prevent line breaks in silly places:
+   1) Where desired
+   2) Links when we don't want them to
+   3) Bold "links" to the page itself
+   4) Ref tags with group names <ref group="Note"> --> "[Note 1]"
+Please document here what pages use this
+*/
+/* But allow wrapping where desired: */
+/* Hide stuff meant for accounts with special permissions. Made visible again in
+   [[MediaWiki:Group-sysop.css]], [[MediaWiki:Group-accountcreator.css]] and
+   [[MediaWiki:Group-autoconfirmed.css]]. */
+/* Until Geohack is mobile optimised and/or there is a nice alternative e.g. map namespace */
+/* hidden sortkey for tablesorter */
+/* Pie chart: Transparent borders */
+/* Disabling column-count for {{reflist}} and {{refbegin}} */
+.hide-when-compact {
+  display: none;
+}
+.mobile-float-reset {
+  float: none !important;
+  width: 100% !important;
+}
+#content .vertical-navbox,
+#content .navbox {
+  display: none;
+}
+@media all and (min-width: 768px) {
+  #content .vertical-navbox,
+  #content .navbox {
+    display: inherit;
+  }
+}
+@media screen,handheld {
+  .citation *.printonly {
+    display: none;
+  }
+}
+.citation {
+  word-wrap: break-word;
+}
+.navbar {
+  display: inline;
+  font-size: 88%;
+  font-weight: normal;
+}
+.navbar ul {
+  display: inline;
+  white-space: nowrap;
+}
+.navbar li {
+  word-spacing: -0.125em;
+}
+.navbar.mini li span {
+  font-variant: small-caps;
+}
+.infobox .navbar {
+  font-size: 100%;
+}
+.navbox .navbar {
+  display: block;
+  font-size: 100%;
+}
+.navbox-title .navbar {
+  /* @noflip */
+  float: left;
+  /* @noflip */
+  text-align: left;
+  /* @noflip */
+  margin-right: 0.5em;
+  width: 6em;
+}
+.hlist dl,
+.hlist ol,
+.hlist ul {
+  margin: 0;
+  padding: 0;
+}
+.hlist dd,
+.hlist dt,
+.hlist li {
+  margin: 0;
+  display: inline;
+}
+.hlist dl dl,
+.hlist dl ol,
+.hlist dl ul,
+.hlist ol dl,
+.hlist ol ol,
+.hlist ol ul,
+.hlist ul dl,
+.hlist ul ol,
+.hlist ul ul {
+  display: inline;
+}
+#content .hlist dt:after {
+  content: ": ";
+}
+#content .hlist dd:after,
+#content .hlist li:after {
+  content: " · ";
+  font-weight: bold;
+}
+#content .hlist dd:last-child:after,
+#content .hlist dt:last-child:after,
+#content .hlist li:last-child:after {
+  content: none;
+}
+#content .hlist dd dd:first-child:before,
+#content .hlist dd dt:first-child:before,
+#content .hlist dd li:first-child:before,
+#content .hlist dt dd:first-child:before,
+#content .hlist dt dt:first-child:before,
+#content .hlist dt li:first-child:before,
+#content .hlist li dd:first-child:before,
+#content .hlist li dt:first-child:before,
+#content .hlist li li:first-child:before {
+  content: " (";
+  font-weight: normal;
+}
+#content .hlist dd dd:last-child:after,
+#content .hlist dd dt:last-child:after,
+#content .hlist dd li:last-child:after,
+#content .hlist dt dd:last-child:after,
+#content .hlist dt dt:last-child:after,
+#content .hlist dt li:last-child:after,
+#content .hlist li dd:last-child:after,
+#content .hlist li dt:last-child:after,
+#content .hlist li li:last-child:after {
+  content: ") ";
+  font-weight: normal;
+}
+#content .hlist ol {
+  counter-reset: list-item;
+}
+#content .hlist ol > li {
+  counter-increment: list-item;
+}
+#content .hlist ol > li:before {
+  content: " " counter(list-item) " ";
+}
+#content .hlist dd ol > li:first-child:before,
+#content .hlist dt ol > li:first-child:before,
+#content .hlist li ol > li:first-child:before {
+  content: " (" counter(list-item) " ";
+}
+.plainlist ul {
+  list-style: none;
+}
+.compact-ambox table .mbox-image,
+.compact-ambox table .mbox-imageright,
+.compact-ambox table .mbox-empty-cell {
+  display: none;
+}
+.compact-ambox table.ambox {
+  border: none;
+  border-collapse: collapse;
+  background: transparent;
+  margin: 0 0 0 1.6em !important;
+  padding: 0 !important;
+  width: auto;
+  display: block;
+}
+.compact-ambox table.mbox-small-left {
+  font-size: 100%;
+  width: auto;
+  margin: 0;
+}
+.compact-ambox table .mbox-text {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.compact-ambox table .mbox-text-span {
+  display: list-item;
+  line-height: 1.5em;
+  list-style-type: square;
+  list-style-image: url(data:image/gif;base64,R0lGODlhBQANAIAAAGOMnP///yH5BAEAAAEALAAAAAAFAA0AAAIJjI+pu+APo4SpADs=);
+}
+.compact-ambox .hide-when-compact {
+  display: none;
+}
+.rellink,
+.dablink,
+.hatnote {
+  font-style: italic;
+}
+.rellink i,
+.dablink i,
+.hatnote i {
+  font-style: normal;
+}
+div.rellink,
+div.dablink,
+div.hatnote {
+  /* @noflip */
+  padding-left: 1.6em;
+  margin-bottom: 0.5em;
+}
+.geo-default,
+.geo-dms,
+.geo-dec {
+  display: inline;
+}
+.geo-nondefault,
+.geo-multi-punct {
+  display: none;
+}
+.longitude,
+.latitude {
+  white-space: nowrap;
+}
+.nowrap,
+.nowraplinks a,
+.nowraplinks .selflink,
+sup.reference a {
+  white-space: nowrap;
+}
+.wrap,
+.wraplinks a {
+  white-space: normal;
+}
+.sysop-show,
+.accountcreator-show,
+.autoconfirmed-show {
+  display: none;
+}
+#li-coordinates {
+  background-image: url("float: right;
+    display: none;
+    -webkit-background-size: auto 30px;
+    background-size: auto 30px;
+}
+
+.client-js .content_block.coordinates {
+    display: none;
+    text-align: right;
+    margin-bottom: 0.5em;
+    font-size: smaller;
+}
+
+.client-js .content_block.coordinates .latitude {
+    display:none;
+    padding-left: 20px;
+    background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/5/57/Edge-firefox.png/50px-Edge-firefox.png");
+  background-repeat: no-repeat;
+  -webkit-background-size: auto 15px;
+  background-size: auto 15px;
+}
+.alpha #li-coordinates {
+  display: list-item;
+}
+.client-js .beta .content_block.coordinates {
+  display: block;
+}
+.client-js .beta .content_block.coordinates .latitude {
+  display: inline;
+}
+.topicon {
+  display: none;
+}
+td .sortkey,
+th .sortkey {
+  display: none;
+  speak: none;
+}
+.transborder {
+  border: solid transparent;
+}
+.references-column-count {
+  -moz-column-count: 1 !important;
+  -webkit-column-count: 1 !important;
+  column-count: 1 !important;
 }
