@@ -22,6 +22,7 @@
         <item name="lead_image_drawable">@drawable/lead_default_dark</item>
         <item name="lead_disabled_text_color">@color/lead_disabled_text_dark</item>
         <item name="list_separator_color">@color/list_separator_dark</item>
+        <item name="syntax_highlight_template_color">@color/syntax_highlight_template_dark</item>
     </style>
 
     <style name="Toolbar.WikiDark" parent="@style/Widget.AppCompat.Toolbar">

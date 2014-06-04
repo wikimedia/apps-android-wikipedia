@@ -64,6 +64,9 @@
     <color name="lead_disabled_text_light">#ff000000</color>
     <color name="lead_disabled_text_dark">#ffffffff</color>
 
+    <color name="syntax_highlight_template_light">#a0a0a0</color>
+    <color name="syntax_highlight_template_dark">#505050</color>
+
     <!-- Copied for 2.3 -->
     <color name="holo_green_light">#ff99cc00</color>
     <color name="holo_red_dark">#ffcc0000</color>

@@ -40,6 +40,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.editing.summaries.EditSummaryFragment;
+import org.wikipedia.editing.richtext.SyntaxHighlighter;
 import org.wikipedia.events.WikipediaZeroInterstitialEvent;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.login.LoginResult;
@@ -70,6 +71,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     private String sectionWikitext;
 
+    private SyntaxHighlighter syntaxHighlighter;
     private EditText sectionText;
     private boolean sectionTextModified = false;
     private boolean sectionTextFirstLoad = true;
@@ -121,6 +123,11 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         getSupportActionBar().setTitle("");
 
         sectionText = (EditText) findViewById(R.id.edit_section_text);
+
+        if (app.getReleaseType() != WikipediaApp.RELEASE_PROD) {
+            syntaxHighlighter = new SyntaxHighlighter(this, sectionText);
+        }
+
         sectionProgress = findViewById(R.id.edit_section_load_progress);
         sectionContainer = findViewById(R.id.edit_section_container);
         sectionError = findViewById(R.id.edit_section_error);
