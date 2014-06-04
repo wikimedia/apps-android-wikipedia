@@ -379,6 +379,10 @@ public class SearchArticlesFragment extends Fragment {
         searchBarTocButton.setEnabled(enable);
     }
 
+    public void setTocHidden(boolean hide) {
+        searchBarTocButton.setVisibility(hide ? View.GONE : View.VISIBLE);
+    }
+
     public void clearErrors() {
         searchNetworkError.setVisibility(View.GONE);
     }

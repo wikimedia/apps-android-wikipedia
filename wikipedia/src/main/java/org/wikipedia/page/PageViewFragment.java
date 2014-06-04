@@ -381,6 +381,9 @@ public class PageViewFragment extends Fragment {
             }
             tocHandler.setupToC(page);
             searchArticlesFragment.setTocEnabled(true);
+
+            //if the article has only one section, then hide the ToC button
+            searchArticlesFragment.setTocHidden(page.getSections().size() <= 1);
         }
     }
 
