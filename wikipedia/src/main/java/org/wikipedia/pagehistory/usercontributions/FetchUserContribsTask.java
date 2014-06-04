@@ -1,12 +1,19 @@
 package org.wikipedia.pagehistory.usercontributions;
 
-import android.content.*;
-import org.json.*;
-import org.mediawiki.api.json.*;
-import org.wikipedia.*;
-import org.wikipedia.pagehistory.*;
+import android.content.Context;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiResult;
+import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.ApiTask;
+import org.wikipedia.PageTitle;
+import org.wikipedia.Site;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.pagehistory.PageHistoryItem;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class FetchUserContribsTask extends ApiTask<FetchUserContribsTask.UserContributionsList> {
     private final WikipediaApp app;

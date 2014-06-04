@@ -1,7 +1,9 @@
 package org.wikipedia;
 
-import org.mediawiki.api.json.*;
-import org.wikipedia.concurrency.*;
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiResult;
+import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.concurrency.SaneAsyncTask;
 
 public abstract class ApiTask<T> extends SaneAsyncTask<T> {
     private final Api api;

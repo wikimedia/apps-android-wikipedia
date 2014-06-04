@@ -1,6 +1,6 @@
 package org.wikipedia.login;
 
-import android.content.*;
+import android.content.SharedPreferences;
 
 public class UserInfoStorage {
     private static final String PREFERENCE_USERNAME = "username";

@@ -1,9 +1,14 @@
 package org.wikipedia;
 
-import android.os.*;
-import android.support.v4.util.*;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.support.v4.util.LruCache;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * An LRU Cache that can be parcelled.

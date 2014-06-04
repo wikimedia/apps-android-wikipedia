@@ -1,19 +1,29 @@
 package org.wikipedia.editing;
 
-import android.app.*;
-import android.content.*;
-import android.os.*;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.*;
-import android.view.*;
-import org.json.*;
-import org.wikipedia.*;
-import org.wikipedia.bridge.*;
-import org.wikipedia.editing.summaries.*;
-import org.wikipedia.history.*;
-import org.wikipedia.page.*;
+import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.ObservableWebView;
+import org.wikipedia.PageTitle;
+import org.wikipedia.R;
+import org.wikipedia.Utils;
+import org.wikipedia.ViewAnimations;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.StyleLoader;
+import org.wikipedia.editing.summaries.EditSummaryHandler;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.LinkHandler;
+import org.wikipedia.page.PageActivity;
 
-import java.util.*;
+import java.util.Locale;
 
 public class EditPreviewFragment extends Fragment {
     private ObservableWebView webview;

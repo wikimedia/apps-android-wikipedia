@@ -1,8 +1,8 @@
 package org.wikipedia.views;
 
-import android.content.*;
-import android.support.v4.widget.*;
-import android.util.*;
+import android.content.Context;
+import android.support.v4.widget.DrawerLayout;
+import android.util.AttributeSet;
 import android.view.Gravity;
 
 public class DisableableDrawerLayout extends DrawerLayout {

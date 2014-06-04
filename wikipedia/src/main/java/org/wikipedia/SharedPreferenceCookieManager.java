@@ -1,11 +1,20 @@
 package org.wikipedia;
 
-import android.content.*;
-import android.text.*;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 
-import java.io.*;
-import java.net.*;
-import java.util.*;
+import java.io.IOException;
+import java.net.CookieManager;
+import java.net.CookieStore;
+import java.net.HttpCookie;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 
 public class SharedPreferenceCookieManager extends CookieManager {
 

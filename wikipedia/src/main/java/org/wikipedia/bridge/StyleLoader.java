@@ -1,9 +1,13 @@
 package org.wikipedia.bridge;
 
-import android.content.*;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import org.wikipedia.*;
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
 
 import java.text.ParseException;
 import java.util.Date;

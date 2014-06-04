@@ -1,5 +1,6 @@
 package org.wikipedia.migration;
 
+import android.content.Context;
 import org.json.JSONObject;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
@@ -7,7 +8,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bookmarks.Bookmark;
 import org.wikipedia.bookmarks.BookmarkPersister;
 
-import android.content.Context;
 import java.util.List;
 
 public class ArticleImporter {

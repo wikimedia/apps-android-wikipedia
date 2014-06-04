@@ -1,9 +1,13 @@
 package org.wikipedia.page;
 
-import android.support.v4.app.*;
-import android.util.*;
-import android.view.*;
+import android.support.v4.app.FixedFragmentStatePagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.util.SparseArray;
+import android.view.ViewGroup;
 import org.wikipedia.R;
+
 import java.util.List;
 
 public class PageFragmentAdapter extends FixedFragmentStatePagerAdapter {

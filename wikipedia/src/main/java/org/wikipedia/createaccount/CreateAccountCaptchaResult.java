@@ -1,7 +1,8 @@
 package org.wikipedia.createaccount;
 
-import android.os.*;
-import org.wikipedia.editing.*;
+import android.os.Parcel;
+import android.os.Parcelable;
+import org.wikipedia.editing.CaptchaResult;
 
 public class CreateAccountCaptchaResult extends CreateAccountResult {
     private final CaptchaResult captchaResult;

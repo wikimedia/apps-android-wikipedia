@@ -1,21 +1,35 @@
 package org.wikipedia.createaccount;
 
-import android.app.*;
-import android.content.*;
-import android.os.*;
-import android.support.v7.app.*;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.*;
-import android.widget.*;
-import com.mobsandgeeks.saripaar.*;
-import com.mobsandgeeks.saripaar.annotation.*;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Toast;
+import com.mobsandgeeks.saripaar.Rule;
+import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
+import com.mobsandgeeks.saripaar.annotation.Email;
+import com.mobsandgeeks.saripaar.annotation.Password;
+import com.mobsandgeeks.saripaar.annotation.Required;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
-import de.keyboardsurfer.android.widget.crouton.*;
-import org.mediawiki.api.json.*;
-import org.wikipedia.*;
-import org.wikipedia.analytics.*;
-import org.wikipedia.editing.*;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.NonEmptyValidator;
+import org.wikipedia.R;
+import org.wikipedia.Utils;
+import org.wikipedia.ViewAnimations;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.CreateAccountFunnel;
+import org.wikipedia.editing.CaptchaHandler;
 
 
 public class CreateAccountActivity extends ActionBarActivity {

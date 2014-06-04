@@ -1,11 +1,17 @@
 package org.wikipedia.page;
 
 import android.support.v4.widget.DrawerLayout;
-import android.view.*;
 import android.support.v7.widget.PopupMenu;
-import com.squareup.otto.*;
-import org.wikipedia.*;
-import org.wikipedia.events.*;
+import android.view.Gravity;
+import android.view.MenuItem;
+import android.view.View;
+import com.squareup.otto.Bus;
+import com.squareup.otto.Subscribe;
+import org.wikipedia.R;
+import org.wikipedia.events.BookmarkPageEvent;
+import org.wikipedia.events.PageStateChangeEvent;
+import org.wikipedia.events.SharePageEvent;
+import org.wikipedia.events.ShowOtherLanguagesEvent;
 
 public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
     private final PopupMenu menu;

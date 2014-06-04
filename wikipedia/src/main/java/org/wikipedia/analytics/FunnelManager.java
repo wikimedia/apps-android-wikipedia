@@ -1,8 +1,9 @@
 package org.wikipedia.analytics;
 
-import org.wikipedia.*;
+import org.wikipedia.PageTitle;
+import org.wikipedia.WikipediaApp;
 
-import java.util.*;
+import java.util.Hashtable;
 
 /**
  * Creates and stores analytics tracking funnels.

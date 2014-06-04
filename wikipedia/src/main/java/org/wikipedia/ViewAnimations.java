@@ -1,10 +1,11 @@
 package org.wikipedia;
 
 import android.view.View;
-import com.nineoldandroids.animation.*;
-import com.nineoldandroids.view.*;
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorListenerAdapter;
+import com.nineoldandroids.view.ViewHelper;
 
-import static com.nineoldandroids.view.ViewPropertyAnimator.*;
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 
 /**
  * Contains convenient methods for performing various animations on Views.

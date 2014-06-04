@@ -1,9 +1,10 @@
 package org.wikipedia.bookmarks;
 
-import android.os.*;
-import org.wikipedia.*;
+import android.os.Parcel;
+import android.os.Parcelable;
+import org.wikipedia.PageTitle;
 
-import java.util.*;
+import java.util.Date;
 
 public class Bookmark implements Parcelable {
     public static final BookmarkPersistanceHelper PERSISTANCE_HELPER = new BookmarkPersistanceHelper();

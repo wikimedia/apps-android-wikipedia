@@ -1,10 +1,13 @@
 package org.wikipedia.createaccount;
 
-import android.content.*;
-import org.json.*;
-import org.mediawiki.api.json.*;
-import org.wikipedia.*;
-import org.wikipedia.editing.*;
+import android.content.Context;
+import org.json.JSONObject;
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiResult;
+import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.ApiTask;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.editing.CaptchaResult;
 
 public abstract class CreateAccountTask extends ApiTask<CreateAccountResult> {
     private final String username;

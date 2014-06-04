@@ -1,9 +1,12 @@
 package org.wikipedia.zero;
 
-import android.content.*;
-import org.json.*;
-import org.mediawiki.api.json.*;
-import org.wikipedia.*;
+import android.content.Context;
+import org.json.JSONObject;
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiResult;
+import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.ApiTask;
+import org.wikipedia.WikipediaApp;
 
 public class WikipediaZeroTask extends ApiTask<String> {
 

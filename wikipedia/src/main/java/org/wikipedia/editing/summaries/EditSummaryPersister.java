@@ -1,7 +1,7 @@
 package org.wikipedia.editing.summaries;
 
-import android.content.*;
-import org.wikipedia.data.*;
+import android.content.Context;
+import org.wikipedia.data.ContentPersister;
 
 public class EditSummaryPersister extends ContentPersister<EditSummary> {
     public EditSummaryPersister(Context context) {

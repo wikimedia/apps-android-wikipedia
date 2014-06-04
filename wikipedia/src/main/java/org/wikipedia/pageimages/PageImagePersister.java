@@ -1,7 +1,7 @@
 package org.wikipedia.pageimages;
 
-import android.content.*;
-import org.wikipedia.data.*;
+import android.content.Context;
+import org.wikipedia.data.ContentPersister;
 
 public class PageImagePersister extends ContentPersister<PageImage> {
     public PageImagePersister(Context context) {

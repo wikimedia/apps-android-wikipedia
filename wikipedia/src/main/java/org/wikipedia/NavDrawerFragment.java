@@ -1,21 +1,25 @@
 package org.wikipedia;
 
-import android.content.*;
-import android.net.*;
-import android.os.*;
-import android.support.v4.app.*;
-import android.text.format.*;
-import android.util.*;
-import android.view.*;
-import android.widget.*;
-import org.wikipedia.analytics.*;
-import org.wikipedia.bookmarks.*;
-import org.wikipedia.events.*;
-import org.wikipedia.history.*;
-import org.wikipedia.login.*;
-import org.wikipedia.page.*;
-import org.wikipedia.random.*;
-import org.wikipedia.settings.*;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.v4.app.Fragment;
+import android.text.format.DateUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.bookmarks.BookmarksActivity;
+import org.wikipedia.events.RequestMainPageEvent;
+import org.wikipedia.history.HistoryActivity;
+import org.wikipedia.login.LoginActivity;
+import org.wikipedia.page.PageActivity;
+import org.wikipedia.random.RandomHandler;
+import org.wikipedia.settings.SettingsActivity;
 
 public class NavDrawerFragment extends Fragment implements View.OnClickListener {
     private static final int[] ACTION_ITEMS_ALL = {

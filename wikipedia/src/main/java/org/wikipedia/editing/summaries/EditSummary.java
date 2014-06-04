@@ -1,6 +1,6 @@
 package org.wikipedia.editing.summaries;
 
-import java.util.*;
+import java.util.Date;
 
 public class EditSummary {
     public static final EditSummaryPersistanceHelper PERSISTANCE_HELPER = new EditSummaryPersistanceHelper();

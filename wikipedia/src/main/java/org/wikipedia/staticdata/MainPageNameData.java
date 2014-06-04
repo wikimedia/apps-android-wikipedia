@@ -3,7 +3,7 @@
    TO HAVE YOUR CHANGES OVERWRITTEN */
 package org.wikipedia.staticdata;
 
-import java.util.*;
+import java.util.HashMap;
 
 public class MainPageNameData {
 

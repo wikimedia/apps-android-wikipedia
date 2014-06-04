@@ -1,8 +1,9 @@
 package org.wikipedia.page;
 
-import android.os.*;
-import org.wikipedia.*;
-import org.wikipedia.history.*;
+import android.os.Parcel;
+import android.os.Parcelable;
+import org.wikipedia.PageTitle;
+import org.wikipedia.history.HistoryEntry;
 
 public class BackStackItem implements Parcelable {
     public final PageTitle title;

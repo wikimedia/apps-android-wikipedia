@@ -1,19 +1,30 @@
 package org.wikipedia.page;
 
-import android.graphics.*;
-import android.support.v4.widget.*;
-import android.text.*;
-import android.util.*;
-import android.view.*;
-import android.widget.*;
+import android.graphics.Color;
+import android.support.v4.widget.DrawerLayout;
+import android.text.Html;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.nineoldandroids.view.ViewHelper;
-import org.json.*;
-import org.wikipedia.*;
-import org.wikipedia.analytics.*;
-import org.wikipedia.bridge.*;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.R;
+import org.wikipedia.ViewAnimations;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ToCInteractionFunnel;
+import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.views.DisableableDrawerLayout;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class ToCHandler {
     private final ListView tocList;

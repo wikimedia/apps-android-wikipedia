@@ -1,26 +1,38 @@
 package org.wikipedia.history;
 
-import android.app.*;
-import android.content.*;
-import android.database.*;
-import android.net.*;
-import android.os.*;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
-import android.support.v7.app.*;
+import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.*;
-import android.widget.*;
-import com.squareup.picasso.*;
-import org.wikipedia.*;
-import org.wikipedia.page.*;
-import org.wikipedia.pageimages.*;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import com.squareup.picasso.Picasso;
+import org.wikipedia.R;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageActivity;
+import org.wikipedia.pageimages.PageImage;
 
-import java.text.*;
-import java.util.*;
+import java.text.DateFormat;
+import java.util.Date;
 
 public class HistoryActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     public static final int ACTIVITY_RESULT_HISTORY_SELECT = 1;

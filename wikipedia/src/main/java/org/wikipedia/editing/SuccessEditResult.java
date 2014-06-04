@@ -1,6 +1,7 @@
 package org.wikipedia.editing;
 
-import android.os.*;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 public class SuccessEditResult extends EditingResult {
     private final int revID;

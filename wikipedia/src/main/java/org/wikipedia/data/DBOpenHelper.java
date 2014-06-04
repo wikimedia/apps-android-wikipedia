@@ -1,11 +1,12 @@
 package org.wikipedia.data;
 
-import android.content.*;
-import android.database.sqlite.*;
-import org.wikipedia.editing.summaries.*;
-import org.wikipedia.history.*;
-import org.wikipedia.pageimages.*;
-import org.wikipedia.bookmarks.*;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import org.wikipedia.bookmarks.Bookmark;
+import org.wikipedia.editing.summaries.EditSummary;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.pageimages.PageImage;
 
 public class DBOpenHelper  extends SQLiteOpenHelper{
 

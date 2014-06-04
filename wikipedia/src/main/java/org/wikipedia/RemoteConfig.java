@@ -1,7 +1,8 @@
 package org.wikipedia;
 
-import android.content.*;
-import org.json.*;
+import android.content.SharedPreferences;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Store for config values that are retreived from a server,

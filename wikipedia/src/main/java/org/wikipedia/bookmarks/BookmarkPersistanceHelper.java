@@ -1,11 +1,12 @@
 package org.wikipedia.bookmarks;
 
-import android.content.*;
-import android.database.*;
-import org.wikipedia.*;
-import org.wikipedia.data.*;
+import android.content.ContentValues;
+import android.database.Cursor;
+import org.wikipedia.PageTitle;
+import org.wikipedia.Site;
+import org.wikipedia.data.PersistanceHelper;
 
-import java.util.*;
+import java.util.Date;
 
 public class BookmarkPersistanceHelper extends PersistanceHelper<Bookmark> {
     @Override

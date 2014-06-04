@@ -1,6 +1,6 @@
 package org.wikipedia;
 
-import android.view.*;
+import android.view.View;
 import com.nineoldandroids.view.ViewHelper;
 
 public class QuickReturnHandler implements  ObservableWebView.OnScrollChangeListener, ObservableWebView.OnUpOrCancelMotionEventListener, ObservableWebView.OnDownMotionEventListener {

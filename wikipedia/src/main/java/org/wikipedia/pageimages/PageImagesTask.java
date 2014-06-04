@@ -1,10 +1,13 @@
 package org.wikipedia.pageimages;
 
-import org.json.*;
-import org.mediawiki.api.json.*;
-import org.wikipedia.*;
+import org.json.JSONObject;
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.PageQueryTask;
+import org.wikipedia.PageTitle;
+import org.wikipedia.Site;
 
-import java.util.*;
+import java.util.List;
 
 public class PageImagesTask extends PageQueryTask<String> {
     private final int thumbSize;

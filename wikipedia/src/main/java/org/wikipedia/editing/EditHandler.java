@@ -1,15 +1,16 @@
 package org.wikipedia.editing;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.*;
-import android.support.v4.app.*;
-import org.json.*;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v4.app.Fragment;
+import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
-import org.wikipedia.bridge.*;
-import org.wikipedia.page.*;
+import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.Section;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {
     public static final int REQUEST_EDIT_SECTION = 1;

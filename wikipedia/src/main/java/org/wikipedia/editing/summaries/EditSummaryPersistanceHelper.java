@@ -1,10 +1,10 @@
 package org.wikipedia.editing.summaries;
 
-import android.content.*;
-import android.database.*;
-import org.wikipedia.data.*;
+import android.content.ContentValues;
+import android.database.Cursor;
+import org.wikipedia.data.PersistanceHelper;
 
-import java.util.*;
+import java.util.Date;
 
 public class EditSummaryPersistanceHelper extends PersistanceHelper<EditSummary> {
     @Override

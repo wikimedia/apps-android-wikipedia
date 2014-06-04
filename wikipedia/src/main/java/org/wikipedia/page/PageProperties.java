@@ -1,13 +1,17 @@
 package org.wikipedia.page;
 
-import android.os.*;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.text.TextUtils;
-import android.util.*;
-import org.json.*;
-import org.wikipedia.Utils;
+import android.util.Log;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import java.text.*;
-import java.util.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Immutable class that contains metadata associated with a PageTitle.

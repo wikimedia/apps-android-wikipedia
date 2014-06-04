@@ -1,6 +1,8 @@
 package org.wikipedia.bridge;
 
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Represents a bundle of CSS files that can be loaded into a

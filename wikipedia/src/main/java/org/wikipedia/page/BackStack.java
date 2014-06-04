@@ -1,7 +1,9 @@
 package org.wikipedia.page;
 
-import android.os.*;
-import java.util.*;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
 
 public class BackStack implements Parcelable {
 

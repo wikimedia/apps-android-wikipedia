@@ -1,9 +1,11 @@
 package org.wikipedia.analytics;
 
-import org.json.*;
-import org.wikipedia.*;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.PageTitle;
+import org.wikipedia.WikipediaApp;
 
-import java.util.*;
+import java.util.UUID;
 
 public class EditFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppEdit";

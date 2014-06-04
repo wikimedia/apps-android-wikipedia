@@ -1,11 +1,15 @@
 package org.wikipedia.page;
 
-import android.content.*;
-import android.net.*;
-import android.util.*;
-import org.json.*;
-import org.wikipedia.*;
-import org.wikipedia.bridge.*;
+import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.PageTitle;
+import org.wikipedia.Site;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.bridge.CommunicationBridge;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

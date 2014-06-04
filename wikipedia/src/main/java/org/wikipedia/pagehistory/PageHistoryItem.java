@@ -1,9 +1,10 @@
 package org.wikipedia.pagehistory;
 
-import android.os.*;
-import org.wikipedia.*;
+import android.os.Parcel;
+import android.os.Parcelable;
+import org.wikipedia.PageTitle;
 
-import java.util.*;
+import java.util.Date;
 
 public class PageHistoryItem implements Parcelable {
     private final String username;

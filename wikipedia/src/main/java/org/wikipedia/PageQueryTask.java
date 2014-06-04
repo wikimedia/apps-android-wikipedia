@@ -1,10 +1,15 @@
 package org.wikipedia;
 
-import android.text.*;
-import org.json.*;
-import org.mediawiki.api.json.*;
+import android.text.TextUtils;
+import org.json.JSONObject;
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiResult;
+import org.mediawiki.api.json.RequestBuilder;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle, T>> {
     private final List<PageTitle> titles;

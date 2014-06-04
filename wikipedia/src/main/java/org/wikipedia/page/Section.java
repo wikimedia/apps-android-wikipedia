@@ -1,10 +1,12 @@
 package org.wikipedia.page;
 
-import android.os.*;
-import org.json.*;
-import org.wikipedia.*;
+import android.os.Parcel;
+import android.os.Parcelable;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.Utils;
 
-import java.util.*;
+import java.util.List;
 
 /**
  * Represents a particular section of an article.

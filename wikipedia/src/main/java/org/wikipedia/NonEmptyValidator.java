@@ -1,7 +1,8 @@
 package org.wikipedia;
 
-import android.text.*;
-import android.widget.*;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 
 /**
  * Triggers events when one or more EdtiTexts are empty or not

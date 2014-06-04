@@ -1,6 +1,7 @@
 package org.wikipedia;
 
-import android.os.*;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * Represents a particular Wikimedia project.

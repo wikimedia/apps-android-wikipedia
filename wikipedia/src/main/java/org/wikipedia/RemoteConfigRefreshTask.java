@@ -1,13 +1,13 @@
 package org.wikipedia;
 
-import android.content.*;
-import android.util.*;
-import com.github.kevinsawicki.http.*;
-import org.json.*;
-import org.wikipedia.concurrency.*;
-import org.wikipedia.recurring.*;
+import android.content.Context;
+import android.util.Log;
+import com.github.kevinsawicki.http.HttpRequest;
+import org.json.JSONObject;
+import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.recurring.RecurringTask;
 
-import java.util.*;
+import java.util.Date;
 
 public class RemoteConfigRefreshTask extends RecurringTask {
     // Switch over to production when it is available

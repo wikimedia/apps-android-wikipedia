@@ -1,6 +1,6 @@
 package org.wikipedia.concurrency;
 
-import java.util.concurrent.*;
+import java.util.concurrent.Executor;
 
 public abstract class SaneAsyncTask<T> {
     public static final int SINGLE_THREAD = 1;

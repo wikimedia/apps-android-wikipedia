@@ -1,7 +1,8 @@
 package org.wikipedia.editing;
 
-import android.os.*;
-import org.json.*;
+import android.os.Parcel;
+import android.os.Parcelable;
+import org.json.JSONObject;
 
 public class AbuseFilterEditResult extends EditingResult {
     public static final int TYPE_WARNING = 1;

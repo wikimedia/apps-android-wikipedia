@@ -1,9 +1,10 @@
 package org.wikipedia.analytics;
 
-import org.json.*;
-import org.wikipedia.*;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.WikipediaApp;
 
-import java.util.*;
+import java.util.UUID;
 
 public class CreateAccountFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppCreateAccount";

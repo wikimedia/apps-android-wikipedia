@@ -1,9 +1,11 @@
 package org.wikipedia.settings;
 
-import android.content.*;
-import android.os.*;
-import android.preference.*;
-import org.wikipedia.*;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 
 public class SettingsActivity extends PreferenceActivityWithBack implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static final int ACTIVITY_RESULT_LANGUAGE_CHANGED = 1;

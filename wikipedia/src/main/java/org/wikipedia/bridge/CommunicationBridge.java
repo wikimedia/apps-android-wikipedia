@@ -1,11 +1,19 @@
 package org.wikipedia.bridge;
 
-import android.os.*;
-import android.util.*;
-import android.webkit.*;
-import org.json.*;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
+import android.webkit.ConsoleMessage;
+import android.webkit.JavascriptInterface;
+import android.webkit.JsPromptResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Two way communications bridge between JS in a WebView and Java.

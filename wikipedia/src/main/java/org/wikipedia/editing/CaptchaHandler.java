@@ -1,14 +1,19 @@
 package org.wikipedia.editing;
 
-import android.app.*;
-import android.net.*;
-import android.os.*;
-import android.support.v7.app.*;
-import android.view.*;
-import android.widget.*;
-import com.squareup.picasso.*;
-import org.mediawiki.api.json.*;
-import org.wikipedia.*;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
+import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.ViewAnimations;
 
 public class CaptchaHandler {
     private final Activity activity;

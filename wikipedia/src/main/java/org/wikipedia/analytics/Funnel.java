@@ -1,11 +1,14 @@
 package org.wikipedia.analytics;
 
 
-import android.content.*;
-import android.preference.*;
-import android.util.*;
-import org.json.*;
-import org.wikipedia.*;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.Site;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
 
 public abstract class Funnel {
     private final String schemaName;

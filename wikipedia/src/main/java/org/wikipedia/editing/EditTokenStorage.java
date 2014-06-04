@@ -1,11 +1,16 @@
 package org.wikipedia.editing;
 
-import android.content.*;
-import android.preference.*;
-import android.text.*;
-import org.wikipedia.*;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import org.wikipedia.Site;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 public class EditTokenStorage {
     private final HashMap<String, String> tokenJar = new HashMap<String, String>();

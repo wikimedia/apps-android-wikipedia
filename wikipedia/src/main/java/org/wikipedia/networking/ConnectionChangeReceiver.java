@@ -1,11 +1,15 @@
 package org.wikipedia.networking;
 
-import android.content.*;
-import android.net.*;
-import android.os.*;
-import android.util.*;
-import org.wikipedia.*;
-import org.wikipedia.random.*;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.random.RandomArticleIdTask;
 
 
 

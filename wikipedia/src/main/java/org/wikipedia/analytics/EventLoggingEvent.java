@@ -1,10 +1,11 @@
 package org.wikipedia.analytics;
 
-import android.net.*;
-import android.util.*;
-import com.github.kevinsawicki.http.*;
-import org.json.*;
-import org.wikipedia.concurrency.*;
+import android.net.Uri;
+import android.util.Log;
+import com.github.kevinsawicki.http.HttpRequest;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.concurrency.SaneAsyncTask;
 
 /**
  * Base class for all various types of events that are logged to EventLogging.

@@ -1,15 +1,23 @@
 package org.wikipedia.editing.summaries;
 
-import android.app.*;
-import android.content.*;
-import android.database.*;
-import android.os.*;
-import android.text.*;
-import android.view.*;
-import android.widget.*;
-import org.wikipedia.*;
+import android.app.Activity;
+import android.content.ContentProviderClient;
+import android.content.Context;
+import android.database.Cursor;
+import android.os.Build;
+import android.os.RemoteException;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
+import android.widget.FilterQueryProvider;
+import android.widget.TextView;
+import org.wikipedia.PageTitle;
+import org.wikipedia.R;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
 
-import java.util.*;
+import java.util.Date;
 
 public class EditSummaryHandler {
     private final Activity activity;

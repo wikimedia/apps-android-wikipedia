@@ -1,8 +1,8 @@
 package org.wikipedia.bookmarks;
 
-import android.content.*;
-import org.wikipedia.*;
-import org.wikipedia.concurrency.*;
+import android.content.Context;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.concurrency.SaneAsyncTask;
 
 public class DeleteBookmarkTask extends SaneAsyncTask<Boolean> {
     private final WikipediaApp app;

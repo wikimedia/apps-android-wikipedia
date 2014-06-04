@@ -1,7 +1,7 @@
 package org.wikipedia.bookmarks;
 
-import android.content.*;
-import org.wikipedia.data.*;
+import android.content.Context;
+import org.wikipedia.data.ContentPersister;
 
 public class BookmarkPersister extends ContentPersister<Bookmark> {
     private final Context context;

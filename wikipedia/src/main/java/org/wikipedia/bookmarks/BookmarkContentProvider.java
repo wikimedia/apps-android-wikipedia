@@ -1,11 +1,13 @@
 package org.wikipedia.bookmarks;
 
-import android.database.*;
-import android.database.sqlite.*;
-import android.net.*;
-import org.wikipedia.*;
-import org.wikipedia.data.*;
-import org.wikipedia.pageimages.*;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
+import android.net.Uri;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.data.DBOpenHelper;
+import org.wikipedia.data.SQLiteContentProvider;
+import org.wikipedia.pageimages.PageImage;
 
 public class BookmarkContentProvider extends SQLiteContentProvider<Bookmark> {
     private static final int MATCH_WITH_PAGEIMAGES =  64;

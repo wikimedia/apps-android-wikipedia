@@ -1,10 +1,13 @@
 package org.wikipedia.page;
 
-import android.os.*;
-import org.json.*;
-import org.wikipedia.*;
+import android.os.Parcel;
+import android.os.Parcelable;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.PageTitle;
 
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * Represents a particular page along with its full contents.

@@ -1,13 +1,17 @@
 package org.wikipedia;
 
-import android.os.*;
-import android.text.*;
-import org.json.*;
-import org.wikipedia.staticdata.*;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.text.TextUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.staticdata.SpecialAliasData;
 
-import java.io.*;
-import java.net.*;
-import java.util.*;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.Arrays;
 
 /**
  * Immutable value object representing the text of a page.

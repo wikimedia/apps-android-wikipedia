@@ -1,13 +1,14 @@
 package org.wikipedia.data;
 
-import android.content.*;
-import android.database.*;
-import android.database.sqlite.*;
-import android.net.*;
-import android.text.*;
-import android.util.*;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public abstract class PersistanceHelper<T> {
 

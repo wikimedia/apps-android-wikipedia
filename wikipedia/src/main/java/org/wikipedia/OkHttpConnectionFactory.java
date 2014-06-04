@@ -1,11 +1,14 @@
 package org.wikipedia;
 
-import android.content.*;
-import com.github.kevinsawicki.http.*;
-import com.squareup.okhttp.*;
+import android.content.Context;
+import com.github.kevinsawicki.http.HttpRequest;
+import com.squareup.okhttp.HttpResponseCache;
+import com.squareup.okhttp.OkHttpClient;
 
-import java.io.*;
-import java.net.*;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.Proxy;
+import java.net.URL;
 
 public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
     private static final long HTTP_CACHE_SIZE = 16 * 1024 * 1024;

@@ -1,6 +1,7 @@
 package org.wikipedia.createaccount;
 
-import android.os.*;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 public class CreateAccountResult implements Parcelable {
     private final String result;

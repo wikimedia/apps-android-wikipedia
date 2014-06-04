@@ -1,13 +1,20 @@
 package org.wikipedia.pagehistory.usercontributions;
 
-import android.os.*;
-import android.support.v7.app.*;
-import android.view.*;
-import android.widget.*;
-import org.wikipedia.*;
-import org.wikipedia.pagehistory.*;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import org.wikipedia.R;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.pagehistory.PageHistoryItem;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class UserContribsActivity extends ActionBarActivity {
     private ListView userContribsList;

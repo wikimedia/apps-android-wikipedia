@@ -1,10 +1,11 @@
 package org.wikipedia.recurring;
 
-import android.content.*;
-import android.preference.*;
-import android.util.*;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.util.Log;
 
-import java.util.*;
+import java.util.Date;
 
 /**
  * Represents a task that needs to be run periodically.

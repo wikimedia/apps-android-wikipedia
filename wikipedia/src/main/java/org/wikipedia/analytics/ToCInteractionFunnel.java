@@ -1,11 +1,13 @@
 package org.wikipedia.analytics;
 
-import android.content.*;
-import android.preference.*;
-import org.json.*;
-import org.wikipedia.*;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
 
-import java.util.*;
+import java.util.UUID;
 
 public class ToCInteractionFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppToCInteraction";
