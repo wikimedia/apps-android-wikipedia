@@ -1,7 +1,7 @@
 package org.wikipedia.test;
 
-import android.app.*;
-import android.os.*;
+import android.app.Activity;
+import android.os.Bundle;
 
 /**
  * Dummy activity that does nothing and is happy about it.

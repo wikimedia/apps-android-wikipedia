@@ -1,11 +1,14 @@
 package org.wikipedia.test.concurrency;
 
-import android.content.*;
-import android.test.*;
-import org.wikipedia.concurrency.*;
-import org.wikipedia.test.*;
+import android.content.Intent;
+import android.test.ActivityUnitTestCase;
+import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.test.TestDummyActivity;
 
-import java.util.concurrent.*;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
     public static final int TASK_COMPLETION_TIMEOUT = 1000;

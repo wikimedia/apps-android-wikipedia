@@ -1,8 +1,8 @@
 package org.wikipedia.test;
 
-import android.test.*;
-import org.junit.*;
-import org.wikipedia.page.*;
+import android.test.AndroidTestCase;
+import org.junit.Test;
+import org.wikipedia.page.Section;
 
 public class SectionTests extends AndroidTestCase {
     @Test

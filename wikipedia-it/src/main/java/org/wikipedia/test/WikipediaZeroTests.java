@@ -1,13 +1,14 @@
 package org.wikipedia.test;
 
-import android.content.*;
-import android.test.*;
-import java.util.HashMap;
-import org.mediawiki.api.json.*;
+import android.content.Intent;
+import android.test.ActivityUnitTestCase;
+import org.mediawiki.api.json.Api;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.zero.*;
+import org.wikipedia.zero.WikipediaZeroTask;
 
-import java.util.concurrent.*;
+import java.util.HashMap;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 public class WikipediaZeroTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;

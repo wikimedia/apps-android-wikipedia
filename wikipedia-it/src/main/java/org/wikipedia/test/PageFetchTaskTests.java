@@ -1,12 +1,15 @@
 package org.wikipedia.test;
 
-import android.content.*;
-import android.test.*;
-import org.wikipedia.*;
-import org.wikipedia.page.*;
+import android.content.Intent;
+import android.test.ActivityUnitTestCase;
+import org.wikipedia.PageTitle;
+import org.wikipedia.Site;
+import org.wikipedia.page.Section;
+import org.wikipedia.page.SectionsFetchTask;
 
-import java.util.*;
-import java.util.concurrent.*;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 public class PageFetchTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;

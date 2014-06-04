@@ -1,11 +1,12 @@
 package org.wikipedia.test;
 
-import android.content.*;
-import android.test.*;
-import org.wikipedia.*;
-import org.wikipedia.pagehistory.usercontributions.*;
+import android.content.Intent;
+import android.test.ActivityUnitTestCase;
+import org.wikipedia.Site;
+import org.wikipedia.pagehistory.usercontributions.FetchUserContribsTask;
 
-import java.util.concurrent.*;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 public class FetchUserContribsTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;
