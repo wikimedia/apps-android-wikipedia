@@ -56,7 +56,7 @@
                   android:layout_height="0dp"
                   android:layout_weight="1"
                   android:id="@+id/edit_section_preview_fragment"
-                  class="org.wikipedia.editing.EditPreviewFragment"
+                  class="org.wikipedia.beta.editing.EditPreviewFragment"
                 />
         <include layout="@layout/group_edit_summary" />
     </LinearLayout>

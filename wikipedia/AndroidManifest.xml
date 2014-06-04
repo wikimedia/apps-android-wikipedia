@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.wikipedia"
-    android:versionCode="59"
-    android:versionName="2.0-alpha-2014-06-06"
+    package="org.wikipedia.beta"
+    android:versionCode="62"
+    android:versionName="2.0-beta6"
     android:installLocation="auto">
 
     <uses-sdk
@@ -14,9 +14,9 @@
     <application
         android:allowBackup="true"
         android:supportsRtl="true"
-        android:icon="@drawable/launcher_alpha"
+        android:icon="@drawable/launcher_beta"
         android:logo="@drawable/search_w"
-        android:label="@string/app_name"
+        android:label="@string/app_name_beta"
         android:name=".WikipediaApp"
         android:theme="@style/Theme.Agora">
         <activity android:name=".page.PageActivity"
@@ -94,22 +94,22 @@
                 />
 
         <provider
-            android:authorities="org.wikipedia.history"
+            android:authorities="org.wikipedia.beta.history"
             android:name=".history.HistoryEntryContentProvider"
             />
 
         <provider
-                android:authorities="org.wikipedia.editsummaries"
+                android:authorities="org.wikipedia.beta.editsummaries"
                 android:name=".editing.summaries.EditSummaryContentProvider"
                 />
 
         <provider
-                android:authorities="org.wikipedia.pageimages"
+                android:authorities="org.wikipedia.beta.pageimages"
                 android:name=".pageimages.PageImageContentProvider"
                 />
 
         <provider
-                android:authorities="org.wikipedia.bookmarks"
+                android:authorities="org.wikipedia.beta.bookmarks"
                 android:name=".bookmarks.BookmarkContentProvider"
                 />
 

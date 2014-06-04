@@ -2,7 +2,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/preferences_general_heading">
-        <org.wikipedia.settings.LanguagePreference
+        <org.wikipedia.beta.settings.LanguagePreference
                 android:key="@string/preference_key_language"
                 android:title="@string/preference_title_language"
                 />
@@ -36,8 +36,8 @@
     <PreferenceCategory android:title="@string/about_activity_title">
         <Preference android:title="@string/about_description">
             <intent android:action="android.intent.action.VIEW"
-                    android:targetClass="org.wikipedia.settings.AboutActivity"
-                    android:targetPackage="org.wikipedia"
+                    android:targetClass="org.wikipedia.beta.settings.AboutActivity"
+                    android:targetPackage="org.wikipedia.beta"
                     />
         </Preference>
     </PreferenceCategory>

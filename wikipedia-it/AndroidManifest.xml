@@ -6,10 +6,10 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <application android:icon="@drawable/icon" android:label="@string/app_name">
     <uses-library android:name="android.test.runner" />
-      <activity android:name="org.wikipedia.test.TestDummyActivity"/>
+      <activity android:name="org.wikipedia.beta.test.TestDummyActivity"/>
   </application>
 
-  <instrumentation android:targetPackage="org.wikipedia"
+  <instrumentation android:targetPackage="org.wikipedia.beta"
     android:name="android.test.InstrumentationTestRunner" />
 
 </manifest>

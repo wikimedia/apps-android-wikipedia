@@ -14,12 +14,12 @@
         android:layout_height="wrap_content"
         android:indeterminate="true"
         />
-    <org.wikipedia.views.DisableableDrawerLayout
+    <org.wikipedia.beta.views.DisableableDrawerLayout
             android:id="@+id/page_toc_drawer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
-        <org.wikipedia.ObservableWebView
+        <org.wikipedia.beta.ObservableWebView
                 android:id="@+id/page_web_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -57,7 +57,7 @@
                     android:layout_gravity="center"
                     />
         </FrameLayout>
-    </org.wikipedia.views.DisableableDrawerLayout>
+    </org.wikipedia.beta.views.DisableableDrawerLayout>
     <LinearLayout
             android:id="@+id/page_error"
             android:layout_width="match_parent"
