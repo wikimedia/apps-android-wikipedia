@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Wikipedia</string>
+    <string name="app_name_beta">Wikipedia Beta</string>
 
     <string name="yes">Yes</string>
     <string name="no">No</string>
