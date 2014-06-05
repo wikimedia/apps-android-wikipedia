@@ -23,8 +23,8 @@
     <string name="dialog_title_clear_history">Clear browsing history?</string>
     <string name="saved_pages_activity_title">Bookmarks</string>
     <string name="nav_item_saved_pages">Bookmarks</string>
-    <string name="menu_save_page">Bookmark this page</string>
-    <string name="menu_share_page">Share this page</string>
+    <string name="menu_save_page">Bookmark</string>
+    <string name="menu_share_page">Share</string>
     <string name="share_via">Share via</string>
     <string name="dialog_title_clear_saved_pages">Clear all bookmarks?</string>
     <string name="dialog_message_clear_saved_pages">Are you sure you want to clear all bookmarks?</string>
@@ -42,7 +42,7 @@
     <string name="nav_item_preferences">Settings</string>
     <string name="preference_languages_filter_hint">Search</string>
     <string name="langlinks_filter_hint">Search</string>
-    <string name="menu_other_languages">Read this page in other languages</string>
+    <string name="menu_other_languages">Read in other languages</string>
     <string name="langlinks_error_retry">Retry</string>
     <string name="langlinks_empty">This article is not available in other languages</string>
     <string name="settings_activity_title">Settings</string>
