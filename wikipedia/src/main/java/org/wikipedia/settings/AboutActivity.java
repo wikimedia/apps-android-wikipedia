@@ -45,7 +45,9 @@ public class AboutActivity extends ActionBarActivity {
                 makeEverythingClickable((ViewGroup)vg.getChildAt(i));
             } else if (vg.getChildAt(i) instanceof TextView) {
                 TextView tv = (TextView) vg.getChildAt(i);
-                tv.setMovementMethod(LinkMovementMethod.getInstance());
+                if (!tv.getText().equals(R.string.about_activity_title)) {
+                    tv.setMovementMethod(LinkMovementMethod.getInstance());
+                }
             }
         }
 
