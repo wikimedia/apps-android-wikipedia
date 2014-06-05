@@ -83,7 +83,7 @@ public class ToCHandler {
     private void scrollToSection(Section section) {
         JSONObject payload = new JSONObject();
         try {
-            payload.put("anchor", section.getAnchor());
+            payload.put("anchor", section.isLead() ? "heading_" + section.getId() : section.getAnchor());
         } catch (JSONException e) {
             // This won't happen
             throw new RuntimeException(e);
