@@ -26,6 +26,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bookmarks.BookmarkPageTask;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleLoader;
+import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.editing.EditHandler;
 import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.events.PageStateChangeEvent;
@@ -387,6 +388,29 @@ public class PageViewFragment extends Fragment {
         }
     }
 
+    /**
+     * Saving a history item needs to be in its own task, since the operation may
+     * actually block for several seconds, and should not be on the main thread.
+     */
+    private class HistorySaveTask extends SaneAsyncTask<Void> {
+        private final HistoryEntry entry;
+        public HistorySaveTask(HistoryEntry entry) {
+            super(SINGLE_THREAD);
+            this.entry = entry;
+        }
+
+        @Override
+        public Void performTask() throws Throwable {
+            app.getPersister(HistoryEntry.class).persist(entry);
+            return null;
+        }
+
+        @Override
+        public void onCatch(Throwable caught) {
+            Log.d("HistorySaveTask", caught.getMessage());
+        }
+    }
+
     private class LeadSectionFetchTask extends SectionsFetchTask {
         public LeadSectionFetchTask() {
             super(getActivity(), title, "0");
@@ -430,6 +454,9 @@ public class PageViewFragment extends Fragment {
             displayLeadSection();
             setState(STATE_INITIAL_FETCH);
             new RestSectionsFetchTask().execute();
+
+            // Add history entry now
+            new HistorySaveTask(curEntry).execute();
 
             // Save image for this page title
             new PageImageSaveTask(app, app.getAPIForSite(title.getSite()), title).execute();

@@ -23,7 +23,6 @@ import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bookmarks.BookmarksActivity;
-import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.events.BookmarkPageEvent;
 import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.events.RequestMainPageEvent;
@@ -167,9 +166,6 @@ public class PageActivity extends ActionBarActivity {
             return;
         }
 
-        // Add history entry now
-        new HistorySaveTask(entry).execute();
-
         // animate the new fragment into place
         // then hide the previous fragment.
         final PageViewFragment prevFragment = curPageFragment;
@@ -191,29 +187,6 @@ public class PageActivity extends ActionBarActivity {
         curPageFragment = (PageViewFragment)fragmentAdapter.getItem(fragmentPager.getCurrentItem());
 
         Log.d("PageActivity", "pageBackStack has " + backStack.size() + " items");
-    }
-
-    /**
-     * Saving a history item needs to be in its own task, since the operation may
-     * actually block for several seconds, and should not be on the main thread.
-     */
-    private class HistorySaveTask extends SaneAsyncTask<Void> {
-        private final HistoryEntry entry;
-        public HistorySaveTask(HistoryEntry entry) {
-            super(SINGLE_THREAD);
-            this.entry = entry;
-        }
-
-        @Override
-        public Void performTask() throws Throwable {
-            app.getPersister(HistoryEntry.class).persist(entry);
-            return null;
-        }
-
-        @Override
-        public void onCatch(Throwable caught) {
-            Log.d("HistorySaveTask", caught.getMessage());
-        }
     }
 
     @Subscribe
