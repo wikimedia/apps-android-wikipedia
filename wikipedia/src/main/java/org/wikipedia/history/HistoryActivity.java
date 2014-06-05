@@ -84,7 +84,6 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
             historyEntryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Utils.hideSoftKeyboard(HistoryActivity.this);
                     HistoryEntry oldEntry = (HistoryEntry) view.getTag();
                     HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
 
@@ -100,6 +99,12 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
 
         getSupportLoaderManager().initLoader(0, null, this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public void onPause() {
+        Utils.hideSoftKeyboard(this);
+        super.onPause();
     }
 
     @Override
