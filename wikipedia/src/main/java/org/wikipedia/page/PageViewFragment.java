@@ -509,6 +509,10 @@ public class PageViewFragment extends Fragment {
 
     private ToCHandler tocHandler;
     public void toggleToC() {
+        // tocHandler could still be null while the page is loading
+        if (tocHandler == null) {
+            return;
+        }
         if (tocHandler.isVisible()) {
             tocHandler.hide();
         } else {
