@@ -46,7 +46,7 @@ public class PageTitleTests extends TestCase {
 
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#").getNamespace(), "Talk");
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#").getText(), "India");
-        assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#").getFragment(), null);
+        assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#").getFragment(), "");
 
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#History").getNamespace(), "Talk");
         assertEquals(enwiki.titleForInternalLink("/wiki/Talk:India#History").getText(), "India");
@@ -88,7 +88,20 @@ public class PageTitleTests extends TestCase {
     public void testMainpage() throws Exception {
         Site enwiki = new Site("en.wikipedia.org");
         assertEquals(new PageTitle("", enwiki), new PageTitle(MainPageNameData.valueFor("en"), enwiki));
-
     }
 
+    /** https://bugzilla.wikimedia.org/66151 */
+    public void testHashChar() {
+        PageTitle pageTitle = new PageTitle("#", new Site("en.wikipedia.org"));
+        assertEquals(null, pageTitle.getNamespace());
+        assertEquals("", pageTitle.getText());
+        assertEquals("", pageTitle.getFragment());
+    }
+
+    public void testColonChar() {
+        PageTitle pageTitle = new PageTitle(":", new Site("en.wikipedia.org"));
+        assertEquals("", pageTitle.getNamespace());
+        assertEquals("", pageTitle.getText());
+        assertEquals(null, pageTitle.getFragment());
+    }
 }

@@ -43,7 +43,7 @@ public class PageTitle implements Parcelable {
             text = MainPageNameData.valueFor(site.getLanguage());
         }
 
-        String[] fragParts = text.split("#");
+        String[] fragParts = text.split("#", -1);
         text = fragParts[0];
         if (fragParts.length > 1) {
             try {
@@ -56,7 +56,7 @@ public class PageTitle implements Parcelable {
             this.fragment = null;
         }
 
-        String[] parts = text.split(":");
+        String[] parts = text.split(":", -1);
         if (parts.length > 1) {
             this.namespace = parts[0];
             this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
