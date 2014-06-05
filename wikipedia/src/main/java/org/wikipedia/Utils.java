@@ -433,8 +433,9 @@ public final class Utils {
             List<Intent> browserIntents = new ArrayList<Intent>();
             for (ResolveInfo resolveInfo : resInfo) {
                 String packageName = resolveInfo.activityInfo.packageName;
-                // remove our app from the selection!
-                if (packageName.equals(context.getPackageName())) {
+                // remove our apps from the selection!
+                // This ensures that all the variants of the Wiki app (Alpha, Beta, Stable) are never shown
+                if (packageName.startsWith("org.wikipedia")) {
                     continue;
                 }
                 Intent newIntent = new Intent(Intent.ACTION_VIEW);
