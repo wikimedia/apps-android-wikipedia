@@ -27,7 +27,10 @@ public class MccMncStateHandler {
         if (this.app == null) {
             this.app = (WikipediaApp)ctx;
         }
-        if (this.mccMncSent || !PreferenceManager.getDefaultSharedPreferences(this.app).getBoolean(this.app.PREFERENCE_EVENTLOGGING_ENABLED, true)) {
+        // Forget about it if it was already sent or user opted out of logging or the API server isn't a mobile Wikipedia.
+        if (this.mccMncSent ||
+                !PreferenceManager.getDefaultSharedPreferences(this.app).getBoolean(this.app.PREFERENCE_EVENTLOGGING_ENABLED, true) ||
+                !(site.getApiDomain().contains(".m.wikipedia.org"))) {
             return null;
         }
         String mccMnc = Utils.getMccMnc(ctx);
