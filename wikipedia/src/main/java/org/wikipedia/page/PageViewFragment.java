@@ -464,6 +464,24 @@ public class PageViewFragment extends Fragment {
             super(getActivity(), title, "1-");
         }
 
+
+        @Override
+        public void onCatch(Throwable caught) {
+            // in any case, make sure the TOC drawer is closed and disabled
+            tocDrawer.setSlidingEnabled(false);
+            searchArticlesFragment.setTocEnabled(false);
+
+            if (caught instanceof ApiException) {
+                // Check for the source of the error and have different things turn up
+                ViewAnimations.crossFade(loadProgress, networkError);
+                // Not sure why this is required, but without it tapping retry hides networkError
+                // FIXME: INVESTIGATE WHY THIS HAPPENS!
+                networkError.setVisibility(View.VISIBLE);
+            } else {
+                throw new RuntimeException(caught);
+            }
+        }
+
         @Override
         public void onFinish(List<Section> result) {
             // have we been unwittingly detached from our Activity?
