@@ -23,7 +23,6 @@
                   android:theme="@style/NoTitle"
                   android:windowSoftInputMode="stateHidden"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                  android:launchMode="singleTask"
                 >
 
             <intent-filter>

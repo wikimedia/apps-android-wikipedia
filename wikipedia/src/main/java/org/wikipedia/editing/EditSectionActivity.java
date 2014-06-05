@@ -398,8 +398,7 @@ public class EditSectionActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                Utils.hideSoftKeyboard(this);
-                finish();
+                onBackPressed();
                 return true;
             case R.id.menu_save_section:
                 if (editPreviewFragment.isActive()) {
