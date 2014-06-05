@@ -19,9 +19,7 @@ import android.text.InputType;
 import android.text.format.DateUtils;
 import android.util.Base64;
 import android.util.Log;
-import android.view.Display;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -523,18 +521,5 @@ public final class Utils {
             stringArray[i] = array.optString(i);
         }
         return stringArray;
-    }
-
-    /**
-     * Detects whether the current device has a low-resolution screen
-     * (defined using a hard-coded threshold for low-resolution)
-     *
-     * @param ctx Application context for detecting screen size.
-     * @return True if this is a low-resolution device; false otherwise.
-     */
-    public static boolean isLowResolutionDevice(Context ctx) {
-        WindowManager wm = (WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-        return (display.getHeight() <= 480);
     }
 }

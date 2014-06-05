@@ -45,7 +45,6 @@
                         android:dividerHeight="0.5dp"
                         android:visibility="gone"
                         android:choiceMode="singleChoice"
-                        android:layout_marginTop="48dp"
                         />
             </LinearLayout>
             <ProgressBar

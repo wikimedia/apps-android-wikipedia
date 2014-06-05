@@ -301,9 +301,7 @@ public class PageViewFragment extends Fragment {
 
         editHandler = new EditHandler(this, bridge);
 
-        if (Utils.isLowResolutionDevice(app)) {
-            new QuickReturnHandler(webView, quickReturnBar);
-        }
+        new QuickReturnHandler(webView, quickReturnBar);
 
         setState(state);
         performActionForState(state);
@@ -377,7 +375,7 @@ public class PageViewFragment extends Fragment {
         if (state == STATE_COMPLETE_FETCH) {
             if (tocHandler == null) {
                 tocHandler = new ToCHandler(tocDrawer,
-                        Utils.isLowResolutionDevice(app) ? quickReturnBar : null,
+                        quickReturnBar,
                         bridge);
             }
             tocHandler.setupToC(page);
