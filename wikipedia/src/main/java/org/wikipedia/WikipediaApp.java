@@ -272,7 +272,9 @@ public class WikipediaApp extends Application {
             }
         }
 
-        throw new RuntimeException("WikiCode " + wikiCode + " + not found+");
+        // FIXME: Instrument this with EL to find out what is happening on places where there is a lang we can't find
+        // In the meantime, just fall back to en. See https://bugzilla.wikimedia.org/show_bug.cgi?id=66140
+        return findWikiIndex("en");
     }
 
     private boolean isWikiLanguage(String lang) {
