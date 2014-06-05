@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -61,6 +63,9 @@ public class EditSectionActivity extends ActionBarActivity {
     private String sectionWikitext;
 
     private EditText sectionText;
+    private boolean sectionTextModified = false;
+    private boolean sectionTextFirstLoad = true;
+
     private View sectionProgress;
     private View sectionContainer;
     private View sectionError;
@@ -189,9 +194,30 @@ public class EditSectionActivity extends ActionBarActivity {
 
         fetchSectionText();
 
+        if (savedInstanceState != null && savedInstanceState.containsKey("sectionTextModified")) {
+            sectionTextModified = savedInstanceState.getBoolean("sectionTextModified");
+        }
+
         funnel = app.getFunnelManager().getEditFunnel(title);
 
         funnel.logStart();
+
+        sectionText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (sectionTextFirstLoad) {
+                    sectionTextFirstLoad = false;
+                    return;
+                }
+                sectionTextModified = true;
+            }
+        });
     }
 
     // TODO: refactor; same code in PageActivity
@@ -401,22 +427,26 @@ public class EditSectionActivity extends ActionBarActivity {
                 onBackPressed();
                 return true;
             case R.id.menu_save_section:
-                if (editPreviewFragment.isActive()) {
-                    if (app.getUserInfoStorage().isLoggedIn()) {
-                        editPreviewFragment.hide();
-                        doSave();
-                    } else {
-                        showSaveOptions();
-                        showLicense();
-                    }
-                    editSummaryHandler.persistSummary();
+                if (!sectionTextModified) {
+                    Toast.makeText(this, getString(R.string.edit_unchanged), Toast.LENGTH_SHORT).show();
                 } else {
-                    Utils.hideSoftKeyboard(this);
-                    editPreviewFragment.showPreview(title, sectionText.getText().toString());
-                    if (app.getUserInfoStorage().isLoggedIn()) {
-                        showLicense();
+                    if (editPreviewFragment.isActive()) {
+                        if (app.getUserInfoStorage().isLoggedIn()) {
+                            editPreviewFragment.hide();
+                            doSave();
+                        } else {
+                            showSaveOptions();
+                            showLicense();
+                        }
+                        editSummaryHandler.persistSummary();
+                    } else {
+                        Utils.hideSoftKeyboard(this);
+                        editPreviewFragment.showPreview(title, sectionText.getText().toString());
+                        if (app.getUserInfoStorage().isLoggedIn()) {
+                            showLicense();
+                        }
+                        funnel.logPreview();
                     }
-                    funnel.logPreview();
                 }
                 return true;
             default:
@@ -436,6 +466,7 @@ public class EditSectionActivity extends ActionBarActivity {
         super.onSaveInstanceState(outState);
         outState.putString("sectionWikitext", sectionWikitext);
         outState.putParcelable("abusefilter", abusefilterEditResult);
+        outState.putBoolean("sectionTextModified", sectionTextModified);
         captchaHandler.saveState(outState);
     }
 
@@ -497,7 +528,26 @@ public class EditSectionActivity extends ActionBarActivity {
                 cancelAbuseFilter();
             } else {
                 Utils.hideSoftKeyboard(this);
-                finish();
+
+                if (sectionTextModified) {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                    alert.setMessage(getString(R.string.edit_abandon_confirm));
+                    alert.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                            finish();
+                        }
+                    });
+                    alert.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                    alert.create().show();
+                } else {
+                    finish();
+                }
+
             }
         }
     }

@@ -153,4 +153,6 @@
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app</string>
   <string name="about_wmf">Text and link specifying that this app was developed by the Wikimedia Foundation</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
+  <string name="edit_unchanged">Message displayed when the user tries to save a page when no modifications were made.</string>
+  <string name="edit_abandon_confirm">Prompt for the user to abandon any changes that were made during editing.</string>
 </resources>

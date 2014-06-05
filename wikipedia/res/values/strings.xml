@@ -156,4 +156,6 @@
     <string name="about_contributors_heading">contributors</string>
     <string name="about_wmf">A product of the <a href="http://wikimediafoundation.org/wiki/Home">Wikimedia Foundation</a></string>
     <string name="about_activity_title">About</string>
+    <string name="edit_unchanged">The page has not been modified.</string>
+    <string name="edit_abandon_confirm">The page has been modified. Are you sure you want to exit without saving your changes?</string>
 </resources>
