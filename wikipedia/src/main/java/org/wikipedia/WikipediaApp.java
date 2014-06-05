@@ -219,6 +219,9 @@ public class WikipediaApp extends Application {
             if (primaryLanguage == null) {
                 // No preference set!
                 String wikiCode = Utils.langCodeToWikiLang(Locale.getDefault().getLanguage());
+                if (!isWikiLanguage(wikiCode)) {
+                    wikiCode = "en"; // fallback, see comments in #findWikiIndex
+                }
                 return wikiCode;
             }
         }
@@ -282,8 +285,8 @@ public class WikipediaApp extends Application {
             wikiCodes = getResources().getStringArray(R.array.preference_language_keys);
         }
 
-        for (int i = 0; i < wikiCodes.length; i++) {
-            if (wikiCodes[i].equals(lang)) {
+        for (String wikiCode : wikiCodes) {
+            if (wikiCode.equals(lang)) {
                 return true;
             }
         }
