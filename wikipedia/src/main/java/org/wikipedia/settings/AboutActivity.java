@@ -24,7 +24,7 @@ public class AboutActivity extends ActionBarActivity {
                 getString(R.string.send_feedback) +
                 "</a>"));
 
-        makeEverythingClickable((ViewGroup) getWindow().getDecorView());
+        makeEverythingClickable((ViewGroup) findViewById(R.id.about_container));
     }
 
     @Override
@@ -45,9 +45,7 @@ public class AboutActivity extends ActionBarActivity {
                 makeEverythingClickable((ViewGroup)vg.getChildAt(i));
             } else if (vg.getChildAt(i) instanceof TextView) {
                 TextView tv = (TextView) vg.getChildAt(i);
-                if (!tv.getText().equals(R.string.about_activity_title)) {
-                    tv.setMovementMethod(LinkMovementMethod.getInstance());
-                }
+                tv.setMovementMethod(LinkMovementMethod.getInstance());
             }
         }
 
