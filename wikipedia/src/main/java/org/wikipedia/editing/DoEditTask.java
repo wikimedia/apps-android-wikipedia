@@ -1,6 +1,7 @@
 package org.wikipedia.editing;
 
 import android.content.Context;
+import android.util.Log;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;

@@ -155,4 +155,7 @@
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
   <string name="edit_unchanged">Message displayed when the user tries to save a page when no modifications were made.</string>
   <string name="edit_abandon_confirm">Prompt for the user to abandon any changes that were made during editing.</string>
+  <string name="user_blocked_from_editing_title">Title of dialog box that pops up when user (anon or logged in) is blocked</string>
+  <string name="user_logged_in_blocked_from_editing">Message shown in dialog box to users who are blocked from editing when they attempt to save an edit</string>
+  <string name="user_anon_blocked_from_editing">Message shown in dialog box to users who are blocked from editing based on their IP address</string>
 </resources>
