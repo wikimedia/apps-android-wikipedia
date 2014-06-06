@@ -27,7 +27,7 @@
   <string name="toast_save_page_failed" fuzzy="true">ذخیرهٔ صفحه انجام نشد :(</string>
   <string name="delete_selected_saved_pages">حذف</string>
   <string name="toast_saved_page_deleted" fuzzy="true">ذخیره صفحهٔ حذف شده</string>
-  <string name="last_updated_text"> آخرین به‌روزرسانی %1$</string>
+  <string name="last_updated_text"> %1$s آخرین به‌روزرسانی </string>
   <string name="content_license_html">مطلب زیر تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
   <string name="preference_title_language" fuzzy="true">زبان</string>
   <string name="preference_summary_language">زبان محتوا</string>

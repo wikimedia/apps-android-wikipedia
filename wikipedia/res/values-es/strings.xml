@@ -27,7 +27,7 @@
   <string name="toast_save_page_failed" fuzzy="true">Error al guardar la página :(</string>
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="toast_saved_page_deleted" fuzzy="true">Páginas guardadas eliminadas</string>
-  <string name="last_updated_text">Última actualización: $1</string>
+  <string name="last_updated_text">Última actualización: %1$s</string>
   <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
   <string name="preference_title_language" fuzzy="true">Idioma</string>
   <string name="preference_summary_language">Idioma de contenido</string>

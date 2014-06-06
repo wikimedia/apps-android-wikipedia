@@ -26,7 +26,7 @@
   <string name="toast_save_page_failed">Az oldal mentése sikertelen :(</string>
   <string name="delete_selected_saved_pages">Törlés</string>
   <string name="toast_saved_page_deleted">Mentett oldal(ak) törölve</string>
-  <string name="last_updated_text">Utoljára frissítve: %1$</string>
+  <string name="last_updated_text">Utoljára frissítve: %1$s</string>
   <string name="content_license_html">A tartalom a &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt elérhető, ha nincs másképp feltüntetve</string>
   <string name="preference_title_language">Nyelv</string>
   <string name="preference_summary_language">A tartalom nyelve</string>

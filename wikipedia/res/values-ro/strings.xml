@@ -29,7 +29,7 @@
   <string name="toast_save_page_failed">Adăugarea semnului de carte nu a reușit :(</string>
   <string name="delete_selected_saved_pages">Șterge</string>
   <string name="toast_saved_page_deleted">Semn(e) de carte eliminat(e)</string>
-  <string name="last_updated_text">Ultima actualizare: $1</string>
+  <string name="last_updated_text">Ultima actualizare: %1$s</string>
   <string name="content_license_html">Conținutul este disponibil sub licența &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, cu excepția cazurilor în care se specifică altfel</string>
   <string name="preference_title_language">Limba Wikipediei</string>
   <string name="preference_summary_language">Limba conținutului</string>
