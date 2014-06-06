@@ -498,7 +498,13 @@ public class PageViewFragment extends Fragment {
             tocDrawer.setSlidingEnabled(false);
             searchArticlesFragment.setTocEnabled(false);
 
-            if (caught instanceof ApiException) {
+            if (caught instanceof SectionsFetchException) {
+                if (((SectionsFetchException)caught).getCode().equals("missingtitle")
+                        || ((SectionsFetchException)caught).getCode().equals("invalidtitle")) {
+                    ViewAnimations.crossFade(loadProgress, pageDoesNotExistError);
+
+                }
+            } else if (caught instanceof ApiException) {
                 // Check for the source of the error and have different things turn up
                 ViewAnimations.crossFade(loadProgress, networkError);
                 // Not sure why this is required, but without it tapping retry hides networkError
