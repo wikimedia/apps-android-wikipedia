@@ -351,6 +351,10 @@ public class SearchArticlesFragment extends Fragment {
                 }
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(drawerIndicator.getLayoutParams());
                 params.leftMargin = -(int)(10 * WikipediaApp.SCREEN_DENSITY * offsetWindowMin);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1
+                        && drawerView.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+                    params.leftMargin = -params.leftMargin;
+                }
                 params.rightMargin = -params.leftMargin;
                 params.gravity = Gravity.CENTER_VERTICAL; // Needed because this seems to get reset otherwise. hmpf.
                 drawerIndicator.setLayoutParams(params);
