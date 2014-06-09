@@ -310,8 +310,8 @@ public class EditSectionActivity extends ActionBarActivity {
                                 return;
                             }
 
-                            if (ee.getCode().equals("blocked")) {
-                                // User is blocked
+                            if (ee.getCode().equals("blocked") || ee.getCode().equals("wikimedia-globalblocking-ipblocked")) {
+                                // User is blocked, locally or globally
                                 // If they were anon, canedit does not catch this, so we can't show them the locked pencil
                                 // If they not anon, this means they were blocked in the interim between opening the edit
                                 // window and clicking save. Less common, but might as well handle it
