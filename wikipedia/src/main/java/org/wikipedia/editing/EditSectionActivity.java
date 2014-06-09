@@ -309,6 +309,44 @@ public class EditSectionActivity extends ActionBarActivity {
                                 }.execute();
                                 return;
                             }
+
+                            if (ee.getCode().equals("blocked")) {
+                                // User is blocked
+                                // If they were anon, canedit does not catch this, so we can't show them the locked pencil
+                                // If they not anon, this means they were blocked in the interim between opening the edit
+                                // window and clicking save. Less common, but might as well handle it
+                                progressDialog.dismiss();
+                                AlertDialog.Builder builder = new AlertDialog.Builder(EditSectionActivity.this);
+                                builder.setTitle(R.string.user_blocked_from_editing_title);
+                                if (app.getUserInfoStorage().isLoggedIn()) {
+                                    builder.setMessage(R.string.user_logged_in_blocked_from_editing);
+                                    builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
+                                        }
+                                    });
+                                } else {
+                                    builder.setMessage(R.string.user_anon_blocked_from_editing);
+                                    builder.setPositiveButton(R.string.nav_item_login, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
+                                            Intent loginIntent = new Intent(EditSectionActivity.this, LoginActivity.class);
+                                            loginIntent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_BLOCKED);
+                                            startActivity(loginIntent);
+                                        }
+                                    });
+                                    builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
+                                        }
+                                    });
+                                }
+                                builder.show();
+                            }
+                            return;
                         }
                         if (!(caught instanceof HttpRequest.HttpRequestException)) {
                             throw new RuntimeException(caught);
