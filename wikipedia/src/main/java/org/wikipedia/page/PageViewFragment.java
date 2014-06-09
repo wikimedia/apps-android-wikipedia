@@ -1,7 +1,6 @@
 package org.wikipedia.page;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -271,10 +270,6 @@ public class PageViewFragment extends Fragment {
         // disable TOC drawer until the page is loaded
         tocDrawer.setSlidingEnabled(false);
         searchArticlesFragment.setTocEnabled(false);
-
-        // Adjust font size based on system settings
-        float fontSize = getResources().getDimension(R.dimen.textSize);
-        webView.getSettings().setDefaultFontSize((int) fontSize);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             // Enable Pinch-Zoom
