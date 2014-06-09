@@ -1,17 +1,17 @@
-package org.wikipedia.bookmarks;
+package org.wikipedia.savedpages;
 
 import android.content.Context;
 import org.wikipedia.data.ContentPersister;
 
-public class BookmarkPersister extends ContentPersister<Bookmark> {
+public class SavedPagePersister extends ContentPersister<SavedPage> {
     private final Context context;
-    public BookmarkPersister(Context context) {
+    public SavedPagePersister(Context context) {
         // lolJava
         super(
                 context.getContentResolver().acquireContentProviderClient(
-                        Bookmark.PERSISTANCE_HELPER.getBaseContentURI()
+                        SavedPage.PERSISTANCE_HELPER.getBaseContentURI()
                 ),
-                Bookmark.PERSISTANCE_HELPER
+                SavedPage.PERSISTANCE_HELPER
         );
         this.context = context;
     }

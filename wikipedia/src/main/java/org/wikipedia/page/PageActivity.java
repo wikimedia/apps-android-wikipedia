@@ -22,15 +22,9 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.bookmarks.BookmarksActivity;
-import org.wikipedia.events.BookmarkPageEvent;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikipedia.events.RequestMainPageEvent;
-import org.wikipedia.events.SharePageEvent;
-import org.wikipedia.events.ShowOtherLanguagesEvent;
-import org.wikipedia.events.ShowToCEvent;
-import org.wikipedia.events.WikipediaZeroInterstitialEvent;
-import org.wikipedia.events.WikipediaZeroStateChangeEvent;
+import org.wikipedia.events.*;
+import org.wikipedia.savedpages.SavedPagesActivity;
+import org.wikipedia.events.SavePageEvent;
 import org.wikipedia.history.HistoryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
@@ -47,7 +41,7 @@ public class PageActivity extends ActionBarActivity {
     private static final String ZERO_OFF_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOffNoticePresented";
 
     public static final int ACTIVITY_REQUEST_HISTORY = 0;
-    public static final int ACTIVITY_REQUEST_BOOKMARKS = 1;
+    public static final int ACTIVITY_REQUEST_SAVEDPAGES = 1;
     public static final int ACTIVITY_REQUEST_LANGLINKS = 2;
 
     private Bus bus;
@@ -203,8 +197,8 @@ public class PageActivity extends ActionBarActivity {
     }
 
     @Subscribe
-    public void onPageSaveEvent(BookmarkPageEvent event) {
-        curPageFragment.bookmarkPage();
+    public void onPageSaveEvent(SavePageEvent event) {
+        curPageFragment.savePage();
     }
 
     @Subscribe
@@ -414,7 +408,7 @@ public class PageActivity extends ActionBarActivity {
             Log.d("Wikipedia", "Registering bus");
         }
         if ((requestCode == ACTIVITY_REQUEST_HISTORY && resultCode == HistoryActivity.ACTIVITY_RESULT_HISTORY_SELECT)
-            || (requestCode == ACTIVITY_REQUEST_BOOKMARKS && resultCode == BookmarksActivity.ACTIVITY_RESULT_BOOKMARK_SELECT)
+            || (requestCode == ACTIVITY_REQUEST_SAVEDPAGES && resultCode == SavedPagesActivity.ACTIVITY_RESULT_SAVEDPAGE_SELECT)
             || (requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT)) {
             handleIntent(data);
         } else {

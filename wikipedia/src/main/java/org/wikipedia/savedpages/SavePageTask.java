@@ -1,15 +1,15 @@
-package org.wikipedia.bookmarks;
+package org.wikipedia.savedpages;
 
 import android.content.Context;
 import org.wikipedia.PageTitle;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 
-public class BookmarkPageTask extends SaneAsyncTask<Void> {
+public class SavePageTask extends SaneAsyncTask<Void> {
     private final WikipediaApp app;
     private final PageTitle title;
 
-    public BookmarkPageTask(Context context, PageTitle title) {
+    public SavePageTask(Context context, PageTitle title) {
         super(SINGLE_THREAD);
         app = (WikipediaApp) context.getApplicationContext();
         this.title = title;
@@ -17,11 +17,11 @@ public class BookmarkPageTask extends SaneAsyncTask<Void> {
 
     @Override
     public Void performTask() throws Throwable {
-        BookmarkPersister persister = (BookmarkPersister) app.getPersister(Bookmark.class);
+        SavedPagePersister persister = (SavedPagePersister) app.getPersister(SavedPage.class);
 
-        Bookmark bookmark = new Bookmark(title);
+        SavedPage savedPage = new SavedPage(title);
 
-        persister.upsert(bookmark);
+        persister.upsert(savedPage);
         return null;
     }
 }

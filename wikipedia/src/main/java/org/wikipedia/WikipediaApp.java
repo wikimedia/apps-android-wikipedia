@@ -16,8 +16,8 @@ import org.acra.annotation.ReportsCrashes;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.analytics.FunnelManager;
-import org.wikipedia.bookmarks.Bookmark;
-import org.wikipedia.bookmarks.BookmarkPersister;
+import org.wikipedia.savedpages.SavedPage;
+import org.wikipedia.savedpages.SavedPagePersister;
 import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.data.ContentPersister;
 import org.wikipedia.data.DBOpenHelper;
@@ -143,7 +143,7 @@ public class WikipediaApp extends Application {
                 Log.d("Wikipedia", "Migrating old app data...");
                 ArticleImporter articleImporter = new ArticleImporter(this);
                 List<JSONObject> pages = dataMigrator.extractSavedPages();
-                Log.d("Wikipedia", "Importing " + pages.size() + " old saved pages as bookmarks...");
+                Log.d("Wikipedia", "Importing " + pages.size() + " old saved pages as new saved pages...");
                 articleImporter.importArticles(pages);
                 Log.d("Wikipedia", "Deleting old saved pages table");
                 dataMigrator.removeOldData();
@@ -252,8 +252,8 @@ public class WikipediaApp extends Application {
                 persister = new HistoryEntryPersister(this);
             } else if (cls.equals(PageImage.class)) {
                 persister = new PageImagePersister(this);
-            } else if (cls.equals(Bookmark.class)) {
-                persister = new BookmarkPersister(this);
+            } else if (cls.equals(SavedPage.class)) {
+                persister = new SavedPagePersister(this);
             } else if (cls.equals(EditSummary.class)) {
                 persister = new EditSummaryPersister(this);
             } else {

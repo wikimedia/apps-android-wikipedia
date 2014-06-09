@@ -1,4 +1,4 @@
-package org.wikipedia.bookmarks;
+package org.wikipedia.savedpages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -6,18 +6,18 @@ import org.wikipedia.PageTitle;
 
 import java.util.Date;
 
-public class Bookmark implements Parcelable {
-    public static final BookmarkPersistanceHelper PERSISTANCE_HELPER = new BookmarkPersistanceHelper();
+public class SavedPage implements Parcelable {
+    public static final SavedPagePersistanceHelper PERSISTANCE_HELPER = new SavedPagePersistanceHelper();
 
     private final PageTitle title;
     private final Date timestamp;
 
-    public Bookmark(PageTitle title, Date timestamp) {
+    public SavedPage(PageTitle title, Date timestamp) {
         this.title = title;
         this.timestamp = timestamp;
     }
 
-    public Bookmark(PageTitle title) {
+    public SavedPage(PageTitle title) {
         this(title, new Date());
     }
 
@@ -31,10 +31,10 @@ public class Bookmark implements Parcelable {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Bookmark)) {
+        if (!(o instanceof SavedPage)) {
             return false;
         }
-        Bookmark other = (Bookmark) o;
+        SavedPage other = (SavedPage) o;
         return title.equals(other.title);
     }
 
@@ -45,7 +45,7 @@ public class Bookmark implements Parcelable {
 
     @Override
     public String toString() {
-        return "Bookmark{"
+        return "SavedPage{"
                 + "title=" + title
                 + ", timestamp=" + timestamp.getTime()
                 + '}';
@@ -62,19 +62,19 @@ public class Bookmark implements Parcelable {
         dest.writeLong(getTimestamp().getTime());
     }
 
-    private Bookmark(Parcel in) {
+    private SavedPage(Parcel in) {
         this.title = in.readParcelable(PageTitle.class.getClassLoader());
         this.timestamp = new Date(in.readLong());
     }
 
-    public static final Creator<Bookmark> CREATOR
-            = new Creator<Bookmark>() {
-        public Bookmark createFromParcel(Parcel in) {
-            return new Bookmark(in);
+    public static final Creator<SavedPage> CREATOR
+            = new Creator<SavedPage>() {
+        public SavedPage createFromParcel(Parcel in) {
+            return new SavedPage(in);
         }
 
-        public Bookmark[] newArray(int size) {
-            return new Bookmark[size];
+        public SavedPage[] newArray(int size) {
+            return new SavedPage[size];
         }
     };
 }

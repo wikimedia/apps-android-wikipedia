@@ -23,7 +23,7 @@ import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.bookmarks.BookmarkPageTask;
+import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.concurrency.SaneAsyncTask;
@@ -515,8 +515,8 @@ public class PageViewFragment extends Fragment {
         }
     }
 
-    public void bookmarkPage() {
-        new BookmarkPageTask(getActivity(), title) {
+    public void savePage() {
+        new SavePageTask(getActivity(), title) {
             @Override
             public void onFinish(Void result) {
                 Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
