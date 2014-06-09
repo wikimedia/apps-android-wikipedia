@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.wikipedia"
-    android:versionCode="59"
-    android:versionName="2.0-alpha-2014-06-06"
+    android:versionCode="61"
+    android:versionName="2.0-alpha-2014-06-09"
     android:installLocation="auto">
 
     <uses-sdk
