@@ -23,6 +23,7 @@ import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleLoader;
@@ -86,6 +87,18 @@ public class PageViewFragment extends Fragment {
      * Stores this fragment's position in the ViewPager in the parent activity.
      */
     private int pagerIndex;
+
+    /**
+     * Whether to save the full page content as soon as it's loaded.
+     * Used in the following cases:
+     * - Stored page content is corrupted
+     * - Page bookmarks are imported from the old app.
+     * In the above cases, loading of the saved page will "fail", and will
+     * automatically bounce to the online version of the page. Once the online page
+     * loads successfully, the content will be saved, thereby reconstructing the
+     * stored version of the page.
+     */
+    private boolean saveOnComplete = false;
 
     private SearchArticlesFragment searchArticlesFragment;
 
@@ -353,7 +366,12 @@ public class PageViewFragment extends Fragment {
     private void performActionForState(int forState) {
         switch (forState) {
             case STATE_NO_FETCH:
-                new LeadSectionFetchTask().execute();
+                bridge.sendMessage("clearContents", new JSONObject());
+                if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+                    loadSavedPage();
+                } else {
+                    new LeadSectionFetchTask().execute();
+                }
                 break;
             case STATE_INITIAL_FETCH:
                 new RestSectionsFetchTask().execute();
@@ -486,6 +504,11 @@ public class PageViewFragment extends Fragment {
             editHandler.setPage(page);
             populateNonLeadSections();
             setState(STATE_COMPLETE_FETCH);
+
+            if (saveOnComplete) {
+                saveOnComplete = false;
+                savePage();
+            }
         }
 
         @Override
@@ -516,12 +539,59 @@ public class PageViewFragment extends Fragment {
     }
 
     public void savePage() {
-        new SavePageTask(getActivity(), title) {
+        Toast.makeText(getActivity(), R.string.toast_saving_page, Toast.LENGTH_SHORT).show();
+        new SavePageTask(getActivity(), title, page) {
             @Override
             public void onFinish(Void result) {
                 Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
             }
         }.execute();
+    }
+
+    public void loadSavedPage() {
+        new LoadSavedPageTask(getActivity(), title) {
+            @Override
+            public void onFinish(Page result) {
+                // have we been unwittingly detached from our Activity?
+                if (!isAdded()) {
+                    Log.d("PageViewFragment", "Detached from activity, so stopping update.");
+                    return;
+                }
+
+                // Add history entry now
+                new HistorySaveTask(curEntry).execute();
+
+                page = result;
+                editHandler.setPage(page);
+                displayLeadSection();
+                populateNonLeadSections();
+                setState(STATE_COMPLETE_FETCH);
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+
+                /*
+                If anything bad happens during loading of a saved page, then simply bounce it
+                back to the online version of the page, and re-save the page contents locally when it's done.
+                 */
+
+                Log.d("LoadSavedPageTask", "Error loading saved page: " + caught.getMessage());
+                caught.printStackTrace();
+
+                refreshPage(true);
+            }
+        }.execute();
+    }
+
+    public void refreshPage(boolean saveOnComplete) {
+        this.saveOnComplete = saveOnComplete;
+        if (saveOnComplete) {
+            Toast.makeText(getActivity(), R.string.toast_refresh_saved_page, Toast.LENGTH_LONG).show();
+        }
+        curEntry = new HistoryEntry(title, HistoryEntry.SOURCE_HISTORY);
+        setState(STATE_NO_FETCH);
+        performActionForState(state);
     }
 
     private ToCHandler tocHandler;

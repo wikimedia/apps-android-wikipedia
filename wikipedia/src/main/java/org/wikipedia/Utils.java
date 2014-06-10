@@ -80,7 +80,7 @@ public final class Utils {
      * @param s String to hash
      * @return Base64'd MD5 representation of the string passed in
      */
-    public static String md5(final String s) {
+    public static String md5base64(final String s) {
         try {
             // Create MD5 Hash
             MessageDigest digest = java.security.MessageDigest
@@ -99,6 +99,48 @@ public final class Utils {
     }
 
     /**
+     * Creates an MD5 hash of the provided string and returns its ASCII representation
+     * @param s String to hash
+     * @return ASCII MD5 representation of the string passed in
+     */
+    public static String md5string(String s) {
+        StringBuilder hexStr = new StringBuilder();
+        try {
+            // Create MD5 Hash
+            MessageDigest digest = java.security.MessageDigest
+                    .getInstance("MD5");
+            digest.update(s.getBytes("utf-8"));
+            byte[] messageDigest = digest.digest();
+
+            for (byte b : messageDigest) {
+                hexStr.append(Integer.toHexString(0xFF & b));
+            }
+        } catch (NoSuchAlgorithmException e) {
+            // This will never happen, yes.
+            throw new RuntimeException(e);
+        } catch (UnsupportedEncodingException e) {
+            // This will never happen, yes.
+            throw new RuntimeException(e);
+        }
+        return hexStr.toString();
+    }
+
+    /**
+     * Deletes a file or directory, with optional recursion.
+     * @param path File or directory to delete.
+     * @param recursive Whether to delete all subdirectories and files.
+     */
+    public static void delete(File path, boolean recursive) {
+        if (recursive && path.isDirectory()) {
+            String[] children = path.list();
+            for (String child : children) {
+                delete(new File(path, child), recursive);
+            }
+        }
+        path.delete();
+    }
+
+    /**
      * Returns the local file name for a remote image.
      *
      * Warning: Should be kept stable between releases.
@@ -108,7 +150,7 @@ public final class Utils {
     public static String imageUrlToFileName(String url) {
         String[] protocolParts = url.split("://");
         return "saved-image-"
-                + md5(protocolParts[protocolParts.length - 1]);
+                + md5base64(protocolParts[protocolParts.length - 1]);
     }
 
     /**

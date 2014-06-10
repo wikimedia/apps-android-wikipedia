@@ -15,6 +15,7 @@ public class DeleteSavedPageTask extends SaneAsyncTask<Boolean> {
 
     @Override
     public Boolean performTask() throws Throwable {
+        savedPage.deleteFromFileSystem();
         SavedPagePersister persister = (SavedPagePersister) app.getPersister(SavedPage.class);
         persister.delete(savedPage);
         return true;

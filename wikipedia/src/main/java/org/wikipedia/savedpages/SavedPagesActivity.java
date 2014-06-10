@@ -27,11 +27,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 import org.wikipedia.R;
+import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -236,8 +239,12 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
                 builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // Clear Saved Pages!
-                        app.getPersister(SavedPage.class).deleteAll();
+                        new DeleteAllSavedPagesTask(SavedPagesActivity.this) {
+                            @Override
+                            public void onFinish(Void v) {
+                                Toast.makeText(SavedPagesActivity.this, R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
+                            }
+                        }.execute();
                     }
                 });
 

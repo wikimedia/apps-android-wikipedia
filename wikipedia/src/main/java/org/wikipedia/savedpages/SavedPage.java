@@ -2,8 +2,14 @@ package org.wikipedia.savedpages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.wikipedia.PageTitle;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.Page;
 
+import java.io.*;
 import java.util.Date;
 
 public class SavedPage implements Parcelable {
@@ -77,4 +83,75 @@ public class SavedPage implements Parcelable {
             return new SavedPage[size];
         }
     };
+
+    /**
+     * Gets the base directory for all saved pages.
+     * (will be something like /data/data/org.wikimedia/files/savedpages)
+     * @return Base directory for saved pages, inside the app's private storage space.
+     */
+    public static String getSavedPagesDir() {
+        return WikipediaApp.getInstance().getFilesDir() + "/savedpages";
+    }
+
+    /**
+     * Gets the base directory for this page's saved files.
+     * The name of the directory is the MD5 sum of the page title (to account for special
+     * or unicode characters in the title).
+     * @return Base directory for the saved files for this page, inside the
+     * overall base directory for saved pages.
+     */
+    private String getBaseDir() {
+        // Make the folder name be based on the complete PageTitle object,
+        // which includes title, site info, etc.
+        String dir = getSavedPagesDir() + "/" + Utils.md5string(title.toJSON().toString());
+        (new File(dir)).mkdirs();
+        return dir;
+    }
+
+    /**
+     * Gets a File object that represents the JSON contents of this page.
+     * @return File object used for reading/writing page contents.
+     */
+    private File getContentsFile() {
+        return new File(getBaseDir() + "/content.json");
+    }
+
+    /**
+     * Writes the contents of this page to storage.
+     * (Each page is stored in a separate directory)
+     * @param page Page object with the contents of the page to be written.
+     * @throws IOException
+     */
+    public void writeToFileSystem(Page page) throws IOException {
+        File f = getContentsFile();
+        OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(f));
+        writer.write(page.toJSON().toString());
+        writer.close();
+    }
+
+    /**
+     * Reads the contents of this page from storage.
+     * @return Page object with the contents of the page.
+     * @throws IOException
+     * @throws JSONException
+     */
+    public Page readFromFileSystem() throws IOException, JSONException {
+        File f = getContentsFile();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+        String readStr = "";
+        StringBuilder stringBuilder = new StringBuilder();
+        while ( (readStr = reader.readLine()) != null ) {
+            stringBuilder.append(readStr);
+        }
+        reader.close();
+        return new Page(new JSONObject(stringBuilder.toString()));
+    }
+
+    /**
+     * Deletes any stored files that are associated with this page.
+     * (Removes the entire directory and any files in it)
+     */
+    public void deleteFromFileSystem() {
+        Utils.delete(new File(getBaseDir()), true);
+    }
 }

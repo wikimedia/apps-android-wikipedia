@@ -30,8 +30,9 @@
     <string name="dialog_title_clear_saved_pages">Clear all saved pages?</string>
     <string name="dialog_message_clear_saved_pages">Are you sure you want to clear all saved pages?</string>
     <string name="toast_saving_page">Saving page...</string>
-    <string name="toast_saved_page">Saved page</string>
+    <string name="toast_saved_page">Page saved successfully</string>
     <string name="toast_save_page_failed">Saving page failed :(</string>
+    <string name="toast_refresh_saved_page">Refreshing saved page...</string>
     <string name="delete_selected_saved_pages">Delete</string>
     <string name="toast_saved_page_deleted">Saved page(s) deleted</string>
 
@@ -63,6 +64,7 @@
     <string name="title_captcha">Enter captcha</string>
     <string name="edit_section_abusefilter_back_text">Make changes to my edit</string>
     <string name="edit_section_captcha_reload">Tap CAPTCHA to reload</string>
+    <string name="edit_saved_page_refresh">This saved page may be out of date, and must be refreshed for editing to be enabled. Would you like to refresh the page?</string>
     <string name="nav_item_login">Log in</string>
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
