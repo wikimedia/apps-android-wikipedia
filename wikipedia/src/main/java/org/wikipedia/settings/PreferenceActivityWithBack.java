@@ -10,7 +10,7 @@ public class PreferenceActivityWithBack extends PreferenceActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Hmm. Can't use ActionBarActivity?
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             getActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
