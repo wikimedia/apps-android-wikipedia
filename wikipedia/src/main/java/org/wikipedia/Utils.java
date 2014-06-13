@@ -37,10 +37,15 @@ import org.wikipedia.events.WikipediaZeroInterstitialEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.zero.WikipediaZeroTask;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -154,7 +159,7 @@ public final class Utils {
     }
 
     /**
-     * Add some utility methods to a communuication bridge, that can be called synchronously from JS
+     * Add some utility methods to a communication bridge, that can be called synchronously from JS
      */
     public static void addUtilityMethodsToBridge(final Context context, final CommunicationBridge bridge) {
         bridge.addListener("imageUrlToFilePath", new CommunicationBridge.JSEventListener() {
@@ -514,6 +519,41 @@ public final class Utils {
         int len;
         while ((len = in.read(buffer)) != -1) {
             out.write(buffer, 0, len);
+        }
+    }
+
+    /**
+     * Write a JSON object to a file
+     * @param file file to be written
+     * @param jsonObject content of file
+     * @throws IOException when writing failed
+     */
+    public static void writeToFile(File file, JSONObject jsonObject) throws IOException {
+        OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file));
+        try {
+            writer.write(jsonObject.toString());
+        } finally {
+            writer.close();
+        }
+    }
+
+    /**
+     * Reads the contents of this page from storage.
+     * @return Page object with the contents of the page.
+     * @throws IOException
+     * @throws JSONException
+     */
+    public static JSONObject readJSONFile(File f) throws IOException, JSONException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+        try {
+            StringBuilder stringBuilder = new StringBuilder();
+            String readStr = "";
+            while ((readStr = reader.readLine()) != null) {
+                stringBuilder.append(readStr);
+            }
+            return new JSONObject(stringBuilder.toString());
+        } finally {
+            reader.close();
         }
     }
 

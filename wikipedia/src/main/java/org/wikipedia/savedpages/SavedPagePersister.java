@@ -4,7 +4,6 @@ import android.content.Context;
 import org.wikipedia.data.ContentPersister;
 
 public class SavedPagePersister extends ContentPersister<SavedPage> {
-    private final Context context;
     public SavedPagePersister(Context context) {
         // lolJava
         super(
@@ -13,6 +12,5 @@ public class SavedPagePersister extends ContentPersister<SavedPage> {
                 ),
                 SavedPage.PERSISTANCE_HELPER
         );
-        this.context = context;
     }
 }

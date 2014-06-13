@@ -23,7 +23,9 @@ import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.savedpages.ImageUrlMap;
 import org.wikipedia.savedpages.LoadSavedPageTask;
+import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleLoader;
@@ -542,14 +544,18 @@ public class PageViewFragment extends Fragment {
         Toast.makeText(getActivity(), R.string.toast_saving_page, Toast.LENGTH_SHORT).show();
         new SavePageTask(getActivity(), title, page) {
             @Override
-            public void onFinish(Void result) {
+            public void onFinish(Void nothing) {
+                if (!isAdded()) {
+                    Log.d("PageViewFragment", "Detached from activity, no toast.");
+                    return;
+                }
                 Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
             }
         }.execute();
     }
 
     public void loadSavedPage() {
-        new LoadSavedPageTask(getActivity(), title) {
+        new LoadSavedPageTask(title) {
             @Override
             public void onFinish(Page result) {
                 // have we been unwittingly detached from our Activity?
@@ -566,6 +572,37 @@ public class PageViewFragment extends Fragment {
                 displayLeadSection();
                 populateNonLeadSections();
                 setState(STATE_COMPLETE_FETCH);
+                readUrlMappings();
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+
+                /*
+                If anything bad happens during loading of a saved page, then simply bounce it
+                back to the online version of the page, and re-save the page contents locally when it's done.
+                 */
+
+                Log.d("LoadSavedPageTask", "Error loading saved page: " + caught.getMessage());
+                caught.printStackTrace();
+
+                refreshPage(true);
+            }
+        }.execute();
+    }
+
+    /** Read URL mappings from the saved page specific file */
+    private void readUrlMappings() {
+        new LoadSavedPageUrlMapTask(title) {
+            @Override
+            public void onFinish(JSONObject result) {
+                // have we been unwittingly detached from our Activity?
+                if (!isAdded()) {
+                    Log.d("PageViewFragment", "Detached from activity, so stopping update.");
+                    return;
+                }
+
+                ImageUrlMap.replaceImageSources(bridge, result);
             }
 
             @Override

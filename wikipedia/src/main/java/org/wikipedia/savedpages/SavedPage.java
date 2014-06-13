@@ -100,7 +100,7 @@ public class SavedPage implements Parcelable {
      * @return Base directory for the saved files for this page, inside the
      * overall base directory for saved pages.
      */
-    private String getBaseDir() {
+    String getBaseDir() {
         // Make the folder name be based on the complete PageTitle object,
         // which includes title, site info, etc.
         String dir = getSavedPagesDir() + "/" + Utils.md5string(title.toJSON().toString());
@@ -117,16 +117,30 @@ public class SavedPage implements Parcelable {
     }
 
     /**
+     * Gets the file that has the URL mappings in JSON of this page.
+     * @return File object used for reading/writing page contents.
+     */
+    private File getUrlMapFile() {
+        return new File(getBaseDir() + "/urls.json");
+    }
+
+    /**
      * Writes the contents of this page to storage.
      * (Each page is stored in a separate directory)
      * @param page Page object with the contents of the page to be written.
      * @throws IOException
      */
     public void writeToFileSystem(Page page) throws IOException {
-        File f = getContentsFile();
-        OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(f));
-        writer.write(page.toJSON().toString());
-        writer.close();
+        Utils.writeToFile(getContentsFile(), page.toJSON());
+    }
+
+    /**
+     * Writes a map of all URL mappings to a file inside the saved page directory.
+     * @param jsonObject contains mapping of URLs (originals to file paths)
+     * @throws IOException
+     */
+    public void writeUrlMap(JSONObject jsonObject) throws IOException {
+        Utils.writeToFile(getUrlMapFile(), jsonObject);
     }
 
     /**
@@ -136,15 +150,11 @@ public class SavedPage implements Parcelable {
      * @throws JSONException
      */
     public Page readFromFileSystem() throws IOException, JSONException {
-        File f = getContentsFile();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
-        String readStr = "";
-        StringBuilder stringBuilder = new StringBuilder();
-        while ( (readStr = reader.readLine()) != null ) {
-            stringBuilder.append(readStr);
-        }
-        reader.close();
-        return new Page(new JSONObject(stringBuilder.toString()));
+        return new Page(Utils.readJSONFile(getContentsFile()));
+    }
+
+    public JSONObject readUrlMapFromFileSystem() throws IOException, JSONException {
+        return Utils.readJSONFile(getUrlMapFile());
     }
 
     /**
