@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import org.wikipedia.analytics.LoginFunnel;
-import org.wikipedia.bookmarks.BookmarksActivity;
+import org.wikipedia.savedpages.SavedPagesActivity;
 import org.wikipedia.events.RequestMainPageEvent;
 import org.wikipedia.history.HistoryActivity;
 import org.wikipedia.login.LoginActivity;
@@ -123,8 +123,8 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 getActivity().startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_HISTORY);
                 break;
             case R.id.nav_item_saved_pages:
-                intent.setClass(this.getActivity(), BookmarksActivity.class);
-                getActivity().startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_BOOKMARKS);
+                intent.setClass(this.getActivity(), SavedPagesActivity.class);
+                getActivity().startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_SAVEDPAGES);
                 break;
             case R.id.nav_item_more:
                 intent.setClass(this.getActivity(), SettingsActivity.class);

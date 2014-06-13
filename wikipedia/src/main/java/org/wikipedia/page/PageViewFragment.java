@@ -23,7 +23,10 @@ import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.bookmarks.BookmarkPageTask;
+import org.wikipedia.savedpages.ImageUrlMap;
+import org.wikipedia.savedpages.LoadSavedPageTask;
+import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
+import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.concurrency.SaneAsyncTask;
@@ -86,6 +89,18 @@ public class PageViewFragment extends Fragment {
      * Stores this fragment's position in the ViewPager in the parent activity.
      */
     private int pagerIndex;
+
+    /**
+     * Whether to save the full page content as soon as it's loaded.
+     * Used in the following cases:
+     * - Stored page content is corrupted
+     * - Page bookmarks are imported from the old app.
+     * In the above cases, loading of the saved page will "fail", and will
+     * automatically bounce to the online version of the page. Once the online page
+     * loads successfully, the content will be saved, thereby reconstructing the
+     * stored version of the page.
+     */
+    private boolean saveOnComplete = false;
 
     private SearchArticlesFragment searchArticlesFragment;
 
@@ -351,7 +366,12 @@ public class PageViewFragment extends Fragment {
     private void performActionForState(int forState) {
         switch (forState) {
             case STATE_NO_FETCH:
-                new LeadSectionFetchTask().execute();
+                bridge.sendMessage("clearContents", new JSONObject());
+                if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+                    loadSavedPage();
+                } else {
+                    new LeadSectionFetchTask().execute();
+                }
                 break;
             case STATE_INITIAL_FETCH:
                 new RestSectionsFetchTask().execute();
@@ -484,6 +504,11 @@ public class PageViewFragment extends Fragment {
             editHandler.setPage(page);
             populateNonLeadSections();
             setState(STATE_COMPLETE_FETCH);
+
+            if (saveOnComplete) {
+                saveOnComplete = false;
+                savePage();
+            }
         }
 
         @Override
@@ -513,13 +538,95 @@ public class PageViewFragment extends Fragment {
         }
     }
 
-    public void bookmarkPage() {
-        new BookmarkPageTask(getActivity(), title) {
+    public void savePage() {
+        Toast.makeText(getActivity(), R.string.toast_saving_page, Toast.LENGTH_SHORT).show();
+        new SavePageTask(getActivity(), title, page) {
             @Override
-            public void onFinish(Void result) {
+            public void onFinish(Void nothing) {
+                if (!isAdded()) {
+                    Log.d("PageViewFragment", "Detached from activity, no toast.");
+                    return;
+                }
                 Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
             }
         }.execute();
+    }
+
+    public void loadSavedPage() {
+        new LoadSavedPageTask(title) {
+            @Override
+            public void onFinish(Page result) {
+                // have we been unwittingly detached from our Activity?
+                if (!isAdded()) {
+                    Log.d("PageViewFragment", "Detached from activity, so stopping update.");
+                    return;
+                }
+
+                // Add history entry now
+                new HistorySaveTask(curEntry).execute();
+
+                page = result;
+                editHandler.setPage(page);
+                displayLeadSection();
+                populateNonLeadSections();
+                setState(STATE_COMPLETE_FETCH);
+                readUrlMappings();
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+
+                /*
+                If anything bad happens during loading of a saved page, then simply bounce it
+                back to the online version of the page, and re-save the page contents locally when it's done.
+                 */
+
+                Log.d("LoadSavedPageTask", "Error loading saved page: " + caught.getMessage());
+                caught.printStackTrace();
+
+                refreshPage(true);
+            }
+        }.execute();
+    }
+
+    /** Read URL mappings from the saved page specific file */
+    private void readUrlMappings() {
+        new LoadSavedPageUrlMapTask(title) {
+            @Override
+            public void onFinish(JSONObject result) {
+                // have we been unwittingly detached from our Activity?
+                if (!isAdded()) {
+                    Log.d("PageViewFragment", "Detached from activity, so stopping update.");
+                    return;
+                }
+
+                ImageUrlMap.replaceImageSources(bridge, result);
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+
+                /*
+                If anything bad happens during loading of a saved page, then simply bounce it
+                back to the online version of the page, and re-save the page contents locally when it's done.
+                 */
+
+                Log.d("LoadSavedPageTask", "Error loading saved page: " + caught.getMessage());
+                caught.printStackTrace();
+
+                refreshPage(true);
+            }
+        }.execute();
+    }
+
+    public void refreshPage(boolean saveOnComplete) {
+        this.saveOnComplete = saveOnComplete;
+        if (saveOnComplete) {
+            Toast.makeText(getActivity(), R.string.toast_refresh_saved_page, Toast.LENGTH_LONG).show();
+        }
+        curEntry = new HistoryEntry(title, HistoryEntry.SOURCE_HISTORY);
+        setState(STATE_NO_FETCH);
+        performActionForState(state);
     }
 
     private ToCHandler tocHandler;

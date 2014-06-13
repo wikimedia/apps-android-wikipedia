@@ -3,25 +3,26 @@ package org.wikipedia.editing;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Page;
+import org.wikipedia.page.PageViewFragment;
 import org.wikipedia.page.Section;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {
     public static final int REQUEST_EDIT_SECTION = 1;
     public static final int RESULT_REFRESH_PAGE = 1;
 
-    private final Fragment fragment;
+    private final PageViewFragment fragment;
     private final CommunicationBridge bridge;
     private ProtectedEditAttemptFunnel funnel;
     private Page currentPage;
 
-    public EditHandler(Fragment fragment, CommunicationBridge bridge) {
+    public EditHandler(PageViewFragment fragment, CommunicationBridge bridge) {
         this.fragment = fragment;
         this.bridge = bridge;
 
@@ -50,6 +51,25 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         if (messageType.equals("editSectionClicked")) {
+            if (fragment.getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+                new AlertDialog.Builder(fragment.getActivity())
+                        .setCancelable(false)
+                        .setMessage(R.string.edit_saved_page_refresh)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                fragment.refreshPage(true);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .show();
+                return;
+            }
             if (!currentPage.getPageProperties().canEdit()) {
                 showUneditableDialog();
                 return;

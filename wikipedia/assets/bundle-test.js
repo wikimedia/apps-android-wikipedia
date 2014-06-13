@@ -76,12 +76,20 @@ bridge.registerListener( "requestImagesList", function() {
     bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
 } );
 
-bridge.registerListener( "replaceImageSrc", function( payload ) {
+// reusing this function
+function replaceImageSrc( payload ) {
     var images = document.querySelectorAll( "img[src='" + payload.originalURL + "']" );
     for ( var i = 0; i < images.length; i++ ) {
         var img = images[i];
         img.setAttribute( "src", payload.newURL );
         img.setAttribute( "data-old-src", payload.originalURL );
+    }
+}
+bridge.registerListener( "replaceImageSrc", replaceImageSrc );
+
+bridge.registerListener( "replaceImageSources", function( payload ) {
+    for ( var i = 0; i < payload.img_map.length; i++ ) {
+        replaceImageSrc( payload.img_map[i] );
     }
 } );
 

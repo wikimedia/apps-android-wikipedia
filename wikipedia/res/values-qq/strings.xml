@@ -40,6 +40,7 @@
   <string name="toast_saving_page">Small toast (popup) message saying that a page is being bookmarked</string>
   <string name="toast_saved_page">Small toast (popup) message saying that a page has been bookmarked.</string>
   <string name="toast_save_page_failed">Small toast (popup) message saying that a page has failed to bookmark</string>
+  <string name="toast_refresh_saved_page">Small toast (popup) message saying that a saved page is being refreshed</string>
   <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected bookmarks</string>
   <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected bookmarks have been deleted</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted timestamp</string>
@@ -130,6 +131,7 @@
 {{Identical|Save anonymously}}</string>
   <string name="edit_save_action_login_description">Description for action that lets the user save the current edit anonymously</string>
   <string name="edit_save_action_ip_description">Description for action that takes user to login screen so they can login before saving an edit</string>
+  <string name="edit_saved_page_refresh">Dialog text that asks the user if they want to refresh the saved page, so that editing would be enabled.</string>
   <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
   <string name="history_search_list_hint">Hint for textbox that searches list of items in browsing history as user typesj</string>

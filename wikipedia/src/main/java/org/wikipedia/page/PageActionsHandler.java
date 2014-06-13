@@ -8,7 +8,7 @@ import android.view.View;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import org.wikipedia.R;
-import org.wikipedia.events.BookmarkPageEvent;
+import org.wikipedia.events.SavePageEvent;
 import org.wikipedia.events.PageStateChangeEvent;
 import org.wikipedia.events.SharePageEvent;
 import org.wikipedia.events.ShowOtherLanguagesEvent;
@@ -62,7 +62,7 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_save_page:
-                bus.post(new BookmarkPageEvent());
+                bus.post(new SavePageEvent());
                 break;
             case R.id.menu_share_page:
                 bus.post(new SharePageEvent());

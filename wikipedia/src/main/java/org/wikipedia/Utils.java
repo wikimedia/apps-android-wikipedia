@@ -35,10 +35,15 @@ import org.wikipedia.events.WikipediaZeroInterstitialEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.zero.WikipediaZeroTask;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -78,7 +83,7 @@ public final class Utils {
      * @param s String to hash
      * @return Base64'd MD5 representation of the string passed in
      */
-    public static String md5(final String s) {
+    public static String md5base64(final String s) {
         try {
             // Create MD5 Hash
             MessageDigest digest = java.security.MessageDigest
@@ -97,6 +102,48 @@ public final class Utils {
     }
 
     /**
+     * Creates an MD5 hash of the provided string and returns its ASCII representation
+     * @param s String to hash
+     * @return ASCII MD5 representation of the string passed in
+     */
+    public static String md5string(String s) {
+        StringBuilder hexStr = new StringBuilder();
+        try {
+            // Create MD5 Hash
+            MessageDigest digest = java.security.MessageDigest
+                    .getInstance("MD5");
+            digest.update(s.getBytes("utf-8"));
+            byte[] messageDigest = digest.digest();
+
+            for (byte b : messageDigest) {
+                hexStr.append(Integer.toHexString(0xFF & b));
+            }
+        } catch (NoSuchAlgorithmException e) {
+            // This will never happen, yes.
+            throw new RuntimeException(e);
+        } catch (UnsupportedEncodingException e) {
+            // This will never happen, yes.
+            throw new RuntimeException(e);
+        }
+        return hexStr.toString();
+    }
+
+    /**
+     * Deletes a file or directory, with optional recursion.
+     * @param path File or directory to delete.
+     * @param recursive Whether to delete all subdirectories and files.
+     */
+    public static void delete(File path, boolean recursive) {
+        if (recursive && path.isDirectory()) {
+            String[] children = path.list();
+            for (String child : children) {
+                delete(new File(path, child), recursive);
+            }
+        }
+        path.delete();
+    }
+
+    /**
      * Returns the local file name for a remote image.
      *
      * Warning: Should be kept stable between releases.
@@ -106,11 +153,11 @@ public final class Utils {
     public static String imageUrlToFileName(String url) {
         String[] protocolParts = url.split("://");
         return "saved-image-"
-                + md5(protocolParts[protocolParts.length - 1]);
+                + md5base64(protocolParts[protocolParts.length - 1]);
     }
 
     /**
-     * Add some utility methods to a communuication bridge, that can be called synchronously from JS
+     * Add some utility methods to a communication bridge, that can be called synchronously from JS
      */
     public static void addUtilityMethodsToBridge(final Context context, final CommunicationBridge bridge) {
         bridge.addListener("imageUrlToFilePath", new CommunicationBridge.JSEventListener() {
@@ -470,6 +517,41 @@ public final class Utils {
         int len;
         while ((len = in.read(buffer)) != -1) {
             out.write(buffer, 0, len);
+        }
+    }
+
+    /**
+     * Write a JSON object to a file
+     * @param file file to be written
+     * @param jsonObject content of file
+     * @throws IOException when writing failed
+     */
+    public static void writeToFile(File file, JSONObject jsonObject) throws IOException {
+        OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file));
+        try {
+            writer.write(jsonObject.toString());
+        } finally {
+            writer.close();
+        }
+    }
+
+    /**
+     * Reads the contents of this page from storage.
+     * @return Page object with the contents of the page.
+     * @throws IOException
+     * @throws JSONException
+     */
+    public static JSONObject readJSONFile(File f) throws IOException, JSONException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+        try {
+            StringBuilder stringBuilder = new StringBuilder();
+            String readStr = "";
+            while ((readStr = reader.readLine()) != null) {
+                stringBuilder.append(readStr);
+            }
+            return new JSONObject(stringBuilder.toString());
+        } finally {
+            reader.close();
         }
     }
 

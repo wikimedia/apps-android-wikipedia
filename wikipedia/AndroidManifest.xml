@@ -46,7 +46,7 @@
         </activity>
 
         <activity
-                android:name=".bookmarks.BookmarksActivity"
+                android:name=".savedpages.SavedPagesActivity"
                 android:label="@string/saved_pages_activity_title"
                 android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 >
@@ -109,8 +109,8 @@
                 />
 
         <provider
-                android:authorities="org.wikipedia.bookmarks"
-                android:name=".bookmarks.BookmarkContentProvider"
+                android:authorities="org.wikipedia.savedpages"
+                android:name=".savedpages.SavedPageContentProvider"
                 />
 
     </application>

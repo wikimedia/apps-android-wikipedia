@@ -135,12 +135,20 @@ bridge.registerListener( "requestImagesList", function() {
     bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
 } );
 
-bridge.registerListener( "replaceImageSrc", function( payload ) {
+// reusing this function
+function replaceImageSrc( payload ) {
     var images = document.querySelectorAll( "img[src='" + payload.originalURL + "']" );
     for ( var i = 0; i < images.length; i++ ) {
         var img = images[i];
         img.setAttribute( "src", payload.newURL );
         img.setAttribute( "data-old-src", payload.originalURL );
+    }
+}
+bridge.registerListener( "replaceImageSrc", replaceImageSrc );
+
+bridge.registerListener( "replaceImageSources", function( payload ) {
+    for ( var i = 0; i < payload.img_map.length; i++ ) {
+        replaceImageSrc( payload.img_map[i] );
     }
 } );
 
@@ -185,9 +193,13 @@ bridge.registerListener( "setDirectionality", function( payload ) {
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 
+bridge.registerListener( "clearContents", function() {
+    clearContents();
+});
+
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!
-    document.getElementById( "content" ).innerHTML = "";
+    clearContents();
 
     var title = document.createElement( "h1" );
     title.innerHTML = payload.title;
@@ -211,6 +223,12 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     document.getElementById( "loading_sections").className = "loading";
 });
+
+function clearContents() {
+    document.getElementById( "content" ).innerHTML = "";
+	document.getElementById( "lastupdated" ).innerHTML = "";
+	document.getElementById( "licensetext" ).innerHTML = "";
+}
 
 function elementsForSection( section ) {
     var heading = document.createElement( "h" + ( section.toclevel + 1 ) );

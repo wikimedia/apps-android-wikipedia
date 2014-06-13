@@ -5,8 +5,8 @@ import org.json.JSONObject;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.bookmarks.Bookmark;
-import org.wikipedia.bookmarks.BookmarkPersister;
+import org.wikipedia.savedpages.SavedPage;
+import org.wikipedia.savedpages.SavedPagePersister;
 
 import java.util.List;
 
@@ -19,12 +19,12 @@ public class ArticleImporter {
 
     public void importArticles(List<JSONObject> articles) {
         //
-        BookmarkPersister persister = (BookmarkPersister) app.getPersister(Bookmark.class);
+        SavedPagePersister persister = (SavedPagePersister) app.getPersister(SavedPage.class);
 
         for (JSONObject item : articles) {
             PageTitle title = titleForItem(item);
-            Bookmark bookmark = new Bookmark(title);
-            persister.upsert(bookmark);
+            SavedPage savedPage = new SavedPage(title);
+            persister.upsert(savedPage);
         }
     }
 

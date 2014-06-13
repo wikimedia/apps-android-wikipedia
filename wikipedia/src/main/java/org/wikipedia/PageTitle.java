@@ -87,7 +87,7 @@ public class PageTitle implements Parcelable {
     }
 
     public String getHashedItentifier() {
-        return Utils.md5(String.format("%1$s/%2$s", getSite().getDomain(), getPrefixedText()));
+        return Utils.md5base64(String.format("%1$s/%2$s", getSite().getDomain(), getPrefixedText()));
     }
 
     public JSONObject toJSON() {
