@@ -24,7 +24,6 @@ import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.*;
 import org.wikipedia.savedpages.SavedPagesActivity;
-import org.wikipedia.events.SavePageEvent;
 import org.wikipedia.history.HistoryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
@@ -49,6 +48,7 @@ public class PageActivity extends ActionBarActivity {
 
     private SearchArticlesFragment searchArticlesFragment;
     private DrawerLayout drawerLayout;
+    private FindInPageFragment findInPageFragment;
 
     /**
      * Container that will hold our WebViews, and animate between them.
@@ -56,6 +56,9 @@ public class PageActivity extends ActionBarActivity {
     private PageFragmentPager fragmentPager;
 
     private PageViewFragment curPageFragment;
+    public PageViewFragment getCurPageFragment() {
+        return curPageFragment;
+    }
 
     private PageFragmentAdapter fragmentAdapter;
 
@@ -90,6 +93,7 @@ public class PageActivity extends ActionBarActivity {
         bus = app.getBus();
         bus.register(this);
 
+        findInPageFragment = (FindInPageFragment) getSupportFragmentManager().findFragmentById(R.id.find_in_page_fragment);
         searchArticlesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -155,6 +159,8 @@ public class PageActivity extends ActionBarActivity {
         if (drawerLayout.isDrawerOpen(Gravity.START)) {
             drawerLayout.closeDrawer(Gravity.START);
         }
+        findInPageFragment.clear();
+        findInPageFragment.hide();
         if (title.isSpecial()) {
             Utils.visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
             return;
@@ -225,14 +231,25 @@ public class PageActivity extends ActionBarActivity {
     public void onShowToCEvent(ShowToCEvent event) {
         curPageFragment.toggleToC();
     }
+
+    @Subscribe
+    public void onFindInPage(FindInPageEvent event) {
+        findInPageFragment.show();
+    }
+
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(Gravity.START)) {
             drawerLayout.closeDrawer(Gravity.START);
             return;
         }
-        if (!searchArticlesFragment.handleBackPressed()
-                && !(curPageFragment != null && curPageFragment.handleBackPressed())) {
+        if (findInPageFragment.handleBackPressed()) {
+            return;
+        }
+        if (searchArticlesFragment.handleBackPressed()) {
+            return;
+        }
+        if(!(curPageFragment != null && curPageFragment.handleBackPressed())) {
             if (backStack.size() <= 1) {
                 // Everything we could pop has been popped....
                 finish();

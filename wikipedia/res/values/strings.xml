@@ -173,4 +173,8 @@
     <string name="edit_summary_tag_links">Added links</string>
     <string name="edit_summary_tag_other">Other</string>
     <string name="edit_summary_tag_other_hint">Other ways you improved the page</string>
+    <string name="find_in_page">Find in page</string>
+    <string name="find_next">Find next</string>
+    <string name="find_previous">Find previous</string>
+    <string name="find_close">Close find bar</string>
 </resources>

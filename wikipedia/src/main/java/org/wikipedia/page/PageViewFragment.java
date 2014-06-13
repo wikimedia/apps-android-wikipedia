@@ -141,6 +141,10 @@ public class PageViewFragment extends Fragment {
     public PageViewFragment() {
     }
 
+    public ObservableWebView getWebView() {
+        return webView;
+    }
+
     public PageTitle getTitle() {
         return title;
     }

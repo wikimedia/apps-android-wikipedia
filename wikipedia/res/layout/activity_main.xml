@@ -28,4 +28,10 @@
             android:layout_gravity="top"
             tools:layout="@layout/fragment_search"/>
     </LinearLayout>
+    <fragment android:id="@+id/find_in_page_fragment"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:name="org.wikipedia.page.FindInPageFragment"
+              android:layout_gravity="top"
+              tools:layout="@layout/fragment_find_in_page"/>
 </FrameLayout>

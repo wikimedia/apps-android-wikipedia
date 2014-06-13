@@ -166,4 +166,8 @@
   <string name="edit_summary_tag_links">Clickable summary tag for adding link(s)</string>
   <string name="edit_summary_tag_other">Clickable summary tag for a custom/other edit summary text</string>
   <string name="edit_summary_tag_other_hint">Hint for the user to write a custom summary of edits</string>
+  <string name="find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
+  <string name="find_next">Text for button that finds the next occurrence of a search term</string>
+  <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
+  <string name="find_close">Text for button that closes the find-in-page bar</string>
 </resources>
