@@ -5,8 +5,6 @@
     <item
         android:id="@+id/menu_save_section"
         android:enabled="false"
-        android:icon="@drawable/ic_save"
         android:title="@string/menu_save_changes"
-        app:showAsAction="always" />
-
+        app:showAsAction="always|withText" />
 </menu>

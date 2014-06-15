@@ -39,7 +39,7 @@
 
     <string name="last_updated_text">Last updated %s</string>
     <string name="content_license_html"><![CDATA[Content is available under <a href=\"//creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
-    <string name="edit_save_action_license">By saving, you agree to our <a href="https://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and release your contributions under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA 3.0</a> license.</string>
+    <string name="edit_save_action_license">By saving, you agree to irrevocably release your contributions under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA 3.0</a> licence.</string>
     <string name="preference_title_language">Wikipedia language</string>
     <string name="preference_summary_language">Content language</string>
     <string name="nav_item_preferences">Settings</string>
@@ -50,7 +50,6 @@
     <string name="langlinks_empty">This page is not available in other languages</string>
     <string name="settings_activity_title">Settings</string>
     <string name="langlinks_activity_title">Other languages</string>
-    <string name="editsection_activity_title">Edit Section</string>
     <string name="menu_save_changes">Save changes</string>
     <string name="edit_section_error_retry">Retry</string>
     <string name="dialog_saving_in_progress">Saving...</string>
@@ -165,4 +164,13 @@
     <string name="user_blocked_from_editing_title">Blocked</string>
     <string name="user_logged_in_blocked_from_editing" type="id">Your user account has been blocked from editing on this wiki.</string>
     <string name="user_anon_blocked_from_editing" type="id">Your IP address has been blocked from editing.</string>
+    <string name="edit_how_page_improved">How did you improve the page?</string>
+    <string name="edit_next">Next</string>
+    <string name="edit_done">Done</string>
+    <string name="edit_preview">Preview</string>
+    <string name="edit_summary_tag_typo">Fixed typo</string>
+    <string name="edit_summary_tag_grammar">Fixed grammar</string>
+    <string name="edit_summary_tag_links">Added links</string>
+    <string name="edit_summary_tag_other">Other</string>
+    <string name="edit_summary_tag_other_hint">Other ways you improved the page</string>
 </resources>

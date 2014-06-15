@@ -75,7 +75,6 @@
                 />
         <activity android:name=".editing.EditSectionActivity"
                   android:windowSoftInputMode="adjustResize|stateVisible"
-                  android:label="@string/edit_section_activity_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
         <activity android:name=".login.LoginActivity"

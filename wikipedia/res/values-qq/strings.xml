@@ -157,4 +157,13 @@
   <string name="user_blocked_from_editing_title">Title of dialog box that pops up when user (anon or logged in) is blocked</string>
   <string name="user_logged_in_blocked_from_editing">Message shown in dialog box to users who are blocked from editing when they attempt to save an edit</string>
   <string name="user_anon_blocked_from_editing">Message shown in dialog box to users who are blocked from editing based on their IP address</string>
+  <string name="edit_how_page_improved">Question that asks the user how they improved the article after editing</string>
+  <string name="edit_next">Button text to go "next" after the editing screen to the preview screen</string>
+  <string name="edit_done">Button text to finish editing and save the changes</string>
+  <string name="edit_preview">Header text to show above the preview of the edited article</string>
+  <string name="edit_summary_tag_typo">Clickable summary tag for fixing a typo</string>
+  <string name="edit_summary_tag_grammar">Clickable summary tag for fixing grammar</string>
+  <string name="edit_summary_tag_links">Clickable summary tag for adding link(s)</string>
+  <string name="edit_summary_tag_other">Clickable summary tag for a custom/other edit summary text</string>
+  <string name="edit_summary_tag_other_hint">Hint for the user to write a custom summary of edits</string>
 </resources>

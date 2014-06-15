@@ -88,7 +88,7 @@ public class CreateAccountActivity extends ActionBarActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage(getString(R.string.dialog_create_account_checking_progress));
 
-        captchaHandler = new CaptchaHandler(this, app.getPrimarySite(), progressDialog, primaryContainer, R.string.create_account_activity_title);
+        captchaHandler = new CaptchaHandler(this, app.getPrimarySite(), progressDialog, primaryContainer, getString(R.string.create_account_activity_title));
 
         // We enable the menu item as soon as the username and password fields are filled
         // Tapping does further validation

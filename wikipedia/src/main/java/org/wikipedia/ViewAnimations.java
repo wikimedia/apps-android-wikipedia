@@ -29,12 +29,37 @@ public final class ViewAnimations {
      * @param view The currently invisible view to be faded in
      */
     public static void fadeIn(final View view) {
+        fadeIn(view, null);
+    }
+
+    /**
+     * Fades in a view.
+     * @param view The currently invisible view to be faded in
+     * @param runOnComplete Optional Runnable to be run when the animation is complete (may be null).
+     */
+    public static void fadeIn(final View view, final Runnable runOnComplete) {
         ViewHelper.setAlpha(view, 0f);
         view.setVisibility(View.VISIBLE);
         animate(view)
                 .alpha(1.0f)
                 .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
-                .setListener(null)
+                .setListener(new AnimatorListenerAdapter() {
+                    private boolean wasCanceled = false;
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+                        wasCanceled = true;
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        if (!wasCanceled) {
+                            if (runOnComplete != null) {
+                                runOnComplete.run();
+                            }
+                        }
+                    }
+                })
                 .start();
     }
 
@@ -43,6 +68,15 @@ public final class ViewAnimations {
      * @param view The currently visible view to be faded out
      */
     public static void fadeOut(final View view) {
+        fadeOut(view, null);
+    }
+
+    /**
+     * Fades out a view.
+     * @param view The currently visible view to be faded out
+     * @param runOnComplete Optional Runnable to be run when the animation is complete (may be null).
+     */
+    public static void fadeOut(final View view, final Runnable runOnComplete) {
         animate(view)
                 .alpha(0f)
                 .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
@@ -61,9 +95,13 @@ public final class ViewAnimations {
                             // There's another animation now pushing the alpha back up
                             view.setVisibility(View.GONE);
                             ViewHelper.setAlpha(view, 1.0f);
+                            if (runOnComplete != null) {
+                                runOnComplete.run();
+                            }
                         }
                     }
-                });
+                })
+                .start();
     }
 
     /**

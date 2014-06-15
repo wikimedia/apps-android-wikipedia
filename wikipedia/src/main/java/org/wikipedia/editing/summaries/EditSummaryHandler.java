@@ -6,7 +6,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.RemoteException;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
@@ -25,11 +24,10 @@ public class EditSummaryHandler {
     private final AutoCompleteTextView summaryEdit;
     private final EditSummaryAdapter adapter;
 
-    public EditSummaryHandler(final Activity activity, PageTitle title) {
+    public EditSummaryHandler(final Activity activity, final View parent, PageTitle title) {
         this.activity = activity;
-
-        container = activity.findViewById(R.id.group_edit_summary_container);
-        summaryEdit = (AutoCompleteTextView)activity.findViewById(R.id.group_edit_summary_edit);
+        container = parent.findViewById(R.id.edit_summary_container);
+        summaryEdit = (AutoCompleteTextView)parent.findViewById(R.id.edit_summary_edit);
 
         container.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,14 +77,6 @@ public class EditSummaryHandler {
 
     public void show() {
         container.setVisibility(View.VISIBLE);
-    }
-
-    public String getSummary(String sectionHeader) {
-        if (TextUtils.isEmpty(sectionHeader)) {
-            return summaryEdit.getText().toString();
-        } else {
-            return "/* " + sectionHeader + " */ " + summaryEdit.getText().toString();
-        }
     }
 
     public void persistSummary() {

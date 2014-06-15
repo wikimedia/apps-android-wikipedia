@@ -26,16 +26,16 @@ public class CaptchaHandler {
     private ProgressDialog progressDialog;
     private View primaryView;
 
-    private int prevTitleId;
+    private String prevTitle;
 
     private CaptchaResult captchaResult;
 
-    public CaptchaHandler(final Activity activity, final Site site, final ProgressDialog progressDialog, final View primaryView, final int prevTitleId) {
+    public CaptchaHandler(final Activity activity, final Site site, final ProgressDialog progressDialog, final View primaryView, final String prevTitle) {
         this.activity = activity;
         this.site = site;
         this.progressDialog = progressDialog;
         this.primaryView = primaryView;
-        this.prevTitleId = prevTitleId;
+        this.prevTitle = prevTitle;
 
         captchaContainer = activity.findViewById(R.id.captcha_container);
         captchaImage = (ImageView) activity.findViewById(R.id.captcha_image);
@@ -111,7 +111,7 @@ public class CaptchaHandler {
     }
 
     public void hideCaptcha() {
-        ((ActionBarActivity)activity).getSupportActionBar().setTitle(prevTitleId);
+        ((ActionBarActivity)activity).getSupportActionBar().setTitle(prevTitle);
         ViewAnimations.crossFade(captchaContainer, primaryView);
     }
 

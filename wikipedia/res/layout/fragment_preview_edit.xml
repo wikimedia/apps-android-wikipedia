@@ -1,16 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/edit_preview_container"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:visibility="gone"
-        >
-    <org.wikipedia.ObservableWebView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/edit_preview_webview"
-            />
+            android:id="@+id/edit_preview_container"
+            android:visibility="gone"
+            android:background="@android:color/background_light"
+            >
 
-</LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                >
+
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/edit_how_page_improved"
+                    android:id="@+id/textView"/>
+
+            <org.wikipedia.views.FlowLayout
+                    android:id="@+id/edit_summary_tags_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    >
+
+            </org.wikipedia.views.FlowLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                >
+
+            <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/cc_logo"
+                    />
+
+            <TextView
+                    android:id="@+id/edit_section_license_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/edit_save_action_license"
+                    android:textColor="@color/license_text_light"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:layout_gravity="top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/edit_preview"
+                android:background="@color/preview_header_background"
+                android:gravity="center_vertical"/>
+
+        <org.wikipedia.ObservableWebView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:id="@+id/edit_preview_webview"
+                />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -4,19 +4,19 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
@@ -35,7 +35,7 @@ import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleLoader;
-import org.wikipedia.editing.summaries.EditSummaryHandler;
+import org.wikipedia.editing.summaries.EditSummaryFragment;
 import org.wikipedia.events.WikipediaZeroInterstitialEvent;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.login.LoginResult;
@@ -57,6 +57,10 @@ public class EditSectionActivity extends ActionBarActivity {
     private Bus bus;
 
     private PageTitle title;
+    public PageTitle getPageTitle() {
+        return title;
+    }
+
     private Section section;
     private PageProperties pageProps;
 
@@ -79,14 +83,11 @@ public class EditSectionActivity extends ActionBarActivity {
     private AbuseFilterEditResult abusefilterEditResult;
 
     private CaptchaHandler captchaHandler;
-    private EditSummaryHandler editSummaryHandler;
 
     private EditPreviewFragment editPreviewFragment;
 
-    private View editSaveOptionsContainer;
-    private View editSaveOptionAnon;
-    private View editSaveOptionLogIn;
-    private View editLicenseContainer;
+    private EditSummaryFragment editSummaryFragment;
+
     private TextView editLicenseText;
 
     private EditFunnel funnel;
@@ -109,7 +110,7 @@ public class EditSectionActivity extends ActionBarActivity {
 
         progressDialog = new ProgressDialog(this);
 
-        getSupportActionBar().setTitle(getString(R.string.editsection_activity_title));
+        getSupportActionBar().setTitle("");
 
         sectionText = (EditText) findViewById(R.id.edit_section_text);
         sectionProgress = findViewById(R.id.edit_section_load_progress);
@@ -124,17 +125,14 @@ public class EditSectionActivity extends ActionBarActivity {
         abusefilterBridge.injectStyleBundle(app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_ABUSEFILTER, title.getSite()));
         abuseFilterBackAction = findViewById(R.id.edit_section_abusefilter_back);
 
-        captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, R.string.edit_section_activity_title);
-        editSummaryHandler = new EditSummaryHandler(this, title);
-        editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
+        captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, "");
 
-        editSaveOptionsContainer = findViewById(R.id.edit_section_save_options_container);
-        editSaveOptionLogIn = findViewById(R.id.edit_section_save_option_login);
-        editSaveOptionAnon = findViewById(R.id.edit_section_save_option_anon);
-        editLicenseContainer = findViewById(R.id.edit_section_license_container);
+        editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
+        editSummaryFragment = (EditSummaryFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_summary_fragment);
+
         editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
 
-        editPreviewFragment.setEditSummaryHandler(editSummaryHandler);
+        editSummaryFragment.setTitle(title);
 
         bus = app.getBus();
         bus.register(this);
@@ -165,29 +163,6 @@ public class EditSectionActivity extends ActionBarActivity {
             }
         });
 
-        editSaveOptionAnon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                wasSaveOptionsUsed = true;
-                ViewAnimations.fadeOut(editSaveOptionsContainer);
-                ViewAnimations.fadeOut(editLicenseContainer);
-                funnel.logSaveAnonExplicit();
-                doSave();
-            }
-        });
-
-        editSaveOptionLogIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                wasSaveOptionsUsed = true;
-                funnel.logLoginAttempt();
-                Intent loginIntent = new Intent(EditSectionActivity.this, LoginActivity.class);
-                loginIntent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_EDIT);
-                loginIntent.putExtra(LoginActivity.EDIT_SESSION_TOKEN, funnel.getEditSessionToken());
-                startActivityForResult(loginIntent, LoginActivity.REQUEST_LOGIN);
-            }
-        });
-
         editLicenseText.setMovementMethod(new LinkMovementMethodExt(this));
 
         Utils.setTextDirection(sectionText, title.getSite().getLanguage());
@@ -215,7 +190,11 @@ public class EditSectionActivity extends ActionBarActivity {
                     sectionTextFirstLoad = false;
                     return;
                 }
-                sectionTextModified = true;
+                if (!sectionTextModified) {
+                    sectionTextModified = true;
+                    // update the actionbar menu, which will enable the Next button.
+                    supportInvalidateOptionsMenu();
+                }
             }
         });
     }
@@ -255,8 +234,6 @@ public class EditSectionActivity extends ActionBarActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == LoginActivity.REQUEST_LOGIN) {
             if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-                ViewAnimations.fadeOut(editSaveOptionsContainer);
-                ViewAnimations.fadeOut(editLicenseContainer);
                 doSave();
                 funnel.logLoginSuccess();
             } else {
@@ -271,10 +248,15 @@ public class EditSectionActivity extends ActionBarActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage(getString(R.string.dialog_saving_in_progress));
         captchaHandler.hideCaptcha();
+        editSummaryFragment.saveSummary();
         app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetreivedCallback() {
             @Override
             public void onTokenRetreived(final String token) {
-                new DoEditTask(EditSectionActivity.this, title, sectionText.getText().toString(), section.getId(), token, editSummaryHandler.getSummary(section.getHeading())) {
+
+                String summaryText = TextUtils.isEmpty(section.getHeading()) ? "" : ("/* " + section.getHeading() + " */ ");
+                summaryText += editPreviewFragment.getSummary();
+
+                new DoEditTask(EditSectionActivity.this, title, sectionText.getText().toString(), section.getId(), token, summaryText) {
                     @Override
                     public void onBeforeExecute() {
                         progressDialog.show();
@@ -391,6 +373,7 @@ public class EditSectionActivity extends ActionBarActivity {
                         } else if (result instanceof AbuseFilterEditResult) {
                             abusefilterEditResult = (AbuseFilterEditResult) result;
                             handleAbuseFilter();
+                            editPreviewFragment.hide();
                         } else if (result instanceof SpamBlacklistEditResult) {
                             Crouton.makeText(
                                     EditSectionActivity.this,
@@ -429,33 +412,42 @@ public class EditSectionActivity extends ActionBarActivity {
         }
         abusefilterBridge.sendMessage("displayWarning", payload);
         Utils.hideSoftKeyboard(this);
-        ViewAnimations.fadeIn(abusefilterContainer);
+        ViewAnimations.fadeIn(abusefilterContainer, new Runnable() {
+            @Override
+            public void run() {
+                supportInvalidateOptionsMenu();
+            }
+        });
+
         progressDialog.dismiss();
     }
 
 
     private void cancelAbuseFilter() {
         abusefilterEditResult = null;
-        getSupportActionBar().setTitle(R.string.editsection_activity_title);
-        ViewAnimations.crossFade(abusefilterContainer, sectionContainer);
+        ViewAnimations.fadeOut(abusefilterContainer, new Runnable() {
+            @Override
+            public void run() {
+                supportInvalidateOptionsMenu();
+            }
+        });
     }
 
     /**
-     * Set to true if the Save Options were ever used - if any one was tapped on.
-     * If they were, we do not show it again.
+     * Executes a click of the actionbar button, and performs the appropriate action
+     * based on the current state of the button.
      */
-    private boolean wasSaveOptionsUsed = false;
-    private void showSaveOptions() {
-        if (editSaveOptionsContainer.getVisibility() == View.VISIBLE
-                || wasSaveOptionsUsed) {
+    public void clickNextButton() {
+        if (editSummaryFragment.isActive()) {
+            editSummaryFragment.hide();
+            editPreviewFragment.setCustomSummary(editSummaryFragment.getSummary());
+        } else if (editPreviewFragment.isActive()) {
             doSave();
         } else {
-            ViewAnimations.fadeIn(editSaveOptionsContainer);
+            Utils.hideSoftKeyboard(this);
+            editPreviewFragment.showPreview(title, sectionText.getText().toString());
+            funnel.logPreview();
         }
-    }
-
-    private void showLicense() {
-        ViewAnimations.fadeIn(editLicenseContainer);
     }
 
     @Override
@@ -465,27 +457,7 @@ public class EditSectionActivity extends ActionBarActivity {
                 onBackPressed();
                 return true;
             case R.id.menu_save_section:
-                if (!sectionTextModified) {
-                    Toast.makeText(this, getString(R.string.edit_unchanged), Toast.LENGTH_SHORT).show();
-                } else {
-                    if (editPreviewFragment.isActive()) {
-                        if (app.getUserInfoStorage().isLoggedIn()) {
-                            editPreviewFragment.hide();
-                            doSave();
-                        } else {
-                            showSaveOptions();
-                            showLicense();
-                        }
-                        editSummaryHandler.persistSummary();
-                    } else {
-                        Utils.hideSoftKeyboard(this);
-                        editPreviewFragment.showPreview(title, sectionText.getText().toString());
-                        if (app.getUserInfoStorage().isLoggedIn()) {
-                            showLicense();
-                        }
-                        funnel.logPreview();
-                    }
-                }
+                clickNextButton();
                 return true;
             default:
                 throw new RuntimeException("WAT");
@@ -495,7 +467,48 @@ public class EditSectionActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_edit_section, menu);
-        menu.findItem(R.id.menu_save_section).setEnabled(sectionWikitext != null);
+        MenuItem item = menu.findItem(R.id.menu_save_section);
+
+        if (editSummaryFragment.isActive()) {
+            item.setTitle(getString(R.string.edit_next));
+        } else if (editPreviewFragment.isActive()) {
+            item.setTitle(getString(R.string.edit_done));
+        } else {
+            item.setTitle(getString(R.string.edit_next));
+        }
+
+        if (abusefilterEditResult != null) {
+            item.setEnabled(false);
+        } else {
+            item.setEnabled(sectionTextModified);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            View v = getLayoutInflater().inflate(R.layout.item_edit_actionbar_button, null);
+            item.setActionView(v);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT);
+            v.setLayoutParams(params);
+            ((TextView) v.findViewById(R.id.edit_actionbar_button_text)).setText(item.getTitle());
+            v.setTag(item);
+            v.setClickable(true);
+            v.setEnabled(item.isEnabled());
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onOptionsItemSelected((MenuItem) view.getTag());
+                }
+            });
+
+            if (editSummaryFragment.isActive()) {
+                v.setBackgroundResource(R.drawable.editpage_button_background_progressive);
+            } else if (editPreviewFragment.isActive()) {
+                v.setBackgroundResource(R.drawable.editpage_button_background_complete);
+            } else {
+                v.setBackgroundResource(R.drawable.editpage_button_background_progressive);
+            }
+        }
+
         return true;
     }
 
@@ -514,7 +527,6 @@ public class EditSectionActivity extends ActionBarActivity {
                 @Override
                 public void onFinish(String result) {
                     sectionWikitext = result;
-                    supportInvalidateOptionsMenu();
                     displaySectionText();
                 }
 
@@ -552,41 +564,49 @@ public class EditSectionActivity extends ActionBarActivity {
         }
     }
 
+    /**
+     * Shows the custom edit summary input fragment, where the user may enter a summary
+     * that's different from the standard summary tags.
+     */
+    public void showCustomSummary() {
+        editSummaryFragment.show();
+    }
+
     @Override
     public void onBackPressed() {
-        if (editLicenseContainer.isShown()) {
-            ViewAnimations.fadeOut(editLicenseContainer);
+        if (captchaHandler.isActive()) {
+            captchaHandler.cancelCaptcha();
         }
-        if (editSaveOptionsContainer.isShown()) {
-            ViewAnimations.fadeOut(editSaveOptionsContainer);
+        if (abusefilterEditResult != null) {
+            cancelAbuseFilter();
             return;
         }
-        if (!(editPreviewFragment.handleBackPressed())) {
-            if (!captchaHandler.cancelCaptcha() && abusefilterEditResult != null) {
-                cancelAbuseFilter();
-            } else {
-                Utils.hideSoftKeyboard(this);
+        if (editSummaryFragment.handleBackPressed()) {
+            return;
+        }
+        if (editPreviewFragment.handleBackPressed()) {
+            return;
+        }
 
-                if (sectionTextModified) {
-                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                    alert.setMessage(getString(R.string.edit_abandon_confirm));
-                    alert.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                            finish();
-                        }
-                    });
-                    alert.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                        }
-                    });
-                    alert.create().show();
-                } else {
+        Utils.hideSoftKeyboard(this);
+
+        if (sectionTextModified) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setMessage(getString(R.string.edit_abandon_confirm));
+            alert.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.dismiss();
                     finish();
                 }
-
-            }
+            });
+            alert.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.dismiss();
+                }
+            });
+            alert.create().show();
+        } else {
+            finish();
         }
     }
 

@@ -4,6 +4,13 @@
     <color name="nav_background">#ff000000</color>
     <color name="nav_item_highlight">#ff404040</color>
     <color name="nav_separator">#ff606060</color>
+    <color name="license_text_light">#A0A0A0</color>
+    <color name="actionbar_disabled">#A0A0A0</color>
+    <color name="preview_header_background">#D0D0D0</color>
+    <color name="blue_progressive">#347BFF</color>
+    <color name="blue_progressive_dark">#1A3D7F</color>
+    <color name="green_complete">#00AF89</color>
+    <color name="green_complete_dark">#005744</color>
 
     <!-- Copied for 2.3 -->
     <color name="holo_green_light">#ff99cc00</color>
