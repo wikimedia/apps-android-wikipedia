@@ -604,4 +604,22 @@ public final class Utils {
         }
         return stringArray;
     }
+
+
+    /**
+     * Resolves a potentially protocol relative URL to a 'full' URL
+     *
+     * @param url Url to check for (and fix) protocol relativeness
+     * @return A fully qualified, protocol specified URL
+     */
+    public static String resolveProtoclRelativeUrl(String url) {
+        String fullUrl;
+        if (url.startsWith("//")) {
+            // That's a protocol specific link! Make it https!
+            fullUrl = WikipediaApp.PROTOCOL + ":" + url;
+        } else {
+            fullUrl = url;
+        }
+        return fullUrl;
+    }
 }

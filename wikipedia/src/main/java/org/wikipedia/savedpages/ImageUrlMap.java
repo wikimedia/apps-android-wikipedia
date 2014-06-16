@@ -21,16 +21,24 @@ import java.util.Map;
 public class ImageUrlMap {
     private final Map<String, String> urlMap;
 
-    ImageUrlMap(Builder builder) {
-        this.urlMap = Collections.unmodifiableMap(builder.urlMap);
+    private ImageUrlMap(Builder builder) {
+        // Mostly since multiple threads can attempt to remove things at the same time
+        // in SavePageTasak, if multiple images fail. Easier than synchronizing
+        // just the removes.
+        this.urlMap = Collections.synchronizedMap(builder.urlMap);
     }
 
     public Iterable<? extends Map.Entry<String, String>> entrySet() {
         return urlMap.entrySet();
     }
 
-    int size() {
+    public int size() {
         return urlMap.size();
+    }
+
+    /** Call this if an image failed to be saved */
+    public void remove(String url) {
+        urlMap.remove(url);
     }
 
     /**
