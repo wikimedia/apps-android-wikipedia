@@ -25,10 +25,7 @@ import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.savedpages.ImageUrlMap;
-import org.wikipedia.savedpages.LoadSavedPageTask;
-import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
-import org.wikipedia.savedpages.SavePageTask;
+import org.wikipedia.analytics.SavedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.concurrency.SaneAsyncTask;
@@ -37,6 +34,10 @@ import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.events.PageStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImageSaveTask;
+import org.wikipedia.savedpages.ImageUrlMap;
+import org.wikipedia.savedpages.LoadSavedPageTask;
+import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
+import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.views.DisableableDrawerLayout;
 
@@ -129,6 +130,8 @@ public class PageViewFragment extends Fragment {
     private int quickReturnBarId;
 
     private View quickReturnBar;
+
+    private SavedPagesFunnel savedPagesFunnel;
 
     // Pass in the id rather than the View object itself for the quickReturn bar, to help it survive rotates
     public PageViewFragment(int pagerIndex, PageTitle title, HistoryEntry historyEntry, int quickReturnBarId) {
@@ -293,6 +296,8 @@ public class PageViewFragment extends Fragment {
         // disable TOC drawer until the page is loaded
         tocDrawer.setSlidingEnabled(false);
         searchArticlesFragment.setTocEnabled(false);
+
+        savedPagesFunnel = app.getFunnelManager().getSavedPagesFunnel(title.getSite());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             // Enable Pinch-Zoom
@@ -515,6 +520,7 @@ public class PageViewFragment extends Fragment {
 
             if (saveOnComplete) {
                 saveOnComplete = false;
+                savedPagesFunnel.logUpdate();
                 savePage();
             }
         }

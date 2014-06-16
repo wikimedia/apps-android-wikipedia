@@ -204,6 +204,9 @@ public class PageActivity extends ActionBarActivity {
 
     @Subscribe
     public void onPageSaveEvent(SavePageEvent event) {
+        // This means the user explicitly chose to save a new saved pages
+        app.getFunnelManager().getSavedPagesFunnel(curPageFragment.getTitle().getSite()).logSaveNew();
+
         curPageFragment.savePage();
     }
 

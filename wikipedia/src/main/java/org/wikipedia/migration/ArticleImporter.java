@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.SavedPagesFunnel;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.savedpages.SavedPagePersister;
 
@@ -18,12 +19,13 @@ public class ArticleImporter {
     }
 
     public void importArticles(List<JSONObject> articles) {
-        //
         SavedPagePersister persister = (SavedPagePersister) app.getPersister(SavedPage.class);
 
         for (JSONObject item : articles) {
             PageTitle title = titleForItem(item);
             SavedPage savedPage = new SavedPage(title);
+            SavedPagesFunnel funnel = app.getFunnelManager().getSavedPagesFunnel(title.getSite());
+            funnel.logImport();
             persister.upsert(savedPage);
         }
     }

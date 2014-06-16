@@ -1,6 +1,7 @@
 package org.wikipedia.analytics;
 
 import org.wikipedia.PageTitle;
+import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 
 import java.util.Hashtable;
@@ -11,6 +12,7 @@ import java.util.Hashtable;
 public class FunnelManager {
     private final WikipediaApp app;
     private final Hashtable<PageTitle, EditFunnel> editFunnels = new Hashtable<PageTitle, EditFunnel>();
+    private final Hashtable<Site, SavedPagesFunnel> savedPageFunnels = new Hashtable<Site, SavedPagesFunnel>();
 
     public FunnelManager(WikipediaApp app) {
         this.app = app;
@@ -22,5 +24,13 @@ public class FunnelManager {
         }
 
         return editFunnels.get(title);
+    }
+
+    public SavedPagesFunnel getSavedPagesFunnel(Site site) {
+        if (!savedPageFunnels.contains(site)) {
+            savedPageFunnels.put(site, new SavedPagesFunnel(app, site));
+        }
+
+        return savedPageFunnels.get(site);
     }
 }

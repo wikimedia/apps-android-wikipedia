@@ -27,14 +27,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
 
-import java.io.File;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -93,6 +90,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
                                             @Override
                                             public void onFinish(Boolean result) {
                                                 Toast.makeText(SavedPagesActivity.this, R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
+
                                             }
                                         }.execute();
                                     }

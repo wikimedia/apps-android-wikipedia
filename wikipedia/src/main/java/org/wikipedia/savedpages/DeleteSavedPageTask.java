@@ -18,6 +18,7 @@ public class DeleteSavedPageTask extends SaneAsyncTask<Boolean> {
         savedPage.deleteFromFileSystem();
         SavedPagePersister persister = (SavedPagePersister) app.getPersister(SavedPage.class);
         persister.delete(savedPage);
+        WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(savedPage.getTitle().getSite()).logDelete();
         return true;
     }
 }

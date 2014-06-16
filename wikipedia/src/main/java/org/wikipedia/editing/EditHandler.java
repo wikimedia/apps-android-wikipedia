@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
+import org.wikipedia.analytics.SavedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Page;
@@ -48,10 +49,20 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                 .show();
         funnel.log(currentPage.getPageProperties().getEditProtectionStatus());
     }
+
+    /**
+     * Variable indicating wehther the current page was refreshed (by clicking on edit
+     * when it was a saved page and chosing to refresh.
+     *
+     * Used for accuarat eventlogging
+     */
+    private boolean wasRefreshed = false;
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         if (messageType.equals("editSectionClicked")) {
+            final SavedPagesFunnel savedPagesFunnel = WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(currentPage.getTitle().getSite());
             if (fragment.getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+                savedPagesFunnel.logEditAttempt();
                 new AlertDialog.Builder(fragment.getActivity())
                         .setCancelable(false)
                         .setMessage(R.string.edit_saved_page_refresh)
@@ -59,6 +70,8 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 fragment.refreshPage(true);
+                                savedPagesFunnel.logEditRefresh();
+                                wasRefreshed = true;
                             }
                         })
                         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -82,6 +95,9 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
             intent.putExtra(EditSectionActivity.EXTRA_TITLE, currentPage.getTitle());
             intent.putExtra(EditSectionActivity.EXTRA_PAGE_PROPS, currentPage.getPageProperties());
             fragment.startActivityForResult(intent, REQUEST_EDIT_SECTION);
+            if (wasRefreshed) {
+                savedPagesFunnel.logEditAfterRefresh();
+            }
         }
     }
 }
