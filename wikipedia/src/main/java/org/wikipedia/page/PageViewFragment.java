@@ -542,12 +542,16 @@ public class PageViewFragment extends Fragment {
         Toast.makeText(getActivity(), R.string.toast_saving_page, Toast.LENGTH_SHORT).show();
         new SavePageTask(getActivity(), title, page) {
             @Override
-            public void onFinish(Void nothing) {
+            public void onFinish(Boolean success) {
                 if (!isAdded()) {
                     Log.d("PageViewFragment", "Detached from activity, no toast.");
                     return;
                 }
-                Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
+                if (success) {
+                    Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getActivity(), R.string.toast_saved_page_missing_images, Toast.LENGTH_LONG).show();
+                }
             }
         }.execute();
     }

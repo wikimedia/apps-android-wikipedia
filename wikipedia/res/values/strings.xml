@@ -31,6 +31,7 @@
     <string name="dialog_message_clear_saved_pages">Are you sure you want to clear all saved pages?</string>
     <string name="toast_saving_page">Saving page...</string>
     <string name="toast_saved_page">Page saved successfully</string>
+    <string name="toast_saved_page_missing_images">Could not save all images</string>
     <string name="toast_save_page_failed">Saving page failed :(</string>
     <string name="toast_refresh_saved_page">Refreshing saved page...</string>
     <string name="delete_selected_saved_pages">Delete</string>

@@ -16,7 +16,7 @@ import java.io.InputStream;
 import java.util.Map;
 
 /** Actual work to save a page for offline reading. */
-public class SavePageTask extends SaneAsyncTask<Void> {
+public class SavePageTask extends SaneAsyncTask<Boolean> {
     private static final String TAG = "SavePageTask";
 
     private final WikipediaApp app;
@@ -31,16 +31,21 @@ public class SavePageTask extends SaneAsyncTask<Void> {
     }
 
     @Override
-    public Void performTask() throws Throwable {
+    public Boolean performTask() throws Throwable {
         SavedPage savedPage = new SavedPage(title);
         savedPage.writeToFileSystem(page);
         SavedPagePersister persister = (SavedPagePersister) app.getPersister(SavedPage.class);
         persister.upsert(savedPage);
 
-        ImageUrlMap imageUrlMap = new ImageUrlMap.Builder(savedPage.getBaseDir()).extractUrls(page).build();
-        downloadImages(imageUrlMap);
-        savedPage.writeUrlMap(imageUrlMap.toJSON());
-        return null;
+        try {
+            ImageUrlMap imageUrlMap = new ImageUrlMap.Builder(savedPage.getBaseDir()).extractUrls(page).build();
+            downloadImages(imageUrlMap);
+            savedPage.writeUrlMap(imageUrlMap.toJSON());
+            return true;
+        } catch (HttpRequest.HttpRequestException e) {
+            Log.e(TAG, "image download failed", e); // if this fails no need to try more
+            return false;
+        }
     }
 
     /**
