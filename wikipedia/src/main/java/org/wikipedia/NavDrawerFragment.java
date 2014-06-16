@@ -107,11 +107,20 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
     }
 
     private void doLogout() {
+        boolean doUpdate = true;
+        if (app == null) {
+            // we haven't yet been attached to our Activity, so don't worry about
+            // updating dynamic items
+            doUpdate = false;
+            app = WikipediaApp.getInstance();
+        }
         app.getEditTokenStorage().clearAllTokens();
         app.getCookieManager().clearAllCookies();
         app.getUserInfoStorage().clearUser();
-        Toast.makeText(getActivity(), R.string.toast_logout_complete, Toast.LENGTH_LONG).show();
-        setupDynamicItems();
+        Toast.makeText(app, R.string.toast_logout_complete, Toast.LENGTH_LONG).show();
+        if (doUpdate) {
+            setupDynamicItems();
+        }
     }
 
     @Override
