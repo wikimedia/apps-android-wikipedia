@@ -13,8 +13,7 @@
   <string name="search_network_error">Nettverksfeil. Trykk for å prøve igjen.</string>
   <string name="page_error_retry">Prøv igjen</string>
   <string name="menu_clear_all_history">Tøm historikk</string>
-  <string name="dialog_title_clear_history">Tøm logg?</string>
-  <string name="dialog_message_clear_history">Er du sikker på at du vil tømme hele loggen?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Tøm logg?</string>
   <string name="saved_pages_activity_title" fuzzy="true">Lagrede sider</string>
   <string name="nav_item_saved_pages" fuzzy="true">Lagrede sider</string>
   <string name="menu_save_page" fuzzy="true">Lagre side</string>
@@ -28,13 +27,13 @@
   <string name="delete_selected_saved_pages">Slett</string>
   <string name="toast_saved_page_deleted" fuzzy="true">Siden(e) ble slettet</string>
   <string name="last_updated_text">Sist oppdatert %1$s</string>
-  <string name="content_license_html">Innholdet er tilgjengelig under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om ikke annet er angitt</string>
+  <string name="content_license_html" fuzzy="true">Innholdet er tilgjengelig under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om ikke annet er angitt</string>
   <string name="preference_title_language" fuzzy="true">Språk</string>
   <string name="preference_summary_language">Innholdsspråk</string>
   <string name="nav_item_preferences">Innstillinger</string>
   <string name="preference_languages_filter_hint">Søk</string>
   <string name="langlinks_filter_hint">Søk</string>
-  <string name="menu_other_languages">Andre språk</string>
+  <string name="menu_other_languages" fuzzy="true">Andre språk</string>
   <string name="langlinks_error_retry">Prøv igjen</string>
   <string name="langlinks_empty">Denne artikkelen er ikke tilgjengelig på andre språk</string>
   <string name="settings_activity_title">Innstillinger</string>
@@ -107,7 +106,6 @@
   <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning…</string>
   <string name="edit_preview_activity_title">Forhåndsvis redigering</string>
   <string name="create_account_logging_in">Logger inn…</string>
-  <string name="nav_item_send_feedback">Send tilbakemelding på appen</string>
   <string name="edit_summary_guide_text">Fortell om hvordan du forbedret denne artikkelen. Dette hjelper andre skribenter til å raskt gjennomgå redigeringen din.</string>
   <string name="edit_summary_hint">Redigeringsforklaring</string>
   <string name="nav_item_random">Tilfeldig</string>

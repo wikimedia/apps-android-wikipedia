@@ -10,26 +10,26 @@
   <string name="menu_clear_all_history">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಿ</string>
   <string name="menu_clear_all_bookmarks">ಓದುಗುರುತುಗಳನ್ನು  ಅಳಿಸು</string>
   <string name="page_does_not_exist_error">ಈ ಪುಟವು ಆಸ್ಥಿತ್ವದಲ್ಲಿ ಇಲ್ಲ.</string>
-  <string name="dialog_title_clear_history">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಬೇಕೆ?</string>
-  <string name="saved_pages_activity_title">ಓದುಗುರುತುಗಳು</string>
-  <string name="nav_item_saved_pages">ಓದುಗುರುತುಗಳು</string>
-  <string name="menu_save_page">ಓದುಗುರುತು</string>
+  <string name="dialog_title_clear_history" fuzzy="true">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಬೇಕೆ?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">ಓದುಗುರುತುಗಳು</string>
+  <string name="nav_item_saved_pages" fuzzy="true">ಓದುಗುರುತುಗಳು</string>
+  <string name="menu_save_page" fuzzy="true">ಓದುಗುರುತು</string>
   <string name="menu_share_page">ಹಂಚು</string>
   <string name="share_via">ಮೂಲಕ ಹಂಚು</string>
-  <string name="dialog_title_clear_saved_pages">ಓದುಗುರುತುಗಳನ್ನು ಅಳಿಸಬೇಕೆ?</string>
-  <string name="dialog_message_clear_saved_pages">ಎಲ್ಲಾ ಓದುಗುರುತುಗಳನ್ನು ಅಳಿಸುವಬಗ್ಗೆ ನೀವು ಖಾತ್ರಿಯಾಗಿದ್ದೀರಾ?</string>
-  <string name="toast_saving_page">ಪುಟವನ್ನು ಓದುಗುರುತಾಗಿ ಉಳಿಸಲಾಗುತ್ತಿದೆ...</string>
-  <string name="toast_saved_page">ಪುಟವನ್ನು ಓದುಗುರುತು ಮಾಡಲಾಗಿದೆ</string>
-  <string name="toast_save_page_failed">ಪುಟವನ್ನು ಓದುಗುರುತು ಮಾಡಲು ಸಾದ್ಯವಾಗಿಲ್ಲ:</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">ಓದುಗುರುತುಗಳನ್ನು ಅಳಿಸಬೇಕೆ?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">ಎಲ್ಲಾ ಓದುಗುರುತುಗಳನ್ನು ಅಳಿಸುವಬಗ್ಗೆ ನೀವು ಖಾತ್ರಿಯಾಗಿದ್ದೀರಾ?</string>
+  <string name="toast_saving_page" fuzzy="true">ಪುಟವನ್ನು ಓದುಗುರುತಾಗಿ ಉಳಿಸಲಾಗುತ್ತಿದೆ...</string>
+  <string name="toast_saved_page" fuzzy="true">ಪುಟವನ್ನು ಓದುಗುರುತು ಮಾಡಲಾಗಿದೆ</string>
+  <string name="toast_save_page_failed" fuzzy="true">ಪುಟವನ್ನು ಓದುಗುರುತು ಮಾಡಲು ಸಾದ್ಯವಾಗಿಲ್ಲ:</string>
   <string name="delete_selected_saved_pages">ಅಳಿಸು</string>
-  <string name="toast_saved_page_deleted">ಓದುಗುರುತುಗಳನ್ನು ಅಳಿಸಲಾಗಿದೆ</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">ಓದುಗುರುತುಗಳನ್ನು ಅಳಿಸಲಾಗಿದೆ</string>
   <string name="last_updated_text">ಕೊನೆಯ ಪರಿಷ್ಕರಣೆ %1$s</string>
   <string name="preference_title_language">ವಿಕಿಪೀಡಿಯಾ ಭಾಷೆ</string>
   <string name="preference_summary_language">ವಿಷಯದ ಭಾಷೆ</string>
   <string name="nav_item_preferences">ವ್ಯವಸ್ಥೆಗಳು</string>
   <string name="preference_languages_filter_hint">ಹುಡುಕು</string>
   <string name="langlinks_filter_hint">ಹುಡುಕು</string>
-  <string name="menu_other_languages">ಇತರೆ ಭಾಷೆಗಳು</string>
+  <string name="menu_other_languages" fuzzy="true">ಇತರೆ ಭಾಷೆಗಳು</string>
   <string name="langlinks_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="settings_activity_title">ವ್ಯವಸ್ಥೆಗಳು</string>
   <string name="langlinks_activity_title">ಇತರೆ ಭಾಷೆಗಳು</string>
@@ -56,7 +56,7 @@
   <string name="login_error_unknown">ಲಾಗಿನ್ ಸಾಧ್ಯವಾಗಿಲ್ಲ!</string>
   <string name="nav_item_logout">ನಿರ್ಗಮಿಸು</string>
   <string name="toast_logout_complete">ನಿರ್ಗಮನ</string>
-  <string name="saved_pages_empty_message">ಯಾವುದೇ ಓದುಗುರುತುಗಳಿಲ್ಲ</string>
+  <string name="saved_pages_empty_message" fuzzy="true">ಯಾವುದೇ ಓದುಗುರುತುಗಳಿಲ್ಲ</string>
   <string name="history_empty_message">ನಿಮ್ಮ ಇತಿಹಾಸಪುಟ ಖಾಲಿಯಾಗಿದೆ.</string>
   <string name="create_account_username_hint">ಬಳಕೆದಾರ ಹೆಸರು</string>
   <string name="create_account_password_hint">ಪ್ರವೇಶಪದ</string>

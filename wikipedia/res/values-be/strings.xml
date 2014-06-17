@@ -13,25 +13,24 @@
   <string name="menu_clear_all_history">Ачысціць гісторыю</string>
   <string name="menu_clear_all_bookmarks">Ачысціць закладкі</string>
   <string name="page_does_not_exist_error">Гэтая старонка не існуе.</string>
-  <string name="dialog_title_clear_history">Ачысціць гісторыю?</string>
-  <string name="dialog_message_clear_history">Вы ўпэўненыя, што жадаеце ачысціць усю гісторыю?</string>
-  <string name="saved_pages_activity_title">Закладкі</string>
-  <string name="nav_item_saved_pages">Закладкі</string>
-  <string name="menu_save_page">Закладка</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Ачысціць гісторыю?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Закладкі</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Закладкі</string>
+  <string name="menu_save_page" fuzzy="true">Закладка</string>
   <string name="menu_share_page">Апублікаваць</string>
   <string name="share_via">Апублікаваць праз</string>
-  <string name="dialog_title_clear_saved_pages">Ачысціць закладкі?</string>
-  <string name="dialog_message_clear_saved_pages">Вы ўпэўнены, што хочаце выдаліць усе закладкі?</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Ачысціць закладкі?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Вы ўпэўнены, што хочаце выдаліць усе закладкі?</string>
   <string name="delete_selected_saved_pages">Выдаліць</string>
-  <string name="toast_saved_page_deleted">Закладкі выдалены</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Закладкі выдалены</string>
   <string name="last_updated_text">Апошняе абнаўленне %1$s</string>
-  <string name="content_license_html">Змесціва даступна ў адпаведнасці з &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;, калі не пазначана іншае</string>
+  <string name="content_license_html" fuzzy="true">Змесціва даступна ў адпаведнасці з &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;, калі не пазначана іншае</string>
   <string name="preference_title_language">Мова Вікіпедыі</string>
   <string name="preference_summary_language">Мова змесціва</string>
   <string name="nav_item_preferences">Настройкі</string>
   <string name="preference_languages_filter_hint">Пошук</string>
   <string name="langlinks_filter_hint">Пошук</string>
-  <string name="menu_other_languages">Іншыя мовы</string>
+  <string name="menu_other_languages" fuzzy="true">Іншыя мовы</string>
   <string name="langlinks_error_retry">Паўтарыць</string>
   <string name="langlinks_empty">Гэты артыкул не даступны на іншых мовах</string>
   <string name="settings_activity_title">Настройкі</string>
@@ -58,7 +57,7 @@
   <string name="login_error_unknown">Памылка ўваходу :(</string>
   <string name="login_error_no_network">Няма падлучэння да сеткі</string>
   <string name="nav_item_logout">Выйсці</string>
-  <string name="saved_pages_empty_message">Няма закладак</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Няма закладак</string>
   <string name="history_empty_message">Ваша гісторыя пустая.</string>
   <string name="create_account_username_hint">Імя карыстальніка</string>
   <string name="create_account_password_hint">Пароль</string>

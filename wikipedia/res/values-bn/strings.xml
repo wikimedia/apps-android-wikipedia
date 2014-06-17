@@ -4,7 +4,7 @@
   <string name="yes">হ্যাঁ</string>
   <string name="no">না</string>
   <string name="acra_report_dialog_title">উইকিপিডিয়া কাজ করছে না :(</string>
-  <string name="acra_report_dialog_text">আমাদের এই ত্রুটি সম্পর্কে জানান</string>
+  <string name="acra_report_dialog_text">ত্রুটি সম্পর্কে আমাদের জানান</string>
   <string name="acra_report_dialog_comment">অ্যাপটি অকার্যকর হওয়ার সময় আপনি কি করছিলেন?</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="history_activity_title">ইতিহাস</string>
@@ -15,30 +15,29 @@
   <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
   <string name="menu_clear_all_bookmarks">বুকমার্ক অপসারণ</string>
   <string name="page_does_not_exist_error">এই শিরোনামে কোন পাতা নেই।</string>
-  <string name="dialog_title_clear_history">ইতিহাস অপসারণ?</string>
-  <string name="dialog_message_clear_history">আপনি নিশ্চিতভাবে ইতিহাস অপসারণ করতে চান?</string>
-  <string name="saved_pages_activity_title">বুকমার্ক</string>
-  <string name="nav_item_saved_pages">বুকমার্ক</string>
-  <string name="menu_save_page">বুকমার্ক</string>
+  <string name="dialog_title_clear_history" fuzzy="true">ইতিহাস অপসারণ?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">বুকমার্ক</string>
+  <string name="nav_item_saved_pages" fuzzy="true">বুকমার্ক</string>
+  <string name="menu_save_page" fuzzy="true">বুকমার্ক</string>
   <string name="menu_share_page">শেয়ার</string>
   <string name="share_via">শেয়ার</string>
-  <string name="dialog_title_clear_saved_pages">বুকমার্ক অপসারণ?</string>
-  <string name="dialog_message_clear_saved_pages">আপনি নিশ্চিতভাবে সকল বুকমার্ক অপসারণ করতে চান?</string>
-  <string name="toast_saving_page">বুকমার্ক যুক্ত হচ্ছে...</string>
-  <string name="toast_saved_page">বুকমার্ক করা পাতাসমূহ</string>
-  <string name="toast_save_page_failed">বুকমার্ক করা যায়নি :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">বুকমার্ক অপসারণ?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">আপনি নিশ্চিতভাবে সকল বুকমার্ক অপসারণ করতে চান?</string>
+  <string name="toast_saving_page" fuzzy="true">বুকমার্ক যুক্ত হচ্ছে...</string>
+  <string name="toast_saved_page" fuzzy="true">বুকমার্ক করা পাতাসমূহ</string>
+  <string name="toast_save_page_failed" fuzzy="true">বুকমার্ক করা যায়নি :(</string>
   <string name="delete_selected_saved_pages">অপসারণ</string>
-  <string name="toast_saved_page_deleted">বুকমার্ক অপসারণ করা হয়েছে</string>
-  <string name="last_updated_text">সর্বশেষ আপডেট %1$s</string>
-  <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; লাইসেন্সের অধিনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">বুকমার্ক অপসারণ করা হয়েছে</string>
+  <string name="last_updated_text">%1$s তারিখে সর্বশেষ হালনাগাদ</string>
+  <string name="content_license_html" fuzzy="true">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
   <string name="preference_title_language">উইকিপিডিয়া ভাষা</string>
-  <string name="preference_summary_language">ভাষা</string>
+  <string name="preference_summary_language">বিষয়বস্তুর ভাষা</string>
   <string name="nav_item_preferences">সেটিং</string>
   <string name="preference_languages_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_filter_hint">অনুসন্ধান</string>
-  <string name="menu_other_languages">অন্যান্য ভাষাসমূহ</string>
+  <string name="menu_other_languages" fuzzy="true">অন্যান্য ভাষাসমূহ</string>
   <string name="langlinks_error_retry">পুনঃচেষ্টা করুন</string>
-  <string name="langlinks_empty">এই নিবন্ধটি অন্য কোনো ভাষা সংস্করণ নেই</string>
+  <string name="langlinks_empty">এই নিবন্ধটি অন্য কোনো ভাষায় উপলব্ধ নয়</string>
   <string name="settings_activity_title">সেটিং</string>
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
   <string name="editsection_activity_title">অনুচ্ছেদ সম্পাদনা</string>
@@ -61,23 +60,23 @@
   <string name="login_password_show_check">শব্দচাবি দেখাও</string>
   <string name="menu_login">প্রবেশ</string>
   <string name="login_activity_title">উইকিপিডিয়াতে প্রবেশ</string>
-  <string name="login_in_progress_dialog_message">আপনি লগইন করছেন...</string>
+  <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন...</string>
   <string name="login_error_wrong_password">ভুল পাসওয়ার্ড</string>
   <string name="login_error_wrong_username">ভুল ব্যবহারকারী নাম</string>
   <string name="login_success_toast">প্রবেশ সফল!</string>
   <string name="login_error_blocked">এই ব্যবহারকারীকে ব্লক করা হয়েছে</string>
-  <string name="login_error_throttled">অনেকবার লগইনের জন্য ব্যার্থ চেষ্টা করেছেন। কয়েক মিনিট অপেক্ষা করে আবার চেষ্টা করুন।</string>
-  <string name="login_error_unknown">লগইন সম্পন্ন হয়নি :(</string>
+  <string name="login_error_throttled">অনেকবার প্রবেশের চেষ্টা করা হয়েছে। কয়েক মিনিট অপেক্ষা করে আবার চেষ্টা করুন।</string>
+  <string name="login_error_unknown">প্রবেশ ব্যর্থ :(</string>
   <string name="login_error_no_network">নেটওয়ার্ক সংযোগ নেই</string>
-  <string name="nav_item_logout">লগ আউট</string>
-  <string name="toast_logout_complete">লগ আউট সম্পন্ন</string>
-  <string name="saved_pages_empty_message">কোনো বুকমার্ক নেই</string>
+  <string name="nav_item_logout">প্রস্থান</string>
+  <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
+  <string name="saved_pages_empty_message" fuzzy="true">কোনো বুকমার্ক নেই</string>
   <string name="history_empty_message">আপনার ইতিহাস অংশটি খালি।</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>
   <string name="create_account_password_hint">পাসওয়ার্ড</string>
-  <string name="menu_create_account">নতুন অ্যাকাউন্ট খুলুন</string>
-  <string name="login_create_account_link">নতুন অ্যাকাউন্ট খুলুন</string>
-  <string name="create_account_activity_title">নতুন অ্যাকাউন্ট খুলুন</string>
+  <string name="menu_create_account">অ্যাকাউন্ট খুলুন</string>
+  <string name="login_create_account_link">অ্যাকাউন্ট খুলুন</string>
+  <string name="create_account_activity_title">একটি অ্যাকাউন্ট খুলুন</string>
   <string name="edit_section_activity_title">অনুচ্ছেদ সম্পাদনা</string>
   <string name="dialog_create_account_checking_progress">যাচাই করা হচ্ছে</string>
   <string name="create_account_email_hint">ইমেইল (ঐচ্ছিক)</string>
@@ -106,11 +105,21 @@
   <string name="zero_learn_more_dismiss">খারিজ</string>
   <string name="zero_settings">সেটিং</string>
   <string name="zero_settings_devmode">জিরো ডেভমোড</string>
-  <string name="edit_preview_fetching_dialog_message">প্রিভিউ আনা হচ্ছে...</string>
-  <string name="edit_preview_activity_title">প্রিভিউ সম্পাদনা</string>
-  <string name="create_account_logging_in">আপনি লগইন করছেন...</string>
-  <string name="nav_item_send_feedback">অ্যাপ সম্পর্কে মতামত জানান</string>
+  <string name="edit_preview_fetching_dialog_message">প্রাকদর্শন আনা হচ্ছে...</string>
+  <string name="edit_preview_activity_title">সম্পাদনা প্রাকদর্শন</string>
+  <string name="create_account_logging_in">আপনি প্রবেশ করছেন...</string>
   <string name="edit_summary_guide_text">নিবন্ধে কি ধরনের পরিবর্তন করেছেন তা আমাদের জানান। এর ফলে অন্য ব্যবহারকারীরা সহজে আপনার সম্পাদনাগুলো যাচাই করতে পারবেন।</string>
+  <string name="edit_summary_hint">সম্পাদনা সারাংশ</string>
+  <string name="nav_item_random">অজানা পাতা</string>
+  <string name="random_progress">অজানা পাতা নিয়ে আসা হচ্ছে...</string>
+  <string name="nav_item_login_benefits">যদি আপনি প্রবেশ করেন, তাহলে আপনার সম্পাদনাগুলিতে আপনার ব্যবহারকারী নাম যুক্ত করা হবে এবং আপনার আইপি ঠিকানা প্রকাশ্যে দৃশ্যমান হবে না।</string>
+  <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>
+  <string name="user_contribs_more_action">আরও লোড করুন</string>
   <string name="activity_my_contributions_title">আমার অবদান</string>
   <string name="nav_item_my_contributions">আমার অবদান</string>
+  <string name="edit_save_action_login">প্রবেশ করুন ও সংরক্ষণ করুন</string>
+  <string name="edit_save_action_ip">নামহীন অবস্থায় সংরক্ষণ করুন</string>
+  <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
+  <string name="preference_summary_eventlogging_opt_in">অ্যাপ আরও ভালো করতে উইকিমিডিয়াকে আপনি কিভাবে অ্যাপ্লিকেশন ব্যবহার করছেন সেই সম্পর্কে তথ্য সংগ্রহ করার অনুমতি দিন</string>
+  <string name="editing_error_spamblacklist">অবরুদ্ধ ডোমেইন (%s) থেকে লিংক সনাক্ত হয়েছে। দয়া করে তাদের সরিয়ে নিন ও আবার চেষ্টা করুন।</string>
 </resources>

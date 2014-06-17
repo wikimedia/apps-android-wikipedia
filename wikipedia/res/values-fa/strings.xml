@@ -13,8 +13,7 @@
   <string name="search_network_error">خطای شبکه. برای تلاش مجدد با انگشت بر روی صفحه بزنید.</string>
   <string name="page_error_retry">تلاش مجدد</string>
   <string name="menu_clear_all_history">پاک‌کردن تاریخچه</string>
-  <string name="dialog_title_clear_history">پاک‌کردن تاریخچه؟</string>
-  <string name="dialog_message_clear_history">آیا مطمئنید که می خواهید کل تاریخچه را پاک کنید؟</string>
+  <string name="dialog_title_clear_history" fuzzy="true">پاک‌کردن تاریخچه؟</string>
   <string name="saved_pages_activity_title" fuzzy="true">ذخیرهٔ صفحه‌ها</string>
   <string name="nav_item_saved_pages" fuzzy="true">صفحه‌های ذخیره‌شده</string>
   <string name="menu_save_page" fuzzy="true">ذخیرهٔ صفحه</string>
@@ -27,14 +26,14 @@
   <string name="toast_save_page_failed" fuzzy="true">ذخیرهٔ صفحه انجام نشد :(</string>
   <string name="delete_selected_saved_pages">حذف</string>
   <string name="toast_saved_page_deleted" fuzzy="true">ذخیره صفحهٔ حذف شده</string>
-  <string name="last_updated_text"> %1$s آخرین به‌روزرسانی </string>
-  <string name="content_license_html">مطلب زیر تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
+  <string name="last_updated_text"> %1$s آخرین به‌روزرسانی</string>
+  <string name="content_license_html" fuzzy="true">مطلب زیر تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
   <string name="preference_title_language" fuzzy="true">زبان</string>
   <string name="preference_summary_language">زبان محتوا</string>
   <string name="nav_item_preferences">تنظیمات</string>
   <string name="preference_languages_filter_hint">جستجو</string>
   <string name="langlinks_filter_hint">جستجو</string>
-  <string name="menu_other_languages">زبان‌های دیگر</string>
+  <string name="menu_other_languages" fuzzy="true">زبان‌های دیگر</string>
   <string name="langlinks_error_retry">سعی مجدد</string>
   <string name="langlinks_empty">این مقاله در زبان‌های دیگر در دسترس نیست</string>
   <string name="settings_activity_title">تنظیمات</string>
@@ -106,7 +105,6 @@
   <string name="edit_preview_fetching_dialog_message">واکشی پیش‌نمایش...</string>
   <string name="edit_preview_activity_title">ویرایش پیش‌نمایش</string>
   <string name="create_account_logging_in">ورود به سیستم...</string>
-  <string name="nav_item_send_feedback">فرستادن بازخورد برنامه</string>
   <string name="edit_summary_guide_text">بگویید از چه لحاظ این مقاله را بهبود داده‌اید. این به سایر ویرایشگران کمک می‌کند ویرایش‌تان به‌سرعت بازبینی کنند.</string>
   <string name="edit_summary_hint">خلاصهٔ ویرایش</string>
   <string name="nav_item_random">تصادفی</string>

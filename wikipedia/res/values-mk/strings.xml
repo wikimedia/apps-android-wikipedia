@@ -15,28 +15,27 @@
   <string name="menu_clear_all_history">Исчисти историја</string>
   <string name="menu_clear_all_bookmarks">Исчисти одбележани</string>
   <string name="page_does_not_exist_error">Страницата не постои.</string>
-  <string name="dialog_title_clear_history">Да ја исчистам историјата?</string>
-  <string name="dialog_message_clear_history">Дали сте сигурни дека сакате да ја исчистите сета историја?</string>
-  <string name="saved_pages_activity_title">Одбележани</string>
-  <string name="nav_item_saved_pages">Одбележани</string>
-  <string name="menu_save_page">Одбележи</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Да ја исчистам историјата?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Одбележани</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Одбележани</string>
+  <string name="menu_save_page" fuzzy="true">Одбележи</string>
   <string name="menu_share_page">Сподели</string>
   <string name="share_via">Сподели преку</string>
-  <string name="dialog_title_clear_saved_pages">Да ги исчистам одбележаните?</string>
-  <string name="dialog_message_clear_saved_pages">Дали сте сигурни дека сакате да ги исчистите сите одбележани?</string>
-  <string name="toast_saving_page">Ја одбележувам страницата...</string>
-  <string name="toast_saved_page">Одбележана страница</string>
-  <string name="toast_save_page_failed">Не успеа одбележувањето на страницата  :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Да ги исчистам одбележаните?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Дали сте сигурни дека сакате да ги исчистите сите одбележани?</string>
+  <string name="toast_saving_page" fuzzy="true">Ја одбележувам страницата...</string>
+  <string name="toast_saved_page" fuzzy="true">Одбележана страница</string>
+  <string name="toast_save_page_failed" fuzzy="true">Не успеа одбележувањето на страницата  :(</string>
   <string name="delete_selected_saved_pages">Избриши</string>
-  <string name="toast_saved_page_deleted">Одбележувачите се избришани</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Одбележувачите се избришани</string>
   <string name="last_updated_text">Последен пат изменето на %1$s</string>
-  <string name="content_license_html">Содржината е достапна под &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
+  <string name="content_license_html" fuzzy="true">Содржината е достапна под &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
   <string name="preference_title_language">Јазик на Википедија</string>
   <string name="preference_summary_language">Јазик на содржината</string>
   <string name="nav_item_preferences">Нагодувања</string>
   <string name="preference_languages_filter_hint">Пребарајте</string>
   <string name="langlinks_filter_hint">Пребарај</string>
-  <string name="menu_other_languages">Други јазици</string>
+  <string name="menu_other_languages" fuzzy="true">Други јазици</string>
   <string name="langlinks_error_retry">Повтори</string>
   <string name="langlinks_empty">Статијата не е достапна на други јазици</string>
   <string name="settings_activity_title">Нагодувања</string>
@@ -71,7 +70,7 @@
   <string name="login_error_no_network">Немате врска со мрежата</string>
   <string name="nav_item_logout">Одјава</string>
   <string name="toast_logout_complete">Одјавени сте</string>
-  <string name="saved_pages_empty_message">Нема одбележани.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Нема одбележани.</string>
   <string name="history_empty_message">Вашата историја е празна.</string>
   <string name="create_account_username_hint">Корисничко име</string>
   <string name="create_account_password_hint">Лозинка</string>
@@ -111,7 +110,6 @@
   <string name="edit_preview_fetching_dialog_message">Испишувам преглед...</string>
   <string name="edit_preview_activity_title">Преглед</string>
   <string name="create_account_logging_in">Ве најавувам...</string>
-  <string name="nav_item_send_feedback">Испрати мислење</string>
   <string name="edit_summary_guide_text">Кажете на кој начин ја подобривте статијава. Со тоа другите уредници ќе можат да ја проверат многу побргу.</string>
   <string name="edit_summary_hint">Опис на уредувањето</string>
   <string name="nav_item_random">Случајна</string>

@@ -15,28 +15,27 @@
   <string name="menu_clear_all_history">Curăță istoricul</string>
   <string name="menu_clear_all_bookmarks">Șterge semnele de carte</string>
   <string name="page_does_not_exist_error">Această pagină nu există.</string>
-  <string name="dialog_title_clear_history">Curățați istoricul?</string>
-  <string name="dialog_message_clear_history">Sunteți sigur că doriți să curățați tot istoricul?</string>
-  <string name="saved_pages_activity_title">Semne de carte</string>
-  <string name="nav_item_saved_pages">Semne de carte</string>
-  <string name="menu_save_page">Pune semn de carte</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Curățați istoricul?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Semne de carte</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Semne de carte</string>
+  <string name="menu_save_page" fuzzy="true">Pune semn de carte</string>
   <string name="menu_share_page">Distribuie</string>
   <string name="share_via">Distribuire prin</string>
-  <string name="dialog_title_clear_saved_pages">Ștergeți semnele de carte?</string>
-  <string name="dialog_message_clear_saved_pages">Sunteți sigur(ă) că doriți să ștergeți toate semnele de carte?</string>
-  <string name="toast_saving_page">Se adaugă semnul de carte...</string>
-  <string name="toast_saved_page">Semn de carte adăugat</string>
-  <string name="toast_save_page_failed">Adăugarea semnului de carte nu a reușit :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Ștergeți semnele de carte?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Sunteți sigur(ă) că doriți să ștergeți toate semnele de carte?</string>
+  <string name="toast_saving_page" fuzzy="true">Se adaugă semnul de carte...</string>
+  <string name="toast_saved_page" fuzzy="true">Semn de carte adăugat</string>
+  <string name="toast_save_page_failed" fuzzy="true">Adăugarea semnului de carte nu a reușit :(</string>
   <string name="delete_selected_saved_pages">Șterge</string>
-  <string name="toast_saved_page_deleted">Semn(e) de carte eliminat(e)</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Semn(e) de carte eliminat(e)</string>
   <string name="last_updated_text">Ultima actualizare: %1$s</string>
-  <string name="content_license_html">Conținutul este disponibil sub licența &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, cu excepția cazurilor în care se specifică altfel</string>
+  <string name="content_license_html" fuzzy="true">Conținutul este disponibil sub licența &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, cu excepția cazurilor în care se specifică altfel</string>
   <string name="preference_title_language">Limba Wikipediei</string>
   <string name="preference_summary_language">Limba conținutului</string>
   <string name="nav_item_preferences">Setări</string>
   <string name="preference_languages_filter_hint">Căutare</string>
   <string name="langlinks_filter_hint">Căutare</string>
-  <string name="menu_other_languages">Alte limbi</string>
+  <string name="menu_other_languages" fuzzy="true">Alte limbi</string>
   <string name="langlinks_error_retry">Reîncercare</string>
   <string name="langlinks_empty">Acest articol nu este disponibil în alte limbi</string>
   <string name="settings_activity_title">Setări</string>
@@ -71,7 +70,7 @@
   <string name="login_error_no_network">Nicio conexiune la rețea</string>
   <string name="nav_item_logout">Închide sesiunea</string>
   <string name="toast_logout_complete">Sesiune închisă</string>
-  <string name="saved_pages_empty_message">Niciun semn de carte</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Niciun semn de carte</string>
   <string name="history_empty_message">Istoricul dumneavoastră este gol.</string>
   <string name="create_account_username_hint">Nume de utilizator</string>
   <string name="create_account_password_hint">Parolă</string>
@@ -111,7 +110,6 @@
   <string name="edit_preview_fetching_dialog_message">Se preia previzualizarea...</string>
   <string name="edit_preview_activity_title">Previzualizare modificare</string>
   <string name="create_account_logging_in">Autentificare în curs...</string>
-  <string name="nav_item_send_feedback">Trimite o părere despre aplicație</string>
   <string name="edit_summary_guide_text">Spuneți-ne cum ați îmbunătățit acest articol. Acest lucru le va fi de folos altor editori să vă revizuiască modificarea mai rapid.</string>
   <string name="edit_summary_hint">Descrierea modificării</string>
   <string name="nav_item_random">Aleatoriu</string>

@@ -12,8 +12,7 @@
   <string name="search_network_error">خطأ في شبكة الاتصال. اضغط لإعادة المحاولة.</string>
   <string name="page_error_retry">أعد المحاولة</string>
   <string name="menu_clear_all_history">امسح التاريخ</string>
-  <string name="dialog_title_clear_history">مسح التاريخ؟</string>
-  <string name="dialog_message_clear_history">هل أنت متأكد من أنك تريد مسح كل التاريخ؟</string>
+  <string name="dialog_title_clear_history" fuzzy="true">مسح التاريخ؟</string>
   <string name="saved_pages_activity_title" fuzzy="true">الصفحات المحفوظة</string>
   <string name="nav_item_saved_pages" fuzzy="true">الصفحات المحفوظة</string>
   <string name="menu_save_page" fuzzy="true">احفظ الصفحة</string>
@@ -32,7 +31,7 @@
   <string name="nav_item_preferences">الإعدادات</string>
   <string name="preference_languages_filter_hint">بحث</string>
   <string name="langlinks_filter_hint">بحث</string>
-  <string name="menu_other_languages">لغات أخرى</string>
+  <string name="menu_other_languages" fuzzy="true">لغات أخرى</string>
   <string name="langlinks_error_retry">أعد المحاولة</string>
   <string name="langlinks_empty">هذا المقال غير متوفر في لغات أخرى</string>
   <string name="settings_activity_title">الإعدادات</string>
@@ -81,7 +80,6 @@
   <string name="zero_settings">الإعدادات</string>
   <string name="edit_preview_fetching_dialog_message">يجري إعداد معاينة...</string>
   <string name="create_account_logging_in">يجري تسجيل دخولك...</string>
-  <string name="nav_item_send_feedback" fuzzy="true">إرسال ملاحظات</string>
   <string name="edit_summary_hint">ملخص التعديل</string>
   <string name="nav_item_random">عشوائي</string>
   <string name="random_progress">جلب صفحة عشوائية...</string>

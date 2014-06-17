@@ -13,8 +13,7 @@
   <string name="search_network_error">Verkkovirhe. Yritä uudelleen.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
   <string name="menu_clear_all_history">Tyhjennä historia</string>
-  <string name="dialog_title_clear_history">Tyhjennetäänkö historia?</string>
-  <string name="dialog_message_clear_history">Oletko varma, että haluat tyhjentää koko historian?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Tyhjennetäänkö historia?</string>
   <string name="saved_pages_activity_title" fuzzy="true">Tallennetut sivut</string>
   <string name="nav_item_saved_pages" fuzzy="true">Tallennetut sivut</string>
   <string name="menu_save_page" fuzzy="true">Tallenna sivu</string>
@@ -28,13 +27,13 @@
   <string name="delete_selected_saved_pages">Poista</string>
   <string name="toast_saved_page_deleted" fuzzy="true">Tallennetut sivu(t) poistettu</string>
   <string name="last_updated_text">Viimeksi päivitetty %1$s</string>
-  <string name="content_license_html">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla, ellei toisin ilmoiteta</string>
+  <string name="content_license_html" fuzzy="true">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla, ellei toisin ilmoiteta</string>
   <string name="preference_title_language" fuzzy="true">Kieli</string>
   <string name="preference_summary_language">Sisällön kieli</string>
   <string name="nav_item_preferences">Asetukset</string>
   <string name="preference_languages_filter_hint">Haku</string>
   <string name="langlinks_filter_hint">Haku</string>
-  <string name="menu_other_languages">Muut kielet</string>
+  <string name="menu_other_languages" fuzzy="true">Muut kielet</string>
   <string name="langlinks_error_retry">Yritä uudelleen</string>
   <string name="langlinks_empty">Tämä artikkeli ei ole saatavilla muilla kielillä</string>
   <string name="settings_activity_title">Asetukset</string>
@@ -89,7 +88,6 @@
   <string name="edit_preview_fetching_dialog_message">Noudetaan esikatselua...</string>
   <string name="edit_preview_activity_title">Muokkaa esikatselua</string>
   <string name="create_account_logging_in">Kirjaudutaan...</string>
-  <string name="nav_item_send_feedback">Lähetä palautetta sovelluksesta</string>
   <string name="edit_summary_hint">Yhteenveto</string>
   <string name="nav_item_random">Satunnainen</string>
   <string name="random_progress">Noudetaan satunnaista sivua...</string>

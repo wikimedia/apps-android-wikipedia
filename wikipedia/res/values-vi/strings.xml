@@ -15,28 +15,27 @@
   <string name="menu_clear_all_history">Xóa lịch sử</string>
   <string name="menu_clear_all_bookmarks">Xóa tất cả dấu trang</string>
   <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
-  <string name="dialog_title_clear_history">Xóa lịch sử?</string>
-  <string name="dialog_message_clear_history">Bạn có chắc chắn muốn xóa tất cả lịch sử?</string>
-  <string name="saved_pages_activity_title">Dấu trang</string>
-  <string name="nav_item_saved_pages">Dấu trang</string>
-  <string name="menu_save_page">Dấu trang</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Xóa lịch sử?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Dấu trang</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Dấu trang</string>
+  <string name="menu_save_page" fuzzy="true">Dấu trang</string>
   <string name="menu_share_page">Chia sẻ</string>
   <string name="share_via">Chia sẻ qua</string>
-  <string name="dialog_title_clear_saved_pages">Xóa tất cả dấu trang?</string>
-  <string name="dialog_message_clear_saved_pages">Bạn có chắc chắn muốn xóa tất cả các dấu trang?</string>
-  <string name="toast_saving_page">Đang đánh dấu trang…</string>
-  <string name="toast_saved_page">Đã đánh dấu trang</string>
-  <string name="toast_save_page_failed">Thất bại khi đánh dấu trang :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Xóa tất cả dấu trang?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Bạn có chắc chắn muốn xóa tất cả các dấu trang?</string>
+  <string name="toast_saving_page" fuzzy="true">Đang đánh dấu trang…</string>
+  <string name="toast_saved_page" fuzzy="true">Đã đánh dấu trang</string>
+  <string name="toast_save_page_failed" fuzzy="true">Thất bại khi đánh dấu trang :(</string>
   <string name="delete_selected_saved_pages">Xóa</string>
-  <string name="toast_saved_page_deleted">Đã xóa (các) dấu trang</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Đã xóa (các) dấu trang</string>
   <string name="last_updated_text">Cập nhật lần cuối vào %1$s</string>
-  <string name="content_license_html">Nội dung được phát hành theo &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt; nếu không ghi giấy phép khác</string>
+  <string name="content_license_html" fuzzy="true">Nội dung được phát hành theo &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt; nếu không ghi giấy phép khác</string>
   <string name="preference_title_language">Ngôn ngữ Wikipedia</string>
   <string name="preference_summary_language">Ngôn ngữ nội dung</string>
   <string name="nav_item_preferences">Tùy chọn</string>
   <string name="preference_languages_filter_hint">Tìm kiếm</string>
   <string name="langlinks_filter_hint">Tìm kiếm</string>
-  <string name="menu_other_languages">Ngôn ngữ khác</string>
+  <string name="menu_other_languages" fuzzy="true">Ngôn ngữ khác</string>
   <string name="langlinks_error_retry">Thử lại</string>
   <string name="langlinks_empty">Bài này không có sẵn trong ngôn ngữ khác</string>
   <string name="settings_activity_title">Tùy chọn</string>
@@ -71,7 +70,7 @@
   <string name="login_error_no_network">Không có kết nối mạng</string>
   <string name="nav_item_logout">Đăng xuất</string>
   <string name="toast_logout_complete">Đã đăng xuất</string>
-  <string name="saved_pages_empty_message">Không có dấu trang</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Không có dấu trang</string>
   <string name="history_empty_message">Lịch sử của bạn còn trống.</string>
   <string name="create_account_username_hint">Tên người dùng</string>
   <string name="create_account_password_hint">Mật khẩu</string>
@@ -88,6 +87,7 @@
   <string name="create_account_ip_throttle_error">Quá nhiều tài khoản được tạo ra dùng địa chỉ IP này. Hãy thử lại sau.</string>
   <string name="create_account_open_proxy_error">Địa chỉ IP này đã bị cấm không được mở tài khoản.</string>
   <string name="create_account_generic_error">Không thể mở tài khoản</string>
+  <string name="create_account_no_network">Không có kết nối mạng</string>
   <string name="preferences_general_heading">Tổng quát</string>
   <string name="zero_free_verbiage">Truy cập Wikipedia miễn phí qua nhà điều hành điện thoại di động (miễn phí dữ liệu)</string>
   <string name="zero_charged_verbiage">TẮT Wikipedia Miễn phí (CÓ THỂ PHẢI TRẢ PHÍ DỮ LIỆU CHUẨN)</string>
@@ -110,7 +110,6 @@
   <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem trước…</string>
   <string name="edit_preview_activity_title">Xem trước sửa đổi</string>
   <string name="create_account_logging_in">Đang đăng nhập…</string>
-  <string name="nav_item_send_feedback">Gửi phản hồi về ứng dụng</string>
   <string name="edit_summary_guide_text">Hãy cho biết bạn đã cải thiện bài này thế nào, để cho người khác có thể xem qua sửa đổi của bạn một cách nhanh chóng.</string>
   <string name="edit_summary_hint">Tóm lược sửa đổi</string>
   <string name="nav_item_random">Ngẫu nhiên</string>

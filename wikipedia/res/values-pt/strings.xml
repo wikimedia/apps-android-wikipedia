@@ -3,7 +3,9 @@
   <string name="app_name">Wikipédia</string>
   <string name="yes">Sim</string>
   <string name="no">Não</string>
-  <string name="acra_report_dialog_comment">O que estavas a fazer quando ocorreu o erro?</string>
+  <string name="acra_report_dialog_title">A Wikipédia crashou :(</string>
+  <string name="acra_report_dialog_text">Envie-nos um relatório da falha</string>
+  <string name="acra_report_dialog_comment">O que estava a fazer quando ocorreu o erro?</string>
   <string name="search_hint">Procurar na Wikipédia</string>
   <string name="history_activity_title">Histórico</string>
   <string name="nav_item_history">Histórico</string>
@@ -11,75 +13,117 @@
   <string name="search_network_error">Erro de rede. Toca para tentar de novo.</string>
   <string name="page_error_retry">Tente novamente</string>
   <string name="menu_clear_all_history">Limpar histórico</string>
-  <string name="dialog_title_clear_history">Limpar histórico?</string>
-  <string name="dialog_message_clear_history">Tens a certeza que queres remover todo o histórico?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Páginas gravadas</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Páginas gravadas</string>
-  <string name="menu_save_page" fuzzy="true">Gravar página</string>
+  <string name="menu_clear_all_bookmarks">Limpar marcadores</string>
+  <string name="page_does_not_exist_error">Esta página não existe.</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Limpar histórico?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Marcadores</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Marcadores</string>
+  <string name="menu_save_page" fuzzy="true">Marcador</string>
   <string name="menu_share_page">Partilhar</string>
-  <string name="toast_saving_page" fuzzy="true">Guardando página...</string>
-  <string name="toast_saved_page" fuzzy="true">Página gravada</string>
-  <string name="toast_save_page_failed" fuzzy="true">Gravação da página falhou :(</string>
+  <string name="share_via">Partilhar via</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Limpar marcadores?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Tem a certeza que pretende remover todos os marcadores?</string>
+  <string name="toast_saving_page" fuzzy="true">A adicionar a página aos marcadores...</string>
+  <string name="toast_saved_page" fuzzy="true">Página adicionada aos marcadores</string>
+  <string name="toast_save_page_failed" fuzzy="true">Falha ao adicionar a página aos marcadores :(</string>
   <string name="delete_selected_saved_pages">Eliminar</string>
-  <string name="content_license_html">O conteúdo está disponível sob &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Marcador(es) eliminado(s)</string>
+  <string name="last_updated_text">Última atualização há $1</string>
+  <string name="content_license_html" fuzzy="true">O conteúdo está disponível sob &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
   <string name="preference_title_language">Idioma da Wikipédia</string>
-  <string name="preference_summary_language">Língua do conteúdo</string>
+  <string name="preference_summary_language">Idioma do conteúdo</string>
   <string name="nav_item_preferences">Configurações</string>
   <string name="preference_languages_filter_hint">Pesquisar</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
-  <string name="menu_other_languages">Outras línguas</string>
-  <string name="langlinks_error_retry">Tente novamente</string>
+  <string name="menu_other_languages" fuzzy="true">Outros idiomas</string>
+  <string name="langlinks_error_retry">Tentar novamente</string>
+  <string name="langlinks_empty">Este artigo não está disponível noutros idiomas.</string>
   <string name="settings_activity_title">Configurações</string>
-  <string name="langlinks_activity_title">Outras línguas</string>
+  <string name="langlinks_activity_title">Outros idiomas</string>
   <string name="editsection_activity_title">Editar Secção</string>
   <string name="edit_section_error_retry">Tente novamente</string>
   <string name="dialog_saving_in_progress">A gravar...</string>
-  <string name="edit_saved_successfully">Edição guardada!</string>
-  <string name="dialog_message_edit_failed">Edição falhou!</string>
+  <string name="edit_saved_successfully">Edição gravada!</string>
+  <string name="dialog_message_edit_failed">A edição falhou!</string>
   <string name="dialog_message_edit_failed_retry">Tente novamente</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
   <string name="menu_show_toc">Índice</string>
   <string name="search_no_results_found">Não foram encontrados resultados</string>
   <string name="edit_section_captcha_message">Para ajudar a proteger contra spam automatizado, digita as palavras abaixo</string>
-  <string name="edit_section_captcha_hint">Repita as palavras de cima</string>
+  <string name="edit_section_captcha_hint">Repita as palavras acima</string>
+  <string name="title_captcha">Inserir CAPTCHA</string>
   <string name="edit_section_abusefilter_back_text">Fazer alterações à minha edição</string>
-  <string name="edit_section_captcha_reload">Toca no captcha para recarregar</string>
+  <string name="edit_section_captcha_reload">Toque no CAPTCHA para recarregar</string>
   <string name="nav_item_login">Entrar</string>
   <string name="login_username_hint">Nome de utilizador</string>
-  <string name="login_password_hint">Senha</string>
-  <string name="login_password_show_check">Mostrar senha</string>
+  <string name="login_password_hint">Palavra-chave</string>
+  <string name="login_password_show_check">Mostrar palavra-chave</string>
   <string name="menu_login">Entrar</string>
+  <string name="login_activity_title">Iniciar sessão na Wikipédia</string>
   <string name="login_in_progress_dialog_message">Autenticando-te...</string>
-  <string name="login_error_wrong_password">Senha incorreta</string>
+  <string name="login_error_wrong_password">Palavra-chave incorreta</string>
   <string name="login_error_wrong_username">Nome de utilizador incorreto</string>
   <string name="login_success_toast">Autenticação bem sucedida!</string>
   <string name="login_error_blocked">Este utilizador foi bloqueado</string>
-  <string name="login_error_throttled">Demasiadas tentativas. Aguarda alguns minutos e tenta de novo?</string>
+  <string name="login_error_throttled">Demasiadas tentativas. Aguarde alguns minutos e tente novamente.</string>
   <string name="login_error_unknown">O início de sessão falhou :(</string>
   <string name="login_error_no_network">Nenhuma conexão de rede</string>
   <string name="nav_item_logout">Sair</string>
-  <string name="history_empty_message">O teu histórico está vazio.</string>
+  <string name="toast_logout_complete">Sessão terminada</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Sem marcadores</string>
+  <string name="history_empty_message">O seu histórico está vazio.</string>
   <string name="create_account_username_hint">Nome de utilizador</string>
-  <string name="create_account_password_hint">Senha</string>
+  <string name="create_account_password_hint">Palavra-chave</string>
+  <string name="menu_create_account">Criar conta</string>
   <string name="login_create_account_link">Criar conta</string>
   <string name="create_account_activity_title">Criar uma conta</string>
   <string name="edit_section_activity_title">Editar Secção</string>
-  <string name="dialog_create_account_checking_progress">Verificando</string>
-  <string name="create_account_email_hint">E-mail (Opcional)</string>
-  <string name="create_account_password_repeat_hint">Repete a senha</string>
-  <string name="create_account_passwords_mismatch_error">As senhas não são iguais</string>
-  <string name="create_account_email_error">Endereço de email inválido</string>
-  <string name="create_account_open_proxy_error">Este IP está bloqueado de criar contas.</string>
+  <string name="dialog_create_account_checking_progress">A verificar</string>
+  <string name="create_account_email_hint">Endereço de correio eletrónico (Opcional)</string>
+  <string name="create_account_password_repeat_hint">Repita a palavra-chave</string>
+  <string name="create_account_passwords_mismatch_error">As palavras-chave não são iguais</string>
+  <string name="create_account_email_error">Endereço de correio eletrónico inválido</string>
+  <string name="create_account_username_exists_error">Nome de utilizador já em utilização</string>
+  <string name="create_account_ip_throttle_error">Demasiadas contas criadas a partir deste endereço de IP. Tente novamente mais tarde.</string>
+  <string name="create_account_open_proxy_error">Este endereço de IP está bloqueado de criar contas.</string>
   <string name="create_account_generic_error">Não foi possível criar conta</string>
+  <string name="create_account_no_network">Nenhuma conexão de rede</string>
   <string name="preferences_general_heading">Geral</string>
-  <string name="zero_warn_when_leaving">Avisar se deixar a Wikipédia Zero</string>
-  <string name="zero_interstitial_title">Deixando a Wikipédia Zero</string>
+  <string name="zero_free_verbiage">Acesso gratuito à Wikipédia a partir do seu operador móvel (sem aplicação de taxa de dados)</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero DESACTIVADO (TAXAS DE DADOS PODERÃO SER COBRADAS)</string>
+  <string name="zero_search_hint">Procurar na Wikipédia Zero</string>
+  <string name="zero_warn_when_leaving">Avisar-me se deixar a Wikipédia Zero</string>
+  <string name="zero_warn_when_leaving_summary">Se a sua operadora de telefonia móvel renunciar à taxa de acesso para a aplicação da Wikipédia através de uma parceria do Wikipedia Zero, deixar esta opção marcada lhe ajudará a saber quando estará a sair desta aplicação e que poderá ter taxas de dados cobrada.</string>
+  <string name="zero_webpage_title">Perguntas frequentes sobre a Wikipédia Zero</string>
+  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
+  <string name="zero_wikipedia_zero_heading">Wikipédia Zero</string>
+  <string name="zero_interstitial_title">A deixar a Wikipédia Zero</string>
+  <string name="zero_interstitial_leave_app">Continuar para o sítio externo? Poderá ser aplicada a taxa de dados.</string>
   <string name="zero_interstitial_continue">Continuar</string>
   <string name="zero_interstitial_cancel">Cancelar</string>
-  <string name="zero_learn_more">Queres saber mais sobre a Wikipédia Zero?</string>
+  <string name="zero_learn_more">Quer saber mais sobre a Wikipédia Zero?</string>
   <string name="zero_learn_more_learn_more">Saiba mais</string>
   <string name="zero_learn_more_dismiss">Ignorar</string>
   <string name="zero_settings">Configurações</string>
+  <string name="zero_settings_devmode">Modo de desenvolvedor Zero</string>
+  <string name="zero_settings_devmode_summary">Durante o desenvolvimento deste, habilita a execução de código de coisas no Wikipedia Zero.</string>
+  <string name="edit_preview_fetching_dialog_message">A processar pré-visualização...</string>
   <string name="edit_preview_activity_title">Visualizar edição</string>
   <string name="create_account_logging_in">Autenticando-te...</string>
+  <string name="edit_summary_guide_text">Diga-nos o que melhorou no artigo. Isto vai ajudar outros editores a reverem a sua edição rapidamente.</string>
+  <string name="edit_summary_hint">Editar resumo</string>
+  <string name="nav_item_random">Aleatório</string>
+  <string name="random_progress">A obter uma página aleatória...</string>
+  <string name="nav_item_login_benefits">Se inciar sessão, suas edições serão associadas ao seu nome de utilizador e seu endereço de IP não será visível publicamente.</string>
+  <string name="create_account_account_created_toast">Conta criada!</string>
+  <string name="user_contribs_more_action">Ver mais</string>
+  <string name="activity_my_contributions_title">As minhas contribuições</string>
+  <string name="nav_item_my_contributions">As minhas contribuições</string>
+  <string name="edit_save_action_login">Autenticar e gravar</string>
+  <string name="edit_save_action_ip">Gravar anonimamente</string>
+  <string name="edit_save_action_login_description">Suas edições serão publicamente atribuídas ao seu nome de utilizador, e outros utilizadores poderão melhor contactá-lo.</string>
+  <string name="edit_save_action_ip_description">Suas edições serão publicamente atribuídas ao seu endereço de IP, o qual é alterado com frequência</string>
+  <string name="preference_title_eventlogging_opt_in">Enviar relatórios de uso</string>
+  <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recolha informações sobre o uso da aplicação para elaborar melhorias</string>
+  <string name="editing_error_spamblacklist">Ligações a sítios bloqueados (%s) detectados. Por favor, remova-os e tente novamente.</string>
 </resources>

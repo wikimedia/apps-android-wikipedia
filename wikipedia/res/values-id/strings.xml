@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Wikipedia</string>
+  <string name="yes">Ya</string>
+  <string name="no">Tidak</string>
+  <string name="acra_report_dialog_title">Wikipedia sedang crash :(</string>
+  <string name="acra_report_dialog_text">Kirimkan laporan crash</string>
+  <string name="acra_report_dialog_comment">Apa yang Anda lakukan ketika terjadi crash?</string>
+  <string name="search_hint">Telusuri Wikipedia</string>
+  <string name="history_activity_title">Versi terdahulu</string>
+  <string name="nav_item_history">Versi terdahulu</string>
+  <string name="error_network_error">Tidak dapat mencapai jaringan :(</string>
+  <string name="search_network_error">Kesalahan jaringan. Ketuk untuk mencoba lagi.</string>
+  <string name="page_error_retry">Coba lagi</string>
+  <string name="menu_clear_all_history">Hapus riwayat</string>
+  <string name="menu_clear_all_bookmarks">Hapus penanda buku</string>
+  <string name="page_does_not_exist_error">Halaman ini tidak ada.</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Hapus riwayat?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Penanda Buku</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Penanda Buku</string>
+  <string name="menu_save_page" fuzzy="true">Penanda Buku</string>
+  <string name="menu_share_page">Bagikan</string>
+  <string name="share_via">Berbagi melalui</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Hapus penanda buku?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Apakah Anda yakin ingin menghapus semua penanda buku?</string>
+  <string name="toast_saving_page" fuzzy="true">Memarkahi halaman...</string>
+  <string name="toast_saved_page" fuzzy="true">Halaman telah dimarkahi</string>
+  <string name="toast_save_page_failed" fuzzy="true">Memarkahi halaman gagal :(</string>
+  <string name="delete_selected_saved_pages">Hapus</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Penanda buku dihapus</string>
+  <string name="last_updated_text">Terakhir diperbarui %1$s</string>
+  <string name="content_license_html" fuzzy="true">Konten tersedia di bawah &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; kecuali dinyatakan lain</string>
+  <string name="preference_title_language">Bahasa Wikipedia</string>
+  <string name="preference_summary_language">Bahasa isi</string>
+  <string name="nav_item_preferences">Pengaturan</string>
+  <string name="preference_languages_filter_hint">Cari</string>
+  <string name="langlinks_filter_hint">Cari</string>
+  <string name="menu_other_languages" fuzzy="true">Bahasa lain</string>
+  <string name="langlinks_error_retry">Coba lagi</string>
+  <string name="langlinks_empty">Artikel ini tidak tersedia dalam bahasa lain</string>
+  <string name="settings_activity_title">Pengaturan</string>
+  <string name="langlinks_activity_title">Bahasa lain</string>
+  <string name="editsection_activity_title">Sunting bagian</string>
+  <string name="edit_section_error_retry">Coba lagi</string>
+  <string name="dialog_saving_in_progress">Sedang menyimpan...</string>
+  <string name="edit_saved_successfully">Suntingan telah disimpan!</string>
+  <string name="dialog_message_edit_failed">Penyuntingan gagal!</string>
+  <string name="dialog_message_edit_failed_retry">Coba lagi</string>
+  <string name="dialog_message_edit_failed_cancel">Batal</string>
+  <string name="menu_show_toc">Daftar isi</string>
+  <string name="search_no_results_found">Tidak ada hasil yang ditemukan</string>
+  <string name="edit_section_captcha_message">Untuk membantu melindungi terhadap spam otomatis, masukkan kata-kata yang muncul di bawah ini</string>
+  <string name="edit_section_captcha_hint">Ulangi kata-kata dari atas</string>
+  <string name="title_captcha">Masukkan captcha</string>
+  <string name="edit_section_abusefilter_back_text">Buat perubahan ke suntingan saya</string>
+  <string name="edit_section_captcha_reload">Ketuk CAPTCHA untuk memuat ulang</string>
+  <string name="nav_item_login">Masuk log</string>
+  <string name="login_username_hint">Nama pengguna</string>
+  <string name="login_password_hint">Kata sandi</string>
+  <string name="login_password_show_check">Tampilkan kata sandi</string>
+  <string name="menu_login">Masuk log</string>
+  <string name="login_activity_title">Masuk ke Wikipedia</string>
+  <string name="login_in_progress_dialog_message">Sedang masuk log...</string>
+  <string name="login_error_wrong_password">Kata sandi salah</string>
+  <string name="login_error_wrong_username">Nama pengguna salah</string>
+  <string name="login_success_toast">Berhasil masuk log!</string>
+  <string name="login_error_blocked">Pengguna ini telah diblokir</string>
+  <string name="login_error_throttled">Terlalu banyak upaya masuk log. Tunggu beberapa menit dan coba lagi.</string>
+  <string name="login_error_unknown">Masuk log gagal :(</string>
+  <string name="login_error_no_network">Tidak ada sambungan jaringan</string>
+  <string name="nav_item_logout">Keluar log</string>
+  <string name="toast_logout_complete">Telah keluar log</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Tidak ada penanda buku</string>
+  <string name="history_empty_message">Riwayat Anda masih kosong.</string>
+  <string name="create_account_username_hint">Nama pengguna</string>
+  <string name="create_account_password_hint">Kata sandi</string>
+  <string name="menu_create_account">Buat akun baru</string>
+  <string name="login_create_account_link">Buat akun baru</string>
+  <string name="create_account_activity_title">Buat akun baru</string>
+  <string name="edit_section_activity_title">Sunting bagian</string>
+  <string name="dialog_create_account_checking_progress">Memverifikasi</string>
+  <string name="create_account_email_hint">Surel (opsional)</string>
+  <string name="create_account_password_repeat_hint">Ulangi kata sandi</string>
+  <string name="create_account_passwords_mismatch_error">Kata sandi tidak cocok</string>
+  <string name="create_account_email_error">Alamat surel tidak sah</string>
+  <string name="create_account_username_exists_error">Nama pengguna telah digunakan</string>
+  <string name="create_account_ip_throttle_error">Terlalu banyak akun yang dibuat dari alamat IP ini. Coba lagi nanti.</string>
+  <string name="create_account_open_proxy_error">Alamat IP ini telah diblokir dari membuat akun.</string>
+  <string name="create_account_generic_error">Tidak dapat membuat akun</string>
+  <string name="create_account_no_network">Tidak ada sambungan jaringan</string>
+  <string name="preferences_general_heading">Umum</string>
+  <string name="zero_free_verbiage">Akses Wikipedia gratis dari operator selular (biaya data dibebaskan)</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero MATI (BIAYA DATA STANDAR MUNGKIN BERLAKU)</string>
+  <string name="zero_search_hint">Telusuri Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving">Peringatkan jika meninggalkan Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving_summary">Jika operator selular membebaskan biaya akses data untuk aplikasi Wikipedia melalui kemitraan Wikipedia Zero, meninggalkan pengaturan ini memeriksa membantu Anda ketika Anda meninggalkan aplikasi Wikipedia dan dapat dikenakan.</string>
+  <string name="zero_webpage_title">Tanya jawab Wikipedia Zero</string>
+  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
+  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+  <string name="zero_interstitial_title">Meninggalkan Wikipedia Zero</string>
+  <string name="zero_interstitial_leave_app">Lanjutkan ke situs eksternal? Biaya data standar mungkin berlaku.</string>
+  <string name="zero_interstitial_continue">Lanjutkan</string>
+  <string name="zero_interstitial_cancel">Batal</string>
+  <string name="zero_learn_more">Ingin mempelajari lebih lanjut tentang Wikipedia Zero?</string>
+  <string name="zero_learn_more_learn_more">Pelajari lebih lanjut</string>
+  <string name="zero_learn_more_dismiss">Tutup</string>
+  <string name="zero_settings">Pengaturan</string>
+  <string name="zero_settings_devmode">Zero Devmode</string>
+  <string name="zero_settings_devmode_summary">Selama pengembangan ini memungkinkan eksekusi kode hal-hal Wikipedia Zero.</string>
+  <string name="edit_preview_fetching_dialog_message">Mengambil pratayang...</string>
+  <string name="edit_preview_activity_title">Pratayang suntingan</string>
+  <string name="create_account_logging_in">Sedang masuk log...</string>
+  <string name="edit_summary_guide_text">Beritahu kami bagaimana Anda meningkatkan artikel ini. Ini membantu penyunting lain meninjau suntingan Anda dengan cepat.</string>
+  <string name="edit_summary_hint">Ringkasan suntingan</string>
+  <string name="nav_item_random">Sembarang</string>
+  <string name="random_progress">Mengambil halaman sembarang...</string>
+  <string name="nav_item_login_benefits">Jika Anda masuk log, suntingan Anda akan dikaitkan dengan nama pengguna dan alamat IP Anda tidak akan terlihat oleh umum.</string>
+  <string name="create_account_account_created_toast">Akun dibuat!</string>
+  <string name="user_contribs_more_action">Baca lebih lanjut</string>
+  <string name="activity_my_contributions_title">Kontribusi saya</string>
+  <string name="nav_item_my_contributions">Kontribusi saya</string>
+  <string name="edit_save_action_login">Masuk log dan simpan</string>
+  <string name="edit_save_action_ip">Simpan secara anonim</string>
+  <string name="edit_save_action_login_description">Suntingan Anda akan secara publik dikaitkan dengan nama pengguna dan penyunting lain dapat terhubung dengan Anda lebih baik</string>
+  <string name="edit_save_action_ip_description">Suntingan Anda akan secara publik dikaitkan dengan alamat IP Anda, yang sering berubah</string>
+  <string name="preference_title_eventlogging_opt_in">Kirim laporan penggunaan</string>
+  <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuk mengumpulkan informasi tentang bagaimana Anda menggunakan aplikasi untuk membuat aplikasi yang lebih baik</string>
+  <string name="editing_error_spamblacklist">Pranala dari domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
+</resources>

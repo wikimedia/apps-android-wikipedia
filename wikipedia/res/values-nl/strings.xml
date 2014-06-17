@@ -4,7 +4,7 @@
   <string name="yes">Ja</string>
   <string name="no">Nee</string>
   <string name="acra_report_dialog_title">De apps is gecrashed :(</string>
-  <string name="acra_report_dialog_text" fuzzy="true">Crashmelding naar Yuvi sturen</string>
+  <string name="acra_report_dialog_text">Crashmelding naar ons sturen</string>
   <string name="acra_report_dialog_comment">Wat was u aan het doen toen de crash optrad?</string>
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="history_activity_title">Geschiedenis</string>
@@ -13,28 +13,29 @@
   <string name="search_network_error">Netwerkfout. Klik om het opnieuw te proberen.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
-  <string name="dialog_title_clear_history">Geschiedenis wissen?</string>
-  <string name="dialog_message_clear_history">Weet u zeker dat u alle geschiedenis wilt wissen?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Opgeslagen pagina\'s</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Opgeslagen pagina\'s</string>
-  <string name="menu_save_page" fuzzy="true">Pagina opslaan</string>
+  <string name="menu_clear_all_bookmarks">Bladwijzers wissen</string>
+  <string name="page_does_not_exist_error">Deze pagina bestaat niet.</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Geschiedenis wissen?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Bladwijzers</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Bladwijzers</string>
+  <string name="menu_save_page" fuzzy="true">Bladwijzer toevoegen</string>
   <string name="menu_share_page">Delen</string>
   <string name="share_via">Delen via</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Opgeslagen pagina\'s wissen?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Weet u zeker dat u alle opgeslagen pagina\'s wilt wissen?</string>
-  <string name="toast_saving_page" fuzzy="true">Pagina opslaan...</string>
-  <string name="toast_saved_page" fuzzy="true">Pagina is opgeslagen</string>
-  <string name="toast_save_page_failed" fuzzy="true">Het opslaan van de pagina is mislukt :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Bladwijzers wissen?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Weet u zeker dat u alle bladwijzers wilt wissen?</string>
+  <string name="toast_saving_page" fuzzy="true">Toevoegen aan bladwijzers...</string>
+  <string name="toast_saved_page" fuzzy="true">Toegevoegd aan bladwijzers</string>
+  <string name="toast_save_page_failed" fuzzy="true">Het toevoegen aan uw bladwijzers is mislukt :(</string>
   <string name="delete_selected_saved_pages">Wissen</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Opgeslagen pagina\'s gewist</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Bladwijzer(s) gewist</string>
   <string name="last_updated_text">%1$s voor het laatst bijgewerkt</string>
-  <string name="content_license_html">Inhoud is beschikbaar onder de licentie &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
-  <string name="preference_title_language" fuzzy="true">Taal</string>
+  <string name="content_license_html" fuzzy="true">Inhoud is beschikbaar onder de licentie &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
+  <string name="preference_title_language">Wikipedia-taal</string>
   <string name="preference_summary_language">Taal inhoud</string>
   <string name="nav_item_preferences">Instellingen</string>
   <string name="preference_languages_filter_hint">Zoeken</string>
   <string name="langlinks_filter_hint">Zoeken</string>
-  <string name="menu_other_languages">Andere talen</string>
+  <string name="menu_other_languages" fuzzy="true">Andere talen</string>
   <string name="langlinks_error_retry">Opnieuw proberen</string>
   <string name="langlinks_empty">Deze pagina is niet beschikbaar in andere talen</string>
   <string name="settings_activity_title">Instellingen</string>
@@ -68,10 +69,12 @@
   <string name="login_error_unknown">Aanmelden mislukt :(</string>
   <string name="login_error_no_network">Geen netwerkverbinding</string>
   <string name="nav_item_logout">Afmelden</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Geen opgeslagen pagina\'s.</string>
+  <string name="toast_logout_complete">Afgemeld</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Geen bladwijzers</string>
   <string name="history_empty_message">Uw geschiedenis is leeg.</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>
   <string name="create_account_password_hint">Wachtwoord</string>
+  <string name="menu_create_account">Registreren</string>
   <string name="login_create_account_link">Gebruiker aanmaken</string>
   <string name="create_account_activity_title">Gebruiker aanmaken</string>
   <string name="edit_section_activity_title">Paragraaf bewerken</string>
@@ -84,6 +87,7 @@
   <string name="create_account_ip_throttle_error">Er zijn te veel gebruikers aangemaakt vanaf dit IP-adres. Probeer het later opnieuw.</string>
   <string name="create_account_open_proxy_error">Vanaf dit IP-adres mogen geen gebruikers aangemaakt worden.</string>
   <string name="create_account_generic_error">Het was niet mogelijk een gebruiker aan te maken</string>
+  <string name="create_account_no_network">Geen netwerkverbinding</string>
   <string name="preferences_general_heading">Algemeen</string>
   <string name="zero_free_verbiage">Gratis toegang tot Wikipedia van uw mobiele provider (geen kosten voor gegevens)</string>
   <string name="zero_charged_verbiage">Wikipedia Zero UIT (ER KUNNEN KOSTEN GEREKEND WORDEN VOOR MOBIELE DATA)</string>
@@ -106,7 +110,6 @@
   <string name="edit_preview_fetching_dialog_message">Ophalen van voorbeeld...</string>
   <string name="edit_preview_activity_title">Voorbeeld bewerken</string>
   <string name="create_account_logging_in">Aan het aanmelden...</string>
-  <string name="nav_item_send_feedback">Terugkoppeling over app geven</string>
   <string name="edit_summary_guide_text">Geef aan hoe u de deze pagina hebt verbeterd. Dit helpt andere redacteuren uw bewerkingen sneller te controleren.</string>
   <string name="edit_summary_hint">Bewerkingssamenvatting</string>
   <string name="nav_item_random">Willekeurig</string>
@@ -120,4 +123,5 @@
   <string name="edit_save_action_ip">Als anoniem opslaan</string>
   <string name="edit_save_action_login_description">Uw bewerkingen wordt openbaar toegeschreven aan uw gebruikersnaam en andere bewerkers kunnen dan eenvoudiger met u in contact treden</string>
   <string name="edit_save_action_ip_description">Uw bewerkingen worden openbaar toegeschreven aan uw IP-adres, dat mogelijk vaak wijzigt</string>
+  <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
 </resources>

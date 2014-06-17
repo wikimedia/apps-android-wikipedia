@@ -13,8 +13,7 @@
   <string name="search_network_error">Помилка мережі. Натисніть, щоб спробувати знову.</string>
   <string name="page_error_retry">Повторити</string>
   <string name="menu_clear_all_history">Очистити журнал</string>
-  <string name="dialog_title_clear_history">Очистити журнал?</string>
-  <string name="dialog_message_clear_history">Ви впевнені, що хочете очистити всю історію?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Очистити журнал?</string>
   <string name="saved_pages_activity_title" fuzzy="true">Збережені сторінки</string>
   <string name="nav_item_saved_pages" fuzzy="true">Збережені сторінки</string>
   <string name="menu_save_page" fuzzy="true">Зберегти сторінку</string>
@@ -28,13 +27,13 @@
   <string name="delete_selected_saved_pages">Вилучити</string>
   <string name="toast_saved_page_deleted" fuzzy="true">Збережені сторінки видалені</string>
   <string name="last_updated_text">Останнє оновлення %1$s</string>
-  <string name="content_license_html">Вміст доступний згідно з &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.uk\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
+  <string name="content_license_html" fuzzy="true">Вміст доступний згідно з &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.uk\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
   <string name="preference_title_language" fuzzy="true">Мова</string>
   <string name="preference_summary_language">Мова вмісту</string>
   <string name="nav_item_preferences">Налаштування</string>
   <string name="preference_languages_filter_hint">Пошук</string>
   <string name="langlinks_filter_hint">Пошук</string>
-  <string name="menu_other_languages">Інші мови</string>
+  <string name="menu_other_languages" fuzzy="true">Інші мови</string>
   <string name="langlinks_error_retry">Повторити</string>
   <string name="langlinks_empty">Ця стаття не доступна на інших мовах</string>
   <string name="settings_activity_title">Налаштування</string>
@@ -106,7 +105,6 @@
   <string name="edit_preview_fetching_dialog_message">Отримання попереднього перегляду...</string>
   <string name="edit_preview_activity_title">Попередній перегляд редагування</string>
   <string name="create_account_logging_in">Входження до системи…</string>
-  <string name="nav_item_send_feedback">Надіслати відгук про програму</string>
   <string name="edit_summary_guide_text">Розкажіть нам, як ви поліпшили цю статтю. Це допомагає іншим редакторам швидко відстежити вашу правку.</string>
   <string name="edit_summary_hint">Редагувати підсумок</string>
   <string name="nav_item_random">Випадково</string>

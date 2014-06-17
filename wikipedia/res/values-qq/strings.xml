@@ -21,16 +21,15 @@
 {{Identical|Retry}}</string>
   <string name="menu_clear_all_history">Menu item text for clearing your reading history.
 {{Identical|Clear history}}</string>
+  <string name="menu_clear_all_bookmarks">Menu item text for clearing bookmarks</string>
   <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
-  <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.
-{{Identical|Clear history}}</string>
-  <string name="dialog_message_clear_history">Message for dialog box asking if you want to clear your reading history</string>
+  <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="saved_pages_activity_title">Title for screen that shows list of saved pages.
 {{Identical|Saved page}}</string>
   <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the saved pages.
 {{Identical|Saved page}}</string>
   <string name="menu_save_page">Menu item text for saving the currently active page.
-{{Identical|Saved page}}</string>
+{{Identical|Save page}}</string>
   <string name="menu_share_page">Menu item text for sharing the currently active page.
 {{Identical|Share}}</string>
   <string name="share_via">Dialog title text for Share list</string>
@@ -76,6 +75,7 @@
   <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article.
 {{Identical|Table of contents}}</string>
   <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>
+  <string name="edit_saved_page_refresh">Dialog text that asks the user if they want to refresh the saved page, so that editing would be enabled.</string>
   <string name="nav_item_login">{{Identical|Log in}}</string>
   <string name="login_username_hint">{{Identical|Username}}</string>
   <string name="login_password_hint">{{Identical|Password}}</string>
@@ -87,7 +87,7 @@
   <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
   <string name="create_account_password_hint">{{Identical|Password}}</string>
-  <string name="menu_create_account">Menu item title for creating an account</string>
+  <string name="menu_create_account">{{Identical|Create account}}</string>
   <string name="login_create_account_link">{{Identical|Create account}}</string>
   <string name="create_account_activity_title">{{Identical|Create account}}</string>
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
@@ -115,7 +115,8 @@
   <string name="zero_settings_devmode">Prerelease label text for enabling Wikipedia Zero Devmode to enable Wikipedia Zero support</string>
   <string name="zero_settings_devmode_summary">Prerelease explanation text explaining that Wikipedia Zero Devmode on means that Wikipedia Zero detection will be turned on</string>
   <string name="create_account_logging_in">{{Identical|Logging in}}</string>
-  <string name="nav_item_send_feedback">Text for button to send app feedback</string>
+  <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
+  <string name="edit_summary_hint">{{Identical|Edit summary}}</string>
   <string name="nav_item_random">{{Identical|Random}}</string>
   <string name="random_progress">Message shown in progress popup dialog while waiting for a random article to be fetched</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.
@@ -131,7 +132,6 @@
 {{Identical|Save anonymously}}</string>
   <string name="edit_save_action_login_description">Description for action that lets the user save the current edit anonymously</string>
   <string name="edit_save_action_ip_description">Description for action that takes user to login screen so they can login before saving an edit</string>
-  <string name="edit_saved_page_refresh">Dialog text that asks the user if they want to refresh the saved page, so that editing would be enabled.</string>
   <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
   <string name="history_search_list_hint">Hint for textbox that searches list of items in browsing history as user typesj</string>
@@ -144,17 +144,14 @@
   <string name="page_protected_can_not_edit_title">Title of dialog box telling the user that they can not edit this page because it is protected.</string>
   <string name="more_item_preferences">Text for the item in the nav menu to go to the More screen.</string>
   <string name="more_activity_title">Title at the top of the More screen.</string>
-  <string name="about_activity_title">Text for the preference item to show the About screen.</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
-  <string name="preference_title_send_feedback">Text for the preference item to send feedback.</string>
-  <string name="preference_summary_send_feedback">Summary of the preference item to send feedback.</string>
   <string name="preference_title_version">Text for the preference item that shows the app version number.</string>
   <string name="about_terms_of_use">Terms of use link that links to the WMF\'s Terms of Use</string>
   <string name="about_privacy_policy">Privacy policy link that links to the WMF\'s Privacy Policy</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app</string>
   <string name="about_wmf">Text and link specifying that this app was developed by the Wikimedia Foundation</string>
-  <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
+  <string name="about_activity_title">Text for the preference item to show the About screen.</string>
   <string name="edit_unchanged">Message displayed when the user tries to save a page when no modifications were made.</string>
   <string name="edit_abandon_confirm">Prompt for the user to abandon any changes that were made during editing.</string>
   <string name="user_blocked_from_editing_title">Title of dialog box that pops up when user (anon or logged in) is blocked</string>

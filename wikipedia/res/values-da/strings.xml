@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Wikipedia</string>
+  <string name="yes">Ja</string>
+  <string name="no">Nej</string>
+  <string name="acra_report_dialog_title">Wikipedia gik ned :(</string>
+  <string name="acra_report_dialog_text">Send os en nedbrudsrapport</string>
+  <string name="search_hint">Søg i Wikipedia</string>
+  <string name="history_activity_title">Historik</string>
+  <string name="nav_item_history">Historik</string>
+  <string name="page_error_retry">Prøv igen</string>
+  <string name="menu_clear_all_history">Ryd historik</string>
+  <string name="menu_clear_all_bookmarks">Ryd bogmærker</string>
+  <string name="page_does_not_exist_error">Denne side findes ikke.</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Ryd historikken?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Bogmærker</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Bogmærker</string>
+  <string name="menu_save_page" fuzzy="true">Bogmærke</string>
+  <string name="menu_share_page">Del</string>
+  <string name="share_via">Del via</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Ryd bogmærker?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Er du sikker på du ønsker at slette alle bogmærker?</string>
+  <string name="toast_saved_page" fuzzy="true">Bogmærket side</string>
+  <string name="delete_selected_saved_pages">Slet</string>
+  <string name="last_updated_text">Sidst opdateret $1</string>
+  <string name="content_license_html" fuzzy="true">Indholdet er udgivet under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; medmindre andet er angivet</string>
+  <string name="preference_title_language">Wikipediasprog</string>
+  <string name="preference_summary_language">Indholdssprog</string>
+  <string name="nav_item_preferences">Indstillinger</string>
+  <string name="preference_languages_filter_hint">Søg</string>
+  <string name="langlinks_filter_hint">Søg</string>
+  <string name="menu_other_languages" fuzzy="true">Andre sprog</string>
+  <string name="langlinks_error_retry">Prøv igen</string>
+  <string name="langlinks_empty">Denne artikel er ikke tilgængelig på andre sprog</string>
+  <string name="settings_activity_title">Indstillinger</string>
+  <string name="langlinks_activity_title">Andre sprog</string>
+  <string name="editsection_activity_title">Redigér afsnit</string>
+  <string name="edit_section_error_retry">Prøv igen</string>
+  <string name="dialog_saving_in_progress">Gemmer...</string>
+  <string name="dialog_message_edit_failed_retry">Prøv igen</string>
+  <string name="dialog_message_edit_failed_cancel">Annullér</string>
+  <string name="menu_show_toc">Indholdsfortegnelse</string>
+  <string name="search_no_results_found">Ingen resultater fundet</string>
+  <string name="nav_item_login">Log ind</string>
+  <string name="login_username_hint">Brugernavn</string>
+  <string name="login_password_hint">Adgangskode</string>
+  <string name="login_password_show_check">Vis adgangskode</string>
+  <string name="menu_login">Log ind</string>
+  <string name="login_activity_title">Log på Wikipedia</string>
+  <string name="login_in_progress_dialog_message">Logger du ind...</string>
+  <string name="login_error_wrong_password">Forkert adgangskode.</string>
+  <string name="login_error_wrong_username">Forkert brugernavn</string>
+  <string name="login_success_toast">Du er nu logget på!</string>
+  <string name="login_error_blocked">Denne bruger er blevet blokeret</string>
+  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
+  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+  <string name="zero_interstitial_title">Forlader Wikipedia Zero</string>
+  <string name="zero_learn_more_dismiss">Skjul</string>
+  <string name="zero_settings">Indstillinger</string>
+  <string name="create_account_logging_in">Logger ind...</string>
+  <string name="edit_summary_hint">Opsummér redigering</string>
+  <string name="nav_item_random">Tilfældig</string>
+  <string name="random_progress">Henter tilfældig side...</string>
+  <string name="create_account_account_created_toast">Konto oprettet!</string>
+  <string name="user_contribs_more_action">Indlæs mere</string>
+  <string name="activity_my_contributions_title">Mine bidrag</string>
+  <string name="nav_item_my_contributions">Mine bidrag</string>
+  <string name="edit_save_action_login">Log ind og gem</string>
+  <string name="edit_save_action_ip">Gem anonymt</string>
+  <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
+</resources>

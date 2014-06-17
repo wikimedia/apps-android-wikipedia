@@ -4,7 +4,7 @@
   <string name="yes">అవును</string>
   <string name="no">కాదు</string>
   <string name="acra_report_dialog_title">వికీపీడియా పనిచేయడం మానేసింది :(</string>
-  <string name="acra_report_dialog_text" fuzzy="true">యువీకి ఓ క్రాష్ నివేదికను పంపండి</string>
+  <string name="acra_report_dialog_text">మాకు ఓ క్రాష్ నివేదికను పంపండి</string>
   <string name="acra_report_dialog_comment">క్రాష్ అయినప్పుడు మీరేం చేస్తున్నారు?</string>
   <string name="search_hint">వికీపీడియాలో వెతకండి</string>
   <string name="history_activity_title">చరిత్ర</string>
@@ -13,25 +13,24 @@
   <string name="search_network_error">నెట్‌వర్క్ లోపం. మళ్ళీ ప్రయత్నించడానికి తట్టండి.</string>
   <string name="page_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="menu_clear_all_history">చరిత్రను తుడిచివెయ్యి</string>
-  <string name="dialog_title_clear_history">చరిత్రను తుడిచివెయ్యాలా?</string>
-  <string name="dialog_message_clear_history">మీరు నిజంగానే చరిత్రనంతా తుడిచెయ్యాలి అనుకుంటున్నారా?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">భద్రపరచిన పేజీలు</string>
-  <string name="nav_item_saved_pages" fuzzy="true">భద్రపరచిన పేజీలు</string>
-  <string name="menu_save_page" fuzzy="true">పేజీని భద్రపరచు</string>
+  <string name="dialog_title_clear_history" fuzzy="true">చరిత్రను తుడిచివెయ్యాలా?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">పుటీకలు</string>
+  <string name="nav_item_saved_pages" fuzzy="true">పుటీకలు</string>
+  <string name="menu_save_page" fuzzy="true">పుటీక</string>
   <string name="menu_share_page">పంచుకోండి</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">భద్రపరచిన పేజీలను తీసెయ్యాలా?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">భద్రపరచిన పేజీలన్నిటినీ తీసేయాలనే మీరు నిశ్చయించుకున్నారా?</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">పుటీకలను తీసెయ్యాలా?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">మీరు నిజంగానే పుటీకలనంతా తుడిచెయ్యాలి అనుకుంటున్నారా?</string>
   <string name="toast_saving_page" fuzzy="true">పేజీని భద్రపరుస్తున్నాం...</string>
   <string name="toast_saved_page" fuzzy="true">పేజీ భద్రపరచబడింది</string>
   <string name="toast_save_page_failed" fuzzy="true">పేజీ భద్రపరచబడలేదు :(</string>
   <string name="delete_selected_saved_pages">తొలగించు</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">భద్రపరచబడిన పేజీ(లు) తొలిగించబడ్డాయి</string>
-  <string name="preference_title_language" fuzzy="true">భాష</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">పుటీకలు(లు) తొలిగించబడ్డాయి</string>
+  <string name="preference_title_language">వికీపీడియా భాష</string>
   <string name="preference_summary_language">విషయపు భాష</string>
   <string name="nav_item_preferences">అమరికలు</string>
   <string name="preference_languages_filter_hint">వెతుకు</string>
   <string name="langlinks_filter_hint">వెతుకు</string>
-  <string name="menu_other_languages">ఇతర భాషలు</string>
+  <string name="menu_other_languages" fuzzy="true">ఇతర భాషలు</string>
   <string name="langlinks_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="langlinks_empty">ఈ వ్యాసం వేరే భాషలలో అందుబాటులో లేదు</string>
   <string name="settings_activity_title">అమరికలు</string>

@@ -15,28 +15,27 @@
   <string name="menu_clear_all_history">Очистить историю</string>
   <string name="menu_clear_all_bookmarks">Очистить закладки</string>
   <string name="page_does_not_exist_error">Такой страницы не существует.</string>
-  <string name="dialog_title_clear_history">Очистить историю?</string>
-  <string name="dialog_message_clear_history">Вы уверены, что хотите очистить всю историю?</string>
-  <string name="saved_pages_activity_title">Закладки</string>
-  <string name="nav_item_saved_pages">Закладки</string>
-  <string name="menu_save_page">Закладка</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Очистить историю?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Закладки</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Закладки</string>
+  <string name="menu_save_page" fuzzy="true">Закладка</string>
   <string name="menu_share_page">Поделиться</string>
   <string name="share_via">Поделиться через</string>
-  <string name="dialog_title_clear_saved_pages">Очистить закладки?</string>
-  <string name="dialog_message_clear_saved_pages">Вы уверены, что хотите очистить все закладки?</string>
-  <string name="toast_saving_page">Добавление страницы в закладки…</string>
-  <string name="toast_saved_page">Добавлена в закладки</string>
-  <string name="toast_save_page_failed">Не удалось добавить в закладки :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Очистить закладки?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Вы уверены, что хотите очистить все закладки?</string>
+  <string name="toast_saving_page" fuzzy="true">Добавление страницы в закладки…</string>
+  <string name="toast_saved_page" fuzzy="true">Добавлена в закладки</string>
+  <string name="toast_save_page_failed" fuzzy="true">Не удалось добавить в закладки :(</string>
   <string name="delete_selected_saved_pages">Удалить</string>
-  <string name="toast_saved_page_deleted">Закладки удалены</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Закладки удалены</string>
   <string name="last_updated_text">Последнее обновление: %1$s</string>
-  <string name="content_license_html">Содержимое доступно в соответствии &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; (если не указано иное)</string>
+  <string name="content_license_html" fuzzy="true">Содержимое доступно в соответствии &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; (если не указано иное)</string>
   <string name="preference_title_language">Язык Википедии</string>
   <string name="preference_summary_language">Язык содержимого</string>
   <string name="nav_item_preferences">Настройки</string>
   <string name="preference_languages_filter_hint">Найти</string>
   <string name="langlinks_filter_hint">Поиск</string>
-  <string name="menu_other_languages">Другие языки</string>
+  <string name="menu_other_languages" fuzzy="true">Другие языки</string>
   <string name="langlinks_error_retry">Повторить</string>
   <string name="langlinks_empty">Эта статья не доступна на других языках</string>
   <string name="settings_activity_title">Настройки</string>
@@ -71,7 +70,7 @@
   <string name="login_error_no_network">Отсутствует сетевое подключение</string>
   <string name="nav_item_logout">Выйти</string>
   <string name="toast_logout_complete">Сеанс был завершён</string>
-  <string name="saved_pages_empty_message">Нет закладок</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Нет закладок</string>
   <string name="history_empty_message">Ваша история пуста.</string>
   <string name="create_account_username_hint">Имя участника</string>
   <string name="create_account_password_hint">Пароль</string>
@@ -111,7 +110,6 @@
   <string name="edit_preview_fetching_dialog_message">Получение предварительного просмотра…</string>
   <string name="edit_preview_activity_title">Предварительный просмотр правки</string>
   <string name="create_account_logging_in">Вход в систему…</string>
-  <string name="nav_item_send_feedback">Отправить отзыв о приложении</string>
   <string name="edit_summary_guide_text">Расскажите нам, как вы улучшили эту статью. Это помогает другим редакторам быстро отпатрулировать вашу правку.</string>
   <string name="edit_summary_hint">Описание изменений</string>
   <string name="nav_item_random">Случайная</string>

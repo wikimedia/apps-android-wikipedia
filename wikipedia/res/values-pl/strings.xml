@@ -9,7 +9,9 @@
   <string name="nav_item_history">Historia</string>
   <string name="page_error_retry">Ponów próbę</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
-  <string name="dialog_title_clear_history">Wyczyścić historię?</string>
+  <string name="menu_clear_all_bookmarks">Wyczyść zakładki</string>
+  <string name="page_does_not_exist_error">Ta strona nie istnieje.</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Wyczyścić historię?</string>
   <string name="saved_pages_activity_title" fuzzy="true">Zapisane strony</string>
   <string name="nav_item_saved_pages" fuzzy="true">Zapisane strony</string>
   <string name="menu_save_page" fuzzy="true">Zapisz stronę</string>
@@ -21,7 +23,7 @@
   <string name="delete_selected_saved_pages">Usuń</string>
   <string name="preference_title_language" fuzzy="true">Język</string>
   <string name="nav_item_preferences">Ustawienia</string>
-  <string name="menu_other_languages">Inne języki</string>
+  <string name="menu_other_languages" fuzzy="true">Inne języki</string>
   <string name="langlinks_error_retry">Ponów próbę</string>
   <string name="langlinks_empty">Ten artykuł nie jest dostępny w innych językach</string>
   <string name="settings_activity_title">Ustawienia</string>
@@ -50,9 +52,10 @@
   <string name="login_error_unknown">Logowanie nie powiodło się :(</string>
   <string name="login_error_no_network">Brak połączenia z siecią</string>
   <string name="nav_item_logout">Wyloguj</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Brak zapisanych stron.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Nie ma zakładek</string>
   <string name="create_account_username_hint">Nazwa użytkownika</string>
   <string name="create_account_password_hint">Hasło</string>
+  <string name="menu_create_account">Utwórz konto</string>
   <string name="login_create_account_link">Utwórz konto</string>
   <string name="create_account_activity_title">Utwórz konto</string>
   <string name="edit_section_activity_title">Edytuj sekcję</string>
@@ -62,6 +65,7 @@
   <string name="create_account_passwords_mismatch_error">Hasła nie są identyczne</string>
   <string name="create_account_email_error">Nieprawidłowy adres e-mail</string>
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
+  <string name="create_account_no_network">Brak połączenia z siecią</string>
   <string name="preferences_general_heading">Ogólne</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_continue">Kontynuuj</string>

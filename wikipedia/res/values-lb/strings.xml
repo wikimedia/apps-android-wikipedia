@@ -11,26 +11,28 @@
   <string name="nav_item_history">Versiounen</string>
   <string name="error_network_error">De Reseau gouf net fonnt :(</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
+  <string name="menu_clear_all_bookmarks">Lieszeeche läschen</string>
   <string name="page_does_not_exist_error">Dës Säit gëtt et net.</string>
-  <string name="dialog_title_clear_history">Historique läschen?</string>
-  <string name="saved_pages_activity_title">Lieszeechen</string>
-  <string name="nav_item_saved_pages">Lieszeechen</string>
-  <string name="menu_save_page">Lieszeechen</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Historique läschen?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Lieszeechen</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Lieszeechen</string>
+  <string name="menu_save_page" fuzzy="true">Lieszeechen</string>
   <string name="menu_share_page">Deelen</string>
-  <string name="dialog_title_clear_saved_pages">Lieszeeche läschen?</string>
-  <string name="dialog_message_clear_saved_pages">Sidd Dir sécher datt Dir all Lieszeeche läsche wëllt?</string>
-  <string name="toast_saving_page">Säit als Lieszeeche späicheren...</string>
-  <string name="toast_saved_page">Säit als Lieszeeche gespäichert</string>
-  <string name="toast_save_page_failed">D\'Späichere vun der Säit als Lieszeechen huet net funktionéiert :(</string>
+  <string name="share_via">Deelen iwwer</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Lieszeeche läschen?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Sidd Dir sécher datt Dir all Lieszeeche läsche wëllt?</string>
+  <string name="toast_saving_page" fuzzy="true">Säit als Lieszeeche späicheren...</string>
+  <string name="toast_saved_page" fuzzy="true">Säit als Lieszeeche gespäichert</string>
+  <string name="toast_save_page_failed" fuzzy="true">D\'Späichere vun der Säit als Lieszeechen huet net funktionéiert :(</string>
   <string name="delete_selected_saved_pages">Läschen</string>
-  <string name="toast_saved_page_deleted">Lieszeeche geläscht</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Lieszeeche geläscht</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>
   <string name="preference_title_language">Wikipedia-Sprooch</string>
   <string name="preference_summary_language">Sprooch vum Inhalt</string>
   <string name="nav_item_preferences">Astellungen</string>
   <string name="preference_languages_filter_hint">Sichen</string>
   <string name="langlinks_filter_hint">Sichen</string>
-  <string name="menu_other_languages">Aner Sproochen</string>
+  <string name="menu_other_languages" fuzzy="true">Aner Sproochen</string>
   <string name="langlinks_error_retry">Nach eng Kéier probéieren</string>
   <string name="langlinks_empty">Dësen Artikel ass net an anere Sproochen disponibel</string>
   <string name="settings_activity_title">Astellungen</string>
@@ -63,10 +65,11 @@
   <string name="login_error_no_network">Keng Verbindung mam Reseau</string>
   <string name="nav_item_logout">Ausloggen</string>
   <string name="toast_logout_complete">Ausgeloggt</string>
-  <string name="saved_pages_empty_message">Keng Lieszeechen</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Keng Lieszeechen</string>
   <string name="history_empty_message">Ären Historique ass eidel.</string>
   <string name="create_account_username_hint">Benotzernumm</string>
   <string name="create_account_password_hint">Passwuert</string>
+  <string name="menu_create_account">Benotzerkont opmaachen</string>
   <string name="login_create_account_link">Benotzerkont opmaachen</string>
   <string name="create_account_activity_title">E Benotzerkont opmaachen</string>
   <string name="edit_section_activity_title">Abschnitt änneren</string>
@@ -79,10 +82,12 @@
   <string name="create_account_ip_throttle_error">Zevill Benotzerkonte goufe vun dëser IP-Adress ugeluecht. Probéiert méi spéit nach eng Kéier.</string>
   <string name="create_account_open_proxy_error">Dës IP-Adress ass fir d\'Uleeë vu Benotzerkonte gespaart.</string>
   <string name="create_account_generic_error">Benotzerkont konnt net opgemaach ginn</string>
+  <string name="create_account_no_network">Keng Verbindung mam Reseau</string>
   <string name="preferences_general_heading">Allgemeng</string>
   <string name="zero_search_hint">Op Wikipedia Zero sichen</string>
   <string name="zero_warn_when_leaving">Beim Verloosse vu Wikipedia Zero warnen</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
+  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Wikipedia Zero verloossen</string>
   <string name="zero_interstitial_continue">Viru fueren</string>
@@ -94,7 +99,6 @@
   <string name="zero_settings_devmode">Zero-Entwécklermodus</string>
   <string name="edit_preview_activity_title">Ännerung kucken ouni ze späicheren</string>
   <string name="create_account_logging_in">Aloggen...</string>
-  <string name="nav_item_send_feedback">Feedback vun der App schécken</string>
   <string name="edit_summary_guide_text">Sot eis wéi Dir dësen Artikel verbessert hutt. Dat hëlleft aneren Auteure fir Är Ännerung séier nozekucken.</string>
   <string name="edit_summary_hint">Resumé vun der Ännerung</string>
   <string name="nav_item_random">Zoufall</string>

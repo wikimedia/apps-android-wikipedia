@@ -15,32 +15,31 @@
   <string name="menu_clear_all_history">Vymazať históriu</string>
   <string name="menu_clear_all_bookmarks">Vymazať záložky</string>
   <string name="page_does_not_exist_error">Táto stránka neexistuje.</string>
-  <string name="dialog_title_clear_history">Vymazať históriu?</string>
-  <string name="dialog_message_clear_history">Naozaj chcete vymazať celú históriu?</string>
-  <string name="saved_pages_activity_title">Záložky</string>
-  <string name="nav_item_saved_pages">Záložky</string>
-  <string name="menu_save_page">Pridať medzi záložky</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Vymazať históriu?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Záložky</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Záložky</string>
+  <string name="menu_save_page" fuzzy="true">Pridať medzi záložky</string>
   <string name="menu_share_page">Zdieľať</string>
   <string name="share_via">Zdieľať cez</string>
-  <string name="dialog_title_clear_saved_pages">Vymazať záložky?</string>
-  <string name="dialog_message_clear_saved_pages">Naozaj chcete vymazať všetky záložky?</string>
-  <string name="toast_saving_page">Pridávanie stránky medzi záložky...</string>
-  <string name="toast_saved_page">Záložka bola vytvorená</string>
-  <string name="toast_save_page_failed">Pridávanie stránky medzi záložky zlyhalo :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Vymazať záložky?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Naozaj chcete vymazať všetky záložky?</string>
+  <string name="toast_saving_page" fuzzy="true">Pridávanie stránky medzi záložky...</string>
+  <string name="toast_saved_page" fuzzy="true">Záložka bola vytvorená</string>
+  <string name="toast_save_page_failed" fuzzy="true">Pridávanie stránky medzi záložky zlyhalo :(</string>
   <string name="delete_selected_saved_pages">Zmazať</string>
-  <string name="toast_saved_page_deleted">Záložky boli odstránené</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Záložky boli odstránené</string>
   <string name="last_updated_text">Posledná aktualizácia %1$s</string>
-  <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="content_license_html" fuzzy="true">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="preference_title_language">Jazyk</string>
   <string name="preference_summary_language">Jazyk obsahu</string>
   <string name="nav_item_preferences">Nastavenia</string>
   <string name="preference_languages_filter_hint">Hľadať</string>
   <string name="langlinks_filter_hint">Hľadať</string>
-  <string name="menu_other_languages">V iných jazykoch</string>
+  <string name="menu_other_languages" fuzzy="true">V iných jazykoch</string>
   <string name="langlinks_error_retry">Obnoviť</string>
   <string name="langlinks_empty">Tento článok nie je k dispozícii v iných jazykoch</string>
   <string name="settings_activity_title">Nastavenia</string>
-  <string name="langlinks_activity_title">V iných jazykoch</string>
+  <string name="langlinks_activity_title">Iné jazyky</string>
   <string name="editsection_activity_title">Upraviť sekciu</string>
   <string name="edit_section_error_retry">Obnoviť</string>
   <string name="dialog_saving_in_progress">Ukladanie...</string>
@@ -71,7 +70,7 @@
   <string name="login_error_no_network">Žiadne sieťové pripojenie</string>
   <string name="nav_item_logout">Odhlásiť sa</string>
   <string name="toast_logout_complete">Ste odhlásení.</string>
-  <string name="saved_pages_empty_message">Žiadne záložky</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Žiadne záložky</string>
   <string name="history_empty_message">Vaša história je prázdna.</string>
   <string name="create_account_username_hint">Používateľské meno</string>
   <string name="create_account_password_hint">Heslo</string>
@@ -111,7 +110,6 @@
   <string name="edit_preview_fetching_dialog_message">Generujem náhľad...</string>
   <string name="edit_preview_activity_title">Zobraziť úpravy</string>
   <string name="create_account_logging_in">Prihlasujem...</string>
-  <string name="nav_item_send_feedback">Poslať spätnú väzbu</string>
   <string name="edit_summary_guide_text">Povedzte nám, ako ste tento článok vylepšili. Toto pomôže ostatným redaktorom rýchlejšie skontrolovať vaše úpravy.</string>
   <string name="edit_summary_hint">Zhrnutie úprav</string>
   <string name="nav_item_random">Náhodná</string>
@@ -126,4 +124,6 @@
   <string name="edit_save_action_login_description">Vaše úpravy budú spojené s vašim používateľským menom a ostatný redaktori sa s vami budú môcť lepšie spojiť.</string>
   <string name="edit_save_action_ip_description">Vaše úpravy budú spojené s vašou IP adresou, ktorá sa pravidelne mení.</string>
   <string name="preference_title_eventlogging_opt_in">Odoslať správu o používaní</string>
+  <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimédií zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
+  <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
 </resources>

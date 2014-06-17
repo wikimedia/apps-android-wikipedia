@@ -11,7 +11,7 @@
   <string name="error_network_error">Impossible d’aténher la ret :(</string>
   <string name="page_error_retry">Ensajar tornarmai</string>
   <string name="menu_clear_all_history">Voidar l\'istoric</string>
-  <string name="dialog_title_clear_history">Voidar l\'istoric ?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Voidar l\'istoric ?</string>
   <string name="saved_pages_activity_title" fuzzy="true">Paginas salvadas</string>
   <string name="nav_item_saved_pages" fuzzy="true">Paginas salvadas</string>
   <string name="menu_save_page" fuzzy="true">Salvar la pagina</string>
@@ -28,7 +28,7 @@
   <string name="nav_item_preferences">Paramètres</string>
   <string name="preference_languages_filter_hint">Recercar</string>
   <string name="langlinks_filter_hint">Recercar</string>
-  <string name="menu_other_languages">Autras lengas</string>
+  <string name="menu_other_languages" fuzzy="true">Autras lengas</string>
   <string name="langlinks_error_retry">Tornar ensajar</string>
   <string name="settings_activity_title">Paramètres</string>
   <string name="langlinks_activity_title">Autras lengas</string>
@@ -82,7 +82,6 @@
   <string name="edit_preview_fetching_dialog_message">Recèrca d’un apercebut…</string>
   <string name="edit_preview_activity_title">Apercebut de la modificacion</string>
   <string name="create_account_logging_in">Connexion en cors…</string>
-  <string name="nav_item_send_feedback">Mandar un comentari sus l\'aplicacion</string>
   <string name="edit_summary_hint">Modificar lo resumit</string>
   <string name="create_account_account_created_toast">Compte creat !</string>
   <string name="user_contribs_more_action">Ne saber mai</string>

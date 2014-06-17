@@ -4,31 +4,38 @@
   <string name="yes">Si</string>
   <string name="no">Non</string>
   <string name="acra_report_dialog_title">Wikipedia fallou :(</string>
+  <string name="acra_report_dialog_text">Envíenos un informe de erro</string>
   <string name="acra_report_dialog_comment">Que estaba facendo cando ocorreu o fallo?</string>
   <string name="search_hint">Procurar na Wikipedia</string>
   <string name="history_activity_title">Historial</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">Non se puido chegar á rede :(</string>
+  <string name="search_network_error">Erro na rede. Toque para intentalo de novo.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="menu_clear_all_history">Limpar o historial</string>
-  <string name="dialog_title_clear_history">Quere limpar o historial?</string>
-  <string name="dialog_message_clear_history">Está seguro de querer limpar todo o historial?</string>
+  <string name="menu_clear_all_bookmarks">Limpar os marcadores</string>
+  <string name="page_does_not_exist_error">Esta páxina non existe.</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Quere limpar o historial?</string>
   <string name="saved_pages_activity_title" fuzzy="true">Páxinas gardadas</string>
   <string name="nav_item_saved_pages" fuzzy="true">Páxinas gardadas</string>
   <string name="menu_save_page" fuzzy="true">Gardar a páxina</string>
   <string name="menu_share_page">Compartir</string>
   <string name="share_via">Compartir a través de...</string>
   <string name="dialog_title_clear_saved_pages" fuzzy="true">Quere limpar as páxinas gardadas?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Está seguro de querer limpar as páxinas gardadas?</string>
   <string name="toast_saving_page" fuzzy="true">Gardando a páxina...</string>
   <string name="toast_saved_page" fuzzy="true">Páxina gardada</string>
+  <string name="toast_save_page_failed" fuzzy="true">Erro ao gardar a páxina :(</string>
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="toast_saved_page_deleted" fuzzy="true">Páxina(s) gardada(s) eliminada(s)</string>
-  <string name="preference_title_language" fuzzy="true">Lingua</string>
+  <string name="last_updated_text">Última actualización o %1$s</string>
+  <string name="content_license_html" fuzzy="true">Todo o contido está dispoñible baixo a licenza &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.gl\"&gt;CC BY-SA 3.0&lt;/a&gt;, agás que se indique o contrario</string>
+  <string name="preference_title_language">Lingua da Wikipedia</string>
   <string name="preference_summary_language">Lingua do contido</string>
   <string name="nav_item_preferences">Configuracións</string>
   <string name="preference_languages_filter_hint">Procurar</string>
   <string name="langlinks_filter_hint">Procurar</string>
-  <string name="menu_other_languages">Outras linguas</string>
+  <string name="menu_other_languages" fuzzy="true">Outras linguas</string>
   <string name="langlinks_error_retry">Reintentar</string>
   <string name="langlinks_empty">Este artigo non está dispoñible noutras linguas</string>
   <string name="settings_activity_title">Configuracións</string>
@@ -42,6 +49,11 @@
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
   <string name="menu_show_toc">Táboa de contidos</string>
   <string name="search_no_results_found">Non se atopou ningún resultado</string>
+  <string name="edit_section_captcha_message">Para axudar na protección contra o spam automatizado, introduza as palabras que aparecen abaixo</string>
+  <string name="edit_section_captcha_hint">Repita as palabras de arriba</string>
+  <string name="title_captcha">Introducir o captcha</string>
+  <string name="edit_section_abusefilter_back_text">Realizar cambios na miña edición</string>
+  <string name="edit_section_captcha_reload">Toque o CAPTCHA para recargalo</string>
   <string name="nav_item_login">Acceder ao sistema</string>
   <string name="login_username_hint">Nome de usuario</string>
   <string name="login_password_hint">Contrasinal</string>
@@ -53,9 +65,16 @@
   <string name="login_error_wrong_username">O nome de usuario é incorrecto</string>
   <string name="login_success_toast">Accedeu correctamente!</string>
   <string name="login_error_blocked">Este usuario está bloqueado</string>
+  <string name="login_error_throttled">Demasiados intentos de inicio de sesión. Espere uns minutos e volva intentalo.</string>
+  <string name="login_error_unknown">Erro durante o inicio de sesión :(</string>
+  <string name="login_error_no_network">Non hai conexión de rede</string>
   <string name="nav_item_logout">Saír</string>
+  <string name="toast_logout_complete">Desconectado</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Non hai páxinas gardadas</string>
+  <string name="history_empty_message">O seu historial está baleiro.</string>
   <string name="create_account_username_hint">Nome de usuario</string>
   <string name="create_account_password_hint">Contrasinal</string>
+  <string name="menu_create_account">Crear unha conta</string>
   <string name="login_create_account_link">Crear unha conta</string>
   <string name="create_account_activity_title">Crear unha conta</string>
   <string name="edit_section_activity_title">Editar a sección</string>
@@ -64,19 +83,47 @@
   <string name="create_account_password_repeat_hint">Repita o contrasinal</string>
   <string name="create_account_passwords_mismatch_error">Os contrasinais non coinciden</string>
   <string name="create_account_email_error">O enderezo de correo electrónico non é válido</string>
+  <string name="create_account_username_exists_error">O nome de usuario xa está en uso</string>
+  <string name="create_account_ip_throttle_error">Creáronse demasiadas contas desde este enderezo IP. Inténteo de novo máis tarde.</string>
+  <string name="create_account_open_proxy_error">Este enderezo IP foi bloqueado fronte á creación de contas.</string>
+  <string name="create_account_generic_error">Non se puido crear a conta</string>
+  <string name="create_account_no_network">Non hai conexión de rede</string>
   <string name="preferences_general_heading">Xeral</string>
+  <string name="zero_free_verbiage">Acceso libre á Wikipedia desde o seu operador de telefonía móbil (sen aplicación de tarifa de datos)</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero desactivado (poden aplicarse tarifas de datos estándar)</string>
+  <string name="zero_search_hint">Procurar na Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving">Avisádeme ao saír da Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving_summary">Se o seu operador de telefonía móbil renuncia ás tarifas de datos por acceso á aplicación da Wikipedia a través dun consorcio coa Wikipedia Zero, ao deixar marcada esta opción saberá cando deixa a aplicación da Wikipedia e poden aplicarse tarifas de datos.</string>
+  <string name="zero_webpage_title">Preguntas frequentes sobre a Wikipedia Zero</string>
+  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
+  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+  <string name="zero_interstitial_title">Deixando a Wikipedia Zero</string>
+  <string name="zero_interstitial_leave_app">Quere continuar a un sitio externo? Poden aplicarse tarifas de datos estándar.</string>
   <string name="zero_interstitial_continue">Continuar</string>
   <string name="zero_interstitial_cancel">Cancelar</string>
+  <string name="zero_learn_more">Quere saber máis sobre a Wikipedia Zero?</string>
   <string name="zero_learn_more_learn_more">Máis información</string>
   <string name="zero_learn_more_dismiss">Agochar</string>
   <string name="zero_settings">Configuracións</string>
+  <string name="zero_settings_devmode">Modo de desenvolvedor Zero</string>
+  <string name="zero_settings_devmode_summary">Durante o desenvolvemento isto permite a execución de código de partes da Wikipedia Zero.</string>
+  <string name="edit_preview_fetching_dialog_message">Procesando a vista previa...</string>
   <string name="edit_preview_activity_title">Vista previa da edición</string>
   <string name="create_account_logging_in">Accedendo ao sistema...</string>
+  <string name="edit_summary_guide_text">Díganos como mellorou este artigo. Isto axuda aos outros editores a revisar rapidamente a súa edición.</string>
   <string name="edit_summary_hint">Resumo de edición</string>
   <string name="nav_item_random">Ao chou</string>
+  <string name="random_progress">Obtendo unha páxina ao chou...</string>
+  <string name="nav_item_login_benefits">Se accede ao sistema, as súas edicións asociaranse ao seu nome de usuario e o seu enderezo IP non será visible publicamente.</string>
+  <string name="create_account_account_created_toast">Conta creada!</string>
   <string name="user_contribs_more_action">Cargar máis</string>
   <string name="activity_my_contributions_title">As miñas contribucións</string>
   <string name="nav_item_my_contributions">As miñas contribucións</string>
   <string name="edit_save_action_login">Acceder e gardar</string>
   <string name="edit_save_action_ip">Gardar de xeito anónimo</string>
+  <string name="edit_save_action_login_description">As súas edicións serán atribuídas publicamente ao seu nome de usuario e os outros editores poderán relacionarse mellor con vostede</string>
+  <string name="edit_save_action_ip_description">As súas edicións serán atribuídas publicamente ao seu enderezo IP, que cambia con frecuencia</string>
+  <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
+  <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recompile información acerca de como utiliza a aplicación para facela mellor</string>
+  <string name="editing_error_spamblacklist">Detectáronse ligazóns de dominios bloqueados (%s). Elimíneas e inténteo de novo.</string>
 </resources>

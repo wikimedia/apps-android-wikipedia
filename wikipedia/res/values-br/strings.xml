@@ -4,7 +4,7 @@
   <string name="yes">Ya</string>
   <string name="no">Ket</string>
   <string name="acra_report_dialog_title">Sac\'het eo Wikipedia :(</string>
-  <string name="acra_report_dialog_text" fuzzy="true">Kas un danevell sac\'hañ da Yuvi</string>
+  <string name="acra_report_dialog_text">Kas un danevell sac\'hañ dimp</string>
   <string name="acra_report_dialog_comment">Petra e oac\'h oc\'h ober pa oa chomet sac\'het ?</string>
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="history_activity_title">Istor</string>
@@ -13,29 +13,29 @@
   <string name="search_network_error">Fazi rouedad : pouezañ evit klask en-dro.</string>
   <string name="page_error_retry">Klask en-dro</string>
   <string name="menu_clear_all_history">Diverkañ an istor</string>
+  <string name="menu_clear_all_bookmarks">Diverkañ ar sinedoù</string>
   <string name="page_does_not_exist_error">N\'eus ket eus ar bajenn-se.</string>
-  <string name="dialog_title_clear_history">Diverkañ an istor ?</string>
-  <string name="dialog_message_clear_history">Ha c\'hoant ho peus da ziverkañ an istor penn-da-benn ?</string>
-  <string name="saved_pages_activity_title">Sinedoù</string>
-  <string name="nav_item_saved_pages">Sinedoù</string>
-  <string name="menu_save_page">Sined</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Diverkañ an istor ?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Sinedoù</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Sinedoù</string>
+  <string name="menu_save_page" fuzzy="true">Sined</string>
   <string name="menu_share_page">Rannañ</string>
   <string name="share_via">Rannañ dre</string>
-  <string name="dialog_title_clear_saved_pages">Diverkañ ar sinedoù ?</string>
-  <string name="dialog_message_clear_saved_pages">Ha c\'hoant ho peus da ziverkañ an holl sinedoù ?</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Diverkañ ar sinedoù ?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Ha c\'hoant ho peus da ziverkañ an holl sinedoù ?</string>
   <string name="toast_saving_page" fuzzy="true">Oc\'h enrollañ ar bajenn...</string>
   <string name="toast_saved_page" fuzzy="true">Pajenn enrollet</string>
   <string name="toast_save_page_failed" fuzzy="true">C\'hwitet eo enrolladur ar bajenn :(</string>
   <string name="delete_selected_saved_pages">Dilemel</string>
   <string name="toast_saved_page_deleted" fuzzy="true">Pajennoù enrollet dilamet</string>
   <string name="last_updated_text">Hizivadenn ziwezhañ %1$s</string>
-  <string name="content_license_html">An endalc\'had a c\'haller kaout e &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
+  <string name="content_license_html" fuzzy="true">An endalc\'had a c\'haller kaout e &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
   <string name="preference_title_language">Yezh Wikipedia</string>
   <string name="preference_summary_language">Yezh an endalc\'had</string>
   <string name="nav_item_preferences">Arventennoù</string>
   <string name="preference_languages_filter_hint">Klask</string>
   <string name="langlinks_filter_hint">Klask</string>
-  <string name="menu_other_languages">Yezhoù all</string>
+  <string name="menu_other_languages" fuzzy="true">Yezhoù all</string>
   <string name="langlinks_error_retry">Klask en-dro</string>
   <string name="langlinks_empty">N\'haller ket kaout ar pennad-mañ e yezhoù all</string>
   <string name="settings_activity_title">Arventennoù</string>
@@ -70,7 +70,7 @@
   <string name="login_error_no_network">Kevreadenn ebet ouzh ar rouedad</string>
   <string name="nav_item_logout">Digevreañ</string>
   <string name="toast_logout_complete">Digevreet</string>
-  <string name="saved_pages_empty_message">Sined ebet.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Sined ebet.</string>
   <string name="history_empty_message">Goullo eo ho roll-istor.</string>
   <string name="create_account_username_hint">Anv implijer</string>
   <string name="create_account_password_hint">Ger-tremen</string>
@@ -109,9 +109,9 @@
   <string name="edit_preview_fetching_dialog_message">O klask un alberz...</string>
   <string name="edit_preview_activity_title">Alberz eus ar c\'hemm</string>
   <string name="create_account_logging_in">O kevreañ ouzh...</string>
-  <string name="nav_item_send_feedback" fuzzy="true">Kasit hoc\'h evezhiadennoù</string>
   <string name="edit_summary_hint">Kemmañ an diverradenn</string>
   <string name="nav_item_random">Dargouezhek</string>
+  <string name="create_account_account_created_toast">Kont krouet !</string>
   <string name="user_contribs_more_action">Lenn muioc\'h</string>
   <string name="activity_my_contributions_title">Ma degasadennoù</string>
   <string name="nav_item_my_contributions">Ma degasadennoù</string>

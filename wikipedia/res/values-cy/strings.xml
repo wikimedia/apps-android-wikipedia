@@ -11,8 +11,7 @@
   <string name="search_network_error">Gwall yn y rhwydwaith. Ceisiwch eto.</string>
   <string name="page_error_retry">Ailgeisiwch</string>
   <string name="menu_clear_all_history">Clirio\'r hanes</string>
-  <string name="dialog_title_clear_history">Clirio\'r hanes?</string>
-  <string name="dialog_message_clear_history">Ydych chi\'n siwr eich bod am glirio\'r hanes?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Clirio\'r hanes?</string>
   <string name="saved_pages_activity_title" fuzzy="true">Tudalennau a gadwyd</string>
   <string name="nav_item_saved_pages" fuzzy="true">Tudalennau a gadwyd.</string>
   <string name="menu_save_page" fuzzy="true">Cadwch y dudalen</string>
@@ -25,13 +24,13 @@
   <string name="delete_selected_saved_pages">Dileu</string>
   <string name="toast_saved_page_deleted" fuzzy="true">Dilewyd y dudalen / tudalennau</string>
   <string name="last_updated_text">Diweddarwyd ddiwethaf%1$s</string>
-  <string name="content_license_html">Mae\'r cynnwys ar gael dan &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC 3.0 gan SA&lt;/a&gt; oni nodir fel arall</string>
+  <string name="content_license_html" fuzzy="true">Mae\'r cynnwys ar gael dan &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC 3.0 gan SA&lt;/a&gt; oni nodir fel arall</string>
   <string name="preference_title_language" fuzzy="true">Iaith</string>
   <string name="preference_summary_language">Cynnwys iaith</string>
   <string name="nav_item_preferences">Gosodiadau</string>
   <string name="preference_languages_filter_hint">Chwilio</string>
   <string name="langlinks_filter_hint">Chwilier</string>
-  <string name="menu_other_languages">Ieithoedd eraill</string>
+  <string name="menu_other_languages" fuzzy="true">Ieithoedd eraill</string>
   <string name="langlinks_error_retry">Ailgeisiwch</string>
   <string name="langlinks_empty">Nid yw\'r erthygl hon ar gael mewn ieithoedd eraill</string>
   <string name="settings_activity_title">Gosodiadau</string>

@@ -13,8 +13,7 @@
   <string name="search_network_error">Ağ hatası. Dokunarak tekrar deneyin.</string>
   <string name="page_error_retry">Tekrar dene</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
-  <string name="dialog_title_clear_history">Geçmişi temizle?</string>
-  <string name="dialog_message_clear_history">Tüm geçmişi silmek istediğinizden emin misiniz?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Geçmişi temizle?</string>
   <string name="saved_pages_activity_title" fuzzy="true">Kaydedilen sayfalar</string>
   <string name="nav_item_saved_pages" fuzzy="true">Kaydedilen sayfalar</string>
   <string name="menu_save_page" fuzzy="true">Sayfayı kaydet</string>
@@ -28,13 +27,13 @@
   <string name="delete_selected_saved_pages">Sil</string>
   <string name="toast_saved_page_deleted" fuzzy="true">Kaydedilen sayfa(lar) silindi</string>
   <string name="last_updated_text">Son güncelleme %1$s</string>
-  <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
+  <string name="content_license_html" fuzzy="true">Aksi belirtilmediği sürece içerik &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
   <string name="preference_title_language" fuzzy="true">Dil</string>
   <string name="preference_summary_language">İçerik dili</string>
   <string name="nav_item_preferences">Ayarlar</string>
   <string name="preference_languages_filter_hint">Ara</string>
   <string name="langlinks_filter_hint">Ara</string>
-  <string name="menu_other_languages">Diğer diller</string>
+  <string name="menu_other_languages" fuzzy="true">Diğer diller</string>
   <string name="langlinks_error_retry">Tekrar dene</string>
   <string name="langlinks_empty">Bu madde diğer dillerde bulunmamaktadır</string>
   <string name="settings_activity_title">Ayarlar</string>
@@ -64,6 +63,7 @@
   <string name="history_empty_message">Geçmişin boş.</string>
   <string name="create_account_username_hint">Kullanıcı adı</string>
   <string name="create_account_password_hint">Şifre</string>
+  <string name="menu_create_account">Hesap oluştur</string>
   <string name="login_create_account_link">Hesap oluştur</string>
   <string name="create_account_activity_title">Bir hesap oluştur</string>
   <string name="edit_section_activity_title">Bölüm Düzenle</string>
@@ -86,7 +86,6 @@
   <string name="edit_preview_fetching_dialog_message">Ön izleme getiriliyor...</string>
   <string name="edit_preview_activity_title">Düzenleme önizleme</string>
   <string name="create_account_logging_in">Oturum açılıyor...</string>
-  <string name="nav_item_send_feedback">Uygulama geri bildirimi gönder</string>
   <string name="edit_summary_hint">Değişiklik özeti</string>
   <string name="nav_item_random">Rastgele</string>
   <string name="random_progress">Rastgele sayfa getiriliyor...</string>

@@ -15,28 +15,27 @@
   <string name="menu_clear_all_history">방문 기록 지우기</string>
   <string name="menu_clear_all_bookmarks">책갈피 지우기</string>
   <string name="page_does_not_exist_error">이 문서가 존재하지 않습니다.</string>
-  <string name="dialog_title_clear_history">방문 기록을 지울까요?</string>
-  <string name="dialog_message_clear_history">정말 모든 방문 기록을 지울까요?</string>
-  <string name="saved_pages_activity_title">책갈피</string>
-  <string name="nav_item_saved_pages">책갈피</string>
-  <string name="menu_save_page">책갈피하기</string>
+  <string name="dialog_title_clear_history" fuzzy="true">방문 기록을 지울까요?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">책갈피</string>
+  <string name="nav_item_saved_pages" fuzzy="true">책갈피</string>
+  <string name="menu_save_page" fuzzy="true">책갈피하기</string>
   <string name="menu_share_page">공유하기</string>
   <string name="share_via">다음을 통해 공유</string>
-  <string name="dialog_title_clear_saved_pages">책갈피를 지울까요?</string>
-  <string name="dialog_message_clear_saved_pages">모든 책갈피를 지울까요?</string>
-  <string name="toast_saving_page">문서를 책갈피하는 중...</string>
-  <string name="toast_saved_page">문서를 책갈피함</string>
-  <string name="toast_save_page_failed">문서를 책갈피하는 데 실패 :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">책갈피를 지울까요?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">모든 책갈피를 지울까요?</string>
+  <string name="toast_saving_page" fuzzy="true">문서를 책갈피하는 중...</string>
+  <string name="toast_saved_page" fuzzy="true">문서를 책갈피함</string>
+  <string name="toast_save_page_failed" fuzzy="true">문서를 책갈피하는 데 실패 :(</string>
   <string name="delete_selected_saved_pages">삭제</string>
-  <string name="toast_saved_page_deleted">책갈피가 삭제되었습니다</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">책갈피가 삭제되었습니다</string>
   <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
-  <string name="content_license_html">내용은 별도로 명시하지 않을 경우 &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
+  <string name="content_license_html" fuzzy="true">내용은 별도로 명시하지 않을 경우 &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
   <string name="preference_title_language">위키백과 언어</string>
   <string name="preference_summary_language">내용 언어</string>
   <string name="nav_item_preferences">설정</string>
   <string name="preference_languages_filter_hint">검색</string>
   <string name="langlinks_filter_hint">검색</string>
-  <string name="menu_other_languages">다른 언어</string>
+  <string name="menu_other_languages" fuzzy="true">다른 언어</string>
   <string name="langlinks_error_retry">다시 시도</string>
   <string name="langlinks_empty">이 문서는 다른 언어로 읽을 수 없습니다</string>
   <string name="settings_activity_title">설정</string>
@@ -71,7 +70,7 @@
   <string name="login_error_no_network">네트워크 연결 없음</string>
   <string name="nav_item_logout">로그아웃</string>
   <string name="toast_logout_complete">로그아웃됨</string>
-  <string name="saved_pages_empty_message">책갈피 없음</string>
+  <string name="saved_pages_empty_message" fuzzy="true">책갈피 없음</string>
   <string name="history_empty_message">방문 기록이 비어 있습니다.</string>
   <string name="create_account_username_hint">사용자 이름</string>
   <string name="create_account_password_hint">비밀번호</string>
@@ -111,7 +110,6 @@
   <string name="edit_preview_fetching_dialog_message">미리 보기를 가져오는 중...</string>
   <string name="edit_preview_activity_title">편집 미리 보기</string>
   <string name="create_account_logging_in">로그인 중...</string>
-  <string name="nav_item_send_feedback">앱 의견 보내기</string>
   <string name="edit_summary_guide_text">이 문서를 어떻게 개선할지 알려주세요. 다른 편집자들이 당신의 편집을 빠르게 검토하는 것을 돕습니다.</string>
   <string name="edit_summary_hint">편집 요약</string>
   <string name="nav_item_random">임의 문서</string>
@@ -119,8 +117,8 @@
   <string name="nav_item_login_benefits">만약 로그인한다면 당신의 편집은 사용자 이름과 함께 보여지고, IP 주소는 공개적으로 보여주지 않습니다.</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
   <string name="user_contribs_more_action">더 불러오기</string>
-  <string name="activity_my_contributions_title">내 기여 목록</string>
-  <string name="nav_item_my_contributions">내 기여 목록</string>
+  <string name="activity_my_contributions_title">내 기여</string>
+  <string name="nav_item_my_contributions">내 기여</string>
   <string name="edit_save_action_login">로그인하고 저장하기</string>
   <string name="edit_save_action_ip">익명으로 저장하기</string>
   <string name="edit_save_action_login_description">당신의 편집은 사용자 이름으로 공개적으로 보여지며 다른 편집자에게 당신이 더 낫게 하기 위해 연결할 수 있습니다</string>

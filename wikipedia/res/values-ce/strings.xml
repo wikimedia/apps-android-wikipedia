@@ -9,7 +9,7 @@
   <string name="error_network_error">ЗӀе цакарий :(</string>
   <string name="page_error_retry">ЮхагӀорта</string>
   <string name="menu_clear_all_history">ДӀацӀане истори?</string>
-  <string name="dialog_title_clear_history">ДӀацӀане истори?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">ДӀацӀане истори?</string>
   <string name="saved_pages_activity_title" fuzzy="true">Ӏалашйина агӀонаш</string>
   <string name="nav_item_saved_pages" fuzzy="true">Ӏалашйина агӀонаш</string>
   <string name="menu_save_page" fuzzy="true">Ӏалашйе агӀо</string>
@@ -26,7 +26,7 @@
   <string name="nav_item_preferences">Параметраш</string>
   <string name="preference_languages_filter_hint">Лаха</string>
   <string name="langlinks_filter_hint">Лаха</string>
-  <string name="menu_other_languages">Кхин меттанаш</string>
+  <string name="menu_other_languages" fuzzy="true">Кхин меттанаш</string>
   <string name="langlinks_error_retry">ЮхагӀорта</string>
   <string name="settings_activity_title">Параметраш</string>
   <string name="langlinks_activity_title">Кхин меттанаш</string>
@@ -82,7 +82,6 @@
   <string name="edit_preview_fetching_dialog_message">Хьалха хьажар гучудолуш ю...</string>
   <string name="edit_preview_activity_title">Нисдаре хьалха хьажар</string>
   <string name="create_account_logging_in">Системан чудахар...</string>
-  <string name="nav_item_send_feedback" fuzzy="true">Дахьийта хетарг</string>
   <string name="edit_summary_hint">Хийцамах лаьцна</string>
   <string name="random_progress">Цахууш нисъелла агӀо харжар...</string>
   <string name="user_contribs_more_action">Чуяха кхин</string>

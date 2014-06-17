@@ -15,28 +15,27 @@
   <string name="menu_clear_all_history">Rensa historik</string>
   <string name="menu_clear_all_bookmarks">Rensa bokmärken</string>
   <string name="page_does_not_exist_error">Denna sidan finns inte.</string>
-  <string name="dialog_title_clear_history">Rensa historik?</string>
-  <string name="dialog_message_clear_history">Är du säker på att du vill rensa bort all historik?</string>
-  <string name="saved_pages_activity_title">Bokmärken</string>
-  <string name="nav_item_saved_pages">Bokmärken</string>
-  <string name="menu_save_page">Skapa bokmärke</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Rensa historik?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Bokmärken</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Bokmärken</string>
+  <string name="menu_save_page" fuzzy="true">Skapa bokmärke</string>
   <string name="menu_share_page">Dela</string>
   <string name="share_via">Dela via</string>
-  <string name="dialog_title_clear_saved_pages">Rensa bokmärken?</string>
-  <string name="dialog_message_clear_saved_pages">Är du säker på att du vill rensa alla bokmärken?</string>
-  <string name="toast_saving_page">Skapar bokmärke...</string>
-  <string name="toast_saved_page">Bokmärke till sidan skapades</string>
-  <string name="toast_save_page_failed">Bokmärket kunde inte skapas :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Rensa bokmärken?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Är du säker på att du vill rensa alla bokmärken?</string>
+  <string name="toast_saving_page" fuzzy="true">Skapar bokmärke...</string>
+  <string name="toast_saved_page" fuzzy="true">Bokmärke till sidan skapades</string>
+  <string name="toast_save_page_failed" fuzzy="true">Bokmärket kunde inte skapas :(</string>
   <string name="delete_selected_saved_pages">Radera</string>
-  <string name="toast_saved_page_deleted">Bokmärkena raderades</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Bokmärkena raderades</string>
   <string name="last_updated_text">Senast uppdaterad %1$s</string>
-  <string name="content_license_html">Innehållet är tillgängligt under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
+  <string name="content_license_html" fuzzy="true">Innehållet är tillgängligt under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
   <string name="preference_title_language">Wikipediaspråk</string>
   <string name="preference_summary_language">Innehållsspråk</string>
   <string name="nav_item_preferences">Inställningar</string>
   <string name="preference_languages_filter_hint">Sök</string>
   <string name="langlinks_filter_hint">Sök</string>
-  <string name="menu_other_languages">Andra språk</string>
+  <string name="menu_other_languages" fuzzy="true">Andra språk</string>
   <string name="langlinks_error_retry">Försök igen</string>
   <string name="langlinks_empty">Denna artikel inte är tillgänglig på andra språk</string>
   <string name="settings_activity_title">Inställningar</string>
@@ -71,7 +70,7 @@
   <string name="login_error_no_network">Ingen nätverksanslutning</string>
   <string name="nav_item_logout">Logga ut</string>
   <string name="toast_logout_complete">Utloggad</string>
-  <string name="saved_pages_empty_message">Inga bokmärken</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Inga bokmärken</string>
   <string name="history_empty_message">Din historik är tom.</string>
   <string name="create_account_username_hint">Användarnamn</string>
   <string name="create_account_password_hint">Lösenord</string>
@@ -111,7 +110,6 @@
   <string name="edit_preview_fetching_dialog_message">Hämtar förhandsgranskning...</string>
   <string name="edit_preview_activity_title">Förhandsgranska redigering</string>
   <string name="create_account_logging_in">Loggar in...</string>
-  <string name="nav_item_send_feedback">Skicka appåterkoppling</string>
   <string name="edit_summary_guide_text">Berätta hur du förbättrade denna artikel. Detta hjälper andra redigerare att granska din redigering snabbt.</string>
   <string name="edit_summary_hint">Redigeringssammanfattning</string>
   <string name="nav_item_random">Slumpartikel</string>

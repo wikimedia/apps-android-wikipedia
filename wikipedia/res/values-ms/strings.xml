@@ -15,28 +15,27 @@
   <string name="menu_clear_all_history">Padamkan sejarah</string>
   <string name="menu_clear_all_bookmarks">Padamkan bookmark</string>
   <string name="page_does_not_exist_error">Laman ini tidak wujud.</string>
-  <string name="dialog_title_clear_history">Padamkan sejarah?</string>
-  <string name="dialog_message_clear_history">Adakah anda betul-betul mahu memadamkan kesemua sejarah?</string>
-  <string name="saved_pages_activity_title">Bookmark</string>
-  <string name="nav_item_saved_pages">Bookmark</string>
-  <string name="menu_save_page">Bookmark</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Padamkan sejarah?</string>
+  <string name="saved_pages_activity_title" fuzzy="true">Bookmark</string>
+  <string name="nav_item_saved_pages" fuzzy="true">Bookmark</string>
+  <string name="menu_save_page" fuzzy="true">Bookmark</string>
   <string name="menu_share_page">Sebarkan</string>
   <string name="share_via">Sebarkan melalui</string>
-  <string name="dialog_title_clear_saved_pages">Padamkan bookmark?</string>
-  <string name="dialog_message_clear_saved_pages">Adakah anda betul-betul mahu memadamkan semua bookmark?</string>
-  <string name="toast_saving_page">Mem-bookmark laman...</string>
-  <string name="toast_saved_page">Laman bookmark</string>
-  <string name="toast_save_page_failed">Laman gagal di-bookmark :(</string>
+  <string name="dialog_title_clear_saved_pages" fuzzy="true">Padamkan bookmark?</string>
+  <string name="dialog_message_clear_saved_pages" fuzzy="true">Adakah anda betul-betul mahu memadamkan semua bookmark?</string>
+  <string name="toast_saving_page" fuzzy="true">Mem-bookmark laman...</string>
+  <string name="toast_saved_page" fuzzy="true">Laman bookmark</string>
+  <string name="toast_save_page_failed" fuzzy="true">Laman gagal di-bookmark :(</string>
   <string name="delete_selected_saved_pages">Hapuskan</string>
-  <string name="toast_saved_page_deleted">Bookmark terpadam</string>
+  <string name="toast_saved_page_deleted" fuzzy="true">Bookmark terpadam</string>
   <string name="last_updated_text">Mutakhir: %1$s</string>
-  <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
+  <string name="content_license_html" fuzzy="true">Kandungan ini tersedia dengan lesen &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="preference_summary_language">Bahasa kandungan</string>
   <string name="nav_item_preferences">Tetapan</string>
   <string name="preference_languages_filter_hint">Cari</string>
   <string name="langlinks_filter_hint">Cari</string>
-  <string name="menu_other_languages">Bahasa lain</string>
+  <string name="menu_other_languages" fuzzy="true">Bahasa lain</string>
   <string name="langlinks_error_retry">Cuba lagi</string>
   <string name="langlinks_empty">Rencana ini tidak terdapat dalam bahasa lain</string>
   <string name="settings_activity_title">Tetapan</string>
@@ -71,7 +70,7 @@
   <string name="login_error_no_network">Tiada sambungan rangkaian</string>
   <string name="nav_item_logout">Log keluar</string>
   <string name="toast_logout_complete">Log keluar</string>
-  <string name="saved_pages_empty_message">Tiada bookmark.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Tiada bookmark.</string>
   <string name="history_empty_message">Sejarah anda kosong.</string>
   <string name="create_account_username_hint">Nama pengguna</string>
   <string name="create_account_password_hint">Kata laluan</string>
@@ -110,7 +109,6 @@
   <string name="edit_preview_fetching_dialog_message">Mengolah pralihat...</string>
   <string name="edit_preview_activity_title">Pralihatkan suntingan</string>
   <string name="create_account_logging_in">Sedang log masuk...</string>
-  <string name="nav_item_send_feedback">Kirim maklum balas aplikasi</string>
   <string name="edit_summary_guide_text">Ceritakan bagaimana anda menambah baik rencana ini supaya para penyunting lain senang menyemak suntingan anda dengan cepat.</string>
   <string name="edit_summary_hint">Ringkasan suntingan</string>
   <string name="nav_item_random">Rawak</string>
