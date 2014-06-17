@@ -47,7 +47,7 @@
     <string name="langlinks_filter_hint">Search</string>
     <string name="menu_other_languages">Read in other languages</string>
     <string name="langlinks_error_retry">Retry</string>
-    <string name="langlinks_empty">This article is not available in other languages</string>
+    <string name="langlinks_empty">This page is not available in other languages</string>
     <string name="settings_activity_title">Settings</string>
     <string name="langlinks_activity_title">Other languages</string>
     <string name="editsection_activity_title">Edit Section</string>
@@ -126,7 +126,7 @@
     <string name="edit_preview_activity_title">Preview edit</string>
     <string name="create_account_logging_in">Logging in...</string>
     <string name="send_feedback">Send app feedback</string>
-    <string name="edit_summary_guide_text">Tell us how you improved this article. This helps other editors review your edit quickly.</string>
+    <string name="edit_summary_guide_text">Tell us how you improved this page. This helps other editors review your edit quickly.</string>
     <string name="edit_summary_hint">Edit summary</string>
     <string name="nav_item_random">Random</string>
     <string name="random_progress">Fetching random page...</string>
