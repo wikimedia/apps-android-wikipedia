@@ -21,8 +21,8 @@ public class ImageUrlMapTests extends TestCase {
 
     private static final String IMG_MAP_JSON_OUTPUT
             = "{\"img_map\":["
-            + "{\"originalURL\":\"\\/\\/foo.org\\/bbb.png\",\"newURL\":\"\\/data\\/short\\/img\\/a0bf5f6da269a012fefb997167844e3.png\"},"
-            + "{\"originalURL\":\"\\/\\/foo.org\\/aaa.png\",\"newURL\":\"\\/data\\/short\\/img\\/b1ce85b9f1bd65f79d42ad3358f51f8.png\"}"
+            + "{\"originalURL\":\"\\/\\/foo.org\\/aaa.png\",\"newURL\":\"file:\\/\\/\\/data\\/short\\/img\\/b1ce85b9f1bd65f79d42ad3358f51f8.png\"},"
+            + "{\"originalURL\":\"\\/\\/foo.org\\/bbb.png\",\"newURL\":\"file:\\/\\/\\/data\\/short\\/img\\/a0bf5f6da269a012fefb997167844e3.png\"}"
             + "]}";
 
     public void testUrlRewrite() throws Exception {
