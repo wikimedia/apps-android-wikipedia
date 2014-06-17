@@ -31,7 +31,7 @@ public class NearbyUnitTests extends TestCase {
         nextLocation = new Location("current");
         nextLocation.setLatitude(0.0d);
         nextLocation.setLongitude(0.0d);
-        nearbyPages = new LinkedList<NearbyPage>();
+        nearbyPages = new LinkedList<>();
         nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"c\", \"coordinates\": [{\"lat\": 0.0, \"lon\": 3.0}] }")));
         nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"b\", \"coordinates\": [{\"lat\": 0.0, \"lon\": 2.0}] }")));
         nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"a\", \"coordinates\": [{\"lat\": 0.0, \"lon\": 1.0}] }")));

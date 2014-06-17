@@ -7,6 +7,7 @@ import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.createaccount.CreateAccountCaptchaResult;
 import org.wikipedia.createaccount.CreateAccountResult;
+import org.wikipedia.createaccount.CreateAccountSuccessResult;
 import org.wikipedia.createaccount.CreateAccountTask;
 
 import java.util.concurrent.CountDownLatch;
@@ -32,6 +33,11 @@ public class CreateAccountTokenTest extends ActivityUnitTestCase<TestDummyActivi
                 new CreateAccountTask(getInstrumentation().getTargetContext(), username, password, null) {
                     @Override
                     public void onFinish(CreateAccountResult baseResult) {
+                        if (baseResult instanceof CreateAccountSuccessResult) {
+                            // We don't always get a CAPTCHA when running this test repeatedly
+                            completionLatch.countDown();
+                            return;
+                        }
                         assertTrue("got " + baseResult.getClass().getSimpleName(),
                                 baseResult instanceof CreateAccountCaptchaResult);
                         CreateAccountCaptchaResult result = (CreateAccountCaptchaResult)baseResult;

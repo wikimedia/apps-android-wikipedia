@@ -24,7 +24,7 @@ public class WikipediaZeroTests extends ActivityUnitTestCase<TestDummyActivity> 
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                HashMap<String, String> customHeaders = new HashMap<String, String>();
+                HashMap<String, String> customHeaders = new HashMap<>();
                 customHeaders.put("X-CS", "TEST");
                 new WikipediaZeroTask(new Api("en.m.wikipedia.org", "WMF-Android-AutomationTest-testWikipediaZeroEligibility", customHeaders), (WikipediaApp)getInstrumentation().getTargetContext().getApplicationContext()) {
                     @Override

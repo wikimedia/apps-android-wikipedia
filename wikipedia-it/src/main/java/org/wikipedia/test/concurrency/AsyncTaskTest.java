@@ -11,7 +11,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
-    public static final int TASK_COMPLETION_TIMEOUT = 1000;
+    private static final int TASK_COMPLETION_TIMEOUT = 1000;
     private Executor executor;
 
     public AsyncTaskTest() {

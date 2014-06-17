@@ -12,11 +12,7 @@ import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.Section;
 import org.wikipedia.pageimages.PageImage;
 
-import java.util.ArrayList;
-
 public class ParcelableTest extends TestCase {
-
-    private static final int NUM_SECTIONS = 10;
 
     private void parcelAndTestObjects(Parcelable p) throws Exception {
         Parcel parcel = Parcel.obtain();
@@ -29,9 +25,13 @@ public class ParcelableTest extends TestCase {
     }
 
     public void testPageTitle() throws Exception {
+        PageTitle title = new PageTitle(null, "Test", new Site("en.wikipedia.org"));
+        parcelAndTestObjects(title);
+    }
+
+    public void testPageTitleTalk() throws Exception {
         Site site = new Site("en.wikipedia.org");
         PageTitle origTitle = new PageTitle("Talk", "India", site);
-
         parcelAndTestObjects(origTitle);
     }
 
@@ -45,20 +45,13 @@ public class ParcelableTest extends TestCase {
         parcelAndTestObjects(parentSection);
     }
 
-    public void testPage() throws Exception {
-        ArrayList<Section> sections = new ArrayList<Section>();
-        Section headSection = new Section(0, 1, null, null, "Hi there!");
-        for (int i = 1; i <= NUM_SECTIONS; i++) {
-            sections.add(new Section(i, 1, "Something " + i, "Something_" + i, "Content Something" + i));
-        }
-        PageTitle title = new PageTitle(null, "Test", new Site("en.wikipedia.org"));
+    public void testPageProperties() throws Exception {
         PageProperties props = new PageProperties(new JSONObject("{\"protection\":{\"edit\":[\"autoconfirmed\"],\"move\":[\"sysop\"]},\"id\":15580374,\"displaytitle\":\"Something\",\"revision\":615503846,\"lastmodified\":\"\",\"editable\":false,\"mainpage\":false}"));
-        parcelAndTestObjects(title);
         parcelAndTestObjects(props);
     }
 
     public void testLruCache() throws Exception {
-        ParcelableLruCache<Site> oldCache = new ParcelableLruCache<Site>(2, Site.class);
+        ParcelableLruCache<Site> oldCache = new ParcelableLruCache<>(2, Site.class);
         oldCache.put("english", new Site("en.wikipedia.org"));
         oldCache.put("tamil", new Site("ta.wikipedia.org"));
 
@@ -67,6 +60,7 @@ public class ParcelableTest extends TestCase {
 
         parcel.setDataPosition(0);
         Parcelable.Creator creator = (Parcelable.Creator) oldCache.getClass().getField("CREATOR").get(null);
+        //noinspection unchecked
         ParcelableLruCache<Site> newCache = (ParcelableLruCache<Site>) creator.createFromParcel(parcel);
 
         assertEquals(newCache.maxSize(), oldCache.maxSize());
