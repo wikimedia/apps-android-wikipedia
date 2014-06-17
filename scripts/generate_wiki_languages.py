@@ -19,7 +19,8 @@ for row in data:
         is_first = False
         continue  # skip headers!
     if row[2] == 'got':
-        # 'got' is Gothic Runes, which lie ouotside the BMP
+        # 'got' is Gothic Runes, which lie outside the Basic Multilingual Plane
+        # < https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane >
         # Android segfaults on these. So let's ignore those.
         # What's good for Android is also good for iOS :P
         continue
