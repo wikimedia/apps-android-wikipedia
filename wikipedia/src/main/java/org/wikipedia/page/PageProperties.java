@@ -21,7 +21,7 @@ public class PageProperties implements Parcelable {
     private final String displayTitleText;
     private final String editProtectionStatus;
     private final boolean isMainPage;
-    private SimpleDateFormat sdf;
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
 
     /**
      * True if the user who first requested this page can edit this page
@@ -38,7 +38,6 @@ public class PageProperties implements Parcelable {
      */
     public PageProperties(String lastModifiedText, String displayTitleText, String editProtectionStatus, boolean canEdit, boolean isMainPage) {
         lastModified = new Date();
-        sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
             lastModified.setTime(sdf.parse(lastModifiedText).getTime());
