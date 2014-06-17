@@ -78,6 +78,7 @@
                 android:layout_height="48dp"
                 android:src="@drawable/ic_toc"
                 android:background="@drawable/search_item_background"
+                android:contentDescription="@string/menu_show_toc"
                 />
         <ImageView
                 android:id="@+id/search_bar_show_menu"
@@ -86,6 +87,7 @@
                 android:padding="8dp"
                 android:src="@drawable/ic_menu_moreoverflow_normal_holo_light"
                 android:background="@drawable/search_item_background"
+                android:contentDescription="@string/abc_action_menu_overflow_description"
                 />
     </LinearLayout>
     <!-- Android has no easy way to give us a light border -->
