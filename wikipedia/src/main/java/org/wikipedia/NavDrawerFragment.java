@@ -145,7 +145,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 startActivity(intent);
                 break;
             case R.id.nav_item_random:
-                randomHandler.doVistRandomArticle();
+                randomHandler.doVisitRandomArticle();
                 break;
             default:
                 throw new RuntimeException("Unknown ID clicked!");

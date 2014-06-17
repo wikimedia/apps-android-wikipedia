@@ -25,7 +25,7 @@ public class RandomHandler {
         this.app = (WikipediaApp)(activity.getApplicationContext());
     }
 
-    public void doVistRandomArticle() {
+    public void doVisitRandomArticle() {
         final Bus bus = app.getBus();
         Handler randomHandler = new Handler(new Handler.Callback(){
             @Override
