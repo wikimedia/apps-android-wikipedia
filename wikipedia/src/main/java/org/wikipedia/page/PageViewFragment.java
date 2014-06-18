@@ -1,8 +1,6 @@
 package org.wikipedia.page;
 
-import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -192,7 +190,6 @@ public class PageViewFragment extends Fragment {
             return;
         }
         pageFragmentContainer.setVisibility(View.GONE);
-        stopMediaPlayback();
     }
 
     /*
@@ -245,7 +242,6 @@ public class PageViewFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        stopMediaPlayback();
         if (saveState != SAVE_STATE_NONE) {
             outState.putInt(KEY_PAGER_INDEX, pagerIndex);
             outState.putParcelable(KEY_TITLE, title);
@@ -666,27 +662,6 @@ public class PageViewFragment extends Fragment {
             return true;
         }
         return false;
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        stopMediaPlayback();
-    }
-
-    /**
-     * Stops playback of any media content that's part of the current page.
-     * Apparently, when the WebView is closed, and the AudioService doesn't have focus,
-     * it doesn't terminate playback. So, we'll momentarily gain focus right before
-     * the WebView is about to disappear, so the AudioService will stop playback.
-     */
-    private void stopMediaPlayback() {
-        ((AudioManager)getActivity().getSystemService(Context.AUDIO_SERVICE))
-                .requestAudioFocus(new AudioManager.OnAudioFocusChangeListener() {
-                    @Override
-                    public void onAudioFocusChange(int focusChange) {
-                    }
-                }, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
     }
 
     @Override
