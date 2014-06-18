@@ -36,4 +36,25 @@ public class PageFetchTaskTests extends ActivityUnitTestCase<TestDummyActivity> 
         });
         assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
     }
+
+
+    /** Inspired by https://bugzilla.wikimedia.org/show_bug.cgi?id=66152 */
+    public void testPageFetchWithAmpersand() throws Throwable {
+        final CountDownLatch completionLatch = new CountDownLatch(1);
+        startActivity(new Intent(), null, null);
+        runTestOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                new SectionsFetchTask(getInstrumentation().getTargetContext(), new PageTitle(null, "Ampersand & title", new Site("test.wikipedia.org")), "all") {
+                    @Override
+                    public void onFinish(List<Section> result) {
+                        assertNotNull(result);
+                        assertEquals(1, result.size());
+                        completionLatch.countDown();
+                    }
+                }.execute();
+            }
+        });
+        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+    }
 }
