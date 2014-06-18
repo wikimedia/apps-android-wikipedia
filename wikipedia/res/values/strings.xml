@@ -166,7 +166,7 @@
     <string name="user_anon_blocked_from_editing" type="id">Your IP address has been blocked from editing.</string>
     <string name="edit_how_page_improved">How did you improve the page?</string>
     <string name="edit_next">Next</string>
-    <string name="edit_done">Done</string>
+    <string name="edit_done">Save</string>
     <string name="edit_preview">Preview</string>
     <string name="edit_summary_tag_typo">Fixed typo</string>
     <string name="edit_summary_tag_grammar">Fixed grammar</string>
