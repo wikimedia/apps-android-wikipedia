@@ -16,6 +16,7 @@ import org.acra.annotation.ReportsCrashes;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.analytics.FunnelManager;
+import org.wikipedia.migration.BookmarksMigrator;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.savedpages.SavedPagePersister;
 import org.wikipedia.bridge.StyleLoader;
@@ -136,6 +137,7 @@ public class WikipediaApp extends Application {
             throw new RuntimeException(e);
         }
 
+        // FIXME: This should be on a background thread, and set a pref so we run this only once
         try {
             DataMigrator dataMigrator = new DataMigrator(this);
             if (dataMigrator.hasData()) {
@@ -153,6 +155,13 @@ public class WikipediaApp extends Application {
             }
         } catch (Exception e) {
             Log.d("Wikipedia", "Migration code fail: " + e);
+        }
+
+        BookmarksMigrator bookmarksMigrator = new BookmarksMigrator(this);
+        if (bookmarksMigrator.migrateIfNeeded()) {
+            Log.d("Wikipedia", "Bookmarks migrator successfully run");
+        } else {
+            Log.d("Wikipedia", "No bookmarks needed migrating");
         }
     }
 
