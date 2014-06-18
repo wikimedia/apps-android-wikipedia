@@ -142,16 +142,16 @@ public class ToCHandler {
 
     public void show() {
         if (slidingPane.getSlidingEnabled()) {
-            slidingPane.openDrawer(Gravity.RIGHT);
+            slidingPane.openDrawer();
         }
     }
 
     public void hide() {
-        slidingPane.closeDrawer(Gravity.RIGHT);
+        slidingPane.closeDrawer();
     }
 
     public boolean isVisible() {
-        return slidingPane.isDrawerOpen(Gravity.RIGHT);
+        return slidingPane.isDrawerOpen();
     }
 
     private static final class ToCAdapter extends BaseAdapter {
