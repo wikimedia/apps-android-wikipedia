@@ -39,6 +39,7 @@ import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.views.DisableableDrawerLayout;
 
+import javax.net.ssl.SSLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -533,19 +534,30 @@ public class PageViewFragment extends Fragment {
         searchArticlesFragment.setTocEnabled(false);
 
         if (caught instanceof SectionsFetchException) {
-            if (((SectionsFetchException)caught).getCode().equals("missingtitle")
-                    || ((SectionsFetchException)caught).getCode().equals("invalidtitle")) {
+            if (((SectionsFetchException) caught).getCode().equals("missingtitle")
+                    || ((SectionsFetchException) caught).getCode().equals("invalidtitle")) {
                 ViewAnimations.crossFade(loadProgress, pageDoesNotExistError);
             }
+        } else if (Utils.throwableContainsSpecificType(caught, SSLException.class)) {
+            if (++WikipediaApp.FAILS < 2) {
+                WikipediaApp.FALLBACK = true;
+                showNetworkError();
+                return;
+            }
+            showNetworkError();
         } else if (caught instanceof ApiException) {
-            // Check for the source of the error and have different things turn up
-            ViewAnimations.crossFade(loadProgress, networkError);
-            // Not sure why this is required, but without it tapping retry hides networkError
-            // FIXME: INVESTIGATE WHY THIS HAPPENS!
-            networkError.setVisibility(View.VISIBLE);
+            showNetworkError();
         } else {
             throw new RuntimeException(caught);
         }
+    }
+
+    private void showNetworkError() {
+        // Check for the source of the error and have different things turn up
+        ViewAnimations.crossFade(loadProgress, networkError);
+        // Not sure why this is required, but without it tapping retry hides networkError
+        // FIXME: INVESTIGATE WHY THIS HAPPENS!
+        networkError.setVisibility(View.VISIBLE);
     }
 
     public void savePage() {

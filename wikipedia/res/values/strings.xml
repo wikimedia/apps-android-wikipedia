@@ -176,4 +176,5 @@
     <string name="find_next">Find next</string>
     <string name="find_previous">Find previous</string>
     <string name="find_close">Close find bar</string>
+    <string name="error_network_error_try_again">Could not reach the network, please try again.</string>
 </resources>

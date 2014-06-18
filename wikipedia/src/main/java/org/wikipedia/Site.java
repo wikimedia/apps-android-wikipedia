@@ -14,7 +14,7 @@ public class Site implements Parcelable {
     }
 
     public String getApiDomain() {
-        return domain.replaceFirst("\\.", ".m.");
+        return WikipediaApp.FALLBACK ? domain : domain.replaceFirst("\\.", ".m.");
     }
 
     public Site(Parcel in) {

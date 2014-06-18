@@ -605,7 +605,6 @@ public final class Utils {
         return stringArray;
     }
 
-
     /**
      * Resolves a potentially protocol relative URL to a 'full' URL
      *
@@ -621,5 +620,28 @@ public final class Utils {
             fullUrl = url;
         }
         return fullUrl;
+    }
+    /**
+     * Ask user to try connecting again upon (hopefully) recoverable network failure.
+     */
+    public static void toastFail() {
+        Toast.makeText(WikipediaApp.getInstance(), R.string.error_network_error_try_again, Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     *
+     * @param actual The exception object
+     * @param expected The class you're trying to find, usually tossed by ExceptionImpl.class, for example.
+     * @return boolean true if the Throwable type was found in the nested exception change, else false.
+     */
+    public static boolean throwableContainsSpecificType(Throwable actual, Class expected) {
+        if (actual == null) {
+            return false;
+        }
+        else if (actual.getClass() == expected) {
+            return true;
+        } else {
+            return throwableContainsSpecificType(actual.getCause(), expected);
+        }
     }
 }

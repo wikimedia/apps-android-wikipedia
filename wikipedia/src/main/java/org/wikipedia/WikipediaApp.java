@@ -74,6 +74,8 @@ public class WikipediaApp extends Application {
     private static WikipediaApp instance;
 
     private ConnectionChangeReceiver connChangeReceiver;
+    public static boolean FALLBACK = false;
+    public static int FAILS = 0;
 
     public WikipediaApp() {
         instance = this;
@@ -162,10 +164,12 @@ public class WikipediaApp extends Application {
             return api;
         }
 
-        if (!apis.containsKey(site.getDomain()))  {
-            apis.put(site.getDomain(), new Api(site.getApiDomain(), getUserAgent()));
+        String domainAndApiDomainKey = site.getDomain() + "-" + site.getApiDomain();
+
+        if (!apis.containsKey(domainAndApiDomainKey))  {
+            apis.put(domainAndApiDomainKey, new Api(site.getApiDomain(), getUserAgent()));
         }
-        return apis.get(site.getDomain());
+        return apis.get(domainAndApiDomainKey);
     }
 
     private Site primarySite;

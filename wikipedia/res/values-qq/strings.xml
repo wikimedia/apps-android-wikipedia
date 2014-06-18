@@ -166,4 +166,5 @@
   <string name="find_next">Text for button that finds the next occurrence of a search term</string>
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
   <string name="find_close">Text for button that closes the find-in-page bar</string>
+  <string name="error_network_error_try_again">Message shown when encountering network connection issues that may be corrected by simply retrying.</string>
 </resources>
