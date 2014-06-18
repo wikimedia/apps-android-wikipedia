@@ -41,6 +41,7 @@ public class FindInPageFragment extends Fragment {
         findInPageNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Utils.hideSoftKeyboard(parentActivity);
                 parentActivity.getCurPageFragment().getWebView().findNext(true);
             }
         });
@@ -49,6 +50,7 @@ public class FindInPageFragment extends Fragment {
         findInPagePrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Utils.hideSoftKeyboard(parentActivity);
                 parentActivity.getCurPageFragment().getWebView().findNext(false);
             }
         });
