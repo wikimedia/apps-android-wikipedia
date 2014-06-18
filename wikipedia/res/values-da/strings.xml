@@ -22,7 +22,7 @@
   <string name="dialog_message_clear_saved_pages" fuzzy="true">Er du sikker på du ønsker at slette alle bogmærker?</string>
   <string name="toast_saved_page" fuzzy="true">Bogmærket side</string>
   <string name="delete_selected_saved_pages">Slet</string>
-  <string name="last_updated_text">Sidst opdateret $1</string>
+  <string name="last_updated_text">Sidst opdateret %s</string>
   <string name="content_license_html" fuzzy="true">Indholdet er udgivet under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; medmindre andet er angivet</string>
   <string name="preference_title_language">Wikipediasprog</string>
   <string name="preference_summary_language">Indholdssprog</string>
