@@ -489,6 +489,11 @@ public class SearchArticlesFragment extends Fragment {
         searchTermText.setHint(R.string.zero_search_hint);
         searchBarMenuButton.setColorFilter(Color.WHITE);
         searchBarTocButton.setColorFilter(Color.WHITE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            drawerIndicator.setAlpha(.6f);
+            wikipediaIcon.setAlpha(.6f);
+            searchBarTocButton.setAlpha(.6f);
+        }
         ensureVisible();
     }
 
@@ -501,6 +506,11 @@ public class SearchArticlesFragment extends Fragment {
         searchTermText.setHint(R.string.search_hint);
         searchBarMenuButton.clearColorFilter();
         searchBarTocButton.clearColorFilter();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            drawerIndicator.setAlpha(1.0f);
+            wikipediaIcon.setAlpha(.9f);
+            searchBarTocButton.setAlpha(.5f);
+        }
         ensureVisible();
     }
 

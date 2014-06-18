@@ -76,7 +76,10 @@
                 android:id="@+id/search_bar_show_toc"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:padding="14dp"
                 android:src="@drawable/ic_toc"
+                android:alpha=".5"
                 android:background="@drawable/search_item_background"
                 android:contentDescription="@string/menu_show_toc"
                 />
@@ -84,6 +87,7 @@
                 android:id="@+id/search_bar_show_menu"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
                 android:padding="8dp"
                 android:src="@drawable/ic_menu_moreoverflow_normal_holo_light"
                 android:background="@drawable/search_item_background"
