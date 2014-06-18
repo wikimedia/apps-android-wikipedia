@@ -12,10 +12,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.webkit.WebView;
 import android.widget.*;
 import com.github.kevinsawicki.http.HttpRequest;
@@ -182,9 +179,11 @@ public class EditSectionActivity extends ActionBarActivity {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
             }
+
             @Override
             public void afterTextChanged(Editable editable) {
                 if (sectionTextFirstLoad) {
@@ -198,6 +197,10 @@ public class EditSectionActivity extends ActionBarActivity {
                 }
             }
         });
+
+        // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:
+        sectionText.requestFocus();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     // TODO: refactor; same code in PageActivity
