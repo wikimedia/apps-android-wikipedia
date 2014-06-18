@@ -13,12 +13,8 @@ import com.squareup.otto.Bus;
 import org.acra.ACRA;
 import org.acra.ReportingInteractionMode;
 import org.acra.annotation.ReportsCrashes;
-import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.analytics.FunnelManager;
-import org.wikipedia.migration.BookmarksMigrator;
-import org.wikipedia.savedpages.SavedPage;
-import org.wikipedia.savedpages.SavedPagePersister;
 import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.data.ContentPersister;
 import org.wikipedia.data.DBOpenHelper;
@@ -28,15 +24,15 @@ import org.wikipedia.editing.summaries.EditSummaryPersister;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryEntryPersister;
 import org.wikipedia.login.UserInfoStorage;
-import org.wikipedia.migration.ArticleImporter;
-import org.wikipedia.migration.DataMigrator;
+import org.wikipedia.migration.PerformMigrationsTask;
 import org.wikipedia.networking.ConnectionChangeReceiver;
 import org.wikipedia.networking.MccMncStateHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagePersister;
+import org.wikipedia.savedpages.SavedPage;
+import org.wikipedia.savedpages.SavedPagePersister;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
@@ -137,32 +133,7 @@ public class WikipediaApp extends Application {
             throw new RuntimeException(e);
         }
 
-        // FIXME: This should be on a background thread, and set a pref so we run this only once
-        try {
-            DataMigrator dataMigrator = new DataMigrator(this);
-            if (dataMigrator.hasData()) {
-                // whee
-                Log.d("Wikipedia", "Migrating old app data...");
-                ArticleImporter articleImporter = new ArticleImporter(this);
-                List<JSONObject> pages = dataMigrator.extractSavedPages();
-                Log.d("Wikipedia", "Importing " + pages.size() + " old saved pages as new saved pages...");
-                articleImporter.importArticles(pages);
-                Log.d("Wikipedia", "Deleting old saved pages table");
-                dataMigrator.removeOldData();
-                Log.d("Wikipedia", "Migration done.");
-            } else {
-                Log.d("Wikipedia", "No old app data to migrate");
-            }
-        } catch (Exception e) {
-            Log.d("Wikipedia", "Migration code fail: " + e);
-        }
-
-        BookmarksMigrator bookmarksMigrator = new BookmarksMigrator(this);
-        if (bookmarksMigrator.migrateIfNeeded()) {
-            Log.d("Wikipedia", "Bookmarks migrator successfully run");
-        } else {
-            Log.d("Wikipedia", "No bookmarks needed migrating");
-        }
+        new PerformMigrationsTask().execute();
     }
 
     public Bus getBus() {
