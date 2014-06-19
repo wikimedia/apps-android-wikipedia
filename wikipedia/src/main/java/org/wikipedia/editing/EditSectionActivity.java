@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -131,7 +132,8 @@ public class EditSectionActivity extends ActionBarActivity {
         editSummaryFragment = (EditSummaryFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_summary_fragment);
 
         editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
-
+        editLicenseText.setText(Html.fromHtml(getString(R.string.edit_save_action_license)));
+        
         editSummaryFragment.setTitle(title);
 
         bus = app.getBus();

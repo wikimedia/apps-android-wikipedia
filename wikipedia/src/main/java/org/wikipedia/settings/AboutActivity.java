@@ -16,6 +16,9 @@ public class AboutActivity extends ActionBarActivity {
         setContentView(R.layout.activity_about);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        ((TextView) findViewById(R.id.about_terms_of_use)).setText(Html.fromHtml(getString(R.string.about_terms_of_use)));
+        ((TextView) findViewById(R.id.about_privacy_policy)).setText(Html.fromHtml(getString(R.string.about_privacy_policy)));
+        ((TextView) findViewById(R.id.about_wmf)).setText(Html.fromHtml(getString(R.string.about_wmf)));
         ((TextView) findViewById(R.id.about_version_text)).setText(WikipediaApp.APP_VERSION_STRING);
         ((TextView) findViewById(R.id.send_feedback_text)).setText(Html.fromHtml(
                 "<a href=\"mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App " +

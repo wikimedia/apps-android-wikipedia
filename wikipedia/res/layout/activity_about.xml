@@ -51,7 +51,8 @@
                       android:layout_marginTop="8dp"
                       android:layout_marginBottom="16dp"
                 >
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            <TextView android:id="@+id/about_privacy_policy"
+                      android:layout_width="0dp" android:layout_height="wrap_content"
                       style="?android:textAppearanceSmall"
                       android:text="@string/about_privacy_policy"
                       android:layout_weight="1"
@@ -59,7 +60,8 @@
                       android:paddingTop="4dp"
                       android:paddingBottom="4dp"
                     />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            <TextView android:id="@+id/about_terms_of_use"
+                      android:layout_width="0dp" android:layout_height="wrap_content"
                       style="?android:textAppearanceSmall"
                       android:text="@string/about_terms_of_use"
                       android:gravity="right"
@@ -115,7 +117,8 @@
             <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
                        android:src="@drawable/wmf_logo" android:padding="4dp"
                     />
-            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+            <TextView android:id="@+id/about_wmf"
+                      android:layout_width="0dp" android:layout_height="match_parent"
                       android:gravity="center_vertical" android:text="@string/about_wmf"
                       style="?android:textAppearanceSmall"
                       android:layout_weight="1"
