@@ -15,10 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import org.wikipedia.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.ViewAnimations;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.*;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 
@@ -89,6 +86,7 @@ public class LangLinksActivity extends ActionBarActivity {
                 intent.putExtra(PageActivity.EXTRA_PAGETITLE, langLink);
                 intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, historyEntry);
                 setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
+                Utils.hideSoftKeyboard(LangLinksActivity.this);
                 finish();
             }
         });
