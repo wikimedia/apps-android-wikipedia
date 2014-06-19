@@ -42,7 +42,6 @@
     <string name="edit_save_action_license">By saving, you agree to irrevocably release your contributions under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA 3.0</a> licence.</string>
     <string name="preference_title_language">Wikipedia language</string>
     <string name="preference_summary_language">Content language</string>
-    <string name="nav_item_preferences">Settings</string>
     <string name="preference_languages_filter_hint">Search</string>
     <string name="langlinks_filter_hint">Search</string>
     <string name="menu_other_languages">Read in other languages</string>
@@ -103,8 +102,8 @@
     <string name="create_account_generic_error">Could not create account</string>
     <string name="create_account_no_network">No network connection</string>
     <string name="preferences_general_heading">General</string>
-    <string name="zero_free_verbiage">Free Wikipedia access from your mobile operator (data charges waived)</string>
-    <string name="zero_charged_verbiage">Wikipedia Zero OFF (STANDARD DATA CHARGES MAY APPLY)</string>
+    <string name="zero_charged_verbiage">Wikipedia Zero is OFF</string>
+    <string name="zero_charged_verbiage_extended">Further usage may incur data charges.</string>
     <string name="zero_search_hint">Search Wikipedia Zero</string>
     <string name="zero_warn_when_leaving">Warn if leaving Wikipedia Zero</string>
     <string name="zero_warn_when_leaving_summary">If your mobile operator waives data access charges for the Wikipedia app through a Wikipedia Zero partnership, leaving this setting checked helps you know when you are leaving the Wikipedia app and could be charged.</string>
@@ -112,11 +111,11 @@
     <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
     <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
     <string name="zero_interstitial_title">Leaving Wikipedia Zero</string>
-    <string name="zero_interstitial_leave_app">Continue to external site? Standard data charges may apply.</string>
-    <string name="zero_interstitial_continue">Continue</string>
-    <string name="zero_interstitial_cancel">Cancel</string>
-    <string name="zero_learn_more">Want to learn about Wikipedia Zero?</string>
-    <string name="zero_learn_more_learn_more">Learn more</string>
+    <string name="zero_interstitial_leave_app">Data charges may apply. Continue to external site?</string>
+    <string name="zero_interstitial_continue">Leave</string>
+    <string name="zero_interstitial_cancel">Stay Here</string>
+    <string name="zero_learn_more">Data charges are waived for this Wikipedia app.</string>
+    <string name="zero_learn_more_learn_more">Read more</string>
     <string name="zero_learn_more_dismiss">Dismiss</string>
     <string name="zero_settings">Settings</string>
     <string name="zero_settings_devmode">Zero Devmode</string>

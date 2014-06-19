@@ -221,12 +221,8 @@ public class EditSectionActivity extends ActionBarActivity {
                 dialog.dismiss();
             }
         });
-        alert.setNeutralButton(getString(R.string.nav_item_preferences), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                visitSettings();
-            }
-        });
-        alert.create().show();
+        AlertDialog ad = alert.create();
+        ad.show();
     }
 
     // TODO: refactor; same code in PageActivity

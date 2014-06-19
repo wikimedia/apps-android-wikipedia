@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -37,7 +38,6 @@ public class PageActivity extends ActionBarActivity {
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
     private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
-    private static final String ZERO_OFF_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOffNoticePresented";
 
     public static final int ACTIVITY_REQUEST_HISTORY = 0;
     public static final int ACTIVITY_REQUEST_SAVEDPAGES = 1;
@@ -289,13 +289,15 @@ public class PageActivity extends ActionBarActivity {
         boolean latestWikipediaZeroDisposition = WikipediaApp.getWikipediaZeroDisposition();
 
         if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
-            String verbiage = getString(R.string.zero_charged_verbiage);
-            makeWikipediaZeroCrouton(R.color.holo_red_dark, android.R.color.white, verbiage);
-            showDialogAboutZero(ZERO_OFF_NOTICE_PRESENTED, verbiage);
+            String title = getString(R.string.zero_charged_verbiage);
+            String verbiage = getString(R.string.zero_charged_verbiage_extended);
+            makeWikipediaZeroCrouton(R.color.holo_red_dark, android.R.color.white, title);
+            showDialogAboutZero(null, title, verbiage);
         } else if ((!pausedStateOfZero || !pausedXcsOfZero.equals(WikipediaApp.getXcs())) && latestWikipediaZeroDisposition) {
-            String verbiage = WikipediaApp.getCarrierMessage();
-            makeWikipediaZeroCrouton(R.color.holo_green_light, android.R.color.black, verbiage);
-            showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, verbiage);
+            String title = WikipediaApp.getCarrierMessage();
+            String verbiage = getString(R.string.zero_learn_more);
+            makeWikipediaZeroCrouton(R.color.holo_green_light, android.R.color.black, title);
+            showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, title, verbiage);
         }
         pausedStateOfZero = latestWikipediaZeroDisposition;
         pausedXcsOfZero = WikipediaApp.getXcs();
@@ -316,25 +318,30 @@ public class PageActivity extends ActionBarActivity {
         Crouton.makeText(this, verbiage, style, R.id.zero_crouton_container).show();
     }
 
-    private void showDialogAboutZero(String prefsKey, String verbiage) {
+    private void showDialogAboutZero(final String prefsKey, String title, String message) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(app);
-        if (!prefs.getBoolean(prefsKey, false)) {
-            prefs.edit().putBoolean(prefsKey, true).commit();
+        if (prefsKey == null || !prefs.getBoolean(prefsKey, false)) {
+            if (prefsKey != null) {
+                prefs.edit().putBoolean(prefsKey, true).commit();
+            }
 
             alert = new AlertDialog.Builder(this);
-            alert.setTitle(verbiage);
-            alert.setMessage(getString(R.string.zero_learn_more));
-            alert.setPositiveButton(getString(R.string.zero_learn_more_learn_more), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    Utils.visitInExternalBrowser(PageActivity.this, Uri.parse(getString(R.string.zero_webpage_url)));
-                }
-            });
+            alert.setTitle(title);
+            alert.setMessage(message);
+            if (prefsKey != null) {
+                alert.setPositiveButton(getString(R.string.zero_learn_more_learn_more), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Utils.visitInExternalBrowser(PageActivity.this, Uri.parse(getString(R.string.zero_webpage_url)));
+                    }
+                });
+            }
             alert.setNegativeButton(getString(R.string.zero_learn_more_dismiss), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     dialog.dismiss();
                 }
             });
-            alert.create().show();
+            AlertDialog ad = alert.create();
+            ad.show();
         }
     }
 
@@ -353,12 +360,8 @@ public class PageActivity extends ActionBarActivity {
                 dialog.dismiss();
             }
         });
-        alert.setNeutralButton(getString(R.string.nav_item_preferences), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                visitSettings();
-            }
-        });
-        alert.create().show();
+        AlertDialog ad = alert.create();
+        ad.show();
     }
 
     private void visitSettings() {

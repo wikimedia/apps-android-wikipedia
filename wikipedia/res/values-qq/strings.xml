@@ -46,8 +46,6 @@
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license">HTML specifying Terms of Use and CC license before saving edits</string>
   <string name="preference_title_language">Title for preference in settings screen for setting which language wikipedia to use.</string>
-  <string name="nav_item_preferences">Text in navigation sidebar that when tapped leads to the Settings screen.
-{{Identical|Settings}}</string>
   <string name="preference_languages_filter_hint">Placeholder text for the textbox that when typed filters list of language wikipedias from which user can pick a language to use.
 {{Identical|Search}}</string>
   <string name="langlinks_filter_hint">{{Identical|Search}}</string>
@@ -92,9 +90,9 @@
   <string name="create_account_activity_title">{{Identical|Create account}}</string>
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
   <string name="create_account_no_network">Message shown when the network is unavailable during account creation</string>
-  <string name="preferences_general_heading">Genel</string>
-  <string name="zero_free_verbiage">Generic text for connoting that access is free thanks to mobile operator participation in Wikipedia Zero</string>
-  <string name="zero_charged_verbiage">Text for toast connoting that Wikipedia Zero status went to OFF and standard data charges may now apply</string>
+  <string name="preferences_general_heading">Preferences general heading</string>
+  <string name="zero_charged_verbiage">Text for toast connoting that Wikipedia Zero status went to OFF</string>
+  <string name="zero_charged_verbiage_extended">Extended text describing that further usage of the app may in fact incur data charges because Wikipedia Zero is off.</string>
   <string name="zero_search_hint">Searchbar hint incorporting notion that user is searching via Wikipedia Zero so it is free</string>
   <string name="zero_warn_when_leaving">Settings label for option for warning a Wikipedia Zero user if tapping on an external link</string>
   <string name="zero_warn_when_leaving_summary">Lengthy explanation of Wikipedia Zero for settings screen</string>
@@ -103,11 +101,9 @@
 {{Identical|Wikipedia Zero}}</string>
   <string name="zero_interstitial_title">Dialog title text to inform Wikipedia Zero user that the user is about to leave the app for an external link</string>
   <string name="zero_interstitial_leave_app">Dialog text to ask Wikipedia Zero user whether the user wants to continue to an external site where standard data charges may apply</string>
-  <string name="zero_interstitial_continue">Dialog button text for Wikipedia Zero user to continue to an external site where standard data charges may apply.
-{{Identical|Continue}}</string>
-  <string name="zero_interstitial_cancel">Dialog button text for Wikipedia Zero user to not continue to an external site where standard data charges may apply.
-{{Identical|Cancel}}</string>
-  <string name="zero_learn_more">The first time Wikipedia Zero mode is On and the first time it is detected as transitioning from On to Off this is the question posed to the Wikipedia Zero user as to whether the user wants to read the Wikipedia Zero FAQ</string>
+  <string name="zero_interstitial_continue">Dialog button text for Wikipedia Zero user to leave the app for an external site where standard data charges may apply.</string>
+  <string name="zero_interstitial_cancel">Dialog button text for Wikipedia Zero to stay in the app and thereby avoid leaving the app for an external site where standard data charges may apply.</string>
+  <string name="zero_learn_more">The first time Wikipedia Zero mode is On this is the question posed to the Wikipedia Zero user as to whether the user wants to read the Wikipedia Zero FAQ</string>
   <string name="zero_learn_more_learn_more">Dialog button text for Wikipedia Zero user to learn more about Wikipedia Zero at the Wikipedia Zero FAQ for the app</string>
   <string name="zero_learn_more_dismiss">Dialog button text for Wikipedia Zero user to dismiss the prompt about visiting the Wikipedia Zero FAQ for the app</string>
   <string name="zero_settings">Generic Settings heading for Wikipedia Zero.
