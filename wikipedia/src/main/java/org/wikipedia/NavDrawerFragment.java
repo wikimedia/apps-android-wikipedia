@@ -178,8 +178,8 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onDetach() {
+        super.onDetach();
         randomHandler.onStop();
     }
 }

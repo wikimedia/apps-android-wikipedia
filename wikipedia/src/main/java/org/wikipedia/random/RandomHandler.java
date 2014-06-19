@@ -1,8 +1,5 @@
 package org.wikipedia.random;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -52,7 +49,6 @@ public class RandomHandler {
             @Override
             public boolean handleMessage(Message msg) {
                 RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), app) {
-                    private ProgressDialog progressDialog;
 
                     @Override
                     public void onBeforeExecute() {
@@ -66,7 +62,6 @@ public class RandomHandler {
                         }
                         setState(false);
                         Log.d("Wikipedia", "Random article title pulled: " + title);
-
                         if (title != null) {
                             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
                             bus.post(new NewWikiPageNavigationEvent(title, historyEntry));

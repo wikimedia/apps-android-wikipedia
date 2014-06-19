@@ -206,12 +206,18 @@ public class CreateAccountActivity extends ActionBarActivity {
             @Override
             public void onCatch(Throwable caught) {
                 Log.d("Wikipedia", "Caught " + caught.toString());
+                if (progressDialog == null) {
+                    return;
+                }
                 progressDialog.dismiss();
                 Crouton.makeText(CreateAccountActivity.this, R.string.create_account_no_network, Style.ALERT).show();
             }
 
             @Override
             public void onFinish(final CreateAccountResult result) {
+                if (progressDialog == null) {
+                    return;
+                }
                 createAccountResult = result;
                 if (result instanceof CreateAccountCaptchaResult) {
                     if (captchaHandler.isActive()) {
@@ -261,5 +267,15 @@ public class CreateAccountActivity extends ActionBarActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        captchaHandler.onStop();
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
+        progressDialog = null;
     }
 }

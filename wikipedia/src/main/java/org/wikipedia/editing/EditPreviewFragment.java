@@ -41,6 +41,8 @@ public class EditPreviewFragment extends Fragment {
     List<EditSummaryTag> summaryTags;
     EditSummaryTag otherTag;
 
+    private ProgressDialog progressDialog;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View parent = inflater.inflate(R.layout.fragment_preview_edit, container, false);
@@ -161,23 +163,26 @@ public class EditPreviewFragment extends Fragment {
      */
     public void showPreview(PageTitle title, String wikiText) {
         Utils.hideSoftKeyboard(getActivity());
-        final ProgressDialog dialog = new ProgressDialog(getActivity());
-        dialog.setIndeterminate(true);
-        dialog.setMessage(getString(R.string.edit_preview_fetching_dialog_message));
-        dialog.setCancelable(false);
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage(getString(R.string.edit_preview_fetching_dialog_message));
+        progressDialog.setCancelable(false);
 
         new EditPreviewTask(getActivity(), wikiText, title) {
             @Override
             public void onBeforeExecute() {
-                dialog.show();
+                progressDialog.show();
             }
 
             @Override
             public void onFinish(String result) {
+                if (progressDialog == null) {
+                    return;
+                }
                 displayPreview(result);
                 previewHTML = result;
                 parentActivity.supportInvalidateOptionsMenu();
-                dialog.dismiss();
+                progressDialog.dismiss();
             }
         }.execute();
     }
@@ -252,5 +257,14 @@ public class EditPreviewFragment extends Fragment {
         if (otherTag.getSelected()) {
             outState.putString("otherTag", otherTag.toString());
         }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
+        progressDialog = null;
     }
 }

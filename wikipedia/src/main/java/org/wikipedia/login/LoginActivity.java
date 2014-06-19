@@ -43,6 +43,8 @@ public class LoginActivity extends ActionBarActivity {
 
     private LoginFunnel funnel;
 
+    private ProgressDialog progressDialog;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -123,7 +125,7 @@ public class LoginActivity extends ActionBarActivity {
     }
 
     private void doLogin() {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
         progressDialog.setCancelable(false);
 
@@ -138,6 +140,9 @@ public class LoginActivity extends ActionBarActivity {
             @Override
             public void onCatch(Throwable caught) {
                 Log.d("Wikipedia", "Caught " + caught.toString());
+                if (progressDialog == null) {
+                    return;
+                }
                 progressDialog.dismiss();
                 Crouton.makeText(LoginActivity.this, R.string.login_error_no_network, Style.ALERT).show();
             }
@@ -145,6 +150,9 @@ public class LoginActivity extends ActionBarActivity {
             @Override
             public void onFinish(LoginResult result) {
                 super.onFinish(result);
+                if (progressDialog == null) {
+                    return;
+                }
                 progressDialog.dismiss();
                 if (result.getCode().equals("Success")) {
                     funnel.logSuccess();
@@ -193,6 +201,15 @@ public class LoginActivity extends ActionBarActivity {
             Crouton.makeText(this, R.string.login_error_unknown, Style.ALERT).show();
             Log.d("Wikipedia", "Login failed with result " + result);
         }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
+        progressDialog = null;
     }
 
     @Override

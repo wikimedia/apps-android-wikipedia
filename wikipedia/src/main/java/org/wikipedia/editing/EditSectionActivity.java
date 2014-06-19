@@ -90,6 +90,8 @@ public class EditSectionActivity extends ActionBarActivity {
 
     private EditFunnel funnel;
 
+    private ProgressDialog progressDialog;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_section);
@@ -246,7 +248,6 @@ public class EditSectionActivity extends ActionBarActivity {
         }
     }
 
-    private ProgressDialog progressDialog;
     private void doSave() {
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
@@ -273,6 +274,9 @@ public class EditSectionActivity extends ActionBarActivity {
 
                     @Override
                     public void onCatch(Throwable caught) {
+                        if (progressDialog == null) {
+                            return;
+                        }
                         if (caught instanceof EditingException) {
                             EditingException ee = (EditingException) caught;
                             if (app.getUserInfoStorage().isLoggedIn() && ee.getCode().equals("badtoken")) {
@@ -360,6 +364,9 @@ public class EditSectionActivity extends ActionBarActivity {
 
                     @Override
                     public void onFinish(EditingResult result) {
+                        if (progressDialog == null) {
+                            return;
+                        }
                         if (result instanceof SuccessEditResult) {
                             funnel.logSaved(((SuccessEditResult) result).getRevID());
                             progressDialog.dismiss();
@@ -399,6 +406,9 @@ public class EditSectionActivity extends ActionBarActivity {
     }
 
     private void handleAbuseFilter() {
+        if (progressDialog == null) {
+            return;
+        }
         if (abusefilterEditResult == null) {
             return;
         }
@@ -619,6 +629,11 @@ public class EditSectionActivity extends ActionBarActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        captchaHandler.onStop();
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
+        progressDialog = null;
         if (bus != null) {
             bus.unregister(this);
             bus = null;
