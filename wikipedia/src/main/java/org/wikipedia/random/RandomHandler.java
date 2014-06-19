@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 import com.squareup.otto.Bus;
 import org.wikipedia.PageTitle;
@@ -15,14 +16,34 @@ import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.history.HistoryEntry;
 
 public class RandomHandler {
-    private Activity activity;
     private WikipediaApp app;
     private RandomArticleIdTask curRandomArticleIdTask;
     private static final int MESSAGE_RND = 1;
 
-    public RandomHandler(Activity activity) {
-        this.activity = activity;
-        this.app = (WikipediaApp)(activity.getApplicationContext());
+    private View randomMenuItem;
+    private View randomIcon;
+    private View randomProgressBar;
+    private boolean isClosed;
+
+    public RandomHandler(View menuItem, View icon, View progressBar) {
+        randomMenuItem = menuItem;
+        randomIcon = icon;
+        randomProgressBar = progressBar;
+        this.app = WikipediaApp.getInstance();
+        isClosed = false;
+
+        //set initial state...
+        setState(false);
+    }
+
+    private void setState(boolean busy) {
+        randomMenuItem.setEnabled(!busy);
+        randomProgressBar.setVisibility(busy ? View.VISIBLE : View.GONE);
+        randomIcon.setVisibility(busy ? View.GONE : View.VISIBLE);
+    }
+
+    public void onStop() {
+        isClosed = true;
     }
 
     public void doVisitRandomArticle() {
@@ -35,22 +56,15 @@ public class RandomHandler {
 
                     @Override
                     public void onBeforeExecute() {
-                        progressDialog = new ProgressDialog(activity);
-                        progressDialog.setMessage(activity.getString(R.string.random_progress));
-                        progressDialog.setIndeterminate(true);
-                        progressDialog.setCanceledOnTouchOutside(false); // require back button to abort
-                        progressDialog.show();
-                        progressDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                            @Override
-                            public void onDismiss(DialogInterface dialog) {
-                                cancel();
-                            }
-                        });
+                        setState(true);
                     }
 
                     @Override
                     public void onFinish(PageTitle title) {
-                        progressDialog.dismiss();
+                        if (isClosed) {
+                            return;
+                        }
+                        setState(false);
                         Log.d("Wikipedia", "Random article title pulled: " + title);
 
                         if (title != null) {
@@ -64,8 +78,10 @@ public class RandomHandler {
 
                     @Override
                     public void onCatch(Throwable caught) {
-                        // oh snap
-                        progressDialog.dismiss();
+                        if (isClosed) {
+                            return;
+                        }
+                        setState(false);
                         Log.d("Wikipedia", "Random article ID retrieval failed");
                         curRandomArticleIdTask = null;
                         Toast.makeText(app, app.getString(R.string.error_network_error), Toast.LENGTH_LONG).show();

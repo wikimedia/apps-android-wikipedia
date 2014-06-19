@@ -71,7 +71,9 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
 
         wikipediaZeroText = (TextView) getView().findViewById(R.id.nav_item_zero);
 
-        randomHandler = new RandomHandler(getActivity());
+        randomHandler = new RandomHandler(getView().findViewById(R.id.nav_item_random),
+                getView().findViewById(R.id.nav_item_random_icon),
+                getView().findViewById(R.id.nav_item_random_progressbar));
     }
 
     private View usernameContainer;
@@ -173,5 +175,11 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 doLogout();
             }
         }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        randomHandler.onStop();
     }
 }
