@@ -16,7 +16,7 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.ObservableWebView;
+import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.PageTitle;
 import org.wikipedia.QuickReturnHandler;
 import org.wikipedia.R;

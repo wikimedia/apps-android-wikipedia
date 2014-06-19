@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.views;
 
 import android.content.Context;
 import android.util.AttributeSet;

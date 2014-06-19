@@ -79,7 +79,7 @@
                 android:background="@color/preview_header_background"
                 android:gravity="center_vertical"/>
 
-        <org.wikipedia.ObservableWebView
+        <org.wikipedia.views.ObservableWebView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:focusable="false"
