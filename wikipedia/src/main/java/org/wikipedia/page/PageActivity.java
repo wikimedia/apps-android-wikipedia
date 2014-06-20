@@ -19,11 +19,7 @@ import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
-import org.wikipedia.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.Site;
-import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.*;
 import org.wikipedia.events.*;
 import org.wikipedia.savedpages.SavedPagesActivity;
 import org.wikipedia.history.HistoryActivity;
@@ -48,6 +44,7 @@ public class PageActivity extends ActionBarActivity {
 
     private SearchArticlesFragment searchArticlesFragment;
     private DrawerLayout drawerLayout;
+    private NavDrawerFragment fragmentNavdrawer;
     private FindInPageFragment findInPageFragment;
 
     /**
@@ -96,6 +93,7 @@ public class PageActivity extends ActionBarActivity {
         findInPageFragment = (FindInPageFragment) getSupportFragmentManager().findFragmentById(R.id.find_in_page_fragment);
         searchArticlesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navdrawer);
 
         searchArticlesFragment.setDrawerLayout(drawerLayout);
 
@@ -292,11 +290,13 @@ public class PageActivity extends ActionBarActivity {
             String title = getString(R.string.zero_charged_verbiage);
             String verbiage = getString(R.string.zero_charged_verbiage_extended);
             makeWikipediaZeroCrouton(R.color.holo_red_dark, android.R.color.white, title);
+            fragmentNavdrawer.setupDynamicItems();
             showDialogAboutZero(null, title, verbiage);
         } else if ((!pausedStateOfZero || !pausedXcsOfZero.equals(WikipediaApp.getXcs())) && latestWikipediaZeroDisposition) {
             String title = WikipediaApp.getCarrierMessage();
             String verbiage = getString(R.string.zero_learn_more);
             makeWikipediaZeroCrouton(R.color.holo_green_light, android.R.color.black, title);
+            fragmentNavdrawer.setupDynamicItems();
             showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, title, verbiage);
         }
         pausedStateOfZero = latestWikipediaZeroDisposition;

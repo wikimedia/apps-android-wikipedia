@@ -79,7 +79,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
     private View usernameContainer;
     private View loginContainer;
     private TextView usernamePrimaryText;
-    private void setupDynamicItems() {
+    public void setupDynamicItems() {
         if (usernameContainer == null) {
             usernameContainer = getView().findViewById(R.id.nav_item_username);
             usernamePrimaryText = (TextView) usernameContainer.findViewById(R.id.nav_item_username_primary_text);
