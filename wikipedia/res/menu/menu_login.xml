@@ -3,9 +3,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_login"
-          android:icon="@android:drawable/ic_menu_send"
+          android:icon="@drawable/ic_save"
           android:title="@string/menu_login"
           android:enabled="false"
-          app:showAsAction="always"
-            />
+          app:showAsAction="always|withText"/>
 </menu>

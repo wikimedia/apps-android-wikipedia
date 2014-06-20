@@ -86,10 +86,13 @@
   <string name="create_account_username_hint">{{Identical|Username}}</string>
   <string name="create_account_password_hint">{{Identical|Password}}</string>
   <string name="menu_create_account">{{Identical|Create account}}</string>
-  <string name="login_create_account_link">{{Identical|Create account}}</string>
+  <string name="login_create_account_link">Link text on Login screen to go to Create Account screen</string>
+  <string name="create_account_login_link">Link text on Create Account screen to go to Login screen</string>
   <string name="create_account_activity_title">{{Identical|Create account}}</string>
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
   <string name="create_account_no_network">Message shown when the network is unavailable during account creation</string>
+  <string name="create_account_next">Button text on Create Account screen to go "next" (to CAPTCHA)</string>
+  <string name="create_account_button">Button text on Create Account screen to go start creating the account (may also go to a CAPTCHA screen first)</string>
   <string name="preferences_general_heading">Preferences general heading</string>
   <string name="zero_charged_verbiage">Text for toast connoting that Wikipedia Zero status went to OFF</string>
   <string name="zero_charged_verbiage_extended">Extended text describing that further usage of the app may in fact incur data charges because Wikipedia Zero is off.</string>

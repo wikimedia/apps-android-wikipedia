@@ -3,8 +3,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_create_account"
-          android:icon="@android:drawable/ic_menu_send"
+          android:icon="@drawable/ic_save"
           android:enabled="false"
           android:title="@string/menu_create_account"
-          app:showAsAction="always" />
+          app:showAsAction="always|withText" />
 </menu>

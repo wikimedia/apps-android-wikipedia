@@ -88,7 +88,8 @@
     <string name="create_account_username_hint">Username</string>
     <string name="create_account_password_hint">Password</string>
     <string name="menu_create_account">Create account</string>
-    <string name="login_create_account_link">Create account</string>
+    <string name="login_create_account_link">Don\'t have an account? Join Wikipedia</string>
+    <string name="create_account_login_link">Already have an account? Log in</string>
     <string name="create_account_activity_title">Create an account</string>
     <string name="edit_section_activity_title">Edit Section</string>
     <string name="dialog_create_account_checking_progress">Verifying</string>
@@ -101,6 +102,8 @@
     <string name="create_account_open_proxy_error">This IP address has been blocked from creating accounts.</string>
     <string name="create_account_generic_error">Could not create account</string>
     <string name="create_account_no_network">No network connection</string>
+    <string name="create_account_next">Next</string>
+    <string name="create_account_button">Create Account</string>
     <string name="preferences_general_heading">General</string>
     <string name="zero_charged_verbiage">Wikipedia Zero is off</string>
     <string name="zero_charged_verbiage_extended">Loading other articles may incur data charges.</string>
