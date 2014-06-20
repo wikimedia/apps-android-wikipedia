@@ -102,8 +102,8 @@
     <string name="create_account_generic_error">Could not create account</string>
     <string name="create_account_no_network">No network connection</string>
     <string name="preferences_general_heading">General</string>
-    <string name="zero_charged_verbiage">Wikipedia Zero is OFF</string>
-    <string name="zero_charged_verbiage_extended">Further usage may incur data charges.</string>
+    <string name="zero_charged_verbiage">Wikipedia Zero is off</string>
+    <string name="zero_charged_verbiage_extended">Loading other articles may incur data charges.</string>
     <string name="zero_search_hint">Search Wikipedia Zero</string>
     <string name="zero_warn_when_leaving">Warn if leaving Wikipedia Zero</string>
     <string name="zero_warn_when_leaving_summary">If your mobile operator waives data access charges for the Wikipedia app through a Wikipedia Zero partnership, leaving this setting checked helps you know when you are leaving the Wikipedia app and could be charged.</string>

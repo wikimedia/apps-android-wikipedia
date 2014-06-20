@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -30,7 +31,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
-import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.staticdata.MainPageNameData;
 
 public class PageActivity extends ActionBarActivity {
@@ -326,8 +326,7 @@ public class PageActivity extends ActionBarActivity {
             }
 
             alert = new AlertDialog.Builder(this);
-            alert.setTitle(title);
-            alert.setMessage(message);
+            alert.setMessage(Html.fromHtml("<b>" + title + "</b><br/><br/>" + message));
             if (prefsKey != null) {
                 alert.setPositiveButton(getString(R.string.zero_learn_more_learn_more), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -362,12 +361,6 @@ public class PageActivity extends ActionBarActivity {
         });
         AlertDialog ad = alert.create();
         ad.show();
-    }
-
-    private void visitSettings() {
-        Intent intent = new Intent();
-        intent.setClass(getApplicationContext(), SettingsActivity.class);
-        startActivity(intent);
     }
 
     @Override
