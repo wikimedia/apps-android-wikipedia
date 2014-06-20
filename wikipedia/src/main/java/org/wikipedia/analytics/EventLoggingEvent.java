@@ -5,6 +5,7 @@ import android.util.Log;
 import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 
 /**
@@ -62,7 +63,8 @@ public class EventLoggingEvent {
 
         @Override
         public Integer performTask() throws Throwable {
-            String dataURL = Uri.parse(EVENTLOG_URL)
+            String elUrl = WikipediaApp.FAILS < 2 ? EVENTLOG_URL : EVENTLOG_URL.replace("https", "http");
+            String dataURL = Uri.parse(elUrl)
                     .buildUpon().query(data.toString())
                     .build().toString();
             Log.d("Wikipedia", "hitting " + dataURL);

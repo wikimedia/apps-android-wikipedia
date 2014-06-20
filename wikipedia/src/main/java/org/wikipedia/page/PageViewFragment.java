@@ -16,6 +16,7 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.analytics.ConnectionIssueFunnel;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.PageTitle;
 import org.wikipedia.QuickReturnHandler;
@@ -131,6 +132,7 @@ public class PageViewFragment extends Fragment {
     private View quickReturnBar;
 
     private SavedPagesFunnel savedPagesFunnel;
+    private ConnectionIssueFunnel connectionIssueFunnel;
 
     // Pass in the id rather than the View object itself for the quickReturn bar, to help it survive rotates
     public PageViewFragment(int pagerIndex, PageTitle title, HistoryEntry historyEntry, int quickReturnBarId) {
@@ -295,6 +297,7 @@ public class PageViewFragment extends Fragment {
         searchArticlesFragment.setTocEnabled(false);
 
         savedPagesFunnel = app.getFunnelManager().getSavedPagesFunnel(title.getSite());
+        connectionIssueFunnel = new ConnectionIssueFunnel(app);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             // Enable Pinch-Zoom
@@ -542,9 +545,19 @@ public class PageViewFragment extends Fragment {
             if (++WikipediaApp.FAILS < 2) {
                 WikipediaApp.FALLBACK = true;
                 showNetworkError();
-                return;
+                try {
+                    connectionIssueFunnel.logConnectionIssue("mdot", "commonSectionFetchOnCatch");
+                } catch (Exception e) {
+                    // meh
+                }
+            } else {
+                showNetworkError();
+                try {
+                    connectionIssueFunnel.logConnectionIssue("desktop", "commonSectionFetchOnCatch");
+                } catch (Exception e) {
+                    // again, meh
+                }
             }
-            showNetworkError();
         } else if (caught instanceof ApiException) {
             showNetworkError();
         } else {
