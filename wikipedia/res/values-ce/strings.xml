@@ -23,14 +23,12 @@
   <string name="last_updated_text">ТӀаьхьарлера карлаяккхар: %1$s</string>
   <string name="preference_title_language" fuzzy="true">Мотт</string>
   <string name="preference_summary_language">Чулацаман мотт</string>
-  <string name="nav_item_preferences">Параметраш</string>
   <string name="preference_languages_filter_hint">Лаха</string>
   <string name="langlinks_filter_hint">Лаха</string>
   <string name="menu_other_languages" fuzzy="true">Кхин меттанаш</string>
   <string name="langlinks_error_retry">ЮхагӀорта</string>
   <string name="settings_activity_title">Параметраш</string>
   <string name="langlinks_activity_title">Кхин меттанаш</string>
-  <string name="editsection_activity_title">Таде дакъа</string>
   <string name="edit_section_error_retry">ЮхагӀорта</string>
   <string name="dialog_saving_in_progress">Ӏалаш еш ю...</string>
   <string name="edit_saved_successfully">Нисдар Ӏалашдина!</string>
@@ -56,7 +54,7 @@
   <string name="history_empty_message">Хьа истори еса ю.</string>
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
   <string name="create_account_password_hint">Пароль</string>
-  <string name="login_create_account_link">Кхолла декъашхочун дӀаяздар</string>
+  <string name="login_create_account_link" fuzzy="true">Кхолла декъашхочун дӀаяздар</string>
   <string name="create_account_activity_title">Кхолла декъашхочун дӀаяздар</string>
   <string name="edit_section_activity_title">Таде дакъа</string>
   <string name="dialog_create_account_checking_progress">Хьажар</string>
@@ -72,10 +70,10 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Wikipedia Zero чура арадолу</string>
-  <string name="zero_interstitial_continue">Кхин дӀа</string>
-  <string name="zero_interstitial_cancel">Цаоьшу</string>
-  <string name="zero_learn_more">Лаьий хьуна Wikipedia Zero лаьцна хаа?</string>
-  <string name="zero_learn_more_learn_more">Цул совнаха хаа</string>
+  <string name="zero_interstitial_continue" fuzzy="true">Кхин дӀа</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">Цаоьшу</string>
+  <string name="zero_learn_more" fuzzy="true">Лаьий хьуна Wikipedia Zero лаьцна хаа?</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Цул совнаха хаа</string>
   <string name="zero_learn_more_dismiss">ДӀачӀагӀа</string>
   <string name="zero_settings">Параметраш</string>
   <string name="zero_settings_devmode">Zero кеч ечун раж</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Vikipedi</string>
+  <string name="app_name_beta">Vikipedi Beta</string>
   <string name="yes">Evet</string>
   <string name="no">Hayır</string>
   <string name="acra_report_dialog_title">Vikipedi çöktü :(</string>
@@ -13,32 +14,37 @@
   <string name="search_network_error">Ağ hatası. Dokunarak tekrar deneyin.</string>
   <string name="page_error_retry">Tekrar dene</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Geçmişi temizle?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Kaydedilen sayfalar</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Kaydedilen sayfalar</string>
-  <string name="menu_save_page" fuzzy="true">Sayfayı kaydet</string>
+  <string name="menu_clear_all_bookmarks">Yer imlerini temizle</string>
+  <string name="menu_clear_all_saved_pages">Tüm kaydedilen sayfaları temizle</string>
+  <string name="page_does_not_exist_error">Bu sayfa mevcut değil.</string>
+  <string name="dialog_title_clear_history">Göz atma geçmişini temizle?</string>
+  <string name="saved_pages_activity_title">Kaydedilen sayfalar</string>
+  <string name="nav_item_saved_pages">Kaydedilen sayfalar</string>
+  <string name="menu_save_page">Sayfayı kaydet</string>
   <string name="menu_share_page">Paylaş</string>
   <string name="share_via">Şurada paylaş:</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Kaydedilen sayfalar temizlensin mi?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Bütün kaydedilen sayfaları temizlemek istediğinizden emin misiniz?</string>
-  <string name="toast_saving_page" fuzzy="true">Sayfa kaydediliyor...</string>
-  <string name="toast_saved_page" fuzzy="true">Sayfa kaydedildi</string>
-  <string name="toast_save_page_failed" fuzzy="true">Sayfa kaydetme başarısız oldu :(</string>
+  <string name="dialog_title_clear_saved_pages">Tüm kaydedilen sayfalar silinsin mi?</string>
+  <string name="dialog_message_clear_saved_pages">Bütün kaydedilen sayfaları silmek istediğinizden emin misiniz?</string>
+  <string name="toast_saving_page">Sayfa kaydediliyor...</string>
+  <string name="toast_saved_page">Sayfayı başarıyla kaydedildi</string>
+  <string name="toast_saved_page_missing_images">Görüntülerin tamamı kaydedilemedi</string>
+  <string name="toast_save_page_failed">Sayfa kaydetme başarısız oldu :(</string>
+  <string name="toast_refresh_saved_page">Kaydedilmiş sayfa yenileniyor...</string>
   <string name="delete_selected_saved_pages">Sil</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Kaydedilen sayfa(lar) silindi</string>
+  <string name="toast_saved_page_deleted">Kaydedilen sayfa(lar) silindi</string>
   <string name="last_updated_text">Son güncelleme %1$s</string>
-  <string name="content_license_html" fuzzy="true">Aksi belirtilmediği sürece içerik &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
-  <string name="preference_title_language" fuzzy="true">Dil</string>
+  <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
+  <string name="edit_save_action_license">Kaydederek, katkılarınızın &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlanmasını geri dönülmez şekilde kabul etmiş olursunuz.</string>
+  <string name="preference_title_language">Dil</string>
   <string name="preference_summary_language">İçerik dili</string>
-  <string name="nav_item_preferences">Ayarlar</string>
   <string name="preference_languages_filter_hint">Ara</string>
   <string name="langlinks_filter_hint">Ara</string>
-  <string name="menu_other_languages" fuzzy="true">Diğer diller</string>
+  <string name="menu_other_languages">Başka dilde oku</string>
   <string name="langlinks_error_retry">Tekrar dene</string>
-  <string name="langlinks_empty">Bu madde diğer dillerde bulunmamaktadır</string>
+  <string name="langlinks_empty">Bu sayfa diğer dillerde bulunmamaktadır</string>
   <string name="settings_activity_title">Ayarlar</string>
   <string name="langlinks_activity_title">Diğer diller</string>
-  <string name="editsection_activity_title">Bölümü Düzenle</string>
+  <string name="menu_save_changes">Değişiklikleri kaydet</string>
   <string name="edit_section_error_retry">Tekrar dene</string>
   <string name="dialog_saving_in_progress">Kaydediliyor...</string>
   <string name="edit_saved_successfully">Değişiklik kaydedildi!</string>
@@ -50,21 +56,34 @@
   <string name="edit_section_captcha_message">Otomatik spamlara karşı korunmaya yardımcı olmak için, aşağıda görünen kelimeleri yazınız.</string>
   <string name="edit_section_captcha_hint">Yukarıdaki kelimeleri tekrarlayın</string>
   <string name="title_captcha">Captcha\'yı gir</string>
+  <string name="edit_section_abusefilter_back_text">Düzenlememde değişiklikler yap</string>
+  <string name="edit_section_captcha_reload">CAPTCHA\'yı yenilemek için üzerine dokunun</string>
+  <string name="edit_saved_page_refresh">Kaydedilen bu sayfa güncel olmayabilir ve düzenleme yapılabilmesi için yenilenmesi gereklidir. Sayfayı yenilemek ister misiniz?</string>
   <string name="nav_item_login">Oturum aç</string>
   <string name="login_username_hint">Kullanıcı adı</string>
   <string name="login_password_hint">Parola</string>
+  <string name="login_password_show_check">Parolayı görüntüle</string>
   <string name="menu_login">Oturum aç</string>
   <string name="login_activity_title">Vikipedi\'ye giriş yap</string>
+  <string name="login_in_progress_dialog_message">Oturum açılıyor...</string>
+  <string name="login_error_wrong_password">Yanlış parola</string>
+  <string name="login_error_wrong_username">Yanlış kullanıcı adı</string>
   <string name="login_success_toast">Oturum açma başarılı!</string>
+  <string name="login_error_blocked">Bu kullanıcı engellendi</string>
+  <string name="login_error_throttled">Çok fazla deneme yaptınız. Birkaç dakika bekleyip tekrar deneyin.</string>
   <string name="login_error_unknown">Oturum açma başarısız :(</string>
   <string name="login_error_no_network">Ağ bağlantısı yok</string>
   <string name="nav_item_logout">Oturumu kapat</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Kaydedilmiş sayfa yok.</string>
+  <string name="preference_title_logout">Oturumu kapat</string>
+  <string name="preference_summary_logout">Vikipedi hesabınızın oturumunu kapatır</string>
+  <string name="preference_summary_notloggedin">Oturum açık değil.</string>
+  <string name="toast_logout_complete">Oturum kapandı</string>
+  <string name="saved_pages_empty_message">Kaydedilmiş sayfa yok</string>
   <string name="history_empty_message">Geçmişin boş.</string>
   <string name="create_account_username_hint">Kullanıcı adı</string>
   <string name="create_account_password_hint">Şifre</string>
   <string name="menu_create_account">Hesap oluştur</string>
-  <string name="login_create_account_link">Hesap oluştur</string>
+  <string name="login_create_account_link" fuzzy="true">Hesap oluştur</string>
   <string name="create_account_activity_title">Bir hesap oluştur</string>
   <string name="edit_section_activity_title">Bölüm Düzenle</string>
   <string name="dialog_create_account_checking_progress">Doğrulanıyor</string>
@@ -73,27 +92,80 @@
   <string name="create_account_passwords_mismatch_error">Parolalar eşleşmiyor</string>
   <string name="create_account_email_error">Geçersiz e-posta adresi</string>
   <string name="create_account_username_exists_error">Kullanıcı adı zaten kullanımda</string>
+  <string name="create_account_ip_throttle_error">Bu IP adresinden çok fazla hesap oluşturuldu. Daha sonra tekrar deneyin.</string>
   <string name="create_account_open_proxy_error">Bu IP adresi hesap açmaya engellenmiş.</string>
+  <string name="create_account_generic_error">Hesap oluşturulamadı</string>
+  <string name="create_account_no_network">Ağ bağlantısı yok</string>
   <string name="preferences_general_heading">Genel</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero kapalı</string>
+  <string name="zero_charged_verbiage_extended">Diğer makaleleri yüklemek veri iletişim ücretleri doğurabilir.</string>
   <string name="zero_search_hint">Wikipedia Zero\'da Ara</string>
+  <string name="zero_warn_when_leaving">Wikipedia Zero\'dan çıkılırsa uyar</string>
+  <string name="zero_warn_when_leaving_summary">Eğer mobil operatörünüz Wikipedia Zero ortaklığıyla, Vikipedi uygulaması için ücretsiz veri erişimi sağlıyorsa, bu seçeneği işaretlemek, ne zaman Vikipedi uygulamasından çıktığınızı ve ücret ödemeniz gerekebileceğini anlamanıza yardımcı olur.</string>
   <string name="zero_webpage_title">Wikipedia Zero SSS</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+  <string name="zero_interstitial_title">Wikipedia Zero\'dan çıkılıyor</string>
+  <string name="zero_interstitial_leave_app">Veri ücretleri uygulanabilir. Dış bağlantıya gidilsin mi?</string>
   <string name="zero_interstitial_continue">Devam et</string>
   <string name="zero_interstitial_cancel">İptal</string>
+  <string name="zero_learn_more">Bu Vikipedi uygulaması için veri iletişim ücretleri alınmamaktadır.</string>
   <string name="zero_learn_more_learn_more">Daha fazla bilgi</string>
+  <string name="zero_learn_more_dismiss">Kapat</string>
   <string name="zero_settings">Ayarlar</string>
   <string name="edit_preview_fetching_dialog_message">Ön izleme getiriliyor...</string>
   <string name="edit_preview_activity_title">Düzenleme önizleme</string>
   <string name="create_account_logging_in">Oturum açılıyor...</string>
+  <string name="send_feedback">Uygulama geri bildirimi gönder</string>
+  <string name="edit_summary_guide_text">Bize sayfayı hangi yönden geliştirdiğinizi belirtin. Bu, devriyelerin değişikliğinizi hızla incelemesine yardımcı olur.</string>
   <string name="edit_summary_hint">Değişiklik özeti</string>
   <string name="nav_item_random">Rastgele</string>
   <string name="random_progress">Rastgele sayfa getiriliyor...</string>
+  <string name="nav_item_login_benefits">Eğer oturum açarsanız, değişiklikleriniz kullanıcı adınızla kaydedilecek ve IP adresiniz görünmeyecektir.</string>
   <string name="create_account_account_created_toast">Hesap yaratıldı!</string>
   <string name="user_contribs_more_action">Daha fazla yükle</string>
   <string name="activity_my_contributions_title">Katkılarım</string>
   <string name="nav_item_my_contributions">Katkılarım</string>
   <string name="edit_save_action_login">Oturum aç ve kaydet</string>
   <string name="edit_save_action_ip">Anonim olarak kaydet</string>
+  <string name="edit_save_action_ip_description">Değişiklikleriniz IP adresinizle herkese açık olarak yayınlanacak. IP adresiniz sık sık değişebilir.</string>
   <string name="preference_title_eventlogging_opt_in">Kullanım raporlarını gönder</string>
+  <string name="preference_summary_eventlogging_opt_in">Wikimedia\'nın, uygulamayı geliştirmek için, kullanım alışkanlıklarınız hakkında bilgi toplamasına izin verin</string>
+  <string name="editing_error_spamblacklist" fuzzy="true">Engellenmiş alan adlarından (%s) bağlantılar tespit edildi. Lütfen bunların kaldırıp tekrar deneyin.</string>
+  <string name="history_search_list_hint">Ara</string>
+  <string name="history_search_empty_message">\'%s\' ile eşleşen hiçbir sayfa bulunamadı</string>
+  <string name="error_can_not_process_link">Bu bağlantı görüntülenemedi</string>
+  <string name="page_protected_autoconfirmed">Bu sayfa yarı korumalıdır.</string>
+  <string name="page_protected_sysop">Bu sayfa tam korumalıdır.</string>
+  <string name="page_protected_other">Bu sayfa aşağıdaki seviyelerde korunmaktadır: %s</string>
+  <string name="page_protected_can_not_edit">Bu sayfayı düzenleme yetkiniz yok</string>
+  <string name="page_protected_can_not_edit_title">Bu sayfa korumalı</string>
+  <string name="more_item_preferences">Daha fazla</string>
+  <string name="more_activity_title">Daha fazla</string>
+  <string name="about_description">Vikipedi uygulaması hakkında</string>
+  <string name="preference_title_version">Sürüm</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kullanım Şartları&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Gizlilik Politikası&lt;/a&gt;</string>
+  <string name="about_libraries_heading">kullanılan kütüphaneler</string>
+  <string name="about_contributors_heading">katkıda bulunanlar</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Vakfı&lt;/a&gt;\'nın ürünüdür</string>
+  <string name="about_activity_title">Hakkında</string>
+  <string name="edit_unchanged">Sayfada değişik yapılmadı.</string>
+  <string name="edit_abandon_confirm">Sayfada değişiklikler yapıldı. Kaydetmeden çıkmak istediğinizden emin misiniz?</string>
+  <string name="user_blocked_from_editing_title">Engellendi</string>
+  <string name="user_logged_in_blocked_from_editing">Kullanıcı hesabınızın, bu viki üzerinde değişiklik yapması engellendi.</string>
+  <string name="user_anon_blocked_from_editing">IP adresinizin değişiklik yapması engellendi.</string>
+  <string name="edit_how_page_improved">Sayfayı hangi yönden geliştirdiniz?</string>
+  <string name="edit_next">Sonraki</string>
+  <string name="edit_done">Kaydet</string>
+  <string name="edit_preview">Ön izleme</string>
+  <string name="edit_summary_tag_typo">Yazım hatası düzeltildi</string>
+  <string name="edit_summary_tag_grammar">Gramer düzeltildi</string>
+  <string name="edit_summary_tag_links">Bağlantı eklendi</string>
+  <string name="edit_summary_tag_other">Diğer</string>
+  <string name="edit_summary_tag_other_hint">Sayfayı geliştirdiğiniz diğer yönler</string>
+  <string name="find_in_page">Bu sayfada bul</string>
+  <string name="find_next">Sonrakini bul</string>
+  <string name="find_previous">Öncekini bul</string>
+  <string name="find_close">Aramayı kapat</string>
 </resources>

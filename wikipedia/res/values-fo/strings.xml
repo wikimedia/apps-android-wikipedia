@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Wikipedia</string>
+  <string name="app_name_beta">Wikipedia Beta</string>
   <string name="yes">Ja</string>
   <string name="no">Nei</string>
   <string name="acra_report_dialog_title">Wikipedia krasjaði :(</string>
@@ -14,33 +15,36 @@
   <string name="page_error_retry">Royn aftur</string>
   <string name="menu_clear_all_history">Rudda søguyvirlitið</string>
   <string name="menu_clear_all_bookmarks">Rudda bókamerki</string>
+  <string name="menu_clear_all_saved_pages">Rudda burt goymdar síður</string>
   <string name="page_does_not_exist_error">Henda síðan er ikki til.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Rudda søguyvirlitið?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Bókamerki</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Bókamerki</string>
-  <string name="menu_save_page" fuzzy="true">Bókamerki</string>
+  <string name="dialog_title_clear_history">Rudda brovsarasøguna?</string>
+  <string name="saved_pages_activity_title">Goymdar síður</string>
+  <string name="nav_item_saved_pages">Goymdar síður</string>
+  <string name="menu_save_page">Goym síðu</string>
   <string name="menu_share_page">Deil</string>
   <string name="share_via">Deil via</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Rudda bókamerki?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Ert tú vís/ur í at tú ynskir at sletta øll bókamerki.</string>
-  <string name="toast_saving_page" fuzzy="true">Upprættar bókamerki til síðuna...</string>
-  <string name="toast_saved_page" fuzzy="true">Bókamerkt síða</string>
-  <string name="toast_save_page_failed" fuzzy="true">Tað miseydnaðist at bókamerkja síðuna :(</string>
+  <string name="dialog_title_clear_saved_pages">Rudda burt allar goymdar síður?</string>
+  <string name="dialog_message_clear_saved_pages">Ert tú vís/ur í at tú ynskir at rudda burtur allar goymdar síður?</string>
+  <string name="toast_saving_page">Goymir síðuna...</string>
+  <string name="toast_saved_page">Tað eydnaðist at goyma síðuna</string>
+  <string name="toast_saved_page_missing_images">Tað bar ikki til at goyma allar myndir</string>
+  <string name="toast_save_page_failed">Tað miseydnaðist at goyma síðuna :(</string>
+  <string name="toast_refresh_saved_page">Uppfrískar goymdar síður...</string>
   <string name="delete_selected_saved_pages">Sletta</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Bókamerki er(u) slettað</string>
+  <string name="toast_saved_page_deleted">Goymd(ar) síða(ur) slettað(ar)</string>
   <string name="last_updated_text">Seinast dagført %1$s</string>
-  <string name="content_license_html" fuzzy="true">Innihaldið er tøkt undir &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; um ikki annað er viðmerkt</string>
+  <string name="content_license_html">Innihaldið er tøkt undir &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; um ikki annað er viðmerkt</string>
+  <string name="edit_save_action_license" fuzzy="true">Við at goyma, so góðtekur tú okkara og leysgevur tíni íkøst  undir lisensinum.</string>
   <string name="preference_title_language">Wikipediamál</string>
   <string name="preference_summary_language">Innihaldsmál</string>
-  <string name="nav_item_preferences">Innstillingar</string>
   <string name="preference_languages_filter_hint">Leita</string>
   <string name="langlinks_filter_hint">Leita</string>
-  <string name="menu_other_languages" fuzzy="true">Onnur mál</string>
+  <string name="menu_other_languages">Les á øðrum málum</string>
   <string name="langlinks_error_retry">Royn aftur</string>
-  <string name="langlinks_empty">Henda greinin er ikki tøk á øðrum málum</string>
+  <string name="langlinks_empty" fuzzy="true">Henda greinin er ikki tøk á øðrum málum</string>
   <string name="settings_activity_title">Innstillingar</string>
   <string name="langlinks_activity_title">Onnur mál</string>
-  <string name="editsection_activity_title">Rætta brot</string>
+  <string name="menu_save_changes">Goym broytingar</string>
   <string name="edit_section_error_retry">Royn aftur</string>
   <string name="dialog_saving_in_progress">Goymir...</string>
   <string name="edit_saved_successfully">Rættingin er goymd!</string>
@@ -54,6 +58,7 @@
   <string name="title_captcha">Skriva hetta captcha</string>
   <string name="edit_section_abusefilter_back_text">Ger broytingar til mína rætting</string>
   <string name="edit_section_captcha_reload">Trýst á CAPTCHA fyri at dagføra</string>
+  <string name="edit_saved_page_refresh">Henda síðan kann vera ikki-dagførd, og hevur tørv á at blíva uppfríska fyri at rætting kann gerast virki. Ynskir tú at uppfríska síðuna?</string>
   <string name="nav_item_login">Rita inn</string>
   <string name="login_username_hint">Brúkaranavn</string>
   <string name="login_password_hint">Loyniorð</string>
@@ -69,13 +74,16 @@
   <string name="login_error_unknown">Innritan miseydnaðist :(</string>
   <string name="login_error_no_network">Onki internetsamband</string>
   <string name="nav_item_logout">Rita út</string>
+  <string name="preference_title_logout">Rita út</string>
+  <string name="preference_summary_logout">Rita út av tínari Wikipedia-konto</string>
+  <string name="preference_summary_notloggedin">Tú ert ikki innritað(ur).</string>
   <string name="toast_logout_complete">Tú ert ritað/ur út</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Ongi bókamerki</string>
+  <string name="saved_pages_empty_message">Ongar goymdar síður</string>
   <string name="history_empty_message">Títt søguyvirlit er tómt.</string>
   <string name="create_account_username_hint">Brúkaranavn</string>
   <string name="create_account_password_hint">Loyniorð</string>
   <string name="menu_create_account">Stovna eina kontu</string>
-  <string name="login_create_account_link">Stovna kontu</string>
+  <string name="login_create_account_link" fuzzy="true">Stovna kontu</string>
   <string name="create_account_activity_title">Stovna eina kontu</string>
   <string name="edit_section_activity_title">Rætta brot</string>
   <string name="dialog_create_account_checking_progress">Váttar</string>
@@ -89,14 +97,55 @@
   <string name="create_account_generic_error">Tað bar ikki til at upprætta kontu</string>
   <string name="create_account_no_network">Onki internetsamband</string>
   <string name="preferences_general_heading">Generelt</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ER GJØRT ÓVIKIÐ (STANDARD DÁTAGJØLD KUNNU KOMA FYRI)</string>
   <string name="zero_search_hint">Leita í Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Ávara meg um eg fari frá Wikipedia Zero</string>
   <string name="zero_webpage_title">Wikipedia Zero OSS</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Tú fert frá Wikipedia Zero</string>
-  <string name="zero_interstitial_continue">Halt fram</string>
+  <string name="zero_interstitial_continue" fuzzy="true">Halt fram</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">Avbrót</string>
+  <string name="zero_learn_more" fuzzy="true">Vilt tú vita meira um Wikipedia Zero?</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Les meira</string>
+  <string name="zero_learn_more_dismiss">Lat aftur</string>
   <string name="zero_settings">Innstillingar</string>
+  <string name="create_account_logging_in">Ritar inn...</string>
+  <string name="send_feedback">Send app afturmelding</string>
+  <string name="edit_summary_guide_text" fuzzy="true">Fortel okkum, hvussu tú hevur betra um greinina. Hetta hjálpir øðrum brúkarum at eftirkanna tína rætting skjótt.</string>
+  <string name="edit_summary_hint">Samandráttur um rættingina</string>
   <string name="nav_item_random">Tilvildarlig grein</string>
   <string name="random_progress">Heintar tilvildarliga grein...</string>
+  <string name="nav_item_login_benefits">Um tú ritar inn, so verða tínar rættingar knýttar at tínum brúkaranavni og tín IP adressa verður ikki víst alment.</string>
+  <string name="create_account_account_created_toast">Konto upprættað!</string>
+  <string name="user_contribs_more_action">Innles meira</string>
+  <string name="activity_my_contributions_title">Míni íkøst</string>
+  <string name="nav_item_my_contributions">Míni íkøst</string>
+  <string name="edit_save_action_login">Rita inn og goym</string>
+  <string name="edit_save_action_ip">Goym dulnevnt</string>
+  <string name="edit_save_action_login_description">Tínar rættingar verða alment knýttar at tínum brúkaranavni og aðrir høvundar kunnu lættari seta seg í samband við teg</string>
+  <string name="edit_save_action_ip_description">Tínar rættingar verða alment knýttar at tínari IP-adressu, sum ofta broytist</string>
+  <string name="preference_title_eventlogging_opt_in">Send frágreiðingar um brúkara</string>
+  <string name="preference_summary_eventlogging_opt_in">Loyv Wikimedia at savna kunning um hvussu tú nýtir appina, fyri at appin kann gerast betri</string>
+  <string name="editing_error_spamblacklist" fuzzy="true">Leinkir frá sperraðum domenum (%s) vóru funnin. Vinarliga tak tey burtur og royn aftur.</string>
+  <string name="history_search_list_hint">Leita</string>
+  <string name="history_search_empty_message">Ongar síður funnar ið passaðu saman við \'%s\'</string>
+  <string name="error_can_not_process_link">Kundi ikki vísa hesa leinkjuna</string>
+  <string name="page_protected_autoconfirmed">Henda síðan er blivin hálv-vard.</string>
+  <string name="page_protected_sysop">Henda síðan er blivin vard.</string>
+  <string name="page_protected_other">Henda síðan er vard á henda hátt: %s</string>
+  <string name="page_protected_can_not_edit">Tú hevur ikki loyvi til at rætta hesa síðuna</string>
+  <string name="page_protected_can_not_edit_title">Henda síðan er vard</string>
+  <string name="more_item_preferences">Meira</string>
+  <string name="more_activity_title">Meira</string>
+  <string name="about_description">Um Wikipedia-appina</string>
+  <string name="preference_title_version">Versjón</string>
+  <string name="about_contributors_heading">høvundar</string>
+  <string name="about_wmf" fuzzy="true">Ein vøra frá</string>
+  <string name="about_activity_title">Um</string>
+  <string name="edit_unchanged">Síðan er ikki blivin broytt.</string>
+  <string name="edit_abandon_confirm">Síðan er broytt. Ert tú sikkur í at tú ynskir at fara frá síðuni uttan at goyma tínar broytingar?</string>
+  <string name="user_blocked_from_editing_title">Sperrað</string>
+  <string name="user_logged_in_blocked_from_editing">Tín konta er blivin sperrað, so at tú ikki sleppur at rætta á hesi wiki.</string>
+  <string name="user_anon_blocked_from_editing">Tín IP-adressa er blivin sperrað, so rættingar ikki kunnu gerast.</string>
 </resources>

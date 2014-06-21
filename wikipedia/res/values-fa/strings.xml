@@ -30,15 +30,13 @@
   <string name="content_license_html" fuzzy="true">مطلب زیر تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
   <string name="preference_title_language" fuzzy="true">زبان</string>
   <string name="preference_summary_language">زبان محتوا</string>
-  <string name="nav_item_preferences">تنظیمات</string>
   <string name="preference_languages_filter_hint">جستجو</string>
   <string name="langlinks_filter_hint">جستجو</string>
   <string name="menu_other_languages" fuzzy="true">زبان‌های دیگر</string>
   <string name="langlinks_error_retry">سعی مجدد</string>
-  <string name="langlinks_empty">این مقاله در زبان‌های دیگر در دسترس نیست</string>
+  <string name="langlinks_empty" fuzzy="true">این مقاله در زبان‌های دیگر در دسترس نیست</string>
   <string name="settings_activity_title">تنظیمات</string>
   <string name="langlinks_activity_title">زبان‌های دیگر</string>
-  <string name="editsection_activity_title">ویرایش یک بخش</string>
   <string name="edit_section_error_retry">تلاش مجدد</string>
   <string name="dialog_saving_in_progress">در حال ذخیره‌سازی...</string>
   <string name="edit_saved_successfully">ویرایش ذخیره شد!</string>
@@ -71,7 +69,7 @@
   <string name="history_empty_message">تاریخچهٔ شما خالی می‌باشد.</string>
   <string name="create_account_username_hint">نام کاربری</string>
   <string name="create_account_password_hint">گذرواژه</string>
-  <string name="login_create_account_link">ایجاد حساب کاربری</string>
+  <string name="login_create_account_link" fuzzy="true">ایجاد حساب کاربری</string>
   <string name="create_account_activity_title">ایجاد حساب کاربری</string>
   <string name="edit_section_activity_title">ویرایش یک بخش</string>
   <string name="dialog_create_account_checking_progress">تأیید</string>
@@ -84,8 +82,7 @@
   <string name="create_account_open_proxy_error">این نشانی آی‌پی برای ایجاد حساب مسدود شده است.</string>
   <string name="create_account_generic_error">امکان ساختن حساب کاربری وجود ندارد</string>
   <string name="preferences_general_heading">عمومی</string>
-  <string name="zero_free_verbiage">دسترسی مجانی از تلفن همراه توسط اپراتور تامین شده‌است (هزینهٔ دیتا گرفته نمی‌شود)</string>
-  <string name="zero_charged_verbiage">خاموش کردن ویکی‌پدیا صفر (هزینهٔ دیتا گرفته می‌شود)</string>
+  <string name="zero_charged_verbiage" fuzzy="true">خاموش کردن ویکی‌پدیا صفر (هزینهٔ دیتا گرفته می‌شود)</string>
   <string name="zero_search_hint">جستجو در ویکی پدیا صفر</string>
   <string name="zero_warn_when_leaving">هشدار برای خروج از ویکی‌پدیا صفر</string>
   <string name="zero_warn_when_leaving_summary">اگر اپراتور تلفن همراه شما  هزینهٔ دیتا را بر اساس تفاهم‌نامهٔ ویکی‌پدیا صفر تخت اپلیکیشن موبایل ویکی‌پدیا دریافت نکند رها کردن تنظیمات به شما کمک می‌کند تا زمانی که شما از اپلیکیشن خارج می‌شوید  از دریافت هزینه آگاه شوید.</string>
@@ -93,11 +90,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">ویکی‌پدیای صفر</string>
   <string name="zero_interstitial_title">ترک ویکی‌پدیا صفر</string>
-  <string name="zero_interstitial_leave_app">به سایت‌های بیرون انتقال یابد؟ هزینهٔ استاندارد دیتا دریافت می‌گردد.</string>
-  <string name="zero_interstitial_continue">ادامه</string>
-  <string name="zero_interstitial_cancel">لغو</string>
-  <string name="zero_learn_more">آیا می خواهید دربارهٔ ویکی‌پدیا صفر بدانید؟</string>
-  <string name="zero_learn_more_learn_more">بیشتر بدانید</string>
+  <string name="zero_interstitial_leave_app" fuzzy="true">به سایت‌های بیرون انتقال یابد؟ هزینهٔ استاندارد دیتا دریافت می‌گردد.</string>
+  <string name="zero_interstitial_continue" fuzzy="true">ادامه</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">لغو</string>
+  <string name="zero_learn_more" fuzzy="true">آیا می خواهید دربارهٔ ویکی‌پدیا صفر بدانید؟</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">بیشتر بدانید</string>
   <string name="zero_learn_more_dismiss">نپذیرفتن</string>
   <string name="zero_settings">تنظیمات</string>
   <string name="zero_settings_devmode">وضعیت برنامه‌نویسی صفر</string>
@@ -105,7 +102,7 @@
   <string name="edit_preview_fetching_dialog_message">واکشی پیش‌نمایش...</string>
   <string name="edit_preview_activity_title">ویرایش پیش‌نمایش</string>
   <string name="create_account_logging_in">ورود به سیستم...</string>
-  <string name="edit_summary_guide_text">بگویید از چه لحاظ این مقاله را بهبود داده‌اید. این به سایر ویرایشگران کمک می‌کند ویرایش‌تان به‌سرعت بازبینی کنند.</string>
+  <string name="edit_summary_guide_text" fuzzy="true">بگویید از چه لحاظ این مقاله را بهبود داده‌اید. این به سایر ویرایشگران کمک می‌کند ویرایش‌تان به‌سرعت بازبینی کنند.</string>
   <string name="edit_summary_hint">خلاصهٔ ویرایش</string>
   <string name="nav_item_random">تصادفی</string>
   <string name="random_progress">واکشی صفحهٔ تصادفی...</string>

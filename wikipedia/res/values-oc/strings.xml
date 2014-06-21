@@ -25,14 +25,12 @@
   <string name="last_updated_text">Darrièra modificacion lo %1$s</string>
   <string name="preference_title_language" fuzzy="true">Lenga</string>
   <string name="preference_summary_language">Lenga del contengut</string>
-  <string name="nav_item_preferences">Paramètres</string>
   <string name="preference_languages_filter_hint">Recercar</string>
   <string name="langlinks_filter_hint">Recercar</string>
   <string name="menu_other_languages" fuzzy="true">Autras lengas</string>
   <string name="langlinks_error_retry">Tornar ensajar</string>
   <string name="settings_activity_title">Paramètres</string>
   <string name="langlinks_activity_title">Autras lengas</string>
-  <string name="editsection_activity_title">Modificar la seccion</string>
   <string name="edit_section_error_retry">Ensajar tornarmai</string>
   <string name="dialog_saving_in_progress">Enregistrament…</string>
   <string name="edit_saved_successfully">Modificacion enregistrada !</string>
@@ -59,7 +57,7 @@
   <string name="history_empty_message">Vòstre istoric es void.</string>
   <string name="create_account_username_hint">Nom d\'utilizaire</string>
   <string name="create_account_password_hint">Senhal</string>
-  <string name="login_create_account_link">Crear un compte</string>
+  <string name="login_create_account_link" fuzzy="true">Crear un compte</string>
   <string name="create_account_activity_title">Crear un compte</string>
   <string name="edit_section_activity_title">Modificar la seccion</string>
   <string name="dialog_create_account_checking_progress">Verificacion en cors</string>
@@ -73,9 +71,9 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipèdia Zèro</string>
   <string name="zero_interstitial_title">Sortida de Wikipèdia Zèro</string>
-  <string name="zero_interstitial_continue">Contunhar</string>
-  <string name="zero_interstitial_cancel">Anullar</string>
-  <string name="zero_learn_more_learn_more">Ne saber mai</string>
+  <string name="zero_interstitial_continue" fuzzy="true">Contunhar</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">Anullar</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Ne saber mai</string>
   <string name="zero_learn_more_dismiss">Regetar</string>
   <string name="zero_settings">Paramètres</string>
   <string name="zero_settings_devmode">Mòde de desvolopament Zèro</string>

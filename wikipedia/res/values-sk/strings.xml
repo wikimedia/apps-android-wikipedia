@@ -32,15 +32,13 @@
   <string name="content_license_html" fuzzy="true">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="preference_title_language">Jazyk</string>
   <string name="preference_summary_language">Jazyk obsahu</string>
-  <string name="nav_item_preferences">Nastavenia</string>
   <string name="preference_languages_filter_hint">Hľadať</string>
   <string name="langlinks_filter_hint">Hľadať</string>
   <string name="menu_other_languages" fuzzy="true">V iných jazykoch</string>
   <string name="langlinks_error_retry">Obnoviť</string>
-  <string name="langlinks_empty">Tento článok nie je k dispozícii v iných jazykoch</string>
+  <string name="langlinks_empty" fuzzy="true">Tento článok nie je k dispozícii v iných jazykoch</string>
   <string name="settings_activity_title">Nastavenia</string>
   <string name="langlinks_activity_title">Iné jazyky</string>
-  <string name="editsection_activity_title">Upraviť sekciu</string>
   <string name="edit_section_error_retry">Obnoviť</string>
   <string name="dialog_saving_in_progress">Ukladanie...</string>
   <string name="edit_saved_successfully">Úprava uložená</string>
@@ -75,7 +73,7 @@
   <string name="create_account_username_hint">Používateľské meno</string>
   <string name="create_account_password_hint">Heslo</string>
   <string name="menu_create_account">Vytvoriť účet</string>
-  <string name="login_create_account_link">Vytvoriť účet</string>
+  <string name="login_create_account_link" fuzzy="true">Vytvoriť účet</string>
   <string name="create_account_activity_title">Vytvoriť nový účet</string>
   <string name="edit_section_activity_title">Upraviť sekciu</string>
   <string name="dialog_create_account_checking_progress">Overujem</string>
@@ -89,8 +87,7 @@
   <string name="create_account_generic_error">Nepodarilo sa vytvoriť účet</string>
   <string name="create_account_no_network">Žiadne sieťové pripojenie</string>
   <string name="preferences_general_heading">Všeobecné</string>
-  <string name="zero_free_verbiage">Voľný prístup k Wikipédii od vášho mobilného operátora (neplatíte poplatky za prenos dát)</string>
-  <string name="zero_charged_verbiage">Wikipédia Zero je VYPNUTÁ (MÔŽU SA OBJAVIŤ ŠTANDARDNÉ POPLATKY ZA PRENOS DÁT)</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipédia Zero je VYPNUTÁ (MÔŽU SA OBJAVIŤ ŠTANDARDNÉ POPLATKY ZA PRENOS DÁT)</string>
   <string name="zero_search_hint">Hľadať vo Wikipédii Zero</string>
   <string name="zero_warn_when_leaving">Upozorniť ma ak opúšťam Wikipédiu Zero</string>
   <string name="zero_warn_when_leaving_summary">Pokiaľ váš mobilní operátor v rámci Wikipédie Zero neúčtuje poplatky za dátové pripojenie k Wikipédii, ponechaním tohto políčka zaškrtnutého zaistíte, že se dozviete o jej opustení a hrozbe platenia za dátové pripojenie.</string>
@@ -98,11 +95,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipédia Zero</string>
   <string name="zero_interstitial_title">Opúšťate Wikipédiu Zero</string>
-  <string name="zero_interstitial_leave_app">Pokračovať na externú stránku? Môžu sa objaviť štandardné poplatky za prenos dát.</string>
-  <string name="zero_interstitial_continue">Pokračovať</string>
-  <string name="zero_interstitial_cancel">Zrušiť</string>
-  <string name="zero_learn_more">Chcete sa dozvedieť viac o Wikipédia Zero?</string>
-  <string name="zero_learn_more_learn_more">Ďalšie informácie</string>
+  <string name="zero_interstitial_leave_app" fuzzy="true">Pokračovať na externú stránku? Môžu sa objaviť štandardné poplatky za prenos dát.</string>
+  <string name="zero_interstitial_continue" fuzzy="true">Pokračovať</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">Zrušiť</string>
+  <string name="zero_learn_more" fuzzy="true">Chcete sa dozvedieť viac o Wikipédia Zero?</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Ďalšie informácie</string>
   <string name="zero_learn_more_dismiss">Zrušiť</string>
   <string name="zero_settings">Nastavenia</string>
   <string name="zero_settings_devmode">Vývojársky režim</string>
@@ -110,7 +107,7 @@
   <string name="edit_preview_fetching_dialog_message">Generujem náhľad...</string>
   <string name="edit_preview_activity_title">Zobraziť úpravy</string>
   <string name="create_account_logging_in">Prihlasujem...</string>
-  <string name="edit_summary_guide_text">Povedzte nám, ako ste tento článok vylepšili. Toto pomôže ostatným redaktorom rýchlejšie skontrolovať vaše úpravy.</string>
+  <string name="edit_summary_guide_text" fuzzy="true">Povedzte nám, ako ste tento článok vylepšili. Toto pomôže ostatným redaktorom rýchlejšie skontrolovať vaše úpravy.</string>
   <string name="edit_summary_hint">Zhrnutie úprav</string>
   <string name="nav_item_random">Náhodná</string>
   <string name="random_progress">Generujem náhodnú stránku...</string>
@@ -125,5 +122,5 @@
   <string name="edit_save_action_ip_description">Vaše úpravy budú spojené s vašou IP adresou, ktorá sa pravidelne mení.</string>
   <string name="preference_title_eventlogging_opt_in">Odoslať správu o používaní</string>
   <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimédií zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
-  <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
+  <string name="editing_error_spamblacklist" fuzzy="true">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
 </resources>

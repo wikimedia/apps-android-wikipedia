@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Viquipèdia</string>
+  <string name="app_name_beta">Viquipèdia Beta</string>
   <string name="yes">Sí</string>
   <string name="no">No</string>
   <string name="acra_report_dialog_title">Viquipèdia s\'ha detingut :(</string>
@@ -14,6 +15,7 @@
   <string name="page_error_retry">Tornar a provar</string>
   <string name="menu_clear_all_history">Neteja l\'historial</string>
   <string name="menu_clear_all_bookmarks">Netejar marcadors</string>
+  <string name="menu_clear_all_saved_pages">Clars pàgines desades</string>
   <string name="page_does_not_exist_error">Aquesta pàgina no existeix</string>
   <string name="dialog_title_clear_history" fuzzy="true">Netejar l\'historial?</string>
   <string name="saved_pages_activity_title" fuzzy="true">Pàgines desades</string>
@@ -32,15 +34,14 @@
   <string name="content_license_html" fuzzy="true">El contingut està disponible sota llicència &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
   <string name="preference_title_language">Idioma</string>
   <string name="preference_summary_language">Idioma del contingut</string>
-  <string name="nav_item_preferences">Preferències</string>
   <string name="preference_languages_filter_hint">Cerca</string>
   <string name="langlinks_filter_hint">Cerca</string>
   <string name="menu_other_languages" fuzzy="true">Altres idiomes</string>
   <string name="langlinks_error_retry">Reintenta</string>
-  <string name="langlinks_empty">Aquest article no està disponible en altres idiomes</string>
+  <string name="langlinks_empty" fuzzy="true">Aquest article no està disponible en altres idiomes</string>
   <string name="settings_activity_title">Preferències</string>
   <string name="langlinks_activity_title">Altres idiomes</string>
-  <string name="editsection_activity_title">Modifica secció</string>
+  <string name="menu_save_changes">Desa els canvis</string>
   <string name="edit_section_error_retry">Reintenta</string>
   <string name="dialog_saving_in_progress">Desant...</string>
   <string name="edit_saved_successfully">Edició desada!</string>
@@ -69,13 +70,14 @@
   <string name="login_error_unknown">Ha fallat l\'inici de sessió :(</string>
   <string name="login_error_no_network">No hi ha connexió de xarxa</string>
   <string name="nav_item_logout">Finalitza la sessió</string>
+  <string name="preference_title_logout">Desconnectar-se</string>
   <string name="toast_logout_complete">Desconnectat</string>
   <string name="saved_pages_empty_message" fuzzy="true">No hi ha pàgines desades.</string>
   <string name="history_empty_message">L\'historial és buit.</string>
   <string name="create_account_username_hint">Nom d\'usuari</string>
   <string name="create_account_password_hint">Contrasenya</string>
   <string name="menu_create_account">Crea un compte</string>
-  <string name="login_create_account_link">Crear un compte</string>
+  <string name="login_create_account_link" fuzzy="true">Crear un compte</string>
   <string name="create_account_activity_title">Crear un compte</string>
   <string name="edit_section_activity_title">Modifica secció</string>
   <string name="dialog_create_account_checking_progress">Verificant</string>
@@ -89,19 +91,18 @@
   <string name="create_account_generic_error">No s\'ha pogut crear el compte</string>
   <string name="create_account_no_network">No hi ha connexió de xarxa</string>
   <string name="preferences_general_heading">General</string>
-  <string name="zero_free_verbiage">Accés lliure a la Viquipèdia des del teu operador mòbil (sense càrrecs per transmissió de dades)</string>
-  <string name="zero_charged_verbiage">Viquipèdia Zero DESACTIVAT (PODEN APLICAR-SE COSTOS PER TRANSMISSIÓ DE DADES)</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Viquipèdia Zero DESACTIVAT (PODEN APLICAR-SE COSTOS PER TRANSMISSIÓ DE DADES)</string>
   <string name="zero_search_hint">Cerca a Viquipèdia Zero</string>
   <string name="zero_warn_when_leaving">Avisar si es deixa Viquipèdia Zero</string>
   <string name="zero_webpage_title">Preguntes i respostes sobre Wikipedia Zero</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Sortint de Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app">Desitja continuar? Està sortint de l\'aplicaió, es podrien carregar càrrecs addicionals</string>
-  <string name="zero_interstitial_continue">Continua</string>
-  <string name="zero_interstitial_cancel">Cancel·la</string>
-  <string name="zero_learn_more">Voleu saber més sobre la Viquipèdia Zero?</string>
-  <string name="zero_learn_more_learn_more">Més informació</string>
+  <string name="zero_interstitial_leave_app" fuzzy="true">Desitja continuar? Està sortint de l\'aplicaió, es podrien carregar càrrecs addicionals</string>
+  <string name="zero_interstitial_continue" fuzzy="true">Continua</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">Cancel·la</string>
+  <string name="zero_learn_more" fuzzy="true">Voleu saber més sobre la Viquipèdia Zero?</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Més informació</string>
   <string name="zero_learn_more_dismiss">Descarta</string>
   <string name="zero_settings">Preferències</string>
   <string name="zero_settings_devmode">Zero Devmode</string>
@@ -109,7 +110,7 @@
   <string name="edit_preview_fetching_dialog_message">Obtenció de la previsualització...</string>
   <string name="edit_preview_activity_title">Previsualitza la modificació</string>
   <string name="create_account_logging_in">Inici de sessió...</string>
-  <string name="edit_summary_guide_text">Explica els canvis que has relitzat. Això ajuda als altres editors a supervisar la teva edició més ràpidament</string>
+  <string name="edit_summary_guide_text" fuzzy="true">Explica els canvis que has relitzat. Això ajuda als altres editors a supervisar la teva edició més ràpidament</string>
   <string name="edit_summary_hint">Resum d\'edició</string>
   <string name="nav_item_random">A l\'atzar</string>
   <string name="random_progress">S\'està carregant una pàgina a l\'atzar...</string>
@@ -124,5 +125,5 @@
   <string name="edit_save_action_ip_description">Les vostres edicions s\'associaran públicament a la teva adreça IP</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permeteu a Wikimedia recollir informació sobre com utilitzeu l\'aplicació, per poder-la millorar</string>
-  <string name="editing_error_spamblacklist">Enllaços de dominis bloquejats (%s) detectats. Si us plau, esborreu-los i torneu a provar de nou.</string>
+  <string name="editing_error_spamblacklist" fuzzy="true">Enllaços de dominis bloquejats (%s) detectats. Si us plau, esborreu-los i torneu a provar de nou.</string>
 </resources>

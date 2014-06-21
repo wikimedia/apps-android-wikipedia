@@ -30,15 +30,13 @@
   <string name="content_license_html" fuzzy="true">Innholdet er tilgjengelig under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om ikke annet er angitt</string>
   <string name="preference_title_language" fuzzy="true">Språk</string>
   <string name="preference_summary_language">Innholdsspråk</string>
-  <string name="nav_item_preferences">Innstillinger</string>
   <string name="preference_languages_filter_hint">Søk</string>
   <string name="langlinks_filter_hint">Søk</string>
   <string name="menu_other_languages" fuzzy="true">Andre språk</string>
   <string name="langlinks_error_retry">Prøv igjen</string>
-  <string name="langlinks_empty">Denne artikkelen er ikke tilgjengelig på andre språk</string>
+  <string name="langlinks_empty" fuzzy="true">Denne artikkelen er ikke tilgjengelig på andre språk</string>
   <string name="settings_activity_title">Innstillinger</string>
   <string name="langlinks_activity_title">Andre språk</string>
-  <string name="editsection_activity_title">Rediger avsnitt</string>
   <string name="edit_section_error_retry">Prøv igjen</string>
   <string name="dialog_saving_in_progress">Lagrer…</string>
   <string name="edit_saved_successfully">Redigering lagret!</string>
@@ -72,7 +70,7 @@
   <string name="history_empty_message">Loggen din er tom.</string>
   <string name="create_account_username_hint">Brukernavn</string>
   <string name="create_account_password_hint">Passord</string>
-  <string name="login_create_account_link">Opprett konto</string>
+  <string name="login_create_account_link" fuzzy="true">Opprett konto</string>
   <string name="create_account_activity_title">Opprett en konto</string>
   <string name="edit_section_activity_title">Rediger avsnitt</string>
   <string name="dialog_create_account_checking_progress">Verifiserer</string>
@@ -85,8 +83,7 @@
   <string name="create_account_open_proxy_error">Denne IP-adressen har blitt blokkert fra å opprette kontoer.</string>
   <string name="create_account_generic_error">Kunne ikke opprette konto</string>
   <string name="preferences_general_heading">Generelt</string>
-  <string name="zero_free_verbiage">Gratis Wikipedia-tilgang fra din mobiloperatør (ingen datakostnader)</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero er INAKTIV (ORDINÆRE DATAKOSTNADER KAN FOREKOMME)</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero er INAKTIV (ORDINÆRE DATAKOSTNADER KAN FOREKOMME)</string>
   <string name="zero_search_hint">Søk i Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Advar meg hvis jeg forlater WIkipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Hvis mobiloperatøren din dekker datakostnader for Wikipedia-appen gjennom et Wikipedia Zero-samarbeid, kan denne innstillingen informere deg når du forlater Wikipedia-appen og datakostnader kan påløpe.</string>
@@ -94,11 +91,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Forlater Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app">Fortsette til eksternt nettsted? Ordinære datakostnader kan påløpe.</string>
-  <string name="zero_interstitial_continue">Fortsett</string>
-  <string name="zero_interstitial_cancel">Avbryt</string>
-  <string name="zero_learn_more">Vil du vite mer om Wikipedia Zero?</string>
-  <string name="zero_learn_more_learn_more">Lær mer</string>
+  <string name="zero_interstitial_leave_app" fuzzy="true">Fortsette til eksternt nettsted? Ordinære datakostnader kan påløpe.</string>
+  <string name="zero_interstitial_continue" fuzzy="true">Fortsett</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">Avbryt</string>
+  <string name="zero_learn_more" fuzzy="true">Vil du vite mer om Wikipedia Zero?</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Lær mer</string>
   <string name="zero_learn_more_dismiss">Lukk</string>
   <string name="zero_settings">Innstillinger</string>
   <string name="zero_settings_devmode">Zero-utviklermodus</string>
@@ -106,7 +103,7 @@
   <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning…</string>
   <string name="edit_preview_activity_title">Forhåndsvis redigering</string>
   <string name="create_account_logging_in">Logger inn…</string>
-  <string name="edit_summary_guide_text">Fortell om hvordan du forbedret denne artikkelen. Dette hjelper andre skribenter til å raskt gjennomgå redigeringen din.</string>
+  <string name="edit_summary_guide_text" fuzzy="true">Fortell om hvordan du forbedret denne artikkelen. Dette hjelper andre skribenter til å raskt gjennomgå redigeringen din.</string>
   <string name="edit_summary_hint">Redigeringsforklaring</string>
   <string name="nav_item_random">Tilfeldig</string>
   <string name="random_progress">Henter tilfeldig side…</string>

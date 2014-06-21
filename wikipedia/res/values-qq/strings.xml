@@ -2,7 +2,8 @@
 <resources>
   <string name="app_name">Name of the application.
 {{Identical|Wikipedia}}</string>
-  <string name="app_name_beta">Name of the beta version of the application</string>
+  <string name="app_name_beta">Name of the beta version of the application.
+{{Identical|Wikipedia Beta}}</string>
   <string name="yes">Affirmative answer to a dialog box.
 {{Identical|Yes}}</string>
   <string name="no">Negative answer to a dialog box.
@@ -32,12 +33,22 @@
 {{Identical|Save page}}</string>
   <string name="menu_share_page">Menu item text for sharing the currently active page.
 {{Identical|Share}}</string>
-  <string name="share_via">Dialog title text for Share list</string>
+  <string name="share_via">Dialog title text for Share list.
+
+The Share list contains the following menu items (localized):
+* Mail
+* Message</string>
   <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your saved pages</string>
   <string name="dialog_message_clear_saved_pages">Message for dialog box asking if you want to clear all your saved pages</string>
   <string name="toast_saving_page">Small toast (popup) message saying that a page is being saved for offline reading</string>
-  <string name="toast_saved_page">Small toast (popup) message saying that a page has been saved for offline reading</string>
-  <string name="toast_saved_page_missing_images">Small toast (popup) message saying that not all images of a saved page could be saved</string>
+  <string name="toast_saved_page">Small toast (popup) message saying that a page has been saved for offline reading.
+
+See also:
+* {{msg-wm|Wikipedia-android-strings-toast saved page missing images}}</string>
+  <string name="toast_saved_page_missing_images">Small toast (popup) message saying that not all images of a saved page could be saved.
+
+See also:
+* {{msg-wm|Wikipedia-android-strings-toast saved page}}</string>
   <string name="toast_save_page_failed">Small toast (popup) message saying that a page has failed to be saved</string>
   <string name="toast_refresh_saved_page">Small toast (popup) message saying that a saved page is being refreshed</string>
   <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected saved pages</string>
@@ -58,7 +69,6 @@
 {{Identical|Settings}}</string>
   <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in.
 {{Identical|Otherlanguages}}</string>
-  <string name="editsection_activity_title">Title for screen where user is editing a single section</string>
   <string name="menu_save_changes">Menu item text for saving edits.</string>
   <string name="edit_section_error_retry">Text for button that retries page loading when tapped.
 {{Identical|Retry}}</string>
@@ -77,12 +87,17 @@
   <string name="nav_item_login">{{Identical|Log in}}</string>
   <string name="login_username_hint">{{Identical|Username}}</string>
   <string name="login_password_hint">{{Identical|Password}}</string>
+  <string name="login_password_show_check">Used as label for the checkbox to mask/unmask password.</string>
   <string name="menu_login">{{Identical|Log in}}</string>
+  <string name="login_activity_title">Used as window title.</string>
+  <string name="login_error_wrong_username">Used as error message if the specified user does not exist.</string>
+  <string name="login_error_blocked">Used as alert message.</string>
   <string name="nav_item_logout">{{Identical|Log out}}</string>
   <string name="preference_title_logout">{{Identical|Log out}}</string>
   <string name="preference_summary_logout">Summary of what logging out means.</string>
   <string name="preference_summary_notloggedin">Summary that states the user is not logged in.</string>
-  <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out</string>
+  <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.
+{{Identical|Logged out}}</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
   <string name="create_account_password_hint">{{Identical|Password}}</string>
   <string name="menu_create_account">{{Identical|Create account}}</string>
@@ -90,10 +105,14 @@
   <string name="create_account_login_link">Link text on Create Account screen to go to Login screen</string>
   <string name="create_account_activity_title">{{Identical|Create account}}</string>
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
+  <string name="create_account_username_exists_error">Used as error message on creating a user account.</string>
   <string name="create_account_no_network">Message shown when the network is unavailable during account creation</string>
-  <string name="create_account_next">Button text on Create Account screen to go "next" (to CAPTCHA)</string>
-  <string name="create_account_button">Button text on Create Account screen to go start creating the account (may also go to a CAPTCHA screen first)</string>
-  <string name="preferences_general_heading">Preferences general heading</string>
+  <string name="create_account_next">Button text on Create Account screen to go \"next\" (to CAPTCHA).
+{{Identical|Next}}</string>
+  <string name="create_account_button">Button text on Create Account screen to go start creating the account (may also go to a CAPTCHA screen first).
+{{Identical|Create account}}</string>
+  <string name="preferences_general_heading">Preferences general heading.
+{{Identical|General}}</string>
   <string name="zero_charged_verbiage">Text for toast connoting that Wikipedia Zero status went to OFF</string>
   <string name="zero_charged_verbiage_extended">Extended text describing that further usage of the app may in fact incur data charges because Wikipedia Zero is off.</string>
   <string name="zero_search_hint">Searchbar hint incorporting notion that user is searching via Wikipedia Zero so it is free</string>
@@ -107,7 +126,8 @@
   <string name="zero_interstitial_continue">Dialog button text for Wikipedia Zero user to leave the app for an external site where standard data charges may apply.</string>
   <string name="zero_interstitial_cancel">Dialog button text for Wikipedia Zero to stay in the app and thereby avoid leaving the app for an external site where standard data charges may apply.</string>
   <string name="zero_learn_more">The first time Wikipedia Zero mode is On this is the question posed to the Wikipedia Zero user as to whether the user wants to read the Wikipedia Zero FAQ</string>
-  <string name="zero_learn_more_learn_more">Dialog button text for Wikipedia Zero user to learn more about Wikipedia Zero at the Wikipedia Zero FAQ for the app</string>
+  <string name="zero_learn_more_learn_more">Dialog button text for Wikipedia Zero user to learn more about Wikipedia Zero at the Wikipedia Zero FAQ for the app.
+{{Identical|Read more}}</string>
   <string name="zero_learn_more_dismiss">Dialog button text for Wikipedia Zero user to dismiss the prompt about visiting the Wikipedia Zero FAQ for the app</string>
   <string name="zero_settings">Generic Settings heading for Wikipedia Zero.
 {{Identical|Settings}}</string>
@@ -129,11 +149,18 @@
   <string name="edit_save_action_login">Title of action that takes user to login screen so they can login before saving an edit</string>
   <string name="edit_save_action_ip">Title of action that lets the user save the current edit anonymously
 {{Identical|Save anonymously}}</string>
-  <string name="edit_save_action_login_description">Description for action that lets the user save the current edit anonymously</string>
-  <string name="edit_save_action_ip_description">Description for action that takes user to login screen so they can login before saving an edit</string>
+  <string name="edit_save_action_login_description">Description for action that lets the user save the current edit anonymously.
+
+See also:
+* {{msg-wm|Wikipedia-android-strings-edit save action ip description}}</string>
+  <string name="edit_save_action_ip_description">Description for action that takes user to login screen so they can login before saving an edit.
+
+See also:
+* {{msg-wm|Wikipedia-android-strings-edit save action login description}}</string>
   <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
-  <string name="history_search_list_hint">Hint for textbox that searches list of items in browsing history as user typesj</string>
+  <string name="history_search_list_hint">Hint for textbox that searches list of items in browsing history as user types.
+{{Identical|Search}}</string>
   <string name="history_search_empty_message">Message shown when no history itmes were found that match the user\'s query. %s is replaced with the query string.</string>
   <string name="error_can_not_process_link">Message shown in a toast when the app encounters a link it can not process.</string>
   <string name="page_protected_autoconfirmed">Message shown to users when editing a semi-protected page</string>
@@ -141,14 +168,18 @@
   <string name="page_protected_other">Message shown to users when editing a page that is protected with a custom level of protection. %s refers to the name of the protection level. Examples include \'templateeditor\' on enwiki.</string>
   <string name="page_protected_can_not_edit">Message in dialog box telling the user that they can not edit this page because it is protected.</string>
   <string name="page_protected_can_not_edit_title">Title of dialog box telling the user that they can not edit this page because it is protected.</string>
-  <string name="more_item_preferences">Text for the item in the nav menu to go to the More screen.</string>
-  <string name="more_activity_title">Title at the top of the More screen.</string>
+  <string name="more_item_preferences">Text for the item in the nav menu to go to the More screen.
+{{Identical|More}}</string>
+  <string name="more_activity_title">Title at the top of the More screen.
+{{Identical|More}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
-  <string name="preference_title_version">Text for the preference item that shows the app version number.</string>
+  <string name="preference_title_version">Text for the preference item that shows the app version number.
+{{Identical|Version}}</string>
   <string name="about_terms_of_use">Terms of use link that links to the WMF\'s Terms of Use</string>
   <string name="about_privacy_policy">Privacy policy link that links to the WMF\'s Privacy Policy</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
-  <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app</string>
+  <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.
+{{Identical|Contributor}}</string>
   <string name="about_wmf">Text and link specifying that this app was developed by the Wikimedia Foundation</string>
   <string name="about_activity_title">Text for the preference item to show the About screen.</string>
   <string name="edit_unchanged">Message displayed when the user tries to save a page when no modifications were made.</string>
@@ -157,16 +188,21 @@
   <string name="user_logged_in_blocked_from_editing">Message shown in dialog box to users who are blocked from editing when they attempt to save an edit</string>
   <string name="user_anon_blocked_from_editing">Message shown in dialog box to users who are blocked from editing based on their IP address</string>
   <string name="edit_how_page_improved">Question that asks the user how they improved the article after editing</string>
-  <string name="edit_next">Button text to go "next" after the editing screen to the preview screen</string>
-  <string name="edit_done">Button text to finish editing and save the changes</string>
-  <string name="edit_preview">Header text to show above the preview of the edited article</string>
+  <string name="edit_next">Button text to go \"next\" after the editing screen to the preview screen.
+{{Identical|Next}}</string>
+  <string name="edit_done">Button text to finish editing and save the changes.
+{{Identical|Save}}</string>
+  <string name="edit_preview">Header text to show above the preview of the edited article.
+{{Identical|Preview}}</string>
   <string name="edit_summary_tag_typo">Clickable summary tag for fixing a typo</string>
   <string name="edit_summary_tag_grammar">Clickable summary tag for fixing grammar</string>
   <string name="edit_summary_tag_links">Clickable summary tag for adding link(s)</string>
-  <string name="edit_summary_tag_other">Clickable summary tag for a custom/other edit summary text</string>
+  <string name="edit_summary_tag_other">Clickable summary tag for a custom/other edit summary text.
+{{Identical|Other}}</string>
   <string name="edit_summary_tag_other_hint">Hint for the user to write a custom summary of edits</string>
   <string name="find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
-  <string name="find_next">Text for button that finds the next occurrence of a search term</string>
+  <string name="find_next">Text for button that finds the next occurrence of a search term.
+{{Identical|Find next}}</string>
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
   <string name="find_close">Text for button that closes the find-in-page bar</string>
   <string name="error_network_error_try_again">Message shown when encountering network connection issues that may be corrected by simply retrying.</string>

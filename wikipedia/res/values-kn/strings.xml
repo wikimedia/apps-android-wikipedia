@@ -26,14 +26,12 @@
   <string name="last_updated_text">ಕೊನೆಯ ಪರಿಷ್ಕರಣೆ %1$s</string>
   <string name="preference_title_language">ವಿಕಿಪೀಡಿಯಾ ಭಾಷೆ</string>
   <string name="preference_summary_language">ವಿಷಯದ ಭಾಷೆ</string>
-  <string name="nav_item_preferences">ವ್ಯವಸ್ಥೆಗಳು</string>
   <string name="preference_languages_filter_hint">ಹುಡುಕು</string>
   <string name="langlinks_filter_hint">ಹುಡುಕು</string>
   <string name="menu_other_languages" fuzzy="true">ಇತರೆ ಭಾಷೆಗಳು</string>
   <string name="langlinks_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="settings_activity_title">ವ್ಯವಸ್ಥೆಗಳು</string>
   <string name="langlinks_activity_title">ಇತರೆ ಭಾಷೆಗಳು</string>
-  <string name="editsection_activity_title">ವಿಭಾಗವನ್ನು ಸಂಪಾದಿಸಿ</string>
   <string name="edit_section_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="dialog_saving_in_progress">ಉಳಿಸಲಾಗುತ್ತಿದೆ....</string>
   <string name="edit_saved_successfully">ಸಂಪಾದನೆಯನ್ನು ಉಳಿಸಲಾಗಿದೆ!</string>
@@ -61,7 +59,7 @@
   <string name="create_account_username_hint">ಬಳಕೆದಾರ ಹೆಸರು</string>
   <string name="create_account_password_hint">ಪ್ರವೇಶಪದ</string>
   <string name="menu_create_account">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
-  <string name="login_create_account_link">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
+  <string name="login_create_account_link" fuzzy="true">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
   <string name="create_account_activity_title">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
   <string name="edit_section_activity_title">ವಿಭಾಗವನ್ನು ಸಂಪಾದಿಸಿ</string>
   <string name="dialog_create_account_checking_progress">ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ</string>
@@ -72,9 +70,9 @@
   <string name="create_account_username_exists_error">ಬಳಕೆದಾರ ಹೆಸರು ಈಗಾಗಲೇ ಉಪಯೋಗದಲ್ಲಿದೆ</string>
   <string name="create_account_generic_error">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಗುತ್ತಿಲ್ಲ</string>
   <string name="preferences_general_heading">ಸಾಮಾನ್ಯ</string>
-  <string name="zero_interstitial_continue">ಮುಂದುವರೆಸಿ</string>
-  <string name="zero_interstitial_cancel">ರದ್ದುಮಾಡು</string>
-  <string name="zero_learn_more_learn_more">ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</string>
+  <string name="zero_interstitial_continue" fuzzy="true">ಮುಂದುವರೆಸಿ</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">ರದ್ದುಮಾಡು</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</string>
   <string name="zero_learn_more_dismiss">ತೆಗೆದುಹಾಕು</string>
   <string name="zero_settings">ವ್ಯವಸ್ಥೆಗಳು</string>
   <string name="create_account_logging_in">ನೀವು ಲಾಗ್-ಇನ್ ಆಗುತ್ತಿದ್ದೀರಿ...</string>

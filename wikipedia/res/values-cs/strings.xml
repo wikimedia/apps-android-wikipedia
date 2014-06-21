@@ -30,15 +30,13 @@
   <string name="content_license_html" fuzzy="true">Obsah je dostupný pod &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
   <string name="preference_title_language" fuzzy="true">Jazyk</string>
   <string name="preference_summary_language">Jazyk obsahu</string>
-  <string name="nav_item_preferences">Nastavení</string>
   <string name="preference_languages_filter_hint">Hledat</string>
   <string name="langlinks_filter_hint">Hledat</string>
   <string name="menu_other_languages" fuzzy="true">Jiné jazyky</string>
   <string name="langlinks_error_retry">Zkusit znovu</string>
-  <string name="langlinks_empty">Tento článek není k dispozici v jiných jazycích</string>
+  <string name="langlinks_empty" fuzzy="true">Tento článek není k dispozici v jiných jazycích</string>
   <string name="settings_activity_title">Nastavení</string>
   <string name="langlinks_activity_title">Jiné jazyky</string>
-  <string name="editsection_activity_title">Editace sekce</string>
   <string name="edit_section_error_retry">Zkusit znovu</string>
   <string name="dialog_saving_in_progress">Ukládá se…</string>
   <string name="edit_saved_successfully">Editace uložena!</string>
@@ -71,7 +69,7 @@
   <string name="history_empty_message">Vaše historie je prázdná.</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
   <string name="create_account_password_hint">Heslo</string>
-  <string name="login_create_account_link">Vytvořit účet</string>
+  <string name="login_create_account_link" fuzzy="true">Vytvořit účet</string>
   <string name="create_account_activity_title">Vytvoření účtu</string>
   <string name="edit_section_activity_title">Editace sekce</string>
   <string name="dialog_create_account_checking_progress">Ověřování</string>
@@ -84,25 +82,24 @@
   <string name="create_account_open_proxy_error">Této IP adrese bylo zablokováno vytváření účtů.</string>
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
   <string name="preferences_general_heading">Obecné</string>
-  <string name="zero_free_verbiage">Volný přístup k Wikipedii od vašeho mobilního operátora (bez poplatků za data)</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero VYPNUTO (MOHOU SE ÚČTOVAT STANDARDNÍ DATOVÉ POPLATKY)</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero VYPNUTO (MOHOU SE ÚČTOVAT STANDARDNÍ DATOVÉ POPLATKY)</string>
   <string name="zero_search_hint">Hledání ve Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Varovat při opuštění Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Pokud váš mobilní operátor neúčtuje poplatky za datové připojení k Wikipedii v rámci partnerství Wikipedia Zero, ponecháním tohoto políčka zaškrtnutého zajistíte, že se dozvíte o opouštění aplikace a možnosti placení za další datové připojení.</string>
   <string name="zero_webpage_title">FAQ k Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Opuštění Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app">Pokračovat na externí web? Mohou se na to vztahovat standardní datové poplatky.</string>
-  <string name="zero_interstitial_continue">Pokračovat</string>
-  <string name="zero_interstitial_cancel">Storno</string>
-  <string name="zero_learn_more">Chcete vědět více o Wikipedia Zero?</string>
-  <string name="zero_learn_more_learn_more">Dozvědět se více</string>
+  <string name="zero_interstitial_leave_app" fuzzy="true">Pokračovat na externí web? Mohou se na to vztahovat standardní datové poplatky.</string>
+  <string name="zero_interstitial_continue" fuzzy="true">Pokračovat</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">Storno</string>
+  <string name="zero_learn_more" fuzzy="true">Chcete vědět více o Wikipedia Zero?</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Dozvědět se více</string>
   <string name="zero_learn_more_dismiss">Zavřít</string>
   <string name="zero_settings">Nastavení</string>
   <string name="zero_settings_devmode">Vývojářský režim Zero</string>
   <string name="edit_preview_fetching_dialog_message">Načítání náhledu…</string>
   <string name="edit_preview_activity_title">Náhled editace</string>
   <string name="create_account_logging_in">Přihlašování…</string>
-  <string name="edit_summary_guide_text">Řekněte nám, jak jste tento článek vylepšili. To pomůže ostatním editorům vaši editaci rychle zkontrolovat.</string>
+  <string name="edit_summary_guide_text" fuzzy="true">Řekněte nám, jak jste tento článek vylepšili. To pomůže ostatním editorům vaši editaci rychle zkontrolovat.</string>
   <string name="edit_summary_hint">Shrnutí editace</string>
 </resources>

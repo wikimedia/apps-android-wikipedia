@@ -32,15 +32,13 @@
   <string name="content_license_html" fuzzy="true">An endalc\'had a c\'haller kaout e &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
   <string name="preference_title_language">Yezh Wikipedia</string>
   <string name="preference_summary_language">Yezh an endalc\'had</string>
-  <string name="nav_item_preferences">Arventennoù</string>
   <string name="preference_languages_filter_hint">Klask</string>
   <string name="langlinks_filter_hint">Klask</string>
   <string name="menu_other_languages" fuzzy="true">Yezhoù all</string>
   <string name="langlinks_error_retry">Klask en-dro</string>
-  <string name="langlinks_empty">N\'haller ket kaout ar pennad-mañ e yezhoù all</string>
+  <string name="langlinks_empty" fuzzy="true">N\'haller ket kaout ar pennad-mañ e yezhoù all</string>
   <string name="settings_activity_title">Arventennoù</string>
   <string name="langlinks_activity_title">Yezhoù all</string>
-  <string name="editsection_activity_title">Kemm rannskrid</string>
   <string name="edit_section_error_retry">Klask en-dro</string>
   <string name="dialog_saving_in_progress">Oc\'h enrollañ...</string>
   <string name="edit_saved_successfully">Kemm enrollet!</string>
@@ -75,7 +73,7 @@
   <string name="create_account_username_hint">Anv implijer</string>
   <string name="create_account_password_hint">Ger-tremen</string>
   <string name="menu_create_account">Krouiñ ur gont</string>
-  <string name="login_create_account_link">Krouiñ ur gont</string>
+  <string name="login_create_account_link" fuzzy="true">Krouiñ ur gont</string>
   <string name="create_account_activity_title">Krouiñ ur gont</string>
   <string name="edit_section_activity_title">Kemm rannskrid</string>
   <string name="dialog_create_account_checking_progress">O wiriañ</string>
@@ -88,8 +86,7 @@
   <string name="create_account_open_proxy_error">Prennet eo bet ar chomlec\'h IP-mañ evit krouiñ kontoù.</string>
   <string name="create_account_generic_error">N\'haller ket krouiñ ar gont</string>
   <string name="preferences_general_heading">Hollek</string>
-  <string name="zero_free_verbiage">Moned frank da Wikipedia eus hoc\'h oberataer hezoug (mizoù roadennoù null)</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero hep diskarg (Arloet e c\'hall bezañ ar mizoù roadennoù standard)</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero hep diskarg (Arloet e c\'hall bezañ ar mizoù roadennoù standard)</string>
   <string name="zero_search_hint">Klask e Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Roit da c\'houzout ma kuitait Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">M\'en deus savet hoc\'h oberataer hezoug ur c\'henemglev gant Wikipedia Zero ha ma tilez e vizoù liammet ouzh an implij eus Wikipedia e vo en roet deoc\'h da c\'houzout pa vezit o kuitaat an arload Wikipedia. E riskl emaoc\'h, a-hend-all, da baeañ mizoù roadennoù.</string>
@@ -97,11 +94,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">O kuitaat Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app">Kenderc\'hel war-zu ul lec\'hienn diavaez ? Ar mizoù roadennoù standard a c\'hallo bezañ lakaet da dalvezout.</string>
-  <string name="zero_interstitial_continue">Kenderc\'hel</string>
-  <string name="zero_interstitial_cancel">Nullañ</string>
-  <string name="zero_learn_more">C\'hoant ho peus da c\'houzout hiroc\'h diwar-benn Wikipedia Zero ?</string>
-  <string name="zero_learn_more_learn_more">Gouzout hiroc\'h</string>
+  <string name="zero_interstitial_leave_app" fuzzy="true">Kenderc\'hel war-zu ul lec\'hienn diavaez ? Ar mizoù roadennoù standard a c\'hallo bezañ lakaet da dalvezout.</string>
+  <string name="zero_interstitial_continue" fuzzy="true">Kenderc\'hel</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">Nullañ</string>
+  <string name="zero_learn_more" fuzzy="true">C\'hoant ho peus da c\'houzout hiroc\'h diwar-benn Wikipedia Zero ?</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Gouzout hiroc\'h</string>
   <string name="zero_learn_more_dismiss">Disteurel</string>
   <string name="zero_settings">Arventennoù</string>
   <string name="zero_settings_devmode">Mod diorren zero</string>

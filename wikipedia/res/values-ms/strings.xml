@@ -32,15 +32,13 @@
   <string name="content_license_html" fuzzy="true">Kandungan ini tersedia dengan lesen &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="preference_summary_language">Bahasa kandungan</string>
-  <string name="nav_item_preferences">Tetapan</string>
   <string name="preference_languages_filter_hint">Cari</string>
   <string name="langlinks_filter_hint">Cari</string>
   <string name="menu_other_languages" fuzzy="true">Bahasa lain</string>
   <string name="langlinks_error_retry">Cuba lagi</string>
-  <string name="langlinks_empty">Rencana ini tidak terdapat dalam bahasa lain</string>
+  <string name="langlinks_empty" fuzzy="true">Rencana ini tidak terdapat dalam bahasa lain</string>
   <string name="settings_activity_title">Tetapan</string>
   <string name="langlinks_activity_title">Bahasa lain:</string>
-  <string name="editsection_activity_title">Sunting Bahagian</string>
   <string name="edit_section_error_retry">Cuba lagi</string>
   <string name="dialog_saving_in_progress">Menyimpan...</string>
   <string name="edit_saved_successfully">Suntingan disimpan!</string>
@@ -75,7 +73,7 @@
   <string name="create_account_username_hint">Nama pengguna</string>
   <string name="create_account_password_hint">Kata laluan</string>
   <string name="menu_create_account">Buka akaun</string>
-  <string name="login_create_account_link">Buka akaun</string>
+  <string name="login_create_account_link" fuzzy="true">Buka akaun</string>
   <string name="create_account_activity_title">Buka akaun</string>
   <string name="edit_section_activity_title">Sunting Bahagian</string>
   <string name="dialog_create_account_checking_progress">Pengesahan sedang dilakukan</string>
@@ -88,8 +86,7 @@
   <string name="create_account_open_proxy_error">Alamat IP ini telah disekat dari membuka akaun.</string>
   <string name="create_account_generic_error">Akaun tidak dapat dibuka</string>
   <string name="preferences_general_heading">Umum</string>
-  <string name="zero_free_verbiage">Akses Wikipedia percuma dari operator mudah alih anda (pengecualian caj data)</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero OFF (CAJ DATA STANDARD MUNGKIN DIKENAKAN)</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero OFF (CAJ DATA STANDARD MUNGKIN DIKENAKAN)</string>
   <string name="zero_search_hint">Cari dalam Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Pesan apabila keluar dari Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Jika operator mudah alih anda mengecualikan caj akses data untuk aplikasi Wikipedia menerusi persepakatan Wikipedia Zero, jika tetapan ini dibiarkan pasang, anda akan dipesan bahawa caj mungkin dikenakan ketika anda keluar dari aplikasi Wikipedia.</string>
@@ -97,11 +94,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Keluar dari Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app">Terus ke laman web luaran? Caj data standard mungkin dikenakan.</string>
-  <string name="zero_interstitial_continue">Teruskan</string>
-  <string name="zero_interstitial_cancel">Batalkan</string>
-  <string name="zero_learn_more">Ingin tahu lebih lanjut mengenai Wikipedia Zero?</string>
-  <string name="zero_learn_more_learn_more">Ketahui lebih lanjut</string>
+  <string name="zero_interstitial_leave_app" fuzzy="true">Terus ke laman web luaran? Caj data standard mungkin dikenakan.</string>
+  <string name="zero_interstitial_continue" fuzzy="true">Teruskan</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">Batalkan</string>
+  <string name="zero_learn_more" fuzzy="true">Ingin tahu lebih lanjut mengenai Wikipedia Zero?</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Ketahui lebih lanjut</string>
   <string name="zero_learn_more_dismiss">Singkir</string>
   <string name="zero_settings">Tetapan</string>
   <string name="zero_settings_devmode">Zero Devmode</string>
@@ -109,7 +106,7 @@
   <string name="edit_preview_fetching_dialog_message">Mengolah pralihat...</string>
   <string name="edit_preview_activity_title">Pralihatkan suntingan</string>
   <string name="create_account_logging_in">Sedang log masuk...</string>
-  <string name="edit_summary_guide_text">Ceritakan bagaimana anda menambah baik rencana ini supaya para penyunting lain senang menyemak suntingan anda dengan cepat.</string>
+  <string name="edit_summary_guide_text" fuzzy="true">Ceritakan bagaimana anda menambah baik rencana ini supaya para penyunting lain senang menyemak suntingan anda dengan cepat.</string>
   <string name="edit_summary_hint">Ringkasan suntingan</string>
   <string name="nav_item_random">Rawak</string>
   <string name="random_progress">Mengambil halaman rawak...</string>
@@ -124,5 +121,5 @@
   <string name="edit_save_action_ip_description">Suntingan anda akan diatribusikan secara umum kepada alamat IP anda yang sering berubah-ubah</string>
   <string name="preference_title_eventlogging_opt_in">Laporkan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>
-  <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
+  <string name="editing_error_spamblacklist" fuzzy="true">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
 </resources>

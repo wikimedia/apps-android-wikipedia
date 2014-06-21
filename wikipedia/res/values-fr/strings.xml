@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Wikipédia</string>
+  <string name="app_name_beta">Bêta de Wikipédia</string>
   <string name="yes">Oui</string>
   <string name="no">Non</string>
   <string name="acra_report_dialog_title">Wikipédia s’est planté :(</string>
@@ -14,33 +15,36 @@
   <string name="page_error_retry">Réessayer</string>
   <string name="menu_clear_all_history">Effacer l’historique</string>
   <string name="menu_clear_all_bookmarks">Effacer les signets</string>
+  <string name="menu_clear_all_saved_pages">Effacer les pages enregistrées</string>
   <string name="page_does_not_exist_error">Cette page n’existe pas.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Effacer l’historique ?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Signets</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Signets</string>
-  <string name="menu_save_page" fuzzy="true">Enregistrer comme signet</string>
+  <string name="dialog_title_clear_history">Effacer l’historique de navigation ?</string>
+  <string name="saved_pages_activity_title">Pages enregistrées</string>
+  <string name="nav_item_saved_pages">Pages enregistrées</string>
+  <string name="menu_save_page">Enregistrer la page</string>
   <string name="menu_share_page">Partager</string>
   <string name="share_via">Partager via</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Effacer les signets ?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Êtes-vous sûr de vouloir effacer tous les signets ?</string>
-  <string name="toast_saving_page" fuzzy="true">Marquage de la page en signet…</string>
-  <string name="toast_saved_page" fuzzy="true">Page mise en signet</string>
-  <string name="toast_save_page_failed" fuzzy="true">Le marquage de la page comme signet a échoué :(</string>
+  <string name="dialog_title_clear_saved_pages">Effacer toutes les pages enregistrées ?</string>
+  <string name="dialog_message_clear_saved_pages">Êtes-vous sûr de vouloir effacer toutes les pages enregistrées ?</string>
+  <string name="toast_saving_page">Enregistrement de la page…</string>
+  <string name="toast_saved_page">Page bien enregistrée</string>
+  <string name="toast_saved_page_missing_images">Impossible d’enregistrer toutes les images</string>
+  <string name="toast_save_page_failed">Échec de l’enregistrement de la page :(</string>
+  <string name="toast_refresh_saved_page">Rafraîchissement de la page enregistrée…</string>
   <string name="delete_selected_saved_pages">Supprimer</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Signet(s) supprimé(s)</string>
-  <string name="last_updated_text">Dernière modification le %1$s</string>
-  <string name="content_license_html" fuzzy="true">Le contenu est disponible sous &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
+  <string name="toast_saved_page_deleted">Page(s) enregistrée(s) supprimée(s)</string>
+  <string name="last_updated_text">Dernière modification le %s</string>
+  <string name="content_license_html">Le contenu est disponible sous &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
+  <string name="edit_save_action_license">En enregistrant, vous acceptez, de façon irrévocable, de publier vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Langue de Wikipédia</string>
   <string name="preference_summary_language">Langue du contenu</string>
-  <string name="nav_item_preferences">Paramètres</string>
   <string name="preference_languages_filter_hint">Rechercher</string>
   <string name="langlinks_filter_hint">Rechercher</string>
-  <string name="menu_other_languages" fuzzy="true">Autres langues</string>
+  <string name="menu_other_languages">Lire dans d’autres langues</string>
   <string name="langlinks_error_retry">Réessayer</string>
-  <string name="langlinks_empty">L’article n’est pas disponible dans d’autres langues</string>
+  <string name="langlinks_empty">Cette page n’est pas disponible dans d’autres langues</string>
   <string name="settings_activity_title">Paramètres</string>
   <string name="langlinks_activity_title">Autres langues</string>
-  <string name="editsection_activity_title">Modifier la section</string>
+  <string name="menu_save_changes">Enregistrer les modifications</string>
   <string name="edit_section_error_retry">Réessayer</string>
   <string name="dialog_saving_in_progress">Enregistrement…</string>
   <string name="edit_saved_successfully">Modification enregistrée !</string>
@@ -52,8 +56,9 @@
   <string name="edit_section_captcha_message">Pour aider à la protection contre le pourriel automatique, veuillez saisir les mots qui apparaissent ci-dessous</string>
   <string name="edit_section_captcha_hint">Répéter les mots ci-dessus</string>
   <string name="title_captcha">Entrer le captcha</string>
-  <string name="edit_section_abusefilter_back_text">Rééditer</string>
+  <string name="edit_section_abusefilter_back_text">Modifier ma saisie</string>
   <string name="edit_section_captcha_reload">Taper le captcha pour recharger</string>
+  <string name="edit_saved_page_refresh">Cette page enregistrée peut être obsolète et doit être rafraîchie pour activer sa modification. Voulez-vous rafraîchir la page ?</string>
   <string name="nav_item_login">Connexion</string>
   <string name="login_username_hint">Nom d’utilisateur</string>
   <string name="login_password_hint">Mot de passe</string>
@@ -69,13 +74,16 @@
   <string name="login_error_unknown">Échec de la connexion :(</string>
   <string name="login_error_no_network">Pas de connexion au réseau</string>
   <string name="nav_item_logout">Déconnexion</string>
+  <string name="preference_title_logout">Se déconnecter</string>
+  <string name="preference_summary_logout">Vous déconnecter de votre compte Wikipédia</string>
+  <string name="preference_summary_notloggedin">Non connecté.</string>
   <string name="toast_logout_complete">Déconnecté</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Aucun signet</string>
+  <string name="saved_pages_empty_message">Aucune page enregistrée</string>
   <string name="history_empty_message">Votre historique est vide.</string>
   <string name="create_account_username_hint">Nom d’utilisateur</string>
   <string name="create_account_password_hint">Mot de passe</string>
   <string name="menu_create_account">Créer un compte</string>
-  <string name="login_create_account_link">Créer un compte</string>
+  <string name="login_create_account_link" fuzzy="true">Créer un compte</string>
   <string name="create_account_activity_title">Créer un compte</string>
   <string name="edit_section_activity_title">Modifier la section</string>
   <string name="dialog_create_account_checking_progress">Vérification en cours</string>
@@ -89,31 +97,32 @@
   <string name="create_account_generic_error">Impossible de créer le compte</string>
   <string name="create_account_no_network">Aucune connexion au réseau</string>
   <string name="preferences_general_heading">Général</string>
-  <string name="zero_free_verbiage">Accès libre à Wikipédia depuis votre opérateur mobile (frais de données nuls)</string>
-  <string name="zero_charged_verbiage">Wikipédia Zéro sans décharge (LES FRAIS DE DONNÉES STANDARDS PEUVENT ÊTRE APPLIQUÉS)</string>
+  <string name="zero_charged_verbiage">Wikipédia Zéro est désactivé</string>
+  <string name="zero_charged_verbiage_extended">Charger d’autres articles peut entraîner des frais de données.</string>
   <string name="zero_search_hint">Rechercher dans Wikipédia Zéro</string>
   <string name="zero_warn_when_leaving">Avertir au moment de quitter Wikipédia Zéro</string>
-  <string name="zero_warn_when_leaving_summary">Si votre opérateur mobile est partenaire Wikipedia Zero et renonce aux frais de données liés à l\'utilisation de la plateforme Wikipedia, vous serez prévenu lorsque vous quitterez l\'application Wikipedia et risquerez de payer des frais de données.</string>
+  <string name="zero_warn_when_leaving_summary">Si votre opérateur mobile renonce aux frais de données liés à l’utilisation de l’application Wikipédia dans le cadre d’un partenariat Wikipédia Zéro, laisser ce paramètre activé vous permettra d’être prévenu lorsque vous quittez l’application Wikipédia et risquez de payer des frais de données.</string>
   <string name="zero_webpage_title">FAQ de Wikipédia Zéro</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipédia Zéro</string>
   <string name="zero_interstitial_title">Sortie de Wikipédia Zéro</string>
-  <string name="zero_interstitial_leave_app">Continuer vers un site externe ? Les frais de données standard pourront s’appliquer.</string>
-  <string name="zero_interstitial_continue">Continuer</string>
-  <string name="zero_interstitial_cancel">Annuler</string>
-  <string name="zero_learn_more">Vous voulez en savoir plus sur Wikipédia Zéro ?</string>
-  <string name="zero_learn_more_learn_more">En savoir plus</string>
+  <string name="zero_interstitial_leave_app">Des frais de données pourront s’appliquer. Continuer vers le site externe ?</string>
+  <string name="zero_interstitial_continue">Quitter</string>
+  <string name="zero_interstitial_cancel">Rester ici</string>
+  <string name="zero_learn_more">Les frais de données sont annulés pour cette application Wikipédia.</string>
+  <string name="zero_learn_more_learn_more">Lire la suite</string>
   <string name="zero_learn_more_dismiss">Rejeter</string>
   <string name="zero_settings">Paramètres</string>
-  <string name="zero_settings_devmode">Mode de développement zéro</string>
-  <string name="zero_settings_devmode_summary">Lors du développement, cela permet l’exécution du code des choses de Wikipédia Zéro.</string>
+  <string name="zero_settings_devmode">Mode de développement Zéro</string>
+  <string name="zero_settings_devmode_summary">Lors du développement, cela permet l’exécution du code des éléments de Wikipédia Zéro.</string>
   <string name="edit_preview_fetching_dialog_message">Recherche d’un aperçu…</string>
   <string name="edit_preview_activity_title">Aperçu de la modification</string>
   <string name="create_account_logging_in">Connexion en cours…</string>
-  <string name="edit_summary_guide_text">Dites-nous comment vous avez amélioré cet article. Cela aide les autres éditeurs à relire plus rapidement votre modification.</string>
+  <string name="send_feedback">Envoyer un avis sur l’application</string>
+  <string name="edit_summary_guide_text">Dites-nous comment vous avez amélioré cette page. Cela aide les autres éditeurs à relire plus rapidement votre modification.</string>
   <string name="edit_summary_hint">Modifier le résumé</string>
   <string name="nav_item_random">Aléatoire</string>
-  <string name="random_progress">Extraction d’une page au hasard…</string>
+  <string name="random_progress">Récupération d’une page au hasard…</string>
   <string name="nav_item_login_benefits">Si vous vous connectez, vos modifications seront associées avec votre nom d’utilisateur et votre adresse IP ne sera pas visible publiquement.</string>
   <string name="create_account_account_created_toast">Compte créé !</string>
   <string name="user_contribs_more_action">En savoir plus</string>
@@ -125,5 +134,41 @@
   <string name="edit_save_action_ip_description">Vos modifications seront attribuées publiquement à votre adresse IP, qui change régulièrement</string>
   <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
-  <string name="editing_error_spamblacklist">Liens depuis des domaines bloqués (%s) détectés. Veuillez les supprimer et réessayer.</string>
+  <string name="editing_error_spamblacklist" fuzzy="true">Liens depuis des domaines bloqués (%s) détectés. Veuillez les supprimer et réessayer.</string>
+  <string name="history_search_list_hint">Rechercher</string>
+  <string name="history_search_empty_message">Aucune page trouvée correspondant à « %s »</string>
+  <string name="error_can_not_process_link">Impossible d’afficher ce lien</string>
+  <string name="page_protected_autoconfirmed">Cette page a été semi-protégée.</string>
+  <string name="page_protected_sysop">Cette page a été entièrement protégée.</string>
+  <string name="page_protected_other">Cette page a été protégée pour les niveaux suivants : %s</string>
+  <string name="page_protected_can_not_edit">Vous n’avez pas le droit de modifier cette page</string>
+  <string name="page_protected_can_not_edit_title">Cette page est protégée</string>
+  <string name="more_item_preferences">Plus</string>
+  <string name="more_activity_title">Plus</string>
+  <string name="about_description">À propos de l’application Wikipédia</string>
+  <string name="preference_title_version">Version</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Politique de confidentialité&lt;/a&gt;</string>
+  <string name="about_libraries_heading">bibliothèques utilisées</string>
+  <string name="about_contributors_heading">contributeurs</string>
+  <string name="about_wmf">Un produit de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fondation Wikimédia&lt;/a&gt;</string>
+  <string name="about_activity_title">À propos</string>
+  <string name="edit_unchanged">La page n’a pas été modifiée.</string>
+  <string name="edit_abandon_confirm">La page a été modifiée. Êtes-vous sûr de vouloir la quitter sans enregistrer vos modifications ?</string>
+  <string name="user_blocked_from_editing_title">Bloqué</string>
+  <string name="user_logged_in_blocked_from_editing">Votre compte utilisateur a été bloqué en modification sur ce wiki.</string>
+  <string name="user_anon_blocked_from_editing">Votre adresse IP a été bloquée en modification.</string>
+  <string name="edit_how_page_improved">Comment avez-vous amélioré cette page ?</string>
+  <string name="edit_next">Suivant</string>
+  <string name="edit_done">Enregistrer</string>
+  <string name="edit_preview">Aperçu</string>
+  <string name="edit_summary_tag_typo">Faute de frappe corrigée</string>
+  <string name="edit_summary_tag_grammar">Faute de grammaire corrigée</string>
+  <string name="edit_summary_tag_links">Liens ajoutés</string>
+  <string name="edit_summary_tag_other">Autre</string>
+  <string name="edit_summary_tag_other_hint">Autres façons d’améliorer la page</string>
+  <string name="find_in_page">Rechercher dans la page</string>
+  <string name="find_next">Rechercher le suivant</string>
+  <string name="find_previous">Rechercher le précédent</string>
+  <string name="find_close">Fermer la barre de recherche</string>
 </resources>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Wikipedia</string>
+  <string name="app_name_beta">Wikipedia Beta</string>
   <string name="yes">Kyllä</string>
   <string name="no">Ei</string>
   <string name="acra_report_dialog_title">Wikipedia kaatui :(</string>
-  <string name="acra_report_dialog_text" fuzzy="true">Lähetä Yuvi-virheilmoitus</string>
+  <string name="acra_report_dialog_text">Lähetä meille virheilmoitus</string>
   <string name="acra_report_dialog_comment">Mitä olit tekemässä kaatumishetkellä?</string>
   <string name="search_hint">Wikipedia-haku</string>
   <string name="history_activity_title">Historia</string>
@@ -13,32 +14,37 @@
   <string name="search_network_error">Verkkovirhe. Yritä uudelleen.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
   <string name="menu_clear_all_history">Tyhjennä historia</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Tyhjennetäänkö historia?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Tallennetut sivut</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Tallennetut sivut</string>
-  <string name="menu_save_page" fuzzy="true">Tallenna sivu</string>
+  <string name="menu_clear_all_bookmarks">Tyhjennä kirjanmerkit</string>
+  <string name="menu_clear_all_saved_pages">Tyhjennä tallennetut sivut</string>
+  <string name="page_does_not_exist_error">Tätä sivua ei ole.</string>
+  <string name="dialog_title_clear_history">Tyhjennetäänkö selaushistoria?</string>
+  <string name="saved_pages_activity_title">Tallennetut sivut</string>
+  <string name="nav_item_saved_pages">Tallennetut sivut</string>
+  <string name="menu_save_page">Tallenna sivu</string>
   <string name="menu_share_page">Jaa</string>
   <string name="share_via">Jaa palvelulla</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Tyhjennä tallennetut sivut?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Oletko varma, että haluat tyhjentää kaikki tallennetut sivut?</string>
-  <string name="toast_saving_page" fuzzy="true">Tallennetaan sivua...</string>
-  <string name="toast_saved_page" fuzzy="true">Tallennetut sivut</string>
-  <string name="toast_save_page_failed" fuzzy="true">Sivun tallentaminen epäonnistui :(</string>
+  <string name="dialog_title_clear_saved_pages">Tyhjennetäänkö kaikki tallennetut sivut?</string>
+  <string name="dialog_message_clear_saved_pages">Haluatko varmasti tyhjentää kaikki tallennetut sivut?</string>
+  <string name="toast_saving_page">Tallennetaan sivua...</string>
+  <string name="toast_saved_page">Sivu tallennettiin onnistuneesti</string>
+  <string name="toast_saved_page_missing_images">Joidenkin kuvien tallennus ei onnistunut</string>
+  <string name="toast_save_page_failed">Sivun tallentaminen epäonnistui :(</string>
+  <string name="toast_refresh_saved_page">Päivitetään tallennettua sivua..</string>
   <string name="delete_selected_saved_pages">Poista</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Tallennetut sivu(t) poistettu</string>
+  <string name="toast_saved_page_deleted">Tallennetut sivu(t) poistettu</string>
   <string name="last_updated_text">Viimeksi päivitetty %1$s</string>
-  <string name="content_license_html" fuzzy="true">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla, ellei toisin ilmoiteta</string>
-  <string name="preference_title_language" fuzzy="true">Kieli</string>
+  <string name="content_license_html">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla ellei toisin ilmoiteta</string>
+  <string name="edit_save_action_license">Tallentamalla sitoudut peruuttamattomasti julkaisemaan muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssillä.</string>
+  <string name="preference_title_language">Wikipedian kieli</string>
   <string name="preference_summary_language">Sisällön kieli</string>
-  <string name="nav_item_preferences">Asetukset</string>
   <string name="preference_languages_filter_hint">Haku</string>
   <string name="langlinks_filter_hint">Haku</string>
-  <string name="menu_other_languages" fuzzy="true">Muut kielet</string>
+  <string name="menu_other_languages">Muilla kielillä</string>
   <string name="langlinks_error_retry">Yritä uudelleen</string>
-  <string name="langlinks_empty">Tämä artikkeli ei ole saatavilla muilla kielillä</string>
+  <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä</string>
   <string name="settings_activity_title">Asetukset</string>
   <string name="langlinks_activity_title">Muut kielet</string>
-  <string name="editsection_activity_title">Muokkaa osiota</string>
+  <string name="menu_save_changes">Tallenna muutokset</string>
   <string name="edit_section_error_retry">Yritä uudelleen</string>
   <string name="dialog_saving_in_progress">Tallennetaan...</string>
   <string name="edit_saved_successfully">Muokkaus tallennettu!</string>
@@ -48,6 +54,11 @@
   <string name="menu_show_toc">Sisällysluettelo</string>
   <string name="search_no_results_found">Tuloksia ei löytynyt</string>
   <string name="edit_section_captcha_message">Auttaa suojautumaan spämmimiseltä, syötä alla näkyvät sanat</string>
+  <string name="edit_section_captcha_hint">Toista edeltävät sanat</string>
+  <string name="title_captcha">Syötä captcha</string>
+  <string name="edit_section_abusefilter_back_text">Tee muutoksia muokkaukseeni</string>
+  <string name="edit_section_captcha_reload">Napauta CAPTCHAa päivittääksesi</string>
+  <string name="edit_saved_page_refresh">Tämä tallennettu sivu saattaa olla vanhentunut ja se tulee päivittää, jotta muokkaaminen on mahdollista. Haluatko päivittää sivun?</string>
   <string name="nav_item_login">Kirjaudu sisään</string>
   <string name="login_username_hint">Käyttäjänimi</string>
   <string name="login_password_hint">Salasana</string>
@@ -63,11 +74,17 @@
   <string name="login_error_unknown">Kirjautuminen epäonnistui :(</string>
   <string name="login_error_no_network">Ei verkkoyhteyttä</string>
   <string name="nav_item_logout">Kirjaudu ulos</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Ei tallennettuja sivuja.</string>
+  <string name="preference_title_logout">Kirjaudu ulos</string>
+  <string name="preference_summary_logout">Kirjaudu ulos Wikipedia-tililtä</string>
+  <string name="preference_summary_notloggedin">Et ole kirjautunut sisään.</string>
+  <string name="toast_logout_complete">Kirjauduit ulos</string>
+  <string name="saved_pages_empty_message">Ei tallennettuja sivuja.</string>
   <string name="history_empty_message">Historiasi on tyhjä.</string>
   <string name="create_account_username_hint">Käyttäjätunnus</string>
   <string name="create_account_password_hint">Salasana</string>
-  <string name="login_create_account_link">Luo tunnus</string>
+  <string name="menu_create_account">Luo tunnus</string>
+  <string name="login_create_account_link">Eikö sinulla ole tunnusta? Liity Wikipediaan</string>
+  <string name="create_account_login_link">Onko sinulla jo tunnus? Kirjaudu sisään</string>
   <string name="create_account_activity_title">Luo uusi käyttäjätunnus</string>
   <string name="edit_section_activity_title">Muokkaa osiota</string>
   <string name="dialog_create_account_checking_progress">Vahvistetaan...</string>
@@ -79,15 +96,27 @@
   <string name="create_account_ip_throttle_error">Liian monta tiliä luotu tältä IP-osoitteelta. Yritä uudelleen myöhemmin.</string>
   <string name="create_account_open_proxy_error">Tältä IP-osoitteelta on estetty tilien luominen.</string>
   <string name="create_account_generic_error">Tunnusta ei voitu luoda</string>
+  <string name="create_account_no_network">Ei verkkoyhteyttä</string>
+  <string name="create_account_next">Seuraava</string>
+  <string name="create_account_button">Luo tunnus</string>
+  <string name="preferences_general_heading">Perusasetukset</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero ei ole käytössä</string>
+  <string name="zero_charged_verbiage_extended">Muiden artikkeleiden lataamisesta saattaa aiheutua datamaksuja.</string>
+  <string name="zero_search_hint">Etsi Wikipedia Zerosta</string>
+  <string name="zero_warn_when_leaving">Varoita poistuttaessa Wikipedia Zerosta</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
-  <string name="zero_interstitial_continue">Jatka</string>
-  <string name="zero_interstitial_cancel">Peruuta</string>
-  <string name="zero_learn_more_learn_more">Lisätietoja</string>
+  <string name="zero_interstitial_continue">Poistu</string>
+  <string name="zero_interstitial_cancel">Pysy täällä</string>
+  <string name="zero_learn_more_learn_more">Lue lisää</string>
   <string name="zero_learn_more_dismiss">Hylkää</string>
   <string name="zero_settings">Asetukset</string>
+  <string name="zero_settings_devmode">Zeron kehitystila</string>
+  <string name="zero_settings_devmode_summary">Tämä mahdollistaa Wikipedia Zeroon liittyvän koodin suorittamisen kehityksen aikana.</string>
   <string name="edit_preview_fetching_dialog_message">Noudetaan esikatselua...</string>
   <string name="edit_preview_activity_title">Muokkaa esikatselua</string>
   <string name="create_account_logging_in">Kirjaudutaan...</string>
+  <string name="send_feedback">Lähetä palautetta sovelluksesta</string>
+  <string name="edit_summary_guide_text">Kerro meille miten paransit tätä sivua. Tämä auttaa muita muokkaajia tarkistamaan muutoksesi nopeammin.</string>
   <string name="edit_summary_hint">Yhteenveto</string>
   <string name="nav_item_random">Satunnainen</string>
   <string name="random_progress">Noudetaan satunnaista sivua...</string>
@@ -98,4 +127,43 @@
   <string name="nav_item_my_contributions">Omat muokkaukset</string>
   <string name="edit_save_action_login">Kirjaudu sisään ja tallenna</string>
   <string name="edit_save_action_ip">Tallenna nimettömänä</string>
+  <string name="edit_save_action_login_description">Muokkauksesi yhdistetään julkisesti käyttäjänimeesi ja muut muokkaajat voivat ottaa sinuun yhteyttä helpommin</string>
+  <string name="edit_save_action_ip_description">Muokkauksesi yhdistetään julkisesti IP-osoitteeseesi, joka muuttuu usein</string>
+  <string name="preference_title_eventlogging_opt_in">Lähetä käyttöraportteja</string>
+  <string name="preference_summary_eventlogging_opt_in">Salli Wikimedian kerätä tietoja siitä, miten käytät sovellusta, jotta sovellusta voidaan parantaa</string>
+  <string name="editing_error_spamblacklist">Havaittu linkkejä estettyihin verkko-osoitteisiin (%s). Poista ne ja yritä uudelleen.</string>
+  <string name="history_search_list_hint">Hae</string>
+  <string name="error_can_not_process_link">Tätä linkkiä ei voitu näyttää</string>
+  <string name="page_protected_autoconfirmed">Tämä sivu on osittain suojattu.</string>
+  <string name="page_protected_sysop">Tämä sivu on kokonaan suojattu.</string>
+  <string name="page_protected_can_not_edit">Sinulla ei ole oikeuksia muokata tätä sivua</string>
+  <string name="page_protected_can_not_edit_title">Tämä sivu on suojattu</string>
+  <string name="more_item_preferences">Lisää</string>
+  <string name="more_activity_title">Lisää</string>
+  <string name="about_description">Tietoja Wikipedia-sovelluksesta</string>
+  <string name="preference_title_version">Versio</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Käyttöehdot&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Yksityisyydensuoja&lt;/a&gt;</string>
+  <string name="about_libraries_heading">käytetyt kirjastot</string>
+  <string name="about_contributors_heading">tekijät</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundationin&lt;/a&gt; tuote</string>
+  <string name="about_activity_title">Tietoja</string>
+  <string name="edit_unchanged">Sivua ei ole muutettu.</string>
+  <string name="edit_abandon_confirm">Sivua on muokattu. Haluatko varmasti poistua tallentamatta muutoksiasi?</string>
+  <string name="user_blocked_from_editing_title">Estetty</string>
+  <string name="user_logged_in_blocked_from_editing">Käyttäjätunnuksesi on estetty tässä wikissä.</string>
+  <string name="user_anon_blocked_from_editing">IP-osoitteesi on estetty.</string>
+  <string name="edit_how_page_improved">Miten paransit sivua?</string>
+  <string name="edit_next">Seuraava</string>
+  <string name="edit_done">Tallenna</string>
+  <string name="edit_preview">Esikatselu</string>
+  <string name="edit_summary_tag_typo">Kirjoitusvirhe korjattu</string>
+  <string name="edit_summary_tag_grammar">Kielioppia korjattu</string>
+  <string name="edit_summary_tag_links">Lisätty linkkejä</string>
+  <string name="edit_summary_tag_other">Muu</string>
+  <string name="find_in_page">Etsi sivulta</string>
+  <string name="find_next">Etsi seuraava</string>
+  <string name="find_previous">Etsi edellinen</string>
+  <string name="find_close">Sulje hakupalkki</string>
+  <string name="error_network_error_try_again">Ei verkkoyhteyttä, yritä uudelleen.</string>
 </resources>

@@ -27,15 +27,13 @@
   <string name="content_license_html" fuzzy="true">Mae\'r cynnwys ar gael dan &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC 3.0 gan SA&lt;/a&gt; oni nodir fel arall</string>
   <string name="preference_title_language" fuzzy="true">Iaith</string>
   <string name="preference_summary_language">Cynnwys iaith</string>
-  <string name="nav_item_preferences">Gosodiadau</string>
   <string name="preference_languages_filter_hint">Chwilio</string>
   <string name="langlinks_filter_hint">Chwilier</string>
   <string name="menu_other_languages" fuzzy="true">Ieithoedd eraill</string>
   <string name="langlinks_error_retry">Ailgeisiwch</string>
-  <string name="langlinks_empty">Nid yw\'r erthygl hon ar gael mewn ieithoedd eraill</string>
+  <string name="langlinks_empty" fuzzy="true">Nid yw\'r erthygl hon ar gael mewn ieithoedd eraill</string>
   <string name="settings_activity_title">Gosodiadau</string>
   <string name="langlinks_activity_title">Ieithoedd eraill</string>
-  <string name="editsection_activity_title">Golygwch yr adran</string>
   <string name="edit_section_error_retry">Ailgeisiwch</string>
   <string name="dialog_saving_in_progress">Yn cadw...</string>
   <string name="edit_saved_successfully">Cadwyd y golygiad!</string>
@@ -68,7 +66,7 @@
   <string name="history_empty_message">Mae eich hanes yn wag.</string>
   <string name="create_account_username_hint">Enw defnyddiwr</string>
   <string name="create_account_password_hint">Cyfrinair</string>
-  <string name="login_create_account_link">Crëwch gyfrif</string>
+  <string name="login_create_account_link" fuzzy="true">Crëwch gyfrif</string>
   <string name="create_account_activity_title">Crëwch gyfrif</string>
   <string name="edit_section_activity_title">Golygwch yr adran</string>
   <string name="dialog_create_account_checking_progress">Wrthi\' n dilysu</string>
@@ -81,6 +79,5 @@
   <string name="create_account_open_proxy_error">Mae\'r IP hwn wedi\'i rwystro rhag creu cyfrifon.</string>
   <string name="create_account_generic_error">Ni lwyddwyd i greu\'r cyfrif</string>
   <string name="preferences_general_heading">Cyffredinol</string>
-  <string name="zero_free_verbiage">Mynediad am ddim i Wikipedia o \' ch gweithredydd ffôn symudol (hepgor ffioedd data)</string>
   <string name="zero_search_hint">Chwiliwch yn Wicipedia Sero</string>
 </resources>

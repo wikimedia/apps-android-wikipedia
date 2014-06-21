@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">উইকিপিডিয়া</string>
+  <string name="app_name_beta">উইকিপিডিয়া বেটা</string>
   <string name="yes">হ্যাঁ</string>
   <string name="no">না</string>
   <string name="acra_report_dialog_title">উইকিপিডিয়া কাজ করছে না :(</string>
@@ -14,33 +15,36 @@
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
   <string name="menu_clear_all_bookmarks">বুকমার্ক অপসারণ</string>
+  <string name="menu_clear_all_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার কর</string>
   <string name="page_does_not_exist_error">এই শিরোনামে কোন পাতা নেই।</string>
-  <string name="dialog_title_clear_history" fuzzy="true">ইতিহাস অপসারণ?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">বুকমার্ক</string>
-  <string name="nav_item_saved_pages" fuzzy="true">বুকমার্ক</string>
-  <string name="menu_save_page" fuzzy="true">বুকমার্ক</string>
+  <string name="dialog_title_clear_history">ব্রাউজিং ইতিহাস অপসারণ?</string>
+  <string name="saved_pages_activity_title">সংরক্ষিত পাতাসমূহ</string>
+  <string name="nav_item_saved_pages">সংরক্ষিত পাতাসমূহ</string>
+  <string name="menu_save_page">পাতা সংরক্ষণ করুন</string>
   <string name="menu_share_page">শেয়ার</string>
   <string name="share_via">শেয়ার</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">বুকমার্ক অপসারণ?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">আপনি নিশ্চিতভাবে সকল বুকমার্ক অপসারণ করতে চান?</string>
-  <string name="toast_saving_page" fuzzy="true">বুকমার্ক যুক্ত হচ্ছে...</string>
-  <string name="toast_saved_page" fuzzy="true">বুকমার্ক করা পাতাসমূহ</string>
-  <string name="toast_save_page_failed" fuzzy="true">বুকমার্ক করা যায়নি :(</string>
+  <string name="dialog_title_clear_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার?</string>
+  <string name="dialog_message_clear_saved_pages">আপনি নিশ্চিত যে আপনি সকল সংরক্ষিত পাতা পরিষ্কার করতে চান?</string>
+  <string name="toast_saving_page">পাতা সংরক্ষণ হচ্ছে...</string>
+  <string name="toast_saved_page">পাতা সফলভাবে সংরক্ষিত হয়েছে</string>
+  <string name="toast_saved_page_missing_images">সকল চিত্র সংরক্ষণ সম্ভব হয়নি</string>
+  <string name="toast_save_page_failed">পাতা সংরক্ষণ ব্যর্থ হয়েছে :(</string>
+  <string name="toast_refresh_saved_page">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে...</string>
   <string name="delete_selected_saved_pages">অপসারণ</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">বুকমার্ক অপসারণ করা হয়েছে</string>
+  <string name="toast_saved_page_deleted">সংরক্ষিত পাতা(সমূহ) অপসারণ করা হয়েছে</string>
   <string name="last_updated_text">%1$s তারিখে সর্বশেষ হালনাগাদ</string>
-  <string name="content_license_html" fuzzy="true">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
+  <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
+  <string name="edit_save_action_license">সংরক্ষণ করার মাধ্যমে,আপনি আমাদের সাথে এবং &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; লাইসেন্সের অধীনে আপনার অবদান প্রকাশে সম্মত হয়েছেন।</string>
   <string name="preference_title_language">উইকিপিডিয়া ভাষা</string>
   <string name="preference_summary_language">বিষয়বস্তুর ভাষা</string>
-  <string name="nav_item_preferences">সেটিং</string>
   <string name="preference_languages_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_filter_hint">অনুসন্ধান</string>
-  <string name="menu_other_languages" fuzzy="true">অন্যান্য ভাষাসমূহ</string>
+  <string name="menu_other_languages">অন্য ভাষায় পড়ুন</string>
   <string name="langlinks_error_retry">পুনঃচেষ্টা করুন</string>
-  <string name="langlinks_empty">এই নিবন্ধটি অন্য কোনো ভাষায় উপলব্ধ নয়</string>
+  <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়</string>
   <string name="settings_activity_title">সেটিং</string>
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
-  <string name="editsection_activity_title">অনুচ্ছেদ সম্পাদনা</string>
+  <string name="menu_save_changes">পরিবর্তন সংরক্ষণ</string>
   <string name="edit_section_error_retry">পুনঃচেষ্টা</string>
   <string name="dialog_saving_in_progress">সংরক্ষণ করা হচ্ছে ...</string>
   <string name="edit_saved_successfully">সম্পাদনা সংরক্ষিত হয়েছে!</string>
@@ -54,6 +58,7 @@
   <string name="title_captcha">ক্যাপচা লিখুন</string>
   <string name="edit_section_abusefilter_back_text">আমার সম্পাদনায় পরিবর্তন করো</string>
   <string name="edit_section_captcha_reload">CAPTCHA-তে ক্লিক করে রিলোড করুন</string>
+  <string name="edit_saved_page_refresh">এই পাতাটি হালনাগাদ নয়, এবং সম্পাদনা করার জন্য পাতাটি রিফ্রেশ করা প্রয়োজন। আপনি কি এখনই রিফ্রেশ করতে চান?</string>
   <string name="nav_item_login">প্রবেশ</string>
   <string name="login_username_hint">ব্যবহারকারী নাম</string>
   <string name="login_password_hint">শব্দচাবি (Password)</string>
@@ -69,13 +74,16 @@
   <string name="login_error_unknown">প্রবেশ ব্যর্থ :(</string>
   <string name="login_error_no_network">নেটওয়ার্ক সংযোগ নেই</string>
   <string name="nav_item_logout">প্রস্থান</string>
+  <string name="preference_title_logout">প্রস্থান</string>
+  <string name="preference_summary_logout">আপনার উইকিপিডিয়া অ্যাকাউন্ট থেকে প্রস্থান করুন</string>
+  <string name="preference_summary_notloggedin">প্রবেশ করা হয়নি।</string>
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
-  <string name="saved_pages_empty_message" fuzzy="true">কোনো বুকমার্ক নেই</string>
+  <string name="saved_pages_empty_message">কোনো সংরক্ষিত পাতা নেই</string>
   <string name="history_empty_message">আপনার ইতিহাস অংশটি খালি।</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>
   <string name="create_account_password_hint">পাসওয়ার্ড</string>
   <string name="menu_create_account">অ্যাকাউন্ট খুলুন</string>
-  <string name="login_create_account_link">অ্যাকাউন্ট খুলুন</string>
+  <string name="login_create_account_link" fuzzy="true">অ্যাকাউন্ট খুলুন</string>
   <string name="create_account_activity_title">একটি অ্যাকাউন্ট খুলুন</string>
   <string name="edit_section_activity_title">অনুচ্ছেদ সম্পাদনা</string>
   <string name="dialog_create_account_checking_progress">যাচাই করা হচ্ছে</string>
@@ -89,18 +97,18 @@
   <string name="create_account_generic_error">অ্যাকাউন্ট তৈরী করা যাচ্ছে না</string>
   <string name="create_account_no_network">নেটওয়ার্ক সংযোগ নেই</string>
   <string name="preferences_general_heading">সাধারণ</string>
-  <string name="zero_free_verbiage">মোবাইল অপারেটরদের সৌজন্যে বিনামূল্যে উইকিপিডয়া (ডাটা চার্জ প্রযোজ্য নয়)</string>
-  <string name="zero_charged_verbiage">উইকিপিডিয়া জিরো বন্ধ (স্ট্যান্ডার্ড ডাটা চার্জ প্রযোজ্য হতে পারে)</string>
+  <string name="zero_charged_verbiage">উইকিপিডিয়া জিরো নিষ্ক্রিয়</string>
+  <string name="zero_charged_verbiage_extended">অন্যান্য নিবন্ধ দেখার জন্য ডাটা চার্জ প্রযোজ্য হতে পারে।</string>
   <string name="zero_search_hint">উইকিপিডিয়া জিরো অনুসন্ধান</string>
   <string name="zero_warn_when_leaving">উইকিপিডিয়া জিরো প্রস্থানের সময় সতর্ক করো</string>
   <string name="zero_webpage_title">উইকিপিডিয়া জিরো</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">উইকিপিডিয়া জিরো</string>
   <string name="zero_interstitial_title">উইকিপিডিয়া জিরো প্রস্থান হচ্ছে</string>
-  <string name="zero_interstitial_leave_app">অন্য ওয়েবসাইটি ওপেন করা হবে? সাধারণ ডাটা চার্জ প্রযোজ্য হবে।</string>
+  <string name="zero_interstitial_leave_app">সাধারণ ডাটা চার্জ প্রযোজ্য হবে। অন্য ওয়েবসাইটি ওপেন করা হবে?</string>
   <string name="zero_interstitial_continue">অগ্রসর হোন</string>
   <string name="zero_interstitial_cancel">বাতিল</string>
-  <string name="zero_learn_more">উইকিপিডিয়া জিরো সম্পর্কে জানতে চান?</string>
+  <string name="zero_learn_more">এই উইকিপিডিয়া অ্যাপের জন্য ডাটা চার্জ প্রযোজ্য নয়।</string>
   <string name="zero_learn_more_learn_more">আরও জানুন</string>
   <string name="zero_learn_more_dismiss">খারিজ</string>
   <string name="zero_settings">সেটিং</string>
@@ -108,7 +116,8 @@
   <string name="edit_preview_fetching_dialog_message">প্রাকদর্শন আনা হচ্ছে...</string>
   <string name="edit_preview_activity_title">সম্পাদনা প্রাকদর্শন</string>
   <string name="create_account_logging_in">আপনি প্রবেশ করছেন...</string>
-  <string name="edit_summary_guide_text">নিবন্ধে কি ধরনের পরিবর্তন করেছেন তা আমাদের জানান। এর ফলে অন্য ব্যবহারকারীরা সহজে আপনার সম্পাদনাগুলো যাচাই করতে পারবেন।</string>
+  <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
+  <string name="edit_summary_guide_text">এই পাতায় কি ধরনের পরিবর্তন করেছেন তা আমাদের জানান। এর ফলে অন্য ব্যবহারকারীরা সহজে আপনার সম্পাদনাগুলো যাচাই করতে পারবেন।</string>
   <string name="edit_summary_hint">সম্পাদনা সারাংশ</string>
   <string name="nav_item_random">অজানা পাতা</string>
   <string name="random_progress">অজানা পাতা নিয়ে আসা হচ্ছে...</string>
@@ -119,7 +128,45 @@
   <string name="nav_item_my_contributions">আমার অবদান</string>
   <string name="edit_save_action_login">প্রবেশ করুন ও সংরক্ষণ করুন</string>
   <string name="edit_save_action_ip">নামহীন অবস্থায় সংরক্ষণ করুন</string>
+  <string name="edit_save_action_login_description">আপনার সম্পাদনাগুলো আপনার ব্যবহারকারী নামের সাথে সকলের জন্য উন্মুক্তভাবে প্রদর্শিত হবে এবং অন্যান্য সম্পাদকগণ আপনার সাথে যোগাযোগ করতে পারেন</string>
+  <string name="edit_save_action_ip_description">আপনার সম্পাদনাগুলো আপনার আইপি ঠিকানার সাথে প্রদর্শিত হবে, এগুলো খুব দ্রুত পরিবর্তীত হবে</string>
   <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
   <string name="preference_summary_eventlogging_opt_in">অ্যাপ আরও ভালো করতে উইকিমিডিয়াকে আপনি কিভাবে অ্যাপ্লিকেশন ব্যবহার করছেন সেই সম্পর্কে তথ্য সংগ্রহ করার অনুমতি দিন</string>
-  <string name="editing_error_spamblacklist">অবরুদ্ধ ডোমেইন (%s) থেকে লিংক সনাক্ত হয়েছে। দয়া করে তাদের সরিয়ে নিন ও আবার চেষ্টা করুন।</string>
+  <string name="editing_error_spamblacklist" fuzzy="true">অবরুদ্ধ ডোমেইন (%s) থেকে লিংক সনাক্ত হয়েছে। দয়া করে তাদের সরিয়ে নিন ও আবার চেষ্টা করুন।</string>
+  <string name="history_search_list_hint">অনুসন্ধান</string>
+  <string name="history_search_empty_message">\'%s\' সাথে মিল আছে এমন কোনো পাতা নেই</string>
+  <string name="error_can_not_process_link">কোনো সংযোগ প্রদর্শিত হয়নি।</string>
+  <string name="page_protected_autoconfirmed">এই পাতাটি অর্ধ সুরক্ষিত।</string>
+  <string name="page_protected_sysop">এই পাতটি পুরোপুরি সুরক্ষিত।</string>
+  <string name="page_protected_other">এই পাতাটি নিম্নের মাত্রা অনুযায়ী সুরক্ষিত: %s</string>
+  <string name="page_protected_can_not_edit">আপনার এই পাতায় সম্পাদনা করার অধিকার নেই।</string>
+  <string name="page_protected_can_not_edit_title">এই পাতাটি সুরক্ষিত</string>
+  <string name="more_item_preferences">আরও</string>
+  <string name="more_activity_title">আরও</string>
+  <string name="about_description">উইকিপিডিয়া অ্যাপ সম্পর্কে</string>
+  <string name="preference_title_version">সংস্করণ</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ব্যবহারের নীতিমালা&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;গোপনীয়তা নীতি&lt;/a&gt;</string>
+  <string name="about_libraries_heading">ব্যবহৃত লাইব্রেরীসমূহ</string>
+  <string name="about_contributors_heading">অবদানকারনগণ</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;উইকিমিডিয়া ফাউন্ডেশনের&lt;/a&gt; একটি পণ্য</string>
+  <string name="about_activity_title">পরিচিতি</string>
+  <string name="edit_unchanged">এই পাতাটি পরিবর্তিত হয়েছে।</string>
+  <string name="edit_abandon_confirm">এই পাতাটি পরিবর্তিত হয়েছে। আপনি কী নিশ্চিত যে আপনার পরিবর্তন সংরক্ষণ না করেই প্রস্থান করবেন?</string>
+  <string name="user_blocked_from_editing_title">বাধা দেওয়া হয়েছে</string>
+  <string name="user_logged_in_blocked_from_editing">আপনার ব্যবহারকারী অ্যাকাউন্টটি এই উইকিতে সম্পাদনা করার জন্য বাধা দেয়া হয়েছে।</string>
+  <string name="user_anon_blocked_from_editing">আপনার আইপি ঠিকানাকে সম্পাদনা করা জন্য বাধা দেয়া হয়েছে।</string>
+  <string name="edit_how_page_improved">কীভাবে আপনি পাতাটি উন্নত করেছেন?</string>
+  <string name="edit_next">পরবর্তী</string>
+  <string name="edit_done">সংরক্ষণ</string>
+  <string name="edit_preview">প্রাকদর্শন</string>
+  <string name="edit_summary_tag_typo">টাইপো ঠিক করা হয়েছে</string>
+  <string name="edit_summary_tag_grammar">ব্যাকরণ ঠিক করা হয়েছে</string>
+  <string name="edit_summary_tag_links">লিংক সংযোজন</string>
+  <string name="edit_summary_tag_other">অন্যান্য</string>
+  <string name="edit_summary_tag_other_hint">অন্যান্য যে পদ্ধতিতে আপনি পাতাটির মান উন্নয়ন করেছেন</string>
+  <string name="find_in_page">এই পাতায় অনুসন্ধান</string>
+  <string name="find_next">পরবর্তী অনুসন্ধান</string>
+  <string name="find_previous">পূর্বেরটি অনুসন্ধান</string>
+  <string name="find_close">অনুসন্ধান বার বন্ধ করুন</string>
 </resources>

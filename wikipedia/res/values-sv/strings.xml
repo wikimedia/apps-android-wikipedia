@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Wikipedia</string>
+  <string name="app_name_beta">Wikipedia Beta</string>
   <string name="yes">Ja</string>
   <string name="no">Nej</string>
   <string name="acra_report_dialog_title">Wikipedia kraschade :(</string>
@@ -14,37 +15,40 @@
   <string name="page_error_retry">Försök igen</string>
   <string name="menu_clear_all_history">Rensa historik</string>
   <string name="menu_clear_all_bookmarks">Rensa bokmärken</string>
-  <string name="page_does_not_exist_error">Denna sidan finns inte.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Rensa historik?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Bokmärken</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Bokmärken</string>
-  <string name="menu_save_page" fuzzy="true">Skapa bokmärke</string>
+  <string name="menu_clear_all_saved_pages">Rensa sparade artiklar</string>
+  <string name="page_does_not_exist_error">Denna artikel finns inte.</string>
+  <string name="dialog_title_clear_history">Rensa webbhistorik?</string>
+  <string name="saved_pages_activity_title">Sparade artiklar</string>
+  <string name="nav_item_saved_pages">Sparade artiklar</string>
+  <string name="menu_save_page">Spara artikel</string>
   <string name="menu_share_page">Dela</string>
   <string name="share_via">Dela via</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Rensa bokmärken?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Är du säker på att du vill rensa alla bokmärken?</string>
-  <string name="toast_saving_page" fuzzy="true">Skapar bokmärke...</string>
-  <string name="toast_saved_page" fuzzy="true">Bokmärke till sidan skapades</string>
-  <string name="toast_save_page_failed" fuzzy="true">Bokmärket kunde inte skapas :(</string>
+  <string name="dialog_title_clear_saved_pages">Rensa alla sparade artiklar?</string>
+  <string name="dialog_message_clear_saved_pages">Är du säker på att du vill rensa alla sparade artiklar?</string>
+  <string name="toast_saving_page">Sparar artikel...</string>
+  <string name="toast_saved_page">Artikeln har sparats</string>
+  <string name="toast_saved_page_missing_images">Kunde inte spara alla bilder</string>
+  <string name="toast_save_page_failed">Artikeln kunde inte sparas :(</string>
+  <string name="toast_refresh_saved_page">Uppdaterar sparad artikel...</string>
   <string name="delete_selected_saved_pages">Radera</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Bokmärkena raderades</string>
+  <string name="toast_saved_page_deleted">Sparade artiklar raderades</string>
   <string name="last_updated_text">Senast uppdaterad %1$s</string>
-  <string name="content_license_html" fuzzy="true">Innehållet är tillgängligt under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
+  <string name="content_license_html">Innehållet är tillgängligt under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
+  <string name="edit_save_action_license">Genom att spara godkänner du att oåterkalleligen släppa dina bidrag under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.sv\"&gt;CC-BY-SA 3.0&lt;/a&gt;-licensen.</string>
   <string name="preference_title_language">Wikipediaspråk</string>
   <string name="preference_summary_language">Innehållsspråk</string>
-  <string name="nav_item_preferences">Inställningar</string>
   <string name="preference_languages_filter_hint">Sök</string>
   <string name="langlinks_filter_hint">Sök</string>
-  <string name="menu_other_languages" fuzzy="true">Andra språk</string>
+  <string name="menu_other_languages">Läs på andra språk</string>
   <string name="langlinks_error_retry">Försök igen</string>
-  <string name="langlinks_empty">Denna artikel inte är tillgänglig på andra språk</string>
+  <string name="langlinks_empty">Denna artikel är inte tillgänglig på andra språk</string>
   <string name="settings_activity_title">Inställningar</string>
   <string name="langlinks_activity_title">Andra språk</string>
-  <string name="editsection_activity_title">Redigera avsnitt</string>
+  <string name="menu_save_changes">Spara ändringar</string>
   <string name="edit_section_error_retry">Försök igen</string>
   <string name="dialog_saving_in_progress">Sparar...</string>
-  <string name="edit_saved_successfully">Redigering sparades!</string>
-  <string name="dialog_message_edit_failed">Redigering misslyckades!</string>
+  <string name="edit_saved_successfully">Redigeringen sparades!</string>
+  <string name="dialog_message_edit_failed">Redigeringen gick inte att spara!</string>
   <string name="dialog_message_edit_failed_retry">Försök igen</string>
   <string name="dialog_message_edit_failed_cancel">Avbryt</string>
   <string name="menu_show_toc">Innehållsförteckning</string>
@@ -54,6 +58,7 @@
   <string name="title_captcha">Ange captcha</string>
   <string name="edit_section_abusefilter_back_text">Gör ändringar i min redigering</string>
   <string name="edit_section_captcha_reload">Tryck på captcha för att uppdatera</string>
+  <string name="edit_saved_page_refresh">Denna sparade artikel kan vara för gammal, och måste laddas om för att kunna redigeras. Vill du ladda om artikeln?</string>
   <string name="nav_item_login">Logga in</string>
   <string name="login_username_hint">Användarnamn</string>
   <string name="login_password_hint">Lösenord</string>
@@ -65,17 +70,21 @@
   <string name="login_error_wrong_username">Felaktigt användarnamn</string>
   <string name="login_success_toast">Inloggningen lyckades!</string>
   <string name="login_error_blocked">Denna användare har blockerats</string>
-  <string name="login_error_throttled">För många inloggningsförsök. Vänta några minuter och försök igen?</string>
+  <string name="login_error_throttled">För många inloggningsförsök. Vänta några minuter och försök igen.</string>
   <string name="login_error_unknown">Inloggningen misslyckades :(</string>
   <string name="login_error_no_network">Ingen nätverksanslutning</string>
   <string name="nav_item_logout">Logga ut</string>
+  <string name="preference_title_logout">Logga ut</string>
+  <string name="preference_summary_logout">Logga ut från ditt Wikipedia-konto</string>
+  <string name="preference_summary_notloggedin">Inte inloggad.</string>
   <string name="toast_logout_complete">Utloggad</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Inga bokmärken</string>
+  <string name="saved_pages_empty_message">Inga sparade artiklar</string>
   <string name="history_empty_message">Din historik är tom.</string>
   <string name="create_account_username_hint">Användarnamn</string>
   <string name="create_account_password_hint">Lösenord</string>
   <string name="menu_create_account">Skapa konto</string>
-  <string name="login_create_account_link">Skapa konto</string>
+  <string name="login_create_account_link">Har du inget konto? Skapa ett</string>
+  <string name="create_account_login_link">Har du redan ett konto? Logga in</string>
   <string name="create_account_activity_title">Skapa ett konto</string>
   <string name="edit_section_activity_title">Redigera avsnitt</string>
   <string name="dialog_create_account_checking_progress">Verifierar</string>
@@ -83,23 +92,25 @@
   <string name="create_account_password_repeat_hint">Upprepa lösenord</string>
   <string name="create_account_passwords_mismatch_error">Lösenorden matchar inte</string>
   <string name="create_account_email_error">Ogiltig e-postadress</string>
-  <string name="create_account_username_exists_error">Användarnamnet används redan</string>
-  <string name="create_account_ip_throttle_error">För många konton har skapats från denna IP. Försök igen senare.</string>
-  <string name="create_account_open_proxy_error">Denna IP har blockerats från att skapa konton.</string>
+  <string name="create_account_username_exists_error">Användarnamnet är upptaget</string>
+  <string name="create_account_ip_throttle_error">För många konton har skapats från denna IP-adress. Försök igen senare.</string>
+  <string name="create_account_open_proxy_error">Denna IP-adress har blockerats från att skapa konton.</string>
   <string name="create_account_generic_error">Kan inte skapa konto</string>
   <string name="create_account_no_network">Ingen nätverksanslutning</string>
+  <string name="create_account_next">Nästa</string>
+  <string name="create_account_button">Skapa konto</string>
   <string name="preferences_general_heading">Allmänt</string>
-  <string name="zero_free_verbiage">Gratis Wikipedia-tillgång från din mobiloperatör (avstår från dataavgifter)</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero INAKTIVERAD (STANDARDDATAAVGIFTER KAN TILLKOMMA)</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero är avstängt</string>
+  <string name="zero_charged_verbiage_extended">Laddning av andra artiklar kan medföra kostnader för datatrafik.</string>
   <string name="zero_search_hint">Sök på Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Varna om jag lämnar Wikipedia Zero</string>
-  <string name="zero_warn_when_leaving_summary">Om din mobiloperatör avfärdar dataåtkomstavgifter för Wikipedia-appen genom ett partnerskap för Wikipedia Zero hjälper den här inställningen dig att veta när du lämnar Wikipedia-appen och skulle behöva betala om du lämnar den markerad.</string>
+  <string name="zero_warn_when_leaving_summary">Om din mobiloperatör ingått ett partnerskap med Wikipedia Zero och ger dig tillgång till Wikipedia utan avgifter för datatrafik, hjälper denna inställning dig att varna innan du lämnar appen appen och riskerar att behöva betala för datatrafik.</string>
   <string name="zero_webpage_title">Vanliga frågor om Wikipedia Zero</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">Lämnar Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app">Fortsätt till extern webbplats? Standarddataavgifter kan tillkomma.</string>
-  <string name="zero_interstitial_continue">Fortsätt</string>
+  <string name="zero_interstitial_title">Du lämnar nu Wikipedia Zero</string>
+  <string name="zero_interstitial_leave_app">Avgifter för datatrafik kan tillkomma. Vill du fortsätta till den externa webbplatsen?</string>
+  <string name="zero_interstitial_continue">Lämna appen</string>
   <string name="zero_interstitial_cancel">Avbryt</string>
   <string name="zero_learn_more">Vill du veta mer om Wikipedia Zero?</string>
   <string name="zero_learn_more_learn_more">Läs mer</string>
@@ -110,7 +121,8 @@
   <string name="edit_preview_fetching_dialog_message">Hämtar förhandsgranskning...</string>
   <string name="edit_preview_activity_title">Förhandsgranska redigering</string>
   <string name="create_account_logging_in">Loggar in...</string>
-  <string name="edit_summary_guide_text">Berätta hur du förbättrade denna artikel. Detta hjälper andra redigerare att granska din redigering snabbt.</string>
+  <string name="send_feedback">Skicka feedback</string>
+  <string name="edit_summary_guide_text">Berätta hur du förbättrade artikeln. Detta hjälper andra redigerare att granska din redigering snabbt.</string>
   <string name="edit_summary_hint">Redigeringssammanfattning</string>
   <string name="nav_item_random">Slumpartikel</string>
   <string name="random_progress">Hämtar slumpartikel...</string>
@@ -124,6 +136,43 @@
   <string name="edit_save_action_login_description">Dina ändringar kommer att offentligt tillskrivas ditt användarnamn och andra redigerare kan ansluta sig till dig bättre</string>
   <string name="edit_save_action_ip_description">Dina ändringar kommer att offentligt tillskrivas din IP-adress, som ändras regelbundet</string>
   <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
-  <string name="preference_summary_eventlogging_opt_in">Tillåta Wikimedia att samla in information om hur du använder appen för att göra den bättre</string>
-  <string name="editing_error_spamblacklist">Länkar från blokerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
+  <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
+  <string name="editing_error_spamblacklist" fuzzy="true">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
+  <string name="history_search_list_hint">Sök</string>
+  <string name="history_search_empty_message">Inga sidor med \"%s\" hittades</string>
+  <string name="error_can_not_process_link">Denna länk kan inte visas</string>
+  <string name="page_protected_autoconfirmed">Denna artikel är halvskyddad.</string>
+  <string name="page_protected_sysop">Denna artikel är skrivskyddad.</string>
+  <string name="page_protected_other">Denna artikel har skyddats för följande nivåer: %s</string>
+  <string name="page_protected_can_not_edit">Du saknar rättigheter för att redigera denna artikel.</string>
+  <string name="page_protected_can_not_edit_title">Denna artikel är skrivskyddad</string>
+  <string name="more_item_preferences">Mer</string>
+  <string name="more_activity_title">Mer</string>
+  <string name="about_description">Om Wikipedia-appen</string>
+  <string name="preference_title_version">Version</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Användarvillkor&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Wikimedias integritetspolicy&lt;/a&gt;</string>
+  <string name="about_libraries_heading">använda bibliotek</string>
+  <string name="about_contributors_heading">Bidragsgivare</string>
+  <string name="about_wmf">En app utvecklad av &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;the Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_activity_title">Om</string>
+  <string name="edit_unchanged">Artikeln har inte ändrats.</string>
+  <string name="edit_abandon_confirm">Ändringar har gjorts i artikeln. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
+  <string name="user_blocked_from_editing_title">Blockerad</string>
+  <string name="user_logged_in_blocked_from_editing">Ditt konto har blockerats från redigering på denna wiki.</string>
+  <string name="user_anon_blocked_from_editing">Din IP-adress har blockerats från redigering.</string>
+  <string name="edit_how_page_improved">Hur förbättrade du artikeln?</string>
+  <string name="edit_next">Nästa</string>
+  <string name="edit_done">Spara</string>
+  <string name="edit_preview">Förhandsgranska</string>
+  <string name="edit_summary_tag_typo">Rättade felstavning</string>
+  <string name="edit_summary_tag_grammar">Rättade grammatik</string>
+  <string name="edit_summary_tag_links">Lade till länkar</string>
+  <string name="edit_summary_tag_other">Övrigt</string>
+  <string name="edit_summary_tag_other_hint">Andra sätt på vilka du förbättrat artikeln</string>
+  <string name="find_in_page">Sök på sidan</string>
+  <string name="find_next">Sök nästa</string>
+  <string name="find_previous">Sök föregående</string>
+  <string name="find_close">Stäng sökfältet</string>
+  <string name="error_network_error_try_again">Kunde inte ansluta till nätverket. Försök igen.</string>
 </resources>

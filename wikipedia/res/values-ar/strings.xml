@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">ويكيبيديا</string>
+  <string name="app_name_beta">ويكيبيديا بيتا</string>
   <string name="yes">نعم</string>
   <string name="no">لا</string>
   <string name="acra_report_dialog_title">ويكيبيديا تعطلت :(</string>
+  <string name="acra_report_dialog_text">أرسل لنا تقرير العطل</string>
   <string name="acra_report_dialog_comment">ماذا كنت تفعل عندما حدث العطل؟</string>
   <string name="search_hint">ابحث في ويكيبيديا</string>
   <string name="history_activity_title">التاريخ</string>
@@ -12,31 +14,35 @@
   <string name="search_network_error">خطأ في شبكة الاتصال. اضغط لإعادة المحاولة.</string>
   <string name="page_error_retry">أعد المحاولة</string>
   <string name="menu_clear_all_history">امسح التاريخ</string>
-  <string name="dialog_title_clear_history" fuzzy="true">مسح التاريخ؟</string>
-  <string name="saved_pages_activity_title" fuzzy="true">الصفحات المحفوظة</string>
-  <string name="nav_item_saved_pages" fuzzy="true">الصفحات المحفوظة</string>
-  <string name="menu_save_page" fuzzy="true">احفظ الصفحة</string>
+  <string name="menu_clear_all_bookmarks">أفرغ العلامات</string>
+  <string name="menu_clear_all_saved_pages">أفرغ الصفحات المحفوظة</string>
+  <string name="page_does_not_exist_error">هذه الصفحة غير موجودة.</string>
+  <string name="dialog_title_clear_history">مسح تاريخ التصفح؟</string>
+  <string name="saved_pages_activity_title">الصفحات المحفوظة</string>
+  <string name="nav_item_saved_pages">الصفحات المحفوظة</string>
+  <string name="menu_save_page">احفظ الصفحة</string>
   <string name="menu_share_page">مشاركة</string>
   <string name="share_via">مشاركة عبر</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">مسح كل الصفحات المحفوظة؟</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">هل أنت متأكد من أنك تريد مسح كل الصفحات المحفوظة؟</string>
-  <string name="toast_saving_page" fuzzy="true">يجري حفظ الصفحة...</string>
-  <string name="toast_saved_page" fuzzy="true">حُفظت الصفحة</string>
-  <string name="toast_save_page_failed" fuzzy="true">فشل حقظ الصفحة :(</string>
+  <string name="dialog_title_clear_saved_pages">مسح كل الصفحات المحفوظة؟</string>
+  <string name="dialog_message_clear_saved_pages">هل أنت متأكد من أنك تريد مسح كل الصفحات المحفوظة؟</string>
+  <string name="toast_saving_page">يجري حفظ الصفحة...</string>
+  <string name="toast_saved_page">تم حفظ الصفحة بنجاح</string>
+  <string name="toast_saved_page_missing_images">لم يكن من الممكن حفظ كل الصور</string>
+  <string name="toast_save_page_failed">فشلت عملية حفظ الصفحة :(</string>
+  <string name="toast_refresh_saved_page">جاري تحديث الصفحة المحفوظة</string>
   <string name="delete_selected_saved_pages">حذف</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">حُذفت الصفحات المحفوظة</string>
-  <string name="last_updated_text">آخر تحديث %1$s</string>
-  <string name="preference_title_language" fuzzy="true">اللغة</string>
+  <string name="toast_saved_page_deleted">حُذفت الصفحة/الصفحات المحفوظة</string>
+  <string name="last_updated_text">آخر تحديث %s</string>
+  <string name="preference_title_language">لغة ويكيبيديا</string>
   <string name="preference_summary_language">لغة المحتوى</string>
-  <string name="nav_item_preferences">الإعدادات</string>
   <string name="preference_languages_filter_hint">بحث</string>
   <string name="langlinks_filter_hint">بحث</string>
-  <string name="menu_other_languages" fuzzy="true">لغات أخرى</string>
+  <string name="menu_other_languages">اقرأ بلغات أخرى</string>
   <string name="langlinks_error_retry">أعد المحاولة</string>
-  <string name="langlinks_empty">هذا المقال غير متوفر في لغات أخرى</string>
+  <string name="langlinks_empty">هذه الصفحة غير متوفرة بلغات أخرى</string>
   <string name="settings_activity_title">الإعدادات</string>
   <string name="langlinks_activity_title">لغات أخرى</string>
-  <string name="editsection_activity_title">تحرير القسم</string>
+  <string name="menu_save_changes">احفظ التغييرات</string>
   <string name="edit_section_error_retry">أعد المحاولة</string>
   <string name="dialog_saving_in_progress">يجري الحفظ...</string>
   <string name="edit_saved_successfully">تم حفظ التعديل!</string>
@@ -45,7 +51,12 @@
   <string name="dialog_message_edit_failed_cancel">إلغاء</string>
   <string name="menu_show_toc">قائمة المحتويات</string>
   <string name="search_no_results_found">لا توجد نتائج</string>
-  <string name="edit_section_captcha_message">للمساعدة على حماية ضد البريد المزعج الآلي، الرجاء إدخال الكلمات التي تظهر أدناه</string>
+  <string name="edit_section_captcha_message">للمساعدة على الحماية ضد البريد المزعج الآلي، الرجاء إدخال الكلمات التي تظهر أدناه</string>
+  <string name="edit_section_captcha_hint">كرر الكلمات من فوق</string>
+  <string name="title_captcha">أدخل كلمة التحقق</string>
+  <string name="edit_section_abusefilter_back_text">إجراء تغييرات على تعديلي</string>
+  <string name="edit_section_captcha_reload">انقر على كلمة التحقق لإعادة التحميل</string>
+  <string name="edit_saved_page_refresh">قد تكون الصفحة المحفوظة غير محدثة. وقد يستوجب تحديثها للتمكن من تعديلها. هل تود تحديث الصفحة؟</string>
   <string name="nav_item_login">تسجيل الدخول</string>
   <string name="login_username_hint">اسم المستخدم</string>
   <string name="login_password_hint">كلمة السر</string>
@@ -56,29 +67,47 @@
   <string name="login_error_wrong_password">كلمة سر غير صحيحة</string>
   <string name="login_error_wrong_username">اسم المستخدم غير صحيح</string>
   <string name="login_success_toast">تم تسجيل الدخول بنجاح!</string>
+  <string name="login_error_blocked">تم منع هذا المستخدم</string>
+  <string name="login_error_throttled">لقد حاولت تسجيل الدخول مرات كثيرة. انتظر لبضع دقائق وحاول مرة أخرى.</string>
   <string name="login_error_unknown">تسجيل الدخول فشل :(</string>
   <string name="login_error_no_network">لا توجد شبكة اتصال</string>
   <string name="nav_item_logout">تسجيل الخروج</string>
+  <string name="preference_title_logout">تسجيل الخروج</string>
+  <string name="preference_summary_logout">سجل الخروج من حساب ويكيبيديا الخاص بك</string>
+  <string name="preference_summary_notloggedin">غير مسجل الدخول.</string>
   <string name="toast_logout_complete">تسجيل الخروج</string>
-  <string name="saved_pages_empty_message" fuzzy="true">لا توجد صفحات محفوظة.</string>
-  <string name="history_empty_message">التاريخ الخاص بك فارغ.</string>
+  <string name="saved_pages_empty_message">لا توجد صفحات محفوظة</string>
+  <string name="history_empty_message">تاريخ تصفحك فارغ.</string>
   <string name="create_account_username_hint">اسم المستخدم</string>
   <string name="create_account_password_hint">كلمة السر</string>
-  <string name="login_create_account_link">أنشئ حسابا</string>
+  <string name="menu_create_account">أنشئ حساباً</string>
+  <string name="login_create_account_link">ليس لديك حساب؟ انضم إلى ويكيبيديا</string>
+  <string name="create_account_login_link">لديك حساب؟ سجل دخولك</string>
   <string name="create_account_activity_title">إنشاء حساب</string>
   <string name="edit_section_activity_title">تحرير القسم</string>
   <string name="dialog_create_account_checking_progress">يجري التحقق</string>
   <string name="create_account_email_hint">البريد الإلكتروني (اختياري)</string>
+  <string name="create_account_password_repeat_hint">أعد كلمة السر</string>
+  <string name="create_account_passwords_mismatch_error">كلمتا السر لا تتطابقان</string>
   <string name="create_account_email_error">عنوان بريد إلكتروني غير صحيح</string>
   <string name="create_account_username_exists_error">اسم المستخدم غير متاح</string>
+  <string name="create_account_ip_throttle_error">تم إنشاء حسابات كثيرة من هذا العنوان (IP). الرجاء المحاولة لاحقاً.</string>
+  <string name="create_account_open_proxy_error">تم منع هذا العنوان (IP) من إنشاء حسابات.</string>
   <string name="create_account_generic_error">تعذر إنشاء الحساب</string>
+  <string name="create_account_no_network">ليس هناك شبكة اتصال</string>
+  <string name="create_account_next">التالي</string>
+  <string name="create_account_button">أنشئ حسابا</string>
   <string name="preferences_general_heading">عام</string>
-  <string name="zero_interstitial_continue">استمر</string>
-  <string name="zero_interstitial_cancel">إلغاء</string>
-  <string name="zero_learn_more_learn_more">تعرف على المزيد</string>
+  <string name="zero_search_hint">ابحث في ويكيبيديا زيرو</string>
+  <string name="zero_warn_when_leaving">قم بالتحذير عند ترك ويكيبيديا زيرو</string>
+  <string name="zero_wikipedia_zero_heading">ويكيبيديا زيرو</string>
+  <string name="zero_interstitial_continue">غادر</string>
+  <string name="zero_interstitial_cancel">ابقى هنا</string>
+  <string name="zero_learn_more_learn_more">اقرأ المزيد</string>
   <string name="zero_learn_more_dismiss">أغلق</string>
   <string name="zero_settings">الإعدادات</string>
   <string name="edit_preview_fetching_dialog_message">يجري إعداد معاينة...</string>
+  <string name="edit_preview_activity_title">معاينة التعديل</string>
   <string name="create_account_logging_in">يجري تسجيل دخولك...</string>
   <string name="edit_summary_hint">ملخص التعديل</string>
   <string name="nav_item_random">عشوائي</string>
@@ -87,4 +116,34 @@
   <string name="user_contribs_more_action">تحميل المزيد</string>
   <string name="activity_my_contributions_title">مساهماتي</string>
   <string name="nav_item_my_contributions">مساهماتي</string>
+  <string name="edit_save_action_login">سجل الدخول واحفظ</string>
+  <string name="edit_save_action_ip">احفظ كمستخدم مجهول</string>
+  <string name="history_search_list_hint">بحث</string>
+  <string name="error_can_not_process_link">لم يكن بالإمكان عرض هذا الرابط</string>
+  <string name="page_protected_can_not_edit">ليس لديك الصلاحية لتحرير هذه الصفحة</string>
+  <string name="page_protected_can_not_edit_title">هذه الصفحة محمية</string>
+  <string name="more_item_preferences">المزيد</string>
+  <string name="more_activity_title">المزيد</string>
+  <string name="about_description">حول تطبيق ويكيبيديا</string>
+  <string name="preference_title_version">الإصدار</string>
+  <string name="about_terms_of_use">&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شروط الاستخدام&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;سياسة الخصوصية&lt;/a&gt;</string>
+  <string name="about_libraries_heading">المكتبات المستخدمة</string>
+  <string name="about_contributors_heading">المساهمون</string>
+  <string name="about_activity_title">عن</string>
+  <string name="edit_unchanged">لم يتم تعديل الصفحة.</string>
+  <string name="user_blocked_from_editing_title">ممنوع</string>
+  <string name="edit_how_page_improved">كيف قمت بتحسين الصفحة؟</string>
+  <string name="edit_next">التالي</string>
+  <string name="edit_done">حفظ</string>
+  <string name="edit_preview">معاينة</string>
+  <string name="edit_summary_tag_typo">تم تصحيح خطأ مطبعي</string>
+  <string name="edit_summary_tag_grammar">تم إصلاح النحو</string>
+  <string name="edit_summary_tag_links">تم إضافة روابط</string>
+  <string name="edit_summary_tag_other">أخرى</string>
+  <string name="edit_summary_tag_other_hint">طرق أخرى استخدمتها لتحسين الصفحة</string>
+  <string name="find_in_page">ابحث في الصفحة</string>
+  <string name="find_next">البحث عن التالي</string>
+  <string name="find_previous">البحث عن السابق</string>
+  <string name="find_close">أغلق شريط البحث</string>
 </resources>

@@ -32,15 +32,13 @@
   <string name="content_license_html" fuzzy="true">Nội dung được phát hành theo &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt; nếu không ghi giấy phép khác</string>
   <string name="preference_title_language">Ngôn ngữ Wikipedia</string>
   <string name="preference_summary_language">Ngôn ngữ nội dung</string>
-  <string name="nav_item_preferences">Tùy chọn</string>
   <string name="preference_languages_filter_hint">Tìm kiếm</string>
   <string name="langlinks_filter_hint">Tìm kiếm</string>
   <string name="menu_other_languages" fuzzy="true">Ngôn ngữ khác</string>
   <string name="langlinks_error_retry">Thử lại</string>
-  <string name="langlinks_empty">Bài này không có sẵn trong ngôn ngữ khác</string>
+  <string name="langlinks_empty" fuzzy="true">Bài này không có sẵn trong ngôn ngữ khác</string>
   <string name="settings_activity_title">Tùy chọn</string>
   <string name="langlinks_activity_title">Ngôn ngữ khác</string>
-  <string name="editsection_activity_title">Sửa đổi phần</string>
   <string name="edit_section_error_retry">Thử lại</string>
   <string name="dialog_saving_in_progress">Đang lưu…</string>
   <string name="edit_saved_successfully">Đã lưu sửa đổi!</string>
@@ -75,7 +73,7 @@
   <string name="create_account_username_hint">Tên người dùng</string>
   <string name="create_account_password_hint">Mật khẩu</string>
   <string name="menu_create_account">Mở tài khoản</string>
-  <string name="login_create_account_link">Mở tài khoản</string>
+  <string name="login_create_account_link" fuzzy="true">Mở tài khoản</string>
   <string name="create_account_activity_title">Mở tài khoản</string>
   <string name="edit_section_activity_title">Sửa đổi phần</string>
   <string name="dialog_create_account_checking_progress">Đang xác minh</string>
@@ -89,8 +87,7 @@
   <string name="create_account_generic_error">Không thể mở tài khoản</string>
   <string name="create_account_no_network">Không có kết nối mạng</string>
   <string name="preferences_general_heading">Tổng quát</string>
-  <string name="zero_free_verbiage">Truy cập Wikipedia miễn phí qua nhà điều hành điện thoại di động (miễn phí dữ liệu)</string>
-  <string name="zero_charged_verbiage">TẮT Wikipedia Miễn phí (CÓ THỂ PHẢI TRẢ PHÍ DỮ LIỆU CHUẨN)</string>
+  <string name="zero_charged_verbiage" fuzzy="true">TẮT Wikipedia Miễn phí (CÓ THỂ PHẢI TRẢ PHÍ DỮ LIỆU CHUẨN)</string>
   <string name="zero_search_hint">Tìm trong Wikipedia Miễn phí</string>
   <string name="zero_warn_when_leaving">Cảnh báo khi ra khỏi Wikipedia Miễn phí</string>
   <string name="zero_warn_when_leaving_summary">Nếu nhà điều hành điện thoại di động của bạn miễn phí truy cập dữ liệu cho ứng dụng Wikipedia do một quan hệ đối tác với Wikipedia Miễn phí, kiểm hộp này để giúp mình biết khi nào bạn sắp ra khỏi ứng dụng Wikipedia và khi nào cần trả tiền.</string>
@@ -98,11 +95,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Miễn phí</string>
   <string name="zero_interstitial_title">Sắp ra khỏi Wikipedia Miễn phí</string>
-  <string name="zero_interstitial_leave_app">Tiếp tục đi vào trang ngoài? Có thể phải trả phí dữ liệu chuẩn.</string>
-  <string name="zero_interstitial_continue">Tiếp tục</string>
-  <string name="zero_interstitial_cancel">Hủy bỏ</string>
-  <string name="zero_learn_more">Muốn tìm hiểu thêm về Wikipedia Miễn phí?</string>
-  <string name="zero_learn_more_learn_more">Tìm hiểu thêm</string>
+  <string name="zero_interstitial_leave_app" fuzzy="true">Tiếp tục đi vào trang ngoài? Có thể phải trả phí dữ liệu chuẩn.</string>
+  <string name="zero_interstitial_continue" fuzzy="true">Tiếp tục</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">Hủy bỏ</string>
+  <string name="zero_learn_more" fuzzy="true">Muốn tìm hiểu thêm về Wikipedia Miễn phí?</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Tìm hiểu thêm</string>
   <string name="zero_learn_more_dismiss">Bỏ qua</string>
   <string name="zero_settings">Tùy chọn</string>
   <string name="zero_settings_devmode">Chế độ phát triển Miễn phí</string>
@@ -110,7 +107,7 @@
   <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem trước…</string>
   <string name="edit_preview_activity_title">Xem trước sửa đổi</string>
   <string name="create_account_logging_in">Đang đăng nhập…</string>
-  <string name="edit_summary_guide_text">Hãy cho biết bạn đã cải thiện bài này thế nào, để cho người khác có thể xem qua sửa đổi của bạn một cách nhanh chóng.</string>
+  <string name="edit_summary_guide_text" fuzzy="true">Hãy cho biết bạn đã cải thiện bài này thế nào, để cho người khác có thể xem qua sửa đổi của bạn một cách nhanh chóng.</string>
   <string name="edit_summary_hint">Tóm lược sửa đổi</string>
   <string name="nav_item_random">Ngẫu nhiên</string>
   <string name="random_progress">Đang lấy trang ngẫu nhiên…</string>
@@ -125,5 +122,5 @@
   <string name="edit_save_action_ip_description">Các sửa đổi của bạn sẽ được ghi công với địa chỉ IP của bạn, địa chỉ này thay đổi thường xuyên</string>
   <string name="preference_title_eventlogging_opt_in">Gửi báo cáo sử dụng</string>
   <string name="preference_summary_eventlogging_opt_in">Cho phép Wikimedia thu thập thông tin về cách bạn sử dụng ứng dụng để giúp cải thiện ứng dụng</string>
-  <string name="editing_error_spamblacklist">Đã chặn các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
+  <string name="editing_error_spamblacklist" fuzzy="true">Đã chặn các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
 </resources>

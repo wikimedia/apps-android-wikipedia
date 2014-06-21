@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Википедија</string>
+  <string name="app_name_beta">Википедија Бета</string>
   <string name="yes">Да</string>
   <string name="no">Не</string>
   <string name="acra_report_dialog_title">Википедија се урна :(</string>
@@ -14,33 +15,36 @@
   <string name="page_error_retry">Повтори</string>
   <string name="menu_clear_all_history">Исчисти историја</string>
   <string name="menu_clear_all_bookmarks">Исчисти одбележани</string>
+  <string name="menu_clear_all_saved_pages">Исчисти ги сите зачувани страници</string>
   <string name="page_does_not_exist_error">Страницата не постои.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Да ја исчистам историјата?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Одбележани</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Одбележани</string>
-  <string name="menu_save_page" fuzzy="true">Одбележи</string>
+  <string name="dialog_title_clear_history">Да ја исчистам историјата на прелистување?</string>
+  <string name="saved_pages_activity_title">Зачувани страници</string>
+  <string name="nav_item_saved_pages">Зачувани страници</string>
+  <string name="menu_save_page">Зачувај страница</string>
   <string name="menu_share_page">Сподели</string>
   <string name="share_via">Сподели преку</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Да ги исчистам одбележаните?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Дали сте сигурни дека сакате да ги исчистите сите одбележани?</string>
-  <string name="toast_saving_page" fuzzy="true">Ја одбележувам страницата...</string>
-  <string name="toast_saved_page" fuzzy="true">Одбележана страница</string>
-  <string name="toast_save_page_failed" fuzzy="true">Не успеа одбележувањето на страницата  :(</string>
+  <string name="dialog_title_clear_saved_pages">Да ги исчистам сите зачувани страници?</string>
+  <string name="dialog_message_clear_saved_pages">Дали сте сигурни дека сакате да ги исчистите сите зачувани страници?</string>
+  <string name="toast_saving_page">Ја зачувувам страницата...</string>
+  <string name="toast_saved_page">Страницата е успешно зачувана</string>
+  <string name="toast_saved_page_missing_images">Не можев да ги зачувам сите слики</string>
+  <string name="toast_save_page_failed">Зачувувањето на страницата не успеа :(</string>
+  <string name="toast_refresh_saved_page">Ја превчитувам зачуваната страница...</string>
   <string name="delete_selected_saved_pages">Избриши</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Одбележувачите се избришани</string>
+  <string name="toast_saved_page_deleted">Зачуваните страници се избришани</string>
   <string name="last_updated_text">Последен пат изменето на %1$s</string>
-  <string name="content_license_html" fuzzy="true">Содржината е достапна под &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
+  <string name="content_license_html">Содржината е достапна под &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
+  <string name="edit_save_action_license">Зачувувајќи ги промените, се согласувате со неотповикливото објавување на вашите придонеси под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Јазик на Википедија</string>
   <string name="preference_summary_language">Јазик на содржината</string>
-  <string name="nav_item_preferences">Нагодувања</string>
   <string name="preference_languages_filter_hint">Пребарајте</string>
   <string name="langlinks_filter_hint">Пребарај</string>
-  <string name="menu_other_languages" fuzzy="true">Други јазици</string>
+  <string name="menu_other_languages">Прочитајте на други јазици</string>
   <string name="langlinks_error_retry">Повтори</string>
-  <string name="langlinks_empty">Статијата не е достапна на други јазици</string>
+  <string name="langlinks_empty">Страницава не е достапна на други јазици</string>
   <string name="settings_activity_title">Нагодувања</string>
   <string name="langlinks_activity_title">Други јазици</string>
-  <string name="editsection_activity_title">Уреди поднаслов</string>
+  <string name="menu_save_changes">Зачувај промени</string>
   <string name="edit_section_error_retry">Повтори</string>
   <string name="dialog_saving_in_progress">Зачувувам...</string>
   <string name="edit_saved_successfully">Уредувањето е зачувано!</string>
@@ -54,6 +58,7 @@
   <string name="title_captcha">Внесете Captcha</string>
   <string name="edit_section_abusefilter_back_text">Направи промени во моето уредување</string>
   <string name="edit_section_captcha_reload">Допрете да ја превчитате captcha-та</string>
+  <string name="edit_saved_page_refresh">Зачуваната страница може да е застарена и мора да се превчита за да се овозможи уредувањето. Дали сакате да ја превчитате?</string>
   <string name="nav_item_login">Најавете се</string>
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
@@ -69,13 +74,17 @@
   <string name="login_error_unknown">Најавата не успеа :(</string>
   <string name="login_error_no_network">Немате врска со мрежата</string>
   <string name="nav_item_logout">Одјава</string>
+  <string name="preference_title_logout">Одјава</string>
+  <string name="preference_summary_logout">Одјавување од вашата сметка на Википедија</string>
+  <string name="preference_summary_notloggedin">Не сте најавени.</string>
   <string name="toast_logout_complete">Одјавени сте</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Нема одбележани.</string>
+  <string name="saved_pages_empty_message">Нема зачувани страници</string>
   <string name="history_empty_message">Вашата историја е празна.</string>
   <string name="create_account_username_hint">Корисничко име</string>
   <string name="create_account_password_hint">Лозинка</string>
   <string name="menu_create_account">Направи сметка</string>
-  <string name="login_create_account_link">Направи сметка</string>
+  <string name="login_create_account_link">Немате сметка? Приклучете се на Википедија</string>
+  <string name="create_account_login_link">Веќе имате сметка? Најавете се</string>
   <string name="create_account_activity_title">Направи кориничка сметка</string>
   <string name="edit_section_activity_title">Уреди поднаслов</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
@@ -88,9 +97,11 @@
   <string name="create_account_open_proxy_error">Оваа IP-адреса е блокирана за создавање кориснички сметки.</string>
   <string name="create_account_generic_error">Не можам да направам корисничка сметка</string>
   <string name="create_account_no_network">Немате врска со мрежата</string>
+  <string name="create_account_next">Следно</string>
+  <string name="create_account_button">Направи сметка</string>
   <string name="preferences_general_heading">Општи</string>
-  <string name="zero_free_verbiage">Бесплатнен пристап до Википедија преку Вашиот мобилен оператор (податочниот сообраќај не се наплаќа)</string>
-  <string name="zero_charged_verbiage">Википедија Нулта е ИСКЛУЧЕНА (ПОДАТОЧНИОТ ПРОМЕТ МОЖЕ ДА СЕ НАПЛАЌА СТДАНДАРДНО)</string>
+  <string name="zero_charged_verbiage">Википедија Нулта е исклучена</string>
+  <string name="zero_charged_verbiage_extended">За вчитување на други статии може да се наплаќа податочниот промет</string>
   <string name="zero_search_hint">Пребарај ја Википедија Нулта</string>
   <string name="zero_warn_when_leaving">Предупреди ме доколку ја напуштам Википедија Нулта</string>
   <string name="zero_warn_when_leaving_summary">Ако Вашиот мобилен оператор се откажува од трошоците за пристап до податоци за прилогот на Википедија преку партнероство со Википедија Нулта, оставајќи ја поставкава избрана ќе знаете кога излегувате од нејзиниот бесплатен режим и почнува наплата.</string>
@@ -98,11 +109,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Википедија Нулта</string>
   <string name="zero_interstitial_title">Ја напуштате Википедија Нулта</string>
-  <string name="zero_interstitial_leave_app">Да продолжам кон надворешно место? За ова може да се наплаќа по стандардна цена.</string>
-  <string name="zero_interstitial_continue">Продолжи</string>
-  <string name="zero_interstitial_cancel">Откажи</string>
-  <string name="zero_learn_more">Сакате да дознаете повеќе за Википедија Нулта?</string>
-  <string name="zero_learn_more_learn_more">Дознајте повеќе</string>
+  <string name="zero_interstitial_leave_app">За ова може да се наплаќа. Да продолжам кон надворешно место?</string>
+  <string name="zero_interstitial_continue">Напушти</string>
+  <string name="zero_interstitial_cancel">Остани тука</string>
+  <string name="zero_learn_more">За овој Википедиин прилог не се наплаќа податочниот промет.</string>
+  <string name="zero_learn_more_learn_more">Прочитајте повеќе</string>
   <string name="zero_learn_more_dismiss">Тргни</string>
   <string name="zero_settings">Нагодувања</string>
   <string name="zero_settings_devmode">Развоен режим на Нулта</string>
@@ -110,7 +121,8 @@
   <string name="edit_preview_fetching_dialog_message">Испишувам преглед...</string>
   <string name="edit_preview_activity_title">Преглед</string>
   <string name="create_account_logging_in">Ве најавувам...</string>
-  <string name="edit_summary_guide_text">Кажете на кој начин ја подобривте статијава. Со тоа другите уредници ќе можат да ја проверат многу побргу.</string>
+  <string name="send_feedback">Испрати мислење за прилогот</string>
+  <string name="edit_summary_guide_text">Кажете на кој начин ја подобривте страницава. Со тоа другите уредници ќе можат да ја проверат многу побргу.</string>
   <string name="edit_summary_hint">Опис на уредувањето</string>
   <string name="nav_item_random">Случајна</string>
   <string name="random_progress">Повикувам случајна страница...</string>
@@ -125,5 +137,42 @@
   <string name="edit_save_action_ip_description">Вашите уредувања ќе ѝ бидат јавно припишани на Вашата IP-адреса, која често се менува</string>
   <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите прилогот, за да може да го подобри</string>
-  <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
+  <string name="editing_error_spamblacklist" fuzzy="true">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
+  <string name="history_search_list_hint">Пребарај</string>
+  <string name="history_search_empty_message">Не пронајдов страници што одговараат на „%s“</string>
+  <string name="error_can_not_process_link">Не можам да ја прикажам оваа врска</string>
+  <string name="page_protected_autoconfirmed">Оваа страница е полузаштитена.</string>
+  <string name="page_protected_sysop">Оваа страница е наполно заштитена.</string>
+  <string name="page_protected_other">Оваа страница е заштитена во следниве степени: %s</string>
+  <string name="page_protected_can_not_edit">Немате право да ја уредувате страницава</string>
+  <string name="page_protected_can_not_edit_title">Оваа страница е заштитена</string>
+  <string name="more_item_preferences">Повеќе</string>
+  <string name="more_activity_title">Повеќе</string>
+  <string name="about_description">За прилогот „Википедија“</string>
+  <string name="preference_title_version">Верзија</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/mk\"&gt;Услови на употреба&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Заштита на личните податоци&lt;/a&gt;</string>
+  <string name="about_libraries_heading">користени библиотеки</string>
+  <string name="about_contributors_heading">учесници</string>
+  <string name="about_wmf">Производ на &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
+  <string name="about_activity_title">За прилогот</string>
+  <string name="edit_unchanged">Страницава не е изменета.</string>
+  <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
+  <string name="user_blocked_from_editing_title">Блокирано</string>
+  <string name="user_logged_in_blocked_from_editing">Вашата корисничка сметка е блокирана и не може да уредува на ова вики.</string>
+  <string name="user_anon_blocked_from_editing">Вашата IP-адреса е блокирана и не може да уредува на ова вики.</string>
+  <string name="edit_how_page_improved">На кој начин ја подобривте страницата?</string>
+  <string name="edit_next">Следно</string>
+  <string name="edit_done">Зачувај</string>
+  <string name="edit_preview">Преглед</string>
+  <string name="edit_summary_tag_typo">Исправена грешка при пишување</string>
+  <string name="edit_summary_tag_grammar">Исправена граматиката</string>
+  <string name="edit_summary_tag_links">Додадени врски</string>
+  <string name="edit_summary_tag_other">Друго</string>
+  <string name="edit_summary_tag_other_hint">Други начини на кои ја подобривте страницата</string>
+  <string name="find_in_page">Најди на страницата</string>
+  <string name="find_next">Најди следно</string>
+  <string name="find_previous">Најди претходно</string>
+  <string name="find_close">Затвори го барањето</string>
+  <string name="error_network_error_try_again">Не можам да ја добијам мрежата. Обидете се повторно.</string>
 </resources>

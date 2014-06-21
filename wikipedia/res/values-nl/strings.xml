@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Wikipedia</string>
+  <string name="app_name_beta">Wikipedia Beta</string>
   <string name="yes">Ja</string>
   <string name="no">Nee</string>
   <string name="acra_report_dialog_title">De apps is gecrashed :(</string>
@@ -14,33 +15,36 @@
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
   <string name="menu_clear_all_bookmarks">Bladwijzers wissen</string>
+  <string name="menu_clear_all_saved_pages">Alle opgeslagen pagina\'s verwijderen</string>
   <string name="page_does_not_exist_error">Deze pagina bestaat niet.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Geschiedenis wissen?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Bladwijzers</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Bladwijzers</string>
-  <string name="menu_save_page" fuzzy="true">Bladwijzer toevoegen</string>
+  <string name="dialog_title_clear_history">Browsegeschiedenis wissen?</string>
+  <string name="saved_pages_activity_title">Opgeslagen pagina\'s</string>
+  <string name="nav_item_saved_pages">Opgeslagen pagina\'s</string>
+  <string name="menu_save_page">Pagina opslaan</string>
   <string name="menu_share_page">Delen</string>
   <string name="share_via">Delen via</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Bladwijzers wissen?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Weet u zeker dat u alle bladwijzers wilt wissen?</string>
-  <string name="toast_saving_page" fuzzy="true">Toevoegen aan bladwijzers...</string>
-  <string name="toast_saved_page" fuzzy="true">Toegevoegd aan bladwijzers</string>
-  <string name="toast_save_page_failed" fuzzy="true">Het toevoegen aan uw bladwijzers is mislukt :(</string>
+  <string name="dialog_title_clear_saved_pages">Alle opgeslagen pagina\'s verwijderen?</string>
+  <string name="dialog_message_clear_saved_pages">Weet u zeker dat u alle opgeslagen pagina\'s wilt wissen?</string>
+  <string name="toast_saving_page">Pagina aan het opslaan...</string>
+  <string name="toast_saved_page">Pagina succesvol opgeslagen</string>
+  <string name="toast_saved_page_missing_images">Kon niet alle afbeeldingen opslaan</string>
+  <string name="toast_save_page_failed">Het opslaan van de pagina is mislukt :(</string>
+  <string name="toast_refresh_saved_page">Opgeslagen pagina vernieuwen...</string>
   <string name="delete_selected_saved_pages">Wissen</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Bladwijzer(s) gewist</string>
+  <string name="toast_saved_page_deleted">Opgeslagen pagina(\'s) verwijderd</string>
   <string name="last_updated_text">%1$s voor het laatst bijgewerkt</string>
-  <string name="content_license_html" fuzzy="true">Inhoud is beschikbaar onder de licentie &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
+  <string name="content_license_html">Inhoud is beschikbaar onder de licentie &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
+  <string name="edit_save_action_license">Door op te slaan, gaat u onherroepelijk akkoord met het vrijgeven van uw bewerkingen onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; licentie.</string>
   <string name="preference_title_language">Wikipedia-taal</string>
   <string name="preference_summary_language">Taal inhoud</string>
-  <string name="nav_item_preferences">Instellingen</string>
   <string name="preference_languages_filter_hint">Zoeken</string>
   <string name="langlinks_filter_hint">Zoeken</string>
-  <string name="menu_other_languages" fuzzy="true">Andere talen</string>
+  <string name="menu_other_languages">In een andere taal lezen</string>
   <string name="langlinks_error_retry">Opnieuw proberen</string>
   <string name="langlinks_empty">Deze pagina is niet beschikbaar in andere talen</string>
   <string name="settings_activity_title">Instellingen</string>
   <string name="langlinks_activity_title">Andere talen</string>
-  <string name="editsection_activity_title">Paragraaf bewerken</string>
+  <string name="menu_save_changes">Wijzigingen opslaan</string>
   <string name="edit_section_error_retry">Opnieuw proberen</string>
   <string name="dialog_saving_in_progress">Aan het opslaan...</string>
   <string name="edit_saved_successfully">Bewerking opgeslagen!</string>
@@ -54,6 +58,7 @@
   <string name="title_captcha">Voer CAPTCHA in</string>
   <string name="edit_section_abusefilter_back_text">Mijn bewerking wijzigen</string>
   <string name="edit_section_captcha_reload">Klik om opnieuw te laden</string>
+  <string name="edit_saved_page_refresh">Deze opgeslagen is mogelijk verouderd, en moet vernieuwd worden voordat bewerken mogelijk is. Wilt u de pagina vernieuwen?</string>
   <string name="nav_item_login">Aanmelden</string>
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wachtwoord</string>
@@ -69,13 +74,16 @@
   <string name="login_error_unknown">Aanmelden mislukt :(</string>
   <string name="login_error_no_network">Geen netwerkverbinding</string>
   <string name="nav_item_logout">Afmelden</string>
+  <string name="preference_title_logout">Afmelden</string>
+  <string name="preference_summary_logout">Log uit van uw Wikipedia-account</string>
+  <string name="preference_summary_notloggedin">Niet aangemeld.</string>
   <string name="toast_logout_complete">Afgemeld</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Geen bladwijzers</string>
+  <string name="saved_pages_empty_message">Geen opgeslagen pagina\'s</string>
   <string name="history_empty_message">Uw geschiedenis is leeg.</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>
   <string name="create_account_password_hint">Wachtwoord</string>
   <string name="menu_create_account">Registreren</string>
-  <string name="login_create_account_link">Gebruiker aanmaken</string>
+  <string name="login_create_account_link" fuzzy="true">Gebruiker aanmaken</string>
   <string name="create_account_activity_title">Gebruiker aanmaken</string>
   <string name="edit_section_activity_title">Paragraaf bewerken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
@@ -89,8 +97,8 @@
   <string name="create_account_generic_error">Het was niet mogelijk een gebruiker aan te maken</string>
   <string name="create_account_no_network">Geen netwerkverbinding</string>
   <string name="preferences_general_heading">Algemeen</string>
-  <string name="zero_free_verbiage">Gratis toegang tot Wikipedia van uw mobiele provider (geen kosten voor gegevens)</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero UIT (ER KUNNEN KOSTEN GEREKEND WORDEN VOOR MOBIELE DATA)</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero is uitgeschakeld</string>
+  <string name="zero_charged_verbiage_extended">Het laden van andere artikelen kan datakosten met zich meebrengen.</string>
   <string name="zero_search_hint">In Wikipedia Zero zoeken</string>
   <string name="zero_warn_when_leaving">Waarschuwen bij het verlaten van Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Als u mobiele provider geen kosten rekent voor de Wikipedia vanwege een Wikipedia Zero partnerschap, dan zorgt het inschakelen van deze instelling ervoor dat u wordt gewaarschuwd als u Wikipedia verlaat en mogelijk kosten voor data moet betalen.</string>
@@ -98,10 +106,10 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">U verlaat Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app">Doorgaan naar de externe website? Er kunnen kosten gerekend worden voor mobiele data.</string>
-  <string name="zero_interstitial_continue">Doorgaan</string>
-  <string name="zero_interstitial_cancel">Annuleren</string>
-  <string name="zero_learn_more">Meer leren over Wikipedia Zero?</string>
+  <string name="zero_interstitial_leave_app">Er kunnen kosten gerekend worden voor mobiele data. Doorgaan naar de externe website?</string>
+  <string name="zero_interstitial_continue">Afsluiten</string>
+  <string name="zero_interstitial_cancel">Blijf</string>
+  <string name="zero_learn_more">Mobiele datakosten worden gerekend voor deze Wikipedia app.</string>
   <string name="zero_learn_more_learn_more">Meer lezen</string>
   <string name="zero_learn_more_dismiss">Sluiten</string>
   <string name="zero_settings">Instellingen</string>
@@ -110,6 +118,7 @@
   <string name="edit_preview_fetching_dialog_message">Ophalen van voorbeeld...</string>
   <string name="edit_preview_activity_title">Voorbeeld bewerken</string>
   <string name="create_account_logging_in">Aan het aanmelden...</string>
+  <string name="send_feedback">Terugkoppeling over app geven</string>
   <string name="edit_summary_guide_text">Geef aan hoe u de deze pagina hebt verbeterd. Dit helpt andere redacteuren uw bewerkingen sneller te controleren.</string>
   <string name="edit_summary_hint">Bewerkingssamenvatting</string>
   <string name="nav_item_random">Willekeurig</string>
@@ -124,4 +133,42 @@
   <string name="edit_save_action_login_description">Uw bewerkingen wordt openbaar toegeschreven aan uw gebruikersnaam en andere bewerkers kunnen dan eenvoudiger met u in contact treden</string>
   <string name="edit_save_action_ip_description">Uw bewerkingen worden openbaar toegeschreven aan uw IP-adres, dat mogelijk vaak wijzigt</string>
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
+  <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe ik de app gebruik om de app te verbeteren</string>
+  <string name="editing_error_spamblacklist" fuzzy="true">Links van geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
+  <string name="history_search_list_hint">Zoeken</string>
+  <string name="history_search_empty_message">Geen pagina\'s die overeenkomen met \'%s\'</string>
+  <string name="error_can_not_process_link">Kon de link niet weergeven</string>
+  <string name="page_protected_autoconfirmed">Deze pagina is semi-beveiligd.</string>
+  <string name="page_protected_sysop">Deze pagina is volledig beveiligd.</string>
+  <string name="page_protected_other">Deze pagina is beveiligd tot de volgende niveau\'s: %s</string>
+  <string name="page_protected_can_not_edit">U heeft niet de benodigde rechten om deze pagina te bewerken</string>
+  <string name="page_protected_can_not_edit_title">Deze pagina is beveiligd</string>
+  <string name="more_item_preferences">Meer</string>
+  <string name="more_activity_title">Meer</string>
+  <string name="about_description">Over de Wikipedia-app</string>
+  <string name="preference_title_version">Versie</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Privacybeleid&lt;/a&gt;</string>
+  <string name="about_libraries_heading">gebruikte bibliotheken</string>
+  <string name="about_contributors_heading">bijdragers</string>
+  <string name="about_wmf">Een product van de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_activity_title">Over</string>
+  <string name="edit_unchanged">Deze pagina is niet bewerkt.</string>
+  <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
+  <string name="user_blocked_from_editing_title">Geblokkeerd</string>
+  <string name="user_logged_in_blocked_from_editing">Uw gebruikersaccount is geblokkeerd van het bewerken op deze wiki.</string>
+  <string name="user_anon_blocked_from_editing">Uw IP-adres is geblokkeerd van bewerken.</string>
+  <string name="edit_how_page_improved">Hoe heeft u de pagina verbeterd?</string>
+  <string name="edit_next">Volgende</string>
+  <string name="edit_done">Opslaan</string>
+  <string name="edit_preview">Voorvertoning</string>
+  <string name="edit_summary_tag_typo">Spelfout gecorrigeerd</string>
+  <string name="edit_summary_tag_grammar">Grammatica gecorrigeerd</string>
+  <string name="edit_summary_tag_links">Koppelingen toegevoegd</string>
+  <string name="edit_summary_tag_other">Overige</string>
+  <string name="edit_summary_tag_other_hint">Andere manier hoe u de pagina heeft verbeterd</string>
+  <string name="find_in_page">Zoek op pagina</string>
+  <string name="find_next">Volgende zoeken</string>
+  <string name="find_previous">Vorige zoeken</string>
+  <string name="find_close">Sluit zoekbalk</string>
 </resources>
