@@ -39,7 +39,7 @@
 
     <string name="last_updated_text">Last updated %s</string>
     <string name="content_license_html"><![CDATA[Content is available under <a href=\"//creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
-    <string name="edit_save_action_license"><![CDATA[By saving, you agree to irrevocably release your contributions under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA 3.0</a> licence.]]></string>
+    <string name="edit_save_action_license"><![CDATA[By saving, you agree to irrevocably release your contributions under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA 3.0</a> license.]]></string>
     <string name="preference_title_language">Wikipedia language</string>
     <string name="preference_summary_language">Content language</string>
     <string name="preference_languages_filter_hint">Search</string>
