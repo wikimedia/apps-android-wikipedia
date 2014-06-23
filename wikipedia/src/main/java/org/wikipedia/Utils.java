@@ -322,7 +322,8 @@ public final class Utils {
      * @return The MCC-MNC, typically as ###-##, or null if unable to ascertain (e.g., no actively used cellular)
      */
     public static String getMccMnc(Context ctx) {
-        String mccMnc = null;
+        String mccMncNetwork;
+        String mccMncSim;
         try {
             ConnectivityManager conn = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo networkInfo = conn.getActiveNetworkInfo();
@@ -331,27 +332,28 @@ public final class Utils {
             {
                 TelephonyManager t = (TelephonyManager)ctx.getSystemService(WikipediaApp.TELEPHONY_SERVICE);
                 if (t != null && t.getPhoneType() >= 0) {
-                    mccMnc = t.getNetworkOperator();
-                    if (mccMnc != null) {
-                        mccMnc = mccMnc.substring(0,3) + "-" + mccMnc.substring(3);
+                    mccMncNetwork = t.getNetworkOperator();
+                    if (mccMncNetwork != null) {
+                        mccMncNetwork = mccMncNetwork.substring(0,3) + "-" + mccMncNetwork.substring(3);
+                    } else {
+                        mccMncNetwork = "000-00";
                     }
 
                     // TelephonyManager documentation refers to MCC-MNC unreliability on CDMA,
-                    // so we'll try to read the SIM and use the SIM MCC-MNC if there's a disagreement.
-                    // There may be a counterargument to go the other way, although we'll go this route for now.
-                    if (t.getPhoneType() == TelephonyManager.PHONE_TYPE_CDMA) {
-                        String simMccMnc = t.getSimOperator();
-                        if (simMccMnc != null) {
-                            simMccMnc = simMccMnc.substring(0,3) + "-" + simMccMnc.substring(3);
-                            if (!simMccMnc.equals(mccMnc)) {
-                                mccMnc = simMccMnc;
-                            }
-                        }
+                    // and we actually see that network and SIM MCC-MNC don't always agree,
+                    // so let's check the SIM, too. Let's not worry if it's CDMA, as the def of CDMA is complex.
+                    mccMncSim = t.getSimOperator();
+                    if (mccMncSim != null) {
+                        mccMncSim = mccMncSim.substring(0,3) + "-" + mccMncSim.substring(3);
+                    } else {
+                        mccMncSim = "000-00";
                     }
+
+                    return mccMncNetwork + "," + mccMncSim;
                 }
             }
-            return mccMnc;
-        } catch (Exception e) {
+            return null;
+        } catch (Throwable t) {
             // Because, despite best efforts, things can go wrong and we don't want to crash the app:
             return null;
         }
