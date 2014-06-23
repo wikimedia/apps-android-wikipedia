@@ -450,7 +450,7 @@ public class PageViewFragment extends Fragment {
         @Override
         public RequestBuilder buildRequest(Api api) {
             RequestBuilder builder =  super.buildRequest(api);
-            builder.param("prop", builder.getParams().get("prop") + "|lastmodified|normalizedtitle|displaytitle|protection|editable");
+            builder.param("prop", builder.getParams().get("prop") + "|" + Page.API_REQUEST_PROPS);
             builder.param("appInstallID", app.getAppInstallReadActionID());
             return builder;
         }

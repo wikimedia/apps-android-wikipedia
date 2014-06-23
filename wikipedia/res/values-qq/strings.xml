@@ -39,6 +39,10 @@
 The Share list contains the following menu items (localized):
 * Mail
 * Message</string>
+  <string name="menu_update_all_saved_pages">Menu item (icon) in saved pages screen to update all saved pages</string>
+  <string name="menu_update_selected_saved_pages">Menu item (icon) in saved pages screen to update selected saved pages</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Prompt before updating all saved pages</string>
+  <string name="toast_saved_page_refreshed">Small toast (popup) message saying that all saved pages were updated</string>
   <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your saved pages</string>
   <string name="dialog_message_clear_saved_pages">Message for dialog box asking if you want to clear all your saved pages</string>
   <string name="toast_saving_page">Small toast (popup) message saying that a page is being saved for offline reading</string>
@@ -242,4 +246,9 @@ See also:
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
   <string name="find_close">Text for button that closes the find-in-page bar</string>
   <string name="error_network_error_try_again">Message shown when encountering network connection issues that may be corrected by simply retrying.</string>
+  <string name="saved_pages_update_all_error_retry">Label for button shown in error dialog when updating saved pages fails that lets user try again</string>
+  <string name="saved_pages_update_all_error_message">Message for error dialog shown when updating pages fails</string>
+  <string name="saved_pages_progress_title">Title for progress dialog shown when updating saved pages</string>
+  <string name="saved_pages_refresh_progress_message">Message for progress dialog shown when updating saved pages. %s represents the name of the page being refreshed</string>
+  <string name="saved_pages_refresh_pages_complete">Toast message shown when a user initiated "update save pages" action has been completed</string>
 </resources>

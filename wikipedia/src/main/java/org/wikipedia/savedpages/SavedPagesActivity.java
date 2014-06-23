@@ -33,6 +33,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class SavedPagesActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -81,25 +82,33 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
                     @Override
                     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                         switch (item.getItemId()) {
+                            case R.id.menu_refresh_selected_saved_pages:
+                                refreshSelected();
+                                actionMode.finish();
+                                return true;
                             case R.id.menu_delete_selected_saved_pages:
-                                SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
-                                for (int i = 0; i < checkedItems.size(); i++) {
-                                    if (checkedItems.valueAt(i)) {
-                                        final SavedPage page = SavedPage.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
-                                        new DeleteSavedPageTask(SavedPagesActivity.this, page) {
-                                            @Override
-                                            public void onFinish(Boolean result) {
-                                                Toast.makeText(SavedPagesActivity.this, R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
-
-                                            }
-                                        }.execute();
-                                    }
-                                }
+                                deleteSelected();
                                 actionMode.finish();
                                 return true;
                             default:
                                 // This can't happen
                                 throw new RuntimeException("Unknown context menu item clicked");
+                        }
+                    }
+
+
+                    private void deleteSelected() {
+                        SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
+                        for (int i = 0; i < checkedItems.size(); i++) {
+                            if (checkedItems.valueAt(i)) {
+                                final SavedPage page = SavedPage.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
+                                new DeleteSavedPageTask(SavedPagesActivity.this, page) {
+                                    @Override
+                                    public void onFinish(Boolean result) {
+                                        Toast.makeText(SavedPagesActivity.this, R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
+                                    }
+                                }.execute();
+                            }
                         }
                     }
 
@@ -231,31 +240,66 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
             case android.R.id.home:
                 finish();
                 return true;
+            case R.id.menu_refresh_all_saved_pages:
+                promptToRefreshAll();
+                return true;
             case R.id.menu_clear_all_saved_pages:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage(R.string.dialog_title_clear_saved_pages);
-                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        new DeleteAllSavedPagesTask(SavedPagesActivity.this) {
-                            @Override
-                            public void onFinish(Void v) {
-                                Toast.makeText(SavedPagesActivity.this, R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
-                            }
-                        }.execute();
-                    }
-                });
-
-                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Uh, do nothing?
-                    }
-                });
-                builder.create().show();
+                promptToDeleteAll();
                 return true;
             default:
                 throw new RuntimeException("Unknown menu item clicked!");
         }
+    }
+
+    private void promptToRefreshAll() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.dialog_prompt_refresh_all_saved_pages);
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                refreshAll();
+            }
+        });
+        builder.setNegativeButton(R.string.no, null);
+        builder.create().show();
+    }
+
+    private void promptToDeleteAll() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.dialog_title_clear_saved_pages);
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                new DeleteAllSavedPagesTask(SavedPagesActivity.this) {
+                    @Override
+                    public void onFinish(Void v) {
+                        Toast.makeText(SavedPagesActivity.this, R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
+                    }
+                }.execute();
+            }
+        });
+        builder.setNegativeButton(R.string.no, null);
+        builder.create().show();
+    }
+
+    private void refreshSelected() {
+        SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
+        ArrayList<SavedPage> savedPages = new ArrayList<SavedPage>();
+        for (int i = 0; i < checkedItems.size(); i++) {
+            if (checkedItems.valueAt(i)) {
+                SavedPage page = SavedPage.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
+                savedPages.add(page);
+            }
+        }
+        new RefreshPagesHandler(SavedPagesActivity.this, savedPages).refresh();
+    }
+
+    private void refreshAll() {
+        ArrayList<SavedPage> savedPages = new ArrayList<SavedPage>();
+        for (int i = 0; i < adapter.getCount(); i++) {
+            SavedPage page = SavedPage.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(i));
+            savedPages.add(page);
+        }
+        new RefreshPagesHandler(SavedPagesActivity.this, savedPages).refresh();
     }
 }

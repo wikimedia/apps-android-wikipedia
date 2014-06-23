@@ -24,6 +24,10 @@
     <string name="dialog_title_clear_history">Clear browsing history?</string>
     <string name="saved_pages_activity_title">Saved pages</string>
     <string name="nav_item_saved_pages">Saved pages</string>
+    <string name="menu_update_all_saved_pages">Update saved pages</string>
+    <string name="menu_update_selected_saved_pages">Update saved pages</string>
+    <string name="dialog_prompt_refresh_all_saved_pages">Update all saved pages?</string>
+    <string name="toast_saved_page_refreshed">Saved pages updated</string>
     <string name="menu_save_page">Save page</string>
     <string name="menu_share_page">Share</string>
     <string name="share_via">Share via</string>
@@ -180,4 +184,9 @@
     <string name="find_previous">Find previous</string>
     <string name="find_close">Close find bar</string>
     <string name="error_network_error_try_again">Could not reach the network, please try again.</string>
+    <string name="saved_pages_update_all_error_retry">Retry</string>
+    <string name="saved_pages_update_all_error_message">Error updating saved pages</string>
+    <string name="saved_pages_progress_title">Refreshing saved pages</string>
+    <string name="saved_pages_refresh_progress_message">Refreshing %s</string>
+    <string name="saved_pages_refresh_pages_complete">Update complete</string>
 </resources>

@@ -17,6 +17,11 @@ public class Page implements Parcelable {
     private final ArrayList<Section> sections;
     private final PageProperties pageProperties;
 
+    /**
+     * The props to send to api=mobileview to get all the data required for filling up Page object
+     */
+    public static final String API_REQUEST_PROPS = "lastmodified|normalizedtitle|displaytitle|protection|editable";
+
     public Page(PageTitle title, ArrayList<Section> sections, PageProperties pageProperties) {
         this.title = title;
         this.sections = sections;

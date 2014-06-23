@@ -21,6 +21,7 @@ public class DeleteAllSavedPagesTask extends SaneAsyncTask<Void> {
         app.getPersister(SavedPage.class).deleteAll();
         // Purge all the contents in storage.
         Utils.delete(new File(SavedPage.getSavedPagesDir()), true);
+        // TODO: don't we need to funnel around, too? ;)
         return null;
     }
 }
