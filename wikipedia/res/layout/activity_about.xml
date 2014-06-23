@@ -53,19 +53,21 @@
                 >
             <TextView android:id="@+id/about_privacy_policy"
                       android:layout_width="0dp" android:layout_height="wrap_content"
-                      style="?android:textAppearanceSmall"
-                      android:text="@string/about_privacy_policy"
                       android:layout_weight="1"
-                      android:gravity="left"
+                      android:gravity="start|left"
+                      style="?android:textAppearanceSmall"
+                      android:layout_gravity="center_horizontal"
+                      android:text="@string/about_privacy_policy"
                       android:paddingTop="4dp"
                       android:paddingBottom="4dp"
                     />
             <TextView android:id="@+id/about_terms_of_use"
                       android:layout_width="0dp" android:layout_height="wrap_content"
-                      style="?android:textAppearanceSmall"
-                      android:text="@string/about_terms_of_use"
-                      android:gravity="right"
                       android:layout_weight="1"
+                      style="?android:textAppearanceSmall"
+                      android:layout_gravity="center_horizontal"
+                      android:gravity="end|right"
+                      android:text="@string/about_terms_of_use"
                       android:paddingTop="4dp"
                       android:paddingBottom="4dp"
                     />
@@ -110,6 +112,17 @@
                 android:layout_marginBottom="8dp"
                 />
 
+        <TextView
+                android:id="@+id/send_feedback_text"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/send_feedback"
+                android:gravity="center_horizontal"
+                style="?android:textAppearanceSmall"
+                android:textColor="#555"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                />
+
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:layout_marginTop="8dp"
@@ -125,16 +138,6 @@
                       android:textColor="#555"
                     />
         </LinearLayout>
-
-        <TextView
-                android:id="@+id/send_feedback_text"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/send_feedback"
-                android:gravity="center_horizontal"
-                style="?android:textAppearanceSmall"
-                android:textColor="#555"
-                android:layout_marginTop="8dp"
-                />
 
     </LinearLayout>
 </ScrollView>
