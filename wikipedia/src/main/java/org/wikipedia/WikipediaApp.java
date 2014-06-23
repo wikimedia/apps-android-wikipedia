@@ -43,7 +43,7 @@ import java.util.UUID;
         resDialogTitle = R.string.acra_report_dialog_title,
         resDialogText = R.string.acra_report_dialog_text,
         resDialogCommentPrompt = R.string.acra_report_dialog_comment,
-        mailTo = "mobile-android-wikipedia@wikimedia.org")
+        mailTo = "mobile-android-wikipedia-crashes@wikimedia.org")
 public class WikipediaApp extends Application {
     private Bus bus;
 
