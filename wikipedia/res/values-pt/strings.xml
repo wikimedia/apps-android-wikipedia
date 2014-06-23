@@ -80,7 +80,8 @@
   <string name="create_account_username_hint">Nome de utilizador</string>
   <string name="create_account_password_hint">Palavra-chave</string>
   <string name="menu_create_account">Criar conta</string>
-  <string name="login_create_account_link" fuzzy="true">Criar conta</string>
+  <string name="login_create_account_link">Não tem ainda uma conta? Junte-se à Wikipédia</string>
+  <string name="create_account_login_link">Já possui uma conta? Inicie sessão</string>
   <string name="create_account_activity_title">Criar uma conta</string>
   <string name="edit_section_activity_title">Editar Secção</string>
   <string name="dialog_create_account_checking_progress">A verificar</string>
@@ -93,6 +94,8 @@
   <string name="create_account_open_proxy_error">Este endereço de IP está bloqueado de criar contas.</string>
   <string name="create_account_generic_error">Não foi possível criar conta</string>
   <string name="create_account_no_network">Nenhuma conexão de rede</string>
+  <string name="create_account_next">Seguinte</string>
+  <string name="create_account_button">Criar conta</string>
   <string name="preferences_general_heading">Geral</string>
   <string name="zero_charged_verbiage">Wikipédia Zero está desligada</string>
   <string name="zero_search_hint">Procurar na Wikipédia Zero</string>
@@ -129,7 +132,7 @@
   <string name="edit_save_action_ip_description">Suas edições serão publicamente atribuídas ao seu endereço de IP, o qual é alterado com frequência</string>
   <string name="preference_title_eventlogging_opt_in">Enviar relatórios de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recolha informações sobre o uso da aplicação para elaborar melhorias</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">Ligações a sítios bloqueados (%s) detectados. Por favor, remova-os e tente novamente.</string>
+  <string name="editing_error_spamblacklist">Ligações a sítios bloqueados (%s) detectados. Por favor, remova-os e tente novamente.</string>
   <string name="history_search_list_hint">Pesquisar</string>
   <string name="page_protected_autoconfirmed">Esta página foi semi-protegida.</string>
   <string name="page_protected_sysop">Esta página foi totalmente protegida.</string>
@@ -145,4 +148,5 @@
   <string name="user_anon_blocked_from_editing">O seu endereço IP está bloqueado.</string>
   <string name="edit_done">Gravar</string>
   <string name="edit_preview">Antevisão</string>
+  <string name="error_network_error_try_again">Não foi possível aceder à rede, tente novamente por favor.</string>
 </resources>

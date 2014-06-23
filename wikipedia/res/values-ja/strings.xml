@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">ウィキペディア</string>
-  <string name="app_name_beta">ウィキペディア・ベータ版</string>
+  <string name="app_name_beta">ウィキペディア・ベータ</string>
   <string name="yes">はい</string>
   <string name="no">いいえ</string>
   <string name="acra_report_dialog_title">「ウィキペディア」アプリがクラッシュしました :(</string>
   <string name="acra_report_dialog_text">クラッシュレポートを送信</string>
   <string name="acra_report_dialog_comment">クラッシュした際に何をしていましたか?</string>
-  <string name="search_hint">ウィキペディア内を検索</string>
+  <string name="search_hint">ウィキペディアを検索</string>
   <string name="history_activity_title">履歴</string>
   <string name="nav_item_history">履歴</string>
   <string name="error_network_error">ネットワークがつながりません :(</string>
@@ -34,7 +34,7 @@
   <string name="toast_saved_page_deleted">保存されたページを削除しました</string>
   <string name="last_updated_text">最終更新: %s</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
-  <string name="edit_save_action_license">保存するとあなたの投稿は&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;ライセンスの下で公開することになります。これは取り消せません。</string>
+  <string name="edit_save_action_license">保存すると、あなたの投稿内容を&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;ライセンスのもとで公開することに同意したと見なされます。これは撤回できません。</string>
   <string name="preference_title_language">ウィキペディアの言語</string>
   <string name="preference_summary_language">コンテンツの言語</string>
   <string name="preference_languages_filter_hint">検索</string>
@@ -83,8 +83,8 @@
   <string name="create_account_username_hint">利用者名</string>
   <string name="create_account_password_hint">パスワード</string>
   <string name="menu_create_account">アカウント作成</string>
-  <string name="login_create_account_link">アカウントをお持ちではありませんか? ウィキペディアに参加しましょう</string>
-  <string name="create_account_login_link">アカウントを既にお持ちの場合はログインしてください</string>
+  <string name="login_create_account_link">アカウントをお持ちではない場合は、こちらからウィキペディアに参加してください</string>
+  <string name="create_account_login_link">アカウントを既にお持ちの場合は、こちらからログインしてください</string>
   <string name="create_account_activity_title">アカウント作成</string>
   <string name="edit_section_activity_title">セクションを編集</string>
   <string name="dialog_create_account_checking_progress">検証中</string>
@@ -118,7 +118,7 @@
   <string name="zero_settings">設定</string>
   <string name="zero_settings_devmode">ゼロ開発者モード</string>
   <string name="zero_settings_devmode_summary">開発者モードではウィキペディアゼロのコード実行が有効になります</string>
-  <string name="edit_preview_fetching_dialog_message">プレビュー取得中…</string>
+  <string name="edit_preview_fetching_dialog_message">プレビューを取得中...</string>
   <string name="edit_preview_activity_title">編集をプレビュー</string>
   <string name="create_account_logging_in">ログイン中...</string>
   <string name="send_feedback">フィードバックを送る</string>
@@ -137,7 +137,7 @@
   <string name="edit_save_action_ip_description">編集内容はあなたのIPアドレスからの編集として公開されます。IPアドレスは頻繁に変わります。</string>
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">このアプリを改善するため、アプリの使用情報をウィキメディアが集めることを許可する</string>
-  <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へののリンクを検出しました。除去してからやり直してください。</string>
+  <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
   <string name="history_search_list_hint">検索</string>
   <string name="history_search_empty_message">「%s」に一致するページは見つかりませんでした</string>
   <string name="error_can_not_process_link">このリンクを表示できませんでした。</string>

@@ -31,7 +31,7 @@
   <string name="toast_save_page_failed">Збереження сторінки не вдалося виконати :(</string>
   <string name="toast_refresh_saved_page">Перезавантаження збереженої сторінки…</string>
   <string name="delete_selected_saved_pages">Вилучити</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Збережені сторінки видалені</string>
+  <string name="toast_saved_page_deleted">Збережені сторінки видалені</string>
   <string name="last_updated_text">Останнє оновлення %1$s</string>
   <string name="content_license_html">Вміст доступний згідно з &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.uk\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
   <string name="edit_save_action_license">Зберігаючи Ви погоджуєтесь невідклично опублікувати Ваші редагування за умовами ліцензії &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -75,11 +75,16 @@
   <string name="login_error_no_network">Немає з\'єднання з мережею</string>
   <string name="nav_item_logout">Вийти</string>
   <string name="preference_title_logout">Вийти із системи</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Немає збережених сторінок.</string>
+  <string name="preference_summary_logout">Вийти зі свого облікового запису Вікіпедії</string>
+  <string name="preference_summary_notloggedin">Ви не ввійшли до системи.</string>
+  <string name="toast_logout_complete">Ви вийшли із системи</string>
+  <string name="saved_pages_empty_message">Немає збережених сторінок</string>
   <string name="history_empty_message">Ваша історія порожня.</string>
   <string name="create_account_username_hint">Ім\'я користувача</string>
   <string name="create_account_password_hint">Пароль</string>
-  <string name="login_create_account_link" fuzzy="true">Створити обліковий запис</string>
+  <string name="menu_create_account">Створити обліковий запис</string>
+  <string name="login_create_account_link">Немає облікового запису? Приєднайтесь до Вікіпедії</string>
+  <string name="create_account_login_link">Ви вже зареєстровані? Увійдіть</string>
   <string name="create_account_activity_title">Створити обліковий запис</string>
   <string name="edit_section_activity_title">Редагувати розділ</string>
   <string name="dialog_create_account_checking_progress">Перевірка</string>
@@ -91,8 +96,12 @@
   <string name="create_account_ip_throttle_error">Занадто багато облікових записів, створених з цієї IP адреси. Повторіть спробу пізніше.</string>
   <string name="create_account_open_proxy_error">Ця IP-адреса було заблокована від створення облікового запису.</string>
   <string name="create_account_generic_error">Неможливо створити обліковий запис</string>
+  <string name="create_account_no_network">Немає з\'єднання з мережею</string>
+  <string name="create_account_next">Далі</string>
+  <string name="create_account_button">Створити обліковий запис</string>
   <string name="preferences_general_heading">Загальні</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Вікіпедія Zero ВИМКНЕНА (МОЖЕ СТЯГУВАТИСЯ СТАНДАРТНА ПЛАТА ЗА ПЕРЕДАЧУ ДАНИХ)</string>
+  <string name="zero_charged_verbiage">Вікіпедія Zero вимкнена</string>
+  <string name="zero_charged_verbiage_extended">При завантаженні інших статей може стягуватися плата за передачу даних.</string>
   <string name="zero_search_hint">Пошук по Вікіпедії Zero</string>
   <string name="zero_warn_when_leaving">Попередити, якщо залишити Вікіпедії Zero</string>
   <string name="zero_warn_when_leaving_summary">Якщо ваш мобільний оператор не бере плату за доступ до даних з програми Вікіпедії через партнерство Вікіпедія Zero включення цього параметра допоможе вам знати, коли ви залишаєте додаток Вікіпедії, і може почати стягуватися плата за трафік</string>
@@ -100,11 +109,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Вікіпедія Zero</string>
   <string name="zero_interstitial_title">Покидаємо Вікіпедія Zero</string>
-  <string name="zero_interstitial_leave_app" fuzzy="true">Продовжити перехід на зовнішній сайт? За це може стягуватися стандартна плата за передачу даних.</string>
-  <string name="zero_interstitial_continue" fuzzy="true">Продовжити</string>
-  <string name="zero_interstitial_cancel" fuzzy="true">Скасувати</string>
-  <string name="zero_learn_more" fuzzy="true">Хочете дізнатися про Вікіпедія Zero?</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Дізнатися більше</string>
+  <string name="zero_interstitial_leave_app">Може стягуватися плата за передачу даних. Продовжити перехід на зовнішній сайт?</string>
+  <string name="zero_interstitial_continue">Залишити</string>
+  <string name="zero_interstitial_cancel">Залишитися тут</string>
+  <string name="zero_learn_more">Плата за передачу даних не стягується для цього додатка Вікіпедії.</string>
+  <string name="zero_learn_more_learn_more">Читати більше</string>
   <string name="zero_learn_more_dismiss">Відхилити</string>
   <string name="zero_settings">Налаштування</string>
   <string name="zero_settings_devmode">Режим разрбника Zero</string>
@@ -112,7 +121,8 @@
   <string name="edit_preview_fetching_dialog_message">Отримання попереднього перегляду...</string>
   <string name="edit_preview_activity_title">Попередній перегляд редагування</string>
   <string name="create_account_logging_in">Входження до системи…</string>
-  <string name="edit_summary_guide_text" fuzzy="true">Розкажіть нам, як ви поліпшили цю статтю. Це допомагає іншим редакторам швидко відстежити вашу правку.</string>
+  <string name="send_feedback">Надіслати відгук про програму</string>
+  <string name="edit_summary_guide_text">Розкажіть нам, як ви поліпшили цю сторінку. Це допомагає іншим редакторам швидко відстежити вашу правку.</string>
   <string name="edit_summary_hint">Редагувати підсумок</string>
   <string name="nav_item_random">Випадково</string>
   <string name="random_progress">Вибірка випадкової сторінки...</string>
@@ -125,4 +135,44 @@
   <string name="edit_save_action_ip">Зберегти анонімно</string>
   <string name="edit_save_action_login_description">Ваші правки будуть публічно пов\'язані з вашим ім\'ям учасника, та іншим редакторам буде простіше зв\'язатися з вами</string>
   <string name="edit_save_action_ip_description">Ваші правки будуть публічно пов\'язані з вашою IP-адресою, яка може часто змінюватися</string>
+  <string name="preference_title_eventlogging_opt_in">Надсилати звіти про використання</string>
+  <string name="preference_summary_eventlogging_opt_in">Дозволити Вікімедіа збір інформації про те, як Ви використовуєте додаток, щоб зробити його кращим</string>
+  <string name="editing_error_spamblacklist">Виявлено посилання на заблоковані домени (%s). Будь ласка, вилучіть їх і спробуйте знову.</string>
+  <string name="history_search_list_hint">Пошук</string>
+  <string name="history_search_empty_message">Не знайдено сторінок із \'%s\'</string>
+  <string name="error_can_not_process_link">Не вдалося відобразити це посилання</string>
+  <string name="page_protected_autoconfirmed">Ця сторінка частково захищена.</string>
+  <string name="page_protected_sysop">Ця сторінка повністю захищена.</string>
+  <string name="page_protected_other">Ця сторінка захищена до наступних рівнів: %s</string>
+  <string name="page_protected_can_not_edit">У Вас немає прав на редагування цієї сторінки</string>
+  <string name="page_protected_can_not_edit_title">Цю сторінку захищено</string>
+  <string name="more_item_preferences">Більше</string>
+  <string name="more_activity_title">Більше</string>
+  <string name="about_description">Про додаток Вікіпедії</string>
+  <string name="preference_title_version">Версія</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Умови використання&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Політика конфіденційності&lt;/a&gt;</string>
+  <string name="about_libraries_heading">використовувані бібліотеки</string>
+  <string name="about_contributors_heading">співавтори</string>
+  <string name="about_wmf">Продукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
+  <string name="about_activity_title">Про программу</string>
+  <string name="edit_unchanged">Сторінку не було змінено.</string>
+  <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
+  <string name="user_blocked_from_editing_title">Заблоковано</string>
+  <string name="user_logged_in_blocked_from_editing">Ваш обліковий запис користувача заблокований для редагування цієї вікі.</string>
+  <string name="user_anon_blocked_from_editing">Вашу IP-адресу було заблоковано для редагування.</string>
+  <string name="edit_how_page_improved">Як Ви поліпшили сторінку?</string>
+  <string name="edit_next">Далі</string>
+  <string name="edit_done">Зберегти</string>
+  <string name="edit_preview">Попередній перегляд</string>
+  <string name="edit_summary_tag_typo">Виправлена описка</string>
+  <string name="edit_summary_tag_grammar">Виправлена граматика</string>
+  <string name="edit_summary_tag_links">Додано посилання</string>
+  <string name="edit_summary_tag_other">Інше</string>
+  <string name="edit_summary_tag_other_hint">Інші аспекти, в яких Ви поліпшили сторінку</string>
+  <string name="find_in_page">Знайти на сторінці</string>
+  <string name="find_next">Знайти наступне</string>
+  <string name="find_previous">Знайти попереднє</string>
+  <string name="find_close">Закрити панель пошуку</string>
+  <string name="error_network_error_try_again">Не вдалося з\'єднатися з мережею, будь-ласка, спробуйте знову.</string>
 </resources>

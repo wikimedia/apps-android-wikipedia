@@ -33,6 +33,8 @@
   <string name="delete_selected_saved_pages">حذف</string>
   <string name="toast_saved_page_deleted">حُذفت الصفحة/الصفحات المحفوظة</string>
   <string name="last_updated_text">آخر تحديث %s</string>
+  <string name="content_license_html">المحتوى متوفر تحت رخصة  &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; إلا إذا ذكر غير ذلك.</string>
+  <string name="edit_save_action_license">بضغط حفط، أنت توافق من غير رجعة على نشر مساهماتك تحت رخصة &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">لغة ويكيبيديا</string>
   <string name="preference_summary_language">لغة المحتوى</string>
   <string name="preference_languages_filter_hint">بحث</string>
@@ -98,28 +100,50 @@
   <string name="create_account_next">التالي</string>
   <string name="create_account_button">أنشئ حسابا</string>
   <string name="preferences_general_heading">عام</string>
+  <string name="zero_charged_verbiage">ويكيبيديا زيرو موقوفة</string>
+  <string name="zero_charged_verbiage_extended">قد يتطلب تحميل مقالات أخرى دفع رسوم بيانات.</string>
   <string name="zero_search_hint">ابحث في ويكيبيديا زيرو</string>
   <string name="zero_warn_when_leaving">قم بالتحذير عند ترك ويكيبيديا زيرو</string>
+  <string name="zero_warn_when_leaving_summary">إذا تنازل مشغل خدمة الجوال أو المحمول الخاص بك عن رسوم الوصول إلى البيانات لتطبيق ويكيبيديا من خلال شراكة ويكيبيديا زيرو، فإن ترك هذا الإعداد سيساعدك على التحقق من متى يتم ترك تطبيق ويكيبيديا ودفع رسوم.</string>
+  <string name="zero_webpage_title">الأسئلة المتكررة لويكيبيديا زيرو</string>
+  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">ويكيبيديا زيرو</string>
+  <string name="zero_interstitial_title">ترك ويكيبيديا زيرو</string>
+  <string name="zero_interstitial_leave_app">قد يتم احتساب رسوم على البيانات، هل تريد الذهاب إلى الموقع الخارجي؟</string>
   <string name="zero_interstitial_continue">غادر</string>
   <string name="zero_interstitial_cancel">ابقى هنا</string>
+  <string name="zero_learn_more">تم التنازل عن رسوم البيانات لهذا التطبيق الخاص بويكيبيديا.</string>
   <string name="zero_learn_more_learn_more">اقرأ المزيد</string>
   <string name="zero_learn_more_dismiss">أغلق</string>
   <string name="zero_settings">الإعدادات</string>
+  <string name="zero_settings_devmode">زيرو في وضع التطوير البرمجي.</string>
+  <string name="zero_settings_devmode_summary">يمكن هذا أثناء التطوير من تنفيذ الشفرة المصدرية الخاصة بأشياء ويكيبيديا زيرو.</string>
   <string name="edit_preview_fetching_dialog_message">يجري إعداد معاينة...</string>
   <string name="edit_preview_activity_title">معاينة التعديل</string>
   <string name="create_account_logging_in">يجري تسجيل دخولك...</string>
+  <string name="send_feedback">أرسل ملاحظات على التطبيق</string>
+  <string name="edit_summary_guide_text">أخبرنا كيف قمت بتحسين هذه الصفحة. هذا الأمر سيساعد المحررين على مراجعة تعديلك بسرعة.</string>
   <string name="edit_summary_hint">ملخص التعديل</string>
   <string name="nav_item_random">عشوائي</string>
   <string name="random_progress">جلب صفحة عشوائية...</string>
+  <string name="nav_item_login_benefits">إذا قمت بتسجيل الدخول فإن تعديلاتك ستنسب إلى اسم المتسخدم الخاص بك عوضاً عن عنوان الآي بي، ولن يظهر عنوان للملأ.</string>
   <string name="create_account_account_created_toast">تم إنشاء الحساب!</string>
   <string name="user_contribs_more_action">تحميل المزيد</string>
   <string name="activity_my_contributions_title">مساهماتي</string>
   <string name="nav_item_my_contributions">مساهماتي</string>
   <string name="edit_save_action_login">سجل الدخول واحفظ</string>
   <string name="edit_save_action_ip">احفظ كمستخدم مجهول</string>
+  <string name="edit_save_action_login_description">سيتم نسب تعديلاتك لاسم المستخدم الخاص بك علانيةً وسيتمكن المحررون الأخرون من التواصل معك بطريقة أفضل.</string>
+  <string name="edit_save_action_ip_description">ستنسب تعديلاتك إلى عنوان الآي بي الخاص بك والذي يتغير بصورة دورية</string>
+  <string name="preference_title_eventlogging_opt_in">أرسل تقارير الاستخدام</string>
+  <string name="preference_summary_eventlogging_opt_in">اسمح لويكيميديا بجمع معلومات حول كيفية استخدام التطبيق لتحسينه</string>
+  <string name="editing_error_spamblacklist">تم اكتشاف روابط لنطاقات ممنوعة:  (%s). الرجاء إزالة هذه النطاقات والمحاولة مرة أخرى.</string>
   <string name="history_search_list_hint">بحث</string>
+  <string name="history_search_empty_message">لم يتم العثور على صفحات مطابقة ل\'%s\'</string>
   <string name="error_can_not_process_link">لم يكن بالإمكان عرض هذا الرابط</string>
+  <string name="page_protected_autoconfirmed">تم حماية هذه الصفحة جزئياً.</string>
+  <string name="page_protected_sysop">تم حماية هذه الصفحة بالكامل.</string>
+  <string name="page_protected_other">تم حماية هذه الصفحة إلى المستويات التالية: %s</string>
   <string name="page_protected_can_not_edit">ليس لديك الصلاحية لتحرير هذه الصفحة</string>
   <string name="page_protected_can_not_edit_title">هذه الصفحة محمية</string>
   <string name="more_item_preferences">المزيد</string>
@@ -130,9 +154,13 @@
   <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;سياسة الخصوصية&lt;/a&gt;</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
+  <string name="about_wmf">منتج من منتجات &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">عن</string>
   <string name="edit_unchanged">لم يتم تعديل الصفحة.</string>
+  <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
   <string name="user_blocked_from_editing_title">ممنوع</string>
+  <string name="user_logged_in_blocked_from_editing">تم منع حسابك من تعديل هذه الويكي.</string>
+  <string name="user_anon_blocked_from_editing">تم منع عنوان الآي بي الخاص بك من التعديل.</string>
   <string name="edit_how_page_improved">كيف قمت بتحسين الصفحة؟</string>
   <string name="edit_next">التالي</string>
   <string name="edit_done">حفظ</string>
@@ -146,4 +174,5 @@
   <string name="find_next">البحث عن التالي</string>
   <string name="find_previous">البحث عن السابق</string>
   <string name="find_close">أغلق شريط البحث</string>
+  <string name="error_network_error_try_again">تعذر الوصول للشبكة، الرجاء المحاولة لاحقاً.</string>
 </resources>

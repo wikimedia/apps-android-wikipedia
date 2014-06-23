@@ -83,7 +83,8 @@
   <string name="create_account_username_hint">Nume de utilizator</string>
   <string name="create_account_password_hint">Parolă</string>
   <string name="menu_create_account">Creare cont</string>
-  <string name="login_create_account_link" fuzzy="true">Creare cont</string>
+  <string name="login_create_account_link">Nu aveți un cont? Alăturați-vă Wikipediei</string>
+  <string name="create_account_login_link">Aveți deja un cont? Autentificați-vă</string>
   <string name="create_account_activity_title">Creare cont</string>
   <string name="edit_section_activity_title">Modificare secțiune</string>
   <string name="dialog_create_account_checking_progress">Se verifică</string>
@@ -96,6 +97,8 @@
   <string name="create_account_open_proxy_error">Această adresă IP a fost blocată la crearea de conturi.</string>
   <string name="create_account_generic_error">Nu s-a putut crea contul</string>
   <string name="create_account_no_network">Nicio conexiune la rețea</string>
+  <string name="create_account_next">Înainte</string>
+  <string name="create_account_button">Creează cont</string>
   <string name="preferences_general_heading">General</string>
   <string name="zero_charged_verbiage">Wikipedia Zero este dezactivată</string>
   <string name="zero_charged_verbiage_extended">Încărcarea altor articole poate declanșa costuri pentru trafic de date.</string>
@@ -134,7 +137,7 @@
   <string name="edit_save_action_ip_description">Modificările dumneavoastră vor fi atribuite în mod public adresei dumnevoastră IP, care se schimbă frecvent</string>
   <string name="preference_title_eventlogging_opt_in">Trimite rapoarte de utilizare</string>
   <string name="preference_summary_eventlogging_opt_in">Permiteți Wikimediei să adune informații despre modul în care utilizați aplicația pentru a putea îmbunătăți aplicația</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>
+  <string name="editing_error_spamblacklist">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>
   <string name="history_search_list_hint">Căutare</string>
   <string name="history_search_empty_message">Nicio pagină care să corespundă cu „%s”</string>
   <string name="error_can_not_process_link">Nu se poate afișa această legătură</string>
@@ -171,4 +174,5 @@
   <string name="find_next">Găsește următorul</string>
   <string name="find_previous">Găsește precedentul</string>
   <string name="find_close">Închide bara de căutare</string>
+  <string name="error_network_error_try_again">Imposibil de conectat la rețea; încercați din nou.</string>
 </resources>

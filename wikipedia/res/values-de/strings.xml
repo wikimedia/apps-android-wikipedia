@@ -137,7 +137,7 @@
   <string name="edit_save_action_ip_description">Deine Bearbeitungen werden öffentlich deiner IP-Adresse zugeordnet, die sich regelmäßig ändert.</string>
   <string name="preference_title_eventlogging_opt_in">Nutzungsberichte senden</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlauben, Informationen über die Verwendung der App zu sammeln, um sie zu verbessern.</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">Es wurden Links von gesperrten Domains (%s) entdeckt. Bitte entferne sie und versuche es erneut.</string>
+  <string name="editing_error_spamblacklist">Es wurden Links zu gesperrten Domains (%s) entdeckt. Bitte entferne sie und versuche es erneut.</string>
   <string name="history_search_list_hint">Suche</string>
   <string name="history_search_empty_message">Es wurden keine Seiten mit „%s“ gefunden</string>
   <string name="error_can_not_process_link">Dieser Link konnte nicht angezeigt werden</string>

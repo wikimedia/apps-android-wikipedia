@@ -75,7 +75,7 @@
   <string name="login_error_no_network">Geen netwerkverbinding</string>
   <string name="nav_item_logout">Afmelden</string>
   <string name="preference_title_logout">Afmelden</string>
-  <string name="preference_summary_logout">Log uit van uw Wikipedia-account</string>
+  <string name="preference_summary_logout">Afmelden uit uw Wikipedia-account</string>
   <string name="preference_summary_notloggedin">Niet aangemeld.</string>
   <string name="toast_logout_complete">Afgemeld</string>
   <string name="saved_pages_empty_message">Geen opgeslagen pagina\'s</string>
@@ -83,7 +83,8 @@
   <string name="create_account_username_hint">Gebruikersnaam</string>
   <string name="create_account_password_hint">Wachtwoord</string>
   <string name="menu_create_account">Registreren</string>
-  <string name="login_create_account_link" fuzzy="true">Gebruiker aanmaken</string>
+  <string name="login_create_account_link">Nog niet geregistreerd? Word lid van Wikipedia</string>
+  <string name="create_account_login_link">Hebt u al een gebruiker? Aanmelden</string>
   <string name="create_account_activity_title">Gebruiker aanmaken</string>
   <string name="edit_section_activity_title">Paragraaf bewerken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
@@ -96,6 +97,8 @@
   <string name="create_account_open_proxy_error">Vanaf dit IP-adres mogen geen gebruikers aangemaakt worden.</string>
   <string name="create_account_generic_error">Het was niet mogelijk een gebruiker aan te maken</string>
   <string name="create_account_no_network">Geen netwerkverbinding</string>
+  <string name="create_account_next">Volgende</string>
+  <string name="create_account_button">Registreren</string>
   <string name="preferences_general_heading">Algemeen</string>
   <string name="zero_charged_verbiage">Wikipedia Zero is uitgeschakeld</string>
   <string name="zero_charged_verbiage_extended">Het laden van andere artikelen kan datakosten met zich meebrengen.</string>
@@ -134,7 +137,7 @@
   <string name="edit_save_action_ip_description">Uw bewerkingen worden openbaar toegeschreven aan uw IP-adres, dat mogelijk vaak wijzigt</string>
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
   <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe ik de app gebruik om de app te verbeteren</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">Links van geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
+  <string name="editing_error_spamblacklist">Links naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
   <string name="history_search_list_hint">Zoeken</string>
   <string name="history_search_empty_message">Geen pagina\'s die overeenkomen met \'%s\'</string>
   <string name="error_can_not_process_link">Kon de link niet weergeven</string>
@@ -170,5 +173,6 @@
   <string name="find_in_page">Zoek op pagina</string>
   <string name="find_next">Volgende zoeken</string>
   <string name="find_previous">Vorige zoeken</string>
-  <string name="find_close">Sluit zoekbalk</string>
+  <string name="find_close">Zoekbalk sluiten</string>
+  <string name="error_network_error_try_again">Kon het netwerk niet bereiken, gelieve opnieuw te proberen.</string>
 </resources>

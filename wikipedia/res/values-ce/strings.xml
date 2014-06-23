@@ -10,7 +10,7 @@
   <string name="page_error_retry">ЮхагӀорта</string>
   <string name="menu_clear_all_history">ДӀацӀане истори?</string>
   <string name="dialog_title_clear_history" fuzzy="true">ДӀацӀане истори?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Ӏалашйина агӀонаш</string>
+  <string name="saved_pages_activity_title">Ӏалашйина агӀонаш</string>
   <string name="nav_item_saved_pages" fuzzy="true">Ӏалашйина агӀонаш</string>
   <string name="menu_save_page" fuzzy="true">Ӏалашйе агӀо</string>
   <string name="menu_share_page">Екха</string>
@@ -50,11 +50,12 @@
   <string name="login_error_unknown">Чудаха цаделира :(</string>
   <string name="login_error_no_network">ЗӀе цахилар</string>
   <string name="nav_item_logout">Болх дӀаберзор</string>
+  <string name="preference_title_logout">Болх дӀаберзор</string>
   <string name="saved_pages_empty_message" fuzzy="true">Ӏалашйина агӀонаш яц.</string>
   <string name="history_empty_message">Хьа истори еса ю.</string>
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
   <string name="create_account_password_hint">Пароль</string>
-  <string name="login_create_account_link" fuzzy="true">Кхолла декъашхочун дӀаяздар</string>
+  <string name="login_create_account_link">Кхолла декъашхочун дӀаяздар</string>
   <string name="create_account_activity_title">Кхолла декъашхочун дӀаяздар</string>
   <string name="edit_section_activity_title">Таде дакъа</string>
   <string name="dialog_create_account_checking_progress">Хьажар</string>
@@ -64,16 +65,17 @@
   <string name="create_account_email_error">Магийна доцу электронан почтан адрес</string>
   <string name="create_account_username_exists_error">Иштта декъашхочун цӀе йолуш ю</string>
   <string name="create_account_generic_error">Декъашхочун дӀаяздар кхолла йиш яц</string>
+  <string name="create_account_next">Кхин дӀа</string>
   <string name="preferences_general_heading">Юкъара</string>
   <string name="zero_search_hint">Wikipedia Zero чухула лахар</string>
   <string name="zero_warn_when_leaving">Wikipedia Zero чура ара долуш хаам бе</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Wikipedia Zero чура арадолу</string>
-  <string name="zero_interstitial_continue" fuzzy="true">Кхин дӀа</string>
-  <string name="zero_interstitial_cancel" fuzzy="true">Цаоьшу</string>
-  <string name="zero_learn_more" fuzzy="true">Лаьий хьуна Wikipedia Zero лаьцна хаа?</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Цул совнаха хаа</string>
+  <string name="zero_interstitial_continue">Кхин дӀа</string>
+  <string name="zero_interstitial_cancel">Цаоьшу</string>
+  <string name="zero_learn_more">Лаьий хьуна Wikipedia Zero лаьцна хаа?</string>
+  <string name="zero_learn_more_learn_more">Цул совнаха хаа</string>
   <string name="zero_learn_more_dismiss">ДӀачӀагӀа</string>
   <string name="zero_settings">Параметраш</string>
   <string name="zero_settings_devmode">Zero кеч ечун раж</string>
@@ -83,4 +85,9 @@
   <string name="edit_summary_hint">Хийцамах лаьцна</string>
   <string name="random_progress">Цахууш нисъелла агӀо харжар...</string>
   <string name="user_contribs_more_action">Чуяха кхин</string>
+  <string name="history_search_list_hint">Лаха</string>
+  <string name="edit_next">Кхин дӀа</string>
+  <string name="edit_done">Ӏалашдан</string>
+  <string name="edit_preview">Хьажар</string>
+  <string name="edit_summary_tag_other">Кхин</string>
 </resources>

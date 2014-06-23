@@ -83,7 +83,8 @@
   <string name="create_account_username_hint">Nom d’utilisateur</string>
   <string name="create_account_password_hint">Mot de passe</string>
   <string name="menu_create_account">Créer un compte</string>
-  <string name="login_create_account_link" fuzzy="true">Créer un compte</string>
+  <string name="login_create_account_link">Vous n’avez pas de compte ? Rejoignez Wikipédia</string>
+  <string name="create_account_login_link">Vous avez déjà un compte ? Connectez-vous</string>
   <string name="create_account_activity_title">Créer un compte</string>
   <string name="edit_section_activity_title">Modifier la section</string>
   <string name="dialog_create_account_checking_progress">Vérification en cours</string>
@@ -96,6 +97,8 @@
   <string name="create_account_open_proxy_error">Cette adresse IP a été bloquée pour la création de comptes.</string>
   <string name="create_account_generic_error">Impossible de créer le compte</string>
   <string name="create_account_no_network">Aucune connexion au réseau</string>
+  <string name="create_account_next">Suivant</string>
+  <string name="create_account_button">Créer un compte</string>
   <string name="preferences_general_heading">Général</string>
   <string name="zero_charged_verbiage">Wikipédia Zéro est désactivé</string>
   <string name="zero_charged_verbiage_extended">Charger d’autres articles peut entraîner des frais de données.</string>
@@ -134,7 +137,7 @@
   <string name="edit_save_action_ip_description">Vos modifications seront attribuées publiquement à votre adresse IP, qui change régulièrement</string>
   <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">Liens depuis des domaines bloqués (%s) détectés. Veuillez les supprimer et réessayer.</string>
+  <string name="editing_error_spamblacklist">Liens vers les domaines bloqués (%s) détectés. Veuillez les supprimer et réessayer.</string>
   <string name="history_search_list_hint">Rechercher</string>
   <string name="history_search_empty_message">Aucune page trouvée correspondant à « %s »</string>
   <string name="error_can_not_process_link">Impossible d’afficher ce lien</string>
@@ -171,4 +174,5 @@
   <string name="find_next">Rechercher le suivant</string>
   <string name="find_previous">Rechercher le précédent</string>
   <string name="find_close">Fermer la barre de recherche</string>
+  <string name="error_network_error_try_again">Impossible d’atteindre le réseau, veuillez réessayer.</string>
 </resources>

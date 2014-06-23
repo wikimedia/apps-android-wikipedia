@@ -104,7 +104,10 @@
   <string name="zero_charged_verbiage_extended">Muiden artikkeleiden lataamisesta saattaa aiheutua datamaksuja.</string>
   <string name="zero_search_hint">Etsi Wikipedia Zerosta</string>
   <string name="zero_warn_when_leaving">Varoita poistuttaessa Wikipedia Zerosta</string>
+  <string name="zero_webpage_title">Usein kysyttyjä kysymyksiä Wikipedia Zerosta</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
+  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+  <string name="zero_interstitial_title">Poistutaan Wikipedia Zerosta</string>
   <string name="zero_interstitial_continue">Poistu</string>
   <string name="zero_interstitial_cancel">Pysy täällä</string>
   <string name="zero_learn_more_learn_more">Lue lisää</string>
@@ -133,6 +136,7 @@
   <string name="preference_summary_eventlogging_opt_in">Salli Wikimedian kerätä tietoja siitä, miten käytät sovellusta, jotta sovellusta voidaan parantaa</string>
   <string name="editing_error_spamblacklist">Havaittu linkkejä estettyihin verkko-osoitteisiin (%s). Poista ne ja yritä uudelleen.</string>
   <string name="history_search_list_hint">Hae</string>
+  <string name="history_search_empty_message">Hakusanaa \'%s\' vastaavia sivuja ei löytynyt</string>
   <string name="error_can_not_process_link">Tätä linkkiä ei voitu näyttää</string>
   <string name="page_protected_autoconfirmed">Tämä sivu on osittain suojattu.</string>
   <string name="page_protected_sysop">Tämä sivu on kokonaan suojattu.</string>

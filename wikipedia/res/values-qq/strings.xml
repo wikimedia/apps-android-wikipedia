@@ -23,6 +23,7 @@
   <string name="menu_clear_all_history">Menu item text for clearing your reading history.
 {{Identical|Clear history}}</string>
   <string name="menu_clear_all_bookmarks">Menu item text for clearing bookmarks</string>
+  <string name="menu_clear_all_saved_pages">Clear is an imperative verb. This is an action that clears all saved pages.</string>
   <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="saved_pages_activity_title">Title for screen that shows list of saved pages.
@@ -57,6 +58,7 @@ See also:
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license">HTML specifying Terms of Use and CC license before saving edits</string>
   <string name="preference_title_language">Title for preference in settings screen for setting which language wikipedia to use.</string>
+  <string name="preference_summary_language">A label for a setting that chooses the language in which the content of Wikipedia will be shown.</string>
   <string name="preference_languages_filter_hint">Placeholder text for the textbox that when typed filters list of language wikipedias from which user can pick a language to use.
 {{Identical|Search}}</string>
   <string name="langlinks_filter_hint">{{Identical|Search}}</string>
@@ -69,7 +71,7 @@ See also:
 {{Identical|Settings}}</string>
   <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in.
 {{Identical|Otherlanguages}}</string>
-  <string name="menu_save_changes">Menu item text for saving edits.</string>
+  <string name="menu_save_changes">{{Identical|Save changes}}</string>
   <string name="edit_section_error_retry">Text for button that retries page loading when tapped.
 {{Identical|Retry}}</string>
   <string name="dialog_saving_in_progress">Text for progress dialog shown when an edit save is in progress.
@@ -83,6 +85,10 @@ See also:
   <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article.
 {{Identical|Table of contents}}</string>
   <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>
+  <string name="edit_section_captcha_message">A label for the CAPTCHA screen.</string>
+  <string name="edit_section_captcha_hint">A call to action to write the CAPTCHA string.</string>
+  <string name="title_captcha">A call to action to write the CAPTCHA string.</string>
+  <string name="edit_section_captcha_reload">Call to action. \"Tap\" is imperative verb, \"touch the touchscreen\".</string>
   <string name="edit_saved_page_refresh">Dialog text that asks the user if they want to refresh the saved page, so that editing would be enabled.</string>
   <string name="nav_item_login">{{Identical|Log in}}</string>
   <string name="login_username_hint">{{Identical|Username}}</string>
@@ -90,20 +96,41 @@ See also:
   <string name="login_password_show_check">Used as label for the checkbox to mask/unmask password.</string>
   <string name="menu_login">{{Identical|Log in}}</string>
   <string name="login_activity_title">Used as window title.</string>
-  <string name="login_error_wrong_username">Used as error message if the specified user does not exist.</string>
-  <string name="login_error_blocked">Used as alert message.</string>
+  <string name="login_in_progress_dialog_message">A bubble that describes the in-progress action.</string>
+  <string name="login_error_wrong_password">An error message.
+{{Related|Wikipedia-android-strings-login error}}</string>
+  <string name="login_error_wrong_username">Used as error message if the specified user does not exist.
+{{Related|Wikipedia-android-strings-login error}}</string>
+  <string name="login_success_toast">A bubble that appears after logging in.</string>
+  <string name="login_error_blocked">Used as alert message.
+{{Related|Wikipedia-android-strings-login error}}</string>
+  <string name="login_error_throttled">An error message.
+{{Related|Wikipedia-android-strings-login error}}</string>
+  <string name="login_error_unknown">Used as alert message.
+{{Related|Wikipedia-android-strings-login error}}</string>
+  <string name="login_error_no_network">Used as alert message.
+{{Related|Wikipedia-android-strings-login error}}</string>
   <string name="nav_item_logout">{{Identical|Log out}}</string>
   <string name="preference_title_logout">{{Identical|Log out}}</string>
   <string name="preference_summary_logout">Summary of what logging out means.</string>
-  <string name="preference_summary_notloggedin">Summary that states the user is not logged in.</string>
+  <string name="preference_summary_notloggedin">{{Identical|Not logged in}}</string>
   <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.
 {{Identical|Logged out}}</string>
+  <string name="saved_pages_empty_message">Used in \"Saved pages\" page if there are no saved pages to show.</string>
+  <string name="history_empty_message">Used in \"Browsing history\" page if there is nothing to show.</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
   <string name="create_account_password_hint">{{Identical|Password}}</string>
   <string name="menu_create_account">{{Identical|Create account}}</string>
-  <string name="login_create_account_link">Link text on Login screen to go to Create Account screen</string>
-  <string name="create_account_login_link">Link text on Create Account screen to go to Login screen</string>
+  <string name="login_create_account_link">Link text on Login screen to go to Create Account screen.
+
+See also:
+* {{msg-wm|Wikipedia-android-strings-create account login link}}</string>
+  <string name="create_account_login_link">Link text on Create Account screen to go to Login screen.
+
+See also:
+* {{msg-wm|Wikipedia-android-strings-login create account link}}</string>
   <string name="create_account_activity_title">{{Identical|Create account}}</string>
+  <string name="create_account_password_repeat_hint">{{Identical|Repeat password}}</string>
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
   <string name="create_account_username_exists_error">Used as error message on creating a user account.</string>
   <string name="create_account_no_network">Message shown when the network is unavailable during account creation</string>
@@ -135,6 +162,7 @@ See also:
   <string name="zero_settings_devmode_summary">Prerelease explanation text explaining that Wikipedia Zero Devmode on means that Wikipedia Zero detection will be turned on</string>
   <string name="create_account_logging_in">{{Identical|Logging in}}</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
+  <string name="edit_summary_guide_text">An imperative message, which appears after starting to save an edit.</string>
   <string name="edit_summary_hint">{{Identical|Edit summary}}</string>
   <string name="nav_item_random">{{Identical|Random}}</string>
   <string name="random_progress">Message shown in progress popup dialog while waiting for a random article to be fetched</string>
@@ -159,18 +187,26 @@ See also:
 * {{msg-wm|Wikipedia-android-strings-edit save action login description}}</string>
   <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
+  <string name="editing_error_spamblacklist">An error message, which appears after trying to save a page with blacklisted links.</string>
   <string name="history_search_list_hint">Hint for textbox that searches list of items in browsing history as user types.
 {{Identical|Search}}</string>
-  <string name="history_search_empty_message">Message shown when no history itmes were found that match the user\'s query. %s is replaced with the query string.</string>
+  <string name="history_search_empty_message">Message shown when no history items were found that match the user\'s query. %s is replaced with the query string.</string>
   <string name="error_can_not_process_link">Message shown in a toast when the app encounters a link it can not process.</string>
   <string name="page_protected_autoconfirmed">Message shown to users when editing a semi-protected page</string>
   <string name="page_protected_sysop">Message shown to users when editing a fully protected page</string>
   <string name="page_protected_other">Message shown to users when editing a page that is protected with a custom level of protection. %s refers to the name of the protection level. Examples include \'templateeditor\' on enwiki.</string>
   <string name="page_protected_can_not_edit">Message in dialog box telling the user that they can not edit this page because it is protected.</string>
   <string name="page_protected_can_not_edit_title">Title of dialog box telling the user that they can not edit this page because it is protected.</string>
-  <string name="more_item_preferences">Text for the item in the nav menu to go to the More screen.
+  <string name="more_item_preferences">Used as menu item in the nav menu to go to the Settings screen.
+
+The title for the Settings screen is {{msg-wm|Wikipedia-android-strings-more activity title}}.
+
+See screenshot [[commons:File:Wikipedia Android app menu open.png]]
 {{Identical|More}}</string>
-  <string name="more_activity_title">Title at the top of the More screen.
+  <string name="more_activity_title">Title at the top of the More (Settings) screen.
+
+See also:
+* {{msg-wm|Wikipedia-android-strings-more item preferences}} - menu item to come to this screen
 {{Identical|More}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
   <string name="preference_title_version">Text for the preference item that shows the app version number.
@@ -184,7 +220,7 @@ See also:
   <string name="about_activity_title">Text for the preference item to show the About screen.</string>
   <string name="edit_unchanged">Message displayed when the user tries to save a page when no modifications were made.</string>
   <string name="edit_abandon_confirm">Prompt for the user to abandon any changes that were made during editing.</string>
-  <string name="user_blocked_from_editing_title">Title of dialog box that pops up when user (anon or logged in) is blocked</string>
+  <string name="user_blocked_from_editing_title">{{Identical|Blocked}}</string>
   <string name="user_logged_in_blocked_from_editing">Message shown in dialog box to users who are blocked from editing when they attempt to save an edit</string>
   <string name="user_anon_blocked_from_editing">Message shown in dialog box to users who are blocked from editing based on their IP address</string>
   <string name="edit_how_page_improved">Question that asks the user how they improved the article after editing</string>
