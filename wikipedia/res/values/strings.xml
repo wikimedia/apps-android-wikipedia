@@ -91,7 +91,7 @@
     <string name="login_create_account_link">Don\'t have an account? Join Wikipedia</string>
     <string name="create_account_login_link">Already have an account? Log in</string>
     <string name="create_account_activity_title">Create an account</string>
-    <string name="edit_section_activity_title">Edit Section</string>
+    <string name="edit_section_activity_title">Edit section</string>
     <string name="dialog_create_account_checking_progress">Verifying</string>
     <string name="create_account_email_hint">Email (Optional)</string>
     <string name="create_account_password_repeat_hint">Repeat password</string>
@@ -103,7 +103,7 @@
     <string name="create_account_generic_error">Could not create account</string>
     <string name="create_account_no_network">No network connection</string>
     <string name="create_account_next">Next</string>
-    <string name="create_account_button">Create Account</string>
+    <string name="create_account_button">Create account</string>
     <string name="preferences_general_heading">General</string>
     <string name="zero_charged_verbiage">Wikipedia Zero is off</string>
     <string name="zero_charged_verbiage_extended">Loading other articles may incur data charges.</string>
