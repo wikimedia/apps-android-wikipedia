@@ -1,50 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:padding="16dp"
-        >
-    <EditText
-            android:id="@+id/login_username_text"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light">
+
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="?android:textAppearanceMedium"
-            android:hint="@string/login_username_hint"
-            android:inputType="textNoSuggestions"
-            android:singleLine="true"
-            />
-    <EditText
-            android:id="@+id/login_password_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            style="?android:textAppearanceMedium"
-            android:hint="@string/login_password_hint"
-            android:imeOptions="actionDone"
-            />
-    <CheckBox
-            android:id="@+id/login_show_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:text="@string/login_password_show_check"
-            style="?android:textAppearanceMedium"
-            />
+            android:padding="16dp"
+            >
 
-    <!-- Padding to push the create account to the bottom -->
-    <View android:layout_width="match_parent" android:layout_height="0dp"
-          android:layout_weight="1" />
+        <EditText
+                android:id="@+id/login_username_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:textAppearanceMedium"
+                android:hint="@string/login_username_hint"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                />
+        <EditText
+                android:id="@+id/login_password_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                style="?android:textAppearanceMedium"
+                android:hint="@string/login_password_hint"
+                android:imeOptions="actionDone"
+                />
 
-    <TextView
-            android:id="@+id/login_create_account_link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:padding="8dp"
-            android:text="@string/login_create_account_link"
-            style="?android:textAppearanceMedium"
-            />
+        <Button
+                android:id="@+id/login_button"
+                style="@style/button_progressive"
+                android:text="@string/menu_login"
+                android:enabled="false"
+                />
 
-</LinearLayout>
+        <!-- Padding to push the create account to the bottom -->
+        <View android:layout_width="match_parent" android:layout_height="0dp"
+              android:layout_weight="1" />
+
+        <TextView
+                android:id="@+id/login_create_account_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:padding="8dp"
+                android:text="@string/login_create_account_link"
+                style="?android:textAppearanceSmall"
+                android:textColor="@color/link"
+                />
+    </LinearLayout>
+</ScrollView>

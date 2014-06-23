@@ -1,58 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light">
+
+    <FrameLayout
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-        >
-    <LinearLayout
-            android:id="@+id/create_account_primary_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp"
-            >
-        <EditText
-                android:id="@+id/create_account_username"
+              android:layout_height="wrap_content"
+              >
+        <LinearLayout
+                android:id="@+id/create_account_primary_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/create_account_username_hint"
-                android:singleLine="true"
-                android:inputType="textNoSuggestions"
-                />
+                android:orientation="vertical"
+                android:padding="16dp"
+                >
+            <EditText
+                    android:id="@+id/create_account_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_account_username_hint"
+                    android:singleLine="true"
+                    android:inputType="textNoSuggestions"
+                    />
 
-        <EditText
-                android:id="@+id/create_account_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/create_account_password_hint"
-                android:singleLine="true"
-                android:inputType="textPassword"
-                />
+            <EditText
+                    android:id="@+id/create_account_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_account_password_hint"
+                    android:singleLine="true"
+                    android:inputType="textPassword"
+                    />
 
-        <EditText
-                android:id="@+id/create_account_password_repeat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/create_account_password_repeat_hint"
-                android:singleLine="true"
-                android:inputType="textPassword"
-                />
+            <EditText
+                    android:id="@+id/create_account_password_repeat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_account_password_repeat_hint"
+                    android:singleLine="true"
+                    android:inputType="textPassword"
+                    />
 
-        <CheckBox
-                android:id="@+id/create_account_show_password"
-                android:text="@string/login_password_show_check"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            <CheckBox
+                    android:id="@+id/create_account_show_password"
+                    android:text="@string/login_password_show_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
 
-        <EditText
-                android:id="@+id/create_account_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/create_account_email_hint"
-                android:singleLine="true"
-                android:inputType="textEmailAddress"
-                />
-    </LinearLayout>
+            <EditText
+                    android:id="@+id/create_account_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_account_email_hint"
+                    android:singleLine="true"
+                    android:inputType="textEmailAddress"
+                    />
 
-    <include layout="@layout/group_captcha" />
-</FrameLayout>
+            <Button
+                    android:id="@+id/create_account_submit_button"
+                    android:text="@string/create_account_next"
+                    style="@style/button_progressive"
+                    android:enabled="false"
+                    />
+        </LinearLayout>
+
+        <include layout="@layout/group_captcha" />
+    </FrameLayout>
+</ScrollView>

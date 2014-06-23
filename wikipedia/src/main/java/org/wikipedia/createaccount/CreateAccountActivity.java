@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -52,6 +52,9 @@ public class CreateAccountActivity extends ActionBarActivity {
 
     private CheckBox showPasswordCheck;
 
+    private Button createAccountButton;
+    private Button createAccountButtonCaptcha;
+
     private View primaryContainer;
 
     private WikipediaApp app;
@@ -61,6 +64,7 @@ public class CreateAccountActivity extends ActionBarActivity {
     private CaptchaHandler captchaHandler;
 
     private NonEmptyValidator nonEmptyValidator;
+    private NonEmptyValidator nonEmptyValidatorCaptcha;
 
     private CreateAccountResult createAccountResult;
 
@@ -82,13 +86,18 @@ public class CreateAccountActivity extends ActionBarActivity {
         emailEdit = (EditText) findViewById(R.id.create_account_email);
         primaryContainer = findViewById(R.id.create_account_primary_container);
         showPasswordCheck = (CheckBox) findViewById(R.id.create_account_show_password);
+        createAccountButton = (Button) findViewById(R.id.create_account_submit_button);
+        createAccountButtonCaptcha = (Button) findViewById(R.id.captcha_submit_button);
+        EditText captchaText = (EditText) findViewById(R.id.captcha_text);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.setMessage(getString(R.string.dialog_create_account_checking_progress));
 
-        captchaHandler = new CaptchaHandler(this, app.getPrimarySite(), progressDialog, primaryContainer, getString(R.string.create_account_activity_title));
+        captchaHandler = new CaptchaHandler(this, app.getPrimarySite(), progressDialog, primaryContainer,
+                                            getString(R.string.create_account_activity_title),
+                                            getString(R.string.create_account_button));
 
         // We enable the menu item as soon as the username and password fields are filled
         // Tapping does further validation
@@ -112,9 +121,30 @@ public class CreateAccountActivity extends ActionBarActivity {
         nonEmptyValidator = new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
             @Override
             public void onValidationChanged(boolean isValid) {
-                supportInvalidateOptionsMenu();
+                createAccountButton.setEnabled(isValid);
             }
         }, usernameEdit, passwordEdit, passwordRepeatEdit);
+
+        nonEmptyValidatorCaptcha = new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
+            @Override
+            public void onValidationChanged(boolean isValid) {
+                createAccountButtonCaptcha.setEnabled(isValid);
+            }
+        }, captchaText);
+
+        createAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validator.validate();
+            }
+        });
+
+        createAccountButtonCaptcha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validator.validate();
+            }
+        });
 
         Utils.setupShowPasswordCheck(showPasswordCheck, passwordEdit);
         showPasswordCheck.setOnClickListener(new View.OnClickListener() {
@@ -162,13 +192,6 @@ public class CreateAccountActivity extends ActionBarActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable("result", createAccountResult);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_create_account, menu);
-        menu.findItem(R.id.menu_create_account).setEnabled(nonEmptyValidator.isValid());
-        return true;
     }
 
     public void handleError(CreateAccountResult result) {
@@ -260,9 +283,6 @@ public class CreateAccountActivity extends ActionBarActivity {
             case android.R.id.home:
                 Utils.hideSoftKeyboard(this);
                 finish();
-                return true;
-            case R.id.menu_create_account:
-                validator.validate();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

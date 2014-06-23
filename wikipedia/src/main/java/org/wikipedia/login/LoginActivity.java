@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,8 +32,7 @@ public class LoginActivity extends ActionBarActivity {
 
     private EditText usernameText;
     private EditText passwordText;
-    private CheckBox showPassword;
-    private View createAccountLink;
+    private View loginButton;
 
     private NonEmptyValidator nonEmptyValidator;
 
@@ -55,13 +52,12 @@ public class LoginActivity extends ActionBarActivity {
 
         usernameText = (EditText) findViewById(R.id.login_username_text);
         passwordText = (EditText) findViewById(R.id.login_password_text);
-        showPassword = (CheckBox) findViewById(R.id.login_show_password);
-        createAccountLink = findViewById(R.id.login_create_account_link);
+        View createAccountLink = findViewById(R.id.login_create_account_link);
 
         nonEmptyValidator = new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
             @Override
             public void onValidationChanged(boolean isValid) {
-                supportInvalidateOptionsMenu();
+                loginButton.setEnabled(isValid);
             }
         }, usernameText, passwordText);
 
@@ -76,7 +72,13 @@ public class LoginActivity extends ActionBarActivity {
             }
         });
 
-        Utils.setupShowPasswordCheck(showPassword, passwordText);
+        loginButton = findViewById(R.id.login_button);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doLogin();
+            }
+        });
 
         createAccountLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,13 +117,6 @@ public class LoginActivity extends ActionBarActivity {
         } else {
             funnel.logCreateAccountFailure();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_login, menu);
-        menu.findItem(R.id.menu_login).setEnabled(nonEmptyValidator.isValid());
-        return true;
     }
 
     private void doLogin() {
@@ -176,9 +171,6 @@ public class LoginActivity extends ActionBarActivity {
             case android.R.id.home:
                 Utils.hideSoftKeyboard(LoginActivity.this);
                 finish();
-                break;
-            case R.id.menu_login:
-                doLogin();
                 break;
             default:
                 throw new RuntimeException("Some menu item case is not handled");
