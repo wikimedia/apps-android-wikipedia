@@ -55,7 +55,7 @@
   <string name="search_no_results_found">検索結果なし</string>
   <string name="edit_section_captcha_message">自動投稿スパム避けのため、以下に表示される言葉を入力してください</string>
   <string name="edit_section_captcha_hint">上記の言葉を繰り返してください</string>
-  <string name="title_captcha">Captcha を入力</string>
+  <string name="title_captcha">CAPTCHA を入力</string>
   <string name="edit_section_abusefilter_back_text">編集を変更する</string>
   <string name="edit_section_captcha_reload">タップするとCAPTCHAを再読み込みします</string>
   <string name="edit_saved_page_refresh">この保存されたページは期限切れかもしれません。編集するには更新する必要があります。ページを更新しますか?</string>

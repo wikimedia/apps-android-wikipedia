@@ -31,7 +31,7 @@
   <string name="toast_refresh_saved_page">A recarregar página gravada...</string>
   <string name="delete_selected_saved_pages">Eliminar</string>
   <string name="toast_saved_page_deleted">Página(s) gravada(s) eliminada(s)</string>
-  <string name="last_updated_text">Última atualização há $1</string>
+  <string name="last_updated_text">Última atualização há %s</string>
   <string name="content_license_html" fuzzy="true">O conteúdo está disponível sob &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
   <string name="edit_save_action_license">Ao gravar, concorda irrevogavelmente em publicar as suas contribuições sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Idioma da Wikipédia</string>

@@ -61,7 +61,7 @@
   <string name="create_account_username_hint">באַניצער נאָמען</string>
   <string name="create_account_password_hint">פאַסווארט</string>
   <string name="menu_create_account">שאַפֿן אַ קאנטע</string>
-  <string name="login_create_account_link" fuzzy="true">שאַפֿן קאנטע</string>
+  <string name="login_create_account_link">איר האט נישט קיין קאנטע?טרעט ארײַן מיט וויקיפעדיע</string>
   <string name="create_account_activity_title">שאַפֿן אַ קאנטע</string>
   <string name="create_account_passwords_mismatch_error">פאסווערטער שטימען נישט</string>
   <string name="create_account_generic_error">מען קען נישט באשאפֿן קאנטע</string>

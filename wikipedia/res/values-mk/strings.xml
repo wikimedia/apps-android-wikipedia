@@ -137,7 +137,7 @@
   <string name="edit_save_action_ip_description">Вашите уредувања ќе ѝ бидат јавно припишани на Вашата IP-адреса, која често се менува</string>
   <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите прилогот, за да може да го подобри</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
+  <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
   <string name="history_search_list_hint">Пребарај</string>
   <string name="history_search_empty_message">Не пронајдов страници што одговараат на „%s“</string>
   <string name="error_can_not_process_link">Не можам да ја прикажам оваа врска</string>
