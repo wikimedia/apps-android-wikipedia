@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import com.squareup.picasso.Callback;
@@ -17,20 +18,18 @@ import org.wikipedia.ViewAnimations;
 
 public class CaptchaHandler {
     private final Activity activity;
-
-    private View captchaContainer;
-    private View captchaProgress;
-    private ImageView captchaImage;
-    private EditText captchaText;
-    private Site site;
+    private final View captchaContainer;
+    private final View captchaProgress;
+    private final ImageView captchaImage;
+    private final EditText captchaText;
+    private final Site site;
+    private final View primaryView;
+    private final String prevTitle;
     private ProgressDialog progressDialog;
-    private View primaryView;
-
-    private String prevTitle;
-
     private CaptchaResult captchaResult;
 
-    public CaptchaHandler(final Activity activity, final Site site, final ProgressDialog progressDialog, final View primaryView, final String prevTitle) {
+    public CaptchaHandler(final Activity activity, final Site site, final ProgressDialog progressDialog,
+                          final View primaryView, final String prevTitle, final String submitButtonText) {
         this.activity = activity;
         this.site = site;
         this.progressDialog = progressDialog;
@@ -41,6 +40,12 @@ public class CaptchaHandler {
         captchaImage = (ImageView) activity.findViewById(R.id.captcha_image);
         captchaText = (EditText) activity.findViewById(R.id.captcha_text);
         captchaProgress = activity.findViewById(R.id.captcha_image_progress);
+        Button submitButton = (Button) activity.findViewById(R.id.captcha_submit_button);
+
+        if (submitButtonText != null) {
+            submitButton.setText(submitButtonText);
+            submitButton.setVisibility(View.VISIBLE);
+        }
 
         captchaImage.setOnClickListener(new View.OnClickListener() {
             @Override

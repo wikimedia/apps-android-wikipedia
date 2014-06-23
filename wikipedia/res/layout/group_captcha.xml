@@ -7,14 +7,17 @@
         android:gravity="center"
         android:background="@android:color/background_light"
         android:orientation="vertical"
+        android:padding="16dp"
         android:visibility="gone"
         >
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                                              android:text="@string/edit_section_captcha_message"
-                                              style="?android:textAppearanceMedium"
-                                              android:layout_margin="16dp"
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_section_captcha_message"
+            style="?android:textAppearanceMedium"
+            android:layout_margin="0dp"
             />
-    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
         <ImageView
                 android:id="@+id/captcha_image"
                 android:layout_gravity="center_horizontal"
@@ -27,23 +30,32 @@
                 android:indeterminate="true"
                 style="?android:progressBarStyleSmall"
                 android:visibility="gone"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"/>
     </FrameLayout>
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                                              android:text="@string/edit_section_captcha_reload"
-                                              style="?android:textAppearanceSmall"
-                                              android:gravity="center"
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_section_captcha_reload"
+            style="?android:textAppearanceSmall"
+            android:gravity="center"
             />
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
-                                                android:layout_margin="16dp"
-                                                style="?android:textAppearanceMedium"
-                                                android:layout_gravity="center_horizontal"
-                                                android:id="@+id/captcha_text"
-                                                android:hint="@string/edit_section_captcha_hint"
-                                                android:padding="8dp"
-                                                android:singleLine="true"
-                                                android:inputType="textNoSuggestions"
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            style="?android:textAppearanceMedium"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/captcha_text"
+            android:hint="@string/edit_section_captcha_hint"
+            android:singleLine="true"
+            android:inputType="textNoSuggestions"
             />
+    <Button
+            android:id="@+id/captcha_submit_button"
+            android:text="@string/create_account_button"
+            style="@style/button_progressive"
+            android:enabled="false"
+            android:visibility="gone"/>
 
 </LinearLayout>

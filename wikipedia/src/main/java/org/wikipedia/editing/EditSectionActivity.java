@@ -126,7 +126,7 @@ public class EditSectionActivity extends ActionBarActivity {
         abusefilterBridge.injectStyleBundle(app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_ABUSEFILTER, title.getSite()));
         abuseFilterBackAction = findViewById(R.id.edit_section_abusefilter_back);
 
-        captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, "");
+        captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, "", null);
 
         editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
         editSummaryFragment = (EditSummaryFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_summary_fragment);
