@@ -202,6 +202,9 @@ public class PageActivity extends ActionBarActivity {
 
     @Subscribe
     public void onPageSaveEvent(SavePageEvent event) {
+        if (curPageFragment == null) {
+            return;
+        }
         // This means the user explicitly chose to save a new saved pages
         app.getFunnelManager().getSavedPagesFunnel(curPageFragment.getTitle().getSite()).logSaveNew();
 
@@ -210,6 +213,9 @@ public class PageActivity extends ActionBarActivity {
 
     @Subscribe
     public void onSharePageEvent(SharePageEvent event) {
+        if (curPageFragment == null) {
+            return;
+        }
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
         shareIntent.putExtra(Intent.EXTRA_TEXT, curPageFragment.getTitle().getCanonicalUri());
@@ -221,6 +227,9 @@ public class PageActivity extends ActionBarActivity {
 
     @Subscribe
     public void onOtherLanguagesEvent(ShowOtherLanguagesEvent event) {
+        if (curPageFragment == null) {
+            return;
+        }
         Intent shareIntent = new Intent();
         shareIntent.setClass(this, LangLinksActivity.class);
         shareIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
@@ -230,6 +239,9 @@ public class PageActivity extends ActionBarActivity {
 
     @Subscribe
     public void onShowToCEvent(ShowToCEvent event) {
+        if (curPageFragment == null) {
+            return;
+        }
         curPageFragment.toggleToC();
     }
 
