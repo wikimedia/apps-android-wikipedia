@@ -41,9 +41,7 @@ public class StyleFetcherTask extends RecurringTask {
         Site site = ((WikipediaApp) context.getApplicationContext()).getPrimarySite();
         try {
             return String.format(
-                    // This points to betalabs, which shows the master version of the styles used
-                    // Should switch to production bits URL before release.
-                    "http://bits.beta.wmflabs.org/%s.wikipedia.beta.wmflabs.org/load.php?debug=true&lang=en&modules=%s&only=styles&skin=vector&version=&*",
+                    "https://bits.wikimedia.org/%s.wikipedia.org/load.php?debug=false&lang=en&modules=%s&only=styles&skin=vector",
                     site.getLanguage(),
                     URLEncoder.encode(modules, "utf-8")
             );
