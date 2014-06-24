@@ -229,7 +229,8 @@ public class CreateAccountActivity extends ActionBarActivity {
             @Override
             public void onCatch(Throwable caught) {
                 Log.d("Wikipedia", "Caught " + caught.toString());
-                if (progressDialog == null) {
+                if (!progressDialog.isShowing()) {
+                    // no longer attached to activity!
                     return;
                 }
                 progressDialog.dismiss();
@@ -238,7 +239,8 @@ public class CreateAccountActivity extends ActionBarActivity {
 
             @Override
             public void onFinish(final CreateAccountResult result) {
-                if (progressDialog == null) {
+                if (!progressDialog.isShowing()) {
+                    // no longer attached to activity!
                     return;
                 }
                 createAccountResult = result;
@@ -291,11 +293,9 @@ public class CreateAccountActivity extends ActionBarActivity {
 
     @Override
     public void onStop() {
-        super.onStop();
-        captchaHandler.onStop();
-        if (progressDialog != null && progressDialog.isShowing()) {
+        if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
-        progressDialog = null;
+        super.onStop();
     }
 }

@@ -110,6 +110,9 @@ public class EditSectionActivity extends ActionBarActivity {
         pageProps = getIntent().getParcelableExtra(EXTRA_PAGE_PROPS);
 
         progressDialog = new ProgressDialog(this);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage(getString(R.string.dialog_saving_in_progress));
 
         getSupportActionBar().setTitle("");
 
@@ -247,9 +250,6 @@ public class EditSectionActivity extends ActionBarActivity {
     }
 
     private void doSave() {
-        progressDialog.setIndeterminate(true);
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage(getString(R.string.dialog_saving_in_progress));
         captchaHandler.hideCaptcha();
         editSummaryFragment.saveSummary();
         app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetreivedCallback() {
@@ -272,7 +272,8 @@ public class EditSectionActivity extends ActionBarActivity {
 
                     @Override
                     public void onCatch(Throwable caught) {
-                        if (progressDialog == null) {
+                        if (!progressDialog.isShowing()) {
+                            // no longer attached to activity!
                             return;
                         }
                         if (caught instanceof EditingException) {
@@ -362,7 +363,8 @@ public class EditSectionActivity extends ActionBarActivity {
 
                     @Override
                     public void onFinish(EditingResult result) {
-                        if (progressDialog == null) {
+                        if (!progressDialog.isShowing()) {
+                            // no longer attached to activity!
                             return;
                         }
                         if (result instanceof SuccessEditResult) {
@@ -404,9 +406,6 @@ public class EditSectionActivity extends ActionBarActivity {
     }
 
     private void handleAbuseFilter() {
-        if (progressDialog == null) {
-            return;
-        }
         if (abusefilterEditResult == null) {
             return;
         }
@@ -431,7 +430,9 @@ public class EditSectionActivity extends ActionBarActivity {
             }
         });
 
-        progressDialog.dismiss();
+        if (progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
     }
 
 
@@ -626,16 +627,14 @@ public class EditSectionActivity extends ActionBarActivity {
 
     @Override
     protected void onStop() {
-        super.onStop();
-        captchaHandler.onStop();
-        if (progressDialog != null && progressDialog.isShowing()) {
+        if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
-        progressDialog = null;
         if (bus != null) {
             bus.unregister(this);
             bus = null;
             Log.d("Wikipedia", "Deregistering bus");
         }
+        super.onStop();
     }
 }

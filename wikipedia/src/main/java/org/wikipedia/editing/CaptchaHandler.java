@@ -97,11 +97,10 @@ public class CaptchaHandler {
                 .into(captchaImage, new Callback() {
                     @Override
                     public void onSuccess() {
-                        if (progressDialog == null) {
-                            return;
-                        }
                         ((ActionBarActivity)activity).getSupportActionBar().setTitle(R.string.title_captcha);
-                        progressDialog.hide();
+                        if (progressDialog.isShowing()) {
+                            progressDialog.hide();
+                        }
 
                         // In case there was a captcha attempt before
                         captchaText.setText("");
@@ -141,8 +140,4 @@ public class CaptchaHandler {
         return builder;
     }
 
-    public void onStop() {
-        // dialog will be dismissed by parent activity
-        progressDialog = null;
-    }
 }

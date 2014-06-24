@@ -25,22 +25,13 @@ public class RefreshPagesHandler {
     private int savedPagesCompleted = 0;
     private final List<SavedPage> savedPages;
     private final Context context;
+    private ProgressDialog progressDialog;
 
     public RefreshPagesHandler(Context context, List<SavedPage> savedPages) {
         this.savedPages = savedPages;
         this.context = context;
-    }
 
-    /**
-     * Start refreshing the saved pages.
-     *
-     * This function returns after starting the refresh and does not block
-     */
-    public void refresh() {
-        // Reset flags
-        isRefreshCancelled = false;
-        savedPagesCompleted = 0;
-        final ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog = new ProgressDialog(context);
         progressDialog.setIndeterminate(false);
         progressDialog.setMax(savedPages.size());
         progressDialog.setProgress(0);
@@ -52,6 +43,24 @@ public class RefreshPagesHandler {
                 isRefreshCancelled = true;
             }
         });
+    }
+
+    public void onStop() {
+        if (progressDialog.isShowing()) {
+            isRefreshCancelled = true;
+            progressDialog.dismiss();
+        }
+    }
+
+    /**
+     * Start refreshing the saved pages.
+     *
+     * This function returns after starting the refresh and does not block
+     */
+    public void refresh() {
+        // Reset flags
+        isRefreshCancelled = false;
+        savedPagesCompleted = 0;
         progressDialog.show();
         for (int i = 0; i < savedPages.size(); i++) {
             final SavedPage savedPage = savedPages.get(i);
@@ -71,6 +80,11 @@ public class RefreshPagesHandler {
 
                     @Override
                     public void onFinish(List<Section> result) {
+                        if (!progressDialog.isShowing()) {
+                            isRefreshCancelled = true;
+                            // no longer attached to activity!
+                            return;
+                        }
                         savedPagesCompleted++;
                         progressDialog.setProgress(savedPagesCompleted);
                         Log.d("Wikipedia", "Count is " + savedPagesCompleted + " of " + savedPages.size());
@@ -84,6 +98,10 @@ public class RefreshPagesHandler {
                     @Override
                     public void onCatch(Throwable caught) {
                         isRefreshCancelled = true;
+                        if (!progressDialog.isShowing()) {
+                            // no longer attached to activity!
+                            return;
+                        }
                         progressDialog.dismiss();
                         getErrorDialog().show();
                     }

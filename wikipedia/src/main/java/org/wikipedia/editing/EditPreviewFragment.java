@@ -108,6 +108,10 @@ public class EditPreviewFragment extends Fragment {
             }
         }
 
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage(getString(R.string.edit_preview_fetching_dialog_message));
+        progressDialog.setCancelable(false);
     }
 
     public void setCustomSummary(String summary) {
@@ -163,10 +167,6 @@ public class EditPreviewFragment extends Fragment {
      */
     public void showPreview(PageTitle title, String wikiText) {
         Utils.hideSoftKeyboard(getActivity());
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage(getString(R.string.edit_preview_fetching_dialog_message));
-        progressDialog.setCancelable(false);
 
         new EditPreviewTask(getActivity(), wikiText, title) {
             @Override
@@ -176,7 +176,8 @@ public class EditPreviewFragment extends Fragment {
 
             @Override
             public void onFinish(String result) {
-                if (progressDialog == null) {
+                if (!progressDialog.isShowing()) {
+                    // no longer attached to activity!
                     return;
                 }
                 displayPreview(result);
@@ -261,10 +262,9 @@ public class EditPreviewFragment extends Fragment {
 
     @Override
     public void onDetach() {
-        super.onDetach();
-        if (progressDialog != null && progressDialog.isShowing()) {
+        if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
-        progressDialog = null;
+        super.onDetach();
     }
 }

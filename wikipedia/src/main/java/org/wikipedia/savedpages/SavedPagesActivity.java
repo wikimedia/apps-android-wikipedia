@@ -42,6 +42,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
     private ListView savedPagesList;
     private View savedPagesEmpty;
     private SavedPagesAdapter adapter;
+    private RefreshPagesHandler refreshHandler;
 
     private WikipediaApp app;
 
@@ -292,7 +293,8 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
                 savedPages.add(page);
             }
         }
-        new RefreshPagesHandler(SavedPagesActivity.this, savedPages).refresh();
+        refreshHandler = new RefreshPagesHandler(SavedPagesActivity.this, savedPages);
+        refreshHandler.refresh();
     }
 
     private void refreshAll() {
@@ -301,6 +303,15 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
             SavedPage page = SavedPage.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(i));
             savedPages.add(page);
         }
-        new RefreshPagesHandler(SavedPagesActivity.this, savedPages).refresh();
+        refreshHandler = new RefreshPagesHandler(SavedPagesActivity.this, savedPages);
+        refreshHandler.refresh();
+    }
+
+    @Override
+    public void onStop() {
+        if (refreshHandler != null) {
+            refreshHandler.onStop();
+        }
+        super.onStop();
     }
 }

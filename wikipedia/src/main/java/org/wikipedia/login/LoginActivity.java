@@ -104,6 +104,10 @@ public class LoginActivity extends ActionBarActivity {
 
         // Assume no login by default
         setResult(RESULT_LOGIN_FAIL);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
+        progressDialog.setCancelable(false);
     }
 
     @Override
@@ -120,10 +124,6 @@ public class LoginActivity extends ActionBarActivity {
     }
 
     private void doLogin() {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
-        progressDialog.setCancelable(false);
-
         final String username = usernameText.getText().toString();
         final String password = passwordText.getText().toString();
         new LoginTask(this, app.getPrimarySite(), username, password) {
@@ -135,7 +135,8 @@ public class LoginActivity extends ActionBarActivity {
             @Override
             public void onCatch(Throwable caught) {
                 Log.d("Wikipedia", "Caught " + caught.toString());
-                if (progressDialog == null) {
+                if (!progressDialog.isShowing()) {
+                    // no longer attached to activity!
                     return;
                 }
                 progressDialog.dismiss();
@@ -145,7 +146,8 @@ public class LoginActivity extends ActionBarActivity {
             @Override
             public void onFinish(LoginResult result) {
                 super.onFinish(result);
-                if (progressDialog == null) {
+                if (!progressDialog.isShowing()) {
+                    // no longer attached to activity!
                     return;
                 }
                 progressDialog.dismiss();
@@ -197,11 +199,10 @@ public class LoginActivity extends ActionBarActivity {
 
     @Override
     public void onStop() {
-        super.onStop();
-        if (progressDialog != null && progressDialog.isShowing()) {
+        if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
-        progressDialog = null;
+        super.onStop();
     }
 
     @Override
