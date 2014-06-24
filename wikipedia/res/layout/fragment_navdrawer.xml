@@ -7,7 +7,7 @@
               android:background="@color/nav_background">
 
     <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="match_parent"
+                  android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:id="@+id/nav_item_container"
             >
@@ -29,6 +29,7 @@
                        android:layout_margin="12dp"
                        android:layout_gravity="top"
                        android:src="@drawable/face_sleep_white"
+                       android:contentDescription="@null"
                     />
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
@@ -56,7 +57,8 @@
                        android:layout_margin="12dp"
                        android:layout_gravity="top"
                        android:src="@drawable/face_smile_white"
-                    />
+                       android:contentDescription="@null"
+                       />
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:orientation="vertical"
@@ -83,6 +85,7 @@
                        android:layout_margin="12dp"
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/clock_white"
+                       android:contentDescription="@null"
                     />
             <TextView
                     android:layout_width="match_parent"
@@ -103,6 +106,7 @@
                        android:layout_margin="12dp"
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/bookmark_white"
+                       android:contentDescription="@null"
                     />
             <TextView
                     android:layout_width="match_parent"
@@ -119,16 +123,14 @@
                       android:id="@+id/nav_item_random"
                       android:background="@drawable/nav_item_background"
                 >
-            <FrameLayout android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+            <FrameLayout android:layout_width="24dp" android:layout_height="24dp"
+                         android:layout_margin="12dp"
                          android:layout_gravity="center_vertical">
-                <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                           android:layout_margin="12dp"
+                <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
                            android:src="@drawable/dice_white"
                            android:id="@+id/nav_item_random_icon"
-                        />
-                <ProgressBar android:layout_width="32dp" android:layout_height="32dp"
-                           android:layout_margin="8dp"
+                           android:contentDescription="@null" />
+                <ProgressBar android:layout_width="match_parent" android:layout_height="match_parent"
                            android:id="@+id/nav_item_random_progressbar"
                         />
             </FrameLayout>
@@ -166,6 +168,7 @@
                        android:layout_margin="12dp"
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/gear_white"
+                       android:contentDescription="@null"
                     />
             <TextView
                     android:layout_width="match_parent"
