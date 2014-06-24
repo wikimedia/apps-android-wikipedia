@@ -119,7 +119,7 @@ public class PageActivity extends ActionBarActivity {
     }
 
     private void handleIntent(Intent intent) {
-        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+        if (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData() != null) {
             Site site = new Site(intent.getData().getAuthority());
             PageTitle title = site.titleForInternalLink(intent.getData().getPath());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
