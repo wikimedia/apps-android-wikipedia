@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public class EditFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppEdit";
-    private static final int REV_ID = 8993428;
+    private static final int REV_ID = 8994704;
 
     private final String editSessionToken;
     private final PageTitle title;
@@ -26,7 +26,13 @@ public class EditFunnel extends Funnel {
         try {
             eventData.put("editSessionToken", editSessionToken);
             if (getApp().getUserInfoStorage().isLoggedIn()) {
-                eventData.put("userName", getApp().getUserInfoStorage().getUser().getUsername());
+                if (getApp().getUserInfoStorage().getUser().getUserID() == 0) {
+                    // Means we are logged in, but before we started counting UserID.
+                    // Send -1 to record these
+                    eventData.put("userID", -1);
+                } else {
+                    eventData.put("userID", getApp().getUserInfoStorage().getUser().getUserID());
+                }
             }
             eventData.put("pageNS", title.getNamespace());
         } catch (JSONException e) {

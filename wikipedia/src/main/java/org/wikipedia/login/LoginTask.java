@@ -52,7 +52,7 @@ public class LoginTask extends SaneAsyncTask<LoginResult> {
 
         User user = null;
         if (result.optString("result").equals("Success")) {
-            user = new User(result.optString("lgusername"), password);
+            user = new User(result.optString("lgusername"), password, result.optInt("lguserid"));
         }
         return new LoginResult(result.optString("result"), user);
     }
