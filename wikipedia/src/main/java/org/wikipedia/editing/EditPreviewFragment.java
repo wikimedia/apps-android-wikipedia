@@ -14,6 +14,7 @@ import android.widget.ScrollView;
 import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
@@ -46,6 +47,7 @@ public class EditPreviewFragment extends Fragment {
     EditSummaryTag otherTag;
 
     private ProgressDialog progressDialog;
+    private EditFunnel funnel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -74,8 +76,16 @@ public class EditPreviewFragment extends Fragment {
 
         summaryTags = new ArrayList<EditSummaryTag>();
         for (int i : summaryTagStrings) {
-            EditSummaryTag tag = new EditSummaryTag(getActivity());
+            final EditSummaryTag tag = new EditSummaryTag(getActivity());
             tag.setText(getString(i));
+            tag.setTag(i);
+            tag.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    funnel.logEditSummaryTap((Integer) view.getTag());
+                    tag.setSelected(!tag.getSelected());
+                }
+            });
             editSummaryTagsContainer.addView(tag);
             summaryTags.add(tag);
         }
@@ -86,6 +96,7 @@ public class EditPreviewFragment extends Fragment {
         otherTag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                funnel.logEditSummaryTap(R.string.edit_summary_tag_other);
                 if (otherTag.getSelected()) {
                     otherTag.setSelected(false);
                 } else {
@@ -170,6 +181,7 @@ public class EditPreviewFragment extends Fragment {
      * @param wikiText The text of the section to be shown in the Preview.
      */
     public void showPreview(final PageTitle title, final String wikiText) {
+        funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(title);
         Utils.hideSoftKeyboard(getActivity());
 
         new EditPreviewTask(getActivity(), wikiText, title) {

@@ -3,13 +3,14 @@ package org.wikipedia.analytics;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.PageTitle;
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 
 import java.util.UUID;
 
 public class EditFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppEdit";
-    private static final int REV_ID = 8198182;
+    private static final int REV_ID = 8993428;
 
     private final String editSessionToken;
     private final PageTitle title;
@@ -123,4 +124,43 @@ public class EditFunnel extends Funnel {
                 "errorText", code
         );
     }
+
+    /**
+     * Log a summary being tapped.
+     *
+     * @param summaryTagStringID String resource id of the summary tag tapped
+     */
+    public void logEditSummaryTap(int summaryTagStringID) {
+        String summaryTag;
+        switch (summaryTagStringID) {
+            case R.string.edit_summary_tag_typo:
+                summaryTag = "typo";
+                break;
+            case R.string.edit_summary_tag_grammar:
+                summaryTag = "grammar";
+                break;
+            case R.string.edit_summary_tag_links:
+                summaryTag = "links";
+                break;
+            case R.string.edit_summary_tag_other:
+                summaryTag = "other";
+                break;
+            default:
+                // Unknown summary tag. Must throw exception so whoever is testing
+                // can add the entry here
+                throw new RuntimeException("Need to add new summary tags to EditFunnel");
+        }
+
+        log(
+                "action", "editSummaryTap",
+                "editSummaryTapped", summaryTag
+        );
+    }
+
+    public void logSaveAttempt() {
+        log(
+                "action", "saveAttempt"
+        );
+    }
+
 }

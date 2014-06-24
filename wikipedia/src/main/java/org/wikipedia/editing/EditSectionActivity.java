@@ -456,6 +456,7 @@ public class EditSectionActivity extends ActionBarActivity {
             editPreviewFragment.setCustomSummary(editSummaryFragment.getSummary());
         } else if (editPreviewFragment.isActive()) {
             doSave();
+            funnel.logSaveAttempt();
         } else {
             Utils.hideSoftKeyboard(this);
             editPreviewFragment.showPreview(title, sectionText.getText().toString());
