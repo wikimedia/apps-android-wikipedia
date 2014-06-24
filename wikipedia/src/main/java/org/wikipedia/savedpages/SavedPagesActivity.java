@@ -231,6 +231,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.menu_clear_all_saved_pages).setEnabled(savedPagesList.getCount() > 0);
+        menu.findItem(R.id.menu_refresh_all_saved_pages).setEnabled(savedPagesList.getCount() > 0);
         return super.onPrepareOptionsMenu(menu);
     }
 
