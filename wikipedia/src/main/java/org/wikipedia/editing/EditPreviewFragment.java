@@ -1,13 +1,17 @@
 package org.wikipedia.editing;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
+import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.views.ObservableWebView;
@@ -165,7 +169,7 @@ public class EditPreviewFragment extends Fragment {
      * @param title The PageTitle associated with the text being modified.
      * @param wikiText The text of the section to be shown in the Preview.
      */
-    public void showPreview(PageTitle title, String wikiText) {
+    public void showPreview(final PageTitle title, final String wikiText) {
         Utils.hideSoftKeyboard(getActivity());
 
         new EditPreviewTask(getActivity(), wikiText, title) {
@@ -184,6 +188,37 @@ public class EditPreviewFragment extends Fragment {
                 previewHTML = result;
                 parentActivity.supportInvalidateOptionsMenu();
                 progressDialog.dismiss();
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                if (!progressDialog.isShowing()) {
+                    // no longer attached to activity!
+                    return;
+                }
+                progressDialog.dismiss();
+
+                if (!(caught instanceof EditingException
+                        || caught instanceof HttpRequest.HttpRequestException)) {
+                    throw new RuntimeException(caught);
+                }
+                Log.d("Wikipedia", caught.toString());
+                final AlertDialog retryDialog = new AlertDialog.Builder(getActivity())
+                        .setMessage(R.string.error_network_error)
+                        .setPositiveButton(R.string.dialog_message_edit_failed_retry, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                showPreview(title, wikiText);
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton(R.string.dialog_message_edit_failed_cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).create();
+                retryDialog.show();
             }
         }.execute();
     }
