@@ -490,7 +490,13 @@ public class PageViewFragment extends Fragment {
             new HistorySaveTask(curEntry).execute();
 
             // Save image for this page title
-            new PageImageSaveTask(app, app.getAPIForSite(title.getSite()), title).execute();
+            new PageImageSaveTask(app, app.getAPIForSite(title.getSite()), title) {
+                @Override
+                public void onCatch(Throwable caught) {
+                    // Don't actually do anything.
+                    // Thumbnails are expendable
+                }
+            }.execute();
         }
 
         @Override
