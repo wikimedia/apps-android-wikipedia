@@ -83,7 +83,7 @@
   <string name="create_account_username_hint">Nombre de usuario</string>
   <string name="create_account_password_hint">Contraseña</string>
   <string name="menu_create_account">Crear cuenta</string>
-  <string name="login_create_account_link" fuzzy="true">Crear cuenta</string>
+  <string name="login_create_account_link">¿No tienes una cuenta? Únete a Wikipedia</string>
   <string name="create_account_activity_title">Crear una cuenta</string>
   <string name="edit_section_activity_title">Editar sección</string>
   <string name="dialog_create_account_checking_progress">Verificando</string>
@@ -109,7 +109,7 @@
   <string name="zero_interstitial_leave_app">Pueden aplicarse cargos por datos. ¿Continuar a sitio externo?</string>
   <string name="zero_interstitial_continue">Dejar</string>
   <string name="zero_interstitial_cancel">Permanecer Aquí</string>
-  <string name="zero_learn_more" fuzzy="true">¿Quieres aprender acerca de Wikipedia Zero?</string>
+  <string name="zero_learn_more">Cargos de datos son renunciados por esta app de Wikipedia.</string>
   <string name="zero_learn_more_learn_more">Leer más</string>
   <string name="zero_learn_more_dismiss">Descartar</string>
   <string name="zero_settings">Configuración</string>
@@ -134,7 +134,7 @@
   <string name="edit_save_action_ip_description">Sus ediciones se serán públicamente atribuidas a su dirección IP, la cual cambia con frecuencia</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para hacer la aplicación mejor</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">Enlaces desde dominios bloqueados ( %s ) detectados. Por favor elimínelos y vuelva a intentarlo.</string>
+  <string name="editing_error_spamblacklist">Enlaces a dominios bloqueados (%s) detectados. Por favor elimínelos y vuelva a intentarlo.</string>
   <string name="history_search_list_hint">Buscar</string>
   <string name="history_search_empty_message">No se han encontrado páginas que coincidan con \'%s\'</string>
   <string name="error_can_not_process_link">No se puede mostrar este enlace</string>

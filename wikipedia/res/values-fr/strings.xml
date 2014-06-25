@@ -20,6 +20,10 @@
   <string name="dialog_title_clear_history">Effacer l’historique de navigation ?</string>
   <string name="saved_pages_activity_title">Pages enregistrées</string>
   <string name="nav_item_saved_pages">Pages enregistrées</string>
+  <string name="menu_update_all_saved_pages">Mettre à jour les pages enregistrées</string>
+  <string name="menu_update_selected_saved_pages">Mettre à jour les pages enregistrées</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Mettre à jour toutes les pages enregistrées ?</string>
+  <string name="toast_saved_page_refreshed">Pages enregistrées mises à jour</string>
   <string name="menu_save_page">Enregistrer la page</string>
   <string name="menu_share_page">Partager</string>
   <string name="share_via">Partager via</string>
@@ -175,4 +179,9 @@
   <string name="find_previous">Rechercher le précédent</string>
   <string name="find_close">Fermer la barre de recherche</string>
   <string name="error_network_error_try_again">Impossible d’atteindre le réseau, veuillez réessayer.</string>
+  <string name="saved_pages_update_all_error_retry">Réessayer</string>
+  <string name="saved_pages_update_all_error_message">Erreur à la mise à jour des pages enregistrées</string>
+  <string name="saved_pages_progress_title">Rafraîchissement des pages enregistrées</string>
+  <string name="saved_pages_refresh_progress_message">Rafraîchissement de %s</string>
+  <string name="saved_pages_refresh_pages_complete">Mise à jour terminée</string>
 </resources>

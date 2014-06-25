@@ -20,6 +20,10 @@
   <string name="dialog_title_clear_history">Browsing-Verlauf löschen?</string>
   <string name="saved_pages_activity_title">Gespeicherte Seiten</string>
   <string name="nav_item_saved_pages">Gespeicherte Seiten</string>
+  <string name="menu_update_all_saved_pages">Gespeicherte Seiten aktualisieren</string>
+  <string name="menu_update_selected_saved_pages">Gespeicherte Seiten aktualisieren</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Alle gespeicherten Seiten aktualisieren?</string>
+  <string name="toast_saved_page_refreshed">Gespeicherte Seiten aktualisiert</string>
   <string name="menu_save_page">Seite speichern</string>
   <string name="menu_share_page">Teilen</string>
   <string name="share_via">Teilen über</string>
@@ -175,4 +179,9 @@
   <string name="find_previous">Vorherige finden</string>
   <string name="find_close">Suchleiste schließen</string>
   <string name="error_network_error_try_again">Das Netzwerk konnte nicht erreicht werden. Bitte erneut versuchen.</string>
+  <string name="saved_pages_update_all_error_retry">Erneut versuchen</string>
+  <string name="saved_pages_update_all_error_message">Fehler beim Aktualisieren der gespeicherten Seiten</string>
+  <string name="saved_pages_progress_title">Aktualisiere gespeicherte Seiten</string>
+  <string name="saved_pages_refresh_progress_message">Aktualisiere %s</string>
+  <string name="saved_pages_refresh_pages_complete">Aktualisierung vollständig</string>
 </resources>

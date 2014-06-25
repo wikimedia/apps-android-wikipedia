@@ -20,6 +20,10 @@
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה?</string>
   <string name="saved_pages_activity_title">דפים שמורים</string>
   <string name="nav_item_saved_pages">דפים שמורים</string>
+  <string name="menu_update_all_saved_pages">עדכון הדפים השמורים</string>
+  <string name="menu_update_selected_saved_pages">עדכון הדפים השמורים</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">לעדכן את כל הדפים השמורים?</string>
+  <string name="toast_saved_page_refreshed">הדפים השמורים עודכנו</string>
   <string name="menu_save_page">שמירת דף</string>
   <string name="menu_share_page">שיתוף</string>
   <string name="share_via">שיתוף דרך</string>
@@ -175,4 +179,9 @@
   <string name="find_previous">חיפוש הקודם</string>
   <string name="find_close">סגירת סרגל חיפוש</string>
   <string name="error_network_error_try_again">לא הייתה גישה לרשת, נא לנסות שוב.</string>
+  <string name="saved_pages_update_all_error_retry">לנסות שוב</string>
+  <string name="saved_pages_update_all_error_message">שגיאה בעדכון הדפים השמורים</string>
+  <string name="saved_pages_progress_title">רענון הדפים השמורים</string>
+  <string name="saved_pages_refresh_progress_message">רענון %s</string>
+  <string name="saved_pages_refresh_pages_complete">העדכון הושלם</string>
 </resources>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Wikipedie</string>
+  <string name="app_name_beta">Wikipedie Beta</string>
   <string name="yes">Ano</string>
   <string name="no">Ne</string>
   <string name="acra_report_dialog_title">Wikipedie spadla :(</string>
-  <string name="acra_report_dialog_text" fuzzy="true">Poslat Yuvimu zprávu o pádu</string>
+  <string name="acra_report_dialog_text">Pošlete nám zprávu o pádu</string>
   <string name="acra_report_dialog_comment">Co jste dělali, když došlo k pádu?</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="history_activity_title">Historie</string>
@@ -13,30 +14,41 @@
   <string name="search_network_error">Chyba sítě. Klepnutím to zkusíte znovu.</string>
   <string name="page_error_retry">Zkusit znovu</string>
   <string name="menu_clear_all_history">Vymazat historii</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Vymazat historii?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Uložené stránky</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Uložené stránky</string>
-  <string name="menu_save_page" fuzzy="true">Uložit stránku</string>
+  <string name="menu_clear_all_bookmarks">Vymazat záložky</string>
+  <string name="menu_clear_all_saved_pages">Vymazat uložené stránky</string>
+  <string name="page_does_not_exist_error">Tato stránka neexistuje.</string>
+  <string name="dialog_title_clear_history">Vymazat historii prohlížení?</string>
+  <string name="saved_pages_activity_title">Uložené stránky</string>
+  <string name="nav_item_saved_pages">Uložené stránky</string>
+  <string name="menu_update_all_saved_pages">Aktualizovat uložené stránky</string>
+  <string name="menu_update_selected_saved_pages">Aktualizovat uložené stránky</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Aktualizovat všechny uložené stránky?</string>
+  <string name="toast_saved_page_refreshed">Uložené stránky aktualizovány</string>
+  <string name="menu_save_page">Uložit stránku</string>
   <string name="menu_share_page">Sdílet</string>
   <string name="share_via">Sdílet přes</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Vymazat všechny uložené stránky?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Jste si jisti, že chcete vymazat všechny uložené stránky?</string>
-  <string name="toast_saving_page" fuzzy="true">Ukládání stránky…</string>
-  <string name="toast_saved_page" fuzzy="true">Uložená stránka</string>
-  <string name="toast_save_page_failed" fuzzy="true">Uložení stránky se nezdařilo :(</string>
+  <string name="dialog_title_clear_saved_pages">Vymazat všechny uložené stránky?</string>
+  <string name="dialog_message_clear_saved_pages">Jste si jisti, že chcete vymazat všechny uložené stránky?</string>
+  <string name="toast_saving_page">Ukládání stránky…</string>
+  <string name="toast_saved_page">Stránka úspěšně uložena</string>
+  <string name="toast_saved_page_missing_images">Nepodařilo se uložit všechny obrázky</string>
+  <string name="toast_save_page_failed">Uložení stránky se nezdařilo :(</string>
+  <string name="toast_refresh_saved_page">Aktualizace uložené stránky…</string>
   <string name="delete_selected_saved_pages">Vymazat</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Uložené stránky vymazány</string>
+  <string name="toast_saved_page_deleted">Uložené stránky vymazány</string>
   <string name="last_updated_text">Naposledy aktualizováno %1$s</string>
-  <string name="content_license_html" fuzzy="true">Obsah je dostupný pod &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
-  <string name="preference_title_language" fuzzy="true">Jazyk</string>
+  <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
+  <string name="edit_save_action_license">Uložením neodvolatelně souhlasíte se zveřejněním svých příspěvků za podmínek licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="preference_title_language">Jazyk Wikipedie</string>
   <string name="preference_summary_language">Jazyk obsahu</string>
   <string name="preference_languages_filter_hint">Hledat</string>
   <string name="langlinks_filter_hint">Hledat</string>
-  <string name="menu_other_languages" fuzzy="true">Jiné jazyky</string>
+  <string name="menu_other_languages">Číst v jiných jazycích</string>
   <string name="langlinks_error_retry">Zkusit znovu</string>
-  <string name="langlinks_empty" fuzzy="true">Tento článek není k dispozici v jiných jazycích</string>
+  <string name="langlinks_empty">Tato stránka není k dispozici v jiných jazycích</string>
   <string name="settings_activity_title">Nastavení</string>
   <string name="langlinks_activity_title">Jiné jazyky</string>
+  <string name="menu_save_changes">Uložit změny</string>
   <string name="edit_section_error_retry">Zkusit znovu</string>
   <string name="dialog_saving_in_progress">Ukládá se…</string>
   <string name="edit_saved_successfully">Editace uložena!</string>
@@ -50,6 +62,7 @@
   <string name="title_captcha">Zadejte captcha</string>
   <string name="edit_section_abusefilter_back_text">Změnit mou editaci</string>
   <string name="edit_section_captcha_reload">Klepnutím načtete captcha znovu</string>
+  <string name="edit_saved_page_refresh">Tato uložená stránka může být zastaralá a pro umožnění editace je potřeba ji aktualizovat. Chcete stránku aktualizovat?</string>
   <string name="nav_item_login">Přihlásit se</string>
   <string name="login_username_hint">Uživatelské jméno</string>
   <string name="login_password_hint">Heslo</string>
@@ -65,11 +78,17 @@
   <string name="login_error_unknown">Přihlášení se nezdařilo :(</string>
   <string name="login_error_no_network">Bez připojení k síti</string>
   <string name="nav_item_logout">Odhlásit se</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Žádné uložené stránky.</string>
+  <string name="preference_title_logout">Odhlásit se</string>
+  <string name="preference_summary_logout">Odhlásit se z uživatelského účtu na Wikipedii</string>
+  <string name="preference_summary_notloggedin">Nepřihlášen(a).</string>
+  <string name="toast_logout_complete">Odhlášeno</string>
+  <string name="saved_pages_empty_message">Žádné uložené stránky</string>
   <string name="history_empty_message">Vaše historie je prázdná.</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
   <string name="create_account_password_hint">Heslo</string>
-  <string name="login_create_account_link" fuzzy="true">Vytvořit účet</string>
+  <string name="menu_create_account">Vytvořit účet</string>
+  <string name="login_create_account_link">Nemáte účet? Přidejte se k Wikipedii</string>
+  <string name="create_account_login_link">Účet už máte? Přihlaste se</string>
   <string name="create_account_activity_title">Vytvoření účtu</string>
   <string name="edit_section_activity_title">Editace sekce</string>
   <string name="dialog_create_account_checking_progress">Ověřování</string>
@@ -81,25 +100,85 @@
   <string name="create_account_ip_throttle_error">Z této IP adresy bylo založeno příliš mnoho účtů. Zkuste to znovu později.</string>
   <string name="create_account_open_proxy_error">Této IP adrese bylo zablokováno vytváření účtů.</string>
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
+  <string name="create_account_no_network">Bez připojení k síti</string>
+  <string name="create_account_next">Další</string>
+  <string name="create_account_button">Vytvořit účet</string>
   <string name="preferences_general_heading">Obecné</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero VYPNUTO (MOHOU SE ÚČTOVAT STANDARDNÍ DATOVÉ POPLATKY)</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero je vypnuto</string>
+  <string name="zero_charged_verbiage_extended">Načtením jiných článků mohou být účtovány poplatky za přenos dat.</string>
   <string name="zero_search_hint">Hledání ve Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Varovat při opuštění Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Pokud váš mobilní operátor neúčtuje poplatky za datové připojení k Wikipedii v rámci partnerství Wikipedia Zero, ponecháním tohoto políčka zaškrtnutého zajistíte, že se dozvíte o opouštění aplikace a možnosti placení za další datové připojení.</string>
   <string name="zero_webpage_title">FAQ k Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Opuštění Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app" fuzzy="true">Pokračovat na externí web? Mohou se na to vztahovat standardní datové poplatky.</string>
-  <string name="zero_interstitial_continue" fuzzy="true">Pokračovat</string>
-  <string name="zero_interstitial_cancel" fuzzy="true">Storno</string>
-  <string name="zero_learn_more" fuzzy="true">Chcete vědět více o Wikipedia Zero?</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Dozvědět se více</string>
+  <string name="zero_interstitial_leave_app">Mohou být účtovány poplatky za přenos dat. Pokračovat na externí web?</string>
+  <string name="zero_interstitial_continue">Odejít</string>
+  <string name="zero_interstitial_cancel">Zůstat zde</string>
+  <string name="zero_learn_more">V této aplikaci Wikipedie nejsou účtovány poplatky za přenos dat.</string>
+  <string name="zero_learn_more_learn_more">Více informací</string>
   <string name="zero_learn_more_dismiss">Zavřít</string>
   <string name="zero_settings">Nastavení</string>
   <string name="zero_settings_devmode">Vývojářský režim Zero</string>
+  <string name="zero_settings_devmode_summary">Toto během vývoje umožňuje provádění kódu věcí kolem Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Načítání náhledu…</string>
   <string name="edit_preview_activity_title">Náhled editace</string>
   <string name="create_account_logging_in">Přihlašování…</string>
-  <string name="edit_summary_guide_text" fuzzy="true">Řekněte nám, jak jste tento článek vylepšili. To pomůže ostatním editorům vaši editaci rychle zkontrolovat.</string>
+  <string name="send_feedback">Poslat názor na aplikaci</string>
+  <string name="edit_summary_guide_text">Řekněte nám, jak jste tuto stránku vylepšili. To pomůže ostatním editorům vaši editaci rychle zkontrolovat.</string>
   <string name="edit_summary_hint">Shrnutí editace</string>
+  <string name="nav_item_random">Náhodně</string>
+  <string name="random_progress">Načítá se náhodná stránka…</string>
+  <string name="nav_item_login_benefits">Pokud se přihlásíte, budou vaše editace přiřazeny vašemu uživatelskému jménu a vaše IP adresa nebude veřejně viditelná.</string>
+  <string name="create_account_account_created_toast">Účet založen!</string>
+  <string name="user_contribs_more_action">Načíst další</string>
+  <string name="activity_my_contributions_title">Mé příspěvky</string>
+  <string name="nav_item_my_contributions">Mé příspěvky</string>
+  <string name="edit_save_action_login">Přihlásit se a uložit</string>
+  <string name="edit_save_action_ip">Uložit anonymně</string>
+  <string name="edit_save_action_login_description">Vaše editace bude veřejně připsána vašemu uživatelskému jménu a ostatní editoři se s vámi budou moci lépe spojit</string>
+  <string name="edit_save_action_ip_description">Vaše editace bude veřejně připsána vaší IP adrese, která se často mění</string>
+  <string name="preference_title_eventlogging_opt_in">Odesílat zprávy o využití</string>
+  <string name="preference_summary_eventlogging_opt_in">Umožnit nadaci Wikimedia sbírat informace o tom, jak aplikaci používáte, abychom ji mohli zlepšovat</string>
+  <string name="editing_error_spamblacklist">Detekovány odkazy na zablokované domény (%s). Odstraňte je prosím a zkuste to znovu.</string>
+  <string name="history_search_list_hint">Hledání</string>
+  <string name="history_search_empty_message">Nenalezena žádná stránka odpovídající „%s“</string>
+  <string name="error_can_not_process_link">Nelze zobrazit tento odkaz</string>
+  <string name="page_protected_autoconfirmed">Tato stránka je polozamčena.</string>
+  <string name="page_protected_sysop">Tato stránka je zamčena.</string>
+  <string name="page_protected_other">Tato stránka je zamčena do následujících úrovní: %s</string>
+  <string name="page_protected_can_not_edit">Nemáte oprávnění editovat tuto stránku</string>
+  <string name="page_protected_can_not_edit_title">Tato stránka je zamčena</string>
+  <string name="more_item_preferences">Další</string>
+  <string name="more_activity_title">Další</string>
+  <string name="about_description">O aplikace Wikipedie</string>
+  <string name="preference_title_version">Verze</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/cs\"&gt;Podmínky užití&lt;/a&gt;</string>
+  <string name="about_contributors_heading">přispěvatelé</string>
+  <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_activity_title">O aplikaci</string>
+  <string name="edit_unchanged">Stránka nebyla změněna.</string>
+  <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
+  <string name="user_blocked_from_editing_title">Zablokováno</string>
+  <string name="user_logged_in_blocked_from_editing">Vašemu uživatelskému účtu byla na této wiki zablokována možnost editovat.</string>
+  <string name="user_anon_blocked_from_editing">Vaší IP adrese byla zablokována možnost editovat.</string>
+  <string name="edit_how_page_improved">Jak jste stránku vylepšili?</string>
+  <string name="edit_next">Další</string>
+  <string name="edit_done">Uložit</string>
+  <string name="edit_preview">Náhled</string>
+  <string name="edit_summary_tag_typo">Opraven překlep</string>
+  <string name="edit_summary_tag_grammar">Oprava pravopisu</string>
+  <string name="edit_summary_tag_links">Přidány odkazy</string>
+  <string name="edit_summary_tag_other">Jinak</string>
+  <string name="edit_summary_tag_other_hint">Jiný způsob, jakým jste vylepšili stránku</string>
+  <string name="find_in_page">Najít na stránce</string>
+  <string name="find_next">Najít další</string>
+  <string name="find_previous">Najít předchozí</string>
+  <string name="find_close">Zavřít vyhledávací lištu</string>
+  <string name="error_network_error_try_again">Nepodařilo se připojit k síti, zkuste to znovu.</string>
+  <string name="saved_pages_update_all_error_retry">Zkusit znovu</string>
+  <string name="saved_pages_update_all_error_message">Chyba aktualizace uložených stránek</string>
+  <string name="saved_pages_progress_title">Aktualizují se uložené stránky</string>
+  <string name="saved_pages_refresh_progress_message">Aktualizuje se %s</string>
+  <string name="saved_pages_refresh_pages_complete">Aktualizace dokončena</string>
 </resources>

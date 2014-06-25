@@ -18,6 +18,10 @@
   <string name="dialog_title_clear_history">Historique vum  Browse läschen?</string>
   <string name="saved_pages_activity_title">Gespäichert Säiten</string>
   <string name="nav_item_saved_pages">Gespäichert Säiten</string>
+  <string name="menu_update_all_saved_pages">Gespäichert Säiten aktualiséieren</string>
+  <string name="menu_update_selected_saved_pages">Gespäichert Säiten aktualiséieren</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">All gespäichert Säite aktualiséieren?</string>
+  <string name="toast_saved_page_refreshed">Gespäichert Säiten aktualiséiert</string>
   <string name="menu_save_page">Säit späicheren</string>
   <string name="menu_share_page">Deelen</string>
   <string name="share_via">Deelen iwwer</string>
@@ -124,13 +128,17 @@
   <string name="preference_title_eventlogging_opt_in">Rapporten iwwer d\'Benotze schécken</string>
   <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se w.e.g. ewech a probéiert nach eng Kéier.</string>
   <string name="history_search_list_hint">Sichen</string>
+  <string name="error_can_not_process_link">Dëse Link konnt net gewise ginn</string>
+  <string name="page_protected_autoconfirmed">Dës Säit ass hallef gespaart.</string>
   <string name="page_protected_sysop">Dës Säit ass komplett gespaart.</string>
+  <string name="page_protected_can_not_edit_title">Dës Säit ass gespaart</string>
   <string name="more_item_preferences">Méi</string>
   <string name="more_activity_title">Méi</string>
   <string name="about_description">Iwwer d\'Wikipedia App</string>
   <string name="preference_title_version">Versioun</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Benotzungsbedingungen&lt;/a&gt;</string>
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Dateschutzerklärung&lt;/a&gt;</string>
+  <string name="about_activity_title">Iwwer</string>
   <string name="edit_unchanged">D\'Säit gouf net geännert.</string>
   <string name="user_blocked_from_editing_title">Gespaart</string>
   <string name="user_logged_in_blocked_from_editing">Äre Benotzerkont gouf fir Ännerungen op dëser Wiki gespaart.</string>
@@ -144,4 +152,10 @@
   <string name="edit_summary_tag_other_hint">Aner Manéier wéi Dir d\'Säit verbessert hutt</string>
   <string name="find_in_page">Op der Säit sichen</string>
   <string name="find_previous">Vireg fannen</string>
+  <string name="error_network_error_try_again">De Reseau konnt net erreecht ginn, probéiert w.e.g. nach eng Kéier.</string>
+  <string name="saved_pages_update_all_error_retry">Nach eng Kéier probéieren</string>
+  <string name="saved_pages_update_all_error_message">Feeler bei der Aktualisatioun vu gespäicherte Säiten</string>
+  <string name="saved_pages_progress_title">Gespäichert Säite ginn aktualiséiert</string>
+  <string name="saved_pages_refresh_progress_message">%s aktualiséieren</string>
+  <string name="saved_pages_refresh_pages_complete">Aktualisatioun fäerdeg</string>
 </resources>

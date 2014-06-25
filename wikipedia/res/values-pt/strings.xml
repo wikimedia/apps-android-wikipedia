@@ -32,7 +32,7 @@
   <string name="delete_selected_saved_pages">Eliminar</string>
   <string name="toast_saved_page_deleted">Página(s) gravada(s) eliminada(s)</string>
   <string name="last_updated_text">Última atualização há %s</string>
-  <string name="content_license_html" fuzzy="true">O conteúdo está disponível sob &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
+  <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
   <string name="edit_save_action_license">Ao gravar, concorda irrevogavelmente em publicar as suas contribuições sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Idioma da Wikipédia</string>
   <string name="preference_summary_language">Idioma do conteúdo</string>
@@ -98,6 +98,7 @@
   <string name="create_account_button">Criar conta</string>
   <string name="preferences_general_heading">Geral</string>
   <string name="zero_charged_verbiage">Wikipédia Zero está desligada</string>
+  <string name="zero_charged_verbiage_extended">O carregamento de outros artigos podem incorrer em custos de dados.</string>
   <string name="zero_search_hint">Procurar na Wikipédia Zero</string>
   <string name="zero_warn_when_leaving">Avisar-me se deixar a Wikipédia Zero</string>
   <string name="zero_warn_when_leaving_summary">Se a sua operadora de telefonia móvel renunciar à taxa de acesso para a aplicação da Wikipédia através de uma parceria do Wikipedia Zero, deixar esta opção marcada lhe ajudará a saber quando estará a sair desta aplicação e que poderá ter taxas de dados cobrada.</string>
@@ -146,7 +147,18 @@
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem gravar as suas alterações?</string>
   <string name="user_blocked_from_editing_title">Bloqueado</string>
   <string name="user_anon_blocked_from_editing">O seu endereço IP está bloqueado.</string>
+  <string name="edit_how_page_improved">De que forma você contribuiu para melhorar a página?</string>
+  <string name="edit_next">Próxima</string>
   <string name="edit_done">Gravar</string>
   <string name="edit_preview">Antevisão</string>
+  <string name="edit_summary_tag_typo">Erro ortográfico corrigido</string>
+  <string name="edit_summary_tag_grammar">Gramática corrigida</string>
+  <string name="edit_summary_tag_links">Adicionado links</string>
+  <string name="edit_summary_tag_other">Outro</string>
+  <string name="edit_summary_tag_other_hint">Outras maneiras que você melhorou a página</string>
+  <string name="find_in_page">Localizar na página</string>
+  <string name="find_next">Localizar próxima</string>
+  <string name="find_previous">Localizar anteriores</string>
+  <string name="find_close">Fechar a barra de localização</string>
   <string name="error_network_error_try_again">Não foi possível aceder à rede, tente novamente por favor.</string>
 </resources>

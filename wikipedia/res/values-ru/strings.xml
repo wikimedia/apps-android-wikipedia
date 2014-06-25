@@ -74,7 +74,7 @@
   <string name="create_account_username_hint">Имя участника</string>
   <string name="create_account_password_hint">Пароль</string>
   <string name="menu_create_account">Создать учётную запись</string>
-  <string name="login_create_account_link" fuzzy="true">Создать учётную запись</string>
+  <string name="login_create_account_link">У вас нет учётной записи? Присоединитесь к Википедии</string>
   <string name="create_account_activity_title">Создать учётную запись</string>
   <string name="edit_section_activity_title">Редактировать раздел</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
@@ -88,7 +88,7 @@
   <string name="create_account_generic_error">Невозможно создать учётную запись</string>
   <string name="create_account_no_network">Отсутствует сетевое подключение</string>
   <string name="preferences_general_heading">Общие</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ВЫКЛЮЧЕНА (МОЖЕТ ВЗИМАТЬСЯ СТАНДАРТНАЯ ПЛАТА ЗА ПЕРЕДАЧУ ДАННЫХ)</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero ВЫКЛЮЧЕНА</string>
   <string name="zero_search_hint">Поиск по Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Предупреждать, если покидаем Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Если ваш мобильный оператор не берёт плату за доступ к данным из приложения Википедии через партнерство Wikipedia Zero, включение этого параметра поможет вам знать, когда вы покидаете приложение Википедии, и может начать взиматься плата за трафик.</string>
@@ -96,11 +96,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Покидаем Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app" fuzzy="true">Продолжить переход на внешний сайт? За это может взиматься стандартная плата за передачу данных.</string>
-  <string name="zero_interstitial_continue" fuzzy="true">Продолжить</string>
-  <string name="zero_interstitial_cancel" fuzzy="true">Отмена</string>
-  <string name="zero_learn_more" fuzzy="true">Хотите узнать о Wikipedia Zero?</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Узнать больше</string>
+  <string name="zero_interstitial_leave_app">Может взиматься стандартная плата за передачу данных. Продолжить переход на внешний сайт?</string>
+  <string name="zero_interstitial_continue">Перейти</string>
+  <string name="zero_interstitial_cancel">Остаться</string>
+  <string name="zero_learn_more">Плата за данные не взимается за это приложение Википедии.</string>
+  <string name="zero_learn_more_learn_more">Узнать больше</string>
   <string name="zero_learn_more_dismiss">Закрыть</string>
   <string name="zero_settings">Настройки</string>
   <string name="zero_settings_devmode">Режим разработчика Zero</string>
@@ -123,7 +123,7 @@
   <string name="edit_save_action_ip_description">Ваши правки будут публично связаны с вашем IP-адресом, который может часто меняться</string>
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
+  <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
   <string name="preference_title_version">Версия</string>
   <string name="edit_done">Сохранить</string>
   <string name="edit_preview">Предпросмотр</string>

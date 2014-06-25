@@ -20,6 +20,10 @@
   <string name="dialog_title_clear_history">Rensa webbhistorik?</string>
   <string name="saved_pages_activity_title">Sparade artiklar</string>
   <string name="nav_item_saved_pages">Sparade artiklar</string>
+  <string name="menu_update_all_saved_pages">Uppdatera sparade artiklar</string>
+  <string name="menu_update_selected_saved_pages">Uppdatera sparade artiklar</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Uppdatera alla sparade artiklar?</string>
+  <string name="toast_saved_page_refreshed">Sparade artiklar uppdaterade</string>
   <string name="menu_save_page">Spara artikel</string>
   <string name="menu_share_page">Dela</string>
   <string name="share_via">Dela via</string>
@@ -175,4 +179,9 @@
   <string name="find_previous">Sök föregående</string>
   <string name="find_close">Stäng sökfältet</string>
   <string name="error_network_error_try_again">Kunde inte ansluta till nätverket. Försök igen.</string>
+  <string name="saved_pages_update_all_error_retry">Försök igen</string>
+  <string name="saved_pages_update_all_error_message">Fel vid uppdatering av sparade artiklar</string>
+  <string name="saved_pages_progress_title">Uppdaterar sparade artiklar</string>
+  <string name="saved_pages_refresh_progress_message">Uppdaterar %s</string>
+  <string name="saved_pages_refresh_pages_complete">Uppdatering slutförd</string>
 </resources>

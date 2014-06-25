@@ -20,6 +20,10 @@
   <string name="dialog_title_clear_history">Да ја исчистам историјата на прелистување?</string>
   <string name="saved_pages_activity_title">Зачувани страници</string>
   <string name="nav_item_saved_pages">Зачувани страници</string>
+  <string name="menu_update_all_saved_pages">Поднови зачувани страници</string>
+  <string name="menu_update_selected_saved_pages">Поднови зачувани страници</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Да ги подновам сите зачувани страници?</string>
+  <string name="toast_saved_page_refreshed">Зачуваните страници се подновени</string>
   <string name="menu_save_page">Зачувај страница</string>
   <string name="menu_share_page">Сподели</string>
   <string name="share_via">Сподели преку</string>
@@ -175,4 +179,9 @@
   <string name="find_previous">Најди претходно</string>
   <string name="find_close">Затвори го барањето</string>
   <string name="error_network_error_try_again">Не можам да ја добијам мрежата. Обидете се повторно.</string>
+  <string name="saved_pages_update_all_error_retry">Пробај пак</string>
+  <string name="saved_pages_update_all_error_message">Грешка при подновувањето на зачуваните страници</string>
+  <string name="saved_pages_progress_title">Ги превчитувам зачуваните страници</string>
+  <string name="saved_pages_refresh_progress_message">Ја превчитувам %s</string>
+  <string name="saved_pages_refresh_pages_complete">Подновата заврши</string>
 </resources>

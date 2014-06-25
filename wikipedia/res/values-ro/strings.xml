@@ -20,6 +20,10 @@
   <string name="dialog_title_clear_history">Curățați istoricul de navigare?</string>
   <string name="saved_pages_activity_title">Pagini salvate</string>
   <string name="nav_item_saved_pages">Pagini salvate</string>
+  <string name="menu_update_all_saved_pages">Actualizează paginile salvate</string>
+  <string name="menu_update_selected_saved_pages">Actualizează paginile salvate</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Actualizați toate paginile salvate?</string>
+  <string name="toast_saved_page_refreshed">Paginile salvate actualizate</string>
   <string name="menu_save_page">Salvează pagina</string>
   <string name="menu_share_page">Distribuie</string>
   <string name="share_via">Distribuire prin</string>
@@ -98,7 +102,7 @@
   <string name="create_account_generic_error">Nu s-a putut crea contul</string>
   <string name="create_account_no_network">Nicio conexiune la rețea</string>
   <string name="create_account_next">Înainte</string>
-  <string name="create_account_button">Creează cont</string>
+  <string name="create_account_button">Creare cont</string>
   <string name="preferences_general_heading">General</string>
   <string name="zero_charged_verbiage">Wikipedia Zero este dezactivată</string>
   <string name="zero_charged_verbiage_extended">Încărcarea altor articole poate declanșa costuri pentru trafic de date.</string>
@@ -175,4 +179,9 @@
   <string name="find_previous">Găsește precedentul</string>
   <string name="find_close">Închide bara de căutare</string>
   <string name="error_network_error_try_again">Imposibil de conectat la rețea; încercați din nou.</string>
+  <string name="saved_pages_update_all_error_retry">Reîncearcă</string>
+  <string name="saved_pages_update_all_error_message">Eroare la actualizarea paginilor salvate</string>
+  <string name="saved_pages_progress_title">Se reîncarcă paginile salvate</string>
+  <string name="saved_pages_refresh_progress_message">Se reîncarcă %s</string>
+  <string name="saved_pages_refresh_pages_complete">Actualizare finalizată</string>
 </resources>

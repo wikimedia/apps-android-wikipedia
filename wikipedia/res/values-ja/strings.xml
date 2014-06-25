@@ -20,6 +20,10 @@
   <string name="dialog_title_clear_history">閲覧履歴を消去しますか?</string>
   <string name="saved_pages_activity_title">保存したページ</string>
   <string name="nav_item_saved_pages">保存したページ</string>
+  <string name="menu_update_all_saved_pages">保存したページを更新</string>
+  <string name="menu_update_selected_saved_pages">保存したページを更新</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">保存したページをすべて更新しますか?</string>
+  <string name="toast_saved_page_refreshed">保存したページを更新しました</string>
   <string name="menu_save_page">ページを保存</string>
   <string name="menu_share_page">シェア</string>
   <string name="share_via">シェアする</string>
@@ -86,7 +90,7 @@
   <string name="login_create_account_link">アカウントをお持ちではない場合は、こちらからウィキペディアに参加してください</string>
   <string name="create_account_login_link">アカウントを既にお持ちの場合は、こちらからログインしてください</string>
   <string name="create_account_activity_title">アカウント作成</string>
-  <string name="edit_section_activity_title">セクションを編集</string>
+  <string name="edit_section_activity_title">節の編集</string>
   <string name="dialog_create_account_checking_progress">検証中</string>
   <string name="create_account_email_hint">メール (省略可能)</string>
   <string name="create_account_password_repeat_hint">パスワード (再入力)</string>
@@ -175,4 +179,9 @@
   <string name="find_previous">前を検索</string>
   <string name="find_close">検索バーを閉じる</string>
   <string name="error_network_error_try_again">ネットワークに接続できませんでした。やり直してください</string>
+  <string name="saved_pages_update_all_error_retry">再試行</string>
+  <string name="saved_pages_update_all_error_message">保存したページを更新する際にエラーが発生しました</string>
+  <string name="saved_pages_progress_title">保存したページを更新しています</string>
+  <string name="saved_pages_refresh_progress_message">%s を更新しています</string>
+  <string name="saved_pages_refresh_pages_complete">更新しました</string>
 </resources>

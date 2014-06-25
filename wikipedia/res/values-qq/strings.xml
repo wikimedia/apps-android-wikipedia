@@ -30,6 +30,12 @@
 {{Identical|Saved page}}</string>
   <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the saved pages.
 {{Identical|Saved page}}</string>
+  <string name="menu_update_all_saved_pages">Menu item (icon) in saved pages screen to update all saved pages.
+{{Identical|Update saved page}}</string>
+  <string name="menu_update_selected_saved_pages">Menu item (icon) in saved pages screen to update selected saved pages.
+{{Identical|Update saved page}}</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Prompt before updating all saved pages</string>
+  <string name="toast_saved_page_refreshed">Small toast (popup) message saying that all saved pages were updated</string>
   <string name="menu_save_page">Menu item text for saving the currently active page.
 {{Identical|Save page}}</string>
   <string name="menu_share_page">Menu item text for sharing the currently active page.
@@ -39,10 +45,6 @@
 The Share list contains the following menu items (localized):
 * Mail
 * Message</string>
-  <string name="menu_update_all_saved_pages">Menu item (icon) in saved pages screen to update all saved pages</string>
-  <string name="menu_update_selected_saved_pages">Menu item (icon) in saved pages screen to update selected saved pages</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Prompt before updating all saved pages</string>
-  <string name="toast_saved_page_refreshed">Small toast (popup) message saying that all saved pages were updated</string>
   <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your saved pages</string>
   <string name="dialog_message_clear_saved_pages">Message for dialog box asking if you want to clear all your saved pages</string>
   <string name="toast_saving_page">Small toast (popup) message saying that a page is being saved for offline reading</string>
@@ -134,6 +136,7 @@ See also:
 See also:
 * {{msg-wm|Wikipedia-android-strings-login create account link}}</string>
   <string name="create_account_activity_title">{{Identical|Create account}}</string>
+  <string name="edit_section_activity_title">Title for screen where user is editing a single section.</string>
   <string name="create_account_password_repeat_hint">{{Identical|Repeat password}}</string>
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
   <string name="create_account_username_exists_error">Used as error message on creating a user account.</string>
@@ -221,7 +224,7 @@ See also:
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.
 {{Identical|Contributor}}</string>
   <string name="about_wmf">Text and link specifying that this app was developed by the Wikimedia Foundation</string>
-  <string name="about_activity_title">Text for the preference item to show the About screen.</string>
+  <string name="about_activity_title">{{Identical|About}}</string>
   <string name="edit_unchanged">Message displayed when the user tries to save a page when no modifications were made.</string>
   <string name="edit_abandon_confirm">Prompt for the user to abandon any changes that were made during editing.</string>
   <string name="user_blocked_from_editing_title">{{Identical|Blocked}}</string>
@@ -246,9 +249,11 @@ See also:
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
   <string name="find_close">Text for button that closes the find-in-page bar</string>
   <string name="error_network_error_try_again">Message shown when encountering network connection issues that may be corrected by simply retrying.</string>
-  <string name="saved_pages_update_all_error_retry">Label for button shown in error dialog when updating saved pages fails that lets user try again</string>
+  <string name="saved_pages_update_all_error_retry">Label for button shown in error dialog when updating saved pages fails that lets user try again.
+{{Identical|Retry}}</string>
   <string name="saved_pages_update_all_error_message">Message for error dialog shown when updating pages fails</string>
   <string name="saved_pages_progress_title">Title for progress dialog shown when updating saved pages</string>
-  <string name="saved_pages_refresh_progress_message">Message for progress dialog shown when updating saved pages. %s represents the name of the page being refreshed</string>
-  <string name="saved_pages_refresh_pages_complete">Toast message shown when a user initiated "update save pages" action has been completed</string>
+  <string name="saved_pages_refresh_progress_message">Message for progress dialog shown when updating saved pages. Parameters:
+* %s - the name of the page being refreshed</string>
+  <string name="saved_pages_refresh_pages_complete">Toast message shown when a user initiated \"update save pages\" action has been completed</string>
 </resources>
