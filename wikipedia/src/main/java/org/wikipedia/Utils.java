@@ -49,12 +49,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.TimeZone;
+import java.util.*;
 
 /**
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?
@@ -176,21 +171,6 @@ public final class Utils {
                 }
             }
         });
-    }
-
-    /**
-     * Parses dates from the format MediaWiki uses.
-     *
-     * @param mwDate String representing Date returned from a MW API call
-     * @return A {@link java.util.Date} object representing that particular date
-     */
-    public static Date parseMWDate(String mwDate) {
-        SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'"); // Assuming MW always gives me UTC
-        try {
-            return isoFormat.parse(mwDate);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     /**
@@ -571,7 +551,7 @@ public final class Utils {
      */
     public static Date parseISO8601(String dateString) throws ParseException {
         Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat(ISO8601_FORMAT_STRING);
+        SimpleDateFormat sdf = new SimpleDateFormat(ISO8601_FORMAT_STRING, Locale.ROOT);
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         date.setTime(sdf.parse(dateString).getTime());
         return date;
@@ -584,7 +564,7 @@ public final class Utils {
      * @return The given date formatted in ISO8601 format.
      */
     public static String formatISO8601(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat(ISO8601_FORMAT_STRING);
+        SimpleDateFormat sdf = new SimpleDateFormat(ISO8601_FORMAT_STRING, Locale.ROOT);
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
 
         return sdf.format(date);

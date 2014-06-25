@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 /**
@@ -21,7 +22,7 @@ public class PageProperties implements Parcelable {
     private final String displayTitleText;
     private final String editProtectionStatus;
     private final boolean isMainPage;
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
 
     /**
      * True if the user who first requested this page can edit this page
@@ -85,6 +86,7 @@ public class PageProperties implements Parcelable {
     }
 
     private PageProperties(Parcel in) {
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
         editProtectionStatus = in.readString();

@@ -61,7 +61,7 @@ public class FetchUserContribsTask extends ApiTask<FetchUserContribsTask.UserCon
             JSONObject contribJSON = contribsJSON.optJSONObject(i);
             contribs.add(new PageHistoryItem(
                     contribJSON.optString("user"),
-                    Utils.parseMWDate(contribJSON.optString("timestamp")),
+                    Utils.parseISO8601(contribJSON.optString("timestamp")),
                     contribJSON.optString("comment"),
                     contribJSON.optInt("sizeDiff"),
                     new PageTitle(contribJSON.optString("title"), site)
