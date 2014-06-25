@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public class EditFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppEdit";
-    private static final int REV_ID = 8994704;
+    private static final int REV_ID = 9003125;
 
     private final String editSessionToken;
     private final PageTitle title;
