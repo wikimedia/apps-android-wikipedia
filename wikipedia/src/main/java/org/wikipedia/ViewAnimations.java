@@ -1,5 +1,6 @@
 package org.wikipedia;
 
+import android.os.Build;
 import android.view.View;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
@@ -38,29 +39,36 @@ public final class ViewAnimations {
      * @param runOnComplete Optional Runnable to be run when the animation is complete (may be null).
      */
     public static void fadeIn(final View view, final Runnable runOnComplete) {
-        ViewHelper.setAlpha(view, 0f);
-        view.setVisibility(View.VISIBLE);
-        animate(view)
-                .alpha(1.0f)
-                .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
-                .setListener(new AnimatorListenerAdapter() {
-                    private boolean wasCanceled = false;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            ViewHelper.setAlpha(view, 0f);
+            view.setVisibility(View.VISIBLE);
+            animate(view)
+                    .alpha(1.0f)
+                    .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
+                    .setListener(new AnimatorListenerAdapter() {
+                        private boolean wasCanceled = false;
 
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-                        wasCanceled = true;
-                    }
+                        @Override
+                        public void onAnimationCancel(Animator animation) {
+                            wasCanceled = true;
+                        }
 
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (!wasCanceled) {
-                            if (runOnComplete != null) {
-                                runOnComplete.run();
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            if (!wasCanceled) {
+                                if (runOnComplete != null) {
+                                    runOnComplete.run();
+                                }
                             }
                         }
-                    }
-                })
-                .start();
+                    })
+                    .start();
+        } else {
+            view.setVisibility(View.VISIBLE);
+            if (runOnComplete != null) {
+                runOnComplete.run();
+            }
+        }
     }
 
     /**
@@ -77,31 +85,38 @@ public final class ViewAnimations {
      * @param runOnComplete Optional Runnable to be run when the animation is complete (may be null).
      */
     public static void fadeOut(final View view, final Runnable runOnComplete) {
-        animate(view)
-                .alpha(0f)
-                .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
-                .setListener(new AnimatorListenerAdapter() {
-                    private boolean wasCanceled = false;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            animate(view)
+                    .alpha(0f)
+                    .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
+                    .setListener(new AnimatorListenerAdapter() {
+                        private boolean wasCanceled = false;
 
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-                        wasCanceled = true;
-                    }
+                        @Override
+                        public void onAnimationCancel(Animator animation) {
+                            wasCanceled = true;
+                        }
 
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (!wasCanceled) {
-                            // Detect if we got canceled, and if so DON'T hide...
-                            // There's another animation now pushing the alpha back up
-                            view.setVisibility(View.GONE);
-                            ViewHelper.setAlpha(view, 1.0f);
-                            if (runOnComplete != null) {
-                                runOnComplete.run();
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            if (!wasCanceled) {
+                                // Detect if we got canceled, and if so DON'T hide...
+                                // There's another animation now pushing the alpha back up
+                                view.setVisibility(View.GONE);
+                                ViewHelper.setAlpha(view, 1.0f);
+                                if (runOnComplete != null) {
+                                    runOnComplete.run();
+                                }
                             }
                         }
-                    }
-                })
-                .start();
+                    })
+                    .start();
+        } else {
+            view.setVisibility(View.GONE);
+            if (runOnComplete != null) {
+                runOnComplete.run();
+            }
+        }
     }
 
     /**
