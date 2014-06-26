@@ -139,7 +139,7 @@ public class PageTitle implements Parcelable {
             return String.format(
                     "%1$s://%2$s/w/index.php?title=%3$s&action=%4$s",
                     WikipediaApp.PROTOCOL,
-                    getSite().getDomain(),
+                    getSite().getApiDomain(),
                     URLEncoder.encode(getPrefixedText().replace(" ", "_"), "utf-8"),
                     action
             );
