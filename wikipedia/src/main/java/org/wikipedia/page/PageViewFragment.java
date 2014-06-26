@@ -438,7 +438,7 @@ public class PageViewFragment extends Fragment {
 
         @Override
         public void onCatch(Throwable caught) {
-            Log.d("HistorySaveTask", caught.getMessage());
+            Log.d("HistorySaveTask", "Caught " + caught.getMessage());
         }
     }
 

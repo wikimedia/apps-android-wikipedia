@@ -214,7 +214,7 @@ public class EditPreviewFragment extends Fragment {
                         || caught instanceof HttpRequest.HttpRequestException)) {
                     throw new RuntimeException(caught);
                 }
-                Log.d("Wikipedia", caught.toString());
+                Log.d("Wikipedia", "Caught " + caught.toString());
                 final AlertDialog retryDialog = new AlertDialog.Builder(getActivity())
                         .setMessage(R.string.error_network_error)
                         .setPositiveButton(R.string.dialog_message_edit_failed_retry, new DialogInterface.OnClickListener() {

@@ -340,7 +340,7 @@ public class EditSectionActivity extends ActionBarActivity {
                         if (!(caught instanceof HttpRequest.HttpRequestException)) {
                             throw new RuntimeException(caught);
                         }
-                        Log.d("Wikipedia", caught.toString());
+                        Log.d("Wikipedia", "Caught " + caught.toString());
                         final AlertDialog retryDialog = new AlertDialog.Builder(EditSectionActivity.this)
                                 .setMessage(R.string.dialog_message_edit_failed)
                                 .setPositiveButton(R.string.dialog_message_edit_failed_retry, new DialogInterface.OnClickListener() {

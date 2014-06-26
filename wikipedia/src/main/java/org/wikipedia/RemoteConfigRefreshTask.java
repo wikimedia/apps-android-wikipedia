@@ -40,7 +40,7 @@ public class RemoteConfigRefreshTask extends RecurringTask {
             @Override
             public void onCatch(Throwable caught) {
                 // Don't do anything, but do write out a log statement. We don't particularly care.
-                Log.d("Wikipedia", caught.toString());
+                Log.d("Wikipedia", "Caught " + caught.toString());
             }
         }.execute();
     }

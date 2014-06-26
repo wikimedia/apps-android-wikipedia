@@ -82,11 +82,11 @@ public class StyleFetcherTask extends RecurringTask {
             throw new RuntimeException(e);
         } catch (IOException e) {
             // FIXME: better error feedback?
-            Log.d("StyleFetcherTask", e.getMessage());
+            Log.d("StyleFetcherTask", "IOException " + e.getMessage());
             e.printStackTrace();
         } catch (HttpRequest.HttpRequestException e) {
             // FIXME: better error feedback?
-            Log.d("StyleFetcherTask", e.getMessage());
+            Log.d("StyleFetcherTask", "HttpRequestException: " + e.getMessage());
             e.printStackTrace();
         }
     }
