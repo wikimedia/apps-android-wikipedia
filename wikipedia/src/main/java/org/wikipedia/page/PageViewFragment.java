@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -299,11 +300,7 @@ public class PageViewFragment extends Fragment {
         savedPagesFunnel = app.getFunnelManager().getSavedPagesFunnel(title.getSite());
         connectionIssueFunnel = new ConnectionIssueFunnel(app);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            // Enable Pinch-Zoom
-            webView.getSettings().setBuiltInZoomControls(true);
-            webView.getSettings().setDisplayZoomControls(false);
-        }
+        enableSizeCustomizations();
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         setupMessageHandlers();
@@ -333,6 +330,21 @@ public class PageViewFragment extends Fragment {
 
         setState(state);
         performActionForState(state);
+    }
+
+    private void enableSizeCustomizations() {
+        final DisplayMetrics metrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        // Adjust font size based on system settings
+        float fontSize = getResources().getDimension(R.dimen.textSize) / metrics.scaledDensity;
+        webView.getSettings().setDefaultFontSize((int) fontSize);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            // Enable Pinch-Zoom
+            webView.getSettings().setBuiltInZoomControls(true);
+            webView.getSettings().setDisplayZoomControls(false);
+        }
     }
 
     private void setupMessageHandlers() {
