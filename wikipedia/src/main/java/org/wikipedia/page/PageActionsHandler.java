@@ -1,7 +1,6 @@
 package org.wikipedia.page;
 
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.PopupMenu;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;

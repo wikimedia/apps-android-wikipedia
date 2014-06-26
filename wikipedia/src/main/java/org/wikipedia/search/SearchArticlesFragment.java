@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.PopupMenu;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -40,6 +39,7 @@ import org.wikipedia.events.ShowToCEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActionsHandler;
+import org.wikipedia.page.PopupMenu;
 import org.wikipedia.pageimages.PageImagesTask;
 
 import java.util.List;
