@@ -96,6 +96,26 @@
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                style="?android:textAppearanceSmall"
+                android:fontFamily="serif"
+                android:text="@string/about_translators_heading"
+                android:textColor="#888"
+                />
+        <TextView
+                android:id="@+id/about_translators"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/about_translators_translatewiki"
+                style="?android:textAppearanceSmall"
+                android:lineSpacingMultiplier="1.2"
+                android:textColor="#555"
+                android:layout_marginBottom="8dp"
+                />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 style="?android:textAppearanceSmall"
                 android:fontFamily="serif"
                 android:text="@string/about_libraries_heading"

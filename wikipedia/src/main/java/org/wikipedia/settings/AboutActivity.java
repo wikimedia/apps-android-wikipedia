@@ -16,6 +16,7 @@ public class AboutActivity extends ActionBarActivity {
         setContentView(R.layout.activity_about);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        ((TextView) findViewById(R.id.about_translators)).setText(Html.fromHtml(getString(R.string.about_translators_translatewiki)));
         ((TextView) findViewById(R.id.about_terms_of_use)).setText(Html.fromHtml(getString(R.string.about_terms_of_use)));
         ((TextView) findViewById(R.id.about_privacy_policy)).setText(Html.fromHtml(getString(R.string.about_privacy_policy)));
         ((TextView) findViewById(R.id.about_wmf)).setText(Html.fromHtml(getString(R.string.about_wmf)));

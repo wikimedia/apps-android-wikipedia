@@ -163,6 +163,8 @@
     <string name="about_privacy_policy"><![CDATA[<a href="http://wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>]]></string>
     <string name="about_libraries_heading">libraries used</string>
     <string name="about_contributors_heading">contributors</string>
+    <string name="about_translators_heading">translators</string>
+    <string name="about_translators_translatewiki"><![CDATA[This app was translated by the volunteer translators at <a href="https://translatewiki.net">translatewiki.net</a>.]]></string>
     <string name="about_wmf"><![CDATA[A product of the <a href="http://wikimediafoundation.org/wiki/Home">Wikimedia Foundation</a>]]></string>
     <string name="about_activity_title">About</string>
     <string name="edit_unchanged">The page has not been modified.</string>
