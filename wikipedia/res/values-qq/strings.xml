@@ -256,4 +256,5 @@ See also:
   <string name="saved_pages_refresh_progress_message">Message for progress dialog shown when updating saved pages. Parameters:
 * %s - the name of the page being refreshed</string>
   <string name="saved_pages_refresh_pages_complete">Toast message shown when a user initiated \"update save pages\" action has been completed</string>
+  <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
 </resources>
