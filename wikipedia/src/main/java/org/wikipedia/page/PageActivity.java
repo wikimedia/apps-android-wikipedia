@@ -164,6 +164,11 @@ public class PageActivity extends ActionBarActivity {
             return;
         }
 
+        // hold on... is this the same page that's already being displayed?
+        if (curPageFragment != null && curPageFragment.getTitle().equals(title)) {
+            return;
+        }
+
         // animate the new fragment into place
         // then hide the previous fragment.
         final PageViewFragment prevFragment = curPageFragment;

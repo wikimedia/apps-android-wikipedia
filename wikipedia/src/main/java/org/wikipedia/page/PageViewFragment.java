@@ -486,6 +486,9 @@ public class PageViewFragment extends Fragment {
             setState(STATE_INITIAL_FETCH);
             new RestSectionsFetchTask().execute();
 
+            // Update our history entry, in case the Title was changed (i.e. normalized)
+            curEntry = new HistoryEntry(title, curEntry.getTimestamp(), curEntry.getSource());
+
             // Add history entry now
             new HistorySaveTask(curEntry).execute();
 
