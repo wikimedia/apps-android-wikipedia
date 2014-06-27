@@ -54,8 +54,12 @@ bridge.registerListener( "injectStyles", function( payload ) {
         addStyleLink( style_paths[i] );
     }
 });
+
+module.exports = {
+	addStyleLink: addStyleLink
+};
 },{"./bridge":1}],3:[function(require,module,exports){
-var bridge = require("./bridge");
+var bridge = require( "./bridge" );
 bridge.registerListener( "displayAttribution", function( payload ) {
     var directionality = document.getElementsByTagName( "html" )[0].classList.contains( "ui-rtl" ) ? "rtl" : "ltr";
 
@@ -120,6 +124,7 @@ bridge.registerListener( "setMainPage", function() {
     mainpage.appendChild( content );
 
 } );
+
 
 },{"./bridge":1}],4:[function(require,module,exports){
 /**

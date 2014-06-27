@@ -18,10 +18,24 @@ import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
-import org.wikipedia.*;
-import org.wikipedia.events.*;
 import org.wikipedia.onboarding.OnboardingActivity;
 import org.wikipedia.savedpages.SavedPagesActivity;
+import org.wikipedia.NavDrawerFragment;
+import org.wikipedia.PageTitle;
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.events.FindInPageEvent;
+import org.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikipedia.events.NightModeToggleEvent;
+import org.wikipedia.events.RequestMainPageEvent;
+import org.wikipedia.events.SavePageEvent;
+import org.wikipedia.events.SharePageEvent;
+import org.wikipedia.events.ShowOtherLanguagesEvent;
+import org.wikipedia.events.ShowToCEvent;
+import org.wikipedia.events.WikipediaZeroInterstitialEvent;
+import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
@@ -214,6 +228,13 @@ public class PageActivity extends ActionBarActivity {
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         displayNewPage(title, historyEntry);
         Log.d("Wikipedia", "Doing for " + title);
+    }
+
+    @Subscribe
+    public void onNightModeToggle(NightModeToggleEvent event) {
+        if (curPageFragment != null) {
+            curPageFragment.toggleNightMode();
+        }
     }
 
     @Subscribe

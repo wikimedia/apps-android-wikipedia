@@ -15,3 +15,7 @@ bridge.registerListener( "injectStyles", function( payload ) {
         addStyleLink( style_paths[i] );
     }
 });
+
+module.exports = {
+	addStyleLink: addStyleLink
+};

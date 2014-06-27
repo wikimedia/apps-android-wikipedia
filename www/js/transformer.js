@@ -5,7 +5,7 @@ var transforms = {};
 
 Transformer.prototype.register = function( transform, fun ) {
     if ( transform in transforms ) {
-        transforms[transform].append( fun );
+        transforms[transform].push( fun );
     } else {
         transforms[transform] = [ fun ];
     }

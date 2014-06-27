@@ -19,6 +19,7 @@ public class StyleLoader {
     public static final String BUNDLE_PAGEVIEW = "styles.css";
     public static final String BUNDLE_PREVIEW = "preview.css";
     public static final String BUNDLE_ABUSEFILTER = "abusefilter.css";
+    public static final String BUNDLE_NIGHT_MODE = "night.css";
 
     private final Context context;
     private final Date assetsUpdated;

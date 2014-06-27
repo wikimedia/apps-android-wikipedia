@@ -1,5 +1,6 @@
 var bridge = require("./bridge");
 var transformer = require("./transformer");
+var night = require("./night");
 
 // Move infobox to the bottom of the lead section
 transformer.register( "leadSection", function( leadContent ) {
@@ -35,4 +36,13 @@ transformer.register( "section", function( content ) {
         images[i].onerror = onError;
     }
     return content;
+} );
+
+
+transformer.register( "section", function( content ) {
+	console.log( "inverting"  + window.isNightMode );
+	if ( window.isNightMode ) {
+		night.invertElement ( content );
+	}
+	return content;
 } );

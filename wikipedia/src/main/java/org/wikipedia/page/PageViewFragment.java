@@ -17,6 +17,7 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.NightModeHandler;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.PageTitle;
@@ -123,6 +124,7 @@ public class PageViewFragment extends Fragment {
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
     private EditHandler editHandler;
+    private NightModeHandler nightModeHandler;
 
     private WikipediaApp app;
     private Api api;
@@ -306,7 +308,6 @@ public class PageViewFragment extends Fragment {
         setupMessageHandlers();
         Utils.addUtilityMethodsToBridge(getActivity(), bridge);
         Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
-        bridge.injectStyleBundle(app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_PAGEVIEW, title.getSite()));
         linkHandler = new LinkHandler(getActivity(), bridge, title.getSite()){
             @Override
             public void onInternalLinkClicked(PageTitle title) {
@@ -315,6 +316,12 @@ public class PageViewFragment extends Fragment {
             }
         };
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
+
+        bridge.injectStyleBundle(app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_PAGEVIEW, title.getSite()));
+        nightModeHandler = new NightModeHandler(bridge, title.getSite());
+        if (nightModeHandler.isOn()) {
+            nightModeHandler.turnOn(true);
+        }
 
         retryButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -594,6 +601,15 @@ public class PageViewFragment extends Fragment {
         // Not sure why this is required, but without it tapping retry hides networkError
         // FIXME: INVESTIGATE WHY THIS HAPPENS!
         networkError.setVisibility(View.VISIBLE);
+    }
+
+    public void toggleNightMode() {
+        Log.d("Wikipedia", "Night mode toggled!");
+        if (nightModeHandler.isOn()) {
+            nightModeHandler.turnOff(state == STATE_COMPLETE_FETCH);
+        } else {
+            nightModeHandler.turnOn(state == STATE_COMPLETE_FETCH);
+        }
     }
 
     public void savePage() {

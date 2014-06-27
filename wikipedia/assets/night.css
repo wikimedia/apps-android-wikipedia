@@ -1,0 +1,15 @@
+/* Same specificity as in less/content/main.less */
+/* Same specificity as in less/content/hacks.less */
+body {
+  color: #999;
+  background: #000;
+}
+a {
+  color: #347BFF;
+}
+.content table th {
+  background-color: #2f2f2f;
+}
+.content table.infobox {
+  background: #444;
+}

@@ -77,6 +77,10 @@ bridge.registerListener( "injectStyles", function( payload ) {
         addStyleLink( style_paths[i] );
     }
 });
+
+module.exports = {
+	addStyleLink: addStyleLink
+};
 },{"./bridge":2}],4:[function(require,module,exports){
 var bridge = require("./bridge");
 
@@ -95,7 +99,7 @@ var transforms = {};
 
 Transformer.prototype.register = function( transform, fun ) {
     if ( transform in transforms ) {
-        transforms[transform].append( fun );
+        transforms[transform].push( fun );
     } else {
         transforms[transform] = [ fun ];
     }

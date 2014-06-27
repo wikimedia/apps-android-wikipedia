@@ -1,4 +1,4 @@
-var bridge = require("./bridge");
+var bridge = require( "./bridge" );
 bridge.registerListener( "displayAttribution", function( payload ) {
     var directionality = document.getElementsByTagName( "html" )[0].classList.contains( "ui-rtl" ) ? "rtl" : "ltr";
 

@@ -104,6 +104,10 @@ bridge.registerListener( "injectStyles", function( payload ) {
         addStyleLink( style_paths[i] );
     }
 });
+
+module.exports = {
+	addStyleLink: addStyleLink
+};
 },{"./bridge":2}],4:[function(require,module,exports){
 var bridge = require("./bridge");
 

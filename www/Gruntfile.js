@@ -27,7 +27,9 @@ module.exports = function ( grunt ) {
                 files: {
                     "bundle.js": [
                         "js/loader.js",
+						"lib/js/css-color-parser.js",
                         "js/main.js",
+						"js/night.js",
                         "js/transformer.js",
                         "js/transforms.js",
                         "js/bridge.js",
