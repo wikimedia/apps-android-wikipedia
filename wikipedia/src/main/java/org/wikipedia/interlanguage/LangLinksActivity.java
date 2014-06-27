@@ -111,6 +111,7 @@ public class LangLinksActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                Utils.hideSoftKeyboard(LangLinksActivity.this);
                 finish();
                 return true;
             default:
