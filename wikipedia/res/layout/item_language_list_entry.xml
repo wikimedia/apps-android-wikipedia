@@ -8,7 +8,7 @@
               android:paddingRight="16dp"
               android:paddingTop="8dp"
               android:paddingBottom="8dp"
-              android:background="@android:drawable/list_selector_background"
+              android:background="@drawable/search_item_background"
               >
     <TextView
             android:id="@+id/language_list_language_name"
