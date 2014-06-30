@@ -75,9 +75,9 @@ public class EditSectionActivity extends ActionBarActivity {
     private Button sectionErrorRetry;
 
     private View abusefilterContainer;
-    private WebView abusefilterWebView;
-    private CommunicationBridge abusefilterBridge;
-    private View abuseFilterBackAction;
+    private ImageView abuseFilterImage;
+    private TextView abusefilterTitle;
+    private TextView abusefilterText;
 
     private AbuseFilterEditResult abusefilterEditResult;
 
@@ -123,11 +123,9 @@ public class EditSectionActivity extends ActionBarActivity {
         sectionErrorRetry = (Button) findViewById(R.id.edit_section_error_retry);
 
         abusefilterContainer = findViewById(R.id.edit_section_abusefilter_container);
-        abusefilterWebView = (WebView) findViewById(R.id.edit_section_abusefilter_webview);
-        abusefilterBridge = new CommunicationBridge(abusefilterWebView, "file:///android_asset/abusefilter.html");
-        Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), abusefilterBridge);
-        abusefilterBridge.injectStyleBundle(app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_ABUSEFILTER, title.getSite()));
-        abuseFilterBackAction = findViewById(R.id.edit_section_abusefilter_back);
+        abuseFilterImage = (ImageView) findViewById(R.id.edit_section_abusefilter_image);
+        abusefilterTitle = (TextView) findViewById(R.id.edit_section_abusefilter_title);
+        abusefilterText = (TextView) findViewById(R.id.edit_section_abusefilter_text);
 
         captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, "", null);
 
@@ -158,13 +156,6 @@ public class EditSectionActivity extends ActionBarActivity {
             public void onClick(View v) {
                 ViewAnimations.crossFade(sectionError, sectionProgress);
                 fetchSectionText();
-            }
-        });
-
-        abuseFilterBackAction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cancelAbuseFilter();
             }
         });
 
@@ -384,7 +375,9 @@ public class EditSectionActivity extends ActionBarActivity {
                         } else if (result instanceof AbuseFilterEditResult) {
                             abusefilterEditResult = (AbuseFilterEditResult) result;
                             handleAbuseFilter();
-                            editPreviewFragment.hide();
+                            if (abusefilterEditResult.getType() == AbuseFilterEditResult.TYPE_ERROR) {
+                                editPreviewFragment.hide();
+                            }
                         } else if (result instanceof SpamBlacklistEditResult) {
                             Crouton.makeText(
                                     EditSectionActivity.this,
@@ -411,17 +404,16 @@ public class EditSectionActivity extends ActionBarActivity {
         }
         if (abusefilterEditResult.getType() == AbuseFilterEditResult.TYPE_ERROR) {
             funnel.logAbuseFilterError(abusefilterEditResult.getCode());
+            abuseFilterImage.setImageResource(R.drawable.abusefilter_disallow);
+            abusefilterTitle.setText(getString(R.string.abusefilter_title_disallow));
+            abusefilterText.setText(Html.fromHtml(getString(R.string.abusefilter_text_disallow)));
         } else {
             funnel.logAbuseFilterWarning(abusefilterEditResult.getCode());
+            abuseFilterImage.setImageResource(R.drawable.abusefilter_warn);
+            abusefilterTitle.setText(getString(R.string.abusefilter_title_warn));
+            abusefilterText.setText(Html.fromHtml(getString(R.string.abusefilter_text_warn)));
         }
-        JSONObject payload = new JSONObject();
-        try {
-            payload.putOpt("html", abusefilterEditResult.getWarning());
-        } catch (JSONException e) {
-            // Goddamn Java
-            throw new RuntimeException(e);
-        }
-        abusefilterBridge.sendMessage("displayWarning", payload);
+
         Utils.hideSoftKeyboard(this);
         ViewAnimations.fadeIn(abusefilterContainer, new Runnable() {
             @Override
@@ -452,12 +444,20 @@ public class EditSectionActivity extends ActionBarActivity {
      */
     public void clickNextButton() {
         if (editSummaryFragment.isActive()) {
+            //we're showing the custom edit summary window, so close it and
+            //apply the provided summary.
             editSummaryFragment.hide();
             editPreviewFragment.setCustomSummary(editSummaryFragment.getSummary());
         } else if (editPreviewFragment.isActive()) {
+            //we're showing the Preview window, which means that the next step is to save it!
+            if (abusefilterEditResult != null) {
+                //if the user was already shown an AbuseFilter warning, and they're ignoring it:
+                funnel.logAbuseFilterWarningIgnore(abusefilterEditResult.getCode());
+            }
             doSave();
             funnel.logSaveAttempt();
         } else {
+            //we must be showing the editing window, so show the Preview.
             Utils.hideSoftKeyboard(this);
             editPreviewFragment.showPreview(title, sectionText.getText().toString());
             funnel.logPreview();
@@ -492,7 +492,11 @@ public class EditSectionActivity extends ActionBarActivity {
         }
 
         if (abusefilterEditResult != null) {
-            item.setEnabled(false);
+            if (abusefilterEditResult.getType() == AbuseFilterEditResult.TYPE_ERROR) {
+                item.setEnabled(false);
+            } else {
+                item.setEnabled(true);
+            }
         } else {
             item.setEnabled(sectionTextModified);
         }
@@ -594,6 +598,9 @@ public class EditSectionActivity extends ActionBarActivity {
             captchaHandler.cancelCaptcha();
         }
         if (abusefilterEditResult != null) {
+            if (abusefilterEditResult.getType() == AbuseFilterEditResult.TYPE_WARNING) {
+                funnel.logAbuseFilterWarningBack(abusefilterEditResult.getCode());
+            }
             cancelAbuseFilter();
             return;
         }

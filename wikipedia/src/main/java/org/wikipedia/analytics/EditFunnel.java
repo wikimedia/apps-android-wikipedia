@@ -106,16 +106,30 @@ public class EditFunnel extends Funnel {
     public void logAbuseFilterWarning(String code) {
         log(
                 "action", "abuseFilterWarning",
-                "abuseFilterCode", code
+                "abuseFilterName", code
+        );
+    }
+
+
+    public void logAbuseFilterWarningIgnore(String code) {
+        log(
+                "action", "abuseFilterWarningIgnore",
+                "abuseFilterName", code
+        );
+    }
+
+    public void logAbuseFilterWarningBack(String code) {
+        log(
+                "action", "abuseFilterWarningBack",
+                "abuseFilterName", code
         );
     }
 
     public void logAbuseFilterError(String code) {
         log(
                 "action", "abuseFilterError",
-                "abuseFilterCode", code
+                "abuseFilterName", code
         );
-
     }
 
     public void logSaveAnonExplicit() {

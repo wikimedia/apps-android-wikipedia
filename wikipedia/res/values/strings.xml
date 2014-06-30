@@ -194,6 +194,10 @@
     <string name="saved_pages_progress_title">Refreshing saved pages</string>
     <string name="saved_pages_refresh_progress_message">Refreshing %s</string>
     <string name="saved_pages_refresh_pages_complete">Update complete</string>
+    <string name="abusefilter_title_warn">This may be an unconstructive edit. Are you sure you want to save it?</string>
+    <string name="abusefilter_title_disallow">You cannot save this edit. Please go back and change it.</string>
+    <string name="abusefilter_text_warn"><![CDATA[An automated filter has identified this edit as potentially unconstructive. It may contain one or more of the following:<br /><br />· Typing in all caps<br />· Blanking articles or spamming<br />· Irrelevant external links or images<br />· Repeating characters]]></string>
+    <string name="abusefilter_text_disallow"><![CDATA[An automated filter has identified this edit as potentially unconstructive, or potential vandalism.<br /><br />Wikipedia is an encyclopedia and only neutral, notable content belongs here.]]></string>
     <string name="app_store_description">Official Wikipedia App for Android. Wikipedia is the free encyclopedia containing more than 32 million articles in 280 languages, and is the most comprehensive and widely used reference work humans have ever compiled. The app has been rewritten from scratch and is better than ever before.
 
 Features:
