@@ -10,10 +10,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.text.Editable;
-import android.text.Html;
-import android.text.TextUtils;
-import android.text.TextWatcher;
+import android.text.*;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.*;
 import android.webkit.WebView;
@@ -129,9 +127,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
         editSummaryFragment = (EditSummaryFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_summary_fragment);
 
-        editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
-        editLicenseText.setText(Html.fromHtml(getString(R.string.edit_save_action_license)));
-        
+        updateEditLicenseText();
         editSummaryFragment.setTitle(title);
 
         bus = app.getBus();
@@ -156,12 +152,6 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             }
         });
 
-        editLicenseText.setMovementMethod(new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
-            @Override
-            public void onUrlClick(String url) {
-                Utils.handleExternalLink(EditSectionActivity.this, Uri.parse(url));
-            }
-        }));
 
         Utils.setTextDirection(sectionText, title.getSite().getLanguage());
 
@@ -203,6 +193,30 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
+    private void updateEditLicenseText() {
+        editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
+        if (app.getUserInfoStorage().isLoggedIn()) {
+            editLicenseText.setText(Html.fromHtml(getString(R.string.edit_save_action_license_logged_in)));
+        } else {
+            editLicenseText.setText(Html.fromHtml(getString(R.string.edit_save_action_license_anon)));
+        }
+
+        editLicenseText.setMovementMethod(new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
+            @Override
+            public void onUrlClick(String url) {
+                if (url.equals("https://#login")) {
+                    funnel.logLoginAttempt();
+                    Intent loginIntent = new Intent(EditSectionActivity.this, LoginActivity.class);
+                    loginIntent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_EDIT);
+                    loginIntent.putExtra(LoginActivity.EDIT_SESSION_TOKEN, funnel.getEditSessionToken());
+                    startActivityForResult(loginIntent, LoginActivity.REQUEST_LOGIN);
+                } else {
+                    Utils.handleExternalLink(EditSectionActivity.this, Uri.parse(url));
+                }
+            }
+        }));
+    }
+
     // TODO: refactor; same code in PageActivity
     @Subscribe
     public void onWikipediaZeroInterstitialEvent(final WikipediaZeroInterstitialEvent event) {
@@ -234,7 +248,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == LoginActivity.REQUEST_LOGIN) {
             if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-                doSave();
+                updateEditLicenseText();
                 funnel.logLoginSuccess();
             } else {
                 funnel.logLoginFailure();

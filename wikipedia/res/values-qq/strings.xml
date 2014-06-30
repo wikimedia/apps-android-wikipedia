@@ -62,7 +62,8 @@ See also:
   <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected saved pages have been deleted</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted timestamp</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
-  <string name="edit_save_action_license">HTML specifying Terms of Use and CC license before saving edits</string>
+  <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>
+  <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC license and a log link before saving edits, only when the user has not logged in. Please do not change the href=\'https://#login\' part of the message.</string>
   <string name="preference_title_language">Title for preference in settings screen for setting which language wikipedia to use.</string>
   <string name="preference_summary_language">A label for a setting that chooses the language in which the content of Wikipedia will be shown.</string>
   <string name="preference_languages_filter_hint">Placeholder text for the textbox that when typed filters list of language wikipedias from which user can pick a language to use.
