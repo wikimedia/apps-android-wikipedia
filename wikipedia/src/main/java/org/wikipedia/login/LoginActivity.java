@@ -29,6 +29,7 @@ public class LoginActivity extends ActionBarActivity {
 
     public static final String LOGIN_REQUEST_SOURCE = "login_request_source";
     public static final String EDIT_SESSION_TOKEN = "edit_session_token";
+    public static final String ACTION_CREATE_ACCOUNT = "action_create_account";
 
     private EditText usernameText;
     private EditText passwordText;
@@ -83,10 +84,7 @@ public class LoginActivity extends ActionBarActivity {
         createAccountLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                funnel.logCreateAccountAttempt();
-                Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
-                intent.putExtra(CreateAccountActivity.LOGIN_SESSION_TOKEN, funnel.getLoginSessionToken());
-                startActivityForResult(intent, CreateAccountActivity.ACTION_CREATE_ACCOUNT);
+                startCreateAccountActivity();
             }
         });
 
@@ -108,6 +106,17 @@ public class LoginActivity extends ActionBarActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
         progressDialog.setCancelable(false);
+
+        if (getIntent().getBooleanExtra(ACTION_CREATE_ACCOUNT, false)) {
+            startCreateAccountActivity();
+        }
+    }
+
+    private void startCreateAccountActivity() {
+        funnel.logCreateAccountAttempt();
+        Intent intent = new Intent(this, CreateAccountActivity.class);
+        intent.putExtra(CreateAccountActivity.LOGIN_SESSION_TOKEN, funnel.getLoginSessionToken());
+        startActivityForResult(intent, CreateAccountActivity.ACTION_CREATE_ACCOUNT);
     }
 
     @Override

@@ -89,6 +89,9 @@
     <string name="toast_logout_complete">Logged out</string>
     <string name="saved_pages_empty_message">No saved pages</string>
     <string name="history_empty_message">Your history is empty.</string>
+    <string name="wp_stylized"><![CDATA[<big>W</big>IKIPEDI<big>A</big>]]></string>
+    <string name="wp_tag_line">The Free Encyclopedia</string>
+    <string name="skip">Skip</string>
     <string name="create_account_username_hint">Username</string>
     <string name="create_account_password_hint">Password</string>
     <string name="menu_create_account">Create account</string>

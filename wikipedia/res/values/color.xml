@@ -15,6 +15,9 @@
     <color name="green_progressive_dark">#ff3a8761</color>
     <color name="green_complete">#00AF89</color>
     <color name="green_complete_dark">#005744</color>
+    <color name="white_progressive_dark">#fff0f0f0</color>
+    <color name="onboarding_background">#ffebebf1</color>
+    <color name="onboarding_skip_gray">#ff696969</color>
 
     <!-- Copied for 2.3 -->
     <color name="holo_green_light">#ff99cc00</color>

@@ -5,4 +5,15 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="corner_radius">4dp</dimen>
 
+    <!--
+        Onboarding screen
+    -->
+    <dimen name="onboarding_wp_globe">144dp</dimen>
+    <!--
+        The next two are text sizes but since they need to correspond
+        to the logo image the dimensions are given in dp instead of sp.
+    -->
+    <dimen name="onboarding_wp_logo_text">26dp</dimen>
+    <dimen name="onboarding_wp_logo_subtext">13dp</dimen>
+
 </resources>

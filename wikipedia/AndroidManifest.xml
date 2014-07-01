@@ -91,6 +91,9 @@
                   android:label="@string/activity_my_contributions_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
+        <activity android:name=".onboarding.OnboardingActivity"
+                  android:theme="@style/NoTitle"
+                />
 
         <provider
             android:authorities="org.wikipedia.history"

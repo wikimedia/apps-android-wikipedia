@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -21,6 +20,7 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import org.wikipedia.*;
 import org.wikipedia.events.*;
+import org.wikipedia.onboarding.OnboardingActivity;
 import org.wikipedia.savedpages.SavedPagesActivity;
 import org.wikipedia.history.HistoryActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -75,7 +75,7 @@ public class PageActivity extends ActionBarActivity {
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         setContentView(R.layout.activity_main);
 
-        app = ((WikipediaApp)getApplicationContext());
+        app = (WikipediaApp) getApplicationContext();
 
         if (savedInstanceState != null) {
             pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
@@ -116,6 +116,22 @@ public class PageActivity extends ActionBarActivity {
 
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(this).run();
+
+        if (showOnboarding()) {
+            startActivity(new Intent(this, OnboardingActivity.class));
+        }
+    }
+
+    /**
+     * @return true if
+     * (1:) the app was launched from the launcher (and not another app, like the browser) AND
+     * (2:) none of the onboarding screen buttons had been clicked AND
+     * (3:) the user is not logged in
+     */
+    private boolean showOnboarding() {
+        return (getIntent() == null || Intent.ACTION_MAIN.equals(getIntent().getAction()))
+                && !PreferenceManager.getDefaultSharedPreferences(this).getBoolean(WikipediaApp.PREFERENCE_ONBOARD, false)
+                && !app.getUserInfoStorage().isLoggedIn();
     }
 
     private void handleIntent(Intent intent) {

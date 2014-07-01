@@ -61,6 +61,7 @@ public class WikipediaApp extends Application {
     public static String PREFERENCE_EVENTLOGGING_ENABLED;
     public static String PREFERENCE_STYLES_LAST_UPDATED;
     public static String PREFERENCE_READING_APP_INSTALL_ID;
+    public static String PREFERENCE_ONBOARD;
 
     public static float SCREEN_DENSITY;
     // Reload in onCreate to override
@@ -112,6 +113,7 @@ public class WikipediaApp extends Application {
         PREFERENCE_EVENTLOGGING_ENABLED = getString(R.string.preference_key_eventlogging_opt_in);
         PREFERENCE_STYLES_LAST_UPDATED = getString(R.string.preference_key_styles_last_updated);
         PREFERENCE_READING_APP_INSTALL_ID = getString(R.string.preference_reading_app_install_id);
+        PREFERENCE_ONBOARD = getString(R.string.preference_onboard);
 
         PROTOCOL = "https"; // Move this to a preference or something later on
 
