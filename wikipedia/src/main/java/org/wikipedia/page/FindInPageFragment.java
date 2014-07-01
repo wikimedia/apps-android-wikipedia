@@ -42,6 +42,9 @@ public class FindInPageFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Utils.hideSoftKeyboard(parentActivity);
+                if (!pageFragmentValid()) {
+                    return;
+                }
                 parentActivity.getCurPageFragment().getWebView().findNext(true);
             }
         });
@@ -51,6 +54,9 @@ public class FindInPageFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Utils.hideSoftKeyboard(parentActivity);
+                if (!pageFragmentValid()) {
+                    return;
+                }
                 parentActivity.getCurPageFragment().getWebView().findNext(false);
             }
         });
@@ -73,8 +79,7 @@ public class FindInPageFragment extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 findInPageNext.setEnabled(s.length() > 0);
                 findInPagePrev.setEnabled(s.length() > 0);
-                if (parentActivity.getCurPageFragment() == null) {
-                    // could happen when we restore state
+                if (!pageFragmentValid()) {
                     return;
                 }
                 if (s.length() > 0) {
@@ -92,6 +97,18 @@ public class FindInPageFragment extends Fragment {
         if (savedInstanceState != null && savedInstanceState.containsKey("findinpage_text")) {
             findInPageInput.setText(savedInstanceState.getString("findinpage_text"));
         }
+    }
+
+    private boolean pageFragmentValid() {
+        if (parentActivity.getCurPageFragment() == null) {
+            // could happen when we restore state
+            return false;
+        }
+        if (parentActivity.getCurPageFragment().getWebView() == null) {
+            // fragment instantiated, but not yet bound to activity
+            return false;
+        }
+        return true;
     }
 
     public void hide() {
@@ -113,6 +130,9 @@ public class FindInPageFragment extends Fragment {
                             .toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_IMPLICIT_ONLY);
                     // if the input field is already populated, then search it
                     if (findInPageInput.getText().length() > 0) {
+                        if (!pageFragmentValid()) {
+                            return;
+                        }
                         findInPage(findInPageInput.getText().toString());
                     }
                 }
