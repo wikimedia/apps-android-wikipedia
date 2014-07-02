@@ -486,6 +486,20 @@ public final class Utils {
     }
 
     /**
+     * Utility method to detect whether an Email app is installed,
+     * for conditionally enabling/disabling email links.
+     * @param context Context of the calling app.
+     * @return True if an Email app exists, false otherwise.
+     */
+    public static boolean mailAppExists(Context context) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:test@wikimedia.org"));
+        List<ResolveInfo> resInfo = context.getPackageManager().queryIntentActivities(intent, 0);
+        return resInfo.size() > 0;
+    }
+
+    /**
      * Utility method to copy a stream into another stream.
      *
      * Uses a 16KB buffer.

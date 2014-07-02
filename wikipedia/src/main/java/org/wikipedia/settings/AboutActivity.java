@@ -5,9 +5,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import org.wikipedia.R;
+import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 
 public class AboutActivity extends ActionBarActivity {
@@ -27,6 +29,11 @@ public class AboutActivity extends ActionBarActivity {
                 " Feedback\">" +
                 getString(R.string.send_feedback) +
                 "</a>"));
+
+        //if there's no Email app, hide the Feedback link.
+        if (!Utils.mailAppExists(this)) {
+            findViewById(R.id.send_feedback_text).setVisibility(View.GONE);
+        }
 
         makeEverythingClickable((ViewGroup) findViewById(R.id.about_container));
     }
