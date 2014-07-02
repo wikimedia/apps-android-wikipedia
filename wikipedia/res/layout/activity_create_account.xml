@@ -65,6 +65,18 @@
                     style="@style/button_progressive"
                     android:enabled="false"
                     />
+
+            <TextView
+                android:id="@+id/create_account_login_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:padding="8dp"
+                android:text="@string/create_account_login_link"
+                style="?android:textAppearanceSmall"
+                android:textColor="@color/link"
+                />
+
         </LinearLayout>
 
         <include layout="@layout/group_captcha" />
