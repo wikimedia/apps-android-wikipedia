@@ -359,9 +359,11 @@ public class PageViewFragment extends Fragment {
                 }
             }
         });
-        if (app.getRemoteConfig().getConfig().has("disableAnonEditing")
+        // Hide edit pencils if anon editing is disabled by remote killswitch or if this is a file page
+        boolean isAnonEditingDisabled = app.getRemoteConfig().getConfig().has("disableAnonEditing")
                 && app.getRemoteConfig().getConfig().optBoolean("disableAnonEditing")
-                && !app.getUserInfoStorage().isLoggedIn()) {
+                && !app.getUserInfoStorage().isLoggedIn();
+        if (isAnonEditingDisabled || title.isFilePage()) {
             bridge.sendMessage("hideEditButtons", new JSONObject());
         }
     }
