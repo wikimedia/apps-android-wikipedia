@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.staticdata.FileAliasData;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.staticdata.SpecialAliasData;
 
@@ -153,7 +154,28 @@ public class PageTitle implements Parcelable {
         return namespace == null ? text : namespace + ":" + text;
     }
 
+
+    private Boolean isFilePage = null;
+    /**
+     * Check if the Title represents a File:
+     *
+     * @return true if it is a File page, false if not
+     */
+    public boolean isFilePage() {
+        if (isFilePage == null) {
+            isFilePage = getNamespace() != null
+                    && FileAliasData.valueFor(getSite().getLanguage()).equals(getNamespace());
+        }
+
+        return isFilePage;
+    }
+
     private Boolean isSpecial = null;
+    /**
+     * Check if the Title represents a special page
+     *
+     * @return true if it is a special page, false if not
+     */
     public boolean isSpecial() {
         if (isSpecial == null) {
             isSpecial = getNamespace() != null

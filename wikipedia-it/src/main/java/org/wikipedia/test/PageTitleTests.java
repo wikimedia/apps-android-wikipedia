@@ -85,6 +85,13 @@ public class PageTitleTests extends TestCase {
         assertFalse(new PageTitle("特別:Version", new Site("en.wikipedia.org")).isSpecial());
     }
 
+    public void testFile() throws Exception {
+        assertTrue(new PageTitle("File:SomethingSomething", new Site("en.wikipedia.org")).isFilePage());
+        assertTrue(new PageTitle("ファイル:Version", new Site("ja.wikipedia.org")).isFilePage());
+        assertFalse(new PageTitle("File:SomethingSomething", new Site("ja.wikipedia.org")).isFilePage());
+        assertFalse(new PageTitle("ファイル:Version", new Site("en.wikipedia.org")).isFilePage());
+    }
+
     public void testMainpage() throws Exception {
         Site enwiki = new Site("en.wikipedia.org");
         assertEquals(new PageTitle("", enwiki), new PageTitle(MainPageNameData.valueFor("en"), enwiki));

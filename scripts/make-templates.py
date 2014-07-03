@@ -77,7 +77,7 @@ def list_from_wikistats():
 
 
 # Populate the aliases for "Special:" in all wikis
-def populate_special_alias(wikis):
+def populate_aliases(wikis):
     for wiki in wikis.wikis:
         print(u"Fetching Special Page alias for %s" % wiki.lang)
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
@@ -85,6 +85,7 @@ def populate_special_alias(wikis):
         data = json.load(urlopen(url))
         # -1 seems to be the ID for Special Pages
         wiki.props[u"special_alias"] = data[u"query"][u"namespaces"][u"-1"][u"*"]
+        wiki.props[u"file_alias"] = data[u"query"][u"namespaces"][u"6"][u"*"]
     return wikis
 
 
@@ -129,9 +130,11 @@ def chain(*funcs):
 
 chain(
     list_from_wikistats,
-    populate_special_alias,
+    populate_aliases,
     render_template(u"basichash.java.jinja", u"SpecialAliasData", key=u"special_alias"),
+    render_template(u"basichash.java.jinja", u"FileAliasData", key=u"file_alias"),
     render_simple_json(u"special_alias", u"specialalias.json"),
+    render_simple_json(u"file_alias", u"filealias.json"),
     populate_main_pages,
     render_template(u"basichash.java.jinja", u"MainPageNameData", key=u"main_page_name"),
     render_simple_json(u"main_page_name", u"mainpages.json")
