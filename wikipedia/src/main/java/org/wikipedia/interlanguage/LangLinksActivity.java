@@ -21,7 +21,7 @@ import org.wikipedia.page.PageActivity;
 
 import java.util.ArrayList;
 
-public class LangLinksActivity extends ActionBarActivity {
+public class LangLinksActivity extends ThemedActionBarActivity {
     public static final int ACTIVITY_RESULT_LANGLINK_SELECT = 1;
 
     public static final String ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title";
@@ -42,14 +42,13 @@ public class LangLinksActivity extends ActionBarActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        app = (WikipediaApp)getApplicationContext();
+
         setContentView(R.layout.activity_langlinks);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (!getIntent().getAction().equals(ACTION_LANGLINKS_FOR_TITLE)) {
             throw new RuntimeException("Only ACTION_LANGLINKS_FOR_TITLE is supported");
         }
-
-        app = (WikipediaApp)getApplicationContext();
 
         langLinksList = (ListView) findViewById(R.id.langlinks_list);
         langLinksFilter = (EditText) findViewById(R.id.langlinks_filter);

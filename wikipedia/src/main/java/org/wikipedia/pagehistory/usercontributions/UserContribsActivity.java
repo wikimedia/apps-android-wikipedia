@@ -10,13 +10,14 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import org.wikipedia.R;
+import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.pagehistory.PageHistoryItem;
 
 import java.util.ArrayList;
 
-public class UserContribsActivity extends ActionBarActivity {
+public class UserContribsActivity extends ThemedActionBarActivity {
     private ListView userContribsList;
     private View moreContainer;
     private TextView moreText;
@@ -51,8 +52,6 @@ public class UserContribsActivity extends ActionBarActivity {
         userContribsList.setAdapter(adapter);
 
         userContribsList.addFooterView(moreContainer);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState != null) {
             lastContinue = savedInstanceState.getString("lastContinue");

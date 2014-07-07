@@ -1,0 +1,30 @@
+<resources>
+
+    <style name="Theme.WikiDark" parent="Theme.AppCompat">
+        <item name="android:actionBarItemBackground">@drawable/selectable_item_background</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.WikiDark</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.WikiDark</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.WikiDark</item>
+        <item name="android:windowBackground">@color/window_background_dark</item>
+        <item name="window_background_color">@color/window_background_dark</item>
+        <item name="search_background_color">@color/search_background_dark</item>
+        <item name="actionbar_background_color">@color/actionbar_background_dark</item>
+        <item name="toc_background_color">@color/toc_background_dark</item>
+        <item name="toc_section_text_color">@color/toc_section_text_dark</item>
+        <item name="toc_subsection_text_color">@color/toc_subsection_text_dark</item>
+        <item name="edit_text_color">@color/edit_text_dark</item>
+    </style>
+
+    <style name="ActionBar.Solid.WikiDark" parent="@style/Widget.AppCompat.ActionBar.Solid">
+        <item name="android:background">@color/actionbar_background_dark</item>
+    </style>
+
+    <style name="DropDownListView.WikiDark" parent="@style/Widget.AppCompat.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_item_background</item>
+    </style>
+
+    <style name="DropDownNav.WikiDark" parent="@style/Widget.AppCompat.Spinner.DropDown.ActionBar">
+        <item name="android:dropDownSelector">@drawable/selectable_item_background</item>
+    </style>
+
+</resources>

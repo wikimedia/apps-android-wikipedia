@@ -24,8 +24,9 @@
           android:showAsAction="always"
           android:enabled="false"
             />
-    <item android:id="@+id/menu_item_night_mode"
-          android:title="Night Mode"
+    <item android:id="@+id/menu_themechooser"
+          android:title="@string/menu_themechooser"
+          android:showAsAction="always"
           android:enabled="false"
-          />
+            />
 </menu>

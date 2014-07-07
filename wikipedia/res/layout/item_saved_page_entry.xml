@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@drawable/activated_background_holo_light"
             >
         <ImageView android:layout_width="16dp" android:layout_height="16dp"
                    android:id="@+id/saved_page_source"

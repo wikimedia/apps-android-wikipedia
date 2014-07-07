@@ -3,7 +3,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/window_background_color"
+              android:background="?attr/window_background_color"
               android:id="@+id/page_fragment_container"
         >
     <ProgressBar
@@ -39,9 +39,7 @@
                         android:id="@+id/page_toc_list"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/background_light"
-                        android:divider="#ededed"
-                        android:dividerHeight="0.5dp"
+                        android:background="?attr/toc_background_color"
                         android:visibility="gone"
                         android:choiceMode="singleChoice"
                         />

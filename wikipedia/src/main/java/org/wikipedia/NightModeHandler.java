@@ -1,7 +1,5 @@
 package org.wikipedia;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -10,9 +8,7 @@ import org.wikipedia.bridge.StyleLoader;
 public class NightModeHandler {
     private final CommunicationBridge bridge;
     private final Site site;
-
     private final WikipediaApp app;
-    private final SharedPreferences prefs;
 
     /**
      * @param bridge The bridge used to communicate with the WebView
@@ -22,7 +18,6 @@ public class NightModeHandler {
         this.bridge = bridge;
         this.site = site;
         this.app = WikipediaApp.getInstance();
-        this.prefs = PreferenceManager.getDefaultSharedPreferences(app);
     }
 
     /**
@@ -52,7 +47,6 @@ public class NightModeHandler {
      */
     public void turnOn(boolean hasPageLoaded) {
         bridge.sendMessage("toggleNightMode", getPayload(hasPageLoaded));
-        prefs.edit().putBoolean(WikipediaApp.PREFERENCE_NIGHT_MODE, true).commit();
     }
 
     /**
@@ -61,14 +55,5 @@ public class NightModeHandler {
      */
     public void turnOff(boolean hasPageLoaded) {
         bridge.sendMessage("toggleNightMode", getPayload(hasPageLoaded));
-        prefs.edit().putBoolean(WikipediaApp.PREFERENCE_NIGHT_MODE, false).commit();
-    }
-
-    /**
-     * Check if Night Mode is on
-     * @return true if night mode is on, false otherwise
-     */
-    public boolean isOn() {
-        return prefs.getBoolean(WikipediaApp.PREFERENCE_NIGHT_MODE, false);
     }
 }

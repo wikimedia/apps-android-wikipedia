@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
@@ -18,6 +19,7 @@ import com.nineoldandroids.view.ViewHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
+import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
@@ -32,6 +34,7 @@ public class ToCHandler {
     private final CommunicationBridge bridge;
     private final DisableableDrawerLayout slidingPane;
     private ToCInteractionFunnel funnel;
+    private Activity parentActivity;
 
     /**
      * Flag to track if the drawer is closing because a link was clicked.
@@ -40,7 +43,8 @@ public class ToCHandler {
      */
     private boolean wasClicked = false;
 
-    public ToCHandler(final DisableableDrawerLayout slidingPane, final View quickReturnBar, final CommunicationBridge bridge) {
+    public ToCHandler(final Activity activity, final DisableableDrawerLayout slidingPane, final View quickReturnBar, final CommunicationBridge bridge) {
+        this.parentActivity = activity;
         this.bridge = bridge;
         this.slidingPane = slidingPane;
 
@@ -154,7 +158,7 @@ public class ToCHandler {
         return slidingPane.isDrawerOpen();
     }
 
-    private static final class ToCAdapter extends BaseAdapter {
+    private class ToCAdapter extends BaseAdapter {
         private final ArrayList<Section> sections;
 
         private ToCAdapter(Page page) {
@@ -197,9 +201,11 @@ public class ToCHandler {
             sectionHeading.setText(Html.fromHtml(section.getHeading()));
 
             if (section.getLevel() > 1) {
-                sectionHeading.setTextColor(Color.parseColor("#898989"));
+                sectionHeading.setTextColor(
+                        WikipediaApp.getInstance().getResources().getColor(Utils.getThemedAttributeId(parentActivity, R.attr.toc_subsection_text_color)));
             } else {
-                sectionHeading.setTextColor(Color.parseColor("#333333"));
+                sectionHeading.setTextColor(
+                        WikipediaApp.getInstance().getResources().getColor(Utils.getThemedAttributeId(parentActivity, R.attr.toc_section_text_color)));
             }
             return convertView;
         }

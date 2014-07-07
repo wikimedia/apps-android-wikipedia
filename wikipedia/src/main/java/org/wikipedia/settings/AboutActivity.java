@@ -7,16 +7,17 @@ import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import org.wikipedia.R;
+import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 
-public class AboutActivity extends ActionBarActivity {
+public class AboutActivity extends ThemedActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ((TextView) findViewById(R.id.about_translators)).setText(Html.fromHtml(getString(R.string.about_translators_translatewiki)));
         ((TextView) findViewById(R.id.about_terms_of_use)).setText(Html.fromHtml(getString(R.string.about_terms_of_use)));
@@ -34,6 +35,8 @@ public class AboutActivity extends ActionBarActivity {
         if (!Utils.mailAppExists(this)) {
             findViewById(R.id.send_feedback_text).setVisibility(View.GONE);
         }
+
+        WikipediaApp.getInstance().adjustDrawableToTheme(((ImageView) findViewById(R.id.about_logo_image)).getDrawable());
 
         makeEverythingClickable((ViewGroup) findViewById(R.id.about_container));
     }

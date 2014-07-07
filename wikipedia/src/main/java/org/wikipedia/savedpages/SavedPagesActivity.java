@@ -15,7 +15,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.view.ActionMode;
 import android.util.SparseBooleanArray;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 import org.wikipedia.R;
+import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
@@ -36,7 +36,7 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class SavedPagesActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class SavedPagesActivity extends ThemedActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     public static final int ACTIVITY_RESULT_SAVEDPAGE_SELECT = 1;
 
     private ListView savedPagesList;
@@ -50,7 +50,6 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         app = (WikipediaApp)getApplicationContext();
 
         setContentView(R.layout.activity_saved_pages);
@@ -148,7 +147,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
         });
 
         getSupportLoaderManager().initLoader(0, null, this);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        app.adjustDrawableToTheme( ((ImageView)findViewById(R.id.saved_pages_empty_image)).getDrawable() );
     }
 
     @Override
@@ -224,8 +223,9 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_saved_pages, menu);
+        getMenuInflater().inflate(R.menu.menu_saved_pages, menu);
+        app.adjustDrawableToTheme(menu.findItem(R.id.menu_refresh_all_saved_pages).getIcon());
+        app.adjustDrawableToTheme(menu.findItem(R.id.menu_clear_all_saved_pages).getIcon());
         return true;
     }
 

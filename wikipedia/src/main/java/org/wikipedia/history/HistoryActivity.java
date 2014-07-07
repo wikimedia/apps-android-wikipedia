@@ -15,7 +15,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +25,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import org.wikipedia.R;
+import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
@@ -34,7 +34,7 @@ import org.wikipedia.pageimages.PageImage;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class HistoryActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class HistoryActivity extends ThemedActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     public static final int ACTIVITY_RESULT_HISTORY_SELECT = 1;
 
     private ListView historyEntryList;
@@ -48,7 +48,6 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         app = (WikipediaApp)getApplicationContext();
 
         setContentView(R.layout.activity_history);
@@ -104,7 +103,7 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
             });
 
         getSupportLoaderManager().initLoader(0, null, this);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        app.adjustDrawableToTheme( ((ImageView)findViewById(R.id.history_empty_image)).getDrawable() );
     }
 
     @Override
@@ -218,8 +217,8 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_history, menu);
+        getMenuInflater().inflate(R.menu.menu_history, menu);
+        app.adjustDrawableToTheme(menu.findItem(R.id.menu_clear_all_history).getIcon());
         return true;
     }
 

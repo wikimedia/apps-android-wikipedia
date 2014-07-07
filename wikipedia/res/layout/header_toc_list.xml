@@ -7,6 +7,6 @@
               android:padding="16dp"
               android:textStyle="bold"
               style="?android:textAppearanceLarge"
-              android:background="@drawable/activated_background_holo_light"
+              android:background="@drawable/selectable_item_background"
         />
 

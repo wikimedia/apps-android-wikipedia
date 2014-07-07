@@ -2,7 +2,8 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-              android:layout_height="match_parent">
+             android:layout_height="match_parent"
+             android:background="?attr/window_background_color">
     <ProgressBar
             android:id="@+id/edit_section_load_progress"
             android:layout_gravity="center"
@@ -43,6 +44,7 @@
                 android:gravity="top|start"
                 android:imeOptions="actionDone"
                 android:scrollbars="vertical"
+                android:textColor="?attr/edit_text_color"
                 />
     </ScrollView>
 

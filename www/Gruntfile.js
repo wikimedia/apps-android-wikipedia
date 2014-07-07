@@ -53,6 +53,7 @@ module.exports = function ( grunt ) {
                     "preview.js": [
                         "js/loader.js",
                         "js/bridge.js",
+                        "js/night.js",
                         "js/actions.js",
                         "js/preview.js",
                         "js/rtlsupport.js"

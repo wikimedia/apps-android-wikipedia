@@ -18,8 +18,11 @@ import android.telephony.TelephonyManager;
 import android.text.InputType;
 import android.text.format.DateUtils;
 import android.util.Base64;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -604,5 +607,30 @@ public final class Utils {
         } else {
             return throwableContainsSpecificType(actual.getCause(), expected);
         }
+    }
+
+    /**
+     * Calculates the actual font size for the current device, based on an "sp" measurement.
+     * @param window The window on which the font will be rendered.
+     * @param fontSp Measurement in "sp" units of the font.
+     * @return Actual font size for the given sp amount.
+     */
+    public static float getFontSizeFromSp(Window window, float fontSp) {
+        final DisplayMetrics metrics = new DisplayMetrics();
+        window.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        return fontSp / metrics.scaledDensity;
+    }
+
+    /**
+     * Resolves the resource ID of a theme-dependent attribute (for example, a color value
+     * that changes based on the selected theme)
+     * @param activity The activity whose theme contains the attribute.
+     * @param id Theme-dependent attribute ID to be resolved.
+     * @return The actual resource ID of the requested theme-dependent attribute.
+     */
+    public static int getThemedAttributeId(Activity activity, int id) {
+        TypedValue tv = new TypedValue();
+        activity.getTheme().resolveAttribute(id, tv, true);
+        return tv.resourceId;
     }
 }

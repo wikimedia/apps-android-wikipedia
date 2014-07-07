@@ -14,13 +14,9 @@ import android.widget.ScrollView;
 import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.*;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.views.ObservableWebView;
-import org.wikipedia.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.Utils;
-import org.wikipedia.ViewAnimations;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.editing.summaries.EditSummaryTag;
@@ -42,6 +38,8 @@ public class EditPreviewFragment extends Fragment {
     private String previewHTML;
 
     private CommunicationBridge bridge;
+
+    NightModeHandler nightModeHandler;
 
     List<EditSummaryTag> summaryTags;
     EditSummaryTag otherTag;
@@ -142,6 +140,10 @@ public class EditPreviewFragment extends Fragment {
             Utils.setupDirectionality(parentActivity.getPageTitle().getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
             StyleLoader styleLoader = ((WikipediaApp) getActivity().getApplicationContext()).getStyleLoader();
             bridge.injectStyleBundle(styleLoader.getAvailableBundle(StyleLoader.BUNDLE_PREVIEW, parentActivity.getPageTitle().getSite()));
+            if (WikipediaApp.getInstance().getCurrentTheme() == WikipediaApp.THEME_DARK) {
+                nightModeHandler = new NightModeHandler(bridge, parentActivity.getPageTitle().getSite());
+                nightModeHandler.turnOn(false);
+            }
 
             new LinkHandler(getActivity(), bridge, parentActivity.getPageTitle().getSite()) {
                 @Override

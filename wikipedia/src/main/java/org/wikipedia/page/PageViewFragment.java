@@ -1,8 +1,10 @@
 package org.wikipedia.page;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -302,7 +304,18 @@ public class PageViewFragment extends Fragment {
         savedPagesFunnel = app.getFunnelManager().getSavedPagesFunnel(title.getSite());
         connectionIssueFunnel = new ConnectionIssueFunnel(app);
 
-        enableSizeCustomizations();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            // Enable Pinch-Zoom
+            webView.getSettings().setBuiltInZoomControls(true);
+            webView.getSettings().setDisplayZoomControls(false);
+        }
+
+        updateFontSize();
+
+        // Explicitly set background color of the WebView (independently of CSS, because
+        // the background may be shown momentarily while the WebView loads content,
+        // creating a seizure-inducing effect, or at the very least, a migraine with aura).
+        webView.setBackgroundColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.window_background_color)));
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         setupMessageHandlers();
@@ -317,8 +330,9 @@ public class PageViewFragment extends Fragment {
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 
         bridge.injectStyleBundle(app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_PAGEVIEW, title.getSite()));
-        nightModeHandler = new NightModeHandler(bridge, title.getSite());
-        if (nightModeHandler.isOn()) {
+
+        if (app.getCurrentTheme() == WikipediaApp.THEME_DARK) {
+            nightModeHandler = new NightModeHandler(bridge, title.getSite());
             nightModeHandler.turnOn(true);
         }
 
@@ -338,19 +352,11 @@ public class PageViewFragment extends Fragment {
         performActionForState(state);
     }
 
-    private void enableSizeCustomizations() {
-        final DisplayMetrics metrics = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
-
-        // Adjust font size based on system settings
-        float fontSize = getResources().getDimension(R.dimen.textSize) / metrics.scaledDensity;
-        webView.getSettings().setDefaultFontSize((int) fontSize);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            // Enable Pinch-Zoom
-            webView.getSettings().setBuiltInZoomControls(true);
-            webView.getSettings().setDisplayZoomControls(false);
-        }
+    /**
+     * Update the WebView's base font size, based on the specified font size from the app preferences.
+     */
+    public void updateFontSize() {
+        webView.getSettings().setDefaultFontSize((int) app.getFontSize(getActivity().getWindow()));
     }
 
     private void setupMessageHandlers() {
@@ -426,7 +432,8 @@ public class PageViewFragment extends Fragment {
         // FIXME: Move this out into a PageComplete event of sorts
         if (state == STATE_COMPLETE_FETCH) {
             if (tocHandler == null) {
-                tocHandler = new ToCHandler(tocDrawer,
+                tocHandler = new ToCHandler(getActivity(),
+                        tocDrawer,
                         quickReturnBar,
                         bridge);
             }
@@ -599,15 +606,6 @@ public class PageViewFragment extends Fragment {
         // Not sure why this is required, but without it tapping retry hides networkError
         // FIXME: INVESTIGATE WHY THIS HAPPENS!
         networkError.setVisibility(View.VISIBLE);
-    }
-
-    public void toggleNightMode() {
-        Log.d("Wikipedia", "Night mode toggled!");
-        if (nightModeHandler.isOn()) {
-            nightModeHandler.turnOff(state == STATE_COMPLETE_FETCH);
-        } else {
-            nightModeHandler.turnOn(state == STATE_COMPLETE_FETCH);
-        }
     }
 
     public void savePage() {

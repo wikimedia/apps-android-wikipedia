@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
@@ -14,10 +15,13 @@ import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.Window;
+import android.view.WindowManager;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+import org.wikipedia.events.*;
 import org.wikipedia.onboarding.OnboardingActivity;
 import org.wikipedia.savedpages.SavedPagesActivity;
 import org.wikipedia.NavDrawerFragment;
@@ -26,22 +30,13 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.FindInPageEvent;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikipedia.events.NightModeToggleEvent;
-import org.wikipedia.events.RequestMainPageEvent;
-import org.wikipedia.events.SavePageEvent;
-import org.wikipedia.events.SharePageEvent;
-import org.wikipedia.events.ShowOtherLanguagesEvent;
-import org.wikipedia.events.ShowToCEvent;
-import org.wikipedia.events.WikipediaZeroInterstitialEvent;
-import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.theme.ThemeChooserDialog;
 
 public class PageActivity extends ActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
@@ -83,13 +78,25 @@ public class PageActivity extends ActionBarActivity {
 
     private AlertDialog.Builder alert;
 
+    private ThemeChooserDialog themeChooser;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        app = (WikipediaApp) getApplicationContext();
+        setTheme(app.getCurrentTheme());
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         setContentView(R.layout.activity_main);
 
-        app = (WikipediaApp) getApplicationContext();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            // need to explicitly hide ActionBar for API10 :(
+            getSupportActionBar().hide();
+        }
+
+        bus = app.getBus();
+        bus.register(this);
 
         if (savedInstanceState != null) {
             pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
@@ -97,12 +104,18 @@ public class PageActivity extends ActionBarActivity {
             if (savedInstanceState.containsKey("backStack")) {
                 backStack = savedInstanceState.getParcelable("backStack");
             }
+        } else if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("backStack")) {
+            pausedStateOfZero = getIntent().getExtras().getBoolean("pausedStateOfZero");
+            pausedXcsOfZero = getIntent().getExtras().getString("pausedXcsOfZero");
+            backStack = getIntent().getExtras().getParcelable("backStack");
+            if (getIntent().getExtras().containsKey("themeChooserShowing")) {
+                if (getIntent().getExtras().getBoolean("themeChooserShowing")) {
+                    bus.post(new ShowThemeChooserEvent());
+                }
+            }
         } else {
             backStack = new BackStack();
         }
-
-        bus = app.getBus();
-        bus.register(this);
 
         findInPageFragment = (FindInPageFragment) getSupportFragmentManager().findFragmentById(R.id.find_in_page_fragment);
         searchArticlesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
@@ -123,9 +136,14 @@ public class PageActivity extends ActionBarActivity {
         // so when the user goes back, they will be recreated.
         fragmentPager.setOffscreenPageLimit(calculateMaxFragments());
 
-        if (savedInstanceState == null) {
-            // Don't do this if we are just rotating the phone
+        if (savedInstanceState == null && getIntent().getExtras() == null) {
+            // Don't do this if we are just rotating the phone, or changing themes
             handleIntent(getIntent());
+        }
+
+        //if we saved the current location in the Pager, then restore it!
+        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("fragmentPagerItem")) {
+            fragmentPager.setCurrentItem(getIntent().getExtras().getInt("fragmentPagerItem"));
         }
 
         // Conditionally execute all recurring tasks
@@ -231,13 +249,6 @@ public class PageActivity extends ActionBarActivity {
     }
 
     @Subscribe
-    public void onNightModeToggle(NightModeToggleEvent event) {
-        if (curPageFragment != null) {
-            curPageFragment.toggleNightMode();
-        }
-    }
-
-    @Subscribe
     public void onNewWikiPageNavigationEvent(NewWikiPageNavigationEvent event) {
         displayNewPage(event.getTitle(), event.getHistoryEntry());
     }
@@ -290,6 +301,31 @@ public class PageActivity extends ActionBarActivity {
     @Subscribe
     public void onFindInPage(FindInPageEvent event) {
         findInPageFragment.show();
+    }
+
+    @Subscribe
+    public void onShowThemeChooser(ShowThemeChooserEvent event) {
+        if (themeChooser == null) {
+            themeChooser = new ThemeChooserDialog(this);
+        }
+        themeChooser.show();
+    }
+
+    @Subscribe
+    public void onChangeTextSize(ChangeTextSizeEvent event) {
+        if (curPageFragment != null && curPageFragment.getWebView() != null) {
+            curPageFragment.updateFontSize();
+        }
+    }
+
+    @Subscribe
+    public void onChangeTheme(ThemeChangeEvent event) {
+        Bundle state = new Bundle();
+        Intent intent = new Intent(this, PageActivity.class);
+        saveState(state);
+        intent.putExtras(state);
+        finish();
+        startActivity(intent);
     }
 
     @Override
@@ -465,9 +501,17 @@ public class PageActivity extends ActionBarActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        saveState(outState);
+    }
+
+    private void saveState(Bundle outState) {
         outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
         outState.putString("pausedXcsOfZero", pausedXcsOfZero);
         outState.putParcelable("backStack", backStack);
+        if (themeChooser != null) {
+            outState.putBoolean("themeChooserShowing", themeChooser.isShowing());
+        }
+        outState.putInt("fragmentPagerItem", fragmentPager.getCurrentItem());
     }
 
     @Override
@@ -488,6 +532,10 @@ public class PageActivity extends ActionBarActivity {
 
     @Override
     protected void onStop() {
+        if (themeChooser != null && themeChooser.isShowing()) {
+            themeChooser.dismiss();
+        }
+
         super.onStop();
         bus.unregister(this);
         bus = null;

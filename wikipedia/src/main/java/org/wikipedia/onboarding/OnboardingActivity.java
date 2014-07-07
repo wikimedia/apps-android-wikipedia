@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.wikipedia.R;
@@ -24,6 +26,8 @@ import org.wikipedia.login.LoginActivity;
 public class OnboardingActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setTheme(WikipediaApp.getInstance().getCurrentTheme());
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
 

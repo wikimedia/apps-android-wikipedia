@@ -27,11 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.Utils;
-import org.wikipedia.ViewAnimations;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.*;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -49,7 +45,7 @@ import org.wikipedia.settings.SettingsActivity;
 
 import java.util.Locale;
 
-public class EditSectionActivity extends ActionBarActivity {
+public class EditSectionActivity extends ThemedActionBarActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";
     public static final String EXTRA_TITLE = "org.wikipedia.edit_section.title";
     public static final String EXTRA_SECTION = "org.wikipedia.edit_section.section";
@@ -99,8 +95,6 @@ public class EditSectionActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_section);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (!getIntent().getAction().equals(ACTION_EDIT_SECTION)) {
             throw new RuntimeException("Much wrong action. Such exception. Wow");

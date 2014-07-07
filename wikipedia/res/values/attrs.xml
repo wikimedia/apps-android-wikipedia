@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="window_background_color" format="reference"/>
+    <attr name="search_background_color" format="reference"/>
+    <attr name="actionbar_background_color" format="reference"/>
+    <attr name="toc_background_color" format="reference"/>
+    <attr name="toc_section_text_color" format="reference"/>
+    <attr name="toc_subsection_text_color" format="reference"/>
+    <attr name="edit_text_color" format="reference"/>
+</resources>

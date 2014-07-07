@@ -177,6 +177,10 @@ public class SearchArticlesFragment extends Fragment {
         wikipediaIcon = (ImageView)parentLayout.findViewById(R.id.wikipedia_icon);
         searchNoResults = parentLayout.findViewById(R.id.search_results_empty);
 
+        app.adjustDrawableToTheme(wikipediaIcon.getDrawable());
+        app.adjustDrawableToTheme(searchBarTocButton.getDrawable());
+        app.adjustDrawableToTheme(searchBarMenuButton.getDrawable());
+
         pageActionsMenu = new PopupMenu(getActivity(), searchBarMenuButton);
 
         searchHandler = new Handler(new SearchHandlerCallback());
@@ -482,34 +486,34 @@ public class SearchArticlesFragment extends Fragment {
     }
 
     private void setWikipediaZeroChrome() {
-        navbar.setBackgroundColor(Color.BLACK);
-        drawerIndicator.setColorFilter(Color.WHITE);
-        wikipediaIcon.setColorFilter(Color.WHITE);
-        searchTermText.setTextColor(Color.WHITE);
+        //navbar.setBackgroundColor(Color.BLACK);
+        //drawerIndicator.setColorFilter(Color.WHITE);
+        //wikipediaIcon.setColorFilter(Color.WHITE);
+        //searchTermText.setTextColor(Color.WHITE);
         searchTermText.setHint(R.string.zero_search_hint);
-        searchBarMenuButton.setColorFilter(Color.WHITE);
-        searchBarTocButton.setColorFilter(Color.WHITE);
+        //searchBarMenuButton.setColorFilter(Color.WHITE);
+        //searchBarTocButton.setColorFilter(Color.WHITE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            drawerIndicator.setAlpha(.6f);
-            wikipediaIcon.setAlpha(.6f);
-            searchBarTocButton.setAlpha(.6f);
+            //drawerIndicator.setAlpha(.6f);
+            //wikipediaIcon.setAlpha(.6f);
+            //searchBarTocButton.setAlpha(.6f);
         }
         ensureVisible();
     }
 
     private void setNormalChrome() {
-        navbar.setBackgroundColor(navbarColor);
-        drawerIndicator.clearColorFilter();
-        wikipediaIcon.clearColorFilter();
-        searchTermText.setTextColor(searchTermTextColor);
-        searchTermText.setHintTextColor(searchTermHintTextColor);
+        //navbar.setBackgroundColor(navbarColor);
+        //drawerIndicator.clearColorFilter();
+        //wikipediaIcon.clearColorFilter();
+        //searchTermText.setTextColor(searchTermTextColor);
+        //searchTermText.setHintTextColor(searchTermHintTextColor);
         searchTermText.setHint(R.string.search_hint);
-        searchBarMenuButton.clearColorFilter();
-        searchBarTocButton.clearColorFilter();
+        //searchBarMenuButton.clearColorFilter();
+        //searchBarTocButton.clearColorFilter();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            drawerIndicator.setAlpha(1.0f);
-            wikipediaIcon.setAlpha(.9f);
-            searchBarTocButton.setAlpha(.5f);
+            //drawerIndicator.setAlpha(1.0f);
+            //wikipediaIcon.setAlpha(.9f);
+            //searchBarTocButton.setAlpha(.5f);
         }
         ensureVisible();
     }

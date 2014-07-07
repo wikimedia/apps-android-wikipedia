@@ -1,9 +1,10 @@
 <resources>
-    <style name="AppTheme" parent="Theme.Agora">
+    <style name="AppTheme" parent="Theme.WikiLight">
     </style>
 
     <style name="NoTitle" parent="AppTheme">
         <item name="windowActionBar">false</item>
+        <item name="android:windowActionBar">false</item>
         <item name="android:windowTitleSize">0dp</item>
     </style>
 
@@ -24,4 +25,9 @@
         <item name="android:background">@drawable/button_selector_white</item>
         <item name="android:textColor">@color/green_complete_dark</item>
     </style>
+
+    <style name="button_gray" parent="button_progressive">
+        <item name="android:background">@drawable/button_selector_gray</item>
+    </style>
+
 </resources>

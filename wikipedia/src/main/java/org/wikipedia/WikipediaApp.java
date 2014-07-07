@@ -4,10 +4,14 @@ import android.app.Application;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Window;
 import android.webkit.WebView;
 import com.squareup.otto.Bus;
 import org.acra.ACRA;
@@ -21,6 +25,8 @@ import org.wikipedia.data.DBOpenHelper;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
 import org.wikipedia.editing.summaries.EditSummaryPersister;
+import org.wikipedia.events.ChangeTextSizeEvent;
+import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryEntryPersister;
 import org.wikipedia.login.UserInfoStorage;
@@ -62,13 +68,21 @@ public class WikipediaApp extends Application {
     public static String PREFERENCE_STYLES_LAST_UPDATED;
     public static String PREFERENCE_READING_APP_INSTALL_ID;
     public static String PREFERENCE_ONBOARD;
-    public static String PREFERENCE_NIGHT_MODE;
+    public static String PREFERENCE_TEXT_SIZE_MULTIPLIER;
+    public static String PREFERENCE_COLOR_THEME;
 
     public static float SCREEN_DENSITY;
     // Reload in onCreate to override
     public static String PROTOCOL = "https";
 
     public static String APP_VERSION_STRING;
+
+    public static int THEME_LIGHT;
+    public static int THEME_DARK;
+    private int currentTheme = 0;
+
+    public static final int FONT_SIZE_MULTIPLIER_MIN = -5;
+    public static final int FONT_SIZE_MULTIPLIER_MAX = 8;
 
     /**
      * Singleton instance of WikipediaApp
@@ -115,7 +129,11 @@ public class WikipediaApp extends Application {
         PREFERENCE_STYLES_LAST_UPDATED = getString(R.string.preference_key_styles_last_updated);
         PREFERENCE_READING_APP_INSTALL_ID = getString(R.string.preference_reading_app_install_id);
         PREFERENCE_ONBOARD = getString(R.string.preference_onboard);
-        PREFERENCE_NIGHT_MODE = getString(R.string.preference_key_night_mode);
+        PREFERENCE_TEXT_SIZE_MULTIPLIER = getString(R.string.preference_text_size_multiplier);
+        PREFERENCE_COLOR_THEME = getString(R.string.preference_color_theme);
+
+        THEME_LIGHT = R.style.Theme_WikiLight;
+        THEME_DARK = R.style.Theme_WikiDark;
 
         PROTOCOL = "https"; // Move this to a preference or something later on
 
@@ -381,5 +399,82 @@ public class WikipediaApp extends Application {
     private static final boolean WIKIPEDIA_ZERO_DEV_MODE_ON = true;
     public static boolean isWikipediaZeroDevmodeOn() {
         return WIKIPEDIA_ZERO_DEV_MODE_ON;
+    }
+
+    /**
+     * Gets the currently-selected theme for the app.
+     * @return Theme that is currently selected, which is the actual theme ID that can
+     * be passed to setTheme() when creating an activity.
+     */
+    public int getCurrentTheme() {
+        if (currentTheme == 0) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            currentTheme = prefs.getInt(PREFERENCE_COLOR_THEME, THEME_LIGHT);
+            if (currentTheme != THEME_LIGHT &&
+                    currentTheme != THEME_DARK) {
+                currentTheme = THEME_LIGHT;
+            }
+        }
+        return currentTheme;
+    }
+
+    /**
+     * Sets the theme of the app. If the new theme is the same as the current theme, nothing happens.
+     * Otherwise, an event is sent to notify of the theme change.
+     * @param newTheme
+     */
+    public void setCurrentTheme(int newTheme) {
+        if (newTheme == currentTheme) {
+            return;
+        }
+        currentTheme = newTheme;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit().putInt(PREFERENCE_COLOR_THEME, currentTheme).commit();
+
+        //update color filter for logo icon (used in ActionBar activities)...
+        adjustDrawableToTheme(getResources().getDrawable(R.drawable.search_w));
+
+        bus.post(new ThemeChangeEvent());
+    }
+
+    /**
+     * Make adjustments to a Drawable object to look better in the current theme.
+     * (e.g. apply a white color filter for night mode)
+     * @param d Drawable to be adjusted.
+     */
+    public void adjustDrawableToTheme(Drawable d) {
+        if (getCurrentTheme() == THEME_DARK) {
+            d.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+        } else {
+            d.clearColorFilter();
+        }
+    }
+
+    public int getFontSizeMultiplier() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        return prefs.getInt(WikipediaApp.PREFERENCE_TEXT_SIZE_MULTIPLIER, 0);
+    }
+
+    public void setFontSizeMultiplier(int multiplier) {
+        if (multiplier < FONT_SIZE_MULTIPLIER_MIN) {
+            multiplier = FONT_SIZE_MULTIPLIER_MIN;
+        } else if (multiplier > FONT_SIZE_MULTIPLIER_MAX) {
+            multiplier = FONT_SIZE_MULTIPLIER_MAX;
+        }
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit().putInt(WikipediaApp.PREFERENCE_TEXT_SIZE_MULTIPLIER, multiplier).commit();
+        bus.post(new ChangeTextSizeEvent());
+    }
+
+    /**
+     * Gets the current size of the app's font. This is given as a device-specific size (not "sp"),
+     * and can be passed directly to setTextSize() functions.
+     * @param window The window on which the font will be displayed.
+     * @return Actual current size of the font.
+     */
+    public float getFontSize(Window window) {
+        int multiplier = PreferenceManager.getDefaultSharedPreferences(this).getInt(WikipediaApp.PREFERENCE_TEXT_SIZE_MULTIPLIER, 0);
+        return Utils.getFontSizeFromSp(window, getResources().getDimension(R.dimen.textSize)) *
+                (1.0f + multiplier * 0.1f);
     }
 }

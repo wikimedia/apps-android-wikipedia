@@ -15,5 +15,6 @@
     <string name="preference_key_logout">log_out</string>
     <string name="preference_reading_app_install_id">readingAppInstallID</string>
     <string name="preference_onboard">onboard</string>
-    <string name="preference_key_night_mode">night_mode</string>
+    <string name="preference_text_size_multiplier">textSizeMultiplier</string>
+    <string name="preference_color_theme">colorTheme</string>
 </resources>

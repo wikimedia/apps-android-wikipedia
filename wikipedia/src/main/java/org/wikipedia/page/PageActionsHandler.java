@@ -7,12 +7,7 @@ import android.view.View;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import org.wikipedia.R;
-import org.wikipedia.events.NightModeToggleEvent;
-import org.wikipedia.events.SavePageEvent;
-import org.wikipedia.events.PageStateChangeEvent;
-import org.wikipedia.events.SharePageEvent;
-import org.wikipedia.events.ShowOtherLanguagesEvent;
-import org.wikipedia.events.FindInPageEvent;
+import org.wikipedia.events.*;
 
 public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
     private final PopupMenu menu;
@@ -48,14 +43,14 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
                 menu.getMenu().findItem(R.id.menu_share_page).setEnabled(false);
                 menu.getMenu().findItem(R.id.menu_other_languages).setEnabled(false);
                 menu.getMenu().findItem(R.id.menu_find_in_page).setEnabled(false);
-                menu.getMenu().findItem(R.id.menu_item_night_mode).setEnabled(false);
+                menu.getMenu().findItem(R.id.menu_themechooser).setEnabled(false);
                 break;
             case PageViewFragment.STATE_COMPLETE_FETCH:
                 menu.getMenu().findItem(R.id.menu_save_page).setEnabled(true);
                 menu.getMenu().findItem(R.id.menu_share_page).setEnabled(true);
                 menu.getMenu().findItem(R.id.menu_other_languages).setEnabled(true);
                 menu.getMenu().findItem(R.id.menu_find_in_page).setEnabled(true);
-                menu.getMenu().findItem(R.id.menu_item_night_mode).setEnabled(true);
+                menu.getMenu().findItem(R.id.menu_themechooser).setEnabled(true);
                 break;
             default:
                 // How can this happen?!
@@ -78,8 +73,8 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
             case R.id.menu_find_in_page:
                 bus.post(new FindInPageEvent());
                 break;
-            case R.id.menu_item_night_mode:
-                bus.post(new NightModeToggleEvent());
+            case R.id.menu_themechooser:
+                bus.post(new ShowThemeChooserEvent());
                 break;
             default:
                 throw new RuntimeException("Unexpected menu item clicked");

@@ -5,6 +5,9 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="corner_radius">4dp</dimen>
 
+    <!-- Default font size for WebView text based on system settings -->
+    <dimen name="textSize">16sp</dimen>
+
     <!--
         Onboarding screen
     -->
@@ -15,8 +18,5 @@
     -->
     <dimen name="onboarding_wp_logo_text">26dp</dimen>
     <dimen name="onboarding_wp_logo_subtext">13dp</dimen>
-
-    <!-- Default font size for WebView text based on system settings -->
-    <dimen name="textSize">16sp</dimen>
 
 </resources>

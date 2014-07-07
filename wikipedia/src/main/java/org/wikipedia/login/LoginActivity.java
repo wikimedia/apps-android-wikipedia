@@ -14,14 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
-import org.wikipedia.NonEmptyValidator;
-import org.wikipedia.R;
-import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.*;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.createaccount.CreateAccountActivity;
 
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends ThemedActionBarActivity {
     public static final int REQUEST_LOGIN = 1;
 
     public static final int RESULT_LOGIN_SUCCESS = 1;
@@ -47,11 +44,9 @@ public class LoginActivity extends ActionBarActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         app = (WikipediaApp)getApplicationContext();
+
+        setContentView(R.layout.activity_login);
 
         usernameText = (EditText) findViewById(R.id.login_username_text);
         passwordText = (EditText) findViewById(R.id.login_password_text);
