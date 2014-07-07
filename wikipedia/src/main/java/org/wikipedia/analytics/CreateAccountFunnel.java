@@ -8,12 +8,14 @@ import java.util.UUID;
 
 public class CreateAccountFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppCreateAccount";
-    private static final int REVISION = 8240702;
+    private static final int REVISION = 9135391;
 
     private final String createAccountSessionToken;
+    private final String requestSource;
 
-    public CreateAccountFunnel(WikipediaApp app) {
+    public CreateAccountFunnel(WikipediaApp app, String requestSource) {
         super(app, SCHEMA_NAME, REVISION);
+        this.requestSource = requestSource;
         createAccountSessionToken = UUID.randomUUID().toString();
     }
 
@@ -26,6 +28,7 @@ public class CreateAccountFunnel extends Funnel {
     protected JSONObject preprocessData(JSONObject eventData) {
         try {
             eventData.put("createAccountSessionToken", createAccountSessionToken);
+            eventData.put("source", requestSource);
         } catch (JSONException e) {
             // This isn't happening
             throw new RuntimeException(e);

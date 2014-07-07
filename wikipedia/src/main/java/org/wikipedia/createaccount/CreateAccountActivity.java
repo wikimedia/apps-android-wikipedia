@@ -40,6 +40,7 @@ public class CreateAccountActivity extends ActionBarActivity {
 
     public static final int ACTION_CREATE_ACCOUNT = 1;
 
+    public static final String LOGIN_REQUEST_SOURCE = "login_request_source";
     public static final String LOGIN_SESSION_TOKEN = "login_session_token";
 
     @Required(order = 1)
@@ -190,8 +191,7 @@ public class CreateAccountActivity extends ActionBarActivity {
             }
         });
 
-        funnel = new CreateAccountFunnel(app);
-
+        funnel = new CreateAccountFunnel(app, getIntent().getStringExtra(LOGIN_REQUEST_SOURCE));
         funnel.logStart(getIntent().getStringExtra(LOGIN_SESSION_TOKEN));
 
         // Set default result to failed, so we can override if it did not

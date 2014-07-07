@@ -40,8 +40,10 @@ public class LoginActivity extends ActionBarActivity {
     private WikipediaApp app;
 
     private LoginFunnel funnel;
+    private String loginSource;
 
     private ProgressDialog progressDialog;
+    private boolean wentStraightToCreateAccount;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,27 +90,33 @@ public class LoginActivity extends ActionBarActivity {
             }
         });
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
+        progressDialog.setCancelable(false);
+
         funnel = new LoginFunnel(app);
 
-        // Log the start!
-        if (getIntent().getStringExtra(LOGIN_REQUEST_SOURCE).equals(LoginFunnel.SOURCE_EDIT)) {
+        loginSource = getIntent().getStringExtra(LOGIN_REQUEST_SOURCE);
+
+        if (getIntent().getBooleanExtra(ACTION_CREATE_ACCOUNT, false)) {
+            wentStraightToCreateAccount = true;
+            startCreateAccountActivity();
+        } else {
+            logLoginStart();
+        }
+
+        // Assume no login by default
+        setResult(RESULT_LOGIN_FAIL);
+    }
+
+    private void logLoginStart() {
+        if (loginSource.equals(LoginFunnel.SOURCE_EDIT)) {
             funnel.logStart(
                     LoginFunnel.SOURCE_EDIT,
                     getIntent().getStringExtra(EDIT_SESSION_TOKEN)
             );
         } else {
-            funnel.logStart(getIntent().getStringExtra(LOGIN_REQUEST_SOURCE));
-        }
-
-        // Assume no login by default
-        setResult(RESULT_LOGIN_FAIL);
-
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
-        progressDialog.setCancelable(false);
-
-        if (getIntent().getBooleanExtra(ACTION_CREATE_ACCOUNT, false)) {
-            startCreateAccountActivity();
+            funnel.logStart(loginSource);
         }
     }
 
@@ -116,19 +124,25 @@ public class LoginActivity extends ActionBarActivity {
         funnel.logCreateAccountAttempt();
         Intent intent = new Intent(this, CreateAccountActivity.class);
         intent.putExtra(CreateAccountActivity.LOGIN_SESSION_TOKEN, funnel.getLoginSessionToken());
+        intent.putExtra(CreateAccountActivity.LOGIN_REQUEST_SOURCE, loginSource);
         startActivityForResult(intent, CreateAccountActivity.ACTION_CREATE_ACCOUNT);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == CreateAccountActivity.RESULT_ACCOUNT_CREATED) {
-            usernameText.setText(data.getStringExtra("username"));
-            passwordText.setText(data.getStringExtra("password"));
-            funnel.logCreateAccountSuccess();
-            doLogin();
-        } else {
-            funnel.logCreateAccountFailure();
+        if (requestCode == CreateAccountActivity.ACTION_CREATE_ACCOUNT) {
+            if (wentStraightToCreateAccount) {
+                logLoginStart();
+            }
+            if (resultCode == CreateAccountActivity.RESULT_ACCOUNT_CREATED) {
+                usernameText.setText(data.getStringExtra("username"));
+                passwordText.setText(data.getStringExtra("password"));
+                funnel.logCreateAccountSuccess();
+                doLogin();
+            } else {
+                funnel.logCreateAccountFailure();
+            }
         }
     }
 

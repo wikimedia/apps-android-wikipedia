@@ -6,14 +6,16 @@ import org.wikipedia.WikipediaApp;
 
 import java.util.UUID;
 
+/**
+ * Schema: https://meta.wikimedia.org/wiki/Schema:MobileWikiAppLogin
+ */
 public class LoginFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLogin";
-    private static final int REVISION = 8234533;
+    private static final int REVISION = 9135390;
 
     public static final String SOURCE_NAV = "navigation";
     public static final String SOURCE_EDIT = "edit";
     public static final String SOURCE_BLOCKED = "blocked";
-    public static final String SOURCE_CREATE_ACCOUNT = "create_account";
     public static final String SOURCE_ONBOARDING = "onboarding";
 
     private final String loginSessionToken;

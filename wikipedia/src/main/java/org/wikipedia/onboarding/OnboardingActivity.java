@@ -12,6 +12,7 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.analytics.OnboardingFunnel;
 import org.wikipedia.login.LoginActivity;
 
 /**
@@ -25,6 +26,9 @@ public class OnboardingActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
+
+        final OnboardingFunnel funnel = new OnboardingFunnel((WikipediaApp) getApplicationContext());
+        funnel.logStart();
 
         ImageView wikipediaWordMarkImage = (ImageView) findViewById(R.id.onboarding_wp_wordmark_img);
         TextView wikipediaWordMarkText = (TextView) findViewById(R.id.onboarding_wp_wordmark_text_fallback);
@@ -42,6 +46,7 @@ public class OnboardingActivity extends Activity {
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                funnel.logCreateAccount();
                 startLoginActivity(true); // launch login but go straight to create account activity
             }
         });
@@ -49,6 +54,7 @@ public class OnboardingActivity extends Activity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                funnel.logLogin();
                 startLoginActivity(false);
             }
         });
@@ -56,18 +62,17 @@ public class OnboardingActivity extends Activity {
         skipLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                funnel.logSkip();
                 done();
             }
         });
     }
 
     private void startLoginActivity(boolean createAccount) {
-        Intent loginIntent = new Intent(this, LoginActivity.class);
-        // TODO: add onboarding LoginFunnel source on server then replace the next line with the following one
-        loginIntent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_NAV);
-//        loginIntent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_ONBOARDING);
-        loginIntent.putExtra(LoginActivity.ACTION_CREATE_ACCOUNT, createAccount);
-        startActivity(loginIntent);
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_ONBOARDING);
+        intent.putExtra(LoginActivity.ACTION_CREATE_ACCOUNT, createAccount);
+        startActivity(intent);
         done();
     }
 
