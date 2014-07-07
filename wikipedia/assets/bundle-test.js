@@ -125,7 +125,6 @@ bridge.registerListener( "setMainPage", function() {
 
 } );
 
-
 },{"./bridge":1}],4:[function(require,module,exports){
 /**
  * MIT LICENSCE

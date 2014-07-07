@@ -306,7 +306,6 @@ public class PageViewFragment extends Fragment {
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         setupMessageHandlers();
-        Utils.addUtilityMethodsToBridge(getActivity(), bridge);
         Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
         linkHandler = new LinkHandler(getActivity(), bridge, title.getSite()){
             @Override
@@ -355,7 +354,6 @@ public class PageViewFragment extends Fragment {
     }
 
     private void setupMessageHandlers() {
-        Utils.addUtilityMethodsToBridge(getActivity(), bridge);
         bridge.addListener("requestSection", new CommunicationBridge.JSEventListener() {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {

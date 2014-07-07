@@ -184,7 +184,6 @@ bridge.registerListener( "setMainPage", function() {
 
 } );
 
-
 },{"./bridge":2}],6:[function(require,module,exports){
 var parseCSSColor = require("../lib/js/css-color-parser");
 var bridge = require("./bridge");
@@ -412,7 +411,6 @@ Transformer.prototype.transform = function( transform, element ) {
 module.exports = new Transformer();
 
 },{}],10:[function(require,module,exports){
-var bridge = require("./bridge");
 var transformer = require("./transformer");
 var night = require("./night");
 
@@ -431,37 +429,14 @@ transformer.register( "leadSection", function( leadContent ) {
     return leadContent;
 } );
 
-// Use locally cached images as fallback in saved pages
 transformer.register( "section", function( content ) {
-    var images = content.querySelectorAll( "img" );
-    function onError() {
-        var img = event.target;
-        // Only work on http or https URLs. If we do not have this check, we might go on an infinte loop
-        if ( img.src.substring( 0, 4 ) === "http" )  {
-            // if it is already not a file URL!
-            var resp = bridge.sendMessage( "imageUrlToFilePath", { "imageUrl": img.src } );
-            console.log( "new filepath is " + resp.filePath );
-            img.src = "file://" + resp.filePath;
-        } else {
-            // If it *is* a file URL and also failed to load, just do nothing
-        }
-    }
-    for ( var i = 0; i < images.length; i++ ) {
-        images[i].onerror = onError;
-    }
-    return content;
-} );
-
-
-transformer.register( "section", function( content ) {
-	console.log( "inverting"  + window.isNightMode );
 	if ( window.isNightMode ) {
 		night.invertElement ( content );
 	}
 	return content;
 } );
 
-},{"./bridge":2,"./night":6,"./transformer":9}],11:[function(require,module,exports){
+},{"./night":6,"./transformer":9}],11:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills

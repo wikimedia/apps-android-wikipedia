@@ -139,41 +139,6 @@ public final class Utils {
     }
 
     /**
-     * Returns the local file name for a remote image.
-     *
-     * Warning: Should be kept stable between releases.
-     * @param url URL of the thumbnail image. Expects them to be not protocol relative & have an extension.
-     * @return
-     */
-    public static String imageUrlToFileName(String url) {
-        String[] protocolParts = url.split("://");
-        return "saved-image-"
-                + md5base64(protocolParts[protocolParts.length - 1]);
-    }
-
-    /**
-     * Add some utility methods to a communication bridge, that can be called synchronously from JS
-     */
-    public static void addUtilityMethodsToBridge(final Context context, final CommunicationBridge bridge) {
-        bridge.addListener("imageUrlToFilePath", new CommunicationBridge.JSEventListener() {
-            @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
-                String imageUrl = messagePayload.optString("imageUrl");
-                JSONObject ret = new JSONObject();
-                try {
-                    File imageFile = new File(context.getFilesDir(), imageUrlToFileName(imageUrl));
-                    ret.put("originalURL", imageUrl);
-                    ret.put("newURL", imageFile.getAbsolutePath());
-                    bridge.sendMessage("replaceImageSrc", ret);
-                } catch (JSONException e) {
-                    // stupid, stupid, stupid
-                    throw new RuntimeException(e);
-                }
-            }
-        });
-    }
-
-    /**
      * Formats provided date relative to the current system time
      * @param date Date to format
      * @return String representing the relative time difference of the paramter from current time
