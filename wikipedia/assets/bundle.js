@@ -436,6 +436,18 @@ transformer.register( "section", function( content ) {
 	return content;
 } );
 
+transformer.register( "section", function( content ) {
+	var redLinks = content.querySelectorAll( 'a.new' );
+	for ( var i = 0; i < redLinks.length; i++ ) {
+		var redLink = redLinks[i];
+		var replacementSpan = document.createElement( 'span' );
+		replacementSpan.innerHTML = redLink.innerHTML;
+		replacementSpan.setAttribute( 'class', redLink.getAttribute( 'class' ) );
+		redLink.parentNode.replaceChild( replacementSpan, redLink );
+	}
+	return content;
+} );
+
 },{"./night":6,"./transformer":9}],11:[function(require,module,exports){
 /**
  * MIT LICENSCE
