@@ -185,9 +185,7 @@ public class CreateAccountActivity extends ActionBarActivity {
         findViewById(R.id.create_account_login_link).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
-                intent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_CREATE_ACCOUNT);
-                startActivity(intent);
+                // already coming from LoginActivity
                 finish();
             }
         });
