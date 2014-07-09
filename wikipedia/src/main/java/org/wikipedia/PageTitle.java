@@ -163,8 +163,10 @@ public class PageTitle implements Parcelable {
      */
     public boolean isFilePage() {
         if (isFilePage == null) {
+            String filePageAlias = FileAliasData.valueFor(getSite().getLanguage());
             isFilePage = getNamespace() != null
-                    && FileAliasData.valueFor(getSite().getLanguage()).equals(getNamespace());
+                    && filePageAlias != null // If langcode, for some reason, isn't in FileAlias
+                    && filePageAlias.equals(getNamespace());
         }
 
         return isFilePage;
@@ -178,8 +180,10 @@ public class PageTitle implements Parcelable {
      */
     public boolean isSpecial() {
         if (isSpecial == null) {
+            String specialPageAlias = SpecialAliasData.valueFor(getSite().getLanguage());
             isSpecial = getNamespace() != null
-                    && SpecialAliasData.valueFor(getSite().getLanguage()).equals(getNamespace());
+                    && specialPageAlias != null // If langcode, for some reason, isn't in SpecialPageAlias
+                    && specialPageAlias.equals(getNamespace());
         }
 
         return isSpecial;
