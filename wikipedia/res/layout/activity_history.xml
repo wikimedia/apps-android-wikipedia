@@ -3,13 +3,37 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <TextView
-            android:id="@+id/history_empty_message"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/history_empty_message"
-            />
+    <LinearLayout
+            android:id="@+id/history_empty_container"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/recent"/>
+        <TextView
+                android:id="@+id/history_empty_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_marginTop="-32dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/history_empty_title"
+                />
+        <TextView
+                android:id="@+id/history_empty_message"
+                android:layout_width="256dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/history_empty_message"
+                />
+    </LinearLayout>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"

@@ -55,7 +55,7 @@ public class SavedPagesActivity extends ActionBarActivity implements LoaderManag
 
         setContentView(R.layout.activity_saved_pages);
         savedPagesList = (ListView) findViewById(R.id.saved_pages_list);
-        savedPagesEmpty = findViewById(R.id.saved_pages_empty_message);
+        savedPagesEmpty = findViewById(R.id.saved_pages_empty_container);
 
         adapter = new SavedPagesAdapter(this, null, true);
         savedPagesList.setAdapter(adapter);

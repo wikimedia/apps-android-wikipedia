@@ -38,6 +38,8 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
     public static final int ACTIVITY_RESULT_HISTORY_SELECT = 1;
 
     private ListView historyEntryList;
+    private View historyEmptyContainer;
+    private TextView historyEmptyTitle;
     private TextView historyEmptyMessage;
     private HistoryEntryAdapter adapter;
     private EditText entryFilter;
@@ -51,12 +53,14 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
 
         setContentView(R.layout.activity_history);
         historyEntryList = (ListView) findViewById(R.id.history_entry_list);
+        historyEmptyContainer = findViewById(R.id.history_empty_container);
+        historyEmptyTitle = (TextView) findViewById(R.id.history_empty_title);
         historyEmptyMessage = (TextView) findViewById(R.id.history_empty_message);
         entryFilter = (EditText) findViewById(R.id.history_search_list);
 
         adapter = new HistoryEntryAdapter(this, null, true);
         historyEntryList.setAdapter(adapter);
-        historyEntryList.setEmptyView(historyEmptyMessage);
+        historyEntryList.setEmptyView(historyEmptyContainer);
 
         entryFilter.addTextChangedListener(
                 new TextWatcher() {
@@ -74,9 +78,11 @@ public class HistoryActivity extends ActionBarActivity implements LoaderManager.
                     public void afterTextChanged(Editable editable) {
                         getSupportLoaderManager().restartLoader(0, null, HistoryActivity.this);
                         if (editable.length() == 0) {
-                            historyEmptyMessage.setText(R.string.history_empty_message);
+                            historyEmptyTitle.setText(R.string.history_empty_title);
+                            historyEmptyMessage.setVisibility(View.VISIBLE);
                         } else {
-                            historyEmptyMessage.setText(getString(R.string.history_search_empty_message, editable.toString()));
+                            historyEmptyTitle.setText(getString(R.string.history_search_empty_message, editable.toString()));
+                            historyEmptyMessage.setVisibility(View.GONE);
                         }
                     }
                 });

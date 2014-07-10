@@ -122,8 +122,10 @@ See also:
   <string name="preference_summary_notloggedin">{{Identical|Not logged in}}</string>
   <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.
 {{Identical|Logged out}}</string>
-  <string name="saved_pages_empty_message">Used in \"Saved pages\" page if there are no saved pages to show.</string>
-  <string name="history_empty_message">Used in \"Browsing history\" page if there is nothing to show.</string>
+  <string name="saved_pages_empty_title">Used in \"Saved pages\" page if there are no saved pages to show.</string>
+  <string name="saved_pages_empty_message">Brief explanation of what saved pages are, and their benefits.</string>
+  <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
+  <string name="history_empty_message">Brief explanation of what History entries are.</string>
   <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags.</string>
   <string name="wp_tag_line">The Wikipedia slogan. The second line of https://commons.wikimedia.org/wiki/Wikimedia#mediaviewer/File:Wikipedia-logo-en.png. You may be able to find one under https://commons.wikimedia.org/wiki/Wikipedia/2.0.</string>
   <string name="skip">A button or text link to trigger skipping something, like closing the current screen without doing anything.</string>

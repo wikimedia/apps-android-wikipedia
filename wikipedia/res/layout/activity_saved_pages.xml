@@ -3,13 +3,34 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <TextView
-            android:id="@+id/saved_pages_empty_message"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/saved_pages_empty_message"
-            />
+    <LinearLayout
+            android:id="@+id/saved_pages_empty_container"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/savedpages"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_marginBottom="16dp"
+                android:text="@string/saved_pages_empty_title"
+                />
+        <TextView
+                android:layout_width="256dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/saved_pages_empty_message"
+                />
+    </LinearLayout>
     <ListView
         android:id="@+id/saved_pages_list"
         android:layout_width="match_parent"
