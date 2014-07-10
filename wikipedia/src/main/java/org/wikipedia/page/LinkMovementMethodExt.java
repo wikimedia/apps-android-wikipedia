@@ -1,25 +1,20 @@
-package org.wikipedia.editing;
+package org.wikipedia.page;
 
-import android.content.Context;
-import android.net.Uri;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.text.style.URLSpan;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import org.wikipedia.Utils;
 
 /**
  * Intercept web links and add special behavior for external links.
- * Currently treats any link as external link.
  */
 public class LinkMovementMethodExt extends LinkMovementMethod {
-    private Context context;
+    private UrlHandler handler;
 
-    LinkMovementMethodExt(Context context) {
-        this.context = context;
+    public LinkMovementMethodExt(UrlHandler handler) {
+        this.handler = handler;
     }
 
     @Override
@@ -31,16 +26,18 @@ public class LinkMovementMethodExt extends LinkMovementMethod {
             final Layout layout = widget.getLayout();
             final int line = layout.getLineForVertical(y);
             final int off = layout.getOffsetForHorizontal(line, x);
-            final ClickableSpan[] links = buffer.getSpans(off, off, ClickableSpan.class);
+            final URLSpan[] links = buffer.getSpans(off, off, URLSpan.class);
             if (links.length != 0) {
-                ClickableSpan link = links[0];
-                if (link instanceof URLSpan) {
-                    String url = ((URLSpan) link).getURL();
-                    Utils.handleExternalLink(context, Uri.parse(url));
-                    return true;
-                }
+                String url = links[0].getURL();
+                handler.onUrlClick(url);
+                return true;
             }
         }
         return super.onTouchEvent(widget, buffer, event);
+    }
+
+
+    public interface UrlHandler {
+        void onUrlClick(String url);
     }
 }

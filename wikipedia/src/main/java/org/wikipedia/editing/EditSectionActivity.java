@@ -2,9 +2,11 @@ package org.wikipedia.editing;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -40,6 +42,7 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.login.LoginResult;
 import org.wikipedia.login.LoginTask;
 import org.wikipedia.login.User;
+import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.Section;
 import org.wikipedia.settings.SettingsActivity;
@@ -159,7 +162,12 @@ public class EditSectionActivity extends ActionBarActivity {
             }
         });
 
-        editLicenseText.setMovementMethod(new LinkMovementMethodExt(this));
+        editLicenseText.setMovementMethod(new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
+            @Override
+            public void onUrlClick(String url) {
+                Utils.handleExternalLink(EditSectionActivity.this, Uri.parse(url));
+            }
+        }));
 
         Utils.setTextDirection(sectionText, title.getSite().getLanguage());
 
