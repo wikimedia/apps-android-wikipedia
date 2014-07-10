@@ -35,7 +35,7 @@ public class RefreshPagesHandler {
         progressDialog.setIndeterminate(false);
         progressDialog.setMax(savedPages.size());
         progressDialog.setProgress(0);
-        progressDialog.setTitle(R.string.saved_pages_progress_title);
+        progressDialog.setMessage(context.getResources().getString(R.string.saved_pages_progress_title));
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
@@ -71,10 +71,6 @@ public class RefreshPagesHandler {
                             cancel();
                             return;
                         }
-                        progressDialog.setMessage(
-                                context.getString(R.string.saved_pages_refresh_progress_message,
-                                savedPage.getTitle().getDisplayText()
-                        ));
                         Log.d("Wikipedia", "refreshing start: " + savedPage.getTitle().getDisplayText());
                     }
 

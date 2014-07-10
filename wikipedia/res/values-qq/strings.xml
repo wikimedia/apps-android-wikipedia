@@ -258,8 +258,6 @@ See also:
 {{Identical|Retry}}</string>
   <string name="saved_pages_update_all_error_message">Message for error dialog shown when updating pages fails</string>
   <string name="saved_pages_progress_title">Title for progress dialog shown when updating saved pages</string>
-  <string name="saved_pages_refresh_progress_message">Message for progress dialog shown when updating saved pages. Parameters:
-* %s - the name of the page being refreshed</string>
   <string name="saved_pages_refresh_pages_complete">Toast message shown when a user initiated \"update save pages\" action has been completed</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
   <string name="abusefilter_title_warn">Message that warns the user that their edit may be unconstructive, and asks if they want to continue saving it.</string>
