@@ -16,7 +16,7 @@
                 android:orientation="vertical"
                 android:padding="16dp"
                 >
-            <EditText
+            <org.wikipedia.views.PlainPasteEditText
                     android:id="@+id/create_account_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
                     android:inputType="textNoSuggestions"
                     />
 
-            <EditText
+            <org.wikipedia.views.PlainPasteEditText
                     android:id="@+id/create_account_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                     android:inputType="textPassword"
                     />
 
-            <EditText
+            <org.wikipedia.views.PlainPasteEditText
                     android:id="@+id/create_account_password_repeat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     />
 
-            <EditText
+            <org.wikipedia.views.PlainPasteEditText
                     android:id="@+id/create_account_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

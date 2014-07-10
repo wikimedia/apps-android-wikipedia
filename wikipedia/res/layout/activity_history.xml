@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <EditText
+        <org.wikipedia.views.PlainPasteEditText
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:id="@+id/history_search_list"
