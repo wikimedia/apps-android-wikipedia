@@ -7,6 +7,8 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.page.Page;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
@@ -50,10 +52,13 @@ public class SavePageTask extends SaneAsyncTask<Boolean> {
      */
     private void parallelDownload(final ImageUrlMap imageUrlMap) throws InterruptedException {
         imagesDownloadedLatch = new CountDownLatch(imageUrlMap.size());
+        List<DownloadImageTask> tasks = new ArrayList<DownloadImageTask>();
+        // instantiate the tasks first, then execute them all at once.
+        // (so that removing URLs in onCatch doesn't mess with the iterator)
         for (Map.Entry<String, String> entry : imageUrlMap.entrySet()) {
             final String url = entry.getKey();
             final File file = new File(entry.getValue());
-            new DownloadImageTask(app, url, file) {
+            tasks.add(new DownloadImageTask(app, url, file) {
                 @Override
                 public void onFinish(Boolean result) {
                     imagesDownloadedLatch.countDown();
@@ -66,7 +71,10 @@ public class SavePageTask extends SaneAsyncTask<Boolean> {
                     imageUrlMap.remove(url);
                     imagesDownloadedLatch.countDown();
                 }
-            }.execute();
+            });
+        }
+        for (DownloadImageTask task : tasks) {
+            task.execute();
         }
         imagesDownloadedLatch.await();
     }
