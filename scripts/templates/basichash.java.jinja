@@ -21,6 +21,9 @@ public class {{ class_name }} {
             setupData();
         }
 
-        return dataMap.get(key);
+        if (dataMap.containsKey(key)) {
+            return dataMap.get(key);
+        }
+        return dataMap.get("en");
     }
 }

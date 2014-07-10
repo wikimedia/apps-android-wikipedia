@@ -44,8 +44,8 @@ public class FileAliasData {
         dataMap.put("eo", "Dosiero");
         dataMap.put("sk", "Súbor");
         dataMap.put("da", "Fil");
-        dataMap.put("eu", "Fitxategi");
         dataMap.put("sh", "Datoteka");
+        dataMap.put("eu", "Fitxategi");
         dataMap.put("lt", "Vaizdas");
         dataMap.put("bg", "Файл");
         dataMap.put("he", "קובץ");
@@ -83,8 +83,8 @@ public class FileAliasData {
         dataMap.put("br", "Restr");
         dataMap.put("jv", "Gambar");
         dataMap.put("mg", "Sary");
-        dataMap.put("lb", "Fichier");
         dataMap.put("ce", "Файл");
+        dataMap.put("lb", "Fichier");
         dataMap.put("mr", "चित्र");
         dataMap.put("is", "Mynd");
         dataMap.put("ml", "പ്രമാണം");
@@ -93,10 +93,10 @@ public class FileAliasData {
         dataMap.put("af", "Lêer");
         dataMap.put("my", "File");
         dataMap.put("lmo", "Archivi");
-        dataMap.put("yo", "Fáìlì");
         dataMap.put("zh-yue", "File");
         dataMap.put("ga", "Íomhá");
         dataMap.put("bn", "চিত্র");
+        dataMap.put("yo", "Fáìlì");
         dataMap.put("fy", "Ofbyld");
         dataMap.put("an", "Imachen");
         dataMap.put("cv", "Ӳкерчĕк");
@@ -128,8 +128,8 @@ public class FileAliasData {
         dataMap.put("mn", "Файл");
         dataMap.put("arz", "ملف");
         dataMap.put("mzn", "پرونده");
-        dataMap.put("zh-min-nan", "文件");
         dataMap.put("si", "ගොනුව");
+        dataMap.put("zh-min-nan", "文件");
         dataMap.put("pa", "ਤਸਵੀਰ");
         dataMap.put("yi", "טעקע");
         dataMap.put("sah", "Билэ");
@@ -141,8 +141,8 @@ public class FileAliasData {
         dataMap.put("os", "Файл");
         dataMap.put("roa-tara", "File");
         dataMap.put("pam", "File");
-        dataMap.put("hsb", "Dataja");
         dataMap.put("or", "ଫାଇଲ");
+        dataMap.put("hsb", "Dataja");
         dataMap.put("se", "Fiila");
         dataMap.put("li", "Plaetje");
         dataMap.put("mrj", "Файл");
@@ -150,13 +150,13 @@ public class FileAliasData {
         dataMap.put("ilo", "Papeles");
         dataMap.put("co", "File");
         dataMap.put("hif", "file");
+        dataMap.put("bcl", "Ladawan");
         dataMap.put("gan", "文檔");
         dataMap.put("frr", "Datei");
         dataMap.put("bo", "File");
         dataMap.put("rue", "Файл");
         dataMap.put("glk", "پرونده");
         dataMap.put("mhr", "Файл");
-        dataMap.put("bcl", "Ladawan");
         dataMap.put("nds-nl", "Bestaand");
         dataMap.put("fiu-vro", "Pilt");
         dataMap.put("ps", "دوتنه");
@@ -175,15 +175,15 @@ public class FileAliasData {
         dataMap.put("vep", "Fail");
         dataMap.put("ay", "Archivo");
         dataMap.put("dv", "ފައިލު");
-        dataMap.put("sc", "File");
         dataMap.put("so", "File");
+        dataMap.put("sc", "File");
         dataMap.put("zh-classical", "File");
         dataMap.put("nrm", "File");
         dataMap.put("rm", "Datoteca");
         dataMap.put("udm", "Файл");
         dataMap.put("koi", "Файл");
-        dataMap.put("ug", "ھۆججەت");
         dataMap.put("kw", "Restren");
+        dataMap.put("ug", "ھۆججەت");
         dataMap.put("stq", "Bielde");
         dataMap.put("lad", "Dosya");
         dataMap.put("wuu", "文件");
@@ -193,15 +193,15 @@ public class FileAliasData {
         dataMap.put("mt", "Stampa");
         dataMap.put("bh", "चित्र");
         dataMap.put("as", "চিত্ৰ");
-        dataMap.put("nov", "File");
         dataMap.put("cbk-zam", "Archivo");
         dataMap.put("gn", "Ta'ãnga");
         dataMap.put("pi", "पटिमा");
+        dataMap.put("gag", "Dosye");
         dataMap.put("pcd", "Fichier");
         dataMap.put("ksh", "Datei");
-        dataMap.put("gag", "Dosye");
-        dataMap.put("ang", "Biliþ");
+        dataMap.put("nov", "File");
         dataMap.put("szl", "Plik");
+        dataMap.put("ang", "Biliþ");
         dataMap.put("nv", "Eʼelyaaígíí");
         dataMap.put("ie", "File");
         dataMap.put("ace", "Beureukaih");
@@ -225,14 +225,15 @@ public class FileAliasData {
         dataMap.put("kl", "Fiileq");
         dataMap.put("bjn", "Barakas");
         dataMap.put("kbd", "Файл");
+        dataMap.put("ha", "File");
         dataMap.put("pap", "File");
         dataMap.put("lo", "ຮູບ");
         dataMap.put("tpi", "Fail");
-        dataMap.put("lbe", "Сурат");
-        dataMap.put("wo", "Dencukaay");
         dataMap.put("av", "Файл");
+        dataMap.put("lbe", "Сурат");
         dataMap.put("mdf", "Няйф");
         dataMap.put("jbo", "File");
+        dataMap.put("wo", "Dencukaay");
         dataMap.put("na", "File");
         dataMap.put("bxr", "Файл");
         dataMap.put("ty", "Fichier");
@@ -244,14 +245,13 @@ public class FileAliasData {
         dataMap.put("kaa", "Su'wret");
         dataMap.put("ab", "Афаил");
         dataMap.put("ltg", "Fails");
-        dataMap.put("za", "文件");
         dataMap.put("zu", "File");
-        dataMap.put("ha", "File");
+        dataMap.put("za", "文件");
         dataMap.put("tyv", "Файл");
         dataMap.put("chy", "File");
         dataMap.put("rmy", "Chitro");
-        dataMap.put("cu", "Дѣло");
         dataMap.put("cdo", "文件");
+        dataMap.put("cu", "Дѣло");
         dataMap.put("chr", "File");
         dataMap.put("tn", "File");
         dataMap.put("roa-rup", "File");
@@ -259,6 +259,7 @@ public class FileAliasData {
         dataMap.put("bi", "File");
         dataMap.put("pih", "File");
         dataMap.put("sm", "File");
+        dataMap.put("rn", "File");
         dataMap.put("bm", "Fichier");
         dataMap.put("mo", "Fișier");
         dataMap.put("ss", "File");
@@ -268,7 +269,6 @@ public class FileAliasData {
         dataMap.put("ki", "File");
         dataMap.put("om", "File");
         dataMap.put("xh", "File");
-        dataMap.put("rn", "File");
         dataMap.put("ts", "File");
         dataMap.put("ee", "File");
         dataMap.put("ak", "File");
@@ -304,6 +304,9 @@ public class FileAliasData {
             setupData();
         }
 
-        return dataMap.get(key);
+        if (dataMap.containsKey(key)) {
+            return dataMap.get(key);
+        }
+        return dataMap.get("en");
     }
 }
