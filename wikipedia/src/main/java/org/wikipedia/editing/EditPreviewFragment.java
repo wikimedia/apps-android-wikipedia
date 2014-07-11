@@ -64,6 +64,7 @@ public class EditPreviewFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         parentActivity = (EditSectionActivity)getActivity();
+        funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(parentActivity.getPageTitle());
 
         // build up summary tags...
         int[] summaryTagStrings = {
@@ -183,7 +184,6 @@ public class EditPreviewFragment extends Fragment {
      * @param wikiText The text of the section to be shown in the Preview.
      */
     public void showPreview(final PageTitle title, final String wikiText) {
-        funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(title);
         Utils.hideSoftKeyboard(getActivity());
 
         new EditPreviewTask(getActivity(), wikiText, title) {
