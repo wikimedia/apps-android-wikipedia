@@ -104,7 +104,8 @@ public class PageActivity extends ActionBarActivity {
             if (savedInstanceState.containsKey("backStack")) {
                 backStack = savedInstanceState.getParcelable("backStack");
             }
-        } else if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("backStack")) {
+        } else if (getIntent().hasExtra("changeTheme")) {
+            // we've changed themes!
             pausedStateOfZero = getIntent().getExtras().getBoolean("pausedStateOfZero");
             pausedXcsOfZero = getIntent().getExtras().getString("pausedXcsOfZero");
             backStack = getIntent().getExtras().getParcelable("backStack");
@@ -136,14 +137,17 @@ public class PageActivity extends ActionBarActivity {
         // so when the user goes back, they will be recreated.
         fragmentPager.setOffscreenPageLimit(calculateMaxFragments());
 
-        if (savedInstanceState == null && getIntent().getExtras() == null) {
+        if (savedInstanceState == null && !getIntent().hasExtra("changeTheme")) {
             // Don't do this if we are just rotating the phone, or changing themes
             handleIntent(getIntent());
         }
 
-        //if we saved the current location in the Pager, then restore it!
-        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("fragmentPagerItem")) {
+        // if we've changed themes, then restore the previous position in the Pager,
+        // and remove the changeTheme flag from the Intent. (Apparently, some devices
+        // actually preserve the Extras, and pass them to future intents...)
+        if (getIntent().hasExtra("changeTheme")) {
             fragmentPager.setCurrentItem(getIntent().getExtras().getInt("fragmentPagerItem"));
+            getIntent().removeExtra("changeTheme");
         }
 
         // Conditionally execute all recurring tasks
@@ -323,8 +327,13 @@ public class PageActivity extends ActionBarActivity {
         Bundle state = new Bundle();
         Intent intent = new Intent(this, PageActivity.class);
         saveState(state);
-        intent.putExtras(state);
+        state.putBoolean("changeTheme", true);
+        state.putInt("fragmentPagerItem", fragmentPager.getCurrentItem());
+        if (themeChooser != null) {
+            state.putBoolean("themeChooserShowing", themeChooser.isShowing());
+        }
         finish();
+        intent.putExtras(state);
         startActivity(intent);
     }
 
@@ -508,10 +517,6 @@ public class PageActivity extends ActionBarActivity {
         outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
         outState.putString("pausedXcsOfZero", pausedXcsOfZero);
         outState.putParcelable("backStack", backStack);
-        if (themeChooser != null) {
-            outState.putBoolean("themeChooserShowing", themeChooser.isShowing());
-        }
-        outState.putInt("fragmentPagerItem", fragmentPager.getCurrentItem());
     }
 
     @Override
