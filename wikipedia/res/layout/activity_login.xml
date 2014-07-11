@@ -46,7 +46,7 @@
                 android:padding="8dp"
                 android:text="@string/login_create_account_link"
                 style="?android:textAppearanceSmall"
-                android:textColor="@color/link"
+                android:textColor="?attr/link_color"
                 />
     </LinearLayout>
 </ScrollView>

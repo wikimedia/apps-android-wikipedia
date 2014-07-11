@@ -4,7 +4,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/themechooser_background">
+        android:background="@color/nav_background">
+
+    <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/nav_border" />
 
     <TextView
             android:layout_width="wrap_content"
@@ -49,7 +51,7 @@
                 />
     </LinearLayout>
 
-    <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/nav_separator" />
+    <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/nav_border" />
 
     <TextView
             android:layout_width="wrap_content"

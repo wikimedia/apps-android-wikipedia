@@ -4,9 +4,8 @@
     <color name="nav_background">#ff0C0C0C</color>
     <color name="nav_text">#ffffffff</color>
     <color name="nav_item_highlight">#ff404040</color>
-    <color name="nav_separator">#ff606060</color>
+    <color name="nav_border">#ff505050</color>
     <color name="license_text_light">#A0A0A0</color>
-    <color name="link">#ff347BFF</color>
     <color name="actionbar_disabled">#A0A0A0</color>
     <color name="button_disabled">#BEBEBE</color>
     <color name="abusefilter_background">#E8E8E8</color>
@@ -20,11 +19,11 @@
     <color name="white_progressive_dark">#fff0f0f0</color>
     <color name="onboarding_background">#ffebebf1</color>
     <color name="onboarding_skip_gray">#ff696969</color>
-    <color name="themechooser_background">#ff303030</color>
     <color name="gray_background">#ff606060</color>
     <color name="gray_disabled">#80606060</color>
     <color name="gray_highlight">#ff808080</color>
 
+    <color name="link_light">#ff347BFF</color>
     <color name="window_background_light">#fff2f2f2</color>
     <color name="actionbar_background_light">#ffffffff</color>
     <color name="search_background_light">#ffffffff</color>
@@ -33,10 +32,11 @@
     <color name="toc_subsection_text_light">#ff898989</color>
     <color name="edit_text_light">#ff000000</color>
 
+    <color name="link_dark">#ff2B6FB2</color>
     <color name="window_background_dark">#ff000000</color>
     <color name="actionbar_background_dark">#ff303030</color>
     <color name="search_background_dark">#ff404040</color>
-    <color name="toc_background_dark">#ff303030</color>
+    <color name="toc_background_dark">#ff0C0C0C</color>
     <color name="toc_section_text_dark">#ffd0d0d0</color>
     <color name="toc_subsection_text_dark">#ffa0a0a0</color>
     <color name="edit_text_dark">#ff909090</color>

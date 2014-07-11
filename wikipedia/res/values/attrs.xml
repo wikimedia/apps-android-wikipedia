@@ -7,4 +7,5 @@
     <attr name="toc_section_text_color" format="reference"/>
     <attr name="toc_subsection_text_color" format="reference"/>
     <attr name="edit_text_color" format="reference"/>
+    <attr name="link_color" format="reference"/>
 </resources>
