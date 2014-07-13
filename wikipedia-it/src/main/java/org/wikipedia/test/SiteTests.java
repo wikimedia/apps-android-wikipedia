@@ -1,6 +1,7 @@
 package org.wikipedia.test;
 
 import junit.framework.TestCase;
+import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 
 public class SiteTests extends TestCase {
@@ -23,5 +24,14 @@ public class SiteTests extends TestCase {
         assertTrue(Site.isSupportedSite("roa-rup.wikipedia.org"));
 
         assertFalse(Site.isSupportedSite("google.com"));
+    }
+
+    public void testTitleForInternalLink() {
+        Site site = new Site("en.wikipedia.org");
+        assertEquals(new PageTitle("Main Page", site), site.titleForInternalLink(""));
+        assertEquals(new PageTitle("Main Page", site), site.titleForInternalLink("/wiki/"));
+        assertEquals(new PageTitle("wiki", site), site.titleForInternalLink("wiki"));
+        assertEquals(new PageTitle("wiki", site), site.titleForInternalLink("/wiki/wiki"));
+        assertEquals(new PageTitle("wiki/wiki", site), site.titleForInternalLink("/wiki/wiki/wiki"));
     }
 }
