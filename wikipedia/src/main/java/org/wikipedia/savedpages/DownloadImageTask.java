@@ -22,7 +22,7 @@ public class DownloadImageTask extends SaneAsyncTask<Boolean> {
     public DownloadImageTask(WikipediaApp app, String imageUrl, File file) {
         super(HIGH_CONCURRENCY);
         this.app = app;
-        this.imageUrl = Utils.resolveProtoclRelativeUrl(imageUrl);
+        this.imageUrl = Utils.resolveProtocolRelativeUrl(imageUrl);
         this.file = file;
     }
 

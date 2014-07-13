@@ -575,7 +575,7 @@ public final class Utils {
      * @param url Url to check for (and fix) protocol relativeness
      * @return A fully qualified, protocol specified URL
      */
-    public static String resolveProtoclRelativeUrl(String url) {
+    public static String resolveProtocolRelativeUrl(String url) {
         String fullUrl;
         if (url.startsWith("//")) {
             // That's a protocol specific link! Make it https!
