@@ -34,7 +34,7 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
         });
     }
 
-    public void onStop() {
+    public void onDestroy() {
         bus.unregister(this);
     }
 

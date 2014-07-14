@@ -329,7 +329,7 @@ public class SearchArticlesFragment extends Fragment {
         this.drawerLayout = drawerLayout;
 
         if (pageActionsHandler != null) {
-            pageActionsHandler.onStop();
+            pageActionsHandler.onDestroy();
         }
         pageActionsHandler = new PageActionsHandler(app.getBus(), pageActionsMenu, searchBarMenuButton, drawerLayout);
 
@@ -545,12 +545,12 @@ public class SearchArticlesFragment extends Fragment {
     }
 
     @Override
-    public void onStop() {
+    public void onDestroyView() {
         app.getBus().unregister(this);
         if (pageActionsHandler != null) {
-            pageActionsHandler.onStop();
+            pageActionsHandler.onDestroy();
         }
-        super.onStop();
+        super.onDestroyView();
     }
 
     private class SearchHandlerCallback implements Handler.Callback {
