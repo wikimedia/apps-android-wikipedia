@@ -2,6 +2,7 @@ package org.wikipedia.editing;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.graphics.ColorMatrixColorFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -15,6 +16,7 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.ViewAnimations;
+import org.wikipedia.WikipediaApp;
 
 public class CaptchaHandler {
     private final Activity activity;
@@ -100,6 +102,19 @@ public class CaptchaHandler {
                         ((ActionBarActivity)activity).getSupportActionBar().setTitle(R.string.title_captcha);
                         if (progressDialog.isShowing()) {
                             progressDialog.hide();
+                        }
+
+                        // for our Dark theme, show a "negative image" of the captcha!
+                        if (WikipediaApp.getInstance().getCurrentTheme() == WikipediaApp.THEME_DARK) {
+                            float[] colorMatrixNegative = {
+                                    -1.0f, 0, 0, 0, 255, //red
+                                    0, -1.0f, 0, 0, 255, //green
+                                    0, 0, -1.0f, 0, 255, //blue
+                                    0, 0, 0, 1.0f, 0 //alpha
+                            };
+                            captchaImage.getDrawable().setColorFilter(new ColorMatrixColorFilter(colorMatrixNegative));
+                        } else {
+                            captchaImage.getDrawable().clearColorFilter();
                         }
 
                         // In case there was a captcha attempt before
