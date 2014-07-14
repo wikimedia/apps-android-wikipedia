@@ -19,6 +19,8 @@
     <color name="white_progressive_dark">#fff0f0f0</color>
     <color name="onboarding_background">#ffebebf1</color>
     <color name="onboarding_skip_gray">#ff696969</color>
+    <color name="reference_background">#0C0C0C</color>
+    <color name="reference_text">#929497</color>
     <color name="gray_background">#ff606060</color>
     <color name="gray_disabled">#80606060</color>
     <color name="gray_highlight">#ff808080</color>

@@ -116,12 +116,13 @@ public class PageViewFragment extends Fragment {
     private View pageDoesNotExistError;
     private DisableableDrawerLayout tocDrawer;
     private View pageFragmentContainer;
-
+    private ReferenceDialog referenceDialog;
     private Page page;
     private HistoryEntry curEntry;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
+    private ReferenceHandler referenceHandler;
     private EditHandler editHandler;
     private NightModeHandler nightModeHandler;
 
@@ -294,6 +295,7 @@ public class PageViewFragment extends Fragment {
         pageDoesNotExistError = getView().findViewById(R.id.page_does_not_exist);
         quickReturnBar = getActivity().findViewById(quickReturnBarId);
         tocDrawer = (DisableableDrawerLayout) getView().findViewById(R.id.page_toc_drawer);
+
         // disable TOC drawer until the page is loaded
         tocDrawer.setSlidingEnabled(false);
         searchArticlesFragment.setTocEnabled(false);
@@ -317,13 +319,25 @@ public class PageViewFragment extends Fragment {
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         setupMessageHandlers();
         Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
-        linkHandler = new LinkHandler(getActivity(), bridge, title.getSite()){
+        linkHandler = new LinkHandler(getActivity(), bridge, title.getSite()) {
             @Override
             public void onInternalLinkClicked(PageTitle title) {
                 HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
                 app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
             }
         };
+
+        referenceHandler = new ReferenceHandler(bridge) {
+            @Override
+            protected void onReferenceClicked(String refHtml) {
+                if (referenceDialog == null) {
+                    referenceDialog = new ReferenceDialog(getActivity(), linkHandler);
+                }
+                referenceDialog.updateReference(refHtml);
+                referenceDialog.show();
+            }
+        };
+
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 
         bridge.injectStyleBundle(app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_PAGEVIEW, title.getSite()));
