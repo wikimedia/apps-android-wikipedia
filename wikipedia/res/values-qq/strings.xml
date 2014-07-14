@@ -267,6 +267,8 @@ See also:
   <string name="saved_pages_update_all_error_message">Message for error dialog shown when updating pages fails</string>
   <string name="saved_pages_progress_title">Title for progress dialog shown when updating saved pages</string>
   <string name="saved_pages_refresh_pages_complete">Toast message shown when a user initiated \"update save pages\" action has been completed</string>
+  <string name="menu_page_saved">Menu item that says that the current page has been saved.</string>
+  <string name="menu_refresh_saved_page">Menu item for refreshing the saved page that is currently shown.</string>
   <string name="abusefilter_title_warn">Message that warns the user that their edit may be unconstructive, and asks if they want to continue saving it.</string>
   <string name="abusefilter_title_disallow">Message that informs the user that their edit is not allowed, and that the user must go back and modify the edit.</string>
   <string name="abusefilter_text_warn">Explanation of why the edit may be flagged as unconstructive: Typing in all caps, Blanking articles or Spamming, Irrelevant external links or images, Repeating characters</string>

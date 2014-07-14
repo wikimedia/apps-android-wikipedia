@@ -198,6 +198,8 @@
     <string name="saved_pages_update_all_error_message">Error updating saved pages</string>
     <string name="saved_pages_progress_title">Refreshing saved pages</string>
     <string name="saved_pages_refresh_pages_complete">Update complete</string>
+    <string name="menu_page_saved">Page saved</string>
+    <string name="menu_refresh_saved_page">Refresh page</string>
     <string name="abusefilter_title_warn">This may be an unconstructive edit. Are you sure you want to save it?</string>
     <string name="abusefilter_title_disallow">You cannot save this edit. Please go back and change it.</string>
     <string name="abusefilter_text_warn"><![CDATA[An automated filter has identified this edit as potentially unconstructive. It may contain one or more of the following:<br /><br />· Typing in all caps<br />· Blanking articles or spamming<br />· Irrelevant external links or images<br />· Repeating characters]]></string>

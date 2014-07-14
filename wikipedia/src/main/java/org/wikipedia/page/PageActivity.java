@@ -264,7 +264,12 @@ public class PageActivity extends ActionBarActivity {
         // This means the user explicitly chose to save a new saved pages
         app.getFunnelManager().getSavedPagesFunnel(curPageFragment.getTitle().getSite()).logSaveNew();
 
-        curPageFragment.savePage();
+        if (curPageFragment.getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+            // refreshing a saved page...
+            curPageFragment.refreshPage(true);
+        } else {
+            curPageFragment.savePage();
+        }
     }
 
     @Subscribe

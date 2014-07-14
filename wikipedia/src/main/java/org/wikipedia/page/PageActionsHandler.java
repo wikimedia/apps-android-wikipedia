@@ -7,6 +7,7 @@ import android.view.View;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.*;
 
 public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
@@ -39,7 +40,7 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
     }
 
     @Subscribe
-    public void onPageStateChange(PageStateChangeEvent event) {
+    public void onOverflowMenuChange(OverflowMenuUpdateEvent event) {
         switch (event.getState()) {
             case PageViewFragment.STATE_NO_FETCH:
             case PageViewFragment.STATE_INITIAL_FETCH:
@@ -55,6 +56,14 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
                 menu.getMenu().findItem(R.id.menu_other_languages).setEnabled(true);
                 menu.getMenu().findItem(R.id.menu_find_in_page).setEnabled(true);
                 menu.getMenu().findItem(R.id.menu_themechooser).setEnabled(true);
+                if (event.getSubstate() == PageViewFragment.SUBSTATE_PAGE_SAVED) {
+                    menu.getMenu().findItem(R.id.menu_save_page).setEnabled(false);
+                    menu.getMenu().findItem(R.id.menu_save_page).setTitle(WikipediaApp.getInstance().getString(R.string.menu_page_saved));
+                } else if (event.getSubstate() == PageViewFragment.SUBSTATE_SAVED_PAGE_LOADED) {
+                    menu.getMenu().findItem(R.id.menu_save_page).setTitle(WikipediaApp.getInstance().getString(R.string.menu_refresh_saved_page));
+                } else {
+                    menu.getMenu().findItem(R.id.menu_save_page).setTitle(WikipediaApp.getInstance().getString(R.string.menu_save_page));
+                }
                 break;
             default:
                 // How can this happen?!

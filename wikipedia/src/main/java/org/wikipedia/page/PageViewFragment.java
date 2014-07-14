@@ -31,7 +31,7 @@ import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.editing.EditHandler;
 import org.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikipedia.events.PageStateChangeEvent;
+import org.wikipedia.events.OverflowMenuUpdateEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImageSaveTask;
 import org.wikipedia.savedpages.ImageUrlMap;
@@ -58,6 +58,10 @@ public class PageViewFragment extends Fragment {
     public static final int STATE_NO_FETCH = 1;
     public static final int STATE_INITIAL_FETCH = 2;
     public static final int STATE_COMPLETE_FETCH = 3;
+
+    public static final int SUBSTATE_NONE = 0;
+    public static final int SUBSTATE_PAGE_SAVED = 1;
+    public static final int SUBSTATE_SAVED_PAGE_LOADED = 2;
 
     private int state = STATE_NO_FETCH;
 
@@ -439,7 +443,7 @@ public class PageViewFragment extends Fragment {
 
     private void setState(int state) {
         this.state = state;
-        app.getBus().post(new PageStateChangeEvent(state));
+        app.getBus().post(new OverflowMenuUpdateEvent(state, SUBSTATE_NONE));
         // FIXME: Move this out into a PageComplete event of sorts
         if (state == STATE_COMPLETE_FETCH) {
             if (tocHandler == null) {
@@ -628,6 +632,9 @@ public class PageViewFragment extends Fragment {
                     Log.d("PageViewFragment", "Detached from activity, no toast.");
                     return;
                 }
+
+                app.getBus().post(new OverflowMenuUpdateEvent(state, SUBSTATE_PAGE_SAVED));
+
                 if (success) {
                     Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
                 } else {
@@ -655,6 +662,9 @@ public class PageViewFragment extends Fragment {
                 displayLeadSection();
                 populateNonLeadSections();
                 setState(STATE_COMPLETE_FETCH);
+
+                app.getBus().post(new OverflowMenuUpdateEvent(state, SUBSTATE_SAVED_PAGE_LOADED));
+
                 readUrlMappings();
             }
 
