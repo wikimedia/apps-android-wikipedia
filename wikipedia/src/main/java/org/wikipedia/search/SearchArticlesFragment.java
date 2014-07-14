@@ -81,6 +81,7 @@ public class SearchArticlesFragment extends Fragment {
 
     private DrawerLayout drawerLayout;
 
+    PageActionsHandler pageActionsHandler;
     private PopupMenu pageActionsMenu;
 
     private SearchArticlesTask curSearchTask;
@@ -327,8 +328,10 @@ public class SearchArticlesFragment extends Fragment {
     public void setDrawerLayout(DrawerLayout drawerLayout) {
         this.drawerLayout = drawerLayout;
 
-        PageActionsHandler pageActionsHandler = new PageActionsHandler(app.getBus(),
-                pageActionsMenu, searchBarMenuButton, drawerLayout);
+        if (pageActionsHandler != null) {
+            pageActionsHandler.onStop();
+        }
+        pageActionsHandler = new PageActionsHandler(app.getBus(), pageActionsMenu, searchBarMenuButton, drawerLayout);
 
         drawerLayout.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             private boolean hideKeyboardCalled = false;
@@ -543,8 +546,11 @@ public class SearchArticlesFragment extends Fragment {
 
     @Override
     public void onStop() {
-        super.onStop();
         app.getBus().unregister(this);
+        if (pageActionsHandler != null) {
+            pageActionsHandler.onStop();
+        }
+        super.onStop();
     }
 
     private class SearchHandlerCallback implements Handler.Callback {

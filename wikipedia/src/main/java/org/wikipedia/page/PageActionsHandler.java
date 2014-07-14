@@ -34,6 +34,10 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
         });
     }
 
+    public void onStop() {
+        bus.unregister(this);
+    }
+
     @Subscribe
     public void onPageStateChange(PageStateChangeEvent event) {
         switch (event.getState()) {
