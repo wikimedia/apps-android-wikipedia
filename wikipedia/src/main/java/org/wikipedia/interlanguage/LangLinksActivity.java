@@ -101,6 +101,10 @@ public class LangLinksActivity extends ThemedActionBarActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                // the languages might not be loaded yet...
+                if (langLinksList.getAdapter() == null) {
+                    return;
+                }
                 ((LangLinksAdapter) langLinksList.getAdapter()).setFilterText(s.toString());
             }
         });
