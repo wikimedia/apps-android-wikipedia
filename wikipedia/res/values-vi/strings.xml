@@ -17,13 +17,17 @@
   <string name="menu_clear_all_bookmarks">Xóa tất cả dấu trang</string>
   <string name="menu_clear_all_saved_pages">Xóa các trang đã lưu</string>
   <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
-  <string name="dialog_title_clear_history">Xóa lịch sử duyệt trang?</string>
+  <string name="dialog_title_clear_history">Bạn muốn xóa lịch sử duyệt trang?</string>
   <string name="saved_pages_activity_title">Trang đã lưu</string>
   <string name="nav_item_saved_pages">Trang đã lưu</string>
+  <string name="menu_update_all_saved_pages">Cập nhật các trang đã lưu</string>
+  <string name="menu_update_selected_saved_pages">Cập nhật các trang đã lưu</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Bạn muốn cập nhật các trang đã lưu?</string>
+  <string name="toast_saved_page_refreshed">Đã cập nhật các trang đã lưu</string>
   <string name="menu_save_page">Lưu trang</string>
   <string name="menu_share_page">Chia sẻ</string>
   <string name="share_via">Chia sẻ qua</string>
-  <string name="dialog_title_clear_saved_pages">Có muốn xóa các trang đã lưu?</string>
+  <string name="dialog_title_clear_saved_pages">Bạn có muốn xóa các trang đã lưu?</string>
   <string name="dialog_message_clear_saved_pages">Bạn có chắc chắn muốn xóa tất cả các trang đã lưu?</string>
   <string name="toast_saving_page">Đang lưu trang…</string>
   <string name="toast_saved_page">Đã lưu trang thành công</string>
@@ -34,7 +38,6 @@
   <string name="toast_saved_page_deleted">Đã xóa (các) trang đã lưu</string>
   <string name="last_updated_text">Cập nhật lần cuối vào %1$s</string>
   <string name="content_license_html">Nội dung được phát hành theo &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt; nếu không ghi giấy phép khác</string>
-  <string name="edit_save_action_license">Với việc lưu các thay đổi, bạn đồng ý phát hành, một cách thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Ngôn ngữ Wikipedia</string>
   <string name="preference_summary_language">Ngôn ngữ nội dung</string>
   <string name="preference_languages_filter_hint">Tìm kiếm</string>
@@ -70,7 +73,7 @@
   <string name="login_error_wrong_username">Sai tên người dùng</string>
   <string name="login_success_toast">Đã đăng nhập thành công!</string>
   <string name="login_error_blocked">Người dùng này đã bị cấm</string>
-  <string name="login_error_throttled">Đã thử đăng nhập quá nhiều lần. Có muốn chờ vài phút và thử lại?</string>
+  <string name="login_error_throttled">Đã thử đăng nhập quá nhiều lần. Hãy chờ vài phút rồi thử lại.</string>
   <string name="login_error_unknown">Thất bại khi đăng nhập :(</string>
   <string name="login_error_no_network">Không có kết nối mạng</string>
   <string name="nav_item_logout">Đăng xuất</string>
@@ -78,15 +81,15 @@
   <string name="preference_summary_logout">Đăng xuất khỏi tài khoản Wikipedia của bạn</string>
   <string name="preference_summary_notloggedin">Chưa đăng nhập.</string>
   <string name="toast_logout_complete">Đã đăng xuất</string>
-  <string name="saved_pages_empty_message">Chưa lưu trang nào</string>
-  <string name="history_empty_message">Lịch sử của bạn còn trống.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Chưa lưu trang nào</string>
+  <string name="history_empty_message" fuzzy="true">Lịch sử của bạn còn trống.</string>
   <string name="create_account_username_hint">Tên người dùng</string>
   <string name="create_account_password_hint">Mật khẩu</string>
   <string name="menu_create_account">Mở tài khoản</string>
   <string name="login_create_account_link">Chưa có tài khoản? Hãy tham gia Wikipedia</string>
   <string name="create_account_login_link">Đã có tài khoản? Đăng nhập</string>
   <string name="create_account_activity_title">Mở tài khoản</string>
-  <string name="edit_section_activity_title">Sửa đổi phần</string>
+  <string name="edit_section_activity_title">Sửa đổi đề mục</string>
   <string name="dialog_create_account_checking_progress">Đang xác minh</string>
   <string name="create_account_email_hint">Thư điện tử (tùy chọn)</string>
   <string name="create_account_password_repeat_hint">Lặp lại mật khẩu</string>
@@ -104,25 +107,25 @@
   <string name="zero_charged_verbiage_extended">Có thể phải trả chi phí dữ liệu nếu tải thêm bài.</string>
   <string name="zero_search_hint">Tìm trong Wikipedia Miễn phí</string>
   <string name="zero_warn_when_leaving">Cảnh báo khi ra khỏi Wikipedia Miễn phí</string>
-  <string name="zero_warn_when_leaving_summary">Nếu nhà điều hành điện thoại di động của bạn miễn phí truy cập dữ liệu cho ứng dụng Wikipedia do một quan hệ đối tác với Wikipedia Miễn phí, kiểm hộp này để giúp mình biết khi nào bạn sắp ra khỏi ứng dụng Wikipedia và khi nào cần trả tiền.</string>
+  <string name="zero_warn_when_leaving_summary">Nếu nhà điều hành điện thoại di động của bạn miễn phí truy cập dữ liệu cho ứng dụng Wikipedia do có quan hệ đối tác với Wikipedia Miễn phí, chọn hộp này để giúp bạn biết khi bạn sắp thoát ứng dụng Wikipedia và sẽ bị tính phí.</string>
   <string name="zero_webpage_title">Câu thường hỏi về Wikipedia Miễn phí</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Miễn phí</string>
   <string name="zero_interstitial_title">Sắp ra khỏi Wikipedia Miễn phí</string>
   <string name="zero_interstitial_leave_app">Có thể phải trả phí dữ liệu. Tiếp tục đi vào trang ngoài?</string>
   <string name="zero_interstitial_continue">Rời đi</string>
-  <string name="zero_interstitial_cancel">Ở lại đây</string>
+  <string name="zero_interstitial_cancel">Ở lại</string>
   <string name="zero_learn_more">Không phải trả các chi phí dữ liệu khi sử dụng ứng dụng Wikipedia này.</string>
   <string name="zero_learn_more_learn_more">Đọc thêm</string>
   <string name="zero_learn_more_dismiss">Bỏ qua</string>
   <string name="zero_settings">Tùy chọn</string>
   <string name="zero_settings_devmode">Chế độ phát triển Miễn phí</string>
-  <string name="zero_settings_devmode_summary">Trong quá trình phát triển, hộp này cho phép thực thi mã vật Wikipedia Miễn phí.</string>
-  <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem trước…</string>
-  <string name="edit_preview_activity_title">Xem trước sửa đổi</string>
+  <string name="zero_settings_devmode_summary">Trong quá trình phát triển, hộp này cho phép thực thi mã phát hiện Wikipedia Miễn phí.</string>
+  <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem thử…</string>
+  <string name="edit_preview_activity_title">Xem thử sửa đổi</string>
   <string name="create_account_logging_in">Đang đăng nhập…</string>
   <string name="send_feedback">Gửi phản hồi về ứng dụng</string>
-  <string name="edit_summary_guide_text">Hãy cho biết bạn đã cải thiện trang này thế nào, để cho người khác có thể xem qua sửa đổi của bạn một cách nhanh chóng.</string>
+  <string name="edit_summary_guide_text">Hãy cho biết bạn đã cải thiện trang này thế nào, để cho người khác có thể duyệt sửa đổi của bạn một cách nhanh chóng.</string>
   <string name="edit_summary_hint">Tóm lược sửa đổi</string>
   <string name="nav_item_random">Ngẫu nhiên</string>
   <string name="random_progress">Đang lấy trang ngẫu nhiên…</string>
@@ -131,13 +134,13 @@
   <string name="user_contribs_more_action">Tải thêm</string>
   <string name="activity_my_contributions_title">Đóng góp của Tôi</string>
   <string name="nav_item_my_contributions">Đóng góp của tôi</string>
-  <string name="edit_save_action_login">Đăng nhập và lưu giữ</string>
+  <string name="edit_save_action_login">Đăng nhập và lưu</string>
   <string name="edit_save_action_ip">Lưu vô danh</string>
-  <string name="edit_save_action_login_description">Các sửa đổi của bạn sẽ được ghi công với tên người dùng của bạn một cách công khai để cho những người sửa đổi khác có thể liên lạc với bạn</string>
+  <string name="edit_save_action_login_description">Các sửa đổi của bạn sẽ được ghi công với tên người dùng của bạn một cách công khai để cho những người sửa đổi khác có thể liên hệ với bạn tốt hơn</string>
   <string name="edit_save_action_ip_description">Các sửa đổi của bạn sẽ được ghi công với địa chỉ IP của bạn, địa chỉ này thay đổi thường xuyên</string>
   <string name="preference_title_eventlogging_opt_in">Gửi báo cáo sử dụng</string>
   <string name="preference_summary_eventlogging_opt_in">Cho phép Wikimedia thu thập thông tin về cách bạn sử dụng ứng dụng để giúp cải thiện ứng dụng</string>
-  <string name="editing_error_spamblacklist">Đã chặn các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
+  <string name="editing_error_spamblacklist">Đã tìm thấy các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
   <string name="history_search_list_hint">Tìm kiếm</string>
   <string name="history_search_empty_message">Không tìm thấy trang trùng với “%s”</string>
   <string name="error_can_not_process_link">Không thể hiển thị liên kết này</string>
@@ -164,9 +167,9 @@
   <string name="edit_how_page_improved">Bạn đã cải thiện trang này như thế nào?</string>
   <string name="edit_next">Tiếp</string>
   <string name="edit_done">Lưu</string>
-  <string name="edit_preview">Xem trước</string>
+  <string name="edit_preview">Xem thử</string>
   <string name="edit_summary_tag_typo">Sửa chính tả</string>
-  <string name="edit_summary_tag_grammar">Sửa ngữ pháp</string>
+  <string name="edit_summary_tag_grammar">Sửa câu cú</string>
   <string name="edit_summary_tag_links">Thêm liên kết</string>
   <string name="edit_summary_tag_other">Khác</string>
   <string name="edit_summary_tag_other_hint">Những cách khác để cải thiện trang</string>
@@ -175,4 +178,20 @@
   <string name="find_previous">Tìm trước</string>
   <string name="find_close">Đóng thanh tìm kiếm</string>
   <string name="error_network_error_try_again">Không thể kết nối mạng. Vui lòng thử lại.</string>
+  <string name="saved_pages_update_all_error_retry">Thử lại</string>
+  <string name="saved_pages_update_all_error_message">Có lỗi khi cập nhật các trang đã lưu</string>
+  <string name="saved_pages_progress_title">Đang làm mới các trang đã lưu</string>
+  <string name="saved_pages_refresh_pages_complete">Hoàn tất cập nhật</string>
+  <string name="app_store_description">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở với hơn 32 triệu mục từ trong 280 ngôn ngữ, và là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên. Ứng dụng này đã được viết mới hoàn toàn và là bản tốt nhất từ trước tới nay.
+
+Tính năng:
+ - Tốc độ: Ứng dụng mới của chúng tôi cho phép bạn duyệt và sửa đổi Wikipedia nhanh nhất từ trước tới nay.
+ - Sửa đổi: Bạn đã có thể sửa đổi Wikipedia! Dù đã đăng nhập hoặc đăng xuất, chúng tôi xin cảm ơn vì tất cả những đóng góp của bạn.
+ - Các trang gần đây: Chúng tôi cung cấp lịch sử các trang đã đọc của bạn, bạn có thể nhấn vào bao nhiêu liên kết tùy thích mà không sợ bị lạc lối.
+ - Các trang đã lưu: Bạn có thể lưu các trang mong muốn để duyệt và đọc khi thậm chí không có kết nối internet.
+ - Chia sẻ: Sử dụng các ứng dụng mạng xã hội mà bạn có để chia sẻ khối kiến thức chung của nhân loại.
+ - Hỗ trợ ngôn ngữ: Ứng dụng cho phép bạn dễ dàng chuyển đổi để đọc Wikipedia được viết bằng bất kỳ ngôn ngữ nào.
+ - Wikipedia Miễn phí: Không bị tính phí dữ liệu đối với một số nhà mạng có tham gia chương trình.
+
+Mã nguồn là hoàn toàn mở. Nếu bạn có kinh nghiệm với Java và Android SDK, hãy tham gia dự án với chúng tôi! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

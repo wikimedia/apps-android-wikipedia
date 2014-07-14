@@ -69,7 +69,7 @@
   <string name="nav_item_logout">ଲଗ ଆଉଟ</string>
   <string name="toast_logout_complete">ଲଗ ଆଉଟ ହୋଇଗଲା</string>
   <string name="saved_pages_empty_message" fuzzy="true">ବୁକମାର୍କ ନାହିଁ</string>
-  <string name="history_empty_message">ଆପଣଙ୍କ ଇତିହାସ ଫାଙ୍କା ।</string>
+  <string name="history_empty_message" fuzzy="true">ଆପଣଙ୍କ ଇତିହାସ ଫାଙ୍କା ।</string>
   <string name="create_account_username_hint">ସଭ୍ୟ ନାମ</string>
   <string name="create_account_password_hint">ପାସୱାର୍ଡ଼</string>
   <string name="menu_create_account">ଖାତାଟିଏ ଖୋଲନ୍ତୁ</string>

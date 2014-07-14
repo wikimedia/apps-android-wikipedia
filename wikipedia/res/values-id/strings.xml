@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Wikipedia</string>
+  <string name="app_name_beta">Wikipedia Beta</string>
   <string name="yes">Ya</string>
   <string name="no">Tidak</string>
   <string name="acra_report_dialog_title">Wikipedia sedang crash :(</string>
@@ -14,31 +15,39 @@
   <string name="page_error_retry">Coba lagi</string>
   <string name="menu_clear_all_history">Hapus riwayat</string>
   <string name="menu_clear_all_bookmarks">Hapus penanda buku</string>
+  <string name="menu_clear_all_saved_pages">Hapus semua halaman tersimpan</string>
   <string name="page_does_not_exist_error">Halaman ini tidak ada.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Hapus riwayat?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Penanda Buku</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Penanda Buku</string>
-  <string name="menu_save_page" fuzzy="true">Penanda Buku</string>
+  <string name="dialog_title_clear_history">Hapus riwayat perambanan?</string>
+  <string name="saved_pages_activity_title">Halaman tersimpan</string>
+  <string name="nav_item_saved_pages">Halaman tersimpan</string>
+  <string name="menu_update_all_saved_pages">Halaman terbaru yang disimpan</string>
+  <string name="menu_update_selected_saved_pages">Halaman terbaru yang disimpan</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Perbarui semua halaman tersimpan?</string>
+  <string name="toast_saved_page_refreshed">Halaman tersimpan telah diperbarui</string>
+  <string name="menu_save_page">Simpan halaman</string>
   <string name="menu_share_page">Bagikan</string>
   <string name="share_via">Berbagi melalui</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Hapus penanda buku?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Apakah Anda yakin ingin menghapus semua penanda buku?</string>
-  <string name="toast_saving_page" fuzzy="true">Memarkahi halaman...</string>
-  <string name="toast_saved_page" fuzzy="true">Halaman telah dimarkahi</string>
-  <string name="toast_save_page_failed" fuzzy="true">Memarkahi halaman gagal :(</string>
+  <string name="dialog_title_clear_saved_pages">Hapus semua halaman tersimpan?</string>
+  <string name="dialog_message_clear_saved_pages">Apakah Anda yakin ingin menghapus semua riwayat?</string>
+  <string name="toast_saving_page">Menyimpan halaman...</string>
+  <string name="toast_saved_page">Penyimpanan halaman berhasil</string>
+  <string name="toast_saved_page_missing_images">Tidak dapat menyelamatkan semua gambar</string>
+  <string name="toast_save_page_failed">Gagal menyimpan halaman :(</string>
+  <string name="toast_refresh_saved_page">Menyegarkan halaman disimpan...</string>
   <string name="delete_selected_saved_pages">Hapus</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Penanda buku dihapus</string>
+  <string name="toast_saved_page_deleted">Halaman yang disimpan terhapus</string>
   <string name="last_updated_text">Terakhir diperbarui %1$s</string>
-  <string name="content_license_html" fuzzy="true">Konten tersedia di bawah &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; kecuali dinyatakan lain</string>
+  <string name="content_license_html">Konten tersedia di bawah &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; kecuali dinyatakan lain</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="preference_summary_language">Bahasa isi</string>
   <string name="preference_languages_filter_hint">Cari</string>
   <string name="langlinks_filter_hint">Cari</string>
-  <string name="menu_other_languages" fuzzy="true">Bahasa lain</string>
+  <string name="menu_other_languages">Baca dalam bahasa lain</string>
   <string name="langlinks_error_retry">Coba lagi</string>
-  <string name="langlinks_empty" fuzzy="true">Artikel ini tidak tersedia dalam bahasa lain</string>
+  <string name="langlinks_empty">Halaman ini tidak tersedia dalam bahasa lain</string>
   <string name="settings_activity_title">Pengaturan</string>
   <string name="langlinks_activity_title">Bahasa lain</string>
+  <string name="menu_save_changes">Simpan perubahan</string>
   <string name="edit_section_error_retry">Coba lagi</string>
   <string name="dialog_saving_in_progress">Sedang menyimpan...</string>
   <string name="edit_saved_successfully">Suntingan telah disimpan!</string>
@@ -52,6 +61,7 @@
   <string name="title_captcha">Masukkan captcha</string>
   <string name="edit_section_abusefilter_back_text">Buat perubahan ke suntingan saya</string>
   <string name="edit_section_captcha_reload">Ketuk CAPTCHA untuk memuat ulang</string>
+  <string name="edit_saved_page_refresh">Halaman tersimpan ini mungkin kedaluwarsa, dan harus disegarkan untuk penyuntingan harus diaktifkan. Apakah Anda ingin memperbarui halaman?</string>
   <string name="nav_item_login">Masuk log</string>
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata sandi</string>
@@ -67,13 +77,17 @@
   <string name="login_error_unknown">Masuk log gagal :(</string>
   <string name="login_error_no_network">Tidak ada sambungan jaringan</string>
   <string name="nav_item_logout">Keluar log</string>
+  <string name="preference_title_logout">Keluar log</string>
+  <string name="preference_summary_logout">Keluar log dari akun Wikipedia</string>
+  <string name="preference_summary_notloggedin">Belum masuk log</string>
   <string name="toast_logout_complete">Telah keluar log</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Tidak ada penanda buku</string>
-  <string name="history_empty_message">Riwayat Anda masih kosong.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Tidak ada halaman yang disimpan</string>
+  <string name="history_empty_message" fuzzy="true">Riwayat Anda masih kosong.</string>
   <string name="create_account_username_hint">Nama pengguna</string>
   <string name="create_account_password_hint">Kata sandi</string>
   <string name="menu_create_account">Buat akun baru</string>
-  <string name="login_create_account_link" fuzzy="true">Buat akun baru</string>
+  <string name="login_create_account_link">Belum punya akun? Bergabung dengan Wikipedia</string>
+  <string name="create_account_login_link">Sudah memiliki akun? Masuk.</string>
   <string name="create_account_activity_title">Buat akun baru</string>
   <string name="edit_section_activity_title">Sunting bagian</string>
   <string name="dialog_create_account_checking_progress">Memverifikasi</string>
@@ -86,8 +100,11 @@
   <string name="create_account_open_proxy_error">Alamat IP ini telah diblokir dari membuat akun.</string>
   <string name="create_account_generic_error">Tidak dapat membuat akun</string>
   <string name="create_account_no_network">Tidak ada sambungan jaringan</string>
+  <string name="create_account_next">Selanjutnya</string>
+  <string name="create_account_button">Buat akun baru</string>
   <string name="preferences_general_heading">Umum</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero MATI (BIAYA DATA STANDAR MUNGKIN BERLAKU)</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero dimatikan</string>
+  <string name="zero_charged_verbiage_extended">Pemuatan artikel lain mungkin dikenakan biaya data.</string>
   <string name="zero_search_hint">Telusuri Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Peringatkan jika meninggalkan Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Jika operator selular membebaskan biaya akses data untuk aplikasi Wikipedia melalui kemitraan Wikipedia Zero, meninggalkan pengaturan ini memeriksa membantu Anda ketika Anda meninggalkan aplikasi Wikipedia dan dapat dikenakan.</string>
@@ -95,11 +112,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Meninggalkan Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app" fuzzy="true">Lanjutkan ke situs eksternal? Biaya data standar mungkin berlaku.</string>
-  <string name="zero_interstitial_continue" fuzzy="true">Lanjutkan</string>
-  <string name="zero_interstitial_cancel" fuzzy="true">Batal</string>
-  <string name="zero_learn_more" fuzzy="true">Ingin mempelajari lebih lanjut tentang Wikipedia Zero?</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Pelajari lebih lanjut</string>
+  <string name="zero_interstitial_leave_app">Biaya data mungkin berlaku. Lanjutkan ke situs eksternal?</string>
+  <string name="zero_interstitial_continue">Tinggalkan</string>
+  <string name="zero_interstitial_cancel">Tetap di sini</string>
+  <string name="zero_learn_more">Biaya data dibebaskan untuk aplikasi Wikipedia ini.</string>
+  <string name="zero_learn_more_learn_more">Baca lebih lanjut</string>
   <string name="zero_learn_more_dismiss">Tutup</string>
   <string name="zero_settings">Pengaturan</string>
   <string name="zero_settings_devmode">Zero Devmode</string>
@@ -107,7 +124,8 @@
   <string name="edit_preview_fetching_dialog_message">Mengambil pratayang...</string>
   <string name="edit_preview_activity_title">Pratayang suntingan</string>
   <string name="create_account_logging_in">Sedang masuk log...</string>
-  <string name="edit_summary_guide_text" fuzzy="true">Beritahu kami bagaimana Anda meningkatkan artikel ini. Ini membantu penyunting lain meninjau suntingan Anda dengan cepat.</string>
+  <string name="send_feedback">Kirim umpan balik aplikasi</string>
+  <string name="edit_summary_guide_text">Beritahu kami bagaimana Anda meningkatkan halaman ini. Ini membantu penyunting lain meninjau suntingan Anda dengan cepat.</string>
   <string name="edit_summary_hint">Ringkasan suntingan</string>
   <string name="nav_item_random">Sembarang</string>
   <string name="random_progress">Mengambil halaman sembarang...</string>
@@ -122,5 +140,58 @@
   <string name="edit_save_action_ip_description">Suntingan Anda akan secara publik dikaitkan dengan alamat IP Anda, yang sering berubah</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuk mengumpulkan informasi tentang bagaimana Anda menggunakan aplikasi untuk membuat aplikasi yang lebih baik</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">Pranala dari domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
+  <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
+  <string name="history_search_list_hint">Cari</string>
+  <string name="history_search_empty_message">Tidak ada halaman yang ditemukan dengan pencocokan \'%s\'</string>
+  <string name="error_can_not_process_link">Tidak dapat menampilkan pranala ini</string>
+  <string name="page_protected_autoconfirmed">Halaman ini telah dilindungi semi.</string>
+  <string name="page_protected_sysop">Halaman ini telah sepenuhnya dilindungi.</string>
+  <string name="page_protected_other">Halaman ini telah dilindungi ke tingkat sebagai berikut: %s</string>
+  <string name="page_protected_can_not_edit">Anda tidak memiliki hak untuk menyunting halaman ini</string>
+  <string name="page_protected_can_not_edit_title">Halaman ini dilindungi</string>
+  <string name="more_item_preferences">Lainnya</string>
+  <string name="more_activity_title">Lainnya</string>
+  <string name="about_description">Tentang aplikasi Wikipedia</string>
+  <string name="preference_title_version">Versi</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Ketentuan Penggunaan&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Kebijakan Privasi&lt;/a&gt;</string>
+  <string name="about_libraries_heading">pustaka yang digunakan</string>
+  <string name="about_contributors_heading">kontributor</string>
+  <string name="about_wmf">Sebuah produk dari &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Yayasan Wikimedia&lt;/a&gt;</string>
+  <string name="about_activity_title">Tentang</string>
+  <string name="edit_unchanged">Halaman ini belum diubah.</string>
+  <string name="edit_abandon_confirm">Halaman ini telah diubah. Apakah Anda yakin ingin keluar tanpa menyimpan perubahan?</string>
+  <string name="user_blocked_from_editing_title">Diblokir</string>
+  <string name="user_logged_in_blocked_from_editing">Akun pengguna Anda telah diblokir dari penyuntingan di wiki ini.</string>
+  <string name="user_anon_blocked_from_editing">Alamat IP Anda telah diblokir dari penyuntingan.</string>
+  <string name="edit_how_page_improved">Bagaimana Anda menyempurnakan halaman ini?</string>
+  <string name="edit_next">Selanjutnya</string>
+  <string name="edit_done">Simpan</string>
+  <string name="edit_preview">Pratayang</string>
+  <string name="edit_summary_tag_typo">Perbaikan kesalahan ketik</string>
+  <string name="edit_summary_tag_grammar">Perbaikan tata bahasa</string>
+  <string name="edit_summary_tag_links">Penambahan pranala</string>
+  <string name="edit_summary_tag_other">Lainnya</string>
+  <string name="edit_summary_tag_other_hint">Cara lain Anda menyempurnakan halaman</string>
+  <string name="find_in_page">Cari di halaman</string>
+  <string name="find_next">Cari berikutnya</string>
+  <string name="find_previous">Cari sebelumnya</string>
+  <string name="find_close">Tutup bilah pencarian</string>
+  <string name="error_network_error_try_again">Tidak bisa mencapai jaringan, silahkan coba lagi.</string>
+  <string name="saved_pages_update_all_error_retry">Coba lagi</string>
+  <string name="saved_pages_update_all_error_message">Kesalahan memperbarui halaman yang disimpan</string>
+  <string name="saved_pages_progress_title">Menyegarkan halaman yang disimpan</string>
+  <string name="saved_pages_refresh_pages_complete">Perbarui selesai</string>
+  <string name="app_store_description">Aplikasi resmi Wikipedia untuk Android. Wikipedia adalah ensiklopedia bebas yang berisi lebih dari 32 juta artikel dalam 280 bahasa sekaligus karya referensi buatan manusia yang paling lengkap dan banyak digunakan sepanjang sejarah. Aplikasi ini telah ditulis ulang dari awal dan lebih baik dari sebelumnya.
+
+Fitur:
+   - Kecepatan: Baru, aplikasi asli kami, memungkinkan Anda untuk menjelajah dan menyunting Wikipedia lebih cepat daripada sebelumnya.
+   - Penyuntingan: Anda dapat menyunting Wikipedia! Masuk log atau keluar log, kami berterima kasih atas semua kontribusi Anda.
+   - Halaman terkini: Kami menyediakan Anda dengan riwayat membaca Anda, sehingga Anda dapat mengetuk pranala sebanyak yang Anda suka tanpa pernah tersesat.
+   - Halaman tersimpan: Anda dapat menyimpan halaman yang terpilih untuk dibaca secara luring dan menelusuri mereka bahkan ketika Anda tidak memiliki sambungan data.
+   - Berbagi: Gunakan aplikasi jaringan sosial Anda yang ada untuk berbagi dalam jumlah dari semua pengetahuan manusia.
+   - Dukungan bahasa: Aplikasi ini memungkinkan Anda untuk mulus beralih ke membaca Wikipedia yang ditulis dalam bahasa apapun.
+   - Wikipedia Zero: Biaya data dibebaskan untuk operator selular yang berpartisipasi.
+
+Kode sepenuhnya bersifat sumber terbuka. Jika Anda memiliki pengalaman dengan Java dan Android SDK, silakan bantu kami! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

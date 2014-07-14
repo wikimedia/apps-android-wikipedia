@@ -38,7 +38,6 @@
   <string name="toast_saved_page_deleted">Uložené stránky vymazány</string>
   <string name="last_updated_text">Naposledy aktualizováno %1$s</string>
   <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
-  <string name="edit_save_action_license">Uložením neodvolatelně souhlasíte se zveřejněním svých příspěvků za podmínek licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Jazyk Wikipedie</string>
   <string name="preference_summary_language">Jazyk obsahu</string>
   <string name="preference_languages_filter_hint">Hledat</string>
@@ -82,8 +81,8 @@
   <string name="preference_summary_logout">Odhlásit se z uživatelského účtu na Wikipedii</string>
   <string name="preference_summary_notloggedin">Nepřihlášen(a).</string>
   <string name="toast_logout_complete">Odhlášeno</string>
-  <string name="saved_pages_empty_message">Žádné uložené stránky</string>
-  <string name="history_empty_message">Vaše historie je prázdná.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Žádné uložené stránky</string>
+  <string name="history_empty_message" fuzzy="true">Vaše historie je prázdná.</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
   <string name="create_account_password_hint">Heslo</string>
   <string name="menu_create_account">Vytvořit účet</string>
@@ -110,6 +109,7 @@
   <string name="zero_warn_when_leaving">Varovat při opuštění Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Pokud váš mobilní operátor neúčtuje poplatky za datové připojení k Wikipedii v rámci partnerství Wikipedia Zero, ponecháním tohoto políčka zaškrtnutého zajistíte, že se dozvíte o opouštění aplikace a možnosti placení za další datové připojení.</string>
   <string name="zero_webpage_title">FAQ k Wikipedia Zero</string>
+  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Opuštění Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Mohou být účtovány poplatky za přenos dat. Pokračovat na externí web?</string>
@@ -151,9 +151,10 @@
   <string name="page_protected_can_not_edit_title">Tato stránka je zamčena</string>
   <string name="more_item_preferences">Další</string>
   <string name="more_activity_title">Další</string>
-  <string name="about_description">O aplikace Wikipedie</string>
+  <string name="about_description">O aplikaci Wikipedie</string>
   <string name="preference_title_version">Verze</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/cs\"&gt;Podmínky užití&lt;/a&gt;</string>
+  <string name="about_libraries_heading">použité knihovny</string>
   <string name="about_contributors_heading">přispěvatelé</string>
   <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci</string>
@@ -179,6 +180,17 @@
   <string name="saved_pages_update_all_error_retry">Zkusit znovu</string>
   <string name="saved_pages_update_all_error_message">Chyba aktualizace uložených stránek</string>
   <string name="saved_pages_progress_title">Aktualizují se uložené stránky</string>
-  <string name="saved_pages_refresh_progress_message">Aktualizuje se %s</string>
   <string name="saved_pages_refresh_pages_complete">Aktualizace dokončena</string>
+  <string name="app_store_description">Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.
+
+Funkce:
+   - Rychlost: Naše nová nativní aplikace vám umožňuje prohlížet si a editovat Wikipedii rychleji než kdy dřív.
+   - Editace: Wikipedii můžete editovat! Přihlášeni či nepřihlášeni, děkujeme za všechny vaše příspěvky.
+   - Nedávné stránky: Nabízíme historii vaší četby, takže můžete proklikávat libovolným množstvím odkazů, aniž byste se někdy ztratili.
+   - Uložené stránky: Můžete si uložit vybrané stránky ke čtení offline a číst si je i bez datového připojení.
+   - Sdílení: Sdílejte sumu lidských znalostí pomocí svých existujících aplikací sociálních sítí.
+   - Podpora jazyků: Aplikace vám umožňuje snadno přecházet mezi čtením Wikipedie v různých jazycích.
+   - Wikipedia Zero: Bezplatné datové připojení od účastnících se mobilních operátorů.
+
+Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu, můžete forkovat! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

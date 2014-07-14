@@ -10,7 +10,7 @@
   <string name="search_hint">Buscar en Wikipedia</string>
   <string name="history_activity_title">Historial</string>
   <string name="nav_item_history">Historial</string>
-  <string name="error_network_error">No se pudo llegar a la red :(</string>
+  <string name="error_network_error">No se pudo conectar con la red :(</string>
   <string name="search_network_error">Error en la red. Toca para volver a intentarlo.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="menu_clear_all_history">Limpiar el historial</string>
@@ -20,6 +20,10 @@
   <string name="dialog_title_clear_history">¿Limpiar el historial?</string>
   <string name="saved_pages_activity_title">Páginas guardadas</string>
   <string name="nav_item_saved_pages">Páginas guardadas</string>
+  <string name="menu_update_all_saved_pages">Actualizar páginas guardadas</string>
+  <string name="menu_update_selected_saved_pages">Actualizar páginas guardadas</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">¿Actualizar todas las páginas guardadas?</string>
+  <string name="toast_saved_page_refreshed">Páginas guardadas actualizadas</string>
   <string name="menu_save_page">Guardar página</string>
   <string name="menu_share_page">Compartir</string>
   <string name="share_via">Compartir mediante</string>
@@ -32,13 +36,12 @@
   <string name="toast_refresh_saved_page">Actualizando la página guardada...</string>
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
-  <string name="last_updated_text">Última actualización: %1$s</string>
+  <string name="last_updated_text">Última actualización: %s</string>
   <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
-  <string name="edit_save_action_license">Al guardar, aceptas irrevocablemente a liberar tu contribución bajo la licencia &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Idioma de Wikipedia</string>
   <string name="preference_summary_language">Idioma del contenido</string>
   <string name="preference_languages_filter_hint">Buscar</string>
-  <string name="langlinks_filter_hint">Búsqueda</string>
+  <string name="langlinks_filter_hint">Buscar</string>
   <string name="menu_other_languages">Leer en otros idiomas</string>
   <string name="langlinks_error_retry">Reintentar</string>
   <string name="langlinks_empty">Esta página no está disponible en otros idiomas</string>
@@ -57,14 +60,14 @@
   <string name="edit_section_captcha_hint">Repetir las palabras de arriba</string>
   <string name="title_captcha">Introducir captcha</string>
   <string name="edit_section_abusefilter_back_text">Realizar cambios en mi edición</string>
-  <string name="edit_section_captcha_reload">Toca para recargar captcha</string>
+  <string name="edit_section_captcha_reload">Toca el CAPTCHA para recargar</string>
   <string name="edit_saved_page_refresh">Está página guardada puede estar obsoleta, y debe ser actualizada para habilitar la edición. ¿Quieres actualizar la página?</string>
-  <string name="nav_item_login">Iniciar sesión</string>
+  <string name="nav_item_login">Acceder</string>
   <string name="login_username_hint">Nombre de usuario</string>
   <string name="login_password_hint">Contraseña</string>
-  <string name="login_password_show_check">Mostrar contraseña</string>
-  <string name="menu_login">Iniciar sesión</string>
-  <string name="login_activity_title">Iniciar sesión en Wikipedia</string>
+  <string name="login_password_show_check">Mostrar la contraseña</string>
+  <string name="menu_login">Acceder</string>
+  <string name="login_activity_title">Acceder a Wikipedia</string>
   <string name="login_in_progress_dialog_message">Iniciando sesión…</string>
   <string name="login_error_wrong_password">Contraseña incorrecta</string>
   <string name="login_error_wrong_username">Nombre de usuario incorrecto</string>
@@ -78,12 +81,13 @@
   <string name="preference_summary_logout">Cerrar sesión de tu cuenta de Wikipedia</string>
   <string name="preference_summary_notloggedin">Sesión no iniciada.</string>
   <string name="toast_logout_complete">Sesión cerrada</string>
-  <string name="saved_pages_empty_message">No hay páginas guardadas</string>
-  <string name="history_empty_message">Tu historial está vacío.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">No hay páginas guardadas</string>
+  <string name="history_empty_message" fuzzy="true">Tu historial está vacío.</string>
   <string name="create_account_username_hint">Nombre de usuario</string>
   <string name="create_account_password_hint">Contraseña</string>
   <string name="menu_create_account">Crear cuenta</string>
   <string name="login_create_account_link">¿No tienes una cuenta? Únete a Wikipedia</string>
+  <string name="create_account_login_link">¿Ya tienes una cuenta? Accede</string>
   <string name="create_account_activity_title">Crear una cuenta</string>
   <string name="edit_section_activity_title">Editar sección</string>
   <string name="dialog_create_account_checking_progress">Verificando</string>
@@ -94,8 +98,10 @@
   <string name="create_account_username_exists_error">El nombre de usuario ya está en uso</string>
   <string name="create_account_ip_throttle_error">Demasiadas cuentas creadas desde esta IP. Inténtalo más tarde.</string>
   <string name="create_account_open_proxy_error">Esta IP ha sido bloqueada para la creación de cuentas.</string>
-  <string name="create_account_generic_error">No se puede crear la cuenta</string>
+  <string name="create_account_generic_error">No se pudo crear la cuenta</string>
   <string name="create_account_no_network">No hay conexión de red</string>
+  <string name="create_account_next">Siguiente</string>
+  <string name="create_account_button">Crear cuenta</string>
   <string name="preferences_general_heading">General</string>
   <string name="zero_charged_verbiage">Wikipedia Zero está desactivado</string>
   <string name="zero_charged_verbiage_extended">Cargar otros artículos puede incurrir en cargos por datos.</string>
@@ -108,8 +114,8 @@
   <string name="zero_interstitial_title">Dejando Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Pueden aplicarse cargos por datos. ¿Continuar a sitio externo?</string>
   <string name="zero_interstitial_continue">Dejar</string>
-  <string name="zero_interstitial_cancel">Permanecer Aquí</string>
-  <string name="zero_learn_more">Cargos de datos son renunciados por esta app de Wikipedia.</string>
+  <string name="zero_interstitial_cancel">Permanecer aquí</string>
+  <string name="zero_learn_more">Esta aplicación de Wikipedia está exenta de cargos por uso de datos.</string>
   <string name="zero_learn_more_learn_more">Leer más</string>
   <string name="zero_learn_more_dismiss">Descartar</string>
   <string name="zero_settings">Configuración</string>
@@ -119,27 +125,27 @@
   <string name="edit_preview_activity_title">Vista previa de edición</string>
   <string name="create_account_logging_in">Iniciando sesión...</string>
   <string name="send_feedback">Enviar comentarios de la app</string>
-  <string name="edit_summary_guide_text">Dinos como has mejorado esta página. Esto ayuda a otros editores a revisar tu edición más rápido.</string>
+  <string name="edit_summary_guide_text">Dinos cómo mejorar esta página. Esto ayuda a otros editores a revisar tu edición más rápido.</string>
   <string name="edit_summary_hint">Resumen de edición</string>
-  <string name="nav_item_random">Al azar</string>
-  <string name="random_progress">Obteniendo una página al azar…</string>
-  <string name="nav_item_login_benefits">Si inicia Sesión, sus modificaciones serán asociados con su nombre de usuario y su dirección de IP no será visible públicamente.</string>
-  <string name="create_account_account_created_toast">Cuenta creada!</string>
+  <string name="nav_item_random">Aleatorio</string>
+  <string name="random_progress">Obteniendo una página aleatoria...</string>
+  <string name="nav_item_login_benefits">Si inicias sesión, tus modificaciones serán asociadas a tu nombre de usuario y tu dirección IP no será visible públicamente.</string>
+  <string name="create_account_account_created_toast">Se creó la cuenta.</string>
   <string name="user_contribs_more_action">Cargar más</string>
   <string name="activity_my_contributions_title">Mis contribuciones</string>
   <string name="nav_item_my_contributions">Mis contribuciones</string>
-  <string name="edit_save_action_login">Iniciar sesión y guardar</string>
+  <string name="edit_save_action_login">Acceder y guardar</string>
   <string name="edit_save_action_ip">Guardar anónimamente</string>
   <string name="edit_save_action_login_description">Sus ediciones serán públicamente atribuidas a su nombre de usuario y otros editores podrán conectar mejor con usted</string>
-  <string name="edit_save_action_ip_description">Sus ediciones se serán públicamente atribuidas a su dirección IP, la cual cambia con frecuencia</string>
+  <string name="edit_save_action_ip_description">Sus ediciones serán públicamente atribuidas a su dirección IP, la cual cambia con frecuencia</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
-  <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para hacer la aplicación mejor</string>
+  <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
   <string name="editing_error_spamblacklist">Enlaces a dominios bloqueados (%s) detectados. Por favor elimínelos y vuelva a intentarlo.</string>
   <string name="history_search_list_hint">Buscar</string>
-  <string name="history_search_empty_message">No se han encontrado páginas que coincidan con \'%s\'</string>
+  <string name="history_search_empty_message">No se encontraron páginas que coincidan con «%s»</string>
   <string name="error_can_not_process_link">No se puede mostrar este enlace</string>
-  <string name="page_protected_autoconfirmed">Esta página ha sido semi-protegida.</string>
-  <string name="page_protected_sysop">Esta página ha sido totalmente protegida.</string>
+  <string name="page_protected_autoconfirmed">Esta página está semiprotegida.</string>
+  <string name="page_protected_sysop">Esta página está totalmente protegida.</string>
   <string name="page_protected_other">Esta página ha sido protegida a los siguientes niveles: %s</string>
   <string name="page_protected_can_not_edit">No tienes permisos para editar esta página</string>
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
@@ -147,13 +153,13 @@
   <string name="more_activity_title">Más</string>
   <string name="about_description">Acerca de la aplicación de Wikipedia</string>
   <string name="preference_title_version">Versión</string>
-  <string name="about_terms_of_use">Términos de uso de WMF</string>
-  <string name="about_privacy_policy">política de intimidad de WMF</string>
+  <string name="about_terms_of_use">&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Política de privacidad&lt;/a&gt;</string>
   <string name="about_libraries_heading">bibliotecas usadas</string>
   <string name="about_contributors_heading">colaboradores</string>
   <string name="about_wmf">Un producto de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
-  <string name="edit_unchanged">La página no ha sido modificada.</string>
+  <string name="edit_unchanged">La página no fue modificada.</string>
   <string name="edit_abandon_confirm">La página ha sido modificada. ¿Estás seguro que quieres salir sin guardar tus cambios?</string>
   <string name="user_blocked_from_editing_title">Bloqueado</string>
   <string name="user_logged_in_blocked_from_editing">Tu cuenta de usuario ha sido bloqueada para editar en este wiki.</string>
@@ -171,4 +177,21 @@
   <string name="find_next">Buscar siguiente</string>
   <string name="find_previous">Buscar anterior</string>
   <string name="find_close">Cerrar barra de búsqueda</string>
+  <string name="error_network_error_try_again">Falló la conexión con la red. Inténtalo de nuevo.</string>
+  <string name="saved_pages_update_all_error_retry">Reintentar</string>
+  <string name="saved_pages_update_all_error_message">Error al actualizar páginas guardadas</string>
+  <string name="saved_pages_progress_title">Actualizando páginas guardadas</string>
+  <string name="saved_pages_refresh_pages_complete">Actualización completa</string>
+  <string name="app_store_description">Aplicación oficial de Wikipedia para Android. Wikipedia es la enciclopedia libre que contiene más de 32 millones de artículos en 280 idiomas y es el trabajo de referencia más completo y ampliamente usado que los humanos hayan recopilado. La aplicación ha sido reescrita desde cero y está mejor que nunca.
+
+Características:
+   -Velocidad: Nuestra nueva aplicación nativa te permite navegar y editar Wikipedia más rápido que nunca.
+   -Edición: ¡Puedes editar Wikipedia! Conectado o desconectado, te damos gracias por todas tus contribuciones.
+   -Páginas recientes: te proporcionamos tu historial de lectura, así puedes teclear tantos enlaces como gustes sin perderte en ningún momento.
+   -Páginas guardadas: puedes guardar páginas seleccionadas para leerlas sin conexión y navegarlas incluso cuando no tienes una conexión de datos.
+   -Comparte: Usa tus aplicaciones de redes sociales existentes para compartir en la suma de todo el conocimiento humano.
+   -Soporte de idiomas: la aplicación permite cambiar perfectamente a la lectura de Wikipedia escrita en cualquier idioma.
+   -Wikipedia Zero: cargos de datos omitidos para operadores móviles participantes.
+
+El código es completamente abierto. Si tienes experiencia con Java y el SDK de Android, ven a bifurnos! https://github.com/Wikimedia/apps-Android-Wikipedia</string>
 </resources>

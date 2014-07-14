@@ -1,34 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Wikipedia</string>
+  <string name="app_name_beta">Wikipedia wersja beta</string>
   <string name="yes">Tak</string>
   <string name="no">Nie</string>
   <string name="acra_report_dialog_title">Wikipedia padła :(</string>
-  <string name="acra_report_dialog_comment">Co robiłeś gdy zdarzyła się awaria?</string>
+  <string name="acra_report_dialog_text">Prześlij nam raport błędu</string>
+  <string name="acra_report_dialog_comment">Co robiłeś, gdy zdarzyła się awaria?</string>
+  <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="history_activity_title">Historia</string>
   <string name="nav_item_history">Historia</string>
+  <string name="error_network_error">Nie udało się połączyć z siecią :(</string>
+  <string name="search_network_error">Błąd sieci. Kliknij, aby spróbować ponownie.</string>
   <string name="page_error_retry">Ponów próbę</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
   <string name="menu_clear_all_bookmarks">Wyczyść zakładki</string>
+  <string name="menu_clear_all_saved_pages">Wyczyść listę zapisanych stron</string>
   <string name="page_does_not_exist_error">Ta strona nie istnieje.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Wyczyścić historię?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Zapisane strony</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Zapisane strony</string>
-  <string name="menu_save_page" fuzzy="true">Zapisz stronę</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Wyczyścić zapisane strony?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Czy na pewno chcesz wyczyścić wszystkie zapisane strony?</string>
-  <string name="toast_saving_page" fuzzy="true">Zapisywanie strony...</string>
-  <string name="toast_saved_page" fuzzy="true">Zapisana strona</string>
-  <string name="toast_save_page_failed" fuzzy="true">Zapisywanie strony nie powiodło się :(</string>
+  <string name="dialog_title_clear_history">Wyczyścić historię przeglądania?</string>
+  <string name="saved_pages_activity_title">Zapisane strony</string>
+  <string name="nav_item_saved_pages">Zapisane strony</string>
+  <string name="menu_update_all_saved_pages">Odśwież zapisane strony</string>
+  <string name="menu_update_selected_saved_pages">Odśwież zapisane strony</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Czy odświeżyć wszystkie zapisane strony?</string>
+  <string name="toast_saved_page_refreshed">Zaktualizowane zapisane strony</string>
+  <string name="menu_save_page">Zapisz stronę</string>
+  <string name="menu_share_page">Udostępnij</string>
+  <string name="share_via">Udostępnij przez</string>
+  <string name="dialog_title_clear_saved_pages">Wyczyścić zapisane strony?</string>
+  <string name="dialog_message_clear_saved_pages">Czy na pewno chcesz wyczyścić wszystkie zapisane strony?</string>
+  <string name="toast_saving_page">Zapisywanie strony...</string>
+  <string name="toast_saved_page">Strona została zapisana</string>
+  <string name="toast_saved_page_missing_images">Nie można zapisać wszystkich obrazów</string>
+  <string name="toast_save_page_failed">Zapisywanie strony nie powiodło się :(</string>
+  <string name="toast_refresh_saved_page">Odświeżanie zapisanych stron...</string>
   <string name="delete_selected_saved_pages">Usuń</string>
-  <string name="preference_title_language" fuzzy="true">Język</string>
-  <string name="nav_item_preferences">Ustawienia</string>
-  <string name="menu_other_languages" fuzzy="true">Inne języki</string>
+  <string name="toast_saved_page_deleted">Usunięto zapisane strony</string>
+  <string name="last_updated_text">Ostatnia aktualizacja %s</string>
+  <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="preference_title_language">Język Wikipedii</string>
+  <string name="preference_summary_language">Język treści</string>
+  <string name="preference_languages_filter_hint">Szukaj</string>
+  <string name="langlinks_filter_hint">Szukaj</string>
+  <string name="menu_other_languages">Czytaj w innych językach</string>
   <string name="langlinks_error_retry">Ponów próbę</string>
   <string name="langlinks_empty">Ten artykuł nie jest dostępny w innych językach</string>
   <string name="settings_activity_title">Ustawienia</string>
   <string name="langlinks_activity_title">Inne języki</string>
-  <string name="editsection_activity_title">Edytuj sekcję</string>
+  <string name="menu_save_changes">Zapisz zmiany</string>
   <string name="edit_section_error_retry">Ponów próbę</string>
   <string name="dialog_saving_in_progress">Zapisywanie...</string>
   <string name="edit_saved_successfully">Edycja została zapisana!</string>
@@ -37,6 +56,12 @@
   <string name="dialog_message_edit_failed_cancel">Anuluj</string>
   <string name="menu_show_toc">Spis treści</string>
   <string name="search_no_results_found">Nie znaleziono</string>
+  <string name="edit_section_captcha_message">Aby pomóc nam bronić się przed spamem, przepisz słowa podane poniżej</string>
+  <string name="edit_section_captcha_hint">Powtórz powyższe słowa</string>
+  <string name="title_captcha">Wpisz CAPTCHA</string>
+  <string name="edit_section_abusefilter_back_text">Wprowadź zmiany do mojej edycji</string>
+  <string name="edit_section_captcha_reload">Dotknij, aby przeładować CAPTCHA</string>
+  <string name="edit_saved_page_refresh">Zapisana strona może być nieaktualna i musi zostać odświeżona, any umożliwić edycję. Czy chcesz odświeżyć stronę?</string>
   <string name="nav_item_login">Zaloguj się</string>
   <string name="login_username_hint">Nazwa użytkownika</string>
   <string name="login_password_hint">Hasło</string>
@@ -52,11 +77,17 @@
   <string name="login_error_unknown">Logowanie nie powiodło się :(</string>
   <string name="login_error_no_network">Brak połączenia z siecią</string>
   <string name="nav_item_logout">Wyloguj</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Nie ma zakładek</string>
+  <string name="preference_title_logout">Wyloguj</string>
+  <string name="preference_summary_logout">Wyloguj się z konta na Wikipedii</string>
+  <string name="preference_summary_notloggedin">Niezalogowany(-a)</string>
+  <string name="toast_logout_complete">Wylogowany(-a)</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Brak zapisanych stron</string>
+  <string name="history_empty_message" fuzzy="true">Twoja historia jest pusta.</string>
   <string name="create_account_username_hint">Nazwa użytkownika</string>
   <string name="create_account_password_hint">Hasło</string>
   <string name="menu_create_account">Utwórz konto</string>
-  <string name="login_create_account_link">Utwórz konto</string>
+  <string name="login_create_account_link">Nie masz jeszcze konta? Dołącz do Wikipedii</string>
+  <string name="create_account_login_link">Masz już konto? Zaloguj się</string>
   <string name="create_account_activity_title">Utwórz konto</string>
   <string name="edit_section_activity_title">Edytuj sekcję</string>
   <string name="dialog_create_account_checking_progress">Weryfikacja</string>
@@ -64,20 +95,90 @@
   <string name="create_account_password_repeat_hint">Powtórz hasło</string>
   <string name="create_account_passwords_mismatch_error">Hasła nie są identyczne</string>
   <string name="create_account_email_error">Nieprawidłowy adres e-mail</string>
+  <string name="create_account_username_exists_error">Nazwa użytkownika jest już zajęta</string>
+  <string name="create_account_ip_throttle_error">Zbyt wiele kont utworzono z tego adresu IP. Spróbuj ponownie później.</string>
+  <string name="create_account_open_proxy_error">Tworzenie kont z tego adresu IP zostało zablokowane.</string>
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
   <string name="create_account_no_network">Brak połączenia z siecią</string>
+  <string name="create_account_next">Dalej</string>
+  <string name="create_account_button">Utwórz konto</string>
   <string name="preferences_general_heading">Ogólne</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero jest wyłączona</string>
+  <string name="zero_charged_verbiage_extended">Ładując pozostałe artykuły możesz narazić się na poniesienie opłat za transfer danych.</string>
+  <string name="zero_search_hint">Szukaj w Wikipedii Zero</string>
+  <string name="zero_warn_when_leaving">Ostrzegaj przed opuszczeniem Wikipedii Zero</string>
+  <string name="zero_warn_when_leaving_summary">Jeśli twój operator telefonii komórkowej nie pobiera opłat za transfer danych, gdy korzystasz z Wikipedii poprzez tę aplikację (w ramach partnerstwa Wikipedia Zero), ta opcja sprawi, że aplikacja pomoże ci się zorientować, kiedy opuszczasz Wikipedię i mogą zacząć obowiązywać opłaty za transfer danych.</string>
+  <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
+  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ/pl</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_continue">Kontynuuj</string>
-  <string name="zero_interstitial_cancel">Anuluj</string>
-  <string name="zero_learn_more_learn_more">Dowiedz się więcej</string>
+  <string name="zero_interstitial_title">Opuszczasz Wikipedię Zero</string>
+  <string name="zero_interstitial_leave_app">Przejście do witryny zewnętrznej może się wiązać z opłatami za transmisję danych. Kontynuować?</string>
+  <string name="zero_interstitial_continue">Wyjdź</string>
+  <string name="zero_interstitial_cancel">Pozostań</string>
+  <string name="zero_learn_more">W ramach tej aplikacji Wikipedii nie są pobierane opłaty za transmisję danych.</string>
+  <string name="zero_learn_more_learn_more">Czytaj więcej</string>
+  <string name="zero_learn_more_dismiss">Odrzuć</string>
   <string name="zero_settings">Ustawienia</string>
+  <string name="zero_settings_devmode">Zero Devmode</string>
+  <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu...</string>
+  <string name="edit_preview_activity_title">Podgląd zmian</string>
   <string name="create_account_logging_in">Logowanie...</string>
+  <string name="send_feedback">Wyślij opinię o aplikacji</string>
+  <string name="edit_summary_guide_text">Opisz, w jaki sposób zmodyfikowałaś/eś tę stronę. Ułatwi to innym edytorom szybkie przejrzenie twoich zmian.</string>
   <string name="edit_summary_hint">Opis zmian</string>
+  <string name="nav_item_random">Losowa strona</string>
+  <string name="random_progress">Ładowanie losowej strony...</string>
+  <string name="nav_item_login_benefits">Jeśli się zalogujesz, edycje będą przypisane do twojej nazwy użytkownika, a twój adres IP nie będzie publicznie widoczny.</string>
   <string name="create_account_account_created_toast">Konto zostało utworzone!</string>
   <string name="user_contribs_more_action">Czytaj całość</string>
   <string name="activity_my_contributions_title">Mój wkład</string>
   <string name="nav_item_my_contributions">Mój wkład</string>
   <string name="edit_save_action_login">Zaloguj się i zapisz</string>
   <string name="edit_save_action_ip">Zapisz anonimowo</string>
+  <string name="edit_save_action_login_description">Twoje zmiany zostaną publicznie przypisane do twojej nazwy użytkownika, a inny edytorzy bedą mogli się z tobą skontaktować.</string>
+  <string name="edit_save_action_ip_description">Twoje zmiany zostaną publicznie przypisane do twojego adresu IP, który często się zmienia</string>
+  <string name="preference_title_eventlogging_opt_in">Wysyłaj informacje o użytkowaniu</string>
+  <string name="preference_summary_eventlogging_opt_in">Pozwala Wikimedii zbierać informacje o tym, w jaki sposób korzystasz z tej aplikacji, aby ją ulepszać</string>
+  <string name="editing_error_spamblacklist">Wykryto linki do zablokowanych domen (%s). Usuń je i spróbuj ponownie.</string>
+  <string name="history_search_list_hint">Szukaj</string>
+  <string name="history_search_empty_message">Nie znaleziono stron zawierających \'%s\'</string>
+  <string name="error_can_not_process_link">Nie można wyświetlić linku</string>
+  <string name="page_protected_autoconfirmed">Ta strona jest częściowo zabezpieczona.</string>
+  <string name="page_protected_sysop">Ta strona jest całkowicie zabezpieczona.</string>
+  <string name="page_protected_other">Ta strona została zabezpieczona do następujących poziomów: %s</string>
+  <string name="page_protected_can_not_edit">Nie masz uprawnień do edycji tej strony</string>
+  <string name="page_protected_can_not_edit_title">Ta strona jest zabezpieczona</string>
+  <string name="more_item_preferences">Więcej</string>
+  <string name="more_activity_title">Więcej</string>
+  <string name="about_description">O aplikacji Wikipedia</string>
+  <string name="preference_title_version">Wersja</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Warunki użytkowania&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy/pl\"&gt;Polityka prywatności&lt;/a&gt;</string>
+  <string name="about_libraries_heading">użyte biblioteki</string>
+  <string name="about_contributors_heading">autorzy</string>
+  <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundacji Wikimedia&lt;/a&gt;</string>
+  <string name="about_activity_title">O aplikacji</string>
+  <string name="edit_unchanged">Strona nie została zmieniona.</string>
+  <string name="edit_abandon_confirm">Strona została zmodyfikowana. Czy na pewno chcesz zakończyć pracę bez zapisywania zmian?</string>
+  <string name="user_blocked_from_editing_title">Zablokowany/-a</string>
+  <string name="user_logged_in_blocked_from_editing">Edytowanie wiki z tego konta użytkownika zostało zablokowane.</string>
+  <string name="user_anon_blocked_from_editing">Edycja z tego adresu IP została zablokowana</string>
+  <string name="edit_how_page_improved">Jak poprawiłeś/-aś stronę?</string>
+  <string name="edit_next">Następne</string>
+  <string name="edit_done">Zapisz</string>
+  <string name="edit_preview">Podgląd</string>
+  <string name="edit_summary_tag_typo">Poprawiono literówkę</string>
+  <string name="edit_summary_tag_grammar">Poprawiono gramatykę</string>
+  <string name="edit_summary_tag_links">Dodano linki</string>
+  <string name="edit_summary_tag_other">Inne</string>
+  <string name="edit_summary_tag_other_hint">Co poprawiłaś/eś na tej stronie</string>
+  <string name="find_in_page">Znajdź na stronie</string>
+  <string name="find_next">Znajdź następny</string>
+  <string name="find_previous">Znajdź poprzedni</string>
+  <string name="find_close">Zamknij pasek wyszukiwania</string>
+  <string name="error_network_error_try_again">Nie można połączyć się z siecią, spróbuj ponownie.</string>
+  <string name="saved_pages_update_all_error_retry">Ponów próbę</string>
+  <string name="saved_pages_update_all_error_message">Błąd podczas aktualizowania zapisanych stron</string>
+  <string name="saved_pages_progress_title">Odświeżanie zapisanych stron</string>
+  <string name="saved_pages_refresh_pages_complete">Aktualizacja zakończona</string>
 </resources>

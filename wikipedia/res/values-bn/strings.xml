@@ -20,6 +20,10 @@
   <string name="dialog_title_clear_history">ব্রাউজিং ইতিহাস অপসারণ?</string>
   <string name="saved_pages_activity_title">সংরক্ষিত পাতাসমূহ</string>
   <string name="nav_item_saved_pages">সংরক্ষিত পাতাসমূহ</string>
+  <string name="menu_update_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
+  <string name="menu_update_selected_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করবেন?</string>
+  <string name="toast_saved_page_refreshed">সংরক্ষিত পাতাগুলো হালনাগাদ হয়েছে</string>
   <string name="menu_save_page">পাতা সংরক্ষণ করুন</string>
   <string name="menu_share_page">শেয়ার</string>
   <string name="share_via">শেয়ার</string>
@@ -34,7 +38,6 @@
   <string name="toast_saved_page_deleted">সংরক্ষিত পাতা(সমূহ) অপসারণ করা হয়েছে</string>
   <string name="last_updated_text">%1$s তারিখে সর্বশেষ হালনাগাদ</string>
   <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
-  <string name="edit_save_action_license">সংরক্ষণ করার মাধ্যমে,আপনি আমাদের সাথে এবং &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; লাইসেন্সের অধীনে আপনার অবদান প্রকাশে সম্মত হয়েছেন।</string>
   <string name="preference_title_language">উইকিপিডিয়া ভাষা</string>
   <string name="preference_summary_language">বিষয়বস্তুর ভাষা</string>
   <string name="preference_languages_filter_hint">অনুসন্ধান</string>
@@ -78,8 +81,8 @@
   <string name="preference_summary_logout">আপনার উইকিপিডিয়া অ্যাকাউন্ট থেকে প্রস্থান করুন</string>
   <string name="preference_summary_notloggedin">প্রবেশ করা হয়নি।</string>
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
-  <string name="saved_pages_empty_message">কোনো সংরক্ষিত পাতা নেই</string>
-  <string name="history_empty_message">আপনার ইতিহাস অংশটি খালি।</string>
+  <string name="saved_pages_empty_message" fuzzy="true">কোনো সংরক্ষিত পাতা নেই</string>
+  <string name="history_empty_message" fuzzy="true">আপনার ইতিহাস অংশটি খালি।</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>
   <string name="create_account_password_hint">পাসওয়ার্ড</string>
   <string name="menu_create_account">অ্যাকাউন্ট খুলুন</string>
@@ -172,4 +175,9 @@
   <string name="find_next">পরবর্তী অনুসন্ধান</string>
   <string name="find_previous">পূর্বেরটি অনুসন্ধান</string>
   <string name="find_close">অনুসন্ধান বার বন্ধ করুন</string>
+  <string name="error_network_error_try_again">নেটওয়ার্ক ত্রুটি, পুনরায় চেষ্টা করুন।</string>
+  <string name="saved_pages_update_all_error_retry">পুনঃচেষ্টা করুন</string>
+  <string name="saved_pages_update_all_error_message">ত্রুটি, পাতা হালনাগাদ করা যায়নি</string>
+  <string name="saved_pages_progress_title">সংরক্ষিত পাতাগুলো রিফ্রেশ করা হচ্ছে</string>
+  <string name="saved_pages_refresh_pages_complete">হালনাগাদ সম্পন্ন</string>
 </resources>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Βικιπαίδεια</string>
+  <string name="app_name_beta">Βικιπαίδεια Beta</string>
+  <string name="yes">Ναι</string>
+  <string name="no">Όχι</string>
+  <string name="acra_report_dialog_title">H Wikipedia κατέρρευσε :(</string>
+  <string name="acra_report_dialog_text">Στείλτε μας μια αναφορά σφάλματος</string>
+  <string name="acra_report_dialog_comment">Τι κάνατε όταν συνέβη το σφάλμα;</string>
+  <string name="search_hint">Αναζήτηση στη Βικιπαίδεια</string>
+  <string name="history_activity_title">Ιστορικό</string>
+  <string name="nav_item_history">Ιστορικό</string>
+  <string name="error_network_error">Η σύνδεση με το δίκτυο απέτυχε :(</string>
+  <string name="search_network_error">Σφάλμα δικτύου. Πατήστε για να προσπαθήσετε ξανά.</string>
+  <string name="page_error_retry">Ξαναπροσπαθήστε</string>
+  <string name="menu_clear_all_history">Εκκαθάριση ιστορικού</string>
+  <string name="menu_clear_all_bookmarks">Εκκαθάριση σελιδοδεικτών</string>
+  <string name="menu_clear_all_saved_pages">Εκκαθάριση αποθηκευμένων σελίδων</string>
+  <string name="page_does_not_exist_error">Αυτή η σελίδα δεν υπάρχει!</string>
+  <string name="dialog_title_clear_history">Εκκαθάριση ιστορικού περιήγησης;</string>
+  <string name="saved_pages_activity_title">Αποθηκευμένες σελίδες</string>
+  <string name="nav_item_saved_pages">Αποθηκευμένες σελίδες</string>
+  <string name="menu_update_all_saved_pages">Ενημέρωση αποθηκευμένων σελίδων</string>
+  <string name="menu_update_selected_saved_pages">Να ενημερωθούν όλες οι αποθηκευμένες σελίδες;</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Να ενημερωθούν όλες οι αποθηκευμένες σελίδες;</string>
+  <string name="toast_saved_page_refreshed">Οι αποθηκευμένες σελίδες ενημερώθηκαν</string>
+  <string name="menu_save_page">Αποθήκευση σελίδας</string>
+  <string name="menu_share_page">Μοιραστείτε</string>
+  <string name="share_via">Μοιραστείτε μέσω</string>
+  <string name="dialog_title_clear_saved_pages">Να διαγραφούν όλες οι αποθηκευμένες σελίδες;</string>
+  <string name="dialog_message_clear_saved_pages">Είστε σίγουροι ότι θέλετε να διαγράψετε όλες τις αποθηκευμένες σελίδες;</string>
+  <string name="toast_saving_page">Η σελίδα αποθηκεύεται...</string>
+  <string name="toast_saved_page">Η σελίδα αποθηκεύτηκε επιτυχώς</string>
+  <string name="toast_saved_page_missing_images">Δεν στάθηκε δυνατόν να αποθηκευθούν όλες οι εικόνες</string>
+  <string name="toast_save_page_failed">Η αποθήκευση της σελίδας απέτυχε :(</string>
+  <string name="toast_refresh_saved_page">Ανανεώνοντας αποθηκευμένη σελίδα...</string>
+  <string name="delete_selected_saved_pages">Διαγραφή</string>
+  <string name="toast_saved_page_deleted">Αποθηκευμένη(ες) σελίδα(ες) διαγράφτηκε(καν)</string>
+  <string name="last_updated_text">Τελευταία ενημέρωση %s</string>
+  <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>
+  <string name="preference_title_language">Γλώσσα Βικιπαίδειας</string>
+  <string name="preference_summary_language">Γλώσσα περιεχομένου</string>
+  <string name="preference_languages_filter_hint">Αναζήτηση</string>
+  <string name="langlinks_filter_hint">Αναζήτηση</string>
+  <string name="menu_other_languages">Διαβάστε σε άλλες γλώσσες</string>
+  <string name="langlinks_error_retry">Ξαναπροσπαθήστε</string>
+  <string name="langlinks_empty">Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες</string>
+  <string name="settings_activity_title">Ρυθμίσεις</string>
+  <string name="langlinks_activity_title">Άλλες γλώσσες</string>
+  <string name="menu_save_changes">Αποθήκευση αλλαγών</string>
+  <string name="edit_section_error_retry">Ξαναπροσπαθήστε</string>
+  <string name="dialog_saving_in_progress">Αποθήκευση...</string>
+  <string name="edit_saved_successfully">Η επεξεργασία αποθηκεύτηκε!</string>
+  <string name="dialog_message_edit_failed">Η επεξεργασία απέτυχε!</string>
+  <string name="dialog_message_edit_failed_retry">Ξαναπροσπαθήστε</string>
+  <string name="dialog_message_edit_failed_cancel">Ακύρωση</string>
+  <string name="menu_show_toc">Πίνακας Περιεχομένων</string>
+  <string name="search_no_results_found">Δεν βρέθηκαν αποτελέσματα</string>
+  <string name="edit_section_captcha_message">Για να βοηθήσετε στην προστασία από αυτόματα ανεπιθύμητα μηνύματα, παρακαλούμε εισάγετε τις λέξεις που εμφανίζονται από κάτω</string>
+  <string name="edit_section_captcha_hint">Επαναλάβετε τις λέξεις από πάνω</string>
+  <string name="title_captcha">Εισάγετε CAPTCHA</string>
+  <string name="edit_section_abusefilter_back_text">Κάντε αλλαγές στην επεξεργασία μου</string>
+  <string name="edit_section_captcha_reload">Πατήστε το CAPTCHA για επαναφόρτωση</string>
+  <string name="edit_saved_page_refresh">Αυτή η αποθηκευμένη σελίδα μπορεί να είναι ανενημέρωτη, και πρέπει να ανανεωθεί για να ενεργοποιηθεί η επεξεργασία. Θα θέλατε να ανανεώσετε τη σελίδα;</string>
+  <string name="nav_item_login">Σύνδεση</string>
+  <string name="login_username_hint">Όνομα χρήστη</string>
+  <string name="login_password_hint">Κωδικός</string>
+  <string name="login_password_show_check">Εμφάνιση κωδικού πρόσβασης</string>
+  <string name="menu_login">Σύνδεση</string>
+  <string name="login_activity_title">Συνδεθείτε στη Βικιπαίδεια</string>
+  <string name="login_in_progress_dialog_message">Σύνδεση...</string>
+  <string name="login_error_wrong_password">Λανθασμένος κωδικός πρόσβασης</string>
+  <string name="login_error_wrong_username">Λανθασμένο όνομα χρήστη</string>
+  <string name="login_success_toast">Πετυχημένη σύνδεση!</string>
+  <string name="login_error_blocked">Αυτός ο χρήστης έχει αποκλειστεί</string>
+  <string name="login_error_throttled">Υπερβολικά πολλές προσπάθειες σύνδεσης. Περιμένετε λίγα λεπτά και προσπαθήστε ξανά.</string>
+  <string name="login_error_unknown">Η σύνδεση απέτυχε :(</string>
+  <string name="login_error_no_network">Καμία σύνδεση δικτύου</string>
+  <string name="nav_item_logout">Αποσύνδεση</string>
+  <string name="preference_title_logout">Αποσύνδεση</string>
+  <string name="preference_summary_logout">Αποσυνδεθείτε από το λογαριασμό σας στη Βικιπαίδεια</string>
+  <string name="preference_summary_notloggedin">Δεν έχετε συνδεθεί.</string>
+  <string name="toast_logout_complete">Αποσύνδεση</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Δεν υπάρχουν αποθηκευμένες σελίδες</string>
+  <string name="history_empty_message" fuzzy="true">Το ιστορικό σας είναι κενό.</string>
+  <string name="create_account_username_hint">Όνομα χρήστη</string>
+  <string name="create_account_password_hint">Κωδικός</string>
+  <string name="menu_create_account">Δημιουργία λογαριασμού</string>
+  <string name="login_create_account_link">Δεν έχετε λογαριασμό; Γίνετε μέλος της Βικιπαίδειας</string>
+  <string name="create_account_login_link">Έχετε ήδη λογαριασμό; Συνδεθείτε</string>
+  <string name="create_account_activity_title">Δημιουργία λογαριασμού</string>
+  <string name="edit_section_activity_title">Επεξεργασία ενότητας</string>
+  <string name="dialog_create_account_checking_progress">Επαλήθευση</string>
+  <string name="create_account_email_hint">Email (Προαιρετικό)</string>
+  <string name="create_account_password_repeat_hint">Επανάληψη κωδικού</string>
+  <string name="create_account_passwords_mismatch_error">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
+  <string name="create_account_email_error">Άκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου</string>
+  <string name="create_account_username_exists_error">Το όνομα χρήστη χρησιμοποιείται ήδη</string>
+  <string name="create_account_ip_throttle_error">Από αυτή τη διεύθυνση IP δημιουργήθηκαν υπερβολικά πολλοί λογαριασμοί. Προσπαθήστε ξανά αργότερα.</string>
+  <string name="create_account_open_proxy_error">Η δημιουργία λογαριασμών από αυτή τη διεύθυνση IP έχει αποκλειστεί.</string>
+  <string name="create_account_generic_error">Δεν ήταν δυνατή η δημιουργία λογαριασμού</string>
+  <string name="create_account_no_network">Καμία σύνδεση με το δίκτυο</string>
+  <string name="create_account_next">Επόμενο</string>
+  <string name="create_account_button">Δημιουργία λογαριασμού</string>
+  <string name="preferences_general_heading">Γενικά</string>
+  <string name="zero_charged_verbiage">Το Wikipedia Zero είναι απενεργοποιημένο</string>
+  <string name="zero_charged_verbiage_extended">Με τη φόρτωση άλλων άρθρων μπορεί να υπάρξει χρέωση για δεδομένα</string>
+  <string name="zero_search_hint">Αναζήτηση στο Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving">Προειδοποιήστε με αν φεύγω από το Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving_summary">Εάν ο πάροχος κινητής τηλεφωνίας σας δεν χρεώνει δεδομένα για τη χρήση της εφαρμογής της Βικιπαιδείας μέσω συνεργασίας του με το Wikipedia Zero, αφήνοντας αυτή τη ρύθμιση επιλεγμένη βοηθιέστε ώστε να γνωρίζετε πότε εγκαταλείπετε την εφαρμογή της Βικιπαίδειας και επομένως μπορεί να χρεώνεστε.</string>
+  <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
+  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
+  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+  <string name="zero_interstitial_title">Αφήνετε το Wikipedia Zero</string>
+  <string name="zero_interstitial_leave_app">Ενδέχεται να ισχύουν χρεώσεις δεδομένων. Να συνεχίσετε στον εξωτερικό ιστότοπο;</string>
+  <string name="zero_interstitial_continue">Φύγετε</string>
+  <string name="zero_interstitial_cancel">Μείνετε Εδώ</string>
+  <string name="zero_learn_more">Δεν ισχύουν χρεώσεις δεδομένων γι\'αυτή την εφαρμογή της Βικιπαίδειας.</string>
+  <string name="zero_learn_more_learn_more">Διαβάστε περισσότερα</string>
+  <string name="zero_learn_more_dismiss">Απόρριψη</string>
+  <string name="zero_settings">Ρυθμίσεις</string>
+  <string name="zero_settings_devmode">Zero Devmode</string>
+  <string name="zero_settings_devmode_summary">Κατά τη διάρκεια της ανάπτυξης αυτό επιτρέπει την εκτέλεση κώδικα σχετικού με το Wikipedia Zero.</string>
+  <string name="edit_preview_fetching_dialog_message">Προετοιμάζοντας προεπισκόπηση...</string>
+  <string name="edit_preview_activity_title">Προεπισκόπηση επεξεργασίας</string>
+  <string name="create_account_logging_in">Σύνδεση...</string>
+  <string name="send_feedback">Αποστολή σχολίων για την εφαρμογή</string>
+  <string name="edit_summary_guide_text">Πείτε μας πώς βελτιώσατε αυτή τη σελίδα. Αυτό βοηθά άλλους συντάκτες για να επιθεωρήσουν γρήγορα την  επεξεργασία σας.</string>
+  <string name="edit_summary_hint">Σύνοψη επεξεργασίας</string>
+  <string name="nav_item_random">Τυχαία</string>
+  <string name="random_progress">Επιλογή τυχαίας σελίδας...</string>
+  <string name="nav_item_login_benefits">Αν συνδεθείτε οι επεξεργασίες σας θα συνδεθούν με το όνομα χρήστη σας και η διεύθυνση IP σας δεν θα είναι δημόσια ορατή.</string>
+  <string name="create_account_account_created_toast">Ο λογαριασμός δημιουργήθηκε!</string>
+  <string name="user_contribs_more_action">Φορτώστε περισσότερα</string>
+  <string name="activity_my_contributions_title">Οι συνεισφορές μου</string>
+  <string name="nav_item_my_contributions">Οι συνεισφορές μου</string>
+  <string name="edit_save_action_login">Συνδεθείτε και αποθηκεύστε το</string>
+  <string name="edit_save_action_ip">Αποθηκεύστε ανώνυμα</string>
+  <string name="edit_save_action_login_description">Οι επεξεργασίες σας θα αποδοθούν δημόσια στο όνομα χρήστη σας και άλλοι συντάκτες θα μπορούν να συνδεθούν καλύτερα μαζί σας.</string>
+  <string name="edit_save_action_ip_description">Οι επεξεργασίες σας θα αποδοθούν στη διεύθυνση IP σας, η οποία αλλάζει συχνά</string>
+  <string name="preference_title_eventlogging_opt_in">Στείλτε εκθέσεις χρήσης</string>
+  <string name="preference_summary_eventlogging_opt_in">Επιτρέψτε στο Wikimedia να συλλέξει πληροφορίες για το πως χρησιμοποιείτε την εφαρμογή ώστε να τη βελτιώσει</string>
+  <string name="editing_error_spamblacklist">Ανιχνεύθηκαν σύνδεσμοι σε αποκλεισμένους ιστότοπους. Παρακαλώ αφαιρέστε τους και προσπαθήστε ξανά.</string>
+  <string name="history_search_list_hint">Αναζήτηση</string>
+  <string name="history_search_empty_message">Δεν βρέθηκαν σελίδες που ταιριάζουν με το \'%s\'</string>
+  <string name="error_can_not_process_link">Αυτός ο σύνδεσμος δεν στάθηκε δυνατό να εμφανιστεί</string>
+  <string name="page_protected_autoconfirmed">Αυτή η σελίδα είναι ημιπροστατευμένη</string>
+  <string name="page_protected_sysop">Αυτή η σελίδα είναι πλήρως προσταστατευμένη.</string>
+  <string name="page_protected_other">Αυτή η σελίδα είναι κάτω από το ακόλουθο καθεστός προστασίας: %s</string>
+  <string name="page_protected_can_not_edit">Δεν έχετε τα δικαιώματα για να επεξεργαστείτε αυτή τη σελίδα</string>
+  <string name="page_protected_can_not_edit_title">Αυτή η σελίδα είναι προστατευμένη</string>
+  <string name="more_item_preferences">Περισσότερα</string>
+  <string name="more_activity_title">Περισσότερα</string>
+  <string name="about_description">Σχετικά με την εφαρμογή της Βικιπαίδειας</string>
+  <string name="preference_title_version">Έκδοση</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Όροι χρήσης&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Πολιτική ιδιωτικού απορρήτου&lt;/a&gt;</string>
+  <string name="about_libraries_heading">βιβλιοθήκες που χρησιμοποιούνται</string>
+  <string name="about_contributors_heading">Συνεισφέροντες</string>
+  <string name="about_wmf">Ένα προϊόν του &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Ιδρύματος Wikimedia&lt;/a&gt;</string>
+  <string name="about_activity_title">Σχετικά</string>
+  <string name="edit_unchanged">Η σελίδα δεν έχει τροποποιηθεί.</string>
+  <string name="edit_abandon_confirm">Η σελίδα έχει τροποποιηθεί. Είστε βέβαιοι ότι θέλετε να πραγματοποιήσετε έξοδο χωρίς να αποθηκεύσετε τις αλλαγές σας;</string>
+  <string name="user_blocked_from_editing_title">Αποκλεισμένος</string>
+  <string name="user_logged_in_blocked_from_editing">Ο λογαριασμός χρήστη σας έχει αποκλειστεί από την επεξεργασία σε αυτό το wiki.</string>
+  <string name="user_anon_blocked_from_editing">Η διεύθυνση IP σας έχει αποκλειστεί από την επεξεργασία.</string>
+  <string name="edit_how_page_improved">Πώς βελτιώσατε τη σελίδα;</string>
+  <string name="edit_next">Επόμενο</string>
+  <string name="edit_done">Αποθήκευση</string>
+  <string name="edit_preview">Προεπισκόπιση</string>
+  <string name="edit_summary_tag_typo">Διόρθωση ορθογραφίας</string>
+  <string name="edit_summary_tag_grammar">Διόρθωση γραμματικής</string>
+  <string name="edit_summary_tag_links">Σύνδεσμοι που προστέθηκαν</string>
+  <string name="edit_summary_tag_other">Άλλο</string>
+  <string name="edit_summary_tag_other_hint">Άλλοι τρόποι που βελτίωσατε τη σελίδα</string>
+  <string name="find_in_page">Βρείτε στην σελίδα</string>
+  <string name="find_next">Εύρεση επομένου</string>
+  <string name="find_previous">Εύρεση προηγουμένου</string>
+  <string name="find_close">Κλείστε το πεδίο εύρεσης</string>
+  <string name="error_network_error_try_again">Η σύνδεση στο δίκτυο δεν στάθηκε δυνατή, παρακαλώ προσπαθήστε ξανά.</string>
+  <string name="saved_pages_update_all_error_retry">Ξαναπροσπαθήστε</string>
+  <string name="saved_pages_update_all_error_message">Λάθος στην ενημέρωση αποθηκευμένων σελίδων</string>
+  <string name="saved_pages_progress_title">Ανανέωση αποθηκευμένων σελίδων</string>
+  <string name="saved_pages_refresh_pages_complete">Η ενημέρωση ολοκληρώθηκε</string>
+  <string name="app_store_description">Η επίσημη εφαρμογή της Βικιπαίδειας για το Android. Η Βικιπαίδεια είναι η δωρεάν εγκυκλοπαίδεια που περιλαμβάνει περισσότερα από 32 εκατομμύρια λήμματα σε 280 γλώσσες και είναι το πιο περιεκτικό και ευρύτερα χρησιμοποιημενο έργο αναφοράς στην ιστορία της ανθρώπινης δημιουργίας. Η εφαρμογή έχει επανασχεδιαστεί από την αρχή και είναι καλύτερη από ποτέ.
+
+Χαρακτηριστικά:
+-Ταχύτητα: Η νέα μας εφαρμογή, γραμμένη ειδικά για το σύστημα Android, σας επιτρέπει να διαβάσετε και να επεξεργαστείτε τη Βικιπαίδεια γρηγορότερα από ποτέ.
+-Επεξεργασία: Μπορείτε να επεξεργαστείτε τη Βικιπαίδεια! Σας ευχαριστούμε για όλες σας τις συνεισφορές, με ή χωρίς σύνδεση σε λογαριασμό της Βικιπαίδειας.
+-Πρόσφατες σελίδες: Σας παρέχουμε το ιστορικό των αναγνώσεων σας, ώστε να επιλέξετε όσους και όποιους συνδέσμους επιθυμείτε χωρίς να αποπροσανατολιστείτε.
+-Αποθηκευμένες σελίδες:Μπορείτε να αποθηκεύσετε σελίδες που επιθυμείτε να διαβάσετε χωρίς να έχετε σύνδεση στο ίντερνετ.
+-Μοιραστείτε: Χρησιμοποιήστε τις εφαρμογές κοινωνικής δικτύωσης που ήδη έχετε για να μοιραστείτε το σύνολο της ανθρώπινης γνώσης
+-Γλωσσική υποστήριξη: Η εφαρμογή σας επιτρέπει εύκολα να αλλάξετε τη γλωσσική έκδοση της Βικιπαίδειας που διαβάζετε. 
+-Βικιπαίδεια Μηδέν: Επιτρέπει ανάγνωση της Βικιπαίδειας χωρίς χρέωση δεδομένων σε δίκτυα κινητής τηλεφωνία που συμμετέχουν στο πρόγραμμα.
+
+Ο κώδικας της εφαρμογής είναι εντελώς ανοιχτός. Αν έχετε εμπειρία με Java και το Android SDK, τότε ελάτε να συνεισφέρετε!  https://github.com/wikimedia/apps-android-wikipedia</string>
+</resources>

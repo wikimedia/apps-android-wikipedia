@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">വിക്കിപീഡിയ</string>
+  <string name="app_name_beta">വിക്കിപീഡിയ ബീറ്റ</string>
   <string name="yes">വേണം</string>
   <string name="no">വേണ്ട</string>
   <string name="acra_report_dialog_title">വിക്കിപീഡിയയിൽ പ്രശ്നമുണ്ടായി :(</string>
@@ -14,31 +15,39 @@
   <string name="page_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="menu_clear_all_history">നാൾവഴി ശൂന്യമാക്കുക</string>
   <string name="menu_clear_all_bookmarks">ബുക്മാർക്കുകൾ ഒഴിവാക്കുക</string>
-  <string name="page_does_not_exist_error">ഈ താൾ നിലവിലില്ല</string>
-  <string name="dialog_title_clear_history" fuzzy="true">ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">ബുക്മാർക്കുകൾ</string>
-  <string name="nav_item_saved_pages" fuzzy="true">ബുക്മാർക്കുകൾ</string>
-  <string name="menu_save_page" fuzzy="true">ബുക്മാർക്ക്</string>
+  <string name="menu_clear_all_saved_pages">സേവ് ചെയ്ത താളുകൾ ഒഴിവാക്കുക</string>
+  <string name="page_does_not_exist_error">ഈ താൾ നിലവിലില്ല.</string>
+  <string name="dialog_title_clear_history">ബ്രൗസിങ് ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
+  <string name="saved_pages_activity_title">സേവ് ചെയ്ത താളുകൾ</string>
+  <string name="nav_item_saved_pages">സേവ് ചെയ്ത താളുകൾ</string>
+  <string name="menu_update_all_saved_pages">സേവ് ചെയ്ത താളുകൾ പുതുക്കുക</string>
+  <string name="menu_update_selected_saved_pages">സേവ് ചെയ്ത താളുകൾ പുതുക്കുക</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">സേവ് ചെയ്ത എല്ലാ താളുകളും പുതുക്കണോ?</string>
+  <string name="toast_saved_page_refreshed">സേവ് ചെയ്ത താളുകൾ പുതുക്കി</string>
+  <string name="menu_save_page">താൾ സേവ് ചെയ്യുക</string>
   <string name="menu_share_page">പങ്ക് വെയ്ക്കുക</string>
   <string name="share_via">ഇതുവഴി പങ്ക് വെയ്ക്കുക</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">ബുക്മാർക്കുകൾ ഒഴിവാക്കണോ?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">എല്ലാ ബുക്മാർക്കുകളും ശൂന്യമാക്കണമെന്ന് താങ്കൾക്ക് ഉറപ്പാണോ?</string>
-  <string name="toast_saving_page" fuzzy="true">താൾ ബുക്ക്മാർക്ക് ചെയ്യുന്നു...</string>
-  <string name="toast_saved_page" fuzzy="true">താൾ ബുക്മാർക്ക് ചെയ്തു</string>
-  <string name="toast_save_page_failed" fuzzy="true">താൾ ബുക്മാർക്ക് ചെയ്യൽ പരാജയപ്പെട്ടു :(</string>
+  <string name="dialog_title_clear_saved_pages">സേവ് ചെയ്ത എല്ലാ താളുകളും ഒഴിവാക്കണോ?</string>
+  <string name="dialog_message_clear_saved_pages">എല്ലാ സേവ് ചെയ്ത താളുകളും ഒഴിവാക്കണമെന്ന് താങ്കൾക്ക് ഉറപ്പാണോ?</string>
+  <string name="toast_saving_page">താൾ സേവ് ചെയ്യുന്നു...</string>
+  <string name="toast_saved_page">താൾ സേവ് ചെയ്തു</string>
+  <string name="toast_saved_page_missing_images">എല്ലാ ചിത്രങ്ങളും സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല</string>
+  <string name="toast_save_page_failed">താൾ സേവ് ചെയ്യൽ പരാജയപ്പെട്ടു :(</string>
+  <string name="toast_refresh_saved_page">സേവ് ചെയ്ത് താൾ പുതുക്കുന്നു...</string>
   <string name="delete_selected_saved_pages">മായ്ക്കുക</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">ബുക്മാർക്ക് ചെയ്ത താൾ (താളുകൾ) മായ്ച്ചു</string>
+  <string name="toast_saved_page_deleted">സേവ് ചെയ്ത താൾ (താളുകൾ) മായ്ച്ചു</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %1$s</string>
-  <string name="content_license_html" fuzzy="true">മറ്റുവിധത്തിൽ കുറിച്ചിട്ടില്ലെങ്കിൽ ഉള്ളടക്കം &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം</string>
+  <string name="content_license_html">മറ്റുവിധത്തിൽ കുറിച്ചിട്ടില്ലെങ്കിൽ ഉള്ളടക്കം &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം</string>
   <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷ</string>
   <string name="preference_summary_language">ഉള്ളടക്കത്തിന്റെ ഭാഷ</string>
   <string name="preference_languages_filter_hint">തിരയുക</string>
   <string name="langlinks_filter_hint">തിരയുക</string>
-  <string name="menu_other_languages" fuzzy="true">മറ്റു ഭാഷകൾ</string>
+  <string name="menu_other_languages">മറ്റു ഭാഷകളിൽ വായിക്കുക</string>
   <string name="langlinks_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
-  <string name="langlinks_empty" fuzzy="true">ഈ ലേഖനം മറ്റ് ഭാഷകളിൽ ലഭ്യമല്ല</string>
+  <string name="langlinks_empty">ഈ താൾ മറ്റ് ഭാഷകളിൽ ലഭ്യമല്ല</string>
   <string name="settings_activity_title">സജ്ജീകരണങ്ങൾ</string>
   <string name="langlinks_activity_title">മറ്റു ഭാഷകൾ</string>
+  <string name="menu_save_changes">മാറ്റങ്ങൾ സേവ് ചെയ്യുക</string>
   <string name="edit_section_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="dialog_saving_in_progress">സേവ് ചെയ്യുന്നു...</string>
   <string name="edit_saved_successfully">തിരുത്ത് സേവ് ചെയ്തിരിക്കുന്നു!</string>
@@ -52,6 +61,7 @@
   <string name="title_captcha">കാപ്ച നൽകുക</string>
   <string name="edit_section_abusefilter_back_text">എന്റെ തിരുത്തുകളിൽ മാറ്റങ്ങൾ വരുത്തുക</string>
   <string name="edit_section_captcha_reload">കാപ്ച വീണ്ടും എടുക്കാനായി ടാപ് ചെയ്യുക</string>
+  <string name="edit_saved_page_refresh">സേവ് ചെയ്തിരിക്കുന്ന ഈ താൾ കാലഹരണപ്പെട്ടതാകാം, തിരുത്താനായി സജ്ജമാക്കാൻ ഇത് പുതുക്കിയിരിക്കേണ്ടതുണ്ട്. താൾ പുതുക്കണോ?</string>
   <string name="nav_item_login">പ്രവേശിക്കുക</string>
   <string name="login_username_hint">ഉപയോക്തൃനാമം</string>
   <string name="login_password_hint">രഹസ്യവാക്ക്</string>
@@ -67,13 +77,17 @@
   <string name="login_error_unknown">പ്രവേശനം പരാജയപ്പെട്ടു :(</string>
   <string name="login_error_no_network">നെറ്റ്‌വർക്ക് ബന്ധം ഇല്ല</string>
   <string name="nav_item_logout">ലോഗൗട്ട്</string>
+  <string name="preference_title_logout">ലോഗൗട്ട്</string>
+  <string name="preference_summary_logout">താങ്കളുടെ വിക്കിപീഡിയ അംഗത്വം ലോഗൗട്ട് ചെയ്യുക</string>
+  <string name="preference_summary_notloggedin">പ്രവേശിച്ചിട്ടില്ല.</string>
   <string name="toast_logout_complete">പുറത്തുകടന്നു</string>
-  <string name="saved_pages_empty_message" fuzzy="true">താളുകളൊന്നും ബുക്മാർക്ക് ചെയ്തിട്ടില്ല.</string>
-  <string name="history_empty_message">താങ്കളുടെ ഹിസ്റ്ററി ശൂന്യമാണ്.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">താളുകളൊന്നും സേവ് ചെയ്തിട്ടില്ല.</string>
+  <string name="history_empty_message" fuzzy="true">താങ്കളുടെ ഉപയോഗത്തിന്റെ നാൾവഴി ശൂന്യമാണ്.</string>
   <string name="create_account_username_hint">ഉപയോക്തൃനാമം</string>
   <string name="create_account_password_hint">രഹസ്യവാക്ക്</string>
   <string name="menu_create_account">അംഗത്വമെടുക്കുക</string>
-  <string name="login_create_account_link" fuzzy="true">അംഗത്വമെടുക്കുക</string>
+  <string name="login_create_account_link">അംഗത്വമില്ലേ? വിക്കിപീഡിയയിൽ ചേരുക</string>
+  <string name="create_account_login_link">അംഗ്വത്വമുണ്ടോ? പ്രവേശിക്കുക</string>
   <string name="create_account_activity_title">ഒരംഗത്വമെടുക്കുക</string>
   <string name="edit_section_activity_title">ഉപവിഭാഗം തിരുത്തുക</string>
   <string name="dialog_create_account_checking_progress">ഉറപ്പാക്കുന്നു</string>
@@ -86,23 +100,31 @@
   <string name="create_account_open_proxy_error">അംഗത്വം സൃഷ്ടിക്കുന്നതിൽ നിന്നും ഈ ഐ.പി. വിലാസം തടയപ്പെട്ടിരിക്കുന്നു.</string>
   <string name="create_account_generic_error">അംഗത്വം സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല</string>
   <string name="create_account_no_network">നെറ്റ്‌വർക്ക് ബന്ധം ഇല്ല</string>
+  <string name="create_account_next">അടുത്തത്</string>
+  <string name="create_account_button">അംഗത്വമെടുക്കുക</string>
   <string name="preferences_general_heading">സാർവത്രികം</string>
-  <string name="zero_charged_verbiage" fuzzy="true">വിക്കിപീഡിയ സീറോ ഇല്ല (സാധാരണ ഡേറ്റാ ചാർജ്ജുകൾ ബാധകമായേക്കും)</string>
+  <string name="zero_charged_verbiage">വിക്കിപീഡിയ സീറോ ഇല്ല</string>
+  <string name="zero_charged_verbiage_extended">മറ്റ് ലേഖനങ്ങൾ എടുക്കുമ്പോൾ ഡേറ്റാ ചാർജ്ജ് ബാധകമായേക്കാം.</string>
   <string name="zero_search_hint">വിക്കിപീഡിയ സീറോയിൽ തിരയുക</string>
   <string name="zero_warn_when_leaving">വിക്കിപീഡിയ സീറോയിൽ നിന്ന് പോവുകയാണെങ്കിൽ മുന്നറിയിപ്പ് നൽകുക</string>
+  <string name="zero_warn_when_leaving_summary">വിക്കിപീഡിയ സീറോ പങ്കാളിത്തം വഴി ഡേറ്റാ വിലകൾ താങ്കളുടെ മൊബൈൽ ഓപ്പറേറ്റർ പരിത്യജിക്കുന്നുവെങ്കിൽ, വിക്കിപീഡിയ ആപിൽ നിന്നും പുറത്ത് കടക്കുന്നതും എപ്പോൾ മുതലാണ് വില ഈടാക്കുന്നതെന്നും മനസ്സിലാക്കാൻ ഈ സജ്ജീകരണം ശരിയിട്ട് കിടക്കുന്നത് സഹായിക്കുന്നതാണ്.</string>
   <string name="zero_webpage_title">വിക്കിപീഡിയ സീറോ പതിവുചോദ്യങ്ങൾ</string>
   <string name="zero_wikipedia_zero_heading">വിക്കിപീഡിയ സീറോ</string>
-  <string name="zero_interstitial_leave_app" fuzzy="true">മറ്റ് സൈറ്റുകളിലേയ്ക്ക് പോകണോ? സാധാരണ ഡേറ്റാ വിലകൾ ബാധകമായേക്കും.</string>
-  <string name="zero_interstitial_continue" fuzzy="true">തുടരുക</string>
-  <string name="zero_interstitial_cancel" fuzzy="true">റദ്ദാക്കുക</string>
-  <string name="zero_learn_more" fuzzy="true">Want to learn about Wikipedia Zero?</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">കൂടുതൽ അറിയുക</string>
+  <string name="zero_interstitial_title">വിക്കിപീഡിയ സീറോയിൽ നിന്ന് പോകുന്നു</string>
+  <string name="zero_interstitial_leave_app">ഡേറ്റാ വിലകൾ ബാധകമായേക്കും. മറ്റ് സൈറ്റുകളിലേയ്ക്ക് പോകണോ?</string>
+  <string name="zero_interstitial_continue">പോവുക</string>
+  <string name="zero_interstitial_cancel">ഇവിടെത്തുടരുക</string>
+  <string name="zero_learn_more">ഈ വിക്കിപീഡിയ ആപിൽ ഡേറ്റാ വിലകൾ നൽകേണ്ടതില്ല.</string>
+  <string name="zero_learn_more_learn_more">കൂടുതൽ കാണുക</string>
   <string name="zero_learn_more_dismiss">ഒഴിവാക്കുക</string>
   <string name="zero_settings">സജ്ജീകരണങ്ങൾ</string>
+  <string name="zero_settings_devmode">സീറോ ഡെവ്മോഡ്</string>
+  <string name="zero_settings_devmode_summary">വികസിപ്പിക്കുന്ന സമയം വിക്കിപീഡിയ സീറോ കാര്യങ്ങളിൽ കോഡ് പ്രവർത്തിപ്പിക്കാൻ ഇത് സജ്ജമാക്കുന്നു.</string>
   <string name="edit_preview_fetching_dialog_message">പ്രിവ്യൂ എടുക്കുന്നു...</string>
   <string name="edit_preview_activity_title">തിരുത്ത് എങ്ങനെയുണ്ടെന്ന് കാണുക</string>
   <string name="create_account_logging_in">പ്രവേശിക്കുന്നു...</string>
-  <string name="edit_summary_guide_text" fuzzy="true">ഈ ലേഖനം താങ്കൾ എപ്രകാരമാണ് മെച്ചപ്പെടുത്തിയതെന്ന് ഞങ്ങളുമായി പങ്ക് വെയ്ക്കുക. ഇതുവഴി താങ്കളുടെ തിരുത്ത് എളുപ്പത്തിൽ സംശോധനം ചെയ്യാൻ മറ്റുള്ളവർക്കാവുന്നതാണ്.</string>
+  <string name="send_feedback">ആപിനെക്കുറിച്ചുള്ള അഭിപ്രായം അറിയിക്കുക</string>
+  <string name="edit_summary_guide_text">ഈ താൾ താങ്കൾ എപ്രകാരമാണ് മെച്ചപ്പെടുത്തിയതെന്ന് ഞങ്ങളുമായി പങ്ക് വെയ്ക്കുക. ഇതുവഴി താങ്കളുടെ തിരുത്ത് എളുപ്പത്തിൽ സംശോധനം ചെയ്യാൻ മറ്റുള്ളവർക്കാവുന്നതാണ്.</string>
   <string name="edit_summary_hint">തിരുത്തിന്റെ ചുരുക്കം</string>
   <string name="nav_item_random">ക്രമരഹിതം</string>
   <string name="random_progress">ഏതെങ്കിലും ഒരു താൾ എടുക്കുന്നു...</string>
@@ -115,4 +137,60 @@
   <string name="edit_save_action_ip">പേര് വെളിപ്പെടുത്താതെ സേവ് ചെയ്യുക</string>
   <string name="edit_save_action_login_description">താങ്കളുടെ സംഭാവനകൾ താങ്കളുടെ ഉപയോക്തൃനാമവുമായി ബന്ധപ്പെടുത്തി പ്രസിദ്ധപ്പെടുത്തുന്നതാണ്, അതുവഴി മറ്റുപയോക്താക്കൾക്ക് താങ്കളുമായി ബന്ധപ്പെടാനും കഴിയുന്നതാണ്.</string>
   <string name="edit_save_action_ip_description">താങ്കളുടെ സംഭാവനകൾ താങ്കളുടെ ഐ.പി. വിലാസവുമായി ബന്ധപ്പെടുത്തി പ്രസിദ്ധപ്പെടുത്തുന്നതാണ്, ഐ.പി. വിലാസം അടിക്കടി മാറിയേക്കാം.</string>
+  <string name="preference_title_eventlogging_opt_in">ഉപയോഗ വിവരങ്ങൾ അയയ്ക്കുക</string>
+  <string name="preference_summary_eventlogging_opt_in">താങ്കൾ എങ്ങനെയാണ് ആപ് ഉപയോഗിച്ചതെന്ന വിവരങ്ങൾ ശേഖരിച്ച് ആപ് കൂടുതൽ മെച്ചപ്പെട്ടതാക്കാൻ വിക്കിമീഡിയയെ അനുവദിക്കുക</string>
+  <string name="editing_error_spamblacklist">തടയപ്പെട്ട ഡൊമൈനുകളിലോട്ടുള്ള കണ്ണികൾ (%s) കണ്ടെത്താനായി. ദയവായി അവ ഒഴിവാക്കി വീണ്ടും ശ്രമിക്കുക.</string>
+  <string name="history_search_list_hint">തിരയുക</string>
+  <string name="history_search_empty_message">\'%s\' എന്നതിനോടു യോജിക്കുന്ന താളുകളൊന്നും കണ്ടെത്താനായില്ല</string>
+  <string name="error_can_not_process_link">ഈ കണ്ണി പ്രദർശിപ്പിക്കാനാവില്ല</string>
+  <string name="page_protected_autoconfirmed">ഈ താൾ അർദ്ധ-സംരക്ഷിതമാണ്.</string>
+  <string name="page_protected_sysop">ഈ താൾ പൂർണ്ണമായും സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു.</string>
+  <string name="page_protected_other">ഈ താൾ ഈ തലങ്ങൾ വരെ സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു: %s</string>
+  <string name="page_protected_can_not_edit">ഈ താൾ തിരുത്താനുള്ള അവകാശം താങ്കൾക്കില്ല</string>
+  <string name="page_protected_can_not_edit_title">ഈ താൾ സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു</string>
+  <string name="more_item_preferences">കൂടുതൽ</string>
+  <string name="more_activity_title">കൂടുതൽ</string>
+  <string name="about_description">വിക്കിപീഡിയ ആപിന്റെ വിവരണം</string>
+  <string name="preference_title_version">പതിപ്പ്</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/ml\"&gt;ഉപയോഗനിബന്ധനകൾ&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;സ്വകാര്യതാനയം&lt;/a&gt;</string>
+  <string name="about_libraries_heading">ഉപയോഗിച്ചിട്ടുള്ള ലൈബ്രറികൾ</string>
+  <string name="about_contributors_heading">സംഭാവകർ</string>
+  <string name="about_wmf">ഒരു &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;വിക്കിമീഡിയ ഫൗണ്ടേഷൻ&lt;/a&gt; ഉത്പന്നം</string>
+  <string name="about_activity_title">വിവരണം</string>
+  <string name="edit_unchanged">താളിൽ മാറ്റം വരുത്തിയിട്ടില്ല.</string>
+  <string name="edit_abandon_confirm">താളിൽ മാറ്റങ്ങളുണ്ട്. താങ്കൾ വരുത്തിയ മാറ്റങ്ങൾ സേവ് ചെയ്യാതെ പുറത്ത് പോകണം എന്നുറപ്പാണോ?</string>
+  <string name="user_blocked_from_editing_title">തടയപ്പെട്ടിരിക്കുന്നു</string>
+  <string name="user_logged_in_blocked_from_editing">ഈ വിക്കി തിരുത്തുന്നതിൽ നിന്നും താങ്കളുടെ ഉപയോക്തൃ അംഗത്വത്തെ തടഞ്ഞിരിക്കുന്നു.</string>
+  <string name="user_anon_blocked_from_editing">തിരുത്തുന്നതിൽ നിന്നും താങ്കളുടെ ഐ.പി. വിലാസത്തെ തടഞ്ഞിരിക്കുന്നു.</string>
+  <string name="edit_how_page_improved">താങ്കൾ എങ്ങനെയാണ് താൾ മെച്ചപ്പെടുത്തിയത്?</string>
+  <string name="edit_next">അടുത്തത്</string>
+  <string name="edit_done">സേവ് ചെയ്യുക</string>
+  <string name="edit_preview">എങ്ങനെയുണ്ടെന്നു കാണുക</string>
+  <string name="edit_summary_tag_typo">അക്ഷരപിശക് തിരുത്തി</string>
+  <string name="edit_summary_tag_grammar">വ്യാകരണം ശരിയാക്കി</string>
+  <string name="edit_summary_tag_links">കണ്ണികൾ ചേർത്തു</string>
+  <string name="edit_summary_tag_other">മറ്റുള്ളവ</string>
+  <string name="edit_summary_tag_other_hint">താൾ മെച്ചപ്പെടുത്താൻ താങ്കളുപയോഗിച്ച മറ്റ് മാർഗ്ഗങ്ങൾ</string>
+  <string name="find_in_page">താളിൽ കണ്ടെത്തുക</string>
+  <string name="find_next">അടുത്തത് കണ്ടെത്തുക</string>
+  <string name="find_previous">മുമ്പത്തേത് കണ്ടെത്തുക</string>
+  <string name="find_close">കണ്ടെത്തൽ അടയ്ക്കുക</string>
+  <string name="error_network_error_try_again">നെറ്റ്‌വർക്ക് കിട്ടുന്നില്ല, ദയവായി വീണ്ടും ശ്രമിക്കുക.</string>
+  <string name="saved_pages_update_all_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
+  <string name="saved_pages_update_all_error_message">സേവ് ചെയ്തിട്ടുള്ള താളുകൾ പുതുക്കുന്നതിൽ പിഴവുണ്ടായി</string>
+  <string name="saved_pages_progress_title">സേവ് ചെയ്തിട്ടുള്ള താൾ പുതുക്കുന്നു</string>
+  <string name="saved_pages_refresh_pages_complete">പുതുക്കൽ പൂർണ്ണമായി</string>
+  <string name="app_store_description">ആൻഡ്രോയിഡിനുള്ള ഔദ്യോഗിക വിക്കിപീഡിയ ആപ്. 280 ഭാഷകളിലായി 3 കോടി 20 ലക്ഷം ലേഖനങ്ങളെ ഉൾക്കൊള്ളുന്ന, മനുഷ്യർ ഉണ്ടാക്കിയിട്ടുള്ള ഏറ്റവും ബൃഹത്തും അറിവിനായി ആശ്രഹിക്കാവുന്നതുമായ സ്വതന്ത്ര വിജ്ഞാനകോശമാണ് വിക്കിപീഡിയ. ഈ ആപ് ഏറ്റവും മികച്ച ഉപയോഗാനുഭവത്തിനായി അടിത്തട്ടിൽ നിന്നും പൊളിച്ചെഴുതിയതാണ്.
+
+സവിശേഷതകൾ:
+ -വേഗം: ഞങ്ങളുടെ പുതിയ, ആൻഡ്രോയിഡിനായി മാത്രം നിർമ്മിച്ച ആപ് ഉപയോഗിച്ച് വിക്കിപീഡിയ മുമ്പെന്നത്തേക്കാളും വേഗത്തിൽ ബ്രൗസ് ചെയ്യുകയും തിരുത്തുകയും ചെയ്യാം.
+ -തിരുത്ത്: താങ്കൾക്ക് വിക്കിപീഡിയ തിരുത്താം! ലോഗിൻ ചെയ്തോ അല്ലാതെയോ ആകട്ടെ, താങ്കളുടെ എല്ലാ സംഭാവനകൾക്കും നന്ദി രേഖപ്പെടുത്തുന്നു.
+ -സമീപകാല താളുകൾ: താങ്കൾ സമീപകാലത്ത് വായിച്ച താളുകൾ വീണ്ടുമെടുക്കാം. എത്ര താളുകൾ വേണമെങ്കിലും തുറക്കുക, നഷ്ടപ്പെടുകയേയില്ല.
+ -സേവ് ചെയ്ത താളുകൾ: താളുകൾ ഓഫ്‌ലൈൻ വായനയ്ക്കായി തിരഞ്ഞെടുക്കുക, വായിക്കാൻ ഡേറ്റാ ബന്ധം ഇല്ലെങ്കിലും സാരമില്ല.
+ -പങ്ക് വെയ്ക്കുക: താങ്കൾക്കുള്ള സോഷ്യൽ നെറ്റ്‌വർക്കിങ് ആപുകൾ ഉപയോഗിച്ച് മനുഷ്യവിജ്ഞാനത്തിന്റെ ആകെ ശേഖരം പങ്ക് വെയ്ക്കുക.
+ -ഭാഷാ പിന്തുണ: വിക്കിപീഡിയ എഴുതപ്പെട്ടിട്ടുള്ള ഏതുഭാഷയും ഒരു തടസ്സവും കൂടാതെ മാറി മാറി വായിക്കാൻ ഈ ആപ് സുസജ്ജമാണ്.
+ -വിക്കിപീഡിയ സീറോ: പങ്കാളികളായിട്ടുള്ള മൊബൈൽ ഓപ്പറേറ്റർമാരിലൂടെ എടുക്കുന്ന പക്ഷം ഡേറ്റാ ബന്ധം തികച്ചും സൗജന്യമായിരിക്കും.
+
+കോഡ് പൂർണ്ണമായും ഓപ്പൺ സോഴ്സ് ആണ്. ജാവയിലും ആൻഡ്രോയിഡ് എസ്.ഡി.കെ.യിലും പരിചയസമ്പത്തുണ്ടെങ്കിൽ പകർത്താൻ മടിക്കേണ്ടതില്ല! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

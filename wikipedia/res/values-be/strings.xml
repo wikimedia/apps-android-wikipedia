@@ -56,7 +56,7 @@
   <string name="login_error_no_network">Няма падлучэння да сеткі</string>
   <string name="nav_item_logout">Выйсці</string>
   <string name="saved_pages_empty_message" fuzzy="true">Няма закладак</string>
-  <string name="history_empty_message">Ваша гісторыя пустая.</string>
+  <string name="history_empty_message" fuzzy="true">Ваша гісторыя пустая.</string>
   <string name="create_account_username_hint">Імя карыстальніка</string>
   <string name="create_account_password_hint">Пароль</string>
   <string name="menu_create_account">Стварыць рахунак</string>

@@ -55,7 +55,7 @@
   <string name="preference_title_logout">सनोंद-निर्गम</string>
   <string name="preference_summary_notloggedin">प्रवेश केलेला नाही</string>
   <string name="toast_logout_complete">सनोंद-बंद</string>
-  <string name="history_empty_message">आपला इतिहास साफ आहे</string>
+  <string name="history_empty_message" fuzzy="true">आपला इतिहास साफ आहे</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
   <string name="create_account_password_hint">परवलीचा शब्द</string>
   <string name="menu_create_account">नवीन खाते तयार करा</string>

@@ -41,7 +41,7 @@
   <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query. %s is replaced with the query string.</string>
   <string name="menu_save_page">Menu item text for saving the currently active page.
 {{Identical|Save page}}</string>
-  <string name="menu_share_page">Menu item text for sharing the currently active page.
+  <string name="menu_share_page">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.
 {{Identical|Share}}</string>
   <string name="share_via">Dialog title text for Share list.
 
@@ -63,7 +63,7 @@ See also:
   <string name="toast_refresh_saved_page">Small toast (popup) message saying that a saved page is being refreshed</string>
   <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected saved pages</string>
   <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected saved pages have been deleted</string>
-  <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted timestamp</string>
+  <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>
   <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC license and a log link before saving edits, only when the user has not logged in. Please do not change the href=\'https://#login\' part of the message.</string>
@@ -162,6 +162,7 @@ See also:
   <string name="zero_warn_when_leaving">Settings label for option for warning a Wikipedia Zero user if tapping on an external link</string>
   <string name="zero_warn_when_leaving_summary">Lengthy explanation of Wikipedia Zero for settings screen</string>
   <string name="zero_webpage_title">Link title for the Wikipedia Zero FAQ for the app</string>
+  <string name="zero_webpage_url">Not to be translated</string>
   <string name="zero_wikipedia_zero_heading">Settings heading for Wikipedia Zero.
 {{Identical|Wikipedia Zero}}</string>
   <string name="zero_interstitial_title">Dialog title text to inform Wikipedia Zero user that the user is about to leave the app for an external link</string>
@@ -180,7 +181,8 @@ See also:
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
   <string name="edit_summary_guide_text">An imperative message, which appears after starting to save an edit.</string>
   <string name="edit_summary_hint">{{Identical|Edit summary}}</string>
-  <string name="nav_item_random">{{Identical|Random}}</string>
+  <string name="nav_item_random">{{Identical|Random}}
+Shown in left navigation. Tapping it produces a random page.</string>
   <string name="random_progress">Message shown in progress popup dialog while waiting for a random article to be fetched</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.
 * {{msg-mw|Accountcreatedtext|message}}</string>
@@ -253,7 +255,7 @@ See also:
   <string name="edit_summary_tag_links">Clickable summary tag for adding link(s)</string>
   <string name="edit_summary_tag_other">Clickable summary tag for a custom/other edit summary text.
 {{Identical|Other}}</string>
-  <string name="edit_summary_tag_other_hint">Hint for the user to write a custom summary of edits</string>
+  <string name="edit_summary_tag_other_hint">Hint (input field placeholder) for the user to write a custom summary of edits</string>
   <string name="find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
   <string name="find_next">Text for button that finds the next occurrence of a search term.
 {{Identical|Find next}}</string>
@@ -265,14 +267,14 @@ See also:
   <string name="saved_pages_update_all_error_message">Message for error dialog shown when updating pages fails</string>
   <string name="saved_pages_progress_title">Title for progress dialog shown when updating saved pages</string>
   <string name="saved_pages_refresh_pages_complete">Toast message shown when a user initiated \"update save pages\" action has been completed</string>
-  <string name="menu_themechooser">Menu item for choosing text size and color scheme</string>
-  <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
   <string name="abusefilter_title_warn">Message that warns the user that their edit may be unconstructive, and asks if they want to continue saving it.</string>
   <string name="abusefilter_title_disallow">Message that informs the user that their edit is not allowed, and that the user must go back and modify the edit.</string>
   <string name="abusefilter_text_warn">Explanation of why the edit may be flagged as unconstructive: Typing in all caps, Blanking articles or Spamming, Irrelevant external links or images, Repeating characters</string>
   <string name="abusefilter_text_disallow">Explanation of why the edit was not allowed: potentially unconstructive, or potential vandalism.</string>
+  <string name="menu_themechooser">Menu item for choosing text size and color scheme</string>
   <string name="text_size_select">Label that describes text size selection</string>
   <string name="color_theme_select">Label that describes color theme selection</string>
   <string name="color_theme_light">Button label for Light color theme</string>
   <string name="color_theme_dark">Button label for Dark color theme</string>
+  <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
 </resources>

@@ -15,37 +15,36 @@
   <string name="page_error_retry">Försök igen</string>
   <string name="menu_clear_all_history">Rensa historik</string>
   <string name="menu_clear_all_bookmarks">Rensa bokmärken</string>
-  <string name="menu_clear_all_saved_pages">Rensa sparade artiklar</string>
-  <string name="page_does_not_exist_error">Denna artikel finns inte.</string>
+  <string name="menu_clear_all_saved_pages">Rensa sparade sidor</string>
+  <string name="page_does_not_exist_error">Denna sida finns inte!</string>
   <string name="dialog_title_clear_history">Rensa webbhistorik?</string>
-  <string name="saved_pages_activity_title">Sparade artiklar</string>
-  <string name="nav_item_saved_pages">Sparade artiklar</string>
-  <string name="menu_update_all_saved_pages">Uppdatera sparade artiklar</string>
-  <string name="menu_update_selected_saved_pages">Uppdatera sparade artiklar</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Uppdatera alla sparade artiklar?</string>
-  <string name="toast_saved_page_refreshed">Sparade artiklar uppdaterade</string>
-  <string name="menu_save_page">Spara artikel</string>
+  <string name="saved_pages_activity_title">Sparade sidor</string>
+  <string name="nav_item_saved_pages">Sparade sidor</string>
+  <string name="menu_update_all_saved_pages">Uppdatera sparade sidor</string>
+  <string name="menu_update_selected_saved_pages">Uppdatera sparade sidor</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Uppdatera alla sparade sidor?</string>
+  <string name="toast_saved_page_refreshed">Sparade sidor uppdaterade</string>
+  <string name="menu_save_page">Spara sidan</string>
   <string name="menu_share_page">Dela</string>
   <string name="share_via">Dela via</string>
-  <string name="dialog_title_clear_saved_pages">Rensa alla sparade artiklar?</string>
-  <string name="dialog_message_clear_saved_pages">Är du säker på att du vill rensa alla sparade artiklar?</string>
-  <string name="toast_saving_page">Sparar artikel...</string>
-  <string name="toast_saved_page">Artikeln har sparats</string>
+  <string name="dialog_title_clear_saved_pages">Rensa alla sparade sidor?</string>
+  <string name="dialog_message_clear_saved_pages">Är du säker på att du vill rensa alla sparade sidor?</string>
+  <string name="toast_saving_page">Sparar sida...</string>
+  <string name="toast_saved_page">Sidan har sparats</string>
   <string name="toast_saved_page_missing_images">Kunde inte spara alla bilder</string>
-  <string name="toast_save_page_failed">Artikeln kunde inte sparas :(</string>
-  <string name="toast_refresh_saved_page">Uppdaterar sparad artikel...</string>
+  <string name="toast_save_page_failed">Sidan kunde inte sparas :(</string>
+  <string name="toast_refresh_saved_page">Uppdaterar sparad sida...</string>
   <string name="delete_selected_saved_pages">Radera</string>
-  <string name="toast_saved_page_deleted">Sparade artiklar raderades</string>
+  <string name="toast_saved_page_deleted">Sparad sida(or) raderas</string>
   <string name="last_updated_text">Senast uppdaterad %1$s</string>
   <string name="content_license_html">Innehållet är tillgängligt under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
-  <string name="edit_save_action_license">Genom att spara godkänner du att oåterkalleligen släppa dina bidrag under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.sv\"&gt;CC-BY-SA 3.0&lt;/a&gt;-licensen.</string>
   <string name="preference_title_language">Wikipediaspråk</string>
   <string name="preference_summary_language">Innehållsspråk</string>
   <string name="preference_languages_filter_hint">Sök</string>
   <string name="langlinks_filter_hint">Sök</string>
   <string name="menu_other_languages">Läs på andra språk</string>
   <string name="langlinks_error_retry">Försök igen</string>
-  <string name="langlinks_empty">Denna artikel är inte tillgänglig på andra språk</string>
+  <string name="langlinks_empty">Denna sida är inte tillgänglig på andra språk</string>
   <string name="settings_activity_title">Inställningar</string>
   <string name="langlinks_activity_title">Andra språk</string>
   <string name="menu_save_changes">Spara ändringar</string>
@@ -62,7 +61,7 @@
   <string name="title_captcha">Ange captcha</string>
   <string name="edit_section_abusefilter_back_text">Gör ändringar i min redigering</string>
   <string name="edit_section_captcha_reload">Tryck på captcha för att uppdatera</string>
-  <string name="edit_saved_page_refresh">Denna sparade artikel kan vara för gammal, och måste laddas om för att kunna redigeras. Vill du ladda om artikeln?</string>
+  <string name="edit_saved_page_refresh">Denna sparade sida kan vara för gammal, och måste laddas om för att kunna redigeras. Vill du ladda om sidan?</string>
   <string name="nav_item_login">Logga in</string>
   <string name="login_username_hint">Användarnamn</string>
   <string name="login_password_hint">Lösenord</string>
@@ -82,8 +81,8 @@
   <string name="preference_summary_logout">Logga ut från ditt Wikipedia-konto</string>
   <string name="preference_summary_notloggedin">Inte inloggad.</string>
   <string name="toast_logout_complete">Utloggad</string>
-  <string name="saved_pages_empty_message">Inga sparade artiklar</string>
-  <string name="history_empty_message">Din historik är tom.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Inga sparade sidor</string>
+  <string name="history_empty_message" fuzzy="true">Din historik är tom.</string>
   <string name="create_account_username_hint">Användarnamn</string>
   <string name="create_account_password_hint">Lösenord</string>
   <string name="menu_create_account">Skapa konto</string>
@@ -108,7 +107,7 @@
   <string name="zero_charged_verbiage_extended">Laddning av andra artiklar kan medföra kostnader för datatrafik.</string>
   <string name="zero_search_hint">Sök på Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Varna om jag lämnar Wikipedia Zero</string>
-  <string name="zero_warn_when_leaving_summary">Om din mobiloperatör ingått ett partnerskap med Wikipedia Zero och ger dig tillgång till Wikipedia utan avgifter för datatrafik, hjälper denna inställning dig att varna innan du lämnar appen appen och riskerar att behöva betala för datatrafik.</string>
+  <string name="zero_warn_when_leaving_summary">Om din mobiloperatör ingått ett partnerskap med Wikipedia Zero och ger dig tillgång till Wikipedia utan avgifter för datatrafik, hjälper denna inställning dig att varna innan du lämnar appen och riskerar att behöva betala för datatrafik.</string>
   <string name="zero_webpage_title">Vanliga frågor om Wikipedia Zero</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
@@ -126,7 +125,7 @@
   <string name="edit_preview_activity_title">Förhandsgranska redigering</string>
   <string name="create_account_logging_in">Loggar in...</string>
   <string name="send_feedback">Skicka feedback</string>
-  <string name="edit_summary_guide_text">Berätta hur du förbättrade artikeln. Detta hjälper andra redigerare att granska din redigering snabbt.</string>
+  <string name="edit_summary_guide_text">Berätta hur du förbättrade sidan. Detta hjälper andra redigerare att granska din redigering snabbt.</string>
   <string name="edit_summary_hint">Redigeringssammanfattning</string>
   <string name="nav_item_random">Slumpartikel</string>
   <string name="random_progress">Hämtar slumpartikel...</string>
@@ -145,11 +144,11 @@
   <string name="history_search_list_hint">Sök</string>
   <string name="history_search_empty_message">Inga sidor med \"%s\" hittades</string>
   <string name="error_can_not_process_link">Denna länk kan inte visas</string>
-  <string name="page_protected_autoconfirmed">Denna artikel är halvskyddad.</string>
-  <string name="page_protected_sysop">Denna artikel är skrivskyddad.</string>
-  <string name="page_protected_other">Denna artikel har skyddats för följande nivåer: %s</string>
-  <string name="page_protected_can_not_edit">Du saknar rättigheter för att redigera denna artikel.</string>
-  <string name="page_protected_can_not_edit_title">Denna artikel är skrivskyddad</string>
+  <string name="page_protected_autoconfirmed">Denna sida är halvskyddad.</string>
+  <string name="page_protected_sysop">Denna sida är skrivskyddad.</string>
+  <string name="page_protected_other">Denna sida har skyddats för följande nivåer: %s</string>
+  <string name="page_protected_can_not_edit">Du saknar rättigheter för att redigera denna sida.</string>
+  <string name="page_protected_can_not_edit_title">Denna sida är skrivskyddad</string>
   <string name="more_item_preferences">Mer</string>
   <string name="more_activity_title">Mer</string>
   <string name="about_description">Om Wikipedia-appen</string>
@@ -160,12 +159,12 @@
   <string name="about_contributors_heading">Bidragsgivare</string>
   <string name="about_wmf">En app utvecklad av &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;the Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
-  <string name="edit_unchanged">Artikeln har inte ändrats.</string>
-  <string name="edit_abandon_confirm">Ändringar har gjorts i artikeln. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
+  <string name="edit_unchanged">Sidan har inte ändrats.</string>
+  <string name="edit_abandon_confirm">Ändringar har gjorts i sidan. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
   <string name="user_blocked_from_editing_title">Blockerad</string>
   <string name="user_logged_in_blocked_from_editing">Ditt konto har blockerats från redigering på denna wiki.</string>
   <string name="user_anon_blocked_from_editing">Din IP-adress har blockerats från redigering.</string>
-  <string name="edit_how_page_improved">Hur förbättrade du artikeln?</string>
+  <string name="edit_how_page_improved">Hur förbättrade du sidan?</string>
   <string name="edit_next">Nästa</string>
   <string name="edit_done">Spara</string>
   <string name="edit_preview">Förhandsgranska</string>
@@ -173,15 +172,27 @@
   <string name="edit_summary_tag_grammar">Rättade grammatik</string>
   <string name="edit_summary_tag_links">Lade till länkar</string>
   <string name="edit_summary_tag_other">Övrigt</string>
-  <string name="edit_summary_tag_other_hint">Andra sätt på vilka du förbättrat artikeln</string>
+  <string name="edit_summary_tag_other_hint">Andra sätt på vilka du förbättrat sidan</string>
   <string name="find_in_page">Sök på sidan</string>
   <string name="find_next">Sök nästa</string>
   <string name="find_previous">Sök föregående</string>
   <string name="find_close">Stäng sökfältet</string>
   <string name="error_network_error_try_again">Kunde inte ansluta till nätverket. Försök igen.</string>
   <string name="saved_pages_update_all_error_retry">Försök igen</string>
-  <string name="saved_pages_update_all_error_message">Fel vid uppdatering av sparade artiklar</string>
-  <string name="saved_pages_progress_title">Uppdaterar sparade artiklar</string>
-  <string name="saved_pages_refresh_progress_message">Uppdaterar %s</string>
+  <string name="saved_pages_update_all_error_message">Fel vid uppdatering av sparade sidor</string>
+  <string name="saved_pages_progress_title">Uppdaterar sparade sidor</string>
   <string name="saved_pages_refresh_pages_complete">Uppdatering slutförd</string>
+  <string name="app_store_description">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt. Appen har skrivits om från grunden och är bättre än någonsin.
+
+Funktioner:
+
+   - Hastighet: Vår nya app låter dig bläddra och redigera Wikipedia snabbare än någonsin.
+   - Redigering: Du kan redigera Wikipedia! Inloggad eller utloggad, tackar vi dig för alla era bidrag.
+   - Senaste sidorna: Vi förser dig med din läshistorik, så kan du trycka så många länkar som du vill utan att någonsin gå vilse.
+   - Sparade sidor: Du kan spara valda sidor för att läsa offline och bläddra bland dem även när du inte har en dataanslutning.
+   - Dela: Använd dina befintliga sociala appar för att dela summan av all mänsklig kunskap.
+   - Språkstöd: App låter dig sömlöst växla mellan att läsa Wikipedia på flera språk.
+   - Wikipedia Zero: Dataavgifter avskrivs för deltagande mobiloperatörer.
+
+Koden har öppen källkod. Om du har erfarenhet av Java och Android SDK kan du hjälpa oss! https://github.com/Wikimedia/apps-Android-wikipedia</string>
 </resources>

@@ -38,7 +38,6 @@
   <string name="toast_saved_page_deleted">Pagine salvate cancellate</string>
   <string name="last_updated_text">Ultimo aggiornamento %1$s</string>
   <string name="content_license_html">Il contenuto è disponibile in base alla &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt; se non diversamente specificato</string>
-  <string name="edit_save_action_license">Salvando, accetti di pubblicare irrevocabilmente i tuoi contributi sotto la licenza &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Lingua di Wikipedia</string>
   <string name="preference_summary_language">Lingua del contenuto</string>
   <string name="preference_languages_filter_hint">Ricerca</string>
@@ -82,8 +81,8 @@
   <string name="preference_summary_logout">Disconnettiti dalla tua utenza Wikipedia</string>
   <string name="preference_summary_notloggedin">Accesso non effettuato.</string>
   <string name="toast_logout_complete">Disconnesso</string>
-  <string name="saved_pages_empty_message">Nessuna pagina salvata</string>
-  <string name="history_empty_message">La tua cronologia è vuota.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Nessuna pagina salvata</string>
+  <string name="history_empty_message" fuzzy="true">La tua cronologia è vuota.</string>
   <string name="create_account_username_hint">Nome utente</string>
   <string name="create_account_password_hint">Password</string>
   <string name="menu_create_account">Registrati</string>
@@ -132,7 +131,7 @@
   <string name="random_progress">Recupero pagina casuale...</string>
   <string name="nav_item_login_benefits">Se effettui l\'accesso, le tue modifiche saranno associate al tuo nome utente e il tuo indirizzo IP non sarà visibile pubblicamente.</string>
   <string name="create_account_account_created_toast">Utenza creata!</string>
-  <string name="user_contribs_more_action">Caricane altri</string>
+  <string name="user_contribs_more_action">Caricane ancora</string>
   <string name="activity_my_contributions_title">I miei contributi</string>
   <string name="nav_item_my_contributions">I miei contributi</string>
   <string name="edit_save_action_login">Accedi e salva</string>
@@ -141,6 +140,7 @@
   <string name="edit_save_action_ip_description">Le modifiche verranno pubblicamente attribuite all\'indirizzo IP, che cambia frequentemente</string>
   <string name="preference_title_eventlogging_opt_in">Invia rapporti sull\'utilizzo</string>
   <string name="preference_summary_eventlogging_opt_in">Consenti a Wikimedia per raccogliere informazioni su come si usa l\'applicazione per renderla migliore</string>
+  <string name="editing_error_spamblacklist">È stato rilevato un collegamento ad un dominio bloccato. Rimuovilo e prova ancora.</string>
   <string name="history_search_list_hint">Cerca</string>
   <string name="history_search_empty_message">Nessuna pagina trovata che corrisponda a \'%s\'</string>
   <string name="error_can_not_process_link">Impossibile visualizzare questo collegamento</string>
@@ -180,5 +180,20 @@
   <string name="error_network_error_try_again">Impossibile raggiungere la rete, si prega di provare nuovamente.</string>
   <string name="saved_pages_update_all_error_retry">Riprova</string>
   <string name="saved_pages_update_all_error_message">Errore durante l\'aggiornamento delle pagine salvate</string>
+  <string name="saved_pages_progress_title">Aggiornamento pagine salvate</string>
   <string name="saved_pages_refresh_pages_complete">Aggiornamento completo</string>
+  <string name="app_store_description">App ufficiale di Wikipedia per Android.
+Wikipedia è l\'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l\'opera di consultazione più completa e più diffusa che l\'uomo abbia mai compilato. L\'app è stata completamente riscritta ed è di gran lunga migliore.
+
+Caratteristiche:
+   - Velocità: la nostra nuova app nativa ti permette di consultare e modificare Wikipedia più velocemente che in passato.
+   - Modifica: puoi modificare Wikipedia! Che tu sia registrato o no, ti ringraziamo per tutti i tuoi contributi.
+   - Pagine recenti: ti offriamo la cronologia delle tue letture, così che tu possa seguire tutti i collegamenti che vuoi senza mai perderti.
+   - Pagine salvate: puoi salvare le pagine che ti interessano per leggerle offline e consultarle anche in assenza di connessione dati.
+   - Condivisione: usa le tue app di social network preferite per condividere la somma di tutta la conoscenza umana. 
+   - Supporto linguistico: l\'app ti permette di accedere senza soluzione di continuità alle Wikipedia scritte in altre lingue.
+   - Wikipedia Zero: nessun costo di connessione con gli operatori mobili partecipanti. 
+
+Il codice è interamente open source. Se hai esperienza con Java e l\'Android SDK, vieni a forkarci!
+https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

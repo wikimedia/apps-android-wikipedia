@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">위키백과</string>
+  <string name="app_name_beta">위키백과 베타</string>
   <string name="yes">예</string>
   <string name="no">아니오</string>
   <string name="acra_report_dialog_title">위키백과가 충돌했습니다 :(</string>
@@ -14,31 +15,39 @@
   <string name="page_error_retry">다시 시도</string>
   <string name="menu_clear_all_history">방문 기록 지우기</string>
   <string name="menu_clear_all_bookmarks">책갈피 지우기</string>
+  <string name="menu_clear_all_saved_pages">저장된 문서 지우기</string>
   <string name="page_does_not_exist_error">이 문서가 존재하지 않습니다.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">방문 기록을 지울까요?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">책갈피</string>
-  <string name="nav_item_saved_pages" fuzzy="true">책갈피</string>
-  <string name="menu_save_page" fuzzy="true">책갈피하기</string>
+  <string name="dialog_title_clear_history">방문 기록을 지울까요?</string>
+  <string name="saved_pages_activity_title">저장된 문서</string>
+  <string name="nav_item_saved_pages">저장된 문서</string>
+  <string name="menu_update_all_saved_pages">저장된 문서 업데이트</string>
+  <string name="menu_update_selected_saved_pages">저장된 문서 업데이트</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">모든 저장된 문서를 업데이트할까요?</string>
+  <string name="toast_saved_page_refreshed">저장된 문서가 업데이트됨</string>
+  <string name="menu_save_page">문서 저장</string>
   <string name="menu_share_page">공유하기</string>
   <string name="share_via">다음을 통해 공유</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">책갈피를 지울까요?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">모든 책갈피를 지울까요?</string>
-  <string name="toast_saving_page" fuzzy="true">문서를 책갈피하는 중...</string>
-  <string name="toast_saved_page" fuzzy="true">문서를 책갈피함</string>
-  <string name="toast_save_page_failed" fuzzy="true">문서를 책갈피하는 데 실패 :(</string>
+  <string name="dialog_title_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
+  <string name="dialog_message_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
+  <string name="toast_saving_page">문서를 저장하는 중...</string>
+  <string name="toast_saved_page">성공적으로 문서를 저장함</string>
+  <string name="toast_saved_page_missing_images">모든 그림을 저장할 수 없음</string>
+  <string name="toast_save_page_failed">문서를 저장하는 데 실패함 :(</string>
+  <string name="toast_refresh_saved_page">저장된 문서를 새로 고치는 중...</string>
   <string name="delete_selected_saved_pages">삭제</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">책갈피가 삭제되었습니다</string>
+  <string name="toast_saved_page_deleted">저장된 문서가 삭제되었습니다</string>
   <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
-  <string name="content_license_html" fuzzy="true">내용은 별도로 명시하지 않을 경우 &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
+  <string name="content_license_html">내용은 별도로 명시하지 않을 경우 &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
   <string name="preference_title_language">위키백과 언어</string>
   <string name="preference_summary_language">내용 언어</string>
   <string name="preference_languages_filter_hint">검색</string>
   <string name="langlinks_filter_hint">검색</string>
-  <string name="menu_other_languages" fuzzy="true">다른 언어</string>
+  <string name="menu_other_languages">다른 언어로 읽기</string>
   <string name="langlinks_error_retry">다시 시도</string>
-  <string name="langlinks_empty" fuzzy="true">이 문서는 다른 언어로 읽을 수 없습니다</string>
+  <string name="langlinks_empty">이 문서는 다른 언어로 읽을 수 없습니다</string>
   <string name="settings_activity_title">설정</string>
   <string name="langlinks_activity_title">다른 언어</string>
+  <string name="menu_save_changes">바뀜 저장</string>
   <string name="edit_section_error_retry">다시 시도</string>
   <string name="dialog_saving_in_progress">저장 중...</string>
   <string name="edit_saved_successfully">편집 저장됨!</string>
@@ -52,6 +61,7 @@
   <string name="title_captcha">캡차를 입력하세요</string>
   <string name="edit_section_abusefilter_back_text">내 편집 바꾸기</string>
   <string name="edit_section_captcha_reload">새로 고치려면 캡차를 누르세요</string>
+  <string name="edit_saved_page_refresh">이 저장된 문서는 오래되었을 수 있고, 편집을 활성화하려면 새로 고쳐야 합니다. 문서를 새로 고치겠습니까?</string>
   <string name="nav_item_login">로그인</string>
   <string name="login_username_hint">사용자 이름</string>
   <string name="login_password_hint">비밀번호</string>
@@ -67,13 +77,17 @@
   <string name="login_error_unknown">로그인 실패 :(</string>
   <string name="login_error_no_network">네트워크 연결 없음</string>
   <string name="nav_item_logout">로그아웃</string>
+  <string name="preference_title_logout">로그아웃</string>
+  <string name="preference_summary_logout">위키백과 계정에서 로그아웃</string>
+  <string name="preference_summary_notloggedin">로그인되어 있지 않습니다.</string>
   <string name="toast_logout_complete">로그아웃됨</string>
-  <string name="saved_pages_empty_message" fuzzy="true">책갈피 없음</string>
-  <string name="history_empty_message">방문 기록이 비어 있습니다.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">저장된 문서 없음</string>
+  <string name="history_empty_message" fuzzy="true">방문 기록이 비어 있습니다.</string>
   <string name="create_account_username_hint">사용자 이름</string>
   <string name="create_account_password_hint">비밀번호</string>
   <string name="menu_create_account">계정 만들기</string>
-  <string name="login_create_account_link" fuzzy="true">계정 만들기</string>
+  <string name="login_create_account_link">계정이 없나요? 위키백과에 가입하세요</string>
+  <string name="create_account_login_link">계정이 이미 있습니까? 로그인하세요</string>
   <string name="create_account_activity_title">계정 만들기</string>
   <string name="edit_section_activity_title">문단 편집</string>
   <string name="dialog_create_account_checking_progress">확인하기</string>
@@ -86,8 +100,11 @@
   <string name="create_account_open_proxy_error">이 IP 주소는 계정 만들기에서 차단되어 있습니다.</string>
   <string name="create_account_generic_error">계정을 만들 수 없습니다</string>
   <string name="create_account_no_network">네트워크 연결 없음</string>
+  <string name="create_account_next">다음</string>
+  <string name="create_account_button">계정 만들기</string>
   <string name="preferences_general_heading">일반</string>
-  <string name="zero_charged_verbiage" fuzzy="true">위키백과 제로 꺼짐 (표준 데이터 요금이 부과될 수 있음)</string>
+  <string name="zero_charged_verbiage">위키백과 제로가 꺼져 있습니다</string>
+  <string name="zero_charged_verbiage_extended">다른 문서를 불러오면 데이터 요금이 부과될 수 있습니다.</string>
   <string name="zero_search_hint">위키백과 제로 검색</string>
   <string name="zero_warn_when_leaving">위키백과 제로를 떠난다면 경고합니다</string>
   <string name="zero_warn_when_leaving_summary">만약 이동 통신사가 위키백과 제로 제유를 통해 위키백과 앱에서 요금을 면제를 받고 있다면, 이 설정을 선택하는 것은 위키백과 앱을 나갈 때 요금이 부과될 수 있음을 알려주는 데 도움을 줍니다.</string>
@@ -95,11 +112,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">위키백과 제로</string>
   <string name="zero_interstitial_title">위키백과 제로를 떠나고 있습니다</string>
-  <string name="zero_interstitial_leave_app" fuzzy="true">바깥 사이트로 나갈까요? 표준 데이터 요금이 부과될 수 있습니다.</string>
-  <string name="zero_interstitial_continue" fuzzy="true">계속</string>
-  <string name="zero_interstitial_cancel" fuzzy="true">취소</string>
-  <string name="zero_learn_more" fuzzy="true">위키백과 제로에 대해 알고 싶나요?</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">더 알아보기</string>
+  <string name="zero_interstitial_leave_app">데이터 요금이 부과될 수 있습니다. 바깥 사이트로 계속해서 떠날까요?</string>
+  <string name="zero_interstitial_continue">떠나기</string>
+  <string name="zero_interstitial_cancel">여기에 머물기</string>
+  <string name="zero_learn_more">데이터 요금은 이 위키백과 앱에 대해서 면제됩니다.</string>
+  <string name="zero_learn_more_learn_more">더 읽어보기</string>
   <string name="zero_learn_more_dismiss">숨기기</string>
   <string name="zero_settings">설정</string>
   <string name="zero_settings_devmode">제로 개발모드</string>
@@ -107,7 +124,8 @@
   <string name="edit_preview_fetching_dialog_message">미리 보기를 가져오는 중...</string>
   <string name="edit_preview_activity_title">편집 미리 보기</string>
   <string name="create_account_logging_in">로그인 중...</string>
-  <string name="edit_summary_guide_text" fuzzy="true">이 문서를 어떻게 개선할지 알려주세요. 다른 편집자들이 당신의 편집을 빠르게 검토하는 것을 돕습니다.</string>
+  <string name="send_feedback">앱 피드백 보내기</string>
+  <string name="edit_summary_guide_text">이 문서를 어떻게 개선할지 알려주세요. 다른 편집자들이 당신의 편집을 빠르게 검토하는 것을 돕습니다.</string>
   <string name="edit_summary_hint">편집 요약</string>
   <string name="nav_item_random">임의 문서</string>
   <string name="random_progress">임의 문서를 가져오는 중...</string>
@@ -122,5 +140,58 @@
   <string name="edit_save_action_ip_description">당신의 편집은 자주 바뀌는 IP 주소로 공개적으로 보여집니다</string>
   <string name="preference_title_eventlogging_opt_in">사용 보고서 보내기</string>
   <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">차단된 도메인 (%s)에서의 링크가 감지되었습니다. 그들을 제거하고 나서 다시 시도해주세요.</string>
+  <string name="editing_error_spamblacklist">차단된 도메인 (%s)으로의 링크가 감지되었습니다. 그들을 제거하고 나서 다시 시도하세요.</string>
+  <string name="history_search_list_hint">검색</string>
+  <string name="history_search_empty_message">\'%s\' 검색어와 일치하는 문서를 찾을 수 없습니다</string>
+  <string name="error_can_not_process_link">이 링크를 보여줄 수 없습니다</string>
+  <string name="page_protected_autoconfirmed">이 문서는 준보호되어 있습니다.</string>
+  <string name="page_protected_sysop">이 문서는 완전히 보호되어 있습니다.</string>
+  <string name="page_protected_other">이 문서는 다음 수준으로 보호되어 있습니다: %s</string>
+  <string name="page_protected_can_not_edit">이 문서를 편집할 권한이 없습니다</string>
+  <string name="page_protected_can_not_edit_title">이 문서는 보호되어 있습니다</string>
+  <string name="more_item_preferences">더 보기</string>
+  <string name="more_activity_title">더 보기</string>
+  <string name="about_description">위키백과 앱 정보</string>
+  <string name="preference_title_version">버전</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;개인 정보 정책&lt;/a&gt;</string>
+  <string name="about_libraries_heading">사용된 라이브러리</string>
+  <string name="about_contributors_heading">기여자</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;위키미디어 재단&lt;/a&gt;의 제품</string>
+  <string name="about_activity_title">정보</string>
+  <string name="edit_unchanged">문서가 수정되지 않았습니다.</string>
+  <string name="edit_abandon_confirm">문서가 수정되어 있습니다. 바뀜을 저장하지 않고 빠져나가겠습니까?</string>
+  <string name="user_blocked_from_editing_title">차단됨</string>
+  <string name="user_logged_in_blocked_from_editing">당신의 사용자 계정은 이 위키의 편집에서 차단되어 있습니다.</string>
+  <string name="user_anon_blocked_from_editing">당신의 IP 주소는 편집에서 차단되어 있습니다.</string>
+  <string name="edit_how_page_improved">어떻게 문서를 개선했나요?</string>
+  <string name="edit_next">다음</string>
+  <string name="edit_done">저장</string>
+  <string name="edit_preview">미리 보기</string>
+  <string name="edit_summary_tag_typo">오타를 고침</string>
+  <string name="edit_summary_tag_grammar">문법을 고침</string>
+  <string name="edit_summary_tag_links">링크를 추가</string>
+  <string name="edit_summary_tag_other">기타</string>
+  <string name="edit_summary_tag_other_hint">문서를 개선하는 다른 방법</string>
+  <string name="find_in_page">문서에서 찾기</string>
+  <string name="find_next">다음 찾기</string>
+  <string name="find_previous">이전 찾기</string>
+  <string name="find_close">찾기 막대 닫기</string>
+  <string name="error_network_error_try_again">네트워크에 도달할 수 없습니다, 다시 시도하세요.</string>
+  <string name="saved_pages_update_all_error_retry">다시 시도</string>
+  <string name="saved_pages_update_all_error_message">저징된 문서를 업데이트하는 동안 오류</string>
+  <string name="saved_pages_progress_title">저장된 문서를 새로 고치는 중</string>
+  <string name="saved_pages_refresh_pages_complete">업데이트 완료</string>
+  <string name="app_store_description">안드로이드를 위한 공식 위키백과 앱입니다. 위키백과는 280개 언어의 3천2백만보다 많은 문서가 들어 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용합니다. 앱은 처음부터 다시 쓰여졌고 이전보다 더 나아졌습니다.
+
+기능:
+   - 속도: 우리는 이제, 네이티브 앱을 여러분이 위키백과를 이전보다 빠르게 찾아보고 편집할 수 있습니다.
+   - 편집: 위키백과를 편집할 수 있습니다! 로그인하거나 로그아웃하거나, 우니는 모든 여러분의 기여에 고마워합니다.
+   - 최근 문서: 우리는 여러분이 읽은 것의 역사를 제공하며, 그래서 혹시 찾으려는 것을 잊지 않고 원하는 만큼 여러 링크를 누를 수 있습니다.
+   - 저장된 문서: 오프라인으로 읽고 데이터에 연결되어 있지 않을 때라도 찾아볼 수 있도록 문서를 선택하여 저장할 수 있습니다.
+   - 공유하기: 바깥 소셜 네트워크 앱에 모든 인류의 지식을 더하여 공유할 수 있습니다.
+   - 언어 지원: 어떠한 언어로도 쓰여져 있는 위키백과를 읽기 위해 원활하게 전환할 수 있습니다.
+   - 위키백과 제로: 이동 통신사가 참여한다면 데이터 요금이 면제됩니다.
+
+코드는 완전한 오픈 소스입니다. 여러분이 자바와 안드로이드 SDK에 경험이 있다면, 우리에게 포크(fork)하러 오세요! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

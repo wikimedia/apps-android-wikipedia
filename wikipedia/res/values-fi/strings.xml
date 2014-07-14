@@ -20,6 +20,10 @@
   <string name="dialog_title_clear_history">Tyhjennetäänkö selaushistoria?</string>
   <string name="saved_pages_activity_title">Tallennetut sivut</string>
   <string name="nav_item_saved_pages">Tallennetut sivut</string>
+  <string name="menu_update_all_saved_pages">Päivitä tallennetut sivut</string>
+  <string name="menu_update_selected_saved_pages">Päivitä tallennetut sivut</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Päivitetäänkö kaikki tallennetut sivut?</string>
+  <string name="toast_saved_page_refreshed">Tallennetut sivut päivitettiin</string>
   <string name="menu_save_page">Tallenna sivu</string>
   <string name="menu_share_page">Jaa</string>
   <string name="share_via">Jaa palvelulla</string>
@@ -34,7 +38,6 @@
   <string name="toast_saved_page_deleted">Tallennetut sivu(t) poistettu</string>
   <string name="last_updated_text">Viimeksi päivitetty %1$s</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla ellei toisin ilmoiteta</string>
-  <string name="edit_save_action_license">Tallentamalla sitoudut peruuttamattomasti julkaisemaan muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssillä.</string>
   <string name="preference_title_language">Wikipedian kieli</string>
   <string name="preference_summary_language">Sisällön kieli</string>
   <string name="preference_languages_filter_hint">Haku</string>
@@ -43,24 +46,24 @@
   <string name="langlinks_error_retry">Yritä uudelleen</string>
   <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä</string>
   <string name="settings_activity_title">Asetukset</string>
-  <string name="langlinks_activity_title">Muut kielet</string>
+  <string name="langlinks_activity_title">Muilla kielillä</string>
   <string name="menu_save_changes">Tallenna muutokset</string>
   <string name="edit_section_error_retry">Yritä uudelleen</string>
   <string name="dialog_saving_in_progress">Tallennetaan...</string>
   <string name="edit_saved_successfully">Muokkaus tallennettu!</string>
   <string name="dialog_message_edit_failed">Muokkaus epäonnistui!</string>
   <string name="dialog_message_edit_failed_retry">Yritä uudelleen</string>
-  <string name="dialog_message_edit_failed_cancel">Peruuta</string>
+  <string name="dialog_message_edit_failed_cancel">Peru</string>
   <string name="menu_show_toc">Sisällysluettelo</string>
   <string name="search_no_results_found">Tuloksia ei löytynyt</string>
-  <string name="edit_section_captcha_message">Auttaa suojautumaan spämmimiseltä, syötä alla näkyvät sanat</string>
+  <string name="edit_section_captcha_message">Syötä alla näkyvät sanat</string>
   <string name="edit_section_captcha_hint">Toista edeltävät sanat</string>
   <string name="title_captcha">Syötä captcha</string>
   <string name="edit_section_abusefilter_back_text">Tee muutoksia muokkaukseeni</string>
-  <string name="edit_section_captcha_reload">Napauta CAPTCHAa päivittääksesi</string>
+  <string name="edit_section_captcha_reload">Lataa uusi napauttamalla</string>
   <string name="edit_saved_page_refresh">Tämä tallennettu sivu saattaa olla vanhentunut ja se tulee päivittää, jotta muokkaaminen on mahdollista. Haluatko päivittää sivun?</string>
   <string name="nav_item_login">Kirjaudu sisään</string>
-  <string name="login_username_hint">Käyttäjänimi</string>
+  <string name="login_username_hint">Käyttäjätunnus</string>
   <string name="login_password_hint">Salasana</string>
   <string name="login_password_show_check">Näytä salasana</string>
   <string name="menu_login">Kirjaudu sisään</string>
@@ -78,8 +81,8 @@
   <string name="preference_summary_logout">Kirjaudu ulos Wikipedia-tililtä</string>
   <string name="preference_summary_notloggedin">Et ole kirjautunut sisään.</string>
   <string name="toast_logout_complete">Kirjauduit ulos</string>
-  <string name="saved_pages_empty_message">Ei tallennettuja sivuja.</string>
-  <string name="history_empty_message">Historiasi on tyhjä.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Ei tallennettuja sivuja.</string>
+  <string name="history_empty_message" fuzzy="true">Historiasi on tyhjä.</string>
   <string name="create_account_username_hint">Käyttäjätunnus</string>
   <string name="create_account_password_hint">Salasana</string>
   <string name="menu_create_account">Luo tunnus</string>
@@ -87,12 +90,12 @@
   <string name="create_account_login_link">Onko sinulla jo tunnus? Kirjaudu sisään</string>
   <string name="create_account_activity_title">Luo uusi käyttäjätunnus</string>
   <string name="edit_section_activity_title">Muokkaa osiota</string>
-  <string name="dialog_create_account_checking_progress">Vahvistetaan...</string>
+  <string name="dialog_create_account_checking_progress">Vahvistetaan</string>
   <string name="create_account_email_hint">Sähköposti (valinnainen)</string>
   <string name="create_account_password_repeat_hint">Salasanan vaihto</string>
   <string name="create_account_passwords_mismatch_error">Salasanat eivät täsmää</string>
   <string name="create_account_email_error">Virheellinen sähköpostiosoite</string>
-  <string name="create_account_username_exists_error">Käyttäjänimi on jo käytössä</string>
+  <string name="create_account_username_exists_error">Käyttäjätunnus on jo käytössä</string>
   <string name="create_account_ip_throttle_error">Liian monta tiliä luotu tältä IP-osoitteelta. Yritä uudelleen myöhemmin.</string>
   <string name="create_account_open_proxy_error">Tältä IP-osoitteelta on estetty tilien luominen.</string>
   <string name="create_account_generic_error">Tunnusta ei voitu luoda</string>
@@ -104,12 +107,15 @@
   <string name="zero_charged_verbiage_extended">Muiden artikkeleiden lataamisesta saattaa aiheutua datamaksuja.</string>
   <string name="zero_search_hint">Etsi Wikipedia Zerosta</string>
   <string name="zero_warn_when_leaving">Varoita poistuttaessa Wikipedia Zerosta</string>
+  <string name="zero_warn_when_leaving_summary">Jos matkapuhelinoperaattorisi luopuu tiedonsiirtomaksuista Wikipedia Zero -yhteistyön kautta, tämän asetuksen olla päällä saat huomautuksen, jos aiot poistua Wikipedia-sovelluksesta ja tiedonsiirrosta voidaan periä maksua.</string>
   <string name="zero_webpage_title">Usein kysyttyjä kysymyksiä Wikipedia Zerosta</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Poistutaan Wikipedia Zerosta</string>
+  <string name="zero_interstitial_leave_app">Haluatko siirtyä ulkoiselle sivulle? Saatat joutua maksamaan tiedonsiirtomaksuja.</string>
   <string name="zero_interstitial_continue">Poistu</string>
   <string name="zero_interstitial_cancel">Pysy täällä</string>
+  <string name="zero_learn_more">Tiedonsiirtomaksuja ei peritä tältä Wikipedia-sovellukselta.</string>
   <string name="zero_learn_more_learn_more">Lue lisää</string>
   <string name="zero_learn_more_dismiss">Hylkää</string>
   <string name="zero_settings">Asetukset</string>
@@ -140,6 +146,7 @@
   <string name="error_can_not_process_link">Tätä linkkiä ei voitu näyttää</string>
   <string name="page_protected_autoconfirmed">Tämä sivu on osittain suojattu.</string>
   <string name="page_protected_sysop">Tämä sivu on kokonaan suojattu.</string>
+  <string name="page_protected_other">Tämä sivu on suojattu seuraavasti: %s</string>
   <string name="page_protected_can_not_edit">Sinulla ei ole oikeuksia muokata tätä sivua</string>
   <string name="page_protected_can_not_edit_title">Tämä sivu on suojattu</string>
   <string name="more_item_preferences">Lisää</string>
@@ -165,9 +172,26 @@
   <string name="edit_summary_tag_grammar">Kielioppia korjattu</string>
   <string name="edit_summary_tag_links">Lisätty linkkejä</string>
   <string name="edit_summary_tag_other">Muu</string>
+  <string name="edit_summary_tag_other_hint">Millä muulla tavoin paransit sivua</string>
   <string name="find_in_page">Etsi sivulta</string>
   <string name="find_next">Etsi seuraava</string>
   <string name="find_previous">Etsi edellinen</string>
   <string name="find_close">Sulje hakupalkki</string>
   <string name="error_network_error_try_again">Ei verkkoyhteyttä, yritä uudelleen.</string>
+  <string name="saved_pages_update_all_error_retry">Yritä uudelleen</string>
+  <string name="saved_pages_update_all_error_message">Tallennettujen sivujen päivitys epäonnistui</string>
+  <string name="saved_pages_progress_title">Päivitetään tallennettuja sivuja</string>
+  <string name="saved_pages_refresh_pages_complete">Päivitys on valmis</string>
+  <string name="app_store_description">Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 32 miljoonaa artikkelia 280 eri kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut. Sovellus on kirjoitettu alusta alkaen uusiksi ja on parempi kuin koskaan aiemmin.
+
+Ominaisuudet:
+   - Nopeus: Uusi natiivisovelluksemme mahdollistaa Wikipedian selaamisen ja muokkaamisen nopeammin kuin koskaan aiemmin.
+   - Muokkaaminen: Voit muokata Wikipediaa! Olitpa sisäänkirjautunut tai et, kiitämme sinua kaikista muokkauksistasi.
+   - Tuoreet sivut: Tarjoamme sinulle lukuhistoriasi, joten voit napauttaa niin montaa linkkiä kuin haluat joutumatta ikinä eksyksiin.
+   - Tallennetut sivut: Voit tallentaa valittuja sivuja luettavaksi offline-tilassa ja selata niitä jopa silloin, kun sinulla ei ole datayhteyttä.
+   - Jaa: Käytä olemassa olevia sosiaalisen median sovelluksiasi jakaaksesi ihmiskunnan kaiken tiedon.
+   - Kielituki: Sovellus mahdollistaa Wikipedian vaivattoman lukemisen millä tahansa kielellä.
+   - Wikipedia Zero: Tiedonsiirtomaksut poistettu osallistuvien matkapuhelinoperaattoreiden toimesta.
+
+Lähdekoodi on täysin avointa. Jos sinulla on kokemusta Javan ja Android SDK:n parissa työskentelystä, tee kopio koodistamme! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

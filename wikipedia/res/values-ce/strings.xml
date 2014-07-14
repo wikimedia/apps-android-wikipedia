@@ -54,7 +54,7 @@
   <string name="nav_item_logout">Болх дӀаберзор</string>
   <string name="preference_title_logout">Болх дӀаберзор</string>
   <string name="saved_pages_empty_message" fuzzy="true">Ӏалашйина агӀонаш яц.</string>
-  <string name="history_empty_message">Хьа истори еса ю.</string>
+  <string name="history_empty_message" fuzzy="true">Хьа истори еса ю.</string>
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
   <string name="create_account_password_hint">Пароль</string>
   <string name="login_create_account_link">Кхолла декъашхочун дӀаяздар</string>
@@ -95,4 +95,5 @@
   <string name="edit_done">Ӏалашдан</string>
   <string name="edit_preview">Хьажар</string>
   <string name="edit_summary_tag_other">Кхин</string>
+  <string name="saved_pages_update_all_error_retry">ЮхагӀорта</string>
 </resources>

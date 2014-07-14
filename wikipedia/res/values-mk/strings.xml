@@ -38,7 +38,6 @@
   <string name="toast_saved_page_deleted">Зачуваните страници се избришани</string>
   <string name="last_updated_text">Последен пат изменето на %1$s</string>
   <string name="content_license_html">Содржината е достапна под &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
-  <string name="edit_save_action_license">Зачувувајќи ги промените, се согласувате со неотповикливото објавување на вашите придонеси под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Јазик на Википедија</string>
   <string name="preference_summary_language">Јазик на содржината</string>
   <string name="preference_languages_filter_hint">Пребарајте</string>
@@ -82,8 +81,8 @@
   <string name="preference_summary_logout">Одјавување од вашата сметка на Википедија</string>
   <string name="preference_summary_notloggedin">Не сте најавени.</string>
   <string name="toast_logout_complete">Одјавени сте</string>
-  <string name="saved_pages_empty_message">Нема зачувани страници</string>
-  <string name="history_empty_message">Вашата историја е празна.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Нема зачувани страници</string>
+  <string name="history_empty_message" fuzzy="true">Вашата историја е празна.</string>
   <string name="create_account_username_hint">Корисничко име</string>
   <string name="create_account_password_hint">Лозинка</string>
   <string name="menu_create_account">Направи сметка</string>
@@ -182,6 +181,17 @@
   <string name="saved_pages_update_all_error_retry">Пробај пак</string>
   <string name="saved_pages_update_all_error_message">Грешка при подновувањето на зачуваните страници</string>
   <string name="saved_pages_progress_title">Ги превчитувам зачуваните страници</string>
-  <string name="saved_pages_refresh_progress_message">Ја превчитувам %s</string>
   <string name="saved_pages_refresh_pages_complete">Подновата заврши</string>
+  <string name="app_store_description">Официјален Википедиин прилог (апликација) за Android. Википедија е слободна енциклопедија со преку 32 милиони статии на 280 јазици, и претставува најопсежното и најкористеното прирачно дело во историјата на човештвото. Прилогов е преработен од нула и затоа е подобар од било кога.
+
+Можности:
+   - Брзина: Нашиот нов матичен прилог ви овозможува да ја прелистувате и уредувате Википедија побрзо од било кога.
+   - Уредување: Можете да ја уредувате Википедија! Било да сте најавени или ненајавени, ние ви благодариме за сите ваши придонеси.
+   - Скорешни страници: Ви ја даваме вашата историја на читање, за да можете да одите по разни статии колку што сакате без никогаш да се изгубите.
+   - Зачувани страници: Можете да зачувувате страници за читање кога немате линија.
+   - Споделување: Споделувајте го збирот на сите човекови знаења преку постоечките прилози за друштвени мрежи.
+   - Јазична поддршка: Прилогов ви овозможува лесно да се префрлате на било кое јазично издание на Википедија.
+   - Википедија Нулта: Податочниот промет проведен на Википедија е бесплатен за операторите што учествуваат во ова.
+
+Кодот е сосема отворен. Ако имате искуство со Java и SDK на Android, тогаш повелете — работете кај нас! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

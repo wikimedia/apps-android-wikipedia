@@ -67,7 +67,7 @@
   <string name="nav_item_logout">Logg ut</string>
   <string name="toast_logout_complete">Logget ut</string>
   <string name="saved_pages_empty_message" fuzzy="true">Ingen lagrede sider.</string>
-  <string name="history_empty_message">Loggen din er tom.</string>
+  <string name="history_empty_message" fuzzy="true">Loggen din er tom.</string>
   <string name="create_account_username_hint">Brukernavn</string>
   <string name="create_account_password_hint">Passord</string>
   <string name="login_create_account_link" fuzzy="true">Opprett konto</string>

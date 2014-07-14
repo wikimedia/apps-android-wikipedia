@@ -38,7 +38,6 @@
   <string name="toast_saved_page_deleted">Gespeicherte Seite(n) gelöscht</string>
   <string name="last_updated_text">Zuletzt aktualisiert %1$s</string>
   <string name="content_license_html">Der Inhalt ist verfügbar unter &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA 3.0&lt;/a&gt;, sofern nicht anders angegeben.</string>
-  <string name="edit_save_action_license">Mit dem Speichern stimmst du unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0&lt;/a&gt;-Lizenz zu.</string>
   <string name="preference_title_language">Wikipedia-Sprache</string>
   <string name="preference_summary_language">Inhaltssprache</string>
   <string name="preference_languages_filter_hint">Suche</string>
@@ -82,12 +81,12 @@
   <string name="preference_summary_logout">Von deinem Wikipedia-Benutzerkonto abmelden</string>
   <string name="preference_summary_notloggedin">Nicht angemeldet.</string>
   <string name="toast_logout_complete">Abgemeldet</string>
-  <string name="saved_pages_empty_message">Keine gespeicherten Seiten</string>
-  <string name="history_empty_message">Dein Verlauf ist leer.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Keine gespeicherten Seiten</string>
+  <string name="history_empty_message" fuzzy="true">Dein Verlauf ist leer.</string>
   <string name="create_account_username_hint">Benutzername</string>
   <string name="create_account_password_hint">Passwort</string>
   <string name="menu_create_account">Benutzerkonto erstellen</string>
-  <string name="login_create_account_link">Noch kein Benutzerkonto? Trete der Wikipedia bei</string>
+  <string name="login_create_account_link">Noch kein Benutzerkonto? Tritt der Wikipedia bei</string>
   <string name="create_account_login_link">Hast du bereits ein Benutzerkonto? Anmelden</string>
   <string name="create_account_activity_title">Ein Benutzerkonto erstellen</string>
   <string name="edit_section_activity_title">Abschnitt bearbeiten</string>
@@ -182,6 +181,17 @@
   <string name="saved_pages_update_all_error_retry">Erneut versuchen</string>
   <string name="saved_pages_update_all_error_message">Fehler beim Aktualisieren der gespeicherten Seiten</string>
   <string name="saved_pages_progress_title">Aktualisiere gespeicherte Seiten</string>
-  <string name="saved_pages_refresh_progress_message">Aktualisiere %s</string>
   <string name="saved_pages_refresh_pages_complete">Aktualisierung vollständig</string>
+  <string name="app_store_description">Offizielle Wikipedia-App für Android. Wikipedia ist die freie Enzyklopädie mit mehr als 32 Millionen Artikeln in 280 Sprachen und ist das umfangreichste und am meisten genutzte Nachschlagewerk, das von Menschen zusammengestellt wurde. Die App wurde neu geschrieben und ist besser als jemals zuvor.
+
+Funktionen:
+   - Geschwindigkeit: Unsere neue, native App ermöglicht dir das Durchsuchen und Bearbeiten von Wikipedia, schneller als jemals zuvor.
+   - Bearbeiten: Du kannst Wikipedia bearbeiten! Angemeldet oder abgemeldet, wir danken dir für all deine Beiträge.
+   - Letzte Seiten: Wir versorgen dich mit deinem Leseverlauf. So kannst du so viele Links antippen, wie du willst, ohne dass etwas verloren geht.
+   - Gespeicherte Seiten: Du kannst ausgewählte Seiten zum Offline-Lesen speichern und sie durchstöbern, wenn du keine Datenverbindung hast.
+   - Teilen: Benutze deine vorhandenen Soziale-Netzwerke-Apps zum Teilen des gesamten menschlichen Wissens.
+   - Sprachunterstützung: Die App ermöglicht dir das nahtlose Wechseln zum Lesen von Wikipedia in beliebigen Sprachen.
+   - Wikipedia Zero: Datenübertragungsgebühren für teilnehmende Mobilfunknetzbetreiber werden nicht erhoben.
+
+Der Code ist völlig quelloffen. Falls du Erfahrungen mit Java und dem Android-SDK hast, dann unterstütze uns! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

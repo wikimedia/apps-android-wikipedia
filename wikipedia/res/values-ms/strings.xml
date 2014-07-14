@@ -69,7 +69,7 @@
   <string name="nav_item_logout">Log keluar</string>
   <string name="toast_logout_complete">Log keluar</string>
   <string name="saved_pages_empty_message" fuzzy="true">Tiada bookmark.</string>
-  <string name="history_empty_message">Sejarah anda kosong.</string>
+  <string name="history_empty_message" fuzzy="true">Sejarah anda kosong.</string>
   <string name="create_account_username_hint">Nama pengguna</string>
   <string name="create_account_password_hint">Kata laluan</string>
   <string name="menu_create_account">Buka akaun</string>

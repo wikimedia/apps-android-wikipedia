@@ -62,7 +62,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/edit_save_action_license"
                     android:textColor="@color/license_text_light"/>
 
         </LinearLayout>

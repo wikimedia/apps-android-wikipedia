@@ -11,7 +11,9 @@
   <string name="history_activity_title">Versiounen</string>
   <string name="nav_item_history">Versiounen</string>
   <string name="error_network_error">De Reseau gouf net fonnt :(</string>
+  <string name="search_network_error">Feeler vum Reseau. Tippt fir nach eng Kéier ze probéieren.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
+  <string name="menu_clear_all_history">Historique läschen</string>
   <string name="menu_clear_all_bookmarks">Lieszeeche läschen</string>
   <string name="menu_clear_all_saved_pages">Gespäichert Säite läschen</string>
   <string name="page_does_not_exist_error">Dës Säit gëtt et net.</string>
@@ -57,6 +59,7 @@
   <string name="title_captcha">Captcha aginn</string>
   <string name="edit_section_abusefilter_back_text">Ännerungen u menger Ännerung maachen</string>
   <string name="edit_section_captcha_reload">CAPTCHA antippe fir nei ze lueden</string>
+  <string name="edit_saved_page_refresh">Dës gespäichert Säit kënnt vereelst sinn a muss aktualiséiert ginn ier d\'Änneren aktivéiert ka ginn. Wëllt Dir d\'Säit aktualiséieren?</string>
   <string name="nav_item_login">Aloggen</string>
   <string name="login_username_hint">Benotzernumm</string>
   <string name="login_password_hint">Passwuert</string>
@@ -75,8 +78,8 @@
   <string name="preference_summary_logout">Aus Ärem Wikipedia-Benotzerkont ausloggen</string>
   <string name="preference_summary_notloggedin">Net ageloggt.</string>
   <string name="toast_logout_complete">Ausgeloggt</string>
-  <string name="saved_pages_empty_message">Keng gespäichert Säiten</string>
-  <string name="history_empty_message">Ären Historique ass eidel.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Keng gespäichert Säiten</string>
+  <string name="history_empty_message" fuzzy="true">Ären Historique ass eidel.</string>
   <string name="create_account_username_hint">Benotzernumm</string>
   <string name="create_account_password_hint">Passwuert</string>
   <string name="menu_create_account">Benotzerkont opmaachen</string>
@@ -125,6 +128,8 @@
   <string name="nav_item_my_contributions">Meng Kontributiounen</string>
   <string name="edit_save_action_login">Aloggen a späicheren</string>
   <string name="edit_save_action_ip">Anonym späicheren</string>
+  <string name="edit_save_action_login_description">Är Ännerunge ginn ëffentlech mat Ärem Benotzernumm verbonn an aner Auteure kënne besser Kontakt mat Iech ophuelen</string>
+  <string name="edit_save_action_ip_description">Är Ännerunge ginn ëffentlech Ärer IP-Adress, déi dacks ännert, zougeuerdnet</string>
   <string name="preference_title_eventlogging_opt_in">Rapporten iwwer d\'Benotze schécken</string>
   <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se w.e.g. ewech a probéiert nach eng Kéier.</string>
   <string name="history_search_list_hint">Sichen</string>
@@ -138,6 +143,7 @@
   <string name="preference_title_version">Versioun</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Benotzungsbedingungen&lt;/a&gt;</string>
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Dateschutzerklärung&lt;/a&gt;</string>
+  <string name="about_wmf">E Produkt vun der &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Iwwer</string>
   <string name="edit_unchanged">D\'Säit gouf net geännert.</string>
   <string name="user_blocked_from_editing_title">Gespaart</string>
@@ -156,6 +162,5 @@
   <string name="saved_pages_update_all_error_retry">Nach eng Kéier probéieren</string>
   <string name="saved_pages_update_all_error_message">Feeler bei der Aktualisatioun vu gespäicherte Säiten</string>
   <string name="saved_pages_progress_title">Gespäichert Säite ginn aktualiséiert</string>
-  <string name="saved_pages_refresh_progress_message">%s aktualiséieren</string>
   <string name="saved_pages_refresh_pages_complete">Aktualisatioun fäerdeg</string>
 </resources>

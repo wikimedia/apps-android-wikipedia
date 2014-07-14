@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">ویکی‌پدیا</string>
+  <string name="app_name_beta">ویکی‌پدیای بتا</string>
   <string name="yes">بله</string>
   <string name="no">خیر</string>
   <string name="acra_report_dialog_title">ویکیپدیا در دسترس نیست :(</string>
-  <string name="acra_report_dialog_text" fuzzy="true">گزارش خروج از دسترس را بفرستید</string>
+  <string name="acra_report_dialog_text">یرای ما گزارش خروج از دسترس را بفرستید</string>
   <string name="acra_report_dialog_comment">وقتی خروج از دسترس رخ داده چه کار می‌کردید؟</string>
   <string name="search_hint">جستجوی ویکی‌پدیا</string>
   <string name="history_activity_title">تاریخچه</string>
@@ -13,30 +14,40 @@
   <string name="search_network_error">خطای شبکه. برای تلاش مجدد با انگشت بر روی صفحه بزنید.</string>
   <string name="page_error_retry">تلاش مجدد</string>
   <string name="menu_clear_all_history">پاک‌کردن تاریخچه</string>
-  <string name="dialog_title_clear_history" fuzzy="true">پاک‌کردن تاریخچه؟</string>
-  <string name="saved_pages_activity_title" fuzzy="true">ذخیرهٔ صفحه‌ها</string>
-  <string name="nav_item_saved_pages" fuzzy="true">صفحه‌های ذخیره‌شده</string>
-  <string name="menu_save_page" fuzzy="true">ذخیرهٔ صفحه</string>
+  <string name="menu_clear_all_bookmarks">پاک کردن بوک مارک</string>
+  <string name="menu_clear_all_saved_pages">پاک کردن صفحه‌های ذخیره‌شده</string>
+  <string name="page_does_not_exist_error">این صفحه وجود ندارد!</string>
+  <string name="dialog_title_clear_history">پاک‌کردن تاریخچه جستجو؟</string>
+  <string name="saved_pages_activity_title">صفحه‌های ذخیره‌شده</string>
+  <string name="nav_item_saved_pages">صفحه‌های ذخیره‌شده</string>
+  <string name="menu_update_all_saved_pages">به‌روزرسانی صفحات ذخیره‌شده</string>
+  <string name="menu_update_selected_saved_pages">به‌روزرسانی صفحه‌های ذخیره‌شده</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">به‌روزرسانی همه صفحه‌های ذخیره‌شده</string>
+  <string name="toast_saved_page_refreshed">صفحه‌های ذخیره‌شده به‌روزرسانی شدند</string>
+  <string name="menu_save_page">ذخیرهٔ  صفحه</string>
   <string name="menu_share_page">به‌اشتراک‌گذاشتن</string>
   <string name="share_via">اشتراک با</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">پاک‌کردن همهٔ صفحه‌های ذخیره‌شده؟</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">آیا مطمئنید که می خواهید همهٔ  صفحه‌های ذخیره‌شده را پاک کنید؟</string>
-  <string name="toast_saving_page" fuzzy="true">ذخیره کردن صفحه...</string>
-  <string name="toast_saved_page" fuzzy="true">صفحهٔ ذخیره‌شده</string>
-  <string name="toast_save_page_failed" fuzzy="true">ذخیرهٔ صفحه انجام نشد :(</string>
+  <string name="dialog_title_clear_saved_pages">پاک‌کردن همهٔ صفحه‌های  ذخیره‌شده؟</string>
+  <string name="dialog_message_clear_saved_pages">آیا مطمئنید که می‌خواهید همهٔ  صفحه‌های ذخیره‌شده را پاک کنید؟</string>
+  <string name="toast_saving_page">ذخیره‌کردن صفحه...</string>
+  <string name="toast_saved_page">صفحه ذخیره‌شده‌است</string>
+  <string name="toast_saved_page_missing_images">نمی‌توان همه تصویرها را ذخیره نمود</string>
+  <string name="toast_save_page_failed">ذخیرهٔ صفحه انجام نشد. :(</string>
+  <string name="toast_refresh_saved_page">تازه‌کردن صفحه ذخیره‌شده</string>
   <string name="delete_selected_saved_pages">حذف</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">ذخیره صفحهٔ حذف شده</string>
+  <string name="toast_saved_page_deleted">ذخیره صفحه(های) حذف‌شده</string>
   <string name="last_updated_text"> %1$s آخرین به‌روزرسانی</string>
-  <string name="content_license_html" fuzzy="true">مطلب زیر تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
-  <string name="preference_title_language" fuzzy="true">زبان</string>
+  <string name="content_license_html">مطالب تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
+  <string name="preference_title_language">زبان</string>
   <string name="preference_summary_language">زبان محتوا</string>
   <string name="preference_languages_filter_hint">جستجو</string>
   <string name="langlinks_filter_hint">جستجو</string>
-  <string name="menu_other_languages" fuzzy="true">زبان‌های دیگر</string>
+  <string name="menu_other_languages">به زبان‌های دیگر مطالعه کنید.</string>
   <string name="langlinks_error_retry">سعی مجدد</string>
-  <string name="langlinks_empty" fuzzy="true">این مقاله در زبان‌های دیگر در دسترس نیست</string>
+  <string name="langlinks_empty">این صفحه به زبان های دیگر در دسترس نمی‌باشد.</string>
   <string name="settings_activity_title">تنظیمات</string>
   <string name="langlinks_activity_title">زبان‌های دیگر</string>
+  <string name="menu_save_changes">ذخیره‌کردن تغییرات</string>
   <string name="edit_section_error_retry">تلاش مجدد</string>
   <string name="dialog_saving_in_progress">در حال ذخیره‌سازی...</string>
   <string name="edit_saved_successfully">ویرایش ذخیره شد!</string>
@@ -50,6 +61,7 @@
   <string name="title_captcha">کپچا را وارد کنید</string>
   <string name="edit_section_abusefilter_back_text">ایجاد تغییرات در ویرایش من</string>
   <string name="edit_section_captcha_reload">بر روی کپچا با انگشت بزنید تا تغییر کند</string>
+  <string name="edit_saved_page_refresh">با توجه به تغییرهای احتمالی، برای ویرایش این صفحه باید آن را دوباره بارگذاری نمایید. آیا مایل به بارگذاری مجدد هستید؟</string>
   <string name="nav_item_login">ورود به سامانه</string>
   <string name="login_username_hint">نام کاربری</string>
   <string name="login_password_hint">گذرواژه</string>
@@ -65,11 +77,17 @@
   <string name="login_error_unknown">ورود ناموفق :(</string>
   <string name="login_error_no_network">هیچ اتصال شبکه</string>
   <string name="nav_item_logout">خروج از سامانه</string>
-  <string name="saved_pages_empty_message" fuzzy="true">هیچ صفحات ذخیره نشده‌است.</string>
-  <string name="history_empty_message">تاریخچهٔ شما خالی می‌باشد.</string>
+  <string name="preference_title_logout">خروج از سامانه</string>
+  <string name="preference_summary_logout">خروج</string>
+  <string name="preference_summary_notloggedin">وارد سامانه نشده‌اید</string>
+  <string name="toast_logout_complete">خارج شد</string>
+  <string name="saved_pages_empty_message" fuzzy="true">هیچ صفحه‌ای ذخیره نشده‌است.</string>
+  <string name="history_empty_message" fuzzy="true">تاریخچهٔ شما خالی می‌باشد.</string>
   <string name="create_account_username_hint">نام کاربری</string>
   <string name="create_account_password_hint">گذرواژه</string>
-  <string name="login_create_account_link" fuzzy="true">ایجاد حساب کاربری</string>
+  <string name="menu_create_account">ایجاد حساب کاربری</string>
+  <string name="login_create_account_link">ایجاد حساب کاربری</string>
+  <string name="create_account_login_link">حساب کاربری دارید؟ وارد شوید.</string>
   <string name="create_account_activity_title">ایجاد حساب کاربری</string>
   <string name="edit_section_activity_title">ویرایش یک بخش</string>
   <string name="dialog_create_account_checking_progress">تأیید</string>
@@ -81,8 +99,12 @@
   <string name="create_account_ip_throttle_error">حساب کاربری زیادی با این نشانی آی‌پی ساخته شده‌اند بعدا تلاش کنید.</string>
   <string name="create_account_open_proxy_error">این نشانی آی‌پی برای ایجاد حساب مسدود شده است.</string>
   <string name="create_account_generic_error">امکان ساختن حساب کاربری وجود ندارد</string>
+  <string name="create_account_no_network">اتصال شبکه یافت نشد.</string>
+  <string name="create_account_next">بعدی</string>
+  <string name="create_account_button">ایجاد حساب کاربری</string>
   <string name="preferences_general_heading">عمومی</string>
-  <string name="zero_charged_verbiage" fuzzy="true">خاموش کردن ویکی‌پدیا صفر (هزینهٔ دیتا گرفته می‌شود)</string>
+  <string name="zero_charged_verbiage">خاموش کردن ویکی‌پدیا صفر</string>
+  <string name="zero_charged_verbiage_extended">بارگیری مقالات دیگر ممکن است برای شما هزینه داشته باشد.</string>
   <string name="zero_search_hint">جستجو در ویکی پدیا صفر</string>
   <string name="zero_warn_when_leaving">هشدار برای خروج از ویکی‌پدیا صفر</string>
   <string name="zero_warn_when_leaving_summary">اگر اپراتور تلفن همراه شما  هزینهٔ دیتا را بر اساس تفاهم‌نامهٔ ویکی‌پدیا صفر تخت اپلیکیشن موبایل ویکی‌پدیا دریافت نکند رها کردن تنظیمات به شما کمک می‌کند تا زمانی که شما از اپلیکیشن خارج می‌شوید  از دریافت هزینه آگاه شوید.</string>
@@ -90,11 +112,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">ویکی‌پدیای صفر</string>
   <string name="zero_interstitial_title">ترک ویکی‌پدیا صفر</string>
-  <string name="zero_interstitial_leave_app" fuzzy="true">به سایت‌های بیرون انتقال یابد؟ هزینهٔ استاندارد دیتا دریافت می‌گردد.</string>
-  <string name="zero_interstitial_continue" fuzzy="true">ادامه</string>
-  <string name="zero_interstitial_cancel" fuzzy="true">لغو</string>
-  <string name="zero_learn_more" fuzzy="true">آیا می خواهید دربارهٔ ویکی‌پدیا صفر بدانید؟</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">بیشتر بدانید</string>
+  <string name="zero_interstitial_leave_app">هزینهٔ استاندارد دیتا دریافت می‌گردد. به سایت‌های بیرون انتقال یابد؟ .</string>
+  <string name="zero_interstitial_continue">ترک</string>
+  <string name="zero_interstitial_cancel">ماندن در اینجا</string>
+  <string name="zero_learn_more">هزینه‌های داده برای این برنامه ویکی گرفته نمی‌شود.</string>
+  <string name="zero_learn_more_learn_more">بیشتر بخوانید</string>
   <string name="zero_learn_more_dismiss">نپذیرفتن</string>
   <string name="zero_settings">تنظیمات</string>
   <string name="zero_settings_devmode">وضعیت برنامه‌نویسی صفر</string>
@@ -102,7 +124,8 @@
   <string name="edit_preview_fetching_dialog_message">واکشی پیش‌نمایش...</string>
   <string name="edit_preview_activity_title">ویرایش پیش‌نمایش</string>
   <string name="create_account_logging_in">ورود به سیستم...</string>
-  <string name="edit_summary_guide_text" fuzzy="true">بگویید از چه لحاظ این مقاله را بهبود داده‌اید. این به سایر ویرایشگران کمک می‌کند ویرایش‌تان به‌سرعت بازبینی کنند.</string>
+  <string name="send_feedback">فرستادن بازخورد برنامه</string>
+  <string name="edit_summary_guide_text">بگویید از چه لحاظ این مقاله را بهبود  داده‌اید. این به سایر ویرایشگران کمک می‌کند ویرایش‌تان به‌سرعت بازبینی کنند.</string>
   <string name="edit_summary_hint">خلاصهٔ ویرایش</string>
   <string name="nav_item_random">تصادفی</string>
   <string name="random_progress">واکشی صفحهٔ تصادفی...</string>
@@ -115,4 +138,59 @@
   <string name="edit_save_action_ip">ذخیرهٔ ناشناس</string>
   <string name="edit_save_action_login_description">ویرایش‌های شما به‌صورت عمومی به نام‌کاربری‌تان اختصاص داده خواهد شد و سایر ویرایشگران می‌توانند با شما بهتر متصل شوند</string>
   <string name="edit_save_action_ip_description">ویرایش‌های شما به‌صورت عمومی به نشانی آی‌پی‌تان اختصاص می‌یابد که خیلی اوقات تغییر می‌یابد</string>
+  <string name="preference_title_eventlogging_opt_in">فرستادن گزارش‌های رفتارهای کاربری</string>
+  <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
+  <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه مسدود شده ( %s ) را شناسایی کرده است. لطفا آنها را حذف کنید و دوباره امتحان کنید.</string>
+  <string name="history_search_list_hint">جستجو</string>
+  <string name="history_search_empty_message">هیچ صفحه‌ای برای %s یافت نشد</string>
+  <string name="error_can_not_process_link">نمی‌توان این پیوند را نمایش داد</string>
+  <string name="page_protected_autoconfirmed">این صفحه نیمه‌محفاظت شده است.</string>
+  <string name="page_protected_sysop">این صفحه به طور کامل محافظت شده است.</string>
+  <string name="page_protected_other">این صفحه محافظت شده است، در سطح :%s</string>
+  <string name="page_protected_can_not_edit">شما اجازه ویرایش این صفحه را ندارید.</string>
+  <string name="page_protected_can_not_edit_title">این صفحه محافظت شده‌است</string>
+  <string name="more_item_preferences">بیشتر</string>
+  <string name="more_activity_title">بیشتر</string>
+  <string name="about_description">دربارهٔ نرم‌افزار ویکی‌پدیا</string>
+  <string name="preference_title_version">نسخه</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;سیاست محرمانگی&lt;/a&gt;</string>
+  <string name="about_libraries_heading">کتابخانه‌ها استفاده‌شده</string>
+  <string name="about_contributors_heading">مشارکت‌کنندگان</string>
+  <string name="about_wmf">محصول &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;بنیاد ویکی‌مدیا&lt;/a&gt;</string>
+  <string name="about_activity_title">درباره</string>
+  <string name="edit_unchanged">این صفحه ویرایش نشده‌است.</string>
+  <string name="edit_abandon_confirm">صفحه ویرایش شده است. آیا مطمئنید که می‌خواهید بدون ذخیره تغییرات خارج شوید؟</string>
+  <string name="user_blocked_from_editing_title">بسته شده</string>
+  <string name="user_logged_in_blocked_from_editing">حساب کاربر از ویرایش در این ویکی مسدود شده است.</string>
+  <string name="user_anon_blocked_from_editing">نشانی آی‌پی شما در برابر ویرایش، مسدود شده‌است.</string>
+  <string name="edit_how_page_improved">چگونه مقاله را بهبود دادید؟</string>
+  <string name="edit_next">بعدی</string>
+  <string name="edit_done">ذخیره</string>
+  <string name="edit_preview">پیش‌نمایش</string>
+  <string name="edit_summary_tag_typo">اشتباهات اصلاح شد</string>
+  <string name="edit_summary_tag_grammar">دستور زبان  اصلاح شد</string>
+  <string name="edit_summary_tag_links">پیوندهای اضافه شده</string>
+  <string name="edit_summary_tag_other">سایر</string>
+  <string name="edit_summary_tag_other_hint">راه‌های دیگر برای بهبود صفحه</string>
+  <string name="find_in_page">در صفحه پیدا کنید</string>
+  <string name="find_next">یافتن بعدی</string>
+  <string name="find_previous">یافتن قبلی</string>
+  <string name="find_close">بستن نوار جستجو</string>
+  <string name="error_network_error_try_again">دسترسی به شبکه مقدور نیست، لطفاً دوباره تلاش کنید.</string>
+  <string name="saved_pages_update_all_error_retry">تلاش دوباره</string>
+  <string name="saved_pages_update_all_error_message">خطا در به روز رسانی صفحات ذخیره شده</string>
+  <string name="saved_pages_progress_title">تازه‌کردن صفحه ذخیره‌شده</string>
+  <string name="saved_pages_refresh_pages_complete">به‌روزرسانی انجام شد.</string>
+  <string name="app_store_description">نرم افزار رسمی ویکی‌پدیا برای استفاده در آندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و  گسترده‌ترین مرجع کار انسان تا کنون است. این برنامه از ابتدا بازنویسی شده است و بهتر از قبل کار می کند.
+ویژگی‌ها:
+   -سرعت: نرم افزار جدید، بومی ما به شما اجازهٔ مرور و ویرایش ویکی‌پدیا را با سریع بیشتری می‌دهد.
+   -ویرایش: شما می توانید در ویکی پدیا ویرایش کنید! به صورت واردشده به سامانه یا ناشناس، ما از شما متشکرم برای کلیه مشارکتهای شما.
+   -صفحات اخیر: بر پایه تاریخچه مطالعات شما برای شما پیوندهایی را تهیه می‌کنیم که بدون سردرگمی می‌توانید آنها را مطالعه کنید.
+   -صفحات ذخیره شده: برای خواندن آفلاین شما می توانید صفحات را انتخاب و ذخیره و مرور کنید برای زمانی که دسترسی به اینترنت ندارید.
+   -اشتراک‌گذاری: از برنامه‌های شبکه‌های اجتماعیتان برای به اشتراک گذاشتن دانش بشری استفاده کنید.
+   -پشتیبانی زبان: نرم افزار اجازه می‌دهد تا شما به صورت یکپارچه به خواندن ویکی در هر زبانی نوشته شده بپردازید.
+   -صفر ویکی: هزینه داده برای تعدادی از اپراتورهای تلفن همراه رایگان است.
+
+کد کاملا منبع باز است. اگر شما تجربه با جاوا و آندروید SDK دارید از https://github.com/wikimedia/apps-android-wikipedia برای فورک کردن استفاده کنید.</string>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Wikipédia</string>
+  <string name="app_name_beta">Wikipédia Beta</string>
   <string name="yes">Áno</string>
   <string name="no">Nie</string>
   <string name="acra_report_dialog_title">Wikipédia zlyhala :(</string>
@@ -14,31 +15,36 @@
   <string name="page_error_retry">Obnoviť</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
   <string name="menu_clear_all_bookmarks">Vymazať záložky</string>
+  <string name="menu_clear_all_saved_pages">Vymazať všetky uložené stránky</string>
   <string name="page_does_not_exist_error">Táto stránka neexistuje.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Vymazať históriu?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Záložky</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Záložky</string>
-  <string name="menu_save_page" fuzzy="true">Pridať medzi záložky</string>
+  <string name="dialog_title_clear_history">Vymazať históriu prehliadania?</string>
+  <string name="saved_pages_activity_title">Uložené stránky</string>
+  <string name="nav_item_saved_pages">Uložené stránky</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Aktualizovať všetky uložené stránky?</string>
+  <string name="toast_saved_page_refreshed">Uložené stránky boli aktualizované</string>
+  <string name="menu_save_page">Uložiť stránku</string>
   <string name="menu_share_page">Zdieľať</string>
   <string name="share_via">Zdieľať cez</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Vymazať záložky?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Naozaj chcete vymazať všetky záložky?</string>
-  <string name="toast_saving_page" fuzzy="true">Pridávanie stránky medzi záložky...</string>
-  <string name="toast_saved_page" fuzzy="true">Záložka bola vytvorená</string>
-  <string name="toast_save_page_failed" fuzzy="true">Pridávanie stránky medzi záložky zlyhalo :(</string>
+  <string name="dialog_title_clear_saved_pages">Vymazať všetky uložené stránky?</string>
+  <string name="dialog_message_clear_saved_pages">Naozaj chcete vymazať všetky uložené stránky?</string>
+  <string name="toast_saving_page">Ukladanie stránky...</string>
+  <string name="toast_saved_page">Stránka bola úspešne uložená</string>
+  <string name="toast_saved_page_missing_images">Nepodarilo sa uložiť všetky obrázky</string>
+  <string name="toast_save_page_failed">Uloženie stránky zlyhalo :(</string>
   <string name="delete_selected_saved_pages">Zmazať</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Záložky boli odstránené</string>
+  <string name="toast_saved_page_deleted">Uložené stránky boli odstránené</string>
   <string name="last_updated_text">Posledná aktualizácia %1$s</string>
-  <string name="content_license_html" fuzzy="true">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="preference_title_language">Jazyk</string>
   <string name="preference_summary_language">Jazyk obsahu</string>
   <string name="preference_languages_filter_hint">Hľadať</string>
   <string name="langlinks_filter_hint">Hľadať</string>
-  <string name="menu_other_languages" fuzzy="true">V iných jazykoch</string>
+  <string name="menu_other_languages">V iných jazykoch</string>
   <string name="langlinks_error_retry">Obnoviť</string>
-  <string name="langlinks_empty" fuzzy="true">Tento článok nie je k dispozícii v iných jazykoch</string>
+  <string name="langlinks_empty">Táto stránka nie je k dispozícii v iných jazykoch</string>
   <string name="settings_activity_title">Nastavenia</string>
   <string name="langlinks_activity_title">Iné jazyky</string>
+  <string name="menu_save_changes">Uložiť zmeny</string>
   <string name="edit_section_error_retry">Obnoviť</string>
   <string name="dialog_saving_in_progress">Ukladanie...</string>
   <string name="edit_saved_successfully">Úprava uložená</string>
@@ -67,13 +73,15 @@
   <string name="login_error_unknown">Prihlásenie zlyhalo :(</string>
   <string name="login_error_no_network">Žiadne sieťové pripojenie</string>
   <string name="nav_item_logout">Odhlásiť sa</string>
+  <string name="preference_title_logout">Odhlásiť sa</string>
   <string name="toast_logout_complete">Ste odhlásení.</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Žiadne záložky</string>
-  <string name="history_empty_message">Vaša história je prázdna.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Žiadne uložené stránky</string>
+  <string name="history_empty_message" fuzzy="true">Vaša história je prázdna.</string>
   <string name="create_account_username_hint">Používateľské meno</string>
   <string name="create_account_password_hint">Heslo</string>
   <string name="menu_create_account">Vytvoriť účet</string>
-  <string name="login_create_account_link" fuzzy="true">Vytvoriť účet</string>
+  <string name="login_create_account_link">Nemáte ešte účet? Pripojte sa k Wikipédii.</string>
+  <string name="create_account_login_link">Máte už vytvorený účet? Prihláste sa.</string>
   <string name="create_account_activity_title">Vytvoriť nový účet</string>
   <string name="edit_section_activity_title">Upraviť sekciu</string>
   <string name="dialog_create_account_checking_progress">Overujem</string>
@@ -86,8 +94,10 @@
   <string name="create_account_open_proxy_error">Tejto IP nie je umožnené vytvárať účty.</string>
   <string name="create_account_generic_error">Nepodarilo sa vytvoriť účet</string>
   <string name="create_account_no_network">Žiadne sieťové pripojenie</string>
+  <string name="create_account_next">Ďalej</string>
+  <string name="create_account_button">Vytvoriť účet</string>
   <string name="preferences_general_heading">Všeobecné</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipédia Zero je VYPNUTÁ (MÔŽU SA OBJAVIŤ ŠTANDARDNÉ POPLATKY ZA PRENOS DÁT)</string>
+  <string name="zero_charged_verbiage">Wikipédia Zero je vypnutá</string>
   <string name="zero_search_hint">Hľadať vo Wikipédii Zero</string>
   <string name="zero_warn_when_leaving">Upozorniť ma ak opúšťam Wikipédiu Zero</string>
   <string name="zero_warn_when_leaving_summary">Pokiaľ váš mobilní operátor v rámci Wikipédie Zero neúčtuje poplatky za dátové pripojenie k Wikipédii, ponechaním tohto políčka zaškrtnutého zaistíte, že se dozviete o jej opustení a hrozbe platenia za dátové pripojenie.</string>
@@ -95,11 +105,11 @@
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipédia Zero</string>
   <string name="zero_interstitial_title">Opúšťate Wikipédiu Zero</string>
-  <string name="zero_interstitial_leave_app" fuzzy="true">Pokračovať na externú stránku? Môžu sa objaviť štandardné poplatky za prenos dát.</string>
-  <string name="zero_interstitial_continue" fuzzy="true">Pokračovať</string>
-  <string name="zero_interstitial_cancel" fuzzy="true">Zrušiť</string>
-  <string name="zero_learn_more" fuzzy="true">Chcete sa dozvedieť viac o Wikipédia Zero?</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Ďalšie informácie</string>
+  <string name="zero_interstitial_leave_app"> Môžu sa objaviť poplatky za prenos dát. Pokračovať na externú stránku?</string>
+  <string name="zero_interstitial_continue">Pokračovať</string>
+  <string name="zero_interstitial_cancel">Zrušiť</string>
+  <string name="zero_learn_more">Táto aplikácia je oslobodená od poplatkov za prenos dát.</string>
+  <string name="zero_learn_more_learn_more">Ďalšie informácie</string>
   <string name="zero_learn_more_dismiss">Zrušiť</string>
   <string name="zero_settings">Nastavenia</string>
   <string name="zero_settings_devmode">Vývojársky režim</string>
@@ -107,7 +117,8 @@
   <string name="edit_preview_fetching_dialog_message">Generujem náhľad...</string>
   <string name="edit_preview_activity_title">Zobraziť úpravy</string>
   <string name="create_account_logging_in">Prihlasujem...</string>
-  <string name="edit_summary_guide_text" fuzzy="true">Povedzte nám, ako ste tento článok vylepšili. Toto pomôže ostatným redaktorom rýchlejšie skontrolovať vaše úpravy.</string>
+  <string name="send_feedback">Odoslať spätnú väzbu</string>
+  <string name="edit_summary_guide_text">Povedzte nám, ako ste túto stránku vylepšili. Toto pomôže ostatným redaktorom rýchlejšie skontrolovať vaše úpravy.</string>
   <string name="edit_summary_hint">Zhrnutie úprav</string>
   <string name="nav_item_random">Náhodná</string>
   <string name="random_progress">Generujem náhodnú stránku...</string>
@@ -122,5 +133,16 @@
   <string name="edit_save_action_ip_description">Vaše úpravy budú spojené s vašou IP adresou, ktorá sa pravidelne mení.</string>
   <string name="preference_title_eventlogging_opt_in">Odoslať správu o používaní</string>
   <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimédií zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
+  <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
+  <string name="history_search_list_hint">Hľadať</string>
+  <string name="page_protected_can_not_edit_title">Táto stránka je chránená</string>
+  <string name="about_description">O aplikácií</string>
+  <string name="preference_title_version">Verzia</string>
+  <string name="edit_unchanged">Na stránke neboli vykonané úpravy.</string>
+  <string name="edit_abandon_confirm">Na stránke boli vykonané úpravy. Naozaj chcete opustiť stránku bez uloženia úprav?</string>
+  <string name="edit_next">Ďalej</string>
+  <string name="edit_done">Uložiť</string>
+  <string name="edit_preview">Náhľad</string>
+  <string name="saved_pages_update_all_error_retry">Znova</string>
+  <string name="saved_pages_refresh_pages_complete">Aktualizácia je dokončená</string>
 </resources>

@@ -29,7 +29,7 @@
   <string name="share_via">Distribuire prin</string>
   <string name="dialog_title_clear_saved_pages">Ștergeți toate paginile salvate?</string>
   <string name="dialog_message_clear_saved_pages">Sunteți sigur(ă) că doriți să ștergeți toate paginile salvate?</string>
-  <string name="toast_saving_page">Se salvează pagină...</string>
+  <string name="toast_saving_page">Se salvează pagina...</string>
   <string name="toast_saved_page">Pagină salvată cu succes</string>
   <string name="toast_saved_page_missing_images">Nu s-au putut salva toate imaginile</string>
   <string name="toast_save_page_failed">Salvarea paginii nu a reușit :(</string>
@@ -38,7 +38,6 @@
   <string name="toast_saved_page_deleted">Pagină(i) salvată(e) eliminată(e)</string>
   <string name="last_updated_text">Ultima actualizare: %1$s</string>
   <string name="content_license_html">Conținutul este disponibil sub licența &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, cu excepția cazurilor în care se specifică altfel</string>
-  <string name="edit_save_action_license">Salvând, acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Limba Wikipediei</string>
   <string name="preference_summary_language">Limba conținutului</string>
   <string name="preference_languages_filter_hint">Căutare</string>
@@ -82,8 +81,8 @@
   <string name="preference_summary_logout">Deconectați-vă din contul de la Wikipedia</string>
   <string name="preference_summary_notloggedin">Neautentificat(ă).</string>
   <string name="toast_logout_complete">Sesiune închisă</string>
-  <string name="saved_pages_empty_message">Nicio pagină salvată</string>
-  <string name="history_empty_message">Istoricul dumneavoastră este gol.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">Nicio pagină salvată</string>
+  <string name="history_empty_message" fuzzy="true">Istoricul dumneavoastră este gol.</string>
   <string name="create_account_username_hint">Nume de utilizator</string>
   <string name="create_account_password_hint">Parolă</string>
   <string name="menu_create_account">Creare cont</string>
@@ -108,7 +107,7 @@
   <string name="zero_charged_verbiage_extended">Încărcarea altor articole poate declanșa costuri pentru trafic de date.</string>
   <string name="zero_search_hint">Căutare în Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avertizează-mă dacă părăsesc Wikipedia Zero</string>
-  <string name="zero_warn_when_leaving_summary">În cazul în care, printr-un parteneriat Wikipedia Zero, operatorul dumneavoastră de telefonie mobilă nu percepe tarife la traficul date din aplicația Wikipedia, bifarea acestei opțiuni vă înștiințează atunci când părăsiți aplicația Wikipedia şi ați putea fi taxat.</string>
+  <string name="zero_warn_when_leaving_summary">În cazul în care, printr-un parteneriat Wikipedia Zero, operatorul dumneavoastră de telefonie mobilă nu percepe tarife pentru traficul de date din aplicația Wikipedia, bifarea acestei opțiuni vă înștiințează atunci când părăsiți aplicația Wikipedia și ați putea fi taxat.</string>
   <string name="zero_webpage_title">FAQ Wikipedia Zero</string>
   <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
@@ -139,7 +138,7 @@
   <string name="edit_save_action_ip">Salvare ca anonim</string>
   <string name="edit_save_action_login_description">Modificările dumneavoastră vor fi atribuite în mod public numelui dumneavoastră de utilizator, iar alți editori vă vor putea contacta mai ușor</string>
   <string name="edit_save_action_ip_description">Modificările dumneavoastră vor fi atribuite în mod public adresei dumnevoastră IP, care se schimbă frecvent</string>
-  <string name="preference_title_eventlogging_opt_in">Trimite rapoarte de utilizare</string>
+  <string name="preference_title_eventlogging_opt_in">Trimitere rapoarte de utilizare</string>
   <string name="preference_summary_eventlogging_opt_in">Permiteți Wikimediei să adune informații despre modul în care utilizați aplicația pentru a putea îmbunătăți aplicația</string>
   <string name="editing_error_spamblacklist">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>
   <string name="history_search_list_hint">Căutare</string>
@@ -150,8 +149,8 @@
   <string name="page_protected_other">Această pagină a fost protejată pentru următoarele niveluri: %s</string>
   <string name="page_protected_can_not_edit">Nu aveți drepturi pentru a modifica această pagină</string>
   <string name="page_protected_can_not_edit_title">Această pagină este protejată</string>
-  <string name="more_item_preferences">Mai mult</string>
-  <string name="more_activity_title">Mai mult</string>
+  <string name="more_item_preferences">Mai multe</string>
+  <string name="more_activity_title">Mai multe</string>
   <string name="about_description">Despre aplicația Wikipedia</string>
   <string name="preference_title_version">Versiune</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termeni de utilizare&lt;/a&gt;</string>
@@ -182,6 +181,5 @@
   <string name="saved_pages_update_all_error_retry">Reîncearcă</string>
   <string name="saved_pages_update_all_error_message">Eroare la actualizarea paginilor salvate</string>
   <string name="saved_pages_progress_title">Se reîncarcă paginile salvate</string>
-  <string name="saved_pages_refresh_progress_message">Se reîncarcă %s</string>
   <string name="saved_pages_refresh_pages_complete">Actualizare finalizată</string>
 </resources>

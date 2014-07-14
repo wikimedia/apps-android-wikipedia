@@ -69,7 +69,7 @@
   <string name="nav_item_logout">Digevreañ</string>
   <string name="toast_logout_complete">Digevreet</string>
   <string name="saved_pages_empty_message" fuzzy="true">Sined ebet.</string>
-  <string name="history_empty_message">Goullo eo ho roll-istor.</string>
+  <string name="history_empty_message" fuzzy="true">Goullo eo ho roll-istor.</string>
   <string name="create_account_username_hint">Anv implijer</string>
   <string name="create_account_password_hint">Ger-tremen</string>
   <string name="menu_create_account">Krouiñ ur gont</string>
@@ -85,6 +85,7 @@
   <string name="create_account_ip_throttle_error">Re a gontoù zo bet  krouet diwar ar chomlec\'h IP-mañ. Klaskit en-dro diwezhatoc\'h.</string>
   <string name="create_account_open_proxy_error">Prennet eo bet ar chomlec\'h IP-mañ evit krouiñ kontoù.</string>
   <string name="create_account_generic_error">N\'haller ket krouiñ ar gont</string>
+  <string name="create_account_button">Krouiñ ur gont</string>
   <string name="preferences_general_heading">Hollek</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero hep diskarg (Arloet e c\'hall bezañ ar mizoù roadennoù standard)</string>
   <string name="zero_search_hint">Klask e Wikipedia Zero</string>
@@ -113,4 +114,5 @@
   <string name="activity_my_contributions_title">Ma degasadennoù</string>
   <string name="nav_item_my_contributions">Ma degasadennoù</string>
   <string name="edit_save_action_login">Kevreañ hag enrollañ</string>
+  <string name="saved_pages_update_all_error_retry">Adklask</string>
 </resources>

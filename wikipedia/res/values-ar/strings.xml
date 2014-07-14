@@ -20,6 +20,10 @@
   <string name="dialog_title_clear_history">مسح تاريخ التصفح؟</string>
   <string name="saved_pages_activity_title">الصفحات المحفوظة</string>
   <string name="nav_item_saved_pages">الصفحات المحفوظة</string>
+  <string name="menu_update_all_saved_pages">حدث الصفحات المحفوظة</string>
+  <string name="menu_update_selected_saved_pages">حدث الصفحات المحفوظة</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">تحديث كل الصفحات المحفوظة؟</string>
+  <string name="toast_saved_page_refreshed">تم تحديث الصفحات المحفوظة</string>
   <string name="menu_save_page">احفظ الصفحة</string>
   <string name="menu_share_page">مشاركة</string>
   <string name="share_via">مشاركة عبر</string>
@@ -34,7 +38,6 @@
   <string name="toast_saved_page_deleted">حُذفت الصفحة/الصفحات المحفوظة</string>
   <string name="last_updated_text">آخر تحديث %s</string>
   <string name="content_license_html">المحتوى متوفر تحت رخصة  &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; إلا إذا ذكر غير ذلك.</string>
-  <string name="edit_save_action_license">بضغط حفط، أنت توافق من غير رجعة على نشر مساهماتك تحت رخصة &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">لغة ويكيبيديا</string>
   <string name="preference_summary_language">لغة المحتوى</string>
   <string name="preference_languages_filter_hint">بحث</string>
@@ -78,8 +81,8 @@
   <string name="preference_summary_logout">سجل الخروج من حساب ويكيبيديا الخاص بك</string>
   <string name="preference_summary_notloggedin">غير مسجل الدخول.</string>
   <string name="toast_logout_complete">تسجيل الخروج</string>
-  <string name="saved_pages_empty_message">لا توجد صفحات محفوظة</string>
-  <string name="history_empty_message">تاريخ تصفحك فارغ.</string>
+  <string name="saved_pages_empty_message" fuzzy="true">لا توجد صفحات محفوظة</string>
+  <string name="history_empty_message" fuzzy="true">تاريخ تصفحك فارغ.</string>
   <string name="create_account_username_hint">اسم المستخدم</string>
   <string name="create_account_password_hint">كلمة السر</string>
   <string name="menu_create_account">أنشئ حساباً</string>
@@ -175,4 +178,21 @@
   <string name="find_previous">البحث عن السابق</string>
   <string name="find_close">أغلق شريط البحث</string>
   <string name="error_network_error_try_again">تعذر الوصول للشبكة، الرجاء المحاولة لاحقاً.</string>
+  <string name="saved_pages_update_all_error_retry">إعادة المحاولة</string>
+  <string name="saved_pages_update_all_error_message">حدث خطأ أثناء تحديث الصفحات المحفوظة</string>
+  <string name="saved_pages_progress_title">تحديث الصفحات المحفوظة</string>
+  <string name="saved_pages_refresh_pages_complete">اكتمل التحديث</string>
+  <string name="app_store_description">تطبيق ويكيبيديا الرسمي لأندرويد. ويكيبيديا هي موسوعة حرة تحتوي على أكثر من 32 مليون مقالة في 280 لغة. كما أنها الموسوعة الأشمل والأكثر استخداماً على نطاق واسع. وهي أكبر عمل موسوعي جمعته البشرية. تم إعادة تطوير التطبيق من الصفر وأصبح أفضل من أي وقتٍ مضى.
+
+المميزات:
+-السرعة: يمكنك تطبيقنا الأصلي الجديد من تصفح وتحرير ويكيبيديا بسرعة أكبر من ذي قبل.
+-التحرير: يمكنك تحرير ويكيبيديا! نحن نشكرك على جميع مساهماتك سواءً كنت مسجل الدخول أم لا.
+-الصفحات الحديثة: تحن نوفر لك تاريخ قرائتك حتى تستطيع النقر على أي عدد من الروابط دون الإحساس بالتخبط أو الضياع.
+الصفحات المحفوظة: يمكنك حفظ الصفحات لقرائتها دون اتصال. يمكنك تصفح هذه الصفحات حتى إذا كنت غير متصل بالإنترنت.
+-شارك: يمكنك استخدام تطبيقات التواصل الإجتماعي المثبتة لديك للمشاركة في حصيلة المعرفة الإنسانية.
+-دعم اللغات: يسمح لك التطبيق التحويل لأي موسوعة ويكيبيدية ذات لغة مختلفة عند القراءة بكل سهولة وسلاسة. 
+-ويكيبيديا زيرو: يتم التنازل عن رسوم البيانات إذا كان مقدم الخدمة الخاص بك مشترك في هذه الإتفاقية.
+
+الشفرة المصدرية (code) الخاصة بالتطبيق مفتوحة المصدر بالكامل. إذا كانت لديك خبرة مع جافا (Java) وحزمة أدوات تطوير البرمجيات الخاصة بأندرويد (Android SDK) فقم بالتفرع منا! (fork us)  
+https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>
