@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:background="@android:color/background_light"
+        android:background="?attr/window_background_color"
         android:orientation="vertical"
         android:padding="16dp"
         android:visibility="gone"
@@ -28,7 +28,6 @@
         <ProgressBar
                 android:id="@+id/captcha_image_progress"
                 android:indeterminate="true"
-                style="?android:progressBarStyleSmall"
                 android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"/>
