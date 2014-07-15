@@ -601,8 +601,7 @@ public final class Utils {
     public static boolean throwableContainsSpecificType(Throwable actual, Class expected) {
         if (actual == null) {
             return false;
-        }
-        else if (actual.getClass() == expected) {
+        } else if (actual.getClass() == expected) {
             return true;
         } else {
             return throwableContainsSpecificType(actual.getCause(), expected);
