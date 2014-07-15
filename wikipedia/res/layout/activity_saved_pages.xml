@@ -7,7 +7,7 @@
     <LinearLayout
             android:id="@+id/saved_pages_empty_container"
             android:orientation="vertical"
-            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         <ImageView
@@ -17,6 +17,7 @@
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/savedpages"/>
         <TextView
+                android:id="@+id/saved_pages_empty_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -26,6 +27,7 @@
                 android:text="@string/saved_pages_empty_title"
                 />
         <TextView
+                android:id="@+id/saved_pages_empty_message"
                 android:layout_width="256dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -33,10 +35,24 @@
                 android:text="@string/saved_pages_empty_message"
                 />
     </LinearLayout>
-    <ListView
-        android:id="@+id/saved_pages_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <org.wikipedia.views.PlainPasteEditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/saved_pages_search_list"
+                android:hint="@string/saved_pages_search_list_hint"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                />
+        <ListView
+            android:id="@+id/saved_pages_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
 </FrameLayout>

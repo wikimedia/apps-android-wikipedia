@@ -36,6 +36,9 @@
 {{Identical|Update saved page}}</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Prompt before updating all saved pages</string>
   <string name="toast_saved_page_refreshed">Small toast (popup) message saying that all saved pages were updated</string>
+  <string name="saved_pages_search_list_hint">Hint for textbox that searches list of items in saved pages as user types.
+      {{Identical|Search}}</string>
+  <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query. %s is replaced with the query string.</string>
   <string name="menu_save_page">Menu item text for saving the currently active page.
 {{Identical|Save page}}</string>
   <string name="menu_share_page">Menu item text for sharing the currently active page.

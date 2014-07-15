@@ -49,6 +49,7 @@
                 android:name=".savedpages.SavedPagesActivity"
                 android:label="@string/saved_pages_activity_title"
                 android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+                android:windowSoftInputMode="stateHidden|adjustResize"
                 >
         </activity>
 

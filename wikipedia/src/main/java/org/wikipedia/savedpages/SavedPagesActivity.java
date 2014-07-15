@@ -12,17 +12,14 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v7.view.ActionMode;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import com.squareup.picasso.Picasso;
 import org.wikipedia.R;
 import org.wikipedia.ThemedActionBarActivity;
@@ -39,9 +36,13 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
     public static final int ACTIVITY_RESULT_SAVEDPAGE_SELECT = 1;
 
     private ListView savedPagesList;
-    private View savedPagesEmpty;
+    private View savedPagesEmptyContainer;
+    private TextView savedPagesEmptyTitle;
+    private TextView savedPagesEmptyMessage;
     private SavedPagesAdapter adapter;
     private RefreshPagesHandler refreshHandler;
+    private EditText entryFilter;
+    private ImageView savedPagesEmptyImage;
 
     private WikipediaApp app;
 
@@ -53,11 +54,15 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
 
         setContentView(R.layout.activity_saved_pages);
         savedPagesList = (ListView) findViewById(R.id.saved_pages_list);
-        savedPagesEmpty = findViewById(R.id.saved_pages_empty_container);
+        savedPagesEmptyContainer = findViewById(R.id.saved_pages_empty_container);
+        savedPagesEmptyTitle = (TextView) findViewById(R.id.saved_pages_empty_title);
+        savedPagesEmptyMessage = (TextView) findViewById(R.id.saved_pages_empty_message);
+        entryFilter = (EditText) findViewById(R.id.saved_pages_search_list);
+        savedPagesEmptyImage = (ImageView) findViewById(R.id.saved_pages_empty_image);
 
         adapter = new SavedPagesAdapter(this, null, true);
         savedPagesList.setAdapter(adapter);
-        savedPagesList.setEmptyView(savedPagesEmpty);
+        savedPagesList.setEmptyView(savedPagesEmptyContainer);
 
         savedPagesList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -126,6 +131,33 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
             }
         });
 
+        entryFilter.addTextChangedListener(
+                new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                        // Do nothing
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                        // Do nothing
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+                        getSupportLoaderManager().restartLoader(0, null, SavedPagesActivity.this);
+                        if (editable.length() == 0) {
+                            savedPagesEmptyTitle.setText(R.string.saved_pages_empty_title);
+                            savedPagesEmptyImage.setVisibility(View.VISIBLE);
+                            savedPagesEmptyMessage.setVisibility(View.VISIBLE);
+                        } else {
+                            savedPagesEmptyTitle.setText(getString(R.string.saved_pages_search_empty_message, editable.toString()));
+                            savedPagesEmptyImage.setVisibility(View.GONE);
+                            savedPagesEmptyMessage.setVisibility(View.GONE);
+                        }
+                    }
+                });
+
         savedPagesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -146,17 +178,24 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
         });
 
         getSupportLoaderManager().initLoader(0, null, this);
-        app.adjustDrawableToTheme(((ImageView) findViewById(R.id.saved_pages_empty_image)).getDrawable());
+        app.adjustDrawableToTheme(savedPagesEmptyImage.getDrawable());
     }
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+        String selection = null;
+        String[] selectionArgs = null;
+        if (entryFilter.getText().length() != 0) {
+            // FIXME: Find ways to not have to hard code column names
+            selection =  "UPPER(savedpages.title) LIKE UPPER(?)";
+            selectionArgs = new String[]{"%" + entryFilter.getText().toString() + "%"};
+        }
         return new CursorLoader(
                 this,
                 Uri.parse(SavedPage.PERSISTANCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTANCE_HELPER.getTableName()),
                 null,
-                null,
-                null,
+                selection,
+                selectionArgs,
                 "savedpages.title ASC");
     }
 

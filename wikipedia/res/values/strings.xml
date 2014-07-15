@@ -40,6 +40,8 @@
     <string name="toast_refresh_saved_page">Refreshing saved page...</string>
     <string name="delete_selected_saved_pages">Delete</string>
     <string name="toast_saved_page_deleted">Saved page(s) deleted</string>
+    <string name="saved_pages_search_list_hint">Search</string>
+    <string name="saved_pages_search_empty_message">No pages found matching \'%s\'</string>
 
     <string name="last_updated_text">Last updated %s</string>
     <string name="content_license_html"><![CDATA[Content is available under <a href=\"//creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
