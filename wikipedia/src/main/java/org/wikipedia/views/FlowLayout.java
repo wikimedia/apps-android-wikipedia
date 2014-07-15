@@ -26,24 +26,24 @@ public class FlowLayout extends ViewGroup {
         super(context);
         resources = context.getResources();
     }
- 
+
     public FlowLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         resources = context.getResources();
     }
- 
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         assert (MeasureSpec.getMode(widthMeasureSpec) != MeasureSpec.UNSPECIFIED);
- 
+
         int width = MeasureSpec.getSize(widthMeasureSpec) - getPaddingLeft() - getPaddingRight();
         int height = MeasureSpec.getSize(heightMeasureSpec) - getPaddingTop() - getPaddingBottom();
         int count = getChildCount();
         int line_height = 0;
- 
+
         int xpos = getPaddingLeft();
         int ypos = getPaddingTop();
- 
+
         int childHeightMeasureSpec;
         if (MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.AT_MOST) {
             childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST);
@@ -98,12 +98,12 @@ public class FlowLayout extends ViewGroup {
         }
         setMeasuredDimension(width, height);
     }
- 
+
     @Override
     protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(0, 0);
     }
- 
+
     @Override
     protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
         if (p instanceof LayoutParams) {
@@ -111,7 +111,7 @@ public class FlowLayout extends ViewGroup {
         }
         return false;
     }
- 
+
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         int count = getChildCount();
@@ -119,7 +119,7 @@ public class FlowLayout extends ViewGroup {
         int xpos = getPaddingLeft();
         int ypos = getPaddingTop();
         int curLine = 0;
- 
+
         for (int i = 0; i < count; i++) {
             View child = getChildAt(i);
             if (child.getVisibility() != GONE) {
