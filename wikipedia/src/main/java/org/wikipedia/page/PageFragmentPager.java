@@ -70,7 +70,7 @@ public class PageFragmentPager extends ViewPager {
     }
 
     public interface OnAnimationListener {
-        public void OnAnimationFinished();
+        void OnAnimationFinished();
     }
 
     public void setOnAnimationListener(OnAnimationListener listener) {

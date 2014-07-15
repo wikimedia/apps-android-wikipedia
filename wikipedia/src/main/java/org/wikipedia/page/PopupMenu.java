@@ -61,7 +61,7 @@ public class PopupMenu {
         onMenuItemClickListener = listener;
     }
 
-    public static interface OnMenuItemClickListener {
+    public interface OnMenuItemClickListener {
         boolean onMenuItemClick(android.view.MenuItem menuItem);
     }
 
