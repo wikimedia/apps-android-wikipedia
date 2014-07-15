@@ -99,10 +99,10 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
     }
 
     public void checkOneStringWithParameter(int resourceId) throws Exception {
-        final String P1 = "[param1]";
-        String translatedString = getInstrumentation().getTargetContext().getString(resourceId, P1);
+        final String param1 = "[param1]";
+        String translatedString = getInstrumentation().getTargetContext().getString(resourceId, param1);
         Log.i(TAG, myLocale + ":" + translatedString);
-        assertTrue(myLocale + ":'" + translatedString + "' doesn't contain " + P1, translatedString.contains(P1));
+        assertTrue(myLocale + ":'" + translatedString + "' doesn't contain " + param1, translatedString.contains(param1));
     }
 
 //    public void testOneStringWithParameter() throws Exception {

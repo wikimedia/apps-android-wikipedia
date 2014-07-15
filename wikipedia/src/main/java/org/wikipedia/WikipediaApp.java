@@ -87,14 +87,14 @@ public class WikipediaApp extends Application {
     /**
      * Singleton instance of WikipediaApp
      */
-    private static WikipediaApp instance;
+    private static WikipediaApp INSTANCE;
 
     private ConnectionChangeReceiver connChangeReceiver;
     public static boolean FALLBACK = false;
     public static int FAILS = 0;
 
     public WikipediaApp() {
-        instance = this;
+        INSTANCE = this;
     }
 
     /**
@@ -103,7 +103,7 @@ public class WikipediaApp extends Application {
      * This is ok, since android treats it as a singleton anyway.
      */
     public static WikipediaApp getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
     @Override
@@ -379,12 +379,12 @@ public class WikipediaApp extends Application {
         return appInstallReadActionID;
     }
 
-    private static boolean wikipediaZeroDisposition = false;
+    private static boolean W0_DISPOSITION = false;
     public static void setWikipediaZeroDisposition(boolean b) {
-        wikipediaZeroDisposition = b;
+        W0_DISPOSITION = b;
     }
     public static boolean getWikipediaZeroDisposition() {
-        return wikipediaZeroDisposition;
+        return W0_DISPOSITION;
     }
 
     // FIXME: Move this logic elsewhere

@@ -39,7 +39,7 @@ public class FlowLayout extends ViewGroup {
         int width = MeasureSpec.getSize(widthMeasureSpec) - getPaddingLeft() - getPaddingRight();
         int height = MeasureSpec.getSize(heightMeasureSpec) - getPaddingTop() - getPaddingBottom();
         int count = getChildCount();
-        int line_height = 0;
+        int lineHeight = 0;
 
         int xpos = getPaddingLeft();
         int ypos = getPaddingTop();
@@ -57,31 +57,31 @@ public class FlowLayout extends ViewGroup {
             View child = getChildAt(i);
             if (child.getVisibility() != GONE) {
                 child.measure(MeasureSpec.makeMeasureSpec(width, MeasureSpec.AT_MOST), childHeightMeasureSpec);
-                int childw = child.getMeasuredWidth() + getDp(HORIZONTAL_SPACING);
-                line_height = Math.max(line_height, child.getMeasuredHeight());
+                int childWidth = child.getMeasuredWidth() + getDp(HORIZONTAL_SPACING);
+                lineHeight = Math.max(lineHeight, child.getMeasuredHeight());
 
-                if (xpos + childw > width) {
+                if (xpos + childWidth > width) {
                     xpos = getPaddingLeft();
-                    line_height += getDp(VERTICAL_SPACING);
-                    lineHeights.add(line_height);
-                    ypos += line_height;
-                    line_height = 0;
+                    lineHeight += getDp(VERTICAL_SPACING);
+                    lineHeights.add(lineHeight);
+                    ypos += lineHeight;
+                    lineHeight = 0;
                     overflowed = true;
                 }
-                xpos += childw;
+                xpos += childWidth;
             }
         }
         if (overflowed) {
-            if (line_height > 0) {
-                lineHeights.add(line_height);
+            if (lineHeight > 0) {
+                lineHeights.add(lineHeight);
             } else {
                 if (getChildCount() > 0) {
                     lineHeights.add(getChildAt(getChildCount() - 1).getMeasuredHeight() + getDp(VERTICAL_SPACING));
                 }
             }
         } else {
-            if (line_height > 0) {
-                lineHeights.add(line_height);
+            if (lineHeight > 0) {
+                lineHeights.add(lineHeight);
             }
         }
 

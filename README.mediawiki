@@ -197,3 +197,16 @@ Run:
 
 Original files from icon-svgs/*/*.svg are rendered and copied into the res/
 subdirectories. Note that they are not automatically added to git!
+
+== Updating generated static data files ==
+
+=== Setup ===
+
+sudo pip install unicodecsv
+sudo pip install jinja2
+
+=== Run ===
+
+cd scripts
+python make-templates.py
+mv *.java ../wikipedia/src/main/java/org/wikipedia/staticdata/

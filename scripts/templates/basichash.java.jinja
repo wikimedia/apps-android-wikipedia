@@ -7,23 +7,23 @@ import java.util.*;
 
 public class {{ class_name }} {
 
-    private static HashMap<String, String> dataMap;
+    private static HashMap<String, String> DATA_MAP;
     private static void setupData() {
-        dataMap = new HashMap<String, String>({{wikis|length}});
+        DATA_MAP = new HashMap<String, String>({{wikis|length}});
 
         {%- for wiki in wikis %}
-        dataMap.put("{{wiki.lang}}", "{{wiki.props[key]}}");
+        DATA_MAP.put("{{wiki.lang}}", "{{wiki.props[key]}}");
         {%- endfor %}
     }
 
     public static String valueFor(String key) {
-        if (dataMap == null) {
+        if (DATA_MAP == null) {
             setupData();
         }
 
-        if (dataMap.containsKey(key)) {
-            return dataMap.get(key);
+        if (DATA_MAP.containsKey(key)) {
+            return DATA_MAP.get(key);
         }
-        return dataMap.get("en");
+        return DATA_MAP.get("en");
     }
 }

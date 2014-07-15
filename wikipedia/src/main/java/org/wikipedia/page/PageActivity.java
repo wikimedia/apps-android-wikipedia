@@ -225,7 +225,7 @@ public class PageActivity extends ActionBarActivity {
         final PageViewFragment prevFragment = curPageFragment;
         fragmentPager.setOnAnimationListener(new PageFragmentPager.OnAnimationListener() {
             @Override
-            public void OnAnimationFinished() {
+            public void onAnimationFinished() {
                 if (prevFragment != null) {
                     prevFragment.hide();
                 }
@@ -362,7 +362,7 @@ public class PageActivity extends ActionBarActivity {
                 // let the Pager finish its animation, then remove the fragment that was moved off.
                 fragmentPager.setOnAnimationListener(new PageFragmentPager.OnAnimationListener() {
                     @Override
-                    public void OnAnimationFinished() {
+                    public void onAnimationFinished() {
                         fragmentAdapter.removeFragment(backStack.size() - 1);
 
                         fragmentAdapter.notifyDataSetChanged();

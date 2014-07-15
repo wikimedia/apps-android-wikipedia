@@ -42,21 +42,24 @@ public class PageFragmentPager extends ViewPager {
     }
 
     private class FragmentPagerListener implements ViewPager.OnPageChangeListener {
+        private boolean pageChanged = false;
+
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionPixels) {
         }
-        private boolean pageChanged = false;
+
         @Override
         public void onPageSelected(int position) {
             pageChanged = true;
         }
+
         @Override
         public void onPageScrollStateChanged(int state) {
             if (state == ViewPager.SCROLL_STATE_IDLE) {
                 isAnimating = false;
                 if (pageChanged) {
                     if (onAnimationListener != null) {
-                        onAnimationListener.OnAnimationFinished();
+                        onAnimationListener.onAnimationFinished();
                     }
                 }
             } else {
@@ -70,7 +73,7 @@ public class PageFragmentPager extends ViewPager {
     }
 
     public interface OnAnimationListener {
-        void OnAnimationFinished();
+        void onAnimationFinished();
     }
 
     public void setOnAnimationListener(OnAnimationListener listener) {
