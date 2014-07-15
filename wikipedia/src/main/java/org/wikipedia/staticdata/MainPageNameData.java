@@ -8,8 +8,10 @@ import java.util.*;
 public class MainPageNameData {
 
     private static HashMap<String, String> DATA_MAP;
+
     private static void setupData() {
-        DATA_MAP = new HashMap<String, String>(287);
+        final int SIZE = 287;
+        DATA_MAP = new HashMap<String, String>(SIZE);
         DATA_MAP.put("en", "Main Page");
         DATA_MAP.put("nl", "Hoofdpagina");
         DATA_MAP.put("de", "Wikipedia:Hauptseite");

@@ -211,6 +211,10 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
     }
 
     private class SavedPagesAdapter extends CursorAdapter {
+
+        /** see SavedPageContentProvider.query() MATCH_WITH_PAGEIMAGES */
+        private static final int COL_INDEX_IMAGE_NAME = 4;
+
         public SavedPagesAdapter(Context context, Cursor c, boolean autoRequery) {
             super(context, c, autoRequery);
         }
@@ -233,7 +237,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
             view.setTag(entry);
 
             Picasso.with(SavedPagesActivity.this)
-                    .load(cursor.getString(4))
+                    .load(cursor.getString(COL_INDEX_IMAGE_NAME))
                     .placeholder(R.drawable.ic_pageimage_placeholder)
                     .error(R.drawable.ic_pageimage_placeholder)
                     .into(thumbnail);
@@ -254,7 +258,6 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
             } else {
                 sectionHeader.setVisibility(View.GONE);
             }
-
         }
     }
 

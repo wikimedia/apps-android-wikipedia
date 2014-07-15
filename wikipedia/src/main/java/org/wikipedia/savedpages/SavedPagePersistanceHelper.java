@@ -9,13 +9,18 @@ import org.wikipedia.data.PersistanceHelper;
 import java.util.Date;
 
 public class SavedPagePersistanceHelper extends PersistanceHelper<SavedPage> {
+
+    private static final int COL_INDEX_SITE = 1;
+    private static final int COL_INDEX_TITLE = 2;
+    private static final int COL_INDEX_TIME = 3;
+
     @Override
     public SavedPage fromCursor(Cursor c) {
         // Carefully, get them back by using position only
-        Site site = new Site(c.getString(1));
+        Site site = new Site(c.getString(COL_INDEX_SITE));
         // FIXME: Does not handle non mainspace pages
-        PageTitle title = new PageTitle(null, c.getString(2), site);
-        Date timestamp = new Date(c.getLong(3));
+        PageTitle title = new PageTitle(null, c.getString(COL_INDEX_TITLE), site);
+        Date timestamp = new Date(c.getLong(COL_INDEX_TIME));
         return new SavedPage(title, timestamp);
     }
 
@@ -65,6 +70,4 @@ public class SavedPagePersistanceHelper extends PersistanceHelper<SavedPage> {
                 obj.getTitle().getPrefixedText()
         };
     }
-
-
 }

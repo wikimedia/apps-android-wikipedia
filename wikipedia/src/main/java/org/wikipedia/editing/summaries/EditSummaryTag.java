@@ -10,8 +10,10 @@ import android.widget.TextView;
 import org.wikipedia.R;
 
 public class EditSummaryTag extends TextView {
+    public static final int MARGIN = 4;
+    public static final int PADDING = 8;
 
-    Resources resources;
+    private Resources resources;
     private boolean selected = false;
 
     public EditSummaryTag(Context context) {
@@ -37,8 +39,8 @@ public class EditSummaryTag extends TextView {
                 LayoutParams.WRAP_CONTENT
         );
 
-        int margin = getDp(4);
-        int padding = getDp(8);
+        int margin = getDp(MARGIN);
+        int padding = getDp(PADDING);
         params.setMargins(margin, margin, margin, margin);
         setLayoutParams(params);
 
@@ -75,10 +77,6 @@ public class EditSummaryTag extends TextView {
     }
 
     private int getDp(int dp) {
-        return (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                dp,
-                resources.getDisplayMetrics()
-        );
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
     }
 }

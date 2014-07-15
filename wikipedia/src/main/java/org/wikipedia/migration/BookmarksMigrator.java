@@ -24,6 +24,9 @@ import java.util.Date;
  * since this will not be needed after that. One time migration, isn't it?
  */
 public class BookmarksMigrator {
+    private static final int COL_INDEX_SITE = 1;
+    private static final int COL_INDEX_TITLE = 2;
+    private static final int COL_INDEX_TIME = 3;
     private final WikipediaApp app;
 
     public BookmarksMigrator(WikipediaApp app) {
@@ -48,9 +51,9 @@ public class BookmarksMigrator {
         int rowsFound = 0;
         cur.moveToFirst();
         while (!cur.isAfterLast()) {
-            Site site = new Site(cur.getString(1));
-            PageTitle title = new PageTitle(cur.getString(2), site);
-            Date timestamp = new Date(cur.getLong(3));
+            Site site = new Site(cur.getString(COL_INDEX_SITE));
+            PageTitle title = new PageTitle(cur.getString(COL_INDEX_TITLE), site);
+            Date timestamp = new Date(cur.getLong(COL_INDEX_TIME));
             SavedPage page = new SavedPage(title, timestamp);
             app.getPersister(SavedPage.class).upsert(page);
             Log.d("Wikipedia", "Migrated " + title.getDisplayText());

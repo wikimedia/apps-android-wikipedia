@@ -47,7 +47,11 @@ import java.util.Map;
 
 public class SearchArticlesFragment extends Fragment {
     private static final int DELAY_MILLIS = 300;
-
+    private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
+    private static final int MAX_CACHE_SIZE_IMAGES = 48;
+    private static final float THUMB_SIZE_DP = 48f;
+    private static final int LEFT_MARGIN_BASE_DP = 10;
+    private static final float INITIAL_OFFSET_WINDOW = 0.5f;
     private static final int MESSAGE_SEARCH = 1;
 
     private WikipediaApp app;
@@ -73,8 +77,10 @@ public class SearchArticlesFragment extends Fragment {
 
     private boolean isSearchActive = false;
 
-    private ParcelableLruCache<List<PageTitle>> searchResultsCache = new ParcelableLruCache<List<PageTitle>>(4, List.class);
-    private ParcelableLruCache<String> pageImagesCache = new ParcelableLruCache<String>(48, String.class);
+    private ParcelableLruCache<List<PageTitle>> searchResultsCache
+            = new ParcelableLruCache<List<PageTitle>>(MAX_CACHE_SIZE_SEARCH_RESULTS, List.class);
+    private ParcelableLruCache<String> pageImagesCache
+            = new ParcelableLruCache<String>(MAX_CACHE_SIZE_IMAGES, String.class);
     private String lastSearchedText;
 
     private Handler searchHandler;
@@ -116,7 +122,7 @@ public class SearchArticlesFragment extends Fragment {
                     app.getAPIForSite(app.getPrimarySite()),
                     app.getPrimarySite(),
                     results,
-                    (int)(48f * WikipediaApp.SCREEN_DENSITY)) {
+                    (int)(THUMB_SIZE_DP * WikipediaApp.SCREEN_DENSITY)) {
                 @Override
                 public void onFinish(Map<PageTitle, String> result) {
                     for (Map.Entry<PageTitle, String> entry : result.entrySet()) {
@@ -335,8 +341,10 @@ public class SearchArticlesFragment extends Fragment {
 
         drawerLayout.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             private boolean hideKeyboardCalled = false;
-            private float offsetWindow = 0.5f;
-            private float offsetWindowMax = offsetWindow, offsetWindowMin = 0f;
+            private float offsetWindow = INITIAL_OFFSET_WINDOW;
+            private float offsetWindowMax = offsetWindow;
+            private float offsetWindowMin = 0f;
+
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 // Hide the keyboard when the drawer is opened
@@ -357,13 +365,13 @@ public class SearchArticlesFragment extends Fragment {
                     offsetWindowMax = offsetWindowMin + offsetWindow;
                 }
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(drawerIndicator.getLayoutParams());
-                params.leftMargin = -(int)(10 * WikipediaApp.SCREEN_DENSITY * offsetWindowMin);
+                params.leftMargin = -(int)(LEFT_MARGIN_BASE_DP * WikipediaApp.SCREEN_DENSITY * offsetWindowMin);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1
                         && drawerView.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
                     params.leftMargin = -params.leftMargin;
                 }
                 params.rightMargin = -params.leftMargin;
-                params.gravity = Gravity.CENTER_VERTICAL; // Needed because this seems to get reset otherwise. hmpf.
+                params.gravity = Gravity.CENTER_VERTICAL; // Needed because this seems to get reset otherwise.
                 drawerIndicator.setLayoutParams(params);
             }
             @Override
@@ -373,7 +381,6 @@ public class SearchArticlesFragment extends Fragment {
                 }
             }
         });
-
     }
 
     @Override

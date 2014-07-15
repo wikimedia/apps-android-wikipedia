@@ -9,24 +9,30 @@ import org.wikipedia.data.PersistanceHelper;
 import java.util.Date;
 
 public class HistoryEntryPersistanceHelper extends PersistanceHelper<HistoryEntry> {
+
+    private static final int COL_INDEX_SITE = 1;
+    private static final int COL_INDEX_TITLE = 2;
+    private static final int COL_INDEX_TIMESTAMP = 3;
+    private static final int COL_INDEX_SOURCE = 4;
+
     @Override
     public HistoryEntry fromCursor(Cursor c) {
         // Carefully, get them back by using position only
-        Site site = new Site(c.getString(1));
+        Site site = new Site(c.getString(COL_INDEX_SITE));
         // FIXME: Does not handle non mainspace pages
-        PageTitle title = new PageTitle(null, c.getString(2), site);
-        Date timestamp = new Date(c.getLong(3));
-        int source = c.getInt(4);
+        PageTitle title = new PageTitle(null, c.getString(COL_INDEX_TITLE), site);
+        Date timestamp = new Date(c.getLong(COL_INDEX_TIMESTAMP));
+        int source = c.getInt(COL_INDEX_SOURCE);
         return new HistoryEntry(title, timestamp, source);
     }
 
     @Override
     protected ContentValues toContentValues(HistoryEntry obj) {
         ContentValues contentValues = new ContentValues();
+        contentValues.put("site", obj.getTitle().getSite().getDomain());
         contentValues.put("title", obj.getTitle().getPrefixedText());
         contentValues.put("timestamp", obj.getTimestamp().getTime());
         contentValues.put("source", obj.getSource());
-        contentValues.put("site", obj.getTitle().getSite().getDomain());
         return contentValues;
     }
 
@@ -60,6 +66,4 @@ public class HistoryEntryPersistanceHelper extends PersistanceHelper<HistoryEntr
     protected String[] getPrimaryKeySelectionArgs(HistoryEntry obj) {
         throw new UnsupportedOperationException("No Primary Keys make sense for History");
     }
-
-
 }

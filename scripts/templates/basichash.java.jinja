@@ -8,8 +8,10 @@ import java.util.*;
 public class {{ class_name }} {
 
     private static HashMap<String, String> DATA_MAP;
+
     private static void setupData() {
-        DATA_MAP = new HashMap<String, String>({{wikis|length}});
+        final int SIZE = {{wikis|length}};
+        DATA_MAP = new HashMap<String, String>(SIZE);
 
         {%- for wiki in wikis %}
         DATA_MAP.put("{{wiki.lang}}", "{{wiki.props[key]}}");

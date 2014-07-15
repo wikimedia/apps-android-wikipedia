@@ -51,8 +51,6 @@ import java.util.UUID;
         resDialogCommentPrompt = R.string.acra_report_dialog_comment,
         mailTo = "mobile-android-wikipedia-crashes@wikimedia.org")
 public class WikipediaApp extends Application {
-    private Bus bus;
-
     public static long SHORT_ANIMATION_DURATION;
     public static long MEDIUM_ANIMATION_DURATION;
 
@@ -79,15 +77,18 @@ public class WikipediaApp extends Application {
 
     public static int THEME_LIGHT;
     public static int THEME_DARK;
-    private int currentTheme = 0;
 
     public static final int FONT_SIZE_MULTIPLIER_MIN = -5;
     public static final int FONT_SIZE_MULTIPLIER_MAX = 8;
+    private static final float FONT_SIZE_FACTOR = 0.1f;
 
     /**
      * Singleton instance of WikipediaApp
      */
     private static WikipediaApp INSTANCE;
+
+    private Bus bus;
+    private int currentTheme = 0;
 
     private ConnectionChangeReceiver connChangeReceiver;
     public static boolean FALLBACK = false;
@@ -473,6 +474,6 @@ public class WikipediaApp extends Application {
      */
     public float getFontSize(Window window) {
         int multiplier = PreferenceManager.getDefaultSharedPreferences(this).getInt(WikipediaApp.PREFERENCE_TEXT_SIZE_MULTIPLIER, 0);
-        return Utils.getFontSizeFromSp(window, getResources().getDimension(R.dimen.textSize)) * (1.0f + multiplier * 0.1f);
+        return Utils.getFontSizeFromSp(window, getResources().getDimension(R.dimen.textSize)) * (1.0f + multiplier * FONT_SIZE_FACTOR);
     }
 }

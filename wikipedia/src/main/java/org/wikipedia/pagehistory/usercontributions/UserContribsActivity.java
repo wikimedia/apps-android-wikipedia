@@ -17,6 +17,8 @@ import org.wikipedia.pagehistory.PageHistoryItem;
 import java.util.ArrayList;
 
 public class UserContribsActivity extends ThemedActionBarActivity {
+    private static final int NUMBER_TO_FETCH = 24;
+
     private ListView userContribsList;
     private View moreContainer;
     private TextView moreText;
@@ -66,7 +68,7 @@ public class UserContribsActivity extends ThemedActionBarActivity {
         if (isFetching) {
             return;
         }
-        new FetchUserContribsTask(this, app.getPrimarySite(), app.getUserInfoStorage().getUser().getUsername(), 24, lastContinue) {
+        new FetchUserContribsTask(this, app.getPrimarySite(), app.getUserInfoStorage().getUser().getUsername(), NUMBER_TO_FETCH, lastContinue) {
             @Override
             public void onBeforeExecute() {
                 isFetching = true;

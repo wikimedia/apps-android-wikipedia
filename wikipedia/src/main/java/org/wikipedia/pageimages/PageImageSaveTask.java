@@ -8,9 +8,12 @@ import java.util.Arrays;
 import java.util.Map;
 
 public class PageImageSaveTask extends PageImagesTask {
+    private static final int SIZE = 96;
+
     private final WikipediaApp app;
+
     public PageImageSaveTask(WikipediaApp app, Api api, PageTitle title) {
-        super(api, title.getSite(), Arrays.asList(new PageTitle[] {title}), 96);
+        super(api, title.getSite(), Arrays.asList(new PageTitle[] {title}), SIZE);
         this.app = app;
     }
 

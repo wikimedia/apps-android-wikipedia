@@ -84,8 +84,7 @@ public final class Utils {
     public static String md5base64(final String s) {
         try {
             // Create MD5 Hash
-            MessageDigest digest = java.security.MessageDigest
-                    .getInstance("MD5");
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
             digest.update(s.getBytes("utf-8"));
             byte[] messageDigest = digest.digest();
 
@@ -108,8 +107,7 @@ public final class Utils {
         StringBuilder hexStr = new StringBuilder();
         try {
             // Create MD5 Hash
-            MessageDigest digest = java.security.MessageDigest
-                    .getInstance("MD5");
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
             digest.update(s.getBytes("utf-8"));
             byte[] messageDigest = digest.digest();
 
