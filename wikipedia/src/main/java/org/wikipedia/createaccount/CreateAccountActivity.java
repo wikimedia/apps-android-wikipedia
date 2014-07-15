@@ -3,7 +3,6 @@ package org.wikipedia.createaccount;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,9 +24,7 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.*;
 import org.wikipedia.analytics.CreateAccountFunnel;
-import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.editing.CaptchaHandler;
-import org.wikipedia.login.LoginActivity;
 
 
 public class CreateAccountActivity extends ThemedActionBarActivity {

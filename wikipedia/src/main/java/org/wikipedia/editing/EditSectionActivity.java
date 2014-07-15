@@ -2,34 +2,29 @@ package org.wikipedia.editing;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.text.*;
-import android.text.style.ClickableSpan;
+import android.text.Editable;
+import android.text.Html;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.*;
-import android.webkit.WebView;
 import android.widget.*;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.*;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.analytics.LoginFunnel;
-import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.editing.summaries.EditSummaryFragment;
 import org.wikipedia.events.WikipediaZeroInterstitialEvent;
 import org.wikipedia.login.LoginActivity;
@@ -40,8 +35,6 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.Section;
 import org.wikipedia.settings.SettingsActivity;
-
-import java.util.Locale;
 
 public class EditSectionActivity extends ThemedActionBarActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";

@@ -4,7 +4,6 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.test.ActivityInstrumentationTestCase2;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 //import org.wikimedia.wikipedia.test.R;
