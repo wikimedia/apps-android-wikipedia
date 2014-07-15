@@ -158,7 +158,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
                 null,
                 null,
                 null,
-                "timestamp DESC");
+                "savedpages.title ASC");
     }
 
     @Override
@@ -200,19 +200,18 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
                     .error(R.drawable.ic_pageimage_placeholder)
                     .into(thumbnail);
 
-            // Check the previous item, see if the times differe enough
-            // If they do, display the section header.
-            // Always do it this is the first item.
-            String curTime, prevTime = "";
+            // If this page title's first letter is different from the previous title's
+            // first letter, then display the heading.
+            String curLetter, prevLetter = "";
             if (cursor.getPosition() != 0) {
                 Cursor prevCursor = (Cursor) getItem(cursor.getPosition() - 1);
                 SavedPage prevEntry = SavedPage.PERSISTANCE_HELPER.fromCursor(prevCursor);
-                prevTime = getDateString(prevEntry.getTimestamp());
+                prevLetter = prevEntry.getTitle().getDisplayText().substring(0, 1);
             }
-            curTime = getDateString(entry.getTimestamp());
+            curLetter = entry.getTitle().getDisplayText().substring(0, 1);
             TextView sectionHeader = (TextView) view.findViewById(R.id.saved_page_section_header_text);
-            if (!curTime.equals(prevTime)) {
-                sectionHeader.setText(curTime);
+            if (!curLetter.equals(prevLetter)) {
+                sectionHeader.setText(curLetter);
                 sectionHeader.setVisibility(View.VISIBLE);
             } else {
                 sectionHeader.setVisibility(View.GONE);
