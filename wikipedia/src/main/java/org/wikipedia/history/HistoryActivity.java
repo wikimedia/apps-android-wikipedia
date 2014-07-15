@@ -102,7 +102,7 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
             });
 
         getSupportLoaderManager().initLoader(0, null, this);
-        app.adjustDrawableToTheme( ((ImageView)findViewById(R.id.history_empty_image)).getDrawable() );
+        app.adjustDrawableToTheme(((ImageView) findViewById(R.id.history_empty_image)).getDrawable());
     }
 
     @Override

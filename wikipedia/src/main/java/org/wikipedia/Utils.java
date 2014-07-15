@@ -282,7 +282,7 @@ public final class Utils {
                 if (t != null && t.getPhoneType() >= 0) {
                     mccMncNetwork = t.getNetworkOperator();
                     if (mccMncNetwork != null) {
-                        mccMncNetwork = mccMncNetwork.substring(0,3) + "-" + mccMncNetwork.substring(3);
+                        mccMncNetwork = mccMncNetwork.substring(0, 3) + "-" + mccMncNetwork.substring(3);
                     } else {
                         mccMncNetwork = "000-00";
                     }
@@ -292,7 +292,7 @@ public final class Utils {
                     // so let's check the SIM, too. Let's not worry if it's CDMA, as the def of CDMA is complex.
                     mccMncSim = t.getSimOperator();
                     if (mccMncSim != null) {
-                        mccMncSim = mccMncSim.substring(0,3) + "-" + mccMncSim.substring(3);
+                        mccMncSim = mccMncSim.substring(0, 3) + "-" + mccMncSim.substring(3);
                     } else {
                         mccMncSim = "000-00";
                     }

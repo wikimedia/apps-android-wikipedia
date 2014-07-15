@@ -24,11 +24,11 @@ public class AboutActivity extends ThemedActionBarActivity {
         ((TextView) findViewById(R.id.about_wmf)).setText(Html.fromHtml(getString(R.string.about_wmf)));
         ((TextView) findViewById(R.id.about_version_text)).setText(WikipediaApp.APP_VERSION_STRING);
         ((TextView) findViewById(R.id.send_feedback_text)).setText(Html.fromHtml(
-                "<a href=\"mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App " +
-                WikipediaApp.APP_VERSION_STRING +
-                " Feedback\">" +
-                getString(R.string.send_feedback) +
-                "</a>"));
+                "<a href=\"mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App "
+                + WikipediaApp.APP_VERSION_STRING
+                + " Feedback\">"
+                + getString(R.string.send_feedback)
+                + "</a>"));
 
         //if there's no Email app, hide the Feedback link.
         if (!Utils.mailAppExists(this)) {

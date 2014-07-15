@@ -8,9 +8,9 @@ public class PopupMenu {
     private Object menu;
 
     public PopupMenu(android.content.Context context, android.view.View anchor) {
-        menu = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ?
-                new android.widget.PopupMenu(context, anchor) :
-                new android.support.v7.widget.PopupMenu(context, anchor);
+        menu = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB
+                ? new android.widget.PopupMenu(context, anchor)
+                : new android.support.v7.widget.PopupMenu(context, anchor);
 
         if (menu instanceof android.support.v7.widget.PopupMenu) {
             ((android.support.v7.widget.PopupMenu) menu).setOnMenuItemClickListener(new android.support.v7.widget.PopupMenu.OnMenuItemClickListener() {
@@ -36,15 +36,15 @@ public class PopupMenu {
     }
 
     public android.view.Menu getMenu() {
-        return menu instanceof android.support.v7.widget.PopupMenu ?
-                ((android.support.v7.widget.PopupMenu) menu).getMenu() :
-                ((android.widget.PopupMenu) menu).getMenu();
+        return menu instanceof android.support.v7.widget.PopupMenu
+                ? ((android.support.v7.widget.PopupMenu) menu).getMenu()
+                : ((android.widget.PopupMenu) menu).getMenu();
     }
 
     public android.view.MenuInflater getMenuInflater() {
-        return menu instanceof android.support.v7.widget.PopupMenu ?
-                ((android.support.v7.widget.PopupMenu) menu).getMenuInflater() :
-                ((android.widget.PopupMenu) menu).getMenuInflater();
+        return menu instanceof android.support.v7.widget.PopupMenu
+                ? ((android.support.v7.widget.PopupMenu) menu).getMenuInflater()
+                : ((android.widget.PopupMenu) menu).getMenuInflater();
     }
 
     public void show() {

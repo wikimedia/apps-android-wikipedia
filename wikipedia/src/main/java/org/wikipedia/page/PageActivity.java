@@ -348,7 +348,7 @@ public class PageActivity extends ActionBarActivity {
         if (searchArticlesFragment.handleBackPressed()) {
             return;
         }
-        if(!(curPageFragment != null && curPageFragment.handleBackPressed())) {
+        if (!(curPageFragment != null && curPageFragment.handleBackPressed())) {
             if (backStack.size() <= 1) {
                 // Everything we could pop has been popped....
                 finish();

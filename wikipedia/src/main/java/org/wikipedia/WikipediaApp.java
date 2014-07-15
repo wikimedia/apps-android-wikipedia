@@ -410,8 +410,7 @@ public class WikipediaApp extends Application {
         if (currentTheme == 0) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             currentTheme = prefs.getInt(PREFERENCE_COLOR_THEME, THEME_LIGHT);
-            if (currentTheme != THEME_LIGHT &&
-                    currentTheme != THEME_DARK) {
+            if (currentTheme != THEME_LIGHT && currentTheme != THEME_DARK) {
                 currentTheme = THEME_LIGHT;
             }
         }
@@ -474,7 +473,6 @@ public class WikipediaApp extends Application {
      */
     public float getFontSize(Window window) {
         int multiplier = PreferenceManager.getDefaultSharedPreferences(this).getInt(WikipediaApp.PREFERENCE_TEXT_SIZE_MULTIPLIER, 0);
-        return Utils.getFontSizeFromSp(window, getResources().getDimension(R.dimen.textSize)) *
-                (1.0f + multiplier * 0.1f);
+        return Utils.getFontSizeFromSp(window, getResources().getDimension(R.dimen.textSize)) * (1.0f + multiplier * 0.1f);
     }
 }

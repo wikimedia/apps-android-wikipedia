@@ -106,7 +106,7 @@ public class EditPreviewFragment extends Fragment {
 
         if (savedInstanceState != null) {
 
-            for (int i=0; i<summaryTags.size(); i++) {
+            for (int i = 0; i < summaryTags.size(); i++) {
                 summaryTags.get(i).setSelected(savedInstanceState.getBoolean("summaryTag" + i, false));
             }
             if (savedInstanceState.containsKey("otherTag")) {
@@ -301,7 +301,7 @@ public class EditPreviewFragment extends Fragment {
         super.onSaveInstanceState(outState);
         outState.putString("previewHTML", previewHTML);
         outState.putBoolean("isActive", isActive());
-        for (int i=0; i<summaryTags.size(); i++) {
+        for (int i = 0; i < summaryTags.size(); i++) {
             outState.putBoolean("summaryTag" + i, summaryTags.get(i).getSelected());
         }
         if (otherTag.getSelected()) {

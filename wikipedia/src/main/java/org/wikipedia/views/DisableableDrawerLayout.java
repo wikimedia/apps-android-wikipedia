@@ -36,12 +36,10 @@ public class DisableableDrawerLayout extends DrawerLayout {
             for (int i = 0; i < childCount; i++) {
                 final View child = getChildAt(i);
                 int childGravity = GravityCompat.getAbsoluteGravity(((LayoutParams) child.getLayoutParams()).gravity,
-                        ViewCompat.getLayoutDirection(child));
-                if ((childGravity & Gravity.HORIZONTAL_GRAVITY_MASK) ==
-                        (Gravity.LEFT & Gravity.HORIZONTAL_GRAVITY_MASK)) {
+                                                                     ViewCompat.getLayoutDirection(child));
+                if ((childGravity & Gravity.HORIZONTAL_GRAVITY_MASK) == (Gravity.LEFT & Gravity.HORIZONTAL_GRAVITY_MASK)) {
                     gravity = Gravity.LEFT;
-                } else if ((childGravity & Gravity.HORIZONTAL_GRAVITY_MASK) ==
-                        (Gravity.RIGHT & Gravity.HORIZONTAL_GRAVITY_MASK)) {
+                } else if ((childGravity & Gravity.HORIZONTAL_GRAVITY_MASK) == (Gravity.RIGHT & Gravity.HORIZONTAL_GRAVITY_MASK)) {
                     gravity = Gravity.RIGHT;
                 }
             }

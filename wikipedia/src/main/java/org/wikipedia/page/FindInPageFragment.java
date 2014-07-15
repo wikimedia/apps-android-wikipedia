@@ -84,7 +84,7 @@ public class FindInPageFragment extends Fragment {
                 }
                 if (s.length() > 0) {
                     findInPage(s.toString());
-                } else{
+                } else {
                     parentActivity.getCurPageFragment().getWebView().clearMatches();
                 }
             }

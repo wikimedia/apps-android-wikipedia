@@ -128,7 +128,7 @@ public class EditSummaryFragment extends Fragment {
      * so that it remains saved in a drop-down list for future use.
      */
     public void saveSummary() {
-        if(summaryText.length() > 0) {
+        if (summaryText.length() > 0) {
             editSummaryHandler.persistSummary();
         }
     }

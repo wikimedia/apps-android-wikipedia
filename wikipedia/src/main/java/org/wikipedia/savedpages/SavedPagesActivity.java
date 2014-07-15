@@ -146,7 +146,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
         });
 
         getSupportLoaderManager().initLoader(0, null, this);
-        app.adjustDrawableToTheme( ((ImageView)findViewById(R.id.saved_pages_empty_image)).getDrawable() );
+        app.adjustDrawableToTheme(((ImageView) findViewById(R.id.saved_pages_empty_image)).getDrawable());
     }
 
     @Override
