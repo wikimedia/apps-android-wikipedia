@@ -81,10 +81,10 @@ def replace_packagenames(data):
 
 def change_icon(data):
     """
-    Utility function to replace alpha launcher icon with
+    Utility function to replace launcher icon with
     beta launcher icon
     """
-    return data.replace("launcher_alpha", "launcher_beta")
+    return data.replace("launcher", "launcher_beta")
 
 versionCode_regex = re.compile(r'android:versionCode="(\d+)"', re.MULTILINE)
 versionName_regex = re.compile(r'android:versionName="([^"]+)"', re.MULTILINE)
