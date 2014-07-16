@@ -63,6 +63,7 @@
                       android:text="@string/about_privacy_policy"
                       android:paddingTop="4dp"
                       android:paddingBottom="4dp"
+                      android:textColorLink="?attr/link_color"
                     />
             <TextView android:id="@+id/about_terms_of_use"
                       android:layout_width="0dp" android:layout_height="wrap_content"
@@ -73,6 +74,7 @@
                       android:text="@string/about_terms_of_use"
                       android:paddingTop="4dp"
                       android:paddingBottom="4dp"
+                      android:textColorLink="?attr/link_color"
                     />
 
         </LinearLayout>
@@ -113,6 +115,7 @@
                 style="?android:textAppearanceSmall"
                 android:lineSpacingMultiplier="1.2"
                 android:textColor="#555"
+                android:textColorLink="?attr/link_color"
                 android:layout_marginBottom="8dp"
                 />
 
@@ -132,6 +135,7 @@
                 style="?android:textAppearanceSmall"
                 android:lineSpacingMultiplier="1.2"
                 android:textColor="#555"
+                android:textColorLink="?attr/link_color"
                 android:layout_marginBottom="8dp"
                 />
 
@@ -142,6 +146,7 @@
                 android:gravity="center_horizontal"
                 style="?android:textAppearanceSmall"
                 android:textColor="#555"
+                android:textColorLink="?attr/link_color"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 />
@@ -159,6 +164,7 @@
                       style="?android:textAppearanceSmall"
                       android:layout_weight="1"
                       android:textColor="#555"
+                      android:textColorLink="?attr/link_color"
                     />
         </LinearLayout>
 
