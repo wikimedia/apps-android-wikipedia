@@ -13,7 +13,7 @@ public class ThemedActionBarActivity extends ActionBarActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
             //this only seems to be necessary to support 2.3:
             getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(Utils.getThemedAttributeId(this, R.attr.actionbar_background_color)));
         }
