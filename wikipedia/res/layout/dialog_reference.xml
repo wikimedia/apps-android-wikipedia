@@ -13,8 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start|center_vertical"
-        android:padding="8dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:textColor="@color/reference_text"
-        android:textSize="16sp" />
+        android:textColorLink="@color/link_dark"
+        android:textSize="18sp"
+        android:lineSpacingMultiplier="1.4" />
 
 </LinearLayout>
