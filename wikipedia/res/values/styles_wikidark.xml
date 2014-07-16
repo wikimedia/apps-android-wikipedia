@@ -5,6 +5,8 @@
         <item name="android:actionBarStyle">@style/ActionBar.Solid.WikiDark</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.WikiDark</item>
         <item name="android:actionDropDownStyle">@style/DropDownNav.WikiDark</item>
+        <item name="popupMenuStyle">@style/PopupMenu.WikiDark</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.WikiDark</item>
         <item name="android:windowBackground">@color/window_background_dark</item>
         <item name="window_background_color">@color/window_background_dark</item>
         <item name="search_background_color">@color/search_background_dark</item>
@@ -26,6 +28,10 @@
 
     <style name="DropDownNav.WikiDark" parent="@style/Widget.AppCompat.Spinner.DropDown.ActionBar">
         <item name="android:dropDownSelector">@drawable/selectable_item_background</item>
+    </style>
+
+    <style name="PopupMenu.WikiDark" parent="@style/Widget.AppCompat.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/popupmenu_shape_dark</item>
     </style>
 
 </resources>
