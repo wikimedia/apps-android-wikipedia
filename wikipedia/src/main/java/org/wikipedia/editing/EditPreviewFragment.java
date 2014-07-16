@@ -39,10 +39,10 @@ public class EditPreviewFragment extends Fragment {
 
     private CommunicationBridge bridge;
 
-    NightModeHandler nightModeHandler;
+    private NightModeHandler nightModeHandler;
 
-    List<EditSummaryTag> summaryTags;
-    EditSummaryTag otherTag;
+    private List<EditSummaryTag> summaryTags;
+    private EditSummaryTag otherTag;
 
     private ProgressDialog progressDialog;
     private EditFunnel funnel;

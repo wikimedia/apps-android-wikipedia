@@ -5,13 +5,14 @@ package org.wikipedia.staticdata;
 
 import java.util.*;
 
-public class MainPageNameData {
+public final class MainPageNameData {
 
     private static HashMap<String, String> DATA_MAP;
 
+    @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static void setupData() {
-        final int SIZE = 287;
-        DATA_MAP = new HashMap<String, String>(SIZE);
+        final int size = 287;
+        DATA_MAP = new HashMap<String, String>(size);
         DATA_MAP.put("en", "Main Page");
         DATA_MAP.put("nl", "Hoofdpagina");
         DATA_MAP.put("de", "Wikipedia:Hauptseite");
@@ -44,8 +45,8 @@ public class MainPageNameData {
         DATA_MAP.put("min", "Laman Utamo");
         DATA_MAP.put("kk", "Басты бет");
         DATA_MAP.put("eo", "Project:Ĉefpaĝo");
-        DATA_MAP.put("sk", "Hlavná stránka");
         DATA_MAP.put("sh", "Glavna stranica / Главна страница");
+        DATA_MAP.put("sk", "Hlavná stránka");
         DATA_MAP.put("da", "Forside");
         DATA_MAP.put("eu", "Azala");
         DATA_MAP.put("lt", "Pagrindinis puslapis");
@@ -96,8 +97,8 @@ public class MainPageNameData {
         DATA_MAP.put("my", "ဗဟိုစာမျက်နှာ");
         DATA_MAP.put("zh-yue", "頭版");
         DATA_MAP.put("ga", "Príomhleathanach");
-        DATA_MAP.put("lmo", "Pagina principala");
         DATA_MAP.put("bn", "প্রধান পাতা");
+        DATA_MAP.put("lmo", "Pagina principala");
         DATA_MAP.put("yo", "Ojúewé Àkọ́kọ́");
         DATA_MAP.put("fy", "Haadside");
         DATA_MAP.put("an", "Portalada");
@@ -130,8 +131,8 @@ public class MainPageNameData {
         DATA_MAP.put("mn", "Нүүр хуудас");
         DATA_MAP.put("arz", "الصفحه الرئيسيه");
         DATA_MAP.put("mzn", "گت صفحه");
-        DATA_MAP.put("si", "මුල් පිටුව");
         DATA_MAP.put("pa", "ਮੁੱਖ ਸਫ਼ਾ");
+        DATA_MAP.put("si", "මුල් පිටුව");
         DATA_MAP.put("zh-min-nan", "Thâu-ia̍h");
         DATA_MAP.put("yi", "הויפט זייט");
         DATA_MAP.put("sah", "Сүрүн сирэй");
@@ -204,8 +205,8 @@ public class MainPageNameData {
         DATA_MAP.put("nov", "Chefi pagine");
         DATA_MAP.put("szl", "Przodńo zajta");
         DATA_MAP.put("ang", "Hēafodtramet");
-        DATA_MAP.put("nv", "Íiyisíí Naaltsoos");
         DATA_MAP.put("ie", "Principal págine");
+        DATA_MAP.put("nv", "Íiyisíí Naaltsoos");
         DATA_MAP.put("ace", "Ôn Keuë");
         DATA_MAP.put("ext", "Página prencipal");
         DATA_MAP.put("frp", "Reçua");
@@ -256,8 +257,8 @@ public class MainPageNameData {
         DATA_MAP.put("cu", "главьна страница");
         DATA_MAP.put("tn", "Main Page");
         DATA_MAP.put("chr", "ᎤᎵᎮᎵᏍᏗ");
-        DATA_MAP.put("roa-rup", "Prota frãndzã");
         DATA_MAP.put("tw", "Main Page");
+        DATA_MAP.put("roa-rup", "Prota frãndzã");
         DATA_MAP.put("bi", "Nambawan Pej");
         DATA_MAP.put("pih", "Mien Paij");
         DATA_MAP.put("sm", "Itūlau Muamua");
@@ -310,5 +311,8 @@ public class MainPageNameData {
             return DATA_MAP.get(key);
         }
         return DATA_MAP.get("en");
+    }
+
+    private MainPageNameData() {
     }
 }

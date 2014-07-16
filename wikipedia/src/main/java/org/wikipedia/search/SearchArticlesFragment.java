@@ -87,7 +87,7 @@ public class SearchArticlesFragment extends Fragment {
 
     private DrawerLayout drawerLayout;
 
-    PageActionsHandler pageActionsHandler;
+    private PageActionsHandler pageActionsHandler;
     private PopupMenu pageActionsMenu;
 
     private SearchArticlesTask curSearchTask;

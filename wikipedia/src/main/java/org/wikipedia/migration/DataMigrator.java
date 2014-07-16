@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataMigrator {
-    Context context;
+    private Context context;
 
     public DataMigrator(Context context) {
         super();

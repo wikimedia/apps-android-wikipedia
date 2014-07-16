@@ -18,13 +18,12 @@ import java.util.Map;
  * Mappings of image source URLs to local file URLs.
  * A Map with entries {source URL, file path} of images to be downloaded.
  */
-public class ImageUrlMap {
+public final class ImageUrlMap {
     private final Map<String, String> urlMap;
 
     private ImageUrlMap(Builder builder) {
         // Mostly since multiple threads can attempt to remove things at the same time
-        // in SavePageTasak, if multiple images fail. Easier than synchronizing
-        // just the removes.
+        // in SavePageTask, if multiple images fail. Easier than synchronizing just the removes.
         this.urlMap = Collections.synchronizedMap(builder.urlMap);
     }
 

@@ -136,9 +136,16 @@ After starting the project you'll likely notice a torrent of messages in the log
 * Because the log level can be changed on the main interface, it may be helpful to leave the level set to "Verbose"
 * Select "OK"
 
-17. Enjoy.
+17. Checkstyle Configuration to see Checkstyle errors as you type
 
-18. Help make it better!
+In the IntelliJ preferences (settings), go to Plugins and install the Checkstyle-IDEA inspection plugin.
+Then go to the Checkstyle setting and add a new configuration file: browse to the local file checkstyle.xml.
+Make sure you check the new configuration file so our checkstyle inspections are enabled and show up as IntelliJ errors in the code editor.
+Also check "Scan test classes" above.
+
+18. Enjoy.
+
+19. Help make it better!
 
 == Updating bundled JavaScript ==
 

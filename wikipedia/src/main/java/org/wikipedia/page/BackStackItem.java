@@ -6,9 +6,9 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.history.HistoryEntry;
 
 public class BackStackItem implements Parcelable {
-    public final PageTitle title;
-    public final HistoryEntry historyEntry;
-    public final int scrollPosition;
+    final PageTitle title;
+    final HistoryEntry historyEntry;
+    final int scrollPosition;
 
     public BackStackItem(PageTitle title, HistoryEntry historyEntry, int scrollPosition) {
         this.title = title;
@@ -44,5 +44,4 @@ public class BackStackItem implements Parcelable {
             return new BackStackItem[size];
         }
     };
-
 }

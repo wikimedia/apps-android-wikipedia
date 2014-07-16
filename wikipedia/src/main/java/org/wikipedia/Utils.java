@@ -29,7 +29,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.squareup.otto.Bus;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.ApiResult;
@@ -507,7 +506,7 @@ public final class Utils {
         BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
         try {
             StringBuilder stringBuilder = new StringBuilder();
-            String readStr = "";
+            String readStr;
             while ((readStr = reader.readLine()) != null) {
                 stringBuilder.append(readStr);
             }
@@ -546,7 +545,6 @@ public final class Utils {
     public static String formatISO8601(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat(ISO8601_FORMAT_STRING, Locale.ROOT);
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-
         return sdf.format(date);
     }
 
@@ -566,6 +564,7 @@ public final class Utils {
         }
         return fullUrl;
     }
+
     /**
      * Ask user to try connecting again upon (hopefully) recoverable network failure.
      */

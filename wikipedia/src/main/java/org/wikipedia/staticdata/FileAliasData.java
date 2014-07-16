@@ -5,13 +5,14 @@ package org.wikipedia.staticdata;
 
 import java.util.*;
 
-public class FileAliasData {
+public final class FileAliasData {
 
     private static HashMap<String, String> DATA_MAP;
 
+    @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static void setupData() {
-        final int SIZE = 287;
-        DATA_MAP = new HashMap<String, String>(SIZE);
+        final int size = 287;
+        DATA_MAP = new HashMap<String, String>(size);
         DATA_MAP.put("en", "File");
         DATA_MAP.put("nl", "Bestand");
         DATA_MAP.put("de", "Datei");
@@ -44,8 +45,8 @@ public class FileAliasData {
         DATA_MAP.put("min", "Berkas");
         DATA_MAP.put("kk", "Сурет");
         DATA_MAP.put("eo", "Dosiero");
-        DATA_MAP.put("sk", "Súbor");
         DATA_MAP.put("sh", "Datoteka");
+        DATA_MAP.put("sk", "Súbor");
         DATA_MAP.put("da", "Fil");
         DATA_MAP.put("eu", "Fitxategi");
         DATA_MAP.put("lt", "Vaizdas");
@@ -96,8 +97,8 @@ public class FileAliasData {
         DATA_MAP.put("my", "File");
         DATA_MAP.put("zh-yue", "File");
         DATA_MAP.put("ga", "Íomhá");
-        DATA_MAP.put("lmo", "Archivi");
         DATA_MAP.put("bn", "চিত্র");
+        DATA_MAP.put("lmo", "Archivi");
         DATA_MAP.put("yo", "Fáìlì");
         DATA_MAP.put("fy", "Ofbyld");
         DATA_MAP.put("an", "Imachen");
@@ -130,8 +131,8 @@ public class FileAliasData {
         DATA_MAP.put("mn", "Файл");
         DATA_MAP.put("arz", "ملف");
         DATA_MAP.put("mzn", "پرونده");
-        DATA_MAP.put("si", "ගොනුව");
         DATA_MAP.put("pa", "ਤਸਵੀਰ");
+        DATA_MAP.put("si", "ගොනුව");
         DATA_MAP.put("zh-min-nan", "文件");
         DATA_MAP.put("yi", "טעקע");
         DATA_MAP.put("sah", "Билэ");
@@ -204,8 +205,8 @@ public class FileAliasData {
         DATA_MAP.put("nov", "File");
         DATA_MAP.put("szl", "Plik");
         DATA_MAP.put("ang", "Biliþ");
-        DATA_MAP.put("nv", "Eʼelyaaígíí");
         DATA_MAP.put("ie", "File");
+        DATA_MAP.put("nv", "Eʼelyaaígíí");
         DATA_MAP.put("ace", "Beureukaih");
         DATA_MAP.put("ext", "File");
         DATA_MAP.put("frp", "Fichiér");
@@ -256,8 +257,8 @@ public class FileAliasData {
         DATA_MAP.put("cu", "Дѣло");
         DATA_MAP.put("tn", "File");
         DATA_MAP.put("chr", "File");
-        DATA_MAP.put("roa-rup", "File");
         DATA_MAP.put("tw", "File");
+        DATA_MAP.put("roa-rup", "File");
         DATA_MAP.put("bi", "File");
         DATA_MAP.put("pih", "File");
         DATA_MAP.put("sm", "File");
@@ -310,5 +311,8 @@ public class FileAliasData {
             return DATA_MAP.get(key);
         }
         return DATA_MAP.get("en");
+    }
+
+    private FileAliasData() {
     }
 }

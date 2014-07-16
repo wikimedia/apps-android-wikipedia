@@ -156,7 +156,7 @@ public class ToCHandler {
         return slidingPane.isDrawerOpen();
     }
 
-    private class ToCAdapter extends BaseAdapter {
+    private final class ToCAdapter extends BaseAdapter {
         private final ArrayList<Section> sections;
 
         private ToCAdapter(Page page) {

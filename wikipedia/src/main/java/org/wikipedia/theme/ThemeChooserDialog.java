@@ -9,9 +9,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 
 public class ThemeChooserDialog extends Dialog {
-
-    WikipediaApp app;
-
+    private WikipediaApp app;
     private Button buttonDefaultTextSize;
     private Button buttonDecreaseTextSize;
     private Button buttonIncreaseTextSize;

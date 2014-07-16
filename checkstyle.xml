@@ -51,6 +51,9 @@
         <property name="file" value="suppressions.xml"/>
     </module>
 
+    <!-- Filter out Checkstyle warnings that have been suppressed with the @SuppressWarnings annotation -->
+    <module name="SuppressWarningsFilter" />
+
     <module name="TreeWalker">
 
         <!-- Checks for Javadoc comments.                     -->
@@ -161,6 +164,9 @@
         <module name="ArrayTypeStyle"/>
         <!--<module name="FinalParameters"/>-->
         <module name="UpperEll"/>
+
+        <!-- Make the @SuppressWarnings annotations available to Checkstyle -->
+        <module name="SuppressWarningsHolder" />
 
     </module>
 

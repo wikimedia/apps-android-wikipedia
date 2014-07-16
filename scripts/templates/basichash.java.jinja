@@ -5,13 +5,14 @@ package org.wikipedia.staticdata;
 
 import java.util.*;
 
-public class {{ class_name }} {
+public final class {{class_name}} {
 
     private static HashMap<String, String> DATA_MAP;
 
+    @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static void setupData() {
-        final int SIZE = {{wikis|length}};
-        DATA_MAP = new HashMap<String, String>(SIZE);
+        final int size = {{wikis|length}};
+        DATA_MAP = new HashMap<String, String>(size);
 
         {%- for wiki in wikis %}
         DATA_MAP.put("{{wiki.lang}}", "{{wiki.props[key]}}");
@@ -27,5 +28,8 @@ public class {{ class_name }} {
             return DATA_MAP.get(key);
         }
         return DATA_MAP.get("en");
+    }
+
+    private {{class_name}}() {
     }
 }
