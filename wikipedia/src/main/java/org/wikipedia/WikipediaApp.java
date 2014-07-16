@@ -70,13 +70,17 @@ public class WikipediaApp extends Application {
     public static String PREFERENCE_COLOR_THEME;
 
     public static float SCREEN_DENSITY;
+
     // Reload in onCreate to override
     public static String PROTOCOL = "https";
 
+    public static boolean FALLBACK = false;
+    public static int FAILS = 0;
+
     public static String APP_VERSION_STRING;
 
-    public static int THEME_LIGHT;
-    public static int THEME_DARK;
+    public static final int THEME_LIGHT = R.style.Theme_WikiLight;
+    public static final int THEME_DARK = R.style.Theme_WikiDark;
 
     public static final int FONT_SIZE_MULTIPLIER_MIN = -5;
     public static final int FONT_SIZE_MULTIPLIER_MAX = 8;
@@ -91,8 +95,6 @@ public class WikipediaApp extends Application {
     private int currentTheme = 0;
 
     private ConnectionChangeReceiver connChangeReceiver;
-    public static boolean FALLBACK = false;
-    public static int FAILS = 0;
 
     public WikipediaApp() {
         INSTANCE = this;
@@ -132,9 +134,6 @@ public class WikipediaApp extends Application {
         PREFERENCE_ONBOARD = getString(R.string.preference_onboard);
         PREFERENCE_TEXT_SIZE_MULTIPLIER = getString(R.string.preference_text_size_multiplier);
         PREFERENCE_COLOR_THEME = getString(R.string.preference_color_theme);
-
-        THEME_LIGHT = R.style.Theme_WikiLight;
-        THEME_DARK = R.style.Theme_WikiDark;
 
         PROTOCOL = "https"; // Move this to a preference or something later on
 

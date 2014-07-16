@@ -12,6 +12,9 @@ import org.wikipedia.pageimages.PageImage;
 public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEntry> {
     private static final int MATCH_WITH_PAGEIMAGES =  64;
 
+    /** column index of pageimages.imageName in the MATCH_WITH_PAGEIMAGES case */
+    public static final int COL_INDEX_IMAGE = 5;
+
     public HistoryEntryContentProvider() {
         super(HistoryEntry.PERSISTANCE_HELPER);
     }

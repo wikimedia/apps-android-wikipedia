@@ -188,12 +188,12 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
             view.setTag(entry);
 
             Picasso.with(HistoryActivity.this)
-                    .load(cursor.getString(5))
+                    .load(cursor.getString(HistoryEntryContentProvider.COL_INDEX_IMAGE))
                     .placeholder(R.drawable.ic_pageimage_placeholder)
                     .error(R.drawable.ic_pageimage_placeholder)
                     .into(thumbnail);
 
-            // Check the previous item, see if the times differe enough
+            // Check the previous item, see if the times differ enough
             // If they do, display the section header.
             // Always do it this is the first item.
             String curTime, prevTime = "";
@@ -210,7 +210,6 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
             } else {
                 sectionHeader.setVisibility(View.GONE);
             }
-
         }
     }
 

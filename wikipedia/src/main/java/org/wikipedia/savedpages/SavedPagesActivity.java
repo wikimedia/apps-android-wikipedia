@@ -28,9 +28,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class SavedPagesActivity extends ThemedActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     public static final int ACTIVITY_RESULT_SAVEDPAGE_SELECT = 1;
@@ -161,7 +159,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
         savedPagesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // We shouldn't do anything if the user is multiselecting things
+                // We shouldn't do anything if the user is multi-selecting things
                 if (actionMode == null) {
                     SavedPage savedPage = (SavedPage) view.getTag();
                     HistoryEntry newEntry = new HistoryEntry(savedPage.getTitle(), HistoryEntry.SOURCE_SAVED_PAGE);
@@ -211,10 +209,6 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
     }
 
     private class SavedPagesAdapter extends CursorAdapter {
-
-        /** see SavedPageContentProvider.query() MATCH_WITH_PAGEIMAGES */
-        private static final int COL_INDEX_IMAGE_NAME = 4;
-
         public SavedPagesAdapter(Context context, Cursor c, boolean autoRequery) {
             super(context, c, autoRequery);
         }
@@ -222,10 +216,6 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
             return getLayoutInflater().inflate(R.layout.item_saved_page_entry, viewGroup, false);
-        }
-
-        private String getDateString(Date date) {
-            return DateFormat.getDateInstance().format(date);
         }
 
         @Override
@@ -237,7 +227,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
             view.setTag(entry);
 
             Picasso.with(SavedPagesActivity.this)
-                    .load(cursor.getString(COL_INDEX_IMAGE_NAME))
+                    .load(cursor.getString(SavedPageContentProvider.COL_INDEX_IMAGE))
                     .placeholder(R.drawable.ic_pageimage_placeholder)
                     .error(R.drawable.ic_pageimage_placeholder)
                     .into(thumbnail);

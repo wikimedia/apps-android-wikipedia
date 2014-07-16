@@ -1,8 +1,6 @@
 package org.wikipedia.search;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -56,9 +54,6 @@ public class SearchArticlesFragment extends Fragment {
 
     private WikipediaApp app;
 
-    private LinearLayout searchBarContainer;
-    private LinearLayout navbar;
-    private View searchBarIcon;
     private EditText searchTermText;
     private ListView searchResultsList;
     private ProgressBar searchProgress;
@@ -67,11 +62,6 @@ public class SearchArticlesFragment extends Fragment {
     private ImageView searchBarMenuButton;
     private ImageView searchBarTocButton;
     private ImageView drawerIndicator;
-    private ImageView wikipediaIcon;
-
-    private int navbarColor;
-    private int searchTermTextColor;
-    private int searchTermHintTextColor;
 
     private SearchResultAdapter adapter;
 
@@ -157,31 +147,15 @@ public class SearchArticlesFragment extends Fragment {
             pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
         }
 
-        searchBarContainer = (LinearLayout) parentLayout.findViewById(R.id.search_bar_container);
-        navbar = (LinearLayout) parentLayout.findViewById(R.id.navbar);
         searchTermText = (EditText) parentLayout.findViewById(R.id.search_term_text);
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                navbarColor = ((ColorDrawable) (searchBarContainer.getBackground())).getColor();
-            } else {
-                navbarColor = Color.WHITE;
-            }
-            searchTermTextColor = searchTermText.getCurrentTextColor();
-            searchTermHintTextColor = searchTermText.getCurrentHintTextColor();
-        } catch (Exception e) {
-            // just in case something in the layout changes out from underneath this code
-            navbarColor = Color.WHITE;
-            searchTermTextColor = Color.BLACK;
-            searchTermHintTextColor = Color.GRAY;
-        }
         searchResultsList = (ListView) parentLayout.findViewById(R.id.search_results_list);
         searchProgress = (ProgressBar) parentLayout.findViewById(R.id.search_progress);
-        searchBarIcon = parentLayout.findViewById(R.id.search_bar_icon);
+        View searchBarIcon = parentLayout.findViewById(R.id.search_bar_icon);
         searchNetworkError = parentLayout.findViewById(R.id.search_network_error);
         searchBarMenuButton = (ImageView)parentLayout.findViewById(R.id.search_bar_show_menu);
         searchBarTocButton = (ImageView)parentLayout.findViewById(R.id.search_bar_show_toc);
         drawerIndicator = (ImageView)parentLayout.findViewById(R.id.search_drawer_indicator);
-        wikipediaIcon = (ImageView)parentLayout.findViewById(R.id.wikipedia_icon);
+        ImageView wikipediaIcon = (ImageView) parentLayout.findViewById(R.id.wikipedia_icon);
         searchNoResults = parentLayout.findViewById(R.id.search_results_empty);
 
         app.adjustDrawableToTheme(wikipediaIcon.getDrawable());

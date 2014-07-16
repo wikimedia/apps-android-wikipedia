@@ -25,8 +25,8 @@ public class PageFragmentAdapter extends FixedFragmentStatePagerAdapter {
         PageViewFragment f = fragmentArray.get(position);
         if (f == null) {
             f = new PageViewFragment(position,
-                    backStack.getStack().get(position).title,
-                    backStack.getStack().get(position).historyEntry,
+                    backStack.getStack().get(position).getTitle(),
+                    backStack.getStack().get(position).getHistoryEntry(),
                     R.id.search_fragment);
 
             fragmentArray.put(position, f);

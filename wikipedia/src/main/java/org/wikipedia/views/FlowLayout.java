@@ -15,12 +15,11 @@ import java.util.List;
  * to overflow onto multiple "lines".
  */
 public class FlowLayout extends ViewGroup {
-
-    Resources resources;
-    private List<Integer> lineHeights = new ArrayList<Integer>();
-
     private static final int HORIZONTAL_SPACING = 8;
     private static final int VERTICAL_SPACING = 8;
+
+    private Resources resources;
+    private List<Integer> lineHeights = new ArrayList<Integer>();
 
     public FlowLayout(Context context) {
         super(context);

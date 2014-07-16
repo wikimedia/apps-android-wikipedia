@@ -27,6 +27,8 @@ import org.wikipedia.views.DisableableDrawerLayout;
 import java.util.ArrayList;
 
 public class ToCHandler {
+    private static final int MAX_LEVELS = 3;
+    private static final int INDENTATION_WIDTH_DP = 16;
     private final ListView tocList;
     private final ProgressBar tocProgress;
     private final CommunicationBridge bridge;
@@ -162,7 +164,7 @@ public class ToCHandler {
         private ToCAdapter(Page page) {
             sections = new ArrayList<Section>();
             for (Section s : page.getSections()) {
-                if (s.getLevel() < 3 && !s.isLead()) {
+                if (s.getLevel() < MAX_LEVELS && !s.isLead()) {
                     sections.add(s);
                 }
             }
@@ -193,7 +195,7 @@ public class ToCHandler {
             View sectionFiller = convertView.findViewById(R.id.page_toc_filler);
 
             LinearLayout.LayoutParams indentLayoutParameters = new LinearLayout.LayoutParams(sectionFiller.getLayoutParams());
-            indentLayoutParameters.width = (section.getLevel() - 1) * (int)(16 * WikipediaApp.SCREEN_DENSITY);
+            indentLayoutParameters.width = (section.getLevel() - 1) * (int) (INDENTATION_WIDTH_DP * WikipediaApp.SCREEN_DENSITY);
             sectionFiller.setLayoutParams(indentLayoutParameters);
 
             sectionHeading.setText(Html.fromHtml(section.getHeading()));

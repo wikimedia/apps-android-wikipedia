@@ -12,6 +12,9 @@ import org.wikipedia.pageimages.PageImage;
 public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {
     private static final int MATCH_WITH_PAGEIMAGES =  64;
 
+    /** column index of pageimages.imageName in the MATCH_WITH_PAGEIMAGES case */
+    public static final int COL_INDEX_IMAGE = 4;
+
     public SavedPageContentProvider() {
         super(SavedPage.PERSISTANCE_HELPER);
     }
@@ -41,7 +44,6 @@ public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {
 
         SQLiteDatabase db = getDbOpenHelper().getReadableDatabase();
         Cursor cursor;
-
 
         switch (uriType) {
             case MATCH_WITH_PAGEIMAGES:
