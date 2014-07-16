@@ -2,13 +2,17 @@
 """
 Script that helps move the app from org.wikipedia to org.wikipedia.beta
 
-Does the following things:
+Does the following things in two steps:
+Step 1: (run without arguments):
+    - Creates an annotated tag called 'releases/versionName'
     - Move package from org.wikipedia to org.wikipedia.beta
     - Move folders to accommodate new packages
     - Replace all instances of string 'org.wikipedia' to 'org.wikipedia.beta'
     - Setup app to use beta icon
     - Bump versionCode and versionName
     - Make a new commit on a new branch
+Step 2: (run with --push argument):
+    - Pushes the git tag created in step 1 to the gerrit remote
 
 Requires the python module 'sh' to run. Ensure you have a clean working
 directory before running as well.
@@ -17,6 +21,7 @@ import sh
 import os
 import re
 import time
+import argparse
 
 PATH_PREFIX = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
@@ -34,6 +39,28 @@ def get_beta_name():
     Returns name used for beta naming, based on current date
     """
     return '2.0-beta-%s' % time.strftime('%Y-%m-%d')
+
+
+def get_git_tag_name():
+    """
+    Returns name used for creating the tag
+    """
+    return 'releases/' + get_beta_name()
+
+
+def git_tag():
+    """
+    Creates an annotated git tag for this release
+    """
+    sh.git.tag('-a', get_git_tag_name(), '-m', 'beta')
+
+
+def push_git_tag():
+    """
+    Pushes the git tag to gerrit
+    """
+    print('pushing ' + get_git_tag_name())
+    sh.git.push('gerrit', get_git_tag_name())
 
 
 def git_mv_dir(dir_path):
@@ -86,6 +113,7 @@ def change_icon(data):
     """
     return data.replace("launcher", "launcher_beta")
 
+
 versionCode_regex = re.compile(r'android:versionCode="(\d+)"', re.MULTILINE)
 versionName_regex = re.compile(r'android:versionName="([^"]+)"', re.MULTILINE)
 
@@ -126,10 +154,23 @@ def transform_project(dir_path):
 
     transform_file(p(dir_path, 'AndroidManifest.xml'), replace_packagenames, set_version, change_icon)
 
-if __name__ == '__main__':
+
+def make_release():
+    git_tag()
     sh.git.checkout('-b', 'betas/%s' % get_beta_name())
     transform_project('wikipedia')
     transform_project('wikipedia-it')
     sh.cd(PATH_PREFIX)
     sh.git.add('-u')
     sh.git.commit('-m', 'Make release %s' % get_beta_name())
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--push', help='step 2: push git tag created in step 1 to gerrit remote', action='store_true')
+    args = parser.parse_args()
+    if args.push:
+        # step 2:
+        push_git_tag()
+    else:
+        # step 1:
+        make_release()
