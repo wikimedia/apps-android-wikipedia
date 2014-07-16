@@ -9,7 +9,8 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
 public abstract class SQLiteContentProvider<T> extends ContentProvider {
-    protected final PersistanceHelper<T> persistanceHelper;
+    private final PersistanceHelper<T> persistanceHelper;
+
     protected SQLiteContentProvider(PersistanceHelper<T> persistanceHelper) {
         this.persistanceHelper = persistanceHelper;
     }
@@ -21,14 +22,14 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        uriMatcher.addURI(getAuthority(), persistanceHelper.getTableName(), MATCH_ALL);
+        uriMatcher.addURI(getAuthority(), getTableName(), MATCH_ALL);
         return false;
     }
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
-        queryBuilder.setTables(persistanceHelper.getTableName());
+        queryBuilder.setTables(getTableName());
 
         int uriType = uriMatcher.match(uri);
 
@@ -59,7 +60,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
         SQLiteDatabase sqlDB = getDbOpenHelper().getWritableDatabase();
         switch (uriType) {
             case MATCH_ALL:
-                sqlDB.insert(persistanceHelper.getTableName(), null, values);
+                sqlDB.insert(getTableName(), null, values);
                 break;
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
@@ -77,7 +78,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
 
         switch(uriType) {
             case MATCH_ALL:
-                rows = db.delete(persistanceHelper.getTableName(),
+                rows = db.delete(getTableName(),
                         selection,
                         selectionArgs
                 );
@@ -96,7 +97,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
         int modifiedRows;
         switch (uriType) {
             case MATCH_ALL:
-                modifiedRows = sqlDB.update(persistanceHelper.getTableName(), values, selection, selectionArgs);
+                modifiedRows = sqlDB.update(getTableName(), values, selection, selectionArgs);
                 break;
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
@@ -113,7 +114,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
         switch (uriType) {
             case MATCH_ALL:
                 for (ContentValues value: values) {
-                    sqlDB.insert(persistanceHelper.getTableName(), null, value);
+                    sqlDB.insert(getTableName(), null, value);
                 }
                 break;
             default:
@@ -123,14 +124,17 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
         sqlDB.endTransaction();
         getContext().getContentResolver().notifyChange(uri, null);
         return values.length;
+    }
 
+    protected String getTableName() {
+        return persistanceHelper.getTableName();
     }
 
     protected String getAuthority() {
-        return getAuthorityForTable(persistanceHelper.getTableName());
+        return getAuthorityForTable(getTableName());
     }
 
-    public static final String getAuthorityForTable(String table) {
+    public static String getAuthorityForTable(String table) {
         return "org.wikipedia." + table;
     }
 }

@@ -18,10 +18,14 @@ import java.util.Date;
  * last run times are tracked automatically by the base class.
  */
 public abstract class RecurringTask {
-    protected final Context context;
+    private final Context context;
 
     protected RecurringTask(Context context) {
         this.context = context;
+    }
+
+    protected Context getContext() {
+        return context;
     }
 
     protected abstract boolean shouldRun(Date lastRun);
@@ -31,8 +35,7 @@ public abstract class RecurringTask {
     protected abstract String getName();
 
     public void runIfNecessary() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String prefKey = getName() + "-lastrun";
         Date lastRunDate =  new Date(prefs.getLong(prefKey, 0));
 
@@ -43,6 +46,5 @@ public abstract class RecurringTask {
         } else {
             Log.d("Wikipedia", "Skipping task " + getName());
         }
-
     }
 }

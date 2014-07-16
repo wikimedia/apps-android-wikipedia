@@ -39,7 +39,7 @@ public class StyleFetcherTask extends RecurringTask {
     }
 
     private String getRemoteURLFor(String modules) {
-        Site site = ((WikipediaApp) context.getApplicationContext()).getPrimarySite();
+        Site site = ((WikipediaApp) getContext().getApplicationContext()).getPrimarySite();
         try {
             return String.format(
                     "https://bits.wikimedia.org/%s.wikipedia.org/load.php?debug=false&lang=en&modules=%s&only=styles&skin=vector",
@@ -54,7 +54,7 @@ public class StyleFetcherTask extends RecurringTask {
 
     @Override
     protected void run(Date lastRun) {
-        WikipediaApp app = (WikipediaApp) context.getApplicationContext();
+        WikipediaApp app = (WikipediaApp) getContext().getApplicationContext();
         try {
             for (String[] styleSpec : STYLE_SPECS) {
                 String url = getRemoteURLFor(styleSpec[1]);
@@ -63,19 +63,19 @@ public class StyleFetcherTask extends RecurringTask {
                 // Only overwrite files if we get a 200
                 // This prevents empty style files from being used when betalabs goes down
                 if (request.ok()) {
-                    OutputStream fo = context.openFileOutput(styleSpec[0], Context.MODE_PRIVATE);
+                    OutputStream fo = getContext().openFileOutput(styleSpec[0], Context.MODE_PRIVATE);
                     Utils.copyStreams(request.stream(), fo);
                     fo.close();
-                    Log.d("Wikipedia", String.format("Downloaded %s into %s", url, context.getFileStreamPath(styleSpec[0]).getAbsolutePath()));
+                    Log.d("Wikipedia", String.format("Downloaded %s into %s", url, getContext().getFileStreamPath(styleSpec[0]).getAbsolutePath()));
                 } else {
-                    Log.d("Wikipedia", String.format("Failed to download %s into %s", url, context.getFileStreamPath(styleSpec[0]).getAbsolutePath()));
+                    Log.d("Wikipedia", String.format("Failed to download %s into %s", url, getContext().getFileStreamPath(styleSpec[0]).getAbsolutePath()));
                     return;
                 }
             }
 
             //if any of the above code throws an exception, the following last-updated date will not
             //be updated, so the task will be retried on the next go.
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             prefs.edit().putString(WikipediaApp.PREFERENCE_STYLES_LAST_UPDATED, Utils.formatISO8601(new Date())).commit();
 
         } catch (FileNotFoundException e) {

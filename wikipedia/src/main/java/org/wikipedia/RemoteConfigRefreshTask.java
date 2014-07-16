@@ -30,7 +30,7 @@ public class RemoteConfigRefreshTask extends RecurringTask {
         new SaneAsyncTask<Boolean>(1) {
             @Override
             public Boolean performTask() throws Throwable {
-                WikipediaApp app = (WikipediaApp) context.getApplicationContext();
+                WikipediaApp app = (WikipediaApp) getContext().getApplicationContext();
                 JSONObject config = new JSONObject(HttpRequest.get(REMOTE_CONFIG_URL).body());
                 app.getRemoteConfig().updateConfig(config);
                 Log.d("Wikipedia", config.toString());

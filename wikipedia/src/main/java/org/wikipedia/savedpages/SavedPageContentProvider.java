@@ -23,8 +23,8 @@ public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {
     public boolean onCreate() {
         boolean ret = super.onCreate();
         uriMatcher.addURI(getAuthority(),
-                persistanceHelper.getTableName() + "/" + PageImage.PERSISTANCE_HELPER.getTableName(),
-                MATCH_WITH_PAGEIMAGES);
+                          getTableName() + "/" + PageImage.PERSISTANCE_HELPER.getTableName(),
+                          MATCH_WITH_PAGEIMAGES);
         return ret;
     }
 
