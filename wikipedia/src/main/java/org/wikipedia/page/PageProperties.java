@@ -173,6 +173,7 @@ public class PageProperties implements Parcelable {
         String editProtection = null;
         // Mediawiki API is stupid!
         if (!(json.opt("protection") instanceof JSONArray)
+                && json.optJSONObject("protection") != null
                 && json.optJSONObject("protection").has("edit")
                 ) {
             editProtection = json.optJSONObject("protection").optJSONArray("edit").optString(0);
