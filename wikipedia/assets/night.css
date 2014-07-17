@@ -7,8 +7,14 @@ body {
 a {
   color: #2B6FB2;
 }
+a.external {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAGJJREFUKFN1jdENgCAMBYmJn47Bak7DZrhTpc/XIm34OAjXA4qIgHI/dSBbLGTcOKjBryFlinGmjDQGiOF0MQkxI3v5wq6L38qR7SnsAx8ul37igPjAd+o5Oz2MRA+xY4ZSXuaW6wYouOLpAAAAAElFTkSuQmCC);
+  background-image: url(//bits.beta.wmflabs.org/static-master/extensions/MobileApp/less/images/external-link-ltr.png?2014-07-18T15:35:00Z)!ie;
+}
+.content table td,
 .content table th {
-  background-color: #2f2f2f;
+  background-color: #000;
+  border: 1px #555 solid;
 }
 .content table.infobox {
   background: #444;
