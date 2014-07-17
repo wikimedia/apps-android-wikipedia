@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.webkit.WebView;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.events.WebViewInvalidateEvent;
 
 public class ObservableWebView extends WebView {
     private OnScrollChangeListener onScrollChangeListener;
@@ -87,5 +89,14 @@ public class ObservableWebView extends WebView {
             }
         }
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    public void invalidate() {
+        super.invalidate();
+        if (getContentHeight() == 0) {
+            return;
+        }
+        WikipediaApp.getInstance().getBus().post(new WebViewInvalidateEvent());
     }
 }

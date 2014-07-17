@@ -5,8 +5,11 @@ import android.content.Context;
 import android.os.Build;
 import android.view.*;
 import android.widget.Button;
+import android.widget.ProgressBar;
+import com.squareup.otto.Subscribe;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.events.WebViewInvalidateEvent;
 
 public class ThemeChooserDialog extends Dialog {
     private WikipediaApp app;
@@ -15,6 +18,8 @@ public class ThemeChooserDialog extends Dialog {
     private Button buttonIncreaseTextSize;
     private Button buttonThemeLight;
     private Button buttonThemeDark;
+    private ProgressBar fontChangeProgressBar;
+    private boolean updatingFont = false;
 
     public ThemeChooserDialog(Context context) {
         super(context);
@@ -41,6 +46,7 @@ public class ThemeChooserDialog extends Dialog {
         buttonDecreaseTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                updatingFont = true;
                 app.setFontSizeMultiplier(app.getFontSizeMultiplier() - 1);
                 updateButtonState();
             }
@@ -50,6 +56,7 @@ public class ThemeChooserDialog extends Dialog {
         buttonDefaultTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                updatingFont = true;
                 app.setFontSizeMultiplier(0);
                 updateButtonState();
             }
@@ -59,6 +66,7 @@ public class ThemeChooserDialog extends Dialog {
         buttonIncreaseTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                updatingFont = true;
                 app.setFontSizeMultiplier(app.getFontSizeMultiplier() + 1);
                 updateButtonState();
             }
@@ -80,19 +88,47 @@ public class ThemeChooserDialog extends Dialog {
             }
         });
 
+        fontChangeProgressBar = (ProgressBar) dlgLayout.findViewById(R.id.font_change_progress_bar);
+
         updateButtonState();
+    }
+
+    @Subscribe
+    public void onWebViewInvalidated(WebViewInvalidateEvent event) {
+        updatingFont = false;
+        updateButtonState();
+    }
+
+    @Override
+    public void show() {
+        app.getBus().register(this);
+        super.show();
+    }
+
+    @Override
+    public void dismiss() {
+        app.getBus().unregister(this);
+        super.dismiss();
     }
 
     private void updateButtonState() {
         int mult = app.getFontSizeMultiplier();
-        if (mult == 0) {
+        if (updatingFont) {
+            fontChangeProgressBar.setVisibility(View.VISIBLE);
             buttonDefaultTextSize.setEnabled(false);
-            buttonDecreaseTextSize.setEnabled(true);
-            buttonIncreaseTextSize.setEnabled(true);
+            buttonDecreaseTextSize.setEnabled(false);
+            buttonIncreaseTextSize.setEnabled(false);
         } else {
-            buttonDefaultTextSize.setEnabled(true);
-            buttonDecreaseTextSize.setEnabled(mult > WikipediaApp.FONT_SIZE_MULTIPLIER_MIN);
-            buttonIncreaseTextSize.setEnabled(mult < WikipediaApp.FONT_SIZE_MULTIPLIER_MAX);
+            fontChangeProgressBar.setVisibility(View.GONE);
+            if (mult == 0) {
+                buttonDefaultTextSize.setEnabled(false);
+                buttonDecreaseTextSize.setEnabled(true);
+                buttonIncreaseTextSize.setEnabled(true);
+            } else {
+                buttonDefaultTextSize.setEnabled(true);
+                buttonDecreaseTextSize.setEnabled(mult > WikipediaApp.FONT_SIZE_MULTIPLIER_MIN);
+                buttonIncreaseTextSize.setEnabled(mult < WikipediaApp.FONT_SIZE_MULTIPLIER_MAX);
+            }
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {

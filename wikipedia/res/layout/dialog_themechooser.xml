@@ -1,106 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/nav_background">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
 
-    <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/nav_border" />
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="22dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@android:color/primary_text_dark"
-            android:text="@string/text_size_select"/>
     <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="center_horizontal">
-        <Button
+            android:background="@color/nav_background">
+
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/nav_border" />
+
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonDecreaseTextSize"
-                style="@style/button_gray"
-                android:layout_margin="0dp"
-                android:text="−"
-                android:textSize="26sp"
-                />
-        <Button
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="22dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/primary_text_dark"
+                android:text="@string/text_size_select"/>
+        <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonDefaultTextSize"
-                style="@style/button_gray"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="0dp"
-                android:text="○"
-                android:textSize="26sp"
-                />
-        <Button
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonDecreaseTextSize"
+                    style="@style/button_gray"
+                    android:layout_margin="0dp"
+                    android:text="−"
+                    android:textSize="26sp"
+                    />
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonDefaultTextSize"
+                    style="@style/button_gray"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="○"
+                    android:textSize="26sp"
+                    />
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonIncreaseTextSize"
+                    style="@style/button_gray"
+                    android:layout_margin="0dp"
+                    android:text="+"
+                    android:textSize="26sp"
+                    />
+        </LinearLayout>
+
+        <View
+                android:layout_gravity="center_horizontal"
+                android:layout_width="256dp"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="6dp"
+                android:background="@color/nav_border" />
+
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonIncreaseTextSize"
-                style="@style/button_gray"
-                android:layout_margin="0dp"
-                android:text="+"
-                android:textSize="26sp"
-                />
+                android:layout_gravity="center_horizontal"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/primary_text_dark"
+                android:text="@string/color_theme_select"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="26dp"
+                android:layout_gravity="center_horizontal">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonColorsLight"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="28dp"
+                    android:paddingRight="28dp"
+                    android:background="@drawable/button_selector_themelight"
+                    android:textColor="@android:color/black"
+                    android:text="@string/color_theme_light"
+                    />
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonColorsDark"
+                    android:layout_marginLeft="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="28dp"
+                    android:paddingRight="28dp"
+                    android:background="@drawable/button_selector_themedark"
+                    android:textColor="@android:color/white"
+                    android:text="@string/color_theme_dark"
+                    />
+        </LinearLayout>
+
     </LinearLayout>
 
-    <View
-            android:layout_gravity="center_horizontal"
-            android:layout_width="256dp"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="6dp"
-            android:background="@color/nav_border" />
-
-    <TextView
+    <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@android:color/primary_text_dark"
-            android:text="@string/color_theme_select"/>
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="26dp"
-            android:layout_gravity="center_horizontal">
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/buttonColorsLight"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:paddingLeft="28dp"
-                android:paddingRight="28dp"
-                android:background="@drawable/button_selector_themelight"
-                android:textColor="@android:color/black"
-                android:text="@string/color_theme_light"
-                />
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/buttonColorsDark"
-                android:layout_marginLeft="12dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:paddingLeft="28dp"
-                android:paddingRight="28dp"
-                android:background="@drawable/button_selector_themedark"
-                android:textColor="@android:color/white"
-                android:text="@string/color_theme_dark"
-                />
-    </LinearLayout>
+            android:layout_gravity="top|right"
+            android:layout_margin="8dp"
+            android:id="@+id/font_change_progress_bar"/>
 
-</LinearLayout>
+</FrameLayout>
