@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class FetchUserContribsTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;
+    private static final int NUM_FETCH = 10;
 
     public FetchUserContribsTaskTest() {
         super(TestDummyActivity.class);
@@ -21,12 +22,12 @@ public class FetchUserContribsTaskTest extends ActivityUnitTestCase<TestDummyAct
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new FetchUserContribsTask(getInstrumentation().getTargetContext(),  new Site("test.wikipedia.org"), "yuvipanda", 10, null) {
+                new FetchUserContribsTask(getInstrumentation().getTargetContext(),  new Site("test.wikipedia.org"), "yuvipanda", NUM_FETCH, null) {
                     @Override
                     public void onFinish(FetchUserContribsTask.UserContributionsList result) {
                         assertNotNull(result);
                         assertNotNull(result.getQueryContinue());
-                        assertFalse(result.getContribs().size() < 10);
+                        assertFalse(result.getContribs().size() < NUM_FETCH);
                         completionLatch.countDown();
                     }
                 }.execute();

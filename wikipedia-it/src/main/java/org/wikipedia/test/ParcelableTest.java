@@ -15,6 +15,9 @@ import org.wikipedia.pageimages.PageImage;
 import java.util.ArrayList;
 
 public class ParcelableTest extends TestCase {
+
+    private static final int NUM_SECTIONS = 10;
+
     private void parcelAndTestObjects(Parcelable p) throws Exception {
         Parcel parcel = Parcel.obtain();
         p.writeToParcel(parcel, 0);
@@ -45,7 +48,7 @@ public class ParcelableTest extends TestCase {
     public void testPage() throws Exception {
         ArrayList<Section> sections = new ArrayList<Section>();
         Section headSection = new Section(0, 1, null, null, "Hi there!");
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= NUM_SECTIONS; i++) {
             sections.add(new Section(i, 1, "Something " + i, "Something_" + i, "Content Something" + i));
         }
         PageTitle title = new PageTitle(null, "Test", new Site("en.wikipedia.org"));
