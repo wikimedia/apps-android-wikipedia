@@ -51,14 +51,15 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
     }
 
     /**
-     * Variable indicating wehther the current page was refreshed (by clicking on edit
-     * when it was a saved page and chosing to refresh.
-     *
-     * Used for accuarat eventlogging
+     * Variable indicating whether the current page was refreshed (by clicking on edit
+     * when it was a saved page and choosing to refresh. Used for accurate event logging
      */
     private boolean wasRefreshed = false;
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
+        if (!fragment.isAdded()) {
+            return;
+        }
         if (messageType.equals("editSectionClicked")) {
             final SavedPagesFunnel savedPagesFunnel = WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(currentPage.getTitle().getSite());
             if (fragment.getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
