@@ -20,6 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;
+    private static final int SECTION_ID = 3;
 
     public DoEditTaskTests() {
         super(TestDummyActivity.class);
@@ -44,12 +45,12 @@ public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
         app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetreivedCallback() {
             @Override
             public void onTokenRetreived(String token) {
-                new DoEditTask(getInstrumentation().getTargetContext(), title, wikitext, 3, token, "") {
+                new DoEditTask(getInstrumentation().getTargetContext(), title, wikitext, SECTION_ID, token, "") {
                     @Override
                     public void onFinish(EditingResult result) {
                         assertNotNull(result);
                         assertEquals("Success", result.getResult());
-                        new FetchSectionWikitextTask(getInstrumentation().getTargetContext(), title, 3) {
+                        new FetchSectionWikitextTask(getInstrumentation().getTargetContext(), title, SECTION_ID) {
                             @Override
                             public void onFinish(String result) {
                                 assertNotNull(result);
