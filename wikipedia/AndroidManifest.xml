@@ -4,6 +4,13 @@
     android:versionCode="72"
     android:versionName="2.0-alpha-2014-07-10"
     android:installLocation="auto">
+    <!--
+    If the build is intended to be Google Play-updateable, the package name
+    should be the same as for Google Play (name depends on Beta or Stable).
+    Otherwise, if the build is not intended to be Google Play-updateable (e.g.,
+    updateable via an alternative appstore update mechanism), the package name
+    should be specific to the update mechanism channel.
+    -->
 
     <uses-sdk
         android:minSdkVersion="10"
@@ -19,6 +26,14 @@
         android:label="@string/app_name"
         android:name=".WikipediaApp"
         android:theme="@style/AppTheme">
+
+        <!--
+        The following is used for determining the distribution channel.
+        Set "value" to "Google Play" for Google Play Store.
+        -->
+        <meta-data android:value="" android:name="@string/preference_channel"></meta-data>
+        <!-- Don't delete the meta-data field above -->
+
         <activity android:name=".page.PageActivity"
                   android:theme="@style/NoTitle"
                   android:windowSoftInputMode="stateHidden"

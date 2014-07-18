@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -617,4 +619,46 @@ public final class Utils {
         activity.getTheme().resolveAttribute(id, tv, true);
         return tv.resourceId;
     }
+
+    /**
+     * Returns the distribution channel for the app from AndroidManifest.xml
+     * @param ctx
+     * @return The channel (the empty string if not defined)
+     */
+    public static String getChannelDescriptor(Context ctx) {
+        try {
+            ApplicationInfo a = ctx.getPackageManager().getApplicationInfo(ctx.getPackageName(), PackageManager.GET_META_DATA);
+            String channel = a.metaData.getString(PrefKeys.getChannel());
+            return channel != null ? channel : "";
+        } catch (Throwable t) {
+            // oops
+            return "";
+        }
+    }
+
+    /**
+     * Sets the distribution channel for the app into SharedPreferences
+     * @param ctx
+     */
+    public static void setChannel(Context ctx) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        String channel = getChannelDescriptor(ctx);
+        prefs.edit().putString(PrefKeys.getChannel(), channel).commit();
+    }
+
+    /**
+     * Gets the distribution channel for the app from SharedPreferences
+     * @param ctx
+     */
+    public static String getChannel(Context ctx) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        String channel = prefs.getString(PrefKeys.getChannel(), null);
+        if (channel != null) {
+            return channel;
+        } else {
+            setChannel(ctx);
+            return getChannel(ctx);
+        }
+    }
+
 }

@@ -140,11 +140,14 @@ public class WikipediaApp extends Application {
     private String userAgent;
     public String getUserAgent() {
         if (userAgent == null) {
-            userAgent = String.format("WikipediaApp/%s (Android %s; %s)",
+            String channel = Utils.getChannel(this);
+            channel = channel.equals("") ? channel : " ".concat(channel);
+            userAgent = String.format("WikipediaApp/%s (Android %s; %s)%s",
                     WikipediaApp.APP_VERSION_STRING,
                     Build.VERSION.RELEASE,
-                    getString(R.string.device_type
-                    ));
+                    getString(R.string.device_type),
+                    channel
+            );
         }
         return userAgent;
     }

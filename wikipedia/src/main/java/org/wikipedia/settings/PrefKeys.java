@@ -18,6 +18,7 @@ public final class PrefKeys {
     private static String PREFERENCE_ONBOARD;
     private static String PREFERENCE_TEXT_SIZE_MULTIPLIER;
     private static String PREFERENCE_COLOR_THEME;
+    private static String PREFERENCE_CHANNEL;
 
     private PrefKeys() { }
 
@@ -35,6 +36,7 @@ public final class PrefKeys {
         PREFERENCE_ONBOARD = resources.getString(R.string.preference_onboard);
         PREFERENCE_TEXT_SIZE_MULTIPLIER = resources.getString(R.string.preference_text_size_multiplier);
         PREFERENCE_COLOR_THEME = resources.getString(R.string.preference_color_theme);
+        PREFERENCE_CHANNEL = resources.getString(R.string.preference_channel);
     }
 
     public static String getContentLanguageKey() {
@@ -87,5 +89,9 @@ public final class PrefKeys {
 
     public static String getColorTheme() {
         return PREFERENCE_COLOR_THEME;
+    }
+
+    public static String getChannel() {
+        return PREFERENCE_CHANNEL;
     }
 }
