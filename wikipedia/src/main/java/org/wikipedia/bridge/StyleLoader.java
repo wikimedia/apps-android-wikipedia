@@ -7,7 +7,7 @@ import android.util.Log;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.settings.PrefKeys;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -48,10 +48,10 @@ public class StyleLoader {
      * @return
      */
     public StyleBundle getAvailableBundle(String type, Site site) {
-        if (prefs.contains(WikipediaApp.PREFERENCE_STYLES_LAST_UPDATED)) {
+        if (prefs.contains(PrefKeys.getStylesLastUpdated())) {
             Date downloadUpdated;
             try {
-                downloadUpdated = Utils.parseISO8601(prefs.getString(WikipediaApp.PREFERENCE_STYLES_LAST_UPDATED, ""));
+                downloadUpdated = Utils.parseISO8601(prefs.getString(PrefKeys.getStylesLastUpdated(), ""));
             } catch (ParseException e) {
                 // This does not happen
                 throw new RuntimeException(e);

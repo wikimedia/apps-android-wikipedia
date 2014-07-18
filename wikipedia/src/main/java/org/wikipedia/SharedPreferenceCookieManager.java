@@ -2,6 +2,7 @@ package org.wikipedia;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import org.wikipedia.settings.PrefKeys;
 
 import java.io.IOException;
 import java.net.CookieManager;
@@ -23,9 +24,9 @@ public class SharedPreferenceCookieManager extends CookieManager {
 
     public SharedPreferenceCookieManager(SharedPreferences prefs) {
         this.prefs = prefs;
-        List<String> domains = makeList(prefs.getString(WikipediaApp.PREFERENCE_COOKIE_DOMAINS, ""));
+        List<String> domains = makeList(prefs.getString(PrefKeys.getCookieDomainsKey(), ""));
         for (String domain: domains) {
-            String key = String.format(WikipediaApp.PREFERENCE_COOKIES_FOR_DOMAINS, domain);
+            String key = String.format(PrefKeys.getCookiesForDomain(), domain);
             String cookies = prefs.getString(key, "");
             cookieJar.put(domain, makeCookieMap(makeList(cookies)));
         }
@@ -90,10 +91,10 @@ public class SharedPreferenceCookieManager extends CookieManager {
         }
 
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(WikipediaApp.PREFERENCE_COOKIE_DOMAINS, makeString(cookieJar.keySet()));
+        editor.putString(PrefKeys.getCookieDomainsKey(), makeString(cookieJar.keySet()));
 
         for (String domain : domainsModified) {
-            String prefKey = String.format(WikipediaApp.PREFERENCE_COOKIES_FOR_DOMAINS, domain);
+            String prefKey = String.format(PrefKeys.getCookiesForDomain(), domain);
             editor.putString(prefKey, makeString(makeCookieList(cookieJar.get(domain))));
 
         }
@@ -109,10 +110,10 @@ public class SharedPreferenceCookieManager extends CookieManager {
     public void clearAllCookies() {
         SharedPreferences.Editor editor = prefs.edit();
         for (String domain: cookieJar.keySet()) {
-            String key = String.format(WikipediaApp.PREFERENCE_COOKIES_FOR_DOMAINS, domain);
+            String key = String.format(PrefKeys.getCookiesForDomain(), domain);
             editor.remove(key);
         }
-        editor.remove(WikipediaApp.PREFERENCE_COOKIE_DOMAINS);
+        editor.remove(PrefKeys.getCookieDomainsKey());
         editor.commit();
         cookieJar.clear();
     }

@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.settings.PrefKeys;
 
 public abstract class Funnel {
     private final String schemaName;
@@ -65,7 +66,7 @@ public abstract class Funnel {
      *                depending on what they are logging.
      */
     protected void log(Site site, Object... params) {
-        if (!prefs.getBoolean(WikipediaApp.PREFERENCE_EVENTLOGGING_ENABLED, true)) {
+        if (!prefs.getBoolean(PrefKeys.getEventLoggingEnabled(), true)) {
             // If EL is turned off, this is a NOP
             return;
         }

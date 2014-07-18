@@ -1,5 +1,6 @@
 package org.wikipedia;
 
+import android.content.res.Resources;
 import android.os.Build;
 import android.view.View;
 import com.nineoldandroids.animation.Animator;
@@ -12,8 +13,15 @@ import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
  * Contains convenient methods for performing various animations on Views.
  */
 public final class ViewAnimations {
+    private static long SHORT_ANIMATION_DURATION;
+    private static long MEDIUM_ANIMATION_DURATION;
 
     private ViewAnimations() { }
+
+    public static void init(Resources resources) {
+        SHORT_ANIMATION_DURATION = resources.getInteger(android.R.integer.config_shortAnimTime);
+        MEDIUM_ANIMATION_DURATION = resources.getInteger(android.R.integer.config_mediumAnimTime);
+    }
 
     /**
      * Crossfades two views, one of which is assumed to be currently visible
@@ -44,7 +52,7 @@ public final class ViewAnimations {
             view.setVisibility(View.VISIBLE);
             animate(view)
                     .alpha(1.0f)
-                    .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
+                    .setDuration(MEDIUM_ANIMATION_DURATION)
                     .setListener(new AnimatorListenerAdapter() {
                         private boolean wasCanceled = false;
 
@@ -88,7 +96,7 @@ public final class ViewAnimations {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             animate(view)
                     .alpha(0f)
-                    .setDuration(WikipediaApp.MEDIUM_ANIMATION_DURATION)
+                    .setDuration(MEDIUM_ANIMATION_DURATION)
                     .setListener(new AnimatorListenerAdapter() {
                         private boolean wasCanceled = false;
 
@@ -127,7 +135,7 @@ public final class ViewAnimations {
     public static void slideIn(final View view, AnimatorListenerAdapter listener) {
         animate(view)
                 .translationX(0)
-                .setDuration(WikipediaApp.SHORT_ANIMATION_DURATION)
+                .setDuration(SHORT_ANIMATION_DURATION)
                 .setListener(listener != null ? listener : new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationStart(Animator animation) {
@@ -146,7 +154,7 @@ public final class ViewAnimations {
     public static void slideOutLeft(final View view, AnimatorListenerAdapter listener) {
         animate(view)
                 .translationX(-view.getWidth())
-                .setDuration(WikipediaApp.SHORT_ANIMATION_DURATION)
+                .setDuration(SHORT_ANIMATION_DURATION)
                 .setListener(listener != null ? listener : new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
@@ -165,7 +173,7 @@ public final class ViewAnimations {
     public static void slideOutRight(final View view, AnimatorListenerAdapter listener) {
         animate(view)
                 .translationX(view.getWidth())
-                .setDuration(WikipediaApp.SHORT_ANIMATION_DURATION)
+                .setDuration(SHORT_ANIMATION_DURATION)
                 .setListener(listener != null ? listener : new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
@@ -186,8 +194,7 @@ public final class ViewAnimations {
      */
     public static void ensureTranslationY(View view, int translation) {
         if (ViewHelper.getTranslationY(view) != translation) {
-            animate(view).translationY(translation).setDuration(WikipediaApp.SHORT_ANIMATION_DURATION).start();
+            animate(view).translationY(translation).setDuration(SHORT_ANIMATION_DURATION).start();
         }
     }
-
 }

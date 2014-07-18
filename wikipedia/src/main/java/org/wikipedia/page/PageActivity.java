@@ -33,6 +33,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
+import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
 
@@ -159,7 +160,7 @@ public class PageActivity extends FragmentActivity {
      */
     private boolean showOnboarding() {
         return (getIntent() == null || Intent.ACTION_MAIN.equals(getIntent().getAction()))
-                && !PreferenceManager.getDefaultSharedPreferences(this).getBoolean(WikipediaApp.PREFERENCE_ONBOARD, false)
+                && !PreferenceManager.getDefaultSharedPreferences(this).getBoolean(PrefKeys.getOnboard(), false)
                 && !app.getUserInfoStorage().isLoggedIn();
     }
 

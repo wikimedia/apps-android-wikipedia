@@ -45,8 +45,8 @@ public class SettingsActivity extends PreferenceActivityWithBack implements Shar
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals(WikipediaApp.PREFERENCE_CONTENT_LANGUAGE)) {
-            LanguagePreference pref = (LanguagePreference) findPreference(WikipediaApp.PREFERENCE_CONTENT_LANGUAGE);
+        if (key.equals(PrefKeys.getContentLanguageKey())) {
+            LanguagePreference pref = (LanguagePreference) findPreference(PrefKeys.getContentLanguageKey());
             pref.setSummary(pref.getCurrentLanguageDisplayString());
             setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
         }

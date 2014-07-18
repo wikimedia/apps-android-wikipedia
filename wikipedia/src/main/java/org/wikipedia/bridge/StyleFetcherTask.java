@@ -9,6 +9,7 @@ import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.recurring.RecurringTask;
+import org.wikipedia.settings.PrefKeys;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -76,7 +77,7 @@ public class StyleFetcherTask extends RecurringTask {
             //if any of the above code throws an exception, the following last-updated date will not
             //be updated, so the task will be retried on the next go.
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            prefs.edit().putString(WikipediaApp.PREFERENCE_STYLES_LAST_UPDATED, Utils.formatISO8601(new Date())).commit();
+            prefs.edit().putString(PrefKeys.getStylesLastUpdated(), Utils.formatISO8601(new Date())).commit();
 
         } catch (FileNotFoundException e) {
             // This doesn't actually seem to happen ever?

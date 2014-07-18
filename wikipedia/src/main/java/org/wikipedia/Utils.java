@@ -35,6 +35,7 @@ import org.mediawiki.api.json.ApiResult;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.events.WikipediaZeroInterstitialEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
+import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.zero.WikipediaZeroTask;
 
 import java.io.BufferedReader;
@@ -403,7 +404,7 @@ public final class Utils {
     public static void handleExternalLink(final Context context, final Uri uri) {
         if (WikipediaApp.isWikipediaZeroDevmodeOn() && WikipediaApp.getWikipediaZeroDisposition()) {
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-            if (sharedPref.getBoolean(WikipediaApp.PREFERENCE_ZERO_INTERSTITIAL, true)) {
+            if (sharedPref.getBoolean(PrefKeys.getZeroInterstitial(), true)) {
                 WikipediaApp.getInstance().getBus().post(new WikipediaZeroInterstitialEvent(uri));
             } else {
                 Utils.visitInExternalBrowser(context, uri);
