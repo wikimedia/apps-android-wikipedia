@@ -114,6 +114,13 @@ def change_icon(data):
     return data.replace("launcher", "launcher_beta")
 
 
+def change_label(data):
+    """
+    Utility function to replace app label with beta app name
+    """
+    return data.replace('@string/app_name', '@string/app_name_beta')
+
+
 versionCode_regex = re.compile(r'android:versionCode="(\d+)"', re.MULTILINE)
 versionName_regex = re.compile(r'android:versionName="([^"]+)"', re.MULTILINE)
 
@@ -152,7 +159,7 @@ def transform_project(dir_path):
                 file_path = os.path.join(root, file_name)
                 transform_file(file_path, replace_packagenames)
 
-    transform_file(p(dir_path, 'AndroidManifest.xml'), replace_packagenames, set_version, change_icon)
+    transform_file(p(dir_path, 'AndroidManifest.xml'), replace_packagenames, set_version, change_icon, change_label)
 
 
 def make_release():
@@ -163,6 +170,7 @@ def make_release():
     sh.cd(PATH_PREFIX)
     sh.git.add('-u')
     sh.git.commit('-m', 'Make release %s' % get_beta_name())
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
