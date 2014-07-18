@@ -57,6 +57,10 @@ import java.util.*;
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?
  */
 public final class Utils {
+
+    private static final int MCC_LENGTH = 3;
+    private static final int KB16 = 16 * 1024;
+
     /**
      * Private constructor, so nobody can construct Utils.
      *
@@ -279,7 +283,7 @@ public final class Utils {
                 if (t != null && t.getPhoneType() >= 0) {
                     mccMncNetwork = t.getNetworkOperator();
                     if (mccMncNetwork != null) {
-                        mccMncNetwork = mccMncNetwork.substring(0, 3) + "-" + mccMncNetwork.substring(3);
+                        mccMncNetwork = mccMncNetwork.substring(0, MCC_LENGTH) + "-" + mccMncNetwork.substring(MCC_LENGTH);
                     } else {
                         mccMncNetwork = "000-00";
                     }
@@ -289,7 +293,7 @@ public final class Utils {
                     // so let's check the SIM, too. Let's not worry if it's CDMA, as the def of CDMA is complex.
                     mccMncSim = t.getSimOperator();
                     if (mccMncSim != null) {
-                        mccMncSim = mccMncSim.substring(0, 3) + "-" + mccMncSim.substring(3);
+                        mccMncSim = mccMncSim.substring(0, MCC_LENGTH) + "-" + mccMncSim.substring(MCC_LENGTH);
                     } else {
                         mccMncSim = "000-00";
                     }
@@ -474,7 +478,7 @@ public final class Utils {
      * @throws IOException
      */
     public static void copyStreams(InputStream in, OutputStream out) throws IOException {
-        byte[] buffer = new byte[16 * 1024]; // 16kb buffer
+        byte[] buffer = new byte[KB16]; // 16kb buffer
         int len;
         while ((len = in.read(buffer)) != -1) {
             out.write(buffer, 0, len);
