@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebView.FindListener;
 import android.widget.EditText;
+import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
@@ -24,6 +26,7 @@ public class FindInPageFragment extends Fragment {
     private View findInPageNext;
     private View findInPagePrev;
     private View findInPageClose;
+    private TextView findInPageMatch;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
@@ -69,6 +72,8 @@ public class FindInPageFragment extends Fragment {
             }
         });
 
+        findInPageMatch = (TextView) getView().findViewById(R.id.find_in_page_match);
+
         findInPageInput = (EditText) getView().findViewById(R.id.find_in_page_input);
         findInPageInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -86,6 +91,7 @@ public class FindInPageFragment extends Fragment {
                     findInPage(s.toString());
                 } else {
                     parentActivity.getCurPageFragment().getWebView().clearMatches();
+                    findInPageMatch.setVisibility(View.GONE);
                 }
             }
 
@@ -157,6 +163,24 @@ public class FindInPageFragment extends Fragment {
     public void findInPage(String s) {
         // to make it stop complaining
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            parentActivity.getCurPageFragment().getWebView().setFindListener(new FindListener() {
+                @Override
+                public void onFindResultReceived(int activeMatchOrdinal, int numberOfMatches, boolean isDoneCounting) {
+                    if (!isDoneCounting) {
+                        return;
+                    }
+                    if (numberOfMatches > 0) {
+                        findInPageMatch.setText(
+                                Integer.toString(activeMatchOrdinal + 1) +
+                                        "/" +
+                                        Integer.toString(numberOfMatches)
+                        );
+                        findInPageMatch.setVisibility(View.VISIBLE);
+                    } else {
+                        findInPageMatch.setVisibility(View.GONE);
+                    }
+                }
+            });
             parentActivity.getCurPageFragment().getWebView().findAllAsync(s);
         } else {
             parentActivity.getCurPageFragment().getWebView().findAll(s);

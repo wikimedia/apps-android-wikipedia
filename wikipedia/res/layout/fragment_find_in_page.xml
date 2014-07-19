@@ -33,6 +33,14 @@
             android:background="@null"
             android:textCursorDrawable="@null"
             />
+    <TextView
+            android:id="@+id/find_in_page_match"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            style="?android:textAppearanceSmall"
+            />
     <Button
             android:id="@+id/find_in_page_prev"
             android:layout_width="48dp"
