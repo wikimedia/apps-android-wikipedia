@@ -217,11 +217,28 @@ function invertColorProperty( el, propertyName ) {
 	el.style[propertyName] = 'rgb(' + (255 - r) + ', ' + (255 - g) + ', ' + (255 - b ) + ')';
 }
 
+function hasAncestor( el, tagName ) {
+	if ( el.tagName === tagName) {
+		return true;
+	} else {
+		if ( el.parentNode !== null && el.parentNode.tagName !== 'BODY' ) {
+			return hasAncestor( el.parentNode, tagName );
+		} else {
+			return false;
+		}
+	}
+}
+
 var invertProperties = [ 'color', 'background-color', 'border-color' ];
 function invertOneElement( el ) {
+	var shouldStrip = hasAncestor( el, 'TABLE' );
 	for ( var i = 0; i < invertProperties.length; i++ ) {
 		if ( el.style[invertProperties[i]] ) {
-			invertColorProperty( el, invertProperties[i] );
+			if ( shouldStrip ) {
+				el.style[invertProperties[i]] = 'inherit';
+			} else {
+				invertColorProperty( el, invertProperties[i] );
+			}
 		}
 	}
 }
