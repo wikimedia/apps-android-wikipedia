@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -37,6 +38,7 @@ import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagePersister;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.savedpages.SavedPagePersister;
+import org.wikipedia.settings.PrefKeys;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -51,23 +53,6 @@ import java.util.UUID;
         resDialogCommentPrompt = R.string.acra_report_dialog_comment,
         mailTo = "mobile-android-wikipedia-crashes@wikimedia.org")
 public class WikipediaApp extends Application {
-    public static long SHORT_ANIMATION_DURATION;
-    public static long MEDIUM_ANIMATION_DURATION;
-
-    public static String PREFERENCE_CONTENT_LANGUAGE;
-    public static String PREFERENCE_COOKIE_DOMAINS;
-    public static String PREFERENCE_COOKIES_FOR_DOMAINS;
-    public static String PREFERENCE_EDITTOKEN_WIKIS;
-    public static String PREFERENCE_EDITTOKEN_FOR_WIKI;
-    public static String PREFERENCE_ZERO_INTERSTITIAL;
-    public static String PREFERENCE_ZERO_DEVMODE;
-    public static String PREFERENCE_REMOTE_CONFIG;
-    public static String PREFERENCE_EVENTLOGGING_ENABLED;
-    public static String PREFERENCE_STYLES_LAST_UPDATED;
-    public static String PREFERENCE_READING_APP_INSTALL_ID;
-    public static String PREFERENCE_ONBOARD;
-    public static String PREFERENCE_TEXT_SIZE_MULTIPLIER;
-    public static String PREFERENCE_COLOR_THEME;
 
     public static float SCREEN_DENSITY;
 
@@ -116,24 +101,11 @@ public class WikipediaApp extends Application {
 
         bus = new Bus();
 
-        SHORT_ANIMATION_DURATION = getResources().getInteger(android.R.integer.config_shortAnimTime);
-        MEDIUM_ANIMATION_DURATION = getResources().getInteger(android.R.integer.config_mediumAnimTime);
-        SCREEN_DENSITY = getResources().getDisplayMetrics().density;
+        final Resources resources = getResources();
+        ViewAnimations.init(resources);
+        SCREEN_DENSITY = resources.getDisplayMetrics().density;
 
-        PREFERENCE_CONTENT_LANGUAGE = getResources().getString(R.string.preference_key_language);
-        PREFERENCE_COOKIE_DOMAINS = getString(R.string.preference_cookie_domains);
-        PREFERENCE_COOKIES_FOR_DOMAINS = getString(R.string.preference_cookies_for_domain);
-        PREFERENCE_EDITTOKEN_WIKIS = getString(R.string.preference_edittoken_wikis);
-        PREFERENCE_EDITTOKEN_FOR_WIKI = getString(R.string.preference_edittoken_for_wiki);
-        PREFERENCE_ZERO_INTERSTITIAL = getResources().getString(R.string.preference_key_zero_interstitial);
-        PREFERENCE_ZERO_DEVMODE = getResources().getString(R.string.preference_key_zero_devmode);
-        PREFERENCE_REMOTE_CONFIG = getString(R.string.preference_key_remote_config);
-        PREFERENCE_EVENTLOGGING_ENABLED = getString(R.string.preference_key_eventlogging_opt_in);
-        PREFERENCE_STYLES_LAST_UPDATED = getString(R.string.preference_key_styles_last_updated);
-        PREFERENCE_READING_APP_INSTALL_ID = getString(R.string.preference_reading_app_install_id);
-        PREFERENCE_ONBOARD = getString(R.string.preference_onboard);
-        PREFERENCE_TEXT_SIZE_MULTIPLIER = getString(R.string.preference_text_size_multiplier);
-        PREFERENCE_COLOR_THEME = getString(R.string.preference_color_theme);
+        PrefKeys.initPreferenceKeys(resources);
 
         PROTOCOL = "https"; // Move this to a preference or something later on
 
@@ -221,7 +193,7 @@ public class WikipediaApp extends Application {
     public String getPrimaryLanguage() {
         if (primaryLanguage == null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            primaryLanguage = prefs.getString(PREFERENCE_CONTENT_LANGUAGE, null);
+            primaryLanguage = prefs.getString(PrefKeys.getContentLanguageKey(), null);
             if (primaryLanguage == null) {
                 // No preference set!
                 String wikiCode = Utils.langCodeToWikiLang(Locale.getDefault().getLanguage());
@@ -237,7 +209,7 @@ public class WikipediaApp extends Application {
     public void setPrimaryLanguage(String language) {
         primaryLanguage = language;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.edit().putString(PREFERENCE_CONTENT_LANGUAGE, language).commit();
+        prefs.edit().putString(PrefKeys.getContentLanguageKey(), language).commit();
         primarySite = null;
     }
 
@@ -369,11 +341,11 @@ public class WikipediaApp extends Application {
     private String appInstallReadActionID;
     public String getAppInstallReadActionID() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.contains(PREFERENCE_READING_APP_INSTALL_ID)) {
-            appInstallReadActionID = prefs.getString(PREFERENCE_READING_APP_INSTALL_ID, null);
+        if (prefs.contains(PrefKeys.getReadingAppInstallId())) {
+            appInstallReadActionID = prefs.getString(PrefKeys.getReadingAppInstallId(), null);
         } else {
             appInstallReadActionID = UUID.randomUUID().toString();
-            prefs.edit().putString(PREFERENCE_READING_APP_INSTALL_ID, appInstallReadActionID).commit();
+            prefs.edit().putString(PrefKeys.getReadingAppInstallId(), appInstallReadActionID).commit();
         }
         Log.d("Wikipedia", "ID is" + appInstallReadActionID);
         return appInstallReadActionID;
@@ -409,7 +381,7 @@ public class WikipediaApp extends Application {
     public int getCurrentTheme() {
         if (currentTheme == 0) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            currentTheme = prefs.getInt(PREFERENCE_COLOR_THEME, THEME_LIGHT);
+            currentTheme = prefs.getInt(PrefKeys.getColorTheme(), THEME_LIGHT);
             if (currentTheme != THEME_LIGHT && currentTheme != THEME_DARK) {
                 currentTheme = THEME_LIGHT;
             }
@@ -428,7 +400,7 @@ public class WikipediaApp extends Application {
         }
         currentTheme = newTheme;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.edit().putInt(PREFERENCE_COLOR_THEME, currentTheme).commit();
+        prefs.edit().putInt(PrefKeys.getColorTheme(), currentTheme).commit();
 
         //update color filter for logo icon (used in ActionBar activities)...
         adjustDrawableToTheme(getResources().getDrawable(R.drawable.search_w));
@@ -451,7 +423,7 @@ public class WikipediaApp extends Application {
 
     public int getFontSizeMultiplier() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        return prefs.getInt(WikipediaApp.PREFERENCE_TEXT_SIZE_MULTIPLIER, 0);
+        return prefs.getInt(PrefKeys.getTextSizeMultiplier(), 0);
     }
 
     public void setFontSizeMultiplier(int multiplier) {
@@ -461,7 +433,7 @@ public class WikipediaApp extends Application {
             multiplier = FONT_SIZE_MULTIPLIER_MAX;
         }
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.edit().putInt(WikipediaApp.PREFERENCE_TEXT_SIZE_MULTIPLIER, multiplier).commit();
+        prefs.edit().putInt(PrefKeys.getTextSizeMultiplier(), multiplier).commit();
         bus.post(new ChangeTextSizeEvent());
     }
 
@@ -472,7 +444,7 @@ public class WikipediaApp extends Application {
      * @return Actual current size of the font.
      */
     public float getFontSize(Window window) {
-        int multiplier = PreferenceManager.getDefaultSharedPreferences(this).getInt(WikipediaApp.PREFERENCE_TEXT_SIZE_MULTIPLIER, 0);
+        int multiplier = PreferenceManager.getDefaultSharedPreferences(this).getInt(PrefKeys.getTextSizeMultiplier(), 0);
         return Utils.getFontSizeFromSp(window, getResources().getDimension(R.dimen.textSize)) * (1.0f + multiplier * FONT_SIZE_FACTOR);
     }
 }

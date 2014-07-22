@@ -15,6 +15,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.analytics.OnboardingFunnel;
 import org.wikipedia.login.LoginActivity;
+import org.wikipedia.settings.PrefKeys;
 
 /**
  * Onboarding screen, which shows up the first time this app is started unless the user is already logged in.
@@ -86,6 +87,6 @@ public class OnboardingActivity extends Activity {
 
     private void markAllAboard() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.edit().putBoolean(WikipediaApp.PREFERENCE_ONBOARD, true).commit();
+        prefs.edit().putBoolean(PrefKeys.getOnboard(), true).commit();
     }
 }

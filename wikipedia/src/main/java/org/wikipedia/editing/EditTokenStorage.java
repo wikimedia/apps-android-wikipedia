@@ -6,7 +6,7 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.settings.PrefKeys;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -24,9 +24,9 @@ public class EditTokenStorage {
     public EditTokenStorage(Context context) {
         this.context = context;
         this.prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        List<String> wikis = makeList(prefs.getString(WikipediaApp.PREFERENCE_EDITTOKEN_WIKIS, ""));
+        List<String> wikis = makeList(prefs.getString(PrefKeys.getEditTokenWikis(), ""));
         for (String wiki: wikis) {
-            String key = String.format(WikipediaApp.PREFERENCE_EDITTOKEN_FOR_WIKI, wiki);
+            String key = String.format(PrefKeys.getEditTokenForWiki(), wiki);
             tokenJar.put(wiki, prefs.getString(key, null));
         }
     }
@@ -53,10 +53,10 @@ public class EditTokenStorage {
     public void clearAllTokens() {
         SharedPreferences.Editor editor = prefs.edit();
         for (String domain: tokenJar.keySet()) {
-            String key = String.format(WikipediaApp.PREFERENCE_EDITTOKEN_FOR_WIKI, domain);
+            String key = String.format(PrefKeys.getEditTokenForWiki(), domain);
             editor.remove(key);
         }
-        editor.remove(WikipediaApp.PREFERENCE_EDITTOKEN_WIKIS);
+        editor.remove(PrefKeys.getEditTokenWikis());
         editor.commit();
         tokenJar.clear();
     }
@@ -64,9 +64,9 @@ public class EditTokenStorage {
     private void updatePrefs(String wiki, String token) {
         tokenJar.put(wiki, token);
         String wikisList = makeString(tokenJar.keySet());
-        String wikiKey = String.format(WikipediaApp.PREFERENCE_EDITTOKEN_FOR_WIKI, wiki);
+        String wikiKey = String.format(PrefKeys.getEditTokenForWiki(), wiki);
         prefs.edit()
-                .putString(WikipediaApp.PREFERENCE_EDITTOKEN_WIKIS, wikisList)
+                .putString(PrefKeys.getEditTokenWikis(), wikisList)
                 .putString(wikiKey, token)
                 .commit();
     }
