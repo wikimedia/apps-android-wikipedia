@@ -6,6 +6,7 @@ import android.view.MotionEvent;
 import android.webkit.WebView;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.WebViewInvalidateEvent;
+import android.graphics.Canvas;
 
 public class ObservableWebView extends WebView {
     private OnScrollChangeListener onScrollChangeListener;
@@ -92,11 +93,8 @@ public class ObservableWebView extends WebView {
     }
 
     @Override
-    public void invalidate() {
-        super.invalidate();
-        if (getContentHeight() == 0) {
-            return;
-        }
+    protected void onDraw (Canvas canvas) {
+        super.onDraw(canvas);
         WikipediaApp.getInstance().getBus().post(new WebViewInvalidateEvent());
     }
 }
