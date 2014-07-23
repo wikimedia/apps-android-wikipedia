@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.wikipedia"
-    android:versionCode="72"
-    android:versionName="2.0-alpha-2014-07-10"
+    android:versionCode="73"
+    android:versionName="2.0-r-2014-07-23"
     android:installLocation="auto">
     <!--
     If the build is intended to be Google Play-updateable, the package name
