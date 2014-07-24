@@ -326,6 +326,9 @@ public class PageViewFragment extends Fragment {
         linkHandler = new LinkHandler(getActivity(), bridge, title.getSite()) {
             @Override
             public void onInternalLinkClicked(PageTitle title) {
+                if (referenceDialog != null && referenceDialog.isShowing()) {
+                    referenceDialog.dismiss();
+                }
                 HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
                 app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
             }
