@@ -54,6 +54,7 @@ public class SearchArticlesFragment extends Fragment {
     private ProgressBar searchProgress;
     private View searchNetworkError;
     private View searchNoResults;
+    private View fullSearchContainer;
     private ImageView searchBarMenuButton;
     private ImageView searchBarTocButton;
     private ImageView drawerIndicator;
@@ -89,6 +90,7 @@ public class SearchArticlesFragment extends Fragment {
         }
         searchProgress.setVisibility(View.INVISIBLE);
         searchNoResults.setVisibility(View.GONE);
+        fullSearchContainer.setVisibility(View.GONE);
     }
 
     /**
@@ -98,18 +100,24 @@ public class SearchArticlesFragment extends Fragment {
      */
     private void displayResults(List<PageTitle> results) {
         adapter.setResults(results);
-        if (results.size() == 0) {
-            searchNoResults.setVisibility(View.VISIBLE);
-        } else {
-            searchResultsList.setVisibility(View.VISIBLE);
 
-            //cache page thumbnails!
-            for (PageTitle title : results) {
-                if (title.getThumbUrl() == null) {
-                    continue;
-                }
-                pageImagesCache.put(title.getPrefixedText(), title.getThumbUrl());
+        if (app.getReleaseType() == WikipediaApp.RELEASE_PROD) {
+            if (results.size() == 0) {
+                searchNoResults.setVisibility(View.VISIBLE);
+            } else {
+                searchResultsList.setVisibility(View.VISIBLE);
             }
+        } else {
+            fullSearchContainer.setVisibility(View.VISIBLE);
+            searchResultsList.setVisibility(View.VISIBLE);
+        }
+
+        //cache page thumbnails!
+        for (PageTitle title : results) {
+            if (title.getThumbUrl() == null) {
+                continue;
+            }
+            pageImagesCache.put(title.getPrefixedText(), title.getThumbUrl());
         }
         ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
     }
@@ -138,6 +146,15 @@ public class SearchArticlesFragment extends Fragment {
         ImageView wikipediaIcon = (ImageView) parentLayout.findViewById(R.id.wikipedia_icon);
         searchNoResults = parentLayout.findViewById(R.id.search_results_empty);
 
+        fullSearchContainer = parentLayout.findViewById(R.id.full_search_container);
+        fullSearchContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Utils.hideSoftKeyboard(getActivity());
+                (new FullSearchDialog(SearchArticlesFragment.this, searchTermText.getText().toString())).show();
+            }
+        });
+
         app.adjustDrawableToTheme(wikipediaIcon.getDrawable());
         app.adjustDrawableToTheme(searchBarTocButton.getDrawable());
         app.adjustDrawableToTheme(searchBarMenuButton.getDrawable());
@@ -157,8 +174,7 @@ public class SearchArticlesFragment extends Fragment {
         searchNetworkError.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Just retry!
-                startSearch(searchTermText.getText().toString());
+                startSearch(searchTermText.getText().toString()); //just retry!
                 searchNetworkError.setVisibility(View.GONE);
             }
         });
@@ -166,12 +182,10 @@ public class SearchArticlesFragment extends Fragment {
         searchTermText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // DO NOTHING!
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // DO NOTHING
             }
 
             @Override
@@ -198,8 +212,12 @@ public class SearchArticlesFragment extends Fragment {
                 if (action == EditorInfo.IME_ACTION_GO) {
                     String searchTerm = searchTermText.getText().toString();
                     if (searchTerm.length() > 0) {
-                        PageTitle title = new PageTitle(searchTermText.getText().toString(), app.getPrimarySite());
-                        navigateToTitle(title);
+                        if (app.getReleaseType() == WikipediaApp.RELEASE_PROD) {
+                            PageTitle title = new PageTitle(searchTermText.getText().toString(), app.getPrimarySite());
+                            navigateToTitle(title);
+                        } else {
+                            (new FullSearchDialog(SearchArticlesFragment.this, searchTermText.getText().toString())).show();
+                        }
                     } else {
                         hideSearchResults();
                     }
@@ -256,7 +274,7 @@ public class SearchArticlesFragment extends Fragment {
         return parentLayout;
     }
 
-    private void navigateToTitle(PageTitle title) {
+    public void navigateToTitle(PageTitle title) {
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
         Utils.hideSoftKeyboard(getActivity());
         app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
@@ -271,7 +289,12 @@ public class SearchArticlesFragment extends Fragment {
         }
         if (term.equals("")) {
             hideSearchResults();
+            fullSearchContainer.setVisibility(View.GONE);
             return;
+        }
+
+        if (app.getReleaseType() != WikipediaApp.RELEASE_PROD) {
+            fullSearchContainer.setVisibility(View.VISIBLE);
         }
 
         List<PageTitle> cacheResult = searchResultsCache.get(app.getPrimaryLanguage() + "-" + term);

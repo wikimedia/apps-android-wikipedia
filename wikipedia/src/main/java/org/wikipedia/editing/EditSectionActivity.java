@@ -529,11 +529,11 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             });
 
             if (editSummaryFragment.isActive()) {
-                v.setBackgroundResource(R.drawable.editpage_button_background_progressive);
+                v.setBackgroundResource(R.drawable.button_selector_progressive);
             } else if (editPreviewFragment.isActive()) {
-                v.setBackgroundResource(R.drawable.editpage_button_background_complete);
+                v.setBackgroundResource(R.drawable.button_selector_complete);
             } else {
-                v.setBackgroundResource(R.drawable.editpage_button_background_progressive);
+                v.setBackgroundResource(R.drawable.button_selector_progressive);
             }
         }
 
