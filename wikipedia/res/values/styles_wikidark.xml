@@ -16,6 +16,7 @@
         <item name="toc_subsection_text_color">@color/toc_subsection_text_dark</item>
         <item name="edit_text_color">@color/edit_text_dark</item>
         <item name="link_color">@color/link_dark</item>
+        <item name="abusefilter_background_color">@color/abusefilter_background_dark</item>
     </style>
 
     <style name="ActionBar.Solid.WikiDark" parent="@style/Widget.AppCompat.ActionBar.Solid">

@@ -79,7 +79,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/edit_section_abusefilter_container"
                 android:visibility="gone"
-                android:background="@android:color/background_light"
+                android:background="?attr/window_background_color"
             >
         <LinearLayout
                 android:orientation="vertical"
@@ -90,7 +90,7 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/abusefilter_background"
+                    android:background="?attr/abusefilter_background_color"
                     >
                 <ImageView
                         android:id="@+id/edit_section_abusefilter_image"

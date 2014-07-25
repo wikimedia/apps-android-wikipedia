@@ -8,7 +8,6 @@
     <color name="license_text_light">#A0A0A0</color>
     <color name="actionbar_disabled">#A0A0A0</color>
     <color name="button_disabled">#BEBEBE</color>
-    <color name="abusefilter_background">#E8E8E8</color>
     <color name="preview_header_background">#D0D0D0</color>
     <color name="blue_progressive">#347BFF</color>
     <color name="blue_progressive_dark">#1A3D7F</color>
@@ -33,6 +32,7 @@
     <color name="toc_section_text_light">#ff333333</color>
     <color name="toc_subsection_text_light">#ff898989</color>
     <color name="edit_text_light">#ff000000</color>
+    <color name="abusefilter_background_light">#E8E8E8</color>
 
     <color name="link_dark">#ff2B6FB2</color>
     <color name="window_background_dark">#ff000000</color>
@@ -42,6 +42,7 @@
     <color name="toc_section_text_dark">#ffd0d0d0</color>
     <color name="toc_subsection_text_dark">#ffa0a0a0</color>
     <color name="edit_text_dark">#ff909090</color>
+    <color name="abusefilter_background_dark">#505050</color>
 
     <color name="list_item_highlight">#a033b5e5</color>
     <color name="list_item_selected">#d033b5e5</color>

@@ -126,6 +126,9 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         bus = app.getBus();
         bus.register(this);
 
+        funnel = app.getFunnelManager().getEditFunnel(title);
+        funnel.logStart();
+
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
             sectionWikitext = savedInstanceState.getString("sectionWikitext");
         }
@@ -153,10 +156,6 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionTextModified")) {
             sectionTextModified = savedInstanceState.getBoolean("sectionTextModified");
         }
-
-        funnel = app.getFunnelManager().getEditFunnel(title);
-
-        funnel.logStart();
 
         sectionText.addTextChangedListener(new TextWatcher() {
             @Override
