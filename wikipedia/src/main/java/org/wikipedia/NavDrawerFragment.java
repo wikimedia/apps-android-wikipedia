@@ -23,6 +23,7 @@ import org.wikipedia.settings.SettingsActivity;
 
 public class NavDrawerFragment extends Fragment implements View.OnClickListener {
     private static final int[] ACTION_ITEMS_ALL = {
+            R.id.nav_item_today,
             R.id.nav_item_history,
             R.id.nav_item_saved_pages,
             R.id.nav_item_more,
@@ -129,6 +130,9 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
     public void onClick(View view) {
         Intent intent = new Intent();
         switch (view.getId()) {
+            case R.id.nav_item_today:
+                app.getBus().post(new RequestMainPageEvent());
+                break;
             case R.id.nav_item_history:
                 intent.setClass(this.getActivity(), HistoryActivity.class);
                 getActivity().startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_HISTORY);

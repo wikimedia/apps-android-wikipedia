@@ -20,6 +20,7 @@
     <string name="menu_clear_all_bookmarks">Clear bookmarks</string>
     <string name="menu_clear_all_saved_pages">Clear saved pages</string>
     <string name="page_does_not_exist_error">This page does not exist.</string>
+    <string name="nav_item_today">Today</string>
 
     <string name="dialog_title_clear_history">Clear browsing history?</string>
     <string name="saved_pages_activity_title">Saved pages</string>
