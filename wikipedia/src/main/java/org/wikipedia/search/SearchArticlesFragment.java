@@ -1,6 +1,5 @@
 package org.wikipedia.search;
 
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
@@ -207,6 +205,7 @@ public class SearchArticlesFragment extends Fragment {
                 if (drawerLayout.isDrawerOpen(Gravity.START)) {
                     drawerLayout.closeDrawer(Gravity.START);
                 }
+                Utils.showSoftKeyboardAsync(getActivity(), searchTermText);
                 startSearch(searchTermText.getText().toString());
             }
         });
@@ -234,7 +233,14 @@ public class SearchArticlesFragment extends Fragment {
                 if (!hasFocus && searchNetworkError.isShown()) {
                     ViewAnimations.fadeOut(searchNetworkError);
                 }
-
+                if (hasFocus) {
+                    if (drawerLayout.isDrawerOpen(Gravity.START)) {
+                        drawerLayout.closeDrawer(Gravity.START);
+                    }
+                    Utils.showSoftKeyboardAsync(getActivity(), searchTermText);
+                } else {
+                    Utils.hideSoftKeyboard(getActivity());
+                }
             }
         });
 
@@ -270,8 +276,7 @@ public class SearchArticlesFragment extends Fragment {
 
     private void navigateToTitle(PageTitle title) {
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-        InputMethodManager keyboard = (InputMethodManager)app.getSystemService(Context.INPUT_METHOD_SERVICE);
-        keyboard.hideSoftInputFromWindow(searchTermText.getWindowToken(), 0);
+        Utils.hideSoftKeyboard(getActivity());
         app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
         hideSearchResults();
         // remove focus from the Search field, so that the cursor stops blinking

@@ -177,6 +177,36 @@ public final class Utils {
         keyboard.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
     }
 
+    /**
+     * Attempt to display the Android keyboard.
+     *
+     * FIXME: This should not need to exist.
+     * Android should always show the keyboard at the appropriate time. This method allows you to display the keyboard
+     * when Android fails to do so.
+     *
+     * @param activity The current activity
+     * @param view The currently focused view that will receive the keyboard input
+     */
+    public static void showSoftKeyboard(Activity activity, View view) {
+        InputMethodManager keyboard = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        keyboard.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
+    }
+
+    /**
+     * Same as showSoftKeyboard(), but posted to the message queue of the current thread, so that it's executed
+     * after the current block of code is finished.
+     * @param activity The current activity
+     * @param view The currently focused view that will receive the keyboard input
+     */
+    public static void showSoftKeyboardAsync(final Activity activity, final View view) {
+        view.post(new Runnable() {
+            @Override
+            public void run() {
+                Utils.showSoftKeyboard(activity, view);
+            }
+        });
+    }
+
     public static void setupShowPasswordCheck(final CheckBox check, final EditText edit) {
         check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

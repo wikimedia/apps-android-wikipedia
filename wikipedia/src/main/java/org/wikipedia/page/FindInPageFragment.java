@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,7 +8,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView.FindListener;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -132,8 +130,7 @@ public class FindInPageFragment extends Fragment {
                 public void run() {
                     // give focus to the input field, and force the keyboard to be shown
                     findInPageInput.requestFocus();
-                    ((InputMethodManager) parentActivity.getSystemService(Context.INPUT_METHOD_SERVICE))
-                            .toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                    Utils.showSoftKeyboard(parentActivity, findInPageInput);
                     // if the input field is already populated, then search it
                     if (findInPageInput.getText().length() > 0) {
                         if (!pageFragmentValid()) {
