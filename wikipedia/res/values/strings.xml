@@ -166,6 +166,10 @@
     <string name="more_item_preferences">More</string>
     <string name="more_activity_title">More</string>
     <string name="about_description">About the Wikipedia app</string>
+    <string name="privacy_policy_description">Privacy policy</string>
+    <string name="terms_of_use_description">Terms of use</string>
+    <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+    <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="preference_title_version">Version</string>
     <string name="about_terms_of_use"><![CDATA[<a href="http://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a>]]></string>
     <string name="about_privacy_policy"><![CDATA[<a href="http://wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>]]></string>
