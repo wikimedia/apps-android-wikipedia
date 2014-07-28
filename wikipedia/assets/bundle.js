@@ -124,7 +124,7 @@ Bridge.prototype.registerListener = function( messageType, callback ) {
 
 Bridge.prototype.sendMessage = function( messageType, payload ) {
     var messagePack = { type: messageType, payload: payload };
-    var ret = window.prompt( JSON.stringify( messagePack) );
+    var ret = window.prompt( encodeURIComponent(JSON.stringify( messagePack )) );
     if ( ret ) {
         return JSON.parse( ret );
     }

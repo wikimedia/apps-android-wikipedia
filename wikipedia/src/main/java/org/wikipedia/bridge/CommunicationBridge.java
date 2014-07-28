@@ -12,6 +12,8 @@ import android.webkit.WebView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -114,11 +116,13 @@ public class CommunicationBridge {
         @Override
         public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
             try {
-                JSONObject messagePack = new JSONObject(message);
+                JSONObject messagePack = new JSONObject(URLDecoder.decode(message, "utf-8"));
                 Message msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS, messagePack);
                 incomingMessageHandler.sendMessage(msg);
                 result.confirm();
             } catch (JSONException e) {
+                throw new RuntimeException(e);
+            } catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);
             }
             return true;
