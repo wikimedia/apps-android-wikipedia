@@ -28,16 +28,18 @@
   <string name="menu_share_page">シェア</string>
   <string name="share_via">シェアする</string>
   <string name="dialog_title_clear_saved_pages">保存したページをすべて消去しますか?</string>
-  <string name="dialog_message_clear_saved_pages">保存したページすべてを本当に消去しますか?</string>
+  <string name="dialog_message_clear_saved_pages">本当に保存したページをすべて消去しますか?</string>
   <string name="toast_saving_page">ページを保存中...</string>
   <string name="toast_saved_page">ページを保存しました</string>
   <string name="toast_saved_page_missing_images">一部の画像を保存できませんでした</string>
   <string name="toast_save_page_failed">ページを保存できませんでした :(</string>
   <string name="toast_refresh_saved_page">保存したページを更新しています...</string>
   <string name="delete_selected_saved_pages">削除</string>
-  <string name="toast_saved_page_deleted">保存されたページを削除しました</string>
+  <string name="toast_saved_page_deleted">保存したページを削除しました</string>
   <string name="last_updated_text">最終更新: %s</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
+  <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
+  <string name="edit_save_action_license_anon">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
   <string name="preference_title_language">ウィキペディアの言語</string>
   <string name="preference_summary_language">コンテンツの言語</string>
   <string name="preference_languages_filter_hint">検索</string>
@@ -79,10 +81,15 @@
   <string name="nav_item_logout">ログアウト</string>
   <string name="preference_title_logout">ログアウト</string>
   <string name="preference_summary_logout">ウィキペディアのアカウントからログアウト</string>
-  <string name="preference_summary_notloggedin">ログインしていません。</string>
+  <string name="preference_summary_notloggedin">ログインしていません</string>
   <string name="toast_logout_complete">ログアウトしました</string>
-  <string name="saved_pages_empty_message" fuzzy="true">保存したページはありません</string>
-  <string name="history_empty_message" fuzzy="true">履歴はありません。</string>
+  <string name="saved_pages_empty_title">保存されたページはありません。</string>
+  <string name="saved_pages_empty_message">保存したページはすごい機能です! オフライン時にも読める、ブックマークのようなものだとお考えください。</string>
+  <string name="history_empty_title">履歴はまだありません。</string>
+  <string name="history_empty_message">すべて削除したのかもしれません。他のページに行った後にここへ戻ってみてください。</string>
+  <string name="wp_stylized">&lt;big&gt;ウィ&lt;/big&gt;キペディ&lt;big&gt;ア&lt;/big&gt;</string>
+  <string name="wp_tag_line">フリー百科事典</string>
+  <string name="skip">スキップする</string>
   <string name="create_account_username_hint">利用者名</string>
   <string name="create_account_password_hint">パスワード</string>
   <string name="menu_create_account">アカウント作成</string>
@@ -106,16 +113,15 @@
   <string name="zero_charged_verbiage">ウィキペディアゼロはオフです</string>
   <string name="zero_charged_verbiage_extended">その他の記事の読み込みには料金が発生する場合があります。</string>
   <string name="zero_search_hint">ウィキペディアゼロを検索</string>
-  <string name="zero_warn_when_leaving">ウィキペディアゼロを離れる場合には警告する</string>
+  <string name="zero_warn_when_leaving">ウィキペディアゼロを離れる場合には警告</string>
   <string name="zero_warn_when_leaving_summary">ウィキペディアゼロの提携により、携帯電話会社がウィキペディアアプリからのアクセス料金を無料にしている場合には、この設定をチェックしておくと、ウィキペディアアプリを離れて料金がかかる際に分かるようになります。</string>
   <string name="zero_webpage_title">ウィキペディアゼロについてのFAQ</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">ウィキペディアゼロ</string>
   <string name="zero_interstitial_title">ウィキペディアゼロを離れる</string>
   <string name="zero_interstitial_leave_app">データ料金がかかるかもしれません。外部サイトへ接続しますか?</string>
   <string name="zero_interstitial_continue">離れる</string>
   <string name="zero_interstitial_cancel">留まる</string>
-  <string name="zero_learn_more">このウィキメディアアプリではデータ料金が免除されます</string>
+  <string name="zero_learn_more">このウィキペディアアプリではデータ料金が免除されます</string>
   <string name="zero_learn_more_learn_more">続きを読む</string>
   <string name="zero_learn_more_dismiss">非表示</string>
   <string name="zero_settings">設定</string>
@@ -128,7 +134,7 @@
   <string name="edit_summary_guide_text">このページをどう改善したか教えてください。他の編集者があなたの編集を手早くレビューするのに役立ちます。</string>
   <string name="edit_summary_hint">要約の編集</string>
   <string name="nav_item_random">おまかせ表示</string>
-  <string name="random_progress">ランダムなページを取得中…</string>
+  <string name="random_progress">おまかせページを取得中...</string>
   <string name="nav_item_login_benefits">ログインすると、編集内容はあなたの利用者名に関連付けられます。あなたの IP アドレスは公開されません。</string>
   <string name="create_account_account_created_toast">アカウントを作成しました</string>
   <string name="user_contribs_more_action">続きを読み込む</string>
@@ -157,6 +163,8 @@
   <string name="about_privacy_policy">&lt;a href=\"http://meta.wikimedia.org/wiki/Privacy_policy/ja\"&gt;プライバシー・ポリシー&lt;/a&gt;</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
+  <string name="about_translators_heading">翻訳者</string>
+  <string name="about_translators_translatewiki">このアプリは&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;で、ボランティアの翻訳者によって翻訳されました。</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ウィキメディア財団&lt;/a&gt;の製品です</string>
   <string name="about_activity_title">このアプリについて</string>
   <string name="edit_unchanged">ページは変更されていません</string>
@@ -182,6 +190,15 @@
   <string name="saved_pages_update_all_error_message">保存したページを更新する際にエラーが発生しました</string>
   <string name="saved_pages_progress_title">保存したページを更新しています</string>
   <string name="saved_pages_refresh_pages_complete">更新しました</string>
+  <string name="abusefilter_title_warn">これは建設的ではない編集かもしれません。それでも保存しますか?</string>
+  <string name="abusefilter_title_disallow">この編集は保存できません。戻って変更してください。</string>
+  <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;すべて大文字で書かれている&lt;br /&gt;記事が白紙化されているか、スパムである&lt;br /&gt;文字の繰り返し</string>
+  <string name="abusefilter_text_disallow">自動フィルターによって、この編集が建設的でないか、荒らしである可能性があると判断されました。&lt;br /&gt;&lt;br /&gt;ウィキペディアは百科事典であり、中立的で特筆性のあるコンテンツのみを記載する必要があります。</string>
+  <string name="menu_themechooser">フォントとテーマ</string>
+  <string name="text_size_select">フォントサイズ</string>
+  <string name="color_theme_select">テーマ</string>
+  <string name="color_theme_light">明るめ</string>
+  <string name="color_theme_dark">暗め</string>
   <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。このバージョンではゼロから書きなおされ、これまでで最良のものになりました。
 
 機能:

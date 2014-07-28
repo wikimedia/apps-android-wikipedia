@@ -92,7 +92,6 @@
   <string name="zero_warn_when_leaving">Avisádeme ao saír da Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Se o seu operador de telefonía móbil renuncia ás tarifas de datos por acceso á aplicación da Wikipedia a través dun consorcio coa Wikipedia Zero, ao deixar marcada esta opción saberá cando deixa a aplicación da Wikipedia e poden aplicarse tarifas de datos.</string>
   <string name="zero_webpage_title">Preguntas frequentes sobre a Wikipedia Zero</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Deixando a Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app" fuzzy="true">Quere continuar a un sitio externo? Poden aplicarse tarifas de datos estándar.</string>

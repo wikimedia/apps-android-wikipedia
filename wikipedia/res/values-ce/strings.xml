@@ -20,6 +20,8 @@
   <string name="toast_save_page_failed">АгӀо Ӏалашъян цаелира :(</string>
   <string name="delete_selected_saved_pages">ДӀаяккха</string>
   <string name="toast_saved_page_deleted" fuzzy="true">Ӏалашйина агӀонаш дӀаяьхна</string>
+  <string name="saved_pages_search_list_hint">Лаха</string>
+  <string name="saved_pages_search_empty_message">\'%s\' агӀонаш цакарий</string>
   <string name="last_updated_text">ТӀаьхьарлера карлаяккхар: %1$s</string>
   <string name="content_license_html">Чулацам тӀекхочуш бу &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; (кхиниг билгалйина яцахь)</string>
   <string name="preference_title_language" fuzzy="true">Мотт</string>
@@ -71,7 +73,6 @@
   <string name="preferences_general_heading">Юкъара</string>
   <string name="zero_search_hint">Wikipedia Zero чухула лахар</string>
   <string name="zero_warn_when_leaving">Wikipedia Zero чура ара долуш хаам бе</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Wikipedia Zero чура арадолу</string>
   <string name="zero_interstitial_continue">Кхин дӀа</string>
@@ -96,4 +97,7 @@
   <string name="edit_preview">Хьажар</string>
   <string name="edit_summary_tag_other">Кхин</string>
   <string name="saved_pages_update_all_error_retry">ЮхагӀорта</string>
+  <string name="menu_page_saved">АгӀо Ӏалашйина</string>
+  <string name="menu_refresh_saved_page">Карлаяккха агӀо</string>
+  <string name="menu_themechooser">Кечяр а шрифт а хийцар</string>
 </resources>

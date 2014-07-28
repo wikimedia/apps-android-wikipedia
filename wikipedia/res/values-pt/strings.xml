@@ -7,28 +7,28 @@
   <string name="acra_report_dialog_title">A Wikipédia crashou :(</string>
   <string name="acra_report_dialog_text">Envie-nos um relatório da falha</string>
   <string name="acra_report_dialog_comment">O que estava a fazer quando ocorreu o erro?</string>
-  <string name="search_hint">Procurar na Wikipédia</string>
+  <string name="search_hint">Pesquisar na Wikipédia</string>
   <string name="history_activity_title">Histórico</string>
   <string name="nav_item_history">Histórico</string>
   <string name="error_network_error">Não foi possível alcançar a rede :(</string>
-  <string name="search_network_error">Erro de rede. Toca para tentar de novo.</string>
+  <string name="search_network_error">Erro de rede. Toque para tentar de novo.</string>
   <string name="page_error_retry">Tente novamente</string>
   <string name="menu_clear_all_history">Limpar histórico</string>
   <string name="menu_clear_all_bookmarks">Limpar marcadores</string>
-  <string name="menu_clear_all_saved_pages">Apagar páginas gravadas</string>
+  <string name="menu_clear_all_saved_pages">Apagar páginas guardadas</string>
   <string name="page_does_not_exist_error">Esta página não existe.</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação?</string>
-  <string name="saved_pages_activity_title">Páginas gravadas</string>
-  <string name="nav_item_saved_pages">Páginas gravadas</string>
-  <string name="menu_update_all_saved_pages">Atualizar páginas gravadas</string>
-  <string name="menu_update_selected_saved_pages">Atualizar páginas gravadas</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Atualizar todas as páginas gravadas?</string>
-  <string name="toast_saved_page_refreshed">Páginas gravadas atualizadas</string>
+  <string name="saved_pages_activity_title">Páginas guardadas</string>
+  <string name="nav_item_saved_pages">Páginas guardadas</string>
+  <string name="menu_update_all_saved_pages">Atualizar páginas guardadas</string>
+  <string name="menu_update_selected_saved_pages">Atualizar páginas guardadas</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Atualizar todas as páginas guardadas?</string>
+  <string name="toast_saved_page_refreshed">Páginas guardadas atualizadas</string>
   <string name="menu_save_page">Gravar página</string>
   <string name="menu_share_page">Partilhar</string>
   <string name="share_via">Partilhar via</string>
-  <string name="dialog_title_clear_saved_pages">Limpar todas as páginas gravadas?</string>
-  <string name="dialog_message_clear_saved_pages">Tem a certeza que pretende remover todas as páginas gravadas?</string>
+  <string name="dialog_title_clear_saved_pages">Limpar todas as páginas guardadas?</string>
+  <string name="dialog_message_clear_saved_pages">Tem a certeza que pretende remover todas as páginas guardadas?</string>
   <string name="toast_saving_page">A gravar página...</string>
   <string name="toast_saved_page">Página gravada com êxito</string>
   <string name="toast_saved_page_missing_images">Não foi possível salvar todas as imagens</string>
@@ -36,8 +36,10 @@
   <string name="toast_refresh_saved_page">A recarregar página gravada...</string>
   <string name="delete_selected_saved_pages">Eliminar</string>
   <string name="toast_saved_page_deleted">Página(s) gravada(s) eliminada(s)</string>
-  <string name="last_updated_text">Última atualização há %s</string>
+  <string name="last_updated_text">Última atualização: %s</string>
   <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
+  <string name="edit_save_action_license_logged_in">Ao gravar, concorda com as &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Ao gravar, concorda com as &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. O seu endereço de IP estará visível nas edições do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar sessão&lt;/a&gt;, terá mais privacidade.</string>
   <string name="preference_title_language">Idioma da Wikipédia</string>
   <string name="preference_summary_language">Idioma do conteúdo</string>
   <string name="preference_languages_filter_hint">Pesquisar</string>
@@ -56,21 +58,21 @@
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
   <string name="menu_show_toc">Índice</string>
   <string name="search_no_results_found">Não foram encontrados resultados</string>
-  <string name="edit_section_captcha_message">Para ajudar a proteger contra spam automatizado, digita as palavras abaixo</string>
+  <string name="edit_section_captcha_message">Para ajudar a proteger contra spam automatizado, digite as palavras abaixo</string>
   <string name="edit_section_captcha_hint">Repita as palavras acima</string>
   <string name="title_captcha">Inserir CAPTCHA</string>
   <string name="edit_section_abusefilter_back_text">Fazer alterações à minha edição</string>
   <string name="edit_section_captcha_reload">Toque no CAPTCHA para recarregar</string>
-  <string name="edit_saved_page_refresh">Esta página salva pode estar desatualizada, e deve ser recarregada para ativar a sua edição. Gostaria de recarregar a página?</string>
+  <string name="edit_saved_page_refresh">Esta página guardada pode estar desatualizada, e deve ser recarregada para ativar a sua edição. Gostaria de recarregar a página?</string>
   <string name="nav_item_login">Entrar</string>
-  <string name="login_username_hint">Nome de utilizador</string>
-  <string name="login_password_hint">Palavra-chave</string>
-  <string name="login_password_show_check">Mostrar palavra-chave</string>
+  <string name="login_username_hint">Nome de utilizador(a)</string>
+  <string name="login_password_hint">Palavra-passe</string>
+  <string name="login_password_show_check">Mostrar palavra-passe</string>
   <string name="menu_login">Entrar</string>
   <string name="login_activity_title">Iniciar sessão na Wikipédia</string>
-  <string name="login_in_progress_dialog_message">Autenticando-te...</string>
-  <string name="login_error_wrong_password">Palavra-chave incorreta</string>
-  <string name="login_error_wrong_username">Nome de utilizador incorreto</string>
+  <string name="login_in_progress_dialog_message">A iniciar sessão...</string>
+  <string name="login_error_wrong_password">Palavra-passe incorreta</string>
+  <string name="login_error_wrong_username">Nome de utilizador(a) incorreto</string>
   <string name="login_success_toast">Autenticação bem sucedida!</string>
   <string name="login_error_blocked">Este utilizador foi bloqueado</string>
   <string name="login_error_throttled">Demasiadas tentativas. Aguarde alguns minutos e tente novamente.</string>
@@ -81,21 +83,26 @@
   <string name="preference_summary_logout">Sair da sua conta Wikipédia</string>
   <string name="preference_summary_notloggedin">Não iniciou a sessão.</string>
   <string name="toast_logout_complete">Sessão terminada</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Sem páginas gravadas</string>
-  <string name="history_empty_message" fuzzy="true">O seu histórico está vazio.</string>
-  <string name="create_account_username_hint">Nome de utilizador</string>
-  <string name="create_account_password_hint">Palavra-chave</string>
+  <string name="saved_pages_empty_title">Sem páginas guardadas ainda.</string>
+  <string name="saved_pages_empty_message">As páginas guardadas são bastante úteis. Pense como se fossem marcadores que pode ler mesmo quando estiver offline.</string>
+  <string name="history_empty_title">Sem páginas recentes aqui.</string>
+  <string name="history_empty_message">Provavelmente, deverá ter eliminado todos eles. Da próxima vez que aceder a uma página, pode obter a partir de aqui.</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_tag_line">A enciclopédia livre</string>
+  <string name="skip">Ignorar</string>
+  <string name="create_account_username_hint">Nome de utilizador(a)</string>
+  <string name="create_account_password_hint">Palavra-passe</string>
   <string name="menu_create_account">Criar conta</string>
   <string name="login_create_account_link">Não tem ainda uma conta? Junte-se à Wikipédia</string>
   <string name="create_account_login_link">Já possui uma conta? Inicie sessão</string>
   <string name="create_account_activity_title">Criar uma conta</string>
-  <string name="edit_section_activity_title">Editar Secção</string>
+  <string name="edit_section_activity_title">Editar seção</string>
   <string name="dialog_create_account_checking_progress">A verificar</string>
   <string name="create_account_email_hint">Endereço de correio eletrónico (Opcional)</string>
-  <string name="create_account_password_repeat_hint">Repita a palavra-chave</string>
-  <string name="create_account_passwords_mismatch_error">As palavras-chave não são iguais</string>
+  <string name="create_account_password_repeat_hint">Repita a palavra-passe</string>
+  <string name="create_account_passwords_mismatch_error">As palavras-passe não correspondem</string>
   <string name="create_account_email_error">Endereço de correio eletrónico inválido</string>
-  <string name="create_account_username_exists_error">Nome de utilizador já em utilização</string>
+  <string name="create_account_username_exists_error">Nome de utilizador(a) já em utilização</string>
   <string name="create_account_ip_throttle_error">Demasiadas contas criadas a partir deste endereço de IP. Tente novamente mais tarde.</string>
   <string name="create_account_open_proxy_error">Este endereço de IP está bloqueado de criar contas.</string>
   <string name="create_account_generic_error">Não foi possível criar conta</string>
@@ -107,9 +114,8 @@
   <string name="zero_charged_verbiage_extended">O carregamento de outros artigos podem incorrer em custos de dados.</string>
   <string name="zero_search_hint">Procurar na Wikipédia Zero</string>
   <string name="zero_warn_when_leaving">Avisar-me se deixar a Wikipédia Zero</string>
-  <string name="zero_warn_when_leaving_summary">Se a sua operadora de telefonia móvel renunciar à taxa de acesso para a aplicação da Wikipédia através de uma parceria do Wikipedia Zero, deixar esta opção marcada lhe ajudará a saber quando estará a sair desta aplicação e que poderá ter taxas de dados cobrada.</string>
+  <string name="zero_warn_when_leaving_summary">Se a sua operadora móvel renunciar à taxa de acesso para a aplicação da Wikipédia, através de uma parceria com a Wikipédia Zero, deixar esta opção marcada ajudará a saber quando estará a sair desta aplicação e se serão cobradas taxas de dados.</string>
   <string name="zero_webpage_title">Perguntas frequentes sobre a Wikipédia Zero</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipédia Zero</string>
   <string name="zero_interstitial_title">A deixar a Wikipédia Zero</string>
   <string name="zero_interstitial_leave_app">Poderão ser aplicadas taxas de dados. Continuar para o sítio externo?</string>
@@ -119,25 +125,25 @@
   <string name="zero_learn_more_learn_more">Ler mais</string>
   <string name="zero_learn_more_dismiss">Ignorar</string>
   <string name="zero_settings">Configurações</string>
-  <string name="zero_settings_devmode">Modo de desenvolvedor Zero</string>
-  <string name="zero_settings_devmode_summary">Durante o desenvolvimento deste, habilita a execução de código de coisas no Wikipedia Zero.</string>
+  <string name="zero_settings_devmode">Modo de programador Zero</string>
+  <string name="zero_settings_devmode_summary">Durante o seu desenvolvimento, habilita a execução de código de coisas no Wikipédia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">A processar pré-visualização...</string>
-  <string name="edit_preview_activity_title">Visualizar edição</string>
-  <string name="create_account_logging_in">Autenticando-te...</string>
+  <string name="edit_preview_activity_title">Pré-visualizar edição</string>
+  <string name="create_account_logging_in">A iniciar sessão...</string>
   <string name="send_feedback">Enviar comentários sobre a aplicação</string>
   <string name="edit_summary_guide_text">Diga-nos o que melhorou no artigo. Isto vai ajudar outros editores a reverem a sua edição rapidamente.</string>
   <string name="edit_summary_hint">Editar resumo</string>
   <string name="nav_item_random">Aleatório</string>
   <string name="random_progress">A obter uma página aleatória...</string>
-  <string name="nav_item_login_benefits">Se inciar sessão, suas edições serão associadas ao seu nome de utilizador e seu endereço de IP não será visível publicamente.</string>
+  <string name="nav_item_login_benefits">Se iniciar sessão, as suas edições serão associadas ao seu nome de utilizador(a) e o seu endereço de IP não será visível publicamente.</string>
   <string name="create_account_account_created_toast">Conta criada!</string>
   <string name="user_contribs_more_action">Ver mais</string>
   <string name="activity_my_contributions_title">As minhas contribuições</string>
   <string name="nav_item_my_contributions">As minhas contribuições</string>
   <string name="edit_save_action_login">Autenticar e gravar</string>
   <string name="edit_save_action_ip">Gravar anonimamente</string>
-  <string name="edit_save_action_login_description">Suas edições serão publicamente atribuídas ao seu nome de utilizador, e outros utilizadores poderão melhor contactá-lo.</string>
-  <string name="edit_save_action_ip_description">Suas edições serão publicamente atribuídas ao seu endereço de IP, o qual é alterado com frequência</string>
+  <string name="edit_save_action_login_description">As suas edições serão publicamente atribuídas ao seu nome de utilizador(a), e outros utilizadores poderão contactá-lo mais facilmente.</string>
+  <string name="edit_save_action_ip_description">As suas edições serão publicamente atribuídas ao seu endereço de IP, cujo é alterado com frequência</string>
   <string name="preference_title_eventlogging_opt_in">Enviar relatórios de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recolha informações sobre o uso da aplicação para elaborar melhorias</string>
   <string name="editing_error_spamblacklist">Ligações a sítios bloqueados (%s) detectados. Por favor, remova-os e tente novamente.</string>
@@ -157,6 +163,8 @@
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Política de privacidade&lt;/a&gt;</string>
   <string name="about_libraries_heading">bibliotecas usadas</string>
   <string name="about_contributors_heading">contribuidores</string>
+  <string name="about_translators_heading">tradutores</string>
+  <string name="about_translators_translatewiki">Esta aplicação foi traduzida por voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_unchanged">A página não foi modificada.</string>
@@ -172,23 +180,34 @@
   <string name="edit_summary_tag_grammar">Gramática corrigida</string>
   <string name="edit_summary_tag_links">Ligações adicionadas</string>
   <string name="edit_summary_tag_other">Outro</string>
-  <string name="edit_summary_tag_other_hint">Outras maneiras que você melhorou a página</string>
+  <string name="edit_summary_tag_other_hint">Outras maneiras de como melhorou a página</string>
   <string name="find_in_page">Localizar na página</string>
   <string name="find_next">Localizar próxima</string>
   <string name="find_previous">Localizar anteriores</string>
   <string name="find_close">Fechar a barra de localização</string>
   <string name="error_network_error_try_again">Não foi possível aceder à rede, tente novamente por favor.</string>
   <string name="saved_pages_update_all_error_retry">Tentar novamente</string>
-  <string name="saved_pages_update_all_error_message">Erro ao atualizar as páginas gravadas</string>
-  <string name="saved_pages_progress_title">A recarregar páginas gravadas</string>
+  <string name="saved_pages_update_all_error_message">Erro ao atualizar as guardadas</string>
+  <string name="saved_pages_progress_title">A recarregar páginas guardadas</string>
   <string name="saved_pages_refresh_pages_complete">Atualização concluída</string>
+  <string name="menu_page_saved">Página gravada</string>
+  <string name="menu_refresh_saved_page">Recarregar página</string>
+  <string name="abusefilter_title_warn">Esta edição poderá não ser construtiva. Tem a certeza que pretende gravá-la?</string>
+  <string name="abusefilter_title_disallow">Não pode gravar esta edição. Por favor, volte atrás e altere-a.</string>
+  <string name="abusefilter_text_warn">Um filtro automático identificou esta edição como não sendo construtiva. Pode conter os seguintes erros:&lt;br /&gt;&lt;br /&gt;Uso excessivo de maiúsculas;&lt;br/&gt;Branqueamento de artigos e spam;&lt;br/&gt;Imagens ou ligações externas irrelevantes;&lt;br/&gt;Repetição de caracteres</string>
+  <string name="abusefilter_text_disallow">Um filtro automático identificou esta edição como não sendo construtiva ou um potencial vandalismo.&lt;br /&gt;&lt;br /&gt;A Wikipédia é uma enciclopédia neutra, logo o conteúdo notável pertence aqui.</string>
+  <string name="menu_themechooser">Alterar o tipo de letra e tema</string>
+  <string name="text_size_select">Tamanho da fonte</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Claro</string>
+  <string name="color_theme_dark">Escuro</string>
   <string name="app_store_description">Aplicação oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada por trabalho humano. A aplicação foi reescrita do zero e está melhor que nunca.
 
 Caraterísticas:
    - Velocidade: A nossa nova aplicação permite-lhe navegar e editar na Wikipédia de uma forma mais rápida do que nunca.
    - Edição: Pode editar na Wikipédia! Com sessão iniciada ou não, nós agradecemos-lhe todas as suas contribuições.
    - Páginas recentes: Fornecemos-lhe o seu histórico de leitura, para que possa acompanhar as ligações que quiser sem se perder. 
-   - Páginas gravadas: Pode gravar páginas selecionadas para leitura e navegação \'\'offline\'\' mesmo sem ligação de dados.
+   - Páginas guardadas: Pode guardar páginas selecionadas para leitura e navegação \'\'offline\'\' mesmo sem ligação de dados.
    - Partilha: Use as suas aplicações sociais para partilhar a soma de todo o conhecimento humano.
    - Suporte de idioma: A aplicação permite que, de forma fácil, consiga ler a Wikipédia escrita em qualquer idioma.
    - Wikipédia Zero: Taxa de dados dispensada para operadores móveis participantes.

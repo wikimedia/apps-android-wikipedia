@@ -109,7 +109,6 @@
   <string name="zero_warn_when_leaving">Cảnh báo khi ra khỏi Wikipedia Miễn phí</string>
   <string name="zero_warn_when_leaving_summary">Nếu nhà điều hành điện thoại di động của bạn miễn phí truy cập dữ liệu cho ứng dụng Wikipedia do có quan hệ đối tác với Wikipedia Miễn phí, chọn hộp này để giúp bạn biết khi bạn sắp thoát ứng dụng Wikipedia và sẽ bị tính phí.</string>
   <string name="zero_webpage_title">Câu thường hỏi về Wikipedia Miễn phí</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Miễn phí</string>
   <string name="zero_interstitial_title">Sắp ra khỏi Wikipedia Miễn phí</string>
   <string name="zero_interstitial_leave_app">Có thể phải trả phí dữ liệu. Tiếp tục đi vào trang ngoài?</string>

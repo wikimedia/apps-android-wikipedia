@@ -81,8 +81,13 @@
   <string name="preference_summary_logout">Afmelden uit uw Wikipedia-account</string>
   <string name="preference_summary_notloggedin">Niet aangemeld.</string>
   <string name="toast_logout_complete">Afgemeld</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Geen opgeslagen pagina\'s</string>
-  <string name="history_empty_message" fuzzy="true">Uw geschiedenis is leeg.</string>
+  <string name="saved_pages_empty_title">Nog geen opgeslagen pagina\'s.</string>
+  <string name="saved_pages_empty_message">Opgeslagen pagina\'s zijn best wel vet. Denk aan bladwijzers die u zelfs kunt lezen wanneer u offline bent.</string>
+  <string name="history_empty_title">Geen recente pagina\'s.</string>
+  <string name="history_empty_message">U heeft ze vast allemaal verwijderd. De volgende keer als je een pagina bezoekt, kunt u hem hier terugvinden.</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_tag_line">De vrije encyclopedie</string>
+  <string name="skip">Overslaan</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>
   <string name="create_account_password_hint">Wachtwoord</string>
   <string name="menu_create_account">Registreren</string>
@@ -107,19 +112,18 @@
   <string name="zero_charged_verbiage_extended">Het laden van andere artikelen kan datakosten met zich meebrengen.</string>
   <string name="zero_search_hint">In Wikipedia Zero zoeken</string>
   <string name="zero_warn_when_leaving">Waarschuwen bij het verlaten van Wikipedia Zero</string>
-  <string name="zero_warn_when_leaving_summary">Als u mobiele provider geen kosten rekent voor de Wikipedia vanwege een Wikipedia Zero partnerschap, dan zorgt het inschakelen van deze instelling ervoor dat u wordt gewaarschuwd als u Wikipedia verlaat en mogelijk kosten voor data moet betalen.</string>
-  <string name="zero_webpage_title">Veel gestelde vragen over Wikipedia Zero</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
+  <string name="zero_warn_when_leaving_summary">Als uw mobiele provider geen kosten in rekening brengt voor het gegevensgebruik via de Wikipedia-app vanwege een Wikipedia Zero-partnerschap, dan zorgt het inschakelen van deze instelling ervoor dat u wordt gewaarschuwd als u Wikipedia verlaat en mogelijk kosten voor data moet betalen.</string>
+  <string name="zero_webpage_title">Veelgestelde vragen over Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">U verlaat Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Er kunnen kosten gerekend worden voor mobiele data. Doorgaan naar de externe website?</string>
   <string name="zero_interstitial_continue">Afsluiten</string>
   <string name="zero_interstitial_cancel">Blijf</string>
-  <string name="zero_learn_more">Mobiele datakosten worden gerekend voor deze Wikipedia app.</string>
+  <string name="zero_learn_more">Er worden geen kosten in rekening gebracht voor het gegevensgebruik via deze Wikipedia-app.</string>
   <string name="zero_learn_more_learn_more">Meer lezen</string>
   <string name="zero_learn_more_dismiss">Sluiten</string>
   <string name="zero_settings">Instellingen</string>
-  <string name="zero_settings_devmode">Zero ontwikkelmodus</string>
+  <string name="zero_settings_devmode">Zero-ontwikkelmodus</string>
   <string name="zero_settings_devmode_summary">Deze instelling schakelt tijdens de ontwikkeling de uitvoering van code voor Wikipedia Zero in.</string>
   <string name="edit_preview_fetching_dialog_message">Ophalen van voorbeeld...</string>
   <string name="edit_preview_activity_title">Voorbeeld bewerken</string>
@@ -157,6 +161,8 @@
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Privacybeleid&lt;/a&gt;</string>
   <string name="about_libraries_heading">gebruikte bibliotheken</string>
   <string name="about_contributors_heading">bijdragers</string>
+  <string name="about_translators_heading">vertalers</string>
+  <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers op &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Een product van de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
   <string name="edit_unchanged">Deze pagina is niet bewerkt.</string>
@@ -182,4 +188,11 @@
   <string name="saved_pages_update_all_error_message">Fout opgetreden bij het bijwerken van de opgeslagen pagina\'s</string>
   <string name="saved_pages_progress_title">Opgeslagen pagina\'s aan het bijwerken</string>
   <string name="saved_pages_refresh_pages_complete">Bijwerking voltooid</string>
+  <string name="abusefilter_title_warn">Dit kan een niet-constructieve bewerking zijn. Weet u zeker dat u wilt opslaan?</string>
+  <string name="abusefilter_title_disallow">U kunt deze bewerking niet opslaan. Ga terug en wijzig de inhoud.</string>
+  <string name="menu_themechooser">Wijzig lettertype en thema</string>
+  <string name="text_size_select">Lettergrootte</string>
+  <string name="color_theme_select">Thema</string>
+  <string name="color_theme_light">Licht</string>
+  <string name="color_theme_dark">Donker</string>
 </resources>

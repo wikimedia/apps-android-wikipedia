@@ -36,9 +36,6 @@
 {{Identical|Update saved page}}</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Prompt before updating all saved pages</string>
   <string name="toast_saved_page_refreshed">Small toast (popup) message saying that all saved pages were updated</string>
-  <string name="saved_pages_search_list_hint">Hint for textbox that searches list of items in saved pages as user types.
-      {{Identical|Search}}</string>
-  <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query. %s is replaced with the query string.</string>
   <string name="menu_save_page">Menu item text for saving the currently active page.
 {{Identical|Save page}}</string>
   <string name="menu_share_page">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.
@@ -63,6 +60,9 @@ See also:
   <string name="toast_refresh_saved_page">Small toast (popup) message saying that a saved page is being refreshed</string>
   <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected saved pages</string>
   <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected saved pages have been deleted</string>
+  <string name="saved_pages_search_list_hint">Hint for textbox that searches list of items in saved pages as user types.
+      {{Identical|Search}}</string>
+  <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query. %s is replaced with the query string.</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>
@@ -130,9 +130,10 @@ See also:
   <string name="saved_pages_empty_message">Brief explanation of what saved pages are, and their benefits.</string>
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
   <string name="history_empty_message">Brief explanation of what History entries are.</string>
-  <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags.</string>
+  <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags, if this fits the Wikipedia logo in your language.</string>
   <string name="wp_tag_line">The Wikipedia slogan. The second line of https://commons.wikimedia.org/wiki/Wikimedia#mediaviewer/File:Wikipedia-logo-en.png. You may be able to find one under https://commons.wikimedia.org/wiki/Wikipedia/2.0.</string>
-  <string name="skip">A button or text link to trigger skipping something, like closing the current screen without doing anything.</string>
+  <string name="skip">A button or text link to trigger skipping something, like closing the current screen without doing anything.
+{{Identical|Skip}}</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
   <string name="create_account_password_hint">{{Identical|Password}}</string>
   <string name="menu_create_account">{{Identical|Create account}}</string>
@@ -227,10 +228,6 @@ See also:
 * {{msg-wm|Wikipedia-android-strings-more item preferences}} - menu item to come to this screen
 {{Identical|More}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
-  <string name="privacy_policy_description">Summary of the preference item to show the Wikimedia Foundation\'s privacy policy.</string>
-  <string name="terms_of_use_description">Summary of the preference item to show the Wikimedia Foundation\'s terms of use.</string>
-  <string name="privacy_policy_url">Not to be translated</string>
-  <string name="terms_of_use_url">Not to be translated</string>
   <string name="preference_title_version">Text for the preference item that shows the app version number.
 {{Identical|Version}}</string>
   <string name="about_terms_of_use">Terms of use link that links to the WMF\'s Terms of Use</string>
@@ -239,7 +236,9 @@ See also:
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.
 {{Identical|Contributor}}</string>
   <string name="about_translators_heading">Heading for section that gives credit to translatewiki transators.</string>
-  <string name="about_translators_translatewiki">Credit given to translatewiki translators. Please don\'t translate the link and the site title.</string>
+  <string name="about_translators_translatewiki">Credit given to translatewiki translators.
+
+{{doc-important|Please don\'t translate the link and the site title.}}</string>
   <string name="about_wmf">Text and link specifying that this app was developed by the Wikimedia Foundation</string>
   <string name="about_activity_title">{{Identical|About}}</string>
   <string name="edit_unchanged">Message displayed when the user tries to save a page when no modifications were made.</string>
@@ -279,7 +278,8 @@ See also:
   <string name="abusefilter_text_disallow">Explanation of why the edit was not allowed: potentially unconstructive, or potential vandalism.</string>
   <string name="menu_themechooser">Menu item for choosing text size and color scheme</string>
   <string name="text_size_select">Label that describes text size selection</string>
-  <string name="color_theme_select">Label that describes color theme selection</string>
+  <string name="color_theme_select">Label that describes color theme selection
+{{Identical|Theme}}</string>
   <string name="color_theme_light">Button label for Light color theme</string>
   <string name="color_theme_dark">Button label for Dark color theme</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>

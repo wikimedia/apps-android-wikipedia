@@ -102,7 +102,6 @@
   <string name="zero_warn_when_leaving">Upozorniť ma ak opúšťam Wikipédiu Zero</string>
   <string name="zero_warn_when_leaving_summary">Pokiaľ váš mobilní operátor v rámci Wikipédie Zero neúčtuje poplatky za dátové pripojenie k Wikipédii, ponechaním tohto políčka zaškrtnutého zaistíte, že se dozviete o jej opustení a hrozbe platenia za dátové pripojenie.</string>
   <string name="zero_webpage_title">Wikipédia Zero FAQ</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipédia Zero</string>
   <string name="zero_interstitial_title">Opúšťate Wikipédiu Zero</string>
   <string name="zero_interstitial_leave_app"> Môžu sa objaviť poplatky za prenos dát. Pokračovať na externú stránku?</string>

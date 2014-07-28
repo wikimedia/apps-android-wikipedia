@@ -15,29 +15,31 @@
   <string name="page_error_retry">重试</string>
   <string name="menu_clear_all_history">清除历史记录</string>
   <string name="menu_clear_all_bookmarks">清空书签</string>
-  <string name="menu_clear_all_saved_pages">清空已保存页面</string>
+  <string name="menu_clear_all_saved_pages">清空已保存的页面</string>
   <string name="page_does_not_exist_error">此页面不存在。</string>
   <string name="dialog_title_clear_history">清除浏览历史？</string>
-  <string name="saved_pages_activity_title">已保存页面</string>
-  <string name="nav_item_saved_pages">已保存页面</string>
-  <string name="menu_update_all_saved_pages">更新已保存页面</string>
-  <string name="menu_update_selected_saved_pages">更新已保存页面</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">更新全部已保存页面？</string>
-  <string name="toast_saved_page_refreshed">已保存页面已经更新</string>
+  <string name="saved_pages_activity_title">保存的页面</string>
+  <string name="nav_item_saved_pages">保存的页面</string>
+  <string name="menu_update_all_saved_pages">更新保存的页面</string>
+  <string name="menu_update_selected_saved_pages">更新保存的页面</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">更新所有保存的页面？</string>
+  <string name="toast_saved_page_refreshed">保存的页面已更新</string>
   <string name="menu_save_page">保存页面</string>
   <string name="menu_share_page">分享</string>
   <string name="share_via">分享到</string>
-  <string name="dialog_title_clear_saved_pages">清空全部已保存页面？</string>
-  <string name="dialog_message_clear_saved_pages">您真的要清空全部已保存页面吗？</string>
+  <string name="dialog_title_clear_saved_pages">清空所有保存的页面？</string>
+  <string name="dialog_message_clear_saved_pages">您确定要清除所有保存的页面么？</string>
   <string name="toast_saving_page">正在保存页面...</string>
   <string name="toast_saved_page">页面保存成功</string>
   <string name="toast_saved_page_missing_images">不能保存所有图像</string>
   <string name="toast_save_page_failed">保存页面失败:(</string>
-  <string name="toast_refresh_saved_page">正在刷新已保存页面...</string>
+  <string name="toast_refresh_saved_page">正在刷新保存的页面...</string>
   <string name="delete_selected_saved_pages">删除</string>
-  <string name="toast_saved_page_deleted">已保存的页面已经删除</string>
+  <string name="toast_saved_page_deleted">保存的页面已删除</string>
   <string name="last_updated_text">最后更新于%s</string>
-  <string name="content_license_html">内容以&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;协议释出，另有声明者除外</string>
+  <string name="content_license_html">内容以&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;协议提供，另有声明者除外</string>
+  <string name="edit_save_action_license_logged_in">一旦保存，则表示您同意&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，同时您的贡献采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;协议并且不可撤消</string>
+  <string name="edit_save_action_license_anon">一旦保存，则表示您同意&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，同时以&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;协议不可撤消的发布你的贡献。编辑将归属于您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;，您将拥有更多隐私。</string>
   <string name="preference_title_language">维基百科语言</string>
   <string name="preference_summary_language">内容语言</string>
   <string name="preference_languages_filter_hint">搜索</string>
@@ -59,8 +61,9 @@
   <string name="edit_section_captcha_message">为了防止垃圾邮件，请输入下面出现的词</string>
   <string name="edit_section_captcha_hint">重复上面的单词</string>
   <string name="title_captcha">输入验证码</string>
-  <string name="edit_section_abusefilter_back_text">更改为我的编辑</string>
+  <string name="edit_section_abusefilter_back_text">修改我的编辑</string>
   <string name="edit_section_captcha_reload">点击验证码重新加载</string>
+  <string name="edit_saved_page_refresh">这个保存的页面可能过时，必须刷新才能编辑。您需要刷新页面吗？</string>
   <string name="nav_item_login">登录</string>
   <string name="login_username_hint">用户名</string>
   <string name="login_password_hint">密码</string>
@@ -80,49 +83,59 @@
   <string name="preference_summary_logout">退出你的维基百科账号</string>
   <string name="preference_summary_notloggedin">未登录。</string>
   <string name="toast_logout_complete">已退出</string>
-  <string name="saved_pages_empty_message" fuzzy="true">没有已保存页面</string>
-  <string name="history_empty_message" fuzzy="true">您的历史记录为空。</string>
+  <string name="saved_pages_empty_title">还没有保存过页面。</string>
+  <string name="saved_pages_empty_message">保存页面非常棒。试想一下你存为书签后即使在离线时也可以阅读。</string>
+  <string name="history_empty_title">这里没有最新的页面。</string>
+  <string name="history_empty_message">你可能把它们全都删掉了。下次你转到一个页面后，可以再回到这里来。</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_tag_line">自由的百科全书</string>
+  <string name="skip">跳过</string>
   <string name="create_account_username_hint">用户名</string>
   <string name="create_account_password_hint">密码</string>
-  <string name="menu_create_account">创建账户</string>
-  <string name="login_create_account_link">你还没有一个帐号吗？加入维基百科</string>
+  <string name="menu_create_account">创建账号</string>
+  <string name="login_create_account_link">你还没有一个账号吗？加入维基百科</string>
   <string name="create_account_login_link">已经有一个账号了？请登录</string>
-  <string name="create_account_activity_title">创建一个帐户</string>
+  <string name="create_account_activity_title">创建一个账号</string>
   <string name="edit_section_activity_title">编辑章节</string>
   <string name="dialog_create_account_checking_progress">验证</string>
   <string name="create_account_email_hint">电子邮件 (可选)</string>
   <string name="create_account_password_repeat_hint">重置密码</string>
   <string name="create_account_passwords_mismatch_error">密码不一致</string>
   <string name="create_account_email_error">无效的电子邮件地址</string>
-  <string name="create_account_username_exists_error">用户名已在使用中</string>
+  <string name="create_account_username_exists_error">用户名已在使用</string>
   <string name="create_account_ip_throttle_error">从这个 IP 地址创建的帐户太多。稍后再试。</string>
-  <string name="create_account_open_proxy_error">此 IP 地址已经被阻止创建帐户。</string>
+  <string name="create_account_open_proxy_error">此 IP 地址已经被禁止创建帐户。</string>
   <string name="create_account_generic_error">无法创建账户</string>
   <string name="create_account_no_network">没有网络连接</string>
   <string name="create_account_next">下一步</string>
   <string name="create_account_button">创建账户</string>
   <string name="preferences_general_heading">常规</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero关闭</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero已关闭</string>
+  <string name="zero_charged_verbiage_extended">加载其他条目可能会产生流量费用。</string>
   <string name="zero_search_hint">搜索Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">离开Wikipedia Zero时提示</string>
-  <string name="zero_warn_when_leaving_summary">如果您的移动运营商作为ikipedia Zero计划的合作伙伴而放弃维基百科应用程序相关的数据接入费用，离开此设置检查帮助帮助您知道为何您正在离开维基百科应用程序并将开始计费。</string>
+  <string name="zero_warn_when_leaving_summary">如果您的移动运营商作为Wikipedia Zero的合作伙伴而放弃维基百科应用程序相关的流量接入费用的话，那么不勾选此选项，可以让您及时知道，在您离开维基百科应用程序后，会开始计费。</string>
   <string name="zero_webpage_title">Wikipedia Zero常见问题</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">离开Wikipedia Zero</string>
+  <string name="zero_interstitial_leave_app">将收取流量费用。继续前往外部网站？</string>
   <string name="zero_interstitial_continue">离开</string>
   <string name="zero_interstitial_cancel">留在这里</string>
+  <string name="zero_learn_more">此维基百科应用程序可免除流量费用。</string>
   <string name="zero_learn_more_learn_more">了解详情</string>
   <string name="zero_learn_more_dismiss">隐藏</string>
   <string name="zero_settings">设置</string>
+  <string name="zero_settings_devmode">Zero开发模式</string>
   <string name="edit_preview_fetching_dialog_message">正在获取预览效果...</string>
   <string name="edit_preview_activity_title">预览编辑</string>
   <string name="create_account_logging_in">正在登录...</string>
   <string name="send_feedback">发送应用反馈</string>
+  <string name="edit_summary_guide_text">告诉我们您希望如何改进此页面。这将有助于其他编者快速复核您的编辑。</string>
   <string name="edit_summary_hint">编辑摘要</string>
   <string name="nav_item_random">随机</string>
   <string name="random_progress">正在获取随机页面...</string>
   <string name="nav_item_login_benefits">如果您已登录，您的编辑将被关联到您的账号，而您的 IP 地址将不会公开显示。</string>
+  <string name="create_account_account_created_toast">账号已创建！</string>
   <string name="user_contribs_more_action">加载更多</string>
   <string name="activity_my_contributions_title">我的贡献</string>
   <string name="nav_item_my_contributions">我的贡献</string>
@@ -132,10 +145,69 @@
   <string name="edit_save_action_ip_description">您的编辑将公开归属于您的IP地址，这会频繁更改</string>
   <string name="preference_title_eventlogging_opt_in">发送使用情况报告</string>
   <string name="preference_summary_eventlogging_opt_in">允许维基媒体收集有关您如何使用该应用程序的信息，这将使应用程序变得更好</string>
+  <string name="editing_error_spamblacklist">检测到链接了被封禁的域名（%s）。请将其移除后重试。</string>
   <string name="history_search_list_hint">搜索</string>
+  <string name="history_search_empty_message">未找到匹配“%s”的页面</string>
+  <string name="error_can_not_process_link">无法显示此链接</string>
   <string name="page_protected_autoconfirmed">本页已被半保护。</string>
   <string name="page_protected_sysop">本页已被全保护。</string>
+  <string name="page_protected_other">此页面已获以下保护：%s</string>
   <string name="page_protected_can_not_edit">你没有编辑这个页面的权限</string>
+  <string name="page_protected_can_not_edit_title">本页被保护</string>
   <string name="more_item_preferences">更多</string>
   <string name="more_activity_title">更多</string>
+  <string name="about_description">关于维基百科应用程序</string>
+  <string name="preference_title_version">版本</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用条款&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;隐私政策&lt;/a&gt;</string>
+  <string name="about_libraries_heading">使用的库</string>
+  <string name="about_contributors_heading">贡献者</string>
+  <string name="about_translators_heading">翻译者</string>
+  <string name="about_translators_translatewiki">这个应用程序由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的志愿者翻译。</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;维基媒体基金会&lt;/a&gt;制作</string>
+  <string name="about_activity_title">关于</string>
+  <string name="edit_unchanged">页面未被修改。</string>
+  <string name="edit_abandon_confirm">页面已被修改。您确定不保存您的更改而离开？</string>
+  <string name="user_blocked_from_editing_title">已封禁</string>
+  <string name="user_logged_in_blocked_from_editing">您的用户账号被封禁，不能编辑此wiki。</string>
+  <string name="user_anon_blocked_from_editing">您的IP地址被封禁而不能编辑。</string>
+  <string name="edit_how_page_improved">您想如何改进此页面？</string>
+  <string name="edit_next">下一步</string>
+  <string name="edit_done">保存</string>
+  <string name="edit_preview">预览</string>
+  <string name="edit_summary_tag_typo">修正笔误</string>
+  <string name="edit_summary_tag_grammar">修正语法</string>
+  <string name="edit_summary_tag_links">添加链接</string>
+  <string name="edit_summary_tag_other">其他</string>
+  <string name="edit_summary_tag_other_hint">其他您改进页面的方法</string>
+  <string name="find_in_page">在页面中查找</string>
+  <string name="find_next">查找下一个</string>
+  <string name="find_previous">查找上一个</string>
+  <string name="find_close">关闭查找栏</string>
+  <string name="error_network_error_try_again">无法连上网络，请重试。</string>
+  <string name="saved_pages_update_all_error_retry">重试</string>
+  <string name="saved_pages_update_all_error_message">更新保存的页面时出错</string>
+  <string name="saved_pages_progress_title">正在刷新保存的页面...</string>
+  <string name="saved_pages_refresh_pages_complete">更新完成</string>
+  <string name="abusefilter_title_warn">这可能是没有建设性的编辑。你真的要保存吗？</string>
+  <string name="abusefilter_title_disallow">您不能保存此编辑。请返回并修改。</string>
+  <string name="abusefilter_text_warn">一个自动过滤器认为这是一个没有建设性的编辑。可能由以下一种或多种原因造成：&lt;br /&gt;&lt;br /&gt;· 全部是大写字母&lt;br /&gt;· 清空条目或广告&lt;br /&gt;· 清除外部链接或图像&lt;br /&gt;· 重复的文字</string>
+  <string name="abusefilter_text_disallow">一个自动过滤器认为这次编辑可能没有建设性或是潜在的破坏。&lt;br /&gt;&lt;br /&gt;维基百科是一部百科全书，只能中立、有价值的内容才属于这里。</string>
+  <string name="menu_themechooser">更改字体和主题</string>
+  <string name="text_size_select">字体大小</string>
+  <string name="color_theme_select">主题</string>
+  <string name="color_theme_light">日间</string>
+  <string name="color_theme_dark">夜间</string>
+  <string name="app_store_description">Android版官方维基百科应用。维基百科是一部自由的百科全书，包括用280种语言撰写的超过3200万条目，是有史以来人类编辑的最全面、使用最广泛的参考书。本应用已完全重写，远超从前。
+
+特点：
+   - 快速：我们这个全新的原生应用可以让你比以前更快的浏览和编辑维基百科。
+   - 编辑：你可以编辑维基百科！无论是否登录，我们都非常感谢你做的所有贡献。
+   - 最新页面：我们为您提供您的阅读历史，你可以尽情地点击链接而不会迷路。
+   - 保存页面：你可以保存选定的页面以便离线阅读，即使你没有数据连接也可以浏览它们。
+   - 分享：使用你已有的社交网站应用来分享全人类知识的摘要。
+   - 多语言支持：本应用可以让你在任何语言编写的维基百科之间无缝切换的阅读。
+   - Wikipedia Zero: 合作的移动运营商可以免除流量费用。
+
+代码完全开源。如果你有Java和Android SDK的开发经验，就来fork我们吧！https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

@@ -109,7 +109,6 @@
   <string name="zero_warn_when_leaving">Προειδοποιήστε με αν φεύγω από το Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Εάν ο πάροχος κινητής τηλεφωνίας σας δεν χρεώνει δεδομένα για τη χρήση της εφαρμογής της Βικιπαιδείας μέσω συνεργασίας του με το Wikipedia Zero, αφήνοντας αυτή τη ρύθμιση επιλεγμένη βοηθιέστε ώστε να γνωρίζετε πότε εγκαταλείπετε την εφαρμογή της Βικιπαίδειας και επομένως μπορεί να χρεώνεστε.</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Αφήνετε το Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Ενδέχεται να ισχύουν χρεώσεις δεδομένων. Να συνεχίσετε στον εξωτερικό ιστότοπο;</string>

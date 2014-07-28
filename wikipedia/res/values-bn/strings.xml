@@ -36,6 +36,8 @@
   <string name="toast_refresh_saved_page">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে...</string>
   <string name="delete_selected_saved_pages">অপসারণ</string>
   <string name="toast_saved_page_deleted">সংরক্ষিত পাতা(সমূহ) অপসারণ করা হয়েছে</string>
+  <string name="saved_pages_search_list_hint">অনুসন্ধান</string>
+  <string name="saved_pages_search_empty_message">\'%s\' সাথে মিল আছে এমন কোনো পাতা নেই</string>
   <string name="last_updated_text">%1$s তারিখে সর্বশেষ হালনাগাদ</string>
   <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
   <string name="preference_title_language">উইকিপিডিয়া ভাষা</string>
@@ -83,6 +85,8 @@
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
   <string name="saved_pages_empty_message" fuzzy="true">কোনো সংরক্ষিত পাতা নেই</string>
   <string name="history_empty_message" fuzzy="true">আপনার ইতিহাস অংশটি খালি।</string>
+  <string name="wp_tag_line">একটু মুক্ত বিশ্বকোষ</string>
+  <string name="skip">উপেক্ষা করো</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>
   <string name="create_account_password_hint">পাসওয়ার্ড</string>
   <string name="menu_create_account">অ্যাকাউন্ট খুলুন</string>
@@ -108,7 +112,6 @@
   <string name="zero_search_hint">উইকিপিডিয়া জিরো অনুসন্ধান</string>
   <string name="zero_warn_when_leaving">উইকিপিডিয়া জিরো প্রস্থানের সময় সতর্ক করো</string>
   <string name="zero_webpage_title">উইকিপিডিয়া জিরো</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">উইকিপিডিয়া জিরো</string>
   <string name="zero_interstitial_title">উইকিপিডিয়া জিরো প্রস্থান হচ্ছে</string>
   <string name="zero_interstitial_leave_app">সাধারণ ডাটা চার্জ প্রযোজ্য হবে। অন্য ওয়েবসাইটি ওপেন করা হবে?</string>
@@ -155,6 +158,7 @@
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;গোপনীয়তা নীতি&lt;/a&gt;</string>
   <string name="about_libraries_heading">ব্যবহৃত লাইব্রেরীসমূহ</string>
   <string name="about_contributors_heading">অবদানকারনগণ</string>
+  <string name="about_translators_heading">অনুবাদকগণ</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;উইকিমিডিয়া ফাউন্ডেশনের&lt;/a&gt; একটি পণ্য</string>
   <string name="about_activity_title">পরিচিতি</string>
   <string name="edit_unchanged">এই পাতাটি পরিবর্তিত হয়েছে।</string>

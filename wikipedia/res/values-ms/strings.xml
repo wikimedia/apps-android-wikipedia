@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Wikipedia</string>
+  <string name="app_name_beta">Wikipedia Beta</string>
   <string name="yes">Ya</string>
   <string name="no">Tidak</string>
   <string name="acra_report_dialog_title">Wikipedia dah runtuh :(</string>
@@ -14,31 +15,41 @@
   <string name="page_error_retry">Cuba lagi</string>
   <string name="menu_clear_all_history">Padamkan sejarah</string>
   <string name="menu_clear_all_bookmarks">Padamkan bookmark</string>
+  <string name="menu_clear_all_saved_pages">Padamkan semua laman tersimpan</string>
   <string name="page_does_not_exist_error">Laman ini tidak wujud.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Padamkan sejarah?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">Bookmark</string>
-  <string name="nav_item_saved_pages" fuzzy="true">Bookmark</string>
-  <string name="menu_save_page" fuzzy="true">Bookmark</string>
+  <string name="dialog_title_clear_history">Padamkan sejarah?</string>
+  <string name="saved_pages_activity_title">Laman tersimpan</string>
+  <string name="nav_item_saved_pages">Laman tersimpan</string>
+  <string name="menu_update_all_saved_pages">Kemaskinikan laman tersimpan</string>
+  <string name="menu_update_selected_saved_pages">Kemaskinikan laman tersimpan</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Kemaskinikan semua laman tersimpan?</string>
+  <string name="toast_saved_page_refreshed">Laman tersimpan dikemaskinikan</string>
+  <string name="menu_save_page">Simpan laman</string>
   <string name="menu_share_page">Sebarkan</string>
   <string name="share_via">Sebarkan melalui</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">Padamkan bookmark?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">Adakah anda betul-betul mahu memadamkan semua bookmark?</string>
-  <string name="toast_saving_page" fuzzy="true">Mem-bookmark laman...</string>
-  <string name="toast_saved_page" fuzzy="true">Laman bookmark</string>
-  <string name="toast_save_page_failed" fuzzy="true">Laman gagal di-bookmark :(</string>
+  <string name="dialog_title_clear_saved_pages">Padamkan semua laman tersimpan?</string>
+  <string name="dialog_message_clear_saved_pages">Adakah anda betul-betul mahu memadamkan semua laman tersimpan?</string>
+  <string name="toast_saving_page">Menyimpan laman...</string>
+  <string name="toast_saved_page">Laman disimpan</string>
+  <string name="toast_saved_page_missing_images">Semua gambar tidak dapat disimpan</string>
+  <string name="toast_save_page_failed">Laman gagal disimpan :(</string>
+  <string name="toast_refresh_saved_page">Memuat semula laman tersimpan...</string>
   <string name="delete_selected_saved_pages">Hapuskan</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Bookmark terpadam</string>
+  <string name="toast_saved_page_deleted">Laman tersimpan dihapuskan</string>
   <string name="last_updated_text">Mutakhir: %1$s</string>
-  <string name="content_license_html" fuzzy="true">Kandungan ini tersedia dengan lesen &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
+  <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
+  <string name="edit_save_action_license_logged_in">Dengan menyimpan, anda menyetujui &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Dengan menyimpan, anda menyetujui &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Suntingan akan diatribusikan kepada alamat IP peranti anda. Jika anda &lt;a href=\"https://#login\"&gt;log masuk&lt;/a&gt;, maka privasi anda bertambah baik.</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="preference_summary_language">Bahasa kandungan</string>
   <string name="preference_languages_filter_hint">Cari</string>
   <string name="langlinks_filter_hint">Cari</string>
-  <string name="menu_other_languages" fuzzy="true">Bahasa lain</string>
+  <string name="menu_other_languages">Baca dalam bahasa lain</string>
   <string name="langlinks_error_retry">Cuba lagi</string>
-  <string name="langlinks_empty" fuzzy="true">Rencana ini tidak terdapat dalam bahasa lain</string>
+  <string name="langlinks_empty">Laman ini tidak terdapat dalam bahasa lain</string>
   <string name="settings_activity_title">Tetapan</string>
   <string name="langlinks_activity_title">Bahasa lain:</string>
+  <string name="menu_save_changes">Simpan perubahan</string>
   <string name="edit_section_error_retry">Cuba lagi</string>
   <string name="dialog_saving_in_progress">Menyimpan...</string>
   <string name="edit_saved_successfully">Suntingan disimpan!</string>
@@ -52,6 +63,7 @@
   <string name="title_captcha">Taipkan captcha</string>
   <string name="edit_section_abusefilter_back_text">Lakukan perubahan pada suntingan saya</string>
   <string name="edit_section_captcha_reload">Ketik CAPTCHA untuk muat semula</string>
+  <string name="edit_saved_page_refresh">Laman tersimpan ini mungkin sudah ketinggalan dan mesti dimuatkan semula untuk dapat disunting. Inginkah anda memuatkan semula laman ini?</string>
   <string name="nav_item_login">Log masuk</string>
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata laluan</string>
@@ -67,13 +79,22 @@
   <string name="login_error_unknown">Log masuk gagal :(</string>
   <string name="login_error_no_network">Tiada sambungan rangkaian</string>
   <string name="nav_item_logout">Log keluar</string>
+  <string name="preference_title_logout">Log keluar</string>
+  <string name="preference_summary_logout">Log keluar dari akaun Wikipedia</string>
+  <string name="preference_summary_notloggedin">Tidak log masuk.</string>
   <string name="toast_logout_complete">Log keluar</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Tiada bookmark.</string>
-  <string name="history_empty_message" fuzzy="true">Sejarah anda kosong.</string>
+  <string name="saved_pages_empty_title">Belum ada laman tersimpan.</string>
+  <string name="saved_pages_empty_message">Ciri-ciri laman tersimpan bagaikan penanda buku, boleh dibaca walaupun \'offline\'. Hebat, bukan?</string>
+  <string name="history_empty_title">Tiada laman terbaru di sini.</string>
+  <string name="history_empty_message">Mungkin anda telah memadamkan kesemuanya. Lain kali anda ke sesuatu laman, anda boleh kembali kepadanya dari sini.</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_tag_line">Ensiklopedia Bebas</string>
+  <string name="skip">Langkau</string>
   <string name="create_account_username_hint">Nama pengguna</string>
   <string name="create_account_password_hint">Kata laluan</string>
   <string name="menu_create_account">Buka akaun</string>
-  <string name="login_create_account_link" fuzzy="true">Buka akaun</string>
+  <string name="login_create_account_link">Tiada akaun? Sertai Wikipedia</string>
+  <string name="create_account_login_link">Sudah ada akaun? Log masuk</string>
   <string name="create_account_activity_title">Buka akaun</string>
   <string name="edit_section_activity_title">Sunting Bahagian</string>
   <string name="dialog_create_account_checking_progress">Pengesahan sedang dilakukan</string>
@@ -85,20 +106,23 @@
   <string name="create_account_ip_throttle_error">Terlalu banyak akaun yang dibuka dari alamat IP ini. Cuba lagi nanti.</string>
   <string name="create_account_open_proxy_error">Alamat IP ini telah disekat dari membuka akaun.</string>
   <string name="create_account_generic_error">Akaun tidak dapat dibuka</string>
+  <string name="create_account_no_network">Tiada sambungan rangkaian</string>
+  <string name="create_account_next">Seterusnya</string>
+  <string name="create_account_button">Buka akaun</string>
   <string name="preferences_general_heading">Umum</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero OFF (CAJ DATA STANDARD MUNGKIN DIKENAKAN)</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero dimatikan</string>
+  <string name="zero_charged_verbiage_extended">Memuatkan artikel-artikel lain mungkin dikenakan caj data.</string>
   <string name="zero_search_hint">Cari dalam Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Pesan apabila keluar dari Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Jika operator mudah alih anda mengecualikan caj akses data untuk aplikasi Wikipedia menerusi persepakatan Wikipedia Zero, jika tetapan ini dibiarkan pasang, anda akan dipesan bahawa caj mungkin dikenakan ketika anda keluar dari aplikasi Wikipedia.</string>
   <string name="zero_webpage_title">Soalan Lazim Wikipedia Zero</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Keluar dari Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app" fuzzy="true">Terus ke laman web luaran? Caj data standard mungkin dikenakan.</string>
-  <string name="zero_interstitial_continue" fuzzy="true">Teruskan</string>
-  <string name="zero_interstitial_cancel" fuzzy="true">Batalkan</string>
-  <string name="zero_learn_more" fuzzy="true">Ingin tahu lebih lanjut mengenai Wikipedia Zero?</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Ketahui lebih lanjut</string>
+  <string name="zero_interstitial_leave_app">Caj data mungkin dikenakan. Terus ke laman web luaran?</string>
+  <string name="zero_interstitial_continue">Ya</string>
+  <string name="zero_interstitial_cancel">Tidak</string>
+  <string name="zero_learn_more">Caj data akan dikecualikan bagi aplikasi Wikipedia ini.</string>
+  <string name="zero_learn_more_learn_more">Baca lagi</string>
   <string name="zero_learn_more_dismiss">Singkir</string>
   <string name="zero_settings">Tetapan</string>
   <string name="zero_settings_devmode">Zero Devmode</string>
@@ -106,7 +130,8 @@
   <string name="edit_preview_fetching_dialog_message">Mengolah pralihat...</string>
   <string name="edit_preview_activity_title">Pralihatkan suntingan</string>
   <string name="create_account_logging_in">Sedang log masuk...</string>
-  <string name="edit_summary_guide_text" fuzzy="true">Ceritakan bagaimana anda menambah baik rencana ini supaya para penyunting lain senang menyemak suntingan anda dengan cepat.</string>
+  <string name="send_feedback">Hantar maklum balas aplikasi</string>
+  <string name="edit_summary_guide_text">Ceritakan bagaimana anda menambah baik rencana ini supaya para penyunting lain senang menyemak suntingan anda dengan cepat.</string>
   <string name="edit_summary_hint">Ringkasan suntingan</string>
   <string name="nav_item_random">Rawak</string>
   <string name="random_progress">Mengambil halaman rawak...</string>
@@ -121,5 +146,55 @@
   <string name="edit_save_action_ip_description">Suntingan anda akan diatribusikan secara umum kepada alamat IP anda yang sering berubah-ubah</string>
   <string name="preference_title_eventlogging_opt_in">Laporkan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
+  <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
+  <string name="history_search_list_hint">Cari</string>
+  <string name="history_search_empty_message">Tiada laman didapati padan dengan \'%s\'</string>
+  <string name="error_can_not_process_link">Pautan ini tidak dapat dipaparkan</string>
+  <string name="page_protected_autoconfirmed">Laman ini telah diberi perlindungan separa.</string>
+  <string name="page_protected_sysop">Laman ini telah diberi perlindungan sepenuhnya.</string>
+  <string name="page_protected_other">Laman ini telah diberi perlindungan pada tahap-tahap: %s</string>
+  <string name="page_protected_can_not_edit">Anda tiada hak utuk menyunting laman ini</string>
+  <string name="page_protected_can_not_edit_title">Halaman ini dilindungi</string>
+  <string name="more_item_preferences">Lagi</string>
+  <string name="more_activity_title">Lagi</string>
+  <string name="about_description">Tentang aplikasi Wikipedia</string>
+  <string name="preference_title_version">Versi</string>
+  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt;</string>
+  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Dasar Privasi&lt;/a&gt;</string>
+  <string name="about_libraries_heading">perpustakaan yang digunakan</string>
+  <string name="about_contributors_heading">penyumbang</string>
+  <string name="about_translators_heading">penterjemah</string>
+  <string name="about_translators_translatewiki">Aplikasi ini diterjemah oleh para penterjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_wmf">Keluaran &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Yayasan Wikimedia&lt;/a&gt;</string>
+  <string name="about_activity_title">Perihal</string>
+  <string name="edit_unchanged">Laman ini belum disunting.</string>
+  <string name="edit_abandon_confirm">Laman ini telah disunting. Adakah anda pasti ingin keluar tanpa menyimpan suntingan?</string>
+  <string name="user_blocked_from_editing_title">Disekat</string>
+  <string name="user_logged_in_blocked_from_editing">Akaun pengguna anda telah disekat daripada menyunting di wiki ini.</string>
+  <string name="user_anon_blocked_from_editing">Alamat IP anda telah disekat daripada menyunting.</string>
+  <string name="edit_how_page_improved">Bagaimanakah anda menambah baik laman ini?</string>
+  <string name="edit_next">Seterusnya</string>
+  <string name="edit_done">Simpan</string>
+  <string name="edit_preview">Pratayang</string>
+  <string name="edit_summary_tag_typo">Memperbaiki ejaan</string>
+  <string name="edit_summary_tag_grammar">Memperbaiki tatabahasa</string>
+  <string name="edit_summary_tag_links">Membubuh pautan</string>
+  <string name="edit_summary_tag_other">Lain-lain</string>
+  <string name="edit_summary_tag_other_hint">Cara-cara lain anda menambah baik halaman</string>
+  <string name="find_in_page">Cari dalam laman</string>
+  <string name="find_next">Carian berikutnya</string>
+  <string name="find_previous">Carian sebelumnya</string>
+  <string name="find_close">Tutup bar pencarian</string>
+  <string name="error_network_error_try_again">Rancangan tidak tercapai, sila cuba lagi.</string>
+  <string name="saved_pages_update_all_error_retry">Cuba lagi</string>
+  <string name="saved_pages_update_all_error_message">Ralat kemaskini laman tersimpan</string>
+  <string name="saved_pages_progress_title">Memuatkan semula laman tersimpan</string>
+  <string name="saved_pages_refresh_pages_complete">Kemas kini selesai</string>
+  <string name="abusefilter_title_warn">Suntingan ini mungkin tidak membina. Adakah anda betul-betul mahu menyimpannya?</string>
+  <string name="abusefilter_title_disallow">Suntingan ini tidak boleh disimpan. Sila kembali dan suntingnya semula.</string>
+  <string name="menu_themechooser">Tukar fon dan tema</string>
+  <string name="text_size_select">Saiz fon</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Terang</string>
+  <string name="color_theme_dark">Gelap</string>
 </resources>

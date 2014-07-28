@@ -38,6 +38,8 @@
   <string name="toast_saved_page_deleted">Pagine salvate cancellate</string>
   <string name="last_updated_text">Ultimo aggiornamento %1$s</string>
   <string name="content_license_html">Il contenuto è disponibile in base alla &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt; se non diversamente specificato</string>
+  <string name="edit_save_action_license_logged_in">Salvando, accetti le nostre &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/it\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Salvando, accetti le nostre &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/it\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt;. Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt; avrai maggiore privacy.</string>
   <string name="preference_title_language">Lingua di Wikipedia</string>
   <string name="preference_summary_language">Lingua del contenuto</string>
   <string name="preference_languages_filter_hint">Ricerca</string>
@@ -81,8 +83,13 @@
   <string name="preference_summary_logout">Disconnettiti dalla tua utenza Wikipedia</string>
   <string name="preference_summary_notloggedin">Accesso non effettuato.</string>
   <string name="toast_logout_complete">Disconnesso</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Nessuna pagina salvata</string>
+  <string name="saved_pages_empty_title">Nessuna pagina salvata ancora.</string>
+  <string name="saved_pages_empty_message">Le pagine salvate sono fantastiche. Considerale come preferiti che puoi leggere anche quando sei offline.</string>
+  <string name="history_empty_title">Nessuna pagina recente qui.</string>
   <string name="history_empty_message" fuzzy="true">La tua cronologia è vuota.</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_tag_line">L\'enciclopedia libera</string>
+  <string name="skip">Salta</string>
   <string name="create_account_username_hint">Nome utente</string>
   <string name="create_account_password_hint">Password</string>
   <string name="menu_create_account">Registrati</string>
@@ -109,7 +116,6 @@
   <string name="zero_warn_when_leaving">Avvisa se sto uscendo da Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Se il tuo operatore di telefonia mobile rinuncia alle tariffe dati per l\'applicazione Wikipedia attraverso una partnership di Wikipedia Zero, lasciare questa impostazione selezionata ti permette di conoscere quando si esce dall\'applicazione Wikipedia e potrebbero essere addebitate le tariffe.</string>
   <string name="zero_webpage_title">FAQ di Wikipedia Zero</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Stai uscendo da Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Potrebbero essere applicati i costi di connessione. Continuare su un sito esterno?</string>
@@ -139,7 +145,7 @@
   <string name="edit_save_action_login_description">Le tue modifiche verranno pubblicamente attribuite al tuo nome utente e altri utenti possono connettersi con te meglio</string>
   <string name="edit_save_action_ip_description">Le modifiche verranno pubblicamente attribuite all\'indirizzo IP, che cambia frequentemente</string>
   <string name="preference_title_eventlogging_opt_in">Invia rapporti sull\'utilizzo</string>
-  <string name="preference_summary_eventlogging_opt_in">Consenti a Wikimedia per raccogliere informazioni su come si usa l\'applicazione per renderla migliore</string>
+  <string name="preference_summary_eventlogging_opt_in">Consenti a Wikimedia di raccogliere informazioni su come usi l\'applicazione per renderla migliore</string>
   <string name="editing_error_spamblacklist">È stato rilevato un collegamento ad un dominio bloccato. Rimuovilo e prova ancora.</string>
   <string name="history_search_list_hint">Cerca</string>
   <string name="history_search_empty_message">Nessuna pagina trovata che corrisponda a \'%s\'</string>
@@ -157,6 +163,7 @@
   <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Politica sulla privacy&lt;/a&gt;</string>
   <string name="about_libraries_heading">librerie usate</string>
   <string name="about_contributors_heading">contributori</string>
+  <string name="about_translators_heading">traduttori</string>
   <string name="about_wmf">Un prodotto della &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazioni</string>
   <string name="edit_unchanged">La pagina non è stata modificata.</string>
@@ -164,7 +171,7 @@
   <string name="user_blocked_from_editing_title">Bloccato</string>
   <string name="user_logged_in_blocked_from_editing">Questa utenza è stata bloccata dalle modifiche su questa wiki.</string>
   <string name="user_anon_blocked_from_editing">Il tuo indirizzo IP è stato bloccato dalle modifiche.</string>
-  <string name="edit_how_page_improved">Quali miglioramenti hai apportato?</string>
+  <string name="edit_how_page_improved">Come hai migliorato la pagina?</string>
   <string name="edit_next">Successivo</string>
   <string name="edit_done">Salva</string>
   <string name="edit_preview">Anteprima</string>
@@ -182,6 +189,11 @@
   <string name="saved_pages_update_all_error_message">Errore durante l\'aggiornamento delle pagine salvate</string>
   <string name="saved_pages_progress_title">Aggiornamento pagine salvate</string>
   <string name="saved_pages_refresh_pages_complete">Aggiornamento completo</string>
+  <string name="menu_themechooser">Cambia carattere e tema</string>
+  <string name="text_size_select">Dimensione carattere</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Luce</string>
+  <string name="color_theme_dark">Scuro</string>
   <string name="app_store_description">App ufficiale di Wikipedia per Android.
 Wikipedia è l\'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l\'opera di consultazione più completa e più diffusa che l\'uomo abbia mai compilato. L\'app è stata completamente riscritta ed è di gran lunga migliore.
 

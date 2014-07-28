@@ -38,6 +38,8 @@
   <string name="toast_saved_page_deleted">Pagină(i) salvată(e) eliminată(e)</string>
   <string name="last_updated_text">Ultima actualizare: %1$s</string>
   <string name="content_license_html">Conținutul este disponibil sub licența &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, cu excepția cazurilor în care se specifică altfel</string>
+  <string name="edit_save_action_license_logged_in">Salvând, sunteți de acord cu &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Salvând, sunteți de acord cu &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Modificările vor fi atribuite adresei IP a dispozitivului dumneavoastră. Dacă vă &lt;a href=\"https://#login\"&gt;autentificați&lt;/a&gt; veți beneficia de mai multă confidențialitate.</string>
   <string name="preference_title_language">Limba Wikipediei</string>
   <string name="preference_summary_language">Limba conținutului</string>
   <string name="preference_languages_filter_hint">Căutare</string>
@@ -81,8 +83,13 @@
   <string name="preference_summary_logout">Deconectați-vă din contul de la Wikipedia</string>
   <string name="preference_summary_notloggedin">Neautentificat(ă).</string>
   <string name="toast_logout_complete">Sesiune închisă</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Nicio pagină salvată</string>
-  <string name="history_empty_message" fuzzy="true">Istoricul dumneavoastră este gol.</string>
+  <string name="saved_pages_empty_title">Nicio pagină salvată încă.</string>
+  <string name="saved_pages_empty_message">Paginile salvate sunt minunate. Gândiți-vă la ele ca la niște semne de carte care vă permit să citiți chiar și atunci când sunteți off-line.</string>
+  <string name="history_empty_title">Nicio pagină recentă aici.</string>
+  <string name="history_empty_message">Probabil că le-ați șters pe toate. Data viitoare când doriți să accesați o pagină, puteți reveni la ea pornind de aici.</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_tag_line">Enciclopedia liberă</string>
+  <string name="skip">Omite</string>
   <string name="create_account_username_hint">Nume de utilizator</string>
   <string name="create_account_password_hint">Parolă</string>
   <string name="menu_create_account">Creare cont</string>
@@ -109,7 +116,6 @@
   <string name="zero_warn_when_leaving">Avertizează-mă dacă părăsesc Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">În cazul în care, printr-un parteneriat Wikipedia Zero, operatorul dumneavoastră de telefonie mobilă nu percepe tarife pentru traficul de date din aplicația Wikipedia, bifarea acestei opțiuni vă înștiințează atunci când părăsiți aplicația Wikipedia și ați putea fi taxat.</string>
   <string name="zero_webpage_title">FAQ Wikipedia Zero</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Părăsire Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Se pot aplica tarife de date. Continuați către site-ul extern?</string>
@@ -124,7 +130,7 @@
   <string name="edit_preview_fetching_dialog_message">Se preia previzualizarea...</string>
   <string name="edit_preview_activity_title">Previzualizare modificare</string>
   <string name="create_account_logging_in">Autentificare în curs...</string>
-  <string name="send_feedback">Trimite o părere despre aplicație</string>
+  <string name="send_feedback">Trimiteți o părere despre aplicație</string>
   <string name="edit_summary_guide_text">Spuneți-ne cum ați îmbunătățit această pagină. Acest lucru le va fi de folos altor editori să vă revizuiască modificarea mai rapid.</string>
   <string name="edit_summary_hint">Descrierea modificării</string>
   <string name="nav_item_random">Aleatoriu</string>
@@ -157,6 +163,8 @@
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Politică de confidențialitate&lt;/a&gt;</string>
   <string name="about_libraries_heading">biblioteci utilizate</string>
   <string name="about_contributors_heading">contribuitori</string>
+  <string name="about_translators_heading">traducători</string>
+  <string name="about_translators_translatewiki">Această aplicație a fost tradusă de către traducători voluntari la &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Un produs al &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundației Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Despre</string>
   <string name="edit_unchanged">Pagina nu a fost modificată.</string>
@@ -182,4 +190,13 @@
   <string name="saved_pages_update_all_error_message">Eroare la actualizarea paginilor salvate</string>
   <string name="saved_pages_progress_title">Se reîncarcă paginile salvate</string>
   <string name="saved_pages_refresh_pages_complete">Actualizare finalizată</string>
+  <string name="abusefilter_title_warn">Această modificare poate fi neconstructivă. Sigur doriți s-o salvați?</string>
+  <string name="abusefilter_title_disallow">Nu puteți salva această modificare. Mergeți înapoi și schimbați-o.</string>
+  <string name="abusefilter_text_warn">Un filtru automat a identificat această modificare ca potențial neconstructivă. Poate avea cel puțin una din următoarele probleme:&lt;br /&gt;&lt;br /&gt;· Scrierea integrală cu majuscule&lt;br /&gt;· Golirea conținutului sau introducerea de spam&lt;br /&gt;· Legături externe sau imagini irelevante&lt;br /&gt;· Caractere repetate</string>
+  <string name="abusefilter_text_disallow">Un filtru automat a identificat această modificare ca potențial neconstructivă sau o potențială acțiune de vandalism.&lt;br /&gt;&lt;br /&gt;Wikipedia este o enciclopedie și acceptă doar conținut neutru și notabil.</string>
+  <string name="menu_themechooser">Schimbă fontul și tema</string>
+  <string name="text_size_select">Dimensiunea fontului</string>
+  <string name="color_theme_select">Temă</string>
+  <string name="color_theme_light">Deschisă</string>
+  <string name="color_theme_dark">Închisă</string>
 </resources>

@@ -38,6 +38,8 @@
   <string name="toast_saved_page_deleted">Tallennetut sivu(t) poistettu</string>
   <string name="last_updated_text">Viimeksi päivitetty %1$s</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla ellei toisin ilmoiteta</string>
+  <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
+  <string name="edit_save_action_license_anon">Tallentamalla hyväksyt &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
   <string name="preference_title_language">Wikipedian kieli</string>
   <string name="preference_summary_language">Sisällön kieli</string>
   <string name="preference_languages_filter_hint">Haku</string>
@@ -81,8 +83,13 @@
   <string name="preference_summary_logout">Kirjaudu ulos Wikipedia-tililtä</string>
   <string name="preference_summary_notloggedin">Et ole kirjautunut sisään.</string>
   <string name="toast_logout_complete">Kirjauduit ulos</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Ei tallennettuja sivuja.</string>
-  <string name="history_empty_message" fuzzy="true">Historiasi on tyhjä.</string>
+  <string name="saved_pages_empty_title">Ei vielä tallennettuja sivuja.</string>
+  <string name="saved_pages_empty_message">Tallennetut sivut ovat melko loistavia. Ajattele niitä kirjanmerkkeinä, joita voit lukea ilman verkkoyhteyttä.</string>
+  <string name="history_empty_title">Ei tuoreita sivuja täällä.</string>
+  <string name="history_empty_message">Olet todennäköisesti poistanut ne kaikki. Seuraavalla kerralla kun menet sivulle, voit palata sinne tätä kautta.</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_tag_line">Vapaa tietosanakirja</string>
+  <string name="skip">Ohita</string>
   <string name="create_account_username_hint">Käyttäjätunnus</string>
   <string name="create_account_password_hint">Salasana</string>
   <string name="menu_create_account">Luo tunnus</string>
@@ -109,7 +116,6 @@
   <string name="zero_warn_when_leaving">Varoita poistuttaessa Wikipedia Zerosta</string>
   <string name="zero_warn_when_leaving_summary">Jos matkapuhelinoperaattorisi luopuu tiedonsiirtomaksuista Wikipedia Zero -yhteistyön kautta, tämän asetuksen olla päällä saat huomautuksen, jos aiot poistua Wikipedia-sovelluksesta ja tiedonsiirrosta voidaan periä maksua.</string>
   <string name="zero_webpage_title">Usein kysyttyjä kysymyksiä Wikipedia Zerosta</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Poistutaan Wikipedia Zerosta</string>
   <string name="zero_interstitial_leave_app">Haluatko siirtyä ulkoiselle sivulle? Saatat joutua maksamaan tiedonsiirtomaksuja.</string>
@@ -157,6 +163,8 @@
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Yksityisyydensuoja&lt;/a&gt;</string>
   <string name="about_libraries_heading">käytetyt kirjastot</string>
   <string name="about_contributors_heading">tekijät</string>
+  <string name="about_translators_heading">kääntäjät</string>
+  <string name="about_translators_translatewiki">Tämän sovelluksen ovat kääntäneet &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.netin&lt;/a&gt; vapaaehtoiset kääntäjät.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundationin&lt;/a&gt; tuote</string>
   <string name="about_activity_title">Tietoja</string>
   <string name="edit_unchanged">Sivua ei ole muutettu.</string>
@@ -182,6 +190,15 @@
   <string name="saved_pages_update_all_error_message">Tallennettujen sivujen päivitys epäonnistui</string>
   <string name="saved_pages_progress_title">Päivitetään tallennettuja sivuja</string>
   <string name="saved_pages_refresh_pages_complete">Päivitys on valmis</string>
+  <string name="abusefilter_title_warn">Tämä saattaa olla haitallinen muokkaus. Haluatko varmasti tallentaa sen?</string>
+  <string name="abusefilter_title_disallow">Et voi tallentaa tätä muokkausta. Palaa takaisin ja muuta sitä.</string>
+  <string name="abusefilter_text_warn">Automaattinen suodatin on tunnistanut tämän muokkauksen mahdollisesti haitalliseksi. Se saattaa sisältää yhden tai useampia seuraavista asioista:&lt;br /&gt;&lt;br /&gt;· Kokonaan isoilla kirjaimilla kirjoitettu teksti&lt;br /&gt;· Artikkeleiden tyhjentäminen tai mainostaminen&lt;br /&gt;· Aiheeseen liittymättömät linkit tai kuvat&lt;br /&gt;· Toistuvat merkkijonot</string>
+  <string name="abusefilter_text_disallow">Automaattinen suodatin on tunnistanut tämän muokkauksen mahdollisesti haitalliseksi tai mahdolliseksi vandalismiksi.&lt;br /&gt;&lt;br /&gt;Wikipedia on tietosanakirja, ja vain neutraali, merkittävä sisältö kuuluu tänne.</string>
+  <string name="menu_themechooser">Muuta kirjaisintyyppiä ja teemaa</string>
+  <string name="text_size_select">Kirjaisinkoko</string>
+  <string name="color_theme_select">Teema</string>
+  <string name="color_theme_light">Vaalea</string>
+  <string name="color_theme_dark">Tumma</string>
   <string name="app_store_description">Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 32 miljoonaa artikkelia 280 eri kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut. Sovellus on kirjoitettu alusta alkaen uusiksi ja on parempi kuin koskaan aiemmin.
 
 Ominaisuudet:

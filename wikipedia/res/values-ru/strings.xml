@@ -36,8 +36,12 @@
   <string name="toast_refresh_saved_page">Обновление сохранённой страницы…</string>
   <string name="delete_selected_saved_pages">Удалить</string>
   <string name="toast_saved_page_deleted">Сохранённые страницы удалены</string>
+  <string name="saved_pages_search_list_hint">Поиск</string>
+  <string name="saved_pages_search_empty_message">Страниц по условию \'%s\' не найдено</string>
   <string name="last_updated_text">Последнее обновление: %1$s</string>
   <string name="content_license_html">Содержимое доступно в соответствии &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; (если не указано иное)</string>
+  <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с [https://wikimediafoundation.org/wiki/Terms_of_Use/ru условиями использования], а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с [https://wikimediafoundation.org/wiki/Terms_of_Use/ru условиями использования], а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуетесь&lt;/a&gt;, то сможете иметь более высокий уровень конфиденциальности.</string>
   <string name="preference_title_language">Язык Википедии</string>
   <string name="preference_summary_language">Язык содержимого</string>
   <string name="preference_languages_filter_hint">Найти</string>
@@ -81,8 +85,13 @@
   <string name="preference_summary_logout">Выйти из вашей учётной записи в Википедии</string>
   <string name="preference_summary_notloggedin">Не выполнен вход.</string>
   <string name="toast_logout_complete">Сеанс был завершён</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Нет сохранённых страниц</string>
-  <string name="history_empty_message" fuzzy="true">Ваша история пуста.</string>
+  <string name="saved_pages_empty_title">Ещё нет сохранённых страниц.</string>
+  <string name="saved_pages_empty_message">Сохранённые страницы — это довольно здорово. Подумайте о них, как о закладках, которые вы сможете читать даже тогда, когда вы в находитесь в оффлайне.</string>
+  <string name="history_empty_title">Недавно просмотренных страниц нет.</string>
+  <string name="history_empty_message">Вы, вероятно, удалили их все. В следующий раз, когда зайдёте на страницу, вы сможете вернуться к ней отсюда.</string>
+  <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
+  <string name="wp_tag_line">Свободная энциклопедия</string>
+  <string name="skip">Пропустить</string>
   <string name="create_account_username_hint">Имя участника</string>
   <string name="create_account_password_hint">Пароль</string>
   <string name="menu_create_account">Создать учётную запись</string>
@@ -109,7 +118,6 @@
   <string name="zero_warn_when_leaving">Предупреждать, если покидаем Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Если ваш мобильный оператор не берёт плату за доступ к данным из приложения Википедии через партнерство Wikipedia Zero, включение этого параметра поможет вам знать, когда вы покидаете приложение Википедии, и может начать взиматься плата за трафик.</string>
   <string name="zero_webpage_title">ЧаВо по Wikipedia Zero</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Покидаем Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Может взиматься стандартная плата за передачу данных. Продолжить переход на внешний сайт?</string>
@@ -157,6 +165,8 @@
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy/ru\"&gt;Политика конфиденциальности&lt;/a&gt;</string>
   <string name="about_libraries_heading">использованые библиотеки</string>
   <string name="about_contributors_heading">авторы</string>
+  <string name="about_translators_heading">переводчики</string>
+  <string name="about_translators_translatewiki">Это приложение было переведено добровольцами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фонда Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">О приложении</string>
   <string name="edit_unchanged">Страница не была изменена.</string>
@@ -182,6 +192,17 @@
   <string name="saved_pages_update_all_error_message">Ошибка обновления сохранённых страниц</string>
   <string name="saved_pages_progress_title">Обновление сохранённых страниц</string>
   <string name="saved_pages_refresh_pages_complete">Обновление завершено</string>
+  <string name="menu_page_saved">Страница сохранена</string>
+  <string name="menu_refresh_saved_page">Обновить страницу</string>
+  <string name="abusefilter_title_warn">Эта правка может быть деструктивной. Вы уверены, что хотите сохранить её?</string>
+  <string name="abusefilter_title_disallow">Вы не можете сохранить эту правку. Пожалуйста, вернитесь назад и измените её.</string>
+  <string name="abusefilter_text_warn">Автоматизированный фильтр определил эту правку как потенциально неконструктивную. Она может содержать одно или несколько из следующих действий:&lt;br /&gt;&lt;br /&gt;· Печатать заглавными буквами&lt;br&gt;· Штамповка статей или спам&lt;br /&gt;· Неподходящие внешние ссылки или изображения&lt;br /&gt;· Повторяющиеся символы</string>
+  <string name="abusefilter_text_disallow">Автоматизированный фильтр определил эту правку как потенциально неконструктивную или как потенциальный вандализм.&lt;br /&gt;&lt;br /&gt;Википедия — это энциклопедия, и здесь приемлемо только нейтральное и значимое содержимое.</string>
+  <string name="menu_themechooser">Изменение шрифта и оформления</string>
+  <string name="text_size_select">Размер шрифта</string>
+  <string name="color_theme_select">Оформление</string>
+  <string name="color_theme_light">Светлое</string>
+  <string name="color_theme_dark">Тёмное</string>
   <string name="app_store_description">Официальное приложение «Википедия» под Android. Википедия — свободная энциклопедия, содержащая более 32 миллионов статей на 280 языках. Она является наиболее полным и широко используемым справочником, который люди когда-либо создавали. Приложение было переписано с нуля и стало лучше, чем когда-либо прежде.
 
 Особенности:

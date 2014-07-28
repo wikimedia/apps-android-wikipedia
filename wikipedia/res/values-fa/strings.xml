@@ -36,6 +36,8 @@
   <string name="toast_refresh_saved_page">تازه‌کردن صفحه ذخیره‌شده</string>
   <string name="delete_selected_saved_pages">حذف</string>
   <string name="toast_saved_page_deleted">ذخیره صفحه(های) حذف‌شده</string>
+  <string name="saved_pages_search_list_hint">جستجو</string>
+  <string name="saved_pages_search_empty_message">هیچ صفحه‌ای برای \'%s\' یافت نشد</string>
   <string name="last_updated_text"> %1$s آخرین به‌روزرسانی</string>
   <string name="content_license_html">مطالب تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
   <string name="preference_title_language">زبان</string>
@@ -81,8 +83,11 @@
   <string name="preference_summary_logout">خروج</string>
   <string name="preference_summary_notloggedin">وارد سامانه نشده‌اید</string>
   <string name="toast_logout_complete">خارج شد</string>
+  <string name="saved_pages_empty_title">هنوز صفحه‌ای ذخیره نشده‌است.</string>
   <string name="saved_pages_empty_message" fuzzy="true">هیچ صفحه‌ای ذخیره نشده‌است.</string>
   <string name="history_empty_message" fuzzy="true">تاریخچهٔ شما خالی می‌باشد.</string>
+  <string name="wp_tag_line">دانشنامه آزاد</string>
+  <string name="skip">رها کردن</string>
   <string name="create_account_username_hint">نام کاربری</string>
   <string name="create_account_password_hint">گذرواژه</string>
   <string name="menu_create_account">ایجاد حساب کاربری</string>
@@ -109,7 +114,6 @@
   <string name="zero_warn_when_leaving">هشدار برای خروج از ویکی‌پدیا صفر</string>
   <string name="zero_warn_when_leaving_summary">اگر اپراتور تلفن همراه شما  هزینهٔ دیتا را بر اساس تفاهم‌نامهٔ ویکی‌پدیا صفر تخت اپلیکیشن موبایل ویکی‌پدیا دریافت نکند رها کردن تنظیمات به شما کمک می‌کند تا زمانی که شما از اپلیکیشن خارج می‌شوید  از دریافت هزینه آگاه شوید.</string>
   <string name="zero_webpage_title">پرسش‌های رایج ویکی‌پدیا صفر</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">ویکی‌پدیای صفر</string>
   <string name="zero_interstitial_title">ترک ویکی‌پدیا صفر</string>
   <string name="zero_interstitial_leave_app">هزینهٔ استاندارد دیتا دریافت می‌گردد. به سایت‌های بیرون انتقال یابد؟ .</string>
@@ -157,6 +161,7 @@
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;سیاست محرمانگی&lt;/a&gt;</string>
   <string name="about_libraries_heading">کتابخانه‌ها استفاده‌شده</string>
   <string name="about_contributors_heading">مشارکت‌کنندگان</string>
+  <string name="about_translators_heading">مترجم‌ها</string>
   <string name="about_wmf">محصول &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;بنیاد ویکی‌مدیا&lt;/a&gt;</string>
   <string name="about_activity_title">درباره</string>
   <string name="edit_unchanged">این صفحه ویرایش نشده‌است.</string>
@@ -182,6 +187,13 @@
   <string name="saved_pages_update_all_error_message">خطا در به روز رسانی صفحات ذخیره شده</string>
   <string name="saved_pages_progress_title">تازه‌کردن صفحه ذخیره‌شده</string>
   <string name="saved_pages_refresh_pages_complete">به‌روزرسانی انجام شد.</string>
+  <string name="menu_page_saved">صفحه ذخیره شده</string>
+  <string name="menu_refresh_saved_page">تازه کردن صفحه</string>
+  <string name="menu_themechooser">تغییر فونت و پوسته</string>
+  <string name="text_size_select">اندازهٔ قلم</string>
+  <string name="color_theme_select">پوسته</string>
+  <string name="color_theme_light">روشن</string>
+  <string name="color_theme_dark">تیره</string>
   <string name="app_store_description">نرم افزار رسمی ویکی‌پدیا برای استفاده در آندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و  گسترده‌ترین مرجع کار انسان تا کنون است. این برنامه از ابتدا بازنویسی شده است و بهتر از قبل کار می کند.
 ویژگی‌ها:
    -سرعت: نرم افزار جدید، بومی ما به شما اجازهٔ مرور و ویرایش ویکی‌پدیا را با سریع بیشتری می‌دهد.

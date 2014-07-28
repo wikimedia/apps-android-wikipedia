@@ -22,6 +22,8 @@
   <string name="nav_item_saved_pages">Збережені сторінки</string>
   <string name="menu_update_all_saved_pages">Оновити збережені сторінки</string>
   <string name="menu_update_selected_saved_pages">Оновити збережені сторінки</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Оновити усі збережені сторінки?</string>
+  <string name="toast_saved_page_refreshed">Збережені сторінки оновлено</string>
   <string name="menu_save_page">Зберегти сторінку</string>
   <string name="menu_share_page">Поділитися</string>
   <string name="share_via">Поділитися через</string>
@@ -36,6 +38,8 @@
   <string name="toast_saved_page_deleted">Збережені сторінки видалені</string>
   <string name="last_updated_text">Останнє оновлення %1$s</string>
   <string name="content_license_html">Вміст доступний згідно з &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.uk\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
+  <string name="edit_save_action_license_logged_in">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Умовами користування&lt;/a&gt;, та безповоротно публікуєте свій внесок під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Умовами користування&lt;/a&gt;, та беззастережно публікуєте свій внесок під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою Вашого пристрою. Якщо Ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="preference_title_language">Мова Вікіпедії</string>
   <string name="preference_summary_language">Мова вмісту</string>
   <string name="preference_languages_filter_hint">Пошук</string>
@@ -79,8 +83,13 @@
   <string name="preference_summary_logout">Вийти зі свого облікового запису Вікіпедії</string>
   <string name="preference_summary_notloggedin">Ви не ввійшли до системи.</string>
   <string name="toast_logout_complete">Ви вийшли із системи</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Немає збережених сторінок</string>
-  <string name="history_empty_message" fuzzy="true">Ваша історія порожня.</string>
+  <string name="saved_pages_empty_title">Іще немає збережених сторінок.</string>
+  <string name="saved_pages_empty_message">Збережені сторінки — це круто! Користуйтесь ними як закладками, які можна читати навіть, коли Ви офлайн.</string>
+  <string name="history_empty_title">Немає нещодавніх сторінок.</string>
+  <string name="history_empty_message">Вірогідно, Ви їх усі видалили. Наступного разу, коли відвідаєте сторінку, Ви зможете повернутися до неї звідси.</string>
+  <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЕДІ&lt;big&gt;Я&lt;/big&gt;</string>
+  <string name="wp_tag_line">Вільна енциклопедія</string>
+  <string name="skip">Пропустити</string>
   <string name="create_account_username_hint">Ім\'я користувача</string>
   <string name="create_account_password_hint">Пароль</string>
   <string name="menu_create_account">Створити обліковий запис</string>
@@ -107,7 +116,6 @@
   <string name="zero_warn_when_leaving">Попередити, якщо залишити Вікіпедії Zero</string>
   <string name="zero_warn_when_leaving_summary">Якщо ваш мобільний оператор не бере плату за доступ до даних з програми Вікіпедії через партнерство Вікіпедія Zero включення цього параметра допоможе вам знати, коли ви залишаєте додаток Вікіпедії, і може почати стягуватися плата за трафік</string>
   <string name="zero_webpage_title">ЧАП по Вікіпедія Zero</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Вікіпедія Zero</string>
   <string name="zero_interstitial_title">Покидаємо Вікіпедія Zero</string>
   <string name="zero_interstitial_leave_app">Може стягуватися плата за передачу даних. Продовжити перехід на зовнішній сайт?</string>
@@ -155,6 +163,8 @@
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Політика конфіденційності&lt;/a&gt;</string>
   <string name="about_libraries_heading">використовувані бібліотеки</string>
   <string name="about_contributors_heading">співавтори</string>
+  <string name="about_translators_heading">перекладачі</string>
+  <string name="about_translators_translatewiki">Цю програмку переклали добровольці на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про программу</string>
   <string name="edit_unchanged">Сторінку не було змінено.</string>
@@ -178,4 +188,27 @@
   <string name="error_network_error_try_again">Не вдалося з\'єднатися з мережею, будь-ласка, спробуйте знову.</string>
   <string name="saved_pages_update_all_error_retry">Повторити</string>
   <string name="saved_pages_update_all_error_message">Помилка при оновленні збережених сторінок</string>
+  <string name="saved_pages_progress_title">Перезавантаження збережених сторінок</string>
+  <string name="saved_pages_refresh_pages_complete">Оновлення завершено</string>
+  <string name="abusefilter_title_warn">Це може редагування бути неконструктивним. Ви впевнені, що хочете його зберегти?</string>
+  <string name="abusefilter_title_disallow">Ви не можете зберегти це редагування. Будь ласка, поверніться назад і змініть його.</string>
+  <string name="abusefilter_text_warn">Автоматичний фільтр визначив це редагування як потенційно неконструктивне. У ньому може бути щось із цього:&lt;br /&gt;&lt;br /&gt;· Набрано повністю великими літерами&lt;br /&gt;· Очищення статті або спам&lt;br /&gt;· Невідповідні зовнішні посилання чи зображення&lt;br /&gt;· Повторювані символи</string>
+  <string name="abusefilter_text_disallow">Автоматизований фільтр визначив це редагування як потенційно неконструктивне або потенційний вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедія — це енциклопедія, і розміщений у ній може бути тільки нейтральний і значимий вміст.</string>
+  <string name="menu_themechooser">Змінити шрифт і тему</string>
+  <string name="text_size_select">Розмір шрифту</string>
+  <string name="color_theme_select">Тема</string>
+  <string name="color_theme_light">Світла</string>
+  <string name="color_theme_dark">Темна</string>
+  <string name="app_store_description">Офіційний застосунок Вікіпедії для Android. Вікіпедія — це вільна енциклопедія, у якій 32 мільйонів статей 280-ма мовами, і це найбільш доступна і використовувана реферативна робота, яку люди будь-коли писали. Застосунок ґрунтовно переписаний і працює краще, ніж будь-коли.
+
+Характеристики:
+   - Швидкість: Наш новий, рідний застосунок дозволяє Вам відвідувати і редагувати Вікіпедію швидше, ніж будь-коли до цього.
+   - Редагування: Ви можете редагувати Вікіпедію, увійшовши в систему, або анонімно, ми дякуємо Вам за весь Ваш внесок.
+   - Нещодавні сторінки: Ми забезпечуємо Вас історією Вашого читання, щоб Ви не загубилися, за скількома б посиланнями не переходили.
+   - Збережені сторінки: Ви можете зберегти вибрані сторінки для читання офлайн і гортати їх, навіть не маючи з\'єднання.
+   - Поширення: Користуйтеся своїми наявними застосунками соціальних мереж, щоб ділитися усіма знаннями людства.
+   - Мовна підтримка: Застосунок дозволяє Вам легко перемикатися на Вікіпедію будь-якою мовою.
+   - Вікіпедія Zero: Мобільні оператори, що беруть участь, скасовують плату за передачу даних.
+
+Джерельний код повністю відкритий. Якщо Ви маєте досвід із Java та Android SDK, тоді приєднуйтеся до нас! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

@@ -30,14 +30,18 @@
   <string name="dialog_title_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
   <string name="dialog_message_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
   <string name="toast_saving_page">문서를 저장하는 중...</string>
-  <string name="toast_saved_page">성공적으로 문서를 저장함</string>
-  <string name="toast_saved_page_missing_images">모든 그림을 저장할 수 없음</string>
+  <string name="toast_saved_page">성공적으로 문서를 저장했습니다</string>
+  <string name="toast_saved_page_missing_images">모든 그림을 저장할 수 없습니다</string>
   <string name="toast_save_page_failed">문서를 저장하는 데 실패함 :(</string>
   <string name="toast_refresh_saved_page">저장된 문서를 새로 고치는 중...</string>
   <string name="delete_selected_saved_pages">삭제</string>
   <string name="toast_saved_page_deleted">저장된 문서가 삭제되었습니다</string>
+  <string name="saved_pages_search_list_hint">검색</string>
+  <string name="saved_pages_search_empty_message">\'%s\' 검색어와 일치하는 문서를 찾을 수 없습니다</string>
   <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
   <string name="content_license_html">내용은 별도로 명시하지 않을 경우 &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
+  <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;과 &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 당신의 기여를 영구적으로 게시하는 데 동의합니다.</string>
+  <string name="edit_save_action_license_anon">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;과 &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 당신의 기여를 영구적으로 게시하는 데 동의합니다. 편집은 당신의 장치의 IP 주소로 할당됩니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
   <string name="preference_title_language">위키백과 언어</string>
   <string name="preference_summary_language">내용 언어</string>
   <string name="preference_languages_filter_hint">검색</string>
@@ -81,8 +85,13 @@
   <string name="preference_summary_logout">위키백과 계정에서 로그아웃</string>
   <string name="preference_summary_notloggedin">로그인되어 있지 않습니다.</string>
   <string name="toast_logout_complete">로그아웃됨</string>
-  <string name="saved_pages_empty_message" fuzzy="true">저장된 문서 없음</string>
-  <string name="history_empty_message" fuzzy="true">방문 기록이 비어 있습니다.</string>
+  <string name="saved_pages_empty_title">아직 저장된 문서가 없습니다.</string>
+  <string name="saved_pages_empty_message">저장된 문서는 정말 훌륭합니다. 오프라인일 때여도 읽을 수 있는 책갈피라고 생각해주세요.</string>
+  <string name="history_empty_title">여기에 최근 문서가 없습니다.</string>
+  <string name="history_empty_message">방문 기록이 비어 있습니다. 다음 번에 당신이 간 문서를 여기에서 얻을 수 있습니다.</string>
+  <string name="wp_stylized">&lt;big&gt;위&lt;/big&gt;키백&lt;big&gt;과&lt;/big&gt;</string>
+  <string name="wp_tag_line">우리 모두의 백과사전</string>
+  <string name="skip">건너뛰기</string>
   <string name="create_account_username_hint">사용자 이름</string>
   <string name="create_account_password_hint">비밀번호</string>
   <string name="menu_create_account">계정 만들기</string>
@@ -107,9 +116,8 @@
   <string name="zero_charged_verbiage_extended">다른 문서를 불러오면 데이터 요금이 부과될 수 있습니다.</string>
   <string name="zero_search_hint">위키백과 제로 검색</string>
   <string name="zero_warn_when_leaving">위키백과 제로를 떠난다면 경고합니다</string>
-  <string name="zero_warn_when_leaving_summary">만약 이동 통신사가 위키백과 제로 제유를 통해 위키백과 앱에서 요금을 면제를 받고 있다면, 이 설정을 선택하는 것은 위키백과 앱을 나갈 때 요금이 부과될 수 있음을 알려주는 데 도움을 줍니다.</string>
+  <string name="zero_warn_when_leaving_summary">만약 이동 통신사가 위키백과 제로 제휴를 통해 위키백과 앱에서 요금을 면제를 받고 있다면, 이 설정을 선택하는 것은 위키백과 앱을 나갈 때 요금이 부과될 수 있음을 알려주는 데 도움을 줍니다.</string>
   <string name="zero_webpage_title">위키백과 제로 FAQ</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">위키백과 제로</string>
   <string name="zero_interstitial_title">위키백과 제로를 떠나고 있습니다</string>
   <string name="zero_interstitial_leave_app">데이터 요금이 부과될 수 있습니다. 바깥 사이트로 계속해서 떠날까요?</string>
@@ -157,6 +165,8 @@
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;개인 정보 정책&lt;/a&gt;</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
   <string name="about_contributors_heading">기여자</string>
+  <string name="about_translators_heading">번역자</string>
+  <string name="about_translators_translatewiki">이 앱은 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;의 자원 번역자가 번역했습니다.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;위키미디어 재단&lt;/a&gt;의 제품</string>
   <string name="about_activity_title">정보</string>
   <string name="edit_unchanged">문서가 수정되지 않았습니다.</string>
@@ -182,16 +192,24 @@
   <string name="saved_pages_update_all_error_message">저징된 문서를 업데이트하는 동안 오류</string>
   <string name="saved_pages_progress_title">저장된 문서를 새로 고치는 중</string>
   <string name="saved_pages_refresh_pages_complete">업데이트 완료</string>
+  <string name="menu_page_saved">문서가 저장되었습니다</string>
+  <string name="menu_refresh_saved_page">문서 새로 고침</string>
+  <string name="abusefilter_title_disallow">이 편집을 저장할 수 없습니다. 뒤로 가고 나서 바꿔주세요.</string>
+  <string name="menu_themechooser">글자와 테마</string>
+  <string name="text_size_select">글자 크기</string>
+  <string name="color_theme_select">테마</string>
+  <string name="color_theme_light">밝음</string>
+  <string name="color_theme_dark">어두움</string>
   <string name="app_store_description">안드로이드를 위한 공식 위키백과 앱입니다. 위키백과는 280개 언어의 3천2백만보다 많은 문서가 들어 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용합니다. 앱은 처음부터 다시 쓰여졌고 이전보다 더 나아졌습니다.
 
 기능:
-   - 속도: 우리는 이제, 네이티브 앱을 여러분이 위키백과를 이전보다 빠르게 찾아보고 편집할 수 있습니다.
-   - 편집: 위키백과를 편집할 수 있습니다! 로그인하거나 로그아웃하거나, 우니는 모든 여러분의 기여에 고마워합니다.
+   - 속도: 새로운 네이티브 앱으로 위키백과를 이전보다 빠르게 찾아보고 편집할 수 있습니다.
+   - 편집: 위키백과를 편집할 수 있습니다! 로그인하거나 로그아웃하거나, 우리는 모든 여러분의 기여에 고마워합니다.
    - 최근 문서: 우리는 여러분이 읽은 것의 역사를 제공하며, 그래서 혹시 찾으려는 것을 잊지 않고 원하는 만큼 여러 링크를 누를 수 있습니다.
    - 저장된 문서: 오프라인으로 읽고 데이터에 연결되어 있지 않을 때라도 찾아볼 수 있도록 문서를 선택하여 저장할 수 있습니다.
    - 공유하기: 바깥 소셜 네트워크 앱에 모든 인류의 지식을 더하여 공유할 수 있습니다.
    - 언어 지원: 어떠한 언어로도 쓰여져 있는 위키백과를 읽기 위해 원활하게 전환할 수 있습니다.
    - 위키백과 제로: 이동 통신사가 참여한다면 데이터 요금이 면제됩니다.
 
-코드는 완전한 오픈 소스입니다. 여러분이 자바와 안드로이드 SDK에 경험이 있다면, 우리에게 포크(fork)하러 오세요! https://github.com/wikimedia/apps-android-wikipedia</string>
+코드는 완전한 오픈 소스입니다. 여러분이 자바와 안드로이드 SDK에 경험이 있다면, 우리에게 오셔서 포크하세요! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

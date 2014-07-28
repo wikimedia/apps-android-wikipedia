@@ -109,7 +109,6 @@
   <string name="zero_warn_when_leaving">Peringatkan jika meninggalkan Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Jika operator selular membebaskan biaya akses data untuk aplikasi Wikipedia melalui kemitraan Wikipedia Zero, meninggalkan pengaturan ini memeriksa membantu Anda ketika Anda meninggalkan aplikasi Wikipedia dan dapat dikenakan.</string>
   <string name="zero_webpage_title">Tanya jawab Wikipedia Zero</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Meninggalkan Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Biaya data mungkin berlaku. Lanjutkan ke situs eksternal?</string>

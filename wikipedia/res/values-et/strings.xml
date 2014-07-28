@@ -109,7 +109,6 @@
   <string name="zero_warn_when_leaving">Hoiata, kui lahkun Wikipedia Zerost</string>
   <string name="zero_warn_when_leaving_summary">Kui su mobiilioperaator loobub Vikipeedia rakenduse andmesidetasudest Wikipedia Zero partnerluse kaudu, siis selle seade sisselülitamine annab sulle teada, kui lahkud Vikipeedia rakendusest ja sinu edasine tegevus võib olla tasuline.</string>
   <string name="zero_webpage_title">Wikipedia Zero KKK</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Lahkumine Wikipedia Zerost</string>
   <string name="zero_interstitial_leave_app">Andmesidetasud võivad rakenduda. Kas soovid jätkuvalt siirduda välisele leheküljele?</string>

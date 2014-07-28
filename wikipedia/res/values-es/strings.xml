@@ -36,8 +36,12 @@
   <string name="toast_refresh_saved_page">Actualizando la página guardada...</string>
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
+  <string name="saved_pages_search_list_hint">Buscar</string>
+  <string name="saved_pages_search_empty_message">No se encontraron páginas que coincidan con «%s»</string>
   <string name="last_updated_text">Última actualización: %s</string>
   <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
+  <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Al guardar, aceptas los &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Las ediciones se atribuirán a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt;, tendrás más privacidad.</string>
   <string name="preference_title_language">Idioma de Wikipedia</string>
   <string name="preference_summary_language">Idioma del contenido</string>
   <string name="preference_languages_filter_hint">Buscar</string>
@@ -83,6 +87,9 @@
   <string name="toast_logout_complete">Sesión cerrada</string>
   <string name="saved_pages_empty_message" fuzzy="true">No hay páginas guardadas</string>
   <string name="history_empty_message" fuzzy="true">Tu historial está vacío.</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_tag_line">La enciclopedia libre</string>
+  <string name="skip">Omitir</string>
   <string name="create_account_username_hint">Nombre de usuario</string>
   <string name="create_account_password_hint">Contraseña</string>
   <string name="menu_create_account">Crear cuenta</string>
@@ -109,7 +116,6 @@
   <string name="zero_warn_when_leaving">Avisar al salir de Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Si tu operador de telefonía móvil renuncia a cargos de acceso de datos para la aplicación de Wikipedia a través de una asociación de Wikipedia cero, dejando este valor comprobado te ayuda a saber cuando vas a la aplicación de Wikipedia y podría ser acusado.</string>
   <string name="zero_webpage_title">P+F de Wikipedia Zero</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Dejando Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Pueden aplicarse cargos por datos. ¿Continuar a sitio externo?</string>
@@ -157,6 +163,8 @@
   <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Política de privacidad&lt;/a&gt;</string>
   <string name="about_libraries_heading">bibliotecas usadas</string>
   <string name="about_contributors_heading">colaboradores</string>
+  <string name="about_translators_heading">traductores</string>
+  <string name="about_translators_translatewiki">Esta aplicación fue traducida por traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
   <string name="edit_unchanged">La página no fue modificada.</string>
@@ -182,6 +190,13 @@
   <string name="saved_pages_update_all_error_message">Error al actualizar páginas guardadas</string>
   <string name="saved_pages_progress_title">Actualizando páginas guardadas</string>
   <string name="saved_pages_refresh_pages_complete">Actualización completa</string>
+  <string name="menu_page_saved">Página guardada</string>
+  <string name="menu_refresh_saved_page">Recargar página</string>
+  <string name="menu_themechooser">Tipo de letra y tema</string>
+  <string name="text_size_select">Tamaño de letra</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Claro</string>
+  <string name="color_theme_dark">Oscuro</string>
   <string name="app_store_description">Aplicación oficial de Wikipedia para Android. Wikipedia es la enciclopedia libre que contiene más de 32 millones de artículos en 280 idiomas y es el trabajo de referencia más completo y ampliamente usado que los humanos hayan recopilado. La aplicación ha sido reescrita desde cero y está mejor que nunca.
 
 Características:

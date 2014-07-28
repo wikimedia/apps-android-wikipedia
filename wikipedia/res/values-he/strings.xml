@@ -36,8 +36,12 @@
   <string name="toast_refresh_saved_page">רענון הדף השמור...</string>
   <string name="delete_selected_saved_pages">מחיקה</string>
   <string name="toast_saved_page_deleted">הדפים השמורים נמחקו</string>
+  <string name="saved_pages_search_list_hint">חיפוש</string>
+  <string name="saved_pages_search_empty_message">לא נמצאו דפים שתואמים את \"%s\"</string>
   <string name="last_updated_text">עודכן לאחרונה %s</string>
   <string name="content_license_html">התוכן זמין לפי תנאי &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם נאמר אחרת</string>
+  <string name="edit_save_action_license_logged_in">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
   <string name="preference_title_language">שפת הוויקיפדיה</string>
   <string name="preference_summary_language">שפת התוכן</string>
   <string name="preference_languages_filter_hint">חיפוש</string>
@@ -81,8 +85,13 @@
   <string name="preference_summary_logout">יציאה מהחשבון שלך בוויקיפדיה</string>
   <string name="preference_summary_notloggedin">לא נכנסת לחשבון.</string>
   <string name="toast_logout_complete">יצאת מהחשבון</string>
-  <string name="saved_pages_empty_message" fuzzy="true">אין דפים שמורים</string>
-  <string name="history_empty_message" fuzzy="true">ההיסטוריה שלך ריקה.</string>
+  <string name="saved_pages_empty_title">אין עדיין דפים שמורים.</string>
+  <string name="saved_pages_empty_message">דפים שמורים זה דבר די מגניב. הם כמו סימניות שאפשר לקרוא גם כשהמכשיר אינו מחובר לרשת.</string>
+  <string name="history_empty_title">אין פה דפים שקראת לאחרונה.</string>
+  <string name="history_empty_message">כנראה מחקת את כולם. בפעם הבאה שיזדמן לך לקרוא דף, אפשר יהיה לחזור אליו מכאן.</string>
+  <string name="wp_stylized">ויקיפדיה</string>
+  <string name="wp_tag_line">האנציקלופדיה החופשית</string>
+  <string name="skip">לדלג</string>
   <string name="create_account_username_hint">שם משתמש</string>
   <string name="create_account_password_hint">ססמה</string>
   <string name="menu_create_account">יצירת חשבון</string>
@@ -109,7 +118,6 @@
   <string name="zero_warn_when_leaving">להזהיר בעת עזיבת ויקיפדיה אפס</string>
   <string name="zero_warn_when_leaving_summary">אם ספק התקשורת הניידת שלך מוותר על חיוב על נתונים ביישום ויקיפדיה במסגרת ויקיפדיה אפס, הפעלת ההגדרה הזאת עוזרת לך לדעת שמתבצעת יציאה מוויקיפדיה ושייתכן שיחולו חיובים.</string>
   <string name="zero_webpage_title">שו\"ת ויקיפדיה אפס</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">ויקיפדיה אפס</string>
   <string name="zero_interstitial_title">אנחנו יוצאים מוויקיפדיה אפס</string>
   <string name="zero_interstitial_leave_app">ייתכן שיחולו חיובים על נתונים. להמשיך לאתר חיצוני?</string>
@@ -157,6 +165,8 @@
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;מדיניות פרטיות&lt;/a&gt;</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
+  <string name="about_translators_heading">מתרגמים</string>
+  <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
   <string name="edit_unchanged">הדף לא שוּנה.</string>
@@ -182,6 +192,17 @@
   <string name="saved_pages_update_all_error_message">שגיאה בעדכון הדפים השמורים</string>
   <string name="saved_pages_progress_title">רענון הדפים השמורים</string>
   <string name="saved_pages_refresh_pages_complete">העדכון הושלם</string>
+  <string name="menu_page_saved">הדף נשמר</string>
+  <string name="menu_refresh_saved_page">רענון דף</string>
+  <string name="abusefilter_title_warn">ייתכן שזאת עריכה בלתי־מועילה. באמת לשמור אותה?</string>
+  <string name="abusefilter_title_disallow">לא ניתן לשמור את העריכה הזאת. נא לחזור ולשנות אותה.</string>
+  <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>
+  <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך מתאים לכאן.</string>
+  <string name="menu_themechooser">לשנות גופן ועיצוב</string>
+  <string name="text_size_select">גודל גופן</string>
+  <string name="color_theme_select">עיצוב</string>
+  <string name="color_theme_light">בהיר</string>
+  <string name="color_theme_dark">כהה</string>
   <string name="app_store_description">יישום ויקיפדיה הרשמי לאנדרואיד. ויקיפדיה היא האנציקלופדיה החופשית עם יותר מ־32 מיליון ערכים ב־280 שפות, וזאת אחת מיצירות העיון המקיפות והנפוצות ביותר שאנשים כתבו אי־פעם. היישום נכתב מחדש מאפס והוא טוב יותר מתמיד.
 
 תכונות:

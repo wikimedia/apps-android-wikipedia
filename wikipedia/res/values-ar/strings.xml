@@ -109,7 +109,6 @@
   <string name="zero_warn_when_leaving">قم بالتحذير عند ترك ويكيبيديا زيرو</string>
   <string name="zero_warn_when_leaving_summary">إذا تنازل مشغل خدمة الجوال أو المحمول الخاص بك عن رسوم الوصول إلى البيانات لتطبيق ويكيبيديا من خلال شراكة ويكيبيديا زيرو، فإن ترك هذا الإعداد سيساعدك على التحقق من متى يتم ترك تطبيق ويكيبيديا ودفع رسوم.</string>
   <string name="zero_webpage_title">الأسئلة المتكررة لويكيبيديا زيرو</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_wikipedia_zero_heading">ويكيبيديا زيرو</string>
   <string name="zero_interstitial_title">ترك ويكيبيديا زيرو</string>
   <string name="zero_interstitial_leave_app">قد يتم احتساب رسوم على البيانات، هل تريد الذهاب إلى الموقع الخارجي؟</string>

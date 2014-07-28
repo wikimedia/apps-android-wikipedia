@@ -73,7 +73,6 @@
   <string name="create_account_generic_error">Немагчыма стварыць рахунак</string>
   <string name="create_account_no_network">Няма падлучэння да сеткі</string>
   <string name="preferences_general_heading">Агульныя</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
   <string name="zero_interstitial_continue" fuzzy="true">Працягнуць</string>
   <string name="zero_interstitial_cancel" fuzzy="true">Адмяніць</string>
   <string name="zero_learn_more_learn_more" fuzzy="true">Даведацца больш</string>

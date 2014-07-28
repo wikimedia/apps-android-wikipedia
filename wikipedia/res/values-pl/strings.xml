@@ -36,6 +36,7 @@
   <string name="toast_refresh_saved_page">Odświeżanie zapisanych stron...</string>
   <string name="delete_selected_saved_pages">Usuń</string>
   <string name="toast_saved_page_deleted">Usunięto zapisane strony</string>
+  <string name="saved_pages_search_list_hint">Szukaj</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="preference_title_language">Język Wikipedii</string>
@@ -81,8 +82,13 @@
   <string name="preference_summary_logout">Wyloguj się z konta na Wikipedii</string>
   <string name="preference_summary_notloggedin">Niezalogowany(-a)</string>
   <string name="toast_logout_complete">Wylogowany(-a)</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Brak zapisanych stron</string>
-  <string name="history_empty_message" fuzzy="true">Twoja historia jest pusta.</string>
+  <string name="saved_pages_empty_title">Nie zapisano jeszcze żadnych stron.</string>
+  <string name="saved_pages_empty_message">Zapisane strony są dość niesamowite. Pomyśl o nich jako o zakładkach, które można przeczytać nawet wtedy, gdy jesteś w trybie offline.</string>
+  <string name="history_empty_title">Brak ostatnich zmian stron.</string>
+  <string name="history_empty_message">Prawdopodobnie usunąłeś je wszystkie. Następnym razem gdy wejdziesz na stronę możesz się tam dostać z tąd.</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_tag_line">Wolna encyklopedia</string>
+  <string name="skip">Pomiń</string>
   <string name="create_account_username_hint">Nazwa użytkownika</string>
   <string name="create_account_password_hint">Hasło</string>
   <string name="menu_create_account">Utwórz konto</string>
@@ -109,7 +115,6 @@
   <string name="zero_warn_when_leaving">Ostrzegaj przed opuszczeniem Wikipedii Zero</string>
   <string name="zero_warn_when_leaving_summary">Jeśli twój operator telefonii komórkowej nie pobiera opłat za transfer danych, gdy korzystasz z Wikipedii poprzez tę aplikację (w ramach partnerstwa Wikipedia Zero), ta opcja sprawi, że aplikacja pomoże ci się zorientować, kiedy opuszczasz Wikipedię i mogą zacząć obowiązywać opłaty za transfer danych.</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
-  <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ/pl</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Opuszczasz Wikipedię Zero</string>
   <string name="zero_interstitial_leave_app">Przejście do witryny zewnętrznej może się wiązać z opłatami za transmisję danych. Kontynuować?</string>
@@ -120,6 +125,7 @@
   <string name="zero_learn_more_dismiss">Odrzuć</string>
   <string name="zero_settings">Ustawienia</string>
   <string name="zero_settings_devmode">Zero Devmode</string>
+  <string name="zero_settings_devmode_summary">W trakcie prac rozwojowych to umozliwia wykonanie kodu związanego z Wikipedia Zero</string>
   <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu...</string>
   <string name="edit_preview_activity_title">Podgląd zmian</string>
   <string name="create_account_logging_in">Logowanie...</string>
@@ -156,6 +162,8 @@
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy/pl\"&gt;Polityka prywatności&lt;/a&gt;</string>
   <string name="about_libraries_heading">użyte biblioteki</string>
   <string name="about_contributors_heading">autorzy</string>
+  <string name="about_translators_heading">tłumacze</string>
+  <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy woontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundacji Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikacji</string>
   <string name="edit_unchanged">Strona nie została zmieniona.</string>
@@ -181,4 +189,15 @@
   <string name="saved_pages_update_all_error_message">Błąd podczas aktualizowania zapisanych stron</string>
   <string name="saved_pages_progress_title">Odświeżanie zapisanych stron</string>
   <string name="saved_pages_refresh_pages_complete">Aktualizacja zakończona</string>
+  <string name="menu_page_saved">Strona zapisana</string>
+  <string name="menu_refresh_saved_page">Odśwież stronę</string>
+  <string name="abusefilter_title_warn">To chyba nie jest konstruktywna edycja. Czy na pewno chcesz ją zapisać?</string>
+  <string name="abusefilter_title_disallow">Nie możesz zapisać tej edycji. Wróć do niej i popraw ją.</string>
+  <string name="abusefilter_text_warn">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną. Może zawierać jeden lub więcej z następujących błedów:&lt;br /&gt;&lt;br /&gt;· Tekst wyłącznie dużymi literami&lt;br /&gt;· Kasowanie zawartości artykułu lub spam&lt;br /&gt;· Niezwiązane z artykułem linki zewnetrzne lub zdjęcia&lt;br /&gt;· Powtarzające się znaki</string>
+  <string name="abusefilter_text_disallow">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną lub wandalizm.&lt;br /&gt;&lt;br /&gt;Wikipedia to encyklopedia i mogą w niej się znaleźć wyłącznie neutralne encyklopedyczne treści.</string>
+  <string name="menu_themechooser">Zmień czcionkę i skórkę</string>
+  <string name="text_size_select">Rozmiar czcionki</string>
+  <string name="color_theme_select">Skórka</string>
+  <string name="color_theme_light">Jasna</string>
+  <string name="color_theme_dark">Ciemna</string>
 </resources>
