@@ -424,6 +424,19 @@ public class WikipediaApp extends Application {
         }
     }
 
+    /**
+     * Make adjustments to a link or button Drawable object to look better in the current theme.
+     * (e.g. apply a blue color filter for night mode, )
+     * @param d Drawable to be adjusted.
+     */
+    public void adjustLinkDrawableToTheme(Drawable d) {
+        if (getCurrentTheme() == THEME_DARK) {
+            d.setColorFilter(getResources().getColor(R.color.button_dark), PorterDuff.Mode.SRC_ATOP);
+        } else {
+            d.setColorFilter(getResources().getColor(R.color.button_light), PorterDuff.Mode.SRC_ATOP);
+        }
+    }
+
     public int getFontSizeMultiplier() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         return prefs.getInt(PrefKeys.getTextSizeMultiplier(), 0);

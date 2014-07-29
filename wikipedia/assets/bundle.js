@@ -26,6 +26,40 @@ document.onclick = function() {
         }
         curNode = curNode.parentNode;
     }
+
+    function collectIssues( sourceNode ) {
+        var res = [];
+        var issues = sourceNode.parentNode.querySelectorAll( 'table.ambox' );
+        var i = 0,
+            len = issues.length;
+        for (; i < len; i++) {
+            // .ambox- is used e.g. on eswiki
+            res.push( issues[i].querySelector( '.mbox-text, .ambox-text' ).innerHTML );
+        }
+
+        bridge.sendMessage( 'issuesClicked', { "issues": res } );
+    }
+
+    function handleReference( targetId ) {
+        var target = document.getElementById(targetId);
+        if ( target === null ) {
+            console.log( "reference target not found: " + targetId );
+        } else if ( href.slice(0, 10) === "#cite_note" ) {
+            try {
+                var refTexts = target.getElementsByClassName( "reference-text" );
+                if (refTexts.length > 0) {
+                    target = refTexts[0];
+                }
+                bridge.sendMessage( 'referenceClicked', { "ref": target.innerHTML } );
+            } catch (e) {
+                target.scrollIntoView();
+            }
+        } else {
+            // If it is a link to an anchor in the current page, just scroll to it
+            target.scrollIntoView();
+        }
+    }
+
     if (sourceNode) {
         if ( sourceNode.hasAttribute( "data-action" ) ) {
             var action = sourceNode.getAttribute( "data-action" );
@@ -37,22 +71,10 @@ document.onclick = function() {
             var href = sourceNode.getAttribute( "href" );
             if ( href[0] === "#" ) {
                 var targetId = href.slice(1);
-                var target = document.getElementById( targetId );
-                if ( target === null ) {
-                    console.log( "reference target not found: " + targetId );
-                } else if ( href.slice(0, 10) === "#cite_note" ) {
-                    try {
-                        var refTexts = target.getElementsByClassName( "reference-text" );
-                        if ( refTexts.length > 0 ) {
-                            target = refTexts[0];
-                        }
-                        bridge.sendMessage( 'referenceClicked', { "ref": target.innerHTML } );
-                    } catch (e) {
-                        target.scrollIntoView();
-                    }
+                if ( "issues" === targetId ) {
+                    collectIssues( sourceNode );
                 } else {
-                    // If it is a link to an anchor in the current page, just scroll to it
-                    target.scrollIntoView();
+                    handleReference( targetId );
                 }
             } else {
                 bridge.sendMessage( 'linkClicked', { "href": href } );
@@ -112,6 +134,29 @@ actions.register( "edit_section", function( el, event ) {
 } );
 
 },{"./actions":1,"./bridge":2}],4:[function(require,module,exports){
+var transformer = require('./transformer');
+
+transformer.register( 'displayIssuesLink', function( content ) {
+    var issues = content.querySelectorAll( "table.ambox" );
+    if ( issues.length > 0 ) {
+        var el = issues[0];
+        var wrapper = document.createElement( 'div' );
+        var link = document.createElement( 'a' );
+        link.setAttribute( 'href', '#issues' );
+        link.className = 'issues_button';
+        wrapper.appendChild( link );
+        el.parentNode.replaceChild( wrapper, el );
+
+        var i = 0,
+            len = issues.length;
+        for (; i < len; i++) {
+            wrapper.appendChild( issues[i] );
+        }
+    }
+    return content;
+} );
+
+},{"./transformer":10}],5:[function(require,module,exports){
 var bridge = require( "./bridge" );
 
 function addStyleLink( href ) {
@@ -133,7 +178,7 @@ bridge.registerListener( "injectStyles", function( payload ) {
 module.exports = {
 	addStyleLink: addStyleLink
 };
-},{"./bridge":2}],5:[function(require,module,exports){
+},{"./bridge":2}],6:[function(require,module,exports){
 var bridge = require( "./bridge" );
 bridge.registerListener( "displayAttribution", function( payload ) {
     var directionality = document.getElementsByTagName( "html" )[0].classList.contains( "ui-rtl" ) ? "rtl" : "ltr";
@@ -200,7 +245,7 @@ bridge.registerListener( "setMainPage", function() {
 
 } );
 
-},{"./bridge":2}],6:[function(require,module,exports){
+},{"./bridge":2}],7:[function(require,module,exports){
 var parseCSSColor = require("../lib/js/css-color-parser");
 var bridge = require("./bridge");
 var loader = require("./loader");
@@ -279,7 +324,7 @@ module.exports = {
 	invertElement: invertElement
 };
 
-},{"../lib/js/css-color-parser":12,"./bridge":2,"./loader":4}],7:[function(require,module,exports){
+},{"../lib/js/css-color-parser":13,"./bridge":2,"./loader":5}],8:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -289,7 +334,7 @@ bridge.registerListener( "setDirectionality", function( payload ) {
     html.classList.add( "ui-" + payload.uiDirection );
 } );
 
-},{"./bridge":2}],8:[function(require,module,exports){
+},{"./bridge":2}],9:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 
@@ -319,6 +364,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content.id = "#content_block_0";
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
+    content = transformer.transform( "displayIssuesLink", content );
     document.getElementById( "content" ).appendChild( content );
 
     document.getElementById( "loading_sections").className = "loading";
@@ -419,7 +465,7 @@ bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-},{"./bridge":2,"./transformer":9}],9:[function(require,module,exports){
+},{"./bridge":2,"./transformer":10}],10:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -443,7 +489,7 @@ Transformer.prototype.transform = function( transform, element ) {
 
 module.exports = new Transformer();
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 var transformer = require("./transformer");
 var night = require("./night");
 
@@ -481,7 +527,7 @@ transformer.register( "section", function( content ) {
 	return content;
 } );
 
-},{"./night":6,"./transformer":9}],11:[function(require,module,exports){
+},{"./night":7,"./transformer":10}],12:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills
@@ -558,7 +604,7 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 // (c) Dean McNamee <dean@gmail.com>, 2012.
 //
 // https://github.com/deanm/css-color-parser-js
@@ -760,4 +806,4 @@ function parseCSSColor(css_str) {
 
 try { module.exports = parseCSSColor } catch(e) { }
 
-},{}]},{},[4,12,5,6,9,10,2,1,3,8,7,11])
+},{}]},{},[5,13,6,7,10,11,2,1,3,4,9,8,12])

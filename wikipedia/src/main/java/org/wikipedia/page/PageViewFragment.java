@@ -120,13 +120,14 @@ public class PageViewFragment extends Fragment {
     private View pageDoesNotExistError;
     private DisableableDrawerLayout tocDrawer;
     private View pageFragmentContainer;
-    private ReferenceDialog referenceDialog;
     private Page page;
     private HistoryEntry curEntry;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
     private ReferenceHandler referenceHandler;
+    private ReferenceDialog referenceDialog;
+    private IssuesHandler issuesHandler;
     private EditHandler editHandler;
     private NightModeHandler nightModeHandler;
 
@@ -345,6 +346,8 @@ public class PageViewFragment extends Fragment {
             }
         };
 
+        issuesHandler = new IssuesHandler(getActivity(), bridge);
+
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 
         bridge.injectStyleBundle(app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_PAGEVIEW, title.getSite()));
@@ -524,6 +527,7 @@ public class PageViewFragment extends Fragment {
                 Log.d("PageViewFragment", "Detached from activity, so stopping update.");
                 return;
             }
+
             page = new Page(title, (ArrayList<Section>) result, pageProperties);
             editHandler.setPage(page);
             displayLeadSection();

@@ -31,6 +31,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.squareup.otto.Bus;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.ApiResult;
@@ -583,6 +584,23 @@ public final class Utils {
         SimpleDateFormat sdf = new SimpleDateFormat(ISO8601_FORMAT_STRING, Locale.ROOT);
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         return sdf.format(date);
+    }
+
+    /**
+     * Convert a JSONArray object to a String Array.
+     *
+     * @param array a JSONArray containing only Strings
+     * @return a String[] with all the items in the JSONArray
+     */
+    public static String[] jsonArrayToStringArray(JSONArray array) {
+        if (array == null) {
+            return null;
+        }
+        String[] stringArray = new String[array.length()];
+        for (int i = 0; i < array.length(); i++) {
+            stringArray[i] = array.optString(i);
+        }
+        return stringArray;
     }
 
     /**

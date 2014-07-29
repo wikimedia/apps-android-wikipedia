@@ -27,6 +27,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content.id = "#content_block_0";
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
+    content = transformer.transform( "displayIssuesLink", content );
     document.getElementById( "content" ).appendChild( content );
 
     document.getElementById( "loading_sections").className = "loading";

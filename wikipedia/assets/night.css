@@ -1,5 +1,6 @@
 /* Same specificity as in less/content/main.less */
 /* Same specificity as in less/content/hacks.less */
+/* See also less/issues.less */
 body {
   color: #999;
   background: #000;
@@ -25,4 +26,9 @@ img.mwe-math-fallback-png-inline {
 }
 .content table.infobox {
   background: #000;
+}
+a.issues_button {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAADBElEQVR4nO3aX0hTURwH8O/v3q3co1CgERQY/rtK5EMR+hT44tgGRfbSm4EV1RaRYNFLD75kuVkJ+VJBBWkUmxYU1EvYP1TK3CzTKCywGQRSodu999dDChJEeXe2s+h8GAwuO+d8+bJ7Lzt3gKIoiqIo/ytyOrA8dGs9EW1wWa4vTFbaInOm6qOV7O1ttEQGzDbHBVSGoq3E1PbLYQboLQHDDAyD7IcF36efDXU3pzPMmTUuwfMRwCUMlADYCSbMeYq/GaHYABhR3W3eGGnfnhS8ZkZEfwP+xALwAKAr87Z+feJsw7zT9RdV7+svtNxck+j03XcyXss0wDLpAOoBvrxSM98Zh6InNh28s9rpZBWhvhp7hf0Imr3Z6RyiT4HlKALRyRSZx4xg7CpIPxcPe5//zcCyA9E1Ll1rBaMZgDuTEDILWFQAoAlsNRnBvpfE6IdmD2iW+4V7furTUHdzeuvhHs+s6SmFjjpibmBgG8AFIhbPhwKW4GomVIMJlmbC8hTDCMYwawPQGPj5EirX14C8owqQHUA2VYDsALKpAmQHkE0VIDuAbKoA2QFkUwXIDiCbKkB2ANlUAbIDyCZsR4iAJwz0sKYNwjZTBG0tAWUM1ANUC3BGe3fZIqwAG7iUiPgvLDn0dOG9rfRI3yq3hd1g7AFgiFpThJzsCY6f9n0GEAY4YgRjPjAdB8HxVrZIOb4GEMcjgVi807+FiHcAmBIwaZLTrmtOB0u7CI6GAzeRnqtkQjtATp8dzpDG3rHz3vdOc0i9C8S7Gr8mwv6jlq5VMaEHy9v1fmwz1Y52BAYzyZAXt8FXZ7zjibB/lw6uAPgUQJO/++zCk+e98cLhurFO35tM186rByMjkcBrAC0AWoz9t4vg5o1gex00ssF2EhoSox2BCZFr5lUBS8W7vNMAprO9Tl6cAjKpAmQHkE0VIDuAbKoA2QFkUwXIDiCbKkB2ANmEFUDMc6LmyiVBP4ZoEqZ+V8xcueW4AEq5LmouvgfdTJV/SCX+tb/JK4qiKIqi/ABBuOy9cIEOvwAAAABJRU5ErkJggg==) no-repeat center;
+  background: url(//127.0.0.1:8080/w/extensions/MobileApp/less/../images/flag-night.png?2014-07-29T17:18:20Z) no-repeat center!ie;
+  border: 1px solid #2B6FB2;
 }

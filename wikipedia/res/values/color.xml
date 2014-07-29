@@ -20,11 +20,13 @@
     <color name="onboarding_skip_gray">#ff696969</color>
     <color name="reference_background">#0C0C0C</color>
     <color name="reference_text">#929497</color>
+    <color name="issues_subtext">#555</color>
     <color name="gray_background">#ff606060</color>
     <color name="gray_disabled">#80606060</color>
     <color name="gray_highlight">#ff808080</color>
 
     <color name="link_light">#ff347BFF</color>
+    <color name="button_light">#ff777777</color>
     <color name="window_background_light">#fff2f2f2</color>
     <color name="actionbar_background_light">#ffffffff</color>
     <color name="search_background_light">#ffffffff</color>
@@ -35,6 +37,7 @@
     <color name="abusefilter_background_light">#E8E8E8</color>
 
     <color name="link_dark">#ff2B6FB2</color>
+    <color name="button_dark">#ff2B6FB2</color>
     <color name="window_background_dark">#ff000000</color>
     <color name="actionbar_background_dark">#ff303030</color>
     <color name="search_background_dark">#ff404040</color>

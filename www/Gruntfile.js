@@ -6,6 +6,7 @@ module.exports = function ( grunt ) {
         "js/bridge.js",
         "js/actions.js",
         "js/editaction.js",
+        "js/issues.js",
         "js/sections.js",
         "js/rtlsupport.js",
         "lib/js/classList.js",
@@ -27,14 +28,15 @@ module.exports = function ( grunt ) {
                 files: {
                     "bundle.js": [
                         "js/loader.js",
-						"lib/js/css-color-parser.js",
+                        "lib/js/css-color-parser.js",
                         "js/main.js",
-						"js/night.js",
+                        "js/night.js",
                         "js/transformer.js",
                         "js/transforms.js",
                         "js/bridge.js",
                         "js/actions.js",
                         "js/editaction.js",
+                        "js/issues.js",
                         "js/sections.js",
                         "js/rtlsupport.js"
                     ].concat( oldDroidPolyfills ),

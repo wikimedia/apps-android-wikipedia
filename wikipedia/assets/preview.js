@@ -26,6 +26,40 @@ document.onclick = function() {
         }
         curNode = curNode.parentNode;
     }
+
+    function collectIssues( sourceNode ) {
+        var res = [];
+        var issues = sourceNode.parentNode.querySelectorAll( 'table.ambox' );
+        var i = 0,
+            len = issues.length;
+        for (; i < len; i++) {
+            // .ambox- is used e.g. on eswiki
+            res.push( issues[i].querySelector( '.mbox-text, .ambox-text' ).innerHTML );
+        }
+
+        bridge.sendMessage( 'issuesClicked', { "issues": res } );
+    }
+
+    function handleReference( targetId ) {
+        var target = document.getElementById(targetId);
+        if ( target === null ) {
+            console.log( "reference target not found: " + targetId );
+        } else if ( href.slice(0, 10) === "#cite_note" ) {
+            try {
+                var refTexts = target.getElementsByClassName( "reference-text" );
+                if (refTexts.length > 0) {
+                    target = refTexts[0];
+                }
+                bridge.sendMessage( 'referenceClicked', { "ref": target.innerHTML } );
+            } catch (e) {
+                target.scrollIntoView();
+            }
+        } else {
+            // If it is a link to an anchor in the current page, just scroll to it
+            target.scrollIntoView();
+        }
+    }
+
     if (sourceNode) {
         if ( sourceNode.hasAttribute( "data-action" ) ) {
             var action = sourceNode.getAttribute( "data-action" );
@@ -37,22 +71,10 @@ document.onclick = function() {
             var href = sourceNode.getAttribute( "href" );
             if ( href[0] === "#" ) {
                 var targetId = href.slice(1);
-                var target = document.getElementById( targetId );
-                if ( target === null ) {
-                    console.log( "reference target not found: " + targetId );
-                } else if ( href.slice(0, 10) === "#cite_note" ) {
-                    try {
-                        var refTexts = target.getElementsByClassName( "reference-text" );
-                        if ( refTexts.length > 0 ) {
-                            target = refTexts[0];
-                        }
-                        bridge.sendMessage( 'referenceClicked', { "ref": target.innerHTML } );
-                    } catch (e) {
-                        target.scrollIntoView();
-                    }
+                if ( "issues" === targetId ) {
+                    collectIssues( sourceNode );
                 } else {
-                    // If it is a link to an anchor in the current page, just scroll to it
-                    target.scrollIntoView();
+                    handleReference( targetId );
                 }
             } else {
                 bridge.sendMessage( 'linkClicked', { "href": href } );
