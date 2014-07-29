@@ -283,5 +283,6 @@ See also:
 {{Identical|Theme}}</string>
   <string name="color_theme_light">Button label for Light color theme</string>
   <string name="color_theme_dark">Button label for Dark color theme</string>
+  <string name="page_similar_titles">Button label for navigating to the disambiguation page for the current title</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
 </resources>

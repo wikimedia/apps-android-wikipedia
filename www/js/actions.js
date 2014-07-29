@@ -63,6 +63,11 @@ document.onclick = function() {
         bridge.sendMessage( 'issuesClicked', { "issues": res } );
     }
 
+    function handleDisambig( sourceNode ) {
+        var title = sourceNode.getAttribute("title");
+        bridge.sendMessage( 'disambigClicked', { "title": title } );
+    }
+
     if (sourceNode) {
         if ( sourceNode.hasAttribute( "data-action" ) ) {
             var action = sourceNode.getAttribute( "data-action" );
@@ -74,8 +79,10 @@ document.onclick = function() {
             var href = sourceNode.getAttribute( "href" );
             if ( href[0] === "#" ) {
                 var targetId = href.slice(1);
-                if ( "issues" === targetId ) {
-                    collectIssues( sourceNode );
+                if ("issues" === targetId) {
+                    collectIssues(sourceNode);
+                } else if ("disambig" === targetId) {
+                    handleDisambig(sourceNode);
                 } else {
                     handleReference( targetId );
                 }

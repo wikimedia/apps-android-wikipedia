@@ -16,6 +16,11 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     title.setAttribute( "data-id", 0 );
     document.getElementById( "content" ).appendChild( title );
 
+    var issuesContainer = document.createElement( "div" );
+    issuesContainer.id = "issues_container";
+    issuesContainer.className = "issues_container";
+    document.getElementById( "content" ).appendChild( issuesContainer );
+
     var editButton = document.createElement( "a" );
     editButton.setAttribute( 'data-id', payload.section.id );
     editButton.setAttribute( 'data-action', "edit_section" );
@@ -27,7 +32,20 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content.id = "#content_block_0";
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
+
+    content = transformer.transform( "displayDisambigLink", content );
     content = transformer.transform( "displayIssuesLink", content );
+
+    //if there were no page issues, then hide the container
+    if (!issuesContainer.hasChildNodes()) {
+        document.getElementById( "content" ).removeChild(issuesContainer);
+    }
+    //update the text of the disambiguation link, if there is one
+    var disambig = document.getElementById( "disambig_button" );
+    if (disambig !== null) {
+        disambig.innerText = payload.string_page_similar_titles;
+    }
+
     document.getElementById( "content" ).appendChild( content );
 
     document.getElementById( "loading_sections").className = "loading";
@@ -35,8 +53,8 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
 function clearContents() {
     document.getElementById( "content" ).innerHTML = "";
-	document.getElementById( "lastupdated" ).innerHTML = "";
-	document.getElementById( "licensetext" ).innerHTML = "";
+    document.getElementById( "lastupdated" ).innerHTML = "";
+    document.getElementById( "licensetext" ).innerHTML = "";
 }
 
 function elementsForSection( section ) {

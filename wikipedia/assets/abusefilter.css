@@ -596,6 +596,49 @@ a.edit_section_button {
   transform: scaleX(-1);
 }
 
+div.issues_container {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  display: inline-block;
+}
+a.issues_button {
+  height: 32px;
+  width: 36px;
+  background-size: 24px 24px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAACzklEQVR4nO3aP2gTYRjH8e+TpK2iiIIFEUFpi/+D1qb+oZ2UOujgIOIiLnVwcXCwtAlCkKQKOgjiYBHUxaEVQXGxq1Tb9FJRsai14h8otVVcFLXXu8fBDsFByuWSN+L7WQJH3vf58YO7I7kDy7Isy7L+VxJ04c5OXePFaPCEL3i4AtN1Y0z19YkXZsBSC1xAc1K7VOj+47ACbwRGfBgRnwf6mVy+R9ziYpZOLOT9BKhXqBc4RASklm+JlA4I3PlZxa2naZkKeWZRImWYsQjYq3C52mUikdL+RFKPNpzQmjA2j3fqsuak7gm6vhwFFIoCbQg3li7hbVNSTzd2aW3QzZqSuq0mykNge9A9yl1AoRUinIlGeJ9I6dXmpG6d78LGtK5MpPSSCIPA+mJChH0NCGIB0K5CeyKlz1S4h89ArJonsxN8zPeIu+ukLvQWs9ZXWlH24bJ7bl3RKqGAQnFR4gh4LkgtJFKKC+CXZqDJU6Ai2AJMBzDNFmA6gGm2ANMBTLMFmA5gmi3AdADTbAGmA5hmCzAdwDRbgOkApoX2j5DAoAq9vocjMWbEZxWwDmgDWoCqsGaFKbQCVLjuZORKwaGhuc/uprQuF5cjwDFgU1gzw1CWUyCflk9OVi46WeIIB4BcOebOR5mvAaJORu46WdkhwkHgQ9E7wtSscDPoemMXweGM3P5exUaFC0DQZ4fTAvsfZ+Vd0BxG7wLP0/I1n5VTEZ/NKvTy++Hq/AiPokJLLitOMRkq4jaYOyuv8hk5jLAB4Tww/pevjyAcd2K0DmVkrNjZFfVgxMnIS6AD6GhO6wpvhi1RYbWv+BJhyp9ldOScvA5zZkUVUGg4LZPAZKnnVMQpYJItwHQA02wBpgOYZgswHcA0W4DpAKbZAkwHMC20AlT5EdZe5RRWAeORKu6HtFdZBf81WM0136NfYKbuBaP/2mvylmVZlmVZvwDZmcBBeFfe1QAAAABJRU5ErkJggg==) no-repeat center;
+  background: url(//bits.beta.wmflabs.org/static-master/extensions/MobileApp/less/../images/flag-light.png?2014-07-29T19:15:00Z) no-repeat center!ie;
+  border: 1px solid #347BFF;
+  border-radius: 4px;
+  display: inline-block;
+}
+.content-rtl a.issues_button {
+  /* Flip it! */
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+a.issues_button:active {
+  border: 4px solid #347BFF;
+}
+
+a.disambig_button {
+  height: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 2px;
+  margin-right: 8px;
+  border: 1px solid #347BFF;
+  border-radius: 4px;
+  display: inline-block;
+  text-decoration: none;
+  color: #347BFF;
+  float: left;
+}
+a.disambig_button:active {
+  background-color: #347BFF;
+  color: #ffffff;
+}
+
 /* FIXME: Copied over from http://en.wikipedia.org/w/index.php?title=MediaWiki:Mobile.css&oldid=609508028
    This fixes some styling issues in the app, primarily hlists.
    Eventually fix this by supporting loading Mobile.css in the app
@@ -866,23 +909,22 @@ sup.reference a {
   display: none;
 }
 #li-coordinates {
-  background-image: url("float: right;
-    display: none;
-    -webkit-background-size: auto 30px;
-    background-size: auto 30px;
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/5/57/Edge-firefox.png/80px-Edge-firefox.png);
+  float: right;
+  display: none;
+  -webkit-background-size: auto 30px;
+  background-size: auto 30px;
 }
-
 .client-js .content_block.coordinates {
-    display: none;
-    text-align: right;
-    margin-bottom: 0.5em;
-    font-size: smaller;
+  display: none;
+  text-align: right;
+  margin-bottom: 0.5em;
+  font-size: smaller;
 }
-
 .client-js .content_block.coordinates .latitude {
-    display:none;
-    padding-left: 20px;
-    background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/5/57/Edge-firefox.png/50px-Edge-firefox.png");
+  display: none;
+  padding-left: 20px;
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/5/57/Edge-firefox.png/50px-Edge-firefox.png);
   background-repeat: no-repeat;
   -webkit-background-size: auto 15px;
   background-size: auto 15px;

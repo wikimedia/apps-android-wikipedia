@@ -812,23 +812,22 @@ sup.reference a {
   display: none;
 }
 #li-coordinates {
-  background-image: url("float: right;
-    display: none;
-    -webkit-background-size: auto 30px;
-    background-size: auto 30px;
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/5/57/Edge-firefox.png/80px-Edge-firefox.png);
+  float: right;
+  display: none;
+  -webkit-background-size: auto 30px;
+  background-size: auto 30px;
 }
-
 .client-js .content_block.coordinates {
-    display: none;
-    text-align: right;
-    margin-bottom: 0.5em;
-    font-size: smaller;
+  display: none;
+  text-align: right;
+  margin-bottom: 0.5em;
+  font-size: smaller;
 }
-
 .client-js .content_block.coordinates .latitude {
-    display:none;
-    padding-left: 20px;
-    background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/5/57/Edge-firefox.png/50px-Edge-firefox.png");
+  display: none;
+  padding-left: 20px;
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/5/57/Edge-firefox.png/50px-Edge-firefox.png);
   background-repeat: no-repeat;
   -webkit-background-size: auto 15px;
   background-size: auto 15px;

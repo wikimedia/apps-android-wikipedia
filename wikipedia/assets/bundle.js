@@ -64,6 +64,11 @@ document.onclick = function() {
         bridge.sendMessage( 'issuesClicked', { "issues": res } );
     }
 
+    function handleDisambig( sourceNode ) {
+        var title = sourceNode.getAttribute("title");
+        bridge.sendMessage( 'disambigClicked', { "title": title } );
+    }
+
     if (sourceNode) {
         if ( sourceNode.hasAttribute( "data-action" ) ) {
             var action = sourceNode.getAttribute( "data-action" );
@@ -75,8 +80,10 @@ document.onclick = function() {
             var href = sourceNode.getAttribute( "href" );
             if ( href[0] === "#" ) {
                 var targetId = href.slice(1);
-                if ( "issues" === targetId ) {
-                    collectIssues( sourceNode );
+                if ("issues" === targetId) {
+                    collectIssues(sourceNode);
+                } else if ("disambig" === targetId) {
+                    handleDisambig(sourceNode);
                 } else {
                     handleReference( targetId );
                 }
@@ -129,6 +136,35 @@ window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
 };
 },{}],3:[function(require,module,exports){
+var transformer = require('./transformer');
+
+transformer.register( 'displayDisambigLink', function( content ) {
+    var hatnotes = content.querySelectorAll( "div.hatnote" );
+    var i = 0;
+    for (; i<hatnotes.length; i++) {
+        var el = hatnotes[i];
+        //only care about the first hatnote, and remove all others...
+        if (i === 0) {
+            var links = el.querySelectorAll("a");
+            // use the last link in the hatnote!
+            if (links.length > 0) {
+                var container = document.getElementById("issues_container");
+                var newlink = document.createElement('a');
+                newlink.setAttribute('href', '#disambig');
+                newlink.id = "disambig_button";
+                newlink.className = 'disambig_button';
+                newlink.setAttribute("title", links[links.length - 1].getAttribute("href"));
+                container.appendChild(newlink);
+                el.parentNode.removeChild(el);
+            }
+        } else {
+            el.parentNode.removeChild(el);
+        }
+    }
+    return content;
+} );
+
+},{"./transformer":11}],4:[function(require,module,exports){
 var actions = require('./actions');
 var bridge = require('./bridge');
 
@@ -137,30 +173,31 @@ actions.register( "edit_section", function( el, event ) {
     event.preventDefault();
 } );
 
-},{"./actions":1,"./bridge":2}],4:[function(require,module,exports){
+},{"./actions":1,"./bridge":2}],5:[function(require,module,exports){
 var transformer = require('./transformer');
 
 transformer.register( 'displayIssuesLink', function( content ) {
     var issues = content.querySelectorAll( "table.ambox" );
     if ( issues.length > 0 ) {
         var el = issues[0];
+        var container = document.getElementById( "issues_container" );
         var wrapper = document.createElement( 'div' );
         var link = document.createElement( 'a' );
         link.setAttribute( 'href', '#issues' );
         link.className = 'issues_button';
         wrapper.appendChild( link );
         el.parentNode.replaceChild( wrapper, el );
-
         var i = 0,
             len = issues.length;
         for (; i < len; i++) {
             wrapper.appendChild( issues[i] );
         }
+        container.appendChild( wrapper );
     }
     return content;
 } );
 
-},{"./transformer":10}],5:[function(require,module,exports){
+},{"./transformer":11}],6:[function(require,module,exports){
 var bridge = require( "./bridge" );
 
 function addStyleLink( href ) {
@@ -182,7 +219,7 @@ bridge.registerListener( "injectStyles", function( payload ) {
 module.exports = {
 	addStyleLink: addStyleLink
 };
-},{"./bridge":2}],6:[function(require,module,exports){
+},{"./bridge":2}],7:[function(require,module,exports){
 var bridge = require( "./bridge" );
 bridge.registerListener( "displayAttribution", function( payload ) {
     var directionality = document.getElementsByTagName( "html" )[0].classList.contains( "ui-rtl" ) ? "rtl" : "ltr";
@@ -249,7 +286,7 @@ bridge.registerListener( "setMainPage", function() {
 
 } );
 
-},{"./bridge":2}],7:[function(require,module,exports){
+},{"./bridge":2}],8:[function(require,module,exports){
 var parseCSSColor = require("../lib/js/css-color-parser");
 var bridge = require("./bridge");
 var loader = require("./loader");
@@ -328,7 +365,7 @@ module.exports = {
 	invertElement: invertElement
 };
 
-},{"../lib/js/css-color-parser":13,"./bridge":2,"./loader":5}],8:[function(require,module,exports){
+},{"../lib/js/css-color-parser":14,"./bridge":2,"./loader":6}],9:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -338,7 +375,7 @@ bridge.registerListener( "setDirectionality", function( payload ) {
     html.classList.add( "ui-" + payload.uiDirection );
 } );
 
-},{"./bridge":2}],9:[function(require,module,exports){
+},{"./bridge":2}],10:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 
@@ -357,6 +394,11 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     title.setAttribute( "data-id", 0 );
     document.getElementById( "content" ).appendChild( title );
 
+    var issuesContainer = document.createElement( "div" );
+    issuesContainer.id = "issues_container";
+    issuesContainer.className = "issues_container";
+    document.getElementById( "content" ).appendChild( issuesContainer );
+
     var editButton = document.createElement( "a" );
     editButton.setAttribute( 'data-id', payload.section.id );
     editButton.setAttribute( 'data-action', "edit_section" );
@@ -368,7 +410,20 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content.id = "#content_block_0";
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
+
+    content = transformer.transform( "displayDisambigLink", content );
     content = transformer.transform( "displayIssuesLink", content );
+
+    //if there were no page issues, then hide the container
+    if (!issuesContainer.hasChildNodes()) {
+        document.getElementById( "content" ).removeChild(issuesContainer);
+    }
+    //update the text of the disambiguation link, if there is one
+    var disambig = document.getElementById( "disambig_button" );
+    if (disambig !== null) {
+        disambig.innerText = payload.string_page_similar_titles;
+    }
+
     document.getElementById( "content" ).appendChild( content );
 
     document.getElementById( "loading_sections").className = "loading";
@@ -376,8 +431,8 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
 function clearContents() {
     document.getElementById( "content" ).innerHTML = "";
-	document.getElementById( "lastupdated" ).innerHTML = "";
-	document.getElementById( "licensetext" ).innerHTML = "";
+    document.getElementById( "lastupdated" ).innerHTML = "";
+    document.getElementById( "licensetext" ).innerHTML = "";
 }
 
 function elementsForSection( section ) {
@@ -469,7 +524,7 @@ bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-},{"./bridge":2,"./transformer":10}],10:[function(require,module,exports){
+},{"./bridge":2,"./transformer":11}],11:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -493,7 +548,7 @@ Transformer.prototype.transform = function( transform, element ) {
 
 module.exports = new Transformer();
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 var transformer = require("./transformer");
 var night = require("./night");
 
@@ -531,7 +586,7 @@ transformer.register( "section", function( content ) {
 	return content;
 } );
 
-},{"./night":7,"./transformer":10}],12:[function(require,module,exports){
+},{"./night":8,"./transformer":11}],13:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills
@@ -608,7 +663,7 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 // (c) Dean McNamee <dean@gmail.com>, 2012.
 //
 // https://github.com/deanm/css-color-parser-js
@@ -810,4 +865,4 @@ function parseCSSColor(css_str) {
 
 try { module.exports = parseCSSColor } catch(e) { }
 
-},{}]},{},[5,13,6,7,10,11,2,1,3,4,9,8,12])
+},{}]},{},[6,14,7,8,11,12,2,1,4,5,3,10,9,13])

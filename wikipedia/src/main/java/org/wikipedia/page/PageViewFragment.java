@@ -128,6 +128,7 @@ public class PageViewFragment extends Fragment {
     private ReferenceHandler referenceHandler;
     private ReferenceDialog referenceDialog;
     private IssuesHandler issuesHandler;
+    private DisambigHandler disambigHandler;
     private EditHandler editHandler;
     private NightModeHandler nightModeHandler;
 
@@ -221,6 +222,7 @@ public class PageViewFragment extends Fragment {
         try {
             leadSectionPayload.put("title", page.getDisplayTitle());
             leadSectionPayload.put("section", page.getSections().get(0).toJSON());
+            leadSectionPayload.put("string_page_similar_titles", getString(R.string.page_similar_titles));
 
             bridge.sendMessage("displayLeadSection", leadSectionPayload);
 
@@ -361,6 +363,7 @@ public class PageViewFragment extends Fragment {
         };
 
         issuesHandler = new IssuesHandler(getActivity(), bridge);
+        disambigHandler = new DisambigHandler(linkHandler, bridge);
 
         api = ((WikipediaApp)getActivity().getApplicationContext()).getAPIForSite(title.getSite());
 

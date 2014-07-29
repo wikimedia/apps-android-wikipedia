@@ -7,6 +7,7 @@ module.exports = function ( grunt ) {
         "js/actions.js",
         "js/editaction.js",
         "js/issues.js",
+        "js/disambig.js",
         "js/sections.js",
         "js/rtlsupport.js",
         "lib/js/classList.js",
@@ -37,6 +38,7 @@ module.exports = function ( grunt ) {
                         "js/actions.js",
                         "js/editaction.js",
                         "js/issues.js",
+                        "js/disambig.js",
                         "js/sections.js",
                         "js/rtlsupport.js"
                     ].concat( oldDroidPolyfills ),
