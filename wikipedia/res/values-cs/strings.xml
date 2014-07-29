@@ -156,6 +156,8 @@
   <string name="about_description">O aplikaci Wikipedie</string>
   <string name="preference_title_version">Verze</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/cs\"&gt;Podmínky užití&lt;/a&gt;</string>
+  <string name="about_libraries_heading">použité knihovny</string>
+  <string name="about_contributors_heading">přispěvatelé</string>
   <string name="about_translators_heading">překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>

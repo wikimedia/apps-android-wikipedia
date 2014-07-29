@@ -47,6 +47,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
             setLocale(lang);
 //            checkAllStrings(); // might take too long
             if (!lang.startsWith("qq")) {
+                checkOneStringWithParameter(R.string.saved_pages_search_empty_message);
                 checkOneStringWithParameter(R.string.last_updated_text);
                 checkOneStringWithParameter(R.string.editing_error_spamblacklist);
                 checkOneStringWithParameter(R.string.history_search_empty_message);
