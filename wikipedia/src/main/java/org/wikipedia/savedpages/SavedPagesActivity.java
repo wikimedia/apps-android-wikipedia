@@ -183,6 +183,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         String selection = null;
         String[] selectionArgs = null;
+        savedPagesEmptyContainer.setVisibility(View.GONE);
         if (entryFilter.getText().length() != 0) {
             // FIXME: Find ways to not have to hard code column names
             selection =  "UPPER(savedpages.title) LIKE UPPER(?)";
