@@ -13,6 +13,30 @@ ActionsHandler.prototype.register = function( action, fun ) {
     }
 };
 
+bridge.registerListener( "handleReference", function( payload ) {
+    handleReference( payload.anchor );
+});
+
+function handleReference( targetId ) {
+    var targetElem = document.getElementById( targetId );
+    if ( targetElem === null ) {
+        console.log( "reference target not found: " + targetId );
+    } else if ( targetId.slice(0, 4).toLowerCase() === "cite" ) { // treat "CITEREF"s the same as "cite_note"s
+        try {
+            var refTexts = targetElem.getElementsByClassName( "reference-text" );
+            if ( refTexts.length > 0 ) {
+                targetElem = refTexts[0];
+            }
+            bridge.sendMessage( 'referenceClicked', { "ref": targetElem.innerHTML } );
+        } catch (e) {
+            targetElem.scrollIntoView();
+        }
+    } else {
+        // If it is a link to another anchor in the current page, just scroll to it
+        targetElem.scrollIntoView();
+    }
+}
+
 document.onclick = function() {
     var sourceNode = null;
     var curNode = event.target;
@@ -37,26 +61,6 @@ document.onclick = function() {
         }
 
         bridge.sendMessage( 'issuesClicked', { "issues": res } );
-    }
-
-    function handleReference( targetId ) {
-        var target = document.getElementById(targetId);
-        if ( target === null ) {
-            console.log( "reference target not found: " + targetId );
-        } else if ( href.slice(0, 10) === "#cite_note" ) {
-            try {
-                var refTexts = target.getElementsByClassName( "reference-text" );
-                if (refTexts.length > 0) {
-                    target = refTexts[0];
-                }
-                bridge.sendMessage( 'referenceClicked', { "ref": target.innerHTML } );
-            } catch (e) {
-                target.scrollIntoView();
-            }
-        } else {
-            // If it is a link to an anchor in the current page, just scroll to it
-            target.scrollIntoView();
-        }
     }
 
     if (sourceNode) {

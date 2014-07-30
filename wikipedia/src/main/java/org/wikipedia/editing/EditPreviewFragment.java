@@ -148,6 +148,11 @@ public class EditPreviewFragment extends Fragment {
 
             new LinkHandler(getActivity(), bridge, parentActivity.getPageTitle().getSite()) {
                 @Override
+                public void onPageLinkClicked(String href) {
+                    // TODO: also need to handle references, issues, disambig, ... in preview eventually
+                }
+
+                @Override
                 public void onInternalLinkClicked(PageTitle title) {
                     Intent intent = new Intent(getActivity(), PageActivity.class);
                     intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
@@ -290,7 +295,6 @@ public class EditPreviewFragment extends Fragment {
             }
         });
     }
-
 
     public boolean isActive() {
         return previewContainer.getVisibility() == View.VISIBLE;

@@ -32,6 +32,8 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         this.currentSite = currentSite;
     }
 
+    public abstract void onPageLinkClicked(String anchor);
+
     public abstract void onInternalLinkClicked(PageTitle title);
 
     // message from JS bridge:
@@ -60,6 +62,8 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
             PageTitle title = currentSite.titleForInternalLink(href);
             onInternalLinkClicked(title);
+        } else if (href.startsWith("#")) {
+            onPageLinkClicked(href.substring(1));
         } else {
             Uri uri = Uri.parse(href);
             String authority = uri.getAuthority();

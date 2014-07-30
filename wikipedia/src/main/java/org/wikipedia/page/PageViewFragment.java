@@ -326,6 +326,20 @@ public class PageViewFragment extends Fragment {
         Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
         linkHandler = new LinkHandler(getActivity(), bridge, title.getSite()) {
             @Override
+            public void onPageLinkClicked(String anchor) {
+                if (referenceDialog != null && referenceDialog.isShowing()) {
+                    referenceDialog.dismiss();
+                }
+                JSONObject payload = new JSONObject();
+                try {
+                    payload.put("anchor", anchor);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+                bridge.sendMessage("handleReference", payload);
+            }
+
+            @Override
             public void onInternalLinkClicked(PageTitle title) {
                 if (referenceDialog != null && referenceDialog.isShowing()) {
                     referenceDialog.dismiss();
