@@ -7,7 +7,7 @@
               android:id="@+id/edit_summary_container"
               android:padding="8dp"
               android:visibility="gone"
-              android:background="@android:color/background_light"
+              android:background="?attr/window_background_color"
               >
 
     <AutoCompleteTextView
