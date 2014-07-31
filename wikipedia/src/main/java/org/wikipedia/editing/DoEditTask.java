@@ -77,6 +77,6 @@ public class DoEditTask extends ApiTask<EditingResult> {
             }
         }
         // Handle other type of return codes here
-        throw new RuntimeException("Failure happens");
+        throw new RuntimeException("Failure to recognise edit status: " + resultJSON.toString());
     }
 }
