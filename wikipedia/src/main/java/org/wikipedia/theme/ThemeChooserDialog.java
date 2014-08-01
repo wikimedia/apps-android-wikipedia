@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 import com.squareup.otto.Subscribe;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.AppearanceChangeFunnel;
 import org.wikipedia.events.WebViewInvalidateEvent;
 
 public class ThemeChooserDialog extends Dialog {
@@ -20,6 +21,7 @@ public class ThemeChooserDialog extends Dialog {
     private Button buttonThemeDark;
     private ProgressBar fontChangeProgressBar;
     private boolean updatingFont = false;
+    private AppearanceChangeFunnel funnel;
 
     public ThemeChooserDialog(Context context) {
         super(context);
@@ -33,6 +35,7 @@ public class ThemeChooserDialog extends Dialog {
         }
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(dlgLayout);
+        funnel = new AppearanceChangeFunnel(app, app.getPrimarySite());
 
         getWindow().setBackgroundDrawable(null);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -47,8 +50,10 @@ public class ThemeChooserDialog extends Dialog {
             @Override
             public void onClick(View view) {
                 updatingFont = true;
+                float currentSize = app.getFontSize(getWindow());
                 app.setFontSizeMultiplier(app.getFontSizeMultiplier() - 1);
                 updateButtonState();
+                funnel.logFontSizeChange(currentSize, app.getFontSize(getWindow()));
             }
         });
 
@@ -57,8 +62,10 @@ public class ThemeChooserDialog extends Dialog {
             @Override
             public void onClick(View view) {
                 updatingFont = true;
+                float currentSize = app.getFontSize(getWindow());
                 app.setFontSizeMultiplier(0);
                 updateButtonState();
+                funnel.logFontSizeChange(currentSize, app.getFontSize(getWindow()));
             }
         });
 
@@ -67,8 +74,10 @@ public class ThemeChooserDialog extends Dialog {
             @Override
             public void onClick(View view) {
                 updatingFont = true;
+                float currentSize = app.getFontSize(getWindow());
                 app.setFontSizeMultiplier(app.getFontSizeMultiplier() + 1);
                 updateButtonState();
+                funnel.logFontSizeChange(currentSize, app.getFontSize(getWindow()));
             }
         });
 
@@ -76,6 +85,7 @@ public class ThemeChooserDialog extends Dialog {
         buttonThemeLight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                funnel.logThemeChange(app.getCurrentTheme(), WikipediaApp.THEME_LIGHT);
                 app.setCurrentTheme(WikipediaApp.THEME_LIGHT);
             }
         });
@@ -84,6 +94,7 @@ public class ThemeChooserDialog extends Dialog {
         buttonThemeDark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                funnel.logThemeChange(app.getCurrentTheme(), WikipediaApp.THEME_DARK);
                 app.setCurrentTheme(WikipediaApp.THEME_DARK);
             }
         });
