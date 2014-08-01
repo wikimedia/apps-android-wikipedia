@@ -14,9 +14,9 @@ Step 1: (e.g., --beta):
 Step 2: (e.g., --beta --push):
     - Pushes the git tag created in step 1 to the gerrit remote
 
---beta build Step 1 revs the version code by 1.
---prod build Step 1 does NOT rev the version code
---amazon build Step 1 does NOT rev the version code, either
+--beta build step 1 revs the version code by 1
+--prod build step 1 revs the version code by 1
+--amazon build step 1 does NOT rev the version code
 
 
 To run
@@ -24,12 +24,12 @@ To run
 2) git pull
 3) git reset --hard
 4) cd scripts
-5) python make-prepare-release.py --beta
+5) python prepare-release.py --beta
 6) note the branch and tag with
     git branch | grep '*'
     git describe
 and then build the APK and test
-7) python make-prepare-release.py --beta --push
+7) python prepare-release.py --beta --push
 8) Get signoff and verbiage and deploy the beta to Google Play under Wikipedia Beta (app, not "beta" subsection)
 
 Now, wait a week. Now that it's time to deploy to Google Play do this:
@@ -39,12 +39,12 @@ Note that's setting you back to the commit right before the BETA build.
 2) git reset --hard
 3) if necessary, git cherry-pick and manually merge any painful stuff as necessary
 4) cd scripts
-5) python make-prepare-release.py --prod
+5) python prepare-release.py --prod
 6) note the branch and tag with
     git branch | grep '*'
     git describe
 and then build the APK and test
-7) python make-prepare-release.py  --prod --push
+7) python prepare-release.py --prod --push
 8) Get signoff and verbiage and deploy to Google Play under Wikipedia
 
 
@@ -55,12 +55,12 @@ For the Amazon Appstore, take the stable build and follow the same instructions:
 2) git reset --hard
 3) if necessary, git cherry-pick and manually merge any painful stuff as necessary (hopefully extremely uncommon)
 4) cd scripts
-5) python make-prepare-release.py --amazon
+5) python prepare-release.py --amazon
 6) note the branch and tag with
     git branch | grep '*'
     git describe
 and then build the APK and test
-7) python make-prepare-release.py  --amazon --push
+7) python prepare-release.py --amazon --push
 8) Double check verbiage from Google Play, taking feature diffs into account from previous Amazon Appstore
  upload. Then go into the Amazon developer portal and upload the latest APK, ideally setting the introduction
  date of the APK for standard hours.
@@ -73,6 +73,7 @@ import os
 import re
 import time
 import argparse
+import sys
 
 PATH_PREFIX = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
@@ -251,7 +252,7 @@ def make_release(target, channel, package, uprev):
     git_tag(target)
 
 
-if __name__ == '__main__':
+def main():
     reminder = 'Please build the APK and test. After that, run w/ --push flag for history, and release the tested APK.'
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
@@ -274,40 +275,27 @@ if __name__ == '__main__':
     parser.add_argument('--push', help='Step 2: push git tag created in step 1 to gerrit remote.', action='store_true')
     args = parser.parse_args()
     if args.beta:
-        if args.push:
-            push_git_tag('beta')
-        else:
-            make_release('beta', 'Google Play Beta Channel', 'beta', True)
-            print(reminder)
+        (target, channel, package, uprev) = ('beta', 'Google Play Beta Channel', 'beta', True)
     elif args.prod:
-        if args.push:
-            push_git_tag('r')
-        else:
-            make_release('r', 'Google Play', '', True)
-            print(reminder)
+        (target, channel, package, uprev) = ('r', 'Google Play', '', True)
     elif args.releasesprod:
-        if args.push:
-            push_git_tag('releasesprod')
-        else:
-            make_release('releasesprod', 'Releases Stable Channel', '', False)
-            print(reminder)
+        (target, channel, package, uprev) = ('releasesprod', 'Releases Stable Channel', '', False)
     elif args.amazon:
-        if args.push:
-            push_git_tag('amazon')
-        else:
-            make_release('amazon', 'Amazon Appstore', '', False)
-            print(reminder)
+        (target, channel, package, uprev) = ('amazon', 'Amazon Appstore', '', False)
     elif args.channel:
-        if args.push:
-            push_git_tag(args.channel)
-        else:
-            make_release(args.channel, args.channel, '', False)
-            print(reminder)
+        (target, channel, package, uprev) = (args.channel, args.channel, '', False)
     elif args.custompackage:
-        if args.push:
-            push_git_tag(args.custompackage)
-        else:
-            make_release(args.custompackage, args.custompackage, args.custompackage, False)
-            print(reminder)
+        (target, channel, package, uprev) = (args.custompackage, args.custompackage, args.custompackage, False)
     else:
         print('Error. Please specify a target in --beta, --prod, or --amazon')
+        sys.exit(-1)
+
+    if args.push:
+        push_git_tag(target)
+    else:
+        make_release(target, channel, package, uprev)
+        print(reminder)
+
+
+if __name__ == '__main__':
+    main()
