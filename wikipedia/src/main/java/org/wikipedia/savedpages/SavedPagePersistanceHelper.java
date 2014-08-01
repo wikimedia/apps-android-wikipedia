@@ -10,6 +10,8 @@ import java.util.Date;
 
 public class SavedPagePersistanceHelper extends PersistanceHelper<SavedPage> {
 
+    private static final int DB_VER_INTRODUCED = 4;
+
     private static final int COL_INDEX_SITE = 1;
     private static final int COL_INDEX_TITLE = 2;
     private static final int COL_INDEX_TIME = 3;
@@ -40,7 +42,7 @@ public class SavedPagePersistanceHelper extends PersistanceHelper<SavedPage> {
 
     @Override
     protected int getDBVersionIntroducedAt() {
-        return 4;
+        return DB_VER_INTRODUCED;
     }
 
     @Override

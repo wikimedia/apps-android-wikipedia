@@ -187,13 +187,15 @@ public class PageActivity extends FragmentActivity {
         int memMegs = activityManager.getMemoryClass();
         // allow up to 7MB for the app itself, 3 MB for spikes by WebView allocations,
         // and 2 MB for each WebView stored in memory.
-        int maxFragments = (memMegs - 7 - 3) / 2;
+        final int baselineMemSize = 10;
+        final int absMaxFragments = 6;
+        int maxFragments = (memMegs - baselineMemSize) / 2;
         if (maxFragments <= 0) {
             // make sure there's at least one, for really low-memory devices.
             maxFragments = 1;
-        } else if (maxFragments > 6) {
+        } else if (maxFragments > absMaxFragments) {
             // more than this will probably break rendering.
-            maxFragments = 6;
+            maxFragments = absMaxFragments;
         }
         Log.d("PageActivity", "Maximum Fragments in memory: " + maxFragments);
         return maxFragments;
@@ -402,15 +404,17 @@ public class PageActivity extends FragmentActivity {
     }
 
     private void makeWikipediaZeroCrouton(int bgcolor, int fgcolor, String verbiage) {
+        final int zeroTextSize = 20;
+        final float croutonHeight = 192.0f;
         Style style = new Style.Builder()
                 .setBackgroundColor(bgcolor)
                 .setGravity(Gravity.CENTER)
                 // .setTextAppearance-driven font size is not being honored, so we'll do it manually
                 // Text size in library is in sp
-                .setTextSize(20)
+                .setTextSize(zeroTextSize)
                 .setTextColor(fgcolor)
                 // Height size in library is in px
-                .setHeight((int) Math.floor(192.0 * WikipediaApp.getInstance().getScreenDensity()))
+                .setHeight((int) Math.floor(croutonHeight * WikipediaApp.getInstance().getScreenDensity()))
                 .build();
 
         Crouton.makeText(this, verbiage, style, R.id.zero_crouton_container).show();

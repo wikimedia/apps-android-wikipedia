@@ -118,8 +118,9 @@ public final class Utils {
             digest.update(s.getBytes("utf-8"));
             byte[] messageDigest = digest.digest();
 
+            final int maxByteVal = 0xFF;
             for (byte b : messageDigest) {
-                hexStr.append(Integer.toHexString(0xFF & b));
+                hexStr.append(Integer.toHexString(maxByteVal & b));
             }
         } catch (NoSuchAlgorithmException e) {
             // This will never happen, yes.
