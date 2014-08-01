@@ -21,10 +21,10 @@ public class MccMncStateHandler {
      * http://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
      * @param ctx Application context
      * @param site Currently active site
-     * @param ua The User-Agent with which to augment the request, if applicable (usually yes)
+     * @param customHeaders Hashmap of custom headers
      * @return
      */
-    public Api makeApiWithMccMncHeaderEnrichment(Context ctx, Site site, String ua) {
+    public Api makeApiWithMccMncHeaderEnrichment(Context ctx, Site site, HashMap<String, String> customHeaders) {
         if (this.app == null) {
             this.app = (WikipediaApp)ctx;
         }
@@ -36,10 +36,9 @@ public class MccMncStateHandler {
         }
         String mccMnc = Utils.getMccMnc(ctx);
         if (mccMnc != null) {
-            HashMap<String, String> customHeaders = new HashMap<String, String>();
             customHeaders.put("X-MCCMNC", mccMnc);
             this.mccMncSent = true;
-            return new Api(site.getApiDomain(), ua, customHeaders);
+            return new Api(site.getApiDomain(), customHeaders);
         }
         return null;
     }

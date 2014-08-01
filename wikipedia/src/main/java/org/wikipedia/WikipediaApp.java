@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Window;
 import android.webkit.WebView;
@@ -172,21 +173,88 @@ public class WikipediaApp extends Application {
         return userAgent;
     }
 
+    /**
+     * @return the value that should go in the Accept-Language header.
+     */
+    public String getAcceptLanguage() {
+        // https://lists.wikimedia.org/pipermail/mobile-l/2014-July/007514.html
+        String primaryAppLanguage = getPrimaryLanguage();
+        String acceptLanguage = primaryAppLanguage;
+        Locale defaultLocale = Locale.getDefault();
+        String wikiLanguage = Utils.langCodeToWikiLang(defaultLocale.getLanguage());
+
+        // For now, let's only modify Accept-Language for Chinese languages.
+        // Chinese language users have been reporting that the wrong language
+        // is being displayed. In case the app setting is not Chinese (e.g.,
+        // it's English), yet the user navigates to a page in Chinese, or a
+        // page containing Chinese dialect templates, we want to show the
+        // correct dialect there, too.
+        if (primaryAppLanguage.equals("zh") || wikiLanguage.equals("zh")) {
+            // The next two lines are inside the if() guard just for speed. In the future when we remove the if
+            // guard, they will always get called.
+            String country = defaultLocale.getCountry();
+            String langWithCountryCode = TextUtils.isEmpty(country)
+                    ? wikiLanguage
+                    : wikiLanguage + "-" + country.toLowerCase(Locale.ROOT);
+            if (primaryAppLanguage.equals(langWithCountryCode)) {
+                // The app setting agrees with the system locale, so:
+                // -If the system locale was overly simplistic (just the language, no country), use the app setting
+                // -If the system locale (and app setting) was specific, use the specific value followed by the general
+                // This should help to ensure that the correct dialect is displayed on pages that have templating.
+                acceptLanguage = langWithCountryCode.equals(wikiLanguage)
+                        ? primaryAppLanguage
+                        : primaryAppLanguage + "," + wikiLanguage + ";q=0.9";
+            } else if (primaryAppLanguage.equals(wikiLanguage)) {
+                // The app setting does not agree with the system locale, but the base language (e.g., zh) matches, so
+                // use the specific value followed by the general. This way the user will get the more specific
+                // dialect displayed on pages that have templating.
+                acceptLanguage = langWithCountryCode + "," + primaryAppLanguage + ";q=0.9";
+            } else {
+                // In the case that the app setting doesn't map up at all to the system locale, express to the server
+                // that the first preference is the app setting's language, followed by the specific system locale
+                // followed by the general system locale. In principle, this should result in correct templating in
+                // the case that the article is in the non-system locale, yet contains templated glyphs in the
+                // system locale.
+                acceptLanguage = primaryAppLanguage + "," + langWithCountryCode + ";q=0.9";
+                if (!langWithCountryCode.equals(wikiLanguage)) {
+                    acceptLanguage = acceptLanguage + "," + wikiLanguage + ";q=0.8";
+                }
+            }
+        }
+        return acceptLanguage;
+    }
+
     private HashMap<String, Api> apis = new HashMap<String, Api>();
     private MccMncStateHandler mccMncStateHandler = new MccMncStateHandler();
     public Api getAPIForSite(Site site) {
-        // http://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
-        Api api = mccMncStateHandler.makeApiWithMccMncHeaderEnrichment(this, site, getUserAgent());
+        // https://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
+        HashMap<String, String> customHeaders = new HashMap<String, String>();
+        customHeaders.put("User-Agent", getUserAgent());
+        String acceptLanguage = getAcceptLanguage();
+
+        // TODO: once we're not constraining this to just Chinese, add the header unconditionally.
+        // Note: the Accept-Language header is unconditionally added based on device locale with a
+        // a single value (e.g., en-us or zh-cn) *by the platform* on the other app platform. Contrast
+        // that with *this* platform, which does not do this for some reason (possibly on side effect free
+        // method invocation theory. But given that up until now we haven't been adding the Accept-Language
+        // header manually on this platform, we don't want to just arbitrarily start doing so for *all* requests.
+        if (!acceptLanguage.equals(getPrimaryLanguage())) {
+            customHeaders.put("Accept-Language", acceptLanguage);
+        }
+
+        // Because the mccMnc enrichment is a one-time thing, we don't need to have a complex hash key
+        // for the apis HashMap<String, Api> like we do below. It naturally gets the correct
+        // Accept-Language header from above, when applicable.
+        Api api = mccMncStateHandler.makeApiWithMccMncHeaderEnrichment(this, site, customHeaders);
         if (api != null) {
             return api;
         }
 
-        String domainAndApiDomainKey = site.getDomain() + "-" + site.getApiDomain();
-
-        if (!apis.containsKey(domainAndApiDomainKey))  {
-            apis.put(domainAndApiDomainKey, new Api(site.getApiDomain(), getUserAgent()));
+        String domainAndApiAndVariantKey = site.getDomain() + "-" + site.getApiDomain() + "-" + acceptLanguage;
+        if (!apis.containsKey(domainAndApiAndVariantKey))  {
+            apis.put(domainAndApiAndVariantKey, new Api(site.getApiDomain(), customHeaders));
         }
-        return apis.get(domainAndApiDomainKey);
+        return apis.get(domainAndApiAndVariantKey);
     }
 
     private Site primarySite;
