@@ -110,7 +110,7 @@ public class SearchArticlesFragment extends Fragment {
                     app.getAPIForSite(app.getPrimarySite()),
                     app.getPrimarySite(),
                     results,
-                    (int)(THUMB_SIZE_DP * WikipediaApp.SCREEN_DENSITY)) {
+                    (int)(THUMB_SIZE_DP * WikipediaApp.getInstance().getScreenDensity())) {
                 @Override
                 public void onFinish(Map<PageTitle, String> result) {
                     for (Map.Entry<PageTitle, String> entry : result.entrySet()) {
@@ -344,7 +344,7 @@ public class SearchArticlesFragment extends Fragment {
                     offsetWindowMax = offsetWindowMin + offsetWindow;
                 }
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(drawerIndicator.getLayoutParams());
-                params.leftMargin = -(int)(LEFT_MARGIN_BASE_DP * WikipediaApp.SCREEN_DENSITY * offsetWindowMin);
+                params.leftMargin = -(int)(LEFT_MARGIN_BASE_DP * WikipediaApp.getInstance().getScreenDensity() * offsetWindowMin);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1
                         && drawerView.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
                     params.leftMargin = -params.leftMargin;

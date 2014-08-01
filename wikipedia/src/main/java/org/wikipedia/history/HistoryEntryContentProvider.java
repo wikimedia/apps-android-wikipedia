@@ -22,7 +22,7 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
     @Override
     public boolean onCreate() {
         boolean ret = super.onCreate();
-        uriMatcher.addURI(getAuthority(),
+        getUriMatcher().addURI(getAuthority(),
                           getTableName() + "/" + PageImage.PERSISTANCE_HELPER.getTableName(),
                           MATCH_WITH_PAGEIMAGES);
         return ret;
@@ -40,7 +40,7 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
         }
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
-        int uriType = uriMatcher.match(uri);
+        int uriType = getUriMatcher().match(uri);
 
         SQLiteDatabase db = getDbOpenHelper().getReadableDatabase();
         Cursor cursor;

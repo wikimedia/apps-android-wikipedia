@@ -63,8 +63,9 @@ public abstract class SaneAsyncTask<T> {
      * @param caught The exception that was thrown.
      */
     public void onCatch(Throwable caught) {
-        if (Utils.throwableContainsSpecificType(caught, SSLException.class) && ++WikipediaApp.FAILS < 2) {
-            WikipediaApp.FALLBACK = true;
+        if (Utils.throwableContainsSpecificType(caught, SSLException.class)
+                && WikipediaApp.getInstance().incSslFailCount() < 2) {
+            WikipediaApp.getInstance().setSslFallback(true);
             Utils.toastFail();
             cancel();
             return;

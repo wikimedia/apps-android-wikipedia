@@ -116,7 +116,7 @@ public class PageTitle implements Parcelable {
         try {
             return String.format(
                     "%1$s://%2$s/wiki/%3$s%4$s",
-                    WikipediaApp.PROTOCOL,
+                    WikipediaApp.getInstance().getNetworkProtocol(),
                     domain,
                     URLEncoder.encode(getPrefixedText().replace(" ", "_"), "utf-8"),
                     (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
@@ -139,7 +139,7 @@ public class PageTitle implements Parcelable {
         try {
             return String.format(
                     "%1$s://%2$s/w/index.php?title=%3$s&action=%4$s",
-                    WikipediaApp.PROTOCOL,
+                    WikipediaApp.getInstance().getNetworkProtocol(),
                     getSite().getApiDomain(),
                     URLEncoder.encode(getPrefixedText().replace(" ", "_"), "utf-8"),
                     action

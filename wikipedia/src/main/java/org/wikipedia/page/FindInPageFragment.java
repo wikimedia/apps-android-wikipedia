@@ -168,9 +168,9 @@ public class FindInPageFragment extends Fragment {
                     }
                     if (numberOfMatches > 0) {
                         findInPageMatch.setText(
-                                Integer.toString(activeMatchOrdinal + 1) +
-                                        "/" +
-                                        Integer.toString(numberOfMatches)
+                                Integer.toString(activeMatchOrdinal + 1)
+                                        + "/"
+                                        + Integer.toString(numberOfMatches)
                         );
                         findInPageMatch.setVisibility(View.VISIBLE);
                     } else {

@@ -613,7 +613,7 @@ public final class Utils {
         String fullUrl;
         if (url.startsWith("//")) {
             // That's a protocol specific link! Make it https!
-            fullUrl = WikipediaApp.PROTOCOL + ":" + url;
+            fullUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + url;
         } else {
             fullUrl = url;
         }

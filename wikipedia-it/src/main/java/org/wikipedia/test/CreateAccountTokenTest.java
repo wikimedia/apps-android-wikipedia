@@ -40,7 +40,8 @@ public class CreateAccountTokenTest extends ActivityUnitTestCase<TestDummyActivi
                         assertNotNull(result.getCaptchaResult());
                         assertFalse(TextUtils.isEmpty(result.getCaptchaResult().getCaptchaId()));
                         String captchaUrl = result.getCaptchaResult().getCaptchaUrl(testWiki);
-                        assertTrue(captchaUrl.startsWith(WikipediaApp.PROTOCOL + "://test.wikipedia.org/w/index.php?title=Special:Captcha/image"));
+                        assertTrue(captchaUrl.startsWith(WikipediaApp.getInstance().getNetworkProtocol()
+                                + "://test.wikipedia.org/w/index.php?title=Special:Captcha/image"));
                         completionLatch.countDown();
                     }
                 }.execute();

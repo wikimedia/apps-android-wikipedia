@@ -14,7 +14,7 @@ public class Site implements Parcelable {
     }
 
     public String getApiDomain() {
-        return WikipediaApp.FALLBACK ? domain : domain.replaceFirst("\\.", ".m.");
+        return WikipediaApp.getInstance().getSslFallback() ? domain : domain.replaceFirst("\\.", ".m.");
     }
 
     public Site(Parcel in) {
@@ -68,7 +68,7 @@ public class Site implements Parcelable {
     }
 
     public String getFullUrl(String path) {
-        return WikipediaApp.PROTOCOL + "://" + getDomain() + path;
+        return WikipediaApp.getInstance().getNetworkProtocol() + "://" + getDomain() + path;
     }
 
     /**

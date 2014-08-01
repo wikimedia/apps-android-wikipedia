@@ -195,7 +195,7 @@ public class ToCHandler {
             View sectionFiller = convertView.findViewById(R.id.page_toc_filler);
 
             LinearLayout.LayoutParams indentLayoutParameters = new LinearLayout.LayoutParams(sectionFiller.getLayoutParams());
-            indentLayoutParameters.width = (section.getLevel() - 1) * (int) (INDENTATION_WIDTH_DP * WikipediaApp.SCREEN_DENSITY);
+            indentLayoutParameters.width = (section.getLevel() - 1) * (int) (INDENTATION_WIDTH_DP * WikipediaApp.getInstance().getScreenDensity());
             sectionFiller.setLayoutParams(indentLayoutParameters);
 
             sectionHeading.setText(Html.fromHtml(section.getHeading()));

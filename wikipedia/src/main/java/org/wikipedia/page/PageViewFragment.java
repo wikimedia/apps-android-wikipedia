@@ -616,8 +616,8 @@ public class PageViewFragment extends Fragment {
                 ViewAnimations.crossFade(loadProgress, pageDoesNotExistError);
             }
         } else if (Utils.throwableContainsSpecificType(caught, SSLException.class)) {
-            if (++WikipediaApp.FAILS < 2) {
-                WikipediaApp.FALLBACK = true;
+            if (WikipediaApp.getInstance().incSslFailCount() < 2) {
+                WikipediaApp.getInstance().setSslFallback(true);
                 showNetworkError();
                 try {
                     connectionIssueFunnel.logConnectionIssue("mdot", "commonSectionFetchOnCatch");

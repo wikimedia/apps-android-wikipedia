@@ -76,7 +76,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             } else {
                 // if it's a /w/ URI, turn it into a full URI and go external
                 if (href.startsWith("/w/")) {
-                    href = String.format("%1$s://%2$s", WikipediaApp.PROTOCOL, currentSite.getDomain()) + href;
+                    href = String.format("%1$s://%2$s", WikipediaApp.getInstance().getNetworkProtocol(), currentSite.getDomain()) + href;
                 }
                 Utils.handleExternalLink(context, Uri.parse(href));
             }

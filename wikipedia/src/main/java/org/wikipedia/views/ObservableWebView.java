@@ -93,7 +93,7 @@ public class ObservableWebView extends WebView {
     }
 
     @Override
-    protected void onDraw (Canvas canvas) {
+    protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         WikipediaApp.getInstance().getBus().post(new WebViewInvalidateEvent());
     }

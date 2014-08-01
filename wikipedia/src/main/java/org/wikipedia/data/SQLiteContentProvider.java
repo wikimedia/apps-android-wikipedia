@@ -17,7 +17,11 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
 
     protected abstract DBOpenHelper getDbOpenHelper();
 
-    protected final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+    private final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+    protected UriMatcher getUriMatcher() {
+        return uriMatcher;
+    }
+
     private static final int MATCH_ALL = 1;
 
     @Override

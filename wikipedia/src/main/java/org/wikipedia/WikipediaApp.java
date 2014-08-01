@@ -54,15 +54,37 @@ import java.util.UUID;
         mailTo = "mobile-android-wikipedia-crashes@wikimedia.org")
 public class WikipediaApp extends Application {
 
-    public static float SCREEN_DENSITY;
+    private float screenDensity;
+    public float getScreenDensity() {
+        return screenDensity;
+    }
 
     // Reload in onCreate to override
-    public static String PROTOCOL = "https";
+    private String networkProtocol = "https";
+    public String getNetworkProtocol() {
+        return networkProtocol;
+    }
 
-    public static boolean FALLBACK = false;
-    public static int FAILS = 0;
+    private boolean sslFallback = false;
+    public boolean getSslFallback() {
+        return sslFallback;
+    }
+    public void setSslFallback(boolean fallback) {
+        sslFallback = fallback;
+    }
 
-    public static String APP_VERSION_STRING;
+    private int sslFailCount = 0;
+    public int getSslFailCount() {
+        return sslFailCount;
+    }
+    public int incSslFailCount() {
+        return ++sslFailCount;
+    }
+
+    private String appVersionString;
+    public String getAppVersionString() {
+        return appVersionString;
+    }
 
     public static final int THEME_LIGHT = R.style.Theme_WikiLight;
     public static final int THEME_DARK = R.style.Theme_WikiDark;
@@ -103,11 +125,9 @@ public class WikipediaApp extends Application {
 
         final Resources resources = getResources();
         ViewAnimations.init(resources);
-        SCREEN_DENSITY = resources.getDisplayMetrics().density;
+        screenDensity = resources.getDisplayMetrics().density;
 
         PrefKeys.initPreferenceKeys(resources);
-
-        PROTOCOL = "https"; // Move this to a preference or something later on
 
         // Enable debugging on the webview
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -123,7 +143,7 @@ public class WikipediaApp extends Application {
         }
 
         try {
-            APP_VERSION_STRING = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+            appVersionString = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
             // This will never happen!
             throw new RuntimeException(e);
@@ -143,7 +163,7 @@ public class WikipediaApp extends Application {
             String channel = Utils.getChannel(this);
             channel = channel.equals("") ? channel : " ".concat(channel);
             userAgent = String.format("WikipediaApp/%s (Android %s; %s)%s",
-                    WikipediaApp.APP_VERSION_STRING,
+                    getAppVersionString(),
                     Build.VERSION.RELEASE,
                     getString(R.string.device_type),
                     channel

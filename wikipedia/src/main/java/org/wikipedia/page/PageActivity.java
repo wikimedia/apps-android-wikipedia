@@ -410,7 +410,7 @@ public class PageActivity extends FragmentActivity {
                 .setTextSize(20)
                 .setTextColor(fgcolor)
                 // Height size in library is in px
-                .setHeight((int) Math.floor(192.0 * WikipediaApp.SCREEN_DENSITY))
+                .setHeight((int) Math.floor(192.0 * WikipediaApp.getInstance().getScreenDensity()))
                 .build();
 
         Crouton.makeText(this, verbiage, style, R.id.zero_crouton_container).show();
