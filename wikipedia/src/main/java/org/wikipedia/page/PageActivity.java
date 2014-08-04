@@ -300,7 +300,7 @@ public class PageActivity extends FragmentActivity {
         if (curPageFragment == null) {
             return;
         }
-        curPageFragment.toggleToC();
+        curPageFragment.toggleToC(event.getShow());
     }
 
     @Subscribe
