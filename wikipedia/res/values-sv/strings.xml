@@ -161,8 +161,6 @@
   <string name="more_activity_title">Mer</string>
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="preference_title_version">Version</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Användarvillkor&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Wikimedias integritetspolicy&lt;/a&gt;</string>
   <string name="about_libraries_heading">använda bibliotek</string>
   <string name="about_contributors_heading">Bidragsgivare</string>
   <string name="about_translators_heading">översättare</string>

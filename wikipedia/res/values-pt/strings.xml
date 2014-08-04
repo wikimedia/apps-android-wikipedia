@@ -166,8 +166,6 @@
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Versão</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Política de privacidade&lt;/a&gt;</string>
   <string name="about_libraries_heading">bibliotecas usadas</string>
   <string name="about_contributors_heading">contribuidores</string>
   <string name="about_translators_heading">tradutores</string>
@@ -215,7 +213,7 @@
 Caraterísticas:
    - Velocidade: A nossa nova aplicação permite-lhe navegar e editar na Wikipédia de uma forma mais rápida do que nunca.
    - Edição: Pode editar na Wikipédia! Com sessão iniciada ou não, nós agradecemos-lhe todas as suas contribuições.
-   - Páginas recentes: Fornecemos-lhe o seu histórico de leitura, para que possa acompanhar as ligações que quiser sem se perder. 
+   - Páginas recentes: Fornecemos-lhe o seu histórico de leitura, para que possa acompanhar as ligações que quiser sem se perder.
    - Páginas guardadas: Pode guardar páginas selecionadas para leitura e navegação \'\'offline\'\' mesmo sem ligação de dados.
    - Partilha: Use as suas aplicações sociais para partilhar a soma de todo o conhecimento humano.
    - Suporte de idioma: A aplicação permite que, de forma fácil, consiga ler a Wikipédia escrita em qualquer idioma.

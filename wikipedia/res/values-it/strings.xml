@@ -161,8 +161,6 @@
   <string name="more_activity_title">Altro</string>
   <string name="about_description">Informazioni sull\'app di Wikipedia</string>
   <string name="preference_title_version">Versione</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/it\"&gt;Condizioni d\'uso&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Politica sulla privacy&lt;/a&gt;</string>
   <string name="about_libraries_heading">librerie usate</string>
   <string name="about_contributors_heading">contributori</string>
   <string name="about_translators_heading">traduttori</string>
@@ -207,9 +205,9 @@ Caratteristiche:
    - Modifica: puoi modificare Wikipedia! Che tu sia registrato o no, ti ringraziamo per tutti i tuoi contributi.
    - Pagine recenti: ti offriamo la cronologia delle tue letture, così che tu possa seguire tutti i collegamenti che vuoi senza mai perderti.
    - Pagine salvate: puoi salvare le pagine che ti interessano per leggerle offline e consultarle anche in assenza di connessione dati.
-   - Condivisione: usa le tue app di social network preferite per condividere la somma di tutta la conoscenza umana. 
+   - Condivisione: usa le tue app di social network preferite per condividere la somma di tutta la conoscenza umana.
    - Supporto linguistico: l\'app ti permette di accedere senza soluzione di continuità alle Wikipedia scritte in altre lingue.
-   - Wikipedia Zero: nessun costo di connessione con gli operatori mobili partecipanti. 
+   - Wikipedia Zero: nessun costo di connessione con gli operatori mobili partecipanti.
 
 Il codice è interamente open source. Se hai esperienza con Java e l\'Android SDK, vieni a forkarci!
 https://github.com/wikimedia/apps-android-wikipedia</string>

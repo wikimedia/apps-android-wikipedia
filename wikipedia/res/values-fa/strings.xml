@@ -157,8 +157,6 @@
   <string name="more_activity_title">بیشتر</string>
   <string name="about_description">دربارهٔ نرم‌افزار ویکی‌پدیا</string>
   <string name="preference_title_version">نسخه</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;سیاست محرمانگی&lt;/a&gt;</string>
   <string name="about_libraries_heading">کتابخانه‌ها استفاده‌شده</string>
   <string name="about_contributors_heading">مشارکت‌کنندگان</string>
   <string name="about_translators_heading">مترجم‌ها</string>

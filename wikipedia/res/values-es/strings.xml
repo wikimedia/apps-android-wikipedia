@@ -164,8 +164,6 @@
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/es</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/es</string>
   <string name="preference_title_version">Versión</string>
-  <string name="about_terms_of_use">&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Política de privacidad&lt;/a&gt;</string>
   <string name="about_libraries_heading">bibliotecas usadas</string>
   <string name="about_contributors_heading">colaboradores</string>
   <string name="about_translators_heading">traductores</string>

@@ -152,8 +152,6 @@
   <string name="more_activity_title">Περισσότερα</string>
   <string name="about_description">Σχετικά με την εφαρμογή της Βικιπαίδειας</string>
   <string name="preference_title_version">Έκδοση</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Όροι χρήσης&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Πολιτική ιδιωτικού απορρήτου&lt;/a&gt;</string>
   <string name="about_libraries_heading">βιβλιοθήκες που χρησιμοποιούνται</string>
   <string name="about_contributors_heading">Συνεισφέροντες</string>
   <string name="about_wmf">Ένα προϊόν του &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Ιδρύματος Wikimedia&lt;/a&gt;</string>
@@ -189,7 +187,7 @@
 -Πρόσφατες σελίδες: Σας παρέχουμε το ιστορικό των αναγνώσεων σας, ώστε να επιλέξετε όσους και όποιους συνδέσμους επιθυμείτε χωρίς να αποπροσανατολιστείτε.
 -Αποθηκευμένες σελίδες:Μπορείτε να αποθηκεύσετε σελίδες που επιθυμείτε να διαβάσετε χωρίς να έχετε σύνδεση στο ίντερνετ.
 -Μοιραστείτε: Χρησιμοποιήστε τις εφαρμογές κοινωνικής δικτύωσης που ήδη έχετε για να μοιραστείτε το σύνολο της ανθρώπινης γνώσης
--Γλωσσική υποστήριξη: Η εφαρμογή σας επιτρέπει εύκολα να αλλάξετε τη γλωσσική έκδοση της Βικιπαίδειας που διαβάζετε. 
+-Γλωσσική υποστήριξη: Η εφαρμογή σας επιτρέπει εύκολα να αλλάξετε τη γλωσσική έκδοση της Βικιπαίδειας που διαβάζετε.
 -Βικιπαίδεια Μηδέν: Επιτρέπει ανάγνωση της Βικιπαίδειας χωρίς χρέωση δεδομένων σε δίκτυα κινητής τηλεφωνία που συμμετέχουν στο πρόγραμμα.
 
 Ο κώδικας της εφαρμογής είναι εντελώς ανοιχτός. Αν έχετε εμπειρία με Java και το Android SDK, τότε ελάτε να συνεισφέρετε!  https://github.com/wikimedia/apps-android-wikipedia</string>

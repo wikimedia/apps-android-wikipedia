@@ -161,8 +161,6 @@
   <string name="more_activity_title">더 보기</string>
   <string name="about_description">위키백과 앱 정보</string>
   <string name="preference_title_version">버전</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;개인 정보 정책&lt;/a&gt;</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
   <string name="about_contributors_heading">기여자</string>
   <string name="about_translators_heading">번역자</string>

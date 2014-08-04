@@ -115,8 +115,6 @@
   <string name="more_activity_title">Pli</string>
   <string name="about_description">Pri la Vikipedia aplikaĵo</string>
   <string name="preference_title_version">Versio</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Uzkondiĉoj&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Regularo pri privateco&lt;/a&gt;</string>
   <string name="about_contributors_heading">Kontribuantoj</string>
   <string name="about_wmf">Produktaĵo de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Vikimedia Fondaĵo&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>

@@ -161,8 +161,6 @@
   <string name="more_activity_title">Thêm</string>
   <string name="about_description">Giới thiệu về ứng dụng Wikipedia</string>
   <string name="preference_title_version">Phiên bản</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi\"&gt;Điều khoản Sử dụng&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Quy_định_quyền_riêng_tư?uselang=vi\"&gt;Quy định Quyền riêng tư&lt;/a&gt;</string>
   <string name="about_libraries_heading">thư viện được sử dụng</string>
   <string name="about_contributors_heading">người đóng góp</string>
   <string name="about_translators_heading">biên dịch viên</string>

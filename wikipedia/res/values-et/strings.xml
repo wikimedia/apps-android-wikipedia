@@ -152,8 +152,6 @@
   <string name="more_activity_title">Veel</string>
   <string name="about_description">Teave Vikipeedia rakenduse kohta</string>
   <string name="preference_title_version">Versioon</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kasutustingimused&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Privaatsus&lt;/a&gt;</string>
   <string name="about_libraries_heading">kasutatud raamatukogud</string>
   <string name="about_contributors_heading">kaastöölised</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundationi&lt;/a&gt; toode</string>

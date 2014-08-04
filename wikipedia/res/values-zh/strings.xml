@@ -158,8 +158,6 @@
   <string name="more_activity_title">更多</string>
   <string name="about_description">关于维基百科应用程序</string>
   <string name="preference_title_version">版本</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用条款&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;隐私政策&lt;/a&gt;</string>
   <string name="about_libraries_heading">使用的库</string>
   <string name="about_contributors_heading">贡献者</string>
   <string name="about_translators_heading">翻译者</string>

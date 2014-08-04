@@ -159,8 +159,6 @@
   <string name="more_activity_title">Більше</string>
   <string name="about_description">Про додаток Вікіпедії</string>
   <string name="preference_title_version">Версія</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Умови використання&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Політика конфіденційності&lt;/a&gt;</string>
   <string name="about_libraries_heading">використовувані бібліотеки</string>
   <string name="about_contributors_heading">співавтори</string>
   <string name="about_translators_heading">перекладачі</string>

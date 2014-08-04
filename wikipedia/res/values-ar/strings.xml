@@ -152,8 +152,6 @@
   <string name="more_activity_title">المزيد</string>
   <string name="about_description">حول تطبيق ويكيبيديا</string>
   <string name="preference_title_version">الإصدار</string>
-  <string name="about_terms_of_use">&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شروط الاستخدام&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;سياسة الخصوصية&lt;/a&gt;</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
   <string name="about_wmf">منتج من منتجات &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
@@ -189,9 +187,9 @@
 -الصفحات الحديثة: تحن نوفر لك تاريخ قرائتك حتى تستطيع النقر على أي عدد من الروابط دون الإحساس بالتخبط أو الضياع.
 الصفحات المحفوظة: يمكنك حفظ الصفحات لقرائتها دون اتصال. يمكنك تصفح هذه الصفحات حتى إذا كنت غير متصل بالإنترنت.
 -شارك: يمكنك استخدام تطبيقات التواصل الإجتماعي المثبتة لديك للمشاركة في حصيلة المعرفة الإنسانية.
--دعم اللغات: يسمح لك التطبيق التحويل لأي موسوعة ويكيبيدية ذات لغة مختلفة عند القراءة بكل سهولة وسلاسة. 
+-دعم اللغات: يسمح لك التطبيق التحويل لأي موسوعة ويكيبيدية ذات لغة مختلفة عند القراءة بكل سهولة وسلاسة.
 -ويكيبيديا زيرو: يتم التنازل عن رسوم البيانات إذا كان مقدم الخدمة الخاص بك مشترك في هذه الإتفاقية.
 
-الشفرة المصدرية (code) الخاصة بالتطبيق مفتوحة المصدر بالكامل. إذا كانت لديك خبرة مع جافا (Java) وحزمة أدوات تطوير البرمجيات الخاصة بأندرويد (Android SDK) فقم بالتفرع منا! (fork us)  
+الشفرة المصدرية (code) الخاصة بالتطبيق مفتوحة المصدر بالكامل. إذا كانت لديك خبرة مع جافا (Java) وحزمة أدوات تطوير البرمجيات الخاصة بأندرويد (Android SDK) فقم بالتفرع منا! (fork us)
 https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

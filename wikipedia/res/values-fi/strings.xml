@@ -159,8 +159,6 @@
   <string name="more_activity_title">Lisää</string>
   <string name="about_description">Tietoja Wikipedia-sovelluksesta</string>
   <string name="preference_title_version">Versio</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Käyttöehdot&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Yksityisyydensuoja&lt;/a&gt;</string>
   <string name="about_libraries_heading">käytetyt kirjastot</string>
   <string name="about_contributors_heading">tekijät</string>
   <string name="about_translators_heading">kääntäjät</string>

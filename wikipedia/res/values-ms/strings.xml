@@ -159,8 +159,6 @@
   <string name="more_activity_title">Lagi</string>
   <string name="about_description">Tentang aplikasi Wikipedia</string>
   <string name="preference_title_version">Versi</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Dasar Privasi&lt;/a&gt;</string>
   <string name="about_libraries_heading">perpustakaan yang digunakan</string>
   <string name="about_contributors_heading">penyumbang</string>
   <string name="about_translators_heading">penterjemah</string>

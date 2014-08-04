@@ -161,8 +161,6 @@
   <string name="more_activity_title">その他</string>
   <string name="about_description">ウィキペディアアプリについて</string>
   <string name="preference_title_version">バージョン</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/ja\"&gt;利用規約&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://meta.wikimedia.org/wiki/Privacy_policy/ja\"&gt;プライバシー・ポリシー&lt;/a&gt;</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
   <string name="about_translators_heading">翻訳者</string>
@@ -213,7 +211,7 @@
  - シェア: お持ちのSNSアプリで人類の知識をシェアしましょう
  - 言語サポート: どの言語で書かれたページにもシームレスに切り替えできます
  - ウィキペディアゼロ: ウィキペディアゼロのプログラムに参加している携帯電話会社においては、データ通信料金がかかりません(現在のところ日本国内では利用できません)
- 
+
 コードは完全にオープンソースです。JavaとAndroid SDKの経験をお持ちであれば、ぜひフォークしましょう！
 https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

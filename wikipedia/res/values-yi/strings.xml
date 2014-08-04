@@ -109,8 +109,6 @@
   <string name="privacy_policy_description">פּריוואַטקייט פּאליסי</string>
   <string name="terms_of_use_description">ניצבאדינגונגען</string>
   <string name="preference_title_version">ווערסיע</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ניצבאדינגען&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Privacy פריוואטקייט פאליטיק&lt;/a&gt;</string>
   <string name="about_libraries_heading">געניצטע ביבליאטעקן</string>
   <string name="about_contributors_heading">בײַשטײַערער</string>
   <string name="about_translators_heading">איבערזעצער</string>
