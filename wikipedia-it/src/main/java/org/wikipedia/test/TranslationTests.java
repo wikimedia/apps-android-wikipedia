@@ -25,6 +25,7 @@ import java.util.Locale;
 public class TranslationTests extends ActivityInstrumentationTestCase2<PageActivity> {
     public static final String TAG = "TrTest";
     private PageActivity activity;
+    private StringBuilder missingParam = new StringBuilder();
 
     public TranslationTests() {
         super(PageActivity.class);
@@ -55,6 +56,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
                 // TODO: build a list of all parameterized string resources from default strings dynamically first
             }
         }
+        assertTrue(missingParam.toString(), missingParam.length() == 0);
     }
 
     private Locale myLocale;
@@ -102,8 +104,13 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
     public void checkOneStringWithParameter(int resourceId) throws Exception {
         final String param1 = "[param1]";
         String translatedString = getInstrumentation().getTargetContext().getString(resourceId, param1);
-        Log.i(TAG, myLocale + ":" + translatedString);
-        assertTrue(myLocale + ":'" + translatedString + "' doesn't contain " + param1, translatedString.contains(param1));
+//        Log.i(TAG, myLocale + ":" + translatedString);
+        if (!translatedString.contains(param1)) {
+            final String msg = myLocale + ":" + translatedString + "' doesn't contain " + param1;
+            Log.e(TAG, msg);
+            missingParam.append(msg).append("\n");
+        }
+//        assertTrue(myLocale + ":'" + translatedString + "' doesn't contain " + param1, translatedString.contains(param1));
     }
 
 //    public void testOneStringWithParameter() throws Exception {
