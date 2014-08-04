@@ -83,8 +83,10 @@
   <string name="preference_summary_logout">আপনার উইকিপিডিয়া অ্যাকাউন্ট থেকে প্রস্থান করুন</string>
   <string name="preference_summary_notloggedin">প্রবেশ করা হয়নি।</string>
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
+  <string name="saved_pages_empty_title">এখনো কোন পাতা সংরক্ষিত হয়নি।</string>
   <string name="saved_pages_empty_message" fuzzy="true">কোনো সংরক্ষিত পাতা নেই</string>
   <string name="history_empty_message" fuzzy="true">আপনার ইতিহাস অংশটি খালি।</string>
+  <string name="wp_stylized">&lt;big&gt;উ&lt;/big&gt;ইকিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="wp_tag_line">একটু মুক্ত বিশ্বকোষ</string>
   <string name="skip">উপেক্ষা করো</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>
@@ -184,4 +186,12 @@
   <string name="saved_pages_update_all_error_message">ত্রুটি, পাতা হালনাগাদ করা যায়নি</string>
   <string name="saved_pages_progress_title">সংরক্ষিত পাতাগুলো রিফ্রেশ করা হচ্ছে</string>
   <string name="saved_pages_refresh_pages_complete">হালনাগাদ সম্পন্ন</string>
+  <string name="menu_page_saved">পাতা সংরক্ষিত</string>
+  <string name="menu_refresh_saved_page">পাতা পুনঃসতেজ করুন</string>
+  <string name="abusefilter_title_disallow">আপনি এই সম্পাদনা সংরক্ষণ করতে পারবেন না। দয়া করে ফিরে যান ও এটি পরিবর্তন করুন।</string>
+  <string name="menu_themechooser">ফন্ট ও থিম</string>
+  <string name="text_size_select">ফন্টের আকার</string>
+  <string name="color_theme_select">থিম</string>
+  <string name="color_theme_light">উজ্জ্বল</string>
+  <string name="color_theme_dark">কালো</string>
 </resources>

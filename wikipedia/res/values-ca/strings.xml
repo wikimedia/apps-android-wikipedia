@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">Netejar marcadors</string>
   <string name="menu_clear_all_saved_pages">Clars pàgines desades</string>
   <string name="page_does_not_exist_error">Aquesta pàgina no existeix</string>
+  <string name="nav_item_today">Avui</string>
   <string name="dialog_title_clear_history">Es neteja l\'historial?</string>
   <string name="saved_pages_activity_title">Pàgines desades</string>
   <string name="nav_item_saved_pages">Pàgines desades</string>
@@ -69,7 +70,7 @@
   <string name="login_password_show_check">Mostrar contrasenya</string>
   <string name="menu_login">Inicia la sessió</string>
   <string name="login_activity_title">Entra a la Viquipèdia</string>
-  <string name="login_in_progress_dialog_message">Entrant...</string>
+  <string name="login_in_progress_dialog_message">S’està iniciant la sessió…</string>
   <string name="login_error_wrong_password">Contrasenya incorrecta</string>
   <string name="login_error_wrong_username">Nom d\'usuari incorrecte</string>
   <string name="login_success_toast">S\'ha iniciat sessió correctament!</string>
@@ -97,7 +98,7 @@
   <string name="create_account_activity_title">Crear un compte</string>
   <string name="edit_section_activity_title">Modifica secció</string>
   <string name="dialog_create_account_checking_progress">Verificant</string>
-  <string name="create_account_email_hint">Correu electrònic (opcional)</string>
+  <string name="create_account_email_hint">Adreça electrònica (opcional)</string>
   <string name="create_account_password_repeat_hint">Repetiu la contrasenya</string>
   <string name="create_account_passwords_mismatch_error">Les contrasenyes no coincideixen</string>
   <string name="create_account_email_error">Correu electrònic no vàlid</string>
@@ -116,7 +117,7 @@
   <string name="zero_webpage_title">Preguntes i respostes sobre Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Sortint de Wikipedia Zero</string>
-  <string name="zero_interstitial_leave_app" fuzzy="true">Desitja continuar? Està sortint de l\'aplicaió, es podrien carregar càrrecs addicionals</string>
+  <string name="zero_interstitial_leave_app">Es podrien generar tarifes de dades. Voleu continuar al lloc extern?</string>
   <string name="zero_interstitial_continue" fuzzy="true">Continua</string>
   <string name="zero_interstitial_cancel">Roman aquí</string>
   <string name="zero_learn_more" fuzzy="true">Voleu saber més sobre la Viquipèdia Zero?</string>
@@ -145,6 +146,7 @@
   <string name="preference_summary_eventlogging_opt_in">Permeteu a Wikimedia recollir informació sobre com utilitzeu l\'aplicació, per poder-la millorar</string>
   <string name="editing_error_spamblacklist">Enllaços a dominis bloquejats (%s) detectats. Si us plau, esborreu-los i torneu a provar de nou.</string>
   <string name="history_search_list_hint">Cerca</string>
+  <string name="history_search_empty_message">No s’ha trobat cap pàgina que coincideixi amb «%s»</string>
   <string name="error_can_not_process_link">No s\'ha pogut mostrar l\'enllaç</string>
   <string name="page_protected_autoconfirmed">La pàgina està semiprotegida.</string>
   <string name="page_protected_sysop">La pàgina està completament protegida.</string>
@@ -153,11 +155,19 @@
   <string name="page_protected_can_not_edit_title">La pàgina està protegida</string>
   <string name="more_item_preferences">Més</string>
   <string name="more_activity_title">Més</string>
+  <string name="about_description">Quant a l’aplicació de la Viquipèdia</string>
+  <string name="privacy_policy_description">Política de privadesa</string>
+  <string name="terms_of_use_description">Condicions d’ús</string>
   <string name="preference_title_version">Versió</string>
+  <string name="about_libraries_heading">biblioteques utilitzades</string>
+  <string name="about_contributors_heading">col·laboradors</string>
   <string name="about_translators_heading">traductors</string>
   <string name="about_activity_title">Quant a</string>
   <string name="edit_unchanged">No s\'ha modificat la pàgina.</string>
+  <string name="edit_abandon_confirm">S\'ha modificat la pàgina. Esteu segur que voleu sortir sense desar-ne els canvis?</string>
   <string name="user_blocked_from_editing_title">Blocat</string>
+  <string name="user_logged_in_blocked_from_editing">S\'ha blocat l\'edició des del vostre compte en aquest wiki.</string>
+  <string name="user_anon_blocked_from_editing">S\'ha blocat l\'edició des de la vostra IP.</string>
   <string name="edit_how_page_improved">Com heu millorat la pàgina?</string>
   <string name="edit_next">Següent</string>
   <string name="edit_done">Desa</string>
@@ -180,8 +190,10 @@
   <string name="menu_refresh_saved_page">Refresca la pàgina</string>
   <string name="abusefilter_title_warn">Podria ser una modificació no constructiva. Esteu segur que voleu desar-la?</string>
   <string name="abusefilter_title_disallow">No podeu desar aquesta modificació. Aneu enrere i canvieu-la.</string>
+  <string name="dialog_page_issues">Problemes de la pàgina</string>
   <string name="menu_themechooser">Canvia el tipus de lletra i el tema</string>
   <string name="text_size_select">Mida de lletra</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_dark">Fosc</string>
+  <string name="page_similar_titles">Títols similars</string>
 </resources>

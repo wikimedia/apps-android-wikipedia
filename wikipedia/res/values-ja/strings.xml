@@ -36,6 +36,8 @@
   <string name="toast_refresh_saved_page">保存したページを更新しています...</string>
   <string name="delete_selected_saved_pages">削除</string>
   <string name="toast_saved_page_deleted">保存したページを削除しました</string>
+  <string name="saved_pages_search_list_hint">検索</string>
+  <string name="saved_pages_search_empty_message">「%s」に一致するページは見つかりませんでした</string>
   <string name="last_updated_text">最終更新: %s</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
   <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
@@ -190,6 +192,8 @@
   <string name="saved_pages_update_all_error_message">保存したページを更新する際にエラーが発生しました</string>
   <string name="saved_pages_progress_title">保存したページを更新しています</string>
   <string name="saved_pages_refresh_pages_complete">更新しました</string>
+  <string name="menu_page_saved">保存したページ</string>
+  <string name="menu_refresh_saved_page">ページを更新</string>
   <string name="abusefilter_title_warn">これは建設的ではない編集かもしれません。それでも保存しますか?</string>
   <string name="abusefilter_title_disallow">この編集は保存できません。戻って変更してください。</string>
   <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;すべて大文字で書かれている&lt;br /&gt;記事が白紙化されているか、スパムである&lt;br /&gt;文字の繰り返し</string>

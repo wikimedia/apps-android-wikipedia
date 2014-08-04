@@ -36,8 +36,12 @@
   <string name="toast_refresh_saved_page">Đang làm mới trang đã lưu…</string>
   <string name="delete_selected_saved_pages">Xóa</string>
   <string name="toast_saved_page_deleted">Đã xóa (các) trang đã lưu</string>
+  <string name="saved_pages_search_list_hint">Tìm kiếm</string>
+  <string name="saved_pages_search_empty_message">Không tìm thấy trang trùng với “%s”</string>
   <string name="last_updated_text">Cập nhật lần cuối vào %1$s</string>
   <string name="content_license_html">Nội dung được phát hành theo &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt; nếu không ghi giấy phép khác</string>
+  <string name="edit_save_action_license_logged_in">Với việc lưu trang, bạn chấp nhận &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Với việc lưu trang, bạn chấp nhận &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt;. Các sửa đổi của  bạn sẽ ghi rõ địa chỉ IP của thiết bị của bạn. Bạn có thể &lt;a href=\"https://#login\"&gt;đăng nhập&lt;/a&gt; để bảo vệ quyền riêng tư của bạn một chút hơn.</string>
   <string name="preference_title_language">Ngôn ngữ Wikipedia</string>
   <string name="preference_summary_language">Ngôn ngữ nội dung</string>
   <string name="preference_languages_filter_hint">Tìm kiếm</string>
@@ -81,8 +85,13 @@
   <string name="preference_summary_logout">Đăng xuất khỏi tài khoản Wikipedia của bạn</string>
   <string name="preference_summary_notloggedin">Chưa đăng nhập.</string>
   <string name="toast_logout_complete">Đã đăng xuất</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Chưa lưu trang nào</string>
+  <string name="saved_pages_empty_title">Chưa lưu trang nào.</string>
+  <string name="saved_pages_empty_message">Các trang đã lưu là giống như các dấu trang có thể đọc ngay cả khi ngoại tuyến.</string>
+  <string name="history_empty_title">Đây không có trang gần đây.</string>
   <string name="history_empty_message" fuzzy="true">Lịch sử của bạn còn trống.</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_tag_line">Bách khoa toàn thư mở</string>
+  <string name="skip">Bỏ qua</string>
   <string name="create_account_username_hint">Tên người dùng</string>
   <string name="create_account_password_hint">Mật khẩu</string>
   <string name="menu_create_account">Mở tài khoản</string>
@@ -156,6 +165,7 @@
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Quy_định_quyền_riêng_tư?uselang=vi\"&gt;Quy định Quyền riêng tư&lt;/a&gt;</string>
   <string name="about_libraries_heading">thư viện được sử dụng</string>
   <string name="about_contributors_heading">người đóng góp</string>
+  <string name="about_translators_heading">biên dịch viên</string>
   <string name="about_wmf">Một sản phẩm của &lt;a href=\"http://wikimediafoundation.org/wiki/Trang_chủ?uselang=vi\"&gt;Quỹ Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Giới thiệu</string>
   <string name="edit_unchanged">Trang chưa được sửa đổi.</string>
@@ -181,6 +191,13 @@
   <string name="saved_pages_update_all_error_message">Có lỗi khi cập nhật các trang đã lưu</string>
   <string name="saved_pages_progress_title">Đang làm mới các trang đã lưu</string>
   <string name="saved_pages_refresh_pages_complete">Hoàn tất cập nhật</string>
+  <string name="abusefilter_title_warn">Sửa đổi này có vẻ không có tính xây dựng. Bạn có chắc chắn muốn lưu nó?</string>
+  <string name="abusefilter_title_disallow">Bạn không thể lưu sửa đổi này. Vui lòng quay lại và thay đổi nó.</string>
+  <string name="menu_themechooser">Phông chữ và thiết kế</string>
+  <string name="text_size_select">Kích thước phông chữ</string>
+  <string name="color_theme_select">Thiết kế</string>
+  <string name="color_theme_light">Sáng</string>
+  <string name="color_theme_dark">Tối</string>
   <string name="app_store_description">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở với hơn 32 triệu mục từ trong 280 ngôn ngữ, và là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên. Ứng dụng này đã được viết mới hoàn toàn và là bản tốt nhất từ trước tới nay.
 
 Tính năng:

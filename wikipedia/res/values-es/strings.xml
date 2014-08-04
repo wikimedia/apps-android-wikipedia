@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">Borrar favoritos</string>
   <string name="menu_clear_all_saved_pages">Borrar páginas guardadas</string>
   <string name="page_does_not_exist_error">Esta página no existe.</string>
+  <string name="nav_item_today">Hoy</string>
   <string name="dialog_title_clear_history">¿Limpiar el historial?</string>
   <string name="saved_pages_activity_title">Páginas guardadas</string>
   <string name="nav_item_saved_pages">Páginas guardadas</string>
@@ -85,7 +86,7 @@
   <string name="preference_summary_logout">Cerrar sesión de tu cuenta de Wikipedia</string>
   <string name="preference_summary_notloggedin">Sesión no iniciada.</string>
   <string name="toast_logout_complete">Sesión cerrada</string>
-  <string name="saved_pages_empty_message" fuzzy="true">No hay páginas guardadas</string>
+  <string name="saved_pages_empty_message">Las páginas guardadas son bastante impresionantes. Piensa en ellas como marcadores que se pueden leer incluso cuando estás sin conexión.</string>
   <string name="history_empty_message" fuzzy="true">Tu historial está vacío.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">La enciclopedia libre</string>
@@ -158,6 +159,10 @@
   <string name="more_item_preferences">Más</string>
   <string name="more_activity_title">Más</string>
   <string name="about_description">Acerca de la aplicación de Wikipedia</string>
+  <string name="privacy_policy_description">Política de privacidad</string>
+  <string name="terms_of_use_description">Términos de uso</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/es</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/es</string>
   <string name="preference_title_version">Versión</string>
   <string name="about_terms_of_use">&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt;</string>
   <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Política de privacidad&lt;/a&gt;</string>
@@ -192,11 +197,13 @@
   <string name="saved_pages_refresh_pages_complete">Actualización completa</string>
   <string name="menu_page_saved">Página guardada</string>
   <string name="menu_refresh_saved_page">Recargar página</string>
+  <string name="dialog_page_issues">Problemas de la página</string>
   <string name="menu_themechooser">Tipo de letra y tema</string>
   <string name="text_size_select">Tamaño de letra</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Oscuro</string>
+  <string name="page_similar_titles">Títulos similares</string>
   <string name="app_store_description">Aplicación oficial de Wikipedia para Android. Wikipedia es la enciclopedia libre que contiene más de 32 millones de artículos en 280 idiomas y es el trabajo de referencia más completo y ampliamente usado que los humanos hayan recopilado. La aplicación ha sido reescrita desde cero y está mejor que nunca.
 
 Características:

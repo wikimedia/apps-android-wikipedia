@@ -9,6 +9,7 @@
   <string name="error_network_error">ЗӀе цакарий :(</string>
   <string name="page_error_retry">ЮхагӀорта</string>
   <string name="menu_clear_all_history">ДӀацӀане истори?</string>
+  <string name="nav_item_today">Тахана</string>
   <string name="dialog_title_clear_history" fuzzy="true">ДӀацӀане истори?</string>
   <string name="saved_pages_activity_title">Ӏалашйина агӀонаш</string>
   <string name="nav_item_saved_pages">Ӏалашйина агӀонаш</string>
@@ -55,8 +56,13 @@
   <string name="login_error_no_network">ЗӀе цахилар</string>
   <string name="nav_item_logout">Болх дӀаберзор</string>
   <string name="preference_title_logout">Болх дӀаберзор</string>
+  <string name="saved_pages_empty_title">ХӀинци а яц Ӏалашйина агӀонаш.</string>
   <string name="saved_pages_empty_message" fuzzy="true">Ӏалашйина агӀонаш яц.</string>
+  <string name="history_empty_title">Кеста хьаьжна агӀонаш яц.</string>
   <string name="history_empty_message" fuzzy="true">Хьа истори еса ю.</string>
+  <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕД&lt;big&gt;И&lt;/big&gt;</string>
+  <string name="wp_tag_line">Маьрша энциклопеди</string>
+  <string name="skip">Ӏадйита</string>
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
   <string name="create_account_password_hint">Пароль</string>
   <string name="login_create_account_link">Кхолла декъашхочун дӀаяздар</string>
@@ -89,9 +95,14 @@
   <string name="random_progress">Цахууш нисъелла агӀо харжар...</string>
   <string name="user_contribs_more_action">Чуяха кхин</string>
   <string name="history_search_list_hint">Лаха</string>
+  <string name="history_search_empty_message">\'%s\' агӀонаш цакарий</string>
   <string name="more_item_preferences">Кхин</string>
   <string name="more_activity_title">Кхин</string>
+  <string name="privacy_policy_description">Къайлаха политика</string>
+  <string name="terms_of_use_description">Лелоран хьал</string>
   <string name="preference_title_version">Верси</string>
+  <string name="about_translators_heading">гочдархой</string>
+  <string name="about_translators_translatewiki">ХӀара тӀетохар гочйина &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чура шен лаамернигаш.</string>
   <string name="edit_next">Кхин дӀа</string>
   <string name="edit_done">Ӏалашдан</string>
   <string name="edit_preview">Хьажар</string>
@@ -100,4 +111,8 @@
   <string name="menu_page_saved">АгӀо Ӏалашйина</string>
   <string name="menu_refresh_saved_page">Карлаяккха агӀо</string>
   <string name="menu_themechooser">Кечяр а шрифт а хийцар</string>
+  <string name="text_size_select">Шрифтан барам</string>
+  <string name="color_theme_select">Кечяр</string>
+  <string name="color_theme_light">Сирла</string>
+  <string name="color_theme_dark">Бодане</string>
 </resources>

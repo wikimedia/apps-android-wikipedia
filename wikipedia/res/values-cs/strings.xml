@@ -36,6 +36,7 @@
   <string name="toast_refresh_saved_page">Aktualizace uložené stránky…</string>
   <string name="delete_selected_saved_pages">Vymazat</string>
   <string name="toast_saved_page_deleted">Uložené stránky vymazány</string>
+  <string name="saved_pages_search_list_hint">Hledat</string>
   <string name="last_updated_text">Naposledy aktualizováno %1$s</string>
   <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
   <string name="preference_title_language">Jazyk Wikipedie</string>
@@ -155,7 +156,6 @@
   <string name="more_activity_title">Další</string>
   <string name="about_description">O aplikaci Wikipedie</string>
   <string name="preference_title_version">Verze</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/cs\"&gt;Podmínky užití&lt;/a&gt;</string>
   <string name="about_libraries_heading">použité knihovny</string>
   <string name="about_contributors_heading">přispěvatelé</string>
   <string name="about_translators_heading">překladatelé</string>
@@ -185,6 +185,10 @@
   <string name="saved_pages_update_all_error_message">Chyba aktualizace uložených stránek</string>
   <string name="saved_pages_progress_title">Aktualizují se uložené stránky</string>
   <string name="saved_pages_refresh_pages_complete">Aktualizace dokončena</string>
+  <string name="menu_page_saved">Stránka uložena</string>
+  <string name="menu_refresh_saved_page">Obnovit stránku</string>
+  <string name="abusefilter_title_warn">Může se jednat o nekonstruktivní editaci. Jste si jisti, že ji chcete uložit?</string>
+  <string name="abusefilter_title_disallow">Nemůžete uložit tuto editace. Prosím, vraťte se zpět a změnte jí.</string>
   <string name="menu_themechooser">Změnit písmo a vzhled</string>
   <string name="text_size_select">Velikost písma</string>
   <string name="color_theme_select">Vzhled</string>

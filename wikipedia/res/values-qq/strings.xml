@@ -25,7 +25,8 @@
   <string name="menu_clear_all_bookmarks">Menu item text for clearing bookmarks</string>
   <string name="menu_clear_all_saved_pages">Clear is an imperative verb. This is an action that clears all saved pages.</string>
   <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
-  <string name="nav_item_today">Text in navigation sidebar that when tapped leads to the Main Page.</string>
+  <string name="nav_item_today">Text in navigation sidebar that when tapped leads to the Main Page.
+{{Identical|Today}}</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="saved_pages_activity_title">Title for screen that shows list of saved pages.
 {{Identical|Saved page}}</string>
@@ -229,6 +230,7 @@ See also:
 * {{msg-wm|Wikipedia-android-strings-more item preferences}} - menu item to come to this screen
 {{Identical|More}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
+  <string name="privacy_policy_description">{{Identical|Privacy policy}}</string>
   <string name="preference_title_version">Text for the preference item that shows the app version number.
 {{Identical|Version}}</string>
   <string name="about_terms_of_use">Terms of use link that links to the WMF\'s Terms of Use</string>

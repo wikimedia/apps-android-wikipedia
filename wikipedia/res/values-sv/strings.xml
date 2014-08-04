@@ -36,6 +36,8 @@
   <string name="toast_refresh_saved_page">Uppdaterar sparad sida...</string>
   <string name="delete_selected_saved_pages">Radera</string>
   <string name="toast_saved_page_deleted">Sparad(e) sida/sidor raderas</string>
+  <string name="saved_pages_search_list_hint">Sök</string>
+  <string name="saved_pages_search_empty_message">Inga sidor med \'%s\' hittades</string>
   <string name="last_updated_text">Senast uppdaterad %s</string>
   <string name="content_license_html">Innehållet är tillgängligt under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
   <string name="edit_save_action_license_logged_in">Genom att spara godkänner du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Användarvillkoren&lt;/a&gt;, och att oåterkalleligen släppa ditt bidrag med licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -190,6 +192,8 @@
   <string name="saved_pages_update_all_error_message">Fel vid uppdatering av sparade sidor</string>
   <string name="saved_pages_progress_title">Uppdaterar sparade sidor</string>
   <string name="saved_pages_refresh_pages_complete">Uppdatering slutförd</string>
+  <string name="menu_page_saved">Sidan sparades</string>
+  <string name="menu_refresh_saved_page">Uppdatera sida</string>
   <string name="abusefilter_title_warn">Detta kan vara en icke-konstruktiv redigering. Är du säker på att du vill spara den?</string>
   <string name="abusefilter_title_disallow">Du kan inte spara denna redigering. Gå tillbaka och ändra den.</string>
   <string name="abusefilter_text_warn">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv. Den kan innehålla en eller flera av följande:&lt;br /&gt;&lt;br /&gt;· Text skriven helt med versaler&lt;br /&gt;· Tömande av artiklar eller spam&lt;br /&gt;· Irrelevanta externa länkar eller bilder&lt;br /&gt;· Upprepade tecken</string>

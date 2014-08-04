@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">Wyczyść zakładki</string>
   <string name="menu_clear_all_saved_pages">Wyczyść listę zapisanych stron</string>
   <string name="page_does_not_exist_error">Ta strona nie istnieje.</string>
+  <string name="nav_item_today">Dzisiaj</string>
   <string name="dialog_title_clear_history">Wyczyścić historię przeglądania?</string>
   <string name="saved_pages_activity_title">Zapisane strony</string>
   <string name="nav_item_saved_pages">Zapisane strony</string>
@@ -157,6 +158,10 @@
   <string name="more_item_preferences">Więcej</string>
   <string name="more_activity_title">Więcej</string>
   <string name="about_description">O aplikacji Wikipedia</string>
+  <string name="privacy_policy_description">Polityka prywatności</string>
+  <string name="terms_of_use_description">Warunki użytkowania</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/pl</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/pl</string>
   <string name="preference_title_version">Wersja</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Warunki użytkowania&lt;/a&gt;</string>
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy/pl\"&gt;Polityka prywatności&lt;/a&gt;</string>
@@ -200,4 +205,5 @@
   <string name="color_theme_select">Skórka</string>
   <string name="color_theme_light">Jasna</string>
   <string name="color_theme_dark">Ciemna</string>
+  <string name="page_similar_titles">Podobne tytuły</string>
 </resources>

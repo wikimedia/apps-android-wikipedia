@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">Yer imlerini temizle</string>
   <string name="menu_clear_all_saved_pages">Tüm kaydedilen sayfaları temizle</string>
   <string name="page_does_not_exist_error">Bu sayfa mevcut değil.</string>
+  <string name="nav_item_today">Bugün</string>
   <string name="dialog_title_clear_history">Göz atma geçmişini temizle?</string>
   <string name="saved_pages_activity_title">Kaydedilen sayfalar</string>
   <string name="nav_item_saved_pages">Kaydedilen sayfalar</string>
@@ -160,6 +161,10 @@
   <string name="more_item_preferences">Daha fazla</string>
   <string name="more_activity_title">Daha fazla</string>
   <string name="about_description">Wikipedia uygulaması hakkında</string>
+  <string name="privacy_policy_description">Gizlilik politikası</string>
+  <string name="terms_of_use_description">Kullanım koşulları</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Sürüm</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kullanım Şartları&lt;/a&gt;</string>
   <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Gizlilik Politikası&lt;/a&gt;</string>
@@ -198,11 +203,13 @@
   <string name="abusefilter_title_disallow">Bu düzenlemeyi kaydedemezsiniz. Lütfen geri dönüp değiştirin.</string>
   <string name="abusefilter_text_warn">Bir otomatik süzgeç, bu değişikliği potansiyel zarar verici olarak tanımlamıştır. Değişiklik şunlardan birini veya daha fazlasını içeriyor olabilir:&lt;br /&gt;&lt;br /&gt;· Tamamı büyük harfle yazım&lt;br /&gt;· Sayfaların içeriğini boşaltma veya spam&lt;br /&gt;· İlgisiz dış bağlantılar veya resimler&lt;br /&gt;· Yinelenen karakterler</string>
   <string name="abusefilter_text_disallow">Bir otomatik süzgeç, bu değişikliği potansiyel yapıcı olmayan veya muhtemel vandalizm olarak tanımlamıştır.&lt;br /&gt;&lt;br /&gt; Vikipedi bir ansiklopedidir ve sadece kayda değer, tarafsız içerikler burada yer alabilir.</string>
+  <string name="dialog_page_issues">Sayfa sorunları</string>
   <string name="menu_themechooser">Yazı tipi ve tema değiştir</string>
   <string name="text_size_select">Yazı tipi boyutu</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Açık</string>
   <string name="color_theme_dark">Koyu</string>
+  <string name="page_similar_titles">Benzer başlıklar</string>
   <string name="app_store_description">Android için resmi Vikipedi Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır. Sıfırdan tekrar yazılan uygulama, şimdi her zamankinden daha iyi.
 
 Özellikler:

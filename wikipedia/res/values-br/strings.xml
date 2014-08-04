@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">Diverkañ ar sinedoù</string>
   <string name="menu_clear_all_saved_pages">Diverkañ ar pajennoù enrollet</string>
   <string name="page_does_not_exist_error">N\'eus ket eus ar bajenn-se.</string>
+  <string name="nav_item_today">Hiziv</string>
   <string name="dialog_title_clear_history">Diverkañ an istor ?</string>
   <string name="saved_pages_activity_title">Pajennoù enrollet.</string>
   <string name="nav_item_saved_pages">Pajennoù enrollet.</string>
@@ -87,7 +88,7 @@
   <string name="history_empty_title">N\'eus pajenn nevez ebet amañ.</string>
   <string name="history_empty_message" fuzzy="true">Goullo eo ho roll-istor.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Ar c\'helc\'hgeriadur digoust</string>
+  <string name="wp_tag_line">An Holloueziadur digor</string>
   <string name="skip">Lezel a-gostez</string>
   <string name="create_account_username_hint">Anv implijer</string>
   <string name="create_account_password_hint">Ger-tremen</string>
@@ -152,6 +153,8 @@
   <string name="more_item_preferences">Muioc\'h</string>
   <string name="more_activity_title">Muioc\'h</string>
   <string name="about_description">Diwar-benn an arload Wikipedia</string>
+  <string name="privacy_policy_description">Reolennoù prevezded</string>
+  <string name="terms_of_use_description">Termenoù implijout</string>
   <string name="preference_title_version">Stumm</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termenoù implijout&lt;/a&gt;</string>
   <string name="about_privacy_policy">&lt;a href=\"https://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Reolennoù prevezded&lt;/a&gt;</string>

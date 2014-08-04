@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">Effacer les signets</string>
   <string name="menu_clear_all_saved_pages">Effacer les pages enregistrées</string>
   <string name="page_does_not_exist_error">Cette page n’existe pas.</string>
+  <string name="nav_item_today">Aujourd’hui</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation ?</string>
   <string name="saved_pages_activity_title">Pages enregistrées</string>
   <string name="nav_item_saved_pages">Pages enregistrées</string>
@@ -160,6 +161,10 @@
   <string name="more_item_preferences">Plus</string>
   <string name="more_activity_title">Plus</string>
   <string name="about_description">À propos de l’application Wikipédia</string>
+  <string name="privacy_policy_description">Politique de confidentialité</string>
+  <string name="terms_of_use_description">Conditions d’utilisation</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Version</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/fr\"&gt;Conditions d’utilisation&lt;/a&gt;</string>
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy/fr\"&gt;Politique de confidentialité&lt;/a&gt;</string>
@@ -198,11 +203,13 @@
   <string name="abusefilter_title_disallow">Vous ne pouvez pas enregistrer cette modification. Veuillez revenir en arrière et la changer.</string>
   <string name="abusefilter_text_warn">Un filtre automatique a identifié cette modification comme potentiellement non constructive. Elle pourrait contenir un ou plusieurs des éléments suivants :&lt;br /&gt;&lt;br /&gt;· Saisie toute en majuscules&lt;br /&gt;· Découpage d’articles ou pourriel&lt;br /&gt;· Liens ou images externes inappropriés&lt;br /&gt;· Caractères répétés</string>
   <string name="abusefilter_text_disallow">Un filtre automatique a identifié cette modification comme potentiellement non constructive ou comme un vandalisme éventuel.&lt;br /&gt;&lt;br /&gt; Wikipédia est une encyclopédie et seul du contenu neutre et important y a sa place.</string>
+  <string name="dialog_page_issues">Discussions sur la page</string>
   <string name="menu_themechooser">Modifier la police et le thème</string>
   <string name="text_size_select">Taille de police</string>
   <string name="color_theme_select">Thème</string>
   <string name="color_theme_light">Clair</string>
   <string name="color_theme_dark">Sombre</string>
+  <string name="page_similar_titles">Titres semblables</string>
   <string name="app_store_description">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée. L’application a été réécrite de zéro et est meilleure que jamais.
 
 Fonctionnalités :

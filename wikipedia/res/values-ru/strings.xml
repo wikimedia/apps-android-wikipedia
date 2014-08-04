@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">Очистить закладки</string>
   <string name="menu_clear_all_saved_pages">Очистить сохранённые страницы</string>
   <string name="page_does_not_exist_error">Такой страницы не существует.</string>
+  <string name="nav_item_today">Сегодня</string>
   <string name="dialog_title_clear_history">Очистить историю?</string>
   <string name="saved_pages_activity_title">Сохранённые страницы</string>
   <string name="nav_item_saved_pages">Сохранённые страницы</string>
@@ -160,6 +161,10 @@
   <string name="more_item_preferences">Ещё</string>
   <string name="more_activity_title">Ещё</string>
   <string name="about_description">Об приложении «Википедия»</string>
+  <string name="privacy_policy_description">Политика конфиденциальности</string>
+  <string name="terms_of_use_description">Условия использования</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Политика_конфиденциальности</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Условия_использования</string>
   <string name="preference_title_version">Версия</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/ru\"&gt;Условия использования&lt;/a&gt;</string>
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy/ru\"&gt;Политика конфиденциальности&lt;/a&gt;</string>
@@ -198,11 +203,13 @@
   <string name="abusefilter_title_disallow">Вы не можете сохранить эту правку. Пожалуйста, вернитесь назад и измените её.</string>
   <string name="abusefilter_text_warn">Автоматизированный фильтр определил эту правку как потенциально неконструктивную. Она может содержать одно или несколько из следующих действий:&lt;br /&gt;&lt;br /&gt;· Печатать заглавными буквами&lt;br&gt;· Штамповка статей или спам&lt;br /&gt;· Неподходящие внешние ссылки или изображения&lt;br /&gt;· Повторяющиеся символы</string>
   <string name="abusefilter_text_disallow">Автоматизированный фильтр определил эту правку как потенциально неконструктивную или как потенциальный вандализм.&lt;br /&gt;&lt;br /&gt;Википедия — это энциклопедия, и здесь приемлемо только нейтральное и значимое содержимое.</string>
+  <string name="dialog_page_issues">Вопросов по странице</string>
   <string name="menu_themechooser">Изменение шрифта и оформления</string>
   <string name="text_size_select">Размер шрифта</string>
   <string name="color_theme_select">Оформление</string>
   <string name="color_theme_light">Светлое</string>
   <string name="color_theme_dark">Тёмное</string>
+  <string name="page_similar_titles">Похожие заголовки</string>
   <string name="app_store_description">Официальное приложение «Википедия» под Android. Википедия — свободная энциклопедия, содержащая более 32 миллионов статей на 280 языках. Она является наиболее полным и широко используемым справочником, который люди когда-либо создавали. Приложение было переписано с нуля и стало лучше, чем когда-либо прежде.
 
 Особенности:

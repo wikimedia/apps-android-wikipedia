@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">Исчисти одбележани</string>
   <string name="menu_clear_all_saved_pages">Исчисти ги сите зачувани страници</string>
   <string name="page_does_not_exist_error">Страницата не постои.</string>
+  <string name="nav_item_today">Денес</string>
   <string name="dialog_title_clear_history">Да ја исчистам историјата на прелистување?</string>
   <string name="saved_pages_activity_title">Зачувани страници</string>
   <string name="nav_item_saved_pages">Зачувани страници</string>
@@ -160,6 +161,10 @@
   <string name="more_item_preferences">Повеќе</string>
   <string name="more_activity_title">Повеќе</string>
   <string name="about_description">За прилогот „Википедија“</string>
+  <string name="privacy_policy_description">Заштита на личните податоци</string>
+  <string name="terms_of_use_description">Услови на употреба</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy/mk?uselang=mk</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk</string>
   <string name="preference_title_version">Верзија</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/mk\"&gt;Услови на употреба&lt;/a&gt;</string>
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Заштита на личните податоци&lt;/a&gt;</string>
@@ -198,11 +203,13 @@
   <string name="abusefilter_title_disallow">Не можете да го зачувате уредувањево. Вратете се и изменето го.</string>
   <string name="abusefilter_text_warn">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно. Може да содржи едно од следниве:&lt;br /&gt;&lt;br /&gt;· Текст напишан со големи букви&lt;br /&gt;· Празнење на статии или спамирање&lt;br /&gt;· Нерелевантни надворешни врски или слики&lt;br /&gt;· Повторување на знаци</string>
   <string name="abusefilter_text_disallow">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно или потенцијално вандалистичко. &lt;br /&gt;&lt;br /&gt;Википедија е енциклопедија —  тука припаѓа само неутрална и значајна содржина.</string>
+  <string name="dialog_page_issues">Проблеми со страницата</string>
   <string name="menu_themechooser">Смени фонт и изглед</string>
   <string name="text_size_select">Големина на фонтот</string>
   <string name="color_theme_select">Изглед</string>
   <string name="color_theme_light">Светол</string>
   <string name="color_theme_dark">Темен</string>
+  <string name="page_similar_titles">Слични наслови</string>
   <string name="app_store_description">Официјален Википедиин прилог (апликација) за Android. Википедија е слободна енциклопедија со преку 32 милиони статии на 280 јазици, и претставува најопсежното и најкористеното прирачно дело во историјата на човештвото. Прилогов е преработен од нула и затоа е подобар од било кога.
 
 Можности:

@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">ניקוי סימניות</string>
   <string name="menu_clear_all_saved_pages">ניקוי כל הדפים השמורים</string>
   <string name="page_does_not_exist_error">הדף הזה אינו קיים.</string>
+  <string name="nav_item_today">היום</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה?</string>
   <string name="saved_pages_activity_title">דפים שמורים</string>
   <string name="nav_item_saved_pages">דפים שמורים</string>
@@ -160,6 +161,8 @@
   <string name="more_item_preferences">עוד</string>
   <string name="more_activity_title">עוד</string>
   <string name="about_description">אודות יישום ויקיפדיה</string>
+  <string name="privacy_policy_description">מדיניות פרטיות</string>
+  <string name="terms_of_use_description">תנאי שימוש</string>
   <string name="preference_title_version">גרסה</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;תנאי שימוש&lt;/a&gt;</string>
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;מדיניות פרטיות&lt;/a&gt;</string>
@@ -198,11 +201,13 @@
   <string name="abusefilter_title_disallow">לא ניתן לשמור את העריכה הזאת. נא לחזור ולשנות אותה.</string>
   <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>
   <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך מתאים לכאן.</string>
+  <string name="dialog_page_issues">בעיות בדף</string>
   <string name="menu_themechooser">לשנות גופן ועיצוב</string>
   <string name="text_size_select">גודל גופן</string>
   <string name="color_theme_select">עיצוב</string>
   <string name="color_theme_light">בהיר</string>
   <string name="color_theme_dark">כהה</string>
+  <string name="page_similar_titles">כותרות דומות</string>
   <string name="app_store_description">יישום ויקיפדיה הרשמי לאנדרואיד. ויקיפדיה היא האנציקלופדיה החופשית עם יותר מ־32 מיליון ערכים ב־280 שפות, וזאת אחת מיצירות העיון המקיפות והנפוצות ביותר שאנשים כתבו אי־פעם. היישום נכתב מחדש מאפס והוא טוב יותר מתמיד.
 
 תכונות:

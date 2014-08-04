@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">Șterge semnele de carte</string>
   <string name="menu_clear_all_saved_pages">Șterge paginile salvate</string>
   <string name="page_does_not_exist_error">Această pagină nu există.</string>
+  <string name="nav_item_today">Astăzi</string>
   <string name="dialog_title_clear_history">Curățați istoricul de navigare?</string>
   <string name="saved_pages_activity_title">Pagini salvate</string>
   <string name="nav_item_saved_pages">Pagini salvate</string>
@@ -36,6 +37,8 @@
   <string name="toast_refresh_saved_page">Se reîncarcă pagina salvată...</string>
   <string name="delete_selected_saved_pages">Șterge</string>
   <string name="toast_saved_page_deleted">Pagină(i) salvată(e) eliminată(e)</string>
+  <string name="saved_pages_search_list_hint">Căutare</string>
+  <string name="saved_pages_search_empty_message">Nicio pagină care să corespundă cu „%s”</string>
   <string name="last_updated_text">Ultima actualizare: %1$s</string>
   <string name="content_license_html">Conținutul este disponibil sub licența &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, cu excepția cazurilor în care se specifică altfel</string>
   <string name="edit_save_action_license_logged_in">Salvând, sunteți de acord cu &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -158,6 +161,10 @@
   <string name="more_item_preferences">Mai multe</string>
   <string name="more_activity_title">Mai multe</string>
   <string name="about_description">Despre aplicația Wikipedia</string>
+  <string name="privacy_policy_description">Politica de confidențialitate</string>
+  <string name="terms_of_use_description">Termeni de utilizare</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Versiune</string>
   <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termeni de utilizare&lt;/a&gt;</string>
   <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;Politică de confidențialitate&lt;/a&gt;</string>
@@ -190,13 +197,17 @@
   <string name="saved_pages_update_all_error_message">Eroare la actualizarea paginilor salvate</string>
   <string name="saved_pages_progress_title">Se reîncarcă paginile salvate</string>
   <string name="saved_pages_refresh_pages_complete">Actualizare finalizată</string>
+  <string name="menu_page_saved">Pagină salvată</string>
+  <string name="menu_refresh_saved_page">Reîncarcă pagina</string>
   <string name="abusefilter_title_warn">Această modificare poate fi neconstructivă. Sigur doriți s-o salvați?</string>
   <string name="abusefilter_title_disallow">Nu puteți salva această modificare. Mergeți înapoi și schimbați-o.</string>
   <string name="abusefilter_text_warn">Un filtru automat a identificat această modificare ca potențial neconstructivă. Poate avea cel puțin una din următoarele probleme:&lt;br /&gt;&lt;br /&gt;· Scrierea integrală cu majuscule&lt;br /&gt;· Golirea conținutului sau introducerea de spam&lt;br /&gt;· Legături externe sau imagini irelevante&lt;br /&gt;· Caractere repetate</string>
   <string name="abusefilter_text_disallow">Un filtru automat a identificat această modificare ca potențial neconstructivă sau o potențială acțiune de vandalism.&lt;br /&gt;&lt;br /&gt;Wikipedia este o enciclopedie și acceptă doar conținut neutru și notabil.</string>
+  <string name="dialog_page_issues">Probleme pagină</string>
   <string name="menu_themechooser">Schimbă fontul și tema</string>
   <string name="text_size_select">Dimensiunea fontului</string>
   <string name="color_theme_select">Temă</string>
   <string name="color_theme_light">Deschisă</string>
   <string name="color_theme_dark">Închisă</string>
+  <string name="page_similar_titles">Titluri similare</string>
 </resources>
