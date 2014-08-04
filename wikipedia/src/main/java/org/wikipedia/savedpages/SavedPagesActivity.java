@@ -184,10 +184,12 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
         String selection = null;
         String[] selectionArgs = null;
         savedPagesEmptyContainer.setVisibility(View.GONE);
-        if (entryFilter.getText().length() != 0) {
+        String searchStr = entryFilter.getText().toString();
+        if (searchStr.length() != 0) {
             // FIXME: Find ways to not have to hard code column names
-            selection =  "UPPER(savedpages.title) LIKE UPPER(?)";
-            selectionArgs = new String[]{"%" + entryFilter.getText().toString() + "%"};
+            searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
+            selection =  "UPPER(savedpages.title) LIKE UPPER(?) ESCAPE '\\'";
+            selectionArgs = new String[]{"%" + searchStr + "%"};
         }
         return new CursorLoader(
                 this,
