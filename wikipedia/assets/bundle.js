@@ -65,8 +65,14 @@ document.onclick = function() {
     }
 
     function handleDisambig( sourceNode ) {
-        var title = sourceNode.getAttribute("title");
-        bridge.sendMessage( 'disambigClicked', { "title": title } );
+        var res = [];
+        var hatnotes = sourceNode.parentNode.querySelectorAll( 'div.hatnote' );
+        var i = 0,
+            len = hatnotes.length;
+        for (; i < len; i++) {
+            res.push( hatnotes[i].innerHTML );
+        }
+        bridge.sendMessage( 'disambigClicked', { "hatnotes": res } );
     }
 
     if (sourceNode) {
@@ -140,26 +146,20 @@ var transformer = require('./transformer');
 
 transformer.register( 'displayDisambigLink', function( content ) {
     var hatnotes = content.querySelectorAll( "div.hatnote" );
-    var i = 0;
-    for (; i<hatnotes.length; i++) {
-        var el = hatnotes[i];
-        //only care about the first hatnote, and remove all others...
-        if (i === 0) {
-            var links = el.querySelectorAll("a");
-            // use the last link in the hatnote!
-            if (links.length > 0) {
-                var container = document.getElementById("issues_container");
-                var newlink = document.createElement('a');
-                newlink.setAttribute('href', '#disambig');
-                newlink.id = "disambig_button";
-                newlink.className = 'disambig_button';
-                newlink.setAttribute("title", links[links.length - 1].getAttribute("href"));
-                container.appendChild(newlink);
-                el.parentNode.removeChild(el);
-            }
-        } else {
-            el.parentNode.removeChild(el);
+    if ( hatnotes.length > 0 ) {
+        var container = document.getElementById( "issues_container" );
+        var wrapper = document.createElement( 'div' );
+        var link = document.createElement( 'a' );
+        link.setAttribute( 'href', '#disambig' );
+        link.className = 'disambig_button';
+        link.id = 'disambig_button';
+        wrapper.appendChild( link );
+        var i = 0,
+            len = hatnotes.length;
+        for (; i < len; i++) {
+            wrapper.appendChild( hatnotes[i] );
         }
+        container.appendChild( wrapper );
     }
     return content;
 } );
@@ -177,7 +177,7 @@ actions.register( "edit_section", function( el, event ) {
 var transformer = require('./transformer');
 
 transformer.register( 'displayIssuesLink', function( content ) {
-    var issues = content.querySelectorAll( "table.ambox" );
+    var issues = content.querySelectorAll( "table.ambox:not([class*='ambox-multiple_issues']):not([class*='ambox-notice'])" );
     if ( issues.length > 0 ) {
         var el = issues[0];
         var container = document.getElementById( "issues_container" );
@@ -185,6 +185,7 @@ transformer.register( 'displayIssuesLink', function( content ) {
         var link = document.createElement( 'a' );
         link.setAttribute( 'href', '#issues' );
         link.className = 'issues_button';
+        link.id = 'issues_button';
         wrapper.appendChild( link );
         el.parentNode.replaceChild( wrapper, el );
         var i = 0,
@@ -419,9 +420,21 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
         document.getElementById( "content" ).removeChild(issuesContainer);
     }
     //update the text of the disambiguation link, if there is one
-    var disambig = document.getElementById( "disambig_button" );
-    if (disambig !== null) {
-        disambig.innerText = payload.string_page_similar_titles;
+    var disambigBtn = document.getElementById( "disambig_button" );
+    if (disambigBtn !== null) {
+        disambigBtn.innerText = payload.string_page_similar_titles;
+    }
+    //update the text of the page-issues link, if there is one
+    var issuesBtn = document.getElementById( "issues_button" );
+    if (issuesBtn !== null) {
+        issuesBtn.innerText = payload.string_page_issues;
+    }
+    //if we have both issues and disambiguation, then insert the separator
+    if (issuesBtn !== null && disambigBtn !== null) {
+        var separator = document.createElement( 'span' );
+        separator.innerText = '|';
+        separator.className = 'issues_separator';
+        issuesContainer.insertBefore(separator, issuesBtn.parentNode);
     }
 
     document.getElementById( "content" ).appendChild( content );

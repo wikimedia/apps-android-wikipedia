@@ -65,8 +65,14 @@ document.onclick = function() {
     }
 
     function handleDisambig( sourceNode ) {
-        var title = sourceNode.getAttribute("title");
-        bridge.sendMessage( 'disambigClicked', { "title": title } );
+        var res = [];
+        var hatnotes = sourceNode.parentNode.querySelectorAll( 'div.hatnote' );
+        var i = 0,
+            len = hatnotes.length;
+        for (; i < len; i++) {
+            res.push( hatnotes[i].innerHTML );
+        }
+        bridge.sendMessage( 'disambigClicked', { "hatnotes": res } );
     }
 
     if (sourceNode) {

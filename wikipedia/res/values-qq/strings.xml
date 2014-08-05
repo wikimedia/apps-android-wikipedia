@@ -278,6 +278,7 @@ See also:
   <string name="abusefilter_text_warn">Explanation of why the edit may be flagged as unconstructive: Typing in all caps, Blanking articles or Spamming, Irrelevant external links or images, Repeating characters</string>
   <string name="abusefilter_text_disallow">Explanation of why the edit was not allowed: potentially unconstructive, or potential vandalism.</string>
   <string name="dialog_page_issues">Dialog title for page/article issues list</string>
+  <string name="button_page_issues">Label for button that shows the Page issues dialog</string>
   <string name="menu_themechooser">Menu item for choosing text size and color scheme</string>
   <string name="text_size_select">Label that describes text size selection</string>
   <string name="color_theme_select">Label that describes color theme selection

@@ -41,9 +41,21 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
         document.getElementById( "content" ).removeChild(issuesContainer);
     }
     //update the text of the disambiguation link, if there is one
-    var disambig = document.getElementById( "disambig_button" );
-    if (disambig !== null) {
-        disambig.innerText = payload.string_page_similar_titles;
+    var disambigBtn = document.getElementById( "disambig_button" );
+    if (disambigBtn !== null) {
+        disambigBtn.innerText = payload.string_page_similar_titles;
+    }
+    //update the text of the page-issues link, if there is one
+    var issuesBtn = document.getElementById( "issues_button" );
+    if (issuesBtn !== null) {
+        issuesBtn.innerText = payload.string_page_issues;
+    }
+    //if we have both issues and disambiguation, then insert the separator
+    if (issuesBtn !== null && disambigBtn !== null) {
+        var separator = document.createElement( 'span' );
+        separator.innerText = '|';
+        separator.className = 'issues_separator';
+        issuesContainer.insertBefore(separator, issuesBtn.parentNode);
     }
 
     document.getElementById( "content" ).appendChild( content );
