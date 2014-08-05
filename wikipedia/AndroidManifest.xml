@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.wikipedia"
-    android:versionCode="73"
-    android:versionName="2.0-r-2014-07-23"
+    android:versionCode="74"
+    android:versionName="2.0-master-2014-08-05"
     android:installLocation="auto">
     <!--
     If the build is intended to be Google Play-updateable, the package name
@@ -31,7 +31,7 @@
         The following is used for determining the distribution channel.
         Set "value" to "Google Play" for Google Play Store.
         -->
-        <meta-data android:value="" android:name="@string/preference_channel"></meta-data>
+        <meta-data android:value="master" android:name="@string/preference_channel"></meta-data>
         <!-- Don't delete the meta-data field above -->
 
         <activity android:name=".page.PageActivity"

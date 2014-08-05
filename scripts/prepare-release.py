@@ -2,15 +2,19 @@
 """
 Script that helps stage from master to beta to stable to alternative appstores.
 
-Does the following things in two steps:
+Does the following things in three steps:
+Step 0: (--bump)
+    - Do this from the tip of master
+    - Increases the versionNumber
+    - Modifes the versionName to have "-master-" and current date, and the channel to be master
 Step 1: (e.g., --beta):
     - Move package from org.wikipedia to org.wikipedia<.package> if appropriate
     - If appropriate, move folders to accommodate new packages
     - Replace all instances of string 'org.wikipedia' to 'org.wikipedia<.package>' if appropriate
     - Setup app to use beta icon, if appropriate
-    - Bump versionCode and versionName, if appropriate
+    - Modify versionName
     - Make a new commit on a new branch
-    - Creates an annotated tag called 'releases/versionName'
+    - Create an annotated tag called 'releases/versionName'
 Step 2: (e.g., --beta --push):
     - Pushes the git tag created in step 1 to the gerrit remote
 
@@ -20,22 +24,33 @@ Step 2: (e.g., --beta --push):
 
 
 To run
-1) git checkout master
-2) git pull
-3) git reset --hard
-4) cd scripts
-5) python prepare-release.py --beta
-6) note the branch and tag with
+1) tell people on #wikimedia-mobile you're about to bump the version, so hold off on merging to master
+2) git checkout master
+3) git pull
+4) git reset --hard
+5) cd scripts
+6) python prepare-release.py --bump
+7) note the branch and tag with
+       git branch | grep '*'
+       git describe
+8) git review
+9) approve in Gerrit right away
+10) python prepare-release.py --bump --push
+
+1) git checkout <bump_branch_you_cut>
+2) git reset --hard
+3) cd scripts
+4) python prepare-release.py --beta
+5) note the branch and tag with
     git branch | grep '*'
     git describe
 and then build the APK and test
-7) python prepare-release.py --beta --push
-8) Get signoff and verbiage and deploy the beta to Google Play under Wikipedia Beta (app, not "beta" subsection)
+6) python prepare-release.py --beta --push
+7) Get signoff and verbiage and deploy the beta to Google Play under Wikipedia Beta (app, not "beta" subsection)
 
-Now, wait a week. Now that it's time to deploy to Google Play do this:
+Now, wait until it's time to deploy to Google Play stable, then do this:
 
-1) git checkout <beta_branch_you_cut>^
-Note that's setting you back to the commit right before the BETA build.
+1) git checkout <bump_branch_you_cut>
 2) git reset --hard
 3) if necessary, git cherry-pick and manually merge any painful stuff as necessary
 4) cd scripts
@@ -45,13 +60,12 @@ Note that's setting you back to the commit right before the BETA build.
     git describe
 and then build the APK and test
 7) python prepare-release.py --prod --push
-8) Get signoff and verbiage and deploy to Google Play under Wikipedia
+8) Get signoff and verbiage and deploy to Google Play under Wikipedia (not Wikipedia Beta!)
 
 
 For the Amazon Appstore, take the stable build and follow the same instructions:
 
-1) git checkout <stable_branch_you_cut>
-!!!NOTE THIS IS THE TIP OF THE STABLE, NOT THE COMMIT BEFORE IT!!!
+1) git checkout <bump_branch_you_cut>
 2) git reset --hard
 3) if necessary, git cherry-pick and manually merge any painful stuff as necessary (hopefully extremely uncommon)
 4) cd scripts
@@ -97,7 +111,7 @@ def get_git_tag_name(target):
     """
     Returns name used for creating the tag
     """
-    return 'tagged_releases/' + get_release_name(target)
+    return 'releases/' + get_release_name(target)
 
 
 def git_tag(target):
@@ -187,9 +201,9 @@ versionCode_regex = re.compile(r'android:versionCode="(\d+)"', re.MULTILINE)
 versionName_regex = re.compile(r'android:versionName="([^"]+)"', re.MULTILINE)
 
 
-def set_version(data, target, channel, package, uprev):
+def set_version_code(data, target, channel, package, uprev):
     """
-    Utility function to set new versionCode and versionName, if appropriate
+    Utility function to set new versionCode, if appropriate
     """
     if uprev:
         version_code = int(versionCode_regex.search(data).groups()[0])
@@ -197,7 +211,13 @@ def set_version(data, target, channel, package, uprev):
             'android:versionCode="%d"' % (version_code + 1),
             data
         )
+    return data
 
+
+def set_version_name(data, target, channel, package, uprev):
+    """
+    Utility function to set new versionName, if appropriate
+    """
     data = versionName_regex.sub(
         'android:versionName="%s"' % get_release_name(target),
         data
@@ -238,24 +258,42 @@ def transform_project(dir_path, target, channel, package, uprev):
                     file_path = os.path.join(root, file_name)
                     transform_file(file_path, target, channel, package, uprev, replace_packagenames)
 
-    transform_file(p(dir_path, 'AndroidManifest.xml'), target, channel, package, uprev, replace_packagenames,
-                   set_version, set_channel, change_icon, change_label)
+    if dir_path.endswith('-it'):
+        transform_file(p(dir_path, 'AndroidManifest.xml'), target, channel, package, uprev, replace_packagenames)
+    else:
+        transform_file(p(dir_path, 'AndroidManifest.xml'), target, channel, package, uprev, replace_packagenames,
+                       set_version_name, set_channel, change_icon, change_label)
+
+
+def transform_project_for_uprev(dir_path, target, channel, package, uprev):
+    transform_file(p(dir_path, 'AndroidManifest.xml'), target, channel, package, uprev, set_version_code,
+                   set_version_name, set_channel)
 
 
 def make_release(target, channel, package, uprev):
-    sh.git.checkout('-b', 'releases/%s' % get_release_name(target))
-    transform_project('wikipedia', target, channel, package, uprev)
-    transform_project('wikipedia-it', target, channel, package, uprev)
-    sh.cd(PATH_PREFIX)
-    sh.git.add('-u')
-    sh.git.commit('-m', 'Make release %s for %s' % (get_release_name(target), channel))
+    if uprev:
+        # uprevs are done on master
+        sh.git.checkout('-b', 'bump-%s' % get_release_name(target))
+        transform_project_for_uprev('wikipedia', target, channel, package, uprev)
+        sh.cd(PATH_PREFIX)
+        sh.git.add('-u')
+        sh.git.commit('-m', 'Bump versionCode')
+    else:
+        # other changes on a new branch
+        sh.git.checkout('-b', 'releases/%s' % get_release_name(target))
+        transform_project('wikipedia', target, channel, package, uprev)
+        transform_project('wikipedia-it', target, channel, package, uprev)
+        sh.cd(PATH_PREFIX)
+        sh.git.add('-u')
+        sh.git.commit('-m', 'Make release %s for %s' % (get_release_name(target), channel))
     git_tag(target)
 
-
 def main():
-    reminder = 'Please build the APK and test. After that, run w/ --push flag for history, and release the tested APK.'
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
+    group.add_argument('--bump',
+                       help='Step 0: Uprev the versionCode. git checkout master; git pull first! Revs versionCode.',
+                       action='store_true')
     group.add_argument('--beta',
                        help='Step 1: Google Play Beta. git checkout master; git pull first! Revs versionCode.',
                        action='store_true')
@@ -274,10 +312,12 @@ def main():
                        help='Step 1: Alphabetic versionName&channel&package; Don\'t rev versionCode. OEMs wout/ Play.')
     parser.add_argument('--push', help='Step 2: push git tag created in step 1 to gerrit remote.', action='store_true')
     args = parser.parse_args()
-    if args.beta:
-        (target, channel, package, uprev) = ('beta', 'Google Play Beta Channel', 'beta', True)
+    if args.bump:
+        (target, channel, package, uprev) = ('master', 'master', '', True)
+    elif args.beta:
+        (target, channel, package, uprev) = ('beta', 'Google Play Beta Channel', 'beta', False)
     elif args.prod:
-        (target, channel, package, uprev) = ('r', 'Google Play', '', True)
+        (target, channel, package, uprev) = ('r', 'Google Play', '', False)
     elif args.releasesprod:
         (target, channel, package, uprev) = ('releasesprod', 'Releases Stable Channel', '', False)
     elif args.amazon:
@@ -287,14 +327,20 @@ def main():
     elif args.custompackage:
         (target, channel, package, uprev) = (args.custompackage, args.custompackage, args.custompackage, False)
     else:
-        print('Error. Please specify a target in --beta, --prod, or --amazon')
+        print('Error. Please specify --bump, --beta, --prod, --releasesprod, --amazon, --channel, --custompackage')
         sys.exit(-1)
 
     if args.push:
         push_git_tag(target)
     else:
         make_release(target, channel, package, uprev)
-        print(reminder)
+        if uprev:
+            print('BUMP NOTICE!')
+            print('BUMP NOTICE! Please git diff HEAD^ and run git review with bumped version')
+            print('BUMP NOTICE!')
+        print('Please build the APK and test. After that, run w/ --push flag, and as needed release the tested APK.')
+        print('A useful command for collecting the release notes:')
+        print('git log --pretty=format:"%h %s" --abbrev-commit --no-merges <previous release tag>..')
 
 
 if __name__ == '__main__':
