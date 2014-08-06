@@ -224,6 +224,7 @@ public class PageViewFragment extends Fragment {
             leadSectionPayload.put("section", page.getSections().get(0).toJSON());
             leadSectionPayload.put("string_page_similar_titles", getString(R.string.page_similar_titles));
             leadSectionPayload.put("string_page_issues", getString(R.string.button_page_issues));
+            leadSectionPayload.put("isBeta", app.getReleaseType() != WikipediaApp.RELEASE_PROD);
 
             bridge.sendMessage("displayLeadSection", leadSectionPayload);
 
