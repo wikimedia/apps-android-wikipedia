@@ -50,7 +50,7 @@ document.onclick = function() {
         }
         curNode = curNode.parentNode;
     }
-
+/*
     function collectIssues( sourceNode ) {
         var res = [];
         var issues = sourceNode.parentNode.querySelectorAll( 'table.ambox' );
@@ -68,7 +68,7 @@ document.onclick = function() {
         var title = sourceNode.getAttribute("title");
         bridge.sendMessage( 'disambigClicked', { "title": title } );
     }
-
+*/
     if (sourceNode) {
         if ( sourceNode.hasAttribute( "data-action" ) ) {
             var action = sourceNode.getAttribute( "data-action" );
@@ -81,9 +81,9 @@ document.onclick = function() {
             if ( href[0] === "#" ) {
                 var targetId = href.slice(1);
                 if ("issues" === targetId) {
-                    collectIssues(sourceNode);
+                    //collectIssues(sourceNode);
                 } else if ("disambig" === targetId) {
-                    handleDisambig(sourceNode);
+                    //handleDisambig(sourceNode);
                 } else {
                     handleReference( targetId );
                 }
