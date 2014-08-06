@@ -191,7 +191,7 @@ public final class Utils {
      */
     public static void showSoftKeyboard(Activity activity, View view) {
         InputMethodManager keyboard = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-        keyboard.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
+        keyboard.showSoftInput(view, InputMethodManager.SHOW_FORCED);
     }
 
     /**
