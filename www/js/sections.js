@@ -33,8 +33,8 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
 
-    content = transformer.transform( "displayDisambigLink", content );
-    content = transformer.transform( "displayIssuesLink", content );
+    //content = transformer.transform( "displayDisambigLink", content );
+    //content = transformer.transform( "displayIssuesLink", content );
 
     //if there were no page issues, then hide the container
     if (!issuesContainer.hasChildNodes()) {
