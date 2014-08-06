@@ -152,8 +152,6 @@
   <string name="more_activity_title">കൂടുതൽ</string>
   <string name="about_description">വിക്കിപീഡിയ ആപിന്റെ വിവരണം</string>
   <string name="preference_title_version">പതിപ്പ്</string>
-  <string name="about_terms_of_use">&lt;a href=\"http://wikimediafoundation.org/wiki/Terms_of_Use/ml\"&gt;ഉപയോഗനിബന്ധനകൾ&lt;/a&gt;</string>
-  <string name="about_privacy_policy">&lt;a href=\"http://wikimediafoundation.org/wiki/Privacy_policy\"&gt;സ്വകാര്യതാനയം&lt;/a&gt;</string>
   <string name="about_libraries_heading">ഉപയോഗിച്ചിട്ടുള്ള ലൈബ്രറികൾ</string>
   <string name="about_contributors_heading">സംഭാവകർ</string>
   <string name="about_wmf">ഒരു &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;വിക്കിമീഡിയ ഫൗണ്ടേഷൻ&lt;/a&gt; ഉത്പന്നം</string>

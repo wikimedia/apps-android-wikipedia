@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">Rensa bokmärken</string>
   <string name="menu_clear_all_saved_pages">Rensa sparade sidor</string>
   <string name="page_does_not_exist_error">Denna sida finns inte!</string>
+  <string name="nav_item_today">Idag</string>
   <string name="dialog_title_clear_history">Rensa webbhistorik?</string>
   <string name="saved_pages_activity_title">Sparade sidor</string>
   <string name="nav_item_saved_pages">Sparade sidor</string>
@@ -160,6 +161,10 @@
   <string name="more_item_preferences">Mer</string>
   <string name="more_activity_title">Mer</string>
   <string name="about_description">Om Wikipedia-appen</string>
+  <string name="privacy_policy_description">Integritetspolicy</string>
+  <string name="terms_of_use_description">Användarvillkor</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Version</string>
   <string name="about_libraries_heading">använda bibliotek</string>
   <string name="about_contributors_heading">Bidragsgivare</string>
@@ -196,11 +201,13 @@
   <string name="abusefilter_title_disallow">Du kan inte spara denna redigering. Gå tillbaka och ändra den.</string>
   <string name="abusefilter_text_warn">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv. Den kan innehålla en eller flera av följande:&lt;br /&gt;&lt;br /&gt;· Text skriven helt med versaler&lt;br /&gt;· Tömande av artiklar eller spam&lt;br /&gt;· Irrelevanta externa länkar eller bilder&lt;br /&gt;· Upprepade tecken</string>
   <string name="abusefilter_text_disallow">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv eller potentiell vandalism.&lt;br /&gt;&lt;br /&gt;Wikipedia är en encyklopedi och endast neutralt, nämnvärt innehåll hör hemma här.</string>
+  <string name="dialog_page_issues">Problem i sidan</string>
   <string name="menu_themechooser">Ändra teckensnitt och tema</string>
   <string name="text_size_select">Teckenstorlek</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Ljus</string>
   <string name="color_theme_dark">Mörk</string>
+  <string name="page_similar_titles">Liknande titlar</string>
   <string name="app_store_description">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt. Appen har skrivits om från grunden och är bättre än någonsin.
 
 Funktioner:

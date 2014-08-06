@@ -40,6 +40,7 @@
   <string name="saved_pages_search_list_hint">Sichen</string>
   <string name="saved_pages_search_empty_message">Keng Säite mat \"%s\" fonnt</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>
+  <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
   <string name="preference_title_language">Wikipedia-Sprooch</string>
   <string name="preference_summary_language">Sprooch vum Inhalt</string>
   <string name="preference_languages_filter_hint">Sichen</string>

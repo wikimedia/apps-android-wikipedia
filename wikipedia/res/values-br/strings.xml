@@ -172,6 +172,7 @@
   <string name="edit_summary_tag_typo">Vi-koukoug reizhet</string>
   <string name="edit_summary_tag_grammar">Fazi yezhadur reizhet</string>
   <string name="edit_summary_tag_links">Liammoù ouzhpennet</string>
+  <string name="edit_summary_tag_other">All</string>
   <string name="find_in_page">Klask er bajenn</string>
   <string name="find_next">Kavout an hini da-heul</string>
   <string name="find_previous">Kavout an hini a-raok</string>
@@ -188,4 +189,5 @@
   <string name="color_theme_select">Tem</string>
   <string name="color_theme_light">Sklaer</string>
   <string name="color_theme_dark">Teñval</string>
+  <string name="page_similar_titles">Titloù kar</string>
 </resources>

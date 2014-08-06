@@ -100,6 +100,8 @@
   <string name="more_activity_title">Кхин</string>
   <string name="privacy_policy_description">Къайлаха политика</string>
   <string name="terms_of_use_description">Лелоран хьал</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Къайлаха_политика</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Лелоран_хьал</string>
   <string name="preference_title_version">Верси</string>
   <string name="about_translators_heading">гочдархой</string>
   <string name="about_translators_translatewiki">ХӀара тӀетохар гочйина &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чура шен лаамернигаш.</string>
@@ -110,9 +112,11 @@
   <string name="saved_pages_update_all_error_retry">ЮхагӀорта</string>
   <string name="menu_page_saved">АгӀо Ӏалашйина</string>
   <string name="menu_refresh_saved_page">Карлаяккха агӀо</string>
+  <string name="dialog_page_issues">АгӀонгахь хаатарш</string>
   <string name="menu_themechooser">Кечяр а шрифт а хийцар</string>
   <string name="text_size_select">Шрифтан барам</string>
   <string name="color_theme_select">Кечяр</string>
   <string name="color_theme_light">Сирла</string>
   <string name="color_theme_dark">Бодане</string>
+  <string name="page_similar_titles">Тера корташ</string>
 </resources>
