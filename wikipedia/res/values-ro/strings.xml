@@ -118,7 +118,7 @@
   <string name="zero_search_hint">Căutare în Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avertizează-mă dacă părăsesc Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">În cazul în care, printr-un parteneriat Wikipedia Zero, operatorul dumneavoastră de telefonie mobilă nu percepe tarife pentru traficul de date din aplicația Wikipedia, bifarea acestei opțiuni vă înștiințează atunci când părăsiți aplicația Wikipedia și ați putea fi taxat.</string>
-  <string name="zero_webpage_title">FAQ Wikipedia Zero</string>
+  <string name="zero_webpage_title">Într. frecv. Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Părăsire Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Se pot aplica tarife de date. Continuați către site-ul extern?</string>

@@ -17,7 +17,7 @@
   <string name="menu_clear_all_bookmarks">ブックマークを空にする</string>
   <string name="menu_clear_all_saved_pages">保存したページをすべて消去</string>
   <string name="page_does_not_exist_error">このページは存在しません</string>
-  <string name="nav_item_today">今日は何の日</string>
+  <string name="nav_item_today">今日のメインページ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去しますか?</string>
   <string name="saved_pages_activity_title">保存したページ</string>
   <string name="nav_item_saved_pages">保存したページ</string>

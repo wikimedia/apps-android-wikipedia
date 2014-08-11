@@ -17,9 +17,12 @@
   <string name="menu_clear_all_bookmarks">Vymazať záložky</string>
   <string name="menu_clear_all_saved_pages">Vymazať všetky uložené stránky</string>
   <string name="page_does_not_exist_error">Táto stránka neexistuje.</string>
+  <string name="nav_item_today">Dnes</string>
   <string name="dialog_title_clear_history">Vymazať históriu prehliadania?</string>
   <string name="saved_pages_activity_title">Uložené stránky</string>
   <string name="nav_item_saved_pages">Uložené stránky</string>
+  <string name="menu_update_all_saved_pages">Aktualizovať uložené stránky</string>
+  <string name="menu_update_selected_saved_pages">Aktualizovať uložené stránky</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Aktualizovať všetky uložené stránky?</string>
   <string name="toast_saved_page_refreshed">Uložené stránky boli aktualizované</string>
   <string name="menu_save_page">Uložiť stránku</string>
@@ -31,10 +34,15 @@
   <string name="toast_saved_page">Stránka bola úspešne uložená</string>
   <string name="toast_saved_page_missing_images">Nepodarilo sa uložiť všetky obrázky</string>
   <string name="toast_save_page_failed">Uloženie stránky zlyhalo :(</string>
+  <string name="toast_refresh_saved_page">Aktualizácia uloženej stránky ...</string>
   <string name="delete_selected_saved_pages">Zmazať</string>
   <string name="toast_saved_page_deleted">Uložené stránky boli odstránené</string>
+  <string name="saved_pages_search_list_hint">Hľadať</string>
+  <string name="saved_pages_search_empty_message">Žiadne stránky nenašli \"%s\"</string>
   <string name="last_updated_text">Posledná aktualizácia %1$s</string>
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="edit_save_action_license_logged_in">Zároveň s uložením, súhlasíš s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami použitia&lt;/a&gt; a neodvolateľne s uverejnením tvojich príspevkov pod &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciou.</string>
+  <string name="edit_save_action_license_anon">Zároveň s uložením, súhlasíš s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami použitia&lt;/a&gt;a neodvolateľním uverejnením tvojich príspevkov pod &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciou. Úpravy budú pridelené IP adrese tvojho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt;, budeš disponovať vyššou ochranou údajov.</string>
   <string name="preference_title_language">Jazyk</string>
   <string name="preference_summary_language">Jazyk obsahu</string>
   <string name="preference_languages_filter_hint">Hľadať</string>
@@ -58,6 +66,7 @@
   <string name="title_captcha">Zadajte text</string>
   <string name="edit_section_abusefilter_back_text">Zmeniť moju úpravu</string>
   <string name="edit_section_captcha_reload">Ťuknutím načítate captchu znovu</string>
+  <string name="edit_saved_page_refresh">Táto uložená stránka môže byť zastaralá a pre umožnenie editácie je potrebnú ju aktualizovať. Chcete stránku aktualizovať?</string>
   <string name="nav_item_login">Prihlásiť sa</string>
   <string name="login_username_hint">Používateľské meno</string>
   <string name="login_password_hint">Heslo</string>
@@ -74,9 +83,16 @@
   <string name="login_error_no_network">Žiadne sieťové pripojenie</string>
   <string name="nav_item_logout">Odhlásiť sa</string>
   <string name="preference_title_logout">Odhlásiť sa</string>
+  <string name="preference_summary_logout">Odhlásiť sa z používateľského účtu Wikipédie</string>
+  <string name="preference_summary_notloggedin">Nie ste prihlásený</string>
   <string name="toast_logout_complete">Ste odhlásení.</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Žiadne uložené stránky</string>
-  <string name="history_empty_message" fuzzy="true">Vaša história je prázdna.</string>
+  <string name="saved_pages_empty_title">Žiadne nemáte uložené stránky.</string>
+  <string name="saved_pages_empty_message">Uložené stránky sú úžasné. Vyskúšajte si ich aj ako obľúbené stránky, ktoré je možné používať v offline režime.</string>
+  <string name="history_empty_title">Žiadne posledne zobrazené stránky.</string>
+  <string name="history_empty_message">Pravdepodobne si vymazal všetky časti. Nabudúce, keď túto stránku navštíviš, sa možeš odtiaľto k nim vrátiť.</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_tag_line">slobodná encyklopédia</string>
+  <string name="skip">Preskočiť</string>
   <string name="create_account_username_hint">Používateľské meno</string>
   <string name="create_account_password_hint">Heslo</string>
   <string name="menu_create_account">Vytvoriť účet</string>
@@ -98,6 +114,7 @@
   <string name="create_account_button">Vytvoriť účet</string>
   <string name="preferences_general_heading">Všeobecné</string>
   <string name="zero_charged_verbiage">Wikipédia Zero je vypnutá</string>
+  <string name="zero_charged_verbiage_extended">Načítaním daľších článkov môžu vzniknúť poplatky za prenos dát.</string>
   <string name="zero_search_hint">Hľadať vo Wikipédii Zero</string>
   <string name="zero_warn_when_leaving">Upozorniť ma ak opúšťam Wikipédiu Zero</string>
   <string name="zero_warn_when_leaving_summary">Pokiaľ váš mobilní operátor v rámci Wikipédie Zero neúčtuje poplatky za dátové pripojenie k Wikipédii, ponechaním tohto políčka zaškrtnutého zaistíte, že se dozviete o jej opustení a hrozbe platenia za dátové pripojenie.</string>
@@ -134,14 +151,61 @@
   <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimédií zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
   <string name="history_search_list_hint">Hľadať</string>
+  <string name="history_search_empty_message">Žiadne stránky nenašli \"%s\"</string>
+  <string name="error_can_not_process_link">Nie je možné zobraziť tento odkaz</string>
+  <string name="page_protected_autoconfirmed">Táto stránka je polozamknutá.</string>
+  <string name="page_protected_sysop">Táto stránka je zamknutá.</string>
+  <string name="page_protected_other">Táto stránka je zamknutá do nasledovných úrovní: %s</string>
+  <string name="page_protected_can_not_edit">Nemáte práva na editáciu tejto stránky.</string>
   <string name="page_protected_can_not_edit_title">Táto stránka je chránená</string>
+  <string name="more_item_preferences">Viac</string>
+  <string name="more_activity_title">Viac</string>
   <string name="about_description">O aplikácií</string>
+  <string name="privacy_policy_description">Ochrana osobných údajov</string>
+  <string name="terms_of_use_description">Podmienky používania</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy/sk</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/sk</string>
   <string name="preference_title_version">Verzia</string>
+  <string name="about_libraries_heading">použité knižnice</string>
+  <string name="about_contributors_heading">Prispievatelia</string>
+  <string name="about_translators_heading">Prekladatelia</string>
+  <string name="about_translators_translatewiki">Táto aplikácia bola preložená s pomocou dobrovoľných prekladateľov na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Nadácie WMF&lt;/a&gt;</string>
+  <string name="about_activity_title">O aplikácii</string>
   <string name="edit_unchanged">Na stránke neboli vykonané úpravy.</string>
   <string name="edit_abandon_confirm">Na stránke boli vykonané úpravy. Naozaj chcete opustiť stránku bez uloženia úprav?</string>
+  <string name="user_blocked_from_editing_title">Zablokované</string>
+  <string name="user_logged_in_blocked_from_editing">Váš používateľský účet bol pre úpravy na tejto wiki zablokovaný.</string>
+  <string name="user_anon_blocked_from_editing">Vaša IP adresa bola pre editácie zablokovaná.</string>
+  <string name="edit_how_page_improved">Ako ste vylepšili stránku?</string>
   <string name="edit_next">Ďalej</string>
   <string name="edit_done">Uložiť</string>
   <string name="edit_preview">Náhľad</string>
+  <string name="edit_summary_tag_typo">Opravený preklep</string>
+  <string name="edit_summary_tag_grammar">Oprava pravopisu</string>
+  <string name="edit_summary_tag_links">Pridané odkazy</string>
+  <string name="edit_summary_tag_other">Iné</string>
+  <string name="edit_summary_tag_other_hint">Iné spôsoby, ako ste zlepšili túto stránku</string>
+  <string name="find_in_page">Nájsť na stránke</string>
+  <string name="find_next">Nájsť ďalšie</string>
+  <string name="find_previous">Nájsť predchádzajúce</string>
+  <string name="find_close">Zavrieť vyhľadávaciu lištu</string>
+  <string name="error_network_error_try_again">Nepodarilo sa pripojiť k sieti, prosím skúste znova.</string>
   <string name="saved_pages_update_all_error_retry">Znova</string>
+  <string name="saved_pages_update_all_error_message">Chyba pri aktualizácii uložených stránok</string>
+  <string name="saved_pages_progress_title">Obnovenie uložených stránok</string>
   <string name="saved_pages_refresh_pages_complete">Aktualizácia je dokončená</string>
+  <string name="menu_page_saved">Stránka uložená</string>
+  <string name="menu_refresh_saved_page">Obnoviť stránku</string>
+  <string name="abusefilter_title_warn">Táto editácia môže byť nekonštruktívna. Naozaj si ju prajete uložiť?</string>
+  <string name="abusefilter_title_disallow">Túto editáciu nie je možné uložiť. Vráť sa späť prosím a zmeň ju.</string>
+  <string name="abusefilter_text_warn">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu. Mohla by obsahovať jednu alebo viaceré nasledovné veci:&lt;br /&gt;&lt;br /&gt;· vloženie iba veľkých písmen&lt;br /&gt;· vymazávanie článkov alebo spam&lt;br /&gt;· nerelevantné externé linky alebo obrázky&lt;br /&gt;· opakujúce sa znaky</string>
+  <string name="abusefilter_text_disallow">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu alebo vandalizmus.&lt;br /&gt;&lt;br /&gt; Wikipédia je encyklopédia a patrí do nej iba nesporný a relevantný obsah.</string>
+  <string name="dialog_page_issues">Problémy stránky</string>
+  <string name="menu_themechooser">Zmeniť písmo a vzhľad</string>
+  <string name="text_size_select">Veľkosť písma</string>
+  <string name="color_theme_select">Vzhľad</string>
+  <string name="color_theme_light">Svetlý</string>
+  <string name="color_theme_dark">Tmavý</string>
+  <string name="page_similar_titles">Podobné tituly</string>
 </resources>

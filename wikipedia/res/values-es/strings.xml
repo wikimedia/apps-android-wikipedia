@@ -86,8 +86,10 @@
   <string name="preference_summary_logout">Cerrar sesión de tu cuenta de Wikipedia</string>
   <string name="preference_summary_notloggedin">Sesión no iniciada.</string>
   <string name="toast_logout_complete">Sesión cerrada</string>
+  <string name="saved_pages_empty_title">No hay páginas guardadas aún.</string>
   <string name="saved_pages_empty_message">Las páginas guardadas son bastante impresionantes. Piensa en ellas como marcadores que se pueden leer incluso cuando estás sin conexión.</string>
-  <string name="history_empty_message" fuzzy="true">Tu historial está vacío.</string>
+  <string name="history_empty_title">No hay páginas recientes aquí.</string>
+  <string name="history_empty_message">Probablemente borraste el historial. La próxima vez que vayas a una página puedes recuperarla desde aquí.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">La enciclopedia libre</string>
   <string name="skip">Omitir</string>
@@ -195,6 +197,10 @@
   <string name="saved_pages_refresh_pages_complete">Actualización completa</string>
   <string name="menu_page_saved">Página guardada</string>
   <string name="menu_refresh_saved_page">Recargar página</string>
+  <string name="abusefilter_title_warn">Esta parece una edición no constructiva. ¿Estás seguro de que quieres guardarla?</string>
+  <string name="abusefilter_title_disallow">No puedes guardar esta edición. Por favor vuelve atrás y cámbiala.</string>
+  <string name="abusefilter_text_warn">Un filtro automático ha identificado esta edición como potencialmente no constructiva. Puede contener uno o más de los siguientes:&lt;br&gt;&lt;br&gt;· Escrito en mayúsculas&lt;br&gt;· Articulos en blanco o spam&lt;br&gt;· Enlaces externos irrelevantes o imágenes&lt;br&gt;· Caracteres repetidos</string>
+  <string name="abusefilter_text_disallow">Un filtro automático ha identificado esta edición como potencialmente no constructiva, o probable vandalismo.&lt;br /&gt;&lt;br /&gt;Wikipedia es una enciclopedía y sólo contenido neutral y notable pertenece aquí.</string>
   <string name="dialog_page_issues">Problemas de la página</string>
   <string name="menu_themechooser">Tipo de letra y tema</string>
   <string name="text_size_select">Tamaño de letra</string>
