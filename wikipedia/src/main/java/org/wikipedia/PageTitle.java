@@ -24,20 +24,22 @@ public class PageTitle implements Parcelable {
     private final String namespace;
     private final String text;
     private final String fragment;
+    private final String thumbUrl;
     private final Site site;
 
-    public PageTitle(final String namespace, final String text, final String fragment, final Site site) {
+    public PageTitle(final String namespace, final String text, final String fragment, final String thumbUrl, final Site site) {
         this.namespace = namespace;
         this.text = text;
         this.fragment = fragment;
+        this.thumbUrl = thumbUrl;
         this.site = site;
     }
 
     public PageTitle(final String namespace, final String text, final Site site) {
-        this(namespace, text, null, site);
+        this(namespace, text, null, null, site);
     }
 
-    public PageTitle(String text, final Site site) {
+    public PageTitle(String text, final Site site, String thumbUrl) {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
         if (TextUtils.isEmpty(text)) {
             // If empty, this refers to the main page.
@@ -66,7 +68,12 @@ public class PageTitle implements Parcelable {
             this.text = parts[0];
         }
 
+        this.thumbUrl = thumbUrl;
         this.site = site;
+    }
+
+    public PageTitle(String text, final Site site) {
+        this(text, site, null);
     }
 
     public String getNamespace() {
@@ -83,6 +90,10 @@ public class PageTitle implements Parcelable {
 
     public String getFragment() { return fragment; }
 
+    public String getThumbUrl() {
+        return thumbUrl;
+    }
+
     public String getDisplayText() {
         return getPrefixedText().replace("_", " ");
     }
@@ -98,6 +109,7 @@ public class PageTitle implements Parcelable {
             json.put("namespace", getNamespace());
             json.put("text", getText());
             json.put("fragment", getFragment());
+            json.put("thumbUrl", getThumbUrl());
             return json;
         } catch (JSONException e) {
             // This will also never happen
@@ -110,6 +122,7 @@ public class PageTitle implements Parcelable {
         this.namespace = json.optString("namespace", null);
         this.fragment = json.optString("fragment", null);
         this.text = json.optString("text", null);
+        this.thumbUrl = json.optString("thumbUrl", null);
     }
 
     private String getUriForDomain(String domain) {
@@ -210,6 +223,7 @@ public class PageTitle implements Parcelable {
         text = in.readString();
         fragment = in.readString();
         site = in.readParcelable(Site.class.getClassLoader());
+        thumbUrl = in.readString();
     }
 
     @Override
@@ -218,6 +232,7 @@ public class PageTitle implements Parcelable {
         parcel.writeString(text);
         parcel.writeString(fragment);
         parcel.writeParcelable(site, flags);
+        parcel.writeString(thumbUrl);
     }
 
     @Override

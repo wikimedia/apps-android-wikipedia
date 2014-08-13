@@ -18,6 +18,7 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
+import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.PageTitle;
 import org.wikipedia.QuickReturnHandler;
@@ -33,7 +34,6 @@ import org.wikipedia.editing.EditHandler;
 import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.events.OverflowMenuUpdateEvent;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.pageimages.PageImageSaveTask;
 import org.wikipedia.savedpages.ImageUrlMap;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
@@ -489,25 +489,30 @@ public class PageViewFragment extends Fragment {
     }
 
     /**
-     * Saving a history item needs to be in its own task, since the operation may
-     * actually block for several seconds, and should not be on the main thread.
+     * Save the history entry and page image URL (if available) for the specified page.
      */
-    private class HistorySaveTask extends SaneAsyncTask<Void> {
+    private class PersistPageItemsTask extends SaneAsyncTask<Void> {
         private final HistoryEntry entry;
-        public HistorySaveTask(HistoryEntry entry) {
+        private final PageTitle title;
+        public PersistPageItemsTask(HistoryEntry entry, PageTitle title) {
             super(SINGLE_THREAD);
             this.entry = entry;
+            this.title = title;
         }
 
         @Override
         public Void performTask() throws Throwable {
             app.getPersister(HistoryEntry.class).persist(entry);
+            if (title.getThumbUrl() != null) {
+                PageImage pi = new PageImage(title, title.getThumbUrl());
+                app.getPersister(PageImage.class).upsert(pi);
+            }
             return null;
         }
 
         @Override
         public void onCatch(Throwable caught) {
-            Log.d("HistorySaveTask", "Caught " + caught.getMessage());
+            Log.d("PersistPageItemsTask", "Caught " + caught.getMessage());
         }
     }
 
@@ -559,17 +564,8 @@ public class PageViewFragment extends Fragment {
             // Update our history entry, in case the Title was changed (i.e. normalized)
             curEntry = new HistoryEntry(title, curEntry.getTimestamp(), curEntry.getSource());
 
-            // Add history entry now
-            new HistorySaveTask(curEntry).execute();
-
-            // Save image for this page title
-            new PageImageSaveTask(app, app.getAPIForSite(title.getSite()), title) {
-                @Override
-                public void onCatch(Throwable caught) {
-                    // Don't actually do anything.
-                    // Thumbnails are expendable
-                }
-            }.execute();
+            // Save history entry and page image url
+            new PersistPageItemsTask(curEntry, title).execute();
         }
 
         @Override
@@ -683,8 +679,8 @@ public class PageViewFragment extends Fragment {
                     return;
                 }
 
-                // Add history entry now
-                new HistorySaveTask(curEntry).execute();
+                // Save history entry and page image url
+                new PersistPageItemsTask(curEntry, title).execute();
 
                 page = result;
                 editHandler.setPage(page);

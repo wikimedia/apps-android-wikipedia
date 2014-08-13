@@ -36,16 +36,13 @@ import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActionsHandler;
 import org.wikipedia.page.PopupMenu;
-import org.wikipedia.pageimages.PageImagesTask;
 
 import java.util.List;
-import java.util.Map;
 
 public class SearchArticlesFragment extends Fragment {
     private static final int DELAY_MILLIS = 300;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
     private static final int MAX_CACHE_SIZE_IMAGES = 48;
-    private static final float THUMB_SIZE_DP = 48f;
     private static final int LEFT_MARGIN_BASE_DP = 10;
     private static final float INITIAL_OFFSET_WINDOW = 0.5f;
     private static final int MESSAGE_SEARCH = 1;
@@ -101,35 +98,20 @@ public class SearchArticlesFragment extends Fragment {
      */
     private void displayResults(List<PageTitle> results) {
         adapter.setResults(results);
-        ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
         if (results.size() == 0) {
             searchNoResults.setVisibility(View.VISIBLE);
         } else {
             searchResultsList.setVisibility(View.VISIBLE);
-            PageImagesTask imagesTask = new PageImagesTask(
-                    app.getAPIForSite(app.getPrimarySite()),
-                    app.getPrimarySite(),
-                    results,
-                    (int)(THUMB_SIZE_DP * WikipediaApp.getInstance().getScreenDensity())) {
-                @Override
-                public void onFinish(Map<PageTitle, String> result) {
-                    for (Map.Entry<PageTitle, String> entry : result.entrySet()) {
-                        if (entry.getValue() == null) {
-                            continue;
-                        }
-                        pageImagesCache.put(entry.getKey().getPrefixedText(), entry.getValue());
-                    }
-                    ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
-                }
 
-                @Override
-                public void onCatch(Throwable caught) {
-                    // Don't actually do anything.
-                    // Thumbnails are expendable
+            //cache page thumbnails!
+            for (PageTitle title : results) {
+                if (title.getThumbUrl() == null) {
+                    continue;
                 }
-            };
-            imagesTask.execute();
+                pageImagesCache.put(title.getPrefixedText(), title.getThumbUrl());
+            }
         }
+        ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
     }
 
     @Override
