@@ -2,11 +2,17 @@
 """
 Script that helps stage from master to beta to stable to alternative appstores.
 
-Does the following things in three steps:
-Step 0: (--bump)
+Does the following things in several steps:
+
+Step 0: (--bump, git review, then --bump --push)
     - Do this from the tip of master
     - Increases the versionNumber
-    - Modifes the versionName to have "-master-" and current date, and the channel to be master
+
+
+IMPORTANT NOTE!
+If you need to cherry-pick changes to the release branch then make sure you have a local branch for the commit from
+which to cherry-pick. For example, "git checkout -b" after you fetch someone else's changes from Gerrit.
+
 Step 1: (e.g., --beta):
     - Move package from org.wikipedia to org.wikipedia<.package> if appropriate
     - If appropriate, move folders to accommodate new packages
@@ -15,13 +21,9 @@ Step 1: (e.g., --beta):
     - Modify versionName
     - Make a new commit on a new branch
     - Create an annotated tag called 'releases/versionName'
+
 Step 2: (e.g., --beta --push):
-    - Pushes the git tag created in step 1 to the gerrit remote
-
---beta build step 1 revs the version code by 1
---prod build step 1 revs the version code by 1
---amazon build step 1 does NOT rev the version code
-
+    - Pushes the git branch and tag created in step 1 to gerrit for history
 
 To run
 1) tell people on #wikimedia-mobile you're about to bump the version, so hold off on merging to master
@@ -319,6 +321,7 @@ def main():
                        help='Step 1: Alphabetic versionName&channel&package; Don\'t rev versionCode. OEMs wout/ Play.')
     parser.add_argument('--push', help='Step 2: push git tag created in step 1 to gerrit remote.', action='store_true')
     args = parser.parse_args()
+    # TODO: use something other than 'master' for the standalone branch and tag for bump?
     if args.bump:
         (target, channel, package, uprev) = ('master', 'master', '', True)
     elif args.beta:
@@ -337,6 +340,7 @@ def main():
         print('Error. Please specify --bump, --beta, --prod, --releasesprod, --amazon, --channel, --custompackage')
         sys.exit(-1)
 
+    # TODO: use something other than 'master' for the standalone branch and tag for bump?
     if args.push:
         push_to_gerrit(target)
     elif args.bump:
