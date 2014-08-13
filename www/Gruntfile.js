@@ -48,12 +48,6 @@ module.exports = function ( grunt ) {
                         "js/bridge.js",
                         "tests/*.js"
                     ].concat( oldDroidPolyfills ),
-                    "abusefilter.js": [
-                        "js/loader.js",
-                        "js/bridge.js",
-                        "js/abusefilter.js",
-                        "js/rtlsupport.js"
-                    ].concat( oldDroidPolyfills ),
                     "preview.js": [
                         "js/loader.js",
                         "js/bridge.js",
@@ -79,9 +73,6 @@ module.exports = function ( grunt ) {
 
                     // Test files
                     {src: ["bundle-test.js", "tests/index.html"], dest: "../wikipedia/assets/"},
-
-                    // Abusefilter files
-                    { src: ["abusefilter.js", "abusefilter.html"], dest: "../wikipedia/assets/" },
 
                     // Preview files
                     { src: ["preview.js", "preview.html"], dest: "../wikipedia/assets/" },
