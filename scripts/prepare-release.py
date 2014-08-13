@@ -130,7 +130,8 @@ def push_to_gerrit(target):
     release_name = get_release_name(target)
     print('pushing branch ' + release_name)
     sh.git.push('gerrit', 'HEAD:refs/heads/releases/%s' % release_name)
-    sh.git.push('gerrit', 'HEAD:refs/for/releases/%s' % release_name)
+    # don't need to do this?
+    # sh.git.push('gerrit', 'HEAD:refs/for/releases/%s' % release_name)
 
     tag_name = get_git_tag_name(target)
     print('pushing tag ' + tag_name)
@@ -346,7 +347,8 @@ def main():
     elif args.bump:
         bump(target, channel, package, uprev)
         print('BUMP NOTICE!')
-        print('BUMP NOTICE! Run git review with bumped version and +2 if appropriate')
+        print('BUMP NOTICE! Run git review with bumped version and +2 if appropriate,')
+        print('BUMP NOTICE! Then re-run the script with --bump --push.')
         print('BUMP NOTICE!')
     else:
         make_release(target, channel, package, uprev)
