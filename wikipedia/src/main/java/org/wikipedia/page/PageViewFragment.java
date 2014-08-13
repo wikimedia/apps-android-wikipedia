@@ -354,6 +354,11 @@ public class PageViewFragment extends Fragment {
         referenceHandler = new ReferenceHandler(bridge) {
             @Override
             protected void onReferenceClicked(String refHtml) {
+                if (!isAdded()) {
+                    Log.d("PageViewFragment", "Detached from activity, so stopping reference click.");
+                    return;
+                }
+
                 if (referenceDialog == null) {
                     referenceDialog = new ReferenceDialog(getActivity(), linkHandler);
                 }
