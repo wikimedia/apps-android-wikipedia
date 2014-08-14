@@ -1,0 +1,130 @@
+apply plugin: 'com.android.application'
+
+def versionStart = '2.0'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion '20.0.0'
+    defaultConfig {
+        applicationId 'org.wikipedia'
+        minSdkVersion 10
+        targetSdkVersion 17
+        versionCode 76
+        testApplicationId "org.wikipedia.test"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+    }
+    signingConfigs {
+        release
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    productFlavors {
+        dev {
+            versionName "${versionStart}-dev-${date}"
+        }
+        ci {
+            versionName "${versionStart}-ci-${date}"
+        }
+        master {
+            versionName "${versionStart}-master-${date}"
+        }
+        prod {
+            versionName "${versionStart}-r-${date}"
+        }
+        beta {
+            versionName "${versionStart}-beta-${date}"
+//            applicationId 'org.wikipedia.beta'
+        }
+    }
+    sourceSets {
+        // Still using old Maven archetype based directory structure and
+        // not the new standard Gradle one
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        // TODO: customizing instrumentTest folder locations doesn't work correctly
+        instrumentTest.setRoot('../wikipedia-it')
+        instrumentTest {
+            java.srcDirs = ['../wikipedia-it/src/main/java']
+        }
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+    // while we still have lint errors; remove once those are fixed
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyy-MM-dd')
+    return formattedDate
+}
+
+dependencies {
+    // To keep the Maven Central dependencies up-to-date
+    // use http://gradleplease.appspot.com/ or http://search.maven.org/.
+    // Debug with ./gradlew -q wikipedia:dependencies --configuration compile
+
+    compile('org.mediawiki.api:json:1.1') {
+        exclude group: 'org.json', module: 'json'
+    }
+    compile 'com.squareup.okhttp:okhttp:1.3.0'
+//    compile 'com.squareup.okhttp:okhttp:1.6.0'
+    // maybe even 2.0.0
+    compile 'com.squareup:otto:1.3.4'
+//    compile 'com.squareup:otto:1.3.5'
+    compile 'com.squareup.picasso:picasso:2.1.1'
+//    compile 'com.squareup.picasso:picasso:2.3.2'
+    compile 'com.mobsandgeeks:android-saripaar:1.0.3'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile('ch.acra:acra:4.5.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+    compile 'de.keyboardsurfer.android.widget:crouton:1.8.4@aar'
+    compile 'com.android.support:support-v4:20.0.0'
+    compile 'com.android.support:appcompat-v7:20.0.0@aar'
+}
+
+// The next block is for setting the release signing config from a file outside the git repo
+// To make release builds work:
+// Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
+def Properties props = new Properties()
+def propFile = new File(System.getProperty("user.home"), '.sign/signing.properties')
+if (propFile.canRead()) {
+    props.load(new FileInputStream(propFile))
+
+    if (props != null && props.containsKey('STORE_FILE') && props.containsKey('STORE_PASSWORD') &&
+            props.containsKey('KEY_ALIAS') && props.containsKey('KEY_PASSWORD')) {
+        android.signingConfigs.release.storeFile = file(props['STORE_FILE'])
+        android.signingConfigs.release.storePassword = props['STORE_PASSWORD']
+        android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
+        android.signingConfigs.release.keyPassword = props['KEY_PASSWORD']
+    } else {
+        System.err.println 'signing.properties found but some entries are missing'
+        android.buildTypes.release.signingConfig = null
+    }
+} else {
+    System.err.println 'signing.properties not found'
+    android.buildTypes.release.signingConfig = null
+}

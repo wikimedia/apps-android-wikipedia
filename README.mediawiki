@@ -4,22 +4,50 @@ See also https://git.wikimedia.org/summary/apps%2Fandroid%2Fjava-mwapi.git
 
 These instructions should help a Mac owner download the Wikipedia for Android source code and get the latest - sometimes not yet tested - version running in an emulator and on a real Android device. If you don't know anything about how to navigate around a UNIX/Linux/Mac filesystem and edit files with a program like pico, emacs, or vim, these instructions probably won't make any sense. And as noted below, you probably need to understand git in order to ever contribute source code updates to the new app (new release ~first quarter of 2014). And regarding source code, you will need to probably be pretty good at Java or iOS programming, but more ideally the Android-flavored Java used in Android development to really get down to work or play quickly. But anyway, here we go for those who enjoy a fun side project for a good cause...
 
-1. Download the "ADT Bundle for Mac" from https://developer.android.com/sdk/index.html. This includes Eclipse. However, some other developers are currently using IntelliJ IDEA as their primary Android development IDE. Never hurts to have a couple of IDEs for different purposes.
+1. Install brew if you don't already have it
 
-2. Extract the ADT Bundle compressed file you just downloaded, into a folder of its own inside of /Applications/ (e.g., /Applications/adt/).
+See: http://brew.sh/
 
-3. On a Mac, you'll want to update your ~/.bash_profile file to set the $ANDROID_HOME variable to point to the 'sdk' folder contained in the compressed file you just extracted and to update your system path to point at some binaries. 
+2. Install Android SDK
 
- export ANDROID_HOME=/Applications/adt/sdk
+ brew update
+ brew doctor
+ brew install android
+
+3. On a Mac, you'll want to update your ~/.bash_profile file to set the $ANDROID_HOME variable to point to the 'sdk' folder contained in the compressed file you just extracted and to update your system path to point at some binaries.
+
+ export ANDROID_HOME=/usr/local/opt/android-studio-sdk
  export PATH=$ANDROID_HOME/tools:$PATH
 
 Now, any time you open a new Terminal, the $ANDROID_HOME variable will be set automatically and you'll be able to run command line tools pertinent to Android software development, such as the tool aptly named "android".
 
-4. Speaking of which, in a new Terminal window, run the following command:
+4. Speaking of which, in a new Terminal window, run the following commands:
+ android update sdk -u --filter "tools,platform-tools,build-tools-20.0.0,android-19,extra-android-m2repository"
 
- android sdk
+After you accept the licenses, this will download and install the necessary SDK components for you to build the app.
+
+(If the previous command doesn't find all packages you may have a corrupt cache. Try to run
+ android --clear-cache
+ # then close the SDK Manager window and try the android update sdk command again
+or
+ rm -rf ~/.android/cache
+)
+
+You can find more components via:
+ android list sdk -e -a | less
+
+Alternatively, you can use the GUI:
+
+ android&
 
 This will load a GUI tool called "Android SDK Manager" for managing the Android-related packages necessary for Android programming.
+
+You may want to install some more packages from there. Consider the "System Image" packages of various API levels when using emulators.
+Example:
+* ARM EABI v7a System Image (API 19)
+
+Once you're satisfied that everything has been downloaded and installed, feel free to close the Android SDK Manager.
+
 
 5. The dependencies among the packages in order to support older and newer versions of Android devices can require some effort. But the following selection set is an okay starting point at first (later on you may need to add more stuff to test on different devices and properly compile the app).
 
@@ -146,6 +174,50 @@ Also check "Scan test classes" above.
 18. Enjoy.
 
 19. Help make it better!
+
+== Gradle - experimental ==
+
+=== Import as Gradle project into Android Studio ===
+Most should work with IntelliJ as well.
+In the Quick Start or later from the File menu select "Import Project..."
+Select the folder you clone the git repo to (e.g. android-wikipedia)
+
+If prompted, provide the path to the Android SDK: /usr/local/opt/android-sdk
+
+No need to install Gradle since we're using the Gradle wrapper script.
+
+The defaults on the next screen may need one tweak: check the radio button labeled "Use customizable gradle wrapper". (The Gradle wrapper files already exist in the android-wikipedia Git repository.) Click Next.
+
+Once the import is complete, you probably want to change the build variant to devDebug.
+To do so see the Build Variants tab on the left hand side of Android Studio. If you don't see any tabs on the side click on the button in the lower left, which looks like a computer display.
+
+In Android Studio go to Build > Make Project.
+
+If you are missing the Android support libraries please note that Gradle pulls them from the local Android SDK installation if the '''extra-android-m2repository''' package is installed. See step 4 above.
+
+=== Useful Gradle commands ===
+
+If you prefer command line use the wrapper script in the root of the repo:
+ ./gradlew
+
+To run a clean debug build:
+ ./gradlew clean assembleDevDebug
+
+You can skip the clean part usually, which makes it much faster (from 1m:05s to 7s on my box):
+ ./gradlew assembleDevDebug
+
+To install build on device/emulator:
+ ./gradlew installDevDebug
+
+To run tests:
+ ./gradlew wikipedia:connectedCheck
+Test results will be in wikipedia/build/outputs/androidTest-results/connected/flavors/dev
+
+List dependencies:
+ ./gradlew wikipedia:dependencies --configuration compile
+
+More info: http://developer.android.com/sdk/installing/studio-build.html
+
 
 == Updating bundled JavaScript ==
 

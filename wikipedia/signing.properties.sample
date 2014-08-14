@@ -1,0 +1,4 @@
+STORE_FILE=/path/to/your.keystore
+STORE_PASSWORD=yourkeystorepass
+KEY_ALIAS=projectkeyalias
+KEY_PASSWORD=keyaliaspassword
