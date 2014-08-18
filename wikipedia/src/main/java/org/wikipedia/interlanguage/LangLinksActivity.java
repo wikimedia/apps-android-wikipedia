@@ -19,6 +19,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LangLinksActivity extends ThemedActionBarActivity {
     public static final int ACTIVITY_RESULT_LANGLINK_SELECT = 1;
@@ -77,6 +78,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle langLink = (PageTitle) parent.getAdapter().getItem(position);
+                app.addLanguageToMruList(langLink.getSite().getLanguage());
                 HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
                 Intent intent = new Intent();
                 intent.setClass(LangLinksActivity.this, PageActivity.class);
@@ -145,12 +147,16 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                 public void onFinish(ArrayList<PageTitle> result) {
                     langLinks = result;
 
-                    // If preferred language exists in list, move it to the top
-                    for (int i = 0; i < result.size(); i++) {
-                        if (langLinks.get(i).getSite().getLanguage().equals(app.getPrimaryLanguage())) {
-                            PageTitle preferredLink = langLinks.remove(i);
-                            langLinks.add(0, preferredLink);
-                            break;
+                    List<String> mru = app.getLanguageMruList();
+                    // Rearrange language list based on the mru list
+                    int addIndex = 0;
+                    for (String langCode : mru) {
+                        for (int i = 0; i < result.size(); i++) {
+                            if (langLinks.get(i).getSite().getLanguage().equals(langCode)) {
+                                PageTitle preferredLink = langLinks.remove(i);
+                                langLinks.add(addIndex++, preferredLink);
+                                break;
+                            }
                         }
                     }
 

@@ -18,21 +18,33 @@ import org.wikipedia.WikipediaApp;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 public class LanguagePreference extends DialogPreference {
     private ListView languagesList;
     private EditText languagesFilter;
 
-    private final String[] languages;
+    private final List<String> languages;
     private final WikipediaApp app;
 
     public LanguagePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setPersistent(false);
         setDialogLayoutResource(R.layout.dialog_preference_languages);
-        languages = context.getResources().getStringArray(R.array.preference_language_keys);
+        languages = new ArrayList<String>();
+        languages.addAll(Arrays.asList(context.getResources().getStringArray(R.array.preference_language_keys)));
         app = (WikipediaApp) context.getApplicationContext();
+
+        List<String> mru = app.getLanguageMruList();
+        int addIndex = 0;
+        for (String langCode : mru) {
+            if (languages.contains(langCode)) {
+                languages.remove(langCode);
+                languages.add(addIndex++, langCode);
+            }
+        }
+
         int langIndex = app.findWikiIndex(app.getPrimaryLanguage());
         setSummary(app.localNameFor(langIndex));
         setPositiveButtonText(null);
@@ -50,6 +62,7 @@ public class LanguagePreference extends DialogPreference {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String lang = (String) languagesList.getAdapter().getItem(i);
                 app.setPrimaryLanguage(lang);
+                app.addLanguageToMruList(lang);
                 int langIndex = app.findWikiIndex(app.getPrimaryLanguage());
                 setSummary(app.localNameFor(langIndex));
                 LanguagePreference.this.getDialog().dismiss();
@@ -58,9 +71,8 @@ public class LanguagePreference extends DialogPreference {
 
         languagesList.setAdapter(new LanguagesAdapter(languages, app));
 
-        int selectedLangIndex = Arrays.asList(languages).indexOf(app.getPrimaryLanguage());
+        int selectedLangIndex = languages.indexOf(app.getPrimaryLanguage());
         languagesList.setItemChecked(selectedLangIndex, true);
-        languagesList.setSelection(selectedLangIndex - 1);
 
         languagesFilter.addTextChangedListener(new TextWatcher() {
             @Override
@@ -85,13 +97,14 @@ public class LanguagePreference extends DialogPreference {
     }
 
     private static final class LanguagesAdapter extends BaseAdapter {
-        private final String[] originalLanguages;
-        private final ArrayList<String> languages;
+        private final List<String> originalLanguages;
+        private final List<String> languages;
         private final WikipediaApp app;
 
-        private LanguagesAdapter(String[] languages, WikipediaApp app) {
+        private LanguagesAdapter(List<String> languages, WikipediaApp app) {
             this.originalLanguages = languages;
-            this.languages = new ArrayList(Arrays.asList(languages));
+            this.languages = new ArrayList<String>();
+            this.languages.addAll(languages);
             this.app = app;
         }
 

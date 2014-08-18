@@ -17,4 +17,5 @@
     <string name="preference_text_size_multiplier">textSizeMultiplier</string>
     <string name="preference_color_theme">colorTheme</string>
     <string name="preference_channel">channel</string>
+    <string name="preference_language_mru">languageMru</string>
 </resources>

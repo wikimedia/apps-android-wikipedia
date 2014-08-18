@@ -40,8 +40,10 @@ import org.wikipedia.pageimages.PageImagePersister;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.savedpages.SavedPagePersister;
 import org.wikipedia.settings.PrefKeys;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
@@ -93,6 +95,8 @@ public class WikipediaApp extends Application {
     public static final int FONT_SIZE_MULTIPLIER_MIN = -5;
     public static final int FONT_SIZE_MULTIPLIER_MAX = 8;
     private static final float FONT_SIZE_FACTOR = 0.1f;
+
+    private List<String> languageMruList;
 
     /**
      * Singleton instance of WikipediaApp
@@ -551,4 +555,23 @@ public class WikipediaApp extends Application {
         int multiplier = PreferenceManager.getDefaultSharedPreferences(this).getInt(PrefKeys.getTextSizeMultiplier(), 0);
         return Utils.getFontSizeFromSp(window, getResources().getDimension(R.dimen.textSize)) * (1.0f + multiplier * FONT_SIZE_FACTOR);
     }
+
+    public List<String> getLanguageMruList() {
+        if (languageMruList == null) {
+            languageMruList = new ArrayList<String>();
+            String mruString = PreferenceManager.getDefaultSharedPreferences(this).getString(PrefKeys.getLanguageMru(), getPrimaryLanguage());
+            languageMruList.addAll(Arrays.asList(mruString.split(",")));
+        }
+        return languageMruList;
+    }
+
+    public void addLanguageToMruList(String langCode) {
+        if (languageMruList != null) {
+            languageMruList.remove(langCode);
+            languageMruList.add(0, langCode);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            prefs.edit().putString(PrefKeys.getLanguageMru(), TextUtils.join(",", languageMruList)).commit();
+        }
+    }
+
 }
