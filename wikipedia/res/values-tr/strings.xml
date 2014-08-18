@@ -178,7 +178,7 @@
   <string name="user_logged_in_blocked_from_editing">Kullanıcı hesabınızın, bu viki üzerinde değişiklik yapması engellendi.</string>
   <string name="user_anon_blocked_from_editing">IP adresinizin değişiklik yapması engellendi.</string>
   <string name="edit_how_page_improved">Sayfayı hangi yönden geliştirdiniz?</string>
-  <string name="edit_next">Sonraki</string>
+  <string name="edit_next">İleri</string>
   <string name="edit_done">Kaydet</string>
   <string name="edit_preview">Ön izleme</string>
   <string name="edit_summary_tag_typo">Yazım hatası düzeltildi</string>

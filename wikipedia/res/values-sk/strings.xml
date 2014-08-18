@@ -85,7 +85,7 @@
   <string name="preference_title_logout">Odhlásiť sa</string>
   <string name="preference_summary_logout">Odhlásiť sa z používateľského účtu Wikipédie</string>
   <string name="preference_summary_notloggedin">Nie ste prihlásený</string>
-  <string name="toast_logout_complete">Ste odhlásení.</string>
+  <string name="toast_logout_complete">Ste odhlásený.</string>
   <string name="saved_pages_empty_title">Žiadne nemáte uložené stránky.</string>
   <string name="saved_pages_empty_message">Uložené stránky sú úžasné. Vyskúšajte si ich aj ako obľúbené stránky, ktoré je možné používať v offline režime.</string>
   <string name="history_empty_title">Žiadne posledne zobrazené stránky.</string>
@@ -198,7 +198,7 @@
   <string name="menu_page_saved">Stránka uložená</string>
   <string name="menu_refresh_saved_page">Obnoviť stránku</string>
   <string name="abusefilter_title_warn">Táto editácia môže byť nekonštruktívna. Naozaj si ju prajete uložiť?</string>
-  <string name="abusefilter_title_disallow">Túto editáciu nie je možné uložiť. Vráť sa späť prosím a zmeň ju.</string>
+  <string name="abusefilter_title_disallow">Túto úpravu nie je možné uložiť. Vráťte sa prosím späť a zmeňte ju.</string>
   <string name="abusefilter_text_warn">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu. Mohla by obsahovať jednu alebo viaceré nasledovné veci:&lt;br /&gt;&lt;br /&gt;· vloženie iba veľkých písmen&lt;br /&gt;· vymazávanie článkov alebo spam&lt;br /&gt;· nerelevantné externé linky alebo obrázky&lt;br /&gt;· opakujúce sa znaky</string>
   <string name="abusefilter_text_disallow">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu alebo vandalizmus.&lt;br /&gt;&lt;br /&gt; Wikipédia je encyklopédia a patrí do nej iba nesporný a relevantný obsah.</string>
   <string name="dialog_page_issues">Problémy stránky</string>
@@ -208,4 +208,16 @@
   <string name="color_theme_light">Svetlý</string>
   <string name="color_theme_dark">Tmavý</string>
   <string name="page_similar_titles">Podobné tituly</string>
+  <string name="app_store_description">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.
+
+Funkcie:
+   - Rýchlosť: Naša nová aplikácia vám umožňuje čítať a upravovať Wikipédiu rýchlejšie ako kedykoľvek predtým.
+   - Upravovanie: Wikipédiu môžete upravovať! Či už ste prihlásený alebo neprihlásený, ďakujeme za všetky vaše príspevky. 
+   - Nedávne stránky: Ponúkame vám históriu toho čo ste čítali, takže sa môžete preklikávať ľubovoľným množstvom článkov bez toho, aby ste sa stratili.
+   - Uložené stránky: Môžete si uložit vybrané stránky na offline čítanie a čítať si ich aj bez dátového pripojenie..
+   - Zdieľanie: Zdieľajte množstvo ľudských znalostí pomocou existujúcich aplikácií sociálnych sietí.
+   - Podpora jazykov: Aplikácia vám umožňuje ľahko prechádzať medzi rôznymi jazykovými mutáciami článkov na Wikipédií.
+   - Wikipédia Zero: Bezplatné dátové pripojenie od vybraných mobilných operátorov.
+
+Používame otvorený zdrojový kód. Pokiaľ máte skúsenosti s Javou a SDK Androidu, môžete forkovať! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

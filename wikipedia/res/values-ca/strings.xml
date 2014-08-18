@@ -41,6 +41,8 @@
   <string name="saved_pages_search_empty_message">No s\'ha trobat cap pàgina que coincideixi amb «%s»</string>
   <string name="last_updated_text">Última actualització %1$s</string>
   <string name="content_license_html">El contingut està disponible sota llicència &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
+  <string name="edit_save_action_license_logged_in">En desar accepteu les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">En desar accepteu les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
   <string name="preference_title_language">Idioma</string>
   <string name="preference_summary_language">Idioma del contingut</string>
   <string name="preference_languages_filter_hint">Cerca</string>
@@ -64,6 +66,7 @@
   <string name="title_captcha">Entreu captcha</string>
   <string name="edit_section_abusefilter_back_text">Revisar la meva edició</string>
   <string name="edit_section_captcha_reload">Toqueu el captcha per recarregar</string>
+  <string name="edit_saved_page_refresh">La pàgina desada podria no estar al dia i cal refrescar-la per permetre\'n la modificació. Voleu refrescar la pàgina?</string>
   <string name="nav_item_login">Inici de sessió</string>
   <string name="login_username_hint">Nom d\'usuari</string>
   <string name="login_password_hint">Contrasenya</string>
@@ -84,9 +87,9 @@
   <string name="preference_summary_notloggedin">No s\'ha iniciat la sessió.</string>
   <string name="toast_logout_complete">Desconnectat</string>
   <string name="saved_pages_empty_title">No hi ha pàgines desades encara.</string>
-  <string name="saved_pages_empty_message" fuzzy="true">No hi ha pàgines desades.</string>
+  <string name="saved_pages_empty_message">Les pàgines desades són fantàstiques. Penseu que són talment com adreces d\'interès que podeu llegir fins i tot sense connexió.</string>
   <string name="history_empty_title">No hi ha pàgines recents aquí.</string>
-  <string name="history_empty_message" fuzzy="true">L\'historial és buit.</string>
+  <string name="history_empty_message">Probablement les heu eliminat totes. La propera vegada que aneu a una pàgina podeu tornar-hi des d\'aquí.</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IQUIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">L\'enciclopèdia lliure</string>
   <string name="skip">Omet</string>
@@ -118,9 +121,9 @@
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Sortint de Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Es podrien generar tarifes de dades. Voleu continuar al lloc extern?</string>
-  <string name="zero_interstitial_continue" fuzzy="true">Continua</string>
+  <string name="zero_interstitial_continue">Deixa</string>
   <string name="zero_interstitial_cancel">Roman aquí</string>
-  <string name="zero_learn_more" fuzzy="true">Voleu saber més sobre la Viquipèdia Zero?</string>
+  <string name="zero_learn_more">No s\'apliquen costos de dades per a aquesta aplicació de la Viquipèdia.</string>
   <string name="zero_learn_more_learn_more">Més informació</string>
   <string name="zero_learn_more_dismiss">Descarta</string>
   <string name="zero_settings">Preferències</string>
@@ -129,6 +132,7 @@
   <string name="edit_preview_fetching_dialog_message">Obtenció de la previsualització...</string>
   <string name="edit_preview_activity_title">Previsualitza la modificació</string>
   <string name="create_account_logging_in">Inici de sessió...</string>
+  <string name="send_feedback">Envia comentaris de l\'aplicació</string>
   <string name="edit_summary_guide_text">Explica els canvis que has relitzat en aquesta pàgina. Això ajuda als altres editors a supervisar la teva edició més ràpidament</string>
   <string name="edit_summary_hint">Resum d\'edició</string>
   <string name="nav_item_random">A l\'atzar</string>
@@ -162,6 +166,8 @@
   <string name="about_libraries_heading">biblioteques utilitzades</string>
   <string name="about_contributors_heading">col·laboradors</string>
   <string name="about_translators_heading">traductors</string>
+  <string name="about_translators_translatewiki">La traducció de l\'aplicació és obra dels traductors voluntaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_wmf">Un producte de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Quant a</string>
   <string name="edit_unchanged">No s\'ha modificat la pàgina.</string>
   <string name="edit_abandon_confirm">S\'ha modificat la pàgina. Esteu segur que voleu sortir sense desar-ne els canvis?</string>
@@ -194,6 +200,19 @@
   <string name="menu_themechooser">Canvia el tipus de lletra i el tema</string>
   <string name="text_size_select">Mida de lletra</string>
   <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Clar</string>
   <string name="color_theme_dark">Fosc</string>
   <string name="page_similar_titles">Títols similars</string>
+  <string name="app_store_description">Aplicació oficial de la Viquipèdia per a l\'Android. La Viquipèdia és una enciclopèdia lliure que conté més de 32 milions d\'articles en 280 llengües. Es tracta d\'una de les obres de referència més usades i comprensives mai compilada per la humanitat. L\'aplicació ha estat reescrita de bell nou i és millor que mai.
+
+Característiques:
+ - Rapidesa: com a aplicació nativa us permet navegar i editar la Viquipèdia més ràpid que abans.
+ - Edició: podeu utilitzar-la per editar la Viquipèdia! Tant si ho feu sota un usuari com de forma anònima, agraïm totes les contribucions.
+ - Pàgines recents: us proporcionem un historial de lectura. Així podeu tocar tants enllaços com vulgueu sense preocupar-vos de perdre el fil.
+ - Pàgines desades: podeu seleccionar i desar pàgines per a llegir-les fora de línia i consultar-les allà on no tingueu connexió.
+ - Compartició: feu servir les vostres aplicacions socials per a compartir la summa del coneixement humà.
+ - Suport d\'idioma: l\'aplicació us permet consultar fàcilment les versions de la Viquipèdia en diferents llengües.
+ - Wikipedia Zero: alguns operadors mòbils renuncien als costos de dades associats en l\'ús de l\'aplicació.
+
+El codi és totalment obert. Si teniu experiència en Java i en l\'SDK de l\'Android, «feu-ne fork»! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

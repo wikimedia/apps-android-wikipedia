@@ -55,7 +55,7 @@
   <string name="menu_save_changes">儲存修改</string>
   <string name="edit_section_error_retry">重試</string>
   <string name="dialog_saving_in_progress">儲存中...</string>
-  <string name="edit_saved_successfully">編輯已保存！</string>
+  <string name="edit_saved_successfully">已儲存編輯！</string>
   <string name="dialog_message_edit_failed">編輯失敗 ！</string>
   <string name="dialog_message_edit_failed_retry">重試</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
@@ -72,7 +72,7 @@
   <string name="login_password_hint">密碼</string>
   <string name="login_password_show_check">顯示密碼</string>
   <string name="menu_login">登入</string>
-  <string name="login_activity_title">登錄到維基百科</string>
+  <string name="login_activity_title">登入至維基百科</string>
   <string name="login_in_progress_dialog_message">正在登入...</string>
   <string name="login_error_wrong_password">密碼錯誤。</string>
   <string name="login_error_wrong_username">用戶名錯誤</string>
@@ -93,7 +93,7 @@
   <string name="wp_stylized">&lt;big&gt;維&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="wp_tag_line">自由的百科全書</string>
   <string name="skip">略過</string>
-  <string name="create_account_username_hint">使用者名稱</string>
+  <string name="create_account_username_hint">用戶名</string>
   <string name="create_account_password_hint">密碼</string>
   <string name="menu_create_account">建立帳戶</string>
   <string name="login_create_account_link">沒有帳戶嗎？加入到維基百科吧</string>
@@ -105,7 +105,7 @@
   <string name="create_account_password_repeat_hint">重複輸入密碼</string>
   <string name="create_account_passwords_mismatch_error">密碼不匹配</string>
   <string name="create_account_email_error">E-Mail 格式不正確</string>
-  <string name="create_account_username_exists_error">使用者名稱已在使用中</string>
+  <string name="create_account_username_exists_error">用戶名已被使用</string>
   <string name="create_account_ip_throttle_error">從這個IP位址所建立的帳戶太多，請稍後再嘗試。</string>
   <string name="create_account_open_proxy_error">此IP位址已被阻止建立帳戶。</string>
   <string name="create_account_generic_error">無法建立帳戶</string>
@@ -117,9 +117,9 @@
   <string name="zero_charged_verbiage_extended">載入其他條目可能產生資料費用。</string>
   <string name="zero_search_hint">搜尋Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">離開\"維基百科零\"時提示</string>
-  <string name="zero_warn_when_leaving_summary">如果閣下的行動業者通過和Wikipedia Zero的夥伴關係豁免存取維基百科時的資料收費，閣下可以通過勾選此設定以在離開維基百科的程式時通知閣下，以免閣下被收費。</string>
+  <string name="zero_warn_when_leaving_summary">如果閣下的電訊商/電信商透過Wikipedia Zero的夥伴關係免除存取維基百科時的資料收費，閣下可以通過勾選此設定以在離開維基百科的程式時通知閣下，以免閣下被收費。</string>
   <string name="zero_webpage_title">Wikipedia Zero常見問題</string>
-  <string name="zero_wikipedia_zero_heading">維基百科零</string>
+  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">離開Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">可能會收資料費用。繼續前往至外部網站嗎？</string>
   <string name="zero_interstitial_continue">離開</string>
@@ -168,7 +168,7 @@
   <string name="about_contributors_heading">貢獻者</string>
   <string name="about_translators_heading">翻譯人員</string>
   <string name="about_translators_translatewiki">此應用程式由&lt;a href=\"https://translatewiki.net\"&gt;Translatewiki.net&lt;/a&gt;的志工翻譯。</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;維基媒體基金會&lt;/a&gt;的產品</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
   <string name="edit_unchanged">頁面未被修改。</string>
   <string name="edit_abandon_confirm">頁面已被修改。你確定你想要離開而不存儲您的更改？</string>
@@ -183,7 +183,7 @@
   <string name="edit_summary_tag_grammar">修正語法</string>
   <string name="edit_summary_tag_links">添加連結</string>
   <string name="edit_summary_tag_other">其他</string>
-  <string name="edit_summary_tag_other_hint">其他您改善頁面的方式</string>
+  <string name="edit_summary_tag_other_hint">您改善頁面的其他方式</string>
   <string name="find_in_page">頁中尋找</string>
   <string name="find_next">尋找下一個</string>
   <string name="find_previous">尋找上一個</string>
@@ -200,7 +200,7 @@
   <string name="abusefilter_text_warn">您的編輯觸發了自動過濾器，並被認為可能是一個缺乏建設性的編輯。這可能是由於編輯中包含以下之一：&lt;br /&gt;&lt;br /&gt;· 全部使用大寫字母&lt;br /&gt;· 清空條目或加入廣告&lt;br /&gt;· 加入無關的外部連結或圖片&lt;br /&gt;· 重複的文字</string>
   <string name="abusefilter_text_disallow">自動化篩選已識別此編輯為潛在非建設性或潛在性破壞。&lt;br/&gt;&lt;br/&gt;維基百科是一本僅擁有中立與值得注意內容的百科全書。</string>
   <string name="dialog_page_issues">頁面問題</string>
-  <string name="menu_themechooser">字型和主題</string>
+  <string name="menu_themechooser">字型與主題</string>
   <string name="text_size_select">字型大小</string>
   <string name="color_theme_select">主題</string>
   <string name="color_theme_light">日間模式</string>
