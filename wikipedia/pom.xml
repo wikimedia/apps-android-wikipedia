@@ -19,7 +19,6 @@
         <dependency>
             <groupId>android</groupId>
             <artifactId>android</artifactId>
-            <version>4.4_r1</version>
         </dependency>
         <dependency>
             <groupId>android.support</groupId>
