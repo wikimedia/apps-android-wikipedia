@@ -202,6 +202,7 @@
   <string name="abusefilter_text_warn">Автоматизированный фильтр определил эту правку как потенциально неконструктивную. Она может содержать одно или несколько из следующих действий:&lt;br /&gt;&lt;br /&gt;· Печатать заглавными буквами&lt;br&gt;· Штамповка статей или спам&lt;br /&gt;· Неподходящие внешние ссылки или изображения&lt;br /&gt;· Повторяющиеся символы</string>
   <string name="abusefilter_text_disallow">Автоматизированный фильтр определил эту правку как потенциально неконструктивную или как потенциальный вандализм.&lt;br /&gt;&lt;br /&gt;Википедия — это энциклопедия, и здесь приемлемо только нейтральное и значимое содержимое.</string>
   <string name="dialog_page_issues">Вопросов по странице</string>
+  <string name="button_page_issues">Вопросы по странице</string>
   <string name="menu_themechooser">Изменение шрифта и оформления</string>
   <string name="text_size_select">Размер шрифта</string>
   <string name="color_theme_select">Оформление</string>

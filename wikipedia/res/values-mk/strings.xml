@@ -202,6 +202,7 @@
   <string name="abusefilter_text_warn">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно. Може да содржи едно од следниве:&lt;br /&gt;&lt;br /&gt;· Текст напишан со големи букви&lt;br /&gt;· Празнење на статии или спамирање&lt;br /&gt;· Нерелевантни надворешни врски или слики&lt;br /&gt;· Повторување на знаци</string>
   <string name="abusefilter_text_disallow">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно или потенцијално вандалистичко. &lt;br /&gt;&lt;br /&gt;Википедија е енциклопедија —  тука припаѓа само неутрална и значајна содржина.</string>
   <string name="dialog_page_issues">Проблеми со страницата</string>
+  <string name="button_page_issues">Проблеми со страницата</string>
   <string name="menu_themechooser">Смени фонт и изглед</string>
   <string name="text_size_select">Големина на фонтот</string>
   <string name="color_theme_select">Изглед</string>

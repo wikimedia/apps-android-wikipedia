@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">Fjern alle bokmerker</string>
   <string name="menu_clear_all_saved_pages">Fjern alle lagrede sider</string>
   <string name="page_does_not_exist_error">Denne siden eksisterer ikke.</string>
+  <string name="nav_item_today">I dag</string>
   <string name="dialog_title_clear_history">Tøm besøkslogg?</string>
   <string name="saved_pages_activity_title">Lagrede sider</string>
   <string name="nav_item_saved_pages">Lagrede sider</string>
@@ -87,8 +88,8 @@
   <string name="toast_logout_complete">Logget ut</string>
   <string name="saved_pages_empty_title">Ingen lagrede sider enda.</string>
   <string name="saved_pages_empty_message">Lagrede sider er veldig praktisk. Tenk på dem som bokmerker som du også kan lese når du er offline.</string>
-  <string name="history_empty_title">Ingen nylige sider her.</string>
-  <string name="history_empty_message">Du har sannsynligvis fjernet dem. Neste gang du besøker en side kan du finne den igjen her etterpå.</string>
+  <string name="history_empty_title">Ingen besøkte sider.</string>
+  <string name="history_empty_message">Du har kanskje tømt loggen. Neste gang du besøker en side kan du finne den igjen her etterpå.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Den frie encyklopedi</string>
   <string name="skip">Hopp over</string>
@@ -115,7 +116,7 @@
   <string name="zero_charged_verbiage">Wikipedia Zero er skrudd av</string>
   <string name="zero_charged_verbiage_extended">Lasting av artikler kan føre til at datakostnader påløper.</string>
   <string name="zero_search_hint">Søk i Wikipedia Zero</string>
-  <string name="zero_warn_when_leaving">Advar meg hvis jeg forlater WIkipedia Zero</string>
+  <string name="zero_warn_when_leaving">Varsle hvis jeg forlater Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Hvis mobiloperatøren din dekker datakostnader for Wikipedia-appen gjennom et Wikipedia Zero-samarbeid, kan denne innstillingen informere deg når du forlater Wikipedia-appen og datakostnader kan påløpe.</string>
   <string name="zero_webpage_title">Wikipedia Zero OSS</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
@@ -147,7 +148,7 @@
   <string name="edit_save_action_login_description">Redigeringene dine vil tillegges brukernavnet ditt, og andre skribenter kan enklere komme i kontakt med deg</string>
   <string name="edit_save_action_ip_description">Redigeringene dine vil tillegges IP-adressen din, som forandrer seg ofte</string>
   <string name="preference_title_eventlogging_opt_in">Send bruksrapporter</string>
-  <string name="preference_summary_eventlogging_opt_in">Tillatt at Wikimedia samler informasjon om hvordan du bruker appen for å gjøre den bedre</string>
+  <string name="preference_summary_eventlogging_opt_in">Tillatt Wikimedia å samle informasjon om hvordan du bruker appen for å forbedre den</string>
   <string name="editing_error_spamblacklist">Lenker til blokkerte domener (%s) ble funnet. Vennligst fjern dem og prøv igjen.</string>
   <string name="history_search_list_hint">Søk</string>
   <string name="history_search_empty_message">Fant ingen sider som matchet \'%s\'</string>
@@ -160,6 +161,10 @@
   <string name="more_item_preferences">Mer</string>
   <string name="more_activity_title">Mer</string>
   <string name="about_description">Om denne Wikipedia-appen</string>
+  <string name="privacy_policy_description">Personvernpolitikk</string>
+  <string name="terms_of_use_description">Bruksvilkår</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Versjon</string>
   <string name="about_libraries_heading">bibliotek brukt</string>
   <string name="about_contributors_heading">bidragsytere</string>
@@ -196,11 +201,13 @@
   <string name="abusefilter_title_disallow">Du kan ikke lagre denne redigeringen. Vennligst gå tilbake og prøv igjen.</string>
   <string name="abusefilter_text_warn">Redigeringen har blitt identifisert som potensielt destruktiv av et automatisk filter. Den kan inneholde en eller flere av følgende ting:&lt;br /&gt;&lt;br /&gt;· Hele ord skrevet med store bokstaver&lt;br /&gt;· Tømming av artikkelen eller spamming&lt;br /&gt;· Irrelevante eksterne lenker eller bilder&lt;br /&gt;· Gjentagende tegn</string>
   <string name="abusefilter_text_disallow">Redigeringen har blitt identifisert som potentiselt destruktiv, eller som potensiell vandalisme av et automatisk filter.&lt;br /&gt;&lt;br /&gt;Wikipedia er en encyklopedi og kun nøytralt og relevant innhold hører hjemme her.</string>
+  <string name="dialog_page_issues">Problemer med siden</string>
   <string name="menu_themechooser">Utseende</string>
   <string name="text_size_select">Skriftstørrelse</string>
   <string name="color_theme_select">Drakt</string>
   <string name="color_theme_light">Lys</string>
   <string name="color_theme_dark">Mørk</string>
+  <string name="page_similar_titles">Lignende sider</string>
   <string name="app_store_description">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som har blitt sammenstilt noensinne. Denne appen har blitt skrevet om fra grunnen av og er bedre enn noensinne.
 
 Funksjonalitet:

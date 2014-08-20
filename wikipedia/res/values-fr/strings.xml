@@ -202,6 +202,7 @@
   <string name="abusefilter_text_warn">Un filtre automatique a identifié cette modification comme potentiellement non constructive. Elle pourrait contenir un ou plusieurs des éléments suivants :&lt;br /&gt;&lt;br /&gt;· Saisie toute en majuscules&lt;br /&gt;· Découpage d’articles ou pourriel&lt;br /&gt;· Liens ou images externes inappropriés&lt;br /&gt;· Caractères répétés</string>
   <string name="abusefilter_text_disallow">Un filtre automatique a identifié cette modification comme potentiellement non constructive ou comme un vandalisme éventuel.&lt;br /&gt;&lt;br /&gt; Wikipédia est une encyclopédie et seul du contenu neutre et important y a sa place.</string>
   <string name="dialog_page_issues">Discussions sur la page</string>
+  <string name="button_page_issues">Questions sur la page</string>
   <string name="menu_themechooser">Modifier la police et le thème</string>
   <string name="text_size_select">Taille de police</string>
   <string name="color_theme_select">Thème</string>

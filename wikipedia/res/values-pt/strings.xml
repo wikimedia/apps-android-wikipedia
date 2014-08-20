@@ -202,6 +202,7 @@
   <string name="abusefilter_text_warn">Um filtro automático identificou esta edição como não sendo construtiva. Pode conter os seguintes erros:&lt;br /&gt;&lt;br /&gt;Uso excessivo de maiúsculas;&lt;br/&gt;Branqueamento de artigos e spam;&lt;br/&gt;Imagens ou ligações externas irrelevantes;&lt;br/&gt;Repetição de caracteres</string>
   <string name="abusefilter_text_disallow">Um filtro automático identificou esta edição como não sendo construtiva ou um potencial vandalismo.&lt;br /&gt;&lt;br /&gt;A Wikipédia é uma enciclopédia neutra, logo o conteúdo notável pertence aqui.</string>
   <string name="dialog_page_issues">Problemas da página</string>
+  <string name="button_page_issues">Problemas da página</string>
   <string name="menu_themechooser">Alterar o tipo de letra e tema</string>
   <string name="text_size_select">Tamanho da fonte</string>
   <string name="color_theme_select">Tema</string>

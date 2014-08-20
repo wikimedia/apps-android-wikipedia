@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">Cancella segnalibri</string>
   <string name="menu_clear_all_saved_pages">Cancella pagine salvate</string>
   <string name="page_does_not_exist_error">Questa pagina non esiste.</string>
+  <string name="nav_item_today">Oggi</string>
   <string name="dialog_title_clear_history">Cancellare la cronologia di navigazione?</string>
   <string name="saved_pages_activity_title">Pagine salvate</string>
   <string name="nav_item_saved_pages">Pagine salvate</string>
@@ -160,6 +161,7 @@
   <string name="more_item_preferences">Altro</string>
   <string name="more_activity_title">Altro</string>
   <string name="about_description">Informazioni sull\'app di Wikipedia</string>
+  <string name="terms_of_use_description">Condizioni d\'uso</string>
   <string name="preference_title_version">Versione</string>
   <string name="about_libraries_heading">librerie usate</string>
   <string name="about_contributors_heading">contributori</string>

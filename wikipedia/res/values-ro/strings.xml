@@ -202,6 +202,7 @@
   <string name="abusefilter_text_warn">Un filtru automat a identificat această modificare ca potențial neconstructivă. Poate avea cel puțin una din următoarele probleme:&lt;br /&gt;&lt;br /&gt;· Scrierea integrală cu majuscule&lt;br /&gt;· Golirea conținutului sau introducerea de spam&lt;br /&gt;· Legături externe sau imagini irelevante&lt;br /&gt;· Caractere repetate</string>
   <string name="abusefilter_text_disallow">Un filtru automat a identificat această modificare ca potențial neconstructivă sau o potențială acțiune de vandalism.&lt;br /&gt;&lt;br /&gt;Wikipedia este o enciclopedie și acceptă doar conținut neutru și notabil.</string>
   <string name="dialog_page_issues">Probleme pagină</string>
+  <string name="button_page_issues">Probleme pagină</string>
   <string name="menu_themechooser">Schimbă fontul și tema</string>
   <string name="text_size_select">Dimensiunea fontului</string>
   <string name="color_theme_select">Temă</string>

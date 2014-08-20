@@ -17,6 +17,7 @@
   <string name="menu_clear_all_bookmarks">ബുക്മാർക്കുകൾ ഒഴിവാക്കുക</string>
   <string name="menu_clear_all_saved_pages">സേവ് ചെയ്ത താളുകൾ ഒഴിവാക്കുക</string>
   <string name="page_does_not_exist_error">ഈ താൾ നിലവിലില്ല.</string>
+  <string name="nav_item_today">ഇന്ന്</string>
   <string name="dialog_title_clear_history">ബ്രൗസിങ് ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
   <string name="saved_pages_activity_title">സേവ് ചെയ്ത താളുകൾ</string>
   <string name="nav_item_saved_pages">സേവ് ചെയ്ത താളുകൾ</string>
@@ -36,6 +37,8 @@
   <string name="toast_refresh_saved_page">സേവ് ചെയ്ത് താൾ പുതുക്കുന്നു...</string>
   <string name="delete_selected_saved_pages">മായ്ക്കുക</string>
   <string name="toast_saved_page_deleted">സേവ് ചെയ്ത താൾ (താളുകൾ) മായ്ച്ചു</string>
+  <string name="saved_pages_search_list_hint">തിരയുക</string>
+  <string name="saved_pages_search_empty_message">\"%s\" എന്നതിനോടു യോജിക്കുന്ന താളുകളൊന്നും കണ്ടെത്താനായില്ല</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %1$s</string>
   <string name="content_license_html">മറ്റുവിധത്തിൽ കുറിച്ചിട്ടില്ലെങ്കിൽ ഉള്ളടക്കം &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം</string>
   <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷ</string>

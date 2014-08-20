@@ -163,6 +163,8 @@
   <string name="about_description">אודות יישום ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">גרסה</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
@@ -200,6 +202,7 @@
   <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>
   <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך מתאים לכאן.</string>
   <string name="dialog_page_issues">בעיות בדף</string>
+  <string name="button_page_issues">בעיות בדף</string>
   <string name="menu_themechooser">לשנות גופן ועיצוב</string>
   <string name="text_size_select">גודל גופן</string>
   <string name="color_theme_select">עיצוב</string>

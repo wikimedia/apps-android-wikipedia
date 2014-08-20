@@ -202,6 +202,7 @@
   <string name="abusefilter_text_warn">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv. Den kan innehålla en eller flera av följande:&lt;br /&gt;&lt;br /&gt;· Text skriven helt med versaler&lt;br /&gt;· Tömande av artiklar eller spam&lt;br /&gt;· Irrelevanta externa länkar eller bilder&lt;br /&gt;· Upprepade tecken</string>
   <string name="abusefilter_text_disallow">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv eller potentiell vandalism.&lt;br /&gt;&lt;br /&gt;Wikipedia är en encyklopedi och endast neutralt, nämnvärt innehåll hör hemma här.</string>
   <string name="dialog_page_issues">Problem i sidan</string>
+  <string name="button_page_issues">Sidproblem</string>
   <string name="menu_themechooser">Ändra teckensnitt och tema</string>
   <string name="text_size_select">Teckenstorlek</string>
   <string name="color_theme_select">Tema</string>

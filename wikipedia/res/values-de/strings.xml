@@ -202,6 +202,7 @@
   <string name="abusefilter_text_warn">Ein automatischer Filter hat diese Bearbeitung als potenziell unkonstruktiv identifiziert. Sie könnte eine oder mehrere der folgenden Dinge beinhalten:&lt;br /&gt;&lt;br /&gt;· Eingeben aller Kapitälchen&lt;br /&gt;· Artikel leeren oder Einbringen von Spam&lt;br /&gt;· Irrelevante externe Links oder Bilder&lt;br /&gt;· Wiederholte Zeichen</string>
   <string name="abusefilter_text_disallow">Ein automatischer Filter hat diese Bearbeitung als potenziell unkonstruktiv oder als potenziellen Vandalismus identifiziert.&lt;br /&gt;&lt;br /&gt;Wikipedia ist eine Enzyklopädie und ausschließlich neutraler, relevanter Inhalt gehört hierher.</string>
   <string name="dialog_page_issues">Seitenprobleme</string>
+  <string name="button_page_issues">Seitenprobleme</string>
   <string name="menu_themechooser">Schriftart und Farbschema ändern</string>
   <string name="text_size_select">Schriftgröße</string>
   <string name="color_theme_select">Farbschema</string>
