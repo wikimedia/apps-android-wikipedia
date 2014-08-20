@@ -7,7 +7,7 @@
             android:saveEnabled="false"
             android:layout_height="match_parent">
         <!-- The main content view -->
-        <org.wikipedia.page.PageFragmentPager
+        <org.wikipedia.beta.page.PageFragmentPager
                 android:id="@+id/content_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -15,7 +15,7 @@
         <!-- Don't set marginTop here, it somehow also affects marginBottom. wtf?! -->
         <fragment android:layout_width="288dp" android:layout_height="match_parent"
                   android:id="@+id/navdrawer"
-                  android:name="org.wikipedia.NavDrawerFragment"
+                  android:name="org.wikipedia.beta.NavDrawerFragment"
                   android:layout_gravity="start"
                   tools:layout="@layout/fragment_navdrawer"/>
 
@@ -23,7 +23,7 @@
     <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/zero_crouton_container">
     <fragment
             android:id="@+id/search_fragment"
-            android:name="org.wikipedia.search.SearchArticlesFragment"
+            android:name="org.wikipedia.beta.search.SearchArticlesFragment"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_gravity="top"
@@ -32,7 +32,7 @@
     <fragment android:id="@+id/find_in_page_fragment"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:name="org.wikipedia.page.FindInPageFragment"
+              android:name="org.wikipedia.beta.page.FindInPageFragment"
               android:layout_gravity="top"
               tools:layout="@layout/fragment_find_in_page"/>
 </FrameLayout>
