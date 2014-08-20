@@ -96,6 +96,20 @@ public class WikipediaApp extends Application {
     public static final int FONT_SIZE_MULTIPLIER_MAX = 8;
     private static final float FONT_SIZE_FACTOR = 0.1f;
 
+    public static final int RELEASE_PROD = 0;
+    public static final int RELEASE_BETA = 1;
+    public static final int RELEASE_ALPHA = 2;
+    private int releaseType = RELEASE_PROD;
+
+    /**
+     * Returns a constant that tells whether this app is a production release,
+     * a beta release, or an alpha (continuous integration) release.
+     * @return Release type of the app.
+     */
+    public int getReleaseType() {
+        return releaseType;
+    }
+
     private List<String> languageMruList;
 
     /**
@@ -125,6 +139,12 @@ public class WikipediaApp extends Application {
     public void onCreate() {
         super.onCreate();
         ACRA.init(this);
+
+        if (getPackageName().contains("beta")) {
+            releaseType = RELEASE_BETA;
+        } else if (getPackageName().contains("alpha")) {
+            releaseType = RELEASE_ALPHA;
+        }
 
         bus = new Bus();
 
