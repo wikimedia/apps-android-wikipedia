@@ -281,15 +281,17 @@ def transform_project_for_uprev(dir_path, target, channel, package, uprev):
     transform_file(p(dir_path, 'AndroidManifest.xml'), target, channel, package, uprev, set_version_code)
 
 
-def make_release(target, channel, package, uprev):
+def make_release(target, channel, package, uprev, tag=True, branch=True):
     # other changes on a new branch
-    sh.git.checkout('-b', 'releases/%s' % get_release_name(target))
+    if branch:
+        sh.git.checkout('-b', 'releases/%s' % get_release_name(target))
     transform_project('wikipedia', target, channel, package, uprev)
     transform_project('wikipedia-it', target, channel, package, uprev)
     sh.cd(PATH_PREFIX)
     sh.git.add('-u')
     sh.git.commit('-m', 'Make release %s for %s' % (get_release_name(target), channel))
-    git_tag(target)
+    if tag:
+        git_tag(target)
 
 
 def bump(target, channel, package, uprev):
@@ -360,7 +362,11 @@ def main():
         print('BUMP NOTICE! Then re-run the script with --bump --push.')
         print('BUMP NOTICE!')
     else:
-        make_release(target, channel, package, uprev)
+        # No tags or branches for alpha
+        if args.alpha:
+            make_release(target, channel, package, uprev, False, False)
+        else:
+            make_release(target, channel, package, uprev)
         print('Please build the APK and test. After that, run w/ --push flag, and as needed release the tested APK.')
         print('A useful command for collecting the release notes:')
         print('git log --pretty=format:"%h %s" --abbrev-commit --no-merges <previous release tag>..')
