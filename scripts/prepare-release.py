@@ -191,6 +191,8 @@ def change_icon(data, target, channel, package, uprev):
     """
     if package == 'beta':
         return data.replace("launcher", "launcher_beta")
+    elif package == 'alpha':
+        return data.replace("launcher", "launcher_alpha")
     else:
         return data
 
@@ -201,6 +203,8 @@ def change_label(data, target, channel, package, uprev):
     """
     if package == 'beta':
         return data.replace('@string/app_name', '@string/app_name_beta')
+    elif package == 'alpha':
+        return data.replace('@string/app_name', '@string/app_name_alpha')
     else:
         return data
 
@@ -307,6 +311,9 @@ def main():
     group.add_argument('--beta',
                        help='Step 1: Google Play Beta. git checkout BUMPTAG first! Does not revs versionCode.',
                        action='store_true')
+    group.add_argument('--alpha',
+                       help='Do not use manually, only for the automated build script',
+                       action='store_true')
     group.add_argument('--prod',
                        help='Step 1: Google Play stable. git checkout BUMPTAG first! Does not rev versionCode.',
                        action='store_true')
@@ -327,6 +334,8 @@ def main():
         (target, channel, package, uprev) = ('master', 'master', '', True)
     elif args.beta:
         (target, channel, package, uprev) = ('beta', 'Google Play Beta Channel', 'beta', False)
+    elif args.alpha:
+        (target, channel, package, uprev) = ('alpha', 'alpha', 'alpha', False)
     elif args.prod:
         (target, channel, package, uprev) = ('r', 'Google Play', '', False)
     elif args.releasesprod:

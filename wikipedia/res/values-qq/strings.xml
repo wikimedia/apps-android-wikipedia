@@ -4,6 +4,7 @@
 {{Identical|Wikipedia}}</string>
   <string name="app_name_beta">Name of the beta version of the application.
 {{Identical|Wikipedia Beta}}</string>
+  <string name="app_name_alpha">Name of the alpha version of the application.</string>
   <string name="yes">Affirmative answer to a dialog box.
 {{Identical|Yes}}</string>
   <string name="no">Negative answer to a dialog box.
