@@ -312,7 +312,11 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                         if (result instanceof SuccessEditResult) {
                             funnel.logSaved(((SuccessEditResult) result).getRevID());
                             progressDialog.dismiss();
-                            setResult(EditHandler.RESULT_REFRESH_PAGE);
+
+                            //Build intent that includes the section we were editing, so we can scroll to it later
+                            Intent data = new Intent();
+                            data.putExtra(EXTRA_SECTION, section.getId());
+                            setResult(EditHandler.RESULT_REFRESH_PAGE, data);
                             Toast.makeText(EditSectionActivity.this, R.string.edit_saved_successfully, Toast.LENGTH_LONG).show();
                             Utils.hideSoftKeyboard(EditSectionActivity.this);
                             finish();

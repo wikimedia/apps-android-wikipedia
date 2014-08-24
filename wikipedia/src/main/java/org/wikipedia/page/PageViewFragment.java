@@ -18,6 +18,7 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
+import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.PageTitle;
@@ -122,6 +123,7 @@ public class PageViewFragment extends Fragment {
     private View pageFragmentContainer;
     private Page page;
     private HistoryEntry curEntry;
+    private int scrollSectionId;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -149,6 +151,9 @@ public class PageViewFragment extends Fragment {
         this.title = title;
         this.curEntry = historyEntry;
         this.quickReturnBarId = quickReturnBarId;
+
+        //FIXME: Make this hold the section to scroll to if you follow a section wikilink, e.g. [[Article#Section]]
+        this.scrollSectionId = -1;
     }
 
     public PageViewFragment() {
@@ -419,6 +424,18 @@ public class PageViewFragment extends Fragment {
                         wrapper.put("isLast", index == page.getSections().size() - 1);
                         wrapper.put("fragment", page.getTitle().getFragment());
                         bridge.sendMessage("displaySection", wrapper);
+
+                        //If we have a section to scroll to, and we've just loaded the last section, then scroll to
+                        //the appropriate section
+                        if (scrollSectionId != -1 && index == page.getSections().size() - 1 && tocHandler != null) {
+                            //Retrieve section by ID
+                            Section scrollSection = page.getSections().get(scrollSectionId);
+
+                            //Use the table of content's scroll method to scroll to the section
+                            tocHandler.scrollToSection(scrollSection);
+                            //Set the section to -1 so we don't accidentally try to scroll to it again in the future
+                            scrollSectionId = -1;
+                        }
                     }
                 } catch (JSONException e) {
                     // Won't happen
@@ -439,6 +456,9 @@ public class PageViewFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == EditHandler.RESULT_REFRESH_PAGE) {
+            //Retrieve section ID from intent, and find correct section, so where know where to scroll to
+            scrollSectionId = data.getIntExtra(EditSectionActivity.EXTRA_SECTION, -1);
+
             ViewAnimations.crossFade(webView, loadProgress);
             setState(STATE_NO_FETCH);
             performActionForState(state);
