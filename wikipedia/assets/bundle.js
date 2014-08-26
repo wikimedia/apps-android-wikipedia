@@ -491,6 +491,7 @@ function elementsForSection( section ) {
 
 function sectionsAllDone() {
     document.getElementById( "loading_sections").className = "";
+    bridge.sendMessage( "pageLoadComplete", { } );
 }
 
 bridge.registerListener( "noMoreSections", function() {
@@ -503,18 +504,12 @@ bridge.registerListener( "displaySection", function ( payload ) {
     elementsForSection( payload.section ).forEach( function( element ) {
         contentWrapper.appendChild( element );
     });
-    if ( !payload.isLast ) {
-        bridge.sendMessage( "requestSection", { index: payload.index + 1 } );
-    } else {
+    if ( payload.isLast ) {
         sectionsAllDone();
-        if ( typeof payload.fragment === "string" ) {
+        if ( typeof payload.fragment === "string" && payload.fragment.length > 0) {
             scrollToSection( payload.fragment );
         }
     }
-});
-
-bridge.registerListener( "startSectionsDisplay", function() {
-    bridge.sendMessage( "requestSection", { index: 1 } );
 });
 
 bridge.registerListener( "scrollToSection", function ( payload ) {

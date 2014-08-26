@@ -123,7 +123,9 @@ public class PageViewFragment extends Fragment {
     private View pageFragmentContainer;
     private Page page;
     private HistoryEntry curEntry;
-    private int scrollSectionId;
+
+    private int sectionTargetFromIntent;
+    private String sectionTargetFromTitle;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -151,9 +153,6 @@ public class PageViewFragment extends Fragment {
         this.title = title;
         this.curEntry = historyEntry;
         this.quickReturnBarId = quickReturnBarId;
-
-        //FIXME: Make this hold the section to scroll to if you follow a section wikilink, e.g. [[Article#Section]]
-        this.scrollSectionId = -1;
     }
 
     public PageViewFragment() {
@@ -256,7 +255,42 @@ public class PageViewFragment extends Fragment {
     }
 
     private void populateNonLeadSections() {
-        bridge.sendMessage("startSectionsDisplay", new JSONObject());
+        if (page.getSections().size() == 1) {
+            bridge.sendMessage("noMoreSections", new JSONObject());
+            return;
+        } else {
+            populateNonLeadSections(1);
+        }
+    }
+
+    private void populateNonLeadSections(final int index) {
+        webView.post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    JSONObject wrapper = new JSONObject();
+                    wrapper.put("section", page.getSections().get(index).toJSON());
+                    wrapper.put("index", index);
+                    wrapper.put("isLast", index == page.getSections().size() - 1);
+                    if (index == page.getSections().size() - 1) {
+                        if (sectionTargetFromIntent > 0) {
+                            //if we have a section to scroll to (from our Intent), then pass it in the last request!
+                            wrapper.put("fragment", page.getSections().get(sectionTargetFromIntent).getAnchor());
+                        } else if (sectionTargetFromTitle != null) {
+                            //if we have a section to scroll to (from our PageTitle), then pass it in the last request!
+                            wrapper.put("fragment", sectionTargetFromTitle);
+                        }
+                    }
+                    bridge.sendMessage("displaySection", wrapper);
+                } catch (JSONException e) {
+                    // Won't happen
+                    throw new RuntimeException(e);
+                }
+                if (index < page.getSections().size() - 1) {
+                    populateNonLeadSections(index + 1);
+                }
+            }
+        });
     }
 
     @Override
@@ -297,6 +331,9 @@ public class PageViewFragment extends Fragment {
         if (title == null) {
             throw new RuntimeException("No PageTitle passed in to constructor or in instanceState");
         }
+        //save any section-specific link target from the title, since the title may be
+        //replaced (normalized)
+        sectionTargetFromTitle = title.getFragment();
 
         app = (WikipediaApp)getActivity().getApplicationContext();
 
@@ -410,37 +447,11 @@ public class PageViewFragment extends Fragment {
     }
 
     private void setupMessageHandlers() {
-        bridge.addListener("requestSection", new CommunicationBridge.JSEventListener() {
+        bridge.addListener("pageLoadComplete", new CommunicationBridge.JSEventListener() {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
-                try {
-                    int index = messagePayload.optInt("index");
-                    if (index >= page.getSections().size()) {
-                        // Page has only one section yo
-                        bridge.sendMessage("noMoreSections", new JSONObject());
-                    } else {
-                        JSONObject wrapper = new JSONObject();
-                        wrapper.put("section", page.getSections().get(index).toJSON());
-                        wrapper.put("index", index);
-                        wrapper.put("isLast", index == page.getSections().size() - 1);
-                        wrapper.put("fragment", page.getTitle().getFragment());
-                        bridge.sendMessage("displaySection", wrapper);
-
-                        //If we have a section to scroll to, and we've just loaded the last section, then scroll to
-                        //the appropriate section
-                        if (scrollSectionId != -1 && index == page.getSections().size() - 1 && tocHandler != null) {
-                            //Retrieve section by ID
-                            Section scrollSection = page.getSections().get(scrollSectionId);
-
-                            //Use the table of content's scroll method to scroll to the section
-                            tocHandler.scrollToSection(scrollSection);
-                            //Set the section to -1 so we don't accidentally try to scroll to it again in the future
-                            scrollSectionId = -1;
-                        }
-                    }
-                } catch (JSONException e) {
-                    // Won't happen
-                    throw new RuntimeException(e);
+                if (scrollY != 0) {
+                    webView.scrollTo(0, scrollY);
                 }
             }
         });
@@ -458,7 +469,7 @@ public class PageViewFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             //Retrieve section ID from intent, and find correct section, so where know where to scroll to
-            scrollSectionId = data.getIntExtra(EditSectionActivity.EXTRA_SECTION, -1);
+            sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION, 0);
 
             ViewAnimations.crossFade(webView, loadProgress);
             setState(STATE_NO_FETCH);
@@ -483,7 +494,6 @@ public class PageViewFragment extends Fragment {
                 editHandler.setPage(page);
                 displayLeadSection();
                 populateNonLeadSections();
-                webView.scrollTo(0, scrollY);
                 break;
             default:
                 // This should never happen
