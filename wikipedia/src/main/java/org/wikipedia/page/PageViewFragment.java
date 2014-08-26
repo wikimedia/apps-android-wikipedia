@@ -322,7 +322,7 @@ public class PageViewFragment extends Fragment {
         // Explicitly set background color of the WebView (independently of CSS, because
         // the background may be shown momentarily while the WebView loads content,
         // creating a seizure-inducing effect, or at the very least, a migraine with aura).
-        webView.setBackgroundColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.window_background_color)));
+        webView.setBackgroundColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.page_background_color)));
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         setupMessageHandlers();

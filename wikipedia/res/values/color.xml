@@ -28,6 +28,7 @@
     <color name="link_light">#ff347BFF</color>
     <color name="button_light">#ff777777</color>
     <color name="window_background_light">#fff2f2f2</color>
+    <color name="page_background_light">#ffffffff</color>
     <color name="actionbar_background_light">#ffffffff</color>
     <color name="search_background_light">#ffffffff</color>
     <color name="toc_background_light">#ffffffff</color>
@@ -39,6 +40,7 @@
     <color name="link_dark">#ff2B6FB2</color>
     <color name="button_dark">#ff2B6FB2</color>
     <color name="window_background_dark">#ff000000</color>
+    <color name="page_background_dark">#ff000000</color>
     <color name="actionbar_background_dark">#ff303030</color>
     <color name="search_background_dark">#ff404040</color>
     <color name="toc_background_dark">#ff0C0C0C</color>

@@ -9,6 +9,7 @@
         <item name="android:popupMenuStyle">@style/PopupMenu.WikiDark</item>
         <item name="android:windowBackground">@color/window_background_dark</item>
         <item name="window_background_color">@color/window_background_dark</item>
+        <item name="page_background_color">@color/page_background_dark</item>
         <item name="search_background_color">@color/search_background_dark</item>
         <item name="actionbar_background_color">@color/actionbar_background_dark</item>
         <item name="toc_background_color">@color/toc_background_dark</item>
