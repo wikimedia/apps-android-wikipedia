@@ -84,7 +84,7 @@ public class ToCHandler {
         });
     }
 
-    private void scrollToSection(Section section) {
+    public void scrollToSection(Section section) {
         JSONObject payload = new JSONObject();
         try {
             payload.put("anchor", section.isLead() ? "heading_" + section.getId() : section.getAnchor());
