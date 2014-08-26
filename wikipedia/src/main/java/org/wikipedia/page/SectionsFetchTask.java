@@ -2,8 +2,10 @@ package org.wikipedia.page;
 
 import android.content.Context;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
@@ -50,6 +52,9 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
         JSONArray sectionsJSON = result.asObject().optJSONObject("mobileview").optJSONArray("sections");
         ArrayList<Section> sections = new ArrayList<Section>();
 
+        if (sectionsJSON == null) {
+            throw new ApiException(new JSONException("FIXME: server returned 0 sections with no error."));
+        }
         for (int i = 0; i < sectionsJSON.length(); i++) {
             Section newSection = new Section(sectionsJSON.getJSONObject(i));
             sections.add(newSection);
