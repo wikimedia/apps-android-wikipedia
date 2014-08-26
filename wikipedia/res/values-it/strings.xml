@@ -161,7 +161,10 @@
   <string name="more_item_preferences">Altro</string>
   <string name="more_activity_title">Altro</string>
   <string name="about_description">Informazioni sull\'app di Wikipedia</string>
+  <string name="privacy_policy_description">Informazioni sulla privacy</string>
   <string name="terms_of_use_description">Condizioni d\'uso</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Versione</string>
   <string name="about_libraries_heading">librerie usate</string>
   <string name="about_contributors_heading">contributori</string>
@@ -194,11 +197,15 @@
   <string name="saved_pages_refresh_pages_complete">Aggiornamento completo</string>
   <string name="menu_page_saved">Pagina salvata</string>
   <string name="menu_refresh_saved_page">Aggiorna pagina</string>
+  <string name="abusefilter_title_warn">Questa potrebbe essere una modifica inutile. Sei sicuro di volerla salvare?</string>
+  <string name="abusefilter_title_disallow">Non puoi salvare questa modifica. Per favore torna indietro e modificala.</string>
+  <string name="abusefilter_text_warn">Un filtro automatico ha identificato inutile questa modifica. Potrebbe includere uno o più dei seguenti elementi:&lt;br /&gt;&lt;br /&gt;· Scritte tutte in maiuscolo&lt;br /&gt;· Articolo vuoto o di spam&lt;br /&gt;· Collegamenti esterni o immagini non pertinenti&lt;br /&gt;· Caratteri ripetuti</string>
   <string name="menu_themechooser">Cambia carattere e tema</string>
   <string name="text_size_select">Dimensione carattere</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Luce</string>
   <string name="color_theme_dark">Scuro</string>
+  <string name="page_similar_titles">Altri significati</string>
   <string name="app_store_description">App ufficiale di Wikipedia per Android.
 Wikipedia è l\'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l\'opera di consultazione più completa e più diffusa che l\'uomo abbia mai compilato. L\'app è stata completamente riscritta ed è di gran lunga migliore.
 

@@ -202,6 +202,7 @@
   <string name="abusefilter_text_warn">Un filtro automático ha identificado esta edición como potencialmente no constructiva. Puede contener uno o más de los siguientes:&lt;br&gt;&lt;br&gt;· Escrito en mayúsculas&lt;br&gt;· Articulos en blanco o spam&lt;br&gt;· Enlaces externos irrelevantes o imágenes&lt;br&gt;· Caracteres repetidos</string>
   <string name="abusefilter_text_disallow">Un filtro automático ha identificado esta edición como potencialmente no constructiva, o probable vandalismo.&lt;br /&gt;&lt;br /&gt;Wikipedia es una enciclopedía y sólo contenido neutral y notable pertenece aquí.</string>
   <string name="dialog_page_issues">Problemas de la página</string>
+  <string name="button_page_issues">Problemas de la página</string>
   <string name="menu_themechooser">Tipo de letra y tema</string>
   <string name="text_size_select">Tamaño de letra</string>
   <string name="color_theme_select">Tema</string>

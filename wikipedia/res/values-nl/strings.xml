@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="yes">Ja</string>
   <string name="no">Nee</string>
   <string name="acra_report_dialog_title">De apps is gecrashed :(</string>
@@ -201,10 +202,22 @@
   <string name="abusefilter_title_disallow">U kunt deze bewerking niet opslaan. Ga terug en wijzig de inhoud.</string>
   <string name="abusefilter_text_disallow">Een geautomatiseerde filter heeft deze bewerking als niet constructief of potentieel vandalisme geïdentificeerd.&lt;br /&gt;&lt;br /&gt; Wikipedia is een encyclopedie en alleen neutrale, relevante inhoud hoort hier thuis.</string>
   <string name="dialog_page_issues">Pagina-problemen</string>
+  <string name="button_page_issues">Pagina-problemen</string>
   <string name="menu_themechooser">Wijzig lettertype en thema</string>
   <string name="text_size_select">Lettergrootte</string>
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Licht</string>
   <string name="color_theme_dark">Donker</string>
   <string name="page_similar_titles">Soortgelijke titels</string>
+  <string name="app_store_description">Officiële Wikipedia-app voor Android. Wikipedia is de vrije encylopedie met meer dan 31 miljoen artikelen in 280 talen, en de meest uitgebreide en meest gebruikte bron gemaakt door de mens. De app is vanaf de grond opnieuw opgebouwd en is beter dan ooit te voren.
+
+Functies:
+   - Snelheid: onze nieuwe native app zorgt voor een snellere app dan ooit te voren, waarmee u nog sneller kunt verkennen en bewerken.
+   - Bewerken: U kan Wikipedia bewerken! Met of zonder account, we zijn blij met al uw bijdragen!
+   - Recente pagina\'s: we bieden een overzicht van recent gelezen pagina\'s aan, waardoor u zoveel mogelijk kunt doorklikken zonder de weg kwijt te raken.
+   - Delen: gebruik uw bestaande apps voor sociale media om de menselijke kennis te delen.
+   - Meertalig: de app biedt makkelijke toegang tot Wikipedia in elke taal.
+   - Wikipedia Zero: Wikipedia bezoeken zonder kosten bij geselecteerde mobiele provides.
+
+De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK, fork ons dan! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

@@ -41,6 +41,7 @@
   <string name="saved_pages_search_empty_message">Keng Säite mat \"%s\" fonnt</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>
   <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
+  <string name="edit_save_action_license_logged_in">Mam Späichere sidd Dir mat den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt;.</string>
   <string name="preference_title_language">Wikipedia-Sprooch</string>
   <string name="preference_summary_language">Sprooch vum Inhalt</string>
   <string name="preference_languages_filter_hint">Sichen</string>
@@ -59,6 +60,7 @@
   <string name="dialog_message_edit_failed_cancel">Ofbriechen</string>
   <string name="menu_show_toc">Inhaltsverzeechnes</string>
   <string name="search_no_results_found">Näischt fonnt</string>
+  <string name="edit_section_captcha_message">Fir géint automatiséierte Spam ze schütze gitt w.e.g. d\'Wierder déi hei drënner stinn an</string>
   <string name="edit_section_captcha_hint">D\'Wierder hei driwwer widderhuelen</string>
   <string name="title_captcha">Captcha aginn</string>
   <string name="edit_section_abusefilter_back_text">Ännerungen u menger Ännerung maachen</string>
@@ -125,6 +127,7 @@
   <string name="zero_learn_more_dismiss">Verwerfen</string>
   <string name="zero_settings">Astellungen</string>
   <string name="zero_settings_devmode">Zero-Entwécklermodus</string>
+  <string name="edit_preview_fetching_dialog_message">Kucken ouni ze späicheren...</string>
   <string name="edit_preview_activity_title">Ännerung kucken ouni ze späicheren</string>
   <string name="create_account_logging_in">Aloggen...</string>
   <string name="send_feedback">Feedback vun der App schécken</string>

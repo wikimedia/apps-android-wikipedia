@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Wikipédia</string>
   <string name="app_name_beta">Wikipédia Beta</string>
+  <string name="app_name_alpha">Wikipédia Alpha</string>
   <string name="yes">Sim</string>
   <string name="no">Não</string>
   <string name="acra_report_dialog_title">A Wikipédia crashou :(</string>

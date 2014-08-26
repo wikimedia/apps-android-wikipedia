@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Википедия</string>
   <string name="app_name_beta">Википедия (бета)</string>
+  <string name="app_name_alpha">Википедия Альфа</string>
   <string name="yes">Да</string>
   <string name="no">Нет</string>
   <string name="acra_report_dialog_title">Приложение «Википедия» упало :(</string>

@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Википедија</string>
   <string name="app_name_beta">Википедија Бета</string>
+  <string name="app_name_alpha">Википедија Алфа</string>
   <string name="yes">Да</string>
   <string name="no">Не</string>
   <string name="acra_report_dialog_title">Википедија се урна :(</string>

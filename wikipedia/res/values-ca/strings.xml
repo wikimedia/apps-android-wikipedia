@@ -54,7 +54,7 @@
   <string name="langlinks_activity_title">Altres idiomes</string>
   <string name="menu_save_changes">Desa els canvis</string>
   <string name="edit_section_error_retry">Reintenta</string>
-  <string name="dialog_saving_in_progress">Desant...</string>
+  <string name="dialog_saving_in_progress">S’està desant…</string>
   <string name="edit_saved_successfully">Edició desada!</string>
   <string name="dialog_message_edit_failed">L\'edició no s\'ha desat!</string>
   <string name="dialog_message_edit_failed_retry">Reintenta</string>
@@ -117,6 +117,7 @@
   <string name="zero_charged_verbiage_extended">La càrrega d\'altres articles pot comportar en càrrecs de dades.</string>
   <string name="zero_search_hint">Cerca a Viquipèdia Zero</string>
   <string name="zero_warn_when_leaving">Avisar si es deixa Viquipèdia Zero</string>
+  <string name="zero_warn_when_leaving_summary">Si el vostre operador de telefonia mòbil renuncia als costos d\'accés de dades des de l\'aplicació de la Viquipèdia a través d\'un acord de Wikipedia Zero, deixant aquest paràmetre marcat se us avisarà quan deixeu l\'aplicació de la Viquipèdia i llavors se us pot fer cobrar per l\'ús.</string>
   <string name="zero_webpage_title">Preguntes i respostes sobre Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Sortint de Wikipedia Zero</string>
@@ -162,6 +163,8 @@
   <string name="about_description">Quant a l’aplicació de la Viquipèdia</string>
   <string name="privacy_policy_description">Política de privadesa</string>
   <string name="terms_of_use_description">Condicions d’ús</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Versió</string>
   <string name="about_libraries_heading">biblioteques utilitzades</string>
   <string name="about_contributors_heading">col·laboradors</string>
@@ -196,7 +199,10 @@
   <string name="menu_refresh_saved_page">Refresca la pàgina</string>
   <string name="abusefilter_title_warn">Podria ser una modificació no constructiva. Esteu segur que voleu desar-la?</string>
   <string name="abusefilter_title_disallow">No podeu desar aquesta modificació. Aneu enrere i canvieu-la.</string>
+  <string name="abusefilter_text_warn">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial. Pot contenir un o més dels següents:&lt;br /&gt;&lt;br /&gt;· Introduït tot en majúscules&lt;br /&gt;· Articles blanquejats o brossa&lt;br /&gt;· Enllaços externs irrellevants o imatges&lt;br /&gt;· Caràcters que es repeteixin</string>
+  <string name="abusefilter_text_disallow">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial.&lt;br /&gt;&lt;br /&gt;La Viquipèdia és una enciclopèdia i només els continguts neutrals i notables hi tenen lloc.</string>
   <string name="dialog_page_issues">Problemes de la pàgina</string>
+  <string name="button_page_issues">Problemes de la pàgina</string>
   <string name="menu_themechooser">Canvia el tipus de lletra i el tema</string>
   <string name="text_size_select">Mida de lletra</string>
   <string name="color_theme_select">Tema</string>

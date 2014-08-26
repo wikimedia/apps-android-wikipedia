@@ -158,6 +158,10 @@
   <string name="more_item_preferences">Lagi</string>
   <string name="more_activity_title">Lagi</string>
   <string name="about_description">Tentang aplikasi Wikipedia</string>
+  <string name="privacy_policy_description">Dasar privasi</string>
+  <string name="terms_of_use_description">Syarat-syarat penggunaan</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Versi</string>
   <string name="about_libraries_heading">perpustakaan yang digunakan</string>
   <string name="about_contributors_heading">penyumbang</string>
@@ -188,6 +192,8 @@
   <string name="saved_pages_update_all_error_message">Ralat kemaskini laman tersimpan</string>
   <string name="saved_pages_progress_title">Memuatkan semula laman tersimpan</string>
   <string name="saved_pages_refresh_pages_complete">Kemas kini selesai</string>
+  <string name="menu_page_saved">Laman disimpan</string>
+  <string name="menu_refresh_saved_page">Segarkan laman</string>
   <string name="abusefilter_title_warn">Suntingan ini mungkin tidak membina. Adakah anda betul-betul mahu menyimpannya?</string>
   <string name="abusefilter_title_disallow">Suntingan ini tidak boleh disimpan. Sila kembali dan suntingnya semula.</string>
   <string name="menu_themechooser">Tukar fon dan tema</string>

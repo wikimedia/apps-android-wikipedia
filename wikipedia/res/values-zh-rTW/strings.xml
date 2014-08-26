@@ -39,7 +39,7 @@
   <string name="toast_saved_page_deleted">已刪除儲存的頁面</string>
   <string name="saved_pages_search_list_hint">搜尋</string>
   <string name="saved_pages_search_empty_message">未找到匹配 \'%s\' 的頁面</string>
-  <string name="last_updated_text">最後更新：%1$s</string>
+  <string name="last_updated_text">最後更新：%s</string>
   <string name="content_license_html">內容在&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/A&gt;之條款下提供，除非另有註明。</string>
   <string name="edit_save_action_license_logged_in">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href=“https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA3.0&lt;/A&gt;授權您的貢獻。</string>
   <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href=“https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA3.0&lt;/A&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>

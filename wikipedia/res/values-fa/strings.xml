@@ -187,11 +187,13 @@
   <string name="saved_pages_refresh_pages_complete">به‌روزرسانی انجام شد.</string>
   <string name="menu_page_saved">صفحه ذخیره شده</string>
   <string name="menu_refresh_saved_page">تازه کردن صفحه</string>
+  <string name="button_page_issues">موضوعات صفحه</string>
   <string name="menu_themechooser">تغییر فونت و پوسته</string>
   <string name="text_size_select">اندازهٔ قلم</string>
   <string name="color_theme_select">پوسته</string>
   <string name="color_theme_light">روشن</string>
   <string name="color_theme_dark">تیره</string>
+  <string name="page_similar_titles">معانی دیگر</string>
   <string name="app_store_description">نرم افزار رسمی ویکی‌پدیا برای استفاده در آندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و  گسترده‌ترین مرجع کار انسان تا کنون است. این برنامه از ابتدا بازنویسی شده است و بهتر از قبل کار می کند.
 ویژگی‌ها:
    -سرعت: نرم افزار جدید، بومی ما به شما اجازهٔ مرور و ویرایش ویکی‌پدیا را با سریع بیشتری می‌دهد.
