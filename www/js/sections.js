@@ -10,6 +10,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     clearContents();
 
     var title = document.createElement( "h1" );
+    title.setAttribute( "dir", window.directionality );
     title.innerHTML = payload.title;
     title.id = "heading_" + payload.section.id;
     title.className =  "section_heading";
@@ -17,6 +18,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     document.getElementById( "content" ).appendChild( title );
 
     var issuesContainer = document.createElement( "div" );
+    issuesContainer.setAttribute( "dir", window.directionality );
     issuesContainer.id = "issues_container";
     issuesContainer.className = "issues_container";
     document.getElementById( "content" ).appendChild( issuesContainer );
@@ -28,6 +30,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     title.appendChild( editButton );
 
     var content = document.createElement( "div" );
+    content.setAttribute( "dir", window.directionality );
     content.innerHTML = payload.section.text;
     content.id = "#content_block_0";
     content = transformer.transform( "leadSection", content );
@@ -73,6 +76,7 @@ function clearContents() {
 
 function elementsForSection( section ) {
     var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
+    heading.setAttribute( "dir", window.directionality );
     heading.innerHTML = typeof section.line !== "undefined" ? section.line : "";
     heading.id = section.anchor;
     heading.className = "section_heading";
@@ -85,6 +89,7 @@ function elementsForSection( section ) {
     heading.appendChild( editButton );
 
     var content = document.createElement( "div" );
+    content.setAttribute( "dir", window.directionality );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
     content = transformer.transform( "section", content );
