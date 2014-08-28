@@ -516,6 +516,7 @@ public class SearchArticlesFragment extends Fragment {
 
     @Override
     public void onPause() {
+        Utils.hideSoftKeyboard(getActivity());
         super.onPause();
         pausedStateOfZero = WikipediaApp.getWikipediaZeroDisposition();
     }
