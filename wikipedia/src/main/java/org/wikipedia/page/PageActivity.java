@@ -167,7 +167,7 @@ public class PageActivity extends FragmentActivity {
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData() != null) {
             Site site = new Site(intent.getData().getAuthority());
-            PageTitle title = site.titleForInternalLink(intent.getData().getPath());
+            PageTitle title = site.titleForUri(intent.getData());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
             bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
         } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {

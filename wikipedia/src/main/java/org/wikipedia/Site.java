@@ -1,7 +1,9 @@
 package org.wikipedia;
 
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 
 /**
  * Represents a particular Wikimedia project.
@@ -81,6 +83,19 @@ public class Site implements Parcelable {
     public PageTitle titleForInternalLink(String internalLink) {
         // FIXME: Handle language variant links properly
         return new PageTitle(internalLink.replaceFirst("/wiki/", ""), this);
+    }
+
+    /**
+     * Create a PageTitle object from a Uri, taking into account any fragment (section title) in the link.
+     * @param uri Uri object to be turned into a PageTitle.
+     * @return {@link PageTitle} object that corresponds to the given Uri.
+     */
+    public PageTitle titleForUri(Uri uri) {
+        String path = uri.getPath();
+        if (!TextUtils.isEmpty(uri.getFragment())) {
+            path += "#" + uri.getFragment();
+        }
+        return titleForInternalLink(path);
     }
 
     private String language;

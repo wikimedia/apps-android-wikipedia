@@ -58,8 +58,6 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         }
         Log.d("Wikipedia", "Link clicked was " + href);
         if (href.startsWith("/wiki/")) {
-            // TODO: Handle fragments
-
             PageTitle title = currentSite.titleForInternalLink(href);
             onInternalLinkClicked(title);
         } else if (href.startsWith("#")) {
@@ -70,8 +68,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             // FIXME: Make this more complete, only to not handle URIs that contain unsupported actions
             if (authority != null && Site.isSupportedSite(authority) && uri.getPath().startsWith("/wiki/")) {
                 Site site = new Site(authority);
-                //TODO: Handle fragments
-                PageTitle title = site.titleForInternalLink(uri.getPath());
+                PageTitle title = site.titleForUri(uri);
                 onInternalLinkClicked(title);
             } else {
                 // if it's a /w/ URI, turn it into a full URI and go external
