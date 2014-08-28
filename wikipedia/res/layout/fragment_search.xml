@@ -109,7 +109,8 @@
     <Button
             android:id="@+id/search_network_error"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
             android:gravity="center"
             android:text="@string/search_network_error"
             style="?android:textAppearanceMedium"
