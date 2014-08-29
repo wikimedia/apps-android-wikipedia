@@ -4,8 +4,12 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,6 +70,26 @@ public class EditPreviewFragment extends Fragment {
         parentActivity = (EditSectionActivity)getActivity();
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(parentActivity.getPageTitle());
 
+        /*
+        Use a Resources object with a different Locale, so that the text of the canned summary
+        buttons is shown in the selected Wiki language, instead of the current UI language.
+        However, there's a caveat: creating a new Resources object actually modifies something
+        internally in the AssetManager, so we'll need to create another new Resources object
+        with the original Locale when we're done.
+        https://code.google.com/p/android/issues/detail?id=67672
+         */
+        Resources oldResources = getResources();
+        AssetManager assets = oldResources.getAssets();
+        DisplayMetrics metrics = oldResources.getDisplayMetrics();
+        Locale oldLocale = oldResources.getConfiguration().locale;
+        Locale newLocale = new Locale(WikipediaApp.getInstance().getPrimaryLanguage());
+        Configuration config = new Configuration(oldResources.getConfiguration());
+        Resources tempResources = getResources();
+        if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {
+            config.locale = newLocale;
+            tempResources = new Resources(assets, metrics, config);
+        }
+
         // build up summary tags...
         int[] summaryTagStrings = {
                 R.string.edit_summary_tag_typo,
@@ -76,7 +100,7 @@ public class EditPreviewFragment extends Fragment {
         summaryTags = new ArrayList<EditSummaryTag>();
         for (int i : summaryTagStrings) {
             final EditSummaryTag tag = new EditSummaryTag(getActivity());
-            tag.setText(getString(i));
+            tag.setText(tempResources.getString(i));
             tag.setTag(i);
             tag.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -90,7 +114,7 @@ public class EditPreviewFragment extends Fragment {
         }
 
         otherTag = new EditSummaryTag(getActivity());
-        otherTag.setText(getString(R.string.edit_summary_tag_other));
+        otherTag.setText(tempResources.getString(R.string.edit_summary_tag_other));
         editSummaryTagsContainer.addView(otherTag);
         otherTag.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +127,15 @@ public class EditPreviewFragment extends Fragment {
                 }
             }
         });
+
+        /*
+        Reset AssetManager to its original state, by creating a new Resources object
+        with the original Locale (from above)
+         */
+        if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {
+            config.locale = oldLocale;
+            new Resources(assets, metrics, config);
+        }
 
         if (savedInstanceState != null) {
 
