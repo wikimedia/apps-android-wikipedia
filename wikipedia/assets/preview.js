@@ -15,14 +15,29 @@ ActionsHandler.prototype.register = function( action, fun ) {
 };
 
 bridge.registerListener( "handleReference", function( payload ) {
-    handleReference( payload.anchor );
+    handleReference( payload.anchor, false );
 });
 
-function handleReference( targetId ) {
+function ancestorContainsClass( element, className ) {
+    var contains = false;
+    var curNode = element;
+    while (curNode) {
+        if ((typeof curNode.classList !== "undefined")) {
+            if (curNode.classList.contains(className)) {
+                contains = true;
+                break;
+            }
+        }
+        curNode = curNode.parentNode;
+    }
+    return contains;
+}
+
+function handleReference( targetId, backlink ) {
     var targetElem = document.getElementById( targetId );
     if ( targetElem === null ) {
         console.log( "reference target not found: " + targetId );
-    } else if ( targetId.slice(0, 4).toLowerCase() === "cite" ) { // treat "CITEREF"s the same as "cite_note"s
+    } else if ( !backlink && targetId.slice(0, 4).toLowerCase() === "cite" ) { // treat "CITEREF"s the same as "cite_note"s
         try {
             var refTexts = targetElem.getElementsByClassName( "reference-text" );
             if ( refTexts.length > 0 ) {
@@ -91,7 +106,7 @@ document.onclick = function() {
                 } else if ("disambig" === targetId) {
                     handleDisambig(sourceNode);
                 } else {
-                    handleReference( targetId );
+                    handleReference( targetId, ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
                 }
             } else {
                 bridge.sendMessage( 'linkClicked', { "href": href } );
