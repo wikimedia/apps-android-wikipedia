@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -31,6 +32,7 @@ public class ToCHandler {
     private static final int INDENTATION_WIDTH_DP = 16;
     private final ListView tocList;
     private final ProgressBar tocProgress;
+    private final ImageView tocButton;
     private final CommunicationBridge bridge;
     private final DisableableDrawerLayout slidingPane;
     private ToCInteractionFunnel funnel;
@@ -50,6 +52,7 @@ public class ToCHandler {
 
         this.tocList = (ListView) slidingPane.findViewById(R.id.page_toc_list);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
+        this.tocButton = (ImageView) quickReturnBar.findViewById(R.id.search_bar_show_toc);
 
         slidingPane.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             private float prevTranslateY;
@@ -57,6 +60,7 @@ public class ToCHandler {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
+                tocButton.setImageResource(R.drawable.toc_expanded);
                 bridge.sendMessage("requestCurrentSection", new JSONObject());
                 if (quickReturnBar != null) {
                     prevTranslateY = ViewHelper.getTranslationY(quickReturnBar);
@@ -69,6 +73,7 @@ public class ToCHandler {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
+                tocButton.setImageResource(R.drawable.toc_collapsed);
                 if (quickReturnBar != null) {
                     ViewAnimations.ensureTranslationY(quickReturnBar, (int) prevTranslateY);
                 }
