@@ -21,6 +21,7 @@ import org.acra.ReportingInteractionMode;
 import org.acra.annotation.ReportsCrashes;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.analytics.FunnelManager;
+import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.data.ContentPersister;
 import org.wikipedia.data.DBOpenHelper;
@@ -112,6 +113,11 @@ public class WikipediaApp extends Application {
 
     private List<String> languageMruList;
 
+    private SessionFunnel sessionFunnel;
+    public SessionFunnel getSessionFunnel() {
+        return sessionFunnel;
+    }
+
     /**
      * Singleton instance of WikipediaApp
      */
@@ -153,6 +159,8 @@ public class WikipediaApp extends Application {
         screenDensity = resources.getDisplayMetrics().density;
 
         PrefKeys.initPreferenceKeys(resources);
+
+        sessionFunnel = new SessionFunnel(this);
 
         // Enable debugging on the webview
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

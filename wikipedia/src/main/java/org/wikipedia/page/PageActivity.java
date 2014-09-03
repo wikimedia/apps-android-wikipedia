@@ -217,6 +217,8 @@ public class PageActivity extends FragmentActivity {
             return;
         }
 
+        app.getSessionFunnel().pageViewed(entry);
+
         // animate the new fragment into place
         // then hide the previous fragment.
         final PageViewFragment prevFragment = curPageFragment;
@@ -371,6 +373,8 @@ public class PageActivity extends FragmentActivity {
                         fragmentPager.setOnAnimationListener(null);
                     }
                 });
+
+                app.getSessionFunnel().backPressed();
 
                 fragmentPager.setCurrentItem(fragmentPager.getCurrentItem() - 1);
                 curPageFragment = fragmentAdapter.getFragmentAt(fragmentPager.getCurrentItem());
@@ -543,6 +547,8 @@ public class PageActivity extends FragmentActivity {
         if (themeChooser != null && themeChooser.isShowing()) {
             themeChooser.dismiss();
         }
+
+        app.getSessionFunnel().persistSession();
 
         super.onStop();
         bus.unregister(this);
