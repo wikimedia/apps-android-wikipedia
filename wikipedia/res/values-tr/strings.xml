@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Vikipedi</string>
   <string name="app_name_beta">Vikipedi Beta</string>
+  <string name="app_name_alpha">Vikipedi Alfa</string>
   <string name="yes">Evet</string>
   <string name="no">Hayır</string>
   <string name="acra_report_dialog_title">Vikipedi çöktü :(</string>
@@ -202,12 +203,19 @@
   <string name="abusefilter_text_warn">Bir otomatik süzgeç, bu değişikliği potansiyel zarar verici olarak tanımlamıştır. Değişiklik şunlardan birini veya daha fazlasını içeriyor olabilir:&lt;br /&gt;&lt;br /&gt;· Tamamı büyük harfle yazım&lt;br /&gt;· Sayfaların içeriğini boşaltma veya spam&lt;br /&gt;· İlgisiz dış bağlantılar veya resimler&lt;br /&gt;· Yinelenen karakterler</string>
   <string name="abusefilter_text_disallow">Bir otomatik süzgeç, bu değişikliği potansiyel yapıcı olmayan veya muhtemel vandalizm olarak tanımlamıştır.&lt;br /&gt;&lt;br /&gt; Vikipedi bir ansiklopedidir ve sadece kayda değer, tarafsız içerikler burada yer alabilir.</string>
   <string name="dialog_page_issues">Sayfa sorunları</string>
+  <string name="button_page_issues">Sayfa sorunları</string>
   <string name="menu_themechooser">Yazı tipi ve tema değiştir</string>
   <string name="text_size_select">Yazı tipi boyutu</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Açık</string>
   <string name="color_theme_dark">Koyu</string>
   <string name="page_similar_titles">Benzer başlıklar</string>
+  <string name="search_within_pages">Sayfalar içinde ara...</string>
+  <string name="search_no_results">\"%s\" için hiçbir sonuç bulunamadı.</string>
+  <string name="search_showing_instead">\"%1$s\" için hiçbir sonuç bulunamadı. \"%2$s\" için sonuçlar gösteriliyor:</string>
+  <string name="search_results_title">Arama sonuçları</string>
+  <string name="search_error_retry">Tekrar dene</string>
+  <string name="search_redirect_title">\"%s\" sayfasından yönlendirme.</string>
   <string name="app_store_description">Android için resmi Vikipedi Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır. Sıfırdan tekrar yazılan uygulama, şimdi her zamankinden daha iyi.
 
 Özellikler:

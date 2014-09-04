@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">উইকিপিডিয়া</string>
   <string name="app_name_beta">উইকিপিডিয়া বেটা</string>
+  <string name="app_name_alpha">উইকিপিডিয়া আলফা</string>
   <string name="yes">হ্যাঁ</string>
   <string name="no">না</string>
   <string name="acra_report_dialog_title">উইকিপিডিয়া কাজ করছে না :(</string>
@@ -208,4 +209,7 @@
   <string name="color_theme_light">উজ্জ্বল</string>
   <string name="color_theme_dark">কালো</string>
   <string name="page_similar_titles">একই শিরোনাম</string>
+  <string name="search_within_pages">পাতাগুলির মধ্যে অনুসন্ধান করুন...</string>
+  <string name="search_results_title">অনুসন্ধানের ফলাফল</string>
+  <string name="search_error_retry">পুনঃচেষ্টা করুন</string>
 </resources>

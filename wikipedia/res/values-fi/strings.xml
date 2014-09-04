@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="yes">Kyllä</string>
   <string name="no">Ei</string>
   <string name="acra_report_dialog_title">Wikipedia kaatui :(</string>
@@ -37,6 +38,7 @@
   <string name="toast_refresh_saved_page">Päivitetään tallennettua sivua..</string>
   <string name="delete_selected_saved_pages">Poista</string>
   <string name="toast_saved_page_deleted">Tallennetut sivu(t) poistettu</string>
+  <string name="saved_pages_search_list_hint">Hae</string>
   <string name="last_updated_text">Viimeksi päivitetty %1$s</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla ellei toisin ilmoiteta</string>
   <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
@@ -200,11 +202,17 @@
   <string name="abusefilter_text_warn">Automaattinen suodatin on tunnistanut tämän muokkauksen mahdollisesti haitalliseksi. Se saattaa sisältää yhden tai useampia seuraavista asioista:&lt;br /&gt;&lt;br /&gt;· Kokonaan isoilla kirjaimilla kirjoitettu teksti&lt;br /&gt;· Artikkeleiden tyhjentäminen tai mainostaminen&lt;br /&gt;· Aiheeseen liittymättömät linkit tai kuvat&lt;br /&gt;· Toistuvat merkkijonot</string>
   <string name="abusefilter_text_disallow">Automaattinen suodatin on tunnistanut tämän muokkauksen mahdollisesti haitalliseksi tai mahdolliseksi vandalismiksi.&lt;br /&gt;&lt;br /&gt;Wikipedia on tietosanakirja, ja vain neutraali, merkittävä sisältö kuuluu tänne.</string>
   <string name="dialog_page_issues">Sivun ongelmat</string>
+  <string name="button_page_issues">Sivun ongelmat</string>
   <string name="menu_themechooser">Muuta kirjaisintyyppiä ja teemaa</string>
   <string name="text_size_select">Kirjaisinkoko</string>
   <string name="color_theme_select">Teema</string>
   <string name="color_theme_light">Vaalea</string>
   <string name="color_theme_dark">Tumma</string>
+  <string name="page_similar_titles">Muut merkitykset</string>
+  <string name="search_within_pages">Etsi sivuilta…</string>
+  <string name="search_showing_instead">Ei tuloksia hakusanalla \"%1$s\". Näytetään tulokset hakusanalla \"%2$s\":</string>
+  <string name="search_results_title">Hakutulokset</string>
+  <string name="search_error_retry">Yritä uudelleen</string>
   <string name="app_store_description">Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 32 miljoonaa artikkelia 280 eri kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut. Sovellus on kirjoitettu alusta alkaen uusiksi ja on parempi kuin koskaan aiemmin.
 
 Ominaisuudet:

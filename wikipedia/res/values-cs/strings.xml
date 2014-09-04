@@ -200,6 +200,9 @@
   <string name="color_theme_light">Světlý</string>
   <string name="color_theme_dark">Tmavý</string>
   <string name="page_similar_titles">Jiné významy</string>
+  <string name="search_no_results">Nebyly nalezeny žádné výsledky pro „%s“.</string>
+  <string name="search_results_title">Výsledky vyhledávání</string>
+  <string name="search_error_retry">Zkusit znovu</string>
   <string name="app_store_description">Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.
 
 Funkce:

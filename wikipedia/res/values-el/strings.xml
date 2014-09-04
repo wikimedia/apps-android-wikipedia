@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Βικιπαίδεια</string>
   <string name="app_name_beta">Βικιπαίδεια Beta</string>
+  <string name="app_name_alpha">Βικιπαίδεια Alpha</string>
   <string name="yes">Ναι</string>
   <string name="no">Όχι</string>
   <string name="acra_report_dialog_title">H Wikipedia κατέρρευσε :(</string>
@@ -17,6 +18,7 @@
   <string name="menu_clear_all_bookmarks">Εκκαθάριση σελιδοδεικτών</string>
   <string name="menu_clear_all_saved_pages">Εκκαθάριση αποθηκευμένων σελίδων</string>
   <string name="page_does_not_exist_error">Αυτή η σελίδα δεν υπάρχει!</string>
+  <string name="nav_item_today">Σήμερα</string>
   <string name="dialog_title_clear_history">Εκκαθάριση ιστορικού περιήγησης;</string>
   <string name="saved_pages_activity_title">Αποθηκευμένες σελίδες</string>
   <string name="nav_item_saved_pages">Αποθηκευμένες σελίδες</string>
@@ -36,8 +38,12 @@
   <string name="toast_refresh_saved_page">Ανανεώνοντας αποθηκευμένη σελίδα...</string>
   <string name="delete_selected_saved_pages">Διαγραφή</string>
   <string name="toast_saved_page_deleted">Αποθηκευμένη(ες) σελίδα(ες) διαγράφτηκε(καν)</string>
+  <string name="saved_pages_search_list_hint">Αναζήτηση</string>
+  <string name="saved_pages_search_empty_message">Δεν βρέθηκαν σελίδες που ταιριάζουν με το \'%s\'</string>
   <string name="last_updated_text">Τελευταία ενημέρωση %s</string>
   <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>
+  <string name="edit_save_action_license_logged_in">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Επεξεργασίες θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε μεγαλύτερη ιδιωτικότητα.</string>
   <string name="preference_title_language">Γλώσσα Βικιπαίδειας</string>
   <string name="preference_summary_language">Γλώσσα περιεχομένου</string>
   <string name="preference_languages_filter_hint">Αναζήτηση</string>
@@ -81,8 +87,13 @@
   <string name="preference_summary_logout">Αποσυνδεθείτε από το λογαριασμό σας στη Βικιπαίδεια</string>
   <string name="preference_summary_notloggedin">Δεν έχετε συνδεθεί.</string>
   <string name="toast_logout_complete">Αποσύνδεση</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Δεν υπάρχουν αποθηκευμένες σελίδες</string>
-  <string name="history_empty_message" fuzzy="true">Το ιστορικό σας είναι κενό.</string>
+  <string name="saved_pages_empty_title">Δεν υπάρχουν αποθηκευμένες σελίδες ακόμα.</string>
+  <string name="saved_pages_empty_message">Οι αποθηκευμένες σελίδες είναι αρκετά φοβερές. Σκεφτείτε τις ως σελιδοδείκτες που μπορείτε να διαβάσετε ακόμα και όταν είστε εκτός σύνδεσης.</string>
+  <string name="history_empty_title">Δεν υπάρχουν πρόσφατες σελίδες εδώ.</string>
+  <string name="history_empty_message">Πιθανώς να τα διαγράψατε όλα. Την επόμενη φορά που θα μεταβείτε σε μια σελίδα, μπορείτε να επιστρέψετε σε αυτήν από εδώ.</string>
+  <string name="wp_stylized">&lt;big&gt;Β&lt;/big&gt;ΙΚΙΠΑΙΔΕΙ&lt;big&gt;Α&lt;/big&gt;</string>
+  <string name="wp_tag_line">Η Ελεύθερη Εγκυκλοπαίδεια</string>
+  <string name="skip">Παράβλεψη</string>
   <string name="create_account_username_hint">Όνομα χρήστη</string>
   <string name="create_account_password_hint">Κωδικός</string>
   <string name="menu_create_account">Δημιουργία λογαριασμού</string>
@@ -151,9 +162,15 @@
   <string name="more_item_preferences">Περισσότερα</string>
   <string name="more_activity_title">Περισσότερα</string>
   <string name="about_description">Σχετικά με την εφαρμογή της Βικιπαίδειας</string>
+  <string name="privacy_policy_description">Πολιτική ιδιωτικού απορρήτου</string>
+  <string name="terms_of_use_description">Όροι χρήσης</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Έκδοση</string>
   <string name="about_libraries_heading">βιβλιοθήκες που χρησιμοποιούνται</string>
   <string name="about_contributors_heading">Συνεισφέροντες</string>
+  <string name="about_translators_heading">μεταφραστές</string>
+  <string name="about_translators_translatewiki">Η εφαρμογή αυτή έχει μεταφραστεί από τους εθελοντές μεταφραστές στο &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Ένα προϊόν του &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Ιδρύματος Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Σχετικά</string>
   <string name="edit_unchanged">Η σελίδα δεν έχει τροποποιηθεί.</string>
@@ -179,7 +196,22 @@
   <string name="saved_pages_update_all_error_message">Λάθος στην ενημέρωση αποθηκευμένων σελίδων</string>
   <string name="saved_pages_progress_title">Ανανέωση αποθηκευμένων σελίδων</string>
   <string name="saved_pages_refresh_pages_complete">Η ενημέρωση ολοκληρώθηκε</string>
+  <string name="menu_refresh_saved_page">Ανανέωση σελίδας</string>
+  <string name="abusefilter_title_disallow">Δεν μπορείτε να αποθηκεύσετε αυτή την επεξεργασία. Παρακαλούμε πηγαίνετε πίσω και αλλάξτε την.</string>
+  <string name="dialog_page_issues">Προβλήματα σελίδας</string>
+  <string name="button_page_issues">Προβλήματα σελίδας</string>
+  <string name="menu_themechooser">Γραμματοσειρά και θέμα</string>
+  <string name="text_size_select">Μέγεθος γραμματοσειράς</string>
+  <string name="color_theme_select">Θέμα</string>
+  <string name="color_theme_light">Φωτεινό</string>
+  <string name="color_theme_dark">Σκούρο</string>
   <string name="page_similar_titles">Άλλες έννοιες</string>
+  <string name="search_within_pages">Αναζήτηση σε σελίδες</string>
+  <string name="search_no_results">Δεν βρέθηκαν αποτελέσματα για \"%s\".</string>
+  <string name="search_showing_instead">Δεν βρέθηκαν αποτελέσματα για \"%1$s\". Εμφάνιση αποτελεσμάτων για \"%2$s\":</string>
+  <string name="search_results_title">Αποτελέσματα αναζήτησης</string>
+  <string name="search_error_retry">Επανάληψη</string>
+  <string name="search_redirect_title">Ανακατεύθυνση από \"%s\".</string>
   <string name="app_store_description">Η επίσημη εφαρμογή της Βικιπαίδειας για το Android. Η Βικιπαίδεια είναι η δωρεάν εγκυκλοπαίδεια που περιλαμβάνει περισσότερα από 32 εκατομμύρια λήμματα σε 280 γλώσσες και είναι το πιο περιεκτικό και ευρύτερα χρησιμοποιημενο έργο αναφοράς στην ιστορία της ανθρώπινης δημιουργίας. Η εφαρμογή έχει επανασχεδιαστεί από την αρχή και είναι καλύτερη από ποτέ.
 
 Χαρακτηριστικά:

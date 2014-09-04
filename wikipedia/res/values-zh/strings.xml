@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">维基百科</string>
   <string name="app_name_beta">维基百科测试版</string>
+  <string name="app_name_alpha">维基百科Alpha</string>
   <string name="yes">是</string>
   <string name="no">不</string>
   <string name="acra_report_dialog_title">维基百科崩溃了:(</string>
@@ -117,7 +118,7 @@
   <string name="zero_charged_verbiage_extended">载入其他条目可能产生流量费用。</string>
   <string name="zero_search_hint">搜索维基百科零</string>
   <string name="zero_warn_when_leaving">离开维基百科零时提示</string>
-  <string name="zero_warn_when_leaving_summary">如果您的移动运营商作为维基百科零计划的合作伙伴，而放弃维基百科应用程序相关的数据接入费用，启用该设置可以帮助您检查何时离开计划并开始计费。</string>
+  <string name="zero_warn_when_leaving_summary">如果您的移动运营商作为Wikipedia Zero的合作伙伴，而放弃维基百科应用程序相关的数据接入费用，启用该设置可以帮助您检查何时离开应用程序并开始计费。</string>
   <string name="zero_webpage_title">维基百科零常见问题</string>
   <string name="zero_wikipedia_zero_heading">维基百科零</string>
   <string name="zero_interstitial_title">离开维基百科零</string>
@@ -202,12 +203,19 @@
   <string name="abusefilter_text_warn">您的编辑触发了自动过滤器，并被认为是一个没有建设性的编辑。这可能由以下一种或多种原因造成：&lt;br /&gt;&lt;br /&gt;· 全部是大写字母&lt;br /&gt;· 清空条目或广告&lt;br /&gt;· 清除外部链接或图像&lt;br /&gt;· 重复的文字</string>
   <string name="abusefilter_text_disallow">您的编辑触发了自动过滤器，并被认为是一个可能没有建设性的编辑或是潜在的破坏。&lt;br /&gt;&lt;br /&gt;维基百科是一部百科全书，只能中立、有价值的内容才属于这里。</string>
   <string name="dialog_page_issues">页面问题</string>
+  <string name="button_page_issues">页面问题</string>
   <string name="menu_themechooser">更改字体和主题</string>
   <string name="text_size_select">字体大小</string>
   <string name="color_theme_select">主题</string>
   <string name="color_theme_light">浅</string>
   <string name="color_theme_dark">深</string>
   <string name="page_similar_titles">相似的标题</string>
+  <string name="search_within_pages">在页面中搜索…</string>
+  <string name="search_no_results">找不到“%s”的结果。</string>
+  <string name="search_showing_instead">未找到“%1$s”的结果。显示“%2$s”的结果：</string>
+  <string name="search_results_title">搜索结果</string>
+  <string name="search_error_retry">重试</string>
+  <string name="search_redirect_title">重定向自“%s”。</string>
   <string name="app_store_description">这是维基百科的官方安卓应用程序。维基百科支持280种语言，拥有超过3200万条目，并且是最全面最广泛使用以及最多用户编辑的百科全书。此程序从零开始重写并比以往更好。
 
 功能：

@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="yes">Jo</string>
   <string name="no">Neen</string>
   <string name="acra_report_dialog_title">Wikipedia ass ofgestierzt :(</string>
@@ -203,4 +204,9 @@
   <string name="color_theme_light">Hell</string>
   <string name="color_theme_dark">Déischter</string>
   <string name="page_similar_titles">Ähnlech Titelen</string>
+  <string name="search_within_pages">An de Säite sichen...</string>
+  <string name="search_no_results">Näischt fonnt fir \"%s\".</string>
+  <string name="search_results_title">Resultat vum Sichen</string>
+  <string name="search_error_retry">Nach eng Kéier probéieren</string>
+  <string name="search_redirect_title">Viruleedung vu(n) \"%s\".</string>
 </resources>

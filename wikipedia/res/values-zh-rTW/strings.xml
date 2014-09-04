@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">維基百科</string>
   <string name="app_name_beta">維基百科測試版</string>
+  <string name="app_name_alpha">維基百科Alpha</string>
   <string name="yes">是</string>
   <string name="no">否</string>
   <string name="acra_report_dialog_title">維基百科發生錯誤 :(</string>
@@ -128,6 +129,8 @@
   <string name="zero_learn_more_learn_more">閱讀更多</string>
   <string name="zero_learn_more_dismiss">取消</string>
   <string name="zero_settings">設定</string>
+  <string name="zero_settings_devmode">Zero開發模式</string>
+  <string name="zero_settings_devmode_summary">在開發期間啟用維基百科零計劃的代碼執行。</string>
   <string name="edit_preview_fetching_dialog_message">正在獲取預覽...</string>
   <string name="edit_preview_activity_title">預覽編輯</string>
   <string name="create_account_logging_in">登入中...</string>
@@ -200,12 +203,19 @@
   <string name="abusefilter_text_warn">您的編輯觸發了自動過濾器，並被認為可能是一個缺乏建設性的編輯。這可能是由於編輯中包含以下之一：&lt;br /&gt;&lt;br /&gt;· 全部使用大寫字母&lt;br /&gt;· 清空條目或加入廣告&lt;br /&gt;· 加入無關的外部連結或圖片&lt;br /&gt;· 重複的文字</string>
   <string name="abusefilter_text_disallow">自動化篩選已識別此編輯為潛在非建設性或潛在性破壞。&lt;br/&gt;&lt;br/&gt;維基百科是一本僅擁有中立與值得注意內容的百科全書。</string>
   <string name="dialog_page_issues">頁面問題</string>
+  <string name="button_page_issues">頁面問題</string>
   <string name="menu_themechooser">字型與主題</string>
   <string name="text_size_select">字型大小</string>
   <string name="color_theme_select">主題</string>
   <string name="color_theme_light">日間模式</string>
   <string name="color_theme_dark">夜間模式</string>
   <string name="page_similar_titles">相似的標題</string>
+  <string name="search_within_pages">於頁面內搜尋...</string>
+  <string name="search_no_results">找不到「%s」的結果。</string>
+  <string name="search_showing_instead">未找到「%1$s」的結果。顯示「%2$s」的結果：</string>
+  <string name="search_results_title">搜尋結果</string>
+  <string name="search_error_retry">重試</string>
+  <string name="search_redirect_title">重定向自「%s」。</string>
   <string name="app_store_description">維基百科官方 Android 應用程式。維基百科是一部自由的百科全書，包含超過3200萬篇條目，以280種不同的語言撰寫，是人類創建過最詳實、且大量被引用的資料來源。這個應用程式已經全面重新編寫，使其比以前來得還要更好。
 
 特色功能：

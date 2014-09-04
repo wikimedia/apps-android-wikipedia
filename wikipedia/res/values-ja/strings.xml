@@ -209,6 +209,8 @@
   <string name="color_theme_light">明るめ</string>
   <string name="color_theme_dark">暗め</string>
   <string name="page_similar_titles">他の意味</string>
+  <string name="search_results_title">検索結果</string>
+  <string name="search_error_retry">再試行</string>
   <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。このバージョンではゼロから書きなおされ、これまでで最良のものになりました。
 
 機能:

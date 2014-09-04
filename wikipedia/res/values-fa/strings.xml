@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">ویکی‌پدیا</string>
   <string name="app_name_beta">ویکی‌پدیای بتا</string>
+  <string name="app_name_alpha">ویکی‌پدیا آلفا</string>
   <string name="yes">بله</string>
   <string name="no">خیر</string>
   <string name="acra_report_dialog_title">ویکیپدیا در دسترس نیست :(</string>
@@ -17,6 +18,7 @@
   <string name="menu_clear_all_bookmarks">پاک کردن بوک مارک</string>
   <string name="menu_clear_all_saved_pages">پاک کردن صفحه‌های ذخیره‌شده</string>
   <string name="page_does_not_exist_error">این صفحه وجود ندارد!</string>
+  <string name="nav_item_today">امروز</string>
   <string name="dialog_title_clear_history">پاک‌کردن تاریخچه جستجو؟</string>
   <string name="saved_pages_activity_title">صفحه‌های ذخیره‌شده</string>
   <string name="nav_item_saved_pages">صفحه‌های ذخیره‌شده</string>
@@ -40,6 +42,8 @@
   <string name="saved_pages_search_empty_message">هیچ صفحه‌ای برای \'%s\' یافت نشد</string>
   <string name="last_updated_text"> %1$s آخرین به‌روزرسانی</string>
   <string name="content_license_html">مطالب تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
+  <string name="edit_save_action_license_logged_in">با ذخیره‌کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید.</string>
+  <string name="edit_save_action_license_anon">با ذخیره‌کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید. ویرایش‌ها به نشانی آی‌پی دستگاه‌تان نسبت داده خواهد شد. اگر &lt;a href=\"https://#login\"&gt;وارد شوید&lt;/a&gt;، حریم خصوصی بیشتری دارید.</string>
   <string name="preference_title_language">زبان</string>
   <string name="preference_summary_language">زبان محتوا</string>
   <string name="preference_languages_filter_hint">جستجو</string>
@@ -84,8 +88,10 @@
   <string name="preference_summary_notloggedin">وارد سامانه نشده‌اید</string>
   <string name="toast_logout_complete">خارج شد</string>
   <string name="saved_pages_empty_title">هنوز صفحه‌ای ذخیره نشده‌است.</string>
-  <string name="saved_pages_empty_message" fuzzy="true">هیچ صفحه‌ای ذخیره نشده‌است.</string>
-  <string name="history_empty_message" fuzzy="true">تاریخچهٔ شما خالی می‌باشد.</string>
+  <string name="saved_pages_empty_message">صفحات ذخیره‌شده بسیار عالی هستند. به آنها به چشم بوکمارک‌هایی نگاه کنید که می‌توانید بخوانید حتی زمانی که آفلاین هستید.</string>
+  <string name="history_empty_title">هیچ صفحه اخیری اینجا نیست.</string>
+  <string name="history_empty_message">شما احتمالاً همه آنها را حذف کردید. دفعه بعد که به صفحه‌ای می‌روید می‌توانید از اینجا به آن صفحه برگردید.</string>
+  <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپدی&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="wp_tag_line">دانشنامه آزاد</string>
   <string name="skip">رها کردن</string>
   <string name="create_account_username_hint">نام کاربری</string>
@@ -156,10 +162,15 @@
   <string name="more_item_preferences">بیشتر</string>
   <string name="more_activity_title">بیشتر</string>
   <string name="about_description">دربارهٔ نرم‌افزار ویکی‌پدیا</string>
+  <string name="privacy_policy_description">سیاست حفظ حریم خصوصی</string>
+  <string name="terms_of_use_description">شرایط استفاده</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">نسخه</string>
   <string name="about_libraries_heading">کتابخانه‌ها استفاده‌شده</string>
   <string name="about_contributors_heading">مشارکت‌کنندگان</string>
   <string name="about_translators_heading">مترجم‌ها</string>
+  <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده‌است.</string>
   <string name="about_wmf">محصول &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;بنیاد ویکی‌مدیا&lt;/a&gt;</string>
   <string name="about_activity_title">درباره</string>
   <string name="edit_unchanged">این صفحه ویرایش نشده‌است.</string>
@@ -187,6 +198,11 @@
   <string name="saved_pages_refresh_pages_complete">به‌روزرسانی انجام شد.</string>
   <string name="menu_page_saved">صفحه ذخیره شده</string>
   <string name="menu_refresh_saved_page">تازه کردن صفحه</string>
+  <string name="abusefilter_title_warn">این ویرایش ممکن است غیرسازنده باشد. آیا مطمئنید می‌خواهید ذخیره‌اش کنید؟</string>
+  <string name="abusefilter_title_disallow">شما نمی‌توانید این ویرایش را ذخیره کنید. لطفاً بازگردید و تغییرش دهید.</string>
+  <string name="abusefilter_text_warn">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده شناسایی کرده‌است. این ویرایش ممکن است شامل یک یا چند مورد از موارد زیر باشد:&lt;br /&gt;&lt;br /&gt;· همه را با حروف بزرگ نوشتن&lt;br /&gt;· خالی‌گذاشتن مقاله‌ها یا هرز نگاره&lt;br /&gt;· پیوندهای بیرونی یا تصاویر نامرتبط&lt;br /&gt;· تکرار نویسه‌ها</string>
+  <string name="abusefilter_text_disallow">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده، یا خرابکاری بالقوه شناسایی کرده‌است.&lt;br /&gt;&lt;br /&gt;ویکی‌پدیا یک دانشنامه است و فقط محتوای بی طرف و قابل توجه به اینجا تعلق دارند.</string>
+  <string name="dialog_page_issues">موضوعات صفحه</string>
   <string name="button_page_issues">موضوعات صفحه</string>
   <string name="menu_themechooser">تغییر فونت و پوسته</string>
   <string name="text_size_select">اندازهٔ قلم</string>
@@ -194,6 +210,12 @@
   <string name="color_theme_light">روشن</string>
   <string name="color_theme_dark">تیره</string>
   <string name="page_similar_titles">معانی دیگر</string>
+  <string name="search_within_pages">جستجو در صفحات...</string>
+  <string name="search_no_results">هیچ نتیجه‌ای برای «%s» یافت نشد.</string>
+  <string name="search_showing_instead">هیچ نتیجه‌ای برای «%1$s» یافت نشد. نتایج «%2$s» نشان داده می‌شود:</string>
+  <string name="search_results_title">نتایج جستجو</string>
+  <string name="search_error_retry">تلاش مجدد</string>
+  <string name="search_redirect_title">تغییر مسیر از «%s».</string>
   <string name="app_store_description">نرم افزار رسمی ویکی‌پدیا برای استفاده در آندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و  گسترده‌ترین مرجع کار انسان تا کنون است. این برنامه از ابتدا بازنویسی شده است و بهتر از قبل کار می کند.
 ویژگی‌ها:
    -سرعت: نرم افزار جدید، بومی ما به شما اجازهٔ مرور و ویرایش ویکی‌پدیا را با سریع بیشتری می‌دهد.

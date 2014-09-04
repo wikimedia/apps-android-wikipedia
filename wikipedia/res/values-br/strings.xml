@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="yes">Ya</string>
   <string name="no">Ket</string>
   <string name="acra_report_dialog_title">Sac\'het eo Wikipedia :(</string>
@@ -209,6 +210,12 @@
   <string name="color_theme_light">Sklaer</string>
   <string name="color_theme_dark">Teñval</string>
   <string name="page_similar_titles">Titloù kar</string>
+  <string name="search_within_pages">Klask er pajennoù...</string>
+  <string name="search_no_results">Disoc\'h ebet kavet evit \"%s\".</string>
+  <string name="search_showing_instead">Disoc\'h ebet kavet evit \"%1$\". Diskwel an disoc\'hoù evit \"%2$s\" :</string>
+  <string name="search_results_title">Klask disoc\'hoù</string>
+  <string name="search_error_retry">Klask en-dro</string>
+  <string name="search_redirect_title">Adkaset war-zu \"%s\"</string>
   <string name="app_store_description">Arload ofisiel Wikepedia evit Android. Un holloueziadur eo Wikipedia. Ennañ ez eus ouzhpenn 32 vilion a bennadoù e 280 yezh. An holloueziadur klokañ hag implijetañ a zo bet kempunet gant an dud evel n’eus ket bet morse.
 
 Arc\'hwelioù

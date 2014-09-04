@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wikipedia alfa</string>
   <string name="yes">Sí</string>
   <string name="no">No</string>
   <string name="acra_report_dialog_title">Wikipedia falló :(</string>
@@ -209,6 +210,12 @@
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Oscuro</string>
   <string name="page_similar_titles">Títulos similares</string>
+  <string name="search_within_pages">Buscar en las páginas...</string>
+  <string name="search_no_results">No se encontraron resultados de \"%s\".</string>
+  <string name="search_showing_instead">No se encontraron resultados de \"%1$s\". Se muestran los de \"%2$s\":</string>
+  <string name="search_results_title">Resultados de la búsqueda</string>
+  <string name="search_error_retry">Reintentar</string>
+  <string name="search_redirect_title">Redirección desde \"%s\".</string>
   <string name="app_store_description">Aplicación oficial de Wikipedia para Android. Wikipedia es la enciclopedia libre que contiene más de 32 millones de artículos en 280 idiomas y es el trabajo de referencia más completo y ampliamente usado que los humanos hayan recopilado. La aplicación ha sido reescrita desde cero y está mejor que nunca.
 
 Características:

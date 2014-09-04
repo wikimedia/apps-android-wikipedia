@@ -204,4 +204,9 @@
   <string name="color_theme_light">Jasna</string>
   <string name="color_theme_dark">Ciemna</string>
   <string name="page_similar_titles">Podobne tytuły</string>
+  <string name="search_no_results">Nie znaleziono żadnych wyników dla „%s”.</string>
+  <string name="search_showing_instead">Nie znaleziono wyników dla „%1$s”. Wyświetlono wyniki dla „%2$s”.</string>
+  <string name="search_results_title">Wyniki wyszukiwania</string>
+  <string name="search_error_retry">Ponów próbę</string>
+  <string name="search_redirect_title">Przekierowanie z „%s”.</string>
 </resources>

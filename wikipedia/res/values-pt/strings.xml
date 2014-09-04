@@ -210,6 +210,11 @@
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Escuro</string>
   <string name="page_similar_titles">Títulos semelhantes</string>
+  <string name="search_no_results">Nenhum resultado encontrado para \"%s\".</string>
+  <string name="search_showing_instead">Não foram encontrados resultados para \"%1$s\". A mostrar resultados de \"%2$s\":</string>
+  <string name="search_results_title">Resultados da pesquisa</string>
+  <string name="search_error_retry">Tentar novamente</string>
+  <string name="search_redirect_title">Redirecionamento de \"%s\".</string>
   <string name="app_store_description">Aplicação oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada por trabalho humano. A aplicação foi reescrita do zero e está melhor que nunca.
 
 Caraterísticas:

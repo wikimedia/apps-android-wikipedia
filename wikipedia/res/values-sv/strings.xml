@@ -210,6 +210,12 @@
   <string name="color_theme_light">Ljus</string>
   <string name="color_theme_dark">Mörk</string>
   <string name="page_similar_titles">Liknande titlar</string>
+  <string name="search_within_pages">Sök inom sidor...</string>
+  <string name="search_no_results">Inga resultat hittade för \"%s\".</string>
+  <string name="search_showing_instead">Inga resultat hittade för \"%1$s\". Visar resultat för \"%2$s\":</string>
+  <string name="search_results_title">Sökresultat</string>
+  <string name="search_error_retry">Försök igen</string>
+  <string name="search_redirect_title">Omdirigera från \"%s\".</string>
   <string name="app_store_description">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt. Appen har skrivits om från grunden och är bättre än någonsin.
 
 Funktioner:

@@ -209,6 +209,12 @@
   <string name="color_theme_light">Licht</string>
   <string name="color_theme_dark">Donker</string>
   <string name="page_similar_titles">Soortgelijke titels</string>
+  <string name="search_within_pages">Zoeken binnen pagina\'s...</string>
+  <string name="search_no_results">Geen resultaten gevonden voor \"%s\".</string>
+  <string name="search_showing_instead">Geen resultaten gevonden voor \"%1$s\". In plaats daarvan resultaten voor \"%2$s\":</string>
+  <string name="search_results_title">Zoekresultaten</string>
+  <string name="search_error_retry">Opnieuw proberen</string>
+  <string name="search_redirect_title">Doorverwezen vanaf \"%s\".</string>
   <string name="app_store_description">Officiële Wikipedia-app voor Android. Wikipedia is de vrije encylopedie met meer dan 31 miljoen artikelen in 280 talen, en de meest uitgebreide en meest gebruikte bron gemaakt door de mens. De app is vanaf de grond opnieuw opgebouwd en is beter dan ooit te voren.
 
 Functies:
