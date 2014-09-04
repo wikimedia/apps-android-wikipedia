@@ -197,4 +197,18 @@ public final class ViewAnimations {
             animate(view).translationY(translation).setDuration(SHORT_ANIMATION_DURATION).start();
         }
     }
+
+    /**
+     * Ensures that the translationX of a particular view is the given value.
+     *
+     * If it isn't the current value, then it performs a short animation to make it so.
+     *
+     * @param view The view to translate
+     * @param translation The value to ensure it is translated by
+     */
+    public static void ensureTranslationX(View view, int translation) {
+        if (ViewHelper.getTranslationX(view) != translation) {
+            animate(view).translationX(translation).setDuration(SHORT_ANIMATION_DURATION).start();
+        }
+    }
 }
