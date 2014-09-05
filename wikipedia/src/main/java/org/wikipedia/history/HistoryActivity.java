@@ -175,6 +175,8 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
                     return R.drawable.random;
                 case HistoryEntry.SOURCE_MAIN_PAGE:
                     return R.drawable.link;
+                case HistoryEntry.SOURCE_NEARBY:
+                    return R.drawable.nearby;
                 default:
                     throw new RuntimeException("Unknown source id encountered");
             }

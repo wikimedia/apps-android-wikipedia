@@ -66,6 +66,17 @@ See also:
   <string name="saved_pages_search_list_hint">Hint for textbox that searches list of items in saved pages as user types.
       {{Identical|Search}}</string>
   <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query. %s is replaced with the query string.</string>
+
+  <string name="nearby_activity_title">Title for Nearby activity (top of screen)</string>
+  <string name="nav_item_nearby">Entry in nav drawer for Nearby feature</string>
+  <string name="menu_update_nearby">Action bar item to refresh list of nearby pages</string>
+  <string name="nearby_empty_title">Title line for message when no nearby pages were found</string>
+  <string name="nearby_empty_message">Message details when no nearby pages were found</string>
+  <string name="nearby_distance_in_meters">Distance to the place mentioned in the nearby page in meters. Please leave the %d as is. It represents an integer decimal number up to 999.</string>
+  <string name="nearby_distance_in_kilometers">Distance to the place mentioned in the nearby page in kilometers. Please leave the %.2f as is. It represents a floating point number with 2 digits after the decimal point.</string>
+  <string name="nearby_no_network">Error message when there was a network error</string>
+  <string name="nearby_server_error">Error message when the app could not get list of nearby places from the server.</string>
+
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>

@@ -15,8 +15,12 @@
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="17" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- For Nearby feature -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -63,6 +67,14 @@
         <activity
                 android:name=".savedpages.SavedPagesActivity"
                 android:label="@string/saved_pages_activity_title"
+                android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+                android:windowSoftInputMode="stateHidden|adjustResize"
+                >
+        </activity>
+
+        <activity
+                android:name=".nearby.NearbyActivity"
+                android:label="@string/nearby_activity_title"
                 android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 android:windowSoftInputMode="stateHidden|adjustResize"
                 >

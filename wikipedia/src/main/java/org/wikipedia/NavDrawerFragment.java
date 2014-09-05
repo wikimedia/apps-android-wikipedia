@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.nearby.NearbyActivity;
 import org.wikipedia.savedpages.SavedPagesActivity;
 import org.wikipedia.events.RequestMainPageEvent;
 import org.wikipedia.history.HistoryActivity;
@@ -26,6 +27,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
             R.id.nav_item_today,
             R.id.nav_item_history,
             R.id.nav_item_saved_pages,
+            R.id.nav_item_nearby,
             R.id.nav_item_more,
             R.id.nav_item_login,
             R.id.nav_item_random
@@ -140,6 +142,10 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
             case R.id.nav_item_saved_pages:
                 intent.setClass(this.getActivity(), SavedPagesActivity.class);
                 getActivity().startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_SAVEDPAGES);
+                break;
+            case R.id.nav_item_nearby:
+                intent.setClass(this.getActivity(), NearbyActivity.class);
+                getActivity().startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_NEARBY);
                 break;
             case R.id.nav_item_more:
                 intent.setClass(this.getActivity(), SettingsActivity.class);

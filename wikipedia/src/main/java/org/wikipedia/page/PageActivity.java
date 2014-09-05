@@ -20,6 +20,7 @@ import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import org.wikipedia.events.*;
+import org.wikipedia.nearby.NearbyActivity;
 import org.wikipedia.onboarding.OnboardingActivity;
 import org.wikipedia.savedpages.SavedPagesActivity;
 import org.wikipedia.NavDrawerFragment;
@@ -46,6 +47,7 @@ public class PageActivity extends FragmentActivity {
     public static final int ACTIVITY_REQUEST_HISTORY = 0;
     public static final int ACTIVITY_REQUEST_SAVEDPAGES = 1;
     public static final int ACTIVITY_REQUEST_LANGLINKS = 2;
+    public static final int ACTIVITY_REQUEST_NEARBY = 3;
 
     private Bus bus;
     private WikipediaApp app;
@@ -535,6 +537,7 @@ public class PageActivity extends FragmentActivity {
         }
         if ((requestCode == ACTIVITY_REQUEST_HISTORY && resultCode == HistoryActivity.ACTIVITY_RESULT_HISTORY_SELECT)
             || (requestCode == ACTIVITY_REQUEST_SAVEDPAGES && resultCode == SavedPagesActivity.ACTIVITY_RESULT_SAVEDPAGE_SELECT)
+            || (requestCode == ACTIVITY_REQUEST_NEARBY && resultCode == NearbyActivity.ACTIVITY_RESULT_NEARBY_SELECT)
             || (requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT)) {
             handleIntent(data);
         } else {

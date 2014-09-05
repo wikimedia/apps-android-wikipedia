@@ -152,6 +152,28 @@
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
+                      android:id="@+id/nav_item_nearby"
+                      android:background="@drawable/nav_item_background"
+                >
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                       android:layout_margin="12dp"
+                       android:layout_gravity="center_vertical"
+                       android:src="@drawable/nearby_white"
+                       android:contentDescription="@null"
+                    />
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/nav_item_nearby"
+                    android:textColor="@color/nav_text"
+                    style="?android:textAppearanceMedium"
+                    />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
                       android:id="@+id/nav_item_random"
                       android:background="@drawable/nav_item_background"
                 >

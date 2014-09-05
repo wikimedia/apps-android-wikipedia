@@ -45,6 +45,16 @@
     <string name="saved_pages_search_list_hint">Search</string>
     <string name="saved_pages_search_empty_message">No pages found matching \"%s\"</string>
 
+    <string name="nearby_activity_title">Nearby</string>
+    <string name="nav_item_nearby">Nearby</string>
+    <string name="menu_update_nearby">Update nearby</string>
+    <string name="nearby_empty_title">No pages nearby</string>
+    <string name="nearby_empty_message">You can refresh this page when you move to a new location.</string>
+    <string name="nearby_distance_in_meters">%d m</string>
+    <string name="nearby_distance_in_kilometers">%.2f km</string>
+    <string name="nearby_no_network">No network connection</string>
+    <string name="nearby_server_error">Could not get list of nearby places.</string>
+
     <string name="last_updated_text">Last updated %s</string>
     <string name="content_license_html"><![CDATA[Content is available under <a href=\"//creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
     <string name="edit_save_action_license_logged_in"><![CDATA[By saving, you agree to the <a href="https://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a>, and to irrevocably release your contributions under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> license.]]></string>
@@ -230,6 +240,7 @@
     <string name="search_redirect_title">Redirect from \"%s\".</string>
     <string name="toc_hint">Swipe left for sections, or use the menu button on the top right.</string>
     <string name="toc_know_it">Got it</string>
+
     <string name="app_store_description">Official Wikipedia App for Android. Wikipedia is the free encyclopedia containing more than 32 million articles in 280 languages, and is the most comprehensive and widely used reference work humans have ever compiled. The app has been rewritten from scratch and is better than ever before.
 
 Features:
