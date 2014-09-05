@@ -132,7 +132,7 @@ See also:
   <string name="saved_pages_empty_title">Used in \"Saved pages\" page if there are no saved pages to show.</string>
   <string name="saved_pages_empty_message">Brief explanation of what saved pages are, and their benefits.</string>
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
-  <string name="history_empty_message">Brief explanation of what History entries are.</string>
+  <string name="history_empty_message">Brief explanation that there are currently no History entries to look at. Just to fill an empty screen. This usually happens when a user just deleted history entries.</string>
   <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags, if this fits the Wikipedia logo in your language.</string>
   <string name="wp_tag_line">The Wikipedia slogan. The second line of https://commons.wikimedia.org/wiki/Wikimedia#mediaviewer/File:Wikipedia-logo-en.png. You may be able to find one under https://commons.wikimedia.org/wiki/Wikipedia/2.0.</string>
   <string name="skip">A button or text link to trigger skipping something, like closing the current screen without doing anything.
@@ -173,7 +173,7 @@ See also:
   <string name="zero_interstitial_leave_app">Dialog text to ask Wikipedia Zero user whether the user wants to continue to an external site where standard data charges may apply</string>
   <string name="zero_interstitial_continue">Dialog button text for Wikipedia Zero user to leave the app for an external site where standard data charges may apply.</string>
   <string name="zero_interstitial_cancel">Dialog button text for Wikipedia Zero to stay in the app and thereby avoid leaving the app for an external site where standard data charges may apply.</string>
-  <string name="zero_learn_more">The first time Wikipedia Zero mode is On this is the question posed to the Wikipedia Zero user as to whether the user wants to read the Wikipedia Zero FAQ</string>
+  <string name="zero_learn_more">Message of a dialog shown the first time Wikipedia Zero mode is On.</string>
   <string name="zero_learn_more_learn_more">Dialog button text for Wikipedia Zero user to learn more about Wikipedia Zero at the Wikipedia Zero FAQ for the app.
 {{Identical|Read more}}</string>
   <string name="zero_learn_more_dismiss">Dialog button text for Wikipedia Zero user to dismiss the prompt about visiting the Wikipedia Zero FAQ for the app</string>
