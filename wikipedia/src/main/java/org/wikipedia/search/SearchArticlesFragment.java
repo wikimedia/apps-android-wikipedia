@@ -464,10 +464,8 @@ public class SearchArticlesFragment extends Fragment {
 
     @Subscribe
     public void onNewWikiPageNavigationEvent(NewWikiPageNavigationEvent event) {
-        if (event.getHistoryEntry().getSource() != HistoryEntry.SOURCE_SEARCH) {
-            // Clear navigation text if we used something other than search to go to the new page
-            searchTermText.setText("");
-        }
+        //Clear the text in the search box
+        searchTermText.setText("");
         // If search bar isn't fully visible, make it so!
         ensureVisible();
     }
