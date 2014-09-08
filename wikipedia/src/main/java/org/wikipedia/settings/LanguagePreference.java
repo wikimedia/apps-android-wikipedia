@@ -145,15 +145,15 @@ public class LanguagePreference extends DialogPreference {
                 convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_list_item_activated_2, parent, false);
             }
 
-            TextView nameText = (TextView) convertView.findViewById(android.R.id.text1);
-            TextView localNameText = (TextView) convertView.findViewById(android.R.id.text2);
+            TextView localNameText = (TextView) convertView.findViewById(android.R.id.text1);
+            TextView nameText = (TextView) convertView.findViewById(android.R.id.text2);
 
             String wikiCode = (String) getItem(position);
 
             int langIndex = app.findWikiIndex(wikiCode);
 
-            nameText.setText(app.canonicalNameFor(langIndex));
             localNameText.setText(app.localNameFor(langIndex));
+            nameText.setText(app.canonicalNameFor(langIndex));
             return convertView;
         }
     }
