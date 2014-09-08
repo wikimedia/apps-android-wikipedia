@@ -642,6 +642,7 @@ public class PageViewFragment extends Fragment {
         // in any case, make sure the TOC drawer is closed and disabled
         tocDrawer.setSlidingEnabled(false);
         searchArticlesFragment.setTocEnabled(false);
+        searchArticlesFragment.setTocHidden(true);
 
         if (caught instanceof SectionsFetchException) {
             if (((SectionsFetchException) caught).getCode().equals("missingtitle")
