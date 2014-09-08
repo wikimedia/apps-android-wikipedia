@@ -13,8 +13,17 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.*;
-import android.widget.*;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
@@ -22,7 +31,12 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.*;
+import org.wikipedia.PageTitle;
+import org.wikipedia.R;
+import org.wikipedia.ThemedActionBarActivity;
+import org.wikipedia.Utils;
+import org.wikipedia.ViewAnimations;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.editing.summaries.EditSummaryFragment;
@@ -33,13 +47,13 @@ import org.wikipedia.login.LoginTask;
 import org.wikipedia.login.User;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
-import org.wikipedia.page.Section;
 import org.wikipedia.settings.SettingsActivity;
 
 public class EditSectionActivity extends ThemedActionBarActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";
     public static final String EXTRA_TITLE = "org.wikipedia.edit_section.title";
-    public static final String EXTRA_SECTION = "org.wikipedia.edit_section.section";
+    public static final String EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid";
+    public static final String EXTRA_SECTION_HEADING = "org.wikipedia.edit_section.sectionheading";
     public static final String EXTRA_PAGE_PROPS = "org.wikipedia.edit_section.pageprops";
 
     private WikipediaApp app;
@@ -50,7 +64,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         return title;
     }
 
-    private Section section;
+    private int sectionID;
+    private String sectionHeading;
     private PageProperties pageProps;
 
     private String sectionWikitext;
@@ -94,7 +109,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         app = (WikipediaApp)getApplicationContext();
 
         title = getIntent().getParcelableExtra(EXTRA_TITLE);
-        section = getIntent().getParcelableExtra(EXTRA_SECTION);
+        sectionID = getIntent().getIntExtra(EXTRA_SECTION_ID, 0);
+        sectionHeading = getIntent().getStringExtra(EXTRA_SECTION_HEADING);
         pageProps = getIntent().getParcelableExtra(EXTRA_PAGE_PROPS);
 
         progressDialog = new ProgressDialog(this);
@@ -255,10 +271,10 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             @Override
             public void onTokenRetreived(final String token) {
 
-                String summaryText = TextUtils.isEmpty(section.getHeading()) ? "" : ("/* " + section.getHeading() + " */ ");
+                String summaryText = TextUtils.isEmpty(sectionHeading) ? "" : ("/* " + sectionHeading + " */ ");
                 summaryText += editPreviewFragment.getSummary();
 
-                new DoEditTask(EditSectionActivity.this, title, sectionText.getText().toString(), section.getId(), token, summaryText) {
+                new DoEditTask(EditSectionActivity.this, title, sectionText.getText().toString(), sectionID, token, summaryText) {
                     @Override
                     public void onBeforeExecute() {
                         progressDialog.show();
@@ -315,7 +331,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
                             //Build intent that includes the section we were editing, so we can scroll to it later
                             Intent data = new Intent();
-                            data.putExtra(EXTRA_SECTION, section.getId());
+                            data.putExtra(EXTRA_SECTION_ID, sectionID);
                             setResult(EditHandler.RESULT_REFRESH_PAGE, data);
                             Toast.makeText(EditSectionActivity.this, R.string.edit_saved_successfully, Toast.LENGTH_LONG).show();
                             Utils.hideSoftKeyboard(EditSectionActivity.this);
@@ -555,7 +571,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     private void fetchSectionText() {
         if (sectionWikitext == null) {
-            new FetchSectionWikitextTask(this, title, section.getId()) {
+            new FetchSectionWikitextTask(this, title, sectionID) {
                 @Override
                 public void onFinish(String result) {
                     sectionWikitext = result;

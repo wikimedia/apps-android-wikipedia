@@ -478,7 +478,7 @@ public class PageViewFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             //Retrieve section ID from intent, and find correct section, so where know where to scroll to
-            sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION, 0);
+            sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
 
             ViewAnimations.crossFade(webView, loadProgress);
             setState(STATE_NO_FETCH);
