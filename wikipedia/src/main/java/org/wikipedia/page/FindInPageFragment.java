@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView.FindListener;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
@@ -172,10 +173,14 @@ public class FindInPageFragment extends Fragment {
                                         + "/"
                                         + Integer.toString(numberOfMatches)
                         );
-                        findInPageMatch.setVisibility(View.VISIBLE);
+                        findInPageNext.setEnabled(true);
+                        findInPagePrev.setEnabled(true);
                     } else {
-                        findInPageMatch.setVisibility(View.GONE);
+                        findInPageMatch.setText("0/0");
+                        findInPageNext.setEnabled(false);
+                        findInPagePrev.setEnabled(false);
                     }
+                    findInPageMatch.setVisibility(View.VISIBLE);
                 }
             });
             parentActivity.getCurPageFragment().getWebView().findAllAsync(s);
