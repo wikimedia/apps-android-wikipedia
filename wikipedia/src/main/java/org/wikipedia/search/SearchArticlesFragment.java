@@ -267,7 +267,7 @@ public class SearchArticlesFragment extends Fragment {
                     drawerLayout.closeDrawer(Gravity.START);
                 }
                 Utils.hideSoftKeyboard(getActivity());
-                app.getBus().post(new ShowToCEvent(true));
+                app.getBus().post(new ShowToCEvent(ShowToCEvent.ACTION_TOGGLE));
             }
         });
 
@@ -335,7 +335,7 @@ public class SearchArticlesFragment extends Fragment {
                 if (!hideKeyboardCalled) {
                     Utils.hideSoftKeyboard(getActivity());
                     //also make sure ToC is hidden
-                    app.getBus().post(new ShowToCEvent(false));
+                    app.getBus().post(new ShowToCEvent(ShowToCEvent.ACTION_HIDE));
                     hideKeyboardCalled = true;
                 }
                 // Make sure that the entire search bar is visible

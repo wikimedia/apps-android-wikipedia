@@ -19,6 +19,7 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
 import org.wikipedia.editing.EditSectionActivity;
+import org.wikipedia.events.ShowToCEvent;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.PageTitle;
@@ -783,15 +784,27 @@ public class PageViewFragment extends Fragment {
     }
 
     private ToCHandler tocHandler;
-    public void toggleToC(boolean show) {
+    public void toggleToC(int action) {
         // tocHandler could still be null while the page is loading
         if (tocHandler == null) {
             return;
         }
-        if (show) {
-            tocHandler.show();
-        } else {
-            tocHandler.hide();
+        switch (action) {
+            case ShowToCEvent.ACTION_SHOW:
+                tocHandler.show();
+                break;
+            case ShowToCEvent.ACTION_HIDE:
+                tocHandler.hide();
+                break;
+            case ShowToCEvent.ACTION_TOGGLE:
+                if (tocHandler.isVisible()) {
+                    tocHandler.hide();
+                } else {
+                    tocHandler.show();
+                }
+                break;
+            default:
+                throw new RuntimeException("Unknown action!");
         }
     }
 

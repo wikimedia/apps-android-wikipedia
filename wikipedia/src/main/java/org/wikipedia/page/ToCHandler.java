@@ -55,7 +55,6 @@ public class ToCHandler {
         this.tocButton = (ImageView) quickReturnBar.findViewById(R.id.search_bar_show_toc);
 
         slidingPane.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            private float prevTranslateY;
 
             @Override
             public void onDrawerOpened(View drawerView) {
@@ -63,8 +62,7 @@ public class ToCHandler {
                 tocButton.setImageResource(R.drawable.toc_expanded);
                 bridge.sendMessage("requestCurrentSection", new JSONObject());
                 if (quickReturnBar != null) {
-                    prevTranslateY = ViewHelper.getTranslationY(quickReturnBar);
-                    ViewAnimations.ensureTranslationY(quickReturnBar, -quickReturnBar.getHeight());
+                    ViewAnimations.ensureTranslationY(quickReturnBar, 0);
                 }
                 funnel.logOpen();
                 wasClicked = false;
@@ -74,9 +72,6 @@ public class ToCHandler {
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
                 tocButton.setImageResource(R.drawable.toc_collapsed);
-                if (quickReturnBar != null) {
-                    ViewAnimations.ensureTranslationY(quickReturnBar, (int) prevTranslateY);
-                }
                 if (!wasClicked) {
                     funnel.logClose();
                 }

@@ -44,12 +44,13 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:orientation="vertical"
+                        android:background="?attr/toc_background_color"
                         >
                     <ListView
                             android:id="@+id/page_toc_list"
+                            android:layout_marginTop="48dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="?attr/toc_background_color"
                             android:visibility="gone"
                             android:choiceMode="singleChoice"
                             />
