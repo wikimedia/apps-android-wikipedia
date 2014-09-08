@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="yes">Ja</string>
   <string name="no">Nei</string>
   <string name="acra_report_dialog_title">Wikipedia kræsjet :(</string>
@@ -209,6 +210,12 @@
   <string name="color_theme_light">Lys</string>
   <string name="color_theme_dark">Mørk</string>
   <string name="page_similar_titles">Lignende sider</string>
+  <string name="search_within_pages">Søk gjennom sider…</string>
+  <string name="search_no_results">Ingen resultater funnet for «%s».</string>
+  <string name="search_showing_instead">Ingen resultater funnet for «%1$s». Viser resultater fro «%2$s»:</string>
+  <string name="search_results_title">Søkeresultater</string>
+  <string name="search_error_retry">Prøv igjen</string>
+  <string name="search_redirect_title">Omdirigering fra «%s».</string>
   <string name="app_store_description">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som har blitt sammenstilt noensinne. Denne appen har blitt skrevet om fra grunnen av og er bedre enn noensinne.
 
 Funksjonalitet:

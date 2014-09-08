@@ -206,6 +206,7 @@
   <string name="page_similar_titles">Ähnlech Titelen</string>
   <string name="search_within_pages">An de Säite sichen...</string>
   <string name="search_no_results">Näischt fonnt fir \"%s\".</string>
+  <string name="search_showing_instead">Kee Resultat fir \"%1$s\". D\'Resultater fir \"%2$s\" gi gewisen:</string>
   <string name="search_results_title">Resultat vum Sichen</string>
   <string name="search_error_retry">Nach eng Kéier probéieren</string>
   <string name="search_redirect_title">Viruleedung vu(n) \"%s\".</string>

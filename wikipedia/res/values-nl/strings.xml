@@ -200,6 +200,7 @@
   <string name="menu_refresh_saved_page">Pagina vernieuwen</string>
   <string name="abusefilter_title_warn">Dit kan een niet-constructieve bewerking zijn. Weet u zeker dat u wilt opslaan?</string>
   <string name="abusefilter_title_disallow">U kunt deze bewerking niet opslaan. Ga terug en wijzig de inhoud.</string>
+  <string name="abusefilter_text_warn">Een geautomatiseerde filter heeft deze bewerking als potentieel onconstructief geïdentificeerd. Het kan een of meer van de volgende bevatten:&lt;br /&gt;&lt;br /&gt;· Getypt in hoofdletters&lt;br /&gt;· Leeghalen van artikelen of spammen&lt;br /&gt;· Irrelevant externe links of afbeeldingen&lt;br /&gt;· Tekens herhalen</string>
   <string name="abusefilter_text_disallow">Een geautomatiseerde filter heeft deze bewerking als niet constructief of potentieel vandalisme geïdentificeerd.&lt;br /&gt;&lt;br /&gt; Wikipedia is een encyclopedie en alleen neutrale, relevante inhoud hoort hier thuis.</string>
   <string name="dialog_page_issues">Pagina-problemen</string>
   <string name="button_page_issues">Pagina-problemen</string>

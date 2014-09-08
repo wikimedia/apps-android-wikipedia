@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">വിക്കിപീഡിയ</string>
   <string name="app_name_beta">വിക്കിപീഡിയ ബീറ്റ</string>
+  <string name="app_name_alpha">വിക്കിപീഡിയ ആൽഫ</string>
   <string name="yes">വേണം</string>
   <string name="no">വേണ്ട</string>
   <string name="acra_report_dialog_title">വിക്കിപീഡിയയിൽ പ്രശ്നമുണ്ടായി :(</string>

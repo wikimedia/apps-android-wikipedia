@@ -206,6 +206,11 @@
   <string name="color_theme_light">Luce</string>
   <string name="color_theme_dark">Scuro</string>
   <string name="page_similar_titles">Altri significati</string>
+  <string name="search_within_pages">Cerca all\'interno delle pagine…</string>
+  <string name="search_no_results">Nessun risultato trovato per \"%s\".</string>
+  <string name="search_results_title">Risultati della ricerca</string>
+  <string name="search_error_retry">Riprova</string>
+  <string name="search_redirect_title">Redirect da \"%s\".</string>
   <string name="app_store_description">App ufficiale di Wikipedia per Android.
 Wikipedia è l\'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l\'opera di consultazione più completa e più diffusa che l\'uomo abbia mai compilato. L\'app è stata completamente riscritta ed è di gran lunga migliore.
 
