@@ -369,7 +369,7 @@ public final class Utils {
      * Ensure that this is always sorted alphabetically.
      */
     private static final String[] RTL_LANGS = {
-            "ar", "arc", "arz", "bcc", "bqi", "ckb", "dv", "fa", "glk", "ha", "he",
+            "ar", "arc", "arz", "bcc", "bqi", "ckb", "dv", "fa", "glk", "he",
             "khw", "ks", "mzn", "pnb", "ps", "sd", "ug", "ur", "yi"
     };
 
