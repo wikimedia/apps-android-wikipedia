@@ -39,7 +39,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <org.wikipedia.views.PlainPasteEditText
+        <org.wikipedia.beta.views.PlainPasteEditText
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:id="@+id/saved_pages_search_list"
