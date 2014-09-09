@@ -33,6 +33,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.BadParcelableException;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -116,69 +117,11 @@ public class PageActivity extends ThemedActionBarActivity {
         bus = app.getBus();
         bus.register(this);
 
-        boolean themeChanged = false;
-        try {
-            themeChanged = getIntent().hasExtra("changeTheme");
-        } catch (BadParcelableException e) {
-            // this may be thrown when an app such as Facebook puts its own private Parcelable
-            // into the intent. Since we don't know about the class of the Parcelable, we can't
-            // unparcel it properly, so the hasExtra method may fail.
-            Log.w("PageActivity", "Received an unknown parcelable in intent:", e);
-        }
-
-        if (savedInstanceState != null) {
-            pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
-            pausedMessageOfZero = savedInstanceState.getParcelable("pausedMessageOfZero");
-        } else if (themeChanged) {
-            // we've changed themes!
-            pausedStateOfZero = getIntent().getExtras().getBoolean("pausedStateOfZero");
-            pausedMessageOfZero = getIntent().getExtras().getParcelable("pausedMessageOfZero");
-            if (getIntent().getExtras().containsKey("themeChooserShowing")) {
-                if (getIntent().getExtras().getBoolean("themeChooserShowing")) {
-                    showThemeChooser();
-                }
-            }
-        }
-
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navdrawer);
         searchFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
 
         fragmentContainerView = findViewById(R.id.content_fragment_container);
-
-        // If we're coming back from a Theme change, we'll need to "restore" our state based on
-        // what's given in our Intent (since there's no way to relaunch the Activity in a way that
-        // forces it to save its own instance state)...
-        if (themeChanged) {
-            String className = getIntent().getExtras().getString(KEY_LAST_FRAGMENT);
-            try {
-                // instantiate the last fragment that was on top of the backstack before the Activity
-                // was closed:
-                Fragment f = (Fragment) Class.forName(className).getConstructor().newInstance();
-                // if we have arguments for the fragment, even better:
-                if (getIntent().getExtras().containsKey(KEY_LAST_FRAGMENT_ARGS)) {
-                    f.setArguments(getIntent().getExtras().getBundle(KEY_LAST_FRAGMENT_ARGS));
-                }
-                // ...and put it on top:
-                pushFragment(f);
-            } catch (Exception e) {
-                //multiple various exceptions may be thrown in the above few lines, so just catch all.
-                Log.e("PageActivity", "Error while instantiating fragment.", e);
-                //don't let the user see a blank screen, so just request the main page...
-                displayMainPage();
-            }
-        } else if (savedInstanceState == null) {
-            // if there's no savedInstanceState, and we're not coming back from a Theme change,
-            // then we must have been launched with an Intent, so... handle it!
-            handleIntent(getIntent());
-        }
-
-        // Conditionally execute all recurring tasks
-        new RecurringTasksExecutor(this).run();
-
-        if (showOnboarding()) {
-            startActivity(new Intent(this, OnboardingActivity.class));
-        }
 
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
@@ -191,13 +134,13 @@ public class PageActivity extends ThemedActionBarActivity {
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 // if we want to change the title upon closing:
-                //getActionBar().setTitle("");
+                //getSupportActionBar().setTitle("");
             }
 
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 // if we want to change the title upon opening:
-                //getActionBar().setTitle("");
+                //getSupportActionBar().setTitle("");
             }
 
             private boolean oncePerSlideLock = false;
@@ -233,6 +176,81 @@ public class PageActivity extends ThemedActionBarActivity {
 
         // Set the drawer toggle as the DrawerListener
         drawerLayout.setDrawerListener(mDrawerToggle);
+        getSupportActionBar().setTitle("");
+
+        // TODO: remove this when we drop support for API 10
+        boolean themeChanged = false;
+        try {
+            themeChanged = getIntent().hasExtra("changeTheme");
+            // remove this extra, in case the activity is relaunched automatically
+            // e.g. during screen rotation.
+            getIntent().removeExtra("changeTheme");
+        } catch (BadParcelableException e) {
+            // this may be thrown when an app such as Facebook puts its own private Parcelable
+            // into the intent. Since we don't know about the class of the Parcelable, we can't
+            // unparcel it properly, so the hasExtra method may fail.
+            Log.w("PageActivity", "Received an unknown parcelable in intent:", e);
+        }
+
+        if (savedInstanceState != null) {
+            pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
+            pausedMessageOfZero = savedInstanceState.getParcelable("pausedMessageOfZero");
+            if (savedInstanceState.containsKey("themeChooserShowing")) {
+                if (savedInstanceState.getBoolean("themeChooserShowing")) {
+                    showThemeChooser();
+                }
+            }
+            if (savedInstanceState.getBoolean("isSearching")) {
+                searchFragment.openSearch();
+            }
+        } else if (themeChanged) {
+            // we've changed themes!
+            pausedStateOfZero = getIntent().getExtras().getBoolean("pausedStateOfZero");
+            pausedMessageOfZero = getIntent().getExtras().getParcelable("pausedMessageOfZero");
+            if (getIntent().getExtras().containsKey("themeChooserShowing")) {
+                if (getIntent().getExtras().getBoolean("themeChooserShowing")) {
+                    showThemeChooser();
+                }
+            }
+            if (getIntent().getExtras().getBoolean("isSearching")) {
+                searchFragment.openSearch();
+            }
+        }
+
+        // If we're coming back from a Theme change, we'll need to "restore" our state based on
+        // what's given in our Intent (since there's no way to relaunch the Activity in a way that
+        // forces it to save its own instance state)...
+        // TODO: remove this when we drop support for API 10
+        if (themeChanged) {
+            String className = getIntent().getExtras().getString(KEY_LAST_FRAGMENT);
+            try {
+                // instantiate the last fragment that was on top of the backstack before the Activity
+                // was closed:
+                Fragment f = (Fragment) Class.forName(className).getConstructor().newInstance();
+                // if we have arguments for the fragment, even better:
+                if (getIntent().getExtras().containsKey(KEY_LAST_FRAGMENT_ARGS)) {
+                    f.setArguments(getIntent().getExtras().getBundle(KEY_LAST_FRAGMENT_ARGS));
+                }
+                // ...and put it on top:
+                pushFragment(f);
+            } catch (Exception e) {
+                //multiple various exceptions may be thrown in the above few lines, so just catch all.
+                Log.e("PageActivity", "Error while instantiating fragment.", e);
+                //don't let the user see a blank screen, so just request the main page...
+                displayMainPage();
+            }
+        } else if (savedInstanceState == null) {
+            // if there's no savedInstanceState, and we're not coming back from a Theme change,
+            // then we must have been launched with an Intent, so... handle it!
+            handleIntent(getIntent());
+        }
+
+        // Conditionally execute all recurring tasks
+        new RecurringTasksExecutor(this).run();
+
+        if (showOnboarding()) {
+            startActivity(new Intent(this, OnboardingActivity.class));
+        }
     }
 
     @Override
@@ -442,29 +460,35 @@ public class PageActivity extends ThemedActionBarActivity {
 
     @Subscribe
     public void onChangeTheme(ThemeChangeEvent event) {
-        Bundle state = new Bundle();
-        Intent intent = new Intent(this, PageActivity.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 
-        // In order to change our theme, we need to relaunch the activity.
-        // There doesn't seem to be a way to relaunch an activity in a way that forces it to save its
-        // instance state (and all of its fragments' instance state)... so we need to explicitly save
-        // the state that we need, and pass it into the Intent.
-        // We'll simply save the last Fragment that was on top of the backstack, as well as its arguments.
-        Fragment curFragment = getSupportFragmentManager().findFragmentById(R.id.content_fragment_container);
-        state.putString(KEY_LAST_FRAGMENT, curFragment.getClass().getName());
-        // if the fragment had arguments, save them too:
-        if (curFragment.getArguments() != null) {
-            state.putBundle(KEY_LAST_FRAGMENT_ARGS, curFragment.getArguments());
-        }
+            // this is all that's necessary!
+            // ALL of the other code relating to changing themes is only for API 10 support!
+            this.recreate();
 
-        saveState(state);
-        state.putBoolean("changeTheme", true);
-        if (themeChooser != null) {
-            state.putBoolean("themeChooserShowing", themeChooser.isShowing());
+        } else {
+            // TODO: remove this when we drop support for API 10
+            // sigh.
+            Bundle state = new Bundle();
+            Intent intent = new Intent(this, PageActivity.class);
+            // In order to change our theme, we need to relaunch the activity.
+            // There doesn't seem to be a way to relaunch an activity in a way that forces it to save its
+            // instance state (and all of its fragments' instance state)... so we need to explicitly save
+            // the state that we need, and pass it into the Intent.
+            // We'll simply save the last Fragment that was on top of the backstack, as well as its arguments.
+            Fragment curFragment = getSupportFragmentManager().findFragmentById(R.id.content_fragment_container);
+            state.putString(KEY_LAST_FRAGMENT, curFragment.getClass().getName());
+            // if the fragment had arguments, save them too:
+            if (curFragment.getArguments() != null) {
+                state.putBundle(KEY_LAST_FRAGMENT_ARGS, curFragment.getArguments());
+            }
+
+            saveState(state);
+            state.putBoolean("changeTheme", true);
+            finish();
+            intent.putExtras(state);
+            startActivity(intent);
         }
-        finish();
-        intent.putExtras(state);
-        startActivity(intent);
     }
 
     @Override
@@ -611,6 +635,10 @@ public class PageActivity extends ThemedActionBarActivity {
     private void saveState(Bundle outState) {
         outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
         outState.putParcelable("pausedMessageOfZero", pausedMessageOfZero);
+        if (themeChooser != null) {
+            outState.putBoolean("themeChooserShowing", themeChooser.isShowing());
+        }
+        outState.putBoolean("isSearching", isSearching());
     }
 
     @Override

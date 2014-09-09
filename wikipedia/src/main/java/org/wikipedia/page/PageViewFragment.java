@@ -78,7 +78,6 @@ public class PageViewFragment extends Fragment {
                 (PageTitle)getArguments().getParcelable(KEY_TITLE),
                 (HistoryEntry)getArguments().getParcelable(KEY_CURRENT_HISTORY_ENTRY),
                 getArguments().getInt(KEY_SCROLL_Y));
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -129,6 +128,7 @@ public class PageViewFragment extends Fragment {
             return;
         }
         fragment.onActivityCreated(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override

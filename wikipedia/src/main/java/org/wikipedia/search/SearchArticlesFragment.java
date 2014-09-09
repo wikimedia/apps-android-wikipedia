@@ -85,9 +85,15 @@ public class SearchArticlesFragment extends Fragment {
     public SearchArticlesFragment() {
     }
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
     }
 
@@ -272,9 +278,7 @@ public class SearchArticlesFragment extends Fragment {
         } else {
             if (TextUtils.isEmpty(term)) {
                 showPanel(PANEL_RECENT_SEARCHES);
-                return;
-            }
-            if (getActivePanel() == PANEL_RECENT_SEARCHES) {
+            } else if (getActivePanel() == PANEL_RECENT_SEARCHES) {
                 //start with title search...
                 showPanel(PANEL_TITLE_SEARCH);
             }

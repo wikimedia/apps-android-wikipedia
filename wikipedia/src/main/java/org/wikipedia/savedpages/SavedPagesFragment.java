@@ -44,10 +44,10 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
     private ActionMode actionMode;
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -66,6 +66,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        setHasOptionsMenu(true);
         adapter = new SavedPagesAdapter(getActivity(), null, true);
         savedPagesList.setAdapter(adapter);
         savedPagesList.setEmptyView(savedPagesEmptyContainer);
@@ -282,10 +283,6 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if (savedPagesList == null) {
-            // in API10 this may be called before onCreateView...
-            return;
-        }
         if (((PageActivity)getActivity()).isSearching()) {
             return;
         }

@@ -787,10 +787,9 @@ a.edit_section_button {
 }
 
 div.issues_container {
-  margin-top: -0.5em;
-  /* a bit hacky that it assumes it's right below an h1 heading */
-  margin-bottom: 3.5em;
-  padding: 0px;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  padding: 2px;
   width: 100%;
   display: block;
   font-size: .95em;

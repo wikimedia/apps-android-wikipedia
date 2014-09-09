@@ -13,4 +13,6 @@
     <attr name="actionbar_drawable" format="reference"/>
     <attr name="ic_find_previous_drawable" format="reference"/>
     <attr name="ic_find_next_drawable" format="reference"/>
+    <attr name="lead_image_drawable" format="reference"/>
+    <attr name="lead_disabled_text_color" format="reference"/>
 </resources>

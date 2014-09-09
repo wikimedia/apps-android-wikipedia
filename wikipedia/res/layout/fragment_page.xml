@@ -11,12 +11,48 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
-        <org.wikipedia.views.ObservableWebView
-            android:id="@+id/page_web_view"
+        <FrameLayout
+            android:id="@+id/page_contents_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            />
+            >
+
+            <org.wikipedia.views.ObservableWebView
+                android:id="@+id/page_web_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <FrameLayout
+                android:id="@+id/page_images_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="48dp"
+                >
+                <ImageView
+                    android:id="@+id/page_image_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"/>
+                <LinearLayout
+                    android:id="@+id/page_title_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom">
+                    <TextView
+                        android:id="@+id/page_title_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingLeft="16dp"/>
+                </LinearLayout>
+            </FrameLayout>
+
+        </FrameLayout>
         <FrameLayout
                 android:layout_width="288dp"
                 android:layout_height="match_parent"

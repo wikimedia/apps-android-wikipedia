@@ -48,10 +48,10 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
     private ActionMode actionMode;
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -71,6 +71,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        setHasOptionsMenu(true);
         adapter = new HistoryEntryAdapter(getActivity(), null, true);
         historyEntryList.setAdapter(adapter);
         historyEntryList.setEmptyView(historyEmptyContainer);
@@ -298,10 +299,6 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if (historyEntryList == null) {
-            // in API10 this may be called before onCreateView...
-            return;
-        }
         if (((PageActivity)getActivity()).isSearching()) {
             return;
         }

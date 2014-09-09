@@ -1,7 +1,5 @@
 package org.wikipedia.page;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Represents a particular page along with its full contents.
  */
-public class Page implements Parcelable {
+public class Page {
     private final PageTitle title;
     private final ArrayList<Section> sections;
     private final PageProperties pageProperties;
@@ -28,12 +26,6 @@ public class Page implements Parcelable {
         this.pageProperties = pageProperties;
     }
 
-    public Page(Parcel in) {
-        title = in.readParcelable(PageTitle.class.getClassLoader());
-        sections = in.readArrayList(Section.class.getClassLoader());
-        pageProperties = in.readParcelable(PageProperties.class.getClassLoader());
-    }
-
     public PageTitle getTitle() {
         return title;
     }
@@ -46,44 +38,8 @@ public class Page implements Parcelable {
         return pageProperties.getDisplayTitle();
     }
 
-    public static final Parcelable.Creator<Page> CREATOR
-            = new Parcelable.Creator<Page>() {
-        public Page createFromParcel(Parcel in) {
-            return new Page(in);
-        }
-
-        public Page[] newArray(int size) {
-            return new Page[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
     public PageProperties getPageProperties() {
         return pageProperties;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (!(o instanceof Page)) {
-            return false;
-        }
-
-        Page other = (Page) o;
-        return title.equals(other.title)
-                && sections.equals(other.sections)
-                && pageProperties.equals(other.pageProperties);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = title.hashCode();
-        result = 31 * result + sections.hashCode();
-        result = 31 * result + pageProperties.hashCode();
-        return result;
     }
 
     @Override
@@ -93,13 +49,6 @@ public class Page implements Parcelable {
                 + ", sections=" + sections
                 + ", pageProperties=" + pageProperties
                 + '}';
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeParcelable(title, flags);
-        parcel.writeList(sections);
-        parcel.writeParcelable(pageProperties, flags);
     }
 
     public JSONObject toJSON() {

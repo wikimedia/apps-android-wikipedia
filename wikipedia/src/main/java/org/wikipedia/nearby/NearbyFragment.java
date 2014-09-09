@@ -108,12 +108,12 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     //whether to display distances in imperial units (feet/miles) instead of metric
     private boolean showImperial = false;
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
         site = app.getPrimarySite();
         adapter = new NearbyAdapter(getActivity(), new ArrayList<NearbyPage>());
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -131,6 +131,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        setHasOptionsMenu(true);
         nearbyList.setAdapter(adapter);
 
         nearbyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -175,6 +176,9 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
                 // Called when a new location is found by the network location provider.
+                if (!isAdded()) {
+                    return;
+                }
                 makeUseOfNewLocation(location);
             }
 
@@ -252,10 +256,10 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
 
     @Override
     public void onPause() {
+        super.onPause();
         stopLocationUpdates();
         mSensorManager.unregisterListener(this);
         compassViews.clear();
-        super.onPause();
     }
 
     private void stopLocationUpdates() {
@@ -620,6 +624,9 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+        if (!isAdded()) {
+            return;
+        }
         //acquire raw data from sensors...
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             if (accelData == null) {

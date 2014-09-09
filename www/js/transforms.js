@@ -4,6 +4,7 @@ var night = require("./night");
 // Move infobox to the bottom of the lead section
 transformer.register( "leadSection", function( leadContent ) {
     var infobox = leadContent.querySelector( "table.infobox" );
+    var pTags;
     if ( infobox ) {
 
         /*
@@ -30,11 +31,23 @@ transformer.register( "leadSection", function( leadContent ) {
         }
 
         infobox.parentNode.removeChild( infobox );
-        var pTags = leadContent.getElementsByTagName( "p" );
+        pTags = leadContent.getElementsByTagName( "p" );
         if ( pTags.length ) {
             pTags[0].appendChild( infobox );
         } else {
             leadContent.appendChild( infobox );
+        }
+    }
+    //also move any thumbnail images to the bottom of the section,
+    //since we have a lead image, and we want the content to appear at the very beginning.
+    var thumbs = leadContent.querySelectorAll( "div.thumb" );
+    for ( var i = 0; i < thumbs.length; i++ ) {
+        thumbs[i].parentNode.removeChild( thumbs[i] );
+        pTags = leadContent.getElementsByTagName( "p" );
+        if ( pTags.length ) {
+            pTags[pTags.length - 1].appendChild( thumbs[i] );
+        } else {
+            leadContent.appendChild( thumbs[i] );
         }
     }
     return leadContent;

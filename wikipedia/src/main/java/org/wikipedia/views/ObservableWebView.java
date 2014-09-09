@@ -7,34 +7,24 @@ import android.webkit.WebView;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import android.graphics.Canvas;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ObservableWebView extends WebView {
-    private OnScrollChangeListener onScrollChangeListener;
-    private OnDownMotionEventListener onDownMotionEventListener;
-    private OnUpOrCancelMotionEventListener onUpOrCancelMotionEventListener;
+    private List<OnScrollChangeListener> onScrollChangeListeners;
+    private List<OnDownMotionEventListener> onDownMotionEventListeners;
+    private List<OnUpOrCancelMotionEventListener> onUpOrCancelMotionEventListeners;
 
-    public OnScrollChangeListener getOnScrollChangeListener() {
-        return onScrollChangeListener;
+    public void addOnScrollChangeListener(OnScrollChangeListener onScrollChangeListener) {
+        onScrollChangeListeners.add(onScrollChangeListener);
     }
 
-    public void setOnScrollChangeListener(OnScrollChangeListener onScrollChangeListener) {
-        this.onScrollChangeListener = onScrollChangeListener;
+    public void addOnDownMotionEventListener(OnDownMotionEventListener onDownMotionEventListener) {
+        onDownMotionEventListeners.add(onDownMotionEventListener);
     }
 
-    public OnDownMotionEventListener getOnDownMotionEventListener() {
-        return onDownMotionEventListener;
-    }
-
-    public void setOnDownMotionEventListener(OnDownMotionEventListener onDownMotionEventListener) {
-        this.onDownMotionEventListener = onDownMotionEventListener;
-    }
-
-    public OnUpOrCancelMotionEventListener getOnUpOrCancelMotionEventListener() {
-        return onUpOrCancelMotionEventListener;
-    }
-
-    public void setOnUpOrCancelMotionEventListener(OnUpOrCancelMotionEventListener onUpOrCancelMotionEventListener) {
-        this.onUpOrCancelMotionEventListener = onUpOrCancelMotionEventListener;
+    public void addOnUpOrCancelMotionEventListener(OnUpOrCancelMotionEventListener onUpOrCancelMotionEventListener) {
+        onUpOrCancelMotionEventListeners.add(onUpOrCancelMotionEventListener);
     }
 
     public interface OnScrollChangeListener {
@@ -51,39 +41,52 @@ public class ObservableWebView extends WebView {
 
     public ObservableWebView(Context context) {
         super(context);
+        init();
     }
 
     public ObservableWebView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     public ObservableWebView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        init();
     }
 
     public ObservableWebView(Context context, AttributeSet attrs, int defStyle, boolean privateBrowsing) {
         super(context, attrs, defStyle, privateBrowsing);
+        init();
     }
 
+    private void init() {
+        onScrollChangeListeners = new ArrayList<OnScrollChangeListener>();
+        onDownMotionEventListeners = new ArrayList<OnDownMotionEventListener>();
+        onUpOrCancelMotionEventListeners = new ArrayList<OnUpOrCancelMotionEventListener>();
+    }
 
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
-        if (onScrollChangeListener != null) {
-            onScrollChangeListener.onScrollChanged(oldt, t);
+        for (OnScrollChangeListener listener : onScrollChangeListeners) {
+            listener.onScrollChanged(oldt, t);
         }
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (onDownMotionEventListener != null && onUpOrCancelMotionEventListener != null) {
+        if (onDownMotionEventListeners.size() > 0 && onUpOrCancelMotionEventListeners.size() > 0) {
             switch (event.getActionMasked()) {
                 case MotionEvent.ACTION_DOWN:
-                    onDownMotionEventListener.onDownMotionEvent();
+                    for (OnDownMotionEventListener listener : onDownMotionEventListeners) {
+                        listener.onDownMotionEvent();
+                    }
                     break;
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_CANCEL:
-                    onUpOrCancelMotionEventListener.onUpOrCancelMotionEvent();
+                    for (OnUpOrCancelMotionEventListener listener : onUpOrCancelMotionEventListeners) {
+                        listener.onUpOrCancelMotionEvent();
+                    }
                     break;
                 default:
                     // Do nothing for all the other things
@@ -96,6 +99,10 @@ public class ObservableWebView extends WebView {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if (isInEditMode()) {
+            return;
+        }
         WikipediaApp.getInstance().getBus().post(new WebViewInvalidateEvent());
     }
+
 }

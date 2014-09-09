@@ -43,10 +43,7 @@
         <!-- Don't delete the meta-data field above -->
 
         <activity android:name=".page.PageActivity"
-                  android:windowSoftInputMode="stateHidden"
-                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                >
-
+                  android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

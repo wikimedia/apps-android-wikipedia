@@ -93,6 +93,7 @@ public class TitleSearchFragment extends Fragment {
         ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
     }
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();

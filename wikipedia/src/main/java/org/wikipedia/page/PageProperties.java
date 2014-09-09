@@ -22,6 +22,8 @@ public class PageProperties implements Parcelable {
     private final String displayTitleText;
     private final String editProtectionStatus;
     private final boolean isMainPage;
+    private final String wikiDataId;
+    private final String leadImageUrl;
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
 
     /**
@@ -37,7 +39,9 @@ public class PageProperties implements Parcelable {
      * @param displayTitleText The title to be displayed for this page
      * @param editProtectionStatus The edit protection status applied to this page
      */
-    public PageProperties(String lastModifiedText, String displayTitleText, String editProtectionStatus, boolean canEdit, boolean isMainPage) {
+    public PageProperties(String lastModifiedText, String displayTitleText,
+                          String editProtectionStatus, boolean canEdit, boolean isMainPage,
+                          String wikiDataId, String leadImageUrl) {
         lastModified = new Date();
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
@@ -49,6 +53,8 @@ public class PageProperties implements Parcelable {
         this.editProtectionStatus = editProtectionStatus;
         this.canEdit = canEdit;
         this.isMainPage = isMainPage;
+        this.wikiDataId = wikiDataId;
+        this.leadImageUrl = leadImageUrl;
     }
 
     public Date getLastModified() {
@@ -71,6 +77,14 @@ public class PageProperties implements Parcelable {
         return isMainPage;
     }
 
+    public String getWikiDataId() {
+        return wikiDataId;
+    }
+
+    public String getLeadImageUrl() {
+        return leadImageUrl;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -83,6 +97,8 @@ public class PageProperties implements Parcelable {
         parcel.writeString(editProtectionStatus);
         parcel.writeInt(canEdit ? 1 : 0);
         parcel.writeInt(isMainPage ? 1 : 0);
+        parcel.writeString(wikiDataId);
+        parcel.writeString(leadImageUrl);
     }
 
     private PageProperties(Parcel in) {
@@ -92,6 +108,8 @@ public class PageProperties implements Parcelable {
         editProtectionStatus = in.readString();
         canEdit = in.readInt() == 1;
         isMainPage = in.readInt() == 1;
+        wikiDataId = in.readString();
+        leadImageUrl = in.readString();
     }
 
     public static final Parcelable.Creator<PageProperties> CREATOR
@@ -120,7 +138,9 @@ public class PageProperties implements Parcelable {
                 && displayTitleText.equals(that.displayTitleText)
                 && canEdit == that.canEdit
                 && isMainPage == that.isMainPage
-                && TextUtils.equals(editProtectionStatus, that.editProtectionStatus);
+                && TextUtils.equals(editProtectionStatus, that.editProtectionStatus)
+                && TextUtils.equals(wikiDataId, that.wikiDataId)
+                && TextUtils.equals(leadImageUrl, that.leadImageUrl);
     }
 
     @Override
@@ -129,6 +149,12 @@ public class PageProperties implements Parcelable {
         result = 31 * result + displayTitleText.hashCode();
         if (editProtectionStatus != null) {
             result = 63 * result + editProtectionStatus.hashCode();
+        }
+        if (leadImageUrl != null) {
+            result = 127 * result + leadImageUrl.hashCode();
+        }
+        if (wikiDataId != null) {
+            result = 255 * result + wikiDataId.hashCode();
         }
         return result;
     }
@@ -156,6 +182,16 @@ public class PageProperties implements Parcelable {
             if (isMainPage) {
                 json.put("mainpage", "");
             }
+            if (wikiDataId != null) {
+                JSONObject pagePropsObject = new JSONObject();
+                pagePropsObject.put("wikibase_item", wikiDataId);
+                json.put("pageprops", pagePropsObject);
+            }
+            if (leadImageUrl != null) {
+                JSONObject thumbObject = new JSONObject();
+                thumbObject.put("url", leadImageUrl);
+                json.put("thumb", thumbObject);
+            }
         } catch (JSONException e) {
             // Goddamn it Java
             throw new RuntimeException(e);
@@ -178,12 +214,24 @@ public class PageProperties implements Parcelable {
                 ) {
             editProtection = json.optJSONObject("protection").optJSONArray("edit").optString(0);
         }
+        String wikiDataId = null;
+        String leadImageUrl = null;
+        JSONObject pageProps = json.optJSONObject("pageprops");
+        if (pageProps != null) {
+            wikiDataId = pageProps.optString("wikibase_item");
+        }
+        JSONObject thumb = json.optJSONObject("thumb");
+        if (thumb != null) {
+            leadImageUrl = thumb.optString("url");
+        }
         return new PageProperties(
                 json.optString("lastmodified"),
                 json.optString("displaytitle"),
                 editProtection,
                 json.optBoolean("editable"),
-                json.has("mainpage")
+                json.has("mainpage"),
+                wikiDataId,
+                leadImageUrl
         );
     }
 }

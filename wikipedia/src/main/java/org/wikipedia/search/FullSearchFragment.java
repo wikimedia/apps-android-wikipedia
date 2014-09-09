@@ -60,6 +60,7 @@ public class FullSearchFragment extends Fragment {
     public FullSearchFragment() {
     }
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();

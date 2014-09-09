@@ -1,17 +1,17 @@
-package org.wikipedia;
+package org.wikipedia.search;
 
 import android.support.v7.app.ActionBarActivity;
 import org.wikipedia.views.ObservableWebView;
 
-public class QuickReturnHandler implements  ObservableWebView.OnScrollChangeListener {
+public class SearchBarHideHandler implements  ObservableWebView.OnScrollChangeListener {
     private final ObservableWebView webview;
     private final ActionBarActivity activity;
 
-    public QuickReturnHandler(ObservableWebView webview, ActionBarActivity activity) {
+    public SearchBarHideHandler(ObservableWebView webview, ActionBarActivity activity) {
         this.webview = webview;
         this.activity =  activity;
 
-        webview.setOnScrollChangeListener(this);
+        webview.addOnScrollChangeListener(this);
     }
 
     @Override

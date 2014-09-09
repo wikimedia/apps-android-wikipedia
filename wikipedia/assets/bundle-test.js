@@ -71,10 +71,13 @@ bridge.registerListener( "displayAttribution", function( payload ) {
     attributionDiv.style.visibility = "visible";
 });
 
-bridge.registerListener( "requestImagesList", function() {
+bridge.registerListener( "requestImagesList", function( payload ) {
     var imageURLs = [];
     var images = document.querySelectorAll( "img" );
     for ( var i = 0; i < images.length; i++ ) {
+        if (images[i].width < payload.minsize || images[i].height < payload.minsize) {
+            continue;
+        }
         imageURLs.push( images[i].src );
     }
     bridge.sendMessage( "imagesListResponse", { "images": imageURLs });

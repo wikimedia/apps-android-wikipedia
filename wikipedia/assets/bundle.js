@@ -248,10 +248,13 @@ bridge.registerListener( "displayAttribution", function( payload ) {
     attributionDiv.style.visibility = "visible";
 });
 
-bridge.registerListener( "requestImagesList", function() {
+bridge.registerListener( "requestImagesList", function( payload ) {
     var imageURLs = [];
     var images = document.querySelectorAll( "img" );
     for ( var i = 0; i < images.length; i++ ) {
+        if (images[i].width < payload.minsize || images[i].height < payload.minsize) {
+            continue;
+        }
         imageURLs.push( images[i].src );
     }
     bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
@@ -406,17 +409,19 @@ bridge.registerListener( "clearContents", function() {
     clearContents();
 });
 
+bridge.registerListener( "setPaddingTop", function( payload ) {
+    document.body.style.paddingTop = payload.paddingTop + "px";
+});
+
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!
     clearContents();
 
-    var title = document.createElement( "h1" );
-    title.setAttribute( "dir", window.directionality );
-    title.innerHTML = payload.title;
-    title.id = "heading_" + payload.section.id;
-    title.className =  "section_heading";
-    title.setAttribute( "data-id", 0 );
-    document.getElementById( "content" ).appendChild( title );
+    // create an empty div to act as the title anchor
+    var titleDiv = document.createElement( "div" );
+    titleDiv.id = "heading_" + payload.section.id;
+    titleDiv.setAttribute( "data-id", 0 );
+    document.getElementById( "content" ).appendChild( titleDiv );
 
     var issuesContainer = document.createElement( "div" );
     issuesContainer.setAttribute( "dir", window.directionality );
@@ -428,15 +433,14 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     editButton.setAttribute( 'data-id', payload.section.id );
     editButton.setAttribute( 'data-action', "edit_section" );
     editButton.className = "edit_section_button";
-    title.appendChild( editButton );
 
     var content = document.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
-    content.innerHTML = payload.section.text;
+    content.innerHTML = editButton.outerHTML + payload.section.text;
     content.id = "content_block_0";
+
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
-
     content = transformer.transform("displayDisambigLink", content);
     content = transformer.transform("displayIssuesLink", content);
 
@@ -533,9 +537,7 @@ bridge.registerListener( "scrollToSection", function ( payload ) {
 
 function scrollToSection( anchor ) {
     var el = document.getElementById( anchor );
-    // Make sure there's exactly as much space on the left as on the top.
-    // The 48 accounts for the search bar
-    var scrollY = el.offsetTop - 48 - el.offsetLeft;
+    var scrollY = el.offsetTop - 48;
     window.scrollTo( 0, scrollY );
 }
 
@@ -598,6 +600,7 @@ var night = require("./night");
 // Move infobox to the bottom of the lead section
 transformer.register( "leadSection", function( leadContent ) {
     var infobox = leadContent.querySelector( "table.infobox" );
+    var pTags;
     if ( infobox ) {
 
         /*
@@ -624,11 +627,23 @@ transformer.register( "leadSection", function( leadContent ) {
         }
 
         infobox.parentNode.removeChild( infobox );
-        var pTags = leadContent.getElementsByTagName( "p" );
+        pTags = leadContent.getElementsByTagName( "p" );
         if ( pTags.length ) {
             pTags[0].appendChild( infobox );
         } else {
             leadContent.appendChild( infobox );
+        }
+    }
+    //also move any thumbnail images to the bottom of the section,
+    //since we have a lead image, and we want the content to appear at the very beginning.
+    var thumbs = leadContent.querySelectorAll( "div.thumb" );
+    for ( var i = 0; i < thumbs.length; i++ ) {
+        thumbs[i].parentNode.removeChild( thumbs[i] );
+        pTags = leadContent.getElementsByTagName( "p" );
+        if ( pTags.length ) {
+            pTags[pTags.length - 1].appendChild( thumbs[i] );
+        } else {
+            leadContent.appendChild( thumbs[i] );
         }
     }
     return leadContent;

@@ -2,7 +2,6 @@ package org.wikipedia.page;
 
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.PageTitle;
-import org.wikipedia.QuickReturnHandler;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
@@ -17,12 +16,14 @@ import org.wikipedia.editing.EditHandler;
 import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
+import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.ImageUrlMap;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.savedpages.SavePageTask;
+import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.views.DisableableDrawerLayout;
 import org.wikipedia.views.ObservableWebView;
 import org.mediawiki.api.json.Api;
@@ -103,6 +104,8 @@ public class PageViewFragmentInternal {
 
     private PageTitle title;
     private PageTitle titleOriginal;
+    private View contentsContainer;
+    private LeadImagesHandler leadImagesHandler;
     private ObservableWebView webView;
     private View networkError;
     private View retryButton;
@@ -246,6 +249,7 @@ public class PageViewFragmentInternal {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         View rootView =  inflater.inflate(R.layout.fragment_page, container, false);
+        contentsContainer = rootView.findViewById(R.id.page_contents_container);
         webView = (ObservableWebView) rootView.findViewById(R.id.page_web_view);
         networkError = rootView.findViewById(R.id.page_error);
         retryButton = rootView.findViewById(R.id.page_error_retry);
@@ -374,14 +378,17 @@ public class PageViewFragmentInternal {
 
         editHandler = new EditHandler(parentFragment, bridge);
 
-        new QuickReturnHandler(webView, getActivity());
+        new SearchBarHideHandler(webView, getActivity());
+        leadImagesHandler = new LeadImagesHandler(parentFragment, bridge, webView,
+                (ViewGroup)parentFragment.getView().findViewById(R.id.page_images_container));
 
         //is this page in cache??
         if (PAGE_CACHE.has(titleOriginal)) {
             Log.d(TAG, "Using page from cache: " + titleOriginal.getDisplayText());
             page = PAGE_CACHE.get(titleOriginal);
+            title = page.getTitle();
             //make the webview immediately visible
-            webView.setVisibility(View.VISIBLE);
+            contentsContainer.setVisibility(View.VISIBLE);
             state = STATE_COMPLETE_FETCH;
         }
 
@@ -431,7 +438,8 @@ public class PageViewFragmentInternal {
             scrollY = 0;
 
             // immediately hide the webview
-            webView.setVisibility(View.GONE);
+            contentsContainer.setVisibility(View.GONE);
+
             // and reload the page...
             setState(STATE_NO_FETCH);
             performActionForState(state);
@@ -443,6 +451,10 @@ public class PageViewFragmentInternal {
             case STATE_NO_FETCH:
                 getActivity().updateProgressBar(true, true, 0);
                 bridge.sendMessage("clearContents", new JSONObject());
+
+                // hide the lead image...
+                leadImagesHandler.hide();
+
                 if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
                     loadSavedPage();
                 } else {
@@ -454,8 +466,16 @@ public class PageViewFragmentInternal {
                 break;
             case STATE_COMPLETE_FETCH:
                 editHandler.setPage(page);
-                displayLeadSection();
-                displayNonLeadSection(1);
+                // kick off the lead image layout
+                leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
+                    @Override
+                    public void onLayoutComplete() {
+                        // when the lead image layout is complete, load the lead section and
+                        // the other sections into the webview.
+                        displayLeadSection();
+                        displayNonLeadSection(1);
+                    }
+                });
                 break;
             default:
                 // This should never happen
@@ -492,11 +512,6 @@ public class PageViewFragmentInternal {
     }
 
     public void onPrepareOptionsMenu(Menu menu) {
-        if (tocDrawer == null) {
-            // on GB onPrepareOptionsMenu is called before onCreateView, and multiple times afterwards
-            return;
-        }
-
         app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.toc_collapsed));
         app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.toc_expanded));
 
@@ -653,7 +668,9 @@ public class PageViewFragmentInternal {
         @Override
         public RequestBuilder buildRequest(Api api) {
             RequestBuilder builder =  super.buildRequest(api);
-            builder.param("prop", builder.getParams().get("prop") + "|" + Page.API_REQUEST_PROPS);
+            builder.param("prop", builder.getParams().get("prop") + "|pageprops|thumb|"
+                    + Page.API_REQUEST_PROPS);
+            builder.param("thumbsize", Integer.toString(WikipediaApp.LEAD_IMAGE_SIZE));
             builder.param("appInstallID", app.getAppInstallID());
             return builder;
         }
@@ -686,9 +703,18 @@ public class PageViewFragmentInternal {
 
             page = new Page(title, (ArrayList<Section>) result, pageProperties);
             editHandler.setPage(page);
-            displayLeadSection();
-            setState(STATE_INITIAL_FETCH);
-            new RestSectionsFetchTask().execute();
+
+            // kick off the lead image layout
+            leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
+                @Override
+                public void onLayoutComplete() {
+                    // when the lead image is laid out, display the lead section in the webview,
+                    // and start loading the rest of the sections.
+                    displayLeadSection();
+                    setState(STATE_INITIAL_FETCH);
+                    performActionForState(state);
+                }
+            });
 
             // Update our history entry, in case the Title was changed (i.e. normalized)
             curEntry = new HistoryEntry(title, curEntry.getTimestamp(), curEntry.getSource());
@@ -794,10 +820,8 @@ public class PageViewFragmentInternal {
 
     private void showNetworkError() {
         // Check for the source of the error and have different things turn up
+        leadImagesHandler.hide();
         ViewAnimations.fadeIn(networkError);
-        // Not sure why this is required, but without it tapping retry hides networkError
-        // FIXME: INVESTIGATE WHY THIS HAPPENS!
-        networkError.setVisibility(View.VISIBLE);
     }
 
     public void savePage() {
@@ -840,11 +864,21 @@ public class PageViewFragmentInternal {
 
                 page = result;
                 editHandler.setPage(page);
-                displayLeadSection();
-                displayNonLeadSection(1);
-                setState(STATE_COMPLETE_FETCH, SUBSTATE_SAVED_PAGE_LOADED);
 
-                readUrlMappings();
+                // kick off the lead image layout
+                leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
+                    @Override
+                    public void onLayoutComplete() {
+                        // when the lead image is laid out, load the lead section and the rest
+                        // of the sections into the webview.
+                        displayLeadSection();
+                        displayNonLeadSection(1);
+                        setState(STATE_COMPLETE_FETCH, SUBSTATE_SAVED_PAGE_LOADED);
+                        // rewrite the image URLs in the webview, so that they're loaded from
+                        // local storage.
+                        readUrlMappings();
+                    }
+                });
             }
 
             @Override
