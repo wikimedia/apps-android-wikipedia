@@ -102,6 +102,9 @@ public class WikipediaApp extends Application {
     public static final int RELEASE_ALPHA = 2;
     private int releaseType = RELEASE_PROD;
 
+    public static final int PREFERRED_THUMB_SIZE = 96;
+    public static final int PREFERRED_THUMB_SIZE_SEARCH = 48;
+
     /**
      * Returns a constant that tells whether this app is a production release,
      * a beta release, or an alpha (continuous integration) release.

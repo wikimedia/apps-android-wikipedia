@@ -24,7 +24,7 @@ public class PageTitle implements Parcelable {
     private final String namespace;
     private final String text;
     private final String fragment;
-    private final String thumbUrl;
+    private String thumbUrl;
     private final Site site;
 
     public PageTitle(final String namespace, final String text, final String fragment, final String thumbUrl, final Site site) {
@@ -92,6 +92,10 @@ public class PageTitle implements Parcelable {
 
     public String getThumbUrl() {
         return thumbUrl;
+    }
+
+    public void setThumbUrl(String thumbUrl) {
+        this.thumbUrl = thumbUrl;
     }
 
     public String getDisplayText() {

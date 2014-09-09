@@ -37,7 +37,7 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
                 .param("gpslimit", "12")
                 .param("prop", "pageimages")
                 .param("piprop", "thumbnail")
-                .param("pithumbsize", "48")
+                .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE_SEARCH))
                 .param("pilimit", "12");
     }
 

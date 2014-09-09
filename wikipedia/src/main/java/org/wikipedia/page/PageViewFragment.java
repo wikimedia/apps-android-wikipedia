@@ -22,6 +22,7 @@ import org.wikipedia.analytics.ConnectionIssueFunnel;
 import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.events.ShowToCEvent;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.PageTitle;
 import org.wikipedia.QuickReturnHandler;
@@ -46,8 +47,10 @@ import org.wikipedia.views.DisableableDrawerLayout;
 
 import javax.net.ssl.SSLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class PageViewFragment extends Fragment {
     private static final String KEY_TITLE = "title";
@@ -530,30 +533,24 @@ public class PageViewFragment extends Fragment {
     }
 
     /**
-     * Save the history entry and page image URL (if available) for the specified page.
+     * Save the history entry for the specified page.
      */
-    private class PersistPageItemsTask extends SaneAsyncTask<Void> {
+    private class SaveHistoryTask extends SaneAsyncTask<Void> {
         private final HistoryEntry entry;
-        private final PageTitle title;
-        public PersistPageItemsTask(HistoryEntry entry, PageTitle title) {
+        public SaveHistoryTask(HistoryEntry entry) {
             super(SINGLE_THREAD);
             this.entry = entry;
-            this.title = title;
         }
 
         @Override
         public Void performTask() throws Throwable {
             app.getPersister(HistoryEntry.class).persist(entry);
-            if (title.getThumbUrl() != null) {
-                PageImage pi = new PageImage(title, title.getThumbUrl());
-                app.getPersister(PageImage.class).upsert(pi);
-            }
             return null;
         }
 
         @Override
         public void onCatch(Throwable caught) {
-            Log.d("PersistPageItemsTask", "Caught " + caught.getMessage());
+            Log.w("SaveHistoryTask", "Caught " + caught.getMessage(), caught);
         }
     }
 
@@ -579,10 +576,10 @@ public class PageViewFragment extends Fragment {
                 pageProperties = PageProperties.parseJSON(mobileView);
                 if (mobileView.has("redirected")) {
                     // Handle redirects properly.
-                    title = new PageTitle(mobileView.optString("redirected"), title.getSite());
+                    title = new PageTitle(mobileView.optString("redirected"), title.getSite(), title.getThumbUrl());
                 } else if (mobileView.has("normalizedtitle")) {
                     // We care about the normalized title only if we were not redirected
-                    title = new PageTitle(mobileView.optString("normalizedtitle"), title.getSite());
+                    title = new PageTitle(mobileView.optString("normalizedtitle"), title.getSite(), title.getThumbUrl());
                 }
             }
             return super.processResult(result);
@@ -606,7 +603,27 @@ public class PageViewFragment extends Fragment {
             curEntry = new HistoryEntry(title, curEntry.getTimestamp(), curEntry.getSource());
 
             // Save history entry and page image url
-            new PersistPageItemsTask(curEntry, title).execute();
+            new SaveHistoryTask(curEntry).execute();
+
+            // Fetch larger thumbnail URL for the page, to be shown in History and Saved Pages
+            (new PageImagesTask(app.getAPIForSite(title.getSite()), title.getSite(),
+                                Arrays.asList(new PageTitle[] {title}), WikipediaApp.PREFERRED_THUMB_SIZE) {
+                @Override
+                public void onFinish(Map<PageTitle, String> result) {
+                    if (result.containsKey(title)) {
+                        title.setThumbUrl(result.get(title));
+                        PageImage pi = new PageImage(title, result.get(title));
+                        app.getPersister(PageImage.class).upsert(pi);
+                    }
+                }
+
+                @Override
+                public void onCatch(Throwable caught) {
+                    // Thumbnails are expendable
+                    Log.w("SaveThumbnailTask", "Caught " + caught.getMessage(), caught);
+                }
+            }).execute();
+
         }
 
         @Override
@@ -722,7 +739,7 @@ public class PageViewFragment extends Fragment {
                 }
 
                 // Save history entry and page image url
-                new PersistPageItemsTask(curEntry, title).execute();
+                new SaveHistoryTask(curEntry).execute();
 
                 page = result;
                 editHandler.setPage(page);
