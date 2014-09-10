@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="?attr/page_background_color"
-              android:id="@+id/page_fragment_container"
-        >
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/page_fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/page_background_color"
+    >
     <ProgressBar
         android:id="@+id/page_load_progress"
         android:layout_gravity="center"
@@ -48,12 +49,57 @@
                         >
                     <ListView
                             android:id="@+id/page_toc_list"
-                            android:layout_marginTop="48dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_marginTop="48dp"
+                            android:background="?attr/toc_background_color"
                             android:visibility="gone"
                             android:choiceMode="singleChoice"
                             />
+
+                    <LinearLayout
+                        android:id="@+id/know_toc_drawer_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:layout_marginTop="48dp"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:paddingLeft="32dp"
+                        android:paddingRight="32dp"
+                        android:gravity="center">
+                        <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:textColor="?attr/toc_section_text_color"
+                            android:text="@string/toc_hint"
+                            android:textSize="20sp"
+                            android:lineSpacingMultiplier="1.4"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="48dp"
+                            android:src="@drawable/swipe_left"
+                            android:contentDescription="@null"/>
+                        <Button
+                            style="@style/button_progressive"
+                            android:id="@+id/know_toc_drawer_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="48dp"
+                            android:paddingRight="48dp"
+                            android:layout_gravity="center_horizontal"
+                            android:textColor="@color/white_progressive_dark"
+                            android:text="@string/toc_know_it"
+                            android:visibility="gone"
+                            />
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>

@@ -20,6 +20,7 @@ public final class PrefKeys {
     private static String PREFERENCE_COLOR_THEME;
     private static String PREFERENCE_CHANNEL;
     private static String PREFERENCE_LANGUAGE_MRU;
+    private static String PREFERENCE_KNOW_TOC_DRAWER;
 
     private PrefKeys() { }
 
@@ -39,6 +40,7 @@ public final class PrefKeys {
         PREFERENCE_COLOR_THEME = resources.getString(R.string.preference_color_theme);
         PREFERENCE_CHANNEL = resources.getString(R.string.preference_channel);
         PREFERENCE_LANGUAGE_MRU = resources.getString(R.string.preference_language_mru);
+        PREFERENCE_KNOW_TOC_DRAWER = resources.getString(R.string.preference_know_toc_drawer);
     }
 
     public static String getContentLanguageKey() {
@@ -99,5 +101,9 @@ public final class PrefKeys {
 
     public static String getLanguageMru() {
         return PREFERENCE_LANGUAGE_MRU;
+    }
+
+    public static String getKnowTocDrawer() {
+        return PREFERENCE_KNOW_TOC_DRAWER;
     }
 }

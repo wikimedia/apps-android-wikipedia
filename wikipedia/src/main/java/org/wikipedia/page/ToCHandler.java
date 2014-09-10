@@ -1,6 +1,8 @@
 package org.wikipedia.page;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
 import android.util.Log;
@@ -24,6 +26,7 @@ import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.views.DisableableDrawerLayout;
 
 import java.util.ArrayList;
@@ -45,6 +48,7 @@ public class ToCHandler {
      * the user clicking on a section.
      */
     private boolean wasClicked = false;
+    private boolean openedViaSwipe = true;
 
     public ToCHandler(final Activity activity, final DisableableDrawerLayout slidingPane, final View quickReturnBar, final CommunicationBridge bridge) {
         this.parentActivity = activity;
@@ -54,6 +58,7 @@ public class ToCHandler {
         this.tocList = (ListView) slidingPane.findViewById(R.id.page_toc_list);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
         this.tocButton = (ImageView) quickReturnBar.findViewById(R.id.search_bar_show_toc);
+        final View knowToCContainer = slidingPane.findViewById(R.id.know_toc_drawer_container);
 
         slidingPane.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
 
@@ -67,6 +72,27 @@ public class ToCHandler {
                 }
                 funnel.logOpen();
                 wasClicked = false;
+                final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(parentActivity);
+                if (openedViaSwipe) {
+                    knowSwipe(prefs, slidingPane.findViewById(R.id.know_toc_drawer_container));
+                } else {
+                    final View gotItButton = slidingPane.findViewById(R.id.know_toc_drawer_button);
+                    if (!knowToCContainer.isShown()) {
+                        ViewAnimations.fadeIn(knowToCContainer);
+                        ViewAnimations.fadeOut(tocList, new Runnable() {
+                            @Override
+                            public void run() {
+                                ViewAnimations.fadeIn(gotItButton);
+                            }
+                        });
+                    }
+                    gotItButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            knowSwipe(prefs, knowToCContainer);
+                        }
+                    });
+                }
             }
 
             @Override
@@ -76,6 +102,7 @@ public class ToCHandler {
                 if (!wasClicked) {
                     funnel.logClose();
                 }
+                openedViaSwipe = true;
             }
 
             @Override
@@ -151,11 +178,29 @@ public class ToCHandler {
         });
 
         //enable ToC, but only if we have more than one section
-        slidingPane.setSlidingEnabled(page.getSections().size() > 1);
+        boolean enable = page.getSections().size() > 1;
+        slidingPane.setSlidingEnabled(enable);
+
+        if (enable) {
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(parentActivity);
+            final boolean knowsToC = prefs.getBoolean(PrefKeys.getKnowTocDrawer(), false);
+            if (!knowsToC) {
+                openedViaSwipe = false;
+                slidingPane.openDrawer(Gravity.END);
+            }
+        }
+    }
+
+    private void knowSwipe(SharedPreferences prefs, View knowToCContainer) {
+        prefs.edit().putBoolean(PrefKeys.getKnowTocDrawer(), true).commit();
+        if (knowToCContainer.isShown()) {
+            ViewAnimations.crossFade(knowToCContainer, tocList);
+        }
     }
 
     public void show() {
         if (slidingPane.getSlidingEnabled(Gravity.END)) {
+            openedViaSwipe = false;
             slidingPane.openDrawer(Gravity.END);
         }
     }

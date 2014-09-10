@@ -18,4 +18,5 @@
     <string name="preference_color_theme">colorTheme</string>
     <string name="preference_channel">channel</string>
     <string name="preference_language_mru">languageMru</string>
+    <string name="preference_know_toc_drawer">knowToC</string>
 </resources>
