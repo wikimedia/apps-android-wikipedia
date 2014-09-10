@@ -234,4 +234,6 @@ Features:
    - Wikipedia Zero: Data charges waived for participating mobile operators.
 
 The code is fully open source. If you have experience with Java and the Android SDK, then come fork us! https://github.com/wikimedia/apps-android-wikipedia</string>
+    <string name="alpha_update_notification_title">New alpha update available</string>
+    <string name="alpha_update_notification_text">Tap to download</string>
 </resources>

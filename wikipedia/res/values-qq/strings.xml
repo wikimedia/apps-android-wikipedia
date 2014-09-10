@@ -298,4 +298,6 @@ See also:
 {{Identical|Retry}}</string>
   <string name="search_redirect_title">Label that tells the user that the search result is actually a redirect from another page, specified by the \"%s\" symbol.</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
+  <string name="alpha_update_notification_title">Title for notification when new alpha update is available</string>
+  <string name="alpha_update_notification_text">Text for notification when new alpha update is available.</string>
 </resources>
