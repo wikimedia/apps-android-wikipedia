@@ -52,6 +52,15 @@ public class LanguagePreference extends DialogPreference {
     }
 
     @Override
+    protected void onBindView(View view) {
+        super.onBindView(view);
+        TextView textView = (TextView) view.findViewById(android.R.id.title);
+        if (textView != null) {
+            textView.setSingleLine(false);
+        }
+    }
+
+    @Override
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
         languagesFilter = (EditText) view.findViewById(R.id.preference_languages_filter);
