@@ -197,12 +197,27 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     public void handleError(CreateAccountResult result) {
         String errorCode = result.getResult();
-        if (errorCode.equals("userexists")) {
-            usernameEdit.setError(getString(R.string.create_account_username_exists_error));
+        if (errorCode.equals("blocked")) {
+            if (app.getUserInfoStorage().isLoggedIn()) {
+                Crouton.makeText(this, R.string.create_account_blocked_error, Style.ALERT).show();
+            } else {
+                Crouton.makeText(this, R.string.create_account_blocked_anon_error, Style.ALERT).show();
+            }
         } else if (errorCode.equals("acct_creation_throttle_hit")) {
             Crouton.makeText(this, R.string.create_account_ip_throttle_error, Style.ALERT).show();
         } else if (errorCode.equals("sorbs_create_account_reason")) {
             Crouton.makeText(this, R.string.create_account_open_proxy_error, Style.ALERT).show();
+        } else if (errorCode.equals("userexists")) {
+            usernameEdit.setError(getString(R.string.create_account_username_exists_error));
+        } else if (errorCode.equals("noname")) {
+            Crouton.makeText(this, R.string.create_account_noname_error, Style.ALERT).show();
+        } else if (errorCode.equals("invalidemailaddress")) {
+            Crouton.makeText(this, R.string.create_account_invalid_email_error, Style.ALERT).show();
+        } else if (errorCode.equals("passwordtooshort")) {
+            //FIXME: Find the value of $wgMinimalPasswordLength and tell the user the minimum pwd length
+            Crouton.makeText(this, R.string.create_account_password_too_short_error, Style.ALERT).show();
+        } else if (errorCode.equals("password-name-match")) {
+            Crouton.makeText(this, R.string.create_account_password_name_match_error, Style.ALERT).show();
         } else {
             Crouton.makeText(this, R.string.create_account_generic_error, Style.ALERT).show();
         }
