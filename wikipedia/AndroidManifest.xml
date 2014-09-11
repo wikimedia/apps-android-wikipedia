@@ -93,8 +93,7 @@
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
         <activity android:name=".settings.AboutActivity"
-                  android:label="@string/about_activity_title"
-                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize">
+                  android:label="@string/about_activity_title">
             <intent-filter>
                 <action android:name=".settings.AboutActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
