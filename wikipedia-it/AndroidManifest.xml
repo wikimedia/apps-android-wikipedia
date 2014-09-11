@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="org.wikimedia.wikipedia.test" android:versionCode="1" android:versionName="dev">
+  package="org.wikipedia.test" android:versionCode="1" android:versionName="dev">
 
   <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="17" />
   <uses-permission android:name="android.permission.INTERNET" />

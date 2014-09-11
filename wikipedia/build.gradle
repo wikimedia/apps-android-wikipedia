@@ -9,9 +9,8 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 10
         targetSdkVersion 17
-        versionCode 76
+        versionCode 78
         testApplicationId "org.wikipedia.test"
-        testInstrumentationRunner "android.test.InstrumentationTestRunner"
     }
     signingConfigs {
         release
@@ -51,10 +50,9 @@ android {
             assets.srcDirs = ['assets']
         }
 
-        // TODO: customizing instrumentTest folder locations doesn't work correctly
-        instrumentTest.setRoot('../wikipedia-it')
-        instrumentTest {
+        androidTest {
             java.srcDirs = ['../wikipedia-it/src/main/java']
+            res.srcDirs = ['../wikipedia-it/res']
         }
 
         // Move the build types to build-types/<type>

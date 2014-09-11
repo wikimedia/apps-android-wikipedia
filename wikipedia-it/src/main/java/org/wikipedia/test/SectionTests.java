@@ -1,11 +1,9 @@
 package org.wikipedia.test;
 
 import android.test.AndroidTestCase;
-import org.junit.Test;
 import org.wikipedia.page.Section;
 
 public class SectionTests extends AndroidTestCase {
-    @Test
     public void testSectionLead() {
         // Section 0 is the lead
         Section section = new Section(0, 0, "Heading", "Heading", "Content");
@@ -20,11 +18,9 @@ public class SectionTests extends AndroidTestCase {
         assertFalse(section.isLead());
     }
 
-    @Test
     public void testJSONSerialization() throws Exception {
         Section parentSection = new Section(1, 1, null, null, "Hi there!");
 
         assertEquals(parentSection, new Section(parentSection.toJSON()));
     }
-
 }

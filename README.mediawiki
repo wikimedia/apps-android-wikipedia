@@ -175,7 +175,7 @@ Also check "Scan test classes" above.
 
 19. Help make it better!
 
-== Gradle - experimental ==
+== Gradle - new ==
 
 === Import as Gradle project into Android Studio ===
 Most should work with IntelliJ as well.
@@ -201,17 +201,18 @@ If you prefer command line use the wrapper script in the root of the repo:
  ./gradlew
 
 To run a clean debug build:
- ./gradlew clean assembleDevDebug
+ ./gradlew -q clean assembleDevDebug
 
 You can skip the clean part usually, which makes it much faster (from 1m:05s to 7s on my box):
- ./gradlew assembleDevDebug
+ ./gradlew -q assembleDevDebug
 
 To install build on device/emulator:
- ./gradlew installDevDebug
+ ./gradlew -q installDevDebug
 
 To run tests:
- ./gradlew wikipedia:connectedCheck
-Test results will be in wikipedia/build/outputs/androidTest-results/connected/flavors/dev
+ ./gradlew wikipedia:connectedAndroidTestDevDebug
+This might take some time.
+The output will contain an HTML page with nicely formatted test results
 
 List dependencies:
  ./gradlew wikipedia:dependencies --configuration compile

@@ -3,7 +3,6 @@ package org.wikipedia.test;
 
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
-import org.wikimedia.wikipedia.test.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.editing.EditTokenStorage;
