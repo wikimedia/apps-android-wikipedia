@@ -306,4 +306,6 @@ See also:
   <string name="toc_hint">Instructions how to open the Table of Contents drawer. In left-to-right languages (most) this means to swipe left from the right edge. In right-to-left languages (Hebrew, Arabic, etc.) this means to swipe right from the left edge. For in RTL languages: please adjust the text to say right swipe instead of left swipe.</string>
   <string name="toc_know_it">Button text to acknowledge instructions for opening Table of Contents drawer.</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
+  <string name="alpha_update_notification_title">Title for notification when new alpha update is available</string>
+  <string name="alpha_update_notification_text">Text for notification when new alpha update is available.</string>
 </resources>

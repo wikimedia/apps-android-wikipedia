@@ -2,6 +2,8 @@ package org.wikipedia.recurring;
 
 import android.content.Context;
 import org.wikipedia.RemoteConfigRefreshTask;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.alphaupdater.AlphaUpdateChecker;
 import org.wikipedia.bridge.StyleFetcherTask;
 import org.wikipedia.concurrency.ExecutorService;
 import org.wikipedia.concurrency.SaneAsyncTask;
@@ -20,13 +22,16 @@ public class RecurringTasksExecutor {
         SaneAsyncTask<Void> task = new SaneAsyncTask<Void>(executor) {
             @Override
             public Void performTask() throws Throwable {
-                RecurringTask[] tasks = new RecurringTask[] {
+                RecurringTask[] allTasks = new RecurringTask[] {
                         // Has list of all rotating tasks that need to be run
                         new RemoteConfigRefreshTask(context),
-                        new StyleFetcherTask(context)
+                        new StyleFetcherTask(context),
                 };
-                for (RecurringTask task: tasks) {
+                for (RecurringTask task: allTasks) {
                     task.runIfNecessary();
+                }
+                if (WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_ALPHA) {
+                    new AlphaUpdateChecker(context).runIfNecessary();
                 }
                 return null;
             }

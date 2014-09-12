@@ -17,7 +17,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.nineoldandroids.view.ViewHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
