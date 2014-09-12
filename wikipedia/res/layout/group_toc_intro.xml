@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_marginTop="48dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="32dp"
+    android:paddingRight="32dp"
+    >
+
+    <TextView
+        style="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="start|center"
+        android:lineSpacingMultiplier="1.4"
+        android:text="@string/toc_hint"
+        android:textColor="?attr/toc_section_text_color"
+        android:textSize="20sp"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/toc_intro_image_size"
+        android:layout_height="@dimen/toc_intro_image_size"
+        android:layout_marginBottom="@dimen/toc_intro_image_marginBottom"
+        android:layout_marginTop="@dimen/toc_intro_image_marginTop"
+        android:contentDescription="@null"
+        android:src="@drawable/swipe_left"/>
+
+    <Button
+        android:id="@+id/know_toc_drawer_button"
+        style="@style/button_progressive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp"
+        android:text="@string/toc_know_it"
+        android:textColor="@color/white_progressive_dark"
+        android:visibility="invisible"
+        />
+</LinearLayout>
