@@ -303,5 +303,7 @@ See also:
   <string name="search_error_retry">Button label for retrying the search after a network error.
 {{Identical|Retry}}</string>
   <string name="search_redirect_title">Label that tells the user that the search result is actually a redirect from another page, specified by the \"%s\" symbol.</string>
+  <string name="toc_hint">Instructions how to open the Table of Contents drawer. In left-to-right languages (most) this means to swipe left from the right edge. In right-to-left languages (Hebrew, Arabic, etc.) this means to swipe right from the left edge. For in RTL languages: please adjust the text to say right swipe instead of left swipe.</string>
+  <string name="toc_know_it">Button text to acknowledge instructions for opening Table of Contents drawer.</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
 </resources>
