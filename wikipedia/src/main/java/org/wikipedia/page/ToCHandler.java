@@ -65,6 +65,7 @@ public class ToCHandler {
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 tocButton.setImageResource(R.drawable.toc_expanded);
+                WikipediaApp.getInstance().adjustDrawableToTheme(tocButton.getDrawable());
                 bridge.sendMessage("requestCurrentSection", new JSONObject());
                 if (quickReturnBar != null) {
                     ViewAnimations.ensureTranslationY(quickReturnBar, 0);
@@ -98,6 +99,7 @@ public class ToCHandler {
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
                 tocButton.setImageResource(R.drawable.toc_collapsed);
+                WikipediaApp.getInstance().adjustDrawableToTheme(tocButton.getDrawable());
                 if (!wasClicked) {
                     funnel.logClose();
                 }

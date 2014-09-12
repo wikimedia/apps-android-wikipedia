@@ -77,7 +77,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
-                android:paddingTop="8dp"
+                android:paddingTop="9dp"
                 android:paddingBottom="6dp"
                 android:paddingRight="12dp"
                 android:src="@drawable/toc_collapsed"
