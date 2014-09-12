@@ -219,7 +219,9 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_history, menu);
-        app.adjustDrawableToTheme(menu.findItem(R.id.menu_clear_all_history).getIcon());
+        MenuItem clearAllItem = menu.findItem(R.id.menu_clear_all_history);
+        clearAllItem.setVisible(historyEntryList.getCount() > 0);
+        app.adjustDrawableToTheme(clearAllItem.getIcon());
         return true;
     }
 
