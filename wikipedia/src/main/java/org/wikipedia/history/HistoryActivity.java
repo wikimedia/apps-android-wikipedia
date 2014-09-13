@@ -79,6 +79,8 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
                             historyEmptyTitle.setText(R.string.history_empty_title);
                             historyEmptyMessage.setVisibility(View.VISIBLE);
                         } else {
+                            //getString() is now redundant because this message no longer has any parameters
+                            //Left in for backwards compatibility until all version of this message are translated
                             historyEmptyTitle.setText(getString(R.string.history_search_empty_message, editable.toString()));
                             historyEmptyMessage.setVisibility(View.GONE);
                         }

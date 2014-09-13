@@ -149,6 +149,8 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
                             savedPagesEmptyImage.setVisibility(View.VISIBLE);
                             savedPagesEmptyMessage.setVisibility(View.VISIBLE);
                         } else {
+                            //getString() is now redundant because this message no longer has any parameters
+                            //Left in for backwards compatibility until all version of this message are translated
                             savedPagesEmptyTitle.setText(getString(R.string.saved_pages_search_empty_message, editable.toString()));
                             savedPagesEmptyImage.setVisibility(View.GONE);
                             savedPagesEmptyMessage.setVisibility(View.GONE);

@@ -43,7 +43,7 @@
     <string name="delete_selected_saved_pages">Delete</string>
     <string name="toast_saved_page_deleted">Saved page(s) deleted</string>
     <string name="saved_pages_search_list_hint">Search</string>
-    <string name="saved_pages_search_empty_message">No pages found matching \"%s\"</string>
+    <string name="saved_pages_search_empty_message">No pages found matching your query.</string>
 
     <string name="nearby_activity_title">Nearby</string>
     <string name="nav_item_nearby">Nearby</string>
@@ -102,9 +102,9 @@
     <string name="preference_summary_logout">Log out of your Wikipedia account</string>
     <string name="preference_summary_notloggedin">Not logged in.</string>
     <string name="toast_logout_complete">Logged out</string>
-    <string name="saved_pages_empty_title">No saved pages yet.</string>
+    <string name="saved_pages_empty_title">No saved pages here!</string>
     <string name="saved_pages_empty_message">Saved pages are pretty awesome. Think of them as bookmarks that you can read even when you are offline.</string>
-    <string name="history_empty_title">No recent pages here.</string>
+    <string name="history_empty_title">No recent pages here!</string>
     <string name="history_empty_message">You probably deleted all of them. Next time you go to a page you can get back to it from here.</string>
     <string name="wp_stylized"><![CDATA[<big>W</big>IKIPEDI<big>A</big>]]></string>
     <string name="wp_tag_line">The Free Encyclopedia</string>
@@ -174,7 +174,7 @@
     <string name="preference_summary_eventlogging_opt_in">Allow Wikimedia to collect information about how you use the app to make the app better</string>
     <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
     <string name="history_search_list_hint">Search</string>
-    <string name="history_search_empty_message">No pages found matching \"%s\"</string>
+    <string name="history_search_empty_message">No pages found matching your query.</string>
     <string name="error_can_not_process_link">Could not display this link</string>
     <string name="page_protected_autoconfirmed">This page has been semi-protected.</string>
     <string name="page_protected_sysop">This page has been fully protected.</string>

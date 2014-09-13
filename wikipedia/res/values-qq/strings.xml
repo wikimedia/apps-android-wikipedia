@@ -65,7 +65,7 @@ See also:
   <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected saved pages have been deleted</string>
   <string name="saved_pages_search_list_hint">Hint for textbox that searches list of items in saved pages as user types.
       {{Identical|Search}}</string>
-  <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query. %s is replaced with the query string.</string>
+  <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query.</string>
 
   <string name="nearby_activity_title">Title for Nearby activity (top of screen)</string>
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature</string>
@@ -76,7 +76,7 @@ See also:
   <string name="nearby_distance_in_kilometers">Distance to the place mentioned in the nearby page in kilometers. Please leave the %.2f as is. It represents a floating point number with 2 digits after the decimal point.</string>
   <string name="nearby_no_network">Error message when there was a network error</string>
   <string name="nearby_server_error">Error message when the app could not get list of nearby places from the server.</string>
-
+  
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>
@@ -229,7 +229,7 @@ See also:
   <string name="editing_error_spamblacklist">An error message, which appears after trying to save a page with blacklisted links. The single string parameter %s for this message gets substituted with the blocked domain.</string>
   <string name="history_search_list_hint">Hint for textbox that searches list of items in browsing history as user types.
 {{Identical|Search}}</string>
-  <string name="history_search_empty_message">Message shown when no history items were found that match the user\'s query. %s is replaced with the query string.</string>
+  <string name="history_search_empty_message">Message shown when no history items were found that match the user\'s query.</string>
   <string name="error_can_not_process_link">Message shown in a toast when the app encounters a link it can not process.</string>
   <string name="page_protected_autoconfirmed">Message shown to users when editing a semi-protected page</string>
   <string name="page_protected_sysop">Message shown to users when editing a fully protected page</string>
