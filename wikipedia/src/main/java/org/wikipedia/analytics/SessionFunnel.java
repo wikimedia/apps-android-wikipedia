@@ -87,19 +87,21 @@ public class SessionFunnel extends Funnel {
     }
 
     protected void log(Object... params) {
-        final int defaultSampleRate = 10;
+        final int defaultSampleRate = 0;
 
         //get our sampling rate from remote config
         int sampleRate = app.getRemoteConfig().getConfig().optInt("eventLogSampleRate", defaultSampleRate);
 
-        //take the last 4 hex digits of the uuid, modulo the sampling coefficient.
-        //if the result is 0, then we're one of the Chosen.
-        final int uuidSubstrLen = 4;
-        final int hexBase = 16;
-        boolean chosen = Integer.parseInt(appInstallSessionsID.substring(appInstallSessionsID.length() - uuidSubstrLen), hexBase) % sampleRate == 0;
+        if (sampleRate != 0) {
+            //take the last 4 hex digits of the uuid, modulo the sampling coefficient.
+            //if the result is 0, then we're one of the Chosen.
+            final int uuidSubstrLen = 4;
+            final int hexBase = 16;
+            boolean chosen = Integer.parseInt(appInstallSessionsID.substring(appInstallSessionsID.length() - uuidSubstrLen), hexBase) % sampleRate == 0;
 
-        if (chosen) {
-            super.log(getApp().getPrimarySite(), params);
+            if (chosen) {
+                super.log(getApp().getPrimarySite(), params);
+            }
         }
     }
 
