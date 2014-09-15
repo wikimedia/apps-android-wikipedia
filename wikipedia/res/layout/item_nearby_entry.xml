@@ -4,22 +4,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/selectable_item_background"
-    android:padding="8dp">
+    android:background="@drawable/selectable_item_background">
 
-    <ImageView
+    <org.wikipedia.nearby.NearbyCompassView
         android:id="@+id/nearby_thumbnail"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="center_vertical"
-        android:layout_margin="8dp"
+        android:layout_margin="4dp"
+        android:src="@drawable/ic_pageimage_placeholder"
+        android:padding="12dp"
+        android:scaleType="centerCrop"
         />
 
     <TextView
         android:id="@+id/nearby_title"
-        style="?android:textAppearanceLarge"
+        style="?android:textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -29,12 +31,14 @@
 
     <TextView
         android:id="@+id/nearby_distance"
-        style="?android:textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nearby_title"
         android:layout_marginLeft="8dp"
         android:layout_toRightOf="@id/nearby_thumbnail"
+        android:padding="4dp"
+        android:background="@drawable/button_shape_gray_highlight"
+        android:textColor="@color/nav_text"
         android:text="dist"/>
 
 </RelativeLayout>

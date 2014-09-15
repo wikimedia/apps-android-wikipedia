@@ -2,6 +2,11 @@ package org.wikipedia.nearby;
 
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.GeomagneticField;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -11,11 +16,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
@@ -26,6 +32,7 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.ThemedActionBarActivity;
+import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
@@ -34,12 +41,13 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 /**
  * Displays a list of nearby pages.
  */
-public class NearbyActivity extends ThemedActionBarActivity {
+public class NearbyActivity extends ThemedActionBarActivity implements SensorEventListener {
     public static final int ACTIVITY_RESULT_NEARBY_SELECT = 1;
     private static final int MIN_TIME_MILLIS = 2000;
     private static final int MIN_DISTANCE_METERS = 2;
@@ -58,6 +66,28 @@ public class NearbyActivity extends ThemedActionBarActivity {
     private boolean refreshing;
     private Location lastLocation;
     private Location nextLocation;
+
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private Sensor mMagnetometer;
+
+    //this holds the actual data from the accelerometer and magnetometer, and automatically
+    //maintains a moving average (low-pass filter) to reduce jitter.
+    private MovingAverageArray accelData;
+    private MovingAverageArray magneticData;
+
+    //The size with which we'll initialize our low-pass filters. This size seems like
+    //a good balance between effectively removing jitter, and good response speed.
+    //(Mimics a physical compass needle)
+    private static final int MOVING_AVERAGE_SIZE = 8;
+
+    //geomagnetic field data, to be updated whenever we update location.
+    //(will provide us with declination from true north)
+    private GeomagneticField geomagneticField;
+
+    //we'll maintain a list of CompassViews that are currently being displayed, and update them
+    //whenever we receive updates from sensors.
+    private List<NearbyCompassView> compassViews;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,17 +144,28 @@ public class NearbyActivity extends ThemedActionBarActivity {
                 Log.d("Wikipedia", "onProviderDisabled " + provider);
             }
         };
+
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+
+        compassViews = new ArrayList<NearbyCompassView>();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         requestLocationUpdates();
+        mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+        mSensorManager.registerListener(this, mMagnetometer, SensorManager.SENSOR_DELAY_UI);
     }
 
     @Override
     public void onPause() {
         stopLocationUpdates();
+        mSensorManager.unregisterListener(this);
+        compassViews.clear();
         super.onPause();
     }
 
@@ -143,6 +184,10 @@ public class NearbyActivity extends ThemedActionBarActivity {
     private void makeUseOfNewLocation(Location location) {
         nextLocation = location;
         if (lastLocation == null || (refreshing && getDistance(lastLocation) >= MIN_DISTANCE_METERS)) {
+
+            //update geomagnetic field data, to give us our precise declination from true north.
+            geomagneticField = new GeomagneticField((float)nextLocation.getLatitude(), (float)nextLocation.getLongitude(), 0, (new Date()).getTime());
+
             new NearbyFetchTask(NearbyActivity.this, site, location) {
                 @Override
                 public void onFinish(List<NearbyPage> result) {
@@ -179,6 +224,7 @@ public class NearbyActivity extends ThemedActionBarActivity {
                 adapter.add(page);
             }
         }
+        compassViews.clear();
 
         setRefreshingState(false);
     }
@@ -266,7 +312,7 @@ public class NearbyActivity extends ThemedActionBarActivity {
                 viewHolder = new ViewHolder();
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(LAYOUT_ID, parent, false);
-                viewHolder.thumbnail = (ImageView) convertView.findViewById(R.id.nearby_thumbnail);
+                viewHolder.thumbnail = (NearbyCompassView) convertView.findViewById(R.id.nearby_thumbnail);
                 viewHolder.title = (TextView) convertView.findViewById(R.id.nearby_title);
                 viewHolder.distance = (TextView) convertView.findViewById(R.id.nearby_distance);
                 convertView.setTag(viewHolder);
@@ -275,6 +321,27 @@ public class NearbyActivity extends ThemedActionBarActivity {
             }
             viewHolder.title.setText(nearbyPage.getTitle());
             viewHolder.distance.setText(getDistanceLabel(nearbyPage.getLocation()));
+
+            // simplified angle between two vectors...
+            // vector pointing towards north from our location = [0, 1]
+            // vector pointing towards destination from our location = [a1, a2]
+            double a1 = nearbyPage.getLocation().getLongitude() - nextLocation.getLongitude();
+            double a2 = nearbyPage.getLocation().getLatitude() - nextLocation.getLatitude();
+            // cos θ = (v1*a1 + v2*a2) / (√(v1²+v2²) * √(a1²+a2²))
+            double angle = Math.toDegrees(Math.acos(a2 / Math.sqrt(a1 * a1 + a2 * a2)));
+            // since the acos function only goes between 0 to 180 degrees, we'll manually
+            // negate the angle if the destination's longitude is on the opposite side.
+            if (a1 < 0f) {
+                angle = -angle;
+            }
+            // set the calculated angle as the base angle for our compass view
+            viewHolder.thumbnail.setAngle((float) angle);
+            viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(NearbyActivity.this, R.attr.window_background_color)));
+            viewHolder.thumbnail.setTickColor(getResources().getColor(R.color.blue_progressive));
+            if (!compassViews.contains(viewHolder.thumbnail)) {
+                compassViews.add(viewHolder.thumbnail);
+            }
+
             Picasso.with(NearbyActivity.this)
                     .load(nearbyPage.getThumblUrl())
                     .placeholder(R.drawable.ic_pageimage_placeholder)
@@ -285,9 +352,79 @@ public class NearbyActivity extends ThemedActionBarActivity {
 
 
         private class ViewHolder {
-            private ImageView thumbnail;
+            private NearbyCompassView thumbnail;
             private TextView title;
             private TextView distance;
         }
     }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) { }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        //acquire raw data from sensors...
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            if (accelData == null) {
+                accelData = new MovingAverageArray(event.values.length, MOVING_AVERAGE_SIZE);
+            }
+            accelData.addData(event.values);
+        } else if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
+            if (magneticData == null) {
+                magneticData = new MovingAverageArray(event.values.length, MOVING_AVERAGE_SIZE);
+            }
+            magneticData.addData(event.values);
+        }
+        if (accelData == null || magneticData == null) {
+            return;
+        }
+
+        final int matrixSize = 9;
+        final int orientationSize = 3;
+        final int quarterTurn = 90;
+        float[] mR = new float[matrixSize];
+        //get the device's rotation matrix with respect to world coordinates, based on the sensor data
+        if (!SensorManager.getRotationMatrix(mR, null, accelData.getData(), magneticData.getData())) {
+            Log.e("NearbyActivity", "getRotationMatrix failed.");
+            return;
+        }
+
+        //get device's orientation with respect to world coordinates, based on the
+        //rotation matrix acquired above.
+        float[] orientation = new float[orientationSize];
+        SensorManager.getOrientation(mR, orientation);
+        // orientation[0] = azimuth
+        // orientation[1] = pitch
+        // orientation[2] = roll
+        float azimuth = (float) Math.toDegrees(orientation[0]);
+
+        //adjust for declination from magnetic north...
+        float declination = 0f;
+        if (geomagneticField != null) {
+            declination = geomagneticField.getDeclination();
+        }
+        azimuth += declination;
+
+        //adjust for device screen rotation
+        int rotation = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getRotation();
+        switch (rotation) {
+            case Surface.ROTATION_90:
+                azimuth += quarterTurn;
+                break;
+            case Surface.ROTATION_180:
+                azimuth += quarterTurn * 2;
+                break;
+            case Surface.ROTATION_270:
+                azimuth -= quarterTurn;
+                break;
+            default:
+                break;
+        }
+
+        //update views!
+        for (NearbyCompassView view : compassViews) {
+            view.setAzimuth(-azimuth);
+        }
+    }
+
 }

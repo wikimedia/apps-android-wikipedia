@@ -63,6 +63,11 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
         super.onActivityCreated(savedInstanceState);
         app = (WikipediaApp)getActivity().getApplicationContext();
 
+        // TODO: don't hide Nearby when ready for production
+        if (app.getReleaseType() == WikipediaApp.RELEASE_PROD) {
+            getView().findViewById(R.id.nav_item_nearby).setVisibility(View.GONE);
+        }
+
         for (int i = 0; i < ACTION_ITEMS_ALL.length; i++) {
             actionViews[i] = getView().findViewById(ACTION_ITEMS_ALL[i]);
             actionViews[i].setOnClickListener(this);
