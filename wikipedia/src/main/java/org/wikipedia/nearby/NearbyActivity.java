@@ -49,7 +49,7 @@ import java.util.List;
  */
 public class NearbyActivity extends ThemedActionBarActivity implements SensorEventListener {
     public static final int ACTIVITY_RESULT_NEARBY_SELECT = 1;
-    private static final int MIN_TIME_MILLIS = 2000;
+    private static final int MIN_TIME_MILLIS = 5000;
     private static final int MIN_DISTANCE_METERS = 2;
     private static final int ONE_KM = 1000;
     private static final double ONE_KM_D = 1000.0d;
@@ -64,6 +64,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     private LocationManager locationManager;
     private LocationListener locationListener;
     private boolean refreshing;
+    private int successes;
     private Location lastLocation;
     private Location nextLocation;
 
@@ -177,8 +178,22 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     private void requestLocationUpdates() {
         setRefreshingState(true);
         // Register the listener with the Location Manager to receive location updates
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME_MILLIS, MIN_DISTANCE_METERS, locationListener);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_MILLIS, MIN_DISTANCE_METERS, locationListener);
+        successes = 0;
+        requestLocation(LocationManager.NETWORK_PROVIDER);
+        requestLocation(LocationManager.GPS_PROVIDER);
+        if (successes == 0) {
+            Crouton.makeText(NearbyActivity.this, R.string.nearby_no_location, Style.ALERT).show();
+            setRefreshingState(false);
+        }
+    }
+
+    private void requestLocation(String provider) {
+        try {
+            locationManager.requestLocationUpdates(provider, MIN_TIME_MILLIS, MIN_DISTANCE_METERS, locationListener);
+            successes += 1;
+        } catch (Exception e) {
+            Log.e("Wikipedia", "No location updates available through provider " + provider + ". " + e.getMessage());
+        }
     }
 
     private void makeUseOfNewLocation(Location location) {

@@ -54,6 +54,7 @@
     <string name="nearby_distance_in_kilometers">%.2f km</string>
     <string name="nearby_no_network">No network connection</string>
     <string name="nearby_server_error">Could not get list of nearby places.</string>
+    <string name="nearby_no_location">Not able to get location</string>
 
     <string name="last_updated_text">Last updated %s</string>
     <string name="content_license_html"><![CDATA[Content is available under <a href=\"//creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
