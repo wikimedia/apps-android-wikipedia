@@ -76,6 +76,7 @@ See also:
   <string name="nearby_distance_in_kilometers">Distance to the place mentioned in the nearby page in kilometers. Please leave the %.2f as is. It represents a floating point number with 2 digits after the decimal point.</string>
   <string name="nearby_no_network">Error message when there was a network error</string>
   <string name="nearby_server_error">Error message when the app could not get list of nearby places from the server.</string>
+  <string name="nearby_no_location">Error message when the app could not get a location from any location provider (network or GPS).</string>
   
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
