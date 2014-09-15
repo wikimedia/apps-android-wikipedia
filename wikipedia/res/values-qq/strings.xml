@@ -91,6 +91,7 @@ See also:
   <string name="langlinks_error_retry">Text for button that when tapped retries fetching the list of languages in which the current article is available.
 {{Identical|Retry}}</string>
   <string name="langlinks_empty">Message shown when the user requested a list of languages in which the current article is available, but the current article is not available in any other language</string>
+  <string name="langlinks_no_match">Message shown when the user requested a list of languages in which the current article is available, and filtered that list using a search, but their search query does not match any of the other languages the article is available in.</string>
   <string name="settings_activity_title">Title for settings screen.
 {{Identical|Settings}}</string>
   <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in.

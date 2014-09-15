@@ -17,6 +17,18 @@
               android:text="@string/langlinks_empty"
               android:textAlignment="center"
               style="?android:textAppearanceLarge"
+              android:layout_marginLeft="16dp"
+              android:layout_marginRight="16dp"
+              android:visibility="gone"
+            />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:id="@+id/langlinks_no_match"
+              android:text="@string/langlinks_no_match"
+              android:textAlignment="center"
+              style="?android:textAppearanceLarge"
+              android:layout_marginLeft="16dp"
+              android:layout_marginRight="16dp"
               android:visibility="gone"
             />
 

@@ -37,6 +37,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
     private View langLinksProgress;
     private View langLinksContainer;
     private View langLinksEmpty;
+    private View langLinksNoMatch;
     private View langLinksError;
     private Button langLinksErrorRetry;
 
@@ -55,6 +56,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
         langLinksProgress = findViewById(R.id.langlinks_load_progress);
         langLinksContainer = findViewById(R.id.langlinks_list_container);
         langLinksEmpty = findViewById(R.id.langlinks_empty);
+        langLinksNoMatch = findViewById(R.id.langlinks_no_match);
         langLinksError = findViewById(R.id.langlinks_error);
         langLinksErrorRetry = (Button) findViewById(R.id.langlinks_error_retry);
 
@@ -107,6 +109,13 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                     return;
                 }
                 ((LangLinksAdapter) langLinksList.getAdapter()).setFilterText(s.toString());
+
+                //Check if there are no languages that match the filter
+                if (langLinksList.getAdapter().getCount() == 0) {
+                    langLinksNoMatch.setVisibility(View.VISIBLE);
+                } else {
+                    langLinksNoMatch.setVisibility(View.GONE);
+                }
             }
         });
     }
