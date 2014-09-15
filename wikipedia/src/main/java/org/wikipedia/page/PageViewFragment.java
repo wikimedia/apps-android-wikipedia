@@ -708,6 +708,10 @@ public class PageViewFragment extends Fragment {
     }
 
     public void savePage() {
+        if (page == null) {
+            return;
+        }
+
         Toast.makeText(getActivity(), R.string.toast_saving_page, Toast.LENGTH_SHORT).show();
         new SavePageTask(getActivity(), title, page) {
             @Override
