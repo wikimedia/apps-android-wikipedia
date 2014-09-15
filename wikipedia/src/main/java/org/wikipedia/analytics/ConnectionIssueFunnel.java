@@ -11,7 +11,7 @@ public class ConnectionIssueFunnel extends Funnel {
     }
 
     protected void log(Object... params) {
-        log(getApp().getPrimarySite(), params);
+        super.log(getApp().getPrimarySite(), params);
     }
 
     public void logConnectionIssue(String failedEndpoint, String applicationContext) {

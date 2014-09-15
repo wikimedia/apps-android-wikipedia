@@ -99,7 +99,7 @@ public class SessionFunnel extends Funnel {
         boolean chosen = Integer.parseInt(appInstallSessionsID.substring(appInstallSessionsID.length() - uuidSubstrLen), hexBase) % sampleRate == 0;
 
         if (chosen) {
-            log(getApp().getPrimarySite(), params);
+            super.log(getApp().getPrimarySite(), params);
         }
     }
 

@@ -41,9 +41,7 @@ public class ToCInteractionFunnel extends Funnel {
         return eventData;
     }
 
-    protected void log(Object... params) {
-        super.log(site, params);
-    }
+    protected void log(Object... params) { super.log(site, params); }
 
     public void logOpen() {
         log(
