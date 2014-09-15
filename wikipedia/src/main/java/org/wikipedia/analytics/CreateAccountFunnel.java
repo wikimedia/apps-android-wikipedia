@@ -21,7 +21,7 @@ public class CreateAccountFunnel extends Funnel {
 
     protected void log(Object... params) {
         // Create Account always hits the primarySite anyway.
-        log(getApp().getPrimarySite(), params);
+        super.log(getApp().getPrimarySite(), params);
     }
 
     @Override

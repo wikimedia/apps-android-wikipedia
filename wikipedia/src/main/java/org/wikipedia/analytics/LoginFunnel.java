@@ -31,7 +31,7 @@ public class LoginFunnel extends Funnel {
 
     protected void log(Object... params) {
         // Login always hits the primarySite anyway.
-        log(getApp().getPrimarySite(), params);
+        super.log(getApp().getPrimarySite(), params);
     }
 
     @Override
