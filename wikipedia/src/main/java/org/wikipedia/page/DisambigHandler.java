@@ -100,7 +100,7 @@ public class DisambigHandler implements CommunicationBridge.JSEventListener {
                     int start = s.getSpanStart(span);
                     int end = s.getSpanEnd(span);
                     s.removeSpan(span);
-                    span = new URLSpan(span.getURL()){
+                    span = new URLSpan(span.getURL()) {
                         @Override
                         public void updateDrawState(TextPaint ds) {
                             super.updateDrawState(ds);

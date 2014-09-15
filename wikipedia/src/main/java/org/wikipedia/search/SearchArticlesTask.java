@@ -69,7 +69,7 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
             pageTitles.add(new PageTitle(page.getString("title"), site, thumbUrl));
         }
 
-        Collections.sort(pageTitles, new Comparator<PageTitle>(){
+        Collections.sort(pageTitles, new Comparator<PageTitle>() {
             @Override
             public int compare(PageTitle pageTitle, PageTitle pageTitle2) {
                 return pageTitle.getDisplayText().compareTo(pageTitle2.getDisplayText());

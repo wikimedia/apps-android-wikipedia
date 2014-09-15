@@ -254,7 +254,7 @@ public final class Utils {
     private static final int MESSAGE_ZERO = 1;
 
     public static void identifyZeroCarrier(final WikipediaApp app, final String xcs) {
-        Handler wikipediaZeroHandler = new Handler(new Handler.Callback(){
+        Handler wikipediaZeroHandler = new Handler(new Handler.Callback() {
             private WikipediaZeroTask curZeroTask;
 
             @Override

@@ -39,7 +39,7 @@ public class ConnectionChangeReceiver extends BroadcastReceiver {
                ) {
 
                 // OK, now check if we're still eligible for zero-rating
-                Handler wikipediaZeroRandomHandler = new Handler(new Handler.Callback(){
+                Handler wikipediaZeroRandomHandler = new Handler(new Handler.Callback() {
                     @Override
                     public boolean handleMessage(Message msg) {
                         RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), context) {

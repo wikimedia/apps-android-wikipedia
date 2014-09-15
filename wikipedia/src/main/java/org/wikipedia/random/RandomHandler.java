@@ -45,7 +45,7 @@ public class RandomHandler {
 
     public void doVisitRandomArticle() {
         final Bus bus = app.getBus();
-        Handler randomHandler = new Handler(new Handler.Callback(){
+        Handler randomHandler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(Message msg) {
                 RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), app) {
