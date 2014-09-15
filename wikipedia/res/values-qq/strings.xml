@@ -77,7 +77,8 @@ See also:
   <string name="nearby_no_network">Error message when there was a network error</string>
   <string name="nearby_server_error">Error message when the app could not get list of nearby places from the server.</string>
   <string name="nearby_no_location">Error message when the app could not get a location from any location provider (network or GPS).</string>
-  
+  <string name="nearby_dialog_goto_settings">Dialog text that tells the user that Location updates are not enabled on the device, and asks if the user wants to go to the Settings page on the device where they can enable Location updates.</string>
+
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>

@@ -1,6 +1,8 @@
 package org.wikipedia.nearby;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.GeomagneticField;
 import android.hardware.Sensor;
@@ -12,6 +14,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -64,7 +67,6 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     private LocationManager locationManager;
     private LocationListener locationListener;
     private boolean refreshing;
-    private int successes;
     private Location lastLocation;
     private Location nextLocation;
 
@@ -177,23 +179,44 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
 
     private void requestLocationUpdates() {
         setRefreshingState(true);
-        // Register the listener with the Location Manager to receive location updates
-        successes = 0;
-        requestLocation(LocationManager.NETWORK_PROVIDER);
-        requestLocation(LocationManager.GPS_PROVIDER);
-        if (successes == 0) {
-            Crouton.makeText(NearbyActivity.this, R.string.nearby_no_location, Style.ALERT).show();
-            setRefreshingState(false);
+
+        boolean atLeastOneEnabled = false;
+        if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+            requestLocation(LocationManager.NETWORK_PROVIDER);
+            atLeastOneEnabled = true;
+        }
+        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            requestLocation(LocationManager.GPS_PROVIDER);
+            atLeastOneEnabled = true;
+        }
+        // if neither of the location providers are enabled, then give the user the option
+        // to go to Settings, so that they enable Location in the actual OS.
+        if (!atLeastOneEnabled) {
+            showDialogForSettings();
         }
     }
 
     private void requestLocation(String provider) {
-        try {
-            locationManager.requestLocationUpdates(provider, MIN_TIME_MILLIS, MIN_DISTANCE_METERS, locationListener);
-            successes += 1;
-        } catch (Exception e) {
-            Log.e("Wikipedia", "No location updates available through provider " + provider + ". " + e.getMessage());
-        }
+        locationManager.requestLocationUpdates(provider, MIN_TIME_MILLIS, MIN_DISTANCE_METERS, locationListener);
+    }
+
+    private void showDialogForSettings() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage(R.string.nearby_dialog_goto_settings);
+        alert.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Intent myIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(myIntent);
+            }
+        });
+        alert.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                finish();
+            }
+        });
+        alert.setCancelable(false);
+        AlertDialog ad = alert.create();
+        ad.show();
     }
 
     private void makeUseOfNewLocation(Location location) {
