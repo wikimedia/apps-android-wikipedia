@@ -28,7 +28,7 @@ public class PlainPasteEditText extends EditText {
 
     @Override
     public boolean onTextContextMenuItem(int id) {
-        switch (id){
+        switch (id) {
             case android.R.id.cut:
                 break;
             case android.R.id.paste:
