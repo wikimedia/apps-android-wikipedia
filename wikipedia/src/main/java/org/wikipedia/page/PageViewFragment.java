@@ -262,7 +262,6 @@ public class PageViewFragment extends Fragment {
     private void populateNonLeadSections() {
         if (page.getSections().size() == 1) {
             bridge.sendMessage("noMoreSections", new JSONObject());
-            return;
         } else {
             populateNonLeadSections(1);
         }
@@ -431,8 +430,14 @@ public class PageViewFragment extends Fragment {
         retryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ViewAnimations.crossFade(networkError, loadProgress);
-                performActionForState(state);
+                retryButton.setEnabled(false);
+                ViewAnimations.crossFade(networkError, loadProgress, new Runnable() {
+                    @Override
+                    public void run() {
+                        performActionForState(state);
+                        retryButton.setEnabled(true);
+                    }
+                });
             }
         });
 

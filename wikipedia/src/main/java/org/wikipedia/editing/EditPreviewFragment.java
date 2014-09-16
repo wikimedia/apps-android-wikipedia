@@ -320,8 +320,8 @@ public class EditPreviewFragment extends Fragment {
      * When fade-out completes, the state of the actionbar button(s) is updated.
      */
     public void hide() {
-        ViewAnimations.fadeIn(getActivity().findViewById(R.id.edit_section_container));
-        ViewAnimations.fadeOut(previewContainer, new Runnable() {
+        View editSectionContainer = getActivity().findViewById(R.id.edit_section_container);
+        ViewAnimations.crossFade(previewContainer, editSectionContainer, new Runnable() {
             @Override
             public void run() {
                 parentActivity.supportInvalidateOptionsMenu();

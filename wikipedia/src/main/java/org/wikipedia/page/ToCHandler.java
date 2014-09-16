@@ -112,8 +112,7 @@ public class ToCHandler {
         } else {
             final View gotItButton = slidingPane.findViewById(R.id.know_toc_drawer_button);
             if (!knowToCContainer.isShown()) {
-                ViewAnimations.fadeIn(knowToCContainer);
-                ViewAnimations.fadeOut(tocList, new Runnable() {
+                ViewAnimations.crossFade(tocList, knowToCContainer, new Runnable() {
                     @Override
                     public void run() {
                         ViewAnimations.fadeIn(gotItButton);
