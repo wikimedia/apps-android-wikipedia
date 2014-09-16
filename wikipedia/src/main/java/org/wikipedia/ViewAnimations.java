@@ -34,6 +34,17 @@ public final class ViewAnimations {
     }
 
     /**
+     * Crossfades two views, one of which is assumed to be currently visible
+     * @param curView The view that is currently visible
+     * @param newView The new view that should be faded in
+     * @param runOnComplete Optional Runnable to be run when the animation is complete (may be null).
+     */
+    public static void crossFade(final View curView, final View newView, final Runnable runOnComplete) {
+        fadeIn(newView);
+        fadeOut(curView, runOnComplete);
+    }
+
+    /**
      * Fades in a view.
      * @param view The currently invisible view to be faded in
      */
