@@ -39,7 +39,7 @@
   <string name="delete_selected_saved_pages">Supprimer</string>
   <string name="toast_saved_page_deleted">Page(s) enregistrée(s) supprimée(s)</string>
   <string name="saved_pages_search_list_hint">Rechercher</string>
-  <string name="saved_pages_search_empty_message">Aucune page trouvée correspondant à \'%s\'</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">Aucune page trouvée correspondant à \'%s\'</string>
   <string name="last_updated_text">Dernière modification le %s</string>
   <string name="content_license_html">Le contenu est disponible sous &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
   <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -87,7 +87,7 @@
   <string name="preference_summary_logout">Vous déconnecter de votre compte Wikipédia</string>
   <string name="preference_summary_notloggedin">Non connecté.</string>
   <string name="toast_logout_complete">Déconnecté</string>
-  <string name="saved_pages_empty_title">Pas encore de page enregistrée.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">Pas encore de page enregistrée.</string>
   <string name="saved_pages_empty_message">Les pages enregistrées sont assez impressionnantes. Pensez à elles comme à des favoris que vous pourrez lire même en étant déconnecté.</string>
   <string name="history_empty_title">Aucune page récente ici.</string>
   <string name="history_empty_message">Vous les avez probablement toutes détruites. La prochaine fois que vous irez sur une page, vous pourrez y revenir en démarrant d’ici.</string>
@@ -109,6 +109,11 @@
   <string name="create_account_username_exists_error">Le nom d’utilisateur est déjà utilisé</string>
   <string name="create_account_ip_throttle_error">Trop de comptes créés depuis cette adresse IP. Réessayez plus tard.</string>
   <string name="create_account_open_proxy_error">Cette adresse IP a été bloquée pour la création de comptes.</string>
+  <string name="create_account_noname_error">Le nom d’utilisateur fourni n’est pas valide. Veuillez en fournir un autre.</string>
+  <string name="create_account_invalid_email_error">L’adresse électronique fournie n’est pas valide</string>
+  <string name="create_account_password_too_short_error">Le mot de passe fourni est trop court</string>
+  <string name="create_account_blocked_anon_error">Vous ne pouvez pas créer un compte parce que votre adresse IP est bloquée.</string>
+  <string name="create_account_password_name_match_error">Votre nom d’utilisateur et votre mot de passe doivent être différents.</string>
   <string name="create_account_generic_error">Impossible de créer le compte</string>
   <string name="create_account_no_network">Aucune connexion au réseau</string>
   <string name="create_account_next">Suivant</string>
@@ -152,7 +157,7 @@
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
   <string name="editing_error_spamblacklist">Liens vers des domaines bloqués (%s) détectés. Veuillez les supprimer et réessayer.</string>
   <string name="history_search_list_hint">Rechercher</string>
-  <string name="history_search_empty_message">Aucune page trouvée correspondant à « %s »</string>
+  <string name="history_search_empty_message" fuzzy="true">Aucune page trouvée correspondant à « %s »</string>
   <string name="error_can_not_process_link">Impossible d’afficher ce lien</string>
   <string name="page_protected_autoconfirmed">Cette page a été semi-protégée.</string>
   <string name="page_protected_sysop">Cette page a été entièrement protégée.</string>
@@ -209,13 +214,14 @@
   <string name="color_theme_select">Thème</string>
   <string name="color_theme_light">Clair</string>
   <string name="color_theme_dark">Sombre</string>
-  <string name="page_similar_titles">Titres semblables</string>
+  <string name="page_similar_titles">Pages semblables</string>
   <string name="search_within_pages">Rechercher dans les pages…</string>
   <string name="search_no_results">Aucun résultat trouvé pour « %s ».</string>
   <string name="search_showing_instead">Aucun résultat trouvé pour « %1$s ». Affichage des résultats pour « %2$s » :</string>
   <string name="search_results_title">Rechercher des résultats</string>
   <string name="search_error_retry">Réessayer</string>
   <string name="search_redirect_title">Redirigé depuis « %s ».</string>
+  <string name="toc_know_it">C’est bon !</string>
   <string name="app_store_description">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée. L’application a été réécrite de zéro et est meilleure que jamais.
 
 Fonctionnalités :
@@ -228,4 +234,6 @@ Fonctionnalités :
    - Wikipédia Zéro : les frais de données sont annulés pour les opérateurs mobiles participants.
 
 Le code est entièrement ouvert. Si vous êtes expérimenté avec Java et le kit de développement Android, alors venez créer votre variante ! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Nouvelle mise à jour alpha disponible</string>
+  <string name="alpha_update_notification_text">Touchez pour télécharger</string>
 </resources>

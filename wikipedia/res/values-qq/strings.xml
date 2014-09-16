@@ -66,7 +66,6 @@ See also:
   <string name="saved_pages_search_list_hint">Hint for textbox that searches list of items in saved pages as user types.
       {{Identical|Search}}</string>
   <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query.</string>
-
   <string name="nearby_activity_title">Title for Nearby activity (top of screen)</string>
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature</string>
   <string name="menu_update_nearby">Action bar item to refresh list of nearby pages</string>
@@ -78,7 +77,6 @@ See also:
   <string name="nearby_server_error">Error message when the app could not get list of nearby places from the server.</string>
   <string name="nearby_no_location">Error message when the app could not get a location from any location provider (network or GPS).</string>
   <string name="nearby_dialog_goto_settings">Dialog text that tells the user that Location updates are not enabled on the device, and asks if the user wants to go to the Settings page on the device where they can enable Location updates.</string>
-
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>
@@ -317,7 +315,7 @@ See also:
   <string name="search_error_retry">Button label for retrying the search after a network error.
 {{Identical|Retry}}</string>
   <string name="search_redirect_title">Label that tells the user that the search result is actually a redirect from another page, specified by the \"%s\" symbol.</string>
-  <string name="toc_hint">Instructions how to open the Table of Contents drawer. In left-to-right languages (most) this means to swipe left from the right edge. In right-to-left languages (Hebrew, Arabic, etc.) this means to swipe right from the left edge. For in RTL languages: please adjust the text to say right swipe instead of left swipe.</string>
+  <string name="toc_hint">Instructions how to open the Table of Contents drawer. In left-to-right languages (most) this means to swipe left from the right edge. In right-to-left languages (Hebrew, Arabic, etc.) this means to swipe right from the left edge. \'\'\'In RTL languages\'\'\' please adjust the text to say right swipe instead of left swipe.</string>
   <string name="toc_know_it">Button text to acknowledge instructions for opening Table of Contents drawer.</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
   <string name="alpha_update_notification_title">Title for notification when new alpha update is available</string>

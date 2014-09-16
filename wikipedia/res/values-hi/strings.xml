@@ -38,7 +38,7 @@
   <string name="delete_selected_saved_pages">मिटाएँ</string>
   <string name="toast_saved_page_deleted">सहेजे गया (गये) पृष्ठ हटाये</string>
   <string name="saved_pages_search_list_hint">खोज</string>
-  <string name="saved_pages_search_empty_message">\"%s\" से मिलने वाला कोई पृष्ठ नही मिला।</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">\"%s\" से मिलने वाला कोई पृष्ठ नही मिला।</string>
   <string name="last_updated_text">%s अन्तिम अद्यतन हुआ।</string>
   <string name="content_license_html">सामग्री &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; पर उपलब्ध है अन्यथा लिखें</string>
   <string name="edit_save_action_license_logged_in">इसे सहेजते हुये आप &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदान को &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; मुद्राधिकार के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हो।</string>
@@ -86,7 +86,7 @@
   <string name="preference_summary_logout">आपके विकिपीडिया खाते से बाहर आ गये</string>
   <string name="preference_summary_notloggedin">लॉग-इन नहीं</string>
   <string name="toast_logout_complete">सत्र का अन्त हुआ।</string>
-  <string name="saved_pages_empty_title">अभी तक कोई सरंक्षित पृष्ठ नहीं है।</string>
+  <string name="saved_pages_empty_title" fuzzy="true">अभी तक कोई सरंक्षित पृष्ठ नहीं है।</string>
   <string name="saved_pages_empty_message">सरंक्षित पृष्ठ बहुत आश्चर्यजनक हैं। उन्हें इस तरह के पुस्तक-चिह्न समझें कि आप उन्हें तब भी पढ़ सकते हो जब आप ऑफ़लाइन हो।</string>
   <string name="history_empty_title">यहाँ का कोई ताज़ा पृष्ठ नहीं मिला।</string>
   <string name="history_empty_message">सम्भवतया आप उन सभी को हटा चुके हो। अगली बार जब आप उस पृष्ठ पर जायें तब उसे पुनः प्राप्त किया जा सकता है।</string>
@@ -108,6 +108,12 @@
   <string name="create_account_username_exists_error">सदस्य नाम पहले से काम में लिया जा रहा है</string>
   <string name="create_account_ip_throttle_error">इस आई॰पी॰ पत्ते से बहुत अधिक खातों का निर्माण किया गया है। कृपया बाद में प्रयास करें।</string>
   <string name="create_account_open_proxy_error">इस आई॰पी॰ को खाता निर्माण से रोका गया है।</string>
+  <string name="create_account_noname_error">आपके द्वारा दिया गया सदस्य नाम अमान्य है। कृपया अन्य सदस्यनाम उपलब्ध करवायें।</string>
+  <string name="create_account_invalid_email_error">आपके द्वारा प्रदत ईमेल पता अवैध है।</string>
+  <string name="create_account_password_too_short_error">आपके द्वारा दिया गया कुटशब्द बहुत छोटा है।</string>
+  <string name="create_account_blocked_anon_error">आप खाता निर्मित नहीं कर सकते क्योंकि आपका आई॰पी॰ पता प्रतिबन्धित है।</string>
+  <string name="create_account_blocked_error">आप खाता नहीं बना सकते क्योंकि आपका खाता प्रतिबन्धित किया गया है।</string>
+  <string name="create_account_password_name_match_error">आपका सदस्य नाम और कुटशब्द भिन्न होने चाहिए।</string>
   <string name="create_account_generic_error">खाता नहीं बन सका।</string>
   <string name="create_account_no_network">कोई नेटवर्क उपलब्ध नहीं</string>
   <string name="create_account_next">अगला</string>
@@ -120,4 +126,9 @@
   <string name="zero_learn_more">इस विकिपीडिया अनुप्रयोग के लिए डाटा शुल्क अधित्यजन किया जाता है।</string>
   <string name="nav_item_random">यादृच्छिक</string>
   <string name="random_progress">यादृच्छिक पृष्ठ लिया जा रहा है...</string>
+  <string name="page_similar_titles">समरूप पृष्ठ</string>
+  <string name="toc_hint">अनुभागों के लिए बायीं ओर जायें अथवा दायीं ओर शीर्ष पर स्थित तालिका बटन का प्रयोग करें।</string>
+  <string name="toc_know_it">समझ में आया</string>
+  <string name="alpha_update_notification_title">नवीन आरम्भिक अपडेट उपलब्ध</string>
+  <string name="alpha_update_notification_text">डाउनलोड करने के लिए दबाये रखें</string>
 </resources>

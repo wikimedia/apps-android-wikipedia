@@ -39,7 +39,7 @@
   <string name="delete_selected_saved_pages">മായ്ക്കുക</string>
   <string name="toast_saved_page_deleted">സേവ് ചെയ്ത താൾ (താളുകൾ) മായ്ച്ചു</string>
   <string name="saved_pages_search_list_hint">തിരയുക</string>
-  <string name="saved_pages_search_empty_message">\"%s\" എന്നതിനോടു യോജിക്കുന്ന താളുകളൊന്നും കണ്ടെത്താനായില്ല</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">\"%s\" എന്നതിനോടു യോജിക്കുന്ന താളുകളൊന്നും കണ്ടെത്താനായില്ല</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %1$s</string>
   <string name="content_license_html">മറ്റുവിധത്തിൽ കുറിച്ചിട്ടില്ലെങ്കിൽ ഉള്ളടക്കം &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം</string>
   <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷ</string>
@@ -145,7 +145,7 @@
   <string name="preference_summary_eventlogging_opt_in">താങ്കൾ എങ്ങനെയാണ് ആപ് ഉപയോഗിച്ചതെന്ന വിവരങ്ങൾ ശേഖരിച്ച് ആപ് കൂടുതൽ മെച്ചപ്പെട്ടതാക്കാൻ വിക്കിമീഡിയയെ അനുവദിക്കുക</string>
   <string name="editing_error_spamblacklist">തടയപ്പെട്ട ഡൊമൈനുകളിലോട്ടുള്ള കണ്ണികൾ (%s) കണ്ടെത്താനായി. ദയവായി അവ ഒഴിവാക്കി വീണ്ടും ശ്രമിക്കുക.</string>
   <string name="history_search_list_hint">തിരയുക</string>
-  <string name="history_search_empty_message">\'%s\' എന്നതിനോടു യോജിക്കുന്ന താളുകളൊന്നും കണ്ടെത്താനായില്ല</string>
+  <string name="history_search_empty_message" fuzzy="true">\'%s\' എന്നതിനോടു യോജിക്കുന്ന താളുകളൊന്നും കണ്ടെത്താനായില്ല</string>
   <string name="error_can_not_process_link">ഈ കണ്ണി പ്രദർശിപ്പിക്കാനാവില്ല</string>
   <string name="page_protected_autoconfirmed">ഈ താൾ അർദ്ധ-സംരക്ഷിതമാണ്.</string>
   <string name="page_protected_sysop">ഈ താൾ പൂർണ്ണമായും സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു.</string>

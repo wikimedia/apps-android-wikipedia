@@ -39,7 +39,17 @@
   <string name="delete_selected_saved_pages">Eliminar</string>
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
   <string name="saved_pages_search_list_hint">Pesquisar</string>
-  <string name="saved_pages_search_empty_message">Nenhuma página é correspondente com \'%s\'</string>
+  <string name="saved_pages_search_empty_message">Nenhuma página correspondente com a sua pesquisa.</string>
+  <string name="nearby_activity_title">Nas redondezas</string>
+  <string name="nav_item_nearby">Nas redondezas</string>
+  <string name="menu_update_nearby">Atualizar páginas nas redondezas</string>
+  <string name="nearby_empty_title">Sem páginas nas redondezas</string>
+  <string name="nearby_empty_message">Pode atualizar esta página quando estiver num novo local.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">Nenhuma conexão de rede</string>
+  <string name="nearby_server_error">Não foi possível obter a lista de locais próximos.</string>
+  <string name="nearby_no_location">Não foi possível obter a localização</string>
   <string name="last_updated_text">Última atualização: %s</string>
   <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
   <string name="edit_save_action_license_logged_in">Ao gravar, concorda com as &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -51,6 +61,7 @@
   <string name="menu_other_languages">Ler noutros idiomas</string>
   <string name="langlinks_error_retry">Tentar novamente</string>
   <string name="langlinks_empty">Esta página não está disponível noutros idiomas.</string>
+  <string name="langlinks_no_match">Nenhum idioma correspondente com a sua pesquisa.</string>
   <string name="settings_activity_title">Configurações</string>
   <string name="langlinks_activity_title">Outros idiomas</string>
   <string name="menu_save_changes">Gravar alterações</string>
@@ -87,7 +98,7 @@
   <string name="preference_summary_logout">Sair da sua conta Wikipédia</string>
   <string name="preference_summary_notloggedin">Não iniciou a sessão.</string>
   <string name="toast_logout_complete">Sessão terminada</string>
-  <string name="saved_pages_empty_title">Sem páginas guardadas ainda.</string>
+  <string name="saved_pages_empty_title">Sem páginas guardadas ainda!</string>
   <string name="saved_pages_empty_message">As páginas guardadas são bastante úteis. Pense como se fossem marcadores que pode ler mesmo quando estiver offline.</string>
   <string name="history_empty_title">Sem páginas recentes aqui.</string>
   <string name="history_empty_message">Provavelmente, deverá ter eliminado todos eles. Da próxima vez que aceder a uma página, pode obter a partir de aqui.</string>
@@ -109,6 +120,12 @@
   <string name="create_account_username_exists_error">Nome de utilizador(a) já em utilização</string>
   <string name="create_account_ip_throttle_error">Demasiadas contas criadas a partir deste endereço de IP. Tente novamente mais tarde.</string>
   <string name="create_account_open_proxy_error">Este endereço de IP está bloqueado de criar contas.</string>
+  <string name="create_account_noname_error">O nome de utilizador(a) fornecido é inválido. Por favor, escolha outro.</string>
+  <string name="create_account_invalid_email_error">O endereço de correio eletrónico fornecido é inválido.</string>
+  <string name="create_account_password_too_short_error">A palavra-passe fornecida é demasiado curta.</string>
+  <string name="create_account_blocked_anon_error">Não pode criar uma conta porque o seu endereço IP está bloqueado.</string>
+  <string name="create_account_blocked_error">Não pode criar uma conta porque a sua conta está bloqueada.</string>
+  <string name="create_account_password_name_match_error">O seu nome de utilizador(a) e palavra-passe devem ser diferentes.</string>
   <string name="create_account_generic_error">Não foi possível criar conta</string>
   <string name="create_account_no_network">Nenhuma conexão de rede</string>
   <string name="create_account_next">Seguinte</string>
@@ -152,7 +169,7 @@
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recolha informações sobre o uso da aplicação para elaborar melhorias</string>
   <string name="editing_error_spamblacklist">Ligações a sítios bloqueados (%s) detectados. Por favor, remova-os e tente novamente.</string>
   <string name="history_search_list_hint">Pesquisar</string>
-  <string name="history_search_empty_message">Nenhuma página encontrada com \'%s\'</string>
+  <string name="history_search_empty_message">Nenhuma página correspondente com a sua pesquisa.</string>
   <string name="error_can_not_process_link">Não foi possível exibir esta ligação</string>
   <string name="page_protected_autoconfirmed">Esta página foi semi-protegida.</string>
   <string name="page_protected_sysop">Esta página foi totalmente protegida.</string>
@@ -209,12 +226,13 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Escuro</string>
-  <string name="page_similar_titles">Títulos semelhantes</string>
+  <string name="page_similar_titles">Páginas semelhantes</string>
   <string name="search_no_results">Nenhum resultado encontrado para \"%s\".</string>
   <string name="search_showing_instead">Não foram encontrados resultados para \"%1$s\". A mostrar resultados de \"%2$s\":</string>
   <string name="search_results_title">Resultados da pesquisa</string>
   <string name="search_error_retry">Tentar novamente</string>
   <string name="search_redirect_title">Redirecionamento de \"%s\".</string>
+  <string name="toc_know_it">Percebido</string>
   <string name="app_store_description">Aplicação oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada por trabalho humano. A aplicação foi reescrita do zero e está melhor que nunca.
 
 Caraterísticas:
@@ -227,4 +245,6 @@ Caraterísticas:
    - Wikipédia Zero: Taxa de dados dispensada para operadores móveis participantes.
 
 O código é totalmente aberto. Se tem experiência com linguagens Java e Android SDK, venha trabalhar connosco! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Nova atualização alfa disponível</string>
+  <string name="alpha_update_notification_text">Toque para descarregar</string>
 </resources>

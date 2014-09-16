@@ -91,6 +91,9 @@
   <string name="create_account_email_error">Nevalida retpoŝto</string>
   <string name="create_account_ip_throttle_error">Tro multaj kontoj kreitaj de ĉi tiu IP-Adreso. Reprovu poste.</string>
   <string name="create_account_open_proxy_error">Ĉi tiu IP-Adreso estis forbarita por krei kontojn.</string>
+  <string name="create_account_invalid_email_error">La retadreso ke vi liveris estas malvalida.</string>
+  <string name="create_account_blocked_anon_error">Vi ne povas krei konton ĉar via IP-adreso estas forbarita.</string>
+  <string name="create_account_blocked_error">Vi ne povas krei konton ĉar via konto estas forbarita.</string>
   <string name="create_account_generic_error">Ne eblis krei konton</string>
   <string name="create_account_no_network">Ne estas reta aliro</string>
   <string name="create_account_next">Sekva</string>

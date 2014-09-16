@@ -38,7 +38,7 @@
   <string name="delete_selected_saved_pages">Hapus</string>
   <string name="toast_saved_page_deleted">Halaman yang disimpan terhapus</string>
   <string name="saved_pages_search_list_hint">Cari</string>
-  <string name="saved_pages_search_empty_message">Tidak ada halaman yang ditemukan dengan pencocokan \'%s\'</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">Tidak ada halaman yang ditemukan dengan pencocokan \'%s\'</string>
   <string name="last_updated_text">Terakhir diperbarui %1$s</string>
   <string name="content_license_html">Konten tersedia di bawah &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; kecuali dinyatakan lain</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, Anda setuju terhadap &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -86,7 +86,7 @@
   <string name="preference_summary_logout">Keluar log dari akun Wikipedia</string>
   <string name="preference_summary_notloggedin">Belum masuk log</string>
   <string name="toast_logout_complete">Telah keluar log</string>
-  <string name="saved_pages_empty_title">Tidak ada halaman yang disimpan.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">Tidak ada halaman yang disimpan.</string>
   <string name="saved_pages_empty_message">Halaman yang disimpan cukup mengagumkan. Menganggap mereka sebagai penanda yang dapat Anda baca bahkan ketika Anda sedang luring.</string>
   <string name="history_empty_title">Tidak ada halaman terbaru di sini.</string>
   <string name="history_empty_message">Anda mungkin menghapus mereka semua. Lain kali Anda pergi ke halaman Anda dapat kembali ke sana dari sini.</string>
@@ -151,7 +151,7 @@
   <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuk mengumpulkan informasi tentang bagaimana Anda menggunakan aplikasi untuk membuat aplikasi yang lebih baik</string>
   <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
   <string name="history_search_list_hint">Cari</string>
-  <string name="history_search_empty_message">Tidak ada halaman yang ditemukan dengan pencocokan \'%s\'</string>
+  <string name="history_search_empty_message" fuzzy="true">Tidak ada halaman yang ditemukan dengan pencocokan \'%s\'</string>
   <string name="error_can_not_process_link">Tidak dapat menampilkan pranala ini</string>
   <string name="page_protected_autoconfirmed">Halaman ini telah dilindungi semi.</string>
   <string name="page_protected_sysop">Halaman ini telah sepenuhnya dilindungi.</string>
@@ -207,7 +207,7 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Terang</string>
   <string name="color_theme_dark">Gelap</string>
-  <string name="page_similar_titles">Judul yang serupa</string>
+  <string name="page_similar_titles" fuzzy="true">Judul yang serupa</string>
   <string name="app_store_description">Aplikasi resmi Wikipedia untuk Android. Wikipedia adalah ensiklopedia bebas yang berisi lebih dari 32 juta artikel dalam 280 bahasa sekaligus karya referensi buatan manusia yang paling lengkap dan banyak digunakan sepanjang sejarah. Aplikasi ini telah ditulis ulang dari awal dan lebih baik dari sebelumnya.
 
 Fitur:

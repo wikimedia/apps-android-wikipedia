@@ -101,5 +101,5 @@
   <string name="zero_settings">Тохиргоо</string>
   <string name="create_account_logging_in">Нэвтэрч байна...</string>
   <string name="button_page_issues">Хуудсан дахь хэлэлцүүлэгүүд</string>
-  <string name="page_similar_titles">Бусад утга</string>
+  <string name="page_similar_titles" fuzzy="true">Бусад утга</string>
 </resources>

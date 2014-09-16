@@ -39,7 +39,7 @@
   <string name="delete_selected_saved_pages">Slett</string>
   <string name="toast_saved_page_deleted">Siden(e) ble fjernet</string>
   <string name="saved_pages_search_list_hint">Søk</string>
-  <string name="saved_pages_search_empty_message">Fant ingen sider som matchet \'%s\'</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">Fant ingen sider som matchet \'%s\'</string>
   <string name="last_updated_text">Sist oppdatert %1$s</string>
   <string name="content_license_html">Innholdet er tilgjengelig under &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om ikke annet er angitt</string>
   <string name="edit_save_action_license_logged_in">Ved å lagre samtykker du til &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen.</string>
@@ -87,7 +87,7 @@
   <string name="preference_summary_logout">Logg ut fra Wikipedia-kontoen din</string>
   <string name="preference_summary_notloggedin">Ikke innlogget.</string>
   <string name="toast_logout_complete">Logget ut</string>
-  <string name="saved_pages_empty_title">Ingen lagrede sider enda.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">Ingen lagrede sider enda.</string>
   <string name="saved_pages_empty_message">Lagrede sider er veldig praktisk. Tenk på dem som bokmerker som du også kan lese når du er offline.</string>
   <string name="history_empty_title">Ingen besøkte sider.</string>
   <string name="history_empty_message">Du har kanskje tømt loggen. Neste gang du besøker en side kan du finne den igjen her etterpå.</string>
@@ -152,7 +152,7 @@
   <string name="preference_summary_eventlogging_opt_in">Tillatt Wikimedia å samle informasjon om hvordan du bruker appen for å forbedre den</string>
   <string name="editing_error_spamblacklist">Lenker til blokkerte domener (%s) ble funnet. Vennligst fjern dem og prøv igjen.</string>
   <string name="history_search_list_hint">Søk</string>
-  <string name="history_search_empty_message">Fant ingen sider som matchet \'%s\'</string>
+  <string name="history_search_empty_message" fuzzy="true">Fant ingen sider som matchet \'%s\'</string>
   <string name="error_can_not_process_link">Kunne ikke vise denne lenken</string>
   <string name="page_protected_autoconfirmed">Denne siden er delvis beskyttet.</string>
   <string name="page_protected_sysop">Denne siden er beskyttet.</string>
@@ -209,7 +209,7 @@
   <string name="color_theme_select">Drakt</string>
   <string name="color_theme_light">Lys</string>
   <string name="color_theme_dark">Mørk</string>
-  <string name="page_similar_titles">Lignende sider</string>
+  <string name="page_similar_titles" fuzzy="true">Lignende sider</string>
   <string name="search_within_pages">Søk gjennom sider…</string>
   <string name="search_no_results">Ingen resultater funnet for «%s».</string>
   <string name="search_showing_instead">Ingen resultater funnet for «%1$s». Viser resultater fro «%2$s»:</string>

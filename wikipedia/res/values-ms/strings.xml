@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="yes">Ya</string>
   <string name="no">Tidak</string>
   <string name="acra_report_dialog_title">Wikipedia dah runtuh :(</string>
@@ -17,6 +18,7 @@
   <string name="menu_clear_all_bookmarks">Padamkan bookmark</string>
   <string name="menu_clear_all_saved_pages">Padamkan semua laman tersimpan</string>
   <string name="page_does_not_exist_error">Laman ini tidak wujud.</string>
+  <string name="nav_item_today">Hari ini</string>
   <string name="dialog_title_clear_history">Padamkan sejarah?</string>
   <string name="saved_pages_activity_title">Laman tersimpan</string>
   <string name="nav_item_saved_pages">Laman tersimpan</string>
@@ -36,6 +38,8 @@
   <string name="toast_refresh_saved_page">Memuat semula laman tersimpan...</string>
   <string name="delete_selected_saved_pages">Hapuskan</string>
   <string name="toast_saved_page_deleted">Laman tersimpan dihapuskan</string>
+  <string name="saved_pages_search_list_hint">Cari</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">Tiada laman yang memadani \"%s\"</string>
   <string name="last_updated_text">Mutakhir: %1$s</string>
   <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, anda menyetujui &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -83,7 +87,7 @@
   <string name="preference_summary_logout">Log keluar dari akaun Wikipedia</string>
   <string name="preference_summary_notloggedin">Tidak log masuk.</string>
   <string name="toast_logout_complete">Log keluar</string>
-  <string name="saved_pages_empty_title">Belum ada laman tersimpan.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">Belum ada laman tersimpan.</string>
   <string name="saved_pages_empty_message">Ciri-ciri laman tersimpan bagaikan penanda buku, boleh dibaca walaupun \'offline\'. Hebat, bukan?</string>
   <string name="history_empty_title">Tiada laman terbaru di sini.</string>
   <string name="history_empty_message">Mungkin anda telah memadamkan kesemuanya. Lain kali anda ke sesuatu laman, anda boleh kembali kepadanya dari sini.</string>
@@ -148,7 +152,7 @@
   <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>
   <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
   <string name="history_search_list_hint">Cari</string>
-  <string name="history_search_empty_message">Tiada laman didapati padan dengan \'%s\'</string>
+  <string name="history_search_empty_message" fuzzy="true">Tiada laman didapati padan dengan \'%s\'</string>
   <string name="error_can_not_process_link">Pautan ini tidak dapat dipaparkan</string>
   <string name="page_protected_autoconfirmed">Laman ini telah diberi perlindungan separa.</string>
   <string name="page_protected_sysop">Laman ini telah diberi perlindungan sepenuhnya.</string>
@@ -196,9 +200,20 @@
   <string name="menu_refresh_saved_page">Segarkan laman</string>
   <string name="abusefilter_title_warn">Suntingan ini mungkin tidak membina. Adakah anda betul-betul mahu menyimpannya?</string>
   <string name="abusefilter_title_disallow">Suntingan ini tidak boleh disimpan. Sila kembali dan suntingnya semula.</string>
+  <string name="abusefilter_text_warn">Penapis automatik mendapati suntingan ini berkemungkinan adalah tidak membina. Mungkin ia ada antara yang berikut:&lt;br /&gt;&lt;br /&gt;. Menaip dalam huruf besar&lt;br /&gt;. Mengosongkan rencana atau menspam&lt;br /&gt;. Pautan luar atau imej-imej tidak berkaitan&lt;br /&gt;. Aksara berulang</string>
+  <string name="abusefilter_text_disallow">Penapis automatik mendapati suntingan ini berkemungkinan tidak membina, atau laku musnah.&lt;br /&gt;&lt;br /&gt;Wikipedia ialah ensiklopedia dan hanya kandungan neutral, penting yang perlu di sini.</string>
+  <string name="dialog_page_issues">Isu-isu Laman</string>
+  <string name="button_page_issues">Isu-isu Laman</string>
   <string name="menu_themechooser">Tukar fon dan tema</string>
   <string name="text_size_select">Saiz fon</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Terang</string>
   <string name="color_theme_dark">Gelap</string>
+  <string name="page_similar_titles" fuzzy="true">Makna yang lain</string>
+  <string name="search_within_pages">Cari dalam laman...</string>
+  <string name="search_no_results">Tiada hasil ditemui untuk \" %s \".</string>
+  <string name="search_showing_instead">Tiada hasil ditemui untuk \" %1$s \". Menunjukkan hasil untuk \" %2$s \":</string>
+  <string name="search_results_title">Hasil carian</string>
+  <string name="search_error_retry">Cuba semula</string>
+  <string name="search_redirect_title">Lencongan dari \"%s\".</string>
 </resources>

@@ -39,7 +39,7 @@
   <string name="delete_selected_saved_pages">Wissen</string>
   <string name="toast_saved_page_deleted">Opgeslagen pagina(\'s) verwijderd</string>
   <string name="saved_pages_search_list_hint">Zoeken</string>
-  <string name="saved_pages_search_empty_message">Geen pagina\'s gevonden die overeenkomen met \'%s\'</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">Geen pagina\'s gevonden die overeenkomen met \'%s\'</string>
   <string name="last_updated_text">%1$s voor het laatst bijgewerkt</string>
   <string name="content_license_html">Inhoud is beschikbaar onder de licentie &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
   <string name="edit_save_action_license_logged_in">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdrage onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie.</string>
@@ -87,7 +87,7 @@
   <string name="preference_summary_logout">Afmelden uit uw Wikipedia-account</string>
   <string name="preference_summary_notloggedin">Niet aangemeld.</string>
   <string name="toast_logout_complete">Afgemeld</string>
-  <string name="saved_pages_empty_title">Nog geen opgeslagen pagina\'s.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">Nog geen opgeslagen pagina\'s.</string>
   <string name="saved_pages_empty_message">Opgeslagen pagina\'s zijn best wel vet. Denk aan bladwijzers die u zelfs kunt lezen wanneer u offline bent.</string>
   <string name="history_empty_title">Geen recente pagina\'s.</string>
   <string name="history_empty_message">U heeft ze vast allemaal verwijderd. De volgende keer als je een pagina bezoekt, kunt u hem hier terugvinden.</string>
@@ -98,7 +98,7 @@
   <string name="create_account_password_hint">Wachtwoord</string>
   <string name="menu_create_account">Registreren</string>
   <string name="login_create_account_link">Nog niet geregistreerd? Word lid van Wikipedia</string>
-  <string name="create_account_login_link">Hebt u al een gebruiker? Aanmelden</string>
+  <string name="create_account_login_link">Hebt u al een account? Meld u aan</string>
   <string name="create_account_activity_title">Gebruiker aanmaken</string>
   <string name="edit_section_activity_title">Paragraaf bewerken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
@@ -152,7 +152,7 @@
   <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe ik de app gebruik om de app te verbeteren</string>
   <string name="editing_error_spamblacklist">Links naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
   <string name="history_search_list_hint">Zoeken</string>
-  <string name="history_search_empty_message">Geen pagina\'s die overeenkomen met \'%s\'</string>
+  <string name="history_search_empty_message" fuzzy="true">Geen pagina\'s die overeenkomen met \'%s\'</string>
   <string name="error_can_not_process_link">Kon de link niet weergeven</string>
   <string name="page_protected_autoconfirmed">Deze pagina is semi-beveiligd.</string>
   <string name="page_protected_sysop">Deze pagina is volledig beveiligd.</string>
@@ -209,13 +209,14 @@
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Licht</string>
   <string name="color_theme_dark">Donker</string>
-  <string name="page_similar_titles">Soortgelijke titels</string>
+  <string name="page_similar_titles">Vergelijkbare pagina\'s</string>
   <string name="search_within_pages">Zoeken binnen pagina\'s...</string>
   <string name="search_no_results">Geen resultaten gevonden voor \"%s\".</string>
   <string name="search_showing_instead">Geen resultaten gevonden voor \"%1$s\". In plaats daarvan resultaten voor \"%2$s\":</string>
   <string name="search_results_title">Zoekresultaten</string>
   <string name="search_error_retry">Opnieuw proberen</string>
   <string name="search_redirect_title">Doorverwezen vanaf \"%s\".</string>
+  <string name="toc_know_it">Begrepen</string>
   <string name="app_store_description">Officiële Wikipedia-app voor Android. Wikipedia is de vrije encylopedie met meer dan 31 miljoen artikelen in 280 talen, en de meest uitgebreide en meest gebruikte bron gemaakt door de mens. De app is vanaf de grond opnieuw opgebouwd en is beter dan ooit te voren.
 
 Functies:
@@ -227,4 +228,6 @@ Functies:
    - Wikipedia Zero: Wikipedia bezoeken zonder kosten bij geselecteerde mobiele provides.
 
 De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK, fork ons dan! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Nieuwe alpha-update beschikbaar</string>
+  <string name="alpha_update_notification_text">Tik om te downloaden</string>
 </resources>

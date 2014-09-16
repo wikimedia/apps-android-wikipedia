@@ -38,6 +38,14 @@
   <string name="delete_selected_saved_pages">Usuń</string>
   <string name="toast_saved_page_deleted">Usunięto zapisane strony</string>
   <string name="saved_pages_search_list_hint">Szukaj</string>
+  <string name="saved_pages_search_empty_message">Nie znaleziono stron pasujących do twojego zapytania.</string>
+  <string name="nearby_activity_title">W pobliżu</string>
+  <string name="nav_item_nearby">W pobliżu</string>
+  <string name="nearby_empty_message">Możesz odświeżyć tę stronę po przeniesieniu się do nowej lokalizacji.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">Brak połączenia z siecią</string>
+  <string name="nearby_server_error">Nie można uzyskać listy miejsc w pobliżu.</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="preference_title_language">Język Wikipedii</string>
@@ -47,6 +55,7 @@
   <string name="menu_other_languages">Czytaj w innych językach</string>
   <string name="langlinks_error_retry">Ponów próbę</string>
   <string name="langlinks_empty">Ten artykuł nie jest dostępny w innych językach</string>
+  <string name="langlinks_no_match">Nie znaleziono języków pasujących do twojego zapytania.</string>
   <string name="settings_activity_title">Ustawienia</string>
   <string name="langlinks_activity_title">Inne języki</string>
   <string name="menu_save_changes">Zapisz zmiany</string>
@@ -83,7 +92,7 @@
   <string name="preference_summary_logout">Wyloguj się z konta na Wikipedii</string>
   <string name="preference_summary_notloggedin">Niezalogowany(-a)</string>
   <string name="toast_logout_complete">Wylogowany(-a)</string>
-  <string name="saved_pages_empty_title">Nie zapisano jeszcze żadnych stron.</string>
+  <string name="saved_pages_empty_title">Nie zapisano tu jeszcze żadnych stron!</string>
   <string name="saved_pages_empty_message">Zapisane strony są dość niesamowite. Pomyśl o nich jako o zakładkach, które można przeczytać nawet wtedy, gdy jesteś w trybie offline.</string>
   <string name="history_empty_title">Brak ostatnich zmian stron.</string>
   <string name="history_empty_message">Prawdopodobnie usunąłeś je wszystkie. Następnym razem gdy wejdziesz na stronę możesz się tam dostać z tąd.</string>
@@ -105,6 +114,12 @@
   <string name="create_account_username_exists_error">Nazwa użytkownika jest już zajęta</string>
   <string name="create_account_ip_throttle_error">Zbyt wiele kont utworzono z tego adresu IP. Spróbuj ponownie później.</string>
   <string name="create_account_open_proxy_error">Tworzenie kont z tego adresu IP zostało zablokowane.</string>
+  <string name="create_account_noname_error">Podana nazwa użytkownika jest nieprawidłowa. Proszę podać inną nazwę użytkownika.</string>
+  <string name="create_account_invalid_email_error">Podany przez ciebie adres e-mail jest nieprawidłowy.</string>
+  <string name="create_account_password_too_short_error">Podane hasło jest zbyt krótkie.</string>
+  <string name="create_account_blocked_anon_error">Nie możesz utworzyć konta, ponieważ twoje IP jest zablokowane.</string>
+  <string name="create_account_blocked_error">Nie możnesz utworzyć konta, ponieważ Twoje konto jest zablokowane.</string>
+  <string name="create_account_password_name_match_error">Twoja nazwa użytkownika i hasło muszą być różne.</string>
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
   <string name="create_account_no_network">Brak połączenia z siecią</string>
   <string name="create_account_next">Dalej</string>
@@ -148,7 +163,7 @@
   <string name="preference_summary_eventlogging_opt_in">Pozwala Wikimedii zbierać informacje o tym, w jaki sposób korzystasz z tej aplikacji, aby ją ulepszać</string>
   <string name="editing_error_spamblacklist">Wykryto linki do zablokowanych domen (%s). Usuń je i spróbuj ponownie.</string>
   <string name="history_search_list_hint">Szukaj</string>
-  <string name="history_search_empty_message">Nie znaleziono stron zawierających \'%s\'</string>
+  <string name="history_search_empty_message">Nie znaleziono stron pasujących do twojego zapytania.</string>
   <string name="error_can_not_process_link">Nie można wyświetlić linku</string>
   <string name="page_protected_autoconfirmed">Ta strona jest częściowo zabezpieczona.</string>
   <string name="page_protected_sysop">Ta strona jest całkowicie zabezpieczona.</string>
@@ -203,10 +218,11 @@
   <string name="color_theme_select">Skórka</string>
   <string name="color_theme_light">Jasna</string>
   <string name="color_theme_dark">Ciemna</string>
-  <string name="page_similar_titles">Podobne tytuły</string>
+  <string name="page_similar_titles">Podobne strony</string>
   <string name="search_no_results">Nie znaleziono żadnych wyników dla „%s”.</string>
   <string name="search_showing_instead">Nie znaleziono wyników dla „%1$s”. Wyświetlono wyniki dla „%2$s”.</string>
   <string name="search_results_title">Wyniki wyszukiwania</string>
   <string name="search_error_retry">Ponów próbę</string>
   <string name="search_redirect_title">Przekierowanie z „%s”.</string>
+  <string name="alpha_update_notification_title">Dostępna jest nowa aktualizacja alfa</string>
 </resources>

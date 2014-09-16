@@ -83,7 +83,7 @@
   <string name="preference_summary_logout">Вийти зі свого облікового запису Вікіпедії</string>
   <string name="preference_summary_notloggedin">Ви не ввійшли до системи.</string>
   <string name="toast_logout_complete">Ви вийшли із системи</string>
-  <string name="saved_pages_empty_title">Іще немає збережених сторінок.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">Іще немає збережених сторінок.</string>
   <string name="saved_pages_empty_message">Збережені сторінки — це круто! Користуйтесь ними як закладками, які можна читати навіть, коли Ви офлайн.</string>
   <string name="history_empty_title">Немає нещодавніх сторінок.</string>
   <string name="history_empty_message">Вірогідно, Ви їх усі видалили. Наступного разу, коли відвідаєте сторінку, Ви зможете повернутися до неї звідси.</string>
@@ -148,7 +148,7 @@
   <string name="preference_summary_eventlogging_opt_in">Дозволити Вікімедіа збір інформації про те, як Ви використовуєте додаток, щоб зробити його кращим</string>
   <string name="editing_error_spamblacklist">Виявлено посилання на заблоковані домени (%s). Будь ласка, вилучіть їх і спробуйте знову.</string>
   <string name="history_search_list_hint">Пошук</string>
-  <string name="history_search_empty_message">Не знайдено сторінок із \'%s\'</string>
+  <string name="history_search_empty_message" fuzzy="true">Не знайдено сторінок із \'%s\'</string>
   <string name="error_can_not_process_link">Не вдалося відобразити це посилання</string>
   <string name="page_protected_autoconfirmed">Ця сторінка частково захищена.</string>
   <string name="page_protected_sysop">Ця сторінка повністю захищена.</string>

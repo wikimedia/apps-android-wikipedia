@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Wikipédia</string>
   <string name="app_name_beta">Wikipédia Beta</string>
+  <string name="app_name_alpha">Wikipédia Alpha</string>
   <string name="yes">Áno</string>
   <string name="no">Nie</string>
   <string name="acra_report_dialog_title">Wikipédia zlyhala :(</string>
@@ -38,7 +39,7 @@
   <string name="delete_selected_saved_pages">Zmazať</string>
   <string name="toast_saved_page_deleted">Uložené stránky boli odstránené</string>
   <string name="saved_pages_search_list_hint">Hľadať</string>
-  <string name="saved_pages_search_empty_message">Žiadne stránky nenašli \"%s\"</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">Žiadne stránky nenašli \"%s\"</string>
   <string name="last_updated_text">Posledná aktualizácia %1$s</string>
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Zároveň s uložením, súhlasíš s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami použitia&lt;/a&gt; a neodvolateľne s uverejnením tvojich príspevkov pod &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciou.</string>
@@ -86,7 +87,7 @@
   <string name="preference_summary_logout">Odhlásiť sa z používateľského účtu Wikipédie</string>
   <string name="preference_summary_notloggedin">Nie ste prihlásený</string>
   <string name="toast_logout_complete">Ste odhlásený.</string>
-  <string name="saved_pages_empty_title">Žiadne nemáte uložené stránky.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">Žiadne nemáte uložené stránky.</string>
   <string name="saved_pages_empty_message">Uložené stránky sú úžasné. Vyskúšajte si ich aj ako obľúbené stránky, ktoré je možné používať v offline režime.</string>
   <string name="history_empty_title">Žiadne posledne zobrazené stránky.</string>
   <string name="history_empty_message">Pravdepodobne si vymazal všetky časti. Nabudúce, keď túto stránku navštíviš, sa možeš odtiaľto k nim vrátiť.</string>
@@ -151,7 +152,7 @@
   <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimédií zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
   <string name="history_search_list_hint">Hľadať</string>
-  <string name="history_search_empty_message">Žiadne stránky nenašli \"%s\"</string>
+  <string name="history_search_empty_message" fuzzy="true">Žiadne stránky nenašli \"%s\"</string>
   <string name="error_can_not_process_link">Nie je možné zobraziť tento odkaz</string>
   <string name="page_protected_autoconfirmed">Táto stránka je polozamknutá.</string>
   <string name="page_protected_sysop">Táto stránka je zamknutá.</string>
@@ -207,7 +208,12 @@
   <string name="color_theme_select">Vzhľad</string>
   <string name="color_theme_light">Svetlý</string>
   <string name="color_theme_dark">Tmavý</string>
-  <string name="page_similar_titles">Podobné tituly</string>
+  <string name="page_similar_titles" fuzzy="true">Podobné tituly</string>
+  <string name="search_no_results">Vyhľadávanie nenašlo žiadne výsledky pre \"%s\".</string>
+  <string name="search_showing_instead">Vyhľadávanie nenašlo žiadne výsledky pre \"%1$s\". Zobrazujú sa výsledky pre \"%2$s\":</string>
+  <string name="search_results_title">Výsledky vyhľadávania</string>
+  <string name="search_error_retry">Znova</string>
+  <string name="search_redirect_title">Presmerované z \"%s\".</string>
   <string name="app_store_description">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.
 
 Funkcie:

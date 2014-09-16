@@ -39,7 +39,7 @@
   <string name="delete_selected_saved_pages">Sil</string>
   <string name="toast_saved_page_deleted">Kaydedilen sayfa(lar) silindi</string>
   <string name="saved_pages_search_list_hint">Ara</string>
-  <string name="saved_pages_search_empty_message">\'%s\' ile eşleşen hiçbir sayfa bulunamadı</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">\'%s\' ile eşleşen hiçbir sayfa bulunamadı</string>
   <string name="last_updated_text">Son güncelleme %s</string>
   <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
   <string name="edit_save_action_license_logged_in">Kaydederek, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz.</string>
@@ -87,7 +87,7 @@
   <string name="preference_summary_logout">Vikipedi hesabınızın oturumunu kapatır</string>
   <string name="preference_summary_notloggedin">Oturum açık değil.</string>
   <string name="toast_logout_complete">Oturum kapandı</string>
-  <string name="saved_pages_empty_title">Henüz kaydedilmiş bir sayfa yok.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">Henüz kaydedilmiş bir sayfa yok.</string>
   <string name="saved_pages_empty_message">Kaydedilmiş sayfalar çok güzeldir. Bunu çevrim dışıyken bile okuyabileceğiniz yer imleri olarak düşünün.</string>
   <string name="history_empty_title">Hiç ziyaret edilmiş sayfa yok.</string>
   <string name="history_empty_message">Muhtemelen hepsini sildiniz. Bir daha herhangi bir sayfaya gittiğinizde, buradan ona tekrar ulaşabilirsiniz.</string>
@@ -152,7 +152,7 @@
   <string name="preference_summary_eventlogging_opt_in">Wikimedia\'nın, uygulamayı geliştirmek için, kullanım alışkanlıklarınız hakkında bilgi toplamasına izin verin</string>
   <string name="editing_error_spamblacklist">Engellenmiş alan adlarına (%s) bağlantılar tespit edildi. Lütfen bunların kaldırıp tekrar deneyin.</string>
   <string name="history_search_list_hint">Ara</string>
-  <string name="history_search_empty_message">\'%s\' ile eşleşen hiçbir sayfa bulunamadı</string>
+  <string name="history_search_empty_message" fuzzy="true">\'%s\' ile eşleşen hiçbir sayfa bulunamadı</string>
   <string name="error_can_not_process_link">Bu bağlantı görüntülenemedi</string>
   <string name="page_protected_autoconfirmed">Bu sayfa yarı korumalıdır.</string>
   <string name="page_protected_sysop">Bu sayfa tam korumalıdır.</string>
@@ -209,7 +209,7 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Açık</string>
   <string name="color_theme_dark">Koyu</string>
-  <string name="page_similar_titles">Benzer başlıklar</string>
+  <string name="page_similar_titles" fuzzy="true">Benzer başlıklar</string>
   <string name="search_within_pages">Sayfalar içinde ara...</string>
   <string name="search_no_results">\"%s\" için hiçbir sonuç bulunamadı.</string>
   <string name="search_showing_instead">\"%1$s\" için hiçbir sonuç bulunamadı. \"%2$s\" için sonuçlar gösteriliyor:</string>

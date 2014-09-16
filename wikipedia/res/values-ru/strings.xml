@@ -39,7 +39,9 @@
   <string name="delete_selected_saved_pages">Удалить</string>
   <string name="toast_saved_page_deleted">Сохранённые страницы удалены</string>
   <string name="saved_pages_search_list_hint">Поиск</string>
-  <string name="saved_pages_search_empty_message">Страниц по условию \'%s\' не найдено</string>
+  <string name="saved_pages_search_empty_message">Страницы, соответствующие вашему запросу, не найдены.</string>
+  <string name="nearby_distance_in_meters">%d м</string>
+  <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="last_updated_text">Последнее обновление: %1$s</string>
   <string name="content_license_html">Содержимое доступно в соответствии &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; (если не указано иное)</string>
   <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с [https://wikimediafoundation.org/wiki/Terms_of_Use/ru условиями использования], а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -87,7 +89,7 @@
   <string name="preference_summary_logout">Выйти из вашей учётной записи в Википедии</string>
   <string name="preference_summary_notloggedin">Не выполнен вход.</string>
   <string name="toast_logout_complete">Сеанс был завершён</string>
-  <string name="saved_pages_empty_title">Ещё нет сохранённых страниц.</string>
+  <string name="saved_pages_empty_title">Здесь нет сохранённых страниц!</string>
   <string name="saved_pages_empty_message">Сохранённые страницы — это довольно здорово. Подумайте о них, как о закладках, которые вы сможете читать даже тогда, когда вы в находитесь в оффлайне.</string>
   <string name="history_empty_title">Недавно просмотренных страниц нет.</string>
   <string name="history_empty_message">Вы, вероятно, удалили их все. В следующий раз, когда зайдёте на страницу, вы сможете вернуться к ней отсюда.</string>
@@ -109,6 +111,12 @@
   <string name="create_account_username_exists_error">Такое имя участника уже занято</string>
   <string name="create_account_ip_throttle_error">С этого IP-адреса создано слишком много учётных записей. Повторите попытку позже.</string>
   <string name="create_account_open_proxy_error">Этот IP-адрес был заблокирован от создания учётных записей.</string>
+  <string name="create_account_noname_error">Вы указали недопустимое имя пользователя. Пожалуйста, попробуйте другое.</string>
+  <string name="create_account_invalid_email_error">Вы указали недопустимый адрес электронной почты.</string>
+  <string name="create_account_password_too_short_error">Указанный вами пароль — слишком короткий.</string>
+  <string name="create_account_blocked_anon_error">Вы не можете создать учётную запись, потому что Ваш IP-адрес заблокирован.</string>
+  <string name="create_account_blocked_error">Вы не можете создать учётную запись, потому что ваша учётная запись заблокирована.</string>
+  <string name="create_account_password_name_match_error">Ваше имя пользователя и пароль не должны быть одинаковыми.</string>
   <string name="create_account_generic_error">Невозможно создать учётную запись</string>
   <string name="create_account_no_network">Отсутствует сетевое подключение</string>
   <string name="create_account_next">Далее</string>
@@ -152,7 +160,7 @@
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
   <string name="history_search_list_hint">Поиск</string>
-  <string name="history_search_empty_message">Страниц по условию \'%s\' не найдено</string>
+  <string name="history_search_empty_message">Страницы, соответствующие вашему запросу, не найдены.</string>
   <string name="error_can_not_process_link">Не удалось отобразить эту ссылку</string>
   <string name="page_protected_autoconfirmed">Эта страница была частично защищена.</string>
   <string name="page_protected_sysop">Эта страница была полностью защищена.</string>
@@ -209,13 +217,15 @@
   <string name="color_theme_select">Оформление</string>
   <string name="color_theme_light">Светлое</string>
   <string name="color_theme_dark">Тёмное</string>
-  <string name="page_similar_titles">Похожие заголовки</string>
+  <string name="page_similar_titles">Похожие страницы</string>
   <string name="search_within_pages">Искать на страницах…</string>
   <string name="search_no_results">Не найдено никаких результатов для «%s».</string>
   <string name="search_showing_instead">Не найдено никаких результатов для «%1$s». Показаны результаты для «%2$s»:</string>
   <string name="search_results_title">Результаты поиска</string>
   <string name="search_error_retry">Повторить</string>
   <string name="search_redirect_title">Перенаправление с «%s».</string>
+  <string name="toc_hint">Потяните влево для просмотра разделов или используйте кнопку меню в правом верхнем углу.</string>
+  <string name="toc_know_it">Понятно</string>
   <string name="app_store_description">Официальное приложение «Википедия» под Android. Википедия — свободная энциклопедия, содержащая более 32 миллионов статей на 280 языках. Она является наиболее полным и широко используемым справочником, который люди когда-либо создавали. Приложение было переписано с нуля и стало лучше, чем когда-либо прежде.
 
 Особенности:
@@ -228,4 +238,6 @@
 — Wikipedia Zero: Участвующие операторы мобильной связи не взимают плату за трафик.
 
 Исходный код является полностью открытым. Если у вас есть опыт работы с Java и Android SDK, присоединяйтесь к нам! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Доступно новое обновление альфа-версии</string>
+  <string name="alpha_update_notification_text">Нажмите чтобы скачать</string>
 </resources>

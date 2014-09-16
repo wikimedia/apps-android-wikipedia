@@ -39,7 +39,7 @@
   <string name="delete_selected_saved_pages">Apagar</string>
   <string name="toast_saved_page_deleted">Página(s) salva(s) excluída(s)</string>
   <string name="saved_pages_search_list_hint">Pesquisar</string>
-  <string name="saved_pages_search_empty_message">Nenhuma página é correspondente à \'%s\'</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">Nenhuma página é correspondente à \'%s\'</string>
   <string name="last_updated_text">Última atualização: %s</string>
   <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado o contrário</string>
   <string name="edit_save_action_license_logged_in">Ao salvar, você concorda com as &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -87,7 +87,7 @@
   <string name="preference_summary_logout">Sair de sua conta da Wikipédia</string>
   <string name="preference_summary_notloggedin">Você não está autenticado</string>
   <string name="toast_logout_complete">Saiu</string>
-  <string name="saved_pages_empty_title">Ainda não existem páginas salvas</string>
+  <string name="saved_pages_empty_title" fuzzy="true">Ainda não existem páginas salvas</string>
   <string name="saved_pages_empty_message">As páginas salvas são incríveis. Pense nelas como se fossem marcadores que você pode ler mesmo quando estiver offline.</string>
   <string name="history_empty_title">Não existem páginas recentes aqui.</string>
   <string name="history_empty_message">Seu histórico está vazio. Na próxima vez que você buscar uma página, você pode acessar a mesma por aqui.</string>
@@ -152,7 +152,7 @@
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recolha informações sobre o uso do aplicativo para aperfeiçoá-lo</string>
   <string name="editing_error_spamblacklist">Foram detectados links para páginas bloqueadas (%s). Por favor, remova-os e tente novamente.</string>
   <string name="history_search_list_hint">Pesquisar</string>
-  <string name="history_search_empty_message">Nenhuma página correnspondendo a \'%s\' foi encontrada</string>
+  <string name="history_search_empty_message" fuzzy="true">Nenhuma página correnspondendo a \'%s\' foi encontrada</string>
   <string name="error_can_not_process_link">Não foi possível mostrar esse link</string>
   <string name="page_protected_autoconfirmed">Esta página foi semi-protegida</string>
   <string name="page_protected_sysop">Esta página foi totalmente protegida</string>
@@ -209,7 +209,7 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Escuro</string>
-  <string name="page_similar_titles">Títulos semelhantes</string>
+  <string name="page_similar_titles" fuzzy="true">Títulos semelhantes</string>
   <string name="search_within_pages">Procurar na páginas...</string>
   <string name="search_no_results">Nenhum resultado encontrado para \"%s\".</string>
   <string name="search_showing_instead">Nenhum resultado encontrada para \"%1$s\". Mostrando resultados para \"%2$s\":</string>
@@ -219,13 +219,13 @@
   <string name="app_store_description">Aplicativo oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada até hoje. O aplicativo foi re-criado do zero e está melhor que nunca.
 
 Caraterísticas:
-   - Velocidade: O nosso novo aplicativo permite navegar e editar na Wikipédia de uma forma mais rápida do que nunca.
+   - Velocidade: O nosso novo aplicativo permite navegar e editar a Wikipédia de uma forma mais rápida do que nunca.
    - Edição: Você pode editar a Wikipédia! Usando ou não uma conta de usuário, nós agradecemos todas as suas contribuições.
    - Páginas recentes: Nós fornecemos o seu histórico de leitura, para que você possa clicar em quantos artigos quiser sem se perder.
    - Páginas salvas: Pode salvas páginas para leitura \'\'offline\'\' e acessá-las mesmo sem conexão de rede.
    - Compartilhar: Use os seus aplicativos sociais para compartilhar a soma de todo o conhecimento humano.
    - Suporte de idioma: O aplicativo permite que, de forma fácil, você consiga ler a Wikipédia em qualquer idioma.
-   - Wikipédia Zero: Taxa de dados dispensada para operadoras participantes.
+   - Wikipédia Zero: Isenção de cobrança de dados para operadoras participantes.
 
 O código é totalmente aberto. Se você tem experiência com linguagens como Java e Android SDK, venha trabalhar connosco! https://github.com/wikimedia/apps-android-wikipedia</string>
 </resources>

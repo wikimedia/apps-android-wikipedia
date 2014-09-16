@@ -141,7 +141,7 @@
   <string name="preference_summary_eventlogging_opt_in">Luba Wikimedial koguda teavet selle kohta, kuidas rakendust kasutad, et seda paremaks muuta.</string>
   <string name="editing_error_spamblacklist">Lingid tõkestatud domeenidele (%s) tuvastatud. Palun eemalda need ja proovi uuesti.</string>
   <string name="history_search_list_hint">Otsi</string>
-  <string name="history_search_empty_message">Otsisõnale \'%s\' vastavaid lehekülgi ei leitud</string>
+  <string name="history_search_empty_message" fuzzy="true">Otsisõnale \'%s\' vastavaid lehekülgi ei leitud</string>
   <string name="error_can_not_process_link">Seda linki ei saa kuvada</string>
   <string name="page_protected_autoconfirmed">See lehekülg on poolkaitstud.</string>
   <string name="page_protected_sysop">See lehekülg on täielikult kaitstud.</string>

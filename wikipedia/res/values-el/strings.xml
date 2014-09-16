@@ -39,7 +39,7 @@
   <string name="delete_selected_saved_pages">Διαγραφή</string>
   <string name="toast_saved_page_deleted">Αποθηκευμένη(ες) σελίδα(ες) διαγράφτηκε(καν)</string>
   <string name="saved_pages_search_list_hint">Αναζήτηση</string>
-  <string name="saved_pages_search_empty_message">Δεν βρέθηκαν σελίδες που ταιριάζουν με το \'%s\'</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">Δεν βρέθηκαν σελίδες που ταιριάζουν με το \'%s\'</string>
   <string name="last_updated_text">Τελευταία ενημέρωση %s</string>
   <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>
   <string name="edit_save_action_license_logged_in">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -87,7 +87,7 @@
   <string name="preference_summary_logout">Αποσυνδεθείτε από το λογαριασμό σας στη Βικιπαίδεια</string>
   <string name="preference_summary_notloggedin">Δεν έχετε συνδεθεί.</string>
   <string name="toast_logout_complete">Αποσύνδεση</string>
-  <string name="saved_pages_empty_title">Δεν υπάρχουν αποθηκευμένες σελίδες ακόμα.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">Δεν υπάρχουν αποθηκευμένες σελίδες ακόμα.</string>
   <string name="saved_pages_empty_message">Οι αποθηκευμένες σελίδες είναι αρκετά φοβερές. Σκεφτείτε τις ως σελιδοδείκτες που μπορείτε να διαβάσετε ακόμα και όταν είστε εκτός σύνδεσης.</string>
   <string name="history_empty_title">Δεν υπάρχουν πρόσφατες σελίδες εδώ.</string>
   <string name="history_empty_message">Πιθανώς να τα διαγράψατε όλα. Την επόμενη φορά που θα μεταβείτε σε μια σελίδα, μπορείτε να επιστρέψετε σε αυτήν από εδώ.</string>
@@ -152,7 +152,7 @@
   <string name="preference_summary_eventlogging_opt_in">Επιτρέψτε στο Wikimedia να συλλέξει πληροφορίες για το πως χρησιμοποιείτε την εφαρμογή ώστε να τη βελτιώσει</string>
   <string name="editing_error_spamblacklist">Ανιχνεύθηκαν σύνδεσμοι σε αποκλεισμένους ιστότοπους. Παρακαλώ αφαιρέστε τους και προσπαθήστε ξανά.</string>
   <string name="history_search_list_hint">Αναζήτηση</string>
-  <string name="history_search_empty_message">Δεν βρέθηκαν σελίδες που ταιριάζουν με το \'%s\'</string>
+  <string name="history_search_empty_message" fuzzy="true">Δεν βρέθηκαν σελίδες που ταιριάζουν με το \'%s\'</string>
   <string name="error_can_not_process_link">Αυτός ο σύνδεσμος δεν στάθηκε δυνατό να εμφανιστεί</string>
   <string name="page_protected_autoconfirmed">Αυτή η σελίδα είναι ημιπροστατευμένη</string>
   <string name="page_protected_sysop">Αυτή η σελίδα είναι πλήρως προσταστατευμένη.</string>
@@ -205,7 +205,7 @@
   <string name="color_theme_select">Θέμα</string>
   <string name="color_theme_light">Φωτεινό</string>
   <string name="color_theme_dark">Σκούρο</string>
-  <string name="page_similar_titles">Άλλες έννοιες</string>
+  <string name="page_similar_titles" fuzzy="true">Άλλες έννοιες</string>
   <string name="search_within_pages">Αναζήτηση σε σελίδες</string>
   <string name="search_no_results">Δεν βρέθηκαν αποτελέσματα για \"%s\".</string>
   <string name="search_showing_instead">Δεν βρέθηκαν αποτελέσματα για \"%1$s\". Εμφάνιση αποτελεσμάτων για \"%2$s\":</string>

@@ -141,7 +141,7 @@
   <string name="preference_summary_eventlogging_opt_in">اسمح لويكيميديا بجمع معلومات حول كيفية استخدام التطبيق لتحسينه</string>
   <string name="editing_error_spamblacklist">تم اكتشاف روابط لنطاقات ممنوعة:  (%s). الرجاء إزالة هذه النطاقات والمحاولة مرة أخرى.</string>
   <string name="history_search_list_hint">بحث</string>
-  <string name="history_search_empty_message">لم يتم العثور على صفحات مطابقة ل\'%s\'</string>
+  <string name="history_search_empty_message" fuzzy="true">لم يتم العثور على صفحات مطابقة ل\'%s\'</string>
   <string name="error_can_not_process_link">لم يكن بالإمكان عرض هذا الرابط</string>
   <string name="page_protected_autoconfirmed">تم حماية هذه الصفحة جزئياً.</string>
   <string name="page_protected_sysop">تم حماية هذه الصفحة بالكامل.</string>

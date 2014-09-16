@@ -39,7 +39,7 @@
   <string name="delete_selected_saved_pages">حذف</string>
   <string name="toast_saved_page_deleted">ذخیره صفحه(های) حذف‌شده</string>
   <string name="saved_pages_search_list_hint">جستجو</string>
-  <string name="saved_pages_search_empty_message">هیچ صفحه‌ای برای \'%s\' یافت نشد</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">هیچ صفحه‌ای برای \'%s\' یافت نشد</string>
   <string name="last_updated_text"> %1$s آخرین به‌روزرسانی</string>
   <string name="content_license_html">مطالب تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
   <string name="edit_save_action_license_logged_in">با ذخیره‌کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید.</string>
@@ -87,7 +87,7 @@
   <string name="preference_summary_logout">خروج</string>
   <string name="preference_summary_notloggedin">وارد سامانه نشده‌اید</string>
   <string name="toast_logout_complete">خارج شد</string>
-  <string name="saved_pages_empty_title">هنوز صفحه‌ای ذخیره نشده‌است.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">هنوز صفحه‌ای ذخیره نشده‌است.</string>
   <string name="saved_pages_empty_message">صفحات ذخیره‌شده بسیار عالی هستند. به آنها به چشم بوکمارک‌هایی نگاه کنید که می‌توانید بخوانید حتی زمانی که آفلاین هستید.</string>
   <string name="history_empty_title">هیچ صفحه اخیری اینجا نیست.</string>
   <string name="history_empty_message">شما احتمالاً همه آنها را حذف کردید. دفعه بعد که به صفحه‌ای می‌روید می‌توانید از اینجا به آن صفحه برگردید.</string>
@@ -152,7 +152,7 @@
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
   <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه مسدود شده ( %s ) را شناسایی کرده است. لطفا آنها را حذف کنید و دوباره امتحان کنید.</string>
   <string name="history_search_list_hint">جستجو</string>
-  <string name="history_search_empty_message">هیچ صفحه‌ای برای %s یافت نشد</string>
+  <string name="history_search_empty_message" fuzzy="true">هیچ صفحه‌ای برای %s یافت نشد</string>
   <string name="error_can_not_process_link">نمی‌توان این پیوند را نمایش داد</string>
   <string name="page_protected_autoconfirmed">این صفحه نیمه‌محفاظت شده است.</string>
   <string name="page_protected_sysop">این صفحه به طور کامل محافظت شده است.</string>
@@ -209,7 +209,7 @@
   <string name="color_theme_select">پوسته</string>
   <string name="color_theme_light">روشن</string>
   <string name="color_theme_dark">تیره</string>
-  <string name="page_similar_titles">معانی دیگر</string>
+  <string name="page_similar_titles" fuzzy="true">معانی دیگر</string>
   <string name="search_within_pages">جستجو در صفحات...</string>
   <string name="search_no_results">هیچ نتیجه‌ای برای «%s» یافت نشد.</string>
   <string name="search_showing_instead">هیچ نتیجه‌ای برای «%1$s» یافت نشد. نتایج «%2$s» نشان داده می‌شود:</string>

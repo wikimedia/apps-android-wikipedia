@@ -39,6 +39,15 @@
   <string name="delete_selected_saved_pages">Poista</string>
   <string name="toast_saved_page_deleted">Tallennetut sivu(t) poistettu</string>
   <string name="saved_pages_search_list_hint">Hae</string>
+  <string name="saved_pages_search_empty_message">Hakuasi vastaavia sivua ei löytynyt.</string>
+  <string name="nearby_activity_title">Lähistöllä</string>
+  <string name="nav_item_nearby">Lähistöllä</string>
+  <string name="menu_update_nearby">Päivitä \"Lähistöllä\"</string>
+  <string name="nearby_empty_title">Sivuja ei ole lähistöllä</string>
+  <string name="nearby_empty_message">Voit päivittää tämän sivun, kun siirryt uuteen paikkaan.</string>
+  <string name="nearby_no_network">Ei verkkoyhteyttä</string>
+  <string name="nearby_server_error">Lähellä olevien paikkojen luetteloa ei saatu haettua.</string>
+  <string name="nearby_no_location">Sijaintia ei kyetä paikantamaan</string>
   <string name="last_updated_text">Viimeksi päivitetty %1$s</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla ellei toisin ilmoiteta</string>
   <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
@@ -50,6 +59,7 @@
   <string name="menu_other_languages">Muilla kielillä</string>
   <string name="langlinks_error_retry">Yritä uudelleen</string>
   <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä</string>
+  <string name="langlinks_no_match">Hakuasi vastaavia kieliä ei löytynyt.</string>
   <string name="settings_activity_title">Asetukset</string>
   <string name="langlinks_activity_title">Muilla kielillä</string>
   <string name="menu_save_changes">Tallenna muutokset</string>
@@ -61,7 +71,7 @@
   <string name="dialog_message_edit_failed_cancel">Peru</string>
   <string name="menu_show_toc">Sisällysluettelo</string>
   <string name="search_no_results_found">Tuloksia ei löytynyt</string>
-  <string name="edit_section_captcha_message">Syötä alla näkyvät sanat</string>
+  <string name="edit_section_captcha_message">Syötä alla näkyvät sanat (auttaa suojautumaan automaattiselta spämmiltä)</string>
   <string name="edit_section_captcha_hint">Toista edeltävät sanat</string>
   <string name="title_captcha">Syötä captcha</string>
   <string name="edit_section_abusefilter_back_text">Tee muutoksia muokkaukseeni</string>
@@ -86,7 +96,7 @@
   <string name="preference_summary_logout">Kirjaudu ulos Wikipedia-tililtä</string>
   <string name="preference_summary_notloggedin">Et ole kirjautunut sisään.</string>
   <string name="toast_logout_complete">Kirjauduit ulos</string>
-  <string name="saved_pages_empty_title">Ei vielä tallennettuja sivuja.</string>
+  <string name="saved_pages_empty_title">Ei tallennettuja sivuja täällä.</string>
   <string name="saved_pages_empty_message">Tallennetut sivut ovat melko loistavia. Ajattele niitä kirjanmerkkeinä, joita voit lukea ilman verkkoyhteyttä.</string>
   <string name="history_empty_title">Ei tuoreita sivuja täällä.</string>
   <string name="history_empty_message">Olet todennäköisesti poistanut ne kaikki. Seuraavalla kerralla kun menet sivulle, voit palata sinne tätä kautta.</string>
@@ -108,6 +118,12 @@
   <string name="create_account_username_exists_error">Käyttäjätunnus on jo käytössä</string>
   <string name="create_account_ip_throttle_error">Liian monta tiliä luotu tältä IP-osoitteelta. Yritä uudelleen myöhemmin.</string>
   <string name="create_account_open_proxy_error">Tältä IP-osoitteelta on estetty tilien luominen.</string>
+  <string name="create_account_noname_error">Syöttämäsi käyttäjänimi ei kelpaa. Anna toinen käyttäjänimi.</string>
+  <string name="create_account_invalid_email_error">Syöttämäsi sähköpostiosoite ei kelpaa.</string>
+  <string name="create_account_password_too_short_error">Syöttämäsi salasana on liian lyhyt.</string>
+  <string name="create_account_blocked_anon_error">Et voi luoda tiliä, koska IP-osoitteesi on estetty.</string>
+  <string name="create_account_blocked_error">Et voi luoda tiliä, koska tilisi on estetty.</string>
+  <string name="create_account_password_name_match_error">Käyttäjänimesi ja salasanasi on oltava erilaisia.</string>
   <string name="create_account_generic_error">Tunnusta ei voitu luoda</string>
   <string name="create_account_no_network">Ei verkkoyhteyttä</string>
   <string name="create_account_next">Seuraava</string>
@@ -117,7 +133,7 @@
   <string name="zero_charged_verbiage_extended">Muiden artikkeleiden lataamisesta saattaa aiheutua datamaksuja.</string>
   <string name="zero_search_hint">Etsi Wikipedia Zerosta</string>
   <string name="zero_warn_when_leaving">Varoita poistuttaessa Wikipedia Zerosta</string>
-  <string name="zero_warn_when_leaving_summary">Jos matkapuhelinoperaattorisi luopuu tiedonsiirtomaksuista Wikipedia Zero -yhteistyön kautta, tämän asetuksen olla päällä saat huomautuksen, jos aiot poistua Wikipedia-sovelluksesta ja tiedonsiirrosta voidaan periä maksua.</string>
+  <string name="zero_warn_when_leaving_summary">Jos matkapuhelinoperaattorisi luopuu tiedonsiirtomaksuista Wikipedia Zero -yhteistyön kautta, tämän asetuksen ollessa päällä saat huomautuksen, jos aiot poistua Wikipedia-sovelluksesta ja tiedonsiirrosta voidaan periä maksua.</string>
   <string name="zero_webpage_title">Usein kysyttyjä kysymyksiä Wikipedia Zerosta</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Poistutaan Wikipedia Zerosta</string>
@@ -151,7 +167,7 @@
   <string name="preference_summary_eventlogging_opt_in">Salli Wikimedian kerätä tietoja siitä, miten käytät sovellusta, jotta sovellusta voidaan parantaa</string>
   <string name="editing_error_spamblacklist">Havaittu linkkejä estettyihin verkko-osoitteisiin (%s). Poista ne ja yritä uudelleen.</string>
   <string name="history_search_list_hint">Hae</string>
-  <string name="history_search_empty_message">Hakusanaa \'%s\' vastaavia sivuja ei löytynyt</string>
+  <string name="history_search_empty_message">Hakuasi vastaavia sivua ei löytynyt.</string>
   <string name="error_can_not_process_link">Tätä linkkiä ei voitu näyttää</string>
   <string name="page_protected_autoconfirmed">Tämä sivu on osittain suojattu.</string>
   <string name="page_protected_sysop">Tämä sivu on kokonaan suojattu.</string>
@@ -208,11 +224,14 @@
   <string name="color_theme_select">Teema</string>
   <string name="color_theme_light">Vaalea</string>
   <string name="color_theme_dark">Tumma</string>
-  <string name="page_similar_titles">Muut merkitykset</string>
+  <string name="page_similar_titles">Samankaltaiset sivut</string>
   <string name="search_within_pages">Etsi sivuilta…</string>
+  <string name="search_no_results">Ei tuloksia hakusanalla \"%s\".</string>
   <string name="search_showing_instead">Ei tuloksia hakusanalla \"%1$s\". Näytetään tulokset hakusanalla \"%2$s\":</string>
   <string name="search_results_title">Hakutulokset</string>
   <string name="search_error_retry">Yritä uudelleen</string>
+  <string name="search_redirect_title">Ohjattu sivulta \"%s\".</string>
+  <string name="toc_know_it">Hanki se</string>
   <string name="app_store_description">Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 32 miljoonaa artikkelia 280 eri kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut. Sovellus on kirjoitettu alusta alkaen uusiksi ja on parempi kuin koskaan aiemmin.
 
 Ominaisuudet:
@@ -225,4 +244,6 @@ Ominaisuudet:
    - Wikipedia Zero: Tiedonsiirtomaksut poistettu osallistuvien matkapuhelinoperaattoreiden toimesta.
 
 Lähdekoodi on täysin avointa. Jos sinulla on kokemusta Javan ja Android SDK:n parissa työskentelystä, tee kopio koodistamme! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Uusi alfaversio saatavilla</string>
+  <string name="alpha_update_notification_text">Napauta ladataksesi</string>
 </resources>

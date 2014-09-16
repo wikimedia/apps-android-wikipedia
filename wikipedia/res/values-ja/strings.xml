@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">ウィキペディア</string>
   <string name="app_name_beta">ウィキペディア・ベータ</string>
+  <string name="app_name_alpha">ウィキペディア・アルファ版</string>
   <string name="yes">はい</string>
   <string name="no">いいえ</string>
   <string name="acra_report_dialog_title">ウィキペディア アプリがクラッシュしました :(</string>
@@ -38,7 +39,7 @@
   <string name="delete_selected_saved_pages">削除</string>
   <string name="toast_saved_page_deleted">保存したページを削除しました</string>
   <string name="saved_pages_search_list_hint">検索</string>
-  <string name="saved_pages_search_empty_message">「%s」に一致するページは見つかりませんでした</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">「%s」に一致するページは見つかりませんでした</string>
   <string name="last_updated_text">最終更新: %s</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
   <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
@@ -86,7 +87,7 @@
   <string name="preference_summary_logout">ウィキペディアのアカウントからログアウト</string>
   <string name="preference_summary_notloggedin">ログインしていません</string>
   <string name="toast_logout_complete">ログアウトしました</string>
-  <string name="saved_pages_empty_title">保存されたページはありません。</string>
+  <string name="saved_pages_empty_title" fuzzy="true">保存されたページはありません。</string>
   <string name="saved_pages_empty_message">保存したページはすごい機能です! オフライン時にも読める、ブックマークのようなものだとお考えください。</string>
   <string name="history_empty_title">履歴はまだありません。</string>
   <string name="history_empty_message">すべて削除したのかもしれません。他のページに行った後にここへ戻ってみてください。</string>
@@ -151,7 +152,7 @@
   <string name="preference_summary_eventlogging_opt_in">このアプリの改善に役立てるため、ウィキメディアがアプリの使用情報を収集することを許可する</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
   <string name="history_search_list_hint">検索</string>
-  <string name="history_search_empty_message">「%s」に一致するページは見つかりませんでした</string>
+  <string name="history_search_empty_message" fuzzy="true">「%s」に一致するページは見つかりませんでした</string>
   <string name="error_can_not_process_link">このリンクを表示できませんでした。</string>
   <string name="page_protected_autoconfirmed">このページは半保護されています。</string>
   <string name="page_protected_sysop">このページは全保護されています。</string>
@@ -208,8 +209,10 @@
   <string name="color_theme_select">テーマ</string>
   <string name="color_theme_light">明るめ</string>
   <string name="color_theme_dark">暗め</string>
-  <string name="page_similar_titles">他の意味</string>
+  <string name="page_similar_titles" fuzzy="true">他の意味</string>
   <string name="search_within_pages">ページ内を検索…</string>
+  <string name="search_no_results">「%s」に対する検索結果はありません</string>
+  <string name="search_showing_instead">「%1$s」に対する検索結果はありません。代わりに「%2$s」の結果を表示します：</string>
   <string name="search_results_title">検索結果</string>
   <string name="search_error_retry">再試行</string>
   <string name="search_redirect_title">「%s」からの転送</string>

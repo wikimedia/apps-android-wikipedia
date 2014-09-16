@@ -39,7 +39,7 @@
   <string name="delete_selected_saved_pages">Läschen</string>
   <string name="toast_saved_page_deleted">Gespäichert Säit(e) geläscht</string>
   <string name="saved_pages_search_list_hint">Sichen</string>
-  <string name="saved_pages_search_empty_message">Keng Säite mat \"%s\" fonnt</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">Keng Säite mat \"%s\" fonnt</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>
   <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
   <string name="edit_save_action_license_logged_in">Mam Späichere sidd Dir mat den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt;.</string>
@@ -86,7 +86,7 @@
   <string name="preference_summary_logout">Aus Ärem Wikipedia-Benotzerkont ausloggen</string>
   <string name="preference_summary_notloggedin">Net ageloggt.</string>
   <string name="toast_logout_complete">Ausgeloggt</string>
-  <string name="saved_pages_empty_title">Nach keng gespäichert Säiten.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">Nach keng gespäichert Säiten.</string>
   <string name="saved_pages_empty_message">Gespäichert Säite si flott. Denkt dru fir ze als Lieszeechen ze benotzen déi Dir liese kënnt wann Dir offline sidd.</string>
   <string name="history_empty_title">Keng rezent Säiten hei.</string>
   <string name="history_empty_message">Dir hutt se wahrscheinlech all geläscht. Wann Dir déi nächste Kéier op eng Säit gitt da kënnt Dir vun hei aus op déi Säit zréckgoen.</string>
@@ -108,6 +108,12 @@
   <string name="create_account_username_exists_error">De Benotzernumm gëtt scho benotzt</string>
   <string name="create_account_ip_throttle_error">Zevill Benotzerkonte goufe vun dëser IP-Adress ugeluecht. Probéiert méi spéit nach eng Kéier.</string>
   <string name="create_account_open_proxy_error">Dës IP-Adress ass fir d\'Uleeë vu Benotzerkonte gespaart.</string>
+  <string name="create_account_noname_error">De Benotzernumm deen Dir uginn hutt ass net valabel. Gitt w.e.g. en anere Benotzernumm un.</string>
+  <string name="create_account_invalid_email_error">D\'E-Mail-Adress déi Dir uginn hutt ass net valabel.</string>
+  <string name="create_account_password_too_short_error">D\'Passwuert dat Dir uginn hutt ass ze kuerz.</string>
+  <string name="create_account_blocked_anon_error">Dir kënnt kee Benotzerkont uleeë wëll Är IP-Adress gespaart ass.</string>
+  <string name="create_account_blocked_error">Dir kënnt kee Benotzerkont uleeë wëll Är Benotzerkont gespaart ass.</string>
+  <string name="create_account_password_name_match_error">Äre Benotzernumm an Äert Passwuert musse verschidde sinn.</string>
   <string name="create_account_generic_error">Benotzerkont konnt net opgemaach ginn</string>
   <string name="create_account_no_network">Keng Verbindung mam Reseau</string>
   <string name="create_account_next">Weider</string>
@@ -149,7 +155,7 @@
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlaben Informatiounen iwwer d\'Benotze vun der App ze sammele fir se ze verbesseren.</string>
   <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se w.e.g. ewech a probéiert nach eng Kéier.</string>
   <string name="history_search_list_hint">Sichen</string>
-  <string name="history_search_empty_message">Keng Säite mat \'%s\' fonnt</string>
+  <string name="history_search_empty_message" fuzzy="true">Keng Säite mat \'%s\' fonnt</string>
   <string name="error_can_not_process_link">Dëse Link konnt net gewise ginn</string>
   <string name="page_protected_autoconfirmed">Dës Säit ass hallef gespaart.</string>
   <string name="page_protected_sysop">Dës Säit ass komplett gespaart.</string>
@@ -203,11 +209,14 @@
   <string name="color_theme_select">Faarfschema</string>
   <string name="color_theme_light">Hell</string>
   <string name="color_theme_dark">Déischter</string>
-  <string name="page_similar_titles">Ähnlech Titelen</string>
+  <string name="page_similar_titles">Ähnlech Säiten</string>
   <string name="search_within_pages">An de Säite sichen...</string>
   <string name="search_no_results">Näischt fonnt fir \"%s\".</string>
   <string name="search_showing_instead">Kee Resultat fir \"%1$s\". D\'Resultater fir \"%2$s\" gi gewisen:</string>
   <string name="search_results_title">Resultat vum Sichen</string>
   <string name="search_error_retry">Nach eng Kéier probéieren</string>
   <string name="search_redirect_title">Viruleedung vu(n) \"%s\".</string>
+  <string name="toc_know_it">Verstan</string>
+  <string name="alpha_update_notification_title">Nei alpha-Versioun disponibel</string>
+  <string name="alpha_update_notification_text">Tippe fir erofzelueden</string>
 </resources>

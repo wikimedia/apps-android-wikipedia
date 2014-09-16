@@ -38,7 +38,7 @@
   <string name="delete_selected_saved_pages">삭제</string>
   <string name="toast_saved_page_deleted">저장된 문서가 삭제되었습니다</string>
   <string name="saved_pages_search_list_hint">검색</string>
-  <string name="saved_pages_search_empty_message">\'%s\' 검색어와 일치하는 문서를 찾을 수 없습니다</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">\'%s\' 검색어와 일치하는 문서를 찾을 수 없습니다</string>
   <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
   <string name="content_license_html">내용은 별도로 명시하지 않을 경우 &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
   <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;과 &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 당신의 기여를 영구적으로 게시하는 데 동의합니다.</string>
@@ -84,9 +84,9 @@
   <string name="nav_item_logout">로그아웃</string>
   <string name="preference_title_logout">로그아웃</string>
   <string name="preference_summary_logout">위키백과 계정에서 로그아웃</string>
-  <string name="preference_summary_notloggedin">로그인되어 있지 않습니다.</string>
+  <string name="preference_summary_notloggedin">로그인하고 있지 않습니다.</string>
   <string name="toast_logout_complete">로그아웃됨</string>
-  <string name="saved_pages_empty_title">아직 저장된 문서가 없습니다.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">아직 저장된 문서가 없습니다.</string>
   <string name="saved_pages_empty_message">저장된 문서는 정말 훌륭합니다. 오프라인일 때여도 읽을 수 있는 책갈피라고 생각해주세요.</string>
   <string name="history_empty_title">여기에 최근 문서가 없습니다.</string>
   <string name="history_empty_message">방문 기록이 비어 있습니다. 다음 번에 당신이 간 문서를 여기에서 얻을 수 있습니다.</string>
@@ -151,7 +151,7 @@
   <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다</string>
   <string name="editing_error_spamblacklist">차단된 도메인 (%s)으로의 링크가 감지되었습니다. 그들을 제거하고 나서 다시 시도하세요.</string>
   <string name="history_search_list_hint">검색</string>
-  <string name="history_search_empty_message">\'%s\' 검색어와 일치하는 문서를 찾을 수 없습니다</string>
+  <string name="history_search_empty_message" fuzzy="true">\'%s\' 검색어와 일치하는 문서를 찾을 수 없습니다</string>
   <string name="error_can_not_process_link">이 링크를 보여줄 수 없습니다</string>
   <string name="page_protected_autoconfirmed">이 문서는 준보호되어 있습니다.</string>
   <string name="page_protected_sysop">이 문서는 완전히 보호되어 있습니다.</string>
@@ -206,7 +206,7 @@
   <string name="color_theme_select">테마</string>
   <string name="color_theme_light">밝음</string>
   <string name="color_theme_dark">어두움</string>
-  <string name="page_similar_titles">다른 뜻</string>
+  <string name="page_similar_titles" fuzzy="true">다른 뜻</string>
   <string name="app_store_description">안드로이드를 위한 공식 위키백과 앱입니다. 위키백과는 280개 언어의 3천2백만보다 많은 문서가 들어 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용합니다. 앱은 처음부터 다시 쓰여졌고 이전보다 더 나아졌습니다.
 
 기능:

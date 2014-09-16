@@ -39,7 +39,7 @@
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
   <string name="saved_pages_search_list_hint">Buscar</string>
-  <string name="saved_pages_search_empty_message">No se encontraron páginas que coincidan con «%s»</string>
+  <string name="saved_pages_search_empty_message" fuzzy="true">No se encontraron páginas que coincidan con «%s»</string>
   <string name="last_updated_text">Última actualización: %s</string>
   <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -87,7 +87,7 @@
   <string name="preference_summary_logout">Cerrar sesión de tu cuenta de Wikipedia</string>
   <string name="preference_summary_notloggedin">Sesión no iniciada.</string>
   <string name="toast_logout_complete">Sesión cerrada</string>
-  <string name="saved_pages_empty_title">No hay páginas guardadas aún.</string>
+  <string name="saved_pages_empty_title" fuzzy="true">No hay páginas guardadas aún.</string>
   <string name="saved_pages_empty_message">Las páginas guardadas son bastante impresionantes. Piensa en ellas como marcadores que se pueden leer incluso cuando estás sin conexión.</string>
   <string name="history_empty_title">No hay páginas recientes aquí.</string>
   <string name="history_empty_message">Probablemente borraste el historial. La próxima vez que vayas a una página puedes recuperarla desde aquí.</string>
@@ -152,7 +152,7 @@
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
   <string name="editing_error_spamblacklist">Enlaces a dominios bloqueados (%s) detectados. Por favor elimínelos y vuelva a intentarlo.</string>
   <string name="history_search_list_hint">Buscar</string>
-  <string name="history_search_empty_message">No se encontraron páginas que coincidan con «%s»</string>
+  <string name="history_search_empty_message" fuzzy="true">No se encontraron páginas que coincidan con «%s»</string>
   <string name="error_can_not_process_link">No se puede mostrar este enlace</string>
   <string name="page_protected_autoconfirmed">Esta página está semiprotegida.</string>
   <string name="page_protected_sysop">Esta página está totalmente protegida.</string>
@@ -209,7 +209,7 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Oscuro</string>
-  <string name="page_similar_titles">Títulos similares</string>
+  <string name="page_similar_titles" fuzzy="true">Títulos similares</string>
   <string name="search_within_pages">Buscar en las páginas...</string>
   <string name="search_no_results">No se encontraron resultados de \"%s\".</string>
   <string name="search_showing_instead">No se encontraron resultados de \"%1$s\". Se muestran los de \"%2$s\":</string>

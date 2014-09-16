@@ -39,7 +39,17 @@
   <string name="delete_selected_saved_pages">Избриши</string>
   <string name="toast_saved_page_deleted">Зачуваните страници се избришани</string>
   <string name="saved_pages_search_list_hint">Пребарај</string>
-  <string name="saved_pages_search_empty_message">Не пронајдов страници што одговараат на „%s“</string>
+  <string name="saved_pages_search_empty_message">Не пронајдов страници што одговараат на бараното.</string>
+  <string name="nearby_activity_title">Во близина</string>
+  <string name="nav_item_nearby">Во близина</string>
+  <string name="menu_update_nearby">Поднови „во близина“</string>
+  <string name="nearby_empty_title">Нема страници во близина</string>
+  <string name="nearby_empty_message">Можете да ја подновите страницава кога ќе отидете на друго место.</string>
+  <string name="nearby_distance_in_meters">%d м</string>
+  <string name="nearby_distance_in_kilometers">%.2f км</string>
+  <string name="nearby_no_network">Немате врска со мрежата</string>
+  <string name="nearby_server_error">Не можам да добијам список на места во близина</string>
+  <string name="nearby_no_location">Не можам да го најдам местото</string>
   <string name="last_updated_text">Последен пат изменето на %1$s</string>
   <string name="content_license_html">Содржината е достапна под &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
   <string name="edit_save_action_license_logged_in">Зачувувајќи, се согласувате со &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
@@ -51,6 +61,7 @@
   <string name="menu_other_languages">Прочитајте на други јазици</string>
   <string name="langlinks_error_retry">Повтори</string>
   <string name="langlinks_empty">Страницава не е достапна на други јазици</string>
+  <string name="langlinks_no_match">Не пронајдов јазици што одговараат на бараното.</string>
   <string name="settings_activity_title">Нагодувања</string>
   <string name="langlinks_activity_title">Други јазици</string>
   <string name="menu_save_changes">Зачувај промени</string>
@@ -87,7 +98,7 @@
   <string name="preference_summary_logout">Одјавување од вашата сметка на Википедија</string>
   <string name="preference_summary_notloggedin">Не сте најавени.</string>
   <string name="toast_logout_complete">Одјавени сте</string>
-  <string name="saved_pages_empty_title">Засега нема зачувани страници.</string>
+  <string name="saved_pages_empty_title">Тука нема зачувани страници!</string>
   <string name="saved_pages_empty_message">Зачуваните страници се одлична идеја. Претставете си ги како обележани (омилени) што можете да ги читате и кога не сте на линија.</string>
   <string name="history_empty_title">Тука нема скорешни страници.</string>
   <string name="history_empty_message">Веројатно сите сте ги избришале. Кога во иднина ќе отидете на некоја страница, ќе можете оттука да се вратите на неа.</string>
@@ -109,6 +120,12 @@
   <string name="create_account_username_exists_error">Корисничкото име е зафатено</string>
   <string name="create_account_ip_throttle_error">Од овааа IP-адреса се направени премногу кориснички сметки. Обидете се подоцна.</string>
   <string name="create_account_open_proxy_error">Оваа IP-адреса е блокирана за создавање кориснички сметки.</string>
+  <string name="create_account_noname_error">Укажаното корисничко име е неважечко. Внесете друго.</string>
+  <string name="create_account_invalid_email_error">Укажаната е-пошта е неважечка.</string>
+  <string name="create_account_password_too_short_error">Укажаната лозинка е прекратка.</string>
+  <string name="create_account_blocked_anon_error">Не можете да направите сметка бидејќи IP-адресата ви е забранета.</string>
+  <string name="create_account_blocked_error">Не можете да направите сметка бидејќи сметката ви е забранета.</string>
+  <string name="create_account_password_name_match_error">Корисничкото име и лозинката мора да се разликуваат.</string>
   <string name="create_account_generic_error">Не можам да направам корисничка сметка</string>
   <string name="create_account_no_network">Немате врска со мрежата</string>
   <string name="create_account_next">Следно</string>
@@ -152,7 +169,7 @@
   <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите прилогот, за да може да го подобри</string>
   <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
   <string name="history_search_list_hint">Пребарај</string>
-  <string name="history_search_empty_message">Не пронајдов страници што одговараат на „%s“</string>
+  <string name="history_search_empty_message">Не пронајдов страници што одговараат на бараното.</string>
   <string name="error_can_not_process_link">Не можам да ја прикажам оваа врска</string>
   <string name="page_protected_autoconfirmed">Оваа страница е полузаштитена.</string>
   <string name="page_protected_sysop">Оваа страница е наполно заштитена.</string>
@@ -209,13 +226,15 @@
   <string name="color_theme_select">Изглед</string>
   <string name="color_theme_light">Светол</string>
   <string name="color_theme_dark">Темен</string>
-  <string name="page_similar_titles">Слични наслови</string>
+  <string name="page_similar_titles">Слични страници</string>
   <string name="search_within_pages">Пребарај по страниците...</string>
   <string name="search_no_results">Не пронајдов ништо за „%s“.</string>
   <string name="search_showing_instead">Не пронајдов ништо за „%1$s“. Прикажувам резултати зџа „%2$s“:</string>
   <string name="search_results_title">Резултати од пребарувањето</string>
   <string name="search_error_retry">Пробај пак</string>
   <string name="search_redirect_title">Пренасочување од „%s“.</string>
+  <string name="toc_hint">Повлечете лево за поднасловите или послужете се со копчето во менито горе-десно.</string>
+  <string name="toc_know_it">Јасно</string>
   <string name="app_store_description">Официјален Википедиин прилог (апликација) за Android. Википедија е слободна енциклопедија со преку 32 милиони статии на 280 јазици, и претставува најопсежното и најкористеното прирачно дело во историјата на човештвото. Прилогов е преработен од нула и затоа е подобар од било кога.
 
 Можности:
@@ -228,4 +247,6 @@
    - Википедија Нулта: Податочниот промет проведен на Википедија е бесплатен за операторите што учествуваат во ова.
 
 Кодот е сосема отворен. Ако имате искуство со Java и SDK на Android, тогаш повелете — работете кај нас! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Имаме нова алфа-надградба</string>
+  <string name="alpha_update_notification_text">Допрете за да ја симнете</string>
 </resources>

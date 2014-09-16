@@ -39,7 +39,17 @@
   <string name="delete_selected_saved_pages">Șterge</string>
   <string name="toast_saved_page_deleted">Pagină(i) salvată(e) eliminată(e)</string>
   <string name="saved_pages_search_list_hint">Căutare</string>
-  <string name="saved_pages_search_empty_message">Nicio pagină care să corespundă cu „%s”</string>
+  <string name="saved_pages_search_empty_message">Nicio pagină nu corespunde interogării dumneavoastră.</string>
+  <string name="nearby_activity_title">În apropiere</string>
+  <string name="nav_item_nearby">În apropiere</string>
+  <string name="menu_update_nearby">Actualizează „În apropiere”</string>
+  <string name="nearby_empty_title">Nicio pagină în apropiere</string>
+  <string name="nearby_empty_message">Puteți reîmprospăta această pagină când vă deplasați în alt loc.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">Nicio conexiune la rețea</string>
+  <string name="nearby_server_error">Imposibil de obținut lista locurilor din apropiere.</string>
+  <string name="nearby_no_location">Imposibil de obținut localizarea</string>
   <string name="last_updated_text">Ultima actualizare: %1$s</string>
   <string name="content_license_html">Conținutul este disponibil sub licența &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, cu excepția cazurilor în care se specifică altfel</string>
   <string name="edit_save_action_license_logged_in">Salvând, sunteți de acord cu &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -51,6 +61,7 @@
   <string name="menu_other_languages">Lecturează în alte limbi</string>
   <string name="langlinks_error_retry">Reîncercare</string>
   <string name="langlinks_empty">Această pagină nu este disponibilă în alte limbi</string>
+  <string name="langlinks_no_match">Nicio limbă nu corespunde interogării dumneavoastră.</string>
   <string name="settings_activity_title">Setări</string>
   <string name="langlinks_activity_title">Alte limbi</string>
   <string name="menu_save_changes">Salvează modificările</string>
@@ -83,11 +94,11 @@
   <string name="login_error_unknown">Autentificare nereușită :(</string>
   <string name="login_error_no_network">Nicio conexiune la rețea</string>
   <string name="nav_item_logout">Închide sesiunea</string>
-  <string name="preference_title_logout">Închidere sesiune</string>
+  <string name="preference_title_logout">Închide sesiunea</string>
   <string name="preference_summary_logout">Deconectați-vă din contul de la Wikipedia</string>
   <string name="preference_summary_notloggedin">Neautentificat(ă).</string>
   <string name="toast_logout_complete">Sesiune închisă</string>
-  <string name="saved_pages_empty_title">Nicio pagină salvată încă.</string>
+  <string name="saved_pages_empty_title">Nicio pagină salvată aici!</string>
   <string name="saved_pages_empty_message">Paginile salvate sunt minunate. Gândiți-vă la ele ca la niște semne de carte care vă permit să citiți chiar și atunci când sunteți off-line.</string>
   <string name="history_empty_title">Nicio pagină recentă aici.</string>
   <string name="history_empty_message">Probabil că le-ați șters pe toate. Data viitoare când doriți să accesați o pagină, puteți reveni la ea pornind de aici.</string>
@@ -105,10 +116,16 @@
   <string name="create_account_email_hint">E-mail (opțional)</string>
   <string name="create_account_password_repeat_hint">Repetați parola</string>
   <string name="create_account_passwords_mismatch_error">Parolele nu sunt identice</string>
-  <string name="create_account_email_error">Adresă de e-mail invalidă</string>
+  <string name="create_account_email_error">Adresă de e-mail nevalidă</string>
   <string name="create_account_username_exists_error">Numele de utilizator există deja</string>
   <string name="create_account_ip_throttle_error">Prea multe conturi create de la această adresă IP. Încercați din nou mai târziu.</string>
   <string name="create_account_open_proxy_error">Această adresă IP a fost blocată la crearea de conturi.</string>
+  <string name="create_account_noname_error">Numele de utilizator furnizat nu este valid. Încercați cu un alt nume de utilizator.</string>
+  <string name="create_account_invalid_email_error">Adresa de e-mail furnizată nu este validă.</string>
+  <string name="create_account_password_too_short_error">Parola pe care ați furnizat-o este prea scurtă.</string>
+  <string name="create_account_blocked_anon_error">Nu puteți crea un cont, deoarece adresa dumneavoastră IP este blocată.</string>
+  <string name="create_account_blocked_error">Nu puteți crea un cont, deoarece contul dumneavoastră este blocat.</string>
+  <string name="create_account_password_name_match_error">Numele de utilizator și parola trebuie să fie diferite.</string>
   <string name="create_account_generic_error">Nu s-a putut crea contul</string>
   <string name="create_account_no_network">Nicio conexiune la rețea</string>
   <string name="create_account_next">Înainte</string>
@@ -148,11 +165,11 @@
   <string name="edit_save_action_ip">Salvare ca anonim</string>
   <string name="edit_save_action_login_description">Modificările dumneavoastră vor fi atribuite în mod public numelui dumneavoastră de utilizator, iar alți editori vă vor putea contacta mai ușor</string>
   <string name="edit_save_action_ip_description">Modificările dumneavoastră vor fi atribuite în mod public adresei dumnevoastră IP, care se schimbă frecvent</string>
-  <string name="preference_title_eventlogging_opt_in">Trimitere rapoarte de utilizare</string>
+  <string name="preference_title_eventlogging_opt_in">Trimite rapoarte de utilizare</string>
   <string name="preference_summary_eventlogging_opt_in">Permiteți Wikimediei să adune informații despre modul în care utilizați aplicația pentru a putea îmbunătăți aplicația</string>
   <string name="editing_error_spamblacklist">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>
   <string name="history_search_list_hint">Căutare</string>
-  <string name="history_search_empty_message">Nicio pagină care să corespundă cu „%s”</string>
+  <string name="history_search_empty_message">Nicio pagină nu corespunde interogării dumneavoastră.</string>
   <string name="error_can_not_process_link">Nu se poate afișa această legătură</string>
   <string name="page_protected_autoconfirmed">Această pagină a fost semiprotejată.</string>
   <string name="page_protected_sysop">Această pagină a fost protejată.</string>
@@ -209,11 +226,27 @@
   <string name="color_theme_select">Temă</string>
   <string name="color_theme_light">Deschisă</string>
   <string name="color_theme_dark">Închisă</string>
-  <string name="page_similar_titles">Titluri similare</string>
+  <string name="page_similar_titles">Pagini similare</string>
   <string name="search_within_pages">Căutare în corpul paginilor...</string>
   <string name="search_no_results">Niciun rezultat găsit pentru „%s”.</string>
   <string name="search_showing_instead">Niciun rezultat găsit pentru „%1$s”. Se afișează rezultatele pentru „%2$s”:</string>
   <string name="search_results_title">Rezultatele căutării</string>
   <string name="search_error_retry">Reîncearcă</string>
   <string name="search_redirect_title">Redirecționare către „%s”.</string>
+  <string name="toc_hint">Trageți înspre stânga pentru a vizualiza cuprinsul sau folosiți butonul de meniu din dreapta sus.</string>
+  <string name="toc_know_it">Am înțeles!</string>
+  <string name="app_store_description">Aplicația oficială a Wikipediei pentru Android. Wikipedia este enciclopedia liberă, care conține peste 32 de milioane de articole în 280 de limbi, fiind cea mai cuprinzătoare și larg utilizată lucrare de referință elaborată vreodată de omenire. Aplicația a fost rescrisă din temelii și este mai bună ca oricând.
+
+Caracteristici:
+   - Viteză: Noua noastră aplicație nativă vă permite să răsfoiți și să modificați Wikipedia mai rapid ca oricând.
+   - Editare: Puteți modifica Wikipedia! Autentificat(ă) sau nu, vă mulțumim pentru toate contribuțiile dumneavoastră.
+   - Pagini recente: Vă oferim un istoric al lecturărilor, în așa fel încât să accesați oricât de multe legături fără să vă rătăciți vreodată.
+   - Pagini salvate: Puteți salva anumite pagini pentru lecturare off-line și să le răsfoiți chiar și atunci când nu aveți o conexiune de date.
+   - Partajare: Folosiți-vă aplicațiile pentru rețele sociale pentru a împărtăși suma tuturor cunoștințelor omenirii.
+   - Suport lingvistic: Aplicația vă permite să schimbați cu ușurință limba în care citiți Wikipedia.
+   - Wikipedia Zero: Taxarea traficului de date este suspendată pentru operatorii de telefonie mobilă participanți.
+
+Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) cu Java și kitul de dezvoltare al Androidului, creați-vă propria versiune! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">O nouă actualizare alfa disponibilă</string>
+  <string name="alpha_update_notification_text">Atingeți pentru a descărca</string>
 </resources>
