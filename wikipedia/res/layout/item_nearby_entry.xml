@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/selectable_item_background">
 
-    <org.wikipedia.nearby.NearbyCompassView
+    <org.wikipedia.beta.nearby.NearbyCompassView
         android:id="@+id/nearby_thumbnail"
         android:layout_width="92dp"
         android:layout_height="92dp"

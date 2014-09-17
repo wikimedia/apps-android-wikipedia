@@ -30,7 +30,7 @@
                     android:text="@string/edit_how_page_improved"
                     android:id="@+id/textView"/>
 
-            <org.wikipedia.views.FlowLayout
+            <org.wikipedia.beta.views.FlowLayout
                     android:id="@+id/edit_summary_tags_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
                     android:layout_marginBottom="32dp"
                     >
 
-            </org.wikipedia.views.FlowLayout>
+            </org.wikipedia.beta.views.FlowLayout>
 
         </LinearLayout>
 
@@ -80,7 +80,7 @@
                 android:textColor="@color/edit_text_light"
                 android:gravity="center_vertical"/>
 
-        <org.wikipedia.views.ObservableWebView
+        <org.wikipedia.beta.views.ObservableWebView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:focusable="false"

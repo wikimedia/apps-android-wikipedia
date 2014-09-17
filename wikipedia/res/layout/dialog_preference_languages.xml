@@ -5,7 +5,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="?attr/window_background_color">
-    <org.wikipedia.views.PlainPasteEditText
+    <org.wikipedia.beta.views.PlainPasteEditText
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:id="@+id/preference_languages_filter"
