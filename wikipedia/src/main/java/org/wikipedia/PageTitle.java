@@ -102,17 +102,29 @@ public class PageTitle implements Parcelable {
         return getPrefixedText().replace("_", " ");
     }
 
-    public String getHashedItentifier() {
-        return Utils.md5base64(String.format("%1$s/%2$s", getSite().getDomain(), getPrefixedText()));
+    /** Please keep the ID stable. */
+    public String getIdentifier() {
+        return Utils.md5string(toIdentifierJSON().toString());
     }
 
-    public JSONObject toJSON() {
+    /** Please keep the ID stable. */
+    private JSONObject toIdentifierJSON() {
         try {
             JSONObject json = new JSONObject();
             json.put("site", site.getDomain());
             json.put("namespace", getNamespace());
             json.put("text", getText());
             json.put("fragment", getFragment());
+            return json;
+        } catch (JSONException e) {
+            // This will also never happen
+            throw new RuntimeException(e);
+        }
+    }
+
+    public JSONObject toJSON() {
+        try {
+            JSONObject json = toIdentifierJSON();
             json.put("thumbUrl", getThumbUrl());
             return json;
         } catch (JSONException e) {

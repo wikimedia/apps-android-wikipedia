@@ -103,7 +103,7 @@ public class SavedPage implements Parcelable {
     String getBaseDir() {
         // Make the folder name be based on the complete PageTitle object,
         // which includes title, site info, etc.
-        String dir = getSavedPagesDir() + "/" + Utils.md5string(title.toJSON().toString());
+        String dir = getSavedPagesDir() + "/" + title.getIdentifier();
         (new File(dir)).mkdirs();
         return dir;
     }
