@@ -53,6 +53,7 @@
   <string name="menu_other_languages">Читать на других языках</string>
   <string name="langlinks_error_retry">Повторить</string>
   <string name="langlinks_empty">Эта страница недоступна на других языках</string>
+  <string name="langlinks_no_match">Языки, соответствующие вашему запросу, не найдены.</string>
   <string name="settings_activity_title">Настройки</string>
   <string name="langlinks_activity_title">Другие языки</string>
   <string name="menu_save_changes">Сохранить изменения</string>

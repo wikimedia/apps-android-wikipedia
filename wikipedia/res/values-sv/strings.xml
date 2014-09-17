@@ -39,7 +39,17 @@
   <string name="delete_selected_saved_pages">Radera</string>
   <string name="toast_saved_page_deleted">Sparad(e) sida/sidor raderas</string>
   <string name="saved_pages_search_list_hint">Sök</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">Inga sidor med \'%s\' hittades</string>
+  <string name="saved_pages_search_empty_message">Inga sidor som matchade din sökning hittades.</string>
+  <string name="nearby_activity_title">I närheten</string>
+  <string name="nav_item_nearby">I närheten</string>
+  <string name="nearby_empty_title">Inga sidor i närheten</string>
+  <string name="nearby_empty_message">Du kan uppdatera denna sida när du flyttar till en ny plats.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">Ingen nätverksanslutning</string>
+  <string name="nearby_server_error">Kunde inte hämta listan över närliggande platser.</string>
+  <string name="nearby_no_location">Kunde inte hämta platsen</string>
+  <string name="nearby_dialog_goto_settings">Platsuppdateringar är inte aktiverat på din enhet. Vill du gå till din enhets inställningar för att aktivera platsuppdateringar?</string>
   <string name="last_updated_text">Senast uppdaterad %s</string>
   <string name="content_license_html">Innehållet är tillgängligt under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
   <string name="edit_save_action_license_logged_in">Genom att spara godkänner du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Användarvillkoren&lt;/a&gt;, och att oåterkalleligen släppa ditt bidrag med licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -51,6 +61,7 @@
   <string name="menu_other_languages">Läs på andra språk</string>
   <string name="langlinks_error_retry">Försök igen</string>
   <string name="langlinks_empty">Denna sida är inte tillgänglig på andra språk</string>
+  <string name="langlinks_no_match">Inga språk som matchade din sökning hittades.</string>
   <string name="settings_activity_title">Inställningar</string>
   <string name="langlinks_activity_title">Andra språk</string>
   <string name="menu_save_changes">Spara ändringar</string>
@@ -87,7 +98,7 @@
   <string name="preference_summary_logout">Logga ut från ditt Wikipedia-konto</string>
   <string name="preference_summary_notloggedin">Inte inloggad.</string>
   <string name="toast_logout_complete">Utloggad</string>
-  <string name="saved_pages_empty_title" fuzzy="true">Inga sparade sidor ännu.</string>
+  <string name="saved_pages_empty_title">Inga sparade sidor här!</string>
   <string name="saved_pages_empty_message">Sparade sidor är väldigt händigt. Tänk på dem som bokmärken som du kan läsa även när du är offline.</string>
   <string name="history_empty_title">Inga nya sidor här.</string>
   <string name="history_empty_message">Du raderade förmodligen samtliga. Nästa gång du går till en sida kan du komma tillbaka till den härifrån.</string>
@@ -109,6 +120,11 @@
   <string name="create_account_username_exists_error">Användarnamnet är upptaget</string>
   <string name="create_account_ip_throttle_error">För många konton har skapats från denna IP-adress. Försök igen senare.</string>
   <string name="create_account_open_proxy_error">Denna IP-adress har blockerats från att skapa konton.</string>
+  <string name="create_account_noname_error">Det användarnamn du angav är ogiltig. Ange ett annat användarnamn.</string>
+  <string name="create_account_invalid_email_error">E-postadressen du angav är ogiltig.</string>
+  <string name="create_account_password_too_short_error">Lösenordet du angav är för kort.</string>
+  <string name="create_account_blocked_anon_error">Du kan inte skapa ett konto eftersom din IP-adress är blockerad.</string>
+  <string name="create_account_blocked_error">Du kan inte skapa ett konto eftersom ditt konto är blockerad.</string>
   <string name="create_account_password_name_match_error">Ditt användarnamn och ditt lösenord måste vara olika.</string>
   <string name="create_account_generic_error">Kan inte skapa konto</string>
   <string name="create_account_no_network">Ingen nätverksanslutning</string>
@@ -119,7 +135,7 @@
   <string name="zero_charged_verbiage_extended">Laddning av andra artiklar kan medföra kostnader för datatrafik.</string>
   <string name="zero_search_hint">Sök på Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Varna om jag lämnar Wikipedia Zero</string>
-  <string name="zero_warn_when_leaving_summary">Om din mobiloperatör ingått ett partnerskap med Wikipedia Zero och ger dig tillgång till Wikipedia utan avgifter för datatrafik, hjälper denna inställning dig genom att varna innan du lämnar appen och riskerar att behöva betala för datatrafik.</string>
+  <string name="zero_warn_when_leaving_summary">Detta inställning varnar dig om du lämnar appen och riskerar att betala för datatrafik om din mobiloperatör ingått ett partnerskap med Wikipedia Zero som ger dig tillgång till Wikipedia utan datatrafiksavgifter.</string>
   <string name="zero_webpage_title">Vanliga frågor om Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Du lämnar nu Wikipedia Zero</string>
@@ -153,7 +169,7 @@
   <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
   <string name="history_search_list_hint">Sök</string>
-  <string name="history_search_empty_message" fuzzy="true">Inga sidor med \"%s\" hittades</string>
+  <string name="history_search_empty_message">Inga sidor som matchade din sökning hittades.</string>
   <string name="error_can_not_process_link">Denna länk kan inte visas</string>
   <string name="page_protected_autoconfirmed">Denna sida är halvskyddad.</string>
   <string name="page_protected_sysop">Denna sida är skrivskyddad.</string>
@@ -217,6 +233,7 @@
   <string name="search_results_title">Sökresultat</string>
   <string name="search_error_retry">Försök igen</string>
   <string name="search_redirect_title">Omdirigera från \"%s\".</string>
+  <string name="toc_hint">Svep åt vänster för att se avsnitten, eller använd menyknappen längst upp till höger.</string>
   <string name="toc_know_it">Jag förstår</string>
   <string name="app_store_description">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt. Appen har skrivits om från grunden och är bättre än någonsin.
 

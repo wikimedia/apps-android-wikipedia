@@ -158,7 +158,7 @@
   <string name="preference_summary_eventlogging_opt_in">允许维基媒体收集有关您如何使用该应用程序的信息，这将使应用程序变得更好</string>
   <string name="editing_error_spamblacklist">检测到来自被封禁域名（%s）的连接。请将其移除并重试。</string>
   <string name="history_search_list_hint">搜索</string>
-  <string name="history_search_empty_message" fuzzy="true">未找到匹配“%s”的页面</string>
+  <string name="history_search_empty_message">未找到匹配您的查询的页面。</string>
   <string name="error_can_not_process_link">无法显示此链接</string>
   <string name="page_protected_autoconfirmed">此页面已半保护。</string>
   <string name="page_protected_sysop">此页面已全保护。</string>

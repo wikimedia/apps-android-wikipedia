@@ -152,7 +152,7 @@
   <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>
   <string name="editing_error_spamblacklist">檢測到來自被封禁網域（%s）的連結。請刪除它們並再試一次。</string>
   <string name="history_search_list_hint">搜尋</string>
-  <string name="history_search_empty_message" fuzzy="true">未找到匹配 \'%s\' 的頁面</string>
+  <string name="history_search_empty_message">未找到匹配您的查詢的頁面。</string>
   <string name="error_can_not_process_link">無法顯示此連結</string>
   <string name="page_protected_autoconfirmed">此頁面已半保護。</string>
   <string name="page_protected_sysop">此頁面已全保護。</string>

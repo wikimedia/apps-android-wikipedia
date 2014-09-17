@@ -50,6 +50,7 @@
   <string name="nearby_no_network">Немате врска со мрежата</string>
   <string name="nearby_server_error">Не можам да добијам список на места во близина</string>
   <string name="nearby_no_location">Не можам да го најдам местото</string>
+  <string name="nearby_dialog_goto_settings">Немате овозможено поднова на места. Дали би сакале да појдете во нагодувањата за да ја овозможите?</string>
   <string name="last_updated_text">Последен пат изменето на %1$s</string>
   <string name="content_license_html">Содржината е достапна под &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
   <string name="edit_save_action_license_logged_in">Зачувувајќи, се согласувате со &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
