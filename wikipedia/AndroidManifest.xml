@@ -25,6 +25,13 @@
     <uses-feature android:name="android.hardware.location.gps" android:required="false" />
     <uses-feature android:name="android.hardware.location.network" android:required="false" />
 
+    <!--
+        Don't let Google Play filter out devices that just have fake touch
+        (e.g. mouse and keyboard instead of a real touchscreen).
+    -->
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.faketouch" android:required="true"/>
+
     <application
         android:allowBackup="true"
         android:supportsRtl="true"
