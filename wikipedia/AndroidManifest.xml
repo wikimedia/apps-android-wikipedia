@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.wikipedia"
+    package="org.wikipedia.beta"
     android:versionCode="80"
-    android:versionName="dev"
+    android:versionName="2.0-beta-2014-09-18"
     android:installLocation="auto">
     <!--
     If the build is intended to be Google Play-updateable, the package name
@@ -35,9 +35,9 @@
     <application
         android:allowBackup="true"
         android:supportsRtl="true"
-        android:icon="@drawable/launcher"
+        android:icon="@drawable/launcher_beta"
         android:logo="@drawable/search_w"
-        android:label="@string/app_name"
+        android:label="@string/app_name_beta"
         android:name=".WikipediaApp"
         android:theme="@style/AppTheme">
 
@@ -45,7 +45,7 @@
         The following is used for determining the distribution channel.
         Set "value" to "Google Play" for Google Play Store.
         -->
-        <meta-data android:value="" android:name="@string/preference_channel"></meta-data>
+        <meta-data android:value="Google Play Beta Channel" android:name="@string/preference_channel"></meta-data>
         <!-- Don't delete the meta-data field above -->
 
         <activity android:name=".page.PageActivity"
@@ -133,22 +133,22 @@
                 />
 
         <provider
-            android:authorities="org.wikipedia.history"
+            android:authorities="org.wikipedia.beta.history"
             android:name=".history.HistoryEntryContentProvider"
             />
 
         <provider
-                android:authorities="org.wikipedia.editsummaries"
+                android:authorities="org.wikipedia.beta.editsummaries"
                 android:name=".editing.summaries.EditSummaryContentProvider"
                 />
 
         <provider
-                android:authorities="org.wikipedia.pageimages"
+                android:authorities="org.wikipedia.beta.pageimages"
                 android:name=".pageimages.PageImageContentProvider"
                 />
 
         <provider
-                android:authorities="org.wikipedia.savedpages"
+                android:authorities="org.wikipedia.beta.savedpages"
                 android:name=".savedpages.SavedPageContentProvider"
                 />
 

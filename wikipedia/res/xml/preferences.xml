@@ -2,56 +2,56 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/preferences_general_heading">
-        <org.wikipedia.settings.LanguagePreference
+        <org.wikipedia.beta.settings.LanguagePreference
                 android:key="@string/preference_key_language"
                 android:title="@string/preference_title_language"
                 />
-        <org.wikipedia.settings.CheckBoxPreferenceMultiLine
+        <org.wikipedia.beta.settings.CheckBoxPreferenceMultiLine
             android:key="@string/preference_key_eventlogging_opt_in"
             android:defaultValue="true"
             android:title="@string/preference_title_eventlogging_opt_in"
             android:summary="@string/preference_summary_eventlogging_opt_in"
             />
-        <org.wikipedia.settings.PreferenceMultiLine
+        <org.wikipedia.beta.settings.PreferenceMultiLine
                 android:key="@string/preference_key_logout"
                 android:title="@string/preference_title_logout"
                 android:summary="@string/preference_summary_logout"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/zero_wikipedia_zero_heading">
-        <org.wikipedia.settings.CheckBoxPreferenceMultiLine
+        <org.wikipedia.beta.settings.CheckBoxPreferenceMultiLine
                 android:key="zero_warn_when_leaving"
                 android:title="@string/zero_warn_when_leaving"
                 android:defaultValue="true"
                 android:summary="@string/zero_warn_when_leaving_summary"
                 />
-        <org.wikipedia.settings.PreferenceMultiLine
+        <org.wikipedia.beta.settings.PreferenceMultiLine
                 android:title="@string/zero_webpage_title"
                 android:summary="@string/zero_webpage_url">
             <intent android:action="android.intent.action.VIEW"
                     android:data="@string/zero_webpage_url"
                     />
-        </org.wikipedia.settings.PreferenceMultiLine>
+        </org.wikipedia.beta.settings.PreferenceMultiLine>
 
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about_activity_title">
-        <org.wikipedia.settings.PreferenceMultiLine
+        <org.wikipedia.beta.settings.PreferenceMultiLine
             android:title="@string/about_description">
             <intent android:action="android.intent.action.VIEW"
-                    android:targetClass="org.wikipedia.settings.AboutActivity"
-                    android:targetPackage="org.wikipedia"
+                    android:targetClass="org.wikipedia.beta.settings.AboutActivity"
+                    android:targetPackage="org.wikipedia.beta"
                     />
-        </org.wikipedia.settings.PreferenceMultiLine>
-        <org.wikipedia.settings.PreferenceMultiLine
+        </org.wikipedia.beta.settings.PreferenceMultiLine>
+        <org.wikipedia.beta.settings.PreferenceMultiLine
             android:title="@string/privacy_policy_description">
             <intent android:action="android.intent.action.VIEW"
                     android:data="@string/privacy_policy_url"
                     />
-        </org.wikipedia.settings.PreferenceMultiLine>
-        <org.wikipedia.settings.PreferenceMultiLine
+        </org.wikipedia.beta.settings.PreferenceMultiLine>
+        <org.wikipedia.beta.settings.PreferenceMultiLine
             android:title="@string/terms_of_use_description">
             <intent android:action="android.intent.action.VIEW"
                     android:data="@string/terms_of_use_url"
                     />
-        </org.wikipedia.settings.PreferenceMultiLine>
+        </org.wikipedia.beta.settings.PreferenceMultiLine>
     </PreferenceCategory>
 </PreferenceScreen>
