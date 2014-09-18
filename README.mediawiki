@@ -103,6 +103,8 @@ Assuming the git clone operation worked, you will have a new folder representing
 
 9. Install IntelliJ IDEA Community Edition from http://www.jetbrains.com/idea/download/index.html.
 
+If you plan to use Maven for the build then it's probably good to rm or mv the build.gradle file at the root level, as to not confuse IntelliJ with it.
+
 10. Open IntelliJ IDEA, and choose to Import Project. Select the "android-wikipedia" folder and click OK.
 
 In the Import Project dialog box, select the "Import project from external model" radio button and then choose "Maven" from the list of options. Click Next.
@@ -177,8 +179,23 @@ Also check "Scan test classes" above.
 
 == Gradle - new ==
 
-=== Import as Gradle project into Android Studio ===
 Most should work with IntelliJ as well.
+If you a trying out both the Maven build (from IntelliJ) and the Gradle build (from Android Studio) a separate repo clone is recommended as to not confuse IntelliJ.
+
+=== Install Android Studio ===
+
+Download and install the latest beta from http://tools.android.com/download/studio. (Stable is not available as of this writing).
+
+Recommended plugins for Android Studio 0.8.9 (= 135.*):
+* [http://plugins.jetbrains.com/plugin/7322?pr= Python Community Edition]: use version 3.4.135.24.
+
+For JavaScript there is no plugin available, but you can get syntax highlighting with this
+https://stackoverflow.com/questions/17137577/add-js-and-css-support-to-android-studio-project/17711474#17711474
+
+On MacOS the file is ~/Library/Preferences/AndroidStudioBeta/filetypes/Javascript.xml.
+
+=== Import as Gradle project into Android Studio ===
+
 In the Quick Start or later from the File menu select "Import Project..."
 Select the folder you clone the git repo to (e.g. android-wikipedia)
 
