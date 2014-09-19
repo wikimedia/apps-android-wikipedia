@@ -245,6 +245,7 @@ bridge.registerListener( "displayAttribution", function( payload ) {
     lastUpdatedA.href = payload.historyTarget;
     var licenseText = document.getElementById( "licensetext" );
     licenseText.innerHTML = payload.licenseHTML;
+    attributionDiv.style.visibility = "visible";
 });
 
 bridge.registerListener( "requestImagesList", function() {
@@ -273,12 +274,20 @@ bridge.registerListener( "replaceImageSources", function( payload ) {
     }
 } );
 
-bridge.registerListener( "hideEditButtons", function() {
-    document.getElementsByTagName( "html" )[0].classList.add( "no-editing" );
-} );
-
-bridge.registerListener( "setPageProtected", function() {
-    document.getElementsByTagName( "html" )[0].classList.add( "page-protected" );
+bridge.registerListener( "setPageProtected", function( payload ) {
+    var el = document.getElementsByTagName( "html" )[0];
+    if (!el.classList.contains("page-protected") && payload.protect) {
+        el.classList.add("page-protected");
+    }
+    else if (el.classList.contains("page-protected") && !payload.protect) {
+        el.classList.remove("page-protected");
+    }
+    if (!el.classList.contains("no-editing") && payload.noedit) {
+        el.classList.add("no-editing");
+    }
+    else if (el.classList.contains("no-editing") && !payload.noedit) {
+        el.classList.remove("no-editing");
+    }
 } );
 
 /**
@@ -456,12 +465,13 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     document.getElementById( "content" ).appendChild( content );
 
     document.getElementById( "loading_sections").className = "loading";
+    scrolledOnLoad = false;
 });
 
 function clearContents() {
     document.getElementById( "content" ).innerHTML = "";
-    document.getElementById( "lastupdated" ).innerHTML = "";
-    document.getElementById( "licensetext" ).innerHTML = "";
+    document.getElementById( "attribution" ).style.visibility = "hidden";
+    window.scrollTo( 0, 0 );
 }
 
 function elementsForSection( section ) {
@@ -487,26 +497,33 @@ function elementsForSection( section ) {
     return [ heading, content ];
 }
 
-function sectionsAllDone() {
-    document.getElementById( "loading_sections").className = "";
-    bridge.sendMessage( "pageLoadComplete", { } );
-}
-
-bridge.registerListener( "noMoreSections", function() {
-    sectionsAllDone();
-} );
+var scrolledOnLoad = false;
 
 bridge.registerListener( "displaySection", function ( payload ) {
-    var contentWrapper = document.getElementById( "content" );
-
-    elementsForSection( payload.section ).forEach( function( element ) {
-        contentWrapper.appendChild( element );
-    });
-    if ( payload.isLast ) {
-        sectionsAllDone();
-        if ( typeof payload.fragment === "string" && payload.fragment.length > 0) {
+    if ( payload.noMore ) {
+        // if we still haven't scrolled to our target offset (if we have one),
+        // then do it now.
+        if (payload.scrollY > 0 && !scrolledOnLoad) {
+            window.scrollTo( 0, payload.scrollY );
+            scrolledOnLoad = true;
+        }
+        document.getElementById( "loading_sections").className = "";
+        bridge.sendMessage( "pageLoadComplete", { } );
+    } else {
+        var contentWrapper = document.getElementById( "content" );
+        elementsForSection(payload.section).forEach(function (element) {
+            contentWrapper.appendChild(element);
+            // do we have a y-offset to scroll to?
+            if (payload.scrollY > 0 && payload.scrollY < element.offsetTop && !scrolledOnLoad) {
+                window.scrollTo( 0, payload.scrollY );
+                scrolledOnLoad = true;
+            }
+        });
+        // do we have a section to scroll to?
+        if ( typeof payload.fragment === "string" && payload.fragment.length > 0 && payload.section.anchor === payload.fragment) {
             scrollToSection( payload.fragment );
         }
+        bridge.sendMessage( "requestSection", { "index": payload.section.id + 1 });
     }
 });
 

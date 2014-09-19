@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import org.wikipedia.R;
-import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.settings.PrefKeys;
 
@@ -44,10 +43,9 @@ public class StyleLoader {
      * commits it will return either the packaged style bundles or a more
      * recent downloaded bundle (if available).
      *
-     * @param site The site to return bundles for.
      * @return
      */
-    public StyleBundle getAvailableBundle(String type, Site site) {
+    public StyleBundle getAvailableBundle(String type) {
         if (prefs.contains(PrefKeys.getStylesLastUpdated())) {
             Date downloadUpdated;
             try {

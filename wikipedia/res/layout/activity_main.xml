@@ -7,10 +7,11 @@
             android:saveEnabled="false"
             android:layout_height="match_parent">
         <!-- The main content view -->
-        <org.wikipedia.page.PageFragmentPager
-                android:id="@+id/content_pager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+        <FrameLayout
+            android:id="@+id/content_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
         <!-- The navigation drawer -->
         <!-- Don't set marginTop here, it somehow also affects marginBottom. wtf?! -->
         <fragment android:layout_width="288dp" android:layout_height="match_parent"

@@ -38,6 +38,7 @@ public class ToCHandler {
     private final ImageView tocButton;
     private final CommunicationBridge bridge;
     private final DisableableDrawerLayout slidingPane;
+    private final TextView headerView;
     private ToCInteractionFunnel funnel;
     private Activity parentActivity;
 
@@ -58,6 +59,21 @@ public class ToCHandler {
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
         this.tocButton = (ImageView) quickReturnBar.findViewById(R.id.search_bar_show_toc);
         final View knowToCContainer = slidingPane.findViewById(R.id.know_toc_intro_container);
+
+        bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {
+            @Override
+            public void onMessage(String messageType, JSONObject messagePayload) {
+                int sectionID = messagePayload.optInt("sectionID");
+
+                tocList.setItemChecked(sectionID, true);
+                tocList.smoothScrollToPosition(Math.max(sectionID - 1, 0));
+
+                Log.d("Wikipedia", "current section is " + sectionID);
+            }
+        });
+
+        headerView = (TextView) LayoutInflater.from(tocList.getContext()).inflate(R.layout.header_toc_list, null, false);
+        tocList.addHeaderView(headerView);
 
         slidingPane.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
 
@@ -143,32 +159,17 @@ public class ToCHandler {
         tocList.setVisibility(View.VISIBLE);
 
         funnel = new ToCInteractionFunnel((WikipediaApp)slidingPane.getContext().getApplicationContext(), page.getTitle().getSite());
-        bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {
+
+        headerView.setText(page.getTitle().getDisplayText());
+        headerView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
-                int sectionID = messagePayload.optInt("sectionID");
-
-                tocList.setItemChecked(sectionID, true);
-                tocList.smoothScrollToPosition(Math.max(sectionID - 1, 0));
-
-                Log.d("Wikipedia", "current section is is " + sectionID);
+            public void onClick(View v) {
+                scrollToSection(page.getSections().get(0));
+                wasClicked = true;
+                funnel.logClick();
+                hide();
             }
         });
-
-        if (tocList.getHeaderViewsCount() == 0) {
-            TextView headerView = (TextView) LayoutInflater.from(tocList.getContext()).inflate(R.layout.header_toc_list, null, false);
-            headerView.setText(page.getTitle().getDisplayText());
-            tocList.addHeaderView(headerView);
-            headerView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    scrollToSection(page.getSections().get(0));
-                    wasClicked = true;
-                    funnel.logClick();
-                    hide();
-                }
-            });
-        }
 
         tocList.setAdapter(new ToCAdapter(page));
         tocList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

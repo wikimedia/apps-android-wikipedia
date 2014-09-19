@@ -7,16 +7,13 @@ import org.wikipedia.bridge.StyleLoader;
 
 public class NightModeHandler {
     private final CommunicationBridge bridge;
-    private final Site site;
     private final WikipediaApp app;
 
     /**
      * @param bridge The bridge used to communicate with the WebView
-     * @param site The site for which to get night mode styles
      */
-    public NightModeHandler(CommunicationBridge bridge, Site site) {
+    public NightModeHandler(CommunicationBridge bridge) {
         this.bridge = bridge;
-        this.site = site;
         this.app = WikipediaApp.getInstance();
     }
 
@@ -33,7 +30,7 @@ public class NightModeHandler {
         try {
             payload.put("hasPageLoaded", hasPageLoaded);
             payload.put("nightStyleBundle",
-                    app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_NIGHT_MODE, site).toJSON());
+                    app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_NIGHT_MODE).toJSON());
         } catch (JSONException e) {
             // This shouldn't happen
             throw new RuntimeException(e);

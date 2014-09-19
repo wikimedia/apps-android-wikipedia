@@ -26,14 +26,12 @@ import org.wikipedia.bridge.CommunicationBridge;
  * Handles the #disambig links coming from a {@link org.wikipedia.page.PageViewFragment}.
  * Automatically goes to the disambiguation page for the selected item.
  */
-public class DisambigHandler implements CommunicationBridge.JSEventListener {
+public abstract class DisambigHandler implements CommunicationBridge.JSEventListener {
     private final Activity activity;
-    private LinkHandler linkHandler;
     private Dialog dlg;
 
-    public DisambigHandler(Activity activity, LinkHandler linkHandler, CommunicationBridge bridge) {
+    public DisambigHandler(Activity activity, CommunicationBridge bridge) {
         this.activity = activity;
-        this.linkHandler = linkHandler;
         bridge.addListener("disambigClicked", this);
     }
 
@@ -78,7 +76,7 @@ public class DisambigHandler implements CommunicationBridge.JSEventListener {
                 }
 
                 holder.text.setText(Html.fromHtml(items[position]));
-                holder.text.setMovementMethod(new LinkMovementMethodExt(linkHandler) {
+                holder.text.setMovementMethod(new LinkMovementMethodExt(getLinkHandler()) {
                     @Override
                     public boolean onTouchEvent(final TextView widget, final Spannable buffer, final MotionEvent event) {
                         boolean ret = super.onTouchEvent(widget, buffer, event);
@@ -118,5 +116,7 @@ public class DisambigHandler implements CommunicationBridge.JSEventListener {
         dlg = builder.create();
         dlg.show();
     }
+
+    public abstract LinkHandler getLinkHandler();
 
 }

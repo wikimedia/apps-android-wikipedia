@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,7 +7,9 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
 import android.util.Log;
@@ -44,10 +45,14 @@ public class PageActivity extends FragmentActivity {
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
     private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
 
+    private static final String KEY_LAST_FRAGMENT = "lastFragment";
+    private static final String KEY_LAST_FRAGMENT_ARGS = "lastFragmentArgs";
+
     public static final int ACTIVITY_REQUEST_HISTORY = 0;
     public static final int ACTIVITY_REQUEST_SAVEDPAGES = 1;
     public static final int ACTIVITY_REQUEST_LANGLINKS = 2;
     public static final int ACTIVITY_REQUEST_NEARBY = 3;
+    public static final int ACTIVITY_REQUEST_EDIT_SECTION = 4;
 
     private Bus bus;
     private WikipediaApp app;
@@ -58,21 +63,31 @@ public class PageActivity extends FragmentActivity {
     private FindInPageFragment findInPageFragment;
 
     /**
-     * Container that will hold our WebViews, and animate between them.
+     * Get the Fragment that is currently at the top of the Activity's backstack.
+     * This activity's fragment container will hold multiple fragments stacked onto
+     * each other using FragmentManager, and this function will return the current
+     * topmost Fragment. It's up to the caller to cast the result to a more specific
+     * fragment class, and perform actions on it.
+     * @return Fragment at the top of the backstack.
      */
-    private PageFragmentPager fragmentPager;
-
-    private PageViewFragment curPageFragment;
-    public PageViewFragment getCurPageFragment() {
-        return curPageFragment;
+    public Fragment getTopFragment() {
+        return getSupportFragmentManager().findFragmentById(R.id.content_fragment_container);
     }
 
-    private PageFragmentAdapter fragmentAdapter;
-
     /**
-     * Lightweight back-stack of history items
+     * Get the PageViewFragment that is currently at the top of the Activity's backstack.
+     * If the current topmost fragment is not a PageViewFragment, return null.
+     * @return The PageViewFragment at the top of the backstack, or null if the current
+     * top fragment is not a PageViewFragment.
      */
-    private BackStack backStack;
+    public PageViewFragmentInternal getCurPageFragment() {
+        Fragment f = getTopFragment();
+        if (f instanceof PageViewFragment) {
+            return ((PageViewFragment)f).getFragment();
+        } else {
+            return null;
+        }
+    }
 
     private boolean pausedStateOfZero;
     private String pausedXcsOfZero;
@@ -98,21 +113,15 @@ public class PageActivity extends FragmentActivity {
         if (savedInstanceState != null) {
             pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
             pausedXcsOfZero = savedInstanceState.getString("pausedXcsOfZero");
-            if (savedInstanceState.containsKey("backStack")) {
-                backStack = savedInstanceState.getParcelable("backStack");
-            }
         } else if (getIntent().hasExtra("changeTheme")) {
             // we've changed themes!
             pausedStateOfZero = getIntent().getExtras().getBoolean("pausedStateOfZero");
             pausedXcsOfZero = getIntent().getExtras().getString("pausedXcsOfZero");
-            backStack = getIntent().getExtras().getParcelable("backStack");
             if (getIntent().getExtras().containsKey("themeChooserShowing")) {
                 if (getIntent().getExtras().getBoolean("themeChooserShowing")) {
                     bus.post(new ShowThemeChooserEvent());
                 }
             }
-        } else {
-            backStack = new BackStack();
         }
 
         findInPageFragment = (FindInPageFragment) getSupportFragmentManager().findFragmentById(R.id.find_in_page_fragment);
@@ -122,29 +131,31 @@ public class PageActivity extends FragmentActivity {
 
         searchArticlesFragment.setDrawerLayout(drawerLayout);
 
-        fragmentPager = (PageFragmentPager) findViewById(R.id.content_pager);
-        // disable the default swipe motion to flip pages (we'll be doing it programmatically)
-        fragmentPager.setPagingEnabled(false);
-
-        fragmentAdapter = new PageFragmentAdapter(getSupportFragmentManager(), backStack);
-        fragmentPager.setAdapter(fragmentAdapter);
-
-        // Set the maximum number of fragments that will be kept in memory.
-        // Old Fragments will be automatically destroyed, but their state will be saved,
-        // so when the user goes back, they will be recreated.
-        fragmentPager.setOffscreenPageLimit(calculateMaxFragments());
-
-        if (savedInstanceState == null && !getIntent().hasExtra("changeTheme")) {
-            // Don't do this if we are just rotating the phone, or changing themes
-            handleIntent(getIntent());
-        }
-
-        // if we've changed themes, then restore the previous position in the Pager,
-        // and remove the changeTheme flag from the Intent. (Apparently, some devices
-        // actually preserve the Extras, and pass them to future intents...)
+        // If we're coming back from a Theme change, we'll need to "restore" our state based on
+        // what's given in our Intent (since there's no way to relaunch the Activity in a way that
+        // forces it to save its own instance state)...
         if (getIntent().hasExtra("changeTheme")) {
-            fragmentPager.setCurrentItem(getIntent().getExtras().getInt("fragmentPagerItem"));
-            getIntent().removeExtra("changeTheme");
+            String className = getIntent().getExtras().getString(KEY_LAST_FRAGMENT);
+            try {
+                // instantiate the last fragment that was on top of the backstack before the Activity
+                // was closed:
+                Fragment f = (Fragment) Class.forName(className).getConstructor().newInstance();
+                // if we have arguments for the fragment, even better:
+                if (getIntent().getExtras().containsKey(KEY_LAST_FRAGMENT_ARGS)) {
+                    f.setArguments(getIntent().getExtras().getBundle(KEY_LAST_FRAGMENT_ARGS));
+                }
+                // ...and put it on top:
+                pushFragment(f);
+            } catch (Exception e) {
+                //multiple various exceptions may be thrown in the above few lines, so just catch all.
+                Log.e("PageActivity", "Error while instantiating fragment.", e);
+                //don't let the user see a blank screen, so just request the main page...
+                bus.post(new RequestMainPageEvent());
+            }
+        } else if (savedInstanceState == null) {
+            // if there's no savedInstanceState, and we're not coming back from a Theme change,
+            // then we must have been launched with an Intent, so... handle it!
+            handleIntent(getIntent());
         }
 
         // Conditionally execute all recurring tasks
@@ -184,24 +195,40 @@ public class PageActivity extends FragmentActivity {
         }
     }
 
-    private int calculateMaxFragments() {
-        // calculate the maximum number of WebViews to keep in memory, based on VM size
-        ActivityManager activityManager = (ActivityManager)getApplicationContext().getSystemService(ACTIVITY_SERVICE);
-        int memMegs = activityManager.getMemoryClass();
-        // allow up to 7MB for the app itself, 3 MB for spikes by WebView allocations,
-        // and 2 MB for each WebView stored in memory.
-        final int baselineMemSize = 10;
-        final int absMaxFragments = 6;
-        int maxFragments = (memMegs - baselineMemSize) / 2;
-        if (maxFragments <= 0) {
-            // make sure there's at least one, for really low-memory devices.
-            maxFragments = 1;
-        } else if (maxFragments > absMaxFragments) {
-            // more than this will probably break rendering.
-            maxFragments = absMaxFragments;
+    /**
+     * Add a new fragment to the top of the activity's backstack.
+     * @param f New fragment to place on top.
+     */
+    public void pushFragment(Fragment f) {
+        drawerLayout.closeDrawer(Gravity.START);
+        // if the new fragment is the same class as the current topmost fragment,
+        // then just keep the previous fragment there. (unless it's a PageViewFragment)
+        // e.g. if the user selected History, and there's already a History fragment on top,
+        // then there's no need to load a new History fragment.
+        if (getTopFragment() != null
+                && (getTopFragment().getClass() == f.getClass())
+                && !(f instanceof PageViewFragment)) {
+            return;
         }
-        Log.d("PageActivity", "Maximum Fragments in memory: " + maxFragments);
-        return maxFragments;
+        int totalFragments = getSupportFragmentManager().getBackStackEntryCount();
+        FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+
+        // do an animation on the new fragment, but only if there was a previous one before it.
+        if (getTopFragment() != null) {
+            trans.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right);
+        }
+
+        trans.replace(R.id.content_fragment_container, f, "fragment_" + Integer.toString(totalFragments));
+        trans.addToBackStack(null);
+        trans.commit();
+    }
+
+    /**
+     * Remove the fragment that is currently at the top of the backstack, and go back to
+     * the previous fragment.
+     */
+    public void popFragment() {
+        getSupportFragmentManager().popBackStack();
     }
 
     private void displayNewPage(final PageTitle title, final HistoryEntry entry) {
@@ -215,34 +242,16 @@ public class PageActivity extends FragmentActivity {
             return;
         }
 
-        // hold on... is this the same page that's already being displayed?
-        if (curPageFragment != null && curPageFragment.getTitle().equals(title)) {
-            return;
+        //is the new title the same as what's already being displayed?
+        if (getTopFragment() instanceof PageViewFragment) {
+            if (((PageViewFragment)getTopFragment()).getFragment().getTitle().equals(title)) {
+                return;
+            }
         }
 
+        pushFragment(PageViewFragment.newInstance(title, entry));
+
         app.getSessionFunnel().pageViewed(entry);
-
-        // animate the new fragment into place
-        // then hide the previous fragment.
-        final PageViewFragment prevFragment = curPageFragment;
-        fragmentPager.setOnAnimationListener(new PageFragmentPager.OnAnimationListener() {
-            @Override
-            public void onAnimationFinished() {
-                if (prevFragment != null) {
-                    prevFragment.hide();
-                }
-                fragmentPager.setOnAnimationListener(null);
-            }
-        });
-
-        backStack.getStack().add(new BackStackItem(title, entry, 0));
-
-        fragmentAdapter.notifyDataSetChanged();
-        fragmentPager.setCurrentItem(backStack.size() - 1);
-
-        curPageFragment = (PageViewFragment)fragmentAdapter.getItem(fragmentPager.getCurrentItem());
-
-        Log.d("PageActivity", "pageBackStack has " + backStack.size() + " items");
     }
 
     @Subscribe
@@ -260,29 +269,29 @@ public class PageActivity extends FragmentActivity {
 
     @Subscribe
     public void onPageSaveEvent(SavePageEvent event) {
-        if (curPageFragment == null) {
+        if (getCurPageFragment() == null) {
             return;
         }
         // This means the user explicitly chose to save a new saved pages
-        app.getFunnelManager().getSavedPagesFunnel(curPageFragment.getTitle().getSite()).logSaveNew();
+        app.getFunnelManager().getSavedPagesFunnel(getCurPageFragment().getTitle().getSite()).logSaveNew();
 
-        if (curPageFragment.getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+        if (getCurPageFragment().getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
             // refreshing a saved page...
-            curPageFragment.refreshPage(true);
+            getCurPageFragment().refreshPage(true);
         } else {
-            curPageFragment.savePage();
+            getCurPageFragment().savePage();
         }
     }
 
     @Subscribe
     public void onSharePageEvent(SharePageEvent event) {
-        if (curPageFragment == null) {
+        if (getCurPageFragment() == null) {
             return;
         }
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_TEXT, curPageFragment.getTitle().getCanonicalUri());
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, curPageFragment.getTitle().getDisplayText());
+        shareIntent.putExtra(Intent.EXTRA_TEXT, getCurPageFragment().getTitle().getCanonicalUri());
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, getCurPageFragment().getTitle().getDisplayText());
         shareIntent.setType("text/plain");
         Intent chooser = Intent.createChooser(shareIntent, getResources().getString(R.string.share_via));
         startActivity(chooser);
@@ -290,22 +299,22 @@ public class PageActivity extends FragmentActivity {
 
     @Subscribe
     public void onOtherLanguagesEvent(ShowOtherLanguagesEvent event) {
-        if (curPageFragment == null) {
+        if (getCurPageFragment() == null) {
             return;
         }
         Intent shareIntent = new Intent();
         shareIntent.setClass(this, LangLinksActivity.class);
         shareIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
-        shareIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, curPageFragment.getTitle());
+        shareIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, getCurPageFragment().getTitle());
         startActivityForResult(shareIntent, ACTIVITY_REQUEST_LANGLINKS);
     }
 
     @Subscribe
     public void onShowToCEvent(ShowToCEvent event) {
-        if (curPageFragment == null) {
+        if (getCurPageFragment() == null) {
             return;
         }
-        curPageFragment.toggleToC(event.getAction());
+        getCurPageFragment().toggleToC(event.getAction());
     }
 
     @Subscribe
@@ -323,8 +332,8 @@ public class PageActivity extends FragmentActivity {
 
     @Subscribe
     public void onChangeTextSize(ChangeTextSizeEvent event) {
-        if (curPageFragment != null && curPageFragment.getWebView() != null) {
-            curPageFragment.updateFontSize();
+        if (getCurPageFragment() != null && getCurPageFragment().getWebView() != null) {
+            getCurPageFragment().updateFontSize();
         }
     }
 
@@ -332,9 +341,21 @@ public class PageActivity extends FragmentActivity {
     public void onChangeTheme(ThemeChangeEvent event) {
         Bundle state = new Bundle();
         Intent intent = new Intent(this, PageActivity.class);
+
+        // In order to change our theme, we need to relaunch the activity.
+        // There doesn't seem to be a way to relaunch an activity in a way that forces it to save its
+        // instance state (and all of its fragments' instance state)... so we need to explicitly save
+        // the state that we need, and pass it into the Intent.
+        // We'll simply save the last Fragment that was on top of the backstack, as well as its arguments.
+        Fragment curFragment = getSupportFragmentManager().findFragmentById(R.id.content_fragment_container);
+        state.putString(KEY_LAST_FRAGMENT, curFragment.getClass().getName());
+        // if the fragment had arguments, save them too:
+        if (curFragment.getArguments() != null) {
+            state.putBundle(KEY_LAST_FRAGMENT_ARGS, curFragment.getArguments());
+        }
+
         saveState(state);
         state.putBoolean("changeTheme", true);
-        state.putInt("fragmentPagerItem", fragmentPager.getCurrentItem());
         if (themeChooser != null) {
             state.putBoolean("themeChooserShowing", themeChooser.isShowing());
         }
@@ -355,37 +376,19 @@ public class PageActivity extends FragmentActivity {
         if (searchArticlesFragment.handleBackPressed()) {
             return;
         }
-        if (!(curPageFragment != null && curPageFragment.handleBackPressed())) {
-            if (backStack.size() <= 1) {
-                // Everything we could pop has been popped....
-                finish();
+        if (!(getCurPageFragment() != null && getCurPageFragment().handleBackPressed())) {
+
+            app.getSessionFunnel().backPressed();
+
+            if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+                popFragment();
             } else {
-
-                // don't do anything if we're in the middle of an animation (looks better)
-                if (fragmentPager.isAnimating()) {
-                    return;
-                }
-
-                // let the Pager finish its animation, then remove the fragment that was moved off.
-                fragmentPager.setOnAnimationListener(new PageFragmentPager.OnAnimationListener() {
-                    @Override
-                    public void onAnimationFinished() {
-                        fragmentAdapter.removeFragment(backStack.size() - 1);
-
-                        fragmentAdapter.notifyDataSetChanged();
-                        fragmentPager.setOnAnimationListener(null);
-                    }
-                });
-
-                app.getSessionFunnel().backPressed();
-
-                fragmentPager.setCurrentItem(fragmentPager.getCurrentItem() - 1);
-                curPageFragment = fragmentAdapter.getFragmentAt(fragmentPager.getCurrentItem());
-                curPageFragment.show();
-
-                searchArticlesFragment.clearErrors();
-                searchArticlesFragment.ensureVisible();
+                finish();
             }
+
+            searchArticlesFragment.clearErrors();
+            searchArticlesFragment.ensureVisible();
+
         }
     }
 
@@ -499,16 +502,6 @@ public class PageActivity extends FragmentActivity {
         if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
             bus.post(new WikipediaZeroStateChangeEvent());
         }
-        fragmentAdapter.onResume(this);
-        if (curPageFragment != null) {
-            //refresh the current fragment's state (ensures correct state of overflow menu)
-            curPageFragment.show();
-        }
-        // if we're just being resumed from a saved state, then sync curPageFragment
-        // with the correct item in the pager.
-        if (curPageFragment == null && fragmentAdapter.getCount() > 0) {
-            curPageFragment = (PageViewFragment)fragmentAdapter.getItem(fragmentPager.getCurrentItem());
-        }
     }
 
     @Override
@@ -527,7 +520,6 @@ public class PageActivity extends FragmentActivity {
     private void saveState(Bundle outState) {
         outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
         outState.putString("pausedXcsOfZero", pausedXcsOfZero);
-        outState.putParcelable("backStack", backStack);
     }
 
     @Override

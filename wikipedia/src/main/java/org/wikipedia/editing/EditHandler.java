@@ -11,11 +11,11 @@ import org.wikipedia.analytics.SavedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Page;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageViewFragment;
 import org.wikipedia.page.Section;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {
-    public static final int REQUEST_EDIT_SECTION = 1;
     public static final int RESULT_REFRESH_PAGE = 1;
 
     private final PageViewFragment fragment;
@@ -62,7 +62,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         }
         if (messageType.equals("editSectionClicked")) {
             final SavedPagesFunnel savedPagesFunnel = WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(currentPage.getTitle().getSite());
-            if (fragment.getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+            if (fragment.getFragment().getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
                 savedPagesFunnel.logEditAttempt();
                 new AlertDialog.Builder(fragment.getActivity())
                         .setCancelable(false)
@@ -70,7 +70,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                fragment.refreshPage(true);
+                                fragment.getFragment().refreshPage(true);
                                 savedPagesFunnel.logEditRefresh();
                                 wasRefreshed = true;
                             }
@@ -96,7 +96,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
             intent.putExtra(EditSectionActivity.EXTRA_SECTION_HEADING, section.getHeading());
             intent.putExtra(EditSectionActivity.EXTRA_TITLE, currentPage.getTitle());
             intent.putExtra(EditSectionActivity.EXTRA_PAGE_PROPS, currentPage.getPageProperties());
-            fragment.startActivityForResult(intent, REQUEST_EDIT_SECTION);
+            fragment.startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_EDIT_SECTION);
             if (wasRefreshed) {
                 savedPagesFunnel.logEditAfterRefresh();
             }

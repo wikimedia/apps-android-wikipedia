@@ -1,5 +1,6 @@
 package org.wikipedia.bridge;
 
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -57,6 +58,15 @@ public class CommunicationBridge {
         });
     }
 
+    public void cleanup() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            webView.removeJavascriptInterface("marshaller");
+        }
+        webView.setWebChromeClient(null);
+        eventListeners.clear();
+        incomingMessageHandler.removeCallbacksAndMessages(null);
+    }
+
     public void addListener(String type, JSEventListener listener) {
         if (eventListeners.containsKey(type)) {
             eventListeners.get(type).add(listener);
@@ -65,10 +75,6 @@ public class CommunicationBridge {
             listeners.add(listener);
             eventListeners.put(type, listeners);
         }
-    }
-
-    public void clearAllListeners(String type) {
-        eventListeners.remove(type);
     }
 
     /**

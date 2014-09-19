@@ -42,24 +42,24 @@ public class PageActionsHandler implements PopupMenu.OnMenuItemClickListener {
     @Subscribe
     public void onOverflowMenuChange(OverflowMenuUpdateEvent event) {
         switch (event.getState()) {
-            case PageViewFragment.STATE_NO_FETCH:
-            case PageViewFragment.STATE_INITIAL_FETCH:
+            case PageViewFragmentInternal.STATE_NO_FETCH:
+            case PageViewFragmentInternal.STATE_INITIAL_FETCH:
                 menu.getMenu().findItem(R.id.menu_save_page).setEnabled(false);
                 menu.getMenu().findItem(R.id.menu_share_page).setEnabled(false);
                 menu.getMenu().findItem(R.id.menu_other_languages).setEnabled(false);
                 menu.getMenu().findItem(R.id.menu_find_in_page).setEnabled(false);
                 menu.getMenu().findItem(R.id.menu_themechooser).setEnabled(false);
                 break;
-            case PageViewFragment.STATE_COMPLETE_FETCH:
+            case PageViewFragmentInternal.STATE_COMPLETE_FETCH:
                 menu.getMenu().findItem(R.id.menu_save_page).setEnabled(true);
                 menu.getMenu().findItem(R.id.menu_share_page).setEnabled(true);
                 menu.getMenu().findItem(R.id.menu_other_languages).setEnabled(true);
                 menu.getMenu().findItem(R.id.menu_find_in_page).setEnabled(true);
                 menu.getMenu().findItem(R.id.menu_themechooser).setEnabled(true);
-                if (event.getSubstate() == PageViewFragment.SUBSTATE_PAGE_SAVED) {
+                if (event.getSubstate() == PageViewFragmentInternal.SUBSTATE_PAGE_SAVED) {
                     menu.getMenu().findItem(R.id.menu_save_page).setEnabled(false);
                     menu.getMenu().findItem(R.id.menu_save_page).setTitle(WikipediaApp.getInstance().getString(R.string.menu_page_saved));
-                } else if (event.getSubstate() == PageViewFragment.SUBSTATE_SAVED_PAGE_LOADED) {
+                } else if (event.getSubstate() == PageViewFragmentInternal.SUBSTATE_SAVED_PAGE_LOADED) {
                     menu.getMenu().findItem(R.id.menu_save_page).setTitle(WikipediaApp.getInstance().getString(R.string.menu_refresh_saved_page));
                 } else {
                     menu.getMenu().findItem(R.id.menu_save_page).setTitle(WikipediaApp.getInstance().getString(R.string.menu_save_page));

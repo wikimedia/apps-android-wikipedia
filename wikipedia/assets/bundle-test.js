@@ -68,6 +68,7 @@ bridge.registerListener( "displayAttribution", function( payload ) {
     lastUpdatedA.href = payload.historyTarget;
     var licenseText = document.getElementById( "licensetext" );
     licenseText.innerHTML = payload.licenseHTML;
+    attributionDiv.style.visibility = "visible";
 });
 
 bridge.registerListener( "requestImagesList", function() {
@@ -96,12 +97,20 @@ bridge.registerListener( "replaceImageSources", function( payload ) {
     }
 } );
 
-bridge.registerListener( "hideEditButtons", function() {
-    document.getElementsByTagName( "html" )[0].classList.add( "no-editing" );
-} );
-
-bridge.registerListener( "setPageProtected", function() {
-    document.getElementsByTagName( "html" )[0].classList.add( "page-protected" );
+bridge.registerListener( "setPageProtected", function( payload ) {
+    var el = document.getElementsByTagName( "html" )[0];
+    if (!el.classList.contains("page-protected") && payload.protect) {
+        el.classList.add("page-protected");
+    }
+    else if (el.classList.contains("page-protected") && !payload.protect) {
+        el.classList.remove("page-protected");
+    }
+    if (!el.classList.contains("no-editing") && payload.noedit) {
+        el.classList.add("no-editing");
+    }
+    else if (el.classList.contains("no-editing") && !payload.noedit) {
+        el.classList.remove("no-editing");
+    }
 } );
 
 /**

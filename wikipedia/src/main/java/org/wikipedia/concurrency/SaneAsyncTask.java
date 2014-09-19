@@ -97,6 +97,13 @@ public abstract class SaneAsyncTask<T> {
     }
 
     /**
+     * @return Whether this task has been cancelled.
+     */
+    public boolean isCancelled() {
+        return underlyingTask.isCancelled();
+    }
+
+    /**
      * Private AsyncTask that actually performs the operations.
      */
     private class BackingAsyncTask extends AsyncTask<Void, Void, T> {

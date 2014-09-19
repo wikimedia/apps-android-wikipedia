@@ -174,13 +174,13 @@ public class EditPreviewFragment extends Fragment {
             isWebViewSetup = true;
             Utils.setupDirectionality(parentActivity.getPageTitle().getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
             StyleLoader styleLoader = ((WikipediaApp) getActivity().getApplicationContext()).getStyleLoader();
-            bridge.injectStyleBundle(styleLoader.getAvailableBundle(StyleLoader.BUNDLE_PREVIEW, parentActivity.getPageTitle().getSite()));
+            bridge.injectStyleBundle(styleLoader.getAvailableBundle(StyleLoader.BUNDLE_PREVIEW));
             if (WikipediaApp.getInstance().getCurrentTheme() == WikipediaApp.THEME_DARK) {
-                nightModeHandler = new NightModeHandler(bridge, parentActivity.getPageTitle().getSite());
+                nightModeHandler = new NightModeHandler(bridge);
                 nightModeHandler.turnOn(false);
             }
 
-            new LinkHandler(getActivity(), bridge, parentActivity.getPageTitle().getSite()) {
+            new LinkHandler(getActivity(), bridge) {
                 @Override
                 public void onPageLinkClicked(String href) {
                     // TODO: also need to handle references, issues, disambig, ... in preview eventually
@@ -193,6 +193,11 @@ public class EditPreviewFragment extends Fragment {
                     intent.putExtra(PageActivity.EXTRA_PAGETITLE, title);
                     intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK));
                     startActivity(intent);
+                }
+
+                @Override
+                public Site getSite() {
+                    return parentActivity.getPageTitle().getSite();
                 }
             };
         }

@@ -19,17 +19,15 @@ import java.net.URLDecoder;
  */
 public abstract class LinkHandler implements CommunicationBridge.JSEventListener, LinkMovementMethodExt.UrlHandler {
     private final Context context;
-    private final Site currentSite;
 
-    public LinkHandler(Context context, CommunicationBridge bridge, Site currentSite) {
-        this(context, currentSite);
+    public LinkHandler(Context context, CommunicationBridge bridge) {
+        this(context);
 
         bridge.addListener("linkClicked", this);
     }
 
-    public LinkHandler(Context context, Site currentSite) {
+    public LinkHandler(Context context) {
         this.context = context;
-        this.currentSite = currentSite;
     }
 
     public abstract void onPageLinkClicked(String anchor);
@@ -58,7 +56,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         }
         Log.d("Wikipedia", "Link clicked was " + href);
         if (href.startsWith("/wiki/")) {
-            PageTitle title = currentSite.titleForInternalLink(href);
+            PageTitle title = getSite().titleForInternalLink(href);
             onInternalLinkClicked(title);
         } else if (href.startsWith("#")) {
             onPageLinkClicked(href.substring(1));
@@ -73,10 +71,12 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             } else {
                 // if it's a /w/ URI, turn it into a full URI and go external
                 if (href.startsWith("/w/")) {
-                    href = String.format("%1$s://%2$s", WikipediaApp.getInstance().getNetworkProtocol(), currentSite.getDomain()) + href;
+                    href = String.format("%1$s://%2$s", WikipediaApp.getInstance().getNetworkProtocol(), getSite().getDomain()) + href;
                 }
                 Utils.handleExternalLink(context, Uri.parse(href));
             }
         }
     }
+
+    public abstract Site getSite();
 }
