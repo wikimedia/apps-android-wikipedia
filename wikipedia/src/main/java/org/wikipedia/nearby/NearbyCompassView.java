@@ -67,6 +67,18 @@ public class NearbyCompassView extends ImageView {
         paintArrow.setStyle(Paint.Style.FILL);
     }
 
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        if (enabled) {
+            paintTick.setColor(tickColor);
+            paintArrow.setColor(tickColor);
+        } else {
+            paintTick.setColor(Color.TRANSPARENT);
+            paintArrow.setColor(Color.TRANSPARENT);
+        }
+    }
+
     /**
      * Set the "base" angle offset from North (in degrees), moving counterclockwise.
      * For example, an angle of 90 will make the arrow point due West.
@@ -163,5 +175,4 @@ public class NearbyCompassView extends ImageView {
         canvas.drawLine(centerX, h - (TICK_OFFSET + TICK_LENGTH) * displayDensity, centerX, h - (TICK_OFFSET - TICK_LENGTH) * displayDensity, paintTick);
         canvas.restore();
     }
-
 }

@@ -58,42 +58,43 @@ public class NearbyFetchTask extends ApiTask<List<NearbyPage>> {
     }
 
     /*
+
+    https://test.wikipedia.org/wiki/Special:ApiSandbox#action=query&prop=coordinates&format=json&colimit=10&generator=geosearch&ggscoord=37.786688999999996%7C-122.3994771999999&ggsradius=10000&ggslimit=10
+    API: /w/api.php?action=query&prop=coordinates&format=json&colimit=10&generator=geosearch&ggscoord=37.786688999999996%7C-122.3994771999999&ggsradius=10000&ggslimit=10
+
     // returns data formatted as follows:
-        {
-            coordinates = {
-                globe = earth;
-                lat = "51.5202";
-                lon = "-0.095";
-                primary = "";
-            };
-            distance = "207.4141690965082";
-            pageid = 26536263;
-            pageimage = "Barbican_Centre_logo.svg";
-            thumbnail =             {
-                height = 38;
-                source = "https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Barbican_Centre_logo.svg/50px-Barbican_Centre_logo.svg.png";
-                width = 50;
-            };
-            title = "Barbican Centre";
-        },
-        {
-            coordinates = {
-                globe = earth;
-                lat = "51.5191";
-                lon = "-0.096946";
-                primary = "";
-            };
-            distance = "324.2053114467474";
-            pageid = 2303936;
-            pageimage = "William_Davenant.jpg";
-            thumbnail =             {
-                height = 50;
-                source = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/William_Davenant.jpg/33px-William_Davenant.jpg";
-                width = 33;
-            };
-            title = "Rutland House";
-        },
-        ...
+{
+    "query": {
+        "pages": {
+            "44175": {
+                "pageid": 44175,
+                "ns": 0,
+                "title": "San Francisco",
+                "coordinates": [
+                    {
+                        "lat": 37.7793,
+                        "lon": -122.419,
+                        "primary": "",
+                        "globe": "earth"
+                    }
+                ]
+            },
+            "74129": {
+                "pageid": 74129,
+                "ns": 0,
+                "title": "Page which has geodata",
+                "coordinates": [
+                    {
+                        "lat": 37.787,
+                        "lon": -122.4,
+                        "primary": "",
+                        "globe": "earth"
+                    }
+                ]
+            }
+        }
+    }
+}
 */
 
 

@@ -153,7 +153,6 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
         mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
         compassViews = new ArrayList<NearbyCompassView>();
-
     }
 
     @Override
@@ -342,7 +341,17 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     private void sortByDistance(List<NearbyPage> nearbyPages) {
         Collections.sort(nearbyPages, new Comparator<NearbyPage>() {
             public int compare(NearbyPage a, NearbyPage b) {
-                return getDistance(a.getLocation()) - getDistance(b.getLocation());
+                if (a.getLocation() == null) {
+                    if (b.getLocation() == null) {
+                        return 0;
+                    } else {
+                        return 1;
+                    }
+                } else if (b.getLocation() == null) {
+                    return -1;
+                } else {
+                    return getDistance(a.getLocation()) - getDistance(b.getLocation());
+                }
             }
         });
     }
@@ -418,26 +427,24 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
                 viewHolder = (ViewHolder) convertView.getTag();
             }
             viewHolder.title.setText(nearbyPage.getTitle());
-            viewHolder.distance.setText(getDistanceLabel(nearbyPage.getLocation()));
 
-            // simplified angle between two vectors...
-            // vector pointing towards north from our location = [0, 1]
-            // vector pointing towards destination from our location = [a1, a2]
-            double a1 = nearbyPage.getLocation().getLongitude() - nextLocation.getLongitude();
-            double a2 = nearbyPage.getLocation().getLatitude() - nextLocation.getLatitude();
-            // cos θ = (v1*a1 + v2*a2) / (√(v1²+v2²) * √(a1²+a2²))
-            double angle = Math.toDegrees(Math.acos(a2 / Math.sqrt(a1 * a1 + a2 * a2)));
-            // since the acos function only goes between 0 to 180 degrees, we'll manually
-            // negate the angle if the destination's longitude is on the opposite side.
-            if (a1 < 0f) {
-                angle = -angle;
-            }
-            // set the calculated angle as the base angle for our compass view
-            viewHolder.thumbnail.setAngle((float) angle);
-            viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(NearbyActivity.this, R.attr.window_background_color)));
-            viewHolder.thumbnail.setTickColor(getResources().getColor(R.color.blue_progressive));
-            if (!compassViews.contains(viewHolder.thumbnail)) {
-                compassViews.add(viewHolder.thumbnail);
+            if (nearbyPage.getLocation() != null) {
+                // set the calculated angle as the base angle for our compass view
+                viewHolder.thumbnail.setAngle((float) calculateAngle(nearbyPage.getLocation()));
+                viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(NearbyActivity.this, R.attr.window_background_color)));
+                viewHolder.thumbnail.setTickColor(getResources().getColor(R.color.blue_progressive));
+                if (!compassViews.contains(viewHolder.thumbnail)) {
+                    compassViews.add(viewHolder.thumbnail);
+                }
+
+                viewHolder.distance.setText(getDistanceLabel(nearbyPage.getLocation()));
+                viewHolder.distance.setVisibility(View.VISIBLE);
+                viewHolder.thumbnail.setEnabled(true);
+            } else {
+                // Strangely, we don't know the full coordinates of this nearby place.
+                // Something in the DB must have gotten out of sync; may happen intermittently.
+                viewHolder.distance.setVisibility(View.INVISIBLE); // don't affect the layout measurements
+                viewHolder.thumbnail.setEnabled(false);
             }
 
             Picasso.with(NearbyActivity.this)
@@ -446,6 +453,22 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
                     .error(R.drawable.ic_pageimage_placeholder)
                     .into(viewHolder.thumbnail);
             return convertView;
+        }
+
+        private double calculateAngle(Location otherLocation) {
+            // simplified angle between two vectors...
+            // vector pointing towards north from our location = [0, 1]
+            // vector pointing towards destination from our location = [a1, a2]
+            double a1 = otherLocation.getLongitude() - nextLocation.getLongitude();
+            double a2 = otherLocation.getLatitude() - nextLocation.getLatitude();
+            // cos θ = (v1*a1 + v2*a2) / (√(v1²+v2²) * √(a1²+a2²))
+            double angle = Math.toDegrees(Math.acos(a2 / Math.sqrt(a1 * a1 + a2 * a2)));
+            // since the acos function only goes between 0 to 180 degrees, we'll manually
+            // negate the angle if the destination's longitude is on the opposite side.
+            if (a1 < 0f) {
+                angle = -angle;
+            }
+            return angle;
         }
 
 
@@ -524,5 +547,4 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
             view.setAzimuth(-azimuth);
         }
     }
-
 }
