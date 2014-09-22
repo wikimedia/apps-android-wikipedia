@@ -40,6 +40,17 @@
   <string name="toast_saved_page_deleted">Siden(e) ble fjernet</string>
   <string name="saved_pages_search_list_hint">Søk</string>
   <string name="saved_pages_search_empty_message" fuzzy="true">Fant ingen sider som matchet \'%s\'</string>
+  <string name="nearby_activity_title">I nærheten</string>
+  <string name="nav_item_nearby">I nærheten</string>
+  <string name="menu_update_nearby">Oppdater «i nærheten»</string>
+  <string name="nearby_empty_title">Ingen sider i nærheten</string>
+  <string name="nearby_empty_message">Du kan gjenoppfriske denne siden når du forflytter deg.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">Ingen nettverksforbindelse</string>
+  <string name="nearby_server_error">Kunne ikke hente liste over steder i nærheten.</string>
+  <string name="nearby_no_location">Kunne ikke posisjonere deg</string>
+  <string name="nearby_dialog_goto_settings">Posisjonering er ikke skrudd på for denne enheten. Vil du gå til innstilllinger for enheten din for å skru på posisjonering?</string>
   <string name="last_updated_text">Sist oppdatert %1$s</string>
   <string name="content_license_html">Innholdet er tilgjengelig under &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om ikke annet er angitt</string>
   <string name="edit_save_action_license_logged_in">Ved å lagre samtykker du til &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen.</string>
@@ -51,6 +62,7 @@
   <string name="menu_other_languages">Les på andre språk</string>
   <string name="langlinks_error_retry">Prøv igjen</string>
   <string name="langlinks_empty">Denne siden er ikke tilgjengelig på andre språk</string>
+  <string name="langlinks_no_match">Ingen språk ble funnet som matchet søket ditt.</string>
   <string name="settings_activity_title">Innstillinger</string>
   <string name="langlinks_activity_title">Andre språk</string>
   <string name="menu_save_changes">Lagre endringer</string>
@@ -87,7 +99,7 @@
   <string name="preference_summary_logout">Logg ut fra Wikipedia-kontoen din</string>
   <string name="preference_summary_notloggedin">Ikke innlogget.</string>
   <string name="toast_logout_complete">Logget ut</string>
-  <string name="saved_pages_empty_title" fuzzy="true">Ingen lagrede sider enda.</string>
+  <string name="saved_pages_empty_title">Ingen lagrede sider her!</string>
   <string name="saved_pages_empty_message">Lagrede sider er veldig praktisk. Tenk på dem som bokmerker som du også kan lese når du er offline.</string>
   <string name="history_empty_title">Ingen besøkte sider.</string>
   <string name="history_empty_message">Du har kanskje tømt loggen. Neste gang du besøker en side kan du finne den igjen her etterpå.</string>
@@ -109,6 +121,12 @@
   <string name="create_account_username_exists_error">Brukernavnet er allerede i bruk</string>
   <string name="create_account_ip_throttle_error">For many kontoer opprettet fra denne IP-adressen. Prøv igjen senere.</string>
   <string name="create_account_open_proxy_error">Denne IP-adressen har blitt blokkert fra å opprette kontoer.</string>
+  <string name="create_account_noname_error">Brukernavnet du oppga er ugyldig. Vennligst oppgi et annet brukernavn.</string>
+  <string name="create_account_invalid_email_error">Epost-adressen du oppga er ugyldig.</string>
+  <string name="create_account_password_too_short_error">Passordet du oppga er for kort.</string>
+  <string name="create_account_blocked_anon_error">Du kan ikke opprette en konto fordi IP-en din er blokkert.</string>
+  <string name="create_account_blocked_error">Du kan ikke opprette en konto fordi kontoen din er blokkert.</string>
+  <string name="create_account_password_name_match_error">Brukernavnet og passordet kan ikke være like.</string>
   <string name="create_account_generic_error">Kunne ikke opprette konto</string>
   <string name="create_account_no_network">Ingen nettverksforbindelse</string>
   <string name="create_account_next">Neste</string>
@@ -152,7 +170,7 @@
   <string name="preference_summary_eventlogging_opt_in">Tillatt Wikimedia å samle informasjon om hvordan du bruker appen for å forbedre den</string>
   <string name="editing_error_spamblacklist">Lenker til blokkerte domener (%s) ble funnet. Vennligst fjern dem og prøv igjen.</string>
   <string name="history_search_list_hint">Søk</string>
-  <string name="history_search_empty_message" fuzzy="true">Fant ingen sider som matchet \'%s\'</string>
+  <string name="history_search_empty_message">Fant ingen sider som matchet søket ditt.</string>
   <string name="error_can_not_process_link">Kunne ikke vise denne lenken</string>
   <string name="page_protected_autoconfirmed">Denne siden er delvis beskyttet.</string>
   <string name="page_protected_sysop">Denne siden er beskyttet.</string>
@@ -209,13 +227,15 @@
   <string name="color_theme_select">Drakt</string>
   <string name="color_theme_light">Lys</string>
   <string name="color_theme_dark">Mørk</string>
-  <string name="page_similar_titles" fuzzy="true">Lignende sider</string>
+  <string name="page_similar_titles">Lignende sider</string>
   <string name="search_within_pages">Søk gjennom sider…</string>
   <string name="search_no_results">Ingen resultater funnet for «%s».</string>
   <string name="search_showing_instead">Ingen resultater funnet for «%1$s». Viser resultater fro «%2$s»:</string>
   <string name="search_results_title">Søkeresultater</string>
   <string name="search_error_retry">Prøv igjen</string>
   <string name="search_redirect_title">Omdirigering fra «%s».</string>
+  <string name="toc_hint">Sveip til venstre for avsnitt, eller bruk menyknappen øverst til høyre.</string>
+  <string name="toc_know_it">Forstått</string>
   <string name="app_store_description">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som har blitt sammenstilt noensinne. Denne appen har blitt skrevet om fra grunnen av og er bedre enn noensinne.
 
 Funksjonalitet:
@@ -228,4 +248,6 @@ Funksjonalitet:
    - Wikipedia Zero: Datakostnader dekkes av enkelte mobiloperatører.
 
 Kildekoden er åpen. Hvis du har erfaring med Java og Android SDK er du velkommen til å bli med å lage appen bedre! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Ny alphaoppdatering tilgjengelig</string>
+  <string name="alpha_update_notification_text">Trykk for å laste ned</string>
 </resources>

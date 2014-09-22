@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Вікіпедія</string>
   <string name="app_name_beta">Вікіпедія Бета</string>
+  <string name="app_name_alpha">Вікіпедія Альфа</string>
   <string name="yes">Так</string>
   <string name="no">Ні</string>
   <string name="acra_report_dialog_title">Вікіпедія зазнала краху :(</string>
@@ -17,6 +18,7 @@
   <string name="menu_clear_all_bookmarks">Очистити закладки</string>
   <string name="menu_clear_all_saved_pages">Очистити збережені сторінки</string>
   <string name="page_does_not_exist_error">Ця сторінка не існує.</string>
+  <string name="nav_item_today">Сьогодні</string>
   <string name="dialog_title_clear_history">Очистити історію перегляду?</string>
   <string name="saved_pages_activity_title">Збережені сторінки</string>
   <string name="nav_item_saved_pages">Збережені сторінки</string>
@@ -36,6 +38,19 @@
   <string name="toast_refresh_saved_page">Перезавантаження збереженої сторінки…</string>
   <string name="delete_selected_saved_pages">Вилучити</string>
   <string name="toast_saved_page_deleted">Збережені сторінки видалені</string>
+  <string name="saved_pages_search_list_hint">Пошук</string>
+  <string name="saved_pages_search_empty_message">Нема сторінок, що відповідають вашому запиту.</string>
+  <string name="nearby_activity_title">Неподалік</string>
+  <string name="nav_item_nearby">Неподалік</string>
+  <string name="menu_update_nearby">Оновлення неподалік</string>
+  <string name="nearby_empty_title">Немає сторінок неподалік</string>
+  <string name="nearby_empty_message">Ви можете оновити цю сторінку під час переміщення до нового розташування.</string>
+  <string name="nearby_distance_in_meters">%d м</string>
+  <string name="nearby_distance_in_kilometers">%.2f км</string>
+  <string name="nearby_no_network">Немає з\'єднання з мережею</string>
+  <string name="nearby_server_error">Не вдалося отримати список місць неподалік.</string>
+  <string name="nearby_no_location">Не вдалося отримати розташування</string>
+  <string name="nearby_dialog_goto_settings">Оновлення розташування не увімкнено на вашому пристрої. Ви хотіли б перейти в налаштування пристрою для увімкнення оновлення місця знаходження?</string>
   <string name="last_updated_text">Останнє оновлення %1$s</string>
   <string name="content_license_html">Вміст доступний згідно з &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.uk\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
   <string name="edit_save_action_license_logged_in">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Умовами користування&lt;/a&gt;, та безповоротно публікуєте свій внесок під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -47,6 +62,7 @@
   <string name="menu_other_languages">Читати іншими мовами</string>
   <string name="langlinks_error_retry">Повторити</string>
   <string name="langlinks_empty">Ця сторінка не доступна на інших мовах</string>
+  <string name="langlinks_no_match">Нема мов, що відповідають вашому запиту.</string>
   <string name="settings_activity_title">Налаштування</string>
   <string name="langlinks_activity_title">Інші мови</string>
   <string name="menu_save_changes">Зберегти зміни</string>
@@ -83,7 +99,7 @@
   <string name="preference_summary_logout">Вийти зі свого облікового запису Вікіпедії</string>
   <string name="preference_summary_notloggedin">Ви не ввійшли до системи.</string>
   <string name="toast_logout_complete">Ви вийшли із системи</string>
-  <string name="saved_pages_empty_title" fuzzy="true">Іще немає збережених сторінок.</string>
+  <string name="saved_pages_empty_title">Тут немає збережених сторінок!</string>
   <string name="saved_pages_empty_message">Збережені сторінки — це круто! Користуйтесь ними як закладками, які можна читати навіть, коли Ви офлайн.</string>
   <string name="history_empty_title">Немає нещодавніх сторінок.</string>
   <string name="history_empty_message">Вірогідно, Ви їх усі видалили. Наступного разу, коли відвідаєте сторінку, Ви зможете повернутися до неї звідси.</string>
@@ -105,6 +121,12 @@
   <string name="create_account_username_exists_error">Ім\'я вже використовується</string>
   <string name="create_account_ip_throttle_error">Занадто багато облікових записів, створених з цієї IP адреси. Повторіть спробу пізніше.</string>
   <string name="create_account_open_proxy_error">Ця IP-адреса було заблокована від створення облікового запису.</string>
+  <string name="create_account_noname_error">Уведене вами ім\'я є недійсним. Будь ласка, введіть інше ім\'я.</string>
+  <string name="create_account_invalid_email_error">Вказану вами адреса електронної пошти є недійсною.</string>
+  <string name="create_account_password_too_short_error">Наданий вами пароль - закороткий.</string>
+  <string name="create_account_blocked_anon_error">Не вдалося створити обліковий запис, тому що ваш IP заблокований.</string>
+  <string name="create_account_blocked_error">Ви не можете створити обліковий запис, тому що ваш обліковий запис заблокований.</string>
+  <string name="create_account_password_name_match_error">Ваше ім\'я користувача і пароль повинні відрізнятися.</string>
   <string name="create_account_generic_error">Неможливо створити обліковий запис</string>
   <string name="create_account_no_network">Немає з\'єднання з мережею</string>
   <string name="create_account_next">Далі</string>
@@ -148,7 +170,7 @@
   <string name="preference_summary_eventlogging_opt_in">Дозволити Вікімедіа збір інформації про те, як Ви використовуєте додаток, щоб зробити його кращим</string>
   <string name="editing_error_spamblacklist">Виявлено посилання на заблоковані домени (%s). Будь ласка, вилучіть їх і спробуйте знову.</string>
   <string name="history_search_list_hint">Пошук</string>
-  <string name="history_search_empty_message" fuzzy="true">Не знайдено сторінок із \'%s\'</string>
+  <string name="history_search_empty_message">Нема сторінок, що відповідають вашому запиту.</string>
   <string name="error_can_not_process_link">Не вдалося відобразити це посилання</string>
   <string name="page_protected_autoconfirmed">Ця сторінка частково захищена.</string>
   <string name="page_protected_sysop">Ця сторінка повністю захищена.</string>
@@ -158,6 +180,10 @@
   <string name="more_item_preferences">Більше</string>
   <string name="more_activity_title">Більше</string>
   <string name="about_description">Про додаток Вікіпедії</string>
+  <string name="privacy_policy_description">Політика конфіденційності</string>
+  <string name="terms_of_use_description">Умови використання</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/uk</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Версія</string>
   <string name="about_libraries_heading">використовувані бібліотеки</string>
   <string name="about_contributors_heading">співавтори</string>
@@ -188,15 +214,28 @@
   <string name="saved_pages_update_all_error_message">Помилка при оновленні збережених сторінок</string>
   <string name="saved_pages_progress_title">Перезавантаження збережених сторінок</string>
   <string name="saved_pages_refresh_pages_complete">Оновлення завершено</string>
+  <string name="menu_page_saved">Сторінку збережено</string>
+  <string name="menu_refresh_saved_page">Оновити сторінку</string>
   <string name="abusefilter_title_warn">Це може редагування бути неконструктивним. Ви впевнені, що хочете його зберегти?</string>
   <string name="abusefilter_title_disallow">Ви не можете зберегти це редагування. Будь ласка, поверніться назад і змініть його.</string>
   <string name="abusefilter_text_warn">Автоматичний фільтр визначив це редагування як потенційно неконструктивне. У ньому може бути щось із цього:&lt;br /&gt;&lt;br /&gt;· Набрано повністю великими літерами&lt;br /&gt;· Очищення статті або спам&lt;br /&gt;· Невідповідні зовнішні посилання чи зображення&lt;br /&gt;· Повторювані символи</string>
   <string name="abusefilter_text_disallow">Автоматизований фільтр визначив це редагування як потенційно неконструктивне або потенційний вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедія — це енциклопедія, і розміщений у ній може бути тільки нейтральний і значимий вміст.</string>
+  <string name="dialog_page_issues">Питання по сторінці</string>
+  <string name="button_page_issues">Питання по сторінці</string>
   <string name="menu_themechooser">Змінити шрифт і тему</string>
   <string name="text_size_select">Розмір шрифту</string>
   <string name="color_theme_select">Тема</string>
   <string name="color_theme_light">Світла</string>
   <string name="color_theme_dark">Темна</string>
+  <string name="page_similar_titles">Подібні сторінки</string>
+  <string name="search_within_pages">Пошук серед сторінок…</string>
+  <string name="search_no_results">Нічого не знайдено для \"%s\".</string>
+  <string name="search_showing_instead">Нічого не знайдено для \"%1$s\". Показані результати для \"%2$s \":</string>
+  <string name="search_results_title">Результати пошуку</string>
+  <string name="search_error_retry">Повторити</string>
+  <string name="search_redirect_title">Перенаправити від \"%s\".</string>
+  <string name="toc_hint">Проведіть ліворуч для розділів, або використовуйте кнопку меню зверху праворуч.</string>
+  <string name="toc_know_it">Зрозуміло</string>
   <string name="app_store_description">Офіційний застосунок Вікіпедії для Android. Вікіпедія — це вільна енциклопедія, у якій 32 мільйонів статей 280-ма мовами, і це найбільш доступна і використовувана реферативна робота, яку люди будь-коли писали. Застосунок ґрунтовно переписаний і працює краще, ніж будь-коли.
 
 Характеристики:
@@ -209,4 +248,6 @@
    - Вікіпедія Zero: Мобільні оператори, що беруть участь, скасовують плату за передачу даних.
 
 Джерельний код повністю відкритий. Якщо Ви маєте досвід із Java та Android SDK, тоді приєднуйтеся до нас! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Доступне оновлення альфа-версії</string>
+  <string name="alpha_update_notification_text">Натисніть, щоб завантажити</string>
 </resources>

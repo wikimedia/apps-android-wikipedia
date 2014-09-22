@@ -39,7 +39,18 @@
   <string name="delete_selected_saved_pages">删除</string>
   <string name="toast_saved_page_deleted">保存页面已删除</string>
   <string name="saved_pages_search_list_hint">搜索</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">未找到匹配“%s”的页面</string>
+  <string name="saved_pages_search_empty_message">未找到匹配您的查询的页面。</string>
+  <string name="nearby_activity_title">附近</string>
+  <string name="nav_item_nearby">附近</string>
+  <string name="menu_update_nearby">更新附近</string>
+  <string name="nearby_empty_title">附近没有页面</string>
+  <string name="nearby_empty_message">当您移动到一个新的位置时您可以刷新此页面。</string>
+  <string name="nearby_distance_in_meters">%d米</string>
+  <string name="nearby_distance_in_kilometers">%.2f千米</string>
+  <string name="nearby_no_network">无网络连接</string>
+  <string name="nearby_server_error">无法获取附近地点的列表。</string>
+  <string name="nearby_no_location">不能获取位置</string>
+  <string name="nearby_dialog_goto_settings">您的设备未启用位置更新。您想要前往您的设备设置启用位置更新么？</string>
   <string name="last_updated_text">最后更新：%s</string>
   <string name="content_license_html">除非另有说明，内容依据&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;协议发布。</string>
   <string name="edit_save_action_license_logged_in">通过保存，您同意&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并不可撤销地在&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC 的 SA 3.0&lt;/a&gt;许可下提交您的贡献。</string>
@@ -51,6 +62,7 @@
   <string name="menu_other_languages">阅读其他语言版</string>
   <string name="langlinks_error_retry">重试</string>
   <string name="langlinks_empty">此页面在其他语言不可用</string>
+  <string name="langlinks_no_match">未找到匹配您的查询的语言。</string>
   <string name="settings_activity_title">设置</string>
   <string name="langlinks_activity_title">其他语言</string>
   <string name="menu_save_changes">保存更改</string>
@@ -87,7 +99,7 @@
   <string name="preference_summary_logout">退出您的维基百科账户</string>
   <string name="preference_summary_notloggedin">未登录。</string>
   <string name="toast_logout_complete">已注销</string>
-  <string name="saved_pages_empty_title" fuzzy="true">还没有保存页面。</string>
+  <string name="saved_pages_empty_title">尚无保存页面！</string>
   <string name="saved_pages_empty_message">保存页面非常棒。试想一下在你保存后，即使离线时也可以阅读。</string>
   <string name="history_empty_title">这里没有最新页面。</string>
   <string name="history_empty_message">您可能清空了它们。下次您前往一个页面时，可从此返回。</string>

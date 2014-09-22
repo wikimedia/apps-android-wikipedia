@@ -39,7 +39,18 @@
   <string name="delete_selected_saved_pages">Sil</string>
   <string name="toast_saved_page_deleted">Kaydedilen sayfa(lar) silindi</string>
   <string name="saved_pages_search_list_hint">Ara</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">\'%s\' ile eşleşen hiçbir sayfa bulunamadı</string>
+  <string name="saved_pages_search_empty_message">Sorgunuzla eşleşen hiçbir sayfa bulunamadı.</string>
+  <string name="nearby_activity_title">Yakınındakiler</string>
+  <string name="nav_item_nearby">Yakınındakiler</string>
+  <string name="menu_update_nearby">Yakınındakileri güncelle</string>
+  <string name="nearby_empty_title">Yakınında sayfa yok</string>
+  <string name="nearby_empty_message">Yeni bir konuma geçtiğinizde bu sayfayı yenileyebilirsiniz.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">Ağ bağlantısı yok</string>
+  <string name="nearby_server_error">Yakındaki yerlerin listesi alınamadı.</string>
+  <string name="nearby_no_location">Konum bilgisi alınamıyor</string>
+  <string name="nearby_dialog_goto_settings">Konum güncelleştirmeleri cihazınızda etkin değil. Konum güncelleştirmelerini etkinleştirmek için cihazınızın ayarlarına gitmek ister misiniz?</string>
   <string name="last_updated_text">Son güncelleme %s</string>
   <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
   <string name="edit_save_action_license_logged_in">Kaydederek, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz.</string>
@@ -51,6 +62,7 @@
   <string name="menu_other_languages">Başka dilde oku</string>
   <string name="langlinks_error_retry">Tekrar dene</string>
   <string name="langlinks_empty">Bu sayfa diğer dillerde bulunmamaktadır</string>
+  <string name="langlinks_no_match">Sorgunuzla eşleşen bir dil bulunamadı.</string>
   <string name="settings_activity_title">Ayarlar</string>
   <string name="langlinks_activity_title">Diğer diller</string>
   <string name="menu_save_changes">Değişiklikleri kaydet</string>
@@ -87,7 +99,7 @@
   <string name="preference_summary_logout">Vikipedi hesabınızın oturumunu kapatır</string>
   <string name="preference_summary_notloggedin">Oturum açık değil.</string>
   <string name="toast_logout_complete">Oturum kapandı</string>
-  <string name="saved_pages_empty_title" fuzzy="true">Henüz kaydedilmiş bir sayfa yok.</string>
+  <string name="saved_pages_empty_title">Kaydedilmiş bir sayfa yok!</string>
   <string name="saved_pages_empty_message">Kaydedilmiş sayfalar çok güzeldir. Bunu çevrim dışıyken bile okuyabileceğiniz yer imleri olarak düşünün.</string>
   <string name="history_empty_title">Hiç ziyaret edilmiş sayfa yok.</string>
   <string name="history_empty_message">Muhtemelen hepsini sildiniz. Bir daha herhangi bir sayfaya gittiğinizde, buradan ona tekrar ulaşabilirsiniz.</string>
@@ -109,6 +121,12 @@
   <string name="create_account_username_exists_error">Kullanıcı adı zaten kullanımda</string>
   <string name="create_account_ip_throttle_error">Bu IP adresinden çok fazla hesap oluşturuldu. Daha sonra tekrar deneyin.</string>
   <string name="create_account_open_proxy_error">Bu IP adresinin hesap açması engellenmiş.</string>
+  <string name="create_account_noname_error">Girdiğiniz kullanıcı adı geçersiz. Lütfen başka bir kullanıcı adı girin.</string>
+  <string name="create_account_invalid_email_error">Girdiğiniz e-posta adresi geçersiz.</string>
+  <string name="create_account_password_too_short_error">Girdiğiniz parola çok kısa.</string>
+  <string name="create_account_blocked_anon_error">IP\'niz engellenmiş olduğundan yeni hesap oluşturamazsınız.</string>
+  <string name="create_account_blocked_error">Hesabınız engellenmiş olduğundan yeni hesap oluşturamazsınız.</string>
+  <string name="create_account_password_name_match_error">Kullanıcı adınız ve parolanız farklı olmalıdır.</string>
   <string name="create_account_generic_error">Hesap oluşturulamadı</string>
   <string name="create_account_no_network">Ağ bağlantısı yok</string>
   <string name="create_account_next">İleri</string>
@@ -152,7 +170,7 @@
   <string name="preference_summary_eventlogging_opt_in">Wikimedia\'nın, uygulamayı geliştirmek için, kullanım alışkanlıklarınız hakkında bilgi toplamasına izin verin</string>
   <string name="editing_error_spamblacklist">Engellenmiş alan adlarına (%s) bağlantılar tespit edildi. Lütfen bunların kaldırıp tekrar deneyin.</string>
   <string name="history_search_list_hint">Ara</string>
-  <string name="history_search_empty_message" fuzzy="true">\'%s\' ile eşleşen hiçbir sayfa bulunamadı</string>
+  <string name="history_search_empty_message">Sorgunuzla eşleşen hiçbir sayfa bulunamadı.</string>
   <string name="error_can_not_process_link">Bu bağlantı görüntülenemedi</string>
   <string name="page_protected_autoconfirmed">Bu sayfa yarı korumalıdır.</string>
   <string name="page_protected_sysop">Bu sayfa tam korumalıdır.</string>
@@ -209,13 +227,15 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Açık</string>
   <string name="color_theme_dark">Koyu</string>
-  <string name="page_similar_titles" fuzzy="true">Benzer başlıklar</string>
+  <string name="page_similar_titles">Benzer sayfalar</string>
   <string name="search_within_pages">Sayfalar içinde ara...</string>
   <string name="search_no_results">\"%s\" için hiçbir sonuç bulunamadı.</string>
   <string name="search_showing_instead">\"%1$s\" için hiçbir sonuç bulunamadı. \"%2$s\" için sonuçlar gösteriliyor:</string>
   <string name="search_results_title">Arama sonuçları</string>
   <string name="search_error_retry">Tekrar dene</string>
   <string name="search_redirect_title">\"%s\" sayfasından yönlendirme.</string>
+  <string name="toc_hint">Başlıkları görmek için sayfayı sola çekin veya sağ üstteki menü tuşunu kullanın.</string>
+  <string name="toc_know_it">Anladım</string>
   <string name="app_store_description">Android için resmi Vikipedi Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır. Sıfırdan tekrar yazılan uygulama, şimdi her zamankinden daha iyi.
 
 Özellikler:
@@ -228,4 +248,6 @@
    - Wikipedia Zero: Anlaşmalı mobil operatörlerde veri iletişim ücretleri alınmaz.
 
 Uygulama kodları tamamen açık kaynaklıdır. Java ve Android SDK kullanıyorsanız, gelip bizle çalışın!  https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Yeni alfa güncellemesi var</string>
+  <string name="alpha_update_notification_text">İndirmek için dokunun</string>
 </resources>

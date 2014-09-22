@@ -61,13 +61,16 @@ See also:
 * {{msg-wm|Wikipedia-android-strings-toast saved page}}</string>
   <string name="toast_save_page_failed">Small toast (popup) message saying that a page has failed to be saved</string>
   <string name="toast_refresh_saved_page">Small toast (popup) message saying that a saved page is being refreshed</string>
-  <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected saved pages</string>
+  <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected saved pages
+{{Identical|Delete}}</string>
   <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected saved pages have been deleted</string>
   <string name="saved_pages_search_list_hint">Hint for textbox that searches list of items in saved pages as user types.
       {{Identical|Search}}</string>
   <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query.</string>
-  <string name="nearby_activity_title">Title for Nearby activity (top of screen)</string>
-  <string name="nav_item_nearby">Entry in nav drawer for Nearby feature</string>
+  <string name="nearby_activity_title">Title for Nearby activity (top of screen)
+{{Identical|Nearby}}</string>
+  <string name="nav_item_nearby">Entry in nav drawer for Nearby feature
+{{Identical|Nearby}}</string>
   <string name="menu_update_nearby">Action bar item to refresh list of nearby pages</string>
   <string name="nearby_empty_title">Title line for message when no nearby pages were found</string>
   <string name="nearby_empty_message">Message details when no nearby pages were found</string>
@@ -318,6 +321,10 @@ See also:
   <string name="toc_hint">Instructions how to open the Table of Contents drawer. In left-to-right languages (most) this means to swipe left from the right edge. In right-to-left languages (Hebrew, Arabic, etc.) this means to swipe right from the left edge. \'\'\'In RTL languages\'\'\' please adjust the text to say right swipe instead of left swipe.</string>
   <string name="toc_know_it">Button text to acknowledge instructions for opening Table of Contents drawer.</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
-  <string name="alpha_update_notification_title">Title for notification when new alpha update is available</string>
-  <string name="alpha_update_notification_text">Text for notification when new alpha update is available.</string>
+  <string name="alpha_update_notification_title">Title for notification when new alpha update is available.
+
+Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
+  <string name="alpha_update_notification_text">Text for notification when new alpha update is available.
+
+Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}.</string>
 </resources>

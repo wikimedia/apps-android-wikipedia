@@ -39,7 +39,18 @@
   <string name="delete_selected_saved_pages">Supprimer</string>
   <string name="toast_saved_page_deleted">Page(s) enregistrée(s) supprimée(s)</string>
   <string name="saved_pages_search_list_hint">Rechercher</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">Aucune page trouvée correspondant à \'%s\'</string>
+  <string name="saved_pages_search_empty_message">Aucune page trouvée correspondant à votre requête.</string>
+  <string name="nearby_activity_title">À proximité</string>
+  <string name="nav_item_nearby">À proximité</string>
+  <string name="menu_update_nearby">Mise à jour les éléments à proximité</string>
+  <string name="nearby_empty_title">Aucune page à proximité</string>
+  <string name="nearby_empty_message">Vous pouvez rafraîchir cette page quand vous vous déplacez vers un nouvel emplacement.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">Aucune connexion au réseau</string>
+  <string name="nearby_server_error">Impossible d’obtenir la liste des emplacements à proximité.</string>
+  <string name="nearby_no_location">Impossible d’obtenir l’emplacement</string>
+  <string name="nearby_dialog_goto_settings">Les mises à jour d’emplacement ne sont pas activées sur votre terminal. Voulez-vous aller sur les paramètres de votre appareil pour activer les mises à jour d’emplacement ?</string>
   <string name="last_updated_text">Dernière modification le %s</string>
   <string name="content_license_html">Le contenu est disponible sous &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
   <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -51,6 +62,7 @@
   <string name="menu_other_languages">Lire dans d’autres langues</string>
   <string name="langlinks_error_retry">Réessayer</string>
   <string name="langlinks_empty">Cette page n’est pas disponible dans d’autres langues</string>
+  <string name="langlinks_no_match">Aucune langue n’a été trouvée correspondant à votre requête.</string>
   <string name="settings_activity_title">Paramètres</string>
   <string name="langlinks_activity_title">Autres langues</string>
   <string name="menu_save_changes">Enregistrer les modifications</string>
@@ -87,7 +99,7 @@
   <string name="preference_summary_logout">Vous déconnecter de votre compte Wikipédia</string>
   <string name="preference_summary_notloggedin">Non connecté.</string>
   <string name="toast_logout_complete">Déconnecté</string>
-  <string name="saved_pages_empty_title" fuzzy="true">Pas encore de page enregistrée.</string>
+  <string name="saved_pages_empty_title">Pas de page enregistrée ici !</string>
   <string name="saved_pages_empty_message">Les pages enregistrées sont assez impressionnantes. Pensez à elles comme à des favoris que vous pourrez lire même en étant déconnecté.</string>
   <string name="history_empty_title">Aucune page récente ici.</string>
   <string name="history_empty_message">Vous les avez probablement toutes détruites. La prochaine fois que vous irez sur une page, vous pourrez y revenir en démarrant d’ici.</string>
@@ -113,6 +125,7 @@
   <string name="create_account_invalid_email_error">L’adresse électronique fournie n’est pas valide</string>
   <string name="create_account_password_too_short_error">Le mot de passe fourni est trop court</string>
   <string name="create_account_blocked_anon_error">Vous ne pouvez pas créer un compte parce que votre adresse IP est bloquée.</string>
+  <string name="create_account_blocked_error">Vous ne pouvez pas créer de compte car votre compte est bloqué.</string>
   <string name="create_account_password_name_match_error">Votre nom d’utilisateur et votre mot de passe doivent être différents.</string>
   <string name="create_account_generic_error">Impossible de créer le compte</string>
   <string name="create_account_no_network">Aucune connexion au réseau</string>
@@ -157,7 +170,7 @@
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
   <string name="editing_error_spamblacklist">Liens vers des domaines bloqués (%s) détectés. Veuillez les supprimer et réessayer.</string>
   <string name="history_search_list_hint">Rechercher</string>
-  <string name="history_search_empty_message" fuzzy="true">Aucune page trouvée correspondant à « %s »</string>
+  <string name="history_search_empty_message">Aucune page trouvée correspondant à votre requête.</string>
   <string name="error_can_not_process_link">Impossible d’afficher ce lien</string>
   <string name="page_protected_autoconfirmed">Cette page a été semi-protégée.</string>
   <string name="page_protected_sysop">Cette page a été entièrement protégée.</string>
@@ -221,6 +234,7 @@
   <string name="search_results_title">Rechercher des résultats</string>
   <string name="search_error_retry">Réessayer</string>
   <string name="search_redirect_title">Redirigé depuis « %s ».</string>
+  <string name="toc_hint">Balayer vers la gauche pour les sections, ou utiliser le bouton de menu en haut à droite.</string>
   <string name="toc_know_it">C’est bon !</string>
   <string name="app_store_description">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée. L’application a été réécrite de zéro et est meilleure que jamais.
 

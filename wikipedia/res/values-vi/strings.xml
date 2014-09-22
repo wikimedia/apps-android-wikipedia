@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="yes">Có</string>
   <string name="no">Không</string>
   <string name="acra_report_dialog_title">Wikipedia đã gặp sự cố :(</string>
@@ -17,6 +18,7 @@
   <string name="menu_clear_all_bookmarks">Xóa tất cả dấu trang</string>
   <string name="menu_clear_all_saved_pages">Xóa các trang đã lưu</string>
   <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
+  <string name="nav_item_today">Hôm nay</string>
   <string name="dialog_title_clear_history">Bạn muốn xóa lịch sử duyệt trang?</string>
   <string name="saved_pages_activity_title">Trang đã lưu</string>
   <string name="nav_item_saved_pages">Trang đã lưu</string>
@@ -37,7 +39,18 @@
   <string name="delete_selected_saved_pages">Xóa</string>
   <string name="toast_saved_page_deleted">Đã xóa (các) trang đã lưu</string>
   <string name="saved_pages_search_list_hint">Tìm kiếm</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">Không tìm thấy trang trùng với “%s”</string>
+  <string name="saved_pages_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
+  <string name="nearby_activity_title">Lân cận</string>
+  <string name="nav_item_nearby">Lân cận</string>
+  <string name="menu_update_nearby">Cập nhật danh sách lân cận</string>
+  <string name="nearby_empty_title">Không có trang lân cận</string>
+  <string name="nearby_empty_message">Bạn có thể làm mới trang này khi di chuyển đến một vị trí mới.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">Không có kết nối mạng</string>
+  <string name="nearby_server_error">Không thể lấy danh sách địa điểm lân cận.</string>
+  <string name="nearby_no_location">Không thể lấy vị trí</string>
+  <string name="nearby_dialog_goto_settings">Các cập nhật vị trí không được kích hoạt trên thiết bị của bạn. Bạn có muốn mở cài đặt của thiết bị này để kích hoạt các cập nhật vị trí?</string>
   <string name="last_updated_text">Cập nhật lần cuối vào %1$s</string>
   <string name="content_license_html">Nội dung được phát hành theo &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt; nếu không ghi giấy phép khác</string>
   <string name="edit_save_action_license_logged_in">Với việc lưu trang, bạn chấp nhận &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -49,6 +62,7 @@
   <string name="menu_other_languages">Đọc trong ngôn ngữ khác</string>
   <string name="langlinks_error_retry">Thử lại</string>
   <string name="langlinks_empty">Trang này không có sẵn trong ngôn ngữ khác</string>
+  <string name="langlinks_no_match">Không tìm thấy ngôn ngữ trùng với truy vấn của bạn.</string>
   <string name="settings_activity_title">Tùy chọn</string>
   <string name="langlinks_activity_title">Ngôn ngữ khác</string>
   <string name="menu_save_changes">Lưu các thay đổi</string>
@@ -85,10 +99,10 @@
   <string name="preference_summary_logout">Đăng xuất khỏi tài khoản Wikipedia của bạn</string>
   <string name="preference_summary_notloggedin">Chưa đăng nhập.</string>
   <string name="toast_logout_complete">Đã đăng xuất</string>
-  <string name="saved_pages_empty_title" fuzzy="true">Chưa lưu trang nào.</string>
+  <string name="saved_pages_empty_title">Không có trang lưu tại đây!</string>
   <string name="saved_pages_empty_message">Các trang đã lưu là giống như các dấu trang có thể đọc ngay cả khi ngoại tuyến.</string>
   <string name="history_empty_title">Đây không có trang gần đây.</string>
-  <string name="history_empty_message" fuzzy="true">Lịch sử của bạn còn trống.</string>
+  <string name="history_empty_message">Có lẽ bạn đã xóa toàn bộ. Lần sau xem một trang, trang sẽ xuất hiện tại đây để truy cập sau.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Bách khoa toàn thư mở</string>
   <string name="skip">Bỏ qua</string>
@@ -107,6 +121,12 @@
   <string name="create_account_username_exists_error">Tên người dùng đã được sử dụng</string>
   <string name="create_account_ip_throttle_error">Quá nhiều tài khoản được tạo ra dùng địa chỉ IP này. Hãy thử lại sau.</string>
   <string name="create_account_open_proxy_error">Địa chỉ IP này đã bị cấm không được mở tài khoản.</string>
+  <string name="create_account_noname_error">Bạn đã cung cấp một tên người dùng không hợp lệ. Xin vui lòng cung cấp một tên người dùng khác.</string>
+  <string name="create_account_invalid_email_error">Bạn đã cung cấp một địa chỉ thư điện tử không hợp lệ.</string>
+  <string name="create_account_password_too_short_error">Bạn đã cung cấp một mật khẩu ngắn quá.</string>
+  <string name="create_account_blocked_anon_error">Bạn không thể mở tài khoản vì địa chỉ IP của bạn bị cấm.</string>
+  <string name="create_account_blocked_error">Bạn không thể mở tài khoản vì tài khoản của bạn bị cấm.</string>
+  <string name="create_account_password_name_match_error">Tên người dùng và mật khẩu của bạn phải khác nhau.</string>
   <string name="create_account_generic_error">Không thể mở tài khoản</string>
   <string name="create_account_no_network">Không có kết nối mạng</string>
   <string name="create_account_next">Tiếp</string>
@@ -150,7 +170,7 @@
   <string name="preference_summary_eventlogging_opt_in">Cho phép Wikimedia thu thập thông tin về cách bạn sử dụng ứng dụng để giúp cải thiện ứng dụng</string>
   <string name="editing_error_spamblacklist">Đã tìm thấy các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
   <string name="history_search_list_hint">Tìm kiếm</string>
-  <string name="history_search_empty_message" fuzzy="true">Không tìm thấy trang trùng với “%s”</string>
+  <string name="history_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
   <string name="error_can_not_process_link">Không thể hiển thị liên kết này</string>
   <string name="page_protected_autoconfirmed">Trang này đã bị bán khóa.</string>
   <string name="page_protected_sysop">Trang này đã bị khóa hẳn.</string>
@@ -160,10 +180,15 @@
   <string name="more_item_preferences">Thêm</string>
   <string name="more_activity_title">Thêm</string>
   <string name="about_description">Giới thiệu về ứng dụng Wikipedia</string>
+  <string name="privacy_policy_description">Quy định về quyền riêng tư</string>
+  <string name="terms_of_use_description">Điều khoản sử dụng</string>
+  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Quy_định_quyền_riêng_tư?uselang=vi</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi</string>
   <string name="preference_title_version">Phiên bản</string>
   <string name="about_libraries_heading">thư viện được sử dụng</string>
   <string name="about_contributors_heading">người đóng góp</string>
   <string name="about_translators_heading">biên dịch viên</string>
+  <string name="about_translators_translatewiki">Ứng dụng này được biên dịch bởi những người tình nguyện tại &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Một sản phẩm của &lt;a href=\"http://wikimediafoundation.org/wiki/Trang_chủ?uselang=vi\"&gt;Quỹ Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Giới thiệu</string>
   <string name="edit_unchanged">Trang chưa được sửa đổi.</string>
@@ -189,13 +214,28 @@
   <string name="saved_pages_update_all_error_message">Có lỗi khi cập nhật các trang đã lưu</string>
   <string name="saved_pages_progress_title">Đang làm mới các trang đã lưu</string>
   <string name="saved_pages_refresh_pages_complete">Hoàn tất cập nhật</string>
+  <string name="menu_page_saved">Đã lưu trang</string>
+  <string name="menu_refresh_saved_page">Làm mới trang</string>
   <string name="abusefilter_title_warn">Sửa đổi này có vẻ không có tính xây dựng. Bạn có chắc chắn muốn lưu nó?</string>
   <string name="abusefilter_title_disallow">Bạn không thể lưu sửa đổi này. Vui lòng quay lại và thay đổi nó.</string>
+  <string name="abusefilter_text_warn">Một bộ lọc đã tự động nhận ra sửa đổi này là có thể không mang tính xây dựng. Nó có thể có một trong những vấn đề sau:&lt;br /&gt;&lt;br /&gt;· Viết tất cả bằng chữ hoa&lt;br /&gt;· Xóa trống hoặc đưa spam vào bài&lt;br /&gt;· Liên kết ngoài hoặc hình ảnh không có liên quan đến đề tài&lt;br /&gt;· Ký tự lặp lại</string>
+  <string name="abusefilter_text_disallow">Một bộ lọc đã tự động nhận ra sửa đổi này là có thể không mang tính xây dựng hoặc là sự phá hoại.&lt;br /&gt;&lt;br /&gt;Là một bách khoa toàn thư, Wikipedia chỉ chấp nhận các nội dung trung lập và nổi bật.</string>
+  <string name="dialog_page_issues">Vấn đề trang</string>
+  <string name="button_page_issues">Vấn đề trang</string>
   <string name="menu_themechooser">Phông chữ và thiết kế</string>
   <string name="text_size_select">Kích thước phông chữ</string>
   <string name="color_theme_select">Thiết kế</string>
   <string name="color_theme_light">Sáng</string>
   <string name="color_theme_dark">Tối</string>
+  <string name="page_similar_titles">Trang tương tự</string>
+  <string name="search_within_pages">Tìm trong trang…</string>
+  <string name="search_no_results">Không tìm thấy kết quả cho “%s”.</string>
+  <string name="search_showing_instead">Không tìm thấy kết quả cho “%1$s”. Đang hiển thị kết quả cho “%2$s”:</string>
+  <string name="search_results_title">Kết quả tìm kiếm</string>
+  <string name="search_error_retry">Thử lại</string>
+  <string name="search_redirect_title">Đổi hướng từ “%s”.</string>
+  <string name="toc_hint">Để xem các phần, vuốt trái hoặc bấm nút trình đơn ở góc phải bên trên.</string>
+  <string name="toc_know_it">Được rồi</string>
   <string name="app_store_description">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở với hơn 32 triệu mục từ trong 280 ngôn ngữ, và là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên. Ứng dụng này đã được viết mới hoàn toàn và là bản tốt nhất từ trước tới nay.
 
 Tính năng:
@@ -208,4 +248,6 @@ Tính năng:
  - Wikipedia Miễn phí: Không bị tính phí dữ liệu đối với một số nhà mạng có tham gia chương trình.
 
 Mã nguồn là hoàn toàn mở. Nếu bạn có kinh nghiệm với Java và Android SDK, hãy tham gia dự án với chúng tôi! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Có sẵn bản cập nhật alpha mới</string>
+  <string name="alpha_update_notification_text">Chạm để tải về</string>
 </resources>

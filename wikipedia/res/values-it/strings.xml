@@ -2,11 +2,12 @@
 <resources>
   <string name="app_name">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="yes">Sì</string>
   <string name="no">No</string>
   <string name="acra_report_dialog_title">Wikipedia si è bloccata :(</string>
   <string name="acra_report_dialog_text">Inviaci una segnalazione di arresto anomalo</string>
-  <string name="acra_report_dialog_comment">Cosa stavi facendo quando si è verificato il crash?</string>
+  <string name="acra_report_dialog_comment">Cosa stavi facendo quando si è verificato l\'arresto anomalo?</string>
   <string name="search_hint">Cerca su Wikipedia</string>
   <string name="history_activity_title">Cronologia</string>
   <string name="nav_item_history">Cronologia</string>
@@ -38,8 +39,13 @@
   <string name="delete_selected_saved_pages">Cancella</string>
   <string name="toast_saved_page_deleted">Pagine salvate cancellate</string>
   <string name="saved_pages_search_list_hint">Cerca</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">Nessuna pagina trovata che corrisponda a \'%s\'</string>
-  <string name="last_updated_text">Ultimo aggiornamento %1$s</string>
+  <string name="saved_pages_search_empty_message">Nessuna pagina trovata che corrisponda alla richiesta.</string>
+  <string name="nearby_activity_title">Nelle vicinanze</string>
+  <string name="nav_item_nearby">Nelle vicinanze</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">Nessuna connessione di rete</string>
+  <string name="last_updated_text">Ultimo aggiornamento %s</string>
   <string name="content_license_html">Il contenuto è disponibile in base alla &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt; se non diversamente specificato</string>
   <string name="edit_save_action_license_logged_in">Salvando, accetti le nostre &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/it\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Salvando, accetti le nostre &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/it\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt;. Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt; avrai maggiore privacy.</string>
@@ -50,6 +56,7 @@
   <string name="menu_other_languages">Leggi in altre lingue</string>
   <string name="langlinks_error_retry">Riprova</string>
   <string name="langlinks_empty">Questa pagina non è disponibile in altre lingue</string>
+  <string name="langlinks_no_match">Nessuna lingua trovata che corrisponda alla richiesta.</string>
   <string name="settings_activity_title">Impostazioni</string>
   <string name="langlinks_activity_title">Altre lingue</string>
   <string name="menu_save_changes">Salva le modifiche</string>
@@ -66,7 +73,7 @@
   <string name="title_captcha">Inserisci il captcha</string>
   <string name="edit_section_abusefilter_back_text">Apporta modifiche al mio contributo</string>
   <string name="edit_section_captcha_reload">Toccare il CAPTCHA per ricaricare</string>
-  <string name="edit_saved_page_refresh">Questa pagina salvata potrebbe essere obsoleta, e bisogna ricaricarla per abilitarne la modifica. Vuoi aggiornare la pagina?</string>
+  <string name="edit_saved_page_refresh">Questa pagina salvata potrebbe essere obsoleta, e bisogna ricaricarla per abilitarne la modifica. Vuoi ricaricare la pagina?</string>
   <string name="nav_item_login">Entra</string>
   <string name="login_username_hint">Nome utente</string>
   <string name="login_password_hint">Password</string>
@@ -86,9 +93,9 @@
   <string name="preference_summary_logout">Disconnettiti dalla tua utenza Wikipedia</string>
   <string name="preference_summary_notloggedin">Accesso non effettuato.</string>
   <string name="toast_logout_complete">Disconnesso</string>
-  <string name="saved_pages_empty_title" fuzzy="true">Nessuna pagina salvata ancora.</string>
+  <string name="saved_pages_empty_title">Nessuna pagina salvata qui!</string>
   <string name="saved_pages_empty_message">Le pagine salvate sono fantastiche. Considerale come preferiti che puoi leggere anche quando sei offline.</string>
-  <string name="history_empty_title">Nessuna pagina recente qui.</string>
+  <string name="history_empty_title">Nessuna pagina recente qui!</string>
   <string name="history_empty_message">Probabilmente hai cancellato tutto. La prossima volta che vai in una pagina, puoi tornarci da qui.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">L\'enciclopedia libera</string>
@@ -104,7 +111,7 @@
   <string name="create_account_email_hint">Email (opzionale)</string>
   <string name="create_account_password_repeat_hint">Reinserisci la password</string>
   <string name="create_account_passwords_mismatch_error">Le password non corrispondono</string>
-  <string name="create_account_email_error">Indirizzo email non valido.</string>
+  <string name="create_account_email_error">Indirizzo email non valido</string>
   <string name="create_account_username_exists_error">Nome utente già in uso</string>
   <string name="create_account_ip_throttle_error">Troppi account creati da questo indirizzo IP. Riprova più tardi.</string>
   <string name="create_account_open_proxy_error">Questo indirizzo IP è stato bloccato dalla creazione di account.</string>
@@ -151,7 +158,7 @@
   <string name="preference_summary_eventlogging_opt_in">Consenti a Wikimedia di raccogliere informazioni su come usi l\'applicazione per renderla migliore</string>
   <string name="editing_error_spamblacklist">È stato rilevato un collegamento ad un dominio bloccato (%s). Rimuovilo e prova ancora.</string>
   <string name="history_search_list_hint">Cerca</string>
-  <string name="history_search_empty_message" fuzzy="true">Nessuna pagina trovata che corrisponda a \'%s\'</string>
+  <string name="history_search_empty_message">Nessuna pagina trovata che corrisponda alla richiesta.</string>
   <string name="error_can_not_process_link">Impossibile visualizzare questo collegamento</string>
   <string name="page_protected_autoconfirmed">Questa pagina è stata semi-protetta.</string>
   <string name="page_protected_sysop">Questa pagina è stata protetta.</string>
@@ -203,9 +210,9 @@
   <string name="menu_themechooser">Cambia carattere e tema</string>
   <string name="text_size_select">Dimensione carattere</string>
   <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Luce</string>
+  <string name="color_theme_light">Chiaro</string>
   <string name="color_theme_dark">Scuro</string>
-  <string name="page_similar_titles" fuzzy="true">Altri significati</string>
+  <string name="page_similar_titles">Pagine simili</string>
   <string name="search_within_pages">Cerca all\'interno delle pagine…</string>
   <string name="search_no_results">Nessun risultato trovato per \"%s\".</string>
   <string name="search_results_title">Risultati della ricerca</string>
@@ -225,4 +232,6 @@ Caratteristiche:
 
 Il codice è interamente open source. Se hai esperienza con Java e l\'Android SDK, vieni a forkarci!
 https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Nuova aggiornamento alfa disponibile</string>
+  <string name="alpha_update_notification_text">Tocca per scaricare</string>
 </resources>

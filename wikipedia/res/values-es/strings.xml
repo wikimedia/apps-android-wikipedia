@@ -40,6 +40,8 @@
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
   <string name="saved_pages_search_list_hint">Buscar</string>
   <string name="saved_pages_search_empty_message" fuzzy="true">No se encontraron páginas que coincidan con «%s»</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="last_updated_text">Última actualización: %s</string>
   <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -109,6 +111,10 @@
   <string name="create_account_username_exists_error">El nombre de usuario ya está en uso</string>
   <string name="create_account_ip_throttle_error">Demasiadas cuentas creadas desde esta IP. Inténtalo más tarde.</string>
   <string name="create_account_open_proxy_error">Esta IP ha sido bloqueada para la creación de cuentas.</string>
+  <string name="create_account_noname_error">El nombre de usuario proporcionado no es válido. Escribe otro.</string>
+  <string name="create_account_invalid_email_error">La dirección de correo electrónico proporcionada no es válida.</string>
+  <string name="create_account_password_too_short_error">La contraseña proporcionada es demasiado corta.</string>
+  <string name="create_account_password_name_match_error">Tu nombre de usuario y contraseña deben ser diferentes.</string>
   <string name="create_account_generic_error">No se pudo crear la cuenta</string>
   <string name="create_account_no_network">No hay conexión de red</string>
   <string name="create_account_next">Siguiente</string>
@@ -209,13 +215,14 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Oscuro</string>
-  <string name="page_similar_titles" fuzzy="true">Títulos similares</string>
+  <string name="page_similar_titles">Páginas similares</string>
   <string name="search_within_pages">Buscar en las páginas...</string>
   <string name="search_no_results">No se encontraron resultados de \"%s\".</string>
   <string name="search_showing_instead">No se encontraron resultados de \"%1$s\". Se muestran los de \"%2$s\":</string>
   <string name="search_results_title">Resultados de la búsqueda</string>
   <string name="search_error_retry">Reintentar</string>
   <string name="search_redirect_title">Redirección desde \"%s\".</string>
+  <string name="toc_know_it">Entendido</string>
   <string name="app_store_description">Aplicación oficial de Wikipedia para Android. Wikipedia es la enciclopedia libre que contiene más de 32 millones de artículos en 280 idiomas y es el trabajo de referencia más completo y ampliamente usado que los humanos hayan recopilado. La aplicación ha sido reescrita desde cero y está mejor que nunca.
 
 Características:
@@ -228,4 +235,6 @@ Características:
    -Wikipedia Zero: cargos de datos omitidos para operadores móviles participantes.
 
 El código es completamente abierto. Si tienes experiencia con Java y el SDK de Android, ven a bifurnos! https://github.com/Wikimedia/apps-Android-Wikipedia</string>
+  <string name="alpha_update_notification_title">Hay una actualización alfa disponible</string>
+  <string name="alpha_update_notification_text">Toca para descargar</string>
 </resources>

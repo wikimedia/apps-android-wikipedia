@@ -85,7 +85,7 @@
   <string name="nav_item_logout">登出</string>
   <string name="preference_title_logout">登出</string>
   <string name="preference_summary_logout">登出您的維基百科帳戶</string>
-  <string name="preference_summary_notloggedin">未登入</string>
+  <string name="preference_summary_notloggedin">未登入。</string>
   <string name="toast_logout_complete">已登出</string>
   <string name="saved_pages_empty_title" fuzzy="true">尚未存儲頁面。</string>
   <string name="saved_pages_empty_message">存儲頁面很棒。試想一下你存爲書籤後即使在離線時也可以閱讀。</string>

@@ -40,6 +40,17 @@
   <string name="toast_saved_page_deleted">保存したページを削除しました</string>
   <string name="saved_pages_search_list_hint">検索</string>
   <string name="saved_pages_search_empty_message" fuzzy="true">「%s」に一致するページは見つかりませんでした</string>
+  <string name="nearby_activity_title">付近のスポット</string>
+  <string name="nav_item_nearby">付近のスポット</string>
+  <string name="menu_update_nearby">付近のスポットを更新</string>
+  <string name="nearby_empty_title">付近のスポットについてのページはありません</string>
+  <string name="nearby_empty_message">新しい場所に移動するとこのページを更新できます</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">ネットワーク接続がありません</string>
+  <string name="nearby_server_error">付近のスポットのリストを取得できませんでした</string>
+  <string name="nearby_no_location">位置情報を取得できませんでした</string>
+  <string name="nearby_dialog_goto_settings">お使いのデバイスでは位置情報の更新が無効になっています。デバイスの [設定] に移動して位置情報の更新を有効にしますか?</string>
   <string name="last_updated_text">最終更新: %s</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
   <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
@@ -87,7 +98,7 @@
   <string name="preference_summary_logout">ウィキペディアのアカウントからログアウト</string>
   <string name="preference_summary_notloggedin">ログインしていません</string>
   <string name="toast_logout_complete">ログアウトしました</string>
-  <string name="saved_pages_empty_title" fuzzy="true">保存されたページはありません。</string>
+  <string name="saved_pages_empty_title">保存したページはありません</string>
   <string name="saved_pages_empty_message">保存したページはすごい機能です! オフライン時にも読める、ブックマークのようなものだとお考えください。</string>
   <string name="history_empty_title">履歴はまだありません。</string>
   <string name="history_empty_message">すべて削除したのかもしれません。他のページに行った後にここへ戻ってみてください。</string>
@@ -109,6 +120,12 @@
   <string name="create_account_username_exists_error">既に使用されている利用者名です</string>
   <string name="create_account_ip_throttle_error">この IP アドレスからのアカウント作成が多すぎます。しばらくしてから再試行してください</string>
   <string name="create_account_open_proxy_error">この IP アドレスはアカウント作成についてはブロックされています</string>
+  <string name="create_account_noname_error">入力したユーザー名は無効です。別のユーザー名を入力してください。</string>
+  <string name="create_account_invalid_email_error">入力したメールアドレスは無効です。</string>
+  <string name="create_account_password_too_short_error">パスワードが短すぎます。</string>
+  <string name="create_account_blocked_anon_error">IPアドレスがブロックされておりアカウントを作成できません。</string>
+  <string name="create_account_blocked_error">あなたのアカウントはブロックされており、アカウントを作成できません。</string>
+  <string name="create_account_password_name_match_error">ユーザー名とパスワードは同一にできません。</string>
   <string name="create_account_generic_error">アカウントを作成できませんでした</string>
   <string name="create_account_no_network">ネットワーク接続がありません</string>
   <string name="create_account_next">次へ</string>
@@ -152,7 +169,7 @@
   <string name="preference_summary_eventlogging_opt_in">このアプリの改善に役立てるため、ウィキメディアがアプリの使用情報を収集することを許可する</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
   <string name="history_search_list_hint">検索</string>
-  <string name="history_search_empty_message" fuzzy="true">「%s」に一致するページは見つかりませんでした</string>
+  <string name="history_search_empty_message">キーワードに一致するページが見つかりませんでした</string>
   <string name="error_can_not_process_link">このリンクを表示できませんでした。</string>
   <string name="page_protected_autoconfirmed">このページは半保護されています。</string>
   <string name="page_protected_sysop">このページは全保護されています。</string>
@@ -209,13 +226,15 @@
   <string name="color_theme_select">テーマ</string>
   <string name="color_theme_light">明るめ</string>
   <string name="color_theme_dark">暗め</string>
-  <string name="page_similar_titles" fuzzy="true">他の意味</string>
+  <string name="page_similar_titles">類似したページ</string>
   <string name="search_within_pages">ページ内を検索…</string>
   <string name="search_no_results">「%s」に対する検索結果はありません</string>
   <string name="search_showing_instead">「%1$s」に対する検索結果はありません。代わりに「%2$s」の結果を表示します：</string>
   <string name="search_results_title">検索結果</string>
   <string name="search_error_retry">再試行</string>
   <string name="search_redirect_title">「%s」からの転送</string>
+  <string name="toc_hint">左向きにスワイプで節見出しが出ます。右上にはメニューボタンがあります。</string>
+  <string name="toc_know_it">了解</string>
   <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。このバージョンではゼロから書きなおされ、これまでで最良のものになりました。
 
 機能:
@@ -229,4 +248,5 @@
 
 コードは完全にオープンソースです。JavaとAndroid SDKの経験をお持ちであれば、ぜひフォークしましょう！
 https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_text">タップでダウンロード</string>
 </resources>
