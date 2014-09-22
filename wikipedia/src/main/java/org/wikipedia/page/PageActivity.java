@@ -8,38 +8,32 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.Window;
+
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+import org.wikipedia.*;
 import org.wikipedia.events.*;
-import org.wikipedia.nearby.NearbyActivity;
 import org.wikipedia.onboarding.OnboardingActivity;
-import org.wikipedia.savedpages.SavedPagesActivity;
-import org.wikipedia.NavDrawerFragment;
-import org.wikipedia.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.Site;
-import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.history.HistoryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.recurring.RecurringTasksExecutor;
+import org.wikipedia.search.FullSearchFragment;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
 
-public class PageActivity extends FragmentActivity {
+public class PageActivity extends ThemedActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
@@ -48,15 +42,13 @@ public class PageActivity extends FragmentActivity {
     private static final String KEY_LAST_FRAGMENT = "lastFragment";
     private static final String KEY_LAST_FRAGMENT_ARGS = "lastFragmentArgs";
 
-    public static final int ACTIVITY_REQUEST_HISTORY = 0;
-    public static final int ACTIVITY_REQUEST_SAVEDPAGES = 1;
-    public static final int ACTIVITY_REQUEST_LANGLINKS = 2;
-    public static final int ACTIVITY_REQUEST_NEARBY = 3;
-    public static final int ACTIVITY_REQUEST_EDIT_SECTION = 4;
+    public static final int ACTIVITY_REQUEST_LANGLINKS = 0;
+    public static final int ACTIVITY_REQUEST_EDIT_SECTION = 1;
 
     private Bus bus;
     private WikipediaApp app;
 
+    private View fragmentContainerView;
     private SearchArticlesFragment searchArticlesFragment;
     private DrawerLayout drawerLayout;
     private NavDrawerFragment fragmentNavdrawer;
@@ -100,7 +92,6 @@ public class PageActivity extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         app = (WikipediaApp) getApplicationContext();
         setTheme(app.getCurrentTheme());
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         requestWindowFeature(Window.FEATURE_ACTION_MODE_OVERLAY);
         super.onCreate(savedInstanceState);
 
@@ -128,6 +119,8 @@ public class PageActivity extends FragmentActivity {
         searchArticlesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navdrawer);
+
+        fragmentContainerView = findViewById(R.id.content_fragment_container);
 
         searchArticlesFragment.setDrawerLayout(drawerLayout);
 
@@ -229,6 +222,14 @@ public class PageActivity extends FragmentActivity {
      */
     public void popFragment() {
         getSupportFragmentManager().popBackStack();
+    }
+
+    public void searchFullText(final String searchTerm) {
+        if (getTopFragment() instanceof FullSearchFragment) {
+            ((FullSearchFragment)getTopFragment()).newSearch(searchTerm);
+        } else {
+            pushFragment(FullSearchFragment.newInstance(searchTerm));
+        }
     }
 
     private void displayNewPage(final PageTitle title, final HistoryEntry entry) {
@@ -523,17 +524,19 @@ public class PageActivity extends FragmentActivity {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         if (bus == null) {
             bus = app.getBus();
             bus.register(this);
             Log.d("Wikipedia", "Registering bus");
         }
-        if ((requestCode == ACTIVITY_REQUEST_HISTORY && resultCode == HistoryActivity.ACTIVITY_RESULT_HISTORY_SELECT)
-            || (requestCode == ACTIVITY_REQUEST_SAVEDPAGES && resultCode == SavedPagesActivity.ACTIVITY_RESULT_SAVEDPAGE_SELECT)
-            || (requestCode == ACTIVITY_REQUEST_NEARBY && resultCode == NearbyActivity.ACTIVITY_RESULT_NEARBY_SELECT)
-            || (requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT)) {
-            handleIntent(data);
+        if ((requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT)) {
+            fragmentContainerView.post(new Runnable() {
+                @Override
+                public void run() {
+                    handleIntent(data);
+                }
+            });
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }

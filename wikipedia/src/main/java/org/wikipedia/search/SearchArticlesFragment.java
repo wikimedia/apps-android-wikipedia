@@ -35,6 +35,7 @@ import org.wikipedia.events.ShowToCEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActionsHandler;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PopupMenu;
 
 import java.util.List;
@@ -151,7 +152,8 @@ public class SearchArticlesFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Utils.hideSoftKeyboard(getActivity());
-                (new FullSearchDialog(SearchArticlesFragment.this, searchTermText.getText().toString())).show();
+                hideSearchResults();
+                ((PageActivity)getActivity()).searchFullText(searchTermText.getText().toString());
             }
         });
 
@@ -216,7 +218,8 @@ public class SearchArticlesFragment extends Fragment {
                             PageTitle title = new PageTitle(searchTermText.getText().toString(), app.getPrimarySite());
                             navigateToTitle(title);
                         } else {
-                            (new FullSearchDialog(SearchArticlesFragment.this, searchTermText.getText().toString())).show();
+                            hideSearchResults();
+                            ((PageActivity)getActivity()).searchFullText(searchTermText.getText().toString());
                         }
                     } else {
                         hideSearchResults();

@@ -13,13 +13,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import org.wikipedia.analytics.LoginFunnel;
-import org.wikipedia.nearby.NearbyActivity;
-import org.wikipedia.savedpages.SavedPagesActivity;
+import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.events.RequestMainPageEvent;
-import org.wikipedia.history.HistoryActivity;
 import org.wikipedia.login.LoginActivity;
+import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.random.RandomHandler;
+import org.wikipedia.savedpages.SavedPagesFragment;
 import org.wikipedia.settings.SettingsActivity;
 
 public class NavDrawerFragment extends Fragment implements View.OnClickListener {
@@ -136,16 +136,13 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 app.getBus().post(new RequestMainPageEvent());
                 break;
             case R.id.nav_item_history:
-                intent.setClass(this.getActivity(), HistoryActivity.class);
-                getActivity().startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_HISTORY);
+                ((PageActivity)getActivity()).pushFragment(new HistoryFragment());
                 break;
             case R.id.nav_item_saved_pages:
-                intent.setClass(this.getActivity(), SavedPagesActivity.class);
-                getActivity().startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_SAVEDPAGES);
+                ((PageActivity)getActivity()).pushFragment(new SavedPagesFragment());
                 break;
             case R.id.nav_item_nearby:
-                intent.setClass(this.getActivity(), NearbyActivity.class);
-                getActivity().startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_NEARBY);
+                ((PageActivity)getActivity()).pushFragment(new NearbyFragment());
                 break;
             case R.id.nav_item_more:
                 intent.setClass(this.getActivity(), SettingsActivity.class);

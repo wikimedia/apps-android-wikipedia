@@ -1,31 +1,33 @@
 package org.wikipedia.search;
 
-import android.app.Dialog;
-import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.Html;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.*;
 import com.squareup.picasso.Picasso;
 import org.wikipedia.*;
+import org.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImagesTask;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class FullSearchDialog extends Dialog {
+public class FullSearchFragment extends Fragment {
+    private static final String KEY_SEARCH_TERM = "searchTerm";
 
     private WikipediaApp app;
 
-    private SearchArticlesFragment parentFragment;
     private View searchResultsContainer;
     private ListView searchResultsList;
     private SearchResultAdapter adapter;
     private TextView resultsStatusText;
-    private String searchTerm;
+    private String searchTermCurrent;
     private String searchTermOriginal;
 
     private View searchFailedContainer;
@@ -42,64 +44,90 @@ public class FullSearchDialog extends Dialog {
     private ParcelableLruCache<String> pageImagesCache
             = new ParcelableLruCache<String>(MAX_CACHE_SIZE_IMAGES, String.class);
 
-    public FullSearchDialog(SearchArticlesFragment parent, String searchTerm) {
-        super(parent.getActivity());
-        this.parentFragment = parent;
-        this.searchTerm = searchTerm;
-        this.searchTermOriginal = searchTerm;
+    public static FullSearchFragment newInstance(String searchTerm) {
+        FullSearchFragment f = new FullSearchFragment();
+        Bundle args = new Bundle();
+        args.putString(KEY_SEARCH_TERM, searchTerm);
+        f.setArguments(args);
+        return f;
+    }
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
+        setHasOptionsMenu(true);
+        searchTermOriginal = getArguments().getString(KEY_SEARCH_TERM);
+    }
 
-        LayoutInflater inflater = (LayoutInflater) parent.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View dlgLayout = inflater.inflate(R.layout.dialog_search_results, null);
-        setContentView(dlgLayout);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_search_results, container, false);
 
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.copyFrom(getWindow().getAttributes());
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
-        getWindow().setAttributes(lp);
-        //getWindow().setBackgroundDrawableResource(Utils.getThemedAttributeId(parent.getActivity(), R.attr.window_background_color));
-
-        setTitle(app.getString(R.string.search_results_title));
-
-        searchResultsContainer = dlgLayout.findViewById(R.id.search_results_container);
-        searchResultsList = (ListView) dlgLayout.findViewById(R.id.full_search_results_list);
+        searchResultsContainer = rootView.findViewById(R.id.search_results_container);
+        searchResultsList = (ListView) rootView.findViewById(R.id.full_search_results_list);
 
         searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                parentFragment.navigateToTitle(((FullSearchResult) searchResultsList.getAdapter().getItem(position)).getTitle());
-                dismiss();
+                PageTitle title = ((FullSearchResult) searchResultsList.getAdapter().getItem(position)).getTitle();
+                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
+                app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
             }
         });
 
         adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
-        resultsStatusText = (TextView) dlgLayout.findViewById(R.id.search_results_status);
-        searchFailedText = (TextView) dlgLayout.findViewById(R.id.search_failed_text);
-        searchFailedContainer = dlgLayout.findViewById(R.id.search_failed_container);
+        resultsStatusText = (TextView) rootView.findViewById(R.id.search_results_status);
+        searchFailedText = (TextView) rootView.findViewById(R.id.search_failed_text);
+        searchFailedContainer = rootView.findViewById(R.id.search_failed_container);
 
-        searchRetryButton = dlgLayout.findViewById(R.id.search_retry_button);
+        searchRetryButton = rootView.findViewById(R.id.search_retry_button);
         searchRetryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                doSearch(FullSearchDialog.this.searchTerm, false, 0);
+                doSearch(searchTermCurrent, false, 0);
             }
         });
 
-        searchProgressBar = dlgLayout.findViewById(R.id.search_progress_bar);
+        searchProgressBar = rootView.findViewById(R.id.search_progress_bar);
 
+        return rootView;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         totalResults = new ArrayList<FullSearchResult>();
         adapter.setResults(totalResults);
 
-        doSearch(searchTerm, false, 0);
+        // if we already have a search term, then we must have been restored from state or backstack
+        if (!TextUtils.isEmpty(searchTermOriginal)) {
+            doSearch(searchTermOriginal, false, 0);
+        }
+    }
+
+    public void newSearch(final String searchTerm) {
+        //update this fragment's arguments...
+        getArguments().putString(KEY_SEARCH_TERM, searchTerm);
+        //if we're already attached, then do the search...
+        if (isAdded()) {
+            doSearch(searchTerm, false, 0);
+        }
     }
 
     private void doSearch(final String searchTerm, final boolean fromSuggestion, final int continueOffset) {
+        if (!fromSuggestion) {
+            this.searchTermCurrent = searchTerm;
+            this.searchTermOriginal = searchTerm;
+        }
+
         (new FullSearchArticlesTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, continueOffset) {
             @Override
             public void onFinish(FullSearchResults results) {
+                if (!isAdded()) {
+                    return;
+                }
                 lastResults = results;
                 totalResults.addAll(lastResults.getResults());
 
@@ -109,7 +137,7 @@ public class FullSearchDialog extends Dialog {
                 if (lastResults.getResults().size() == 0) {
                     searchResultsContainer.setVisibility(View.GONE);
                     searchFailedContainer.setVisibility(View.VISIBLE);
-                    searchFailedText.setText(app.getString(R.string.search_no_results, FullSearchDialog.this.searchTerm));
+                    searchFailedText.setText(app.getString(R.string.search_no_results, searchTermCurrent));
                     searchRetryButton.setVisibility(View.GONE);
                 } else {
                     searchResultsContainer.setVisibility(View.VISIBLE);
@@ -130,10 +158,13 @@ public class FullSearchDialog extends Dialog {
 
             @Override
             public void onCatch(Throwable caught) {
+                if (!isAdded()) {
+                    return;
+                }
                 if (caught instanceof FullSearchSuggestionException) {
                     if (!fromSuggestion) {
-                        FullSearchDialog.this.searchTerm = ((FullSearchSuggestionException) caught).getSuggestion();
-                        doSearch(FullSearchDialog.this.searchTerm, true, 0);
+                        searchTermCurrent = ((FullSearchSuggestionException) caught).getSuggestion();
+                        doSearch(searchTermCurrent, true, 0);
                     }
                 } else {
                     if (continueOffset == 0) {
@@ -143,7 +174,7 @@ public class FullSearchDialog extends Dialog {
                         searchFailedText.setText(app.getString(R.string.error_network_error));
                         searchRetryButton.setVisibility(View.VISIBLE);
                     } else {
-                        Toast.makeText(parentFragment.getActivity(), parentFragment.getString(R.string.error_network_error), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), getString(R.string.error_network_error), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -255,7 +286,7 @@ public class FullSearchDialog extends Dialog {
             //...and lastly, if we've scrolled to the last item in the list, then
             //continue searching!
             if (position == results.size() - 1 && lastResults.getContinueOffset() > 0) {
-                doSearch(searchTerm, false, lastResults.getContinueOffset());
+                doSearch(searchTermCurrent, false, lastResults.getContinueOffset());
             }
 
             return convertView;

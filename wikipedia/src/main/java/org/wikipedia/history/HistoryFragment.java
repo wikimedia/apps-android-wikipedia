@@ -3,20 +3,17 @@ package org.wikipedia.history;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -24,17 +21,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import org.wikipedia.R;
-import org.wikipedia.ThemedActionBarActivity;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.pageimages.PageImage;
 
 import java.text.DateFormat;
 import java.util.Date;
 
-public class HistoryActivity extends ThemedActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
-    public static final int ACTIVITY_RESULT_HISTORY_SELECT = 1;
+public class HistoryFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private ListView historyEntryList;
     private View historyEmptyContainer;
@@ -47,16 +41,28 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        app = (WikipediaApp)getApplicationContext();
+        app = WikipediaApp.getInstance();
+        setHasOptionsMenu(true);
+    }
 
-        setContentView(R.layout.activity_history);
-        historyEntryList = (ListView) findViewById(R.id.history_entry_list);
-        historyEmptyContainer = findViewById(R.id.history_empty_container);
-        historyEmptyTitle = (TextView) findViewById(R.id.history_empty_title);
-        historyEmptyMessage = (TextView) findViewById(R.id.history_empty_message);
-        entryFilter = (EditText) findViewById(R.id.history_search_list);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_history, container, false);
 
-        adapter = new HistoryEntryAdapter(this, null, true);
+        historyEntryList = (ListView) rootView.findViewById(R.id.history_entry_list);
+        historyEmptyContainer = rootView.findViewById(R.id.history_empty_container);
+        historyEmptyTitle = (TextView) rootView.findViewById(R.id.history_empty_title);
+        historyEmptyMessage = (TextView) rootView.findViewById(R.id.history_empty_message);
+        entryFilter = (EditText) rootView.findViewById(R.id.history_search_list);
+
+        app.adjustDrawableToTheme(((ImageView) rootView.findViewById(R.id.history_empty_image)).getDrawable());
+        return rootView;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        adapter = new HistoryEntryAdapter(getActivity(), null, true);
         historyEntryList.setAdapter(adapter);
         historyEntryList.setEmptyView(historyEmptyContainer);
 
@@ -74,13 +80,11 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
 
                     @Override
                     public void afterTextChanged(Editable editable) {
-                        getSupportLoaderManager().restartLoader(0, null, HistoryActivity.this);
+                        getActivity().getSupportLoaderManager().restartLoader(0, null, HistoryFragment.this);
                         if (editable.length() == 0) {
                             historyEmptyTitle.setText(R.string.history_empty_title);
                             historyEmptyMessage.setVisibility(View.VISIBLE);
                         } else {
-                            //getString() is now redundant because this message no longer has any parameters
-                            //Left in for backwards compatibility until all version of this message are translated
                             historyEmptyTitle.setText(getString(R.string.history_search_empty_message, editable.toString()));
                             historyEmptyMessage.setVisibility(View.GONE);
                         }
@@ -92,29 +96,25 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     HistoryEntry oldEntry = (HistoryEntry) view.getTag();
                     HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
-
-                    Intent intent = new Intent();
-                    intent.setClass(HistoryActivity.this, PageActivity.class);
-                    intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-                    intent.putExtra(PageActivity.EXTRA_PAGETITLE, oldEntry.getTitle());
-                    intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, newEntry);
-                    setResult(ACTIVITY_RESULT_HISTORY_SELECT, intent);
-                    finish();
+                    app.getBus().post(new NewWikiPageNavigationEvent(oldEntry.getTitle(), newEntry));
                 }
             });
 
-        getSupportLoaderManager().initLoader(0, null, this);
-        app.adjustDrawableToTheme(((ImageView) findViewById(R.id.history_empty_image)).getDrawable());
+        getActivity().getSupportLoaderManager().initLoader(0, null, this);
+        getActivity().getSupportLoaderManager().restartLoader(0, null, this);
     }
 
     @Override
-    public void onPause() {
-        Utils.hideSoftKeyboard(this);
-        super.onPause();
+    public void onDestroyView() {
+        getActivity().getSupportLoaderManager().destroyLoader(0);
+        super.onDestroyView();
     }
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+        if (!isAdded()) {
+            return null;
+        }
         String selection = null;
         String[] selectionArgs = null;
         historyEmptyContainer.setVisibility(View.GONE);
@@ -126,7 +126,7 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
             selectionArgs = new String[]{"%" + searchStr + "%"};
         }
         return new CursorLoader(
-                this,
+                getActivity(),
                 Uri.parse(HistoryEntry.PERSISTANCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTANCE_HELPER.getTableName()),
                 null,
                 selection,
@@ -136,8 +136,11 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoaderLoader, Cursor cursorLoader) {
+        if (!isAdded()) {
+            return;
+        }
         adapter.swapCursor(cursorLoader);
-        supportInvalidateOptionsMenu();
+        getActivity().supportInvalidateOptionsMenu();
     }
 
     @Override
@@ -152,7 +155,7 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
 
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-            return getLayoutInflater().inflate(R.layout.item_history_entry, viewGroup, false);
+            return getActivity().getLayoutInflater().inflate(R.layout.item_history_entry, viewGroup, false);
         }
 
         private String getDateString(Date date) {
@@ -194,7 +197,7 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
             source.setImageResource(getImageForSource(entry.getSource()));
             view.setTag(entry);
 
-            Picasso.with(HistoryActivity.this)
+            Picasso.with(getActivity())
                     .load(cursor.getString(HistoryEntryContentProvider.COL_INDEX_IMAGE))
                     .placeholder(R.drawable.ic_pageimage_placeholder)
                     .error(R.drawable.ic_pageimage_placeholder)
@@ -221,28 +224,28 @@ public class HistoryActivity extends ThemedActionBarActivity implements LoaderMa
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_history, menu);
-        MenuItem clearAllItem = menu.findItem(R.id.menu_clear_all_history);
-        clearAllItem.setVisible(historyEntryList.getCount() > 0);
-        app.adjustDrawableToTheme(clearAllItem.getIcon());
-        return true;
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_history, menu);
+        app.adjustDrawableToTheme(menu.findItem(R.id.menu_clear_all_history).getIcon());
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
+    public void onPrepareOptionsMenu(Menu menu) {
+        if (historyEntryList == null) {
+            // in API10 this may be called before onCreateView...
+            return;
+        }
         menu.findItem(R.id.menu_clear_all_history).setEnabled(historyEntryList.getCount() > 0);
-        return super.onPrepareOptionsMenu(menu);
+        super.onPrepareOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
-                return true;
+                return false;
             case R.id.menu_clear_all_history:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setMessage(R.string.dialog_title_clear_history);
                 builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override

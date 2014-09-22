@@ -3,35 +3,31 @@ package org.wikipedia.savedpages;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.view.ActionMode;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.SparseBooleanArray;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.*;
 import com.squareup.picasso.Picasso;
 import org.wikipedia.R;
-import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
 
 import java.util.ArrayList;
 
-public class SavedPagesActivity extends ThemedActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
-    public static final int ACTIVITY_RESULT_SAVEDPAGE_SELECT = 1;
+public class SavedPagesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private ListView savedPagesList;
     private View savedPagesEmptyContainer;
@@ -48,17 +44,27 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        app = (WikipediaApp)getApplicationContext();
+        app = WikipediaApp.getInstance();
+        setHasOptionsMenu(true);
+    }
 
-        setContentView(R.layout.activity_saved_pages);
-        savedPagesList = (ListView) findViewById(R.id.saved_pages_list);
-        savedPagesEmptyContainer = findViewById(R.id.saved_pages_empty_container);
-        savedPagesEmptyTitle = (TextView) findViewById(R.id.saved_pages_empty_title);
-        savedPagesEmptyMessage = (TextView) findViewById(R.id.saved_pages_empty_message);
-        entryFilter = (EditText) findViewById(R.id.saved_pages_search_list);
-        savedPagesEmptyImage = (ImageView) findViewById(R.id.saved_pages_empty_image);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_saved_pages, container, false);
 
-        adapter = new SavedPagesAdapter(this, null, true);
+        savedPagesList = (ListView) rootView.findViewById(R.id.saved_pages_list);
+        savedPagesEmptyContainer = rootView.findViewById(R.id.saved_pages_empty_container);
+        savedPagesEmptyTitle = (TextView) rootView.findViewById(R.id.saved_pages_empty_title);
+        savedPagesEmptyMessage = (TextView) rootView.findViewById(R.id.saved_pages_empty_message);
+        entryFilter = (EditText) rootView.findViewById(R.id.saved_pages_search_list);
+        savedPagesEmptyImage = (ImageView) rootView.findViewById(R.id.saved_pages_empty_image);
+        return rootView;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        adapter = new SavedPagesAdapter(getActivity(), null, true);
         savedPagesList.setAdapter(adapter);
         savedPagesList.setEmptyView(savedPagesEmptyContainer);
 
@@ -69,7 +75,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
                     return false;
                 }
                 savedPagesList.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
-                actionMode = startSupportActionMode(new ActionMode.Callback() {
+                actionMode = ((ActionBarActivity)getActivity()).startSupportActionMode(new ActionMode.Callback() {
                     @Override
                     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                         mode.getMenuInflater().inflate(R.menu.menu_saved_pages_context, menu);
@@ -104,10 +110,10 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
                         for (int i = 0; i < checkedItems.size(); i++) {
                             if (checkedItems.valueAt(i)) {
                                 final SavedPage page = SavedPage.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
-                                new DeleteSavedPageTask(SavedPagesActivity.this, page) {
+                                new DeleteSavedPageTask(getActivity(), page) {
                                     @Override
                                     public void onFinish(Boolean result) {
-                                        Toast.makeText(SavedPagesActivity.this, R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getActivity(), R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
                                     }
                                 }.execute();
                             }
@@ -143,14 +149,12 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
 
                     @Override
                     public void afterTextChanged(Editable editable) {
-                        getSupportLoaderManager().restartLoader(0, null, SavedPagesActivity.this);
+                        getActivity().getSupportLoaderManager().restartLoader(0, null, SavedPagesFragment.this);
                         if (editable.length() == 0) {
                             savedPagesEmptyTitle.setText(R.string.saved_pages_empty_title);
                             savedPagesEmptyImage.setVisibility(View.VISIBLE);
                             savedPagesEmptyMessage.setVisibility(View.VISIBLE);
                         } else {
-                            //getString() is now redundant because this message no longer has any parameters
-                            //Left in for backwards compatibility until all version of this message are translated
                             savedPagesEmptyTitle.setText(getString(R.string.saved_pages_search_empty_message, editable.toString()));
                             savedPagesEmptyImage.setVisibility(View.GONE);
                             savedPagesEmptyMessage.setVisibility(View.GONE);
@@ -165,24 +169,28 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
                 if (actionMode == null) {
                     SavedPage savedPage = (SavedPage) view.getTag();
                     HistoryEntry newEntry = new HistoryEntry(savedPage.getTitle(), HistoryEntry.SOURCE_SAVED_PAGE);
-
-                    Intent intent = new Intent();
-                    intent.setClass(SavedPagesActivity.this, PageActivity.class);
-                    intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-                    intent.putExtra(PageActivity.EXTRA_PAGETITLE, savedPage.getTitle());
-                    intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, newEntry);
-                    setResult(ACTIVITY_RESULT_SAVEDPAGE_SELECT, intent);
-                    finish();
+                    app.getBus().post(new NewWikiPageNavigationEvent(savedPage.getTitle(), newEntry));
                 }
             }
         });
 
-        getSupportLoaderManager().initLoader(0, null, this);
         app.adjustDrawableToTheme(savedPagesEmptyImage.getDrawable());
+
+        getActivity().getSupportLoaderManager().initLoader(0, null, this);
+        getActivity().getSupportLoaderManager().restartLoader(0, null, this);
+    }
+
+    @Override
+    public void onDestroyView() {
+        getActivity().getSupportLoaderManager().destroyLoader(0);
+        super.onDestroyView();
     }
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+        if (!isAdded()) {
+            return null;
+        }
         String selection = null;
         String[] selectionArgs = null;
         savedPagesEmptyContainer.setVisibility(View.GONE);
@@ -194,7 +202,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
             selectionArgs = new String[]{"%" + searchStr + "%"};
         }
         return new CursorLoader(
-                this,
+                getActivity(),
                 Uri.parse(SavedPage.PERSISTANCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTANCE_HELPER.getTableName()),
                 null,
                 selection,
@@ -204,8 +212,11 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoaderLoader, Cursor cursorLoader) {
+        if (!isAdded()) {
+            return;
+        }
         adapter.swapCursor(cursorLoader);
-        supportInvalidateOptionsMenu();
+        getActivity().supportInvalidateOptionsMenu();
     }
 
     @Override
@@ -220,7 +231,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
 
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-            return getLayoutInflater().inflate(R.layout.item_saved_page_entry, viewGroup, false);
+            return getActivity().getLayoutInflater().inflate(R.layout.item_saved_page_entry, viewGroup, false);
         }
 
         @Override
@@ -231,7 +242,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
 
-            Picasso.with(SavedPagesActivity.this)
+            Picasso.with(getActivity())
                     .load(cursor.getString(SavedPageContentProvider.COL_INDEX_IMAGE))
                     .placeholder(R.drawable.ic_pageimage_placeholder)
                     .error(R.drawable.ic_pageimage_placeholder)
@@ -257,26 +268,28 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_saved_pages, menu);
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_saved_pages, menu);
         app.adjustDrawableToTheme(menu.findItem(R.id.menu_refresh_all_saved_pages).getIcon());
         app.adjustDrawableToTheme(menu.findItem(R.id.menu_clear_all_saved_pages).getIcon());
-        return true;
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menu_clear_all_saved_pages).setVisible(savedPagesList.getCount() > 0);
-        menu.findItem(R.id.menu_refresh_all_saved_pages).setVisible(savedPagesList.getCount() > 0);
-        return super.onPrepareOptionsMenu(menu);
+    public void onPrepareOptionsMenu(Menu menu) {
+        if (savedPagesList == null) {
+            // in API10 this may be called before onCreateView...
+            return;
+        }
+        menu.findItem(R.id.menu_clear_all_saved_pages).setEnabled(savedPagesList.getCount() > 0);
+        menu.findItem(R.id.menu_refresh_all_saved_pages).setEnabled(savedPagesList.getCount() > 0);
+        super.onPrepareOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
-                return true;
+                return false;
             case R.id.menu_refresh_all_saved_pages:
                 promptToRefreshAll();
                 return true;
@@ -289,7 +302,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
     }
 
     private void promptToRefreshAll() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(R.string.dialog_prompt_refresh_all_saved_pages);
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             @Override
@@ -302,15 +315,15 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
     }
 
     private void promptToDeleteAll() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(R.string.dialog_title_clear_saved_pages);
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                new DeleteAllSavedPagesTask(SavedPagesActivity.this) {
+                new DeleteAllSavedPagesTask(getActivity()) {
                     @Override
                     public void onFinish(Void v) {
-                        Toast.makeText(SavedPagesActivity.this, R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
                     }
                 }.execute();
             }
@@ -328,7 +341,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
                 savedPages.add(page);
             }
         }
-        refreshHandler = new RefreshPagesHandler(SavedPagesActivity.this, savedPages);
+        refreshHandler = new RefreshPagesHandler(getActivity(), savedPages);
         refreshHandler.refresh();
     }
 
@@ -338,7 +351,7 @@ public class SavedPagesActivity extends ThemedActionBarActivity implements Loade
             SavedPage page = SavedPage.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(i));
             savedPages.add(page);
         }
-        refreshHandler = new RefreshPagesHandler(SavedPagesActivity.this, savedPages);
+        refreshHandler = new RefreshPagesHandler(getActivity(), savedPages);
         refreshHandler.refresh();
     }
 

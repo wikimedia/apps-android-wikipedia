@@ -3,11 +3,9 @@ package org.wikipedia.nearby;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
-import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActivity;
 import org.mediawiki.api.json.ApiException;
 import com.squareup.picasso.Picasso;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
@@ -31,18 +29,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.Surface;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.view.*;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import org.wikipedia.events.NewWikiPageNavigationEvent;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,8 +48,7 @@ import java.util.Locale;
 /**
  * Displays a list of nearby pages.
  */
-public class NearbyActivity extends ThemedActionBarActivity implements SensorEventListener {
-    public static final int ACTIVITY_RESULT_NEARBY_SELECT = 1;
+public class NearbyFragment extends Fragment implements SensorEventListener {
     private static final String PREF_KEY_UNITS = "nearbyUnits";
     private static final String NEARBY_LAST_RESULT = "lastRes";
     private static final String NEARBY_LAST_LOCATION = "lastLoc";
@@ -108,17 +101,27 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        app = (WikipediaApp) getApplicationContext();
+        app = WikipediaApp.getInstance();
         site = app.getPrimarySite();
+        adapter = new NearbyAdapter(getActivity(), new ArrayList<NearbyPage>());
+        setHasOptionsMenu(true);
+    }
 
-        setContentView(R.layout.activity_nearby);
-        nearbyList = (ListView) findViewById(R.id.nearby_list);
-        nearbyLoadingContainer = findViewById(R.id.nearby_loading_container);
-        nearbyEmptyContainer = findViewById(R.id.nearby_empty_container);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_nearby, container, false);
+
+        nearbyList = (ListView) rootView.findViewById(R.id.nearby_list);
+        nearbyLoadingContainer = rootView.findViewById(R.id.nearby_loading_container);
+        nearbyEmptyContainer = rootView.findViewById(R.id.nearby_empty_container);
 
         nearbyEmptyContainer.setVisibility(View.GONE);
+        return rootView;
+    }
 
-        adapter = new NearbyAdapter(this, new ArrayList<NearbyPage>());
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         nearbyList.setAdapter(adapter);
         nearbyList.setEmptyView(nearbyLoadingContainer);
 
@@ -128,14 +131,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
                 NearbyPage nearbyPage = adapter.getItem(position);
                 PageTitle title = new PageTitle(nearbyPage.getTitle(), site, nearbyPage.getThumblUrl());
                 HistoryEntry newEntry = new HistoryEntry(title, HistoryEntry.SOURCE_NEARBY);
-
-                Intent intent = new Intent();
-                intent.setClass(NearbyActivity.this, PageActivity.class);
-                intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-                intent.putExtra(PageActivity.EXTRA_PAGETITLE, title);
-                intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, newEntry);
-                setResult(ACTIVITY_RESULT_NEARBY_SELECT, intent);
-                finish();
+                app.getBus().post(new NewWikiPageNavigationEvent(title, newEntry));
             }
         });
 
@@ -165,7 +161,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
         });
 
         // Acquire a reference to the system Location Manager
-        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 
         // Define a listener that responds to location updates
         locationListener = new LocationListener() {
@@ -187,13 +183,17 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
             }
         };
 
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
         compassViews = new ArrayList<NearbyCompassView>();
 
-        if (savedInstanceState != null) {
+        if (!adapter.isEmpty()) {
+            //we
+            setupGeomagneticField();
+            showNearbyPages(lastResult);
+        } else if (savedInstanceState != null) {
             lastLocation = savedInstanceState.getParcelable(NEARBY_LAST_LOCATION);
             nextLocation = savedInstanceState.getParcelable(NEARBY_NEXT_LOCATION);
             lastResult = savedInstanceState.getParcelable(NEARBY_LAST_RESULT);
@@ -203,7 +203,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
             setRefreshingState(true);
         }
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         //do we already have a preference for metric/imperial units?
         if (prefs.contains(PREF_KEY_UNITS)) {
             setImperialUnits(prefs.getBoolean(PREF_KEY_UNITS, false));
@@ -216,7 +216,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if (lastResult != null) {
             outState.putParcelable(NEARBY_LAST_LOCATION, lastLocation);
@@ -226,7 +226,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
         mSensorManager.registerListener(this, mMagnetometer, SensorManager.SENSOR_DELAY_UI);
@@ -268,7 +268,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     }
 
     private void showDialogForSettings() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
         alert.setMessage(R.string.nearby_dialog_goto_settings);
         alert.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -278,7 +278,6 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
         });
         alert.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                finish();
             }
         });
         alert.setCancelable(false);
@@ -294,7 +293,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
         setupGeomagneticField();
         if (lastLocation == null || (refreshing && getDistance(lastLocation) >= MIN_DISTANCE_METERS)) {
 
-            new NearbyFetchTask(NearbyActivity.this, site, location) {
+            new NearbyFetchTask(getActivity(), site, location) {
                 @Override
                 public void onFinish(NearbyResult result) {
                     lastResult = result;
@@ -303,11 +302,14 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
 
                 @Override
                 public void onCatch(Throwable caught) {
+                    if (!isAdded()) {
+                        return;
+                    }
                     if (caught instanceof ApiException && caught.getCause() instanceof UnknownHostException) {
-                        Crouton.makeText(NearbyActivity.this, R.string.nearby_no_network, Style.ALERT).show();
+                        Crouton.makeText(getActivity(), R.string.nearby_no_network, Style.ALERT).show();
                     } else if (caught instanceof NearbyFetchException) {
                         Log.e("Wikipedia", "Could not get list of nearby places: " + caught.toString());
-                        Crouton.makeText(NearbyActivity.this, R.string.nearby_server_error, Style.ALERT).show();
+                        Crouton.makeText(getActivity(), R.string.nearby_server_error, Style.ALERT).show();
                     } else {
                         super.onCatch(caught);
                     }
@@ -410,7 +412,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
             nearbyLoadingContainer.setVisibility(View.GONE);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            invalidateOptionsMenu();
+            getActivity().invalidateOptionsMenu();
         }
     }
 
@@ -465,30 +467,28 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_nearby, menu);
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_nearby, menu);
         app.adjustDrawableToTheme(menu.findItem(R.id.menu_refresh_nearby).getIcon());
         menu.findItem(R.id.menu_metric_imperial).setTitle(showImperial
                 ? getString(R.string.nearby_set_metric)
                 : getString(R.string.nearby_set_imperial));
-        return true;
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
+    public void onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.menu_refresh_nearby).setEnabled(!refreshing);
         menu.findItem(R.id.menu_metric_imperial).setTitle(showImperial
                 ? getString(R.string.nearby_set_metric)
                 : getString(R.string.nearby_set_imperial));
-        return super.onPrepareOptionsMenu(menu);
+        super.onPrepareOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
-                return true;
+                return false;
             case R.id.menu_refresh_nearby:
                 setRefreshingState(true);
                 requestLocationUpdates();
@@ -504,9 +504,9 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
 
     private void setImperialUnits(boolean imperial) {
         showImperial = imperial;
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         prefs.edit().putBoolean(PREF_KEY_UNITS, showImperial).commit();
-        this.supportInvalidateOptionsMenu();
+        getActivity().supportInvalidateOptionsMenu();
     }
 
 
@@ -537,8 +537,8 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
             if (nearbyPage.getLocation() != null) {
                 // set the calculated angle as the base angle for our compass view
                 viewHolder.thumbnail.setAngle((float) calculateAngle(nearbyPage.getLocation()));
-                viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(NearbyActivity.this, R.attr.page_background_color)));
-                viewHolder.thumbnail.setTickColor(getResources().getColor(R.color.button_light));
+                viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.page_background_color)));
+                viewHolder.thumbnail.setTickColor(getResources().getColor(R.color.blue_progressive));
                 if (!compassViews.contains(viewHolder.thumbnail)) {
                     compassViews.add(viewHolder.thumbnail);
                 }
@@ -553,7 +553,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
                 viewHolder.thumbnail.setEnabled(false);
             }
 
-            Picasso.with(NearbyActivity.this)
+            Picasso.with(getActivity())
                     .load(nearbyPage.getThumblUrl())
                     .placeholder(R.drawable.ic_pageimage_placeholder)
                     .error(R.drawable.ic_pageimage_placeholder)
@@ -633,7 +633,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
         azimuth += declination;
 
         //adjust for device screen rotation
-        int rotation = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getRotation();
+        int rotation = ((WindowManager) getActivity().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getRotation();
         switch (rotation) {
             case Surface.ROTATION_90:
                 azimuth += quarterTurn;

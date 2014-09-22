@@ -17,7 +17,8 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.*;
+import org.wikipedia.NightModeHandler;
+import org.wikipedia.Site;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
 import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.events.ShowToCEvent;
@@ -25,6 +26,12 @@ import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.analytics.SavedPagesFunnel;
+import org.wikipedia.PageTitle;
+import org.wikipedia.QuickReturnHandler;
+import org.wikipedia.R;
+import org.wikipedia.Utils;
+import org.wikipedia.ViewAnimations;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.concurrency.SaneAsyncTask;
@@ -270,6 +277,7 @@ public class PageViewFragmentInternal {
         searchArticlesFragment.setTocEnabled(false);
 
         savedPagesFunnel = app.getFunnelManager().getSavedPagesFunnel(title.getSite());
+
         connectionIssueFunnel = new ConnectionIssueFunnel(app);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
@@ -287,6 +295,7 @@ public class PageViewFragmentInternal {
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         setupMessageHandlers();
+
         Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
         linkHandler = new LinkHandler(getActivity(), bridge) {
             @Override
