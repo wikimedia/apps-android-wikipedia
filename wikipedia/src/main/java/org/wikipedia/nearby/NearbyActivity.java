@@ -52,6 +52,9 @@ import java.util.List;
  */
 public class NearbyActivity extends ThemedActionBarActivity implements SensorEventListener {
     public static final int ACTIVITY_RESULT_NEARBY_SELECT = 1;
+    private static final String NEARBY_LAST_RESULT = "lastRes";
+    private static final String NEARBY_LAST_LOCATION = "lastLoc";
+    private static final String NEARBY_NEXT_LOCATION = "curLoc";
     private static final int MIN_TIME_MILLIS = 5000;
     private static final int MIN_DISTANCE_METERS = 2;
     private static final int ONE_KM = 1000;
@@ -69,6 +72,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     private boolean refreshing;
     private Location lastLocation;
     private Location nextLocation;
+    private NearbyResult lastResult;
 
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
@@ -153,14 +157,34 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
         mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
         compassViews = new ArrayList<NearbyCompassView>();
+
+        if (savedInstanceState != null) {
+            lastLocation = savedInstanceState.getParcelable(NEARBY_LAST_LOCATION);
+            nextLocation = savedInstanceState.getParcelable(NEARBY_NEXT_LOCATION);
+            lastResult = savedInstanceState.getParcelable(NEARBY_LAST_RESULT);
+            setupGeomagneticField();
+            showNearbyPages(lastResult);
+        } else {
+            setRefreshingState(true);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (lastResult != null) {
+            outState.putParcelable(NEARBY_LAST_LOCATION, lastLocation);
+            outState.putParcelable(NEARBY_NEXT_LOCATION, nextLocation);
+            outState.putParcelable(NEARBY_LAST_RESULT, lastResult);
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        requestLocationUpdates();
         mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
         mSensorManager.registerListener(this, mMagnetometer, SensorManager.SENSOR_DELAY_UI);
+        requestLocationUpdates();
     }
 
     @Override
@@ -177,8 +201,6 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     }
 
     private void requestLocationUpdates() {
-        setRefreshingState(true);
-
         boolean atLeastOneEnabled = false;
         if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
             requestLocation(LocationManager.NETWORK_PROVIDER);
@@ -223,14 +245,13 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
             return;
         }
         nextLocation = location;
+        setupGeomagneticField();
         if (lastLocation == null || (refreshing && getDistance(lastLocation) >= MIN_DISTANCE_METERS)) {
-
-            //update geomagnetic field data, to give us our precise declination from true north.
-            geomagneticField = new GeomagneticField((float)nextLocation.getLatitude(), (float)nextLocation.getLongitude(), 0, (new Date()).getTime());
 
             new NearbyFetchTask(NearbyActivity.this, site, location) {
                 @Override
-                public void onFinish(List<NearbyPage> result) {
+                public void onFinish(NearbyResult result) {
+                    lastResult = result;
                     showNearbyPages(result);
                 }
 
@@ -250,6 +271,11 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
         } else {
             updateDistances();
         }
+    }
+
+    /** Updates geomagnetic field data, to give us our precise declination from true north. */
+    private void setupGeomagneticField() {
+        geomagneticField = new GeomagneticField((float)nextLocation.getLatitude(), (float)nextLocation.getLongitude(), 0, (new Date()).getTime());
     }
 
     /** Determines whether one Location reading is better than the current Location fix.
@@ -309,11 +335,18 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
         return provider1.equals(provider2);
     }
 
-    private void showNearbyPages(List<NearbyPage> result) {
+    private void showNearbyPages(NearbyResult result) {
         nearbyList.setEmptyView(nearbyEmptyContainer);
         lastLocation = nextLocation;
-        sortByDistance(result);
+        sortByDistance(result.getList());
         adapter.clear();
+        addResultsToAdapter(result.getList());
+        compassViews.clear();
+
+        setRefreshingState(false);
+    }
+
+    private void addResultsToAdapter(List<NearbyPage> result) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             adapter.addAll(result);
         } else {
@@ -321,9 +354,6 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
                 adapter.add(page);
             }
         }
-        compassViews.clear();
-
-        setRefreshingState(false);
     }
 
     private void setRefreshingState(boolean newState) {
@@ -396,6 +426,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
                 finish();
                 return true;
             case R.id.menu_refresh_nearby:
+                setRefreshingState(true);
                 requestLocationUpdates();
                 return true;
             default:

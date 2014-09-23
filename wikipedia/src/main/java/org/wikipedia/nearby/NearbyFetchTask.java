@@ -12,15 +12,12 @@ import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Locale;
 
 /**
  * Actual work to search for nearby pages.
  */
-public class NearbyFetchTask extends ApiTask<List<NearbyPage>> {
+public class NearbyFetchTask extends ApiTask<NearbyResult> {
     /** search radius in meters. 10 km is the maximum the API allows. */
     private static final String RADIUS = "10000";
     /** max number of results */
@@ -99,33 +96,28 @@ public class NearbyFetchTask extends ApiTask<List<NearbyPage>> {
 
 
     @Override
-    public List<NearbyPage> processResult(ApiResult result) throws Throwable {
-        ArrayList<NearbyPage> list = new ArrayList<NearbyPage>();
+    public NearbyResult processResult(ApiResult result) throws Throwable {
 
         try {
-            if (result.asObject().has("error")) {
-                JSONObject errorJSON = result.asObject().optJSONObject("error");
+            JSONObject jsonObject = result.asObject();
+
+            if (jsonObject.has("error")) {
+                JSONObject errorJSON = jsonObject.optJSONObject("error");
                 throw new NearbyFetchException(errorJSON.optString("code"), errorJSON.optString("info"));
             }
 
-            final JSONObject pagesMap = result.asObject().optJSONObject("query").optJSONObject("pages");
-            Iterator iterator = pagesMap.keys();
-
-            while (iterator.hasNext()) {
-                NearbyPage newPage = new NearbyPage(pagesMap.getJSONObject((String) iterator.next()));
-                list.add(newPage);
+            if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
+                Utils.processHeadersForZero(app, result);
             }
+
+            return new NearbyResult(jsonObject);
         } catch (ApiException e) {
             // TODO: find a better way to deal with empty results
-            if (!e.getCause().getMessage().startsWith("Value []")) {
+            if (e.getCause().getMessage().startsWith("Value []")) {
+                return new NearbyResult();
+            } else {
                 throw e;
             }
         }
-
-        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
-            Utils.processHeadersForZero(app, result);
-        }
-
-        return list;
     }
 }

@@ -6,7 +6,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Data object holding information about a nearby page
+ * Data object holding information about a nearby page.
+ * The JSONObject is expected to be formatted as follows:
+ *
+ * <pre>
+ * {@code
+ *   {
+ *     "pageid": 44175,
+ *     "ns": 0,
+ *     "title": "San Francisco",
+ *     "coordinates": [{
+ *     "lat": 37.7793,
+ *     "lon": -122.419,
+ *     "primary": "",
+ *     "globe": "earth"
+ *     }]
+ *   }
+ * }
+ * </pre>
  */
 class NearbyPage {
 
