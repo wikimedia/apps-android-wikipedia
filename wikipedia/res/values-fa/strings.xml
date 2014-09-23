@@ -216,6 +216,8 @@
   <string name="search_results_title">نتایج جستجو</string>
   <string name="search_error_retry">تلاش مجدد</string>
   <string name="search_redirect_title">تغییر مسیر از «%s».</string>
+  <string name="toc_hint" fuzzy="true">Swipe right for sections, or use the menu button on the top right.</string>
+
   <string name="app_store_description">نرم افزار رسمی ویکی‌پدیا برای استفاده در آندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و  گسترده‌ترین مرجع کار انسان تا کنون است. این برنامه از ابتدا بازنویسی شده است و بهتر از قبل کار می کند.
 ویژگی‌ها:
    -سرعت: نرم افزار جدید، بومی ما به شما اجازهٔ مرور و ویرایش ویکی‌پدیا را با سریع بیشتری می‌دهد.

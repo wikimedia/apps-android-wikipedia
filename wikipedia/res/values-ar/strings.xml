@@ -179,6 +179,7 @@
   <string name="saved_pages_update_all_error_message">حدث خطأ أثناء تحديث الصفحات المحفوظة</string>
   <string name="saved_pages_progress_title">تحديث الصفحات المحفوظة</string>
   <string name="saved_pages_refresh_pages_complete">اكتمل التحديث</string>
+  <string name="toc_hint" fuzzy="true">Swipe right for sections, or use the menu button on the top right.</string>
   <string name="app_store_description">تطبيق ويكيبيديا الرسمي لأندرويد. ويكيبيديا هي موسوعة حرة تحتوي على أكثر من 32 مليون مقالة في 280 لغة. كما أنها الموسوعة الأشمل والأكثر استخداماً على نطاق واسع. وهي أكبر عمل موسوعي جمعته البشرية. تم إعادة تطوير التطبيق من الصفر وأصبح أفضل من أي وقتٍ مضى.
 
 المميزات:
