@@ -25,7 +25,7 @@ public class NearbyCompassView extends ImageView {
     private static Paint MASK_BMP_PAINT;
 
     private float displayDensity;
-    private static final float TICK_WIDTH = 1.0f;
+    private static final float TICK_WIDTH = 0.6f;
     private static final int TICK_LENGTH = 3;
     private static final int TICK_OFFSET = 8;
     private static final int NUM_TICKS = 60;
@@ -153,7 +153,7 @@ public class NearbyCompassView extends ImageView {
         //draw ticks
         canvas.save();
         final int totalDegrees = 360;
-        for (int i = 0; i < NUM_TICKS; i++) {
+        for (int i = 1; i < NUM_TICKS; i++) {
             canvas.rotate(totalDegrees / NUM_TICKS, centerX, centerY);
             canvas.drawLine(centerX, TICK_OFFSET * displayDensity, centerX, (TICK_OFFSET + TICK_LENGTH) * displayDensity, paintTick);
         }
