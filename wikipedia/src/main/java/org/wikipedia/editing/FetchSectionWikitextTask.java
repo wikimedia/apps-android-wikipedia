@@ -7,7 +7,6 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
 import org.wikipedia.PageTitle;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 
 public class FetchSectionWikitextTask extends ApiTask<String> {
@@ -43,16 +42,6 @@ public class FetchSectionWikitextTask extends ApiTask<String> {
         String pageId = (String) pagesJSON.keys().next();
 
         JSONObject revisionJSON = pagesJSON.optJSONObject(pageId).optJSONArray("revisions").getJSONObject(0);
-        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
-            // No bus is wired in the calling activity. If the state of zero has
-            // changed by the time we get here, do we really want to be firing an
-            // event at the UI? Or is the side effect of updating state in
-            // Utils.processHeadersForZero sufficient, with the high likelihood
-            // of the user getting the notification when returning back to the main
-            // activity (and if on save it changes yet again, no change in the main activity?
-            // TODO: ??? add bus to calling activity? See preceding comment
-            Utils.processHeadersForZero(app, result);
-        }
 
         return revisionJSON.optString("*");
     }

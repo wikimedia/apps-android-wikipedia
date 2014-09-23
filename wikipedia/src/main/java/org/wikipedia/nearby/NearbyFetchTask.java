@@ -9,7 +9,6 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 
 import java.util.Locale;
@@ -104,10 +103,6 @@ public class NearbyFetchTask extends ApiTask<NearbyResult> {
             if (jsonObject.has("error")) {
                 JSONObject errorJSON = jsonObject.optJSONObject("error");
                 throw new NearbyFetchException(errorJSON.optString("code"), errorJSON.optString("info"));
-            }
-
-            if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
-                Utils.processHeadersForZero(app, result);
             }
 
             return new NearbyResult(jsonObject);

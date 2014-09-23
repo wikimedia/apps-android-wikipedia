@@ -9,7 +9,6 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 
 import java.util.ArrayList;
@@ -43,9 +42,6 @@ public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
         String pageId = (String) pagesJSON.keys().next();
         if (!pagesJSON.optJSONObject(pageId).has("langlinks")) {
             // No links found
-            if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
-                Utils.processHeadersForZero(app, result);
-            }
             return linkTitles;
         }
 
@@ -57,13 +53,6 @@ public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
                     langlinkJSON.optString("*"),
                     Site.forLang(langlinkJSON.optString("lang")));
             linkTitles.add(linkTitle);
-        }
-        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
-            // As with page edit text retrieval, the next or calling activity
-            // will reflect the side effect of the header processing. It seems
-            // having a bus in the calling activity may not make much sense.
-            // TODO: ??? add bus to calling activity?
-            Utils.processHeadersForZero(app, result);
         }
 
         return linkTitles;

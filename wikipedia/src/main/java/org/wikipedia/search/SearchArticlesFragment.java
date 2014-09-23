@@ -472,7 +472,7 @@ public class SearchArticlesFragment extends Fragment {
 
     @Subscribe
     public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
-        if (WikipediaApp.getWikipediaZeroDisposition()) {
+        if (app.getWikipediaZeroHandler().isZeroEnabled()) {
             setWikipediaZeroChrome();
         } else {
             setNormalChrome();
@@ -516,13 +516,13 @@ public class SearchArticlesFragment extends Fragment {
     public void onPause() {
         Utils.hideSoftKeyboard(getActivity());
         super.onPause();
-        pausedStateOfZero = WikipediaApp.getWikipediaZeroDisposition();
+        pausedStateOfZero = app.getWikipediaZeroHandler().isZeroEnabled();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        boolean latestWikipediaZeroDispostion = WikipediaApp.getWikipediaZeroDisposition();
+        boolean latestWikipediaZeroDispostion = app.getWikipediaZeroHandler().isZeroEnabled();
         if (pausedStateOfZero != latestWikipediaZeroDispostion) {
             app.getBus().post(new WikipediaZeroStateChangeEvent());
         } else if (latestWikipediaZeroDispostion) {

@@ -11,9 +11,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
@@ -21,7 +19,6 @@ import android.text.InputType;
 import android.text.format.DateUtils;
 import android.util.Base64;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
@@ -30,16 +27,12 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.squareup.otto.Bus;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.mediawiki.api.json.ApiResult;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.events.WikipediaZeroInterstitialEvent;
-import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.settings.PrefKeys;
-import org.wikipedia.zero.WikipediaZeroTask;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -225,80 +218,6 @@ public final class Utils {
         });
     }
 
-     /* Inspect an API response, and fire an event to update the UI for Wikipedia Zero On/Off.
-     *
-     * @param app The application object
-     * @param result An API result to inspect for Wikipedia Zero headers
-     */
-    public static void processHeadersForZero(final WikipediaApp app, final ApiResult result) {
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                Map<String, List<String>> headers = result.getHeaders();
-                boolean responseZeroState = headers.containsKey("X-CS");
-                if (responseZeroState) {
-                    String xcs = headers.get("X-CS").get(0);
-                    if (!xcs.equals(WikipediaApp.getXcs())) {
-                        identifyZeroCarrier(app, xcs);
-                    }
-                } else if (WikipediaApp.getWikipediaZeroDisposition()) {
-                    WikipediaApp.setXcs("");
-                    WikipediaApp.setCarrierMessage("");
-                    WikipediaApp.setWikipediaZeroDisposition(responseZeroState);
-                    app.getBus().post(new WikipediaZeroStateChangeEvent());
-                }
-            }
-        });
-    }
-
-    private static final int MESSAGE_ZERO = 1;
-
-    public static void identifyZeroCarrier(final WikipediaApp app, final String xcs) {
-        Handler wikipediaZeroHandler = new Handler(new Handler.Callback() {
-            private WikipediaZeroTask curZeroTask;
-
-            @Override
-            public boolean handleMessage(Message msg) {
-                WikipediaZeroTask zeroTask = new WikipediaZeroTask(app.getAPIForSite(app.getPrimarySite()), app) {
-                    @Override
-                    public void onFinish(String message) {
-                        Log.d("Wikipedia", "Wikipedia Zero message: " + message);
-
-                        if (message != null) {
-                            WikipediaApp.setXcs(xcs);
-                            WikipediaApp.setCarrierMessage(message);
-                            WikipediaApp.setWikipediaZeroDisposition(true);
-                            Bus bus = app.getBus();
-                            bus.post(new WikipediaZeroStateChangeEvent());
-                            curZeroTask = null;
-                        }
-                    }
-
-                    @Override
-                    public void onCatch(Throwable caught) {
-                        // oh snap
-                        Log.d("Wikipedia", "Wikipedia Zero Eligibility Check Exception Caught");
-                        curZeroTask = null;
-                    }
-                };
-                if (curZeroTask != null) {
-                    // if this connection was hung, clean up a bit
-                    curZeroTask.cancel();
-                }
-                curZeroTask = zeroTask;
-                curZeroTask.execute();
-                return true;
-            }
-        });
-
-        wikipediaZeroHandler.removeMessages(MESSAGE_ZERO);
-        Message zeroMessage = Message.obtain();
-        zeroMessage.what = MESSAGE_ZERO;
-        zeroMessage.obj = "zero_eligible_check";
-
-        wikipediaZeroHandler.sendMessage(zeroMessage);
-    }
-
     /**
      * Read the MCC-MNC (mobile operator code) if available and the cellular data connection is the active one.
      * http://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
@@ -436,7 +355,7 @@ public final class Utils {
     }
 
     public static void handleExternalLink(final Context context, final Uri uri) {
-        if (WikipediaApp.isWikipediaZeroDevmodeOn() && WikipediaApp.getWikipediaZeroDisposition()) {
+        if (WikipediaApp.getInstance().getWikipediaZeroHandler().isZeroEnabled()) {
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
             if (sharedPref.getBoolean(PrefKeys.getZeroInterstitial(), true)) {
                 WikipediaApp.getInstance().getBus().post(new WikipediaZeroInterstitialEvent(uri));

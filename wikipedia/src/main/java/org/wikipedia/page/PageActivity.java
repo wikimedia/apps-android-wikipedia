@@ -390,7 +390,8 @@ public class PageActivity extends FragmentActivity {
 
     @Subscribe
     public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
-        boolean latestWikipediaZeroDisposition = WikipediaApp.getWikipediaZeroDisposition();
+        boolean latestWikipediaZeroDisposition = app.getWikipediaZeroHandler().isZeroEnabled();
+        String latestCarrierMessage = app.getWikipediaZeroHandler().getCarrierMessage();
 
         if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
             String title = getString(R.string.zero_charged_verbiage);
@@ -398,15 +399,15 @@ public class PageActivity extends FragmentActivity {
             makeWikipediaZeroCrouton(R.color.holo_red_dark, android.R.color.white, title);
             fragmentNavdrawer.setupDynamicItems();
             showDialogAboutZero(null, title, verbiage);
-        } else if ((!pausedStateOfZero || !pausedXcsOfZero.equals(WikipediaApp.getXcs())) && latestWikipediaZeroDisposition) {
-            String title = WikipediaApp.getCarrierMessage();
+        } else if ((!pausedStateOfZero || !pausedXcsOfZero.equals(latestCarrierMessage)) && latestWikipediaZeroDisposition) {
+            String title = latestCarrierMessage;
             String verbiage = getString(R.string.zero_learn_more);
             makeWikipediaZeroCrouton(R.color.holo_green_light, android.R.color.black, title);
             fragmentNavdrawer.setupDynamicItems();
             showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, title, verbiage);
         }
         pausedStateOfZero = latestWikipediaZeroDisposition;
-        pausedXcsOfZero = WikipediaApp.getXcs();
+        pausedXcsOfZero = latestCarrierMessage;
     }
 
     private void makeWikipediaZeroCrouton(int bgcolor, int fgcolor, String verbiage) {
@@ -493,8 +494,8 @@ public class PageActivity extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        boolean latestWikipediaZeroDisposition = WikipediaApp.getWikipediaZeroDisposition();
-        if (WikipediaApp.isWikipediaZeroDevmodeOn() && pausedStateOfZero && !latestWikipediaZeroDisposition) {
+        boolean latestWikipediaZeroDisposition = app.getWikipediaZeroHandler().isZeroEnabled();
+        if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
             bus.post(new WikipediaZeroStateChangeEvent());
         }
         fragmentAdapter.onResume(this);
@@ -512,8 +513,8 @@ public class PageActivity extends FragmentActivity {
     @Override
     public void onPause() {
         super.onPause();
-        pausedStateOfZero = WikipediaApp.getWikipediaZeroDisposition();
-        pausedXcsOfZero = WikipediaApp.getXcs();
+        pausedStateOfZero = app.getWikipediaZeroHandler().isZeroEnabled();
+        pausedXcsOfZero = app.getWikipediaZeroHandler().getCarrierMessage();
     }
 
     @Override

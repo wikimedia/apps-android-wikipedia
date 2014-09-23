@@ -7,7 +7,6 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
 import org.wikipedia.PageTitle;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 
 public class DoEditTask extends ApiTask<EditingResult> {
@@ -50,11 +49,6 @@ public class DoEditTask extends ApiTask<EditingResult> {
     public EditingResult processResult(ApiResult result) throws Throwable {
         JSONObject resultJSON = result.asObject();
 
-        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
-            // TODO: ??? not sure if this is a better place for this or down below,
-            // but the block seems to be ready for revisions, so clean up then?
-            Utils.processHeadersForZero(app, result);
-        }
         if (resultJSON.has("error")) {
             JSONObject errorJSON = resultJSON.optJSONObject("error");
             throw new EditingException(errorJSON.optString("code"), errorJSON.optString("info"));

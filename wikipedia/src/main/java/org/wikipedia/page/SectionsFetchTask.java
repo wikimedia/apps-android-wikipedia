@@ -10,7 +10,6 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
 import org.wikipedia.PageTitle;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 
 import java.util.ArrayList;
@@ -58,9 +57,6 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
         for (int i = 0; i < sectionsJSON.length(); i++) {
             Section newSection = new Section(sectionsJSON.getJSONObject(i));
             sections.add(newSection);
-        }
-        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
-            Utils.processHeadersForZero(app, result);
         }
 
         return sections;

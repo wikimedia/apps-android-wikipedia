@@ -10,7 +10,6 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 
 import java.util.*;
@@ -76,9 +75,6 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
             }
         });
 
-        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
-            Utils.processHeadersForZero(app, result);
-        }
         return pageTitles;
     }
 }

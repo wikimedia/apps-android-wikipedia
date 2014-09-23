@@ -9,8 +9,6 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
 
 public class RandomArticleIdTask extends ApiTask<PageTitle> {
 
@@ -36,10 +34,6 @@ public class RandomArticleIdTask extends ApiTask<PageTitle> {
         try {
             JSONArray results = result.asObject().optJSONObject("query").optJSONArray("random");
             JSONObject random = (JSONObject)results.get(0);
-
-            if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
-                Utils.processHeadersForZero((WikipediaApp)ctx, result);
-            }
 
             return new PageTitle(null, random.getString("title"), site);
         } catch (Exception e) {

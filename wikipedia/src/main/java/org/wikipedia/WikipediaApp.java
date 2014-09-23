@@ -1,14 +1,12 @@
 package org.wikipedia;
 
 import android.app.Application;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.net.ConnectivityManager;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -34,13 +32,13 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryEntryPersister;
 import org.wikipedia.login.UserInfoStorage;
 import org.wikipedia.migration.PerformMigrationsTask;
-import org.wikipedia.networking.ConnectionChangeReceiver;
 import org.wikipedia.networking.MccMncStateHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagePersister;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.savedpages.SavedPagePersister;
 import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.zero.WikipediaZeroHandler;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -129,7 +127,10 @@ public class WikipediaApp extends Application {
     private Bus bus;
     private int currentTheme = 0;
 
-    private ConnectionChangeReceiver connChangeReceiver;
+    private WikipediaZeroHandler zeroHandler;
+    public WikipediaZeroHandler getWikipediaZeroHandler() {
+        return zeroHandler;
+    }
 
     public WikipediaApp() {
         INSTANCE = this;
@@ -172,18 +173,14 @@ public class WikipediaApp extends Application {
 
         Api.setConnectionFactory(new OkHttpConnectionFactory(this));
 
-        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
-            IntentFilter connFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
-            connChangeReceiver = new ConnectionChangeReceiver();
-            this.registerReceiver(connChangeReceiver, connFilter);
-        }
-
         try {
             appVersionString = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
             // This will never happen!
             throw new RuntimeException(e);
         }
+
+        zeroHandler = new WikipediaZeroHandler(this);
 
         new PerformMigrationsTask().execute();
     }
@@ -281,15 +278,16 @@ public class WikipediaApp extends Application {
         // for the apis HashMap<String, Api> like we do below. It naturally gets the correct
         // Accept-Language header from above, when applicable.
         Api api = mccMncStateHandler.makeApiWithMccMncHeaderEnrichment(this, site, customHeaders);
-        if (api != null) {
-            return api;
+        if (api == null) {
+            String domainAndApiAndVariantKey = site.getDomain() + "-" + site.getApiDomain() + "-" + acceptLanguage;
+            if (!apis.containsKey(domainAndApiAndVariantKey)) {
+                apis.put(domainAndApiAndVariantKey, new Api(site.getApiDomain(), customHeaders));
+            }
+            api = apis.get(domainAndApiAndVariantKey);
         }
 
-        String domainAndApiAndVariantKey = site.getDomain() + "-" + site.getApiDomain() + "-" + acceptLanguage;
-        if (!apis.containsKey(domainAndApiAndVariantKey))  {
-            apis.put(domainAndApiAndVariantKey, new Api(site.getApiDomain(), customHeaders));
-        }
-        return apis.get(domainAndApiAndVariantKey);
+        api.setHeaderCheckListener(zeroHandler);
+        return api;
     }
 
     private Site primarySite;
@@ -477,28 +475,6 @@ public class WikipediaApp extends Application {
         return appInstallReadActionID;
     }
 
-    private static boolean W0_DISPOSITION = false;
-    public static void setWikipediaZeroDisposition(boolean b) {
-        W0_DISPOSITION = b;
-    }
-    public static boolean getWikipediaZeroDisposition() {
-        return W0_DISPOSITION;
-    }
-
-    // FIXME: Move this logic elsewhere
-    private static String XCS = "";
-    public static void setXcs(String s) { XCS = s; }
-    public static String getXcs() { return XCS; }
-
-    private static String CARRIER_MESSAGE = "";
-    public static void setCarrierMessage(String m) { CARRIER_MESSAGE = m; }
-    public static String getCarrierMessage() { return CARRIER_MESSAGE; }
-
-    private static final boolean WIKIPEDIA_ZERO_DEV_MODE_ON = true;
-    public static boolean isWikipediaZeroDevmodeOn() {
-        return WIKIPEDIA_ZERO_DEV_MODE_ON;
-    }
-
     /**
      * Gets the currently-selected theme for the app.
      * @return Theme that is currently selected, which is the actual theme ID that can
@@ -604,5 +580,4 @@ public class WikipediaApp extends Application {
             prefs.edit().putString(PrefKeys.getLanguageMru(), TextUtils.join(",", languageMruList)).commit();
         }
     }
-
 }

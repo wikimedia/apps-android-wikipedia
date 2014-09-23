@@ -8,7 +8,6 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 
 import java.util.ArrayList;
@@ -69,10 +68,6 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
                     res.optString("snippet"),
                     redirectTitle,
                     res.optString("redirectsnippet")));
-        }
-
-        if (WikipediaApp.isWikipediaZeroDevmodeOn()) {
-            Utils.processHeadersForZero(app, result);
         }
 
         return results;
