@@ -35,9 +35,13 @@ android {
         prod {
             versionName "${versionStart}-r-${date}"
         }
+        alpha {
+            versionName "${versionStart}-alpha-${date}"
+            applicationId 'org.wikipedia.alpha'
+        }
         beta {
             versionName "${versionStart}-beta-${date}"
-//            applicationId 'org.wikipedia.beta'
+            applicationId 'org.wikipedia.beta'
         }
     }
     sourceSets {
