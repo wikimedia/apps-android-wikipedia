@@ -62,7 +62,7 @@
         <dependency>
             <groupId>de.keyboardsurfer.android.widget</groupId>
             <artifactId>crouton</artifactId>
-            <version>1.8.3</version>
+            <version>1.8.4</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.android.support</groupId>
