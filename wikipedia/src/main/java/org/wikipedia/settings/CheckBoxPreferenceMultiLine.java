@@ -1,12 +1,13 @@
 package org.wikipedia.settings;
 
 import android.content.Context;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
-public class CheckBoxPreferenceMultiLine extends Preference {
+public class CheckBoxPreferenceMultiLine extends CheckBoxPreference {
 
     public CheckBoxPreferenceMultiLine(Context ctx, AttributeSet attrs, int defStyle) {
         super(ctx, attrs, defStyle);
