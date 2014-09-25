@@ -5,6 +5,7 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.mediawiki.api.json.ApiException;
 import com.squareup.picasso.Picasso;
@@ -31,12 +32,18 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.*;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.Surface;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -538,7 +545,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 // set the calculated angle as the base angle for our compass view
                 viewHolder.thumbnail.setAngle((float) calculateAngle(nearbyPage.getLocation()));
                 viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.page_background_color)));
-                viewHolder.thumbnail.setTickColor(getResources().getColor(R.color.blue_progressive));
+                viewHolder.thumbnail.setTickColor(getResources().getColor(R.color.button_light));
                 if (!compassViews.contains(viewHolder.thumbnail)) {
                     compassViews.add(viewHolder.thumbnail);
                 }

@@ -539,10 +539,10 @@ a.new:hover {
 
 /* Loading animation in pure CSS
    Thanks to http://dabblet.com/gist/7708654 */
-/* Last updated info */
 body {
   padding-top: 48px;
 }
+/* Last updated info */
 .loading {
   border: 4px solid rgba(0,0,0,0.1);
   border-top: 4px solid rgba(0,0,0,0.4);

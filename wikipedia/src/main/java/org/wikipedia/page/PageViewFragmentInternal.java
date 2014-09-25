@@ -1,51 +1,56 @@
 package org.wikipedia.page;
 
+import org.wikipedia.NightModeHandler;
+import org.wikipedia.PageTitle;
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.Utils;
+import org.wikipedia.ViewAnimations;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ConnectionIssueFunnel;
+import org.wikipedia.analytics.SavedPagesFunnel;
+import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.StyleLoader;
+import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.editing.EditHandler;
+import org.wikipedia.editing.EditSectionActivity;
+import org.wikipedia.events.FindInPageEvent;
+import org.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikipedia.events.SavePageEvent;
+import org.wikipedia.events.SharePageEvent;
+import org.wikipedia.events.ShowOtherLanguagesEvent;
+import org.wikipedia.events.ShowThemeChooserEvent;
+import org.wikipedia.events.ShowToCEvent;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.pageimages.PageImagesTask;
+import org.wikipedia.savedpages.ImageUrlMap;
+import org.wikipedia.savedpages.LoadSavedPageTask;
+import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
+import org.wikipedia.savedpages.SavePageTask;
+import org.wikipedia.views.DisableableDrawerLayout;
+import org.wikipedia.views.ObservableWebView;
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiException;
+import org.mediawiki.api.json.ApiResult;
+import org.mediawiki.api.json.RequestBuilder;
+import com.squareup.otto.Bus;
+import org.json.JSONException;
+import org.json.JSONObject;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.ApiException;
-import org.mediawiki.api.json.ApiResult;
-import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.NightModeHandler;
-import org.wikipedia.Site;
-import org.wikipedia.analytics.ConnectionIssueFunnel;
-import org.wikipedia.editing.EditSectionActivity;
-import org.wikipedia.events.ShowToCEvent;
-import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImagesTask;
-import org.wikipedia.views.ObservableWebView;
-import org.wikipedia.analytics.SavedPagesFunnel;
-import org.wikipedia.PageTitle;
-import org.wikipedia.QuickReturnHandler;
-import org.wikipedia.R;
-import org.wikipedia.Utils;
-import org.wikipedia.ViewAnimations;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.bridge.StyleLoader;
-import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.editing.EditHandler;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikipedia.events.OverflowMenuUpdateEvent;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.savedpages.ImageUrlMap;
-import org.wikipedia.savedpages.LoadSavedPageTask;
-import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
-import org.wikipedia.savedpages.SavePageTask;
-import org.wikipedia.search.SearchArticlesFragment;
-import org.wikipedia.views.DisableableDrawerLayout;
-
 import javax.net.ssl.SSLException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,6 +81,7 @@ public class PageViewFragmentInternal {
     public static final int SUBSTATE_SAVED_PAGE_LOADED = 2;
 
     private int state = STATE_NO_FETCH;
+    private int subState = SUBSTATE_NONE;
 
     /**
      * Whether to save the full page content as soon as it's loaded.
@@ -99,8 +105,6 @@ public class PageViewFragmentInternal {
      */
     private static PageCache PAGE_CACHE;
 
-    private SearchArticlesFragment searchArticlesFragment;
-
     private PageTitle title;
     private PageTitle titleOriginal;
     private ObservableWebView webView;
@@ -122,6 +126,7 @@ public class PageViewFragmentInternal {
     private NightModeHandler nightModeHandler;
 
     private WikipediaApp app;
+    private Bus bus;
 
     private int scrollY;
     public int getScrollY() {
@@ -269,12 +274,10 @@ public class PageViewFragmentInternal {
         sectionTargetFromTitle = title.getFragment();
 
         app = (WikipediaApp)getActivity().getApplicationContext();
-
-        searchArticlesFragment = (SearchArticlesFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.search_fragment);
+        bus = app.getBus();
 
         // disable TOC drawer until the page is loaded
         tocDrawer.setSlidingEnabled(false);
-        searchArticlesFragment.setTocEnabled(false);
 
         savedPagesFunnel = app.getFunnelManager().getSavedPagesFunnel(title.getSite());
 
@@ -375,7 +378,7 @@ public class PageViewFragmentInternal {
 
         editHandler = new EditHandler(parentFragment, bridge);
 
-        new QuickReturnHandler(webView, getActivity().findViewById(R.id.search_fragment));
+//        new QuickReturnHandler(webView, getActivity().findViewById(R.id.search_fragment));
 
         //is this page in cache??
         if (PAGE_CACHE.has(titleOriginal)) {
@@ -465,27 +468,106 @@ public class PageViewFragmentInternal {
     }
 
     private void setState(int state) {
+        setState(state, SUBSTATE_NONE);
+    }
+
+    private void setState(int state, int subState) {
         this.state = state;
-        app.getBus().post(new OverflowMenuUpdateEvent(state, SUBSTATE_NONE));
+        this.subState = subState;
+        getActivity().supportInvalidateOptionsMenu();
+
         // FIXME: Move this out into a PageComplete event of sorts
         if (state == STATE_COMPLETE_FETCH) {
             if (tocHandler == null) {
                 tocHandler = new ToCHandler(getActivity(),
-                        tocDrawer,
-                        getActivity().findViewById(R.id.search_fragment),
-                        bridge);
+                                            tocDrawer,
+                                            bridge);
             }
             tocHandler.setupToC(page);
-            searchArticlesFragment.setTocEnabled(true);
 
-            //if the article has only one section, then hide the ToC button
-            searchArticlesFragment.setTocHidden(page.getSections().size() <= 1);
+            getActivity().supportInvalidateOptionsMenu();
 
             //add the page to cache!
             PAGE_CACHE.put(titleOriginal, page);
             if (!titleOriginal.equals(title)) {
                 PAGE_CACHE.put(title, page);
             }
+        }
+    }
+
+    public void onPrepareOptionsMenu(Menu menu) {
+        if (tocDrawer == null) {
+            // on GB onPrepareOptionsMenu is called before onCreateView, and multiple times afterwards
+            return;
+        }
+
+        MenuItem tocMenuItem = menu.findItem(R.id.menu_toc);
+        tocMenuItem.setVisible(tocDrawer.getSlidingEnabled(Gravity.END));
+        tocMenuItem.setIcon(tocDrawer.isDrawerOpen(Gravity.END) ? R.drawable.toc_expanded : R.drawable.toc_collapsed);
+
+        switch (state) {
+            case PageViewFragmentInternal.STATE_NO_FETCH:
+            case PageViewFragmentInternal.STATE_INITIAL_FETCH:
+                menu.findItem(R.id.menu_save_page).setEnabled(false);
+                menu.findItem(R.id.menu_share_page).setEnabled(false);
+                menu.findItem(R.id.menu_other_languages).setEnabled(false);
+                menu.findItem(R.id.menu_find_in_page).setEnabled(false);
+                menu.findItem(R.id.menu_themechooser).setEnabled(false);
+                break;
+            case PageViewFragmentInternal.STATE_COMPLETE_FETCH:
+                menu.findItem(R.id.menu_save_page).setEnabled(true);
+                menu.findItem(R.id.menu_share_page).setEnabled(true);
+                menu.findItem(R.id.menu_other_languages).setEnabled(true);
+                menu.findItem(R.id.menu_find_in_page).setEnabled(true);
+                menu.findItem(R.id.menu_themechooser).setEnabled(true);
+                if (subState == PageViewFragmentInternal.SUBSTATE_PAGE_SAVED) {
+                    menu.findItem(R.id.menu_save_page).setEnabled(false);
+                    menu.findItem(R.id.menu_save_page).setTitle(WikipediaApp.getInstance().getString(R.string.menu_page_saved));
+                } else if (subState == PageViewFragmentInternal.SUBSTATE_SAVED_PAGE_LOADED) {
+                    menu.findItem(R.id.menu_save_page).setTitle(WikipediaApp.getInstance().getString(R.string.menu_refresh_saved_page));
+                } else {
+                    menu.findItem(R.id.menu_save_page).setTitle(WikipediaApp.getInstance().getString(R.string.menu_save_page));
+                }
+                break;
+            default:
+                // How can this happen?!
+                throw new RuntimeException("This can't happen");
+        }
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.homeAsUp:
+                // TODO SEARCH: add up navigation, see also http://developer.android.com/training/implementing-navigation/ancestral.html
+                return true;
+            case R.id.menu_search:
+                getActivity().onSearchRequested();
+                return true;
+            case R.id.menu_toc:
+                // TODO SEARCH: bring back
+//                if (drawerLayout.isDrawerVisible(Gravity.START)) {
+//                    drawerLayout.closeDrawer(Gravity.START);
+//                }
+                Utils.hideSoftKeyboard(getActivity());
+                ((WikipediaApp)getActivity().getApplication()).getBus().post(new ShowToCEvent(ShowToCEvent.ACTION_TOGGLE));
+                return true;
+            case R.id.menu_save_page:
+                bus.post(new SavePageEvent());
+                return true;
+            case R.id.menu_share_page:
+                bus.post(new SharePageEvent());
+                return true;
+            case R.id.menu_other_languages:
+                bus.post(new ShowOtherLanguagesEvent());
+                return true;
+            case R.id.menu_find_in_page:
+                bus.post(new FindInPageEvent());
+                return true;
+            case R.id.menu_themechooser:
+                bus.post(new ShowThemeChooserEvent());
+                return true;
+            default:
+                return false;
         }
     }
 
@@ -627,8 +709,6 @@ public class PageViewFragmentInternal {
         }
         // in any case, make sure the TOC drawer is closed and disabled
         tocDrawer.setSlidingEnabled(false);
-        searchArticlesFragment.setTocEnabled(false);
-        searchArticlesFragment.setTocHidden(true);
 
         if (caught instanceof SectionsFetchException) {
             if (((SectionsFetchException) caught).getCode().equals("missingtitle")
@@ -681,7 +761,7 @@ public class PageViewFragmentInternal {
                     return;
                 }
 
-                app.getBus().post(new OverflowMenuUpdateEvent(state, SUBSTATE_PAGE_SAVED));
+                setState(state, SUBSTATE_PAGE_SAVED);
 
                 if (success) {
                     Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
@@ -709,9 +789,7 @@ public class PageViewFragmentInternal {
                 editHandler.setPage(page);
                 displayLeadSection();
                 displayNonLeadSection(1);
-                setState(STATE_COMPLETE_FETCH);
-
-                app.getBus().post(new OverflowMenuUpdateEvent(state, SUBSTATE_SAVED_PAGE_LOADED));
+                setState(STATE_COMPLETE_FETCH, SUBSTATE_SAVED_PAGE_LOADED);
 
                 readUrlMappings();
             }

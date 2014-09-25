@@ -1,18 +1,21 @@
 package org.wikipedia.search;
 
-import android.content.Context;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.ApiException;
-import org.mediawiki.api.json.ApiResult;
-import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-
-import java.util.*;
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiException;
+import org.mediawiki.api.json.ApiResult;
+import org.mediawiki.api.json.RequestBuilder;
+import org.json.JSONException;
+import org.json.JSONObject;
+import android.content.Context;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
 public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
     private final String prefix;
@@ -24,7 +27,6 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
         this.prefix = prefix;
         this.site = site;
         this.app = (WikipediaApp)context.getApplicationContext();
-
     }
 
     @Override

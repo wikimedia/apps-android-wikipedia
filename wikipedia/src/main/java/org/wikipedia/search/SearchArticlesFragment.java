@@ -1,66 +1,56 @@
 package org.wikipedia.search;
 
-import android.os.Build;
+import org.wikipedia.PageTitle;
+import org.wikipedia.ParcelableLruCache;
+import org.wikipedia.R;
+import org.wikipedia.ThemedActionBarActivity;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageActivity;
+import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.DrawerLayout;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.Gravity;
-import android.view.KeyEvent;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.SearchView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.squareup.otto.Subscribe;
-import com.squareup.picasso.Picasso;
-import org.wikipedia.PageTitle;
-import org.wikipedia.ParcelableLruCache;
-import org.wikipedia.R;
-import org.wikipedia.Utils;
-import org.wikipedia.ViewAnimations;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikipedia.events.ShowToCEvent;
-import org.wikipedia.events.WikipediaZeroStateChangeEvent;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActionsHandler;
-import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PopupMenu;
-
 import java.util.List;
 
 public class SearchArticlesFragment extends Fragment {
+    private static final String KEY_SEARCH_TERM = "searchTerm";
     private static final int DELAY_MILLIS = 300;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
     private static final int MAX_CACHE_SIZE_IMAGES = 48;
-    private static final int LEFT_MARGIN_BASE_DP = 10;
-    private static final float INITIAL_OFFSET_WINDOW = 0.5f;
     private static final int MESSAGE_SEARCH = 1;
+    private static final String ARG_LAST_SEARCHED_TEXT = "lastSearchedText";
+    private static final String ARG_IS_SEARCH_ACTIVE = "isSearchActive";
+    private static final String ARG_RESULTS_CACHE = "searchResultsCache";
+    private static final String ARG_PAGE_IMAGES_CACHE = "pageImagesCache";
 
     private WikipediaApp app;
+    private SearchResultAdapter adapter;
 
-    private EditText searchTermText;
     private ListView searchResultsList;
-    private ProgressBar searchProgress;
     private View searchNetworkError;
     private View searchNoResults;
+    private View progressBar;
     private View fullSearchContainer;
-    private ImageView searchBarMenuButton;
-    private ImageView searchBarTocButton;
-    private ImageView drawerIndicator;
-
-    private SearchResultAdapter adapter;
 
     private boolean isSearchActive = false;
 
@@ -72,14 +62,23 @@ public class SearchArticlesFragment extends Fragment {
 
     private Handler searchHandler;
 
-    private DrawerLayout drawerLayout;
-
-    private PageActionsHandler pageActionsHandler;
-    private PopupMenu pageActionsMenu;
-
     private SearchArticlesTask curSearchTask;
+    private String searchTerm;
 
-    private boolean pausedStateOfZero;
+    /**
+     * Factory method for creating new instances of the fragment.
+     * @return new instance of this fragment.
+     */
+    public static SearchArticlesFragment newInstance(String searchTerm) {
+        SearchArticlesFragment f = new SearchArticlesFragment();
+        Bundle args = new Bundle();
+        args.putString(KEY_SEARCH_TERM, searchTerm);
+        f.setArguments(args);
+        return f;
+    }
+
+    public SearchArticlesFragment() {
+    }
 
     private void hideSearchResults() {
         searchResultsList.setVisibility(View.GONE);
@@ -89,7 +88,8 @@ public class SearchArticlesFragment extends Fragment {
             curSearchTask.cancel();
             curSearchTask = null;
         }
-        searchProgress.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.GONE);
+        searchNetworkError.setVisibility(View.GONE);
         searchNoResults.setVisibility(View.GONE);
         fullSearchContainer.setVisibility(View.GONE);
     }
@@ -105,7 +105,9 @@ public class SearchArticlesFragment extends Fragment {
         if (app.getReleaseType() == WikipediaApp.RELEASE_PROD) {
             if (results.size() == 0) {
                 searchNoResults.setVisibility(View.VISIBLE);
+                searchResultsList.setVisibility(View.GONE);
             } else {
+                searchNoResults.setVisibility(View.GONE);
                 searchResultsList.setVisibility(View.VISIBLE);
             }
         } else {
@@ -123,29 +125,28 @@ public class SearchArticlesFragment extends Fragment {
         ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
     }
 
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        app = WikipediaApp.getInstance();
+        setHasOptionsMenu(true);
+        searchTerm = getArguments().getString(KEY_SEARCH_TERM);
+    }
+
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         app = (WikipediaApp)getActivity().getApplicationContext();
         LinearLayout parentLayout = (LinearLayout) inflater.inflate(R.layout.fragment_search, container, false);
 
         if (savedInstanceState != null) {
-            searchResultsCache = savedInstanceState.getParcelable("searchResultsCache");
-            pageImagesCache = savedInstanceState.getParcelable("pageImagesCache");
-            lastSearchedText = savedInstanceState.getString("lastSearchedText");
-            isSearchActive = savedInstanceState.getBoolean("isSearchActive");
-            pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
+            getFromBundle(savedInstanceState);
+        } else {
+            getFromBundle(getArguments());
         }
 
-        searchTermText = (EditText) parentLayout.findViewById(R.id.search_term_text);
         searchResultsList = (ListView) parentLayout.findViewById(R.id.search_results_list);
-        searchProgress = (ProgressBar) parentLayout.findViewById(R.id.search_progress);
-        View searchBarIcon = parentLayout.findViewById(R.id.search_bar_icon);
         searchNetworkError = parentLayout.findViewById(R.id.search_network_error);
-        searchBarMenuButton = (ImageView)parentLayout.findViewById(R.id.search_bar_show_menu);
-        searchBarTocButton = (ImageView)parentLayout.findViewById(R.id.search_bar_show_toc);
-        drawerIndicator = (ImageView)parentLayout.findViewById(R.id.search_drawer_indicator);
-        ImageView wikipediaIcon = (ImageView) parentLayout.findViewById(R.id.wikipedia_icon);
         searchNoResults = parentLayout.findViewById(R.id.search_results_empty);
+        progressBar = parentLayout.findViewById(R.id.search_progress);
 
         fullSearchContainer = parentLayout.findViewById(R.id.full_search_container);
         fullSearchContainer.setOnClickListener(new View.OnClickListener() {
@@ -153,15 +154,9 @@ public class SearchArticlesFragment extends Fragment {
             public void onClick(View view) {
                 Utils.hideSoftKeyboard(getActivity());
                 hideSearchResults();
-                ((PageActivity)getActivity()).searchFullText(searchTermText.getText().toString());
+                ((PageActivity)getActivity()).searchFullText(searchTerm);
             }
         });
-
-        app.adjustDrawableToTheme(wikipediaIcon.getDrawable());
-        app.adjustDrawableToTheme(searchBarTocButton.getDrawable());
-        app.adjustDrawableToTheme(searchBarMenuButton.getDrawable());
-
-        pageActionsMenu = new PopupMenu(getActivity(), searchBarMenuButton);
 
         searchHandler = new Handler(new SearchHandlerCallback());
 
@@ -176,125 +171,86 @@ public class SearchArticlesFragment extends Fragment {
         searchNetworkError.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startSearch(searchTermText.getText().toString()); //just retry!
+                startSearch(searchTerm); //just retry!
                 searchNetworkError.setVisibility(View.GONE);
-            }
-        });
-
-        searchTermText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(final Editable s) {
-                searchNoResults.setVisibility(View.GONE);
-                startSearch(s.toString());
-            }
-        });
-
-        searchTermText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (drawerLayout.isDrawerOpen(Gravity.START)) {
-                    drawerLayout.closeDrawer(Gravity.START);
-                }
-                Utils.showSoftKeyboardAsync(getActivity(), searchTermText);
-                startSearch(searchTermText.getText().toString());
-            }
-        });
-
-        searchTermText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int action, KeyEvent keyEvent) {
-                if (action == EditorInfo.IME_ACTION_GO) {
-                    String searchTerm = searchTermText.getText().toString();
-                    if (searchTerm.length() > 0) {
-                        if (app.getReleaseType() == WikipediaApp.RELEASE_PROD) {
-                            PageTitle title = new PageTitle(searchTermText.getText().toString(), app.getPrimarySite());
-                            navigateToTitle(title);
-                        } else {
-                            hideSearchResults();
-                            ((PageActivity)getActivity()).searchFullText(searchTermText.getText().toString());
-                        }
-                    } else {
-                        hideSearchResults();
-                    }
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        searchTermText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus && searchNetworkError.isShown()) {
-                    ViewAnimations.fadeOut(searchNetworkError);
-                }
-                if (hasFocus) {
-                    if (drawerLayout.isDrawerOpen(Gravity.START)) {
-                        drawerLayout.closeDrawer(Gravity.START);
-                    }
-                    Utils.showSoftKeyboardAsync(getActivity(), searchTermText);
-                } else {
-                    Utils.hideSoftKeyboard(getActivity());
-                }
             }
         });
 
         adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
-        searchBarIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (drawerLayout.isDrawerVisible(Gravity.START)) {
-                    drawerLayout.closeDrawer(Gravity.START);
-                } else {
-                    hideSearchResults();
-                    clearErrors();
-                    drawerLayout.openDrawer(Gravity.START);
-                }
-            }
-        });
-
-        searchBarTocButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (drawerLayout.isDrawerVisible(Gravity.START)) {
-                    drawerLayout.closeDrawer(Gravity.START);
-                }
-                Utils.hideSoftKeyboard(getActivity());
-                app.getBus().post(new ShowToCEvent(ShowToCEvent.ACTION_TOGGLE));
-            }
-        });
-
         return parentLayout;
     }
 
-    public void navigateToTitle(PageTitle title) {
-        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-        Utils.hideSoftKeyboard(getActivity());
-        app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
-        hideSearchResults();
-        // remove focus from the Search field, so that the cursor stops blinking
-        searchTermText.clearFocus();
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (isValidQuery(lastSearchedText)) {
+            forceStartSearch(lastSearchedText);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        saveToBundle(getArguments());
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        saveToBundle(outState);
+    }
+
+    private void getFromBundle(Bundle inState) {
+        ParcelableLruCache<List<PageTitle>> mySearchResultsCache = inState.getParcelable(ARG_RESULTS_CACHE);
+        if (mySearchResultsCache != null) {
+            searchResultsCache = mySearchResultsCache;
+            pageImagesCache = inState.getParcelable(ARG_PAGE_IMAGES_CACHE);
+            lastSearchedText = inState.getString(ARG_LAST_SEARCHED_TEXT);
+            isSearchActive = inState.getBoolean(ARG_IS_SEARCH_ACTIVE);
+        }
+    }
+
+    private void saveToBundle(Bundle outState) {
+        outState.putString(ARG_LAST_SEARCHED_TEXT, lastSearchedText);
+        outState.putBoolean(ARG_IS_SEARCH_ACTIVE, isSearchActive);
+        outState.putParcelable(ARG_RESULTS_CACHE, searchResultsCache);
+        outState.putParcelable(ARG_PAGE_IMAGES_CACHE, pageImagesCache);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((ThemedActionBarActivity)getActivity()).getSupportActionBar().setTitle("");
+    }
+
+    public void newSearch(String term) {
+        //update this fragment's arguments...
+        getArguments().putString(KEY_SEARCH_TERM, term);
+        searchTerm = term;
+        //if we're already attached, then do the search...
+        if (isAdded()) {
+            startSearch(term);
+        }
     }
 
     private void startSearch(String term) {
         if (Utils.compareStrings(term, lastSearchedText) && isSearchActive) {
             return; // Nothing has changed!
         }
+        forceStartSearch(term);
+    }
+
+    private void forceStartSearch(String term) {
         if (term.equals("")) {
             hideSearchResults();
             fullSearchContainer.setVisibility(View.GONE);
             return;
         }
+
+        searchNoResults.setVisibility(View.GONE);
+        searchNetworkError.setVisibility(View.GONE);
 
         if (app.getReleaseType() != WikipediaApp.RELEASE_PROD) {
             fullSearchContainer.setVisibility(View.VISIBLE);
@@ -314,84 +270,75 @@ public class SearchArticlesFragment extends Fragment {
         searchHandler.sendMessageDelayed(searchMessage, DELAY_MILLIS);
     }
 
-    public void ensureVisible() {
-        ViewAnimations.ensureTranslationY(getView(), 0);
-    }
-
-    public void setDrawerLayout(DrawerLayout drawerLayout) {
-        this.drawerLayout = drawerLayout;
-
-        if (pageActionsHandler != null) {
-            pageActionsHandler.onDestroy();
-        }
-        pageActionsHandler = new PageActionsHandler(app.getBus(), pageActionsMenu, searchBarMenuButton, drawerLayout);
-
-        drawerLayout.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            private boolean hideKeyboardCalled = false;
-            private float offsetWindow = INITIAL_OFFSET_WINDOW;
-            private float offsetWindowMax = offsetWindow;
-            private float offsetWindowMin = 0f;
-
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
-                // Hide the keyboard when the drawer is opened
-                if (!hideKeyboardCalled) {
-                    Utils.hideSoftKeyboard(getActivity());
-                    //also make sure ToC is hidden
-                    app.getBus().post(new ShowToCEvent(ShowToCEvent.ACTION_HIDE));
-                    hideKeyboardCalled = true;
-                }
-                // Make sure that the entire search bar is visible
-                ensureVisible();
-                // Animation for sliding drawer open and close
-                // Modeled after the general behavior of Google apps
-                // Shift left and right margins appropriately to make sure that the rest of the layout does not shift
-                if (slideOffset >= offsetWindowMax) {
-                    offsetWindowMax = slideOffset;
-                    offsetWindowMin = offsetWindowMax - offsetWindow;
-                } else if (slideOffset < offsetWindowMin) {
-                    offsetWindowMin = slideOffset;
-                    offsetWindowMax = offsetWindowMin + offsetWindow;
-                }
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(drawerIndicator.getLayoutParams());
-                params.leftMargin = -(int)(LEFT_MARGIN_BASE_DP * WikipediaApp.getInstance().getScreenDensity() * offsetWindowMin);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1
-                        && drawerView.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
-                    params.leftMargin = -params.leftMargin;
-                }
-                params.rightMargin = -params.leftMargin;
-                params.gravity = Gravity.CENTER_VERTICAL; // Needed because this seems to get reset otherwise.
-                drawerIndicator.setLayoutParams(params);
-            }
-            @Override
-            public void onDrawerStateChanged(int newState) {
-                if (newState == DrawerLayout.STATE_IDLE) {
-                    hideKeyboardCalled = false;
-                }
-            }
-        });
-    }
-
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelable("searchResultsCache", searchResultsCache);
-        outState.putParcelable("pageImagesCache", pageImagesCache);
-        outState.putString("lastSearchedText", lastSearchedText);
-        outState.putBoolean("isSearchActive", isSearchActive);
-        outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        addSearchView(menu);
     }
 
-    public void setTocEnabled(boolean enable) {
-        searchBarTocButton.setEnabled(enable);
+    private void addSearchView(Menu menu) {
+        MenuItem searchAction = menu.add(0, Menu.NONE, Menu.NONE, getString(R.string.search_hint));
+        MenuItemCompat.setShowAsAction(searchAction , MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
+        SearchView searchView = new SearchView(getActivity());
+        searchView.setFocusable(true);
+        searchView.requestFocusFromTouch();
+        searchView.setOnQueryTextListener(searchQueryListener);
+        searchView.setOnCloseListener(searchCloseListener);
+        searchView.setIconified(false);
+        searchView.setInputType(EditorInfo.TYPE_CLASS_TEXT);
+        searchView.setImeOptions(EditorInfo.IME_ACTION_GO);
+        searchView.setSubmitButtonEnabled(true);
+        searchView.setQueryHint(getString(R.string.search_hint));
+        if (isValidQuery(lastSearchedText)) {
+            searchView.setQuery(lastSearchedText, false);
+        }
+        MenuItemCompat.setActionView(searchAction, searchView);
     }
 
-    public void setTocHidden(boolean hide) {
-        searchBarTocButton.setVisibility(hide ? View.GONE : View.VISIBLE);
+    private boolean isValidQuery(String queryText) {
+        return queryText != null && TextUtils.getTrimmedLength(queryText) > 0;
     }
 
-    public void clearErrors() {
-        searchNetworkError.setVisibility(View.GONE);
+    private final SearchView.OnQueryTextListener searchQueryListener = new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextSubmit(String queryText) {
+            searchTerm = queryText;
+            if (isValidQuery(queryText)) {
+                navigateToTitle(queryText);
+            }
+            return true;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String queryText) {
+            searchTerm = queryText;
+            if (isValidQuery(queryText)) {
+                startSearch(queryText);
+            }
+            return true;
+        }
+    };
+
+    private final SearchView.OnCloseListener searchCloseListener = new SearchView.OnCloseListener() {
+        @Override
+        public boolean onClose() {
+            closeSearch();
+            ((PageActivity)getActivity()).closeSearch();
+            return false;
+        }
+    };
+
+    private void closeSearch() {
+        hideSearchResults();
+    }
+
+    private void navigateToTitle(String queryText) {
+        navigateToTitle(new PageTitle(queryText, app.getPrimarySite(), null));
+    }
+
+    public void navigateToTitle(PageTitle title) {
+        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
+        Utils.hideSoftKeyboard(getActivity());
+        app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
     }
 
     private final class SearchResultAdapter extends BaseAdapter {
@@ -400,10 +347,6 @@ public class SearchArticlesFragment extends Fragment {
 
         private SearchResultAdapter(LayoutInflater inflater) {
             this.inflater = inflater;
-        }
-
-        private List<PageTitle> getResults() {
-            return results;
         }
 
         private void setResults(List<PageTitle> results) {
@@ -452,129 +395,33 @@ public class SearchArticlesFragment extends Fragment {
         }
     }
 
-    /**
-     * Handle back button being pressed.
-     *
-     * @return true if the back button press was handled, false otherwise
-     */
-    public boolean handleBackPressed() {
-        if (isSearchActive) {
-            hideSearchResults();
-            return true;
-        }
-        return false;
-    }
-
-    @Subscribe
-    public void onNewWikiPageNavigationEvent(NewWikiPageNavigationEvent event) {
-        //Clear the text in the search box
-        searchTermText.setText("");
-        // If search bar isn't fully visible, make it so!
-        ensureVisible();
-    }
-
-    @Subscribe
-    public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
-        if (app.getWikipediaZeroHandler().isZeroEnabled()) {
-            setWikipediaZeroChrome();
-        } else {
-            setNormalChrome();
-        }
-    }
-
-    private void setWikipediaZeroChrome() {
-        //navbar.setBackgroundColor(Color.BLACK);
-        //drawerIndicator.setColorFilter(Color.WHITE);
-        //wikipediaIcon.setColorFilter(Color.WHITE);
-        //searchTermText.setTextColor(Color.WHITE);
-        searchTermText.setHint(R.string.zero_search_hint);
-        //searchBarMenuButton.setColorFilter(Color.WHITE);
-        //searchBarTocButton.setColorFilter(Color.WHITE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            //drawerIndicator.setAlpha(.6f);
-            //wikipediaIcon.setAlpha(.6f);
-            //searchBarTocButton.setAlpha(.6f);
-        }
-        ensureVisible();
-    }
-
-    private void setNormalChrome() {
-        //navbar.setBackgroundColor(navbarColor);
-        //drawerIndicator.clearColorFilter();
-        //wikipediaIcon.clearColorFilter();
-        //searchTermText.setTextColor(searchTermTextColor);
-        //searchTermText.setHintTextColor(searchTermHintTextColor);
-        searchTermText.setHint(R.string.search_hint);
-        //searchBarMenuButton.clearColorFilter();
-        //searchBarTocButton.clearColorFilter();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            //drawerIndicator.setAlpha(1.0f);
-            //wikipediaIcon.setAlpha(.9f);
-            //searchBarTocButton.setAlpha(.5f);
-        }
-        ensureVisible();
-    }
-
-    @Override
-    public void onPause() {
-        Utils.hideSoftKeyboard(getActivity());
-        super.onPause();
-        pausedStateOfZero = app.getWikipediaZeroHandler().isZeroEnabled();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        boolean latestWikipediaZeroDispostion = app.getWikipediaZeroHandler().isZeroEnabled();
-        if (pausedStateOfZero != latestWikipediaZeroDispostion) {
-            app.getBus().post(new WikipediaZeroStateChangeEvent());
-        } else if (latestWikipediaZeroDispostion) {
-            setWikipediaZeroChrome();
-        }
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        app.getBus().register(this);
-    }
-
-    @Override
-    public void onDestroyView() {
-        app.getBus().unregister(this);
-        if (pageActionsHandler != null) {
-            pageActionsHandler.onDestroy();
-        }
-        super.onDestroyView();
-    }
-
     private class SearchHandlerCallback implements Handler.Callback {
         @Override
         public boolean handleMessage(Message msg) {
-            final String searchTerm = (String) msg.obj;
-            SearchArticlesTask searchTask = new SearchArticlesTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm) {
+            final String mySearchTerm = (String) msg.obj;
+            SearchArticlesTask searchTask = new SearchArticlesTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), mySearchTerm) {
+                @Override
+                public void onBeforeExecute() {
+                    progressBar.setVisibility(View.VISIBLE);
+                    isSearchActive = true;
+                }
+
                 @Override
                 public void onFinish(List<PageTitle> result) {
-                    searchProgress.setVisibility(View.INVISIBLE);
+                    progressBar.setVisibility(View.GONE);
                     searchNetworkError.setVisibility(View.GONE);
                     displayResults(result);
-                    searchResultsCache.put(app.getPrimaryLanguage() + "-" + searchTerm, result);
-                    lastSearchedText = searchTerm;
+                    searchResultsCache.put(app.getPrimaryLanguage() + "-" + mySearchTerm, result);
+                    lastSearchedText = mySearchTerm;
                     curSearchTask = null;
                 }
 
                 @Override
                 public void onCatch(Throwable caught) {
-                    searchProgress.setVisibility(View.INVISIBLE);
+                    progressBar.setVisibility(View.GONE);
                     searchNetworkError.setVisibility(View.VISIBLE);
                     searchResultsList.setVisibility(View.GONE);
                     curSearchTask = null;
-                }
-
-                @Override
-                public void onBeforeExecute() {
-                    searchProgress.setVisibility(View.VISIBLE);
-                    isSearchActive = true;
                 }
             };
             if (curSearchTask != null) {

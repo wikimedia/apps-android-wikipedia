@@ -1,32 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menu_search"
+          android:title="@string/search_hint"
+          android:icon="@drawable/search"
+          app:actionViewClass="android.support.v7.widget.SearchView"
+          app:showAsAction="ifRoom|collapseActionView"
+          />
+    <item android:id="@+id/menu_toc"
+          android:title="@string/menu_show_toc"
+          android:icon="@drawable/toc_collapsed"
+          app:showAsAction="ifRoom"
+          android:visible="false"
+          />
     <item android:id="@+id/menu_other_languages"
           android:title="@string/menu_other_languages"
           android:enabled="false"
-          android:showAsAction="always"
+          app:showAsAction="never"
           />
     <item android:id="@+id/menu_save_page"
           android:icon="@android:drawable/ic_menu_save"
           android:title="@string/menu_save_page"
-          android:showAsAction="always"
+          app:showAsAction="never"
           android:enabled="false"
           />
     <item android:id="@+id/menu_share_page"
           android:icon="@android:drawable/ic_menu_share"
           android:title="@string/menu_share_page"
-          android:showAsAction="always"
+          app:showAsAction="never"
           android:enabled="false"
             />
     <item android:id="@+id/menu_find_in_page"
           android:icon="@android:drawable/ic_menu_search"
           android:title="@string/find_in_page"
-          android:showAsAction="always"
+          app:showAsAction="never"
           android:enabled="false"
             />
     <item android:id="@+id/menu_themechooser"
           android:title="@string/menu_themechooser"
-          android:showAsAction="always"
+          app:showAsAction="never"
           android:enabled="false"
             />
 </menu>

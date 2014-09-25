@@ -1,8 +1,18 @@
 package org.wikipedia.page;
 
-import android.app.Activity;
+import org.wikipedia.R;
+import org.wikipedia.Utils;
+import org.wikipedia.ViewAnimations;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ToCInteractionFunnel;
+import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.views.DisableableDrawerLayout;
+import org.json.JSONException;
+import org.json.JSONObject;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
 import android.util.Log;
@@ -12,22 +22,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.wikipedia.R;
-import org.wikipedia.Utils;
-import org.wikipedia.ViewAnimations;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.ToCInteractionFunnel;
-import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.settings.PrefKeys;
-import org.wikipedia.views.DisableableDrawerLayout;
-
 import java.util.ArrayList;
 
 public class ToCHandler {
@@ -35,12 +33,11 @@ public class ToCHandler {
     private static final int INDENTATION_WIDTH_DP = 16;
     private final ListView tocList;
     private final ProgressBar tocProgress;
-    private final ImageView tocButton;
     private final CommunicationBridge bridge;
     private final DisableableDrawerLayout slidingPane;
     private final TextView headerView;
     private ToCInteractionFunnel funnel;
-    private Activity parentActivity;
+    private FragmentActivity parentActivity;
 
     /**
      * Flag to track if the drawer is closing because a link was clicked.
@@ -50,14 +47,14 @@ public class ToCHandler {
     private boolean wasClicked = false;
     private boolean openedViaSwipe = true;
 
-    public ToCHandler(final Activity activity, final DisableableDrawerLayout slidingPane, final View quickReturnBar, final CommunicationBridge bridge) {
+    public ToCHandler(final FragmentActivity activity, final DisableableDrawerLayout slidingPane,
+                      final CommunicationBridge bridge) {
         this.parentActivity = activity;
         this.bridge = bridge;
         this.slidingPane = slidingPane;
 
         this.tocList = (ListView) slidingPane.findViewById(R.id.page_toc_list);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
-        this.tocButton = (ImageView) quickReturnBar.findViewById(R.id.search_bar_show_toc);
         final View knowToCContainer = slidingPane.findViewById(R.id.know_toc_intro_container);
 
         bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {
@@ -80,12 +77,11 @@ public class ToCHandler {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                tocButton.setImageResource(R.drawable.toc_expanded);
-                WikipediaApp.getInstance().adjustDrawableToTheme(tocButton.getDrawable());
+                parentActivity.supportInvalidateOptionsMenu();
                 bridge.sendMessage("requestCurrentSection", new JSONObject());
-                if (quickReturnBar != null) {
-                    ViewAnimations.ensureTranslationY(quickReturnBar, 0);
-                }
+//                if (quickReturnBar != null) {
+//                    ViewAnimations.ensureTranslationY(quickReturnBar, 0);
+//                }
                 funnel.logOpen();
                 wasClicked = false;
                 final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(parentActivity);
@@ -98,8 +94,7 @@ public class ToCHandler {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                tocButton.setImageResource(R.drawable.toc_collapsed);
-                WikipediaApp.getInstance().adjustDrawableToTheme(tocButton.getDrawable());
+                parentActivity.supportInvalidateOptionsMenu();
                 if (!wasClicked) {
                     funnel.logClose();
                 }

@@ -1,13 +1,20 @@
 package org.wikipedia.page;
 
+import org.wikipedia.PageTitle;
+import org.wikipedia.R;
+import org.wikipedia.ThemedActionBarActivity;
+import org.wikipedia.history.HistoryEntry;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import org.wikipedia.PageTitle;
-import org.wikipedia.history.HistoryEntry;
 
 /**
  * Fragment that displays a single Page (WebView plus ToC drawer).
@@ -73,6 +80,7 @@ public class PageViewFragment extends Fragment {
                 (PageTitle)getArguments().getParcelable(KEY_TITLE),
                 (HistoryEntry)getArguments().getParcelable(KEY_CURRENT_HISTORY_ENTRY),
                 getArguments().getInt(KEY_SCROLL_Y));
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -91,6 +99,12 @@ public class PageViewFragment extends Fragment {
                     getArguments().getInt(KEY_SCROLL_Y));
         }
         return fragment.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((ThemedActionBarActivity)getActivity()).getSupportActionBar().setTitle("");
     }
 
     @Override
@@ -126,5 +140,32 @@ public class PageViewFragment extends Fragment {
             return;
         }
         fragment.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_page_actions, menu);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
+        searchView.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((PageActivity) getActivity()).openSearch();
+            }
+        });
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        fragment.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (fragment.onOptionsItemSelected(item)) {
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 }

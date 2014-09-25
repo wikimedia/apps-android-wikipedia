@@ -1,6 +1,39 @@
 package org.wikipedia.page;
 
+import org.wikipedia.NavDrawerFragment;
+import org.wikipedia.PageTitle;
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.ThemedActionBarActivity;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.events.ChangeTextSizeEvent;
+import org.wikipedia.events.FindInPageEvent;
+import org.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikipedia.events.RequestMainPageEvent;
+import org.wikipedia.events.SavePageEvent;
+import org.wikipedia.events.SharePageEvent;
+import org.wikipedia.events.ShowOtherLanguagesEvent;
+import org.wikipedia.events.ShowThemeChooserEvent;
+import org.wikipedia.events.ShowToCEvent;
+import org.wikipedia.events.ThemeChangeEvent;
+import org.wikipedia.events.WikipediaZeroInterstitialEvent;
+import org.wikipedia.events.WikipediaZeroStateChangeEvent;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.interlanguage.LangLinksActivity;
+import org.wikipedia.onboarding.OnboardingActivity;
+import org.wikipedia.recurring.RecurringTasksExecutor;
+import org.wikipedia.search.FullSearchFragment;
+import org.wikipedia.search.SearchArticlesFragment;
+import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.theme.ThemeChooserDialog;
+import com.squareup.otto.Bus;
+import com.squareup.otto.Subscribe;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 import android.app.AlertDialog;
+import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,22 +49,6 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
-
-import com.squareup.otto.Bus;
-import com.squareup.otto.Subscribe;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
-import org.wikipedia.*;
-import org.wikipedia.events.*;
-import org.wikipedia.onboarding.OnboardingActivity;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.interlanguage.LangLinksActivity;
-import org.wikipedia.recurring.RecurringTasksExecutor;
-import org.wikipedia.search.FullSearchFragment;
-import org.wikipedia.search.SearchArticlesFragment;
-import org.wikipedia.settings.PrefKeys;
-import org.wikipedia.staticdata.MainPageNameData;
-import org.wikipedia.theme.ThemeChooserDialog;
 
 public class PageActivity extends ThemedActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
@@ -49,7 +66,7 @@ public class PageActivity extends ThemedActionBarActivity {
     private WikipediaApp app;
 
     private View fragmentContainerView;
-    private SearchArticlesFragment searchArticlesFragment;
+//    private SearchArticlesFragment searchArticlesFragment;
     private DrawerLayout drawerLayout;
     private NavDrawerFragment fragmentNavdrawer;
     private FindInPageFragment findInPageFragment;
@@ -96,6 +113,13 @@ public class PageActivity extends ThemedActionBarActivity {
         super.onCreate(savedInstanceState);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+
+        // Just setting the logo in the AndroidManifest.xml is not enough for all cases.
+        // Doesn't work for GB. Also the transition between PageViewFragment and SearchArticlesFragment
+        // makes it temporarily reveal the icon instead of the logo. So, setting the icon dynamically
+        // seems to be the best solution to avoid those issues, while still having a different launcher icon.
+        getSupportActionBar().setIcon(R.drawable.search_w);
+
         setContentView(R.layout.activity_main);
 
         bus = app.getBus();
@@ -116,13 +140,13 @@ public class PageActivity extends ThemedActionBarActivity {
         }
 
         findInPageFragment = (FindInPageFragment) getSupportFragmentManager().findFragmentById(R.id.find_in_page_fragment);
-        searchArticlesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
+//        searchArticlesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navdrawer);
 
         fragmentContainerView = findViewById(R.id.content_fragment_container);
 
-        searchArticlesFragment.setDrawerLayout(drawerLayout);
+//        searchArticlesFragment.setDrawerLayout(drawerLayout);
 
         // If we're coming back from a Theme change, we'll need to "restore" our state based on
         // what's given in our Intent (since there's no way to relaunch the Activity in a way that
@@ -181,6 +205,11 @@ public class PageActivity extends ThemedActionBarActivity {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
             bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+        } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            PageTitle title = new PageTitle(query, app.getPrimarySite());
+            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
+            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
         } else {
             // Unrecognized, let us load the main page!
             // FIXME: Design something better for this?
@@ -222,6 +251,28 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     public void popFragment() {
         getSupportFragmentManager().popBackStack();
+    }
+
+    public void search(final String searchTerm) {
+        if (getTopFragment() instanceof SearchArticlesFragment) {
+            ((SearchArticlesFragment) getTopFragment()).newSearch(searchTerm);
+        } else {
+            SearchArticlesFragment searchFragment = SearchArticlesFragment.newInstance(searchTerm);
+            pushFragment(searchFragment);
+        }
+    }
+
+    public void openSearch() {
+        if (!(getTopFragment() instanceof SearchArticlesFragment)) {
+            SearchArticlesFragment searchFragment = SearchArticlesFragment.newInstance("");
+            pushFragment(searchFragment);
+        }
+    }
+
+    public void closeSearch() {
+        if (getTopFragment() instanceof SearchArticlesFragment) {
+            popFragment();
+        }
     }
 
     public void searchFullText(final String searchTerm) {
@@ -371,10 +422,11 @@ public class PageActivity extends ThemedActionBarActivity {
             drawerLayout.closeDrawer(Gravity.START);
             return;
         }
-        if (findInPageFragment.handleBackPressed()) {
+        if (getTopFragment() instanceof SearchArticlesFragment) {
+            closeSearch();
             return;
         }
-        if (searchArticlesFragment.handleBackPressed()) {
+        if (findInPageFragment.handleBackPressed()) {
             return;
         }
         if (!(getCurPageFragment() != null && getCurPageFragment().handleBackPressed())) {
@@ -387,8 +439,8 @@ public class PageActivity extends ThemedActionBarActivity {
                 finish();
             }
 
-            searchArticlesFragment.clearErrors();
-            searchArticlesFragment.ensureVisible();
+//            searchArticlesFragment.clearErrors();
+//            searchArticlesFragment.ensureVisible();
 
         }
     }

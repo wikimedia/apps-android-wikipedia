@@ -3,101 +3,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="48dp"
+              android:layout_height="match_parent"
               android:background="?attr/search_background_color"
         >
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            >
-            <LinearLayout
-                    android:id="@+id/search_bar_icon"
-                    android:layout_width="wrap_content"
-                    android:background="@drawable/selectable_item_background"
-                    android:layout_height="wrap_content">
-                <ImageView
-                        android:id="@+id/search_drawer_indicator"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginRight="0dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_drawer"
-                        />
-                <ImageView
-                        android:id="@+id/wikipedia_icon"
-                        android:layout_height="32dp"
-                        android:layout_width="32dp"
-                        android:layout_marginRight="0dp"
-                        android:layout_marginEnd="0dp"
-                        android:layout_marginLeft="-4dp"
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/search_w"
-                        />
-            </LinearLayout>
-        <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                >
-            <org.wikipedia.views.PlainPasteEditText
-                    android:id="@+id/search_term_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/search_hint"
-                    android:background="@null"
-                    android:padding="8dp"
-                    android:selectAllOnFocus="true"
-                    android:singleLine="true"
-                    android:ellipsize="end"
-                    android:maxLength="255"
-                    android:imeOptions="actionGo"
-                    android:textCursorDrawable="@null"
-                    />
-            <ProgressBar
-                    android:id="@+id/search_progress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="4dp"
-                    android:layout_gravity="right|center_vertical|end"
-                    android:indeterminate="true"
-                    android:visibility="invisible"
-                    style="@android:style/Widget.ProgressBar.Small"
-                    />
-        </LinearLayout>
-        <ImageView
-                android:id="@+id/search_bar_show_toc"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center_vertical"
-                android:paddingTop="9dp"
-                android:paddingBottom="6dp"
-                android:paddingRight="12dp"
-                android:src="@drawable/toc_collapsed"
-                android:background="@drawable/selectable_item_background"
-                android:contentDescription="@string/menu_show_toc"
-                />
-        <ImageView
-                android:id="@+id/search_bar_show_menu"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center_vertical"
-                android:padding="8dp"
-                android:src="@drawable/ic_menu_moreoverflow_normal_holo_light"
-                android:background="@drawable/selectable_item_background"
-                android:contentDescription="@string/abc_action_menu_overflow_description"
-                />
-    </LinearLayout>
-    <!-- Android has no easy way to give us a light border -->
-    <View android:layout_width="match_parent" android:layout_height="1dp"
-          android:background="@color/border" />
     <TextView
             android:id="@+id/search_results_empty"
             android:layout_width="match_parent"
@@ -155,13 +63,23 @@
         <View android:layout_width="match_parent" android:layout_height="1dp"
               android:background="@color/border" />
     </LinearLayout>
-    <ListView
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ListView
             android:id="@+id/search_results_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:dividerHeight="0dp"
             />
-    <!-- Android has no easy way to give us a light border -->
-    <View android:layout_width="match_parent" android:layout_height="1dp"
-          android:background="@color/border" />
+        <ProgressBar
+            android:id="@+id/search_progress"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            />
+    </FrameLayout>
 </LinearLayout>

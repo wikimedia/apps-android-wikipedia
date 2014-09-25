@@ -1,29 +1,23 @@
 package org.wikipedia.search;
 
-import android.content.Context;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.wikipedia.ApiTask;
+import org.wikipedia.Site;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.ApiTask;
-import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
-
+import org.json.JSONArray;
+import org.json.JSONObject;
+import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullSearchResults> {
     private final String searchTerm;
-    private final Site site;
-    private final WikipediaApp app;
     private int continueOffset;
 
     public FullSearchArticlesTask(Context context, Api api, Site site, String searchTerm, int continueOffset) {
         super(LOW_CONCURRENCY, api);
         this.searchTerm = searchTerm;
-        this.site = site;
-        this.app = (WikipediaApp)context.getApplicationContext();
         this.continueOffset = continueOffset;
     }
 
