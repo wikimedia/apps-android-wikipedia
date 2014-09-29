@@ -2,6 +2,7 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/selectable_item_background">
@@ -10,35 +11,50 @@
         android:id="@+id/nearby_thumbnail"
         android:layout_width="92dp"
         android:layout_height="92dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_gravity="center_vertical"
-        android:layout_margin="4dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
         android:src="@drawable/ic_pageimage_placeholder"
         android:padding="12dp"
         android:scaleType="centerCrop"
         />
 
-    <TextView
-        android:id="@+id/nearby_title"
-        style="?android:textAppearanceMedium"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_margin="8dp"
+        android:layout_margin="6dp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/nearby_thumbnail"
         android:layout_toRightOf="@id/nearby_thumbnail"
-        android:text="Title"/>
+        >
 
-    <TextView
-        android:id="@+id/nearby_distance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/nearby_title"
-        android:layout_marginLeft="8dp"
-        android:layout_toRightOf="@id/nearby_thumbnail"
-        android:padding="4dp"
-        android:background="@drawable/button_shape_gray_highlight"
-        android:textColor="@color/nav_text"
-        android:text="dist"/>
+        <TextView
+            android:id="@+id/nearby_title"
+            style="?android:textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:text="Title"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/nearby_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:background="@drawable/button_shape_gray_highlight"
+            android:textColor="@color/nav_text"
+            android:text="dist"
+            tools:ignore="HardcodedText"/>
+    </LinearLayout>
 
 </RelativeLayout>

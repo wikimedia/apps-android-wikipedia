@@ -463,7 +463,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
                 // set the calculated angle as the base angle for our compass view
                 viewHolder.thumbnail.setAngle((float) calculateAngle(nearbyPage.getLocation()));
                 viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(NearbyActivity.this, R.attr.window_background_color)));
-                viewHolder.thumbnail.setTickColor(getResources().getColor(R.color.blue_progressive));
+                viewHolder.thumbnail.setTickColor(getResources().getColor(R.color.button_light));
                 if (!compassViews.contains(viewHolder.thumbnail)) {
                     compassViews.add(viewHolder.thumbnail);
                 }

@@ -9,6 +9,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="corner_radius">4dp</dimen>
 
+    <dimen name="corner_radius_smaller">2dp</dimen>
+
     <!-- Default font size for WebView text based on system settings -->
     <dimen name="textSize">16sp</dimen>
 
