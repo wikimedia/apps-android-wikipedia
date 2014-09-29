@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.GeomagneticField;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -14,6 +15,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -46,19 +48,23 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Displays a list of nearby pages.
  */
 public class NearbyActivity extends ThemedActionBarActivity implements SensorEventListener {
     public static final int ACTIVITY_RESULT_NEARBY_SELECT = 1;
+    private static final String PREF_KEY_UNITS = "nearbyUnits";
     private static final String NEARBY_LAST_RESULT = "lastRes";
     private static final String NEARBY_LAST_LOCATION = "lastLoc";
     private static final String NEARBY_NEXT_LOCATION = "curLoc";
     private static final int MIN_TIME_MILLIS = 5000;
     private static final int MIN_DISTANCE_METERS = 2;
-    private static final int ONE_KM = 1000;
-    private static final double ONE_KM_D = 1000.0d;
+    private static final int ONE_THOUSAND = 1000;
+    private static final double ONE_THOUSAND_D = 1000.0d;
+    private static final double METER_TO_FEET = 3.280839895;
+    private static final int ONE_MILE = 5280;
 
     private ListView nearbyList;
     private View nearbyLoadingContainer;
@@ -95,6 +101,9 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     //we'll maintain a list of CompassViews that are currently being displayed, and update them
     //whenever we receive updates from sensors.
     private List<NearbyCompassView> compassViews;
+
+    //whether to display distances in imperial units (feet/miles) instead of metric
+    private boolean showImperial = false;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -166,6 +175,17 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
             showNearbyPages(lastResult);
         } else {
             setRefreshingState(true);
+        }
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        //do we already have a preference for metric/imperial units?
+        if (prefs.contains(PREF_KEY_UNITS)) {
+            setImperialUnits(prefs.getBoolean(PREF_KEY_UNITS, false));
+        } else {
+            //if our locale is set to US, then use imperial units by default.
+            if (Locale.getDefault().getISO3Country().equalsIgnoreCase(Locale.US.getISO3Country())) {
+                setImperialUnits(true);
+            }
         }
     }
 
@@ -391,11 +411,20 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     }
 
     private String getDistanceLabel(Location otherLocation) {
-        final int distance = getDistance(otherLocation);
-        if (distance < ONE_KM) {
-            return getString(R.string.nearby_distance_in_meters, distance);
+        final int meters = getDistance(otherLocation);
+        if (showImperial) {
+            final double feet = meters * METER_TO_FEET;
+            if (feet < ONE_THOUSAND) {
+                return getString(R.string.nearby_distance_in_feet, (int)feet);
+            } else {
+                return getString(R.string.nearby_distance_in_miles, feet / ONE_MILE);
+            }
         } else {
-            return getString(R.string.nearby_distance_in_kilometers, distance / ONE_KM_D);
+            if (meters < ONE_THOUSAND) {
+                return getString(R.string.nearby_distance_in_meters, meters);
+            } else {
+                return getString(R.string.nearby_distance_in_kilometers, meters / ONE_THOUSAND_D);
+            }
         }
     }
 
@@ -407,15 +436,18 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_nearby, menu);
         app.adjustDrawableToTheme(menu.findItem(R.id.menu_refresh_nearby).getIcon());
+        menu.findItem(R.id.menu_metric_imperial).setTitle(showImperial
+                ? getString(R.string.nearby_set_metric)
+                : getString(R.string.nearby_set_imperial));
         return true;
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            // invalidateOptionsMenu is only available since API 11
-            menu.findItem(R.id.menu_refresh_nearby).setEnabled(!refreshing);
-        }
+        menu.findItem(R.id.menu_refresh_nearby).setEnabled(!refreshing);
+        menu.findItem(R.id.menu_metric_imperial).setTitle(showImperial
+                ? getString(R.string.nearby_set_metric)
+                : getString(R.string.nearby_set_imperial));
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -429,9 +461,20 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
                 setRefreshingState(true);
                 requestLocationUpdates();
                 return true;
+            case R.id.menu_metric_imperial:
+                setImperialUnits(!showImperial);
+                adapter.notifyDataSetInvalidated();
+                return true;
             default:
                 throw new RuntimeException("Unknown menu item clicked!");
         }
+    }
+
+    private void setImperialUnits(boolean imperial) {
+        showImperial = imperial;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit().putBoolean(PREF_KEY_UNITS, showImperial).commit();
+        this.supportInvalidateOptionsMenu();
     }
 
 

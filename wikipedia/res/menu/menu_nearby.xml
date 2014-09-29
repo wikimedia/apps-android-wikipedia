@@ -7,5 +7,8 @@
           android:icon="@drawable/ic_refresh"
           android:title="@string/menu_update_nearby"
           app:showAsAction="always" />
+    <item android:id="@+id/menu_metric_imperial"
+          android:title="@string/nearby_set_imperial"
+          app:showAsAction="never"/>
 
 </menu>
