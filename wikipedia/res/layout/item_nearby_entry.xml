@@ -28,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
+        android:paddingBottom="8dp"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@id/nearby_thumbnail"
         android:layout_toRightOf="@id/nearby_thumbnail"
@@ -38,7 +39,7 @@
             style="?android:textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="1dp"
             android:text="Title"
             tools:ignore="HardcodedText" />
 
@@ -46,7 +47,7 @@
             android:id="@+id/nearby_distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="1dp"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
             android:paddingLeft="8dp"

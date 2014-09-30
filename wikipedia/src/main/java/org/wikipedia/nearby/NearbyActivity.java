@@ -1,5 +1,17 @@
 package org.wikipedia.nearby;
 
+import org.wikipedia.PageTitle;
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.ThemedActionBarActivity;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageActivity;
+import org.mediawiki.api.json.ApiException;
+import com.squareup.picasso.Picasso;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -29,19 +41,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.squareup.picasso.Picasso;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
-import org.mediawiki.api.json.ApiException;
-import org.wikipedia.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.Site;
-import org.wikipedia.ThemedActionBarActivity;
-import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActivity;
-
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -505,7 +504,7 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
             if (nearbyPage.getLocation() != null) {
                 // set the calculated angle as the base angle for our compass view
                 viewHolder.thumbnail.setAngle((float) calculateAngle(nearbyPage.getLocation()));
-                viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(NearbyActivity.this, R.attr.window_background_color)));
+                viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(NearbyActivity.this, R.attr.page_background_color)));
                 viewHolder.thumbnail.setTickColor(getResources().getColor(R.color.button_light));
                 if (!compassViews.contains(viewHolder.thumbnail)) {
                     compassViews.add(viewHolder.thumbnail);
