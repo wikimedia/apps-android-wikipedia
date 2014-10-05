@@ -42,8 +42,7 @@ public class StyleFetcherTask extends RecurringTask {
         Site site = ((WikipediaApp) getContext().getApplicationContext()).getPrimarySite();
         try {
             return String.format(
-                    "https://bits.wikimedia.org/%s.wikipedia.org/load.php?debug=false&lang=en&modules=%s&only=styles&skin=vector",
-                    site.getLanguage(),
+                    site.getResourceLoaderPath() + "?debug=false&lang=en&modules=%s&only=styles&skin=vector",
                     URLEncoder.encode(modules, "utf-8")
             );
         } catch (UnsupportedEncodingException e) {

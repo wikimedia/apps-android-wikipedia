@@ -31,7 +31,6 @@ public class ArticleImporter {
     }
 
     private PageTitle titleForItem(JSONObject item) {
-        Site site = new Site(item.optString("lang") + ".wikipedia.org");
-        return new PageTitle(null, item.optString("title"), site);
+        return new PageTitle(null, item.optString("title"), Site.forLang(item.optString("lang")));
     }
 }
