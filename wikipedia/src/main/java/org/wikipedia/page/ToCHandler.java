@@ -94,15 +94,6 @@ public class ToCHandler {
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
             }
-
-            @Override
-            public void onDrawerStateChanged(int state) {
-                super.onDrawerStateChanged(state);
-                //if we're in the process of pulling the ToC, make sure to un-nudge it, in case it's nudged out.
-                if (state != DrawerLayout.STATE_IDLE) {
-                    slidingPane.unNudge();
-                }
-            }
         });
     }
 

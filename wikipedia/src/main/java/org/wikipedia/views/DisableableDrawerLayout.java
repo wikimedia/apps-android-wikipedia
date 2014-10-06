@@ -1,12 +1,10 @@
 package org.wikipedia.views;
 
-import org.wikipedia.ViewAnimations;
 import android.content.Context;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.ViewDragHelper;
-import android.text.format.DateUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -47,11 +45,6 @@ public class DisableableDrawerLayout extends DrawerLayout {
      */
     private static final int DRAG_EDGE_WIDTH = 48;
 
-    /**
-     * The amount (in dp) by which the drawer can be "nudged" out.
-     */
-    private static final int NUDGE_AMOUNT_DP = 48;
-
     private void setDragEdgeWidth() {
         this.post(new Runnable() {
             @Override
@@ -77,40 +70,6 @@ public class DisableableDrawerLayout extends DrawerLayout {
                 }
             }
         });
-    }
-
-    /**
-     * Nudge out the drawer, and automatically put it back after a short time.
-     */
-    public void nudgeOut(int gravity) {
-        //don't do it if the drawer is already showing!
-        if (isDrawerOpen(gravity)) {
-            return;
-        }
-
-        View pullOutView = getChildAt(1);
-        int absGravity = GravityCompat.getAbsoluteGravity(((LayoutParams)pullOutView.getLayoutParams()).gravity,
-                                                   ViewCompat.getLayoutDirection(pullOutView));
-        pullOutView.setVisibility(View.VISIBLE);
-        // Determine whether to move it left or right, based on RTL/LTR orientation
-        ViewAnimations.ensureTranslationX(pullOutView, ((absGravity & Gravity.HORIZONTAL_GRAVITY_MASK) == Gravity.LEFT ? 1 : -1)
-                                                * (int)(NUDGE_AMOUNT_DP * getResources().getDisplayMetrics().density));
-
-        // un-nudge the drawer after two seconds!
-        this.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                unNudge();
-            }
-        }, DateUtils.SECOND_IN_MILLIS * 2);
-    }
-
-    /**
-     * Explicitly un-nudge the drawer. (Does nothing if the drawer isn't nudged to begin with.)
-     */
-    public void unNudge() {
-        View pullOutView = getChildAt(1);
-        ViewAnimations.ensureTranslationX(pullOutView, 0);
     }
 
 }
