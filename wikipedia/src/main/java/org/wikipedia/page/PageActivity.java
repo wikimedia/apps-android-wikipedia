@@ -86,6 +86,7 @@ public class PageActivity extends FragmentActivity {
         app = (WikipediaApp) getApplicationContext();
         setTheme(app.getCurrentTheme());
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_ACTION_MODE_OVERLAY);
         super.onCreate(savedInstanceState);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
