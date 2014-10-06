@@ -125,7 +125,7 @@
   <string name="create_account_password_too_short_error">パスワードが短すぎます。</string>
   <string name="create_account_blocked_anon_error">IPアドレスがブロックされておりアカウントを作成できません。</string>
   <string name="create_account_blocked_error">あなたのアカウントはブロックされており、アカウントを作成できません。</string>
-  <string name="create_account_password_name_match_error">ユーザー名とパスワードは同一にできません。</string>
+  <string name="create_account_password_name_match_error">利用者名とパスワードは同一にできません。</string>
   <string name="create_account_generic_error">アカウントを作成できませんでした</string>
   <string name="create_account_no_network">ネットワーク接続がありません</string>
   <string name="create_account_next">次へ</string>

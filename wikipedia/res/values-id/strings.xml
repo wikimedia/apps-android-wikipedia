@@ -39,6 +39,11 @@
   <string name="toast_saved_page_deleted">Halaman yang disimpan terhapus</string>
   <string name="saved_pages_search_list_hint">Cari</string>
   <string name="saved_pages_search_empty_message" fuzzy="true">Tidak ada halaman yang ditemukan dengan pencocokan \'%s\'</string>
+  <string name="nearby_activity_title">Sekitar</string>
+  <string name="nav_item_nearby">Sekitar</string>
+  <string name="nearby_no_network">Tidak ada sambungan jaringan</string>
+  <string name="nearby_server_error">Tidak bisa mendapatkan daftar tempat terdekat.</string>
+  <string name="nearby_no_location">Tidak dapat menentukan lokasi</string>
   <string name="last_updated_text">Terakhir diperbarui %1$s</string>
   <string name="content_license_html">Konten tersedia di bawah &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; kecuali dinyatakan lain</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, Anda setuju terhadap &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -101,13 +106,17 @@
   <string name="create_account_activity_title">Buat akun baru</string>
   <string name="edit_section_activity_title">Sunting bagian</string>
   <string name="dialog_create_account_checking_progress">Memverifikasi</string>
-  <string name="create_account_email_hint">Surel (opsional)</string>
+  <string name="create_account_email_hint">Alamat surel/email (dianjurkan untuk diisi)</string>
   <string name="create_account_password_repeat_hint">Ulangi kata sandi</string>
   <string name="create_account_passwords_mismatch_error">Kata sandi tidak cocok</string>
   <string name="create_account_email_error">Alamat surel tidak sah</string>
   <string name="create_account_username_exists_error">Nama pengguna telah digunakan</string>
   <string name="create_account_ip_throttle_error">Terlalu banyak akun yang dibuat dari alamat IP ini. Coba lagi nanti.</string>
   <string name="create_account_open_proxy_error">Alamat IP ini telah diblokir dari membuat akun.</string>
+  <string name="create_account_noname_error">Nama pengguna yang anda masukkan tidak sah. Mohon masukkan nama pengguna lain.</string>
+  <string name="create_account_password_too_short_error">Kata sandi yang anda masukkan terlalu pendek</string>
+  <string name="create_account_blocked_anon_error">Anda tidak dapat membuat account karena IP diblokir.</string>
+  <string name="create_account_password_name_match_error">Nama pengguna dan kata sandi harus berbeda.</string>
   <string name="create_account_generic_error">Tidak dapat membuat akun</string>
   <string name="create_account_no_network">Tidak ada sambungan jaringan</string>
   <string name="create_account_next">Selanjutnya</string>
@@ -208,6 +217,8 @@
   <string name="color_theme_light">Terang</string>
   <string name="color_theme_dark">Gelap</string>
   <string name="page_similar_titles" fuzzy="true">Judul yang serupa</string>
+  <string name="toc_hint">Geser ke kiri untuk bagian, atau gunakan tombol menu di atas kanan</string>
+  <string name="toc_know_it">Mengerti</string>
   <string name="app_store_description">Aplikasi resmi Wikipedia untuk Android. Wikipedia adalah ensiklopedia bebas yang berisi lebih dari 32 juta artikel dalam 280 bahasa sekaligus karya referensi buatan manusia yang paling lengkap dan banyak digunakan sepanjang sejarah. Aplikasi ini telah ditulis ulang dari awal dan lebih baik dari sebelumnya.
 
 Fitur:
@@ -220,4 +231,5 @@ Fitur:
    - Wikipedia Nol: Biaya data dibebaskan untuk operator selular yang berpartisipasi.
 
 Kode sepenuhnya bersifat sumber terbuka. Jika Anda memiliki pengalaman dengan Java dan Android SDK, silakan bantu kami! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_text">Sentuh untuk mengunduh</string>
 </resources>

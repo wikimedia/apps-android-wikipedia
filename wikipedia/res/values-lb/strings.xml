@@ -39,8 +39,10 @@
   <string name="delete_selected_saved_pages">Läschen</string>
   <string name="toast_saved_page_deleted">Gespäichert Säit(e) geläscht</string>
   <string name="saved_pages_search_list_hint">Sichen</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">Keng Säite mat \"%s\" fonnt</string>
+  <string name="saved_pages_search_empty_message">Keng Säite fonnt déi Ärer Ufro entspriechen.</string>
   <string name="nearby_activity_title">Nobäi</string>
+  <string name="nav_item_nearby">Nobäi</string>
+  <string name="nearby_empty_title">Keng Säiten nobäi</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>
   <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
@@ -88,7 +90,7 @@
   <string name="preference_summary_logout">Aus Ärem Wikipedia-Benotzerkont ausloggen</string>
   <string name="preference_summary_notloggedin">Net ageloggt.</string>
   <string name="toast_logout_complete">Ausgeloggt</string>
-  <string name="saved_pages_empty_title" fuzzy="true">Nach keng gespäichert Säiten.</string>
+  <string name="saved_pages_empty_title">Keng gespäichert Säiten hei.</string>
   <string name="saved_pages_empty_message">Gespäichert Säite si flott. Denkt dru fir ze als Lieszeechen ze benotzen déi Dir liese kënnt wann Dir offline sidd.</string>
   <string name="history_empty_title">Keng rezent Säiten hei.</string>
   <string name="history_empty_message">Dir hutt se wahrscheinlech all geläscht. Wann Dir déi nächste Kéier op eng Säit gitt da kënnt Dir vun hei aus op déi Säit zréckgoen.</string>

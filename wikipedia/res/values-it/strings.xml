@@ -42,6 +42,9 @@
   <string name="saved_pages_search_empty_message">Nessuna pagina trovata che corrisponda alla richiesta.</string>
   <string name="nearby_activity_title">Nelle vicinanze</string>
   <string name="nav_item_nearby">Nelle vicinanze</string>
+  <string name="menu_update_nearby">Aggiorna nelle vicinanze</string>
+  <string name="nearby_empty_title">Nessuna pagina nelle vicinanze</string>
+  <string name="nearby_empty_message">Quando ti sposti in una nuova posizione, è possibile aggiornare questa pagina.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_no_network">Nessuna connessione di rete</string>
@@ -115,6 +118,12 @@
   <string name="create_account_username_exists_error">Nome utente già in uso</string>
   <string name="create_account_ip_throttle_error">Troppi account creati da questo indirizzo IP. Riprova più tardi.</string>
   <string name="create_account_open_proxy_error">Questo indirizzo IP è stato bloccato dalla creazione di account.</string>
+  <string name="create_account_noname_error">Il nome utente che hai fornito non è valido. Indica un altro nome utente.</string>
+  <string name="create_account_invalid_email_error">L\'indirizzo email che hai fornito non è valido.</string>
+  <string name="create_account_password_too_short_error">La password che hai fornito è troppo breve.</string>
+  <string name="create_account_blocked_anon_error">Non puoi creare un\'utenza perché il tuo IP è bloccato.</string>
+  <string name="create_account_blocked_error">Non puoi creare un\'utenza perché il tuo account è bloccato.</string>
+  <string name="create_account_password_name_match_error">Il tuo nome utente e la password devono essere diversi.</string>
   <string name="create_account_generic_error">Impossibile creare l\'account</string>
   <string name="create_account_no_network">Nessuna connessione di rete</string>
   <string name="create_account_next">Successivo</string>
@@ -232,6 +241,6 @@ Caratteristiche:
 
 Il codice è interamente open source. Se hai esperienza con Java e l\'Android SDK, vieni a forkarci!
 https://github.com/wikimedia/apps-android-wikipedia</string>
-  <string name="alpha_update_notification_title">Nuova aggiornamento alfa disponibile</string>
+  <string name="alpha_update_notification_title">Nuovo aggiornamento alfa disponibile</string>
   <string name="alpha_update_notification_text">Tocca per scaricare</string>
 </resources>

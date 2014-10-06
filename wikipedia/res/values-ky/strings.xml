@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="app_name">Уикипедия</string>
+  <string name="app_name_beta">Уикипедия Бета</string>
+  <string name="app_name_alpha">Уикипедия Альфа</string>
   <string name="yes">Ооба</string>
   <string name="no">Жок</string>
+  <string name="acra_report_dialog_title">Уикипедия бузулду :(</string>
+  <string name="acra_report_dialog_text">Бизге бузулуулар жөнүндө маалымат жөнөтүңүз</string>
+  <string name="acra_report_dialog_comment">Бузулуу болгондо эмне кылып жаттыңыз эле?</string>
+  <string name="search_hint">Уикипедиядан издөө</string>
+  <string name="history_activity_title">Тарых</string>
   <string name="nav_item_history">Тарых</string>
-  <string name="search_network_error">Тармак катасы. Кайра аракет кылуу үчүн экранды басыныз.</string>
+  <string name="error_network_error">Тармакты табууга мүмкүнчүлүк болбоду :(</string>
+  <string name="search_network_error">Тармак катасы. Кайра аракет кылуу үчүн басыңыз.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="menu_clear_all_history">Тарыхты тазалоо</string>
+  <string name="menu_clear_all_bookmarks">Сакталмаларды өчүрүү</string>
   <string name="menu_clear_all_saved_pages">Бардык сакталган беттерди өчүрүү</string>
   <string name="page_does_not_exist_error">Мындай барак жок.</string>
   <string name="nav_item_today">Бүгүн</string>
+  <string name="dialog_title_clear_history">Тарыхты өчүрүү керекпи?</string>
   <string name="saved_pages_activity_title">Сакталган барактар</string>
   <string name="nav_item_saved_pages">Сакталган барактар</string>
   <string name="menu_update_all_saved_pages">Сакталган барактарды жаңылоо</string>
@@ -19,17 +30,24 @@
   <string name="menu_share_page">Бөлүшүү</string>
   <string name="share_via">аркылуу бөлүшүү</string>
   <string name="dialog_title_clear_saved_pages">Бардык сакталган барактарды өчүрүү керекпи?</string>
+  <string name="dialog_message_clear_saved_pages">Сиз бардык сакталган барактарды өчүрүү керектигине толук ишенесизби?</string>
   <string name="toast_saving_page">Барак сакталууда...</string>
   <string name="toast_saved_page">Барак ийгиликтүү сакталды</string>
+  <string name="toast_saved_page_missing_images">Бардык сүрөттөрдү сактоого мүмкүнчүлүк болбоду</string>
+  <string name="toast_save_page_failed">Баракты сактоого мүмкүнчүлүк болбоду :(</string>
+  <string name="toast_refresh_saved_page">Сакталган барак жаңыланууда...</string>
   <string name="delete_selected_saved_pages">Өчүрүү</string>
   <string name="toast_saved_page_deleted">Сакталган барак(тар) өчүрүлдү</string>
   <string name="saved_pages_search_list_hint">Издөө</string>
+  <string name="saved_pages_search_empty_message">Сиздин издегениңизге төп барактар табылган жок</string>
   <string name="nearby_activity_title">Жакынкы</string>
   <string name="nav_item_nearby">Жакынкы</string>
+  <string name="menu_update_nearby">Жакынкы жерлерди жаңылоо</string>
+  <string name="nearby_empty_title">Жакынкы жерлердеги объекттер жөнүндө барактар жок</string>
   <string name="nearby_empty_message">Сиз башка жаңы жерге өтүүдө бул баракты жаңыласаңыз болот.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
-  <string name="nearby_no_network">Тармактык кошулуу жокко эсе</string>
+  <string name="nearby_no_network">Тармактык туташуу жокко эсе</string>
   <string name="nearby_server_error">Жакынкы жерлердин тизмесин алууга мүмкүндүк болболду.</string>
   <string name="nearby_no_location">Жайгашуусун аныктоого мүмкүндүк болбоду</string>
   <string name="nearby_dialog_goto_settings">Сиздин түзүлүшүңүздө жайгашкан жерди жаңылоо иштетилген эмес. Жайгашкан жерди жаңылоону иштетүү үчүн түзүлүшүңүздүн орнотууларына өтүүнү каалайсызбы?</string>
@@ -43,6 +61,7 @@
   <string name="menu_other_languages">Башка тилдерде окуу</string>
   <string name="langlinks_error_retry">Кайра аракет кылуу</string>
   <string name="langlinks_empty">Бул барак башка тилдерде жеткиликтүү эмес.</string>
+  <string name="langlinks_no_match">Сиздин сурооңузга төп тил табылбады.</string>
   <string name="settings_activity_title">Ырастоолор</string>
   <string name="langlinks_activity_title">Башка тилдер</string>
   <string name="menu_save_changes">Өзгөртүүлөрдү сактоо</string>
@@ -59,8 +78,9 @@
   <string name="title_captcha">CAPTCHA\'ны териңиз</string>
   <string name="edit_section_abusefilter_back_text">Менин ондоомо өзгөртүүлөрдү киргизүү</string>
   <string name="edit_section_captcha_reload">CAPTCHA\'ны жаңылоо үчүн, аны басып коюңуз</string>
+  <string name="edit_saved_page_refresh">Бул сакталган барак эскирген болушу мүмкүн жана оңдоо мүмкүнчүлүгү үчүн жаңыланышы абзел. Сиз баракты жаңылоону каалайсызбы?</string>
   <string name="nav_item_login">Кирүү</string>
-  <string name="login_username_hint">Колдонуучунун аты</string>
+  <string name="login_username_hint">Колдонуучу аты</string>
   <string name="login_password_hint">Сырсөз</string>
   <string name="login_password_show_check">Сырсөздү көрсөтүү</string>
   <string name="menu_login">Кирүү</string>
@@ -79,6 +99,9 @@
   <string name="preference_summary_notloggedin">Сиз системге кирген жоксуз</string>
   <string name="toast_logout_complete">Сиз системден чыктыңыз</string>
   <string name="saved_pages_empty_title">Сакталган барактар жок!</string>
+  <string name="saved_pages_empty_message">Сакталган барактар — эң сонун нерселер. Алар жөнүндө сиз оффлайн болсоңуз да окуй ала турчу, сакталмалар жөнүндө ойлогондой ойлоңуз.</string>
+  <string name="history_empty_title">Жакында каралган барактар жок!</string>
+  <string name="history_empty_message">Кыязы, сиз алардын баарын өчүргөн окшойсуз. Кийинки жолу баракка киргенде, бул жактан кайрылсаңыз болот</string>
   <string name="wp_stylized">&lt;big&gt;У&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="wp_tag_line">Ачык энциклопедия</string>
   <string name="skip">Аттоо</string>
@@ -94,4 +117,133 @@
   <string name="create_account_password_repeat_hint">Сырсөздү кайталаңыз</string>
   <string name="create_account_passwords_mismatch_error">Сырсөздөр дал келген жок</string>
   <string name="create_account_email_error">Туура эмес электрондук почта дареги</string>
+  <string name="create_account_username_exists_error">Колдонуучу аты бош эмес</string>
+  <string name="create_account_ip_throttle_error">Бул IP-даректен өтө көп эсеп жазуулары түзүлгөн. Кийинчерээк кайра аракет кылып көрүңүз.</string>
+  <string name="create_account_open_proxy_error">Бул IP-дарек эсеп жазуусун түзүүдөн бөгөттөлгөн.</string>
+  <string name="create_account_noname_error">Сиз мүмкүн болбогон колдонуучу атын көрсөттүңүз. Сураныч, башкасын териңиз.</string>
+  <string name="create_account_invalid_email_error">Сиз мүмкүн болбогон электрондук почта дарегин көрсөттүңүз.</string>
+  <string name="create_account_password_too_short_error">Сиз терген сырсөз өтө кыска.</string>
+  <string name="create_account_blocked_anon_error">Сиз жаңы эсеп жазуусун түзө албайсыз, анткени сиздин IP-дарегиңиз бөгөттөлгөн.</string>
+  <string name="create_account_blocked_error">Сиз жаңы эсеп жазуусун түзө албайсыз, анткени сиздин IP-дарегиңиз бөгөттөлгөн.</string>
+  <string name="create_account_password_name_match_error">Сиздин колдонуучу атыңыз жана сырсөзүңүз окшош болбошу керек.</string>
+  <string name="create_account_generic_error">Эсеп жазуусун түзүү мүмкүн эмес</string>
+  <string name="create_account_no_network">Тармактык туташуу жокко эсе</string>
+  <string name="create_account_next">Кийинки</string>
+  <string name="create_account_button">Катталуу</string>
+  <string name="preferences_general_heading">Жалпы</string>
+  <string name="zero_charged_verbiage">Уикипедия Нөл (Wikipedia Zero) өчтү</string>
+  <string name="zero_charged_verbiage_extended">Башка макалаларды жүктөөдө маалыматтарды жиберүү үчүн акы алынышы мүмкүн</string>
+  <string name="zero_search_hint">Уикипедия Нөлдөн (Wikipedia Zero) издөө</string>
+  <string name="zero_warn_when_leaving">Уикипедия Нөлдөн (Wikipedia Zero) чыкса эскертүү</string>
+  <string name="zero_webpage_title">Уикипедия Нөл (Wikipedia Zero) боюнча КБС</string>
+  <string name="zero_wikipedia_zero_heading">Уикипедия Нөл</string>
+  <string name="zero_interstitial_title">Уикипедия Нөлдөн (Wikipedia Zero) чыгуудабыз</string>
+  <string name="zero_interstitial_leave_app">Маалыматтарды жиберүү үчүн акы алынышы мүмкүн. Тышкы сайттка өтүүнү улантасызбы?</string>
+  <string name="zero_interstitial_continue">Өтүү</string>
+  <string name="zero_interstitial_cancel">Бул жерде калуу</string>
+  <string name="zero_learn_more">Уикипедиянын бул тиркемеси үчүн маалыматтарды жиберүүгө акы алынбайт.</string>
+  <string name="zero_learn_more_learn_more">Көбүрөөк окуу</string>
+  <string name="zero_learn_more_dismiss">Жабуу</string>
+  <string name="zero_settings">Ырастоолор</string>
+  <string name="zero_settings_devmode">Нөлдү (Zero) иштеп чыгуучунун режими</string>
+  <string name="zero_settings_devmode_summary">Бул, иштеп чыгуу кезинде, Уикипедия Нөлгө (Wikipedia Zero) караштуу кодду аткарууга мүмкүндүк берет.</string>
+  <string name="edit_preview_fetching_dialog_message">Алдын ала көрсөтүү даярдалууда...</string>
+  <string name="edit_preview_activity_title">Оңдоону алдын ала көрсөтүү</string>
+  <string name="create_account_logging_in">Системге кирип жатасыз...</string>
+  <string name="send_feedback">Тиркемеге өз бааңызды жөнөтүңүз</string>
+  <string name="edit_summary_guide_text">Бизге баракты кантип жакшыртканыңызды айтып бериңиз. Бул, башка оңдоочуларга сиздин оңдооңузду тез алдын алып көрүүгө жардам берет.</string>
+  <string name="edit_summary_hint">Оңдоолордун сыпаттамасы</string>
+  <string name="nav_item_random">Тушкелди</string>
+  <string name="random_progress">Тушкелди барак даярдалууда...</string>
+  <string name="nav_item_login_benefits">Эгер системге кирсеңиз, сиздин оңдоолоруңуз сиздин колдонуучу атыңызга байланыштуу болот жана IP-дарегиңиз көрүнбөй калат.</string>
+  <string name="create_account_account_created_toast">Эсеп жазуусу түзүлдү!</string>
+  <string name="user_contribs_more_action">Көбүрөөк жүктөө</string>
+  <string name="activity_my_contributions_title">Салымдарым</string>
+  <string name="nav_item_my_contributions">Салымдарым</string>
+  <string name="edit_save_action_login">Кирүү жана сактоо</string>
+  <string name="edit_save_action_ip">Жашыруун сактоо</string>
+  <string name="edit_save_action_login_description">Сиздин оңдоолоруңуз сиздин колдонуучу атыңыз менен байланышта болот, жана башка оңдоочуларга сиз менен байланышканга жеңил болот.</string>
+  <string name="edit_save_action_ip_description">Сиздин оңдоолоруңуз тез-тер өзгөрүп IP-дарегиңиз менен байланышта болот.</string>
+  <string name="preference_title_eventlogging_opt_in">Колдонуу тууралуу маалыматтарды жөнөтүү</string>
+  <string name="preference_summary_eventlogging_opt_in">Уикимедиага сиз бул тиркемени кантип колдонуп жаткандыгыңыз тууралуу маалыматтарды чогултууга уруксат бериңиз. Бул, аны жакшыртууга мүмкүндүк берет.</string>
+  <string name="editing_error_spamblacklist">Бөгөттөлгөн домендерге (%s) шилтемелер табылды. Сураныч, аларды өчүрүп, кайра аракет кылып көрүңүз.</string>
+  <string name="history_search_list_hint">Издөө</string>
+  <string name="history_search_empty_message">Сурооңузга төп эч бир барак табылбады.</string>
+  <string name="error_can_not_process_link">Бул шилтемени көрсөтүүгө мүмкүнчүлүк болбоду.</string>
+  <string name="page_protected_autoconfirmed">Бул барак жарым-жартылай корголгон.</string>
+  <string name="page_protected_sysop">Бул барак толугу менен корголгон.</string>
+  <string name="page_protected_other">Бул барак мындай деңгээлдерде корголгон: %s</string>
+  <string name="page_protected_can_not_edit">Бул баракты оңдоого сиздин укугуңуз жок.</string>
+  <string name="page_protected_can_not_edit_title">Бул барак корголгон</string>
+  <string name="more_item_preferences">Көбүрөөк</string>
+  <string name="more_activity_title">Дагы</string>
+  <string name="about_description">«Уикипедия» тиркемеси жөнүндө</string>
+  <string name="privacy_policy_description">Купуялуулук саясаты</string>
+  <string name="terms_of_use_description">Колдонуу шарттары</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Купуялуулук_саясаты</string>
+  <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Колдонуу_шарттары</string>
+  <string name="preference_title_version">Нуска</string>
+  <string name="about_libraries_heading">колдонулган китепканалар</string>
+  <string name="about_contributors_heading">авторлор</string>
+  <string name="about_translators_heading">котормочулар</string>
+  <string name="about_translators_translatewiki">Бул тиркеме &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'деги ыктыярчылар тарабынан которулган.</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Уикимедиа Фонду&lt;/a&gt;нун өнүмү</string>
+  <string name="about_activity_title">Тиркеме жөнүндө</string>
+  <string name="edit_unchanged">Барак өзгөрүлгөн эмес.</string>
+  <string name="edit_abandon_confirm">Барак өзгөрүлдү. Сиз өзгөртүүлөрдү сактабай чыгууңузга ишенесизби?</string>
+  <string name="user_blocked_from_editing_title">Бөгөттөлгөн</string>
+  <string name="user_logged_in_blocked_from_editing">Сиздин эсеп жазууңуз бул уики-долбоордо оңдоодон бөгөттөлгөн.</string>
+  <string name="user_anon_blocked_from_editing">Сиздин IP-дарегиңиз оңдоодон бөгөттөлгөн.</string>
+  <string name="edit_how_page_improved">Сиз бул баракты кантип жакшырттыңыз?</string>
+  <string name="edit_next">Кийинки</string>
+  <string name="edit_done">Сактоо</string>
+  <string name="edit_preview">Алдын ала көрсөтүү</string>
+  <string name="edit_summary_tag_typo">Жазуу катасы түзөтүлдү</string>
+  <string name="edit_summary_tag_grammar">Жазуу эрежелери түзөтүлдү</string>
+  <string name="edit_summary_tag_links">Шилтемелер кошулду</string>
+  <string name="edit_summary_tag_other">Башка</string>
+  <string name="edit_summary_tag_other_hint">Бул баракты жакшыртууңуздун башка ыкмалары</string>
+  <string name="find_in_page">Бул барактан табуу</string>
+  <string name="find_next">Ушуну табуу</string>
+  <string name="find_previous">Мурункуну табуу</string>
+  <string name="find_close">Издөө панелин жабуу</string>
+  <string name="error_network_error_try_again">Тармак жеткиликсиз, кайра аракет кылып көрүңүз.</string>
+  <string name="saved_pages_update_all_error_retry">Кайра аракет кылуу</string>
+  <string name="saved_pages_update_all_error_message">Сакталган барактарды жаңылоо катасы</string>
+  <string name="saved_pages_progress_title">Сакталган барактар жаңыланууда...</string>
+  <string name="saved_pages_refresh_pages_complete">Жаңылануу аяктады</string>
+  <string name="menu_page_saved">Барак сакталды</string>
+  <string name="menu_refresh_saved_page">Баракты жаңылоо</string>
+  <string name="abusefilter_title_warn">Бул оңдоо бузуку болушу мүмкүн. Сиз аны сактооңузга ишенесизби?</string>
+  <string name="abusefilter_title_disallow">Сиз бул оңдону сактай албайсыз. Сураныч, артка кайтыңыз жана аны өзгөртүңүз.</string>
+  <string name="dialog_page_issues">Барак боюнча суроолор</string>
+  <string name="button_page_issues">Барак боюнча суроолор</string>
+  <string name="menu_themechooser">Жазуу түрүн жана жасалганы өзгөртүү</string>
+  <string name="text_size_select">Жазуу түрүнүн өлчөмү</string>
+  <string name="color_theme_select">Жасалга</string>
+  <string name="color_theme_light">Ачык</string>
+  <string name="color_theme_dark">Караңгы</string>
+  <string name="page_similar_titles">Окшош барактар</string>
+  <string name="search_within_pages">Барактар ичинде издөө...</string>
+  <string name="search_no_results">\"%s\" үчүн эч бир жыйынтык табылбады.</string>
+  <string name="search_showing_instead">\"%1$s\" үчүн эч бир жыйынтык табылбады. \"%2$s\" үчүн жыйынтыктар көрсөтүлдү:</string>
+  <string name="search_results_title">Издөө жыйынтыктары</string>
+  <string name="search_error_retry">Кайра аракет кылуу</string>
+  <string name="search_redirect_title">\"%s\" барагынан багытталды.</string>
+  <string name="toc_hint">Бөлүмдөрдү көрүү үчүн солго сүрүңүз же жогорку оң бурчтагы меню баскычын колдонуңуз.</string>
+  <string name="toc_know_it">Түшүнүктүү</string>
+  <string name="app_store_description">Уикипедиянын расмий Android тиркемеси. Уикипедия — 280 тилде 32 миллиондон ашуун макала камтыган ачык энциклопедия. Ал, адамдар түзгөн маалымдамалардын ичинен, эң толук жана кеңири колдонулган маалымдама болуп саналат. Тиркеме нөлдөн баштап кайрадан жазылып чыгып, мурдагыдан мыкты болуп калды.
+
+Өзгөчөлүктөрү:
+— Ылдамдык: Биздин жаңы расмий тиркемебиз, сизге Уикипедияны мурда болуп көрбөгөндөй ылдам карап жана оңдоого мүмкүндүк берет.
+— Оңдоо: Сиз Уикипедияны оңдосоңуз болот! Сиздин катталганыңыз же катталбаганыңыз маанилүү эмес, биз баары бир сиздин салымыңызга ыраазыбыз.
+— Акыркы барактар: Биз сизге макала окуу тарыңызды көрсөтөбүз, андыктан адашуудан коркпой эле, канча кааласаңыз ошончо шилтемени бассаңыз болот.
+— Сакталган барактар: Сиз окуу үчүн тандалган барактарды автономдук режимде сактап, аларды интернетке туташуу болбосо да карасаңыз болот.
+— Бөлүшүңүз: Адамзаттын көптөгөн билимдери менен бөлүшкүңүз келсе, сизде бар социалдык желелердин тиркемелерин колдонуңуз.
+— Тилдер: Тиркеме Уикипедиянын кайсы тилинде болбосун жазылган макалаларына эч кыйынчылыксыз өтүүгө мүмкүндүк берет.
+— Wikipedia Zero (Уикипедия Нөл): Катышуучу уюлдук байланыш операторлору колдонуу үчүн акы алышпайт.
+
+Баштапкы коду толугу менен ачык. Эгерде сиздин Java жана Android SDK менен иштөө тажрыйбаңыз болсо бизге кошулуңуз! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Альфа-нусканын жаңы жаңылануусу жеткиликтүү</string>
+  <string name="alpha_update_notification_text">Жүктөп алуу үчүн басыңыз</string>
 </resources>

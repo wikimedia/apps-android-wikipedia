@@ -40,8 +40,13 @@
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
   <string name="saved_pages_search_list_hint">Buscar</string>
   <string name="saved_pages_search_empty_message" fuzzy="true">No se encontraron páginas que coincidan con «%s»</string>
+  <string name="nav_item_nearby">Cercanos</string>
+  <string name="nearby_empty_title">No hay páginas cercanas</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">No hay conexión de red</string>
+  <string name="nearby_server_error">No se puede obtener la lista de lugares cercanos.</string>
+  <string name="nearby_no_location">No se puede obtener la ubicación</string>
   <string name="last_updated_text">Última actualización: %s</string>
   <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>

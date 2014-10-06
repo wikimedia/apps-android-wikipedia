@@ -39,10 +39,21 @@
   <string name="delete_selected_saved_pages">刪除</string>
   <string name="toast_saved_page_deleted">已刪除儲存的頁面</string>
   <string name="saved_pages_search_list_hint">搜尋</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">未找到匹配 \'%s\' 的頁面</string>
+  <string name="saved_pages_search_empty_message">未找到匹配您查詢的頁面。</string>
+  <string name="nearby_activity_title">附近</string>
+  <string name="nav_item_nearby">附近</string>
+  <string name="menu_update_nearby">更新附近</string>
+  <string name="nearby_empty_title">附近無頁面</string>
+  <string name="nearby_empty_message">當您移至一個新位置時您可以重載此頁面。</string>
+  <string name="nearby_distance_in_meters">%d 米</string>
+  <string name="nearby_distance_in_kilometers">%.2f 千米</string>
+  <string name="nearby_no_network">無網路連線</string>
+  <string name="nearby_server_error">無法獲得附近地點的清單。</string>
+  <string name="nearby_no_location">無法獲得位置</string>
+  <string name="nearby_dialog_goto_settings">您的裝置未啟用位置更新。您想要前往您的裝置設定啟用位置更新麼？</string>
   <string name="last_updated_text">最後更新：%s</string>
   <string name="content_license_html">內容在&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/A&gt;之條款下提供，除非另有註明。</string>
-  <string name="edit_save_action_license_logged_in">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href=“https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA3.0&lt;/A&gt;授權您的貢獻。</string>
+  <string name="edit_save_action_license_logged_in">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。</string>
   <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href=“https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA3.0&lt;/A&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="preference_summary_language">內容語言</string>
@@ -51,6 +62,7 @@
   <string name="menu_other_languages">閱讀其他語言</string>
   <string name="langlinks_error_retry">重試</string>
   <string name="langlinks_empty">此頁面沒有其他語言版本</string>
+  <string name="langlinks_no_match">未找到匹配您的查詢的語言。</string>
   <string name="settings_activity_title">設定</string>
   <string name="langlinks_activity_title">其他語言</string>
   <string name="menu_save_changes">儲存修改</string>
@@ -87,7 +99,7 @@
   <string name="preference_summary_logout">登出您的維基百科帳戶</string>
   <string name="preference_summary_notloggedin">未登入。</string>
   <string name="toast_logout_complete">已登出</string>
-  <string name="saved_pages_empty_title" fuzzy="true">尚未存儲頁面。</string>
+  <string name="saved_pages_empty_title">此處的頁面尚未儲存。</string>
   <string name="saved_pages_empty_message">存儲頁面很棒。試想一下你存爲書籤後即使在離線時也可以閱讀。</string>
   <string name="history_empty_title">這裡沒有最近的頁面。</string>
   <string name="history_empty_message">你可能刪除它們的一切。下一次您進入到一個頁面時您可以從這裡返回。</string>
@@ -109,6 +121,12 @@
   <string name="create_account_username_exists_error">使用者名稱已被使用</string>
   <string name="create_account_ip_throttle_error">從這個IP位址所建立的帳戶太多，請稍後再嘗試。</string>
   <string name="create_account_open_proxy_error">此IP位址已被阻止建立帳戶。</string>
+  <string name="create_account_noname_error">您提供的使用者名稱無效，請提供另一個。</string>
+  <string name="create_account_invalid_email_error">您提供的電郵位址無效。</string>
+  <string name="create_account_password_too_short_error">您提供的密碼太短。</string>
+  <string name="create_account_blocked_anon_error">您不能建立帳戶，因为您的帳戶已封禁。</string>
+  <string name="create_account_blocked_error">您不能建立帳戶，因为您的帳戶已封禁。</string>
+  <string name="create_account_password_name_match_error">您的使用者名稱與密碼必須不同。</string>
   <string name="create_account_generic_error">無法建立帳戶</string>
   <string name="create_account_no_network">沒有網路連線</string>
   <string name="create_account_next">下一步</string>
@@ -117,28 +135,28 @@
   <string name="zero_charged_verbiage">Wikipedia Zero已被關掉（可能要付標準資料費用）</string>
   <string name="zero_charged_verbiage_extended">載入其他條目可能產生資料費用。</string>
   <string name="zero_search_hint">搜尋Wikipedia Zero</string>
-  <string name="zero_warn_when_leaving">離開\"維基百科零\"時提示</string>
-  <string name="zero_warn_when_leaving_summary">如果閣下的電訊商/電信商透過Wikipedia Zero的夥伴關係免除存取維基百科時的資料收費，閣下可以通過勾選此設定以在離開維基百科的程式時通知閣下，以免閣下被收費。</string>
+  <string name="zero_warn_when_leaving">離開Wikipedia Zero時提示</string>
+  <string name="zero_warn_when_leaving_summary">如果閣下的行動業者/流動營辦商透過Wikipedia Zero的夥伴關係免除存取維基百科時的資料收費，閣下可以通過勾選此設定以在離開維基百科的程式時通知閣下，以免閣下被收費。</string>
   <string name="zero_webpage_title">Wikipedia Zero常見問題</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">離開Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">可能會收資料費用。繼續前往至外部網站嗎？</string>
   <string name="zero_interstitial_continue">離開</string>
   <string name="zero_interstitial_cancel">留在這裡</string>
-  <string name="zero_learn_more">此維基百科應用程式可免除數據費用。</string>
+  <string name="zero_learn_more">此維基百科應用程式可免除資料費用。</string>
   <string name="zero_learn_more_learn_more">閱讀更多</string>
   <string name="zero_learn_more_dismiss">取消</string>
   <string name="zero_settings">設定</string>
   <string name="zero_settings_devmode">Zero開發模式</string>
-  <string name="zero_settings_devmode_summary">在開發期間啟用維基百科零計劃的代碼執行。</string>
-  <string name="edit_preview_fetching_dialog_message">正在獲取預覽...</string>
+  <string name="zero_settings_devmode_summary">在開發期間啟用Wikipedia Zero的代碼執行。</string>
+  <string name="edit_preview_fetching_dialog_message">正在取得預覽...</string>
   <string name="edit_preview_activity_title">預覽編輯</string>
   <string name="create_account_logging_in">登入中...</string>
   <string name="send_feedback">傳送應用程式回饋</string>
   <string name="edit_summary_guide_text">告訴我們你如何改進此頁。這可以幫助其他編者快速審查您的編輯。</string>
   <string name="edit_summary_hint">編輯摘要</string>
   <string name="nav_item_random">隨機條目</string>
-  <string name="random_progress">正在獲取隨機頁面...</string>
+  <string name="random_progress">正在取得隨機頁面...</string>
   <string name="nav_item_login_benefits">如果閣下已登入，閣下所做的編輯的編輯者將會以閣下的使用者名稱顯示，使閣下的IP位址不會公開顯示。</string>
   <string name="create_account_account_created_toast">已建立帳號</string>
   <string name="user_contribs_more_action">載入更多</string>
@@ -209,13 +227,15 @@
   <string name="color_theme_select">主題</string>
   <string name="color_theme_light">日間模式</string>
   <string name="color_theme_dark">夜間模式</string>
-  <string name="page_similar_titles" fuzzy="true">相似的標題</string>
+  <string name="page_similar_titles">相似的頁面</string>
   <string name="search_within_pages">於頁面內搜尋...</string>
   <string name="search_no_results">找不到「%s」的結果。</string>
   <string name="search_showing_instead">未找到「%1$s」的結果。顯示「%2$s」的結果：</string>
   <string name="search_results_title">搜尋結果</string>
   <string name="search_error_retry">重試</string>
   <string name="search_redirect_title">重定向自「%s」。</string>
+  <string name="toc_hint">向左滑動或使用右上角的選項單按鈕顯示章節。</string>
+  <string name="toc_know_it">明白了</string>
   <string name="app_store_description">維基百科官方 Android 應用程式。維基百科是一部自由的百科全書，包含超過3200萬篇條目，以280種不同的語言撰寫，是人類創建過最詳實、且大量被引用的資料來源。這個應用程式已經全面重新編寫，使其比以前來得還要更好。
 
 特色功能：
@@ -228,4 +248,6 @@
    - Wikipedia Zero：特定的電信服務商將不對本應用程式的資料流量收費。
 
 本程式的原始碼完全開源。若您在 Java 和 Android SDK 方面有相關經驗，歡迎加入我們！https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">有新的alpha版本更新可用</string>
+  <string name="alpha_update_notification_text">點選下載</string>
 </resources>

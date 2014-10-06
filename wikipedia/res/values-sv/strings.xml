@@ -185,9 +185,9 @@
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Version</string>
-  <string name="about_libraries_heading">använda bibliotek</string>
+  <string name="about_libraries_heading">Använda bibliotek</string>
   <string name="about_contributors_heading">Bidragsgivare</string>
-  <string name="about_translators_heading">översättare</string>
+  <string name="about_translators_heading">Översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">En app utvecklad av &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;the Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
@@ -220,7 +220,7 @@
   <string name="abusefilter_title_disallow">Du kan inte spara denna redigering. Gå tillbaka och ändra den.</string>
   <string name="abusefilter_text_warn">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv. Den kan innehålla en eller flera av följande:&lt;br /&gt;&lt;br /&gt;· Text skriven helt med versaler&lt;br /&gt;· Tömande av artiklar eller spam&lt;br /&gt;· Irrelevanta externa länkar eller bilder&lt;br /&gt;· Upprepade tecken</string>
   <string name="abusefilter_text_disallow">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv eller potentiell vandalism.&lt;br /&gt;&lt;br /&gt;Wikipedia är en encyklopedi och endast neutralt, nämnvärt innehåll hör hemma här.</string>
-  <string name="dialog_page_issues">Problem i sidan</string>
+  <string name="dialog_page_issues">Sidproblem</string>
   <string name="button_page_issues">Sidproblem</string>
   <string name="menu_themechooser">Ändra teckensnitt och tema</string>
   <string name="text_size_select">Teckenstorlek</string>

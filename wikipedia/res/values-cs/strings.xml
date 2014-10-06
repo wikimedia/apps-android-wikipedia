@@ -37,7 +37,7 @@
   <string name="delete_selected_saved_pages">Vymazat</string>
   <string name="toast_saved_page_deleted">Uložené stránky vymazány</string>
   <string name="saved_pages_search_list_hint">Hledat</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">Nenalezeny žádné stránky odpovídající „%s“</string>
+  <string name="saved_pages_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>
   <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
   <string name="preference_title_language">Jazyk Wikipedie</string>
@@ -146,7 +146,7 @@
   <string name="preference_summary_eventlogging_opt_in">Umožnit nadaci Wikimedia sbírat informace o tom, jak aplikaci používáte, abychom ji mohli zlepšovat</string>
   <string name="editing_error_spamblacklist">Detekovány odkazy na zablokované domény (%s). Odstraňte je prosím a zkuste to znovu.</string>
   <string name="history_search_list_hint">Hledání</string>
-  <string name="history_search_empty_message" fuzzy="true">Nenalezena žádná stránka odpovídající „%s“</string>
+  <string name="history_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
   <string name="error_can_not_process_link">Nelze zobrazit tento odkaz</string>
   <string name="page_protected_autoconfirmed">Tato stránka je polozamčena.</string>
   <string name="page_protected_sysop">Tato stránka je zamčena.</string>
@@ -199,7 +199,7 @@
   <string name="color_theme_select">Vzhled</string>
   <string name="color_theme_light">Světlý</string>
   <string name="color_theme_dark">Tmavý</string>
-  <string name="page_similar_titles" fuzzy="true">Jiné významy</string>
+  <string name="page_similar_titles">Podobné stránky</string>
   <string name="search_no_results">Nebyly nalezeny žádné výsledky pro „%s“.</string>
   <string name="search_results_title">Výsledky vyhledávání</string>
   <string name="search_error_retry">Zkusit znovu</string>

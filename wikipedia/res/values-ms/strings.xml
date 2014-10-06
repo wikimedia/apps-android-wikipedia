@@ -39,7 +39,18 @@
   <string name="delete_selected_saved_pages">Hapuskan</string>
   <string name="toast_saved_page_deleted">Laman tersimpan dihapuskan</string>
   <string name="saved_pages_search_list_hint">Cari</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">Tiada laman yang memadani \"%s\"</string>
+  <string name="saved_pages_search_empty_message">Tiada laman yang padan dengan pertanyaan anda.</string>
+  <string name="nearby_activity_title">Berdekatan</string>
+  <string name="nav_item_nearby">Berdekatan</string>
+  <string name="menu_update_nearby">Kemaskini laman berdekatan</string>
+  <string name="nearby_empty_title">Tiada laman berdekatan</string>
+  <string name="nearby_empty_message">Anda boleh memuat semula laman ini setelah berpindah ke lokasi baru.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">Tiada sambungan rangkaian</string>
+  <string name="nearby_server_error">Senarai tempat berdekatan tidak dapat.</string>
+  <string name="nearby_no_location">Lokasi tidak dapat</string>
+  <string name="nearby_dialog_goto_settings">Pengemaskinian lokasi tidak dibolehkan pada peranti anda. Adakah anda ingin membolehkan pengemaskinian lokasi pada tetapan peranti anda?</string>
   <string name="last_updated_text">Mutakhir: %1$s</string>
   <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, anda menyetujui &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -51,6 +62,7 @@
   <string name="menu_other_languages">Baca dalam bahasa lain</string>
   <string name="langlinks_error_retry">Cuba lagi</string>
   <string name="langlinks_empty">Laman ini tidak terdapat dalam bahasa lain</string>
+  <string name="langlinks_no_match">Tiada bahasa yang padan dengan pertanyaan anda.</string>
   <string name="settings_activity_title">Tetapan</string>
   <string name="langlinks_activity_title">Bahasa lain:</string>
   <string name="menu_save_changes">Simpan perubahan</string>
@@ -87,7 +99,7 @@
   <string name="preference_summary_logout">Log keluar dari akaun Wikipedia</string>
   <string name="preference_summary_notloggedin">Tidak log masuk.</string>
   <string name="toast_logout_complete">Log keluar</string>
-  <string name="saved_pages_empty_title" fuzzy="true">Belum ada laman tersimpan.</string>
+  <string name="saved_pages_empty_title">Tiada laman tersimpan di sini!</string>
   <string name="saved_pages_empty_message">Ciri-ciri laman tersimpan bagaikan penanda buku, boleh dibaca walaupun \'offline\'. Hebat, bukan?</string>
   <string name="history_empty_title">Tiada laman terbaru di sini.</string>
   <string name="history_empty_message">Mungkin anda telah memadamkan kesemuanya. Lain kali anda ke sesuatu laman, anda boleh kembali kepadanya dari sini.</string>
@@ -109,6 +121,12 @@
   <string name="create_account_username_exists_error">Nama pengguna sudah dipakai</string>
   <string name="create_account_ip_throttle_error">Terlalu banyak akaun yang dibuka dari alamat IP ini. Cuba lagi nanti.</string>
   <string name="create_account_open_proxy_error">Alamat IP ini telah disekat dari membuka akaun.</string>
+  <string name="create_account_noname_error">Nama pengguna yang anda berikan tidak sah. Sila berikan nama pengguna yang lain.</string>
+  <string name="create_account_invalid_email_error">Alamat e-mel yang anda berikan tidak sah.</string>
+  <string name="create_account_password_too_short_error">Kata laluan yang anda berikan terlalu pendek.</string>
+  <string name="create_account_blocked_anon_error">Anda tidak boleh membuka akaun kerana IP anda disekat.</string>
+  <string name="create_account_blocked_error">Anda tidak boleh membuka akaun kerana akaun anda disekat.</string>
+  <string name="create_account_password_name_match_error">Nama pengguna dengan kata laluan mesti berbeza.</string>
   <string name="create_account_generic_error">Akaun tidak dapat dibuka</string>
   <string name="create_account_no_network">Tiada sambungan rangkaian</string>
   <string name="create_account_next">Seterusnya</string>
@@ -152,7 +170,7 @@
   <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>
   <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
   <string name="history_search_list_hint">Cari</string>
-  <string name="history_search_empty_message" fuzzy="true">Tiada laman didapati padan dengan \'%s\'</string>
+  <string name="history_search_empty_message">Tiada laman yang padan dengan pertanyaan anda.</string>
   <string name="error_can_not_process_link">Pautan ini tidak dapat dipaparkan</string>
   <string name="page_protected_autoconfirmed">Laman ini telah diberi perlindungan separa.</string>
   <string name="page_protected_sysop">Laman ini telah diberi perlindungan sepenuhnya.</string>
@@ -202,18 +220,34 @@
   <string name="abusefilter_title_disallow">Suntingan ini tidak boleh disimpan. Sila kembali dan suntingnya semula.</string>
   <string name="abusefilter_text_warn">Penapis automatik mendapati suntingan ini berkemungkinan adalah tidak membina. Mungkin ia ada antara yang berikut:&lt;br /&gt;&lt;br /&gt;. Menaip dalam huruf besar&lt;br /&gt;. Mengosongkan rencana atau menspam&lt;br /&gt;. Pautan luar atau imej-imej tidak berkaitan&lt;br /&gt;. Aksara berulang</string>
   <string name="abusefilter_text_disallow">Penapis automatik mendapati suntingan ini berkemungkinan tidak membina, atau laku musnah.&lt;br /&gt;&lt;br /&gt;Wikipedia ialah ensiklopedia dan hanya kandungan neutral, penting yang perlu di sini.</string>
-  <string name="dialog_page_issues">Isu-isu Laman</string>
-  <string name="button_page_issues">Isu-isu Laman</string>
+  <string name="dialog_page_issues">Isu-isu laman</string>
+  <string name="button_page_issues">Isu-isu laman</string>
   <string name="menu_themechooser">Tukar fon dan tema</string>
   <string name="text_size_select">Saiz fon</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Terang</string>
   <string name="color_theme_dark">Gelap</string>
-  <string name="page_similar_titles" fuzzy="true">Makna yang lain</string>
+  <string name="page_similar_titles">Laman-laman serupa</string>
   <string name="search_within_pages">Cari dalam laman...</string>
   <string name="search_no_results">Tiada hasil ditemui untuk \" %s \".</string>
   <string name="search_showing_instead">Tiada hasil ditemui untuk \" %1$s \". Menunjukkan hasil untuk \" %2$s \":</string>
   <string name="search_results_title">Hasil carian</string>
-  <string name="search_error_retry">Cuba semula</string>
+  <string name="search_error_retry">Cuba lagi</string>
   <string name="search_redirect_title">Lencongan dari \"%s\".</string>
+  <string name="toc_hint">Leret ke kiri untuk bahagian, atau gunakan butang menu di kanan atas.</string>
+  <string name="toc_know_it">Saya faham</string>
+  <string name="app_store_description">Aplikasi rasmi Wikipedia untuk Android. Wikipedia merupakan ensiklopedia bebas yang mengandungi lebih daripada 32 juta rencana dalam 280 bahasa, bahkan merupakan bahan rujukan paling menyeluruh dan meluas digunakan yang pernah dihimpunkan oleh manusia. Aplikasi ini telah ditulis ganti dari pangkal dan oleh itu lebih baik daripada dahulu.
+
+Ciri-ciri:
+   - Kelajuan: Aplikasi asli baru kami membolehkan anda untuk melayari dan menyunting Wikipedia dengan lebih cepat daripada dahulu.
+   - Penyuntingan: Anda boleh menyunting Wikipedia! Tak kira yang log masuk mahupun keluar, kami amat menghargai sumbangan anda.
+   - Laman terbaru: Kami menyediakan sejarah pembacaan supaya anda boleh mengetik sebanyak mana pautan yang anda mahu tanpa sesekali tersesat jalan.
+   - Laman simpanan: Anda boleh menyimpan laman-laman terpilih untuk dibaca secara &lt;i&gt;offline&lt;/i&gt; dan juga dilayari walaupun tiada sambungan data.
+   - Perkongsian: Gunakan aplikasi media sosial sedia anda untuk menyebarkan seluruh ilmu pengetahuan insan.
+   - Sokongan bahasa: Aplikasi ini membolehkan anda untuk menukar bahasa bacaan Wikipedia dengan lancar.
+   - Wikipedia Zero: Caj data dikecualikan untuk pengendali khidmat telekom selular yang mengambil bahagian.
+
+Kod ini adalah sumber terbuka sepenuhnya. Jika anda mempunyai pengalaman dengan Java dan Android SDK, bantuan anda kami alu-alukan! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Terdapat kemaskinian alfa baru</string>
+  <string name="alpha_update_notification_text">Ketik untuk muat turun</string>
 </resources>
