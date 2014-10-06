@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">위키백과</string>
   <string name="app_name_beta">위키백과 베타</string>
+  <string name="app_name_alpha">위키백과 알파</string>
   <string name="yes">예</string>
   <string name="no">아니오</string>
   <string name="acra_report_dialog_title">위키백과가 충돌했습니다 :(</string>
@@ -38,7 +39,22 @@
   <string name="delete_selected_saved_pages">삭제</string>
   <string name="toast_saved_page_deleted">저장된 문서가 삭제되었습니다</string>
   <string name="saved_pages_search_list_hint">검색</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">\'%s\' 검색어와 일치하는 문서를 찾을 수 없습니다</string>
+  <string name="saved_pages_search_empty_message">검색어와 일치하는 문서를 찾을 수 없습니다.</string>
+  <string name="nearby_activity_title">근처</string>
+  <string name="nav_item_nearby">근처</string>
+  <string name="menu_update_nearby">근처 업데이트</string>
+  <string name="nearby_empty_title">근처에 문서가 없습니다</string>
+  <string name="nearby_empty_message">새 위치로 움직일 때 이 문서를 새로 고칠 수 있습니다.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
+  <string name="nearby_no_network">네트워크 연결이 없습니다</string>
+  <string name="nearby_server_error">가까운 장소의 목록을 가져올 수 없습니다.</string>
+  <string name="nearby_no_location">위치를 얻을 수 없습니다</string>
+  <string name="nearby_dialog_goto_settings">위키 업데이트가 장치에서 활성화되어 있지 않습니다. 위치 업데이트를 활성화하기 위해 장치의 설정으로 가겠습니까?</string>
+  <string name="nearby_set_metric">meters/km 보이기</string>
+  <string name="nearby_set_imperial">feet/miles 보이기</string>
   <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
   <string name="content_license_html">내용은 별도로 명시하지 않을 경우 &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
   <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;과 &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 당신의 기여를 영구적으로 게시하는 데 동의합니다.</string>
@@ -50,6 +66,7 @@
   <string name="menu_other_languages">다른 언어로 읽기</string>
   <string name="langlinks_error_retry">다시 시도</string>
   <string name="langlinks_empty">이 문서는 다른 언어로 읽을 수 없습니다</string>
+  <string name="langlinks_no_match">검색어와 일치하는 언어를 찾을 수 없습니다.</string>
   <string name="settings_activity_title">설정</string>
   <string name="langlinks_activity_title">다른 언어</string>
   <string name="menu_save_changes">바뀜 저장</string>
@@ -80,13 +97,13 @@
   <string name="login_error_blocked">이 사용자는 차단되었습니다</string>
   <string name="login_error_throttled">로그인 시도가 너무 많습니다. 잠시 기다리고 나서 다시 시도하세요.</string>
   <string name="login_error_unknown">로그인 실패 :(</string>
-  <string name="login_error_no_network">네트워크 연결 없음</string>
+  <string name="login_error_no_network">네트워크 연결이 없습니다</string>
   <string name="nav_item_logout">로그아웃</string>
   <string name="preference_title_logout">로그아웃</string>
   <string name="preference_summary_logout">위키백과 계정에서 로그아웃</string>
   <string name="preference_summary_notloggedin">로그인하고 있지 않습니다.</string>
   <string name="toast_logout_complete">로그아웃됨</string>
-  <string name="saved_pages_empty_title" fuzzy="true">아직 저장된 문서가 없습니다.</string>
+  <string name="saved_pages_empty_title">여기에 저장된 문서가 없습니다!</string>
   <string name="saved_pages_empty_message">저장된 문서는 정말 훌륭합니다. 오프라인일 때여도 읽을 수 있는 책갈피라고 생각해주세요.</string>
   <string name="history_empty_title">여기에 최근 문서가 없습니다.</string>
   <string name="history_empty_message">방문 기록이 비어 있습니다. 다음 번에 당신이 간 문서를 여기에서 얻을 수 있습니다.</string>
@@ -108,8 +125,14 @@
   <string name="create_account_username_exists_error">이미 사용 중인 사용자 이름</string>
   <string name="create_account_ip_throttle_error">이 IP 주소에서 너무 많은 계정이 만들어졌습니다. 나중에 다시 시도하세요.</string>
   <string name="create_account_open_proxy_error">이 IP 주소는 계정 만들기에서 차단되어 있습니다.</string>
+  <string name="create_account_noname_error">제공한 사용자 이름은 올바르지 않습니다. 다른 사용자 이름을 제공하세요.</string>
+  <string name="create_account_invalid_email_error">제공한 이메일 주소는 올바르지 않습니다.</string>
+  <string name="create_account_password_too_short_error">제공한 비밀번호는 너무 짧습니다.</string>
+  <string name="create_account_blocked_anon_error">당신의 IP가 차단되어 있기 때문에 계정을 만들 수 없습니다.</string>
+  <string name="create_account_blocked_error">당신의 계정이 차단되어 있기 때문에 계정을 만들 수 없습니다.</string>
+  <string name="create_account_password_name_match_error">사용자 이름과 비밀번호는 달라야 합니다.</string>
   <string name="create_account_generic_error">계정을 만들 수 없습니다</string>
-  <string name="create_account_no_network">네트워크 연결 없음</string>
+  <string name="create_account_no_network">네트워크 연결이 없습니다</string>
   <string name="create_account_next">다음</string>
   <string name="create_account_button">계정 만들기</string>
   <string name="preferences_general_heading">일반</string>
@@ -151,7 +174,7 @@
   <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다</string>
   <string name="editing_error_spamblacklist">차단된 도메인 (%s)으로의 링크가 감지되었습니다. 그들을 제거하고 나서 다시 시도하세요.</string>
   <string name="history_search_list_hint">검색</string>
-  <string name="history_search_empty_message" fuzzy="true">\'%s\' 검색어와 일치하는 문서를 찾을 수 없습니다</string>
+  <string name="history_search_empty_message">검색어와 일치하는 문서를 찾을 수 없습니다.</string>
   <string name="error_can_not_process_link">이 링크를 보여줄 수 없습니다</string>
   <string name="page_protected_autoconfirmed">이 문서는 준보호되어 있습니다.</string>
   <string name="page_protected_sysop">이 문서는 완전히 보호되어 있습니다.</string>
@@ -206,7 +229,15 @@
   <string name="color_theme_select">테마</string>
   <string name="color_theme_light">밝음</string>
   <string name="color_theme_dark">어두움</string>
-  <string name="page_similar_titles" fuzzy="true">다른 뜻</string>
+  <string name="page_similar_titles">비슷한 문서</string>
+  <string name="search_within_pages">문서 안에서 검색…</string>
+  <string name="search_no_results">\"%s\"에 대한 결과를 찾을 수 없습니다.</string>
+  <string name="search_showing_instead">\"%1$s\"에 대한 결과를 찾을 수 없습니다. \"%2$s\"에 대한 결과를 보여주고 있습니다:</string>
+  <string name="search_results_title">검색 결과</string>
+  <string name="search_error_retry">다시 시도</string>
+  <string name="search_redirect_title">\"%s\"에서 넘어옵니다.</string>
+  <string name="toc_hint">문단을 보려면 왼쪽으로 스와이프하거나, 위 오른쪽에 있는 메뉴 버튼을 사용하세요.</string>
+  <string name="toc_know_it">알았습니다</string>
   <string name="app_store_description">안드로이드를 위한 공식 위키백과 앱입니다. 위키백과는 280개 언어의 3천2백만보다 많은 문서가 들어 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용합니다. 앱은 처음부터 다시 쓰여졌고 이전보다 더 나아졌습니다.
 
 기능:
@@ -219,4 +250,6 @@
    - 위키백과 제로: 이동 통신사가 참여한다면 데이터 요금이 면제됩니다.
 
 코드는 완전한 오픈 소스입니다. 여러분이 자바와 안드로이드 SDK에 경험이 있다면, 우리에게 오셔서 포크하세요! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">새 알파 업뎨이트를 사용할 수 있습니다</string>
+  <string name="alpha_update_notification_text">다운로드하려면 탭하세요</string>
 </resources>

@@ -47,10 +47,14 @@
   <string name="nearby_empty_message">Du kannst diese Seite aktualisieren, wenn du zu einem anderen Standort gehst.</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
+  <string name="nearby_distance_in_feet">%d Fuß</string>
+  <string name="nearby_distance_in_miles">%.2f Meilen</string>
   <string name="nearby_no_network">Keine Netzwerkverbindung</string>
   <string name="nearby_server_error">Die Liste mit Orten in der Nähe konnte nicht abgerufen werden.</string>
   <string name="nearby_no_location">Standort konnte nicht abgerufen werden</string>
   <string name="nearby_dialog_goto_settings">Standortsaktualisierungen sind auf deinem Gerät nicht aktiviert. Möchtest du zu deinen Geräteeinstellungen gehen, um Standortsaktualisierungen zu aktivieren?</string>
+  <string name="nearby_set_metric">Meter/Kilometer anzeigen</string>
+  <string name="nearby_set_imperial">Fuß/Meilen anzeigen</string>
   <string name="last_updated_text">Zuletzt aktualisiert %1$s</string>
   <string name="content_license_html">Der Inhalt ist verfügbar unter &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA 3.0&lt;/a&gt;, sofern nicht anders angegeben.</string>
   <string name="edit_save_action_license_logged_in">Mit dem Speichern stimmst du den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/de\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt; zu.</string>

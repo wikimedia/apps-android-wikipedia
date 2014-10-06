@@ -47,10 +47,14 @@
   <string name="nearby_empty_message">Puteți reîmprospăta această pagină când vă deplasați în alt loc.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d picioare</string>
+  <string name="nearby_distance_in_miles">%.2f mile</string>
   <string name="nearby_no_network">Nicio conexiune la rețea</string>
   <string name="nearby_server_error">Imposibil de obținut lista locurilor din apropiere.</string>
   <string name="nearby_no_location">Imposibil de obținut localizarea</string>
   <string name="nearby_dialog_goto_settings">Actualizarea localizării nu este activată pe dispozitivul dumnevoastră. Doriți să accesați setările dispozitivului pentru a activa actualizarea localizării?</string>
+  <string name="nearby_set_metric">Arată în metri/km</string>
+  <string name="nearby_set_imperial">Arată în picioare/mile</string>
   <string name="last_updated_text">Ultima actualizare: %1$s</string>
   <string name="content_license_html">Conținutul este disponibil sub licența &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, cu excepția cazurilor în care se specifică altfel</string>
   <string name="edit_save_action_license_logged_in">Salvând, sunteți de acord cu &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
