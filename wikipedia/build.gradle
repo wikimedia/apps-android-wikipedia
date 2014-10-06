@@ -103,7 +103,7 @@ dependencies {
     compile('ch.acra:acra:4.5.0') {
         exclude group: 'org.json', module: 'json'
     }
-    compile 'de.keyboardsurfer.android.widget:crouton:1.8.4@aar'
+    compile 'de.keyboardsurfer.android.widget:crouton:1.8.5@aar'
     compile 'com.android.support:support-v4:20.0.0'
     compile 'com.android.support:appcompat-v7:20.0.0@aar'
 }
