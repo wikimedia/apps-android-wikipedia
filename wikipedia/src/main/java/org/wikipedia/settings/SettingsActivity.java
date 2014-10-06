@@ -1,11 +1,13 @@
 package org.wikipedia.settings;
 
+import org.wikipedia.BuildConfig;
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 
 public class SettingsActivity extends PreferenceActivityWithBack implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static final int ACTIVITY_RESULT_LANGUAGE_CHANGED = 1;
@@ -27,6 +29,28 @@ public class SettingsActivity extends PreferenceActivityWithBack implements Shar
                 setResult(ACTIVITY_RESULT_LOGOUT);
                 finish();
                 return false;
+            }
+        });
+
+        if (!BuildConfig.PACKAGE_NAME.equals("org.wikipedia")) {
+            overridePackageName();
+        }
+    }
+
+    /**
+     * Needed for beta release since the Gradle flavors applicationId changes don't get reflected
+     * to the preferences.xml
+     * See https://code.google.com/p/android/issues/detail?id=57460
+     */
+    private void overridePackageName() {
+        Preference aboutPref = findPreference("about");
+        aboutPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setClass(SettingsActivity.this, AboutActivity.class);
+                startActivity(intent);
+                return true;
             }
         });
     }

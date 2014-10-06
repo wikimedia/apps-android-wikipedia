@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.wikipedia"
-    android:versionCode="81"
-    android:versionName="dev"
     android:installLocation="auto">
     <!--
     If the build is intended to be Google Play-updateable, the package name
@@ -11,10 +9,6 @@
     updateable via an alternative appstore update mechanism), the package name
     should be specific to the update mechanism channel.
     -->
-
-    <uses-sdk
-        android:minSdkVersion="10"
-        android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -133,22 +127,22 @@
                 />
 
         <provider
-            android:authorities="org.wikipedia.history"
+            android:authorities="${applicationId}.history"
             android:name=".history.HistoryEntryContentProvider"
             />
 
         <provider
-                android:authorities="org.wikipedia.editsummaries"
+                android:authorities="${applicationId}.editsummaries"
                 android:name=".editing.summaries.EditSummaryContentProvider"
                 />
 
         <provider
-                android:authorities="org.wikipedia.pageimages"
+                android:authorities="${applicationId}.pageimages"
                 android:name=".pageimages.PageImageContentProvider"
                 />
 
         <provider
-                android:authorities="org.wikipedia.savedpages"
+                android:authorities="${applicationId}.savedpages"
                 android:name=".savedpages.SavedPageContentProvider"
                 />
 

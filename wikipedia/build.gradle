@@ -20,20 +20,21 @@ android {
             runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            applicationVariants.all { variant ->
+                def file = variant.outputFile
+                variant.outputFile = new File(file.parent, "wikipedia-" + versionName + ".apk")
+            }
         }
     }
     productFlavors {
         dev {
             versionName "${versionStart}-dev-${date}"
         }
-        ci {
-            versionName "${versionStart}-ci-${date}"
-        }
-        master {
-            versionName "${versionStart}-master-${date}"
-        }
         prod {
             versionName "${versionStart}-r-${date}"
+        }
+        releasesprod {
+            versionName "${versionStart}-releasesprod-${date}"
         }
         alpha {
             versionName "${versionStart}-alpha-${date}"
@@ -42,6 +43,9 @@ android {
         beta {
             versionName "${versionStart}-beta-${date}"
             applicationId 'org.wikipedia.beta'
+        }
+        amazon {
+            versionName "${versionStart}-amazon-${date}"
         }
     }
     sourceSets {

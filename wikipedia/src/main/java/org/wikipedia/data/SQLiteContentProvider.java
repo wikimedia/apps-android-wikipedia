@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
+import org.wikipedia.BuildConfig;
+
 public abstract class SQLiteContentProvider<T> extends ContentProvider {
     private final PersistanceHelper<T> persistanceHelper;
 
@@ -139,6 +141,6 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
     }
 
     public static String getAuthorityForTable(String table) {
-        return "org.wikipedia." + table;
+        return BuildConfig.PACKAGE_NAME + "." + table;
     }
 }
