@@ -30,6 +30,7 @@ import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
@@ -295,7 +296,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                             handleEditingException((EditingException) caught);
                             return;
                         }
-                        if (!(caught instanceof HttpRequest.HttpRequestException)) {
+                        if (!(caught instanceof HttpRequest.HttpRequestException || caught instanceof ApiException)) {
                             throw new RuntimeException(caught);
                         }
                         Log.d("Wikipedia", "Caught " + caught.toString());
