@@ -271,6 +271,12 @@ public class PageViewFragment extends Fragment {
             @Override
             public void run() {
                 try {
+                    if (index >= page.getSections().size()) {
+                        //Page object was modified while we were loading it...
+                        //(most likely from pressing the Retry button multiple times, hence
+                        //starting multiple SectionFetch tasks)
+                        return;
+                    }
                     JSONObject wrapper = new JSONObject();
                     wrapper.put("section", page.getSections().get(index).toJSON());
                     wrapper.put("index", index);
