@@ -26,3 +26,14 @@ img.mwe-math-fallback-png-inline {
 .content table.infobox {
   background: #000;
 }
+.app_table_collapsed_container {
+  border: solid 1px #505050;
+  background-color: #202020;
+}
+.app_span_collapse_text {
+  color: #808080;
+}
+.app_table_collapsed_bottom {
+  border: solid 1px #505050;
+  background-color: #202020;
+}

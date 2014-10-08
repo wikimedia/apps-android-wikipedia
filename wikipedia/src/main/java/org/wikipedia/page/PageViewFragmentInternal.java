@@ -34,7 +34,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.view.ActionMode;
@@ -189,6 +188,9 @@ public class PageViewFragmentInternal {
             leadSectionPayload.put("section", page.getSections().get(0).toJSON());
             leadSectionPayload.put("string_page_similar_titles", getString(R.string.page_similar_titles));
             leadSectionPayload.put("string_page_issues", getString(R.string.button_page_issues));
+            leadSectionPayload.put("string_table_infobox", getString(R.string.table_infobox));
+            leadSectionPayload.put("string_table_other", getString(R.string.table_other));
+            leadSectionPayload.put("string_table_close", getString(R.string.table_close));
             leadSectionPayload.put("isBeta", app.getReleaseType() != WikipediaApp.RELEASE_PROD);
             bridge.sendMessage("displayLeadSection", leadSectionPayload);
 

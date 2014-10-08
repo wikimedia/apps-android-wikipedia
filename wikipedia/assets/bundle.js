@@ -450,8 +450,14 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content.innerHTML = editButton.outerHTML + payload.section.text;
     content.id = "content_block_0";
 
+    window.string_table_infobox = payload.string_table_infobox;
+    window.string_table_other = payload.string_table_other;
+    window.string_table_close = payload.string_table_close;
+
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
+    content = transformer.transform( "hideTables", content );
+
     content = transformer.transform("displayDisambigLink", content);
     content = transformer.transform("displayIssuesLink", content);
 
@@ -508,6 +514,7 @@ function elementsForSection( section ) {
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
     content = transformer.transform( "section", content );
+    content = transformer.transform( "hideTables", content );
 
     return [ heading, content ];
 }
@@ -658,6 +665,129 @@ transformer.register( "leadSection", function( leadContent ) {
         }
     }
     return leadContent;
+} );
+
+/*
+Tries to get an array of table header (TH) contents from a given table.
+If there are no TH elements in the table, an empty array is returned.
+*/
+function getTableHeader( element ) {
+    var thArray = [];
+    if (element.children === null) {
+        return thArray;
+    }
+    for (var i = 0; i < element.children.length; i++) {
+        if (element.children[i].tagName === "TH") {
+            if (element.children[i].innerText.length > 0) {
+                thArray.push(element.children[i].innerText);
+            }
+        }
+        //if it's a table within a table, don't worry about it
+        if (element.children[i].tagName === "TABLE") {
+            continue;
+        }
+        //recurse into children of this element
+        var ret = getTableHeader(element.children[i]);
+        //did we get a list of TH from this child?
+        if (ret.length > 0) {
+            thArray = thArray.concat(ret);
+        }
+    }
+    return thArray;
+}
+
+/*
+OnClick handler function for expanding/collapsing tables and infoboxes.
+*/
+function tableCollapseClickHandler() {
+    var container = this.parentNode;
+    var divCollapsed = container.children[0];
+    var tableFull = container.children[1];
+    var divBottom = container.children[2];
+    if (tableFull.style.display !== 'none') {
+        tableFull.style.display = 'none';
+        divCollapsed.classList.remove('app_table_collapse_close');
+        divCollapsed.classList.remove('app_table_collapse_icon');
+        divCollapsed.classList.add('app_table_collapsed_open');
+        divBottom.style.display = 'none';
+        //if they clicked the bottom div, then scroll back up to the top of the table.
+        if (this === divBottom) {
+            window.scrollTo( 0, container.offsetTop - 48 );
+        }
+    } else {
+        tableFull.style.display = 'block';
+        divCollapsed.classList.remove('app_table_collapsed_open');
+        divCollapsed.classList.add('app_table_collapse_close');
+        divCollapsed.classList.add('app_table_collapse_icon');
+        divBottom.style.display = 'block';
+    }
+}
+
+transformer.register( "hideTables", function( content ) {
+    var tables = content.querySelectorAll( "table" );
+    for (var i = 0; i < tables.length; i++) {
+        //is the table already hidden? if so, don't worry about it
+        if (tables[i].style.display === 'none' || tables[i].classList.contains( 'navbox' ) || tables[i].classList.contains( 'vertical-navbox' ) || tables[i].classList.contains( 'navbox-inner' )) {
+            continue;
+        }
+
+        var isInfobox = tables[i].classList.contains( 'infobox' );
+        var headerText = getTableHeader(tables[i]);
+        if (headerText.length === 0 && !isInfobox) {
+            continue;
+        }
+        var caption = "<strong>" + (isInfobox ? window.string_table_infobox : window.string_table_other) + "</strong>";
+        caption += "<span class='app_span_collapse_text'>";
+        if (headerText.length > 0) {
+            caption += ": " + headerText[0];
+        }
+        if (headerText.length > 1) {
+            caption += ", " + headerText[1];
+        }
+        if (headerText.length > 2) {
+            caption += ", ...";
+        }
+        caption += "</span>";
+
+        //create the container div that will contain both the original table
+        //and the collapsed version.
+        var containerDiv = document.createElement( 'div' );
+        containerDiv.className = 'app_table_container';
+        tables[i].parentNode.insertBefore(containerDiv, tables[i]);
+        tables[i].parentNode.removeChild(tables[i]);
+
+        //remove top and bottom margin from the table, so that it's flush with
+        //our expand/collapse buttons
+        tables[i].style.marginTop = "0px";
+        tables[i].style.marginBottom = "0px";
+
+        //create the collapsed div
+        var collapsedDiv = document.createElement( 'div' );
+        collapsedDiv.classList.add('app_table_collapsed_container');
+        collapsedDiv.classList.add('app_table_collapsed_open');
+        collapsedDiv.innerHTML = caption;
+
+        //create the bottom collapsed div
+        var bottomDiv = document.createElement( 'div' );
+        bottomDiv.classList.add('app_table_collapsed_bottom');
+        bottomDiv.classList.add('app_table_collapse_icon');
+        bottomDiv.innerHTML = window.string_table_close;
+
+        //add our stuff to the container
+        containerDiv.appendChild(collapsedDiv);
+        containerDiv.appendChild(tables[i]);
+        containerDiv.appendChild(bottomDiv);
+
+        //set initial visibility
+        tables[i].style.display = 'none';
+        collapsedDiv.style.display = 'block';
+        bottomDiv.style.display = 'none';
+
+        //assign click handler to the collapsed divs
+        collapsedDiv.onclick = tableCollapseClickHandler;
+        bottomDiv.onclick = tableCollapseClickHandler;
+    }
+    return content;
 } );
 
 transformer.register( "section", function( content ) {

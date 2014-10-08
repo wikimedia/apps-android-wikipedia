@@ -35,8 +35,14 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content.innerHTML = editButton.outerHTML + payload.section.text;
     content.id = "content_block_0";
 
+    window.string_table_infobox = payload.string_table_infobox;
+    window.string_table_other = payload.string_table_other;
+    window.string_table_close = payload.string_table_close;
+
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
+    content = transformer.transform( "hideTables", content );
+
     content = transformer.transform("displayDisambigLink", content);
     content = transformer.transform("displayIssuesLink", content);
 
@@ -93,6 +99,7 @@ function elementsForSection( section ) {
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
     content = transformer.transform( "section", content );
+    content = transformer.transform( "hideTables", content );
 
     return [ heading, content ];
 }
