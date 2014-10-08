@@ -32,18 +32,22 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.view.ActionMode;
+import android.text.Html;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import javax.net.ssl.SSLException;
 import java.util.ArrayList;
@@ -404,6 +408,24 @@ public class PageViewFragmentInternal {
                 }
                 try {
                     displayNonLeadSection(messagePayload.getInt("index"));
+                } catch (JSONException e) {
+                    //nope
+                }
+            }
+        });
+        bridge.addListener("ipaSpan", new CommunicationBridge.JSEventListener() {
+            @Override
+            public void onMessage(String messageType, JSONObject messagePayload) {
+                try {
+                    String text = messagePayload.getString("contents");
+                    final int textSize = 30;
+                    TextView textView = new TextView(getActivity());
+                    textView.setGravity(Gravity.CENTER);
+                    textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+                    textView.setText(Html.fromHtml(text));
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setView(textView);
+                    builder.show();
                 } catch (JSONException e) {
                     //nope
                 }

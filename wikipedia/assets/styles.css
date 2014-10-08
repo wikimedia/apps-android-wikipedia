@@ -894,6 +894,16 @@ a.disambig_button:active {
   background-size: 20px 20px;
 }
 
+.ipa_button {
+  display: inline-block;
+  margin-bottom: -3px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAgCAYAAABHA7voAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAABBRJREFUWEfdWflPFkEM5U9HQUGj0WiMmnhrRBMVUeOt4fQG8cALBU8OEUEURK7aN06Xbr/Z/Wb59hd5yYtZ253Zt+203Y+6je0kpHVEp4mI6tajOGEiMGRMePkN0YHesK0M3hrixygRem1GvsDd94gWl4mWV4jufyba2h32WytPPXMP4bDCe2QxhDwfWZ+RL/DxqHNKMP2baMfdsG9RbmBmPXwWYt1lD0a2QAhZWHJOCYaniBo6wv5FWVRcEcgejGyBN945hxSO9ad9dt8n2lRQMNK8VnHVbpe9GNkCR386hwS4blD2zZ1EE7NEIzNEB/vS9+YRZ9oCgucX/YXBWt6F7MUIC9zFxQWFRePaYNqn9aU3MOD7gItQc1fax/Iwv4gYLAdeQgwkM2Q/Rlhg2ytnTAABEK19Pv/wRo/ZBaJtPWmfEMd++Rs81hKhapC9GGGBvSPOmACpqO04ezbCne/TPkhhfa3ZxtFHynfwPXYdAaIhzIO2R0fQRqd/LG2/9NobPPCQ6Jlih7gxFnD9LVFjlSLUMewXKQFRAlEVf/5xxgSoqNqnz0R4nNNO28+98AYGInUopwgdf+IdFfCgS9yiwCKIEtjEhWLJOwrODKR9Pkx7g0c/DwTa/pQjrjE9H24nONc6xWKQ5y/FSdZnVApEobA4rvofWsU3PpMa7Zxmeg3bYh5+SduFUzwZlYmoCGKCsTj8eNWOSeb7nDd43FQpjBdg7Rioxa55+vm/9EfVRpac5dS+yOf7PBch2Fr5Gi/HvrAsRAkMRVBPMBAwaQTcNgJGzAOhKmu7UA8OIWJexb+2tQB5qSr3MyoFolnb0o23qX0+mSr7yAh4Ys7g4GTaboXh2okJnNMLpifHnFm5l1EpcBOXeDRtjatmink27g0eaCvajnQD8KJ6Pub3RKEVfZSz5grvm9Un8yBrMCoFgtWKBPqbBubL7WqKgaD3/OVxgluAvs+ykf1a+Jtw3wNek88izmov7zVgXqBGzREEbZnHQK3t+x9WbmSjXO18gd0f/M2RiBEHyPqMsECkhoaL0J1VOx4e45sGSj56qF6nGvdw5Ow3ZxmQ9RlhgfsQIWdfBUq59rFpirRey9f+DA8BZUPWZoQFIkK2FQzxmdI+W/jDdYZHOhQB/F7TFFFIQoxNuyKQtRlhgWCXOR94Dpw97YPG3PI0/X9FOWcqdhmQtRnZAnE+7Ew68DXsWwtjIlg0yrI2I1sg+GrCOSVAOuqxrVbiKAybwb0MyPqMfIH4wVe/PXzj7TVpWgullaBg4RMNvTMW+rlshGV9Rr5AEFML7sdvLkXbQCwreiaPbFKRMTo2cwHDkH+Es8e2Jwu9DsMJzBW5kzc6WWMhqUYZqktm6o8vVSP5n9FpcgLr6+vXLYmo7i97FXYYGMQFoAAAAABJRU5ErkJggg==);
+  background-image: url(//127.0.0.1:8080/w/extensions/MobileApp/less/../images/ipa.png?2014-11-13T16:05:00Z)!ie;
+  background-size: 28px 16px;
+  height: 16px;
+  width: 28px;
+}
+
 /* FIXME: Copied over from http://en.wikipedia.org/w/index.php?title=MediaWiki:Mobile.css&oldid=609508028
    This fixes some styling issues in the app, primarily hlists.
    Eventually fix this by supporting loading Mobile.css in the app

@@ -457,6 +457,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
     content = transformer.transform( "hideTables", content );
+    content = transformer.transform( "hideIPA", content );
 
     content = transformer.transform("displayDisambigLink", content);
     content = transformer.transform("displayIssuesLink", content);
@@ -515,6 +516,7 @@ function elementsForSection( section ) {
     content.id = "content_block_" + section.id;
     content = transformer.transform( "section", content );
     content = transformer.transform( "hideTables", content );
+    content = transformer.transform( "hideIPA", content );
 
     return [ heading, content ];
 }
@@ -620,6 +622,7 @@ module.exports = new Transformer();
 },{}],12:[function(require,module,exports){
 var transformer = require("./transformer");
 var night = require("./night");
+var bridge = require( "./bridge" );
 
 // Move infobox to the bottom of the lead section
 transformer.register( "leadSection", function( leadContent ) {
@@ -796,6 +799,53 @@ transformer.register( "hideTables", function( content ) {
     return content;
 } );
 
+/*
+OnClick handler function for IPA spans.
+*/
+function ipaClickHandler() {
+    var container = this;
+    bridge.sendMessage( "ipaSpan", { "contents": container.innerHTML });
+}
+
+transformer.register( "hideIPA", function( content ) {
+    var spans = content.querySelectorAll( "span.IPA" );
+    for (var i = 0; i < spans.length; i++) {
+        var parentSpan = spans[i].parentNode;
+        if (parentSpan === null) {
+            continue;
+        }
+        var doTransform = false;
+        // case 1: we have a sequence of IPA spans contained in a parent "nowrap" span
+        if (parentSpan.tagName === "SPAN" && spans[i].classList.contains('nopopups')) {
+            doTransform = true;
+        }
+        if (parentSpan.style.display === 'none') {
+            doTransform = false;
+        }
+        if (!doTransform) {
+            continue;
+        }
+
+        //we have a new IPA span!
+
+        var containerSpan = document.createElement( 'span' );
+        parentSpan.parentNode.insertBefore(containerSpan, parentSpan);
+        parentSpan.parentNode.removeChild(parentSpan);
+
+        //create and add the button
+        var buttonDiv = document.createElement( 'div' );
+        buttonDiv.classList.add('ipa_button');
+        containerSpan.appendChild(buttonDiv);
+        containerSpan.appendChild(parentSpan);
+
+        //set initial visibility
+        parentSpan.style.display = 'none';
+        //and assign the click handler to it
+        containerSpan.onclick = ipaClickHandler;
+    }
+    return content;
+} );
+
 transformer.register( "section", function( content ) {
 	if ( window.isNightMode ) {
 		night.invertElement ( content );
@@ -815,7 +865,7 @@ transformer.register( "section", function( content ) {
 	return content;
 } );
 
-},{"./night":8,"./transformer":11}],13:[function(require,module,exports){
+},{"./bridge":2,"./night":8,"./transformer":11}],13:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills

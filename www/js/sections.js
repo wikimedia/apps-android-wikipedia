@@ -42,6 +42,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
     content = transformer.transform( "hideTables", content );
+    content = transformer.transform( "hideIPA", content );
 
     content = transformer.transform("displayDisambigLink", content);
     content = transformer.transform("displayIssuesLink", content);
@@ -100,6 +101,7 @@ function elementsForSection( section ) {
     content.id = "content_block_" + section.id;
     content = transformer.transform( "section", content );
     content = transformer.transform( "hideTables", content );
+    content = transformer.transform( "hideIPA", content );
 
     return [ heading, content ];
 }
