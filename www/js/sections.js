@@ -35,6 +35,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content.innerHTML = editButton.outerHTML + payload.section.text;
     content.id = "content_block_0";
 
+    window.apiLevel = payload.apiLevel;
     window.string_table_infobox = payload.string_table_infobox;
     window.string_table_other = payload.string_table_other;
     window.string_table_close = payload.string_table_close;

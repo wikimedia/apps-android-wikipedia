@@ -35,6 +35,7 @@ import org.json.JSONObject;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.view.ActionMode;
@@ -195,6 +196,7 @@ public class PageViewFragmentInternal {
             leadSectionPayload.put("string_table_other", getString(R.string.table_other));
             leadSectionPayload.put("string_table_close", getString(R.string.table_close));
             leadSectionPayload.put("isBeta", app.getReleaseType() != WikipediaApp.RELEASE_PROD);
+            leadSectionPayload.put("apiLevel", Build.VERSION.SDK_INT);
             bridge.sendMessage("displayLeadSection", leadSectionPayload);
 
             JSONObject attributionPayload = new JSONObject();

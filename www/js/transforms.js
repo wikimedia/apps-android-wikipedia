@@ -242,3 +242,40 @@ transformer.register( "section", function( content ) {
 	}
 	return content;
 } );
+
+transformer.register( "section", function( content ) {
+    if (window.apiLevel < 11) {
+        //don't do anything for GB
+        return content;
+    }
+    var allDivs = content.querySelectorAll( 'div' );
+    var contentWrapper = document.getElementById( "content" );
+    var clientWidth = contentWrapper.offsetWidth;
+    for ( var i = 0; i < allDivs.length; i++ ) {
+        if (allDivs[i].style && allDivs[i].style.width) {
+            // if this div has an explicit width, and it's greater than our client width,
+            // then make it overflow (with scrolling), and reset its width to 100%
+            if (parseInt(allDivs[i].style.width) > clientWidth) {
+                allDivs[i].style.overflowX = "auto";
+                allDivs[i].style.width = "100%";
+            }
+        }
+    }
+    return content;
+} );
+
+transformer.register( "section", function( content ) {
+    // Prevent horizontally scrollable pages by checking for math formula images (which are
+    // often quite wide), and explicitly setting their maximum width to fit the viewport.
+    var allImgs = content.querySelectorAll( 'img' );
+    for ( var i = 0; i < allImgs.length; i++ ) {
+        var imgItem = allImgs[i];
+        // is the image a math formula?
+        for ( var c = 0; c < imgItem.classList.length; c++ ) {
+            if (imgItem.classList[c].indexOf("math") > -1) {
+                imgItem.style.maxWidth = "100%";
+            }
+        }
+    }
+    return content;
+} );
