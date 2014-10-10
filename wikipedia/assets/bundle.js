@@ -433,7 +433,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     var content = document.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = payload.section.text;
-    content.id = "#content_block_0";
+    content.id = "content_block_0";
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
 
@@ -599,6 +599,30 @@ var night = require("./night");
 transformer.register( "leadSection", function( leadContent ) {
     var infobox = leadContent.querySelector( "table.infobox" );
     if ( infobox ) {
+
+        /*
+        If the infobox table itself sits within a table or series of tables,
+        move the most distant ancestor table instead of just moving the
+        infobox. Otherwise you end up with table(s) with a hole where the
+        infobox had been. World War II article on enWiki has this issue.
+        Note that we need to stop checking ancestor tables when we hit
+        content_block_0.
+        */
+        var infoboxParentTable = null;
+        var el = infobox;
+        while (el.parentNode) {
+            el = el.parentNode;
+            if (el.id === 'content_block_0') {
+                break;
+            }
+            if (el.tagName === 'TABLE') {
+                infoboxParentTable = el;
+            }
+        }
+        if (infoboxParentTable) {
+            infobox = infoboxParentTable;
+        }
+
         infobox.parentNode.removeChild( infobox );
         var pTags = leadContent.getElementsByTagName( "p" );
         if ( pTags.length ) {

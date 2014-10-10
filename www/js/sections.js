@@ -32,7 +32,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     var content = document.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = payload.section.text;
-    content.id = "#content_block_0";
+    content.id = "content_block_0";
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
 
