@@ -11,6 +11,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.recurring.RecurringTask;
 import org.wikipedia.settings.PrefKeys;
 
+import java.io.BufferedInputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -62,8 +63,25 @@ public class StyleFetcherTask extends RecurringTask {
                 // Only overwrite files if we get a 200
                 // This prevents empty style files from being used when betalabs goes down
                 if (request.ok()) {
+
+                    // NB: this is a quick hack. The real solution is for the server to NOT return
+                    // a status of 200, when in fact there's an internal error!
+                    // We will "preview" the first few bytes of the stream, and check if they
+                    // actually contain the words "internal error"!
+                    BufferedInputStream stream = new BufferedInputStream(request.stream());
+                    final int numPreviewBytes = 32;
+                    byte[] previewBytes = new byte[numPreviewBytes];
+                    stream.mark(numPreviewBytes + 1);
+                    stream.read(previewBytes);
+                    stream.reset();
+                    String preview = new String(previewBytes);
+                    if (preview.contains("nternal error")) { //ignore case of "internal"
+                        return;
+                    }
+                    // end of hack
+
                     OutputStream fo = getContext().openFileOutput(styleSpec[0], Context.MODE_PRIVATE);
-                    Utils.copyStreams(request.stream(), fo);
+                    Utils.copyStreams(stream, fo);
                     fo.close();
                     Log.d("Wikipedia", String.format("Downloaded %s into %s", url, getContext().getFileStreamPath(styleSpec[0]).getAbsolutePath()));
                 } else {
