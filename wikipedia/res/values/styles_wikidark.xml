@@ -18,10 +18,11 @@
         <item name="edit_text_color">@color/edit_text_dark</item>
         <item name="link_color">@color/link_dark</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_dark</item>
+        <item name="actionbar_drawable">@drawable/actionbar_themedark</item>
     </style>
 
     <style name="ActionBar.Solid.WikiDark" parent="@style/Widget.AppCompat.ActionBar.Solid">
-        <item name="android:background">@color/actionbar_background_dark</item>
+        <item name="android:background">@drawable/actionbar_themedark</item>
     </style>
 
     <style name="DropDownListView.WikiDark" parent="@style/Widget.AppCompat.ListView.DropDown">

@@ -10,4 +10,5 @@
     <attr name="edit_text_color" format="reference"/>
     <attr name="link_color" format="reference"/>
     <attr name="abusefilter_background_color" format="reference"/>
+    <attr name="actionbar_drawable" format="reference"/>
 </resources>

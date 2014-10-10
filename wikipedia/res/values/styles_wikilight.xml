@@ -16,10 +16,11 @@
         <item name="edit_text_color">@color/edit_text_light</item>
         <item name="link_color">@color/link_light</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_light</item>
+        <item name="actionbar_drawable">@drawable/actionbar_themelight</item>
     </style>
 
     <style name="ActionBar.Solid.WikiLight" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
-        <item name="android:background">@color/actionbar_background_light</item>
+        <item name="android:background">@drawable/actionbar_themelight</item>
     </style>
 
     <style name="DropDownListView.WikiLight" parent="@style/Widget.AppCompat.Light.ListView.DropDown">

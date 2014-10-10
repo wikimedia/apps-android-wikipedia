@@ -3,7 +3,6 @@ package org.wikipedia.search;
 import org.wikipedia.PageTitle;
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
-import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.NewWikiPageNavigationEvent;
@@ -15,6 +14,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -222,7 +222,7 @@ public class SearchArticlesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((ThemedActionBarActivity)getActivity()).getSupportActionBar().setTitle("");
+        ((ActionBarActivity)getActivity()).getSupportActionBar().setTitle("");
     }
 
     public void newSearch(String term) {

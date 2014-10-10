@@ -12,8 +12,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
@@ -37,7 +37,7 @@ public class ToCHandler {
     private final DisableableDrawerLayout slidingPane;
     private final TextView headerView;
     private ToCInteractionFunnel funnel;
-    private FragmentActivity parentActivity;
+    private ActionBarActivity parentActivity;
 
     /**
      * Flag to track if the drawer is closing because a link was clicked.
@@ -47,7 +47,7 @@ public class ToCHandler {
     private boolean wasClicked = false;
     private boolean openedViaSwipe = true;
 
-    public ToCHandler(final FragmentActivity activity, final DisableableDrawerLayout slidingPane,
+    public ToCHandler(final ActionBarActivity activity, final DisableableDrawerLayout slidingPane,
                       final CommunicationBridge bridge) {
         this.parentActivity = activity;
         this.bridge = bridge;
@@ -79,9 +79,6 @@ public class ToCHandler {
                 super.onDrawerOpened(drawerView);
                 parentActivity.supportInvalidateOptionsMenu();
                 bridge.sendMessage("requestCurrentSection", new JSONObject());
-//                if (quickReturnBar != null) {
-//                    ViewAnimations.ensureTranslationY(quickReturnBar, 0);
-//                }
                 funnel.logOpen();
                 wasClicked = false;
                 final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(parentActivity);
@@ -104,6 +101,10 @@ public class ToCHandler {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
+                // make sure the ActionBar is showing
+                if (!parentActivity.getSupportActionBar().isShowing()) {
+                    parentActivity.getSupportActionBar().show();
+                }
             }
         });
     }

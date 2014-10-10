@@ -2,6 +2,7 @@ package org.wikipedia.page;
 
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.PageTitle;
+import org.wikipedia.QuickReturnHandler;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
@@ -42,6 +43,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -378,7 +380,7 @@ public class PageViewFragmentInternal {
 
         editHandler = new EditHandler(parentFragment, bridge);
 
-//        new QuickReturnHandler(webView, getActivity().findViewById(R.id.search_fragment));
+        new QuickReturnHandler(webView, (ActionBarActivity)getActivity());
 
         //is this page in cache??
         if (PAGE_CACHE.has(titleOriginal)) {
@@ -479,7 +481,7 @@ public class PageViewFragmentInternal {
         // FIXME: Move this out into a PageComplete event of sorts
         if (state == STATE_COMPLETE_FETCH) {
             if (tocHandler == null) {
-                tocHandler = new ToCHandler(getActivity(),
+                tocHandler = new ToCHandler((ActionBarActivity)getActivity(),
                                             tocDrawer,
                                             bridge);
             }

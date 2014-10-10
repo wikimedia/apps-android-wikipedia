@@ -4,7 +4,6 @@ import org.wikipedia.NavDrawerFragment;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
-import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.ChangeTextSizeEvent;
@@ -37,20 +36,25 @@ import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.WindowCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 
-public class PageActivity extends ThemedActionBarActivity {
+public class PageActivity extends ActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
@@ -66,10 +70,10 @@ public class PageActivity extends ThemedActionBarActivity {
     private WikipediaApp app;
 
     private View fragmentContainerView;
-//    private SearchArticlesFragment searchArticlesFragment;
     private DrawerLayout drawerLayout;
     private NavDrawerFragment fragmentNavdrawer;
     private FindInPageFragment findInPageFragment;
+    private ActionBarDrawerToggle mDrawerToggle;
 
     /**
      * Get the Fragment that is currently at the top of the Activity's backstack.
@@ -107,10 +111,17 @@ public class PageActivity extends ThemedActionBarActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        app = (WikipediaApp) getApplicationContext();
-        setTheme(app.getCurrentTheme());
-        requestWindowFeature(Window.FEATURE_ACTION_MODE_OVERLAY);
         super.onCreate(savedInstanceState);
+        app = (WikipediaApp) getApplicationContext();
+        setTheme(WikipediaApp.getInstance().getCurrentTheme());
+
+        supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR_OVERLAY);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+            //for 2.3 it seems to be necessary to set this explicitly:
+            getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(Utils.getThemedAttributeId(this, R.attr.actionbar_drawable)));
+        }
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
@@ -140,13 +151,10 @@ public class PageActivity extends ThemedActionBarActivity {
         }
 
         findInPageFragment = (FindInPageFragment) getSupportFragmentManager().findFragmentById(R.id.find_in_page_fragment);
-//        searchArticlesFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navdrawer);
 
         fragmentContainerView = findViewById(R.id.content_fragment_container);
-
-//        searchArticlesFragment.setDrawerLayout(drawerLayout);
 
         // If we're coming back from a Theme change, we'll need to "restore" our state based on
         // what's given in our Intent (since there's no way to relaunch the Activity in a way that
@@ -181,6 +189,80 @@ public class PageActivity extends ThemedActionBarActivity {
         if (showOnboarding()) {
             startActivity(new Intent(this, OnboardingActivity.class));
         }
+
+        mDrawerToggle = new ActionBarDrawerToggle(
+                this,                  /* host Activity */
+                drawerLayout,          /* DrawerLayout object */
+                R.drawable.ic_drawer,  /* nav drawer icon to replace 'Up' caret */
+                R.string.app_name,     /* "open drawer" description */
+                R.string.app_name      /* "close drawer" description */
+        ) {
+
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                // if we want to change the title upon closing:
+                //getActionBar().setTitle("");
+            }
+
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                // if we want to change the title upon opening:
+                //getActionBar().setTitle("");
+            }
+
+            private boolean hideKeyboardCalled = false;
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
+                // Hide the keyboard when the drawer is opened
+                if (!hideKeyboardCalled) {
+                    Utils.hideSoftKeyboard(PageActivity.this);
+                    //also make sure ToC is hidden
+                    app.getBus().post(new ShowToCEvent(ShowToCEvent.ACTION_HIDE));
+                    hideKeyboardCalled = true;
+                }
+                // and make sure the ActionBar is showing
+                if (!getSupportActionBar().isShowing()) {
+                    getSupportActionBar().show();
+                }
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+                super.onDrawerStateChanged(newState);
+                if (newState == DrawerLayout.STATE_IDLE) {
+                    hideKeyboardCalled = false;
+                }
+            }
+        };
+
+        // Set the drawer toggle as the DrawerListener
+        drawerLayout.setDrawerListener(mDrawerToggle);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        mDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Pass the event to ActionBarDrawerToggle, if it returns
+        // true, then it has handled the app icon touch event
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        // Handle other action bar items...
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -243,6 +325,11 @@ public class PageActivity extends ThemedActionBarActivity {
         trans.replace(R.id.content_fragment_container, f, "fragment_" + Integer.toString(totalFragments));
         trans.addToBackStack(null);
         trans.commit();
+
+        // and make sure the ActionBar is visible
+        if (!getSupportActionBar().isShowing()) {
+            getSupportActionBar().show();
+        }
     }
 
     /**
@@ -438,10 +525,6 @@ public class PageActivity extends ThemedActionBarActivity {
             } else {
                 finish();
             }
-
-//            searchArticlesFragment.clearErrors();
-//            searchArticlesFragment.ensureVisible();
-
         }
     }
 
