@@ -38,7 +38,7 @@
 
         <TextView
             android:id="@+id/nearby_empty_message"
-            android:layout_width="wrap_content"
+            android:layout_width="256dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
