@@ -61,6 +61,7 @@ public class PageActivity extends ThemedActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
+    public static final String EXTRA_SEARCH_FROM_WIDGET = "searchFromWidget";
     private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
 
     private static final String KEY_LAST_FRAGMENT = "lastFragment";
@@ -376,6 +377,16 @@ public class PageActivity extends ThemedActionBarActivity {
             // FIXME: Design something better for this?
             displayMainPage();
         }
+        if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
+            // we were sent here from the Search widget, so go straight to the search fragment!
+            fragmentContainerView.post(new Runnable() {
+                @Override
+                public void run() {
+                    searchFragment.setLaunchedFromWidget(true);
+                    searchFragment.openSearch();
+                }
+            });
+        }
     }
 
     /**
@@ -563,6 +574,9 @@ public class PageActivity extends ThemedActionBarActivity {
             return;
         }
         if (searchFragment.onBackPressed()) {
+            if (searchFragment.isLaunchedFromWidget()) {
+                finish();
+            }
             return;
         }
         if (getTopFragment() instanceof BackPressedHandler

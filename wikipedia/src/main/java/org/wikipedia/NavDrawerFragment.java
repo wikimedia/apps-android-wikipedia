@@ -1,5 +1,7 @@
 package org.wikipedia;
 
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ import org.wikipedia.random.RandomHandler;
 import org.wikipedia.savedpages.SavedPagesFragment;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.SettingsActivityGB;
+import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 
 public class NavDrawerFragment extends Fragment implements View.OnClickListener {
     private static final int[] ACTION_ITEMS_ALL = {
@@ -219,6 +222,14 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                             return;
                         }
                         ((PageActivity)getActivity()).displayMainPage(true);
+                        // and update any instances of our Featured Page widget, since it will
+                        // change with the currently selected language.
+                        Intent widgetIntent = new Intent(getActivity(), WidgetProviderFeaturedPage.class);
+                        widgetIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+                        int[] ids = AppWidgetManager.getInstance(getActivity().getApplication()).getAppWidgetIds(
+                                new ComponentName(getActivity().getApplication(), WidgetProviderFeaturedPage.class));
+                        widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
+                        getActivity().sendBroadcast(widgetIntent);
                     }
                 }, DateUtils.SECOND_IN_MILLIS);
             } else if (resultCode == SettingsActivity.ACTIVITY_RESULT_LOGOUT) {

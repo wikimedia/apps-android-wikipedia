@@ -366,6 +366,9 @@ Please test the URL to make sure it works</string>
   <string name="table_close">{{Identical|Close}}</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
   <string name="alpha_update_notification_title">Title for notification when new alpha update is available.
+  <string name="widget_name_featured_page">Name of the Widget (as seen in the Android widget picker) that displays today\'s featured page.</string>
+  <string name="widget_title_featured_page">Text shown inside the widget that tells the user that the link below is today\'s featured page.</string>
+  <string name="widget_name_search">Name of the Widget (as seen in the Android widget picker) for searching Wikipedia</string>
 
 Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
   <string name="alpha_update_notification_text">Text for notification when new alpha update is available.

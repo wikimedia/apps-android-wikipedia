@@ -45,6 +45,14 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         return funnel;
     }
 
+    private boolean launchedFromWidget = false;
+    public void setLaunchedFromWidget(boolean fromWidget) {
+        launchedFromWidget = fromWidget;
+    }
+    public boolean isLaunchedFromWidget() {
+        return launchedFromWidget;
+    }
+
     /**
      * Whether the Search fragment is currently showing.
      */
@@ -367,8 +375,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     private final SearchView.OnCloseListener searchCloseListener = new SearchView.OnCloseListener() {
         @Override
         public boolean onClose() {
-            closeSearch();
-            funnel.searchCancel();
+            getActivity().onBackPressed();
             return false;
         }
     };
@@ -380,6 +387,10 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         funnel.searchClick();
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
         Utils.hideSoftKeyboard(getActivity());
+        // if this search session was started from our Widget, then clear the widget flag,
+        // so that we no longer care that we were launched from the widget, since we've now
+        // selected a page to navigate to.
+        launchedFromWidget = false;
         closeSearch();
         ((PageActivity)getActivity()).displayNewPage(title, historyEntry);
     }

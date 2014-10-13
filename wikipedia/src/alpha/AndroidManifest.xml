@@ -10,6 +10,33 @@
             android:name="@string/preference_channel"
             android:value="Alpha Channel"
             tools:replace="android:value" />
+
+        <receiver
+            android:icon="@drawable/launcher"
+            android:label="@string/widget_name_search"
+            android:name="org.wikipedia.widgets.WidgetProviderSearch" >
+            <intent-filter >
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_search" />
+        </receiver>
+
+        <receiver
+            android:icon="@drawable/launcher"
+            android:label="@string/widget_name_featured_page"
+            android:name="org.wikipedia.widgets.WidgetProviderFeaturedPage" >
+            <intent-filter >
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_featured_page" />
+        </receiver>
+
     </application>
 
 </manifest>

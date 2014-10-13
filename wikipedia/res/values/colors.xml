@@ -72,6 +72,10 @@
     <color name="syntax_highlight_template_light">#a0a0a0</color>
     <color name="syntax_highlight_template_dark">#505050</color>
 
+    <color name="widget_background">#80ffffff</color>
+    <color name="widget_title_text">#ff606060</color>
+    <color name="widget_content_text">#ff303030</color>
+
     <!-- Copied for 2.3 -->
     <color name="holo_green_light">#ff99cc00</color>
     <color name="holo_red_dark">#ffcc0000</color>
