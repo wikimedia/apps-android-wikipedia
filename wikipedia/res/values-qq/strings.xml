@@ -78,7 +78,7 @@ See also:
   <string name="nearby_distance_in_kilometers">Distance to the place mentioned in the nearby page in kilometers. Please leave the %.2f as is. It represents a floating point number with 2 digits after the decimal point.</string>
   <string name="nearby_distance_in_feet">Distance to the place mentioned in the nearby page in feet. Please leave the %d as is. It represents an integer decimal number up to 999.</string>
   <string name="nearby_distance_in_miles">Distance to the place mentioned in the nearby page in miles. Please leave the %.2f as is. It represents a floating point number with 2 digits after the decimal point.</string>
-  <string name="nearby_no_network">Error message when there was a network error</string>
+  <string name="nearby_no_network">Error message when there was a network error while displaying nearby articles.</string>
   <string name="nearby_server_error">Error message when the app could not get list of nearby places from the server.</string>
   <string name="nearby_no_location">Error message when the app could not get a location from any location provider (network or GPS).</string>
   <string name="nearby_dialog_goto_settings">Dialog text that tells the user that Location updates are not enabled on the device, and asks if the user wants to go to the Settings page on the device where they can enable Location updates.</string>
