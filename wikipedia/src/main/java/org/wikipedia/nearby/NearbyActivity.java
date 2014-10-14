@@ -1,5 +1,6 @@
 package org.wikipedia.nearby;
 
+import android.content.ActivityNotFoundException;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -152,7 +153,13 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
                         title.getDisplayText()
                         );
                 Intent geoIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
-                startActivity(geoIntent);
+                try {
+                    startActivity(geoIntent);
+                } catch (ActivityNotFoundException e) {
+                    // Means no map application was installed to handle geo://
+                    // I think this case is rare enough for us to just ignore
+                    // This would mean long pressing won't do anything, which is fine, I think
+                }
                 return false;
             }
         });
