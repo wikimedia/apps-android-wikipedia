@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">Nas redondezas</string>
   <string name="nav_item_nearby">Nas redondezas</string>
   <string name="menu_update_nearby">Atualizar páginas nas redondezas</string>
-  <string name="nearby_empty_title">Sem páginas nas redondezas</string>
-  <string name="nearby_empty_message">Pode atualizar esta página quando estiver num novo local.</string>
+  <string name="nearby_empty_title" fuzzy="true">Sem páginas nas redondezas</string>
+  <string name="nearby_empty_message" fuzzy="true">Pode atualizar esta página quando estiver num novo local.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_no_network">Nenhuma conexão de rede</string>

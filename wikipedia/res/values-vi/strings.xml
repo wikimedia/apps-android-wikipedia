@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">Lân cận</string>
   <string name="nav_item_nearby">Lân cận</string>
   <string name="menu_update_nearby">Cập nhật danh sách lân cận</string>
-  <string name="nearby_empty_title">Không có trang lân cận</string>
-  <string name="nearby_empty_message">Bạn có thể làm mới trang này khi di chuyển đến một vị trí mới.</string>
+  <string name="nearby_empty_title" fuzzy="true">Không có trang lân cận</string>
+  <string name="nearby_empty_message" fuzzy="true">Bạn có thể làm mới trang này khi di chuyển đến một vị trí mới.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_no_network">Không có kết nối mạng</string>

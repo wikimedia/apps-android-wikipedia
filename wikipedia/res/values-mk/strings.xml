@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">Во близина</string>
   <string name="nav_item_nearby">Во близина</string>
   <string name="menu_update_nearby">Поднови „во близина“</string>
-  <string name="nearby_empty_title">Нема страници во близина</string>
-  <string name="nearby_empty_message">Можете да ја подновите страницава кога ќе отидете на друго место.</string>
+  <string name="nearby_empty_title" fuzzy="true">Нема страници во близина</string>
+  <string name="nearby_empty_message" fuzzy="true">Можете да ја подновите страницава кога ќе отидете на друго место.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d стапки</string>

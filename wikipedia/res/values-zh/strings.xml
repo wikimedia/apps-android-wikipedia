@@ -43,14 +43,18 @@
   <string name="nearby_activity_title">附近</string>
   <string name="nav_item_nearby">附近</string>
   <string name="menu_update_nearby">更新附近</string>
-  <string name="nearby_empty_title">附近没有页面</string>
-  <string name="nearby_empty_message">当您移动到一个新的位置时您可以刷新此页面。</string>
+  <string name="nearby_empty_title" fuzzy="true">附近没有页面</string>
+  <string name="nearby_empty_message" fuzzy="true">当您移动到一个新的位置时您可以刷新此页面。</string>
   <string name="nearby_distance_in_meters">%d米</string>
   <string name="nearby_distance_in_kilometers">%.2f千米</string>
+  <string name="nearby_distance_in_feet">%d英尺</string>
+  <string name="nearby_distance_in_miles">%.2f英里</string>
   <string name="nearby_no_network">无网络连接</string>
   <string name="nearby_server_error">无法获取附近地点的列表。</string>
   <string name="nearby_no_location">不能获取位置</string>
   <string name="nearby_dialog_goto_settings">您的设备未启用位置更新。您想要前往您的设备设置启用位置更新么？</string>
+  <string name="nearby_set_metric">显示米/千米</string>
+  <string name="nearby_set_imperial">显示英尺/英里</string>
   <string name="last_updated_text">最后更新：%s</string>
   <string name="content_license_html">除非另有说明，内容依据&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;协议发布。</string>
   <string name="edit_save_action_license_logged_in">通过保存，您同意&lt;a href=\"https://wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并不可撤销地在&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;许可下提交您的贡献。</string>

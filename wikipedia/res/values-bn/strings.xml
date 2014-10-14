@@ -43,11 +43,17 @@
   <string name="nearby_activity_title">কাছাকাছি</string>
   <string name="nav_item_nearby">কাছাকাছি</string>
   <string name="menu_update_nearby">কাছাকাছি হালনাগাদ করুন</string>
-  <string name="nearby_empty_title">কাছাকাছি কোন পাতা নেই</string>
-  <string name="nearby_empty_message">আপনি একটি নতুন অবস্থানে গেলে এই পাতাটি পুনঃসতেজ করতে পারেন।</string>
+  <string name="nearby_empty_title" fuzzy="true">কাছাকাছি কোন পাতা নেই</string>
+  <string name="nearby_empty_message" fuzzy="true">আপনি একটি নতুন অবস্থানে গেলে এই পাতাটি পুনঃসতেজ করতে পারেন।</string>
   <string name="nearby_distance_in_meters">%d মি</string>
   <string name="nearby_distance_in_kilometers">%.2f কিমি</string>
+  <string name="nearby_distance_in_feet">%d ফুট</string>
+  <string name="nearby_distance_in_miles">%.2f মাইল</string>
   <string name="nearby_no_network">কোন নেটওয়ার্ক সংযোগ নেই</string>
+  <string name="nearby_server_error">কাছাকাছি স্থানের তালিকা পাওয়া যায়নি।</string>
+  <string name="nearby_no_location">অবস্থান নির্ণয় করতে সক্ষম নয়</string>
+  <string name="nearby_set_metric">মিটার/কিমি দেখাও</string>
+  <string name="nearby_set_imperial">ফুট/মাইল দেখাও</string>
   <string name="last_updated_text">%1$s তারিখে সর্বশেষ হালনাগাদ</string>
   <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
   <string name="edit_save_action_license_logged_in">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.bn\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন।</string>
@@ -59,6 +65,7 @@
   <string name="menu_other_languages">অন্য ভাষায় পড়ুন</string>
   <string name="langlinks_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়</string>
+  <string name="langlinks_no_match">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো ভাষা নেই।</string>
   <string name="settings_activity_title">সেটিং</string>
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
   <string name="menu_save_changes">পরিবর্তন সংরক্ষণ</string>
@@ -227,6 +234,7 @@
   <string name="search_no_results">\"%s\"-এর জন্য কোন ফলাফল পাওয়া যায়নি।</string>
   <string name="search_results_title">অনুসন্ধানের ফলাফল</string>
   <string name="search_error_retry">পুনঃচেষ্টা করুন</string>
+  <string name="search_redirect_title">\"%s\" থেকে পুনর্নির্দেশ।</string>
   <string name="toc_know_it">বুঝেছি</string>
   <string name="alpha_update_notification_title">নতুন আলফা হালনাগাদ উপলব্ধ</string>
   <string name="alpha_update_notification_text">ডাউনলোড করতে টোকা দিন</string>

@@ -17,7 +17,7 @@
   <string name="menu_clear_all_history">履歴を消去</string>
   <string name="menu_clear_all_bookmarks">ブックマークを空にする</string>
   <string name="menu_clear_all_saved_pages">保存したページをすべて消去</string>
-  <string name="page_does_not_exist_error">このページは存在しません</string>
+  <string name="page_does_not_exist_error">このページは存在しません。</string>
   <string name="nav_item_today">今日のメインページ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去しますか?</string>
   <string name="saved_pages_activity_title">保存したページ</string>
@@ -39,18 +39,22 @@
   <string name="delete_selected_saved_pages">削除</string>
   <string name="toast_saved_page_deleted">保存したページを削除しました</string>
   <string name="saved_pages_search_list_hint">検索</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">「%s」に一致するページは見つかりませんでした</string>
+  <string name="saved_pages_search_empty_message">検索語句に一致するページが見つかりません。</string>
   <string name="nearby_activity_title">付近のスポット</string>
   <string name="nav_item_nearby">付近のスポット</string>
   <string name="menu_update_nearby">付近のスポットを更新</string>
-  <string name="nearby_empty_title">付近のスポットについてのページはありません</string>
-  <string name="nearby_empty_message">新しい場所に移動するとこのページを更新できます</string>
+  <string name="nearby_empty_title" fuzzy="true">付近のスポットについてのページはありません</string>
+  <string name="nearby_empty_message" fuzzy="true">新しい場所に移動すると、このページを更新できます。</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d フィート</string>
+  <string name="nearby_distance_in_miles">%.2f マイル</string>
   <string name="nearby_no_network">ネットワーク接続がありません</string>
-  <string name="nearby_server_error">付近のスポットのリストを取得できませんでした</string>
-  <string name="nearby_no_location">位置情報を取得できませんでした</string>
+  <string name="nearby_server_error">付近のスポットの一覧を取得できませんでした。</string>
+  <string name="nearby_no_location">位置情報を取得できません</string>
   <string name="nearby_dialog_goto_settings">お使いのデバイスでは位置情報の更新が無効になっています。デバイスの [設定] に移動して位置情報の更新を有効にしますか?</string>
+  <string name="nearby_set_metric">メートル/キロメートルで表示</string>
+  <string name="nearby_set_imperial">フィート/マイルで表示</string>
   <string name="last_updated_text">最終更新: %s</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
   <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
@@ -61,7 +65,8 @@
   <string name="langlinks_filter_hint">検索</string>
   <string name="menu_other_languages">他の言語で読む</string>
   <string name="langlinks_error_retry">再試行</string>
-  <string name="langlinks_empty">このページの他の言語版はありません</string>
+  <string name="langlinks_empty">このページの他の言語版はありません。</string>
+  <string name="langlinks_no_match">検索語句に一致する言語が見つかりません。</string>
   <string name="settings_activity_title">設定</string>
   <string name="langlinks_activity_title">他の言語</string>
   <string name="menu_save_changes">変更を保存</string>
@@ -98,7 +103,7 @@
   <string name="preference_summary_logout">ウィキペディアのアカウントからログアウト</string>
   <string name="preference_summary_notloggedin">ログインしていません</string>
   <string name="toast_logout_complete">ログアウトしました</string>
-  <string name="saved_pages_empty_title">保存したページはありません</string>
+  <string name="saved_pages_empty_title">保存したページはありません。</string>
   <string name="saved_pages_empty_message">保存したページはすごい機能です! オフライン時にも読める、ブックマークのようなものだとお考えください。</string>
   <string name="history_empty_title">履歴はまだありません。</string>
   <string name="history_empty_message">すべて削除したのかもしれません。他のページに行った後にここへ戻ってみてください。</string>
@@ -120,11 +125,11 @@
   <string name="create_account_username_exists_error">既に使用されている利用者名です</string>
   <string name="create_account_ip_throttle_error">この IP アドレスからのアカウント作成が多すぎます。しばらくしてから再試行してください</string>
   <string name="create_account_open_proxy_error">この IP アドレスはアカウント作成についてはブロックされています</string>
-  <string name="create_account_noname_error">入力したユーザー名は無効です。別のユーザー名を入力してください。</string>
+  <string name="create_account_noname_error">入力した利用者名は無効です。別の利用者名を入力してください。</string>
   <string name="create_account_invalid_email_error">入力したメールアドレスは無効です。</string>
   <string name="create_account_password_too_short_error">パスワードが短すぎます。</string>
-  <string name="create_account_blocked_anon_error">IPアドレスがブロックされておりアカウントを作成できません。</string>
-  <string name="create_account_blocked_error">あなたのアカウントはブロックされており、アカウントを作成できません。</string>
+  <string name="create_account_blocked_anon_error">IPアドレスがブロックされているため、アカウントを作成できません。</string>
+  <string name="create_account_blocked_error">あなたのアカウントがブロックされているため、アカウントを作成できません。</string>
   <string name="create_account_password_name_match_error">利用者名とパスワードは同一にできません。</string>
   <string name="create_account_generic_error">アカウントを作成できませんでした</string>
   <string name="create_account_no_network">ネットワーク接続がありません</string>
@@ -169,7 +174,7 @@
   <string name="preference_summary_eventlogging_opt_in">このアプリの改善に役立てるため、ウィキメディアがアプリの使用情報を収集することを許可する</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
   <string name="history_search_list_hint">検索</string>
-  <string name="history_search_empty_message">キーワードに一致するページが見つかりませんでした</string>
+  <string name="history_search_empty_message">検索語句に一致するページが見つかりません。</string>
   <string name="error_can_not_process_link">このリンクを表示できませんでした。</string>
   <string name="page_protected_autoconfirmed">このページは半保護されています。</string>
   <string name="page_protected_sysop">このページは全保護されています。</string>

@@ -42,8 +42,9 @@
   <string name="saved_pages_search_empty_message">Keng Säite fonnt déi Ärer Ufro entspriechen.</string>
   <string name="nearby_activity_title">Nobäi</string>
   <string name="nav_item_nearby">Nobäi</string>
-  <string name="nearby_empty_title">Keng Säiten nobäi</string>
+  <string name="nearby_empty_title" fuzzy="true">Keng Säiten nobäi</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
+  <string name="nearby_distance_in_miles">%.2f Meilen</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>
   <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
   <string name="edit_save_action_license_logged_in">Mam Späichere sidd Dir mat den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt;.</string>

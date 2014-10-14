@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">I nærheten</string>
   <string name="nav_item_nearby">I nærheten</string>
   <string name="menu_update_nearby">Oppdater «i nærheten»</string>
-  <string name="nearby_empty_title">Ingen sider i nærheten</string>
-  <string name="nearby_empty_message">Du kan gjenoppfriske denne siden når du forflytter deg.</string>
+  <string name="nearby_empty_title" fuzzy="true">Ingen sider i nærheten</string>
+  <string name="nearby_empty_message" fuzzy="true">Du kan gjenoppfriske denne siden når du forflytter deg.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_no_network">Ingen nettverksforbindelse</string>

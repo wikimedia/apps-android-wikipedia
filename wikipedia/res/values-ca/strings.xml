@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">A prop</string>
   <string name="nav_item_nearby">A prop</string>
   <string name="menu_update_nearby">Actualitza les properes</string>
-  <string name="nearby_empty_title">No hi ha cap pàgina propera</string>
-  <string name="nearby_empty_message">Podeu refrescar la pàgina quan us mogueu a una ubicació nova.</string>
+  <string name="nearby_empty_title" fuzzy="true">No hi ha cap pàgina propera</string>
+  <string name="nearby_empty_message" fuzzy="true">Podeu refrescar la pàgina quan us mogueu a una ubicació nova.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_no_network">No hi ha connexió a la xarxa</string>

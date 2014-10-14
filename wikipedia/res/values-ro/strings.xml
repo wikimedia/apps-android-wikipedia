@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">În apropiere</string>
   <string name="nav_item_nearby">În apropiere</string>
   <string name="menu_update_nearby">Actualizează „În apropiere”</string>
-  <string name="nearby_empty_title">Nicio pagină în apropiere</string>
-  <string name="nearby_empty_message">Puteți reîmprospăta această pagină când vă deplasați în alt loc.</string>
+  <string name="nearby_empty_title" fuzzy="true">Nicio pagină în apropiere</string>
+  <string name="nearby_empty_message" fuzzy="true">Puteți reîmprospăta această pagină când vă deplasați în alt loc.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d picioare</string>

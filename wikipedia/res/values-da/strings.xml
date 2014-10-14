@@ -43,12 +43,18 @@
   <string name="nearby_activity_title">I nærheden</string>
   <string name="nav_item_nearby">I nærheden</string>
   <string name="menu_update_nearby">Opdater \"i nærheden\"</string>
-  <string name="nearby_empty_title">Ingen sider i nærheden</string>
-  <string name="nearby_empty_message">Du kan opdatere denne side, når du er et nyt sted.</string>
+  <string name="nearby_empty_title" fuzzy="true">Ingen sider i nærheden</string>
+  <string name="nearby_empty_message" fuzzy="true">Du kan opdatere denne side, når du er et nyt sted.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d fod</string>
+  <string name="nearby_distance_in_miles">%.2f mil</string>
   <string name="nearby_no_network">Ingen netværksforbindelse</string>
   <string name="nearby_server_error">Kunne ikke få en liste med steder i nærheden.</string>
+  <string name="nearby_no_location">Ikke i stand til at få din placering</string>
+  <string name="nearby_dialog_goto_settings">Opdatering af placering er ikke aktiveret på din enhed. Vil du gå til din enheds indstillinger for at aktivere opdatering af placering?</string>
+  <string name="nearby_set_metric">Vis meter/km</string>
+  <string name="nearby_set_imperial">Vis fod/mil</string>
   <string name="last_updated_text">Sidst opdateret %s</string>
   <string name="content_license_html">Indholdet er udgivet under &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.da\"&gt;CC BY-SA 3.0&lt;/a&gt; medmindre andet er angivet</string>
   <string name="edit_save_action_license_logged_in">Ved at gemme, accepterer du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.da\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
@@ -60,6 +66,7 @@
   <string name="menu_other_languages">Læs på andre sprog</string>
   <string name="langlinks_error_retry">Prøv igen</string>
   <string name="langlinks_empty">Denne side er ikke tilgængelig på andre sprog</string>
+  <string name="langlinks_no_match">Ingen fundne sprog der passer til din forespørgsel.</string>
   <string name="settings_activity_title">Indstillinger</string>
   <string name="langlinks_activity_title">Andre sprog</string>
   <string name="menu_save_changes">Gem ændringer</string>
@@ -77,13 +84,13 @@
   <string name="edit_section_abusefilter_back_text">Lav ændringer af min redigering</string>
   <string name="edit_section_captcha_reload">Tryk på CAPTCHA for at genindlæse</string>
   <string name="edit_saved_page_refresh">Denne gemte side kan være forældet og skal opdateres for at redigering kan aktiveres. Ønsker du at opdatere siden?</string>
-  <string name="nav_item_login">Log ind</string>
+  <string name="nav_item_login">Log på</string>
   <string name="login_username_hint">Brugernavn</string>
   <string name="login_password_hint">Adgangskode</string>
   <string name="login_password_show_check">Vis adgangskode</string>
-  <string name="menu_login">Log ind</string>
+  <string name="menu_login">Log på</string>
   <string name="login_activity_title">Log på Wikipedia</string>
-  <string name="login_in_progress_dialog_message">Logger du ind...</string>
+  <string name="login_in_progress_dialog_message">Logger dig på...</string>
   <string name="login_error_wrong_password">Forkert adgangskode.</string>
   <string name="login_error_wrong_username">Forkert brugernavn</string>
   <string name="login_success_toast">Du er nu logget på!</string>
@@ -97,7 +104,9 @@
   <string name="preference_summary_notloggedin">Ikke logget på.</string>
   <string name="toast_logout_complete">Logget af</string>
   <string name="saved_pages_empty_title">Ingen gemte sider her!</string>
+  <string name="saved_pages_empty_message">Gemte sider er temmelig praktiske. Tænk på dem som bogmærker, som du kan læse, selv når du er offline.</string>
   <string name="history_empty_title">Ingen nye sider her.</string>
+  <string name="history_empty_message">Du har sikkert slettet dem alle. Næste gang du går til en side, kan du komme tilbage til den her.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Den frie encyklopædi</string>
   <string name="skip">Spring over</string>
@@ -114,6 +123,13 @@
   <string name="create_account_passwords_mismatch_error">Adgangskoderne er ikke ens</string>
   <string name="create_account_email_error">Ugyldig e-mailadresse</string>
   <string name="create_account_username_exists_error">Brugernavnet er allerede i brug</string>
+  <string name="create_account_ip_throttle_error">For mange konti oprettet fra denne IP-adresse. Prøv igen senere.</string>
+  <string name="create_account_open_proxy_error">Denne IP-adresse er blevet blokeret fra at oprette konti.</string>
+  <string name="create_account_noname_error">Det brugernavn, du har angivet, er ugyldigt. Angiv et andet brugernavn.</string>
+  <string name="create_account_invalid_email_error">Den e-mailadresse du angav er ugyldig.</string>
+  <string name="create_account_password_too_short_error">Den adgangskode du angav er for kort.</string>
+  <string name="create_account_blocked_anon_error">Du kan ikke oprette en konto, fordi din IP er blokeret.</string>
+  <string name="create_account_blocked_error">Du kan ikke oprette en konto, fordi din konto er blokeret.</string>
   <string name="create_account_password_name_match_error">Dit brugernavn og din adgangskode skal være forskellige.</string>
   <string name="create_account_generic_error">Kunne ikke oprette konto</string>
   <string name="create_account_no_network">Ingen netværksforbindelse</string>
@@ -139,7 +155,7 @@
   <string name="zero_settings_devmode_summary">Under udviklingen muliggør dette kørsel af programkode af Wikipedia Zero ting.</string>
   <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning…</string>
   <string name="edit_preview_activity_title">Forhåndsvis redigering</string>
-  <string name="create_account_logging_in">Logger ind...</string>
+  <string name="create_account_logging_in">Logger på...</string>
   <string name="send_feedback">Send tilbagemelding om app</string>
   <string name="edit_summary_guide_text">Fortæl os, hvordan du har forbedret denne side. Dette hjælper andre redaktører med at gennemgå dine redigering hurtigt.</string>
   <string name="edit_summary_hint">Opsummér redigering</string>
@@ -150,7 +166,7 @@
   <string name="user_contribs_more_action">Indlæs mere</string>
   <string name="activity_my_contributions_title">Mine bidrag</string>
   <string name="nav_item_my_contributions">Mine bidrag</string>
-  <string name="edit_save_action_login">Log ind og gem</string>
+  <string name="edit_save_action_login">Log på og gem</string>
   <string name="edit_save_action_ip">Gem anonymt</string>
   <string name="edit_save_action_login_description">Dine redigeringer vil være offentligt forbundet med dit brugernavn, og andre skribenter kan komme i kontakt med dig bedre</string>
   <string name="edit_save_action_ip_description">Dine redigeringer vil være offentligt forbundet med din IP-adresse, som ændrer sig ofte</string>
@@ -206,6 +222,8 @@
   <string name="menu_refresh_saved_page">Opdater side</string>
   <string name="abusefilter_title_warn">Dette er muligvis ikke en konstruktiv redigering. Er du sikker på du ønsker at gemme den?</string>
   <string name="abusefilter_title_disallow">Du kan ikke gemme denne redigering. Gå venligst tilbage og ændre den.</string>
+  <string name="abusefilter_text_warn">Et automatisk filter har identificeret denne redigering som potentielt er ukonstruktiv. Den kan indeholde en eller flere af følgende:&lt;br /&gt;&lt;br /&gt;· Skrive udelukkende med store bogstaver&lt;br /&gt;· Slette alt i artikler eller spamming&lt;br /&gt;· Irrelevante eksterne links eller billeder&lt;br /&gt;· Gentagelser af tegn</string>
+  <string name="abusefilter_text_disallow">Et automatisk filter har identificeret denne redigering som potentielt ukonstruktiv, eller potentielt hærværk.&lt;br /&gt;&lt;br /&gt;Wikipedia er en encyklopædi, og kun neutralt og relevant indhold hører til her.</string>
   <string name="dialog_page_issues">Problemer med siden</string>
   <string name="button_page_issues">Problemer med siden</string>
   <string name="menu_themechooser">Skrifttype og tema</string>
@@ -220,7 +238,20 @@
   <string name="search_results_title">Søgeresultater</string>
   <string name="search_error_retry">Prøv igen</string>
   <string name="search_redirect_title">Omdirigering fra \"%s\".</string>
+  <string name="toc_hint">Stryg til venstre for afsnit, eller brug menuknappen øverst til højre.</string>
   <string name="toc_know_it">Forstået</string>
+  <string name="app_store_description">Officiel Wikipedia App til Android. Wikipedia er en fri encyklopædi der indeholder mere end 32 millioner artikler på 280 sprog, og er den mest omfattende og udbredte referenceværk mennesker nogensinde har samlet. App\'en er blevet skrevet om fra bunden og er bedre end nogensinde før.
+
+Funktioner:
+   -Hastighed: Vores nye, native app gør at du kan gennemse og redigere Wikipedia hurtigere end nogensinde før.
+   -Redigering: Du kan redigere Wikipedia! Logget på eller logget af, vi takker for alle dine bidrag.
+   -Seneste sider: Vi giver dig din læsehistorik, så du kan trykke på så mange links som du ønsker uden nogensinde at fare vild.
+   -Gemte sider: Du kan gemme udvalgte sider til offlinelæsning og gennemse dem, selvom du ikke har en dataforbindelse.
+   -Del: Brug dine eksisterende sociale netværks apps til at dele summen af al menneskelig viden.
+   -Sprog support: Med app\'en kan du problemfrit skifte til at læse Wikipedia skrevet på ethvert sprog.
+   -Wikipedia Zero: Data gebyrer frafaldes for deltagende mobiloperatører.
+
+Kildekoden er fuldt ud open source. Hvis du har erfaring med Java og Android SDK, så kom og fork os! https://github.com/Wikimedia/apps-Android-Wikipedia</string>
   <string name="alpha_update_notification_title">Ny alpha opdatering tilgængelig</string>
   <string name="alpha_update_notification_text">Tryk for at hente ned</string>
 </resources>

@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">בסביבה</string>
   <string name="nav_item_nearby">בסביבה</string>
   <string name="menu_update_nearby">עדכון בסביבה</string>
-  <string name="nearby_empty_title">אין דפים בסביבה</string>
-  <string name="nearby_empty_message">באפשרותך לרענן את הדף הזה בעת מעבר למיקום חדש.</string>
+  <string name="nearby_empty_title" fuzzy="true">אין דפים בסביבה</string>
+  <string name="nearby_empty_message" fuzzy="true">באפשרותך לרענן את הדף הזה בעת מעבר למיקום חדש.</string>
   <string name="nearby_distance_in_meters">%d מ\'</string>
   <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
   <string name="nearby_distance_in_feet">%d רגל</string>
@@ -113,7 +113,7 @@
   <string name="create_account_username_hint">שם משתמש</string>
   <string name="create_account_password_hint">ססמה</string>
   <string name="menu_create_account">יצירת חשבון</string>
-  <string name="login_create_account_link">אין לך חשבון? אנו מזמינים אותף להצטרף לוויקיפדיה</string>
+  <string name="login_create_account_link">אין לך חשבון? אנו מזמינים אותך להצטרף לוויקיפדיה</string>
   <string name="create_account_login_link">כבר יש לך חשבון? כניסה</string>
   <string name="create_account_activity_title">יצירת חשבון</string>
   <string name="edit_section_activity_title">עריכת פסקה</string>

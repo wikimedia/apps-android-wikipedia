@@ -39,14 +39,22 @@
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
   <string name="saved_pages_search_list_hint">Buscar</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">No se encontraron páginas que coincidan con «%s»</string>
+  <string name="saved_pages_search_empty_message">No se encontraron páginas que coincidan con tu consulta.</string>
+  <string name="nearby_activity_title">Cercanos</string>
   <string name="nav_item_nearby">Cercanos</string>
-  <string name="nearby_empty_title">No hay páginas cercanas</string>
+  <string name="menu_update_nearby">Actualizar cercanos</string>
+  <string name="nearby_empty_title" fuzzy="true">No hay páginas cercanas</string>
+  <string name="nearby_empty_message" fuzzy="true">Puedes actualizar esta página cuando te muevas a una nueva ubicación.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d pies</string>
+  <string name="nearby_distance_in_miles">%.2f millas</string>
   <string name="nearby_no_network">No hay conexión de red</string>
   <string name="nearby_server_error">No se puede obtener la lista de lugares cercanos.</string>
   <string name="nearby_no_location">No se puede obtener la ubicación</string>
+  <string name="nearby_dialog_goto_settings">Las actualizaciones de ubicación están desactivadas en tu dispositivo. ¿Quieres ir a las preferencias del mismo para habilitarlas?</string>
+  <string name="nearby_set_metric">Mostrar metros/km</string>
+  <string name="nearby_set_imperial">Mostrar pies/millas</string>
   <string name="last_updated_text">Última actualización: %s</string>
   <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -58,6 +66,7 @@
   <string name="menu_other_languages">Leer en otros idiomas</string>
   <string name="langlinks_error_retry">Reintentar</string>
   <string name="langlinks_empty">Esta página no está disponible en otros idiomas</string>
+  <string name="langlinks_no_match">No se encontraron idiomas que coincidan con tu consulta.</string>
   <string name="settings_activity_title">Configuración</string>
   <string name="langlinks_activity_title">Otros idiomas</string>
   <string name="menu_save_changes">Guardar cambios</string>
@@ -94,7 +103,7 @@
   <string name="preference_summary_logout">Cerrar sesión de tu cuenta de Wikipedia</string>
   <string name="preference_summary_notloggedin">Sesión no iniciada.</string>
   <string name="toast_logout_complete">Sesión cerrada</string>
-  <string name="saved_pages_empty_title" fuzzy="true">No hay páginas guardadas aún.</string>
+  <string name="saved_pages_empty_title">No hay páginas guardadas aún.</string>
   <string name="saved_pages_empty_message">Las páginas guardadas son bastante impresionantes. Piensa en ellas como marcadores que se pueden leer incluso cuando estás sin conexión.</string>
   <string name="history_empty_title">No hay páginas recientes aquí.</string>
   <string name="history_empty_message">Probablemente borraste el historial. La próxima vez que vayas a una página puedes recuperarla desde aquí.</string>
@@ -119,6 +128,8 @@
   <string name="create_account_noname_error">El nombre de usuario proporcionado no es válido. Escribe otro.</string>
   <string name="create_account_invalid_email_error">La dirección de correo electrónico proporcionada no es válida.</string>
   <string name="create_account_password_too_short_error">La contraseña proporcionada es demasiado corta.</string>
+  <string name="create_account_blocked_anon_error">No puedes crear una cuenta porque tu IP está bloqueada.</string>
+  <string name="create_account_blocked_error">No puedes crear una cuenta ya que tu cuenta está bloqueada.</string>
   <string name="create_account_password_name_match_error">Tu nombre de usuario y contraseña deben ser diferentes.</string>
   <string name="create_account_generic_error">No se pudo crear la cuenta</string>
   <string name="create_account_no_network">No hay conexión de red</string>
@@ -163,7 +174,7 @@
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
   <string name="editing_error_spamblacklist">Enlaces a dominios bloqueados (%s) detectados. Por favor elimínelos y vuelva a intentarlo.</string>
   <string name="history_search_list_hint">Buscar</string>
-  <string name="history_search_empty_message" fuzzy="true">No se encontraron páginas que coincidan con «%s»</string>
+  <string name="history_search_empty_message">No se encontraron páginas que coincidan con tu consulta.</string>
   <string name="error_can_not_process_link">No se puede mostrar este enlace</string>
   <string name="page_protected_autoconfirmed">Esta página está semiprotegida.</string>
   <string name="page_protected_sysop">Esta página está totalmente protegida.</string>
@@ -227,6 +238,7 @@
   <string name="search_results_title">Resultados de la búsqueda</string>
   <string name="search_error_retry">Reintentar</string>
   <string name="search_redirect_title">Redirección desde \"%s\".</string>
+  <string name="toc_hint">Deslízate a la izquierda para las secciones, o utilza el botón de menú en la parte superior derecha.</string>
   <string name="toc_know_it">Entendido</string>
   <string name="app_store_description">Aplicación oficial de Wikipedia para Android. Wikipedia es la enciclopedia libre que contiene más de 32 millones de artículos en 280 idiomas y es el trabajo de referencia más completo y ampliamente usado que los humanos hayan recopilado. La aplicación ha sido reescrita desde cero y está mejor que nunca.
 

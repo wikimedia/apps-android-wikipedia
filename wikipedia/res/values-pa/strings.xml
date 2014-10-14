@@ -43,14 +43,18 @@
   <string name="nearby_activity_title">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="nav_item_nearby">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="menu_update_nearby">ਨੇੜੇ-ਤੇੜੇ ਅੱਪਡੇਟ ਕਰੋ</string>
-  <string name="nearby_empty_title">ਨੇੜੇ-ਤੇੜੇ ਕੋਈ ਵਰਕੇ ਨਹੀਂ</string>
-  <string name="nearby_empty_message">ਨਵੀਂ ਥਾਂ \'ਤੇ ਜਾਣ ਵੇਲੇ ਤੁਸੀ ਇਸ ਵਰਕੇ ਨੂੰ ਮੁੜ-ਤਾਜ਼ਾ ਕਰ ਸਕਦੇ ਹੋ।</string>
+  <string name="nearby_empty_title" fuzzy="true">ਨੇੜੇ-ਤੇੜੇ ਕੋਈ ਵਰਕੇ ਨਹੀਂ</string>
+  <string name="nearby_empty_message" fuzzy="true">ਨਵੀਂ ਥਾਂ \'ਤੇ ਜਾਣ ਵੇਲੇ ਤੁਸੀ ਇਸ ਵਰਕੇ ਨੂੰ ਮੁੜ-ਤਾਜ਼ਾ ਕਰ ਸਕਦੇ ਹੋ।</string>
   <string name="nearby_distance_in_meters">%d ਮੀਟਰ</string>
   <string name="nearby_distance_in_kilometers">%.2f ਕਿ.ਮੀ.</string>
+  <string name="nearby_distance_in_feet">%d ਫੁੱਟ</string>
+  <string name="nearby_distance_in_miles">%.2f ਮੀਲ</string>
   <string name="nearby_no_network">ਕੋਈ ਨੈੱਟਵਰਕ ਜੋੜ ਨਹੀਂ ਹੈ</string>
   <string name="nearby_server_error">ਨੇੜਲੀਆਂ ਥਾਂਵਾਂ ਦੀ ਸੂਚੀ ਨਾ ਮਿਲ ਸਕੀ।</string>
   <string name="nearby_no_location">ਟਿਕਾਣਾ ਪਤਾ ਨਹੀਂ ਲੱਗ ਰਿਹਾ</string>
   <string name="nearby_dialog_goto_settings">ਤੁਹਾਡੇ ਜੰਤਰ ਉੱਤੇ ਟਿਕਾਣਿਆਂ ਦੇ ਨਵੀਨੀਕਰਨ ਚੱਲ ਨਹੀਂ ਰਹੇ। ਕੀ ਤੁਸੀਂ ਟਿਕਾਣਾ ਨਵੀਨੀਕਰਨਾਂ ਨੂੰ ਚਾਲੂ ਕਰਨ ਵਾਸਤੇ ਆਪਣੇ ਜੰਤਰ ਦੀਆਂ ਸੈਟਿੰਗਾਂ \'ਤੇ ਜਾਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+  <string name="nearby_set_metric">ਮੀਟਰ/ਕਿ.ਮੀ. ਵਿਖਾਉ</string>
+  <string name="nearby_set_imperial">ਫੁੱਟ/ਮੀਲ ਵਿਖਾਉ</string>
   <string name="last_updated_text">ਆਖ਼ਰੀ ਵਾਰ ਨਵਿਆਇਆ %s</string>
   <string name="content_license_html">ਕੁਝ ਹੋਰ ਨਾ ਦੱਸੇ ਜਾਣ ਦੀ ਸੂਰਤ ਵਿੱਚ ਸਮੱਗਰੀ &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਹੇਠ ਮੌਜੂਦ ਹੈ</string>
   <string name="preference_title_language">ਵਿਕੀਪੀਡੀਆ ਬੋਲੀ</string>

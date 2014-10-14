@@ -40,7 +40,14 @@
   <string name="toast_saved_page_deleted">Uložené stránky boli odstránené</string>
   <string name="saved_pages_search_list_hint">Hľadať</string>
   <string name="saved_pages_search_empty_message" fuzzy="true">Žiadne stránky nenašli \"%s\"</string>
-  <string name="last_updated_text">Posledná aktualizácia %1$s</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
+  <string name="nearby_no_network">Žiadne sieťové pripojenie</string>
+  <string name="nearby_set_metric">Zobraziť metre/km</string>
+  <string name="nearby_set_imperial">Zobraziť stopy/míle</string>
+  <string name="last_updated_text">Posledná aktualizácia %s</string>
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Zároveň s uložením, súhlasíš s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami použitia&lt;/a&gt; a neodvolateľne s uverejnením tvojich príspevkov pod &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciou.</string>
   <string name="edit_save_action_license_anon">Zároveň s uložením, súhlasíš s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami použitia&lt;/a&gt;a neodvolateľním uverejnením tvojich príspevkov pod &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciou. Úpravy budú pridelené IP adrese tvojho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt;, budeš disponovať vyššou ochranou údajov.</string>
@@ -87,12 +94,12 @@
   <string name="preference_summary_logout">Odhlásiť sa z používateľského účtu Wikipédie</string>
   <string name="preference_summary_notloggedin">Nie ste prihlásený</string>
   <string name="toast_logout_complete">Ste odhlásený.</string>
-  <string name="saved_pages_empty_title" fuzzy="true">Žiadne nemáte uložené stránky.</string>
+  <string name="saved_pages_empty_title">Nemáte žiadne uložené stránky!</string>
   <string name="saved_pages_empty_message">Uložené stránky sú úžasné. Vyskúšajte si ich aj ako obľúbené stránky, ktoré je možné používať v offline režime.</string>
   <string name="history_empty_title">Žiadne posledne zobrazené stránky.</string>
   <string name="history_empty_message">Pravdepodobne si vymazal všetky časti. Nabudúce, keď túto stránku navštíviš, sa možeš odtiaľto k nim vrátiť.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">slobodná encyklopédia</string>
+  <string name="wp_tag_line">Slobodná encyklopédia</string>
   <string name="skip">Preskočiť</string>
   <string name="create_account_username_hint">Používateľské meno</string>
   <string name="create_account_password_hint">Heslo</string>
@@ -109,6 +116,12 @@
   <string name="create_account_username_exists_error">Používateľské meno sa už používa</string>
   <string name="create_account_ip_throttle_error">Z tejto IP adresy bolo vytvorených príliš veľa účtov. Skúste to znova neskôr.</string>
   <string name="create_account_open_proxy_error">Tejto IP nie je umožnené vytvárať účty.</string>
+  <string name="create_account_noname_error">Vami zadané používateľské meno je neplatné. Prosím, uveďte iné používateľské meno.</string>
+  <string name="create_account_invalid_email_error">Vami zadaná e-mailová adresa je neplatná.</string>
+  <string name="create_account_password_too_short_error">Vami zadané heslo je príliš krátke.</string>
+  <string name="create_account_blocked_anon_error">Nemôžete si vytvoriť účet preto, lebo vaša IP je blokovaná.</string>
+  <string name="create_account_blocked_error">Nemôžete si vytvoriť účet preto, lebo váš účet je zablokovaný.</string>
+  <string name="create_account_password_name_match_error">Vaše používateľské meno a heslo musia byť odlišné.</string>
   <string name="create_account_generic_error">Nepodarilo sa vytvoriť účet</string>
   <string name="create_account_no_network">Žiadne sieťové pripojenie</string>
   <string name="create_account_next">Ďalej</string>
@@ -208,7 +221,7 @@
   <string name="color_theme_select">Vzhľad</string>
   <string name="color_theme_light">Svetlý</string>
   <string name="color_theme_dark">Tmavý</string>
-  <string name="page_similar_titles" fuzzy="true">Podobné tituly</string>
+  <string name="page_similar_titles">Podobné stránky</string>
   <string name="search_no_results">Vyhľadávanie nenašlo žiadne výsledky pre \"%s\".</string>
   <string name="search_showing_instead">Vyhľadávanie nenašlo žiadne výsledky pre \"%1$s\". Zobrazujú sa výsledky pre \"%2$s\":</string>
   <string name="search_results_title">Výsledky vyhľadávania</string>
@@ -226,4 +239,6 @@ Funkcie:
    - Wikipédia Zero: Bezplatné dátové pripojenie od vybraných mobilných operátorov.
 
 Používame otvorený zdrojový kód. Pokiaľ máte skúsenosti s Javou a SDK Androidu, môžete forkovať! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">K dispozícii je nová alfa verzia.</string>
+  <string name="alpha_update_notification_text">Ťuknutím ju stiahnete.</string>
 </resources>

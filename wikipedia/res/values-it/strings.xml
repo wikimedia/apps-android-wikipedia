@@ -43,11 +43,17 @@
   <string name="nearby_activity_title">Nelle vicinanze</string>
   <string name="nav_item_nearby">Nelle vicinanze</string>
   <string name="menu_update_nearby">Aggiorna nelle vicinanze</string>
-  <string name="nearby_empty_title">Nessuna pagina nelle vicinanze</string>
-  <string name="nearby_empty_message">Quando ti sposti in una nuova posizione, è possibile aggiornare questa pagina.</string>
+  <string name="nearby_empty_title" fuzzy="true">Nessuna pagina nelle vicinanze</string>
+  <string name="nearby_empty_message" fuzzy="true">Quando ti sposti in una nuova posizione, è possibile aggiornare questa pagina.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Nessuna connessione di rete</string>
+  <string name="nearby_server_error">Non posso ricevere l\'elenco dei posti nelle vicinanze.</string>
+  <string name="nearby_no_location">Non sono in grado di ottenere la posizione</string>
+  <string name="nearby_dialog_goto_settings">Gli aggiornamenti di posizione non sono abilitati sul tuo dispositivo. Vuoi andare nelle impostazioni del tuo dispositivo per abilitare gli aggiornamenti di posizione?</string>
+  <string name="nearby_set_metric">Visualizza metri/km</string>
+  <string name="nearby_set_imperial">Visualizza piedi/miglia</string>
   <string name="last_updated_text">Ultimo aggiornamento %s</string>
   <string name="content_license_html">Il contenuto è disponibile in base alla &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt; se non diversamente specificato</string>
   <string name="edit_save_action_license_logged_in">Salvando, accetti le nostre &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/it\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -216,6 +222,9 @@
   <string name="abusefilter_title_warn">Questa potrebbe essere una modifica inutile. Sei sicuro di volerla salvare?</string>
   <string name="abusefilter_title_disallow">Non puoi salvare questa modifica. Per favore torna indietro e modificala.</string>
   <string name="abusefilter_text_warn">Un filtro automatico ha identificato inutile questa modifica. Potrebbe includere uno o più dei seguenti elementi:&lt;br /&gt;&lt;br /&gt;· Scritte tutte in maiuscolo&lt;br /&gt;· Articolo vuoto o di spam&lt;br /&gt;· Collegamenti esterni o immagini non pertinenti&lt;br /&gt;· Caratteri ripetuti</string>
+  <string name="abusefilter_text_disallow">Un filtro automatico ha identificato questa modifica come potenzialmente inconcludente, o potenziale vandalismo.&lt;br /&gt;&lt;br /&gt;Wikipedia è un\'enciclopedia e devono esserci solo contenuti neutrali e degni di nota.</string>
+  <string name="dialog_page_issues">Problemi con la pagina</string>
+  <string name="button_page_issues">Problemi con la pagina</string>
   <string name="menu_themechooser">Cambia carattere e tema</string>
   <string name="text_size_select">Dimensione carattere</string>
   <string name="color_theme_select">Tema</string>
@@ -224,9 +233,12 @@
   <string name="page_similar_titles">Pagine simili</string>
   <string name="search_within_pages">Cerca all\'interno delle pagine…</string>
   <string name="search_no_results">Nessun risultato trovato per \"%s\".</string>
+  <string name="search_showing_instead">Nessun risultato trovato per \"%1$s\". Sto mostrando i risultati per \"%2$s\":</string>
   <string name="search_results_title">Risultati della ricerca</string>
   <string name="search_error_retry">Riprova</string>
   <string name="search_redirect_title">Redirect da \"%s\".</string>
+  <string name="toc_hint">Scorri a sinistra per le sezioni, o usa il tasto del menu in alto a destra.</string>
+  <string name="toc_know_it">OK!</string>
   <string name="app_store_description">App ufficiale di Wikipedia per Android.
 Wikipedia è l\'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l\'opera di consultazione più completa e più diffusa che l\'uomo abbia mai compilato. L\'app è stata completamente riscritta ed è di gran lunga migliore.
 

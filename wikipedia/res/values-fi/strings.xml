@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">Lähistöllä</string>
   <string name="nav_item_nearby">Lähistöllä</string>
   <string name="menu_update_nearby">Päivitä \"Lähistöllä\"</string>
-  <string name="nearby_empty_title">Sivuja ei ole lähistöllä</string>
-  <string name="nearby_empty_message">Voit päivittää tämän sivun, kun siirryt uuteen paikkaan.</string>
+  <string name="nearby_empty_title" fuzzy="true">Sivuja ei ole lähistöllä</string>
+  <string name="nearby_empty_message" fuzzy="true">Voit päivittää tämän sivun, kun siirryt uuteen paikkaan.</string>
   <string name="nearby_no_network">Ei verkkoyhteyttä</string>
   <string name="nearby_server_error">Lähellä olevien paikkojen luetteloa ei saatu haettua.</string>
   <string name="nearby_no_location">Sijaintia ei kyetä paikantamaan</string>

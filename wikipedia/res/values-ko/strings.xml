@@ -27,7 +27,7 @@
   <string name="dialog_prompt_refresh_all_saved_pages">모든 저장된 문서를 업데이트할까요?</string>
   <string name="toast_saved_page_refreshed">저장된 문서가 업데이트됨</string>
   <string name="menu_save_page">문서 저장</string>
-  <string name="menu_share_page">공유하기</string>
+  <string name="menu_share_page">공유</string>
   <string name="share_via">다음을 통해 공유</string>
   <string name="dialog_title_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
   <string name="dialog_message_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">근처</string>
   <string name="nav_item_nearby">근처</string>
   <string name="menu_update_nearby">근처 업데이트</string>
-  <string name="nearby_empty_title">근처에 문서가 없습니다</string>
-  <string name="nearby_empty_message">새 위치로 움직일 때 이 문서를 새로 고칠 수 있습니다.</string>
+  <string name="nearby_empty_title" fuzzy="true">근처에 문서가 없습니다</string>
+  <string name="nearby_empty_message" fuzzy="true">새 위치로 움직일 때 이 문서를 새로 고칠 수 있습니다.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -57,8 +57,8 @@
   <string name="nearby_set_imperial">feet/miles 보이기</string>
   <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
   <string name="content_license_html">내용은 별도로 명시하지 않을 경우 &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
-  <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;과 &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 당신의 기여를 영구적으로 게시하는 데 동의합니다.</string>
-  <string name="edit_save_action_license_anon">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;과 &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 당신의 기여를 영구적으로 게시하는 데 동의합니다. 편집은 당신의 장치의 IP 주소로 할당됩니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
+  <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다.</string>
+  <string name="edit_save_action_license_anon">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다. 편집은 당신의 장치의 IP 주소로 할당됩니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
   <string name="preference_title_language">위키백과 언어</string>
   <string name="preference_summary_language">내용 언어</string>
   <string name="preference_languages_filter_hint">검색</string>
@@ -139,7 +139,7 @@
   <string name="zero_charged_verbiage">위키백과 제로가 꺼져 있습니다</string>
   <string name="zero_charged_verbiage_extended">다른 문서를 불러오면 데이터 요금이 부과될 수 있습니다.</string>
   <string name="zero_search_hint">위키백과 제로 검색</string>
-  <string name="zero_warn_when_leaving">위키백과 제로를 떠난다면 경고합니다</string>
+  <string name="zero_warn_when_leaving">위키백과 제로를 떠나면 경고</string>
   <string name="zero_warn_when_leaving_summary">만약 이동 통신사가 위키백과 제로 제휴를 통해 위키백과 앱에서 요금을 면제를 받고 있다면, 이 설정을 선택하는 것은 위키백과 앱을 나갈 때 요금이 부과될 수 있음을 알려주는 데 도움을 줍니다.</string>
   <string name="zero_webpage_title">위키백과 제로 FAQ</string>
   <string name="zero_wikipedia_zero_heading">위키백과 제로</string>
@@ -237,7 +237,7 @@
   <string name="search_error_retry">다시 시도</string>
   <string name="search_redirect_title">\"%s\"에서 넘어옵니다.</string>
   <string name="toc_hint">문단을 보려면 왼쪽으로 스와이프하거나, 위 오른쪽에 있는 메뉴 버튼을 사용하세요.</string>
-  <string name="toc_know_it">알았습니다</string>
+  <string name="toc_know_it">알았어요</string>
   <string name="app_store_description">안드로이드를 위한 공식 위키백과 앱입니다. 위키백과는 280개 언어의 3천2백만보다 많은 문서가 들어 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용합니다. 앱은 처음부터 다시 쓰여졌고 이전보다 더 나아졌습니다.
 
 기능:
@@ -245,11 +245,11 @@
    - 편집: 위키백과를 편집할 수 있습니다! 로그인하거나 로그아웃하거나, 우리는 모든 여러분의 기여에 고마워합니다.
    - 최근 문서: 우리는 여러분이 읽은 것의 역사를 제공하며, 그래서 혹시 찾으려는 것을 잊지 않고 원하는 만큼 여러 링크를 누를 수 있습니다.
    - 저장된 문서: 오프라인으로 읽고 데이터에 연결되어 있지 않을 때라도 찾아볼 수 있도록 문서를 선택하여 저장할 수 있습니다.
-   - 공유하기: 바깥 소셜 네트워크 앱에 모든 인류의 지식을 더하여 공유할 수 있습니다.
+   - 공유: 바깥 소셜 네트워크 앱에 모든 인류의 지식을 더하여 공유할 수 있습니다.
    - 언어 지원: 어떠한 언어로도 쓰여져 있는 위키백과를 읽기 위해 원활하게 전환할 수 있습니다.
    - 위키백과 제로: 이동 통신사가 참여한다면 데이터 요금이 면제됩니다.
 
-코드는 완전한 오픈 소스입니다. 여러분이 자바와 안드로이드 SDK에 경험이 있다면, 우리에게 오셔서 포크하세요! https://github.com/wikimedia/apps-android-wikipedia</string>
+코드는 완전한 오픈 소스입니다. 여러분이 자바와 안드로이드 SDK에 경험이 있다면, 우리에게 포크하러 오세요! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">새 알파 업뎨이트를 사용할 수 있습니다</string>
   <string name="alpha_update_notification_text">다운로드하려면 탭하세요</string>
 </resources>

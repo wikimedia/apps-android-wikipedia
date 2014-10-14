@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">Неподалік</string>
   <string name="nav_item_nearby">Неподалік</string>
   <string name="menu_update_nearby">Оновлення неподалік</string>
-  <string name="nearby_empty_title">Немає сторінок неподалік</string>
-  <string name="nearby_empty_message">Ви можете оновити цю сторінку під час переміщення до нового розташування.</string>
+  <string name="nearby_empty_title" fuzzy="true">Немає сторінок неподалік</string>
+  <string name="nearby_empty_message" fuzzy="true">Ви можете оновити цю сторінку під час переміщення до нового розташування.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_no_network">Немає з\'єднання з мережею</string>

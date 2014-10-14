@@ -43,14 +43,18 @@
   <string name="nearby_activity_title">I närheten</string>
   <string name="nav_item_nearby">I närheten</string>
   <string name="menu_update_nearby">Uppdatera sidor i närheten</string>
-  <string name="nearby_empty_title">Inga sidor i närheten</string>
-  <string name="nearby_empty_message">Du kan uppdatera denna sida när du flyttar till en ny plats.</string>
+  <string name="nearby_empty_title" fuzzy="true">Inga sidor i närheten</string>
+  <string name="nearby_empty_message" fuzzy="true">Du kan uppdatera denna sida när du flyttar till en ny plats.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Ingen nätverksanslutning</string>
   <string name="nearby_server_error">Kunde inte hämta listan över platser i närheten.</string>
   <string name="nearby_no_location">Kunde inte hämta platsen</string>
   <string name="nearby_dialog_goto_settings">Platsuppdateringar är inte aktiverat på din enhet. Vill du gå till din enhets inställningar för att aktivera platsuppdateringar?</string>
+  <string name="nearby_set_metric">Visa meter/km</string>
+  <string name="nearby_set_imperial">Visa fot/engelsk mil</string>
   <string name="last_updated_text">Senast uppdaterad %s</string>
   <string name="content_license_html">Innehållet är tillgängligt under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
   <string name="edit_save_action_license_logged_in">Genom att spara godkänner du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Användarvillkoren&lt;/a&gt;, och att oåterkalleligen släppa ditt bidrag med licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -185,9 +189,9 @@
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">Version</string>
-  <string name="about_libraries_heading">Använda bibliotek</string>
+  <string name="about_libraries_heading">använda bibliotek</string>
   <string name="about_contributors_heading">Bidragsgivare</string>
-  <string name="about_translators_heading">Översättare</string>
+  <string name="about_translators_heading">översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">En app utvecklad av &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;the Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>

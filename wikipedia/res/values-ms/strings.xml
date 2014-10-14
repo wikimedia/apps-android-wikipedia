@@ -43,14 +43,18 @@
   <string name="nearby_activity_title">Berdekatan</string>
   <string name="nav_item_nearby">Berdekatan</string>
   <string name="menu_update_nearby">Kemaskini laman berdekatan</string>
-  <string name="nearby_empty_title">Tiada laman berdekatan</string>
-  <string name="nearby_empty_message">Anda boleh memuat semula laman ini setelah berpindah ke lokasi baru.</string>
+  <string name="nearby_empty_title" fuzzy="true">Tiada laman berdekatan</string>
+  <string name="nearby_empty_message" fuzzy="true">Anda boleh memuat semula laman ini setelah berpindah ke lokasi baru.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d kaki</string>
+  <string name="nearby_distance_in_miles">%.2f batu</string>
   <string name="nearby_no_network">Tiada sambungan rangkaian</string>
   <string name="nearby_server_error">Senarai tempat berdekatan tidak dapat.</string>
   <string name="nearby_no_location">Lokasi tidak dapat</string>
   <string name="nearby_dialog_goto_settings">Pengemaskinian lokasi tidak dibolehkan pada peranti anda. Adakah anda ingin membolehkan pengemaskinian lokasi pada tetapan peranti anda?</string>
+  <string name="nearby_set_metric">Paparkan meter/km</string>
+  <string name="nearby_set_imperial">Paparkan kaki/batu</string>
   <string name="last_updated_text">Mutakhir: %1$s</string>
   <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, anda menyetujui &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>

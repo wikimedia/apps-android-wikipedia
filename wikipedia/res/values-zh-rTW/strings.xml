@@ -43,14 +43,18 @@
   <string name="nearby_activity_title">附近</string>
   <string name="nav_item_nearby">附近</string>
   <string name="menu_update_nearby">更新附近</string>
-  <string name="nearby_empty_title">附近無頁面</string>
-  <string name="nearby_empty_message">當您移至一個新位置時您可以重載此頁面。</string>
+  <string name="nearby_empty_title" fuzzy="true">附近無頁面</string>
+  <string name="nearby_empty_message" fuzzy="true">當您移至一個新位置時您可以重載此頁面。</string>
   <string name="nearby_distance_in_meters">%d 米</string>
   <string name="nearby_distance_in_kilometers">%.2f 千米</string>
+  <string name="nearby_distance_in_feet">%d呎</string>
+  <string name="nearby_distance_in_miles">%.2f哩</string>
   <string name="nearby_no_network">無網路連線</string>
   <string name="nearby_server_error">無法獲得附近地點的清單。</string>
   <string name="nearby_no_location">無法獲得位置</string>
   <string name="nearby_dialog_goto_settings">您的裝置未啟用位置更新。您想要前往您的裝置設定啟用位置更新麼？</string>
+  <string name="nearby_set_metric">顯示 米/千米</string>
+  <string name="nearby_set_imperial">顯示 呎/哩</string>
   <string name="last_updated_text">最後更新：%s</string>
   <string name="content_license_html">內容在&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/A&gt;之條款下提供，除非另有註明。</string>
   <string name="edit_save_action_license_logged_in">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。</string>
@@ -93,7 +97,7 @@
   <string name="login_error_blocked">此使用者已被封禁</string>
   <string name="login_error_throttled">登入嘗試次數太多，請等待幾分鐘然後再試一次。</string>
   <string name="login_error_unknown">登入失敗 :(</string>
-  <string name="login_error_no_network">沒有網路連接</string>
+  <string name="login_error_no_network">無網路連線</string>
   <string name="nav_item_logout">登出</string>
   <string name="preference_title_logout">登出</string>
   <string name="preference_summary_logout">登出您的維基百科帳戶</string>
@@ -106,7 +110,7 @@
   <string name="wp_stylized">&lt;big&gt;維&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="wp_tag_line">自由的百科全書</string>
   <string name="skip">略過</string>
-  <string name="create_account_username_hint">用戶名</string>
+  <string name="create_account_username_hint">使用者名稱</string>
   <string name="create_account_password_hint">密碼</string>
   <string name="menu_create_account">建立帳戶</string>
   <string name="login_create_account_link">沒有帳戶嗎？加入到維基百科吧</string>
@@ -233,7 +237,7 @@
   <string name="search_showing_instead">未找到「%1$s」的結果。顯示「%2$s」的結果：</string>
   <string name="search_results_title">搜尋結果</string>
   <string name="search_error_retry">重試</string>
-  <string name="search_redirect_title">重定向自「%s」。</string>
+  <string name="search_redirect_title">重新導向自「%s」。</string>
   <string name="toc_hint">向左滑動或使用右上角的選項單按鈕顯示章節。</string>
   <string name="toc_know_it">明白了</string>
   <string name="app_store_description">維基百科官方 Android 應用程式。維基百科是一部自由的百科全書，包含超過3200萬篇條目，以280種不同的語言撰寫，是人類創建過最詳實、且大量被引用的資料來源。這個應用程式已經全面重新編寫，使其比以前來得還要更好。

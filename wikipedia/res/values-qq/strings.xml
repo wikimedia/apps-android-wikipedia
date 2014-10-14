@@ -175,8 +175,14 @@ See also:
   <string name="create_account_noname_error">Used as an error message during account creation when the account creation failed because username that was provided is invalid.</string>
   <string name="create_account_invalid_email_error">Used as an error message during account creation when the account creation failed because the email that was provided is invalid.</string>
   <string name="create_account_password_too_short_error">Used as an error message during account creation when the account creation failed because the password that was entered is too short.</string>
-  <string name="create_account_blocked_anon_error">Used as an error message during account creation when the account creation failed because their IP is blocked.</string>
-  <string name="create_account_blocked_error">Used as an error message during account creation when the the account creation failed because their account is blocked.</string>
+  <string name="create_account_blocked_anon_error">Used as an error message during account creation when the account creation failed because their IP is blocked.
+
+See also:
+* {{msg-wm|Wikipedia-android-strings-create account blocked error}}</string>
+  <string name="create_account_blocked_error">Used as an error message during account creation when the the account creation failed because their account is blocked.
+
+See also:
+* {{msg-wm|Wikipedia-android-strings-create account blocked anon error}}</string>
   <string name="create_account_password_name_match_error">Used as an error message during account creation when the the account creation failed because the username and password provided are the same.</string>
   <string name="create_account_no_network">Message shown when the network is unavailable during account creation</string>
   <string name="create_account_next">Button text on Create Account screen to go \"next\" (to CAPTCHA).
@@ -298,7 +304,8 @@ See also:
   <string name="saved_pages_progress_title">Title for progress dialog shown when updating saved pages</string>
   <string name="saved_pages_refresh_pages_complete">Toast message shown when a user initiated \"update save pages\" action has been completed</string>
   <string name="menu_page_saved">Menu item that says that the current page has been saved.</string>
-  <string name="menu_refresh_saved_page">Menu item for refreshing the saved page that is currently shown.</string>
+  <string name="menu_refresh_saved_page">Menu item for refreshing the saved page that is currently shown.
+{{Identical|Refresh page}}</string>
   <string name="abusefilter_title_warn">Message that warns the user that their edit may be unconstructive, and asks if they want to continue saving it.</string>
   <string name="abusefilter_title_disallow">Message that informs the user that their edit is not allowed, and that the user must go back and modify the edit.</string>
   <string name="abusefilter_text_warn">Explanation of why the edit may be flagged as unconstructive: Typing in all caps, Blanking articles or Spamming, Irrelevant external links or images, Repeating characters</string>
