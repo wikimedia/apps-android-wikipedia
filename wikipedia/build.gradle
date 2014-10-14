@@ -20,10 +20,6 @@ android {
             runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-            applicationVariants.all { variant ->
-                File file = variant.outputFile
-                variant.outputFile = new File(file.parent, "wikipedia-" + versionName + ".apk")
-            }
         }
     }
     productFlavors {

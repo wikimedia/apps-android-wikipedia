@@ -8,21 +8,22 @@ Step 1: (e.g., --beta):
     - Runs the selected (clean) Gradle builds (e.g. beta, amazon, or prod and releasesprod combined)
 
 Step 2: (e.g., --beta --push):
-    - Create an annotated tag called 'releases/versionName'
-    - Pushes the git branch and tag created in step 1 to gerrit for history
-    - Upload certain bits to releases.mediawiki.org: releasesprod, beta
+    - Creates an annotated tag called 'releases/versionName'
+    - Pushes the git tag to gerrit for history
+    - TODO (Not implemented yet): Uploads certain bits to releases.mediawiki.org: releasesprod, beta
 
 To run
 1) tell people on #wikimedia-mobile you're about to bump the version, so hold off on merging to master
 2) git checkout master
 3) git pull
 4) git reset --hard
-5) python scripts/make-release.py --prod --releasesprod
-6) manual step: test the apks: adb install -r <apk file>
-7) python scripts/make-release.py --prod --releasesprod --push
-8) compile release note using
-    git log --graph --date=short `git tag -l beta/*|tail -1`..
-9) Upload apk to store
+5) python scripts/make-release.py --prod
+Note: the apk file locations are printed to stdout
+6) manual step: test the apk(s): adb install -r <apk file>
+7) python scripts/make-release.py --prod --push
+8) compile release note of prod using (replace "r/*" with "beta/*" or "amazon/*")
+    git log --pretty=format:"%h | %cr | %s" --abbrev-commit --no-merges `git tag -l r/*|tail -1`..
+9) Upload prod apk to store, releasesprod apk to releases.mediawiki.org
 
 Requires the python module 'sh' to run. Ensure you have a clean working
 directory before running as well.
@@ -48,7 +49,9 @@ def p(*path_fragments):
 
 def get_release_name(target):
     """
-    Returns name release, based on target (in release name) and current date
+    Returns name release, based on target (in release name) and current date.
+    This should be kept in sync with the versionNames of the various flavors
+    in build.gradle.
     """
     return '2.0-%s-%s' % (target, time.strftime('%Y-%m-%d'))
 
@@ -69,14 +72,8 @@ def git_tag(target):
 
 def push_to_gerrit(target):
     """
-    Pushes the git branch and tag to gerrit
+    Pushes the git tag to gerrit
     """
-    release_name = get_release_name(target)
-    print('pushing branch ' + release_name)
-    sh.git.push('gerrit', 'HEAD:refs/heads/releases/%s' % release_name)
-    # don't need to do this?
-    # sh.git.push('gerrit', 'HEAD:refs/for/releases/%s' % release_name)
-
     tag_name = get_git_tag_name(target)
     print('pushing tag ' + tag_name)
     sh.git.push('gerrit', tag_name)
@@ -86,9 +83,17 @@ def make_release(flavors):
     sh.cd(PATH_PREFIX)
     # ./gradlew -q assembleDevDebug
     args = [GRADLEW, '-q', 'clean']
-    tasks = ['assemble{0}Release'.format(i.title()) for i in flavors]
+    tasks = ['assemble{0}Release'.format(flavor.title()) for flavor in flavors]
     args += tasks
     subprocess.call(args)
+
+
+def copy_apk(flavor, target):
+    folder_path = 'wikipedia/build/outputs/release'
+    sh.mkdir("-p", folder_path)
+    output_file = '%s/wikipedia-%s.apk' % (folder_path, get_release_name(target))
+    sh.cp('wikipedia/build/outputs/apk/wikipedia-%s-release.apk' % flavor, output_file)
+    print ' apk: %s' % output_file
 
 
 def main():
@@ -139,9 +144,13 @@ def main():
             push_to_gerrit(target)
     else:
         make_release(flavors)
-        print('Please build the APK and test. After that, run w/ --push flag, and as needed release the tested APK.')
+        copy_apk(flavors[0], targets[0])
+        if flavors[0] == 'prod':
+            copy_apk(flavors[1], flavors[1])
+        print('Please test the APK. After that, run w/ --push flag, and as needed release the tested APK.')
         print('A useful command for collecting the release notes:')
-        print('git log --pretty=format:"%h %s" --abbrev-commit --no-merges <previous release tag>..')
+        print('git log --pretty=format:"%h | %cr | %s" --abbrev-commit --no-merges '
+              + '`git tag --list ' + targets[0] + '/* | tail -1`..')
 
 
 if __name__ == '__main__':
