@@ -25,6 +25,7 @@ import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -134,6 +135,25 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
                 intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, newEntry);
                 setResult(ACTIVITY_RESULT_NEARBY_SELECT, intent);
                 finish();
+            }
+        });
+
+        // Long click creates an intent for viewing geo:// providers, which
+        // opens up in the map application installed
+        nearbyList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                NearbyPage nearbyPage = adapter.getItem(position);
+                PageTitle title = new PageTitle(nearbyPage.getTitle(), site, nearbyPage.getThumblUrl());
+                String geoUri = String.format(Locale.ENGLISH,
+                        "geo:0,0?q=%s,%s(%s)",
+                        nearbyPage.getLocation().getLatitude(),
+                        nearbyPage.getLocation().getLongitude(),
+                        title.getDisplayText()
+                        );
+                Intent geoIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
+                startActivity(geoIntent);
+                return false;
             }
         });
 
