@@ -210,17 +210,19 @@ public class PageActivity extends ActionBarActivity {
                 //getActionBar().setTitle("");
             }
 
-            private boolean hideKeyboardCalled = false;
+            private boolean oncePerSlideLock = false;
 
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
-                // Hide the keyboard when the drawer is opened
-                if (!hideKeyboardCalled) {
+                if (!oncePerSlideLock) {
+                    // Hide the keyboard when the drawer is opened
                     Utils.hideSoftKeyboard(PageActivity.this);
                     //also make sure ToC is hidden
                     app.getBus().post(new ShowToCEvent(ShowToCEvent.ACTION_HIDE));
-                    hideKeyboardCalled = true;
+                    //and make sure to update dynamic items and highlights
+                    fragmentNavdrawer.setupDynamicItems();
+                    oncePerSlideLock = true;
                 }
                 // and make sure the ActionBar is showing
                 if (!getSupportActionBar().isShowing()) {
@@ -232,7 +234,7 @@ public class PageActivity extends ActionBarActivity {
             public void onDrawerStateChanged(int newState) {
                 super.onDrawerStateChanged(newState);
                 if (newState == DrawerLayout.STATE_IDLE) {
-                    hideKeyboardCalled = false;
+                    oncePerSlideLock = false;
                 }
             }
         };

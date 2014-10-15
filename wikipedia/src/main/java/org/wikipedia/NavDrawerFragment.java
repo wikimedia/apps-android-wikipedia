@@ -13,11 +13,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.events.RequestMainPageEvent;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageViewFragment;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.savedpages.SavedPagesFragment;
 import org.wikipedia.settings.SettingsActivity;
@@ -108,6 +110,31 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
             wikipediaZeroText.setVisibility(View.VISIBLE);
         } else {
             wikipediaZeroText.setVisibility(View.GONE);
+        }
+
+        // highlight the correct list item based on which fragment is on top.
+        // un-highlight all of them first...
+        for (int id : ACTION_ITEMS_ALL) {
+            getView().findViewById(id).setBackgroundResource(R.drawable.nav_item_background);
+        }
+        PageActivity activity = (PageActivity)getActivity();
+        int highlightItem = -1;
+        if (activity.getTopFragment() instanceof HistoryFragment) {
+            highlightItem = R.id.nav_item_history;
+        } else if (activity.getTopFragment() instanceof SavedPagesFragment) {
+            highlightItem = R.id.nav_item_saved_pages;
+        } else if (activity.getTopFragment() instanceof NearbyFragment) {
+            highlightItem = R.id.nav_item_nearby;
+        } else if (activity.getTopFragment() instanceof PageViewFragment) {
+            PageViewFragment fragment = (PageViewFragment)activity.getTopFragment();
+            if (fragment.getFragment().getHistoryEntry().getSource() == HistoryEntry.SOURCE_MAIN_PAGE) {
+                highlightItem = R.id.nav_item_today;
+            } else if (fragment.getFragment().getHistoryEntry().getSource() == HistoryEntry.SOURCE_RANDOM) {
+                highlightItem = R.id.nav_item_random;
+            }
+        }
+        if (highlightItem != -1) {
+            getView().findViewById(highlightItem).setBackgroundColor(getResources().getColor(R.color.nav_item_highlight));
         }
     }
 
