@@ -1,6 +1,5 @@
 package org.wikipedia.nearby;
 
-import android.content.ActivityNotFoundException;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -14,6 +13,7 @@ import com.squareup.picasso.Picasso;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -147,11 +147,11 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
                 NearbyPage nearbyPage = adapter.getItem(position);
                 PageTitle title = new PageTitle(nearbyPage.getTitle(), site, nearbyPage.getThumblUrl());
                 String geoUri = String.format(Locale.ENGLISH,
-                        "geo:0,0?q=%s,%s(%s)",
-                        nearbyPage.getLocation().getLatitude(),
-                        nearbyPage.getLocation().getLongitude(),
-                        title.getDisplayText()
-                        );
+                                              "geo:0,0?q=%s,%s(%s)",
+                                              nearbyPage.getLocation().getLatitude(),
+                                              nearbyPage.getLocation().getLongitude(),
+                                              title.getDisplayText()
+                );
                 Intent geoIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
                 try {
                     startActivity(geoIntent);
@@ -415,25 +415,31 @@ public class NearbyActivity extends ThemedActionBarActivity implements SensorEve
     }
 
     private void sortByDistance(List<NearbyPage> nearbyPages) {
+        calcDistances(nearbyPages);
+
         Collections.sort(nearbyPages, new Comparator<NearbyPage>() {
             public int compare(NearbyPage a, NearbyPage b) {
-                if (a.getLocation() == null) {
-                    if (b.getLocation() == null) {
-                        return 0;
-                    } else {
-                        return 1;
-                    }
-                } else if (b.getLocation() == null) {
-                    return -1;
-                } else {
-                    return getDistance(a.getLocation()) - getDistance(b.getLocation());
-                }
+                return a.getDistance() - b.getDistance();
             }
         });
     }
 
+    /**
+     * Calculates the distances from the origin to the given pages.
+     * This method should be called before sorting.
+     */
+    private void calcDistances(List<NearbyPage> pages) {
+        for (NearbyPage page : pages) {
+            page.setDistance(getDistance(page.getLocation()));
+        }
+    }
+
     private int getDistance(Location otherLocation) {
-        return (int) nextLocation.distanceTo(otherLocation);
+        if (otherLocation == null) {
+            return Integer.MAX_VALUE;
+        } else {
+            return (int) nextLocation.distanceTo(otherLocation);
+        }
     }
 
     private String getDistanceLabel(Location otherLocation) {

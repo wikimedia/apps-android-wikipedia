@@ -19,7 +19,8 @@ public class NearbyUnitTests extends TestCase {
     private static final int FOUR = 4;
     private static final double SHORT_DISTANCE = 0.001d;
     private static final double LONGER_DISTANCE = 0.01d;
-    private static final int A_B_DISTANCE = 111320;
+    /** dist(origin, point a) */
+    private static final int A = 111319;
 
     private Location nextLocation;
     private List<NearbyPage> nearbyPages;
@@ -37,6 +38,7 @@ public class NearbyUnitTests extends TestCase {
     }
 
     public void testSort() throws Exception {
+        calcDistances(nearbyPages);
         Collections.sort(nearbyPages, new NearbyDistanceComparator());
         assertEquals("a", nearbyPages.get(0).getTitle());
         assertEquals("b", nearbyPages.get(1).getTitle());
@@ -46,6 +48,7 @@ public class NearbyUnitTests extends TestCase {
     public void testSortWithNullLocations() throws Exception {
         nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"d\" }")));
         nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"e\" }")));
+        calcDistances(nearbyPages);
         Collections.sort(nearbyPages, new NearbyDistanceComparator());
         assertEquals("a", nearbyPages.get(0).getTitle());
         assertEquals("b", nearbyPages.get(1).getTitle());
@@ -57,10 +60,16 @@ public class NearbyUnitTests extends TestCase {
 
     public void testCompare() throws Exception {
         NearbyPage nullLocPage = new NearbyPage(new JSONObject("{ \"title\": \"nowhere\" }"));
+
+        calcDistances(nearbyPages);
+        nullLocPage.setDistance(getDistance(nullLocPage.getLocation()));
+        assertEquals(Integer.MAX_VALUE, nullLocPage.getDistance());
+
         NearbyDistanceComparator comp = new NearbyDistanceComparator();
-        assertEquals(A_B_DISTANCE, comp.compare(nearbyPages.get(0), nearbyPages.get(1)));
-        assertEquals(-1, comp.compare(nearbyPages.get(0), nullLocPage));
-        assertEquals(1, comp.compare(nullLocPage, nearbyPages.get(0)));
+        assertEquals(A, comp.compare(nearbyPages.get(1), nearbyPages.get(2)));
+        assertEquals(-1 * A, comp.compare(nearbyPages.get(2), nearbyPages.get(1)));
+        assertEquals(Integer.MAX_VALUE - A, comp.compare(nullLocPage, nearbyPages.get(2)));
+        assertEquals((Integer.MIN_VALUE + 1) + A, comp.compare(nearbyPages.get(2), nullLocPage)); // - (max - a)
         assertEquals(0, comp.compare(nullLocPage, nullLocPage));
     }
 
@@ -91,22 +100,30 @@ public class NearbyUnitTests extends TestCase {
 
     private class NearbyDistanceComparator implements Comparator<NearbyPage> {
         public int compare(NearbyPage a, NearbyPage b) {
-            if (a.getLocation() == null) {
-                if (b.getLocation() == null) {
-                    return 0;
-                } else {
-                    return 1;
-                }
-            } else if (b.getLocation() == null) {
-                return -1;
-            } else {
-                return getDistance(a.getLocation()) - getDistance(b.getLocation());
-            }
+            return a.getDistance() - b.getDistance();
+        }
+    }
+
+    //
+    // UGLY: copy of production code
+    //
+
+    /**
+     * Calculates the distances from the origin to the given pages.
+     * This method should be called before sorting.
+     */
+    private void calcDistances(List<NearbyPage> pages) {
+        for (NearbyPage page : pages) {
+            page.setDistance(getDistance(page.getLocation()));
         }
     }
 
     private int getDistance(Location otherLocation) {
-        return (int) nextLocation.distanceTo(otherLocation);
+        if (otherLocation == null) {
+            return Integer.MAX_VALUE;
+        } else {
+            return (int) nextLocation.distanceTo(otherLocation);
+        }
     }
 
     private static final int ONE_KM = 1000;

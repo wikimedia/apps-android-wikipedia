@@ -1,9 +1,9 @@
 package org.wikipedia.nearby;
 
-import android.location.Location;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.location.Location;
 
 /**
  * Data object holding information about a nearby page.
@@ -30,6 +30,9 @@ class NearbyPage {
     private String title;
     private String thumblUrl;
     private Location location;
+
+    /** calculated externally */
+    private int distance;
 
     public NearbyPage(JSONObject json) {
         try {
@@ -76,7 +79,20 @@ class NearbyPage {
         return "NearbyPage{"
                 + "title='" + title + '\''
                 + ", thumblUrl='" + thumblUrl + '\''
-                + ", location=" + location
+                + ", location=" + location + '\''
+                + ", distance='" + distance
                 + '}';
+    }
+
+    /**
+     * Returns the distance from the point where the device is.
+     * Calculated later and can change. Needs to be set first by #setDistance!
+     */
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
 }
