@@ -4,6 +4,7 @@ import org.wikipedia.NavDrawerFragment;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
+import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.ChangeTextSizeEvent;
@@ -117,6 +118,7 @@ public class PageActivity extends ActionBarActivity {
 
         supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR_OVERLAY);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ThemedActionBarActivity.forceOverflowMenuIcon(this);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
             //for 2.3 it seems to be necessary to set this explicitly:
@@ -612,15 +614,6 @@ public class PageActivity extends ActionBarActivity {
         });
         AlertDialog ad = alert.create();
         ad.show();
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_MENU) {
-            drawerLayout.openDrawer(Gravity.START);
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 
     @Override
