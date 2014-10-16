@@ -312,8 +312,12 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                     if (!isAdded()) {
                         return;
                     }
-                    if (caught instanceof ApiException && caught.getCause() instanceof UnknownHostException) {
-                        Crouton.makeText(getActivity(), R.string.nearby_no_network, Style.ALERT).show();
+                    if (caught instanceof ApiException) {
+                        if (caught.getCause() instanceof UnknownHostException) {
+                            Crouton.makeText(getActivity(), R.string.nearby_no_network, Style.ALERT).show();
+                        } else {
+                            Crouton.makeText(getActivity(), R.string.error_network_error, Style.ALERT).show();
+                        }
                     } else if (caught instanceof NearbyFetchException) {
                         Log.e("Wikipedia", "Could not get list of nearby places: " + caught.toString());
                         Crouton.makeText(getActivity(), R.string.nearby_server_error, Style.ALERT).show();
