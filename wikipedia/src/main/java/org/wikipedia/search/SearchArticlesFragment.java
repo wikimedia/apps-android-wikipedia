@@ -131,7 +131,6 @@ public class SearchArticlesFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-        app.getBus().register(this);
         setHasOptionsMenu(true);
         searchTerm = getArguments().getString(KEY_SEARCH_TERM);
     }
@@ -139,6 +138,7 @@ public class SearchArticlesFragment extends Fragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         app = (WikipediaApp)getActivity().getApplicationContext();
+        app.getBus().register(this);
         LinearLayout parentLayout = (LinearLayout) inflater.inflate(R.layout.fragment_search, container, false);
 
         if (savedInstanceState != null) {
@@ -201,8 +201,8 @@ public class SearchArticlesFragment extends Fragment {
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onDestroyView() {
+        super.onDestroyView();
         app.getBus().unregister(this);
     }
 
