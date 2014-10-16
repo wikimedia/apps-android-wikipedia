@@ -1,82 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.1"
-   id="Layer_1"
-   x="0px"
-   y="0px"
-   viewBox="0 0 256 256"
-   enable-background="new 0 0 255.8 246.8"
-   xml:space="preserve"
-   inkscape:version="0.48.1 "
-   width="100%"
-   height="100%"
-   sodipodi:docname="savedpages.svg"><metadata
-   id="metadata17"><rdf:RDF><cc:Work
-       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
-   id="defs15" /><sodipodi:namedview
-   pagecolor="#ffffff"
-   bordercolor="#666666"
-   borderopacity="1"
-   objecttolerance="10"
-   gridtolerance="10"
-   guidetolerance="10"
-   inkscape:pageopacity="0"
-   inkscape:pageshadow="2"
-   inkscape:window-width="885"
-   inkscape:window-height="737"
-   id="namedview13"
-   showgrid="false"
-   inkscape:zoom="1.1790924"
-   inkscape:cx="127.9"
-   inkscape:cy="123.4"
-   inkscape:window-x="0"
-   inkscape:window-y="0"
-   inkscape:window-maximized="0"
-   inkscape:current-layer="Layer_1" />
-<g
-   id="g3"
-   transform="matrix(1.1137166,0,0,1.1137166,-13.999407,-10.770925)">
-	<path
-   stroke-miterlimit="10"
-   d="m 134.1,26.9 27.1,54.9 c 1,2.1 3,3.5 5.2,3.8 l 60.6,8.8 c 5.7,0.8 8,7.8 3.9,11.9 L 187,149.1 c -1.6,1.6 -2.4,3.9 -2,6.2 l 10.4,60.4 c 1,5.7 -5,10 -10.1,7.3 l -54.2,-28.5 c -2,-1.1 -4.5,-1.1 -6.5,0 L 70.4,223 c -5.1,2.7 -11.1,-1.7 -10.1,-7.3 l 10.4,-60.4 c 0.4,-2.3 -0.4,-4.6 -2,-6.2 L 24.8,106.3 c -4.1,-4 -1.9,-11 3.9,-11.9 l 60.6,-8.8 c 2.3,-0.3 4.2,-1.8 5.2,-3.8 l 27.1,-54.9 c 2.6,-5.2 10,-5.2 12.5,0 z"
-   id="path5"
-   inkscape:connector-curvature="0"
-   style="fill:none;stroke:#000000;stroke-width:8;stroke-miterlimit:10" />
-	<circle
-   cx="104.4"
-   cy="113.8"
-   r="9"
-   id="circle7"
-   sodipodi:cx="104.4"
-   sodipodi:cy="113.8"
-   sodipodi:rx="9"
-   sodipodi:ry="9"
-   d="m 113.4,113.8 c 0,4.97057 -4.02944,9 -9,9 -4.970561,0 -8.999998,-4.02943 -8.999998,-9 0,-4.97056 4.029437,-9 8.999998,-9 4.97056,0 9,4.02944 9,9 z" />
-	<circle
-   cx="158.39999"
-   cy="113.8"
-   r="9"
-   id="circle9"
-   sodipodi:cx="158.39999"
-   sodipodi:cy="113.8"
-   sodipodi:rx="9"
-   sodipodi:ry="9"
-   d="m 167.39999,113.8 c 0,4.97057 -4.02943,9 -9,9 -4.97056,0 -9,-4.02943 -9,-9 0,-4.97056 4.02944,-9 9,-9 4.97057,0 9,4.02944 9,9 z" />
-	<path
-   stroke-miterlimit="10"
-   d="m 98.2,153.3 c 18.4,-18.4 48.1,-18.4 66.5,0"
-   id="path11"
-   inkscape:connector-curvature="0"
-   style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10" />
-</g>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 240 232" enable-background="new 0 0 240 232" xml:space="preserve">
+<circle fill="#010101" cx="90" cy="94.6" r="9"/>
+<circle fill="#010101" cx="148" cy="94.6" r="9"/>
+<path fill="none" stroke="#010101" stroke-width="7" stroke-linecap="round" stroke-miterlimit="10" d="M92,137.1
+	c14.9-14.9,39.1-14.9,54,0"/>
+<path fill="none" stroke="#010101" stroke-width="9" stroke-miterlimit="10" d="M188.8,37.8C164,26.3,131.5,37.1,120,61.9
+	c-11.5-24.8-44-35.6-68.8-24.1C24.7,50,12,81.4,32.9,118.4c14.8,26.3,41.2,46.2,87.1,81.7c45.9-35.6,72.2-55.4,87.1-81.7
+	C228,81.4,215.3,50,188.8,37.8z"/>
 </svg>
