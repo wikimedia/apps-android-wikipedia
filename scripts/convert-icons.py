@@ -28,8 +28,11 @@ class ImagesBatch(object):
         folder_path = os.path.join(OUTPUT_PATH_PREFIX, drawable)
         sh.mkdir("-p", folder_path)
         output_file_path = os.path.join(folder_path, file_name)
+        output_precrush_path = output_file_path + "_"
         px = int(DENSITIES[density] * self.dp)
-        sh.rsvg_convert(input_path, "-a", h=px, o=output_file_path)
+        sh.rsvg_convert(input_path, "-a", h=px, o=output_precrush_path)
+        sh.pngcrush("-q", "-reduce", output_precrush_path, output_file_path)
+        sh.rm(output_precrush_path)
         return (output_file_path, noflip)
 
     def _do_flop(self, density, (input_path, noflip)):

@@ -323,7 +323,13 @@ Ensure you have librsvg and the 'rsvg-convert' command:
 
 You also need to have ImageMagick (for flipping of icons):
 
+* On Ubuntu, run "sudo apt-get install imagemagick"
 * On Mac OS X using Homebrew, run "brew install imagemagick"
+
+Lastly, you'll need the pngcrush utility, which optimizes PNG files:
+
+* On Ubuntu, run "sudo apt-get install pngcrush"
+* On Mac OS X using Homebrew, run "brew install pngcrush"
 
 ==== Run ====
  python scripts/convert-icons.py

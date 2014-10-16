@@ -223,6 +223,9 @@ public class PageActivity extends ThemedActionBarActivity {
 
         // Set the drawer toggle as the DrawerListener
         drawerLayout.setDrawerListener(mDrawerToggle);
+
+        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.ic_drawer));
+        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.search_w));
     }
 
     @Override

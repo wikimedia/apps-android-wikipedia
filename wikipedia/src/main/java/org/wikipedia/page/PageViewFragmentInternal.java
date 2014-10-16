@@ -503,6 +503,10 @@ public class PageViewFragmentInternal {
             return;
         }
 
+        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.search));
+        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.toc_collapsed));
+        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.toc_expanded));
+
         MenuItem tocMenuItem = menu.findItem(R.id.menu_toc);
         tocMenuItem.setVisible(tocDrawer.getSlidingEnabled(Gravity.END));
         tocMenuItem.setIcon(tocDrawer.isDrawerOpen(Gravity.END) ? R.drawable.toc_expanded : R.drawable.toc_collapsed);
