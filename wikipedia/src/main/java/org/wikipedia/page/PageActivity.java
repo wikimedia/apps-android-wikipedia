@@ -39,23 +39,19 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.WindowCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 
-public class PageActivity extends ActionBarActivity {
+public class PageActivity extends ThemedActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
@@ -112,26 +108,10 @@ public class PageActivity extends ActionBarActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState, true);
         app = (WikipediaApp) getApplicationContext();
-        setTheme(WikipediaApp.getInstance().getCurrentTheme());
-
-        supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR_OVERLAY);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ThemedActionBarActivity.forceOverflowMenuIcon(this);
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-            //for 2.3 it seems to be necessary to set this explicitly:
-            getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(Utils.getThemedAttributeId(this, R.attr.actionbar_drawable)));
-        }
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-
-        // Just setting the logo in the AndroidManifest.xml is not enough for all cases.
-        // Doesn't work for GB. Also the transition between PageViewFragment and SearchArticlesFragment
-        // makes it temporarily reveal the icon instead of the logo. So, setting the icon dynamically
-        // seems to be the best solution to avoid those issues, while still having a different launcher icon.
-        getSupportActionBar().setIcon(R.drawable.search_w);
 
         setContentView(R.layout.activity_main);
 
