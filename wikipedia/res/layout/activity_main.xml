@@ -21,17 +21,6 @@
                   tools:layout="@layout/fragment_navdrawer"/>
 
     </org.wikipedia.views.DisableableDrawerLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/zero_crouton_container">
-<!--
-    <fragment
-            android:id="@+id/search_fragment"
-            android:name="org.wikipedia.search.SearchArticlesFragment"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_gravity="top"
-            tools:layout="@layout/fragment_search"/>
--->
-    </LinearLayout>
     <fragment android:id="@+id/find_in_page_fragment"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"

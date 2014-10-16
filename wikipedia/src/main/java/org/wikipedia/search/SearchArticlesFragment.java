@@ -6,8 +6,10 @@ import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
+import com.squareup.otto.Subscribe;
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import android.os.Handler;
@@ -45,6 +47,7 @@ public class SearchArticlesFragment extends Fragment {
 
     private WikipediaApp app;
     private SearchResultAdapter adapter;
+    private SearchView searchView;
 
     private ListView searchResultsList;
     private View searchNetworkError;
@@ -128,6 +131,7 @@ public class SearchArticlesFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
+        app.getBus().register(this);
         setHasOptionsMenu(true);
         searchTerm = getArguments().getString(KEY_SEARCH_TERM);
     }
@@ -197,6 +201,12 @@ public class SearchArticlesFragment extends Fragment {
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        app.getBus().unregister(this);
+    }
+
+    @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         saveToBundle(outState);
@@ -223,6 +233,11 @@ public class SearchArticlesFragment extends Fragment {
     public void onResume() {
         super.onResume();
         ((ActionBarActivity)getActivity()).getSupportActionBar().setTitle("");
+    }
+
+    @Subscribe
+    public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
+        updateZeroChrome();
     }
 
     public void newSearch(String term) {
@@ -277,8 +292,8 @@ public class SearchArticlesFragment extends Fragment {
 
     private void addSearchView(Menu menu) {
         MenuItem searchAction = menu.add(0, Menu.NONE, Menu.NONE, getString(R.string.search_hint));
-        MenuItemCompat.setShowAsAction(searchAction , MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
-        SearchView searchView = new SearchView(getActivity());
+        MenuItemCompat.setShowAsAction(searchAction, MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
+        searchView = new SearchView(getActivity());
         searchView.setFocusable(true);
         searchView.requestFocusFromTouch();
         searchView.setOnQueryTextListener(searchQueryListener);
@@ -287,11 +302,21 @@ public class SearchArticlesFragment extends Fragment {
         searchView.setInputType(EditorInfo.TYPE_CLASS_TEXT);
         searchView.setImeOptions(EditorInfo.IME_ACTION_GO);
         searchView.setSubmitButtonEnabled(true);
-        searchView.setQueryHint(getString(R.string.search_hint));
+        updateZeroChrome();
         if (isValidQuery(lastSearchedText)) {
             searchView.setQuery(lastSearchedText, false);
         }
         MenuItemCompat.setActionView(searchAction, searchView);
+    }
+
+    /*
+    Update any UI elements related to WP Zero
+     */
+    private void updateZeroChrome() {
+        if (searchView != null) {
+            searchView.setQueryHint(
+                    app.getWikipediaZeroHandler().isZeroEnabled() ? getString(R.string.zero_search_hint) : getString(R.string.search_hint));
+        }
     }
 
     private boolean isValidQuery(String queryText) {

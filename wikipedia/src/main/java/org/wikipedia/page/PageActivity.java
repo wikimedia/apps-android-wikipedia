@@ -548,7 +548,7 @@ public class PageActivity extends ThemedActionBarActivity {
                 .setHeight((int) Math.floor(croutonHeight * WikipediaApp.getInstance().getScreenDensity()))
                 .build();
 
-        Crouton.makeText(this, verbiage, style, R.id.zero_crouton_container).show();
+        Crouton.makeText(this, verbiage, style, R.id.content_fragment_container).show();
     }
 
     private void showDialogAboutZero(final String prefsKey, String title, String message) {
