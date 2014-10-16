@@ -51,6 +51,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.MissingResourceException;
 
 /**
  * Displays a list of nearby pages.
@@ -216,8 +217,13 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             setImperialUnits(prefs.getBoolean(PREF_KEY_UNITS, false));
         } else {
             //if our locale is set to US, then use imperial units by default.
-            if (Locale.getDefault().getISO3Country().equalsIgnoreCase(Locale.US.getISO3Country())) {
-                setImperialUnits(true);
+            try {
+                if (Locale.getDefault().getISO3Country().equalsIgnoreCase(Locale.US.getISO3Country())) {
+                    setImperialUnits(true);
+                }
+            } catch (MissingResourceException e) {
+                // getISO3Country can throw MissingResourceException: No 3-letter country code for locale: zz_ZZ
+                // Just ignore it.
             }
         }
     }
