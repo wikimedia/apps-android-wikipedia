@@ -42,9 +42,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.view.ActionMode;
 import android.util.Log;
 import android.view.Gravity;
@@ -53,7 +51,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 import javax.net.ssl.SSLException;
 import java.util.ArrayList;
@@ -87,6 +84,8 @@ public class PageViewFragmentInternal {
     private int state = STATE_NO_FETCH;
     private int subState = SUBSTATE_NONE;
 
+    private static final int MAX_PROGRESS_VALUE = 10000;
+
     /**
      * Whether to save the full page content as soon as it's loaded.
      * Used in the following cases:
@@ -112,7 +111,6 @@ public class PageViewFragmentInternal {
     private PageTitle title;
     private PageTitle titleOriginal;
     private ObservableWebView webView;
-    private ProgressBar loadProgress;
     private View networkError;
     private View retryButton;
     private View pageDoesNotExistError;
@@ -151,8 +149,8 @@ public class PageViewFragmentInternal {
         }
     }
 
-    public FragmentActivity getActivity() {
-        return parentFragment.getActivity();
+    public PageActivity getActivity() {
+        return (PageActivity)parentFragment.getActivity();
     }
 
     public boolean isAdded() {
@@ -223,11 +221,17 @@ public class PageViewFragmentInternal {
         }
 
         if (webView.getVisibility() == View.GONE) {
-            ViewAnimations.crossFade(loadProgress, webView);
+            ViewAnimations.fadeIn(webView);
         }
+
+        getActivity().setSupportProgressBarIndeterminate(true);
+        getActivity().setSupportProgressBarVisibility(true);
     }
 
     private void displayNonLeadSection(int index) {
+        getActivity().setSupportProgressBarIndeterminate(false);
+        getActivity().setSupportProgress(MAX_PROGRESS_VALUE / page.getSections().size() * index);
+
         try {
             JSONObject wrapper = new JSONObject();
             if (index < page.getSections().size()) {
@@ -254,7 +258,6 @@ public class PageViewFragmentInternal {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         View rootView =  inflater.inflate(R.layout.fragment_page, container, false);
         webView = (ObservableWebView) rootView.findViewById(R.id.page_web_view);
-        loadProgress = (ProgressBar) rootView.findViewById(R.id.page_load_progress);
         networkError = rootView.findViewById(R.id.page_error);
         retryButton = rootView.findViewById(R.id.page_error_retry);
         pageDoesNotExistError = rootView.findViewById(R.id.page_does_not_exist);
@@ -371,7 +374,7 @@ public class PageViewFragmentInternal {
             @Override
             public void onClick(View v) {
                 retryButton.setEnabled(false);
-                ViewAnimations.crossFade(networkError, loadProgress, new Runnable() {
+                ViewAnimations.fadeOut(networkError, new Runnable() {
                     @Override
                     public void run() {
                         performActionForState(state);
@@ -383,7 +386,7 @@ public class PageViewFragmentInternal {
 
         editHandler = new EditHandler(parentFragment, bridge);
 
-        new QuickReturnHandler(webView, (ActionBarActivity)getActivity());
+        new QuickReturnHandler(webView, getActivity());
 
         //is this page in cache??
         if (PAGE_CACHE.has(titleOriginal)) {
@@ -391,7 +394,6 @@ public class PageViewFragmentInternal {
             page = PAGE_CACHE.get(titleOriginal);
             //make the webview immediately visible
             webView.setVisibility(View.VISIBLE);
-            loadProgress.setVisibility(View.GONE);
             state = STATE_COMPLETE_FETCH;
         }
 
@@ -427,6 +429,7 @@ public class PageViewFragmentInternal {
                     return;
                 }
                 // Do any other stuff that should happen upon page load completion...
+                getActivity().setSupportProgressBarVisibility(false);
             }
         });
     }
@@ -439,9 +442,8 @@ public class PageViewFragmentInternal {
             //reset our scroll offset, since we have a section scroll target
             scrollY = 0;
 
-            // immediately hide the webview, and show the progress bar
+            // immediately hide the webview
             webView.setVisibility(View.GONE);
-            loadProgress.setVisibility(View.VISIBLE);
             // and reload the page...
             setState(STATE_NO_FETCH);
             performActionForState(state);
@@ -451,6 +453,9 @@ public class PageViewFragmentInternal {
     private void performActionForState(int forState) {
         switch (forState) {
             case STATE_NO_FETCH:
+                getActivity().setSupportProgressBarIndeterminate(true);
+                getActivity().setSupportProgressBarVisibility(true);
+
                 bridge.sendMessage("clearContents", new JSONObject());
                 if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
                     loadSavedPage();
@@ -484,7 +489,7 @@ public class PageViewFragmentInternal {
         // FIXME: Move this out into a PageComplete event of sorts
         if (state == STATE_COMPLETE_FETCH) {
             if (tocHandler == null) {
-                tocHandler = new ToCHandler((ActionBarActivity)getActivity(),
+                tocHandler = new ToCHandler(getActivity(),
                                             tocDrawer,
                                             bridge);
             }
@@ -581,7 +586,7 @@ public class PageViewFragmentInternal {
     }
 
     public void showFindInPage() {
-        final PageActivity pageActivity = (PageActivity) getActivity();
+        final PageActivity pageActivity = getActivity();
         final FindInPageActionProvider findInPageActionProvider = new FindInPageActionProvider(pageActivity);
 
         pageActivity.startSupportActionMode(new ActionMode.Callback() {
@@ -761,11 +766,12 @@ public class PageViewFragmentInternal {
         }
         // in any case, make sure the TOC drawer is closed and disabled
         tocDrawer.setSlidingEnabled(false);
+        getActivity().setSupportProgressBarVisibility(false);
 
         if (caught instanceof SectionsFetchException) {
             if (((SectionsFetchException) caught).getCode().equals("missingtitle")
                     || ((SectionsFetchException) caught).getCode().equals("invalidtitle")) {
-                ViewAnimations.crossFade(loadProgress, pageDoesNotExistError);
+                ViewAnimations.fadeIn(pageDoesNotExistError);
             }
         } else if (Utils.throwableContainsSpecificType(caught, SSLException.class)) {
             if (WikipediaApp.getInstance().incSslFailCount() < 2) {
@@ -793,7 +799,7 @@ public class PageViewFragmentInternal {
 
     private void showNetworkError() {
         // Check for the source of the error and have different things turn up
-        ViewAnimations.crossFade(loadProgress, networkError);
+        ViewAnimations.fadeIn(networkError);
         // Not sure why this is required, but without it tapping retry hides networkError
         // FIXME: INVESTIGATE WHY THIS HAPPENS!
         networkError.setVisibility(View.VISIBLE);

@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     android:background="?attr/page_background_color"
     >
-    <ProgressBar
-        android:id="@+id/page_load_progress"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        />
     <org.wikipedia.views.DisableableDrawerLayout
             android:id="@+id/page_toc_drawer"
             android:layout_width="match_parent"

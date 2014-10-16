@@ -111,11 +111,10 @@ public class PageActivity extends ThemedActionBarActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState, true);
+        super.onCreate(savedInstanceState, true, true);
         app = (WikipediaApp) getApplicationContext();
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-
         setContentView(R.layout.activity_main);
 
         bus = app.getBus();
@@ -235,12 +234,14 @@ public class PageActivity extends ThemedActionBarActivity {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
         mDrawerToggle.syncState();
+        ThemedActionBarActivity.alignActivityProgressBar(this);
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
+        ThemedActionBarActivity.alignActivityProgressBar(this);
     }
 
     @Override
@@ -326,6 +327,8 @@ public class PageActivity extends ThemedActionBarActivity {
         if (!getSupportActionBar().isShowing()) {
             getSupportActionBar().show();
         }
+        //also make sure the progress bar is not showing
+        setSupportProgressBarVisibility(false);
     }
 
     /**
@@ -340,6 +343,8 @@ public class PageActivity extends ThemedActionBarActivity {
         if (!getSupportActionBar().isShowing()) {
             getSupportActionBar().show();
         }
+        //also make sure the progress bar is not showing
+        setSupportProgressBarVisibility(false);
     }
 
     public void search(final String searchTerm) {

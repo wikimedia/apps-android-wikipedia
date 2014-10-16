@@ -3,6 +3,7 @@
     <style name="Theme.WikiDark" parent="Theme.AppCompat">
         <item name="android:actionBarItemBackground">@drawable/selectable_item_background</item>
         <item name="android:actionBarStyle">@style/ActionBar.Solid.WikiDark</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.WikiDark</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.WikiDark</item>
         <item name="android:actionDropDownStyle">@style/DropDownNav.WikiDark</item>
         <item name="popupMenuStyle">@style/PopupMenu.WikiDark</item>
@@ -25,6 +26,8 @@
 
     <style name="ActionBar.Solid.WikiDark" parent="@style/Widget.AppCompat.ActionBar.Solid">
         <item name="android:background">@drawable/actionbar_themedark</item>
+        <item name="android:progressBarPadding">0dp</item>
+        <item name="progressBarPadding">0dp</item>
     </style>
 
     <style name="DropDownListView.WikiDark" parent="@style/Widget.AppCompat.ListView.DropDown">

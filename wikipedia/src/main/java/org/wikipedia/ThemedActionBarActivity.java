@@ -1,23 +1,32 @@
 package org.wikipedia;
 
+import com.nineoldandroids.view.ViewHelper;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.WindowCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.util.TypedValue;
+import android.view.View;
 import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.Window;
 import java.lang.reflect.Field;
 
 public abstract class ThemedActionBarActivity extends ActionBarActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        onCreate(savedInstanceState, false);
+        onCreate(savedInstanceState, false, false);
     }
 
-    public void onCreate(Bundle savedInstanceState, boolean withActionBarOverlay) {
+    public void onCreate(Bundle savedInstanceState, boolean withActionBarOverlay, boolean withProgressBar) {
         super.onCreate(savedInstanceState);
         setTheme(WikipediaApp.getInstance().getCurrentTheme());
 
+        if (withProgressBar) {
+            supportRequestWindowFeature(Window.FEATURE_PROGRESS);
+        }
         if (withActionBarOverlay) {
             supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR_OVERLAY);
         }
@@ -37,6 +46,10 @@ public abstract class ThemedActionBarActivity extends ActionBarActivity {
         getSupportActionBar().setIcon(R.drawable.search_w);
     }
 
+    /**
+     * Helper function to force the Activity to show the three-dot overflow icon in its ActionBar.
+     * @param activity Activity whose overflow icon will be forced.
+     */
     private static void forceOverflowMenuIcon(ActionBarActivity activity) {
         try {
             ViewConfiguration config = ViewConfiguration.get(activity);
@@ -54,4 +67,46 @@ public abstract class ThemedActionBarActivity extends ActionBarActivity {
         }
     }
 
+    /**
+     * Helper function to move the built-in ProgressBar that is part of the ActionBarActivity
+     * from the very top of the activity to the bottom of the ActionBar, where it looks better.
+     * Note: this only applies to API >10, since in API 10 the ProgressBar seems to be really
+     * wide, and actually looks better at the top of the activity.
+     * @param activity Activity whose ProgressBar to move.
+     */
+    public static void alignActivityProgressBar(ActionBarActivity activity) {
+        ViewGroup actionBar;
+        View progressBar;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            actionBar = (ViewGroup)activity.getWindow()
+                                           .getDecorView()
+                                           .findViewById(Resources.getSystem().getIdentifier("action_bar_container", "id", "android"));
+            progressBar = activity.getWindow()
+                                  .getDecorView()
+                                  .findViewById(Resources.getSystem().getIdentifier("progress_horizontal", "id", "android"));
+            TypedValue tv = new TypedValue();
+            if (activity.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
+            {
+                // get the default height of the ActionBar
+                int offsetHeight = TypedValue.complexToDimensionPixelSize(tv.data, activity.getResources().getDisplayMetrics());
+                // subtract just a little bit, so that the whole ProgressBar fits at the bottom of the ActionBar
+                offsetHeight -= (int)(2 * (activity.getResources().getDisplayMetrics().density));
+                // and modify the offset of the ProgressBar!
+                if (actionBar != null && progressBar != null && offsetHeight > 0) {
+                    ViewHelper.setTranslationY(progressBar, offsetHeight);
+                }
+            }
+        } else {
+            // but just in case we'll want to do this in 2.3, this is how to get the View ids:
+            /*
+            actionBar = (ViewGroup)activity.getWindow()
+                                           .getDecorView()
+                                           .findViewById(activity.getResources().getIdentifier("action_bar_container", "id", activity.getPackageName()));
+            progressBar = activity.getWindow()
+                                  .getDecorView()
+                                  .findViewById(activity.getResources().getIdentifier("progress_horizontal", "id", activity.getPackageName()));
+            */
+        }
+
+    }
 }

@@ -3,6 +3,7 @@
     <style name="Theme.WikiLight" parent="Theme.AppCompat.Light">
         <item name="android:actionBarItemBackground">@drawable/selectable_item_background</item>
         <item name="android:actionBarStyle">@style/ActionBar.Solid.WikiLight</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.WikiLight</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.WikiLight</item>
         <item name="android:actionDropDownStyle">@style/DropDownNav.WikiLight</item>
         <item name="android:windowBackground">@color/window_background_light</item>
@@ -23,6 +24,8 @@
 
     <style name="ActionBar.Solid.WikiLight" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
         <item name="android:background">@drawable/actionbar_themelight</item>
+        <item name="android:progressBarPadding">0dp</item>
+        <item name="progressBarPadding">0dp</item>
     </style>
 
     <style name="DropDownListView.WikiLight" parent="@style/Widget.AppCompat.Light.ListView.DropDown">
