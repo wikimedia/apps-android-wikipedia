@@ -197,6 +197,7 @@ public class SearchArticlesFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
+        ((PageActivity)getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(true);
         saveToBundle(getArguments());
     }
 
@@ -232,6 +233,7 @@ public class SearchArticlesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        ((PageActivity)getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(false);
         ((ActionBarActivity)getActivity()).getSupportActionBar().setTitle("");
     }
 

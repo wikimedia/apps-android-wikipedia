@@ -70,7 +70,11 @@ public class PageActivity extends ThemedActionBarActivity {
     private DrawerLayout drawerLayout;
     private NavDrawerFragment fragmentNavdrawer;
     private FindInPageFragment findInPageFragment;
+
     private ActionBarDrawerToggle mDrawerToggle;
+    public ActionBarDrawerToggle getDrawerToggle() {
+        return mDrawerToggle;
+    }
 
     /**
      * Get the Fragment that is currently at the top of the Activity's backstack.
@@ -248,6 +252,13 @@ public class PageActivity extends ThemedActionBarActivity {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                break;
+        }
         // Handle other action bar items...
         return super.onOptionsItemSelected(item);
     }
@@ -325,6 +336,12 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     public void popFragment() {
         getSupportFragmentManager().popBackStack();
+        // make sure the ActionBar is showing, since we could be currently scrolled down far enough
+        // within a Page fragment that the ActionBar is hidden, and if the previous fragment was
+        // a different type of fragment (e.g. History), the ActionBar would remain hidden.
+        if (!getSupportActionBar().isShowing()) {
+            getSupportActionBar().show();
+        }
     }
 
     public void search(final String searchTerm) {
@@ -347,6 +364,7 @@ public class PageActivity extends ThemedActionBarActivity {
         if (getTopFragment() instanceof SearchArticlesFragment) {
             popFragment();
         }
+        Utils.hideSoftKeyboard(this);
     }
 
     public void searchFullText(final String searchTerm) {
