@@ -17,6 +17,8 @@
         <item name="link_color">@color/link_light</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_light</item>
         <item name="actionbar_drawable">@drawable/actionbar_themelight</item>
+        <item name="ic_find_previous_drawable">@drawable/ic_find_previous_light</item>
+        <item name="ic_find_next_drawable">@drawable/ic_find_next_light</item>
     </style>
 
     <style name="ActionBar.Solid.WikiLight" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">

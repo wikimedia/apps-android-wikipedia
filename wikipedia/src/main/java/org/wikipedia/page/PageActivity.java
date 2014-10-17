@@ -69,7 +69,6 @@ public class PageActivity extends ThemedActionBarActivity {
     private View fragmentContainerView;
     private DrawerLayout drawerLayout;
     private NavDrawerFragment fragmentNavdrawer;
-    private FindInPageFragment findInPageFragment;
 
     private ActionBarDrawerToggle mDrawerToggle;
     public ActionBarDrawerToggle getDrawerToggle() {
@@ -136,7 +135,6 @@ public class PageActivity extends ThemedActionBarActivity {
             }
         }
 
-        findInPageFragment = (FindInPageFragment) getSupportFragmentManager().findFragmentById(R.id.find_in_page_fragment);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navdrawer);
 
@@ -379,8 +377,6 @@ public class PageActivity extends ThemedActionBarActivity {
         if (drawerLayout.isDrawerOpen(Gravity.START)) {
             drawerLayout.closeDrawer(Gravity.START);
         }
-        findInPageFragment.clear();
-        findInPageFragment.hide();
         if (title.isSpecial()) {
             Utils.visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
             return;
@@ -391,6 +387,7 @@ public class PageActivity extends ThemedActionBarActivity {
             if (((PageViewFragment)getTopFragment()).getFragment().getTitle().equals(title)) {
                 return;
             }
+            getCurPageFragment().closeFindInPage();
         }
 
         pushFragment(PageViewFragment.newInstance(title, entry));
@@ -463,7 +460,10 @@ public class PageActivity extends ThemedActionBarActivity {
 
     @Subscribe
     public void onFindInPage(FindInPageEvent event) {
-        findInPageFragment.show();
+        if (getCurPageFragment() == null) {
+            return;
+        }
+        getCurPageFragment().showFindInPage();
     }
 
     @Subscribe
@@ -516,9 +516,6 @@ public class PageActivity extends ThemedActionBarActivity {
         }
         if (getTopFragment() instanceof SearchArticlesFragment) {
             closeSearch();
-            return;
-        }
-        if (findInPageFragment.handleBackPressed()) {
             return;
         }
         if (!(getCurPageFragment() != null && getCurPageFragment().handleBackPressed())) {

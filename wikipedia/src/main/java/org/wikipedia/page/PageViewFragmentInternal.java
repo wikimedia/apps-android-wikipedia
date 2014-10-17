@@ -43,7 +43,9 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.view.ActionMode;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -126,6 +128,7 @@ public class PageViewFragmentInternal {
     private ReferenceDialog referenceDialog;
     private EditHandler editHandler;
     private NightModeHandler nightModeHandler;
+    private ActionMode findInPageActionMode;
 
     private WikipediaApp app;
     private Bus bus;
@@ -577,6 +580,49 @@ public class PageViewFragmentInternal {
         }
     }
 
+    public void showFindInPage() {
+        final PageActivity pageActivity = (PageActivity) getActivity();
+        final FindInPageActionProvider findInPageActionProvider = new FindInPageActionProvider(pageActivity);
+
+        pageActivity.startSupportActionMode(new ActionMode.Callback() {
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                findInPageActionMode = mode;
+                MenuItem menuItem = menu.add(R.string.find_in_page);
+                MenuItemCompat.setActionProvider(menuItem, findInPageActionProvider);
+                return true;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                return false;
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+                findInPageActionMode = null;
+                webView.clearMatches();
+                if (!pageActivity.getSupportActionBar().isShowing()) {
+                    pageActivity.getSupportActionBar().show();
+                }
+                Utils.hideSoftKeyboard(pageActivity);
+            }
+        });
+    }
+
+    public boolean closeFindInPage() {
+        if (findInPageActionMode != null) {
+            findInPageActionMode.finish();
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Save the history entry for the specified page.
      */
@@ -884,6 +930,9 @@ public class PageViewFragmentInternal {
     public boolean handleBackPressed() {
         if (tocHandler != null && tocHandler.isVisible()) {
             tocHandler.hide();
+            return true;
+        }
+        if (closeFindInPage()) {
             return true;
         }
         return false;

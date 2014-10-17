@@ -19,6 +19,8 @@
         <item name="link_color">@color/link_dark</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_dark</item>
         <item name="actionbar_drawable">@drawable/actionbar_themedark</item>
+        <item name="ic_find_previous_drawable">@drawable/ic_find_previous_dark</item>
+        <item name="ic_find_next_drawable">@drawable/ic_find_next_dark</item>
     </style>
 
     <style name="ActionBar.Solid.WikiDark" parent="@style/Widget.AppCompat.ActionBar.Solid">

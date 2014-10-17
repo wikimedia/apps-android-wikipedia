@@ -1,37 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
               android:id="@+id/find_in_page_container"
-        android:visibility="gone"
-        android:background="?attr/search_background_color"
         android:layout_gravity="top"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <Button
-            android:id="@+id/find_in_page_close"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:clickable="true"
-            android:background="@drawable/selectable_item_background"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="✕"
-            android:contentDescription="@string/find_close"
-            tools:ignore="HardcodedText"/>
-    <org.wikipedia.views.PlainPasteEditText
+    <android.support.v7.widget.SearchView
             android:id="@+id/find_in_page_input"
             android:inputType="text"
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:hint="@string/find_in_page"
-            android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:singleLine="true"
-            android:background="@null"
-            android:textCursorDrawable="@null"
             />
     <TextView
             android:id="@+id/find_in_page_match"
@@ -41,7 +24,7 @@
             android:gravity="center"
             style="?android:textAppearanceSmall"
             />
-    <Button
+    <ImageButton
             android:id="@+id/find_in_page_prev"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -51,9 +34,8 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:contentDescription="@string/find_previous"
-            android:text="↑"
-            tools:ignore="HardcodedText"/>
-    <Button
+            android:src="?attr/ic_find_previous_drawable"/>
+    <ImageButton
             android:id="@+id/find_in_page_next"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -63,6 +45,5 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:contentDescription="@string/find_next"
-            android:text="↓"
-            tools:ignore="HardcodedText"/>
+            android:src="?attr/ic_find_next_drawable"/>
 </LinearLayout>
