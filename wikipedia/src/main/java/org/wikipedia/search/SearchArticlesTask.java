@@ -8,25 +8,23 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.content.Context;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 
 public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
     private final String prefix;
     private final Site site;
-    private final WikipediaApp app;
+
+    private static final String NUM_RESULTS_PER_QUERY = "12";
 
     public SearchArticlesTask(Context context, Api api, Site site, String prefix) {
         super(HIGH_CONCURRENCY, api);
         this.prefix = prefix;
         this.site = site;
-        this.app = (WikipediaApp)context.getApplicationContext();
     }
 
     @Override
@@ -35,17 +33,20 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
                 .param("generator", "prefixsearch")
                 .param("gpssearch", prefix)
                 .param("gpsnamespace", "0")
-                .param("gpslimit", "12")
+                .param("gpslimit", NUM_RESULTS_PER_QUERY)
                 .param("prop", "pageimages")
                 .param("piprop", "thumbnail")
                 .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE_SEARCH))
-                .param("pilimit", "12");
+                .param("pilimit", NUM_RESULTS_PER_QUERY)
+                .param("list", "prefixsearch")
+                .param("pssearch", prefix)
+                .param("pslimit", NUM_RESULTS_PER_QUERY);
     }
 
     @Override
     public List<PageTitle> processResult(final ApiResult result) throws Throwable {
         ArrayList<PageTitle> pageTitles = new ArrayList<PageTitle>();
-        JSONObject data = null;
+        JSONObject data;
         try {
             data = result.asObject();
         } catch (ApiException e) {
@@ -56,26 +57,29 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
                 throw new RuntimeException(e);
             }
         }
+
+        /*
+        So here's what we're doing here:
+        We're requesting two sets of results with our API query. They both contain the same titles,
+        but in different orders.  The results given by "list=prefixsearch" give us the results in
+        the correct order, but with no thumbnails.  The results given by "generator=prefixsearch"
+        give the results in the wrong order, but with thumbnails!  So, all we have to do is use the
+        first list, and correlate the pageids with the second list to extract the thumbnails.
+        */
         JSONObject query = data.optJSONObject("query");
         JSONObject pages = query.getJSONObject("pages");
+        JSONArray prefixsearch = query.getJSONArray("prefixsearch");
 
-        Iterator<String> keys = pages.keys();
-        while (keys.hasNext()) {
-            String key = keys.next();
-            JSONObject page = pages.getJSONObject(key);
+        for (int i = 0; i < prefixsearch.length(); i++) {
             String thumbUrl = null;
-            if (page.has("thumbnail")) {
-                thumbUrl = page.getJSONObject("thumbnail").getString("source");
+            JSONObject item = prefixsearch.getJSONObject(i);
+            String pageid = item.getString("pageid");
+            if (pages.has(pageid) && pages.getJSONObject(pageid).has("thumbnail")) {
+                thumbUrl = pages.getJSONObject(pageid)
+                                .getJSONObject("thumbnail").getString("source");
             }
-            pageTitles.add(new PageTitle(page.getString("title"), site, thumbUrl));
+            pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl));
         }
-
-        Collections.sort(pageTitles, new Comparator<PageTitle>() {
-            @Override
-            public int compare(PageTitle pageTitle, PageTitle pageTitle2) {
-                return pageTitle.getDisplayText().compareTo(pageTitle2.getDisplayText());
-            }
-        });
 
         return pageTitles;
     }
