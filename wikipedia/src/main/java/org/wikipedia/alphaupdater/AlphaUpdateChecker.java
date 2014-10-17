@@ -34,7 +34,7 @@ public class AlphaUpdateChecker extends RecurringTask {
         // Check for updates!
         String responseJSON;
         try {
-            HttpRequest request = HttpRequest.get("http://android-builds.wmflabs.org/runs/latest/meta.json");
+            HttpRequest request = HttpRequest.get("https://android-builds.wmflabs.org/runs/latest/meta.json");
             responseJSON = request.body();
         } catch (HttpRequest.HttpRequestException e) {
             // It's ok, we can do nothing.
@@ -58,7 +58,7 @@ public class AlphaUpdateChecker extends RecurringTask {
     }
 
     private void showNotification() {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://android-builds.wmflabs.org/runs/latest/wikipedia.apk"));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://android-builds.wmflabs.org/runs/latest/wikipedia.apk"));
         PendingIntent pintent = PendingIntent.getActivity(getContext(), 0, intent, 0);
 
         Notification notification = new NotificationCompat.Builder(getContext()).setSmallIcon(R.drawable.launcher_alpha)
