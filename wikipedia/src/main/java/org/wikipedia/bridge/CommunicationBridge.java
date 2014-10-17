@@ -1,6 +1,5 @@
 package org.wikipedia.bridge;
 
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -59,12 +58,11 @@ public class CommunicationBridge {
     }
 
     public void cleanup() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            webView.removeJavascriptInterface("marshaller");
-        }
-        webView.setWebChromeClient(null);
         eventListeners.clear();
-        incomingMessageHandler.removeCallbacksAndMessages(null);
+        if (incomingMessageHandler != null) {
+            incomingMessageHandler.removeCallbacksAndMessages(null);
+            incomingMessageHandler = null;
+        }
     }
 
     public void addListener(String type, JSEventListener listener) {
@@ -122,15 +120,20 @@ public class CommunicationBridge {
         @Override
         public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
             try {
-                JSONObject messagePack = new JSONObject(URLDecoder.decode(message, "utf-8"));
-                Message msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS, messagePack);
-                incomingMessageHandler.sendMessage(msg);
-                result.confirm();
+                // If incomingMessageHandler is null, it means that we've been cleaned up, but we're
+                // still receiving some final messages from the WebView, so we'll just ignore them.
+                // But we should still return true and "confirm" the JsPromptResult down below.
+                if (incomingMessageHandler != null) {
+                    JSONObject messagePack = new JSONObject(URLDecoder.decode(message, "utf-8"));
+                    Message msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS, messagePack);
+                    incomingMessageHandler.sendMessage(msg);
+                }
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             } catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);
             }
+            result.confirm();
             return true;
         }
 
