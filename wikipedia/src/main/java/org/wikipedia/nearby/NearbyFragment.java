@@ -68,6 +68,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     private static final double METER_TO_FEET = 3.280839895;
     private static final int ONE_MILE = 5280;
 
+    private ViewGroup nearbyContainer;
     private ListView nearbyList;
     private View nearbyLoadingContainer;
     private View nearbyEmptyContainer;
@@ -119,6 +120,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_nearby, container, false);
 
+        nearbyContainer = (ViewGroup) rootView.findViewById(R.id.nearby_container);
         nearbyList = (ListView) rootView.findViewById(R.id.nearby_list);
         nearbyLoadingContainer = rootView.findViewById(R.id.nearby_loading_container);
         nearbyEmptyContainer = rootView.findViewById(R.id.nearby_empty_container);
@@ -320,13 +322,13 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                     }
                     if (caught instanceof ApiException) {
                         if (caught.getCause() instanceof UnknownHostException) {
-                            Crouton.makeText(getActivity(), R.string.nearby_no_network, Style.ALERT).show();
+                            Crouton.makeText(getActivity(), R.string.nearby_no_network, Style.ALERT, nearbyContainer).show();
                         } else {
-                            Crouton.makeText(getActivity(), R.string.error_network_error, Style.ALERT).show();
+                            Crouton.makeText(getActivity(), R.string.error_network_error, Style.ALERT, nearbyContainer).show();
                         }
                     } else if (caught instanceof NearbyFetchException) {
                         Log.e("Wikipedia", "Could not get list of nearby places: " + caught.toString());
-                        Crouton.makeText(getActivity(), R.string.nearby_server_error, Style.ALERT).show();
+                        Crouton.makeText(getActivity(), R.string.nearby_server_error, Style.ALERT, nearbyContainer).show();
                     } else {
                         super.onCatch(caught);
                     }
