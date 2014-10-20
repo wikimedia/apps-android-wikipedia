@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">Berdekatan</string>
   <string name="nav_item_nearby">Berdekatan</string>
   <string name="menu_update_nearby">Kemaskini laman berdekatan</string>
-  <string name="nearby_empty_title" fuzzy="true">Tiada laman berdekatan</string>
-  <string name="nearby_empty_message" fuzzy="true">Anda boleh memuat semula laman ini setelah berpindah ke lokasi baru.</string>
+  <string name="nearby_empty_title">Tiada laman berdekatan di sini!</string>
+  <string name="nearby_empty_message">Apabila bergerak ke lokasi baru, cuba muat semula (\'\'refresh\'\') halaman ini untuk mengetahui lebih lanjut mengenai apa-apa yang ada di sekeliling anda.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d kaki</string>

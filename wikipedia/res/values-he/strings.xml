@@ -11,7 +11,7 @@
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="history_activity_title">היסטוריה</string>
   <string name="nav_item_history">היסטוריה</string>
-  <string name="error_network_error">לא הייתה גישה לרשת :(</string>
+  <string name="error_network_error">אין גישה לרשת :(</string>
   <string name="search_network_error">שגיאת רשת. יש ללחוץ כדי לנסות שוב.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="menu_clear_all_history">ניקוי היסטוריה</string>
@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">בסביבה</string>
   <string name="nav_item_nearby">בסביבה</string>
   <string name="menu_update_nearby">עדכון בסביבה</string>
-  <string name="nearby_empty_title" fuzzy="true">אין דפים בסביבה</string>
-  <string name="nearby_empty_message" fuzzy="true">באפשרותך לרענן את הדף הזה בעת מעבר למיקום חדש.</string>
+  <string name="nearby_empty_title">אין דפים על דברים כאן בסביבה!</string>
+  <string name="nearby_empty_message">אחרי מעבר למקום אחר יש לנסות לרענן את הדף הזה כדי ללמוד עוד על דברים בסביבתך.</string>
   <string name="nearby_distance_in_meters">%d מ\'</string>
   <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
   <string name="nearby_distance_in_feet">%d רגל</string>

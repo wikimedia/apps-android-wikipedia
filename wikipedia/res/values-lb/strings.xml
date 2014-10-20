@@ -42,7 +42,7 @@
   <string name="saved_pages_search_empty_message">Keng Säite fonnt déi Ärer Ufro entspriechen.</string>
   <string name="nearby_activity_title">Nobäi</string>
   <string name="nav_item_nearby">Nobäi</string>
-  <string name="nearby_empty_title" fuzzy="true">Keng Säiten nobäi</string>
+  <string name="nearby_empty_title">Keng Säiten hei nobäi!</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
   <string name="nearby_distance_in_miles">%.2f Meilen</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>

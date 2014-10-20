@@ -43,7 +43,7 @@
   <string name="nearby_activity_title">In de buurt</string>
   <string name="nav_item_nearby">In de buurt</string>
   <string name="menu_update_nearby">In de buurt bijwerken</string>
-  <string name="nearby_empty_title" fuzzy="true">Geen pagina\'s in de buurt</string>
+  <string name="nearby_empty_title">Geen pagina\'s in de buurt!</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d voet</string>

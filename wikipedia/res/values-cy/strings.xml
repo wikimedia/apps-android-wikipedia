@@ -2,6 +2,9 @@
 <resources>
   <string name="app_name">Wicipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wicipedia Alffa</string>
+  <string name="yes">Ydw/Ie/Iawn</string>
+  <string name="no">Nac ydw / Na</string>
   <string name="acra_report_dialog_title">Mae Wicipedia wedi cael damwain :(</string>
   <string name="acra_report_dialog_text">Danfonwch adroddiad ar y chwalfa atom</string>
   <string name="acra_report_dialog_comment">Beth oeddech yn ei wneud pan fethodd Wicipedia?</string>
@@ -15,9 +18,14 @@
   <string name="menu_clear_all_bookmarks">Clirio\'r nodau tudalen</string>
   <string name="menu_clear_all_saved_pages">Clirio\'r tudalennau a gadwyd</string>
   <string name="page_does_not_exist_error">Does dim tudalen o\'r enw hwn ar gael.</string>
+  <string name="nav_item_today">Heddiw</string>
   <string name="dialog_title_clear_history">Clirio\'r hanes pori?</string>
   <string name="saved_pages_activity_title">Tudalennau a gadwyd</string>
   <string name="nav_item_saved_pages">Tudalennau a gadwyd</string>
+  <string name="menu_update_all_saved_pages">Diweddarwch tudalennau sydd wedi\'u cadw</string>
+  <string name="menu_update_selected_saved_pages">Diweddarwch tudalennau sydd wed\'u harbed</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">Diweddarwch pob tudalen sydd wedi\'u harbed?</string>
+  <string name="toast_saved_page_refreshed">Mae\'r tudalennau a arbedwyd wedi\'u diweddaru</string>
   <string name="menu_save_page">Cadw\'r dudalen</string>
   <string name="menu_share_page">Rhannwch</string>
   <string name="share_via">Rhannu drwy</string>
@@ -25,20 +33,41 @@
   <string name="dialog_message_clear_saved_pages">Ydych chi\'n siwr eich bod am glirio\'r holl dudalennau a gadwyd?</string>
   <string name="toast_saving_page">Wrthi\'n rhoi\'r dudalen ar gadw...</string>
   <string name="toast_saved_page">Cadwyd y dudalen yn llwyddiannus</string>
-  <string name="toast_save_page_failed" fuzzy="true">Methwyd a chadw\'r dudalen :(</string>
+  <string name="toast_saved_page_missing_images">Methwyd arbed pob delwedd</string>
+  <string name="toast_save_page_failed">Methwyd ac arbed y dudalen :(</string>
+  <string name="toast_refresh_saved_page">Wrthi\'n adnewyddu\'r dudalen a arbedwyd</string>
   <string name="delete_selected_saved_pages">Dileu</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Dilewyd y dudalen / tudalennau</string>
+  <string name="toast_saved_page_deleted">Diddymwyd y dudalen/au a ddilewyd</string>
+  <string name="saved_pages_search_list_hint">Chwilio</string>
+  <string name="saved_pages_search_empty_message">Ni chafwyd hyn i\'r dudalen y chwiliwch amdani</string>
+  <string name="nearby_activity_title">Gerllaw</string>
+  <string name="nav_item_nearby">Gerllaw</string>
+  <string name="menu_update_nearby">Diweddarwch y tudalenau sydd gerllaw</string>
+  <string name="nearby_empty_title">Nid oes tudalennau cyfagos yma!</string>
+  <string name="nearby_empty_message">Pan fyddwch yn symud i leoliad newydd, ceisiwch adnewyddu\'r dudalen hon i ddysgu mwy am yr hyn sydd o\'ch cwmpas.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d tr</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
+  <string name="nearby_no_network">Dim cysylltiad i\'r rhwydwaith</string>
+  <string name="nearby_server_error">Methwyd a chael gafael ar restr o lefydd gerllaw.</string>
+  <string name="nearby_no_location">Methwyd a chael lleoliad</string>
+  <string name="nearby_set_metric">Dangoser mewn metrau/km</string>
+  <string name="nearby_set_imperial">Dangoser mewn tr/mill</string>
   <string name="last_updated_text">Diweddarwyd ddiwethaf%1$s</string>
-  <string name="content_license_html" fuzzy="true">Mae\'r cynnwys ar gael dan &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC 3.0 gan SA&lt;/a&gt; oni nodir fel arall</string>
+  <string name="content_license_html">Mae\'r cynnwys ar gael dan &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC 3.0 gan SA&lt;/a&gt; oni nodir fel arall</string>
+  <string name="edit_save_action_license_logged_in">Drwy arbed, rydych yn cytuno i &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, ac i ryddhau eich cyfraniad mewn modd di-droi\'n-ol ar drwydded &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Wicipedia pa iaith?</string>
   <string name="preference_summary_language">Cynnwys iaith</string>
   <string name="preference_languages_filter_hint">Chwilio</string>
   <string name="langlinks_filter_hint">Chwilier</string>
   <string name="menu_other_languages">Darllen mewn ieithoedd eraill</string>
   <string name="langlinks_error_retry">Ailgeisiwch</string>
-  <string name="langlinks_empty" fuzzy="true">Nid yw\'r erthygl hon ar gael mewn ieithoedd eraill</string>
+  <string name="langlinks_empty">Nid yw\'r erthygl hon ar gael mewn ieithoedd eraill.</string>
+  <string name="langlinks_no_match">Nid yw\'r iaith a gesiwch ar gael.</string>
   <string name="settings_activity_title">Gosodiadau</string>
   <string name="langlinks_activity_title">Ieithoedd eraill</string>
+  <string name="menu_save_changes">Cadw\'r holl newidiadau</string>
   <string name="edit_section_error_retry">Ailgeisiwch</string>
   <string name="dialog_saving_in_progress">Yn cadw...</string>
   <string name="edit_saved_successfully">Cadwyd y golygiad!</string>

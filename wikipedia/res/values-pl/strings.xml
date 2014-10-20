@@ -41,10 +41,11 @@
   <string name="saved_pages_search_empty_message">Nie znaleziono stron pasujących do twojego zapytania.</string>
   <string name="nearby_activity_title">W pobliżu</string>
   <string name="nav_item_nearby">W pobliżu</string>
-  <string name="nearby_empty_message" fuzzy="true">Możesz odświeżyć tę stronę po przeniesieniu się do nowej lokalizacji.</string>
+  <string name="nearby_empty_message">Kiedy przenosisz się do nowej lokalizacji, spróbuj odświeżyć tę stronę, aby dowiedzieć się więcej o tym, co jest wokół Ciebie.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d stóp</string>
+  <string name="nearby_distance_in_miles">%.2f mil</string>
   <string name="nearby_no_network">Brak połączenia z siecią</string>
   <string name="nearby_server_error">Nie można uzyskać listy miejsc w pobliżu.</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
@@ -226,4 +227,5 @@
   <string name="search_error_retry">Ponów próbę</string>
   <string name="search_redirect_title">Przekierowanie z „%s”.</string>
   <string name="alpha_update_notification_title">Dostępna jest nowa aktualizacja alfa</string>
+  <string name="alpha_update_notification_text">Kliknij, aby pobrać.</string>
 </resources>

@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">附近</string>
   <string name="nav_item_nearby">附近</string>
   <string name="menu_update_nearby">更新附近</string>
-  <string name="nearby_empty_title" fuzzy="true">附近没有页面</string>
-  <string name="nearby_empty_message" fuzzy="true">当您移动到一个新的位置时您可以刷新此页面。</string>
+  <string name="nearby_empty_title">此处附近没有页面！</string>
+  <string name="nearby_empty_message">当您移动到一个新的位置，尝试刷新此页面以了解您周围的更多事物。</string>
   <string name="nearby_distance_in_meters">%d米</string>
   <string name="nearby_distance_in_kilometers">%.2f千米</string>
   <string name="nearby_distance_in_feet">%d英尺</string>

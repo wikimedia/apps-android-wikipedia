@@ -43,10 +43,11 @@
   <string name="nearby_activity_title">Nelle vicinanze</string>
   <string name="nav_item_nearby">Nelle vicinanze</string>
   <string name="menu_update_nearby">Aggiorna nelle vicinanze</string>
-  <string name="nearby_empty_title" fuzzy="true">Nessuna pagina nelle vicinanze</string>
-  <string name="nearby_empty_message" fuzzy="true">Quando ti sposti in una nuova posizione, è possibile aggiornare questa pagina.</string>
+  <string name="nearby_empty_title">Nessuna pagina nelle vicinanze qui!</string>
+  <string name="nearby_empty_message">Quando ti sposti in una nuova posizione, prova ad aggiornare questa pagina per saperne di più su ciò che c\'è vicino a te.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Nessuna connessione di rete</string>
   <string name="nearby_server_error">Non posso ricevere l\'elenco dei posti nelle vicinanze.</string>

@@ -36,6 +36,7 @@
   <string name="delete_selected_saved_pages">நீக்குக</string>
   <string name="toast_saved_page_deleted">சேமிக்கப்பட்ட பக்கங்கள் அழிக்கப்பட்டன</string>
   <string name="saved_pages_search_list_hint">தேடுக</string>
+  <string name="nearby_set_metric">மீ/கிமீ காட்டுக</string>
   <string name="last_updated_text">இறுதியாக புதுப்பிக்கப்பட்டது %1$s</string>
   <string name="preference_title_language">விக்கப்பீடியா மொழி</string>
   <string name="preference_summary_language">உள்ளடக்க மொழி</string>

@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="nav_item_nearby">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="menu_update_nearby">ਨੇੜੇ-ਤੇੜੇ ਅੱਪਡੇਟ ਕਰੋ</string>
-  <string name="nearby_empty_title" fuzzy="true">ਨੇੜੇ-ਤੇੜੇ ਕੋਈ ਵਰਕੇ ਨਹੀਂ</string>
-  <string name="nearby_empty_message" fuzzy="true">ਨਵੀਂ ਥਾਂ \'ਤੇ ਜਾਣ ਵੇਲੇ ਤੁਸੀ ਇਸ ਵਰਕੇ ਨੂੰ ਮੁੜ-ਤਾਜ਼ਾ ਕਰ ਸਕਦੇ ਹੋ।</string>
+  <string name="nearby_empty_title">ਇੱਥੇ ਨੇੜੇ-ਤੇੜੇ ਦੇ ਕੋਈ ਸਫ਼ੇ ਨਹੀਂ!</string>
+  <string name="nearby_empty_message">ਜਦੋਂ ਤੁਸੀਂ ਕਿਸੇ ਨਵੀਂ ਥਾਂ \'ਤੇ ਜਾਂਦੇ ਹੋਂ ਤਾਂ ਆਪਣੇ ਆਲ਼ੇ-ਦੁਆਲ਼ੇ ਬਾਬਤ ਹੋਰ ਜਾਣਨ ਵਾਸਤੇ ਇਸ ਸਫ਼ੇ ਨੂੰ ਮੁੜ-ਤਾਜ਼ਾ ਕਰ ਸਕਦੇ ਹੋ।</string>
   <string name="nearby_distance_in_meters">%d ਮੀਟਰ</string>
   <string name="nearby_distance_in_kilometers">%.2f ਕਿ.ਮੀ.</string>
   <string name="nearby_distance_in_feet">%d ਫੁੱਟ</string>
@@ -57,6 +57,8 @@
   <string name="nearby_set_imperial">ਫੁੱਟ/ਮੀਲ ਵਿਖਾਉ</string>
   <string name="last_updated_text">ਆਖ਼ਰੀ ਵਾਰ ਨਵਿਆਇਆ %s</string>
   <string name="content_license_html">ਕੁਝ ਹੋਰ ਨਾ ਦੱਸੇ ਜਾਣ ਦੀ ਸੂਰਤ ਵਿੱਚ ਸਮੱਗਰੀ &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਹੇਠ ਮੌਜੂਦ ਹੈ</string>
+  <string name="edit_save_action_license_logged_in">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ।</string>
+  <string name="edit_save_action_license_anon">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ. ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
   <string name="preference_title_language">ਵਿਕੀਪੀਡੀਆ ਬੋਲੀ</string>
   <string name="preference_summary_language">ਅੰਦਰਲੀ ਸਮੱਗਰੀ ਦੀ ਬੋਲੀ</string>
   <string name="preference_languages_filter_hint">ਖੋਜ</string>
@@ -76,10 +78,12 @@
   <string name="dialog_message_edit_failed_cancel">ਰੱਦ ਕਰੋ</string>
   <string name="menu_show_toc">ਸਮੱਗਰੀ ਸਾਰਣੀ</string>
   <string name="search_no_results_found">ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਲੱਭਿਆ</string>
+  <string name="edit_section_captcha_message">ਆਪੇ ਚੱਲਦੇ ਊਲ-ਜਲੂਲ ਤੋਂ ਬਚਣ ਵਿੱਚ ਮਦਦ ਕਰਨ ਵਾਸਤੇ ਹੇਠਾਂ ਵਿਖ ਰਹੇ ਸ਼ਬਦ ਭਰੋ ਜੀ।</string>
   <string name="edit_section_captcha_hint">ਉੱਤੇ ਦਿੱਤੇ ਸ਼ਬਦਾਂ ਨੂੰ ਦੁਹਰਾਉ</string>
   <string name="title_captcha">ਕੈਪਚਾ ਭਰੋ</string>
   <string name="edit_section_abusefilter_back_text">ਮੇਰੀ ਸੋਧ ਵਿੱਚ ਫੇਰ-ਬਦਲ ਕਰੋ</string>
   <string name="edit_section_captcha_reload">ਮੁੜ ਲਿਆਉਣ ਵਾਸਤੇ ਕੈਪਚਾ ਟਕੋਰੋ</string>
+  <string name="edit_saved_page_refresh">ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਸਾਂਭਿਆ ਹੋਇਆ ਇਹ ਸਫ਼ਾ ਪੁਰਾਣਾ ਪੈ ਗਿਆ ਹੋ ਅਤੇ ਸੁਧਾਈ ਚਾਲੂ ਕਰਨ ਵਾਸਤੇ ਇਹਨੂੰ ਮੁੜ-ਤਾਜ਼ਾ ਕਰਨਾ ਪਵੇਗਾ। ਕੀ ਤੁਸੀਂ ਇਸ ਸਫ਼ੇ ਨੂੰ ਤਾਜ਼ਾ ਕਰਨਾ ਲੋਚਦੇ ਹੋ?</string>
   <string name="nav_item_login">ਦਾਖ਼ਲਾ</string>
   <string name="login_username_hint">ਵਰਤੋਂਕਾਰ ਨਾਂ</string>
   <string name="login_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
@@ -100,7 +104,9 @@
   <string name="preference_summary_notloggedin">ਦਾਖ਼ਲ ਨਹੀਂ ਹੋ।</string>
   <string name="toast_logout_complete">ਬਾਹਰ ਆਏ</string>
   <string name="saved_pages_empty_title">ਇੱਥੇ ਕੋਈ ਸਾਂਭੇ ਵਰਕੇ ਨਹੀਂ!</string>
+  <string name="saved_pages_empty_message">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਡਾਢੇ ਵਧੀਆ ਹੁੰਦੇ ਹਨ। ਉਹਨਾਂ ਨੂੰ ਅਜਿਹੇ ਨਿਸ਼ਾਨੀਆ ਕਾਗਜ਼ ਸਮਝੋ ਜਿਹਨਾਂ ਨੂੰ ਤੁਸੀਂ ਲੀਹੋਂ ਲਹਿ ਕੇ ਵੀ ਪੜ੍ਹ ਸਕਦੇ ਹੋ।</string>
   <string name="history_empty_title">ਇੱਥੇ ਕੋਈ ਹਾਲੀਆ ਵਰਕੇ ਨਹੀਂ!</string>
+  <string name="history_empty_message">ਤੁਸੀਂ ਸ਼ਾਇਦ ਇਹ ਸਾਰੇ ਮਿਟਾ ਦਿੱਤੇ ਹਨ। ਅਗਲੀ ਵਾਰ ਜਦ ਤੁਸੀਂ ਕਿਸੇ ਸਫ਼ੇ \'ਤੇ ਜਾਉਂ ਤਾਂ ਤੁਸੀਂ ਇੱਥੋਂ ਉਹਦੇ ਤੱਕ ਪਰਤ ਸਕਦੇ ਹੋ।</string>
   <string name="wp_stylized">&lt;big&gt;ਵਿ&lt;/big&gt;ਕੀਪੀਡੀ&lt;big&gt;ਆ&lt;/big&gt;</string>
   <string name="wp_tag_line">ਮੁਫ਼ਤ ਗਿਆਨਕੋਸ਼</string>
   <string name="skip">ਛੱਡੋ</string>
@@ -134,6 +140,7 @@
   <string name="zero_charged_verbiage_extended">ਹੋਰ ਲੇਖ ਲਿਆਉਣ \'ਤੇ ਸਮੱਗਰੀ ਦਾ ਖ਼ਰਚਾ ਪੈ ਸਕਦਾ ਹੈ।</string>
   <string name="zero_search_hint">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਭਾਲ਼ੋ</string>
   <string name="zero_warn_when_leaving">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਛੱਡਣ \'ਤੇ ਸਚੇਤ ਕਰੋ</string>
+  <string name="zero_warn_when_leaving_summary">ਜੇਕਰ ਤੁਹਾਡਾ ਮੋਬਾਈਲ ਚਾਲਕ ਕਿਸੇ ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਸਾਂਝ ਰਾਹੀਂ ਵਿਕੀਪੀਡੀਆ ਐਪ ਵਾਸਤੇ ਡਾਟਾ ਤੱਕ ਪਹੁੰਚ ਦਾ ਖ਼ਰਚਾ ਮਾਫ਼ ਕਰਦਾ ਹੈ ਤਾਂ ਏਸ ਸੈਟਿੰਗ ਨੂੰ ਸਹੀ ਕਰ ਕੇ ਰੱਖਣ ਨਾਲ਼ ਤੁਹਾਨੂੰ ਪਤਾ ਲੱਗ ਜਾਵੇਗਾ ਕਿ ਤੁਸੀਂ ਕਦੋਂ ਵਿਕੀਪੀਡੀਆ ਐਪ ਛੱਡ ਕੇ ਜਾ ਰਹੇ ਹੋ ਅਤੇ ਪੈਸੇ ਪੈ ਸਕਦੇ ਹਨ।</string>
   <string name="zero_webpage_title">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਬਾਬਤ ਆਮ ਸੁਆਲ</string>
   <string name="zero_wikipedia_zero_heading">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ</string>
   <string name="zero_interstitial_title">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਛੱਡਿਆ ਜਾ ਰਿਹਾ ਹੈ</string>
@@ -145,22 +152,34 @@
   <string name="zero_learn_more_dismiss">ਖ਼ਾਰਜ ਕਰੋ</string>
   <string name="zero_settings">ਸੈਟਿੰਗਾਂ</string>
   <string name="zero_settings_devmode">ਜ਼ੀਰੋ ਵਿਕਾਸ ਤੌਰ</string>
+  <string name="zero_settings_devmode_summary">ਵਿਕਾਸ ਮੌਕੇ ਇਹ ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਦੀਆਂ ਚੀਜ਼ਾਂ ਦੇ ਕੋਡ ਦੀ ਤਾਮੀਲ ਨੂੰ ਚਾਲੂ ਕਰਦਾ ਹੈ।</string>
   <string name="edit_preview_fetching_dialog_message">ਝਾਤ ਲਿਆਈ ਜਾ ਰਹੀ ਹੈ...</string>
   <string name="edit_preview_activity_title">ਸੋਧ \'ਤੇ ਝਾਤ ਮਾਰੋ</string>
   <string name="create_account_logging_in">ਦਾਖ਼ਲਾ ਹੋ ਰਿਹਾ ਹੈ...</string>
+  <string name="send_feedback">ਐਪ ਬਾਬਤ ਜਾਣਕਾਰੀ ਵਾਪਸ ਘੱਲੋ</string>
+  <string name="edit_summary_guide_text">ਸਾਨੂੰ ਦੱਸੋ ਕਿ ਤੁਸੀਂ ਸਫ਼ਾ ਕਿਵੇਂ ਸੁਧਾਰਿਆ। ਅਜਿਹਾ ਕਰਨ ਨਾਲ਼ ਹੋਰ ਸੰਪਾਦਕਾਂ ਲਈ ਤੁਹਾਡੀਆਂ ਸੋਧਾਂ ਦੀ ਪੜਚੋਲ ਕਰਨੀ ਸੁਖਾਲ਼ੀ ਹੋ ਜਾਂਦੀ ਹੈ।</string>
   <string name="edit_summary_hint">ਸੋਧ ਸਾਰ</string>
   <string name="nav_item_random">ਰਲ਼ਵਾਂ</string>
   <string name="random_progress">ਰਲ਼ਵਾਂ ਸਫ਼ਾ ਲਿਆਇਆ ਜਾ ਰਿਹਾ ਹੈ...</string>
+  <string name="nav_item_login_benefits">ਜੇਕਰ ਤੁਸੀਂ ਦਾਖ਼ਲ ਹੁੰਦੇ ਹੋ ਤਾਂ ਤੁਹਾਡੀਆਂ ਸੋਧਾਂ ਦਾ ਸਿਹਰਾ ਤੁਹਾਡੇ ਵਰਤੋਂਕਾਰ-ਨਾਂ ਸਿਰ ਦਿੱਤਾ ਜਾਵੇਗਾ ਅਤੇ ਤੁਹਾਡਾ ਆਈ.ਪੀ. ਪਤਾ ਲੋਕਾਂ ਨੂੰ ਨਹੀਂ ਵਿਖੇਗਾ।</string>
   <string name="create_account_account_created_toast">ਖਾਤਾ ਬਣਿਆ!</string>
   <string name="user_contribs_more_action">ਹੋਰ ਲਿਆਉ</string>
   <string name="activity_my_contributions_title">ਮੇਰੇ ਯੋਗਦਾਨ</string>
   <string name="nav_item_my_contributions">ਮੇਰੇ ਯੋਗਦਾਨ</string>
   <string name="edit_save_action_login">ਦਾਖ਼ਲ ਹੋਵੋ ਅਤੇ ਸਾਂਭੋ</string>
   <string name="edit_save_action_ip">ਅਣਪਛਾਤੇ ਵਜੋਂ ਸਾਂਭੋ</string>
+  <string name="edit_save_action_login_description">ਤੁਹਾਡੀਆਂ ਸੋਧਾਂ ਦਾ ਸਿਹਰਾ ਜਨਤਕ ਤੌਰ \'ਤੇ ਤੁਹਾਡੇ ਵਰਤੋਂਕਾਰ-ਨਾਂ ਸਿਰ ਦਿੱਤਾ ਜਾਵੇਗਾ ਅਤੇ ਹੋਰ ਸੰਪਾਦਕ ਤੁਹਾਡੇ ਨਾਲ਼ ਚੰਗੇਰੀ ਤਰਾਂ ਰਾਬਤਾ ਬਣਾ ਸਕਦੇ ਹਨ</string>
+  <string name="edit_save_action_ip_description">ਤੁਹਾਡੀਆਂ ਸੋਧਾਂ ਦਾ ਸਿਹਰਾ ਤੁਹਾਡੇ ਆਈ.ਪੀ. ਪਤੇ ਸਿਰ ਦਿੱਤਾ ਜਾਵੇਗਾ ਜੋ ਵਾਰ-ਵਾਰ ਬਦਲਦਾ ਰਹਿੰਦਾ ਹੈ।</string>
   <string name="preference_title_eventlogging_opt_in">ਵਰਤੋਂ ਦੀਆਂ ਇਤਲਾਹਾਂ ਘੱਲੋ</string>
+  <string name="preference_summary_eventlogging_opt_in">ਇਸ ਐਪ ਨੂੰ ਚੰਗੇਰੀ ਬਣਾਉਣ ਵਾਸਤੇ ਵਿਕੀਮੀਡੀਆ ਨੂੰ ਤੁਹਾਡੇ ਇਸ ਐਪ ਨੂੰ ਵਰਤਣ ਦੇ ਤਰੀਕੇ ਬਾਬਤ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਉ।</string>
   <string name="history_search_list_hint">ਭਾਲ਼ੋ</string>
   <string name="history_search_empty_message">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮੇਲ ਖਾਂਦਾ ਕੋਈ ਵਰਕਾ ਨਹੀਂ ਲੱਭਿਆ।</string>
   <string name="error_can_not_process_link">ਇਹ ਕੜੀ ਵਿਖਾਈ ਨਾ ਜਾ ਸਕੀ</string>
+  <string name="page_protected_autoconfirmed">ਇਹ ਸਫ਼ਾ ਨੀਮ-ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
+  <string name="page_protected_sysop">ਇਹ ਸਫ਼ਾ ਪੂਰਾ ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
+  <string name="page_protected_other">ਇਸ ਸਫ਼ੇ ਨੂੰ ਇਹਨਾਂ ਤਹਿਆਂ ਤੱਕ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ ਹੈ: $s</string>
+  <string name="page_protected_can_not_edit">ਤੁਹਾਡੇ ਕੋਲ਼ ਇਸ ਸਫ਼ੇ ਦੀ ਸੁਧਾਈ ਕਰਨ ਦੇ ਹੱਕ ਨਹੀਂ ਹਨ</string>
+  <string name="page_protected_can_not_edit_title">ਇਹ ਸਫ਼ਾ ਸੁਰੱਖਿਅਤ ਹੈ</string>
   <string name="more_item_preferences">ਹੋਰ</string>
   <string name="more_activity_title">ਹੋਰ</string>
   <string name="about_description">ਵਿਕੀਪੀਡੀਆ ਐਪ ਬਾਬਤ</string>
@@ -172,8 +191,14 @@
   <string name="about_libraries_heading">ਵਰਤੀਆਂ ਲਾਈਬਰੇਰੀਆਂ</string>
   <string name="about_contributors_heading">ਯੋਗਦਾਨੀ</string>
   <string name="about_translators_heading">ਤਰਜਮਾਕਾਰ</string>
+  <string name="about_translators_translatewiki">ਇਸ ਐਪ ਦਾ ਤਰਜਮਾ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ਵਿਖੇ ਸਵੈਇੱਛਕ ਤਰਜਮਾਕਾਰਾਂ ਨੇ ਕੀਤਾ ਸੀ।</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ਵਿਕੀਮੀਡੀਆ ਸੰਸਥਾ&lt;/a&gt; ਦੀ ਇੱਕ ਉਪਜ</string>
   <string name="about_activity_title">ਬਾਬਤ</string>
   <string name="edit_unchanged">ਇਹ ਸਫ਼ਾ ਬਦਲਿਆ ਨਹੀਂ ਗਿਆ ਹੈ।</string>
+  <string name="edit_abandon_confirm">ਇਹ ਸਫ਼ਾ ਬਦਲਿਆ ਗਿਆ ਹੈ? ਕੀ ਤੁਸੀਂ ਸੱਚੀਂ ਤਬਦੀਲੀਆਂ ਬਿਨਾਂ ਸਾਂਭੇ ਕੂਚ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+  <string name="user_blocked_from_editing_title">ਰੋਕ-ਲੱਗਿਆ</string>
+  <string name="user_logged_in_blocked_from_editing">ਤੁਹਾਡੇ ਵਰਤੋਂਕਾਰ ਖਾਤੇ \'ਤੇ ਇਸ ਵਿਕੀ ਉੱਤੇ ਸੁਧਾਈ ਕਰਨ \'ਤੇ ਰੋਕ ਲਾ ਦਿੱਤੀ ਗਈ ਹੈ।</string>
+  <string name="user_anon_blocked_from_editing">ਤੁਹਾਡੇ ਆਈ.ਪੀ. ਪਤੇ ਉੱਤੇ ਸੁਧਾਈ ਕਰਨ \'ਤੇ ਰੋਕ ਲੱਗ ਗਈ ਹੈ।</string>
   <string name="edit_how_page_improved">ਤੁਸੀਂ ਇਹ ਸਫ਼ਾ ਕਿਵੇਂ ਸੁਧਾਰਿਆ?</string>
   <string name="edit_next">ਅੱਗੇ</string>
   <string name="edit_done">ਸਾਂਭੋ</string>
@@ -194,6 +219,7 @@
   <string name="saved_pages_refresh_pages_complete">ਨਵੀਨੀਕਰਨ ਮੁਕੰਮਲ</string>
   <string name="menu_page_saved">ਸਫ਼ਾ ਸਾਂਭਿਆ ਗਿਆ</string>
   <string name="menu_refresh_saved_page">ਸਫ਼ਾ ਮੁੜ-ਤਾਜ਼ਾ ਕਰੋ</string>
+  <string name="abusefilter_title_warn">ਇਹ ਇੱਕ ਬੇਉਸਾਰੂ ਸੋਧ ਹੋ ਸਕਦੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਸੱਚੀਂ ਇਹਨੂੰ ਸਾਂਭਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="abusefilter_title_disallow">ਤੁਸੀਂ ਇਹ ਸੋਧ ਨਹੀਂ ਸਾਂਭ ਸਕਦੇ। ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਪਿੱਛੇ ਜਾਉ ਅਤੇ ਇਹਨੂੰ ਬਦਲੋ।</string>
   <string name="dialog_page_issues">ਸਫ਼ੇ ਦੇ ਮੁੱਦੇ</string>
   <string name="button_page_issues">ਸਫ਼ੇ ਦੇ ਮੁੱਦੇ</string>
@@ -209,6 +235,7 @@
   <string name="search_results_title">ਭਾਲ਼ ਦੇ ਨਤੀਜੇ</string>
   <string name="search_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="search_redirect_title">\"%s\" ਤੋਂ ਮੋੜਿਆ।</string>
+  <string name="toc_hint">ਹਿੱਸਿਆਂ ਵਾਸਤੇ ਖੱਬੇ ਧੂਹੋ ਜਾਂ ਸਿਖਰ ਸੱਜੇ ਦਿੱਤਾ ਮੀਨੂੰ ਬਟਨ ਵਰਤੋ।</string>
   <string name="toc_know_it">ਸਮਝ ਆ ਗਿਆ</string>
   <string name="app_store_description">ਐਂਡਰਾਇਡ ਵਾਸਤੇ ਰਸਮੀ ਵਿਕੀਪੀਡੀਆ ਐਪ। ਵਿਕੀਪੀਡੀਆ ਮੁ਼ਫ਼ਤ ਗਿਆਨਕੋਸ਼ ਹੈ ਜਿਸ ਵਿੱਚ ੨੮੦ ਬੋਲੀਆਂ ਵਿੱਚ ੩.੨ ਕਰੋੜ ਤੋਂ ਵੱਧ ਲੇਖ ਮੌਜੂਦ ਹਨ, ਅਤੇ ਮਨੁੱਖਾਂ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਅੱਜ ਤੱਕ ਦਾ ਸਭ ਤੋਂ ਸਰਬੰਗੀ ਅਤੇ ਵਿਆਪਕ ਵਰਤੋਂ ਵਾਲ਼ਾ ਹਵਾਲਾ ਕਾਰਜ ਹੈ। ਇਹ ਐਪ ਮੁੜ ਨਵੇਂ ਸਿਰਿਓਂ ਲਿਖੀ ਗਈ ਹੈ ਅਤੇ ਹੁਣ ਤੱਕ ਦੇ ਸਭ ਤੋਂ ਚੰਗੇ ਤਰੀਕੇ ਨਾਲ਼।
 

@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">Поблизости</string>
   <string name="nav_item_nearby">Поблизости</string>
   <string name="menu_update_nearby">Обновление мест поблизости</string>
-  <string name="nearby_empty_title" fuzzy="true">Нет страниц об объектах поблизости</string>
-  <string name="nearby_empty_message" fuzzy="true">Вы можете обновить эту страницу, когда переместитесь на новое место.</string>
+  <string name="nearby_empty_title">Нет страниц об объектах поблизости!</string>
+  <string name="nearby_empty_message">После перемещения в новое место попробуйте обновить эту страницу, чтобы узнать больше о том, что можно найти вокруг вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d футов</string>
@@ -181,8 +181,8 @@
   <string name="page_protected_other">Эта страница были защищена на следующих уровнях: %s</string>
   <string name="page_protected_can_not_edit">У вас нет прав на редактирование этой страницы</string>
   <string name="page_protected_can_not_edit_title">Эта страница защищена</string>
-  <string name="more_item_preferences">Ещё</string>
-  <string name="more_activity_title">Ещё</string>
+  <string name="more_item_preferences">Дополнительно</string>
+  <string name="more_activity_title">Дополнительно</string>
   <string name="about_description">О приложении «Википедия»</string>
   <string name="privacy_policy_description">Политика конфиденциальности</string>
   <string name="terms_of_use_description">Условия использования</string>

@@ -95,6 +95,7 @@
   <string name="preference_summary_notloggedin">Siz tizimga kirmagansiz</string>
   <string name="toast_logout_complete">Chiqildi</string>
   <string name="saved_pages_empty_title">Bu yerda saqlangan sahifalar yo‘q!</string>
+  <string name="wp_tag_line">Tekin Ensiklopediya</string>
   <string name="skip">Tashlab o‘tish</string>
   <string name="create_account_username_hint">Foydalanuvchi nomi</string>
   <string name="create_account_password_hint">Maxfiy soʻz</string>
@@ -109,6 +110,8 @@
   <string name="create_account_passwords_mismatch_error">Maxfiy so‘zlar mos kelmadi</string>
   <string name="create_account_email_error">Noto‘g‘ri elektron pochta manzili</string>
   <string name="create_account_username_exists_error">Foydalanuvchining nomi allaqachon ishlatilyapti</string>
+  <string name="create_account_ip_throttle_error">Bu IP manzildan juda ko‘p hisoblar yaratilgan. Keyinroq harakat qilib ko‘ring.</string>
+  <string name="create_account_open_proxy_error">Bu IP manzil oraqali hisob yaratish to‘sib qo‘yildi.</string>
   <string name="create_account_next">Keyingi</string>
   <string name="create_account_button">Hisob yaratish</string>
   <string name="preferences_general_heading">Umumiy</string>
@@ -122,15 +125,25 @@
   <string name="zero_learn_more_learn_more">Yana o‘qish</string>
   <string name="zero_learn_more_dismiss">Yashirish</string>
   <string name="zero_settings">Moslamalar</string>
+  <string name="edit_preview_activity_title">Tahrirni ko‘rib chiqish</string>
   <string name="create_account_logging_in">Saytga kiryapsiz...</string>
+  <string name="edit_summary_hint">Qisqacha mazmunni tahrirlash</string>
   <string name="nav_item_random">Tasodifiy</string>
   <string name="random_progress">Tasodifiy sahifa olinmoqda</string>
+  <string name="create_account_account_created_toast">Hisob yozuvi yaratildi!</string>
   <string name="user_contribs_more_action">Yana yuklash</string>
   <string name="activity_my_contributions_title">Hissam</string>
   <string name="nav_item_my_contributions">Hissam</string>
   <string name="edit_save_action_login">Kirish va esda saqlab qolish</string>
   <string name="edit_save_action_ip">Anonim bo‘lib saqlash</string>
+  <string name="preference_title_eventlogging_opt_in">Foydalanish haqida hisobotni joʻnatish</string>
   <string name="history_search_list_hint">Qidiruv</string>
+  <string name="error_can_not_process_link">Havolani ochib bo\'lmadi</string>
+  <string name="page_protected_autoconfirmed">Bu sahifa yarim himoyalangan.</string>
+  <string name="page_protected_sysop">Bu sahifa toʻliq himoyalangan.</string>
+  <string name="page_protected_other">Bu sahifa quyidagi darajalarda himoyalangan: %s</string>
+  <string name="page_protected_can_not_edit">Ushbu sahifani tahrirlash uchun yetarli huquqingiz yoʻq</string>
+  <string name="page_protected_can_not_edit_title">Bu sahifa himoyalangan</string>
   <string name="more_item_preferences">Yana</string>
   <string name="more_activity_title">Yana</string>
   <string name="about_description">Vikipedia dasturi haqida</string>
@@ -140,10 +153,19 @@
   <string name="about_libraries_heading">ishlatilgan kutubxonalar</string>
   <string name="about_contributors_heading">hissalar</string>
   <string name="about_translators_heading">tarjimonlar</string>
+  <string name="about_translators_translatewiki">Dastur &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;da koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Vikimediya Fondi&lt;/a&gt;ning maxsuloti</string>
   <string name="about_activity_title">Haqida</string>
+  <string name="edit_unchanged">Sahifa oʻzgartirilmadi.</string>
+  <string name="edit_abandon_confirm">Sahifa oʻzgartirildi. Oʻzgartirishlaringizni saqlamasdan chiqmoqchimisiz?</string>
   <string name="user_blocked_from_editing_title">To\'sib qo\'yilgan</string>
+  <string name="user_logged_in_blocked_from_editing">Sizning hisobingiz ushbu vikini tahrirlashdan toʻsib qoʻyilgan.</string>
+  <string name="user_anon_blocked_from_editing">Sizning IP manzilingiz tahrirlashdan toʻsib qoʻyilgan.</string>
+  <string name="edit_how_page_improved">Sahifani qanday qilib yaxshiladingiz?</string>
   <string name="edit_next">Keyingi</string>
   <string name="edit_done">Saqlash</string>
+  <string name="edit_preview">Koʻrib chiqish</string>
+  <string name="edit_summary_tag_links">Qoʻshilgan havolalar</string>
   <string name="edit_summary_tag_other">Boshqa</string>
   <string name="find_in_page">Sahifadan topish</string>
   <string name="find_next">Keyingisini topish</string>
@@ -151,6 +173,9 @@
   <string name="find_close">Topish qatorini yopish</string>
   <string name="error_network_error_try_again">Tarmoqqa ulanib bo‘lmadi, iltimos keyinroq urnab ko‘ring.</string>
   <string name="saved_pages_update_all_error_retry">Qayta urinib ko\'rish</string>
+  <string name="saved_pages_update_all_error_message">Saqlangan sahifalarni yangilashda xatolik</string>
+  <string name="saved_pages_progress_title">Saqlangan sahifalarni yangilash</string>
+  <string name="saved_pages_refresh_pages_complete">Yangilab boʻlindi</string>
   <string name="menu_page_saved">Sahifa saqlandi</string>
   <string name="menu_refresh_saved_page">Sahifani yanglish</string>
   <string name="dialog_page_issues">Sahifa muammolari</string>
@@ -163,6 +188,9 @@
   <string name="page_similar_titles">O‘xshash sahifalar</string>
   <string name="search_within_pages">Sahifalardan izlash...</string>
   <string name="search_no_results">\"%s\" bo‘yicha natijalar topilmadi.</string>
+  <string name="search_results_title">Qidiruv natijalari</string>
   <string name="search_error_retry">Qayta urinib ko\'rish</string>
+  <string name="search_redirect_title">\"%s\"dan joʻnatma.</string>
   <string name="toc_know_it">Tushunarli</string>
+  <string name="alpha_update_notification_text">Koʻchirib olish uchun bosing</string>
 </resources>
