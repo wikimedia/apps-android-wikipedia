@@ -4,14 +4,14 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImagesTask;
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.text.Html;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,38 +26,31 @@ import java.util.List;
 import java.util.Map;
 
 public class FullSearchFragment extends Fragment {
-    private static final String KEY_SEARCH_TERM = "searchTerm";
+    private static final int DELAY_MILLIS = 1000;
+    private static final int MAX_CACHE_SIZE_IMAGES = 48;
+    private static final int MESSAGE_SEARCH = 1;
 
     private WikipediaApp app;
 
+    private SearchArticlesFragment searchFragment;
     private View searchResultsContainer;
     private ListView searchResultsList;
     private SearchResultAdapter adapter;
-    private TextView resultsStatusText;
-    private String searchTermCurrent;
-    private String searchTermOriginal;
+    private String currentSearchTerm = "";
 
-    private View searchFailedContainer;
-    private TextView searchFailedText;
-    private View searchRetryButton;
-    private View searchProgressBar;
+    private View searchFullContainer;
+    private View searchNetworkError;
+    private View searchNoResults;
+    private TextView searchSuggestion;
+
+    private Handler searchHandler;
 
     private FullSearchArticlesTask.FullSearchResults lastResults;
     private List<FullSearchResult> totalResults;
 
-    private static final int THUMB_SIZE_DP = 96;
-    private static final int MAX_CACHE_SIZE_IMAGES = 48;
 
     private ParcelableLruCache<String> pageImagesCache
             = new ParcelableLruCache<String>(MAX_CACHE_SIZE_IMAGES, String.class);
-
-    public static FullSearchFragment newInstance(String searchTerm) {
-        FullSearchFragment f = new FullSearchFragment();
-        Bundle args = new Bundle();
-        args.putString(KEY_SEARCH_TERM, searchTerm);
-        f.setArguments(args);
-        return f;
-    }
 
     public FullSearchFragment() {
     }
@@ -65,13 +58,13 @@ public class FullSearchFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-        setHasOptionsMenu(true);
-        searchTermOriginal = getArguments().getString(KEY_SEARCH_TERM);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_search_results, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_search_full, container, false);
+        searchFullContainer = rootView.findViewById(R.id.search_full_container);
+        searchFragment = (SearchArticlesFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.search_fragment);
 
         searchResultsContainer = rootView.findViewById(R.id.search_results_container);
         searchResultsList = (ListView) rootView.findViewById(R.id.full_search_results_list);
@@ -80,58 +73,94 @@ public class FullSearchFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle title = ((FullSearchResult) searchResultsList.getAdapter().getItem(position)).getTitle();
-                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-                app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
+                searchFragment.navigateToTitle(title);
             }
         });
 
         adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
-        resultsStatusText = (TextView) rootView.findViewById(R.id.search_results_status);
-        searchFailedText = (TextView) rootView.findViewById(R.id.search_failed_text);
-        searchFailedContainer = rootView.findViewById(R.id.search_failed_container);
-
-        searchRetryButton = rootView.findViewById(R.id.search_retry_button);
-        searchRetryButton.setOnClickListener(new View.OnClickListener() {
+        searchSuggestion = (TextView) rootView.findViewById(R.id.search_suggestion);
+        searchSuggestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                doSearch(searchTermCurrent, false, 0);
+                if (searchSuggestion.getTag() != null) {
+                    startSearch((String) searchSuggestion.getTag(), true);
+                }
             }
         });
 
-        searchProgressBar = rootView.findViewById(R.id.search_progress_bar);
+        searchNoResults = rootView.findViewById(R.id.search_results_empty);
+
+        searchNetworkError = rootView.findViewById(R.id.search_network_error);
+        searchNetworkError.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                doSearch(currentSearchTerm, 0);
+                searchNetworkError.setVisibility(View.GONE);
+            }
+        });
+
+        totalResults = new ArrayList<FullSearchResult>();
+        adapter.setResults(totalResults);
+
+        searchHandler = new Handler(new SearchHandlerCallback());
 
         return rootView;
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        totalResults = new ArrayList<FullSearchResult>();
-        adapter.setResults(totalResults);
+    public void show() {
+        searchFullContainer.setVisibility(View.VISIBLE);
+    }
 
-        // if we already have a search term, then we must have been restored from state or backstack
-        if (!TextUtils.isEmpty(searchTermOriginal)) {
-            doSearch(searchTermOriginal, false, 0);
+    public void hide() {
+        searchFullContainer.setVisibility(View.GONE);
+    }
+
+    public boolean isShowing() {
+        return searchFullContainer.getVisibility() == View.VISIBLE;
+    }
+
+    private class SearchHandlerCallback implements Handler.Callback {
+        @Override
+        public boolean handleMessage(Message msg) {
+            final String mySearchTerm = (String) msg.obj;
+            doSearch(mySearchTerm, 0);
+            return true;
         }
     }
 
-    public void newSearch(final String searchTerm) {
-        //update this fragment's arguments...
-        getArguments().putString(KEY_SEARCH_TERM, searchTerm);
-        //if we're already attached, then do the search...
-        if (isAdded()) {
-            doSearch(searchTerm, false, 0);
+    /**
+     * Kick off a search, based on a given search term.
+     * @param term Phrase to search for.
+     * @param force Whether to "force" starting this search. If the search is not forced, the
+     *              search may be delayed by a small time, so that network requests are not sent
+     *              too often.  If the search is forced, the network request is sent immediately.
+     */
+    public void startSearch(String term, boolean force) {
+        if (currentSearchTerm.equals(term)) {
+            return;
+        }
+
+        currentSearchTerm = term;
+
+        searchNoResults.setVisibility(View.GONE);
+        searchNetworkError.setVisibility(View.GONE);
+        searchSuggestion.setVisibility(View.GONE);
+
+        searchHandler.removeMessages(MESSAGE_SEARCH);
+        Message searchMessage = Message.obtain();
+        searchMessage.what = MESSAGE_SEARCH;
+        searchMessage.obj = term;
+
+        if (force) {
+            searchHandler.sendMessage(searchMessage);
+        } else {
+            searchHandler.sendMessageDelayed(searchMessage, DELAY_MILLIS);
         }
     }
 
-    private void doSearch(final String searchTerm, final boolean fromSuggestion, final int continueOffset) {
-        if (!fromSuggestion) {
-            this.searchTermCurrent = searchTerm;
-            this.searchTermOriginal = searchTerm;
-        }
-
+    private void doSearch(final String searchTerm, final int continueOffset) {
         (new FullSearchArticlesTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, continueOffset) {
             @Override
             public void onFinish(FullSearchResults results) {
@@ -143,25 +172,21 @@ public class FullSearchFragment extends Fragment {
 
                 ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetChanged();
 
-                searchProgressBar.setVisibility(View.GONE);
+                if (results.getSuggestion().length() > 0) {
+                    searchSuggestion.setText(Html.fromHtml("<u>"
+                            + String.format(getString(R.string.search_did_you_mean), results.getSuggestion())
+                            + "</u>"));
+                    searchSuggestion.setTag(results.getSuggestion());
+                    searchSuggestion.setVisibility(View.VISIBLE);
+                }
+                searchResultsContainer.setVisibility(View.VISIBLE);
+
+                ((PageActivity)getActivity()).setSupportProgressBarVisibility(false);
                 if (lastResults.getResults().size() == 0) {
-                    searchResultsContainer.setVisibility(View.GONE);
-                    searchFailedContainer.setVisibility(View.VISIBLE);
-                    searchFailedText.setText(app.getString(R.string.search_no_results, searchTermCurrent));
-                    searchRetryButton.setVisibility(View.GONE);
+                    searchNoResults.setVisibility(View.VISIBLE);
+                    searchResultsList.setVisibility(View.GONE);
                 } else {
-                    searchResultsContainer.setVisibility(View.VISIBLE);
-                    searchFailedContainer.setVisibility(View.GONE);
-
-                    if (continueOffset == 0) {
-                        if (fromSuggestion) {
-                            resultsStatusText.setVisibility(View.VISIBLE);
-                            resultsStatusText.setText(app.getString(R.string.search_showing_instead, searchTermOriginal, searchTerm));
-                        } else {
-                            resultsStatusText.setVisibility(View.GONE);
-                        }
-                    }
-
+                    searchResultsList.setVisibility(View.VISIBLE);
                     getPageThumbnails(lastResults.getResults());
                 }
             }
@@ -171,30 +196,28 @@ public class FullSearchFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
-                if (caught instanceof FullSearchSuggestionException) {
-                    if (!fromSuggestion) {
-                        searchTermCurrent = ((FullSearchSuggestionException) caught).getSuggestion();
-                        doSearch(searchTermCurrent, true, 0);
-                    }
+                ((PageActivity)getActivity()).setSupportProgressBarVisibility(false);
+
+                if (continueOffset == 0) {
+                    searchResultsContainer.setVisibility(View.GONE);
+                    searchNetworkError.setVisibility(View.VISIBLE);
                 } else {
-                    if (continueOffset == 0) {
-                        searchProgressBar.setVisibility(View.GONE);
-                        searchResultsContainer.setVisibility(View.GONE);
-                        searchFailedContainer.setVisibility(View.VISIBLE);
-                        searchFailedText.setText(app.getString(R.string.error_network_error));
-                        searchRetryButton.setVisibility(View.VISIBLE);
-                    } else {
-                        Toast.makeText(getActivity(), getString(R.string.error_network_error), Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(getActivity(), getString(R.string.error_network_error), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onBeforeExecute() {
+                ((PageActivity)getActivity()).setSupportProgressBarIndeterminate(true);
+                ((PageActivity)getActivity()).setSupportProgressBarVisibility(true);
                 if (continueOffset == 0) {
-                    searchProgressBar.setVisibility(View.VISIBLE);
                     searchResultsContainer.setVisibility(View.GONE);
-                    searchFailedContainer.setVisibility(View.GONE);
+                    searchNoResults.setVisibility(View.GONE);
+                    searchNetworkError.setVisibility(View.GONE);
+                    searchSuggestion.setVisibility(View.GONE);
+
+                    totalResults.clear();
+                    ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetChanged();
                 }
             }
         }).execute();
@@ -209,7 +232,7 @@ public class FullSearchFragment extends Fragment {
                 app.getAPIForSite(app.getPrimarySite()),
                 app.getPrimarySite(),
                 titleList,
-                (int)(THUMB_SIZE_DP * WikipediaApp.getInstance().getScreenDensity())) {
+                (int)(WikipediaApp.PREFERRED_THUMB_SIZE * WikipediaApp.getInstance().getScreenDensity())) {
             @Override
             public void onFinish(Map<PageTitle, String> result) {
                 for (Map.Entry<PageTitle, String> entry : result.entrySet()) {
@@ -267,17 +290,8 @@ public class FullSearchFragment extends Fragment {
                 convertView = inflater.inflate(R.layout.item_full_search_result, parent, false);
             }
             TextView pageTitleText = (TextView) convertView.findViewById(R.id.result_title);
-            TextView pageSnippetText = (TextView) convertView.findViewById(R.id.result_snippet);
-            TextView pageRedirectText = (TextView) convertView.findViewById(R.id.result_title_redirect);
             FullSearchResult result = (FullSearchResult) getItem(position);
             pageTitleText.setText(result.getTitle().getDisplayText());
-            pageSnippetText.setText(Html.fromHtml(result.getSnippet()));
-            if (result.getRedirectSnippet() != null && result.getRedirectSnippet().length() > 0) {
-                pageRedirectText.setText(Html.fromHtml(app.getString(R.string.search_redirect_title, result.getRedirectSnippet())));
-                pageRedirectText.setVisibility(View.VISIBLE);
-            } else {
-                pageRedirectText.setVisibility(View.GONE);
-            }
 
             ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
             String thumbnail = pageImagesCache.get(result.getTitle().getPrefixedText());
@@ -296,7 +310,7 @@ public class FullSearchFragment extends Fragment {
             //...and lastly, if we've scrolled to the last item in the list, then
             //continue searching!
             if (position == results.size() - 1 && lastResults.getContinueOffset() > 0) {
-                doSearch(searchTermCurrent, false, lastResults.getContinueOffset());
+                doSearch(currentSearchTerm, lastResults.getContinueOffset());
             }
 
             return convertView;

@@ -38,10 +38,11 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
         JSONObject queryResult = data.optJSONObject("query");
         JSONArray searchResults = queryResult.optJSONArray("search");
 
-        if (searchResults.length() == 0) {
-            String suggestion = queryResult.optJSONObject("searchinfo").optString("suggestion");
-            if (suggestion != null && suggestion.length() > 0) {
-                throw new FullSearchSuggestionException(suggestion);
+        String suggestion = "";
+        JSONObject searchinfo = queryResult.optJSONObject("searchinfo");
+        if (searchinfo != null) {
+            if (searchinfo.has("suggestion")) {
+                suggestion = searchinfo.getString("suggestion");
             }
         }
 
@@ -51,7 +52,7 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
         }
 
         ArrayList<FullSearchResult> resultList = new ArrayList<FullSearchResult>();
-        FullSearchResults results = new FullSearchResults(resultList, newOffset);
+        FullSearchResults results = new FullSearchResults(resultList, newOffset, suggestion);
         for (int i = 0; i < searchResults.length(); i++) {
             JSONObject res = searchResults.optJSONObject(i);
             String redirectTitle = "";
@@ -70,10 +71,18 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
     public class FullSearchResults {
         private int continueOffset;
         private List<FullSearchResult> resultsList;
+        private String suggestion;
 
-        public FullSearchResults(List<FullSearchResult> resultList, int continueOffset) {
+        public FullSearchResults(List<FullSearchResult> resultList,
+                                 int continueOffset,
+                                 String suggestion) {
             this.resultsList = resultList;
             this.continueOffset = continueOffset;
+            this.suggestion = suggestion;
+        }
+
+        public String getSuggestion() {
+            return suggestion;
         }
 
         public int getContinueOffset() {

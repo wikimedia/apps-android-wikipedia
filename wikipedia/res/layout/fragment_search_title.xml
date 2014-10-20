@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/search_title_container">
+    <TextView
+            android:id="@+id/search_results_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textColor="@color/reference_text"
+            android:text="@string/search_no_results_found"
+            style="?android:textAppearanceMedium"
+            android:visibility="gone"
+        />
+    <Button
+            android:id="@+id/search_network_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:gravity="center"
+            android:text="@string/search_network_error"
+            style="?android:textAppearanceMedium"
+            android:visibility="gone"
+            />
+    <ListView
+        android:id="@+id/search_results_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="0dp"
+        />
+</LinearLayout>

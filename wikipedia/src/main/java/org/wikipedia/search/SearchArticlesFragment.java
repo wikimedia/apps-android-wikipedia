@@ -1,7 +1,6 @@
 package org.wikipedia.search;
 
 import org.wikipedia.PageTitle;
-import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
@@ -10,13 +9,11 @@ import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import com.squareup.otto.Subscribe;
-import com.squareup.picasso.Picasso;
+
+import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -26,179 +23,139 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-import java.util.List;
 
 public class SearchArticlesFragment extends Fragment {
-    private static final String KEY_SEARCH_TERM = "searchTerm";
-    private static final int DELAY_MILLIS = 300;
-    private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
-    private static final int MAX_CACHE_SIZE_IMAGES = 48;
-    private static final int MESSAGE_SEARCH = 1;
     private static final String ARG_LAST_SEARCHED_TEXT = "lastSearchedText";
-    private static final String ARG_IS_SEARCH_ACTIVE = "isSearchActive";
-    private static final String ARG_RESULTS_CACHE = "searchResultsCache";
-    private static final String ARG_PAGE_IMAGES_CACHE = "pageImagesCache";
+
+    private static final int PANEL_RECENT_SEARCHES = 0;
+    private static final int PANEL_TITLE_SEARCH = 1;
+    private static final int PANEL_FULL_SEARCH = 2;
 
     private WikipediaApp app;
-    private SearchResultAdapter adapter;
     private SearchView searchView;
 
-    private ListView searchResultsList;
-    private View searchNetworkError;
-    private View searchNoResults;
-    private View progressBar;
-    private View fullSearchContainer;
-
+    /**
+     * Whether the Search fragment is currently showing.
+     */
     private boolean isSearchActive = false;
 
-    private ParcelableLruCache<List<PageTitle>> searchResultsCache
-            = new ParcelableLruCache<List<PageTitle>>(MAX_CACHE_SIZE_SEARCH_RESULTS, List.class);
-    private ParcelableLruCache<String> pageImagesCache
-            = new ParcelableLruCache<String>(MAX_CACHE_SIZE_IMAGES, String.class);
+    /**
+     * The last search term that the user entered. This will be passed into
+     * the TitleSearch and FullSearch sub-fragments.
+     */
     private String lastSearchedText;
 
-    private Handler searchHandler;
-
-    private SearchArticlesTask curSearchTask;
-    private String searchTerm;
+    /**
+     * Whether the last search was forced. A search is forced if the user explicitly
+     * clicks on the buttons to select Title or Full search. It's also forced if the user
+     * is taken to Full search when a Title search produced no results.
+     * A search is NOT forced when it comes from the user typing characters in the search field.
+     */
+    private boolean lastSearchForced = false;
 
     /**
-     * Factory method for creating new instances of the fragment.
-     * @return new instance of this fragment.
+     * View that contains the whole Search fragment. This is what should be shown/hidden when
+     * the search is called for from the main activity.
      */
-    public static SearchArticlesFragment newInstance(String searchTerm) {
-        SearchArticlesFragment f = new SearchArticlesFragment();
-        Bundle args = new Bundle();
-        args.putString(KEY_SEARCH_TERM, searchTerm);
-        f.setArguments(args);
-        return f;
-    }
+    private View searchContainerView;
+
+    /**
+     * View that contains the "recent searches" list.
+     */
+    private View recentSearchContainer;
+
+    /**
+     * View that contains the two types of search result fragments (Title and Full), as well
+     * as the buttons to switch between the two.
+     */
+    private View searchTypesContainer;
+
+    private TitleSearchFragment titleSearchFragment;
+    private FullSearchFragment fullSearchFragment;
+
+    private View buttonTitleSearch;
+    private View buttonFullSearch;
+    private int defaultTextColor;
 
     public SearchArticlesFragment() {
-    }
-
-    private void hideSearchResults() {
-        searchResultsList.setVisibility(View.GONE);
-        isSearchActive = false;
-        searchHandler.removeMessages(MESSAGE_SEARCH);
-        if (curSearchTask != null) {
-            curSearchTask.cancel();
-            curSearchTask = null;
-        }
-        progressBar.setVisibility(View.GONE);
-        searchNetworkError.setVisibility(View.GONE);
-        searchNoResults.setVisibility(View.GONE);
-        fullSearchContainer.setVisibility(View.GONE);
-    }
-
-    /**
-     * Displays results passed to it as search suggestions.
-     *
-     * @param results List of results to display. If null, clears the list of suggestions & hides it.
-     */
-    private void displayResults(List<PageTitle> results) {
-        adapter.setResults(results);
-
-        if (app.getReleaseType() == WikipediaApp.RELEASE_PROD) {
-            if (results.size() == 0) {
-                searchNoResults.setVisibility(View.VISIBLE);
-                searchResultsList.setVisibility(View.GONE);
-            } else {
-                searchNoResults.setVisibility(View.GONE);
-                searchResultsList.setVisibility(View.VISIBLE);
-            }
-        } else {
-            fullSearchContainer.setVisibility(View.VISIBLE);
-            searchResultsList.setVisibility(View.VISIBLE);
-        }
-
-        //cache page thumbnails!
-        for (PageTitle title : results) {
-            if (title.getThumbUrl() == null) {
-                continue;
-            }
-            pageImagesCache.put(title.getPrefixedText(), title.getThumbUrl());
-        }
-        ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetInvalidated();
     }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
         setHasOptionsMenu(true);
-        searchTerm = getArguments().getString(KEY_SEARCH_TERM);
     }
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        app = (WikipediaApp)getActivity().getApplicationContext();
+        app = (WikipediaApp) getActivity().getApplicationContext();
         app.getBus().register(this);
-        LinearLayout parentLayout = (LinearLayout) inflater.inflate(R.layout.fragment_search, container, false);
+        View parentLayout = inflater.inflate(R.layout.fragment_search, container, false);
 
-        if (savedInstanceState != null) {
-            getFromBundle(savedInstanceState);
-        } else {
-            getFromBundle(getArguments());
-        }
-
-        searchResultsList = (ListView) parentLayout.findViewById(R.id.search_results_list);
-        searchNetworkError = parentLayout.findViewById(R.id.search_network_error);
-        searchNoResults = parentLayout.findViewById(R.id.search_results_empty);
-        progressBar = parentLayout.findViewById(R.id.search_progress);
-
-        fullSearchContainer = parentLayout.findViewById(R.id.full_search_container);
-        fullSearchContainer.setOnClickListener(new View.OnClickListener() {
+        searchContainerView = parentLayout.findViewById(R.id.search_container);
+        searchContainerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.hideSoftKeyboard(getActivity());
-                hideSearchResults();
-                ((PageActivity)getActivity()).searchFullText(searchTerm);
+                // Give the root container view an empty click handler, so that click events won't
+                // get passed down to any underlying views (e.g. a PageViewFragment on top of which
+                // this fragment is shown)
             }
         });
 
-        searchHandler = new Handler(new SearchHandlerCallback());
+        recentSearchContainer = parentLayout.findViewById(R.id.search_panel_recent);
+        searchTypesContainer = parentLayout.findViewById(R.id.search_panel_types);
 
-        searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        buttonTitleSearch = parentLayout.findViewById(R.id.button_search_title);
+        buttonTitleSearch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle title = (PageTitle) searchResultsList.getAdapter().getItem(position);
-                navigateToTitle(title);
+            public void onClick(View view) {
+                if (getActivePanel() == PANEL_TITLE_SEARCH) {
+                    return;
+                }
+                showPanel(PANEL_TITLE_SEARCH);
+                startSearch(lastSearchedText, true);
             }
         });
 
-        searchNetworkError.setOnClickListener(new View.OnClickListener() {
+        buttonFullSearch = parentLayout.findViewById(R.id.button_search_full);
+        buttonFullSearch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startSearch(searchTerm); //just retry!
-                searchNetworkError.setVisibility(View.GONE);
+            public void onClick(View view) {
+                if (getActivePanel() == PANEL_FULL_SEARCH) {
+                    return;
+                }
+                showPanel(PANEL_FULL_SEARCH);
+                startSearch(lastSearchedText, true);
             }
         });
 
-        adapter = new SearchResultAdapter(inflater);
-        searchResultsList.setAdapter(adapter);
+        defaultTextColor = ((TextView)buttonFullSearch).getTextColors().getDefaultColor();
 
-        return parentLayout;
-    }
+        titleSearchFragment = (TitleSearchFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_search_title);
+        titleSearchFragment.setOnNoResultsListener(new TitleSearchFragment.OnNoResultsListener() {
+            @Override
+            public void onNoResults() {
+                if (lastSearchForced) {
+                    // don't automatically go to Full search if the previous search was forced.
+                    // i.e. if the user had explicitly clicked on Title search.
+                    return;
+                }
+                //automatically switch to full-text search!
+                showPanel(PANEL_FULL_SEARCH);
+                startSearch(lastSearchedText, true);
+            }
+        });
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (isValidQuery(lastSearchedText)) {
-            forceStartSearch(lastSearchedText);
+        fullSearchFragment = (FullSearchFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_search_full);
+
+        //make sure we're hidden by default
+        searchContainerView.setVisibility(View.GONE);
+
+        if (savedInstanceState != null) {
+            lastSearchedText = savedInstanceState.getString(ARG_LAST_SEARCHED_TEXT);
         }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        ((PageActivity)getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(true);
-        saveToBundle(getArguments());
+        return parentLayout;
     }
 
     @Override
@@ -210,31 +167,58 @@ public class SearchArticlesFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        saveToBundle(outState);
+        outState.putString(ARG_LAST_SEARCHED_TEXT, lastSearchedText);
     }
 
-    private void getFromBundle(Bundle inState) {
-        ParcelableLruCache<List<PageTitle>> mySearchResultsCache = inState.getParcelable(ARG_RESULTS_CACHE);
-        if (mySearchResultsCache != null) {
-            searchResultsCache = mySearchResultsCache;
-            pageImagesCache = inState.getParcelable(ARG_PAGE_IMAGES_CACHE);
-            lastSearchedText = inState.getString(ARG_LAST_SEARCHED_TEXT);
-            isSearchActive = inState.getBoolean(ARG_IS_SEARCH_ACTIVE);
+    /**
+     * Show a particular panel, which can be one of:
+     * - PANEL_RECENT_SEARCHES
+     * - PANEL_TITLE_SEARCH
+     * - PANEL_FULL_SEARCH
+     * Automatically hides the previous panel.
+     * @param panel Which panel to show.
+     */
+    private void showPanel(int panel) {
+        recentSearchContainer.setVisibility(View.GONE);
+        searchTypesContainer.setVisibility(View.GONE);
+        titleSearchFragment.hide();
+        fullSearchFragment.hide();
+
+        switch (panel) {
+            case PANEL_RECENT_SEARCHES:
+                recentSearchContainer.setVisibility(View.VISIBLE);
+                break;
+            case PANEL_TITLE_SEARCH:
+                searchTypesContainer.setVisibility(View.VISIBLE);
+                buttonTitleSearch.setBackgroundResource(R.drawable.button_shape_flat_highlight);
+                ((TextView)buttonTitleSearch).setTextColor(Color.WHITE);
+                buttonFullSearch.setBackgroundResource(R.drawable.button_shape_flat);
+                ((TextView)buttonFullSearch).setTextColor(defaultTextColor);
+                titleSearchFragment.show();
+                break;
+            case PANEL_FULL_SEARCH:
+                searchTypesContainer.setVisibility(View.VISIBLE);
+                buttonFullSearch.setBackgroundResource(R.drawable.button_shape_flat_highlight);
+                ((TextView)buttonFullSearch).setTextColor(Color.WHITE);
+                buttonTitleSearch.setBackgroundResource(R.drawable.button_shape_flat);
+                ((TextView)buttonTitleSearch).setTextColor(defaultTextColor);
+                fullSearchFragment.show();
+                break;
+            default:
+                break;
         }
     }
 
-    private void saveToBundle(Bundle outState) {
-        outState.putString(ARG_LAST_SEARCHED_TEXT, lastSearchedText);
-        outState.putBoolean(ARG_IS_SEARCH_ACTIVE, isSearchActive);
-        outState.putParcelable(ARG_RESULTS_CACHE, searchResultsCache);
-        outState.putParcelable(ARG_PAGE_IMAGES_CACHE, pageImagesCache);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((PageActivity)getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(false);
-        ((ActionBarActivity)getActivity()).getSupportActionBar().setTitle("");
+    private int getActivePanel() {
+        if (searchTypesContainer.getVisibility() == View.VISIBLE) {
+            if (titleSearchFragment.isShowing()) {
+                return PANEL_TITLE_SEARCH;
+            } else if (fullSearchFragment.isShowing()) {
+                return PANEL_FULL_SEARCH;
+            }
+        }
+        //otherwise, the recent searches must be showing:
+        return PANEL_RECENT_SEARCHES;
     }
 
     @Subscribe
@@ -242,54 +226,85 @@ public class SearchArticlesFragment extends Fragment {
         updateZeroChrome();
     }
 
-    public void newSearch(String term) {
-        //update this fragment's arguments...
-        getArguments().putString(KEY_SEARCH_TERM, term);
-        searchTerm = term;
-        //if we're already attached, then do the search...
-        if (isAdded()) {
-            startSearch(term);
+    /**
+     * Kick off a search, based on a given search term. Will automatically pass the search to
+     * Title search or Full search, based on which one is currently displayed.
+     * If the search term is empty, the "recent searches" view will be shown.
+     * @param term Phrase to search for.
+     * @param force Whether to "force" starting this search. If the search is not forced, the
+     *              search may be delayed by a small time, so that network requests are not sent
+     *              too often.  If the search is forced, the network request is sent immediately.
+     */
+    public void startSearch(String term, boolean force) {
+        lastSearchForced = force;
+        if (!isSearchActive) {
+            openSearch();
         }
-    }
 
-    private void startSearch(String term) {
-        if (Utils.compareStrings(term, lastSearchedText) && isSearchActive) {
-            return; // Nothing has changed!
-        }
-        forceStartSearch(term);
-    }
-
-    private void forceStartSearch(String term) {
-        if (term.equals("")) {
-            hideSearchResults();
-            fullSearchContainer.setVisibility(View.GONE);
+        if (TextUtils.isEmpty(term)) {
+            showPanel(PANEL_RECENT_SEARCHES);
             return;
         }
 
-        searchNoResults.setVisibility(View.GONE);
-        searchNetworkError.setVisibility(View.GONE);
-
-        if (app.getReleaseType() != WikipediaApp.RELEASE_PROD) {
-            fullSearchContainer.setVisibility(View.VISIBLE);
+        if (getActivePanel() == PANEL_RECENT_SEARCHES) {
+            //start with title search...
+            showPanel(PANEL_TITLE_SEARCH);
         }
-
-        List<PageTitle> cacheResult = searchResultsCache.get(app.getPrimaryLanguage() + "-" + term);
-        if (cacheResult != null) {
-            displayResults(cacheResult);
-            isSearchActive = true;
-            return;
+        if (getActivePanel() == PANEL_TITLE_SEARCH) {
+            titleSearchFragment.startSearch(term, force);
+        } else if (getActivePanel() == PANEL_FULL_SEARCH) {
+            fullSearchFragment.startSearch(term, force);
         }
-        searchHandler.removeMessages(MESSAGE_SEARCH);
-        Message searchMessage = Message.obtain();
-        searchMessage.what = MESSAGE_SEARCH;
-        searchMessage.obj = term;
+        lastSearchedText = term;
+    }
 
-        searchHandler.sendMessageDelayed(searchMessage, DELAY_MILLIS);
+    /**
+     * Activate the Search fragment.
+     */
+    public void openSearch() {
+        isSearchActive = true;
+        // invalidate our activity's ActionBar, so that we'll have a chance to inject our
+        // SearchView into it.
+        getActivity().supportInvalidateOptionsMenu();
+        ((PageActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(false);
+        // show ourselves
+        searchContainerView.setVisibility(View.VISIBLE);
+
+        //show recent searches by default...
+        showPanel(PANEL_RECENT_SEARCHES);
+    }
+
+    public void closeSearch() {
+        isSearchActive = false;
+        // invalidate our activity's ActionBar, so that our SearchView is removed.
+        getActivity().supportInvalidateOptionsMenu();
+        ((PageActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(true);
+        // hide ourselves
+        searchContainerView.setVisibility(View.GONE);
+        Utils.hideSoftKeyboard(getActivity());
+    }
+
+    /**
+     * Determine whether the Search fragment is currently active.
+     * @return Whether the Search fragment is active.
+     */
+    public boolean isSearchActive() {
+        return isSearchActive;
+    }
+
+    public boolean onBackPressed() {
+        if (isSearchActive) {
+            closeSearch();
+            return true;
+        }
+        return false;
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        addSearchView(menu);
+        if (isSearchActive) {
+            addSearchView(menu);
+        }
     }
 
     private void addSearchView(Menu menu) {
@@ -305,6 +320,8 @@ public class SearchArticlesFragment extends Fragment {
         searchView.setImeOptions(EditorInfo.IME_ACTION_GO);
         searchView.setSubmitButtonEnabled(true);
         updateZeroChrome();
+        // if we already have a previous search query, then put it into the SearchView, and it will
+        // automatically trigger the showing of the corresponding search results.
         if (isValidQuery(lastSearchedText)) {
             searchView.setQuery(lastSearchedText, false);
         }
@@ -328,19 +345,16 @@ public class SearchArticlesFragment extends Fragment {
     private final SearchView.OnQueryTextListener searchQueryListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String queryText) {
-            searchTerm = queryText;
             if (isValidQuery(queryText)) {
                 navigateToTitle(queryText);
             }
+            closeSearch();
             return true;
         }
 
         @Override
         public boolean onQueryTextChange(String queryText) {
-            searchTerm = queryText;
-            if (isValidQuery(queryText)) {
-                startSearch(queryText);
-            }
+            startSearch(queryText.trim(), false);
             return true;
         }
     };
@@ -349,14 +363,9 @@ public class SearchArticlesFragment extends Fragment {
         @Override
         public boolean onClose() {
             closeSearch();
-            ((PageActivity)getActivity()).closeSearch();
             return false;
         }
     };
-
-    private void closeSearch() {
-        hideSearchResults();
-    }
 
     private void navigateToTitle(String queryText) {
         navigateToTitle(new PageTitle(queryText, app.getPrimarySite(), null));
@@ -365,102 +374,7 @@ public class SearchArticlesFragment extends Fragment {
     public void navigateToTitle(PageTitle title) {
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
         Utils.hideSoftKeyboard(getActivity());
+        closeSearch();
         app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
-    }
-
-    private final class SearchResultAdapter extends BaseAdapter {
-        private List<PageTitle> results;
-        private final LayoutInflater inflater;
-
-        private SearchResultAdapter(LayoutInflater inflater) {
-            this.inflater = inflater;
-        }
-
-        private void setResults(List<PageTitle> results) {
-            this.results = results;
-        }
-
-        @Override
-        public int getCount() {
-            return results == null ? 0 : results.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return results.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = inflater.inflate(R.layout.item_search_result, parent, false);
-            }
-            TextView pageTitleText = (TextView) convertView.findViewById(R.id.result_text);
-            PageTitle title = (PageTitle) getItem(position);
-            pageTitleText.setText(title.getDisplayText());
-            ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
-
-            String thumbnail = pageImagesCache.get(title.getPrefixedText());
-            if (thumbnail == null) {
-                Picasso.with(getActivity())
-                        .load(R.drawable.ic_pageimage_placeholder)
-                        .into(imageView);
-            } else {
-                Picasso.with(getActivity())
-                        .load(thumbnail)
-                        .placeholder(R.drawable.ic_pageimage_placeholder)
-                        .error(R.drawable.ic_pageimage_placeholder)
-                        .into(imageView);
-            }
-
-            return convertView;
-        }
-    }
-
-    private class SearchHandlerCallback implements Handler.Callback {
-        @Override
-        public boolean handleMessage(Message msg) {
-            final String mySearchTerm = (String) msg.obj;
-            SearchArticlesTask searchTask = new SearchArticlesTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), mySearchTerm) {
-                @Override
-                public void onBeforeExecute() {
-                    progressBar.setVisibility(View.VISIBLE);
-                    isSearchActive = true;
-                }
-
-                @Override
-                public void onFinish(List<PageTitle> result) {
-                    progressBar.setVisibility(View.GONE);
-                    searchNetworkError.setVisibility(View.GONE);
-                    displayResults(result);
-                    searchResultsCache.put(app.getPrimaryLanguage() + "-" + mySearchTerm, result);
-                    lastSearchedText = mySearchTerm;
-                    curSearchTask = null;
-                }
-
-                @Override
-                public void onCatch(Throwable caught) {
-                    progressBar.setVisibility(View.GONE);
-                    searchNetworkError.setVisibility(View.VISIBLE);
-                    searchResultsList.setVisibility(View.GONE);
-                    curSearchTask = null;
-                }
-            };
-            if (curSearchTask != null) {
-                // This does not cancel the HTTP request itself
-                // But it does cancel th execution of onFinish
-                // This makes sure that a slower previous search query does not override
-                // the results of a newer search query
-                curSearchTask.cancel();
-            }
-            curSearchTask = searchTask;
-            searchTask.execute();
-            return true;
-        }
     }
 }

@@ -15,13 +15,13 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
+public class TitleSearchTask extends ApiTask<List<PageTitle>> {
     private final String prefix;
     private final Site site;
 
     private static final String NUM_RESULTS_PER_QUERY = "12";
 
-    public SearchArticlesTask(Context context, Api api, Site site, String prefix) {
+    public TitleSearchTask(Context context, Api api, Site site, String prefix) {
         super(HIGH_CONCURRENCY, api);
         this.prefix = prefix;
         this.site = site;
@@ -36,7 +36,7 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
                 .param("gpslimit", NUM_RESULTS_PER_QUERY)
                 .param("prop", "pageimages")
                 .param("piprop", "thumbnail")
-                .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE_SEARCH))
+                .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
                 .param("pilimit", NUM_RESULTS_PER_QUERY)
                 .param("list", "prefixsearch")
                 .param("pssearch", prefix)
@@ -67,7 +67,10 @@ public class SearchArticlesTask extends ApiTask<List<PageTitle>> {
         first list, and correlate the pageids with the second list to extract the thumbnails.
         */
         JSONObject query = data.optJSONObject("query");
-        JSONObject pages = query.getJSONObject("pages");
+        JSONObject pages = query.optJSONObject("pages");
+        if (pages == null) {
+            return pageTitles;
+        }
         JSONArray prefixsearch = query.getJSONArray("prefixsearch");
 
         for (int i = 0; i < prefixsearch.length(); i++) {

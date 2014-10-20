@@ -1,23 +1,33 @@
-<org.wikipedia.views.DisableableDrawerLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:saveEnabled="false"
     android:layout_height="match_parent">
 
-    <!-- The main content view -->
-    <FrameLayout
-        android:id="@+id/content_fragment_container"
+    <org.wikipedia.views.DisableableDrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
+        android:saveEnabled="false"
         android:layout_height="match_parent">
-    </FrameLayout>
 
-    <!-- The navigation drawer -->
-    <!-- Don't set marginTop here, it somehow also affects marginBottom. wtf?! -->
-    <fragment android:layout_width="288dp" android:layout_height="match_parent"
-              android:id="@+id/navdrawer"
-              android:name="org.wikipedia.NavDrawerFragment"
-              android:layout_gravity="start"
-              tools:layout="@layout/fragment_navdrawer"/>
-</org.wikipedia.views.DisableableDrawerLayout>
+        <!-- The main content view -->
+        <FrameLayout
+            android:id="@+id/content_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
+
+        <!-- The navigation drawer -->
+        <fragment android:layout_width="288dp" android:layout_height="match_parent"
+                  android:id="@+id/navdrawer"
+                  android:name="org.wikipedia.NavDrawerFragment"
+                  android:layout_gravity="start"
+                  tools:layout="@layout/fragment_navdrawer"/>
+    </org.wikipedia.views.DisableableDrawerLayout>
+
+    <!-- The search container -->
+    <fragment android:layout_width="match_parent" android:layout_height="match_parent"
+        android:id="@+id/search_fragment"
+        android:name="org.wikipedia.search.SearchArticlesFragment"
+        tools:layout="@layout/fragment_search"/>
+</FrameLayout>

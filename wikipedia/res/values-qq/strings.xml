@@ -323,12 +323,15 @@ See also:
   <string name="page_similar_titles">Button label for showing a list of similar titles (disambiguation) for the current page</string>
   <string name="search_within_pages">Button label for full-text searching within pages for the current search term</string>
   <string name="search_no_results">Label that tells the user that no results were found. The \"%s\" symbol is replaced with the phrase that was searched.</string>
-  <string name="search_showing_instead">Label that tells the user that no results were found, but other results were found for a similar search term. The \"%1$s\" symbol is the original search term, and the \"%2$s\" symbol is the new suggested search term.</string>
+  <string name="search_did_you_mean">Label that gives the user a suggestion for a better search term, instead of the one that the user gave. The \"%s\" symbol is replaced with the suggestion.</string>
   <string name="search_results_title">Title of the dialog box that contains search results.
 {{Identical|Search results}}</string>
   <string name="search_error_retry">Button label for retrying the search after a network error.
 {{Identical|Retry}}</string>
   <string name="search_redirect_title">Label that tells the user that the search result is actually a redirect from another page, specified by the \"%s\" symbol.</string>
+  <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
+  <string name="search_titles_button">Button label for searching page title matches.</string>
+  <string name="search_full_button">Button label for searching the full text of pages.</string>
   <string name="toc_hint">Instructions how to open the Table of Contents drawer. In left-to-right languages (most) this means to swipe left from the right edge. In right-to-left languages (Hebrew, Arabic, etc.) this means to swipe right from the left edge. \'\'\'In RTL languages\'\'\' please adjust the text to say right swipe instead of left swipe.</string>
   <string name="toc_know_it">Button text to acknowledge instructions for opening Table of Contents drawer.</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>

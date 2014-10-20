@@ -3,12 +3,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/menu_search"
-          android:title="@string/search_hint"
-          android:icon="@drawable/search"
-          app:actionViewClass="android.support.v7.widget.SearchView"
-          app:showAsAction="ifRoom|collapseActionView"
-          />
     <item android:id="@+id/menu_toc"
           android:title="@string/menu_show_toc"
           android:icon="@drawable/toc_collapsed"

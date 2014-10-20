@@ -511,7 +511,6 @@ public class PageViewFragmentInternal {
             return;
         }
 
-        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.search));
         app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.toc_collapsed));
         app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.toc_expanded));
 
@@ -554,14 +553,7 @@ public class PageViewFragmentInternal {
             case R.id.homeAsUp:
                 // TODO SEARCH: add up navigation, see also http://developer.android.com/training/implementing-navigation/ancestral.html
                 return true;
-            case R.id.menu_search:
-                getActivity().onSearchRequested();
-                return true;
             case R.id.menu_toc:
-                // TODO SEARCH: bring back
-//                if (drawerLayout.isDrawerVisible(Gravity.START)) {
-//                    drawerLayout.closeDrawer(Gravity.START);
-//                }
                 Utils.hideSoftKeyboard(getActivity());
                 ((WikipediaApp)getActivity().getApplication()).getBus().post(new ShowToCEvent(ShowToCEvent.ACTION_TOGGLE));
                 return true;

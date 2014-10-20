@@ -1,85 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="?attr/search_background_color"
-        >
-    <TextView
-            android:id="@+id/search_results_empty"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:text="@string/search_no_results_found"
-            style="?android:textAppearanceMedium"
-            android:visibility="gone"
-        />
-    <Button
-            android:id="@+id/search_network_error"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:gravity="center"
-            android:text="@string/search_network_error"
-            style="?android:textAppearanceMedium"
-            android:visibility="gone"
-            />
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/window_background_color"
+    android:paddingTop="@dimen/actionBarHeight">
+
     <LinearLayout
-            android:id="@+id/full_search_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:clickable="true"
-            android:background="@drawable/selectable_item_background"
-            android:visibility="gone"
-            >
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-            <ImageView
-                    android:id="@+id/full_search_image"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingLeft="14dp"
-                    android:paddingRight="10dp"
-                    android:src="@drawable/ic_fulltextsearch"
-                    />
-            <TextView
-                    android:id="@+id/full_search_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:padding="8dp"
-                    android:gravity="center_vertical"
-                    android:text="@string/search_within_pages"
-                    style="?android:textAppearanceMedium"
-                    android:textColor="@color/fulltext_search_text"
-                    />
-        </LinearLayout>
-        <View android:layout_width="match_parent" android:layout_height="1dp"
-              android:background="@color/border" />
-    </LinearLayout>
-    <FrameLayout
+        android:id="@+id/search_panel_types"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <ListView
-            android:id="@+id/search_results_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:dividerHeight="0dp"
-            />
-        <ProgressBar
-            android:id="@+id/search_progress"
-            android:layout_gravity="center"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:visibility="gone"
-            />
-    </FrameLayout>
-</LinearLayout>
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="center_horizontal">
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="32dp"
+                android:id="@+id/button_search_title"
+                android:background="@drawable/button_shape_flat"
+                android:text="@string/search_titles_button"
+                style="?android:textAppearanceSmall"
+                />
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="32dp"
+                android:id="@+id/button_search_full"
+                android:background="@drawable/button_shape_flat"
+                android:text="@string/search_full_button"
+                style="?android:textAppearanceSmall"
+                />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/search_types_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <fragment android:layout_width="match_parent" android:layout_height="match_parent"
+                android:id="@+id/fragment_search_title"
+                android:name="org.wikipedia.search.TitleSearchFragment"
+                tools:layout="@layout/fragment_search_title"/>
+
+            <fragment android:layout_width="match_parent" android:layout_height="match_parent"
+                android:id="@+id/fragment_search_full"
+                android:name="org.wikipedia.search.FullSearchFragment"
+                tools:layout="@layout/fragment_search_full"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_panel_recent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search_recent_header" />
+
+        <!-- recent search list will go here -->
+
+    </LinearLayout>
+
+</FrameLayout>

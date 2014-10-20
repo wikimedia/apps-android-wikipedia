@@ -23,7 +23,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.onboarding.OnboardingActivity;
 import org.wikipedia.recurring.RecurringTasksExecutor;
-import org.wikipedia.search.FullSearchFragment;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.staticdata.MainPageNameData;
@@ -51,6 +50,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -72,6 +72,7 @@ public class PageActivity extends ThemedActionBarActivity {
     private View fragmentContainerView;
     private DrawerLayout drawerLayout;
     private NavDrawerFragment fragmentNavdrawer;
+    private SearchArticlesFragment searchFragment;
 
     private ActionBarDrawerToggle mDrawerToggle;
     public ActionBarDrawerToggle getDrawerToggle() {
@@ -149,6 +150,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navdrawer);
+        searchFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
 
         fragmentContainerView = findViewById(R.id.content_fragment_container);
 
@@ -240,6 +242,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
         app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.ic_drawer));
         app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.search_w));
+        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.search));
     }
 
     @Override
@@ -258,6 +261,14 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (searchFragment != null && !searchFragment.isSearchActive()) {
+            getMenuInflater().inflate(R.menu.menu_main, menu);
+        }
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Pass the event to ActionBarDrawerToggle, if it returns
         // true, then it has handled the app icon touch event
@@ -267,6 +278,9 @@ public class PageActivity extends ThemedActionBarActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
+                return true;
+            case R.id.menu_search:
+                searchFragment.openSearch();
                 return true;
             default:
                 break;
@@ -358,37 +372,6 @@ public class PageActivity extends ThemedActionBarActivity {
         }
         //also make sure the progress bar is not showing
         setSupportProgressBarVisibility(false);
-    }
-
-    public void search(final String searchTerm) {
-        if (getTopFragment() instanceof SearchArticlesFragment) {
-            ((SearchArticlesFragment) getTopFragment()).newSearch(searchTerm);
-        } else {
-            SearchArticlesFragment searchFragment = SearchArticlesFragment.newInstance(searchTerm);
-            pushFragment(searchFragment);
-        }
-    }
-
-    public void openSearch() {
-        if (!(getTopFragment() instanceof SearchArticlesFragment)) {
-            SearchArticlesFragment searchFragment = SearchArticlesFragment.newInstance("");
-            pushFragment(searchFragment);
-        }
-    }
-
-    public void closeSearch() {
-        if (getTopFragment() instanceof SearchArticlesFragment) {
-            popFragment();
-        }
-        Utils.hideSoftKeyboard(this);
-    }
-
-    public void searchFullText(final String searchTerm) {
-        if (getTopFragment() instanceof FullSearchFragment) {
-            ((FullSearchFragment)getTopFragment()).newSearch(searchTerm);
-        } else {
-            pushFragment(FullSearchFragment.newInstance(searchTerm));
-        }
     }
 
     private void displayNewPage(final PageTitle title, final HistoryEntry entry) {
@@ -532,8 +515,7 @@ public class PageActivity extends ThemedActionBarActivity {
             drawerLayout.closeDrawer(Gravity.START);
             return;
         }
-        if (getTopFragment() instanceof SearchArticlesFragment) {
-            closeSearch();
+        if (searchFragment.onBackPressed()) {
             return;
         }
         if (!(getCurPageFragment() != null && getCurPageFragment().handleBackPressed())) {
