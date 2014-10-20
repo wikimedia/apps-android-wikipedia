@@ -1,12 +1,11 @@
 
 package org.wikipedia.test;
 
-import android.content.Intent;
-import android.test.ActivityUnitTestCase;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.editing.EditPreviewTask;
-
+import android.content.Intent;
+import android.test.ActivityUnitTestCase;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -22,7 +21,7 @@ public class PreviewTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", new Site("test.wikipedia.org"));
         long randomTime = System.currentTimeMillis();
         final String wikitext = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at " + randomTime;
-        final String expected = "<div></div><h2><span class=\"mw-headline\" id=\"Section_2\">Section 2</span><a href=\"#/editor/1\" data-section=\"1\" class=\"edit-page icon icon-32px icon-edit enabled\">Edit</a></h2><div>\n<p>Editing section INSERT RANDOM &amp; HERE test at " + randomTime + "</p>\n\n\n\n</div>";
+        final String expected = "<div></div><h2><span class=\"mw-headline\" id=\"Section_2\">Section 2</span><a href=\"#/editor/1\" title=\"Edit section: Section 2\" data-section=\"1\" class=\"icon icon-edit edit-page enabled icon-32px\">Edit</a></h2><div>\n<p>Editing section INSERT RANDOM &amp; HERE test at " + randomTime + "</p>\n\n\n\n</div>";
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override
