@@ -202,11 +202,15 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             setupGeomagneticField();
             showNearbyPages(lastResult);
         } else if (savedInstanceState != null) {
-            lastLocation = savedInstanceState.getParcelable(NEARBY_LAST_LOCATION);
             nextLocation = savedInstanceState.getParcelable(NEARBY_NEXT_LOCATION);
-            lastResult = savedInstanceState.getParcelable(NEARBY_LAST_RESULT);
-            setupGeomagneticField();
-            showNearbyPages(lastResult);
+            if (nextLocation != null) {
+                lastLocation = savedInstanceState.getParcelable(NEARBY_LAST_LOCATION);
+                lastResult = savedInstanceState.getParcelable(NEARBY_LAST_RESULT);
+                setupGeomagneticField();
+                showNearbyPages(lastResult);
+            } else {
+                setRefreshingState(true);
+            }
         } else {
             setRefreshingState(true);
         }
