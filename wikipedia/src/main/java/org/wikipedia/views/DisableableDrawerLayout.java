@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.FixedDrawerLayout;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -11,7 +12,7 @@ import android.view.Gravity;
 import android.view.View;
 import java.lang.reflect.Field;
 
-public class DisableableDrawerLayout extends DrawerLayout {
+public class DisableableDrawerLayout extends FixedDrawerLayout {
 
     public boolean getSlidingEnabled(int gravity) {
         return getDrawerLockMode(gravity) == DrawerLayout.LOCK_MODE_UNLOCKED;
@@ -58,8 +59,8 @@ public class DisableableDrawerLayout extends DrawerLayout {
                                                                       ViewCompat.getLayoutDirection(pullOutView));
                     // Determine whether to modify the left or right dragger, based on RTL/LTR orientation
                     Field mDragger = (absGravity & Gravity.HORIZONTAL_GRAVITY_MASK) == Gravity.LEFT
-                            ? DisableableDrawerLayout.this.getClass().getSuperclass().getDeclaredField("mLeftDragger")
-                            : DisableableDrawerLayout.this.getClass().getSuperclass().getDeclaredField("mRightDragger");
+                            ? DisableableDrawerLayout.this.getClass().getSuperclass().getSuperclass().getDeclaredField("mLeftDragger")
+                            : DisableableDrawerLayout.this.getClass().getSuperclass().getSuperclass().getDeclaredField("mRightDragger");
                     mDragger.setAccessible(true);
                     ViewDragHelper dragHelper = (ViewDragHelper) mDragger.get(DisableableDrawerLayout.this);
                     Field edgeWidth = dragHelper.getClass().getDeclaredField("mEdgeSize");
