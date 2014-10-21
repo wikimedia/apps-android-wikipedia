@@ -14,7 +14,7 @@
     <string name="search_hint">Search Wikipedia</string>
     <string name="history_activity_title">History</string>
     <string name="nav_item_history">History</string>
-    <string name="error_network_error">Could not reach the network :(</string>
+    <string name="error_network_error">There is no network connection :(</string>
     <string name="search_network_error">Network error. Tap to try again.</string>
     <string name="page_error_retry">Retry</string>
     <string name="menu_clear_all_history">Clear history</string>
