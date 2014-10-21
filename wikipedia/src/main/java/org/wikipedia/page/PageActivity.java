@@ -28,6 +28,8 @@ import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
+import org.wikipedia.zero.ZeroMessage;
+
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
@@ -104,7 +106,7 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     private boolean pausedStateOfZero;
-    private String pausedXcsOfZero;
+    private ZeroMessage pausedMessageOfZero;
 
     private AlertDialog.Builder alert;
 
@@ -133,11 +135,11 @@ public class PageActivity extends ThemedActionBarActivity {
 
         if (savedInstanceState != null) {
             pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
-            pausedXcsOfZero = savedInstanceState.getString("pausedXcsOfZero");
+            pausedMessageOfZero = savedInstanceState.getParcelable("pausedMessageOfZero");
         } else if (themeChanged) {
             // we've changed themes!
             pausedStateOfZero = getIntent().getExtras().getBoolean("pausedStateOfZero");
-            pausedXcsOfZero = getIntent().getExtras().getString("pausedXcsOfZero");
+            pausedMessageOfZero = getIntent().getExtras().getParcelable("pausedMessageOfZero");
             if (getIntent().getExtras().containsKey("themeChooserShowing")) {
                 if (getIntent().getExtras().getBoolean("themeChooserShowing")) {
                     bus.post(new ShowThemeChooserEvent());
@@ -549,35 +551,39 @@ public class PageActivity extends ThemedActionBarActivity {
     @Subscribe
     public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
         boolean latestWikipediaZeroDisposition = app.getWikipediaZeroHandler().isZeroEnabled();
-        String latestCarrierMessage = app.getWikipediaZeroHandler().getCarrierMessage();
+        ZeroMessage latestCarrierMessage = app.getWikipediaZeroHandler().getCarrierMessage();
 
         if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
             String title = getString(R.string.zero_charged_verbiage);
             String verbiage = getString(R.string.zero_charged_verbiage_extended);
-            makeWikipediaZeroCrouton(R.color.holo_red_dark, android.R.color.white, title);
+            makeWikipediaZeroCrouton(getResources().getColor(R.color.holo_red_dark),
+                    getResources().getColor(android.R.color.white),
+                    title);
             fragmentNavdrawer.setupDynamicItems();
             showDialogAboutZero(null, title, verbiage);
-        } else if ((!pausedStateOfZero || !pausedXcsOfZero.equals(latestCarrierMessage)) && latestWikipediaZeroDisposition) {
-            String title = latestCarrierMessage;
+        } else if ((!pausedStateOfZero || !pausedMessageOfZero.equals(latestCarrierMessage)) && latestWikipediaZeroDisposition) {
+            String title = latestCarrierMessage.getMsg();
+            int fg = latestCarrierMessage.getFg();
+            int bg = latestCarrierMessage.getBg();
             String verbiage = getString(R.string.zero_learn_more);
-            makeWikipediaZeroCrouton(R.color.holo_green_light, android.R.color.black, title);
+            makeWikipediaZeroCrouton(bg, fg, title);
             fragmentNavdrawer.setupDynamicItems();
             showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, title, verbiage);
         }
         pausedStateOfZero = latestWikipediaZeroDisposition;
-        pausedXcsOfZero = latestCarrierMessage;
+        pausedMessageOfZero = latestCarrierMessage;
     }
 
     private void makeWikipediaZeroCrouton(int bgcolor, int fgcolor, String verbiage) {
         final int zeroTextSize = 20;
         final float croutonHeight = 192.0f;
         Style style = new Style.Builder()
-                .setBackgroundColor(bgcolor)
+                .setBackgroundColorValue(bgcolor)
                 .setGravity(Gravity.CENTER)
                 // .setTextAppearance-driven font size is not being honored, so we'll do it manually
                 // Text size in library is in sp
                 .setTextSize(zeroTextSize)
-                .setTextColor(fgcolor)
+                .setTextColorValue(fgcolor)
                 // Height size in library is in px
                 .setHeight((int) Math.floor(croutonHeight * WikipediaApp.getInstance().getScreenDensity()))
                 .build();
@@ -653,7 +659,7 @@ public class PageActivity extends ThemedActionBarActivity {
     public void onPause() {
         super.onPause();
         pausedStateOfZero = app.getWikipediaZeroHandler().isZeroEnabled();
-        pausedXcsOfZero = app.getWikipediaZeroHandler().getCarrierMessage();
+        pausedMessageOfZero = app.getWikipediaZeroHandler().getCarrierMessage();
     }
 
     @Override
@@ -664,7 +670,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
     private void saveState(Bundle outState) {
         outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
-        outState.putString("pausedXcsOfZero", pausedXcsOfZero);
+        outState.putParcelable("pausedMessageOfZero", pausedMessageOfZero);
     }
 
     @Override

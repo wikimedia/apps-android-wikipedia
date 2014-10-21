@@ -36,8 +36,8 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
     }
 
     private volatile boolean acquiringCarrierMessage = false;
-    private String carrierMessage = "";
-    public String getCarrierMessage() {
+    private ZeroMessage carrierMessage;
+    public ZeroMessage getCarrierMessage() {
         return carrierMessage;
     }
 
@@ -63,7 +63,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
                     }
                 } else if (zeroEnabled) {
                     carrierString = "";
-                    carrierMessage = "";
+                    carrierMessage = null;
                     zeroEnabled = false;
                     app.getBus().post(new WikipediaZeroStateChangeEvent());
                 }
@@ -130,7 +130,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
             public boolean handleMessage(Message msg) {
                 WikipediaZeroTask zeroTask = new WikipediaZeroTask(app.getAPIForSite(app.getPrimarySite()), app) {
                     @Override
-                    public void onFinish(String message) {
+                    public void onFinish(ZeroMessage message) {
                         Log.d("Wikipedia", "Wikipedia Zero message: " + message);
 
                         if (message != null) {

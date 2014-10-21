@@ -106,7 +106,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
 
         // Show Wikipedia Zero if ON, otherwise hide it
         if (app.getWikipediaZeroHandler().isZeroEnabled()) {
-            wikipediaZeroText.setText(app.getWikipediaZeroHandler().getCarrierMessage());
+            wikipediaZeroText.setText(app.getWikipediaZeroHandler().getCarrierMessage().getMsg());
             wikipediaZeroText.setVisibility(View.VISIBLE);
         } else {
             wikipediaZeroText.setVisibility(View.GONE);
