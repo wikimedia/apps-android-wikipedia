@@ -32,7 +32,11 @@ public class OnboardingActivity extends Activity {
         setContentView(R.layout.activity_onboarding);
 
         final OnboardingFunnel funnel = new OnboardingFunnel((WikipediaApp) getApplicationContext());
-        funnel.logStart();
+
+        // Only send the onboarding start log event if the activity is created for the first time
+        if (savedInstanceState == null) {
+            funnel.logStart();
+        }
 
         ImageView wikipediaWordMarkImage = (ImageView) findViewById(R.id.onboarding_wp_wordmark_img);
         TextView wikipediaWordMarkText = (TextView) findViewById(R.id.onboarding_wp_wordmark_text_fallback);
@@ -88,5 +92,11 @@ public class OnboardingActivity extends Activity {
     private void markAllAboard() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.edit().putBoolean(PrefKeys.getOnboard(), true).commit();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("onboardingShowing", true);
     }
 }
