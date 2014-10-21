@@ -39,6 +39,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.BadParcelableException;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -120,10 +121,20 @@ public class PageActivity extends ThemedActionBarActivity {
         bus = app.getBus();
         bus.register(this);
 
+        boolean themeChanged = false;
+        try {
+            themeChanged = getIntent().hasExtra("changeTheme");
+        } catch (BadParcelableException e) {
+            // this may be thrown when an app such as Facebook puts its own private Parcelable
+            // into the intent. Since we don't know about the class of the Parcelable, we can't
+            // unparcel it properly, so the hasExtra method may fail.
+            Log.w("PageActivity", "Received an unknown parcelable in intent:", e);
+        }
+
         if (savedInstanceState != null) {
             pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
             pausedXcsOfZero = savedInstanceState.getString("pausedXcsOfZero");
-        } else if (getIntent().hasExtra("changeTheme")) {
+        } else if (themeChanged) {
             // we've changed themes!
             pausedStateOfZero = getIntent().getExtras().getBoolean("pausedStateOfZero");
             pausedXcsOfZero = getIntent().getExtras().getString("pausedXcsOfZero");
@@ -142,7 +153,7 @@ public class PageActivity extends ThemedActionBarActivity {
         // If we're coming back from a Theme change, we'll need to "restore" our state based on
         // what's given in our Intent (since there's no way to relaunch the Activity in a way that
         // forces it to save its own instance state)...
-        if (getIntent().hasExtra("changeTheme")) {
+        if (themeChanged) {
             String className = getIntent().getExtras().getString(KEY_LAST_FRAGMENT);
             try {
                 // instantiate the last fragment that was on top of the backstack before the Activity
