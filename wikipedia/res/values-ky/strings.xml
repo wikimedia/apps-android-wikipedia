@@ -11,7 +11,7 @@
   <string name="search_hint">Уикипедиядан издөө</string>
   <string name="history_activity_title">Тарых</string>
   <string name="nav_item_history">Тарых</string>
-  <string name="error_network_error">Тармакты табууга мүмкүнчүлүк болбоду :(</string>
+  <string name="error_network_error" fuzzy="true">Тармакты табууга мүмкүнчүлүк болбоду :(</string>
   <string name="search_network_error">Тармак катасы. Кайра аракет кылуу үчүн басыңыз.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="menu_clear_all_history">Тарыхты тазалоо</string>
@@ -226,7 +226,6 @@
   <string name="page_similar_titles">Окшош барактар</string>
   <string name="search_within_pages">Барактар ичинде издөө...</string>
   <string name="search_no_results">\"%s\" үчүн эч бир жыйынтык табылбады.</string>
-  <string name="search_showing_instead">\"%1$s\" үчүн эч бир жыйынтык табылбады. \"%2$s\" үчүн жыйынтыктар көрсөтүлдү:</string>
   <string name="search_results_title">Издөө жыйынтыктары</string>
   <string name="search_error_retry">Кайра аракет кылуу</string>
   <string name="search_redirect_title">\"%s\" барагынан багытталды.</string>

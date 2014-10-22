@@ -11,7 +11,7 @@
   <string name="search_hint">Wikipedia-haku</string>
   <string name="history_activity_title">Historia</string>
   <string name="nav_item_history">Historia</string>
-  <string name="error_network_error">Ei pääsyä verkkoon :(</string>
+  <string name="error_network_error" fuzzy="true">Ei pääsyä verkkoon :(</string>
   <string name="search_network_error">Verkkovirhe. Yritä uudelleen.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
   <string name="menu_clear_all_history">Tyhjennä historia</string>
@@ -227,7 +227,6 @@
   <string name="page_similar_titles">Samankaltaiset sivut</string>
   <string name="search_within_pages">Etsi sivuilta…</string>
   <string name="search_no_results">Ei tuloksia hakusanalla \"%s\".</string>
-  <string name="search_showing_instead">Ei tuloksia hakusanalla \"%1$s\". Näytetään tulokset hakusanalla \"%2$s\":</string>
   <string name="search_results_title">Hakutulokset</string>
   <string name="search_error_retry">Yritä uudelleen</string>
   <string name="search_redirect_title">Ohjattu sivulta \"%s\".</string>

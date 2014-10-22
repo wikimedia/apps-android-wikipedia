@@ -10,7 +10,7 @@
   <string name="search_hint">ابحث في ويكيبيديا</string>
   <string name="history_activity_title">التاريخ</string>
   <string name="nav_item_history">التاريخ</string>
-  <string name="error_network_error">لا يمكن الوصول للشبكة :(</string>
+  <string name="error_network_error" fuzzy="true">لا يمكن الوصول للشبكة :(</string>
   <string name="search_network_error">خطأ في شبكة الاتصال. اضغط لإعادة المحاولة.</string>
   <string name="page_error_retry">أعد المحاولة</string>
   <string name="menu_clear_all_history">امسح التاريخ</string>

@@ -11,7 +11,7 @@
   <string name="search_hint">Википедиа -аас хайх</string>
   <string name="history_activity_title">Түүх</string>
   <string name="nav_item_history">Түүх</string>
-  <string name="error_network_error">Сүлжээнд холбогдож чадахгүй байна :(</string>
+  <string name="error_network_error" fuzzy="true">Сүлжээнд холбогдож чадахгүй байна :(</string>
   <string name="search_network_error">Сүлжээний саатал. Дахин оруулна уу</string>
   <string name="page_error_retry">Дахин оролд</string>
   <string name="menu_clear_all_history">Түүх арилгах</string>

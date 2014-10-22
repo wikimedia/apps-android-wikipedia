@@ -11,7 +11,7 @@
   <string name="search_hint">Procurar na Wikipedia</string>
   <string name="history_activity_title">Historial</string>
   <string name="nav_item_history">Historial</string>
-  <string name="error_network_error">Non se puido chegar á rede :(</string>
+  <string name="error_network_error" fuzzy="true">Non se puido chegar á rede :(</string>
   <string name="search_network_error">Erro na rede. Toque para intentalo de novo.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="menu_clear_all_history">Limpar o historial</string>
@@ -212,7 +212,6 @@
   <string name="page_similar_titles" fuzzy="true">Títulos semellantes</string>
   <string name="search_within_pages">Procurar dentro das páxinas...</string>
   <string name="search_no_results">Non se atopou ningún resultado para \"%s\".</string>
-  <string name="search_showing_instead">Non se atopou ningún resultado para \"%1$s\". A continuación, móstranse os resultados de \"%2$s\":</string>
   <string name="search_results_title">Resultados da procura</string>
   <string name="search_error_retry">Reintentar</string>
   <string name="search_redirect_title">Redirección desde \"%s\".</string>

@@ -11,7 +11,7 @@
   <string name="search_hint">在维基百科内搜索</string>
   <string name="history_activity_title">历史</string>
   <string name="nav_item_history">历史</string>
-  <string name="error_network_error">不能连接网络:(</string>
+  <string name="error_network_error">无网络连接:(</string>
   <string name="search_network_error">网络故障。点击可重试。</string>
   <string name="page_error_retry">重试</string>
   <string name="menu_clear_all_history">清除历史记录</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">相似页面</string>
   <string name="search_within_pages">在页面中搜索…</string>
   <string name="search_no_results">找不到“%s”的结果。</string>
-  <string name="search_showing_instead">未找到“%1$s”的结果。显示“%2$s”的结果：</string>
   <string name="search_results_title">搜索结果</string>
   <string name="search_error_retry">重试</string>
   <string name="search_redirect_title">重定向自“%s”。</string>

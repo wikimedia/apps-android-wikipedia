@@ -11,7 +11,7 @@
   <string name="search_hint">Cerca a la Viquipèdia</string>
   <string name="history_activity_title">Historial</string>
   <string name="nav_item_history">Historial</string>
-  <string name="error_network_error">No s\'ha pogut connectar a la xarxa :(</string>
+  <string name="error_network_error" fuzzy="true">No s\'ha pogut connectar a la xarxa :(</string>
   <string name="search_network_error">Error de xarxa. Toca la pantalla per intentar-ho de nou.</string>
   <string name="page_error_retry">Tornar a provar</string>
   <string name="menu_clear_all_history">Neteja l\'historial</string>
@@ -230,7 +230,6 @@
   <string name="page_similar_titles">Pàgines similars</string>
   <string name="search_within_pages">Cerca dins les pàgines…</string>
   <string name="search_no_results">No s\'han trobat resultats de «%s».</string>
-  <string name="search_showing_instead">No s\'han trobat resultats de «%1$s». Es mostren els resultats de «%2$s»:</string>
   <string name="search_results_title">Resultats de cerca</string>
   <string name="search_error_retry">Torna a provar</string>
   <string name="search_redirect_title">Redirecció de «%s».</string>

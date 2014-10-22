@@ -11,7 +11,7 @@
   <string name="search_hint">Buscar en Wikipedia</string>
   <string name="history_activity_title">Historial</string>
   <string name="nav_item_history">Historial</string>
-  <string name="error_network_error">No se pudo conectar con la red :(</string>
+  <string name="error_network_error" fuzzy="true">No se pudo conectar con la red :(</string>
   <string name="search_network_error">Error en la red. Toca para volver a intentarlo.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="menu_clear_all_history">Limpiar el historial</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">Páginas similares</string>
   <string name="search_within_pages">Buscar en las páginas...</string>
   <string name="search_no_results">No se encontraron resultados de \"%s\".</string>
-  <string name="search_showing_instead">No se encontraron resultados de \"%1$s\". Se muestran los de \"%2$s\":</string>
   <string name="search_results_title">Resultados de la búsqueda</string>
   <string name="search_error_retry">Reintentar</string>
   <string name="search_redirect_title">Redirección desde \"%s\".</string>

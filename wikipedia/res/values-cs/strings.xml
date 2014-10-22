@@ -10,7 +10,7 @@
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="history_activity_title">Historie</string>
   <string name="nav_item_history">Historie</string>
-  <string name="error_network_error">Nepořadilo se připojit k síti :(</string>
+  <string name="error_network_error" fuzzy="true">Nepořadilo se připojit k síti :(</string>
   <string name="search_network_error">Chyba sítě. Klepnutím to zkusíte znovu.</string>
   <string name="page_error_retry">Zkusit znovu</string>
   <string name="menu_clear_all_history">Vymazat historii</string>

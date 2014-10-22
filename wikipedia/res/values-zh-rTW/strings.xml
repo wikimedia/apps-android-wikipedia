@@ -11,7 +11,7 @@
   <string name="search_hint">搜尋維基百科</string>
   <string name="history_activity_title">歷史</string>
   <string name="nav_item_history">歷史</string>
-  <string name="error_network_error">無法與網路連線 :(</string>
+  <string name="error_network_error" fuzzy="true">無法與網路連線 :(</string>
   <string name="search_network_error">網路錯誤。點選重試。</string>
   <string name="page_error_retry">重試</string>
   <string name="menu_clear_all_history">清除歷史</string>
@@ -28,7 +28,7 @@
   <string name="toast_saved_page_refreshed">儲存頁面已更新</string>
   <string name="menu_save_page">儲存頁面</string>
   <string name="menu_share_page">分享</string>
-  <string name="share_via">通過……分享</string>
+  <string name="share_via">透過……分享</string>
   <string name="dialog_title_clear_saved_pages">清除所有已儲存頁面？</string>
   <string name="dialog_message_clear_saved_pages">確定要清除全部已儲存的頁面？</string>
   <string name="toast_saving_page">儲存頁面中...</string>
@@ -43,15 +43,15 @@
   <string name="nearby_activity_title">附近</string>
   <string name="nav_item_nearby">附近</string>
   <string name="menu_update_nearby">更新附近</string>
-  <string name="nearby_empty_title" fuzzy="true">附近無頁面</string>
-  <string name="nearby_empty_message" fuzzy="true">當您移至一個新位置時您可以重載此頁面。</string>
+  <string name="nearby_empty_title">此處附近無頁面！</string>
+  <string name="nearby_empty_message">當您移至一個新位置時，嘗試重新整理此頁面以了解您周圍的更多事物。</string>
   <string name="nearby_distance_in_meters">%d 米</string>
   <string name="nearby_distance_in_kilometers">%.2f 千米</string>
   <string name="nearby_distance_in_feet">%d呎</string>
   <string name="nearby_distance_in_miles">%.2f哩</string>
   <string name="nearby_no_network">無網路連線</string>
   <string name="nearby_server_error">無法獲得附近地點的清單。</string>
-  <string name="nearby_no_location">無法獲得位置</string>
+  <string name="nearby_no_location">無法取得位置</string>
   <string name="nearby_dialog_goto_settings">您的裝置未啟用位置更新。您想要前往您的裝置設定啟用位置更新麼？</string>
   <string name="nearby_set_metric">顯示 米/千米</string>
   <string name="nearby_set_imperial">顯示 呎/哩</string>
@@ -140,7 +140,7 @@
   <string name="zero_charged_verbiage_extended">載入其他條目可能產生資料費用。</string>
   <string name="zero_search_hint">搜尋Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">離開Wikipedia Zero時提示</string>
-  <string name="zero_warn_when_leaving_summary">如果閣下的行動業者/流動營辦商透過Wikipedia Zero的夥伴關係免除存取維基百科時的資料收費，閣下可以通過勾選此設定以在離開維基百科的程式時通知閣下，以免閣下被收費。</string>
+  <string name="zero_warn_when_leaving_summary">如果閣下的行動業者/流動營辦商透過Wikipedia Zero的夥伴關係免除存取維基百科時的資料收費，閣下可以透過勾選此設定以在離開維基百科的程式時通知閣下，以免閣下被收費。</string>
   <string name="zero_webpage_title">Wikipedia Zero常見問題</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">離開Wikipedia Zero</string>
@@ -192,7 +192,7 @@
   <string name="about_libraries_heading">使用庫</string>
   <string name="about_contributors_heading">貢獻者</string>
   <string name="about_translators_heading">翻譯人員</string>
-  <string name="about_translators_translatewiki">此應用程式由&lt;a href=\"https://translatewiki.net\"&gt;Translatewiki.net&lt;/a&gt;的志工翻譯。</string>
+  <string name="about_translators_translatewiki">此應用程式由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的志工翻譯。</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
   <string name="edit_unchanged">頁面未被修改。</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">相似的頁面</string>
   <string name="search_within_pages">於頁面內搜尋...</string>
   <string name="search_no_results">找不到「%s」的結果。</string>
-  <string name="search_showing_instead">未找到「%1$s」的結果。顯示「%2$s」的結果：</string>
   <string name="search_results_title">搜尋結果</string>
   <string name="search_error_retry">重試</string>
   <string name="search_redirect_title">重新導向自「%s」。</string>

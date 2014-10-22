@@ -11,7 +11,7 @@
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="history_activity_title">Историја</string>
   <string name="nav_item_history">Историја</string>
-  <string name="error_network_error">Не можам да ја најдам мрежата :(</string>
+  <string name="error_network_error" fuzzy="true">Не можам да ја најдам мрежата :(</string>
   <string name="search_network_error">Мрежна грешка. Допрете за да се обиде повторно.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="menu_clear_all_history">Исчисти историја</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">Слични страници</string>
   <string name="search_within_pages">Пребарај по страниците...</string>
   <string name="search_no_results">Не пронајдов ништо за „%s“.</string>
-  <string name="search_showing_instead">Не пронајдов ништо за „%1$s“. Прикажувам резултати зџа „%2$s“:</string>
   <string name="search_results_title">Резултати од пребарувањето</string>
   <string name="search_error_retry">Пробај пак</string>
   <string name="search_redirect_title">Пренасочување од „%s“.</string>

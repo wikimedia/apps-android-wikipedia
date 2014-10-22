@@ -11,7 +11,7 @@
   <string name="search_hint">Søg i Wikipedia</string>
   <string name="history_activity_title">Historik</string>
   <string name="nav_item_history">Historik</string>
-  <string name="error_network_error">Kunne ikke få forbindelse med netværket :(</string>
+  <string name="error_network_error" fuzzy="true">Kunne ikke få forbindelse med netværket :(</string>
   <string name="search_network_error">Netværksfejl. Tryk for at prøve igen.</string>
   <string name="page_error_retry">Prøv igen</string>
   <string name="menu_clear_all_history">Ryd historik</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">Lignende sider</string>
   <string name="search_within_pages">Søg inden for sider...</string>
   <string name="search_no_results">Ingen resultater fundet for \"%s\".</string>
-  <string name="search_showing_instead">Ingen resultater fundet for \"%1$s\". Viser resultater for \"%2$s\":</string>
   <string name="search_results_title">Søgeresultater</string>
   <string name="search_error_retry">Prøv igen</string>
   <string name="search_redirect_title">Omdirigering fra \"%s\".</string>

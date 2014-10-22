@@ -7,7 +7,7 @@
   <string name="search_hint">Википедин чухула лахар</string>
   <string name="history_activity_title">Истори</string>
   <string name="nav_item_history">Истори</string>
-  <string name="error_network_error">ЗӀе цакарий :(</string>
+  <string name="error_network_error" fuzzy="true">ЗӀе цакарий :(</string>
   <string name="page_error_retry">ЮхагӀорта</string>
   <string name="menu_clear_all_history">ДӀацӀане истори?</string>
   <string name="nav_item_today">Тахана</string>

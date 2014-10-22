@@ -11,7 +11,7 @@
   <string name="search_hint">ウィキペディアを検索</string>
   <string name="history_activity_title">履歴</string>
   <string name="nav_item_history">履歴</string>
-  <string name="error_network_error">ネットワークがつながりません :(</string>
+  <string name="error_network_error" fuzzy="true">ネットワークがつながりません :(</string>
   <string name="search_network_error">ネットワークエラーです。タップしてやり直してください。</string>
   <string name="page_error_retry">再試行</string>
   <string name="menu_clear_all_history">履歴を消去</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">類似したページ</string>
   <string name="search_within_pages">ページ内を検索…</string>
   <string name="search_no_results">「%s」に対する検索結果はありません</string>
-  <string name="search_showing_instead">「%1$s」に対する検索結果はありません。代わりに「%2$s」の結果を表示します：</string>
   <string name="search_results_title">検索結果</string>
   <string name="search_error_retry">再試行</string>
   <string name="search_redirect_title">「%s」からの転送</string>

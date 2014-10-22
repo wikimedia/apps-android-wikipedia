@@ -11,7 +11,7 @@
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="history_activity_title">היסטוריה</string>
   <string name="nav_item_history">היסטוריה</string>
-  <string name="error_network_error">אין גישה לרשת :(</string>
+  <string name="error_network_error" fuzzy="true">אין גישה לרשת :(</string>
   <string name="search_network_error">שגיאת רשת. יש ללחוץ כדי לנסות שוב.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="menu_clear_all_history">ניקוי היסטוריה</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">דפים דומים</string>
   <string name="search_within_pages">חיפוש בדפים...</string>
   <string name="search_no_results">לא נמצאו תוצאות עבור \"%s\".</string>
-  <string name="search_showing_instead">לא נמצאו תוצאות עבור \"%1$s\". הצגת תוצאות עבור \"%2$s\":</string>
   <string name="search_results_title">תוצאות חיפוש</string>
   <string name="search_error_retry">לנסות שוב</string>
   <string name="search_redirect_title">הפניה מהדף \"%s\".</string>
@@ -252,5 +251,5 @@
 
 קוד המקור פתוח. אם יש לכם ניסיוןעם ג\'אווה ו־SDK של אנדרואיד, אז בואו לתרום לנו קוד! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">זמין עדכון אלפא חדש.</string>
-  <string name="alpha_update_notification_text">הקש כדי להוריד</string>
+  <string name="alpha_update_notification_text">נא להקיש להורדה</string>
 </resources>

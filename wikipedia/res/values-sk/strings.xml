@@ -11,7 +11,7 @@
   <string name="search_hint">Hľadať</string>
   <string name="history_activity_title">História</string>
   <string name="nav_item_history">História</string>
-  <string name="error_network_error">Nie ste pripojení na sieť :(</string>
+  <string name="error_network_error" fuzzy="true">Nie ste pripojení na sieť :(</string>
   <string name="search_network_error">Problém so sieťou. Ťuknutím to skúsite znova.</string>
   <string name="page_error_retry">Obnoviť</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
@@ -223,7 +223,6 @@
   <string name="color_theme_dark">Tmavý</string>
   <string name="page_similar_titles">Podobné stránky</string>
   <string name="search_no_results">Vyhľadávanie nenašlo žiadne výsledky pre \"%s\".</string>
-  <string name="search_showing_instead">Vyhľadávanie nenašlo žiadne výsledky pre \"%1$s\". Zobrazujú sa výsledky pre \"%2$s\":</string>
   <string name="search_results_title">Výsledky vyhľadávania</string>
   <string name="search_error_retry">Znova</string>
   <string name="search_redirect_title">Presmerované z \"%s\".</string>

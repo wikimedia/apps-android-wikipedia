@@ -11,7 +11,7 @@
   <string name="search_hint">Procurar na Wikipédia</string>
   <string name="history_activity_title">Histórico</string>
   <string name="nav_item_history">Histórico</string>
-  <string name="error_network_error">Não foi possível se conectar à rede :(</string>
+  <string name="error_network_error" fuzzy="true">Não foi possível se conectar à rede :(</string>
   <string name="search_network_error">Erro de conexão. Clique para tentar de novo.</string>
   <string name="page_error_retry">Repetir</string>
   <string name="menu_clear_all_history">Limpar histórico</string>
@@ -223,7 +223,6 @@
   <string name="page_similar_titles">Títulos semelhantes</string>
   <string name="search_within_pages">Procurar na páginas...</string>
   <string name="search_no_results">Nenhum resultado encontrado para \"%s\".</string>
-  <string name="search_showing_instead">Nenhum resultado encontrada para \"%1$s\". Mostrando resultados para \"%2$s\":</string>
   <string name="search_results_title">Resultados da pesquisa</string>
   <string name="search_error_retry">Tentar novamente</string>
   <string name="search_redirect_title">Redirecionar de \"%s\".</string>

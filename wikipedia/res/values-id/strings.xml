@@ -10,7 +10,7 @@
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="history_activity_title">Riwayat</string>
   <string name="nav_item_history">Riwayat</string>
-  <string name="error_network_error">Tidak dapat mencapai jaringan :(</string>
+  <string name="error_network_error" fuzzy="true">Tidak dapat mencapai jaringan :(</string>
   <string name="search_network_error">Kesalahan jaringan. Ketuk untuk mencoba lagi.</string>
   <string name="page_error_retry">Coba lagi</string>
   <string name="menu_clear_all_history">Hapus riwayat</string>

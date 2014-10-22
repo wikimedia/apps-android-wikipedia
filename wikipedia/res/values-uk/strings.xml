@@ -11,7 +11,7 @@
   <string name="search_hint">Пошук по Вікіпедії</string>
   <string name="history_activity_title">Історія</string>
   <string name="nav_item_history">Історія</string>
-  <string name="error_network_error">Не вдалося знайти мережу :(</string>
+  <string name="error_network_error" fuzzy="true">Не вдалося знайти мережу :(</string>
   <string name="search_network_error">Помилка мережі. Натисніть, щоб спробувати знову.</string>
   <string name="page_error_retry">Повторити</string>
   <string name="menu_clear_all_history">Очистити журнал</string>
@@ -230,7 +230,6 @@
   <string name="page_similar_titles">Подібні сторінки</string>
   <string name="search_within_pages">Пошук серед сторінок…</string>
   <string name="search_no_results">Нічого не знайдено для \"%s\".</string>
-  <string name="search_showing_instead">Нічого не знайдено для \"%1$s\". Показані результати для \"%2$s \":</string>
   <string name="search_results_title">Результати пошуку</string>
   <string name="search_error_retry">Повторити</string>
   <string name="search_redirect_title">Перенаправити від \"%s\".</string>

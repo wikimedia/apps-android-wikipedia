@@ -11,7 +11,7 @@
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="history_activity_title">ইতিহাস</string>
   <string name="nav_item_history">ইতিহাস</string>
-  <string name="error_network_error">নেটওয়ার্ক সংযোগ পাওয়া যাচ্ছে না :(</string>
+  <string name="error_network_error">এখানে কোন নেটওয়ার্ক সংযোগ নেই :(</string>
   <string name="search_network_error">নেটওয়ার্ক ত্রুটি। পুনরায় চেষ্টা করুন।</string>
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">কাছাকাছি</string>
   <string name="nav_item_nearby">কাছাকাছি</string>
   <string name="menu_update_nearby">কাছাকাছি হালনাগাদ করুন</string>
-  <string name="nearby_empty_title" fuzzy="true">কাছাকাছি কোন পাতা নেই</string>
-  <string name="nearby_empty_message" fuzzy="true">আপনি একটি নতুন অবস্থানে গেলে এই পাতাটি পুনঃসতেজ করতে পারেন।</string>
+  <string name="nearby_empty_title">এখানে কাছাকাছি কোন পাতা নেই</string>
+  <string name="nearby_empty_message">যখন আপনি একটি নতুন অবস্থানে যাবেন, আপনার কাছাকাছি কি আছে জানতে এই পাতাটি পুনঃসতেজ করতে চেষ্টা করুন।</string>
   <string name="nearby_distance_in_meters">%d মি</string>
   <string name="nearby_distance_in_kilometers">%.2f কিমি</string>
   <string name="nearby_distance_in_feet">%d ফুট</string>
@@ -52,6 +52,7 @@
   <string name="nearby_no_network">কোন নেটওয়ার্ক সংযোগ নেই</string>
   <string name="nearby_server_error">কাছাকাছি স্থানের তালিকা পাওয়া যায়নি।</string>
   <string name="nearby_no_location">অবস্থান নির্ণয় করতে সক্ষম নয়</string>
+  <string name="nearby_dialog_goto_settings">অবস্থান হালনাগাদ আপনার ডিভাইসে সক্রিয় করা নেই। আপনি কি অবস্থান হালনাগাদ সক্রিয় করতে আপনার ডিভাইসের সেটিংসে যেতে চান?</string>
   <string name="nearby_set_metric">মিটার/কিমি দেখাও</string>
   <string name="nearby_set_imperial">ফুট/মাইল দেখাও</string>
   <string name="last_updated_text">%1$s তারিখে সর্বশেষ হালনাগাদ</string>

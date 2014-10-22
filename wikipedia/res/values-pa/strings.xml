@@ -11,7 +11,7 @@
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
   <string name="history_activity_title">ਅਤੀਤ</string>
   <string name="nav_item_history">ਅਤੀਤ</string>
-  <string name="error_network_error">ਨੈੱਟਵਰਕ ਤੱਕ ਨਹੀਂ ਪਹੁੰਚ ਸਕਿਆ :(</string>
+  <string name="error_network_error" fuzzy="true">ਨੈੱਟਵਰਕ ਤੱਕ ਨਹੀਂ ਪਹੁੰਚ ਸਕਿਆ :(</string>
   <string name="search_network_error">ਨੈੱਟਵਰਕ \'ਚ ਦੋਸ਼। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਵਾਸਤੇ ਟਕੋਰੋ।</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
@@ -231,7 +231,6 @@
   <string name="page_similar_titles">ਮਿਲਦੇ-ਜੁਲਦੇ ਸਫ਼ੇ</string>
   <string name="search_within_pages">ਸਫ਼ਿਆਂ ਅੰਦਰ ਭਾਲ਼...</string>
   <string name="search_no_results">\"%s\" ਵਾਸਤੇ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਲੱਭੇ।</string>
-  <string name="search_showing_instead">\"%1$s\" ਵਾਸਤੇ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਲੱਭੇ। \"%2$s\" ਵਾਸਤੇ ਨਤੀਜੇ ਵਿਖਾ ਰਿਹਾ ਹੈ:</string>
   <string name="search_results_title">ਭਾਲ਼ ਦੇ ਨਤੀਜੇ</string>
   <string name="search_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="search_redirect_title">\"%s\" ਤੋਂ ਮੋੜਿਆ।</string>

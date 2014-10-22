@@ -9,7 +9,7 @@
   <string name="search_hint">விக்கிப்பீடியாவில் தேடவும்</string>
   <string name="history_activity_title">வரலாறு</string>
   <string name="nav_item_history">வரலாறு</string>
-  <string name="error_network_error">வலையத்தை அடைய முடியவில்லை :(</string>
+  <string name="error_network_error" fuzzy="true">வலையத்தை அடைய முடியவில்லை :(</string>
   <string name="search_network_error">வலையத் தவறு. திரும்ப முயல தட்டவும்.</string>
   <string name="page_error_retry">மறு முயற்சி செய்</string>
   <string name="menu_clear_all_history">வரலாற்றை நீக்கவும்</string>

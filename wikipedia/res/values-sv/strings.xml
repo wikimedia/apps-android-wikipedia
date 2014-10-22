@@ -11,7 +11,7 @@
   <string name="search_hint">Sök på Wikipedia</string>
   <string name="history_activity_title">Historik</string>
   <string name="nav_item_history">Historik</string>
-  <string name="error_network_error">Kunde inte nå nätverket :(</string>
+  <string name="error_network_error" fuzzy="true">Kunde inte nå nätverket :(</string>
   <string name="search_network_error">Nätverksfel. Tryck för att försöka igen.</string>
   <string name="page_error_retry">Försök igen</string>
   <string name="menu_clear_all_history">Rensa historik</string>
@@ -140,7 +140,7 @@
   <string name="zero_charged_verbiage_extended">Laddning av andra artiklar kan medföra kostnader för datatrafik.</string>
   <string name="zero_search_hint">Sök på Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Varna om jag lämnar Wikipedia Zero</string>
-  <string name="zero_warn_when_leaving_summary">Denna inställning varnar dig om du lämnar appen och riskerar att betala för datatrafik om din mobiloperatör ingått ett partnerskap med Wikipedia Zero som ger dig tillgång till Wikipedia utan datatrafiksavgifter.</string>
+  <string name="zero_warn_when_leaving_summary">Om din mobiloperatör ingått ett partnerskap med Wikipedia Zero, som ger dig tillgång till Wikipedia utan datatrafiksavgifter, varnas du om du lämnar appen och riskerar att betala för datatrafik om du har aktiverat denna inställning.</string>
   <string name="zero_webpage_title">Vanliga frågor om Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Du lämnar nu Wikipedia Zero</string>
@@ -168,7 +168,7 @@
   <string name="nav_item_my_contributions">Mina bidrag</string>
   <string name="edit_save_action_login">Logga in och spara</string>
   <string name="edit_save_action_ip">Spara anonymt</string>
-  <string name="edit_save_action_login_description">Dina ändringar kommer att offentligt tillskrivas ditt användarnamn och andra redigerare kan ansluta sig till dig bättre</string>
+  <string name="edit_save_action_login_description">Dina ändringar kommer att offentligt tillskrivas ditt användarnamn och andra bidragsgivare kan enklare få kontakt med dig</string>
   <string name="edit_save_action_ip_description">Dina ändringar kommer att offentligt tillskrivas din IP-adress, som ändras regelbundet</string>
   <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">Liknande sidor</string>
   <string name="search_within_pages">Sök inom sidor...</string>
   <string name="search_no_results">Inga resultat hittade för \"%s\".</string>
-  <string name="search_showing_instead">Inga resultat hittade för \"%1$s\". Visar resultat för \"%2$s\":</string>
   <string name="search_results_title">Sökresultat</string>
   <string name="search_error_retry">Försök igen</string>
   <string name="search_redirect_title">Omdirigera från \"%s\".</string>

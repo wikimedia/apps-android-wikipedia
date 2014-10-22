@@ -11,7 +11,7 @@
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="history_activity_title">Istor</string>
   <string name="nav_item_history">Istor</string>
-  <string name="error_network_error">N\'haller ket tizhout ar rouedad :(</string>
+  <string name="error_network_error" fuzzy="true">N\'haller ket tizhout ar rouedad :(</string>
   <string name="search_network_error">Fazi rouedad : pouezañ evit klask en-dro.</string>
   <string name="page_error_retry">Klask en-dro</string>
   <string name="menu_clear_all_history">Diverkañ an istor</string>
@@ -214,7 +214,6 @@
   <string name="page_similar_titles" fuzzy="true">Titloù kar</string>
   <string name="search_within_pages">Klask er pajennoù...</string>
   <string name="search_no_results">Disoc\'h ebet kavet evit \"%s\".</string>
-  <string name="search_showing_instead">Disoc\'h ebet kavet evit \"%1$\". Diskwel an disoc\'hoù evit \"%2$s\" :</string>
   <string name="search_results_title">Klask disoc\'hoù</string>
   <string name="search_error_retry">Klask en-dro</string>
   <string name="search_redirect_title">Adkaset war-zu \"%s\"</string>

@@ -9,7 +9,7 @@
   <string name="search_hint">Hwehwɛ Wikipedia mu</string>
   <string name="history_activity_title">Nea atwam</string>
   <string name="nav_item_history">Nea atwam</string>
-  <string name="error_network_error">Hwɛ sɛ wo network no yɛ adwuma a :(</string>
+  <string name="error_network_error" fuzzy="true">Hwɛ sɛ wo network no yɛ adwuma a :(</string>
   <string name="search_network_error">Network no ate kɔ. Fa wo nsa ka so bio.</string>
   <string name="page_error_retry">Yɛ bio</string>
   <string name="menu_clear_all_history">Pepa nea woayɛ atwam</string>

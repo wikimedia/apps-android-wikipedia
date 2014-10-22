@@ -11,7 +11,7 @@
   <string name="search_hint">Vikipedi\'de Ara</string>
   <string name="history_activity_title">Geçmiş</string>
   <string name="nav_item_history">Geçmiş</string>
-  <string name="error_network_error">Ağa ulaşılamadı :(</string>
+  <string name="error_network_error" fuzzy="true">Ağa ulaşılamadı :(</string>
   <string name="search_network_error">Ağ hatası. Tekrar denemek için dokunun.</string>
   <string name="page_error_retry">Tekrar dene</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">Benzer sayfalar</string>
   <string name="search_within_pages">Sayfalar içinde ara...</string>
   <string name="search_no_results">\"%s\" için hiçbir sonuç bulunamadı.</string>
-  <string name="search_showing_instead">\"%1$s\" için hiçbir sonuç bulunamadı. \"%2$s\" için sonuçlar gösteriliyor:</string>
   <string name="search_results_title">Arama sonuçları</string>
   <string name="search_error_retry">Tekrar dene</string>
   <string name="search_redirect_title">\"%s\" sayfasından yönlendirme.</string>

@@ -11,7 +11,7 @@
   <string name="search_hint">Tìm trong Wikipedia</string>
   <string name="history_activity_title">Lịch sử</string>
   <string name="nav_item_history">Lịch sử</string>
-  <string name="error_network_error">Không thể kết nối với mạng :(</string>
+  <string name="error_network_error" fuzzy="true">Không thể kết nối với mạng :(</string>
   <string name="search_network_error">Lỗi mạng. Chạm để thử lại.</string>
   <string name="page_error_retry">Thử lại</string>
   <string name="menu_clear_all_history">Xóa lịch sử</string>
@@ -43,7 +43,7 @@
   <string name="nearby_activity_title">Lân cận</string>
   <string name="nav_item_nearby">Lân cận</string>
   <string name="menu_update_nearby">Cập nhật danh sách lân cận</string>
-  <string name="nearby_empty_title" fuzzy="true">Không có trang lân cận</string>
+  <string name="nearby_empty_title">Không có trang nào gần đây!</string>
   <string name="nearby_empty_message">Khi nào bạn di chuyển đến một vị trí mới, hãy thử làm mới trang này để tìm hiểu về những gì nằm chung quanh bạn.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">Trang tương tự</string>
   <string name="search_within_pages">Tìm trong trang…</string>
   <string name="search_no_results">Không tìm thấy kết quả cho “%s”.</string>
-  <string name="search_showing_instead">Không tìm thấy kết quả cho “%1$s”. Đang hiển thị kết quả cho “%2$s”:</string>
   <string name="search_results_title">Kết quả tìm kiếm</string>
   <string name="search_error_retry">Thử lại</string>
   <string name="search_redirect_title">Đổi hướng từ “%s”.</string>

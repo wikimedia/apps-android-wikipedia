@@ -11,7 +11,7 @@
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="history_activity_title">Logg</string>
   <string name="nav_item_history">Logg</string>
-  <string name="error_network_error">Kunne ikke nå nettverket :(</string>
+  <string name="error_network_error" fuzzy="true">Kunne ikke nå nettverket :(</string>
   <string name="search_network_error">Nettverksfeil. Trykk for å prøve igjen.</string>
   <string name="page_error_retry">Prøv igjen</string>
   <string name="menu_clear_all_history">Tøm logg</string>
@@ -230,7 +230,6 @@
   <string name="page_similar_titles">Lignende sider</string>
   <string name="search_within_pages">Søk gjennom sider…</string>
   <string name="search_no_results">Ingen resultater funnet for «%s».</string>
-  <string name="search_showing_instead">Ingen resultater funnet for «%1$s». Viser resultater fro «%2$s»:</string>
   <string name="search_results_title">Søkeresultater</string>
   <string name="search_error_retry">Prøv igjen</string>
   <string name="search_redirect_title">Omdirigering fra «%s».</string>

@@ -11,7 +11,7 @@
   <string name="search_hint">Cerca su Wikipedia</string>
   <string name="history_activity_title">Cronologia</string>
   <string name="nav_item_history">Cronologia</string>
-  <string name="error_network_error">Impossibile collegarsi alla rete :(</string>
+  <string name="error_network_error" fuzzy="true">Impossibile collegarsi alla rete :(</string>
   <string name="search_network_error">Errore di rete. Toccare per provare di nuovo.</string>
   <string name="page_error_retry">Riprova</string>
   <string name="menu_clear_all_history">Cancella la cronologia</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">Pagine simili</string>
   <string name="search_within_pages">Cerca all\'interno delle pagine…</string>
   <string name="search_no_results">Nessun risultato trovato per \"%s\".</string>
-  <string name="search_showing_instead">Nessun risultato trovato per \"%1$s\". Sto mostrando i risultati per \"%2$s\":</string>
   <string name="search_results_title">Risultati della ricerca</string>
   <string name="search_error_retry">Riprova</string>
   <string name="search_redirect_title">Redirect da \"%s\".</string>

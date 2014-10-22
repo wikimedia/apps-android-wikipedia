@@ -10,7 +10,7 @@
   <string name="search_hint">Википедиялда цӀехесе</string>
   <string name="history_activity_title">Тарих</string>
   <string name="nav_item_history">Тарих</string>
-  <string name="error_network_error">Связь батизабизе кӀвечӀо :(</string>
+  <string name="error_network_error" fuzzy="true">Связь батизабизе кӀвечӀо :(</string>
   <string name="search_network_error">Связалъул гъалатӀ. Такрар гьабизе цӀуе.</string>
   <string name="page_error_retry">Такрар гьабизе.</string>
   <string name="menu_clear_all_history">Тарих бацӀцӀине</string>

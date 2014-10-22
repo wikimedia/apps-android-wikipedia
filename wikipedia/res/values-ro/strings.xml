@@ -11,7 +11,7 @@
   <string name="search_hint">Căutare în Wikipedia</string>
   <string name="history_activity_title">Istoric</string>
   <string name="nav_item_history">Istoric</string>
-  <string name="error_network_error">Imposibil de conectat la rețea :(</string>
+  <string name="error_network_error">Nu există nicio conexiune la rețea :(</string>
   <string name="search_network_error">Eroare de rețea. Atingeți pentru a reîncerca.</string>
   <string name="page_error_retry">Reîncercare</string>
   <string name="menu_clear_all_history">Curăță istoricul</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">Pagini similare</string>
   <string name="search_within_pages">Căutare în corpul paginilor...</string>
   <string name="search_no_results">Niciun rezultat găsit pentru „%s”.</string>
-  <string name="search_showing_instead">Niciun rezultat găsit pentru „%1$s”. Se afișează rezultatele pentru „%2$s”:</string>
   <string name="search_results_title">Rezultatele căutării</string>
   <string name="search_error_retry">Reîncearcă</string>
   <string name="search_redirect_title">Redirecționare către „%s”.</string>

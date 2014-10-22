@@ -11,7 +11,7 @@
   <string name="search_hint">Chwilio Wicipedia</string>
   <string name="history_activity_title">Hanes</string>
   <string name="nav_item_history">Hanes</string>
-  <string name="error_network_error">Methwyd a chyrraedd y rhwydwaith :(</string>
+  <string name="error_network_error" fuzzy="true">Methwyd a chyrraedd y rhwydwaith :(</string>
   <string name="search_network_error">Gwall yn y rhwydwaith. Ceisiwch eto.</string>
   <string name="page_error_retry">Ailgeisiwch</string>
   <string name="menu_clear_all_history">Clirio\'r hanes</string>

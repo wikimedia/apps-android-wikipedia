@@ -10,7 +10,7 @@
   <string name="search_hint">Serĉu en Vikipedio</string>
   <string name="history_activity_title">Historio</string>
   <string name="nav_item_history">Historio</string>
-  <string name="error_network_error">Ne eblis aliri al la reto :(</string>
+  <string name="error_network_error" fuzzy="true">Ne eblis aliri al la reto :(</string>
   <string name="search_network_error">Reta eraro. Tuŝu por reprovi.</string>
   <string name="page_error_retry">Reprovi</string>
   <string name="menu_clear_all_history">Malplenigi historion</string>

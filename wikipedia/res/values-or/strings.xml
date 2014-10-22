@@ -9,7 +9,7 @@
   <string name="search_hint">ଉଇକିପିଡ଼ିଆରେ ଖୋଜନ୍ତୁ</string>
   <string name="history_activity_title">ଇତିହାସ</string>
   <string name="nav_item_history">ଇତିହାସ</string>
-  <string name="error_network_error">ନେଟୱାର୍କରେ ଖୋଜିପାଇଲୁ ନାହିଁ :(</string>
+  <string name="error_network_error" fuzzy="true">ନେଟୱାର୍କରେ ଖୋଜିପାଇଲୁ ନାହିଁ :(</string>
   <string name="search_network_error">ନେଟୱାର୍କରେ ତ୍ରୁଟି । ଆଉଥରେ ଦେଖିବା ପାଇଁ ଟ୍ୟାପ କରନ୍ତୁ ।</string>
   <string name="page_error_retry">ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ</string>
   <string name="menu_clear_all_history">ଇତିହାସ ଲିଭାନ୍ତୁ</string>

@@ -10,7 +10,7 @@
   <string name="search_hint">Leita í Wikipedia</string>
   <string name="history_activity_title">Søga</string>
   <string name="nav_item_history">Søga</string>
-  <string name="error_network_error">Fann onki netverk :(</string>
+  <string name="error_network_error" fuzzy="true">Fann onki netverk :(</string>
   <string name="search_network_error">Netverksfeilur. Trýst fyri at royna aftur.</string>
   <string name="page_error_retry">Royn aftur</string>
   <string name="menu_clear_all_history">Rudda søguyvirlitið</string>

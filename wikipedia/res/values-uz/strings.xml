@@ -11,7 +11,7 @@
   <string name="search_hint">Vikipediadan izlash</string>
   <string name="history_activity_title">Tarix</string>
   <string name="nav_item_history">Tarix</string>
-  <string name="error_network_error">Tarmoq bilan bo\'g\'lanib bo\'lmadi :(</string>
+  <string name="error_network_error" fuzzy="true">Tarmoq bilan bo\'g\'lanib bo\'lmadi :(</string>
   <string name="search_network_error">Tarmoqdagi xatolik. Yana harakat qilish uchun ushbuni bosing.</string>
   <string name="page_error_retry">Qayta urinib ko\'rish</string>
   <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalash</string>
@@ -86,7 +86,7 @@
   <string name="login_error_wrong_password">Noto‘g‘ri maxfiy so‘z</string>
   <string name="login_error_wrong_username">Noto‘g‘ri foydalanuvchining ismi</string>
   <string name="login_success_toast">Kirish muvaffaqiyatli amalga oshdi!</string>
-  <string name="login_error_blocked">Bu foydalanuvchi to\'sib qo\'yilgan</string>
+  <string name="login_error_blocked">Bu foydalanuvchi chetlatilgan</string>
   <string name="login_error_unknown">Saytga kirib bo\'lmadi :(</string>
   <string name="login_error_no_network">Tarmoq aloqasi mavjud emas</string>
   <string name="nav_item_logout">Chiqish</string>

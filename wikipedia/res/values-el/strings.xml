@@ -11,7 +11,7 @@
   <string name="search_hint">Αναζήτηση στη Βικιπαίδεια</string>
   <string name="history_activity_title">Ιστορικό</string>
   <string name="nav_item_history">Ιστορικό</string>
-  <string name="error_network_error">Η σύνδεση με το δίκτυο απέτυχε :(</string>
+  <string name="error_network_error" fuzzy="true">Η σύνδεση με το δίκτυο απέτυχε :(</string>
   <string name="search_network_error">Σφάλμα δικτύου. Πατήστε για να προσπαθήσετε ξανά.</string>
   <string name="page_error_retry">Ξαναπροσπαθήστε</string>
   <string name="menu_clear_all_history">Εκκαθάριση ιστορικού</string>
@@ -208,7 +208,6 @@
   <string name="page_similar_titles" fuzzy="true">Άλλες έννοιες</string>
   <string name="search_within_pages">Αναζήτηση σε σελίδες</string>
   <string name="search_no_results">Δεν βρέθηκαν αποτελέσματα για \"%s\".</string>
-  <string name="search_showing_instead">Δεν βρέθηκαν αποτελέσματα για \"%1$s\". Εμφάνιση αποτελεσμάτων για \"%2$s\":</string>
   <string name="search_results_title">Αποτελέσματα αναζήτησης</string>
   <string name="search_error_retry">Επανάληψη</string>
   <string name="search_redirect_title">Ανακατεύθυνση από \"%s\".</string>

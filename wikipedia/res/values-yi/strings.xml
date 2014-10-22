@@ -7,7 +7,7 @@
   <string name="search_hint">זוכן וויקיפעדיע</string>
   <string name="history_activity_title">היסטאריע</string>
   <string name="nav_item_history">היסטאריע</string>
-  <string name="error_network_error">נישט גע קענט דערגרייכן די נעצווערק :(</string>
+  <string name="error_network_error" fuzzy="true">נישט גע קענט דערגרייכן די נעצווערק :(</string>
   <string name="search_network_error">נעצווערק פעלער. קלאפט אן צו פרובירן נאכאמאל.</string>
   <string name="page_error_retry">פרובירן ווידער</string>
   <string name="menu_clear_all_history">אפראמען היסטאריע</string>

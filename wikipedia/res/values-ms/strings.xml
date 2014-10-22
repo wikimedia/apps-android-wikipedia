@@ -11,7 +11,7 @@
   <string name="search_hint">Cari dalam Wikipedia</string>
   <string name="history_activity_title">Sejarah</string>
   <string name="nav_item_history">Sejarah</string>
-  <string name="error_network_error">Rangkaian tidak dapat dicapai :(</string>
+  <string name="error_network_error" fuzzy="true">Rangkaian tidak dapat dicapai :(</string>
   <string name="search_network_error">Ralat rangkaian. Ketik untuk cuba lagi.</string>
   <string name="page_error_retry">Cuba lagi</string>
   <string name="menu_clear_all_history">Padamkan sejarah</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">Laman-laman serupa</string>
   <string name="search_within_pages">Cari dalam laman...</string>
   <string name="search_no_results">Tiada hasil ditemui untuk \" %s \".</string>
-  <string name="search_showing_instead">Tiada hasil ditemui untuk \" %1$s \". Menunjukkan hasil untuk \" %2$s \":</string>
   <string name="search_results_title">Hasil carian</string>
   <string name="search_error_retry">Cuba lagi</string>
   <string name="search_redirect_title">Lencongan dari \"%s\".</string>

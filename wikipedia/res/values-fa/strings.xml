@@ -11,7 +11,7 @@
   <string name="search_hint">جستجوی ویکی‌پدیا</string>
   <string name="history_activity_title">تاریخچه</string>
   <string name="nav_item_history">تاریخچه</string>
-  <string name="error_network_error">به شبکه دسترسی ندارد :(</string>
+  <string name="error_network_error" fuzzy="true">به شبکه دسترسی ندارد :(</string>
   <string name="search_network_error">خطای شبکه. برای تلاش مجدد با انگشت بر روی صفحه بزنید.</string>
   <string name="page_error_retry">تلاش مجدد</string>
   <string name="menu_clear_all_history">پاک‌کردن تاریخچه</string>
@@ -212,7 +212,6 @@
   <string name="page_similar_titles" fuzzy="true">معانی دیگر</string>
   <string name="search_within_pages">جستجو در صفحات...</string>
   <string name="search_no_results">هیچ نتیجه‌ای برای «%s» یافت نشد.</string>
-  <string name="search_showing_instead">هیچ نتیجه‌ای برای «%1$s» یافت نشد. نتایج «%2$s» نشان داده می‌شود:</string>
   <string name="search_results_title">نتایج جستجو</string>
   <string name="search_error_retry">تلاش مجدد</string>
   <string name="search_redirect_title">تغییر مسیر از «%s».</string>

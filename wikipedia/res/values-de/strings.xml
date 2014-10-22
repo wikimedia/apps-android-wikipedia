@@ -11,7 +11,7 @@
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="history_activity_title">Verlauf</string>
   <string name="nav_item_history">Verlauf</string>
-  <string name="error_network_error">Das Netzwerk konnte nicht erreicht werden :(</string>
+  <string name="error_network_error" fuzzy="true">Das Netzwerk konnte nicht erreicht werden :(</string>
   <string name="search_network_error">Netzwerkfehler. Tippen zum erneuten Versuchen.</string>
   <string name="page_error_retry">Erneut versuchen</string>
   <string name="menu_clear_all_history">Verlauf löschen</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">Ähnliche Seiten</string>
   <string name="search_within_pages">Suche innerhalb Seiten …</string>
   <string name="search_no_results">Keine Ergebnisse für „%s“ gefunden.</string>
-  <string name="search_showing_instead">Keine Ergebnisse für „%1$s“ gefunden. Stattdessen werden die Ergebnisse für „%2$s“ angezeigt:</string>
   <string name="search_results_title">Suchergebnisse</string>
   <string name="search_error_retry">Erneut versuchen</string>
   <string name="search_redirect_title">Weitergeleitet von „%s“.</string>

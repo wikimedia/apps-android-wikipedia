@@ -11,7 +11,7 @@
   <string name="search_hint">Поиск по Википедии</string>
   <string name="history_activity_title">История</string>
   <string name="nav_item_history">История</string>
-  <string name="error_network_error">Не удалось найти сеть :(</string>
+  <string name="error_network_error" fuzzy="true">Не удалось найти сеть :(</string>
   <string name="search_network_error">Ошибка сети. Нажмите, чтобы повторить попытку.</string>
   <string name="page_error_retry">Повторить</string>
   <string name="menu_clear_all_history">Очистить историю</string>
@@ -234,7 +234,6 @@
   <string name="page_similar_titles">Похожие страницы</string>
   <string name="search_within_pages">Искать на страницах…</string>
   <string name="search_no_results">Не найдено никаких результатов для «%s».</string>
-  <string name="search_showing_instead">Не найдено никаких результатов для «%1$s». Показаны результаты для «%2$s»:</string>
   <string name="search_results_title">Результаты поиска</string>
   <string name="search_error_retry">Повторить</string>
   <string name="search_redirect_title">Перенаправление с «%s».</string>

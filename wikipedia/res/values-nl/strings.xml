@@ -11,7 +11,7 @@
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="history_activity_title">Geschiedenis</string>
   <string name="nav_item_history">Geschiedenis</string>
-  <string name="error_network_error">Het netwerk was niet beschikbaar :(</string>
+  <string name="error_network_error" fuzzy="true">Het netwerk was niet beschikbaar :(</string>
   <string name="search_network_error">Netwerkfout. Klik om het opnieuw te proberen.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
@@ -223,7 +223,6 @@
   <string name="page_similar_titles">Vergelijkbare pagina\'s</string>
   <string name="search_within_pages">Zoeken binnen pagina\'s...</string>
   <string name="search_no_results">Geen resultaten gevonden voor \"%s\".</string>
-  <string name="search_showing_instead">Geen resultaten gevonden voor \"%1$s\". In plaats daarvan resultaten voor \"%2$s\":</string>
   <string name="search_results_title">Zoekresultaten</string>
   <string name="search_error_retry">Opnieuw proberen</string>
   <string name="search_redirect_title">Doorverwezen vanaf \"%s\".</string>
