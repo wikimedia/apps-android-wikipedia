@@ -91,14 +91,14 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                     }
                 });
 
-            historyEntryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    HistoryEntry oldEntry = (HistoryEntry) view.getTag();
-                    HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
-                    app.getBus().post(new NewWikiPageNavigationEvent(oldEntry.getTitle(), newEntry));
-                }
-            });
+        historyEntryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                HistoryEntry oldEntry = (HistoryEntry) view.getTag();
+                HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
+                app.getBus().post(new NewWikiPageNavigationEvent(oldEntry.getTitle(), newEntry));
+            }
+        });
 
         getActivity().getSupportLoaderManager().initLoader(0, null, this);
         getActivity().getSupportLoaderManager().restartLoader(0, null, this);

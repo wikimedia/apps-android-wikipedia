@@ -7,11 +7,12 @@ import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.editing.summaries.EditSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.search.RecentSearch;
 
 public class DBOpenHelper  extends SQLiteOpenHelper{
 
     private static final String DATABASE_NAME = "wikipedia.db";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     public DBOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -20,6 +21,7 @@ public class DBOpenHelper  extends SQLiteOpenHelper{
     private PersistanceHelper[] persistanceHelpers = {
             HistoryEntry.PERSISTANCE_HELPER,
             PageImage.PERSISTANCE_HELPER,
+            RecentSearch.PERSISTANCE_HELPER,
             SavedPage.PERSISTANCE_HELPER,
             EditSummary.PERSISTANCE_HELPER
     };
