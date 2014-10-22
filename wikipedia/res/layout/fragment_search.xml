@@ -58,20 +58,9 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <fragment android:layout_width="match_parent" android:layout_height="match_parent"
         android:id="@+id/search_panel_recent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/search_recent_header" />
-
-        <!-- recent search list will go here -->
-
-    </LinearLayout>
+        android:name="org.wikipedia.search.RecentSearchesFragment"
+        tools:layout="@layout/fragment_search_recent"/>
 
 </FrameLayout>

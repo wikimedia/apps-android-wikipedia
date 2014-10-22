@@ -37,6 +37,8 @@ import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagePersister;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.savedpages.SavedPagePersister;
+import org.wikipedia.search.RecentSearch;
+import org.wikipedia.search.RecentSearchPersister;
 import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.zero.WikipediaZeroHandler;
 import java.util.ArrayList;
@@ -353,6 +355,8 @@ public class WikipediaApp extends Application {
                 persister = new HistoryEntryPersister(this);
             } else if (cls.equals(PageImage.class)) {
                 persister = new PageImagePersister(this);
+            } else if (cls.equals(RecentSearch.class)) {
+                persister = new RecentSearchPersister(this);
             } else if (cls.equals(SavedPage.class)) {
                 persister = new SavedPagePersister(this);
             } else if (cls.equals(EditSummary.class)) {

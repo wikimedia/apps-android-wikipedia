@@ -117,6 +117,11 @@
                 />
 
         <provider
+                android:authorities="${applicationId}.recentsearches"
+                android:name=".search.RecentSearchContentProvider"
+                />
+
+        <provider
                 android:authorities="${applicationId}.savedpages"
                 android:name=".savedpages.SavedPageContentProvider"
                 />

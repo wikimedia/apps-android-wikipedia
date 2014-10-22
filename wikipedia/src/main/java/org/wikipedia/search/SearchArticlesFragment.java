@@ -4,6 +4,7 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
@@ -16,6 +17,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -61,16 +63,12 @@ public class SearchArticlesFragment extends Fragment {
     private View searchContainerView;
 
     /**
-     * View that contains the "recent searches" list.
-     */
-    private View recentSearchContainer;
-
-    /**
      * View that contains the two types of search result fragments (Title and Full), as well
      * as the buttons to switch between the two.
      */
     private View searchTypesContainer;
 
+    private RecentSearchesFragment recentSearchesFragment;
     private TitleSearchFragment titleSearchFragment;
     private FullSearchFragment fullSearchFragment;
 
@@ -103,7 +101,7 @@ public class SearchArticlesFragment extends Fragment {
             }
         });
 
-        recentSearchContainer = parentLayout.findViewById(R.id.search_panel_recent);
+        recentSearchesFragment = (RecentSearchesFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.search_panel_recent);
         searchTypesContainer = parentLayout.findViewById(R.id.search_panel_types);
 
         buttonTitleSearch = parentLayout.findViewById(R.id.button_search_title);
@@ -170,6 +168,15 @@ public class SearchArticlesFragment extends Fragment {
         outState.putString(ARG_LAST_SEARCHED_TEXT, lastSearchedText);
     }
 
+    public void switchToTitleSearch(String queryText) {
+        if (getActivePanel() == PANEL_TITLE_SEARCH) {
+            return;
+        }
+        showPanel(PANEL_TITLE_SEARCH);
+        startSearch(queryText, true);
+        searchView.setQuery(queryText, false);
+    }
+
     /**
      * Show a particular panel, which can be one of:
      * - PANEL_RECENT_SEARCHES
@@ -179,14 +186,14 @@ public class SearchArticlesFragment extends Fragment {
      * @param panel Which panel to show.
      */
     private void showPanel(int panel) {
-        recentSearchContainer.setVisibility(View.GONE);
         searchTypesContainer.setVisibility(View.GONE);
+        recentSearchesFragment.hide();
         titleSearchFragment.hide();
         fullSearchFragment.hide();
 
         switch (panel) {
             case PANEL_RECENT_SEARCHES:
-                recentSearchContainer.setVisibility(View.VISIBLE);
+                recentSearchesFragment.show();
                 break;
             case PANEL_TITLE_SEARCH:
                 searchTypesContainer.setVisibility(View.VISIBLE);
@@ -282,6 +289,7 @@ public class SearchArticlesFragment extends Fragment {
         // hide ourselves
         searchContainerView.setVisibility(View.GONE);
         Utils.hideSoftKeyboard(getActivity());
+        addRecentSearch(lastSearchedText);
     }
 
     /**
@@ -376,5 +384,36 @@ public class SearchArticlesFragment extends Fragment {
         Utils.hideSoftKeyboard(getActivity());
         closeSearch();
         app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
+    }
+
+    private void addRecentSearch(String title) {
+        if (isValidQuery(title)) {
+            new SaveRecentSearchTask(new RecentSearch(title)).execute();
+        }
+    }
+
+    private final class SaveRecentSearchTask extends SaneAsyncTask<Void> {
+        private final RecentSearch entry;
+        public SaveRecentSearchTask(RecentSearch entry) {
+            super(SINGLE_THREAD);
+            this.entry = entry;
+        }
+
+        @Override
+        public Void performTask() throws Throwable {
+            app.getPersister(RecentSearch.class).upsert(entry);
+            return null;
+        }
+
+        @Override
+        public void onFinish(Void result) {
+            super.onFinish(result);
+            recentSearchesFragment.updateList();
+        }
+
+        @Override
+        public void onCatch(Throwable caught) {
+            Log.w("SaveRecentSearchTask", "Caught " + caught.getMessage(), caught);
+        }
     }
 }
