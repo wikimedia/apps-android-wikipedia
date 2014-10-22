@@ -95,7 +95,8 @@ public class LoginActivity extends ThemedActionBarActivity {
         if (getIntent().getBooleanExtra(ACTION_CREATE_ACCOUNT, false)) {
             wentStraightToCreateAccount = true;
             startCreateAccountActivity();
-        } else {
+        } else if (savedInstanceState == null) {
+            // Only send the login start log event if the activity is created for the first time
             logLoginStart();
         }
 
@@ -226,5 +227,11 @@ public class LoginActivity extends ThemedActionBarActivity {
     protected void onDestroy() {
         super.onDestroy();
         Crouton.cancelAllCroutons();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("loginShowing", true);
     }
 }

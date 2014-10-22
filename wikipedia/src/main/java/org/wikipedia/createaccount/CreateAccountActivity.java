@@ -183,8 +183,11 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         });
 
         funnel = new CreateAccountFunnel(app, getIntent().getStringExtra(LOGIN_REQUEST_SOURCE));
-        funnel.logStart(getIntent().getStringExtra(LOGIN_SESSION_TOKEN));
 
+        // Only send the editing start log event if the activity is created for the first time
+        if (savedInstanceState == null) {
+            funnel.logStart(getIntent().getStringExtra(LOGIN_SESSION_TOKEN));
+        }
         // Set default result to failed, so we can override if it did not
         setResult(RESULT_ACCOUNT_NOT_CREATED);
     }

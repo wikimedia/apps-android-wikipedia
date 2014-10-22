@@ -144,7 +144,11 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         bus.register(this);
 
         funnel = app.getFunnelManager().getEditFunnel(title);
-        funnel.logStart();
+
+        // Only send the editing start log event if the activity is created for the first time
+        if (savedInstanceState == null) {
+            funnel.logStart();
+        }
 
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
             sectionWikitext = savedInstanceState.getString("sectionWikitext");
