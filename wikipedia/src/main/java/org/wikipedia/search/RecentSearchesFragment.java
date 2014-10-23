@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 /** Displays a list of recent searches */
 public class RecentSearchesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+    // make sure this number is unique among other fragments that use a loader
+    private static final int LOADER_ID = 102;
 
     private SearchArticlesFragment searchFragment;
     private View container;
@@ -62,13 +64,13 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
             }
         });
 
-        getActivity().getSupportLoaderManager().initLoader(0, null, this);
-        getActivity().getSupportLoaderManager().restartLoader(0, null, this);
+        getActivity().getSupportLoaderManager().initLoader(LOADER_ID, null, this);
+        getActivity().getSupportLoaderManager().restartLoader(LOADER_ID, null, this);
     }
 
     @Override
     public void onDestroyView() {
-        getActivity().getSupportLoaderManager().destroyLoader(0);
+        getActivity().getSupportLoaderManager().destroyLoader(LOADER_ID);
         super.onDestroyView();
     }
 

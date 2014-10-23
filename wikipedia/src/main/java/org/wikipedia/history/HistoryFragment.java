@@ -29,6 +29,8 @@ import java.text.DateFormat;
 import java.util.Date;
 
 public class HistoryFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+    // make sure this number is unique among other fragments that use a loader
+    private static final int LOADER_ID = 100;
 
     private ListView historyEntryList;
     private View historyEmptyContainer;
@@ -80,7 +82,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
                     @Override
                     public void afterTextChanged(Editable editable) {
-                        getActivity().getSupportLoaderManager().restartLoader(0, null, HistoryFragment.this);
+                        getActivity().getSupportLoaderManager().restartLoader(LOADER_ID, null, HistoryFragment.this);
                         if (editable.length() == 0) {
                             historyEmptyTitle.setText(R.string.history_empty_title);
                             historyEmptyMessage.setVisibility(View.VISIBLE);
@@ -100,13 +102,13 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             }
         });
 
-        getActivity().getSupportLoaderManager().initLoader(0, null, this);
-        getActivity().getSupportLoaderManager().restartLoader(0, null, this);
+        getActivity().getSupportLoaderManager().initLoader(LOADER_ID, null, this);
+        getActivity().getSupportLoaderManager().restartLoader(LOADER_ID, null, this);
     }
 
     @Override
     public void onDestroyView() {
-        getActivity().getSupportLoaderManager().destroyLoader(0);
+        getActivity().getSupportLoaderManager().destroyLoader(LOADER_ID);
         super.onDestroyView();
     }
 

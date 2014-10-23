@@ -28,6 +28,8 @@ import org.wikipedia.pageimages.PageImage;
 import java.util.ArrayList;
 
 public class SavedPagesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+    // make sure this number is unique among other fragments that use a loader
+    private static final int LOADER_ID = 101;
 
     private ListView savedPagesList;
     private View savedPagesEmptyContainer;
@@ -149,7 +151,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
                     @Override
                     public void afterTextChanged(Editable editable) {
-                        getActivity().getSupportLoaderManager().restartLoader(0, null, SavedPagesFragment.this);
+                        getActivity().getSupportLoaderManager().restartLoader(LOADER_ID, null, SavedPagesFragment.this);
                         if (editable.length() == 0) {
                             savedPagesEmptyTitle.setText(R.string.saved_pages_empty_title);
                             savedPagesEmptyImage.setVisibility(View.VISIBLE);
@@ -176,13 +178,13 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
         app.adjustDrawableToTheme(savedPagesEmptyImage.getDrawable());
 
-        getActivity().getSupportLoaderManager().initLoader(0, null, this);
-        getActivity().getSupportLoaderManager().restartLoader(0, null, this);
+        getActivity().getSupportLoaderManager().initLoader(LOADER_ID, null, this);
+        getActivity().getSupportLoaderManager().restartLoader(LOADER_ID, null, this);
     }
 
     @Override
     public void onDestroyView() {
-        getActivity().getSupportLoaderManager().destroyLoader(0);
+        getActivity().getSupportLoaderManager().destroyLoader(LOADER_ID);
         super.onDestroyView();
     }
 
