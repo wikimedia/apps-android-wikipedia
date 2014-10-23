@@ -2,7 +2,8 @@ package org.wikipedia.test;
 
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
-import com.github.kevinsawicki.http.HttpRequest;
+
+import org.mediawiki.api.json.ApiException;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
@@ -42,9 +43,9 @@ public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", new Site("test.wikipedia.org"));
         final String wikitext = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at " + System.currentTimeMillis();
         final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
-        app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetreivedCallback() {
+        app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetrievedCallback() {
             @Override
-            public void onTokenRetreived(String token) {
+            public void onTokenRetrieved(String token) {
                 new DoEditTask(getInstrumentation().getTargetContext(), title, wikitext, SECTION_ID, token, "") {
                     @Override
                     public void onFinish(EditingResult result) {
@@ -86,11 +87,16 @@ public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
                                 return;
                             }
                         }
-                        if (!(caught instanceof HttpRequest.HttpRequestException)) {
+                        if (!(caught instanceof ApiException)) {
                             throw new RuntimeException(caught);
                         }
                     }
                 }.execute();
+            }
+
+            @Override
+            public void onTokenFailed(Throwable caught) {
+                fail("Fetching token failed: " + caught.getMessage());
             }
         });
     }

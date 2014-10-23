@@ -15,7 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
-import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.ApiException;
@@ -257,8 +256,7 @@ public class EditPreviewFragment extends Fragment {
                 progressDialog.dismiss();
 
                 if (!(caught instanceof EditingException
-                        || caught instanceof ApiException
-                        || caught instanceof HttpRequest.HttpRequestException)) {
+                        || caught instanceof ApiException)) {
                     throw new RuntimeException(caught);
                 }
                 Log.d("Wikipedia", "Caught " + caught.toString());

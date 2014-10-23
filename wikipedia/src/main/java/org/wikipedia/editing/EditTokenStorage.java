@@ -17,8 +17,9 @@ public class EditTokenStorage {
     private final SharedPreferences prefs;
     private final Context context;
 
-    public interface TokenRetreivedCallback {
-        void onTokenRetreived(String token);
+    public interface TokenRetrievedCallback {
+        void onTokenRetrieved(String token);
+        void onTokenFailed(Throwable caught);
     }
 
     public EditTokenStorage(Context context) {
@@ -31,13 +32,13 @@ public class EditTokenStorage {
         }
     }
 
-    public void get(final Site site, final TokenRetreivedCallback callback) {
+    public void get(final Site site, final TokenRetrievedCallback callback) {
         // This might run an AsyncTask, and hence must be called from main thread
         Utils.ensureMainThread();
 
         String curToken = tokenJar.get(site.getDomain());
         if (curToken != null) {
-            callback.onTokenRetreived(curToken);
+            callback.onTokenRetrieved(curToken);
             return;
         }
 
@@ -45,7 +46,12 @@ public class EditTokenStorage {
             @Override
             public void onFinish(String result) {
                 updatePrefs(site.getDomain(), result);
-                callback.onTokenRetreived(result);
+                callback.onTokenRetrieved(result);
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                callback.onTokenFailed(caught);
             }
         }.execute();
     }

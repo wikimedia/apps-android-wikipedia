@@ -24,7 +24,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.github.kevinsawicki.http.HttpRequest;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
@@ -272,9 +271,9 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     private void doSave() {
         captchaHandler.hideCaptcha();
         editSummaryFragment.saveSummary();
-        app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetreivedCallback() {
+        app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetrievedCallback() {
             @Override
-            public void onTokenRetreived(final String token) {
+            public void onTokenRetrieved(final String token) {
 
                 String summaryText = TextUtils.isEmpty(sectionHeading) ? "" : ("/* " + sectionHeading + " */ ");
                 summaryText += editPreviewFragment.getSummary();
@@ -300,28 +299,11 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                             handleEditingException((EditingException) caught);
                             return;
                         }
-                        if (!(caught instanceof HttpRequest.HttpRequestException || caught instanceof ApiException)) {
+                        if (!(caught instanceof ApiException)) {
                             throw new RuntimeException(caught);
                         }
                         Log.d("Wikipedia", "Caught " + caught.toString());
-                        final AlertDialog retryDialog = new AlertDialog.Builder(EditSectionActivity.this)
-                                .setMessage(R.string.dialog_message_edit_failed)
-                                .setPositiveButton(R.string.dialog_message_edit_failed_retry, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        doSave();
-                                        dialog.dismiss();
-                                        progressDialog.dismiss();
-                                    }
-                                })
-                                .setNegativeButton(R.string.dialog_message_edit_failed_cancel, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                        progressDialog.dismiss();
-                                    }
-                                }).create();
-                        retryDialog.show();
+                        showRetryDialog();
                     }
 
                     @Override
@@ -371,7 +353,36 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                     }
                 }.execute();
             }
+
+            @Override
+            public void onTokenFailed(Throwable caught) {
+                if (!(caught instanceof ApiException)) {
+                    throw new RuntimeException(caught);
+                }
+                showRetryDialog();
+            }
         });
+    }
+
+    private void showRetryDialog() {
+        final AlertDialog retryDialog = new AlertDialog.Builder(EditSectionActivity.this)
+                .setMessage(R.string.dialog_message_edit_failed)
+                .setPositiveButton(R.string.dialog_message_edit_failed_retry, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        doSave();
+                        dialog.dismiss();
+                        progressDialog.dismiss();
+                    }
+                })
+                .setNegativeButton(R.string.dialog_message_edit_failed_cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        progressDialog.dismiss();
+                    }
+                }).create();
+        retryDialog.show();
     }
 
     private void handleEditingException(EditingException ee) {
