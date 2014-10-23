@@ -5,6 +5,7 @@ import android.test.ActivityUnitTestCase;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.zero.WikipediaZeroTask;
+import org.wikipedia.zero.ZeroMessage;
 
 import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
@@ -27,7 +28,7 @@ public class WikipediaZeroTests extends ActivityUnitTestCase<TestDummyActivity> 
                 customHeaders.put("X-CS", "TEST");
                 new WikipediaZeroTask(new Api("en.m.wikipedia.org", "WMF-Android-AutomationTest-testWikipediaZeroEligibility", customHeaders), (WikipediaApp)getInstrumentation().getTargetContext().getApplicationContext()) {
                     @Override
-                    public void onFinish(String result) {
+                    public void onFinish(ZeroMessage result) {
                         assertNotNull(result);
                         completionLatch.countDown();
                     }
