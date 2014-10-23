@@ -11,7 +11,7 @@
   <string name="search_hint">Поиск по Википедии</string>
   <string name="history_activity_title">История</string>
   <string name="nav_item_history">История</string>
-  <string name="error_network_error" fuzzy="true">Не удалось найти сеть :(</string>
+  <string name="error_network_error">Нет сетевого соединения :(</string>
   <string name="search_network_error">Ошибка сети. Нажмите, чтобы повторить попытку.</string>
   <string name="page_error_retry">Повторить</string>
   <string name="menu_clear_all_history">Очистить историю</string>
@@ -234,9 +234,13 @@
   <string name="page_similar_titles">Похожие страницы</string>
   <string name="search_within_pages">Искать на страницах…</string>
   <string name="search_no_results">Не найдено никаких результатов для «%s».</string>
+  <string name="search_did_you_mean">Возможно, вы имели в виду «%s»?</string>
   <string name="search_results_title">Результаты поиска</string>
   <string name="search_error_retry">Повторить</string>
   <string name="search_redirect_title">Перенаправление с «%s».</string>
+  <string name="search_recent_header">Последние поиски:</string>
+  <string name="search_titles_button">Заголовки</string>
+  <string name="search_full_button">Внутри статей</string>
   <string name="toc_hint">Потяните влево для просмотра разделов или используйте кнопку меню в правом верхнем углу.</string>
   <string name="toc_know_it">Понятно</string>
   <string name="app_store_description">Официальное приложение «Википедия» под Android. Википедия — свободная энциклопедия, содержащая более 32 миллионов статей на 280 языках. Она является наиболее полным и широко используемым справочником, который люди когда-либо создавали. Приложение было переписано с нуля и стало лучше, чем когда-либо прежде.

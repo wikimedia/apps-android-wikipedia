@@ -11,7 +11,7 @@
   <string name="search_hint">Hľadať</string>
   <string name="history_activity_title">História</string>
   <string name="nav_item_history">História</string>
-  <string name="error_network_error" fuzzy="true">Nie ste pripojení na sieť :(</string>
+  <string name="error_network_error">Nie ste pripojení na sieť :(</string>
   <string name="search_network_error">Problém so sieťou. Ťuknutím to skúsite znova.</string>
   <string name="page_error_retry">Obnoviť</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
@@ -39,7 +39,7 @@
   <string name="delete_selected_saved_pages">Zmazať</string>
   <string name="toast_saved_page_deleted">Uložené stránky boli odstránené</string>
   <string name="saved_pages_search_list_hint">Hľadať</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">Žiadne stránky nenašli \"%s\"</string>
+  <string name="saved_pages_search_empty_message">Nenašli sa žiadne stránky zodpovedajúce týmto kritériám.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -49,8 +49,8 @@
   <string name="nearby_set_imperial">Zobraziť stopy/míle</string>
   <string name="last_updated_text">Posledná aktualizácia %s</string>
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="edit_save_action_license_logged_in">Zároveň s uložením, súhlasíš s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami použitia&lt;/a&gt; a neodvolateľne s uverejnením tvojich príspevkov pod &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciou.</string>
-  <string name="edit_save_action_license_anon">Zároveň s uložením, súhlasíš s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami použitia&lt;/a&gt;a neodvolateľním uverejnením tvojich príspevkov pod &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciou. Úpravy budú pridelené IP adrese tvojho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt;, budeš disponovať vyššou ochranou údajov.</string>
+  <string name="edit_save_action_license_logged_in">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budú spájané s IP adresou vášho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt; budete disponovať vyššou ochranou súkromia.</string>
   <string name="preference_title_language">Jazyk</string>
   <string name="preference_summary_language">Jazyk obsahu</string>
   <string name="preference_languages_filter_hint">Hľadať</string>
@@ -58,6 +58,7 @@
   <string name="menu_other_languages">V iných jazykoch</string>
   <string name="langlinks_error_retry">Obnoviť</string>
   <string name="langlinks_empty">Táto stránka nie je k dispozícii v iných jazykoch</string>
+  <string name="langlinks_no_match">Zadaný výraz nezodpovedá žiadnemu jazyku.</string>
   <string name="settings_activity_title">Nastavenia</string>
   <string name="langlinks_activity_title">Iné jazyky</string>
   <string name="menu_save_changes">Uložiť zmeny</string>
@@ -150,7 +151,7 @@
   <string name="send_feedback">Odoslať spätnú väzbu</string>
   <string name="edit_summary_guide_text">Povedzte nám, ako ste túto stránku vylepšili. Toto pomôže ostatným redaktorom rýchlejšie skontrolovať vaše úpravy.</string>
   <string name="edit_summary_hint">Zhrnutie úprav</string>
-  <string name="nav_item_random">Náhodná</string>
+  <string name="nav_item_random">Náhodný článok</string>
   <string name="random_progress">Generujem náhodnú stránku...</string>
   <string name="nav_item_login_benefits">Ak sa prihlásite, vaše úpravy budú spojené s vaším používateľským menom a vaša IP adresa nebude viditeľná pre ostatných.</string>
   <string name="create_account_account_created_toast">Účet bol vytvorený!</string>
@@ -165,12 +166,12 @@
   <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimédií zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
   <string name="history_search_list_hint">Hľadať</string>
-  <string name="history_search_empty_message" fuzzy="true">Žiadne stránky nenašli \"%s\"</string>
+  <string name="history_search_empty_message">Nenašli sa žiadne stránky zodpovedajúce týmto kritériám.</string>
   <string name="error_can_not_process_link">Nie je možné zobraziť tento odkaz</string>
   <string name="page_protected_autoconfirmed">Táto stránka je polozamknutá.</string>
   <string name="page_protected_sysop">Táto stránka je zamknutá.</string>
   <string name="page_protected_other">Táto stránka je zamknutá do nasledovných úrovní: %s</string>
-  <string name="page_protected_can_not_edit">Nemáte práva na editáciu tejto stránky.</string>
+  <string name="page_protected_can_not_edit">Nemáte práva na úpravu tohto článku</string>
   <string name="page_protected_can_not_edit_title">Táto stránka je chránená</string>
   <string name="more_item_preferences">Viac</string>
   <string name="more_activity_title">Viac</string>
@@ -180,7 +181,7 @@
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy/sk</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/sk</string>
   <string name="preference_title_version">Verzia</string>
-  <string name="about_libraries_heading">použité knižnice</string>
+  <string name="about_libraries_heading">Použité knižnice</string>
   <string name="about_contributors_heading">Prispievatelia</string>
   <string name="about_translators_heading">Prekladatelia</string>
   <string name="about_translators_translatewiki">Táto aplikácia bola preložená s pomocou dobrovoľných prekladateľov na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
@@ -198,7 +199,7 @@
   <string name="edit_summary_tag_typo">Opravený preklep</string>
   <string name="edit_summary_tag_grammar">Oprava pravopisu</string>
   <string name="edit_summary_tag_links">Pridané odkazy</string>
-  <string name="edit_summary_tag_other">Iné</string>
+  <string name="edit_summary_tag_other">Inak</string>
   <string name="edit_summary_tag_other_hint">Iné spôsoby, ako ste zlepšili túto stránku</string>
   <string name="find_in_page">Nájsť na stránke</string>
   <string name="find_next">Nájsť ďalšie</string>
@@ -223,16 +224,18 @@
   <string name="color_theme_dark">Tmavý</string>
   <string name="page_similar_titles">Podobné stránky</string>
   <string name="search_no_results">Vyhľadávanie nenašlo žiadne výsledky pre \"%s\".</string>
+  <string name="search_did_you_mean">Mali ste na mysli \"%s\"?</string>
   <string name="search_results_title">Výsledky vyhľadávania</string>
   <string name="search_error_retry">Znova</string>
   <string name="search_redirect_title">Presmerované z \"%s\".</string>
+  <string name="toc_know_it">Rozumiem</string>
   <string name="app_store_description">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.
 
 Funkcie:
    - Rýchlosť: Naša nová aplikácia vám umožňuje čítať a upravovať Wikipédiu rýchlejšie ako kedykoľvek predtým.
    - Upravovanie: Wikipédiu môžete upravovať! Či už ste prihlásený alebo neprihlásený, ďakujeme za všetky vaše príspevky. 
    - Nedávne stránky: Ponúkame vám históriu toho čo ste čítali, takže sa môžete preklikávať ľubovoľným množstvom článkov bez toho, aby ste sa stratili.
-   - Uložené stránky: Môžete si uložit vybrané stránky na offline čítanie a čítať si ich aj bez dátového pripojenie..
+   - Uložené stránky: Môžete si uložiť vybrané stránky na offline čítanie a čítať si ich aj bez dátového pripojenie..
    - Zdieľanie: Zdieľajte množstvo ľudských znalostí pomocou existujúcich aplikácií sociálnych sietí.
    - Podpora jazykov: Aplikácia vám umožňuje ľahko prechádzať medzi rôznymi jazykovými mutáciami článkov na Wikipédií.
    - Wikipédia Zero: Bezplatné dátové pripojenie od vybraných mobilných operátorov.

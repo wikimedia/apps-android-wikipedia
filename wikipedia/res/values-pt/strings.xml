@@ -11,7 +11,7 @@
   <string name="search_hint">Pesquisar na Wikipédia</string>
   <string name="history_activity_title">Histórico</string>
   <string name="nav_item_history">Histórico</string>
-  <string name="error_network_error" fuzzy="true">Não foi possível alcançar a rede :(</string>
+  <string name="error_network_error">Não existem redes disponíveis :(</string>
   <string name="search_network_error">Erro de rede. Toque para tentar de novo.</string>
   <string name="page_error_retry">Tente novamente</string>
   <string name="menu_clear_all_history">Limpar histórico</string>
@@ -229,9 +229,12 @@
   <string name="color_theme_dark">Escuro</string>
   <string name="page_similar_titles">Páginas semelhantes</string>
   <string name="search_no_results">Nenhum resultado encontrado para \"%s\".</string>
+  <string name="search_did_you_mean">Será que quis dizer \"%s\"?</string>
   <string name="search_results_title">Resultados da pesquisa</string>
   <string name="search_error_retry">Tentar novamente</string>
   <string name="search_redirect_title">Redirecionamento de \"%s\".</string>
+  <string name="search_recent_header">Pesquisas recentes:</string>
+  <string name="search_titles_button">Títulos</string>
   <string name="toc_hint">Deslize para a esquerda para seções, ou use o botão de menu no canto superior direito.</string>
   <string name="toc_know_it">Percebido</string>
   <string name="app_store_description">Aplicação oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada por trabalho humano. A aplicação foi reescrita do zero e está melhor que nunca.

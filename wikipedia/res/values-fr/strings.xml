@@ -11,7 +11,7 @@
   <string name="search_hint">Rechercher dans Wikipédia</string>
   <string name="history_activity_title">Historique</string>
   <string name="nav_item_history">Historique</string>
-  <string name="error_network_error" fuzzy="true">Impossible d’atteindre le réseau :(</string>
+  <string name="error_network_error">Pas de connexion réseau :(</string>
   <string name="search_network_error">Erreur de réseau. Appuyez pour réessayer.</string>
   <string name="page_error_retry">Réessayer</string>
   <string name="menu_clear_all_history">Effacer l’historique</string>
@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">À proximité</string>
   <string name="nav_item_nearby">À proximité</string>
   <string name="menu_update_nearby">Mise à jour les éléments à proximité</string>
-  <string name="nearby_empty_title" fuzzy="true">Aucune page à proximité</string>
-  <string name="nearby_empty_message" fuzzy="true">Vous pouvez rafraîchir cette page quand vous vous déplacez vers un nouvel emplacement.</string>
+  <string name="nearby_empty_title">Aucune page à proximité ici !</string>
+  <string name="nearby_empty_message">Quand vous vous déplacez vers un nouvel emplacement, essayez de rafraîchir cette page pour en savoir plus sur ce qui vous entoure.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pieds</string>
@@ -234,9 +234,13 @@
   <string name="page_similar_titles">Pages semblables</string>
   <string name="search_within_pages">Rechercher dans les pages…</string>
   <string name="search_no_results">Aucun résultat trouvé pour « %s ».</string>
+  <string name="search_did_you_mean">Voulez-vous dire « %s » ?</string>
   <string name="search_results_title">Rechercher des résultats</string>
   <string name="search_error_retry">Réessayer</string>
   <string name="search_redirect_title">Redirigé depuis « %s ».</string>
+  <string name="search_recent_header">Recherches récentes :</string>
+  <string name="search_titles_button">Titres</string>
+  <string name="search_full_button">Dans les articles</string>
   <string name="toc_hint">Balayer vers la gauche pour les sections, ou utiliser le bouton de menu en haut à droite.</string>
   <string name="toc_know_it">C’est bon !</string>
   <string name="app_store_description">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée. L’application a été réécrite de zéro et est meilleure que jamais.

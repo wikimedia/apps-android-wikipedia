@@ -129,5 +129,7 @@
   <string name="search_within_pages">Лаха агӀонашкахь...</string>
   <string name="search_results_title">Лахарна хилам</string>
   <string name="search_error_retry">ЮхагӀорта</string>
+  <string name="search_titles_button">Титулаш</string>
+  <string name="search_full_button">Яззамашкахь</string>
   <string name="toc_know_it">Кхетий</string>
 </resources>

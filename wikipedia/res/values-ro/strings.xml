@@ -234,9 +234,13 @@
   <string name="page_similar_titles">Pagini similare</string>
   <string name="search_within_pages">Căutare în corpul paginilor...</string>
   <string name="search_no_results">Niciun rezultat găsit pentru „%s”.</string>
+  <string name="search_did_you_mean">Vă refereați la „%s”?</string>
   <string name="search_results_title">Rezultatele căutării</string>
   <string name="search_error_retry">Reîncearcă</string>
   <string name="search_redirect_title">Redirecționare către „%s”.</string>
+  <string name="search_recent_header">Căutări recente:</string>
+  <string name="search_titles_button">Titluri</string>
+  <string name="search_full_button">În conținutul articolelor</string>
   <string name="toc_hint">Trageți înspre stânga pentru a vizualiza cuprinsul sau folosiți butonul de meniu din dreapta sus.</string>
   <string name="toc_know_it">Am înțeles!</string>
   <string name="app_store_description">Aplicația oficială a Wikipediei pentru Android. Wikipedia este enciclopedia liberă, care conține peste 32 de milioane de articole în 280 de limbi, fiind cea mai cuprinzătoare și larg utilizată lucrare de referință elaborată vreodată de omenire. Aplicația a fost rescrisă din temelii și este mai bună ca oricând.

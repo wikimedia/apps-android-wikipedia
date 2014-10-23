@@ -234,9 +234,13 @@
   <string name="page_similar_titles">相似页面</string>
   <string name="search_within_pages">在页面中搜索…</string>
   <string name="search_no_results">找不到“%s”的结果。</string>
+  <string name="search_did_you_mean">您的意思是“%s”么？</string>
   <string name="search_results_title">搜索结果</string>
   <string name="search_error_retry">重试</string>
   <string name="search_redirect_title">重定向自“%s”。</string>
+  <string name="search_recent_header">最近搜索：</string>
+  <string name="search_titles_button">标题</string>
+  <string name="search_full_button">在条目内</string>
   <string name="toc_hint">向左滑动选项，或使用右上角的菜单键。</string>
   <string name="toc_know_it">明白了</string>
   <string name="app_store_description">这是维基百科的官方安卓应用程序。维基百科支持280种语言，拥有超过3200万条目，并且是最全面最广泛使用以及最多用户编辑的百科全书。此程序从零开始重写并比以往更好。

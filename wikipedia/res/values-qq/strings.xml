@@ -330,7 +330,8 @@ See also:
 {{Identical|Retry}}</string>
   <string name="search_redirect_title">Label that tells the user that the search result is actually a redirect from another page, specified by the \"%s\" symbol.</string>
   <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
-  <string name="search_titles_button">Button label for searching page title matches.</string>
+  <string name="search_titles_button">Button label for searching page title matches.
+{{Identical|Title}}</string>
   <string name="search_full_button">Button label for searching the full text of pages.</string>
   <string name="toc_hint">Instructions how to open the Table of Contents drawer. In left-to-right languages (most) this means to swipe left from the right edge. In right-to-left languages (Hebrew, Arabic, etc.) this means to swipe right from the left edge. \'\'\'In RTL languages\'\'\' please adjust the text to say right swipe instead of left swipe.</string>
   <string name="toc_know_it">Button text to acknowledge instructions for opening Table of Contents drawer.</string>

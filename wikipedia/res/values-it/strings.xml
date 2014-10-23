@@ -11,7 +11,7 @@
   <string name="search_hint">Cerca su Wikipedia</string>
   <string name="history_activity_title">Cronologia</string>
   <string name="nav_item_history">Cronologia</string>
-  <string name="error_network_error" fuzzy="true">Impossibile collegarsi alla rete :(</string>
+  <string name="error_network_error">Non c\'è alcuna connessione di rete :(</string>
   <string name="search_network_error">Errore di rete. Toccare per provare di nuovo.</string>
   <string name="page_error_retry">Riprova</string>
   <string name="menu_clear_all_history">Cancella la cronologia</string>
@@ -234,9 +234,12 @@
   <string name="page_similar_titles">Pagine simili</string>
   <string name="search_within_pages">Cerca all\'interno delle pagine…</string>
   <string name="search_no_results">Nessun risultato trovato per \"%s\".</string>
+  <string name="search_did_you_mean">Forse cercavi: \"%s\"?</string>
   <string name="search_results_title">Risultati della ricerca</string>
   <string name="search_error_retry">Riprova</string>
   <string name="search_redirect_title">Redirect da \"%s\".</string>
+  <string name="search_recent_header">Ricerche recenti:</string>
+  <string name="search_titles_button">Titoli</string>
   <string name="toc_hint">Scorri a sinistra per le sezioni, o usa il tasto del menu in alto a destra.</string>
   <string name="toc_know_it">OK!</string>
   <string name="app_store_description">App ufficiale di Wikipedia per Android.

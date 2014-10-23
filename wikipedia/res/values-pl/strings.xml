@@ -225,6 +225,9 @@
   <string name="search_results_title">Wyniki wyszukiwania</string>
   <string name="search_error_retry">Ponów próbę</string>
   <string name="search_redirect_title">Przekierowanie z „%s”.</string>
+  <string name="search_recent_header">Ostatnie wyszukiwania:</string>
+  <string name="search_titles_button">Tytuły</string>
+  <string name="search_full_button">W artykułach</string>
   <string name="alpha_update_notification_title">Dostępna jest nowa aktualizacja alfa</string>
   <string name="alpha_update_notification_text">Kliknij, aby pobrać.</string>
 </resources>
