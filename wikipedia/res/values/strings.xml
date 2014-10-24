@@ -250,6 +250,7 @@
     <string name="search_full_button">Within articles</string>
     <string name="toc_hint">Swipe left for sections, or use the menu button on the top right.</string>
     <string name="toc_know_it">Got it</string>
+    <string name="error_browser_not_found">Could not open web page (no browser app found).</string>
 
     <string name="app_store_description">Official Wikipedia App for Android. Wikipedia is the free encyclopedia containing more than 32 million articles in 280 languages, and is the most comprehensive and widely used reference work humans have ever compiled. The app has been rewritten from scratch and is better than ever before.
 

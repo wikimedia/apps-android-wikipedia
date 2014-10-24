@@ -337,6 +337,7 @@ See also:
   <string name="toc_know_it">Button text to acknowledge instructions for opening Table of Contents drawer.</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
   <string name="alpha_update_notification_title">Title for notification when new alpha update is available.
+  <string name="error_browser_not_found">Message displayed when the device does not have a web browser app installed that can handle opening web pages outside the Wikipedia domain.</string>
 
 Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
   <string name="alpha_update_notification_text">Text for notification when new alpha update is available.
