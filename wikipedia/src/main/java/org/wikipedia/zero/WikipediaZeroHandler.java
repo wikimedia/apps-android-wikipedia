@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import java.net.URL;
 
 public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderCheckListener {
 
@@ -48,24 +49,26 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
     private static final int MESSAGE_ZERO_CS = 2;
 
     @Override
-    public void onHeaderCheck(final ApiResult result) {
+    public void onHeaderCheck(final ApiResult result, final URL apiURL) {
         if (!WIKIPEDIA_ZERO_DEV_MODE_ON || acquiringCarrierMessage) {
             return;
         }
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                boolean responseZeroState = result.getHeaders().containsKey("X-CS");
-                if (responseZeroState) {
-                    String xcs = result.getHeaders().get("X-CS").get(0);
-                    if (!xcs.equals(carrierString)) {
-                        identifyZeroCarrier(xcs);
+                if (hostSupportsZeroHeaders(apiURL.getHost())) {
+                    boolean responseZeroState = result.getHeaders().containsKey("X-CS");
+                    if (responseZeroState) {
+                        String xcs = result.getHeaders().get("X-CS").get(0);
+                        if (!xcs.equals(carrierString)) {
+                            identifyZeroCarrier(xcs);
+                        }
+                    } else if (zeroEnabled) {
+                        carrierString = "";
+                        carrierMessage = null;
+                        zeroEnabled = false;
+                        app.getBus().post(new WikipediaZeroStateChangeEvent());
                     }
-                } else if (zeroEnabled) {
-                    carrierString = "";
-                    carrierMessage = null;
-                    zeroEnabled = false;
-                    app.getBus().post(new WikipediaZeroStateChangeEvent());
                 }
             }
         });
@@ -168,5 +171,13 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
         zeroMessage.obj = "zero_eligible_check";
 
         wikipediaZeroHandler.sendMessage(zeroMessage);
+    }
+
+    /**
+     * Only subdomains of m.wikipedia.org have W0 headers, but there are other hosts,
+     * like wikidata.org, that are also W0 rated.
+     */
+    private boolean hostSupportsZeroHeaders(String host) {
+        return host.endsWith(".m.wikipedia.org");
     }
 }
