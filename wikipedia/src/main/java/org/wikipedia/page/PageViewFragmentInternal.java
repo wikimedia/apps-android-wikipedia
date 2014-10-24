@@ -207,8 +207,7 @@ public class PageViewFragmentInternal {
 
             // Hide edit pencils if anon editing is disabled by remote killswitch or if this is a file page
             JSONObject miscPayload = new JSONObject();
-            boolean isAnonEditingDisabled = app.getRemoteConfig().getConfig().has("disableAnonEditing")
-                    && app.getRemoteConfig().getConfig().optBoolean("disableAnonEditing")
+            boolean isAnonEditingDisabled = app.getRemoteConfig().getConfig().optBoolean("disableAnonEditing", false)
                     && !app.getUserInfoStorage().isLoggedIn();
             miscPayload.put("noedit", (isAnonEditingDisabled
                     || title.isFilePage()

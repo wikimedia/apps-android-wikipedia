@@ -68,6 +68,12 @@ public class SearchArticlesFragment extends Fragment {
      */
     private View searchTypesContainer;
 
+    /**
+     * Whether full-text search has been disabled via remote kill-switch.
+     * TODO: remove this when we're comfortable that it won't melt down the servers.
+     */
+    private boolean fullSearchDisabled = false;
+
     private RecentSearchesFragment recentSearchesFragment;
     private TitleSearchFragment titleSearchFragment;
     private FullSearchFragment fullSearchFragment;
@@ -137,6 +143,10 @@ public class SearchArticlesFragment extends Fragment {
                 if (lastSearchForced) {
                     // don't automatically go to Full search if the previous search was forced.
                     // i.e. if the user had explicitly clicked on Title search.
+                    return;
+                }
+                if (fullSearchDisabled) {
+                    // full-text search disabled by kill-switch
                     return;
                 }
                 //automatically switch to full-text search!
@@ -276,6 +286,13 @@ public class SearchArticlesFragment extends Fragment {
         ((PageActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(false);
         // show ourselves
         searchContainerView.setVisibility(View.VISIBLE);
+
+        // find out whether full-text search has been disabled remotely, and
+        // hide the title/full switcher buttons accordingly.
+        fullSearchDisabled = app.getRemoteConfig().getConfig()
+                .optBoolean("disableFullTextSearch", false);
+        getView().findViewById(R.id.search_type_button_container)
+                .setVisibility(fullSearchDisabled ? View.GONE : View.VISIBLE);
 
         //show recent searches by default...
         showPanel(PANEL_RECENT_SEARCHES);
