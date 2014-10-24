@@ -6,12 +6,15 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImagesTask;
+import org.wikipedia.wikidata.WikidataDescriptionsTask;
+import org.wikipedia.wikidata.WikidataSite;
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.text.Html;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +31,7 @@ import java.util.Map;
 public class FullSearchFragment extends Fragment {
     private static final int DELAY_MILLIS = 1000;
     private static final int MAX_CACHE_SIZE_IMAGES = 48;
+    private static final int MAX_CACHE_SIZE_DESCRIPTIONS = 96;
     private static final int MESSAGE_SEARCH = 1;
 
     private WikipediaApp app;
@@ -48,7 +52,8 @@ public class FullSearchFragment extends Fragment {
     private FullSearchArticlesTask.FullSearchResults lastResults;
     private List<FullSearchResult> totalResults;
 
-
+    private ParcelableLruCache<String> descriptionCache
+            = new ParcelableLruCache<String>(MAX_CACHE_SIZE_DESCRIPTIONS, String.class);
     private ParcelableLruCache<String> pageImagesCache
             = new ParcelableLruCache<String>(MAX_CACHE_SIZE_IMAGES, String.class);
 
@@ -161,7 +166,7 @@ public class FullSearchFragment extends Fragment {
     }
 
     private void doSearch(final String searchTerm, final int continueOffset) {
-        (new FullSearchArticlesTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, continueOffset) {
+        (new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, continueOffset) {
             @Override
             public void onFinish(FullSearchResults results) {
                 if (!isAdded()) {
@@ -187,6 +192,7 @@ public class FullSearchFragment extends Fragment {
                     searchResultsList.setVisibility(View.GONE);
                 } else {
                     searchResultsList.setVisibility(View.VISIBLE);
+                    getWikidataDescriptions(lastResults.getResults());
                     getPageThumbnails(lastResults.getResults());
                 }
             }
@@ -223,11 +229,54 @@ public class FullSearchFragment extends Fragment {
         }).execute();
     }
 
+    private void getWikidataDescriptions(List<FullSearchResult> results) {
+        List<String> idList = new ArrayList<String>();
+        for (FullSearchResult r : results) {
+            if (descriptionCache.get(r.getTitle().getPrefixedText()) == null) {
+                // not in our cache yet
+                idList.add(r.getWikiBaseId());
+            }
+        }
+        if (idList.isEmpty()) {
+            return;
+        }
+
+        WikidataDescriptionsTask descriptionTask = new WikidataDescriptionsTask(
+                app.getAPIForSite(new WikidataSite()),
+                app.getPrimaryLanguage(),
+                idList) {
+            @Override
+            public void onFinish(Map<String, String> result) {
+                for (Map.Entry<String, String> entry : result.entrySet()) {
+                    if (entry.getValue() == null) {
+                        continue;
+                    }
+                    descriptionCache.put(entry.getKey(), entry.getValue());
+                }
+                ((BaseAdapter) searchResultsList.getAdapter()).notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                // Don't actually do anything.
+                // Descriptions are expendable
+            }
+        };
+        descriptionTask.execute();
+    }
+
     private void getPageThumbnails(List<FullSearchResult> results) {
         List<PageTitle> titleList = new ArrayList<PageTitle>();
         for (FullSearchResult r : results) {
-            titleList.add(r.getTitle());
+            if (pageImagesCache.get(r.getTitle().getPrefixedText()) == null) {
+                // not in our cache yet
+                titleList.add(r.getTitle());
+            }
         }
+        if (titleList.isEmpty()) {
+            return;
+        }
+
         PageImagesTask imagesTask = new PageImagesTask(
                 app.getAPIForSite(app.getPrimarySite()),
                 app.getPrimarySite(),
@@ -261,10 +310,6 @@ public class FullSearchFragment extends Fragment {
             this.inflater = inflater;
         }
 
-        private List<FullSearchResult> getResults() {
-            return results;
-        }
-
         private void setResults(List<FullSearchResult> results) {
             this.results = results;
         }
@@ -293,6 +338,12 @@ public class FullSearchFragment extends Fragment {
             FullSearchResult result = (FullSearchResult) getItem(position);
             pageTitleText.setText(result.getTitle().getDisplayText());
 
+            String wikidataId = result.getWikiBaseId();
+            if (!TextUtils.isEmpty(wikidataId)) {
+                TextView descriptionText = (TextView) convertView.findViewById(R.id.result_description);
+                descriptionText.setText(descriptionCache.get(wikidataId));
+            }
+
             ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
             String thumbnail = pageImagesCache.get(result.getTitle().getPrefixedText());
             if (thumbnail == null) {
@@ -316,6 +367,5 @@ public class FullSearchFragment extends Fragment {
             return convertView;
         }
     }
-
 }
 

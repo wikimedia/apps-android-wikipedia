@@ -1,22 +1,29 @@
 package org.wikipedia.search;
 
 import org.wikipedia.ApiTask;
+import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-import android.content.Context;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullSearchResults> {
-    private final String searchTerm;
-    private int continueOffset;
+    private static final String NUM_RESULTS_PER_QUERY = "12";
 
-    public FullSearchArticlesTask(Context context, Api api, Site site, String searchTerm, int continueOffset) {
+    private final Site site;
+    private final String searchTerm;
+    private final int continueOffset;
+
+    public FullSearchArticlesTask(Api api, Site site, String searchTerm, int continueOffset) {
         super(LOW_CONCURRENCY, api);
+        this.site = site;
         this.searchTerm = searchTerm;
         this.continueOffset = continueOffset;
     }
@@ -24,19 +31,38 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
     @Override
     public RequestBuilder buildRequest(Api api) {
         return api.action("query")
-                .param("list", "search")
-                .param("srsearch", searchTerm)
-                .param("srlimit", "12")
-                .param("srinfo", "totalhits|suggestion")
-                .param("srprop", "snippet|redirecttitle|redirectsnippet")
-                .param("sroffset", Integer.toString(continueOffset));
+                .param("prop", "pageprops")
+                .param("ppprop", "wikibase_item") // only interested in wikibase_item
+                .param("generator", "search")
+                .param("gsrsearch", searchTerm)
+                .param("gsrnamespace", "0")
+                .param("gsrwhat", "text")
+                .param("gsrinfo", "totalhits|suggestion")
+                .param("gsrprop", "redirecttitle")
+                .param("gsroffset", Integer.toString(continueOffset))
+                .param("gsrlimit", NUM_RESULTS_PER_QUERY);
     }
 
     @Override
     public FullSearchResults processResult(final ApiResult result) throws Throwable {
-        JSONObject data = result.asObject();
+        JSONObject data;
+        try {
+            data = result.asObject();
+        } catch (ApiException e) {
+            if (e.getCause() instanceof JSONException) {
+                // the only reason for a JSONException is if the response is an empty array.
+                return emptyResults();
+            } else {
+                throw new RuntimeException(e);
+            }
+        }
+
+        int newOffset = 0;
+        if (data.has("query-continue")) {
+            newOffset = data.getJSONObject("query-continue").getJSONObject("search").getInt("gsroffset");
+        }
+
         JSONObject queryResult = data.optJSONObject("query");
-        JSONArray searchResults = queryResult.optJSONArray("search");
 
         String suggestion = "";
         JSONObject searchinfo = queryResult.optJSONObject("searchinfo");
@@ -46,26 +72,31 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
             }
         }
 
-        int newOffset = 0;
-        if (data.has("query-continue")) {
-            newOffset = data.getJSONObject("query-continue").getJSONObject("search").getInt("sroffset");
+        JSONObject pages = queryResult.optJSONObject("pages");
+        if (pages == null) {
+            return emptyResults();
         }
 
         ArrayList<FullSearchResult> resultList = new ArrayList<FullSearchResult>();
-        FullSearchResults results = new FullSearchResults(resultList, newOffset, suggestion);
-        for (int i = 0; i < searchResults.length(); i++) {
-            JSONObject res = searchResults.optJSONObject(i);
-            String redirectTitle = "";
-            if (res.has("redirecttitle")) {
-                redirectTitle = res.getJSONObject("redirecttitle").getString("mUrlform");
+        Iterator<String> keys = pages.keys();
+        while (keys.hasNext()) {
+            String key = keys.next();
+            JSONObject pageData = pages.getJSONObject(key);
+            String titleString = pageData.getString("title");
+            PageTitle pageTitle = new PageTitle(titleString, site);
+            String wikiBaseId = null;
+            if (pageData.has("pageprops")) {
+                JSONObject pageProps = pageData.getJSONObject("pageprops");
+                wikiBaseId = pageProps.optString("wikibase_item", null);
             }
-            resultList.add(new FullSearchResult(res.optString("title"),
-                    res.optString("snippet"),
-                    redirectTitle,
-                    res.optString("redirectsnippet")));
+            resultList.add(new FullSearchResult(pageTitle, wikiBaseId));
         }
 
-        return results;
+        return new FullSearchResults(resultList, newOffset, suggestion);
+    }
+
+    private FullSearchResults emptyResults() {
+        return new FullSearchResults(Collections.<FullSearchResult>emptyList(), 0, "");
     }
 
     public class FullSearchResults {
