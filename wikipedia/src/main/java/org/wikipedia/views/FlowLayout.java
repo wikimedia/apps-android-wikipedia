@@ -2,6 +2,7 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -115,7 +116,9 @@ public class FlowLayout extends ViewGroup {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         int count = getChildCount();
         int width = r - l;
-        int xpos = getPaddingLeft();
+
+        boolean isRtl = ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL;
+        int xpos = isRtl ? width - getPaddingRight() : getPaddingLeft();
         int ypos = getPaddingTop();
         int curLine = 0;
 
@@ -124,14 +127,26 @@ public class FlowLayout extends ViewGroup {
             if (child.getVisibility() != GONE) {
                 int childw = child.getMeasuredWidth();
                 int childh = child.getMeasuredHeight();
-                if (xpos + childw > width) {
-                    xpos = getPaddingLeft();
-                    if (lineHeights.size() > curLine) {
-                        ypos += lineHeights.get(curLine++);
+                if (isRtl) {
+                    if (xpos - childw < 0) {
+                        xpos = width - getPaddingRight();
+                        if (lineHeights.size() > curLine) {
+                            ypos += lineHeights.get(curLine++);
+                        }
                     }
+                    child.layout(xpos - getChildAt(i).getMeasuredWidth(), ypos,
+                            xpos - getChildAt(i).getMeasuredWidth() + childw, ypos + childh);
+                    xpos -= childw + getDp(HORIZONTAL_SPACING);
+                } else {
+                    if (xpos + childw > width) {
+                        xpos = getPaddingLeft();
+                        if (lineHeights.size() > curLine) {
+                            ypos += lineHeights.get(curLine++);
+                        }
+                    }
+                    child.layout(xpos, ypos, xpos + childw, ypos + childh);
+                    xpos += childw + getDp(HORIZONTAL_SPACING);
                 }
-                child.layout(xpos, ypos, xpos + childw, ypos + childh);
-                xpos += childw + getDp(HORIZONTAL_SPACING);
             }
         }
     }

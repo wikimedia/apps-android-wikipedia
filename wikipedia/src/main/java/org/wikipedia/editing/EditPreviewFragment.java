@@ -171,9 +171,9 @@ public class EditPreviewFragment extends Fragment {
     private void displayPreview(final String html) {
         if (!isWebViewSetup) {
             isWebViewSetup = true;
-            Utils.setupDirectionality(parentActivity.getPageTitle().getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
             StyleLoader styleLoader = ((WikipediaApp) getActivity().getApplicationContext()).getStyleLoader();
             bridge.injectStyleBundle(styleLoader.getAvailableBundle(StyleLoader.BUNDLE_PREVIEW));
+            Utils.setupDirectionality(parentActivity.getPageTitle().getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
             if (WikipediaApp.getInstance().getCurrentTheme() == WikipediaApp.THEME_DARK) {
                 nightModeHandler = new NightModeHandler(bridge);
                 nightModeHandler.turnOn(false);
