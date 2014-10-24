@@ -33,19 +33,22 @@ public class PreferenceMultiLine extends Preference {
         }
         // Intercept the click listener for this preference, and if the preference has an intent,
         // launch the intent ourselves, so that we can catch the exception if the intent fails.
-        this.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                if (preference.getIntent() != null) {
-                    try {
-                        getContext().startActivity(preference.getIntent());
-                    } catch (ActivityNotFoundException e) {
-                        Toast.makeText(getContext(), getContext().getString(R.string.error_browser_not_found), Toast.LENGTH_LONG).show();
+        // (but only do this if the preference doesn't already have a click listener)
+        if (this.getOnPreferenceClickListener() == null) {
+            this.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    if (preference.getIntent() != null) {
+                        try {
+                            getContext().startActivity(preference.getIntent());
+                        } catch (ActivityNotFoundException e) {
+                            Toast.makeText(getContext(), getContext().getString(R.string.error_browser_not_found), Toast.LENGTH_LONG).show();
+                        }
+                        return true;
                     }
-                    return true;
+                    return false;
                 }
-                return false;
-            }
-        });
+            });
+        }
     }
 }
