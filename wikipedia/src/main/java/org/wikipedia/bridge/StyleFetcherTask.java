@@ -11,8 +11,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.recurring.RecurringTask;
 import org.wikipedia.settings.PrefKeys;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -79,16 +77,10 @@ public class StyleFetcherTask extends RecurringTask {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             prefs.edit().putString(PrefKeys.getStylesLastUpdated(), Utils.formatISO8601(new Date())).commit();
 
-        } catch (FileNotFoundException e) {
-            // This doesn't actually seem to happen ever?
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            // FIXME: better error feedback?
-            Log.d("StyleFetcherTask", "IOException " + e.getMessage());
-            e.printStackTrace();
-        } catch (HttpRequest.HttpRequestException e) {
-            // FIXME: better error feedback?
-            Log.d("StyleFetcherTask", "HttpRequestException: " + e.getMessage());
+        } catch (Exception e) {
+            // Could be one of several exceptions, but it doesn't matter too much, since
+            // the task will be retried later.
+            Log.d("StyleFetcherTask", "Exception: " + e.getMessage());
             e.printStackTrace();
         }
     }

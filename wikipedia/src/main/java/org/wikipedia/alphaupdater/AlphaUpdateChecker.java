@@ -39,6 +39,9 @@ public class AlphaUpdateChecker extends RecurringTask {
         } catch (HttpRequest.HttpRequestException e) {
             // It's ok, we can do nothing.
             return;
+        } catch (SecurityException e) {
+            // It's ok, we can do nothing.
+            return;
         }
         JSONObject meta;
         try {
