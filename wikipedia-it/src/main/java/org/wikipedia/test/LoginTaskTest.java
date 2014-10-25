@@ -40,12 +40,17 @@ public class LoginTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
                         super.onFinish(result);
                         assertNotNull(result);
                         assertEquals(result.getCode(), "Success");
-                        app.getEditTokenStorage().get(testWiki, new EditTokenStorage.TokenRetreivedCallback() {
+                        app.getEditTokenStorage().get(testWiki, new EditTokenStorage.TokenRetrievedCallback() {
                             @Override
-                            public void onTokenRetreived(String token) {
+                            public void onTokenRetrieved(String token) {
                                 assertNotNull(token);
                                 assertFalse(token.equals("+\\"));
                                 completionLatch.countDown();
+                            }
+
+                            @Override
+                            public void onTokenFailed(Throwable caught) {
+                                fail("onTokenFailed called: " + caught);
                             }
                         });
                     }
