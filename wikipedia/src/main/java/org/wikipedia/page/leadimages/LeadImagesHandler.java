@@ -1,19 +1,23 @@
 package org.wikipedia.page.leadimages;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
 import android.util.TypedValue;
+import android.graphics.PointF;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nineoldandroids.view.ViewHelper;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,9 +32,10 @@ import org.wikipedia.wikidata.WikidataCache;
 
 import java.util.Map;
 
-public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListener {
+public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListener, ImageViewWithFace.OnImageLoadListener {
     private final PageViewFragment parentFragment;
     private final CommunicationBridge bridge;
+    private final WebView webView;
 
     /**
      * Minimum screen height for enabling lead images. If the screen is smaller than
@@ -86,25 +91,30 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     private boolean leadImagesEnabled = true;
 
     private final ViewGroup imageContainer;
-    private ImageView image1;
+    private ImageView imagePlaceholder;
+    private ImageViewWithFace image1;
     private View pageTitleContainer;
     private TextView pageTitleText;
     private TextView pageDescriptionText;
 
     private int displayHeight;
+    private int imageBaseYOffset = 0;
     private float displayDensity;
 
     public interface OnLeadImageLayoutListener {
         void onLayoutComplete();
     }
 
-    public LeadImagesHandler(PageViewFragment parentFragment, CommunicationBridge bridge,
+    public LeadImagesHandler(final PageViewFragment parentFragment, CommunicationBridge bridge,
                              ObservableWebView webview, ViewGroup hidingView) {
         this.parentFragment = parentFragment;
         this.imageContainer = hidingView;
         this.bridge = bridge;
+        this.webView = webview;
+        displayDensity = parentFragment.getResources().getDisplayMetrics().density;
 
-        image1 = (ImageView)imageContainer.findViewById(R.id.page_image_1);
+        imagePlaceholder = (ImageView)imageContainer.findViewById(R.id.page_image_placeholder);
+        image1 = (ImageViewWithFace)imageContainer.findViewById(R.id.page_image_1);
         pageTitleContainer = imageContainer.findViewById(R.id.page_title_container);
         pageTitleText = (TextView)imageContainer.findViewById(R.id.page_title_text);
         pageDescriptionText = (TextView)imageContainer.findViewById(R.id.page_description_text);
@@ -125,6 +135,10 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
 
         // hide ourselves by default
         hide();
+
+        imagePlaceholder.setImageResource(Utils.getThemedAttributeId(parentFragment.getActivity(),
+                R.attr.lead_image_drawable));
+        image1.setOnImageLoadListener(this);
     }
 
     @Override
@@ -134,7 +148,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             ViewHelper.setTranslationY(image1, 0);
         } else {
             ViewHelper.setTranslationY(imageContainer, -scrollY);
-            ViewHelper.setTranslationY(image1, scrollY / 2); //parallax, baby
+            ViewHelper.setTranslationY(image1, imageBaseYOffset + scrollY / 2); //parallax, baby
         }
     }
 
@@ -144,6 +158,70 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      */
     public void hide() {
         imageContainer.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void onImageLoaded(Bitmap bitmap, final PointF faceLocation) {
+        final int bmpHeight = bitmap.getHeight();
+        final float aspect = (float)bitmap.getHeight() / (float)bitmap.getWidth();
+        imageContainer.post(new Runnable() {
+            @Override
+            public void run() {
+                if (!parentFragment.isAdded()) {
+                    return;
+                }
+                int newWidth = image1.getWidth();
+                int newHeight = (int)(newWidth * aspect);
+
+                // give our image an offset based on the location of the face,
+                // relative to the image container
+                float scale = (float)newHeight / (float)bmpHeight;
+                if (faceLocation.y > 0) {
+                    int faceY = (int)(faceLocation.y * scale);
+                    // if we have a face, then offset to the face location
+                    imageBaseYOffset = -(faceY - (imagePlaceholder.getHeight() / 2));
+                    // give it a slight artificial boost, so that it appears slightly
+                    // above the page title...
+                    final int faceBoost = 24;
+                    imageBaseYOffset -= (faceBoost * displayDensity);
+                } else {
+                    // if we don't have a face, then center on the midpoint of the image
+                    imageBaseYOffset = -(newHeight / 2
+                            - (imagePlaceholder.getHeight() / 2));
+                }
+                // is the offset too far to the top?
+                if (imageBaseYOffset > 0) {
+                    imageBaseYOffset = 0;
+                }
+                // is the offset too far to the bottom?
+                if (imageBaseYOffset < imagePlaceholder.getHeight() - newHeight) {
+                    imageBaseYOffset = imagePlaceholder.getHeight() - newHeight;
+                }
+
+                // resize our image to have the same proportions as the acquired bitmap
+                if (newHeight < imagePlaceholder.getHeight()) {
+                    // if the height of the image is less than the container, then just
+                    // make it fill-parent
+                    image1.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
+                            FrameLayout.LayoutParams.MATCH_PARENT));
+                    imageBaseYOffset = 0;
+                } else {
+                    image1.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
+                            newHeight));
+                }
+
+                // and force a refresh of its position within the container view.
+                onScrollChanged(webView.getScrollY(), webView.getScrollY());
+
+                // fade in the new image!
+                ViewAnimations.crossFade(imagePlaceholder, image1);
+            }
+        });
+    }
+
+    @Override
+    public void onImageFailed() {
+        // just keep showing the placeholder image...
     }
 
 
@@ -192,9 +270,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             thumbUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + thumbUrl;
             Picasso.with(parentFragment.getActivity())
                     .load(thumbUrl)
-                    .placeholder(Utils.getThemedAttributeId(parentFragment.getActivity(), R.attr.lead_image_drawable))
-                    .error(Utils.getThemedAttributeId(parentFragment.getActivity(), R.attr.lead_image_drawable))
-                    .into(image1);
+                    .noFade()
+                    .into((Target) image1);
         }
     }
 
@@ -269,6 +346,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                     (int) ((titleContainerHeight) * displayDensity)));
             // hide the lead image
             image1.setVisibility(View.GONE);
+            imagePlaceholder.setVisibility(View.GONE);
             // set the color of the title
             pageTitleText.setTextColor(parentFragment
                     .getResources()
@@ -294,8 +372,10 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             titleContainerHeight = (int) (displayHeight * IMAGES_CONTAINER_RATIO);
             imageContainer.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
                     (int) (titleContainerHeight * displayDensity)));
-            // show the lead image
-            image1.setVisibility(View.VISIBLE);
+            // prepare the lead image to be populated
+            image1.setVisibility(View.INVISIBLE);
+            imagePlaceholder.setVisibility(View.VISIBLE);
+
             // set the color of the title
             pageTitleText.setTextColor(parentFragment.getResources().getColor(R.color.lead_text_color));
             titleBottomPadding = pageTitleText.getPaddingBottom();
@@ -329,6 +409,16 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             throw new RuntimeException(e);
         }
         bridge.sendMessage("setPaddingTop", payload);
+
+        // and start fetching the lead image, if we have one
+        String thumbUrl = parentFragment.getFragment().getPage().getPageProperties().getLeadImageUrl();
+        if (thumbUrl != null && leadImagesEnabled) {
+            thumbUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + thumbUrl;
+            Picasso.with(parentFragment.getActivity())
+                    .load(thumbUrl)
+                    .noFade()
+                    .into((Target)image1);
+        }
 
         // make everything visible!
         imageContainer.setVisibility(View.VISIBLE);
