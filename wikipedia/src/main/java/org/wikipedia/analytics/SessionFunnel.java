@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.format.DateUtils;
 import java.util.Date;
-import java.util.UUID;
 
 public class SessionFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppSessions";
@@ -21,7 +20,6 @@ public class SessionFunnel extends Funnel {
      */
     private static final int SESSION_TIMEOUT_SECONDS = 30 * 60;
 
-    private static final String APP_ID_PREF_NAME = "ANALYTICS_APP_ID_FOR_SESSIONS";
     private static final String SESSION_TIMESTAMP_PREF_NAME = "SESSION_TIMESTAMP_PREF";
     private static final String SESSION_PAGES_SEARCH_PREF_NAME = "SESSION_PAGES_SEARCH_PREF";
     private static final String SESSION_PAGES_RANDOM_PREF_NAME = "SESSION_PAGES_RANDOM_PREF";
@@ -59,12 +57,8 @@ public class SessionFunnel extends Funnel {
         pagesFromSaved = prefs.getInt(SESSION_PAGES_SAVED_PREF_NAME, 0);
         pagesFromBack = prefs.getInt(SESSION_PAGES_BACK_PREF_NAME, 0);
 
-        if (prefs.contains(APP_ID_PREF_NAME)) {
-            appInstallSessionsID = prefs.getString(APP_ID_PREF_NAME, null);
-        } else {
-            appInstallSessionsID = UUID.randomUUID().toString();
-            prefs.edit().putString(APP_ID_PREF_NAME, appInstallSessionsID).commit();
-        }
+        //Retrieve this app installation's unique ID, used to record unique users of this feature
+        appInstallSessionsID = app.getAppInstallSessionsID();
 
         touchSession();
     }

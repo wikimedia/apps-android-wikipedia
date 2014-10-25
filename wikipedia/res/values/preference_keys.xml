@@ -13,6 +13,9 @@
     <string name="preference_key_feedback">send_feedback</string>
     <string name="preference_key_logout">log_out</string>
     <string name="preference_reading_app_install_id">readingAppInstallID</string>
+    <string name="preference_toc_app_install_id">ANALYTICS_APP_ID_FOR_ToC</string>
+    <string name="preference_saved_pages_app_install_id">ANALYTICS_APP_ID_FOR_SAVED_PAGES</string>
+    <string name="preference_sessions_app_install_id">ANALYTICS_APP_ID_FOR_SESSIONS</string>
     <string name="preference_onboard">onboard</string>
     <string name="preference_text_size_multiplier">textSizeMultiplier</string>
     <string name="preference_color_theme">colorTheme</string>

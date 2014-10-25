@@ -133,6 +133,12 @@ public class WikipediaApp extends Application {
         return zeroHandler;
     }
 
+    /**
+     * Preference manager for storing things like the app's install IDs for EventLogging, theme,
+     * font size, etc.
+     */
+    private SharedPreferences prefs;
+
     public WikipediaApp() {
         INSTANCE = this;
     }
@@ -163,6 +169,7 @@ public class WikipediaApp extends Application {
         ViewAnimations.init(resources);
         screenDensity = resources.getDisplayMetrics().density;
 
+        this.prefs = PreferenceManager.getDefaultSharedPreferences(this);
         PrefKeys.initPreferenceKeys(resources);
 
         sessionFunnel = new SessionFunnel(this);
@@ -317,7 +324,6 @@ public class WikipediaApp extends Application {
     private String primaryLanguage;
     public String getPrimaryLanguage() {
         if (primaryLanguage == null) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             primaryLanguage = prefs.getString(PrefKeys.getContentLanguageKey(), null);
             if (primaryLanguage == null) {
                 // No preference set!
@@ -333,7 +339,6 @@ public class WikipediaApp extends Application {
 
     public void setPrimaryLanguage(String language) {
         primaryLanguage = language;
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.edit().putString(PrefKeys.getContentLanguageKey(), language).commit();
         primarySite = null;
     }
@@ -402,7 +407,7 @@ public class WikipediaApp extends Application {
     private RemoteConfig remoteConfig;
     public RemoteConfig getRemoteConfig() {
         if (remoteConfig == null) {
-            remoteConfig = new RemoteConfig(PreferenceManager.getDefaultSharedPreferences(this));
+            remoteConfig = new RemoteConfig(prefs);
         }
         return remoteConfig;
     }
@@ -434,7 +439,7 @@ public class WikipediaApp extends Application {
     private SharedPreferenceCookieManager cookieManager;
     public SharedPreferenceCookieManager getCookieManager() {
         if (cookieManager == null) {
-            cookieManager = new SharedPreferenceCookieManager(PreferenceManager.getDefaultSharedPreferences(this));
+            cookieManager = new SharedPreferenceCookieManager(prefs);
         }
         return cookieManager;
     }
@@ -442,7 +447,7 @@ public class WikipediaApp extends Application {
     private UserInfoStorage userInfoStorage;
     public UserInfoStorage getUserInfoStorage() {
         if (userInfoStorage == null) {
-            userInfoStorage = new UserInfoStorage(PreferenceManager.getDefaultSharedPreferences(this));
+            userInfoStorage = new UserInfoStorage(prefs);
         }
         return userInfoStorage;
     }
@@ -464,18 +469,49 @@ public class WikipediaApp extends Application {
         return styleLoader;
     }
 
-
     private String appInstallReadActionID;
     public String getAppInstallReadActionID() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.contains(PrefKeys.getReadingAppInstallId())) {
-            appInstallReadActionID = prefs.getString(PrefKeys.getReadingAppInstallId(), null);
-        } else {
-            appInstallReadActionID = UUID.randomUUID().toString();
-            prefs.edit().putString(PrefKeys.getReadingAppInstallId(), appInstallReadActionID).commit();
-        }
-        Log.d("Wikipedia", "ID is" + appInstallReadActionID);
+        appInstallReadActionID = getAppInstallIDForFeature(PrefKeys.getReadingAppInstallId());
+        Log.d("Wikipedia", "Read ID is" + appInstallReadActionID);
         return appInstallReadActionID;
+    }
+
+    private String appInstallToCInteractionID;
+    public String getAppInstallToCInteractionID() {
+        appInstallToCInteractionID = getAppInstallIDForFeature(PrefKeys.getToCAppInstallId());
+        Log.d("Wikipedia", "ToC ID is" + appInstallToCInteractionID);
+        return appInstallToCInteractionID;
+    }
+
+    private String appInstallSavedPagesID;
+    public String getAppInstallSavedPagesID() {
+        appInstallSavedPagesID = getAppInstallIDForFeature(PrefKeys.getSavedPagesAppInstallId());
+        Log.d("Wikipedia", "Saved Pages ID is" + appInstallSavedPagesID);
+        return appInstallSavedPagesID;
+    }
+
+    private String appInstallSessionsID;
+    public String getAppInstallSessionsID() {
+        appInstallSessionsID = getAppInstallIDForFeature(PrefKeys.getSessionsAppInstallId());
+        Log.d("Wikipedia", "Sessions ID is" + appInstallSessionsID);
+        return appInstallSessionsID;
+    }
+
+    /**
+     * Returns the unique app install ID for a feature. The app install ID is used to track unique
+     * users of each feature for the purpose of improving the app's user experience.
+     * @param  prefKey a key from PrefKeys for a feature with a unique app install ID
+     * @return         the unique app install ID of the specified feature
+     */
+    private String getAppInstallIDForFeature(String prefKey) {
+        String installID;
+        if (prefs.contains(prefKey)) {
+            installID = prefs.getString(prefKey, null);
+        } else {
+            installID = UUID.randomUUID().toString();
+            prefs.edit().putString(prefKey, installID).commit();
+        }
+        return installID;
     }
 
     /**
@@ -485,7 +521,6 @@ public class WikipediaApp extends Application {
      */
     public int getCurrentTheme() {
         if (currentTheme == 0) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             currentTheme = prefs.getInt(PrefKeys.getColorTheme(), THEME_LIGHT);
             if (currentTheme != THEME_LIGHT && currentTheme != THEME_DARK) {
                 currentTheme = THEME_LIGHT;
@@ -504,7 +539,6 @@ public class WikipediaApp extends Application {
             return;
         }
         currentTheme = newTheme;
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.edit().putInt(PrefKeys.getColorTheme(), currentTheme).commit();
 
         //update color filter for logo icon (used in ActionBar activities)...
@@ -540,7 +574,6 @@ public class WikipediaApp extends Application {
     }
 
     public int getFontSizeMultiplier() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         return prefs.getInt(PrefKeys.getTextSizeMultiplier(), 0);
     }
 
@@ -550,7 +583,6 @@ public class WikipediaApp extends Application {
         } else if (multiplier > FONT_SIZE_MULTIPLIER_MAX) {
             multiplier = FONT_SIZE_MULTIPLIER_MAX;
         }
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.edit().putInt(PrefKeys.getTextSizeMultiplier(), multiplier).commit();
         bus.post(new ChangeTextSizeEvent());
     }
@@ -562,14 +594,14 @@ public class WikipediaApp extends Application {
      * @return Actual current size of the font.
      */
     public float getFontSize(Window window) {
-        int multiplier = PreferenceManager.getDefaultSharedPreferences(this).getInt(PrefKeys.getTextSizeMultiplier(), 0);
+        int multiplier = prefs.getInt(PrefKeys.getTextSizeMultiplier(), 0);
         return Utils.getFontSizeFromSp(window, getResources().getDimension(R.dimen.textSize)) * (1.0f + multiplier * FONT_SIZE_FACTOR);
     }
 
     public List<String> getLanguageMruList() {
         if (languageMruList == null) {
             languageMruList = new ArrayList<String>();
-            String mruString = PreferenceManager.getDefaultSharedPreferences(this).getString(PrefKeys.getLanguageMru(), getPrimaryLanguage());
+            String mruString = prefs.getString(PrefKeys.getLanguageMru(), getPrimaryLanguage());
             languageMruList.addAll(Arrays.asList(mruString.split(",")));
         }
         return languageMruList;
@@ -579,7 +611,6 @@ public class WikipediaApp extends Application {
         if (languageMruList != null) {
             languageMruList.remove(langCode);
             languageMruList.add(0, langCode);
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             prefs.edit().putString(PrefKeys.getLanguageMru(), TextUtils.join(",", languageMruList)).commit();
         }
     }

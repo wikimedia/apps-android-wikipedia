@@ -1,32 +1,22 @@
 package org.wikipedia.analytics;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 
-import java.util.UUID;
-
 public class ToCInteractionFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppToCInteraction";
     private static final int REV_ID = 8461467;
-
-    private static final String APP_ID_PREF_NAME = "ANALYTICS_APP_ID_FOR_ToC";
 
     private final String appInstallToCInteractionID;
     private final Site site;
 
     public ToCInteractionFunnel(WikipediaApp app, Site site) {
         super(app, SCHEMA_NAME, REV_ID);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(app);
-        if (prefs.contains(APP_ID_PREF_NAME)) {
-            appInstallToCInteractionID = prefs.getString(APP_ID_PREF_NAME, null);
-        } else {
-            appInstallToCInteractionID = UUID.randomUUID().toString();
-            prefs.edit().putString(APP_ID_PREF_NAME, appInstallToCInteractionID).commit();
-        }
+
+        //Retrieve this app installation's unique ID, used to record unique users of this feature
+        appInstallToCInteractionID = app.getAppInstallToCInteractionID();
 
         this.site = site;
     }
