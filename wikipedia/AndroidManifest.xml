@@ -43,6 +43,7 @@
         <!-- Don't delete the meta-data field above -->
 
         <activity android:name=".page.PageActivity"
+                  android:theme="@style/NoTitle"
                   android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

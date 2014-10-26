@@ -7,9 +7,6 @@
 
     <dimen name="corner_radius_smaller">2dp</dimen>
 
-    <!-- Default ActionBar height -->
-    <dimen name="actionBarHeight">48dp</dimen>
-
     <!-- Default font size for WebView text based on system settings -->
     <dimen name="textSize">16sp</dimen>
 

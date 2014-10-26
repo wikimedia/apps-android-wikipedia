@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -586,6 +587,22 @@ public final class Utils {
         TypedValue tv = new TypedValue();
         activity.getTheme().resolveAttribute(id, tv, true);
         return tv.resourceId;
+    }
+
+    /**
+     * Returns the height of the ActionBar in the current activity. The system controls the
+     * height of the ActionBar, which may be slightly different depending on screen orientation,
+     * and device version.
+     * @param context Context used for retrieving the height attribute.
+     * @return Height of the ActionBar.
+     */
+    public static int getActionBarSize(Context context) {
+        final TypedArray styledAttributes = context.getTheme().obtainStyledAttributes(new int[] {
+                android.support.v7.appcompat.R.attr.actionBarSize
+        });
+        int size = (int)styledAttributes.getDimension(0, 0);
+        styledAttributes.recycle();
+        return size;
     }
 
     /**

@@ -132,7 +132,7 @@ public class SearchArticlesFragment extends Fragment {
         });
         app.adjustDrawableToTheme(((ImageView)deleteButton).getDrawable());
 
-        recentSearchesFragment = (RecentSearchesFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.search_panel_recent);
+        recentSearchesFragment = (RecentSearchesFragment)getChildFragmentManager().findFragmentById(R.id.search_panel_recent);
         searchTypesContainer = parentLayout.findViewById(R.id.search_panel_types);
 
         buttonTitleSearch = parentLayout.findViewById(R.id.button_search_title);
@@ -159,7 +159,7 @@ public class SearchArticlesFragment extends Fragment {
             }
         });
 
-        titleSearchFragment = (TitleSearchFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_search_title);
+        titleSearchFragment = (TitleSearchFragment)getChildFragmentManager().findFragmentById(R.id.fragment_search_title);
         titleSearchFragment.setOnNoResultsListener(new TitleSearchFragment.OnNoResultsListener() {
             @Override
             public void onNoResults() {
@@ -178,7 +178,7 @@ public class SearchArticlesFragment extends Fragment {
             }
         });
 
-        fullSearchFragment = (FullSearchFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_search_full);
+        fullSearchFragment = (FullSearchFragment)getChildFragmentManager().findFragmentById(R.id.fragment_search_full);
 
         //make sure we're hidden by default
         searchContainerView.setVisibility(View.GONE);

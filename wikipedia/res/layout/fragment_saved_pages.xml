@@ -4,7 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="?attr/window_background_color"
-              android:paddingTop="@dimen/actionBarHeight">
+              android:paddingTop="?attr/actionBarSize">
     <LinearLayout
             android:id="@+id/saved_pages_empty_container"
             android:orientation="vertical"

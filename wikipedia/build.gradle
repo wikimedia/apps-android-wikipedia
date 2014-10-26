@@ -3,12 +3,12 @@ apply plugin: 'com.android.application'
 def versionStart = '2.0'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion '20.0.0'
+    compileSdkVersion 21
+    buildToolsVersion '21.1.1'
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 10
-        targetSdkVersion 17
+        targetSdkVersion 21
         versionCode 88
         testApplicationId "org.wikipedia.test"
     }
@@ -110,8 +110,8 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
     compile 'de.keyboardsurfer.android.widget:crouton:1.8.5@aar'
-    compile 'com.android.support:support-v4:20.0.0'
-    compile 'com.android.support:appcompat-v7:20.0.0@aar'
+    compile 'com.android.support:support-v4:21.0.0'
+    compile 'com.android.support:appcompat-v7:21.0.0'
 }
 
 // The next block is for setting the release signing config from a file outside the git repo

@@ -102,9 +102,7 @@ public class ToCHandler {
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
                 // make sure the ActionBar is showing
-                if (!parentActivity.getSupportActionBar().isShowing()) {
-                    parentActivity.getSupportActionBar().show();
-                }
+                ((PageActivity)parentActivity).showToolbar();
             }
         });
     }

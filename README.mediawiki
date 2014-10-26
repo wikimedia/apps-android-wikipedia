@@ -32,7 +32,7 @@ Source your your ~/.bash_profile
 Now, and any time you open a new Terminal, the $ANDROID_HOME variable will be set automatically and you'll be able to run command line tools pertinent to Android software development, such as the tool aptly named "android".
 
 4. Speaking of which, in a new Terminal window, run the following commands:
- android update sdk -u --filter "tools,platform-tools,build-tools-20.0.0,android-19,extra-android-m2repository"
+ android update sdk -u --filter "tools,platform-tools,build-tools-21.1.1,android-21,extra-android-m2repository"
 
 After you accept the licenses, this will download and install the necessary SDK components for you to build the app.
 
@@ -46,7 +46,6 @@ Alternatively, you can use the GUI:
 This will load a GUI tool called "Android SDK Manager" for managing the Android-related packages necessary for Android programming.
 
 You may want to install some more packages from there.
-No need for the API level 20 (L preview or Android Wear) yet. That might be useful in the future though.
 
 === Optional: Install Android Emulator ===
 
@@ -54,7 +53,7 @@ It's usually best to run the app on real devices, but sometimes it's useful to u
 
 5. If planning to use Android emulators, consider adding the "System Image" packages of various API levels in in the Android SDK Manager.
 Example:
-* ARM EABI v7a System Image (API 19)
+* ARM EABI v7a System Image (API 21)
 
 You'll probably also want to install the HAXM installer package from the Extras category at the bottom.
 * Intel X86 Emulator Accelerator (HAXM installer)

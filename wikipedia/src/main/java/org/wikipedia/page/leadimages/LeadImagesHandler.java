@@ -81,7 +81,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * Number of pixels to offset the WebView content (in addition to page title height),
      * when lead images are disabled.
      */
-    private static final int DISABLED_OFFSET_DP = 80;
+    private static final int DISABLED_OFFSET_DP = 88;
 
     /**
      * Whether lead images are enabled, overall.  They will be disabled automatically
@@ -330,7 +330,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         int titleBottomPadding = 0;
 
         if (isMainPage) {
-            titleContainerHeight = (int)(parentFragment.getResources().getDimension(R.dimen.actionBarHeight) / displayDensity);
+            titleContainerHeight = (int)(Utils.getActionBarSize(parentFragment.getActivity()) / displayDensity);
             // hide everything
             image1.setVisibility(View.GONE);
             imagePlaceholder.setVisibility(View.GONE);

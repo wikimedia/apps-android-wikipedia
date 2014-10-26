@@ -6,6 +6,7 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;
+import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
@@ -36,16 +37,18 @@ import android.os.BadParcelableException;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 public class PageActivity extends ThemedActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
@@ -66,6 +69,14 @@ public class PageActivity extends ThemedActionBarActivity {
     private DrawerLayout drawerLayout;
     private NavDrawerFragment fragmentNavdrawer;
     private SearchArticlesFragment searchFragment;
+
+    public static final int PROGRESS_BAR_MAX_VALUE = 10000;
+    private ProgressBar progressBar;
+
+    private View toolbarContainer;
+    public View getToolbarView() {
+        return toolbarContainer;
+    }
 
     private ActionBarDrawerToggle mDrawerToggle;
     public ActionBarDrawerToggle getDrawerToggle() {
@@ -108,11 +119,16 @@ public class PageActivity extends ThemedActionBarActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState, true, true);
+        super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         setContentView(R.layout.activity_main);
+
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
+
+        toolbarContainer = findViewById(R.id.main_toolbar_container);
 
         bus = app.getBus();
         bus.register(this);
@@ -122,11 +138,13 @@ public class PageActivity extends ThemedActionBarActivity {
         searchFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
 
         fragmentContainerView = findViewById(R.id.content_fragment_container);
+        progressBar = (ProgressBar)findViewById(R.id.main_progressbar);
+        progressBar.setMax(PROGRESS_BAR_MAX_VALUE);
+        updateProgressBar(false, true, 0);
 
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
                 drawerLayout,          /* DrawerLayout object */
-                R.drawable.ic_drawer,  /* nav drawer icon to replace 'Up' caret */
                 R.string.app_name,     /* "open drawer" description */
                 R.string.app_name      /* "close drawer" description */
         ) {
@@ -159,10 +177,8 @@ public class PageActivity extends ThemedActionBarActivity {
                     fragmentNavdrawer.setupDynamicItems();
                     oncePerSlideLock = true;
                 }
-                // and make sure the ActionBar is showing
-                if (!getSupportActionBar().isShowing()) {
-                    getSupportActionBar().show();
-                }
+                // and make sure the Toolbar is showing
+                showToolbar();
             }
 
             @Override
@@ -258,26 +274,23 @@ public class PageActivity extends ThemedActionBarActivity {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
         mDrawerToggle.syncState();
-        ThemedActionBarActivity.alignActivityProgressBar(this);
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
-        ThemedActionBarActivity.alignActivityProgressBar(this);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (searchFragment != null && !isSearching()) {
             getMenuInflater().inflate(R.menu.menu_main, menu);
+            app.adjustDrawableToTheme(menu.findItem(R.id.menu_search).getIcon());
         }
-
-        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.ic_drawer));
-        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.search_w));
-        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.search));
-
+        View wLogo = findViewById(R.id.main_w_logo);
+        app.adjustDrawableToTheme(wLogo.getBackground());
+        wLogo.setVisibility(isSearching() ? View.GONE : View.VISIBLE);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -300,6 +313,10 @@ public class PageActivity extends ThemedActionBarActivity {
         }
         // Handle other action bar items...
         return super.onOptionsItemSelected(item);
+    }
+
+    public void showToolbar() {
+        ViewAnimations.ensureTranslationY(toolbarContainer, 0);
     }
 
     /**
@@ -343,15 +360,12 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param value Value of the progress bar (may be between 0 and 10000). Ignored if the
      *              progress bar is indeterminate.
      */
-    public void updateProgressBar(final boolean visible, final boolean indeterminate, final int value) {
-        fragmentContainerView.post(new Runnable() {
-            @Override
-            public void run() {
-                setSupportProgressBarIndeterminate(indeterminate);
-                setSupportProgress(value);
-                setSupportProgressBarVisibility(visible);
-            }
-        });
+    public void updateProgressBar(boolean visible, boolean indeterminate, int value) {
+        progressBar.setIndeterminate(indeterminate);
+        if (!indeterminate) {
+            progressBar.setProgress(value);
+        }
+        progressBar.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     /**
@@ -393,9 +407,7 @@ public class PageActivity extends ThemedActionBarActivity {
         trans.commit();
 
         // and make sure the ActionBar is visible
-        if (!getSupportActionBar().isShowing()) {
-            getSupportActionBar().show();
-        }
+        showToolbar();
         //also make sure the progress bar is not showing
         updateProgressBar(false, true, 0);
     }
@@ -409,9 +421,7 @@ public class PageActivity extends ThemedActionBarActivity {
         // make sure the ActionBar is showing, since we could be currently scrolled down far enough
         // within a Page fragment that the ActionBar is hidden, and if the previous fragment was
         // a different type of fragment (e.g. History), the ActionBar would remain hidden.
-        if (!getSupportActionBar().isShowing()) {
-            getSupportActionBar().show();
-        }
+        showToolbar();
         //also make sure the progress bar is not showing
         updateProgressBar(false, true, 0);
     }

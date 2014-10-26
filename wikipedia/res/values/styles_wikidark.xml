@@ -1,11 +1,9 @@
 <resources>
 
     <style name="Theme.WikiDark" parent="Theme.AppCompat">
-        <item name="android:actionBarItemBackground">@drawable/selectable_item_background</item>
-        <item name="android:actionBarStyle">@style/ActionBar.Solid.WikiDark</item>
-        <item name="actionBarStyle">@style/ActionBar.Solid.WikiDark</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="toolbarStyle">@style/Toolbar.WikiDark</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.WikiDark</item>
-        <item name="android:actionDropDownStyle">@style/DropDownNav.WikiDark</item>
         <item name="popupMenuStyle">@style/PopupMenu.WikiDark</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.WikiDark</item>
         <item name="android:windowBackground">@color/window_background_dark</item>
@@ -19,7 +17,6 @@
         <item name="edit_text_color">@color/edit_text_dark</item>
         <item name="link_color">@color/link_dark</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_dark</item>
-        <item name="actionbar_drawable">@drawable/actionbar_themedark</item>
         <item name="ic_find_previous_drawable">@drawable/ic_find_previous_dark</item>
         <item name="ic_find_next_drawable">@drawable/ic_find_next_dark</item>
         <item name="lead_image_drawable">@drawable/lead_default_dark</item>
@@ -27,18 +24,14 @@
         <item name="list_separator_color">@color/list_separator_dark</item>
     </style>
 
-    <style name="ActionBar.Solid.WikiDark" parent="@style/Widget.AppCompat.ActionBar.Solid">
-        <item name="android:background">@drawable/actionbar_themedark</item>
-        <item name="android:progressBarPadding">0dp</item>
-        <item name="progressBarPadding">0dp</item>
+    <style name="Toolbar.WikiDark" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="android:background">?attr/actionbar_background_color</item>
+        <item name="android:navigationIcon">?attr/homeAsUpIndicator</item>
+        <item name="navigationIcon">?attr/homeAsUpIndicator</item>
     </style>
 
     <style name="DropDownListView.WikiDark" parent="@style/Widget.AppCompat.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_item_background</item>
-    </style>
-
-    <style name="DropDownNav.WikiDark" parent="@style/Widget.AppCompat.Spinner.DropDown.ActionBar">
-        <item name="android:dropDownSelector">@drawable/selectable_item_background</item>
     </style>
 
     <style name="PopupMenu.WikiDark" parent="@style/Widget.AppCompat.ListPopupWindow">

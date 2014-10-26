@@ -82,8 +82,6 @@ public class PageViewFragmentInternal {
     private int state = STATE_NO_FETCH;
     private int subState = SUBSTATE_NONE;
 
-    private static final int MAX_PROGRESS_VALUE = 10000;
-
     /**
      * Whether to save the full page content as soon as it's loaded.
      * Used in the following cases:
@@ -230,7 +228,8 @@ public class PageViewFragmentInternal {
     }
 
     private void displayNonLeadSection(int index) {
-        getActivity().updateProgressBar(true, false, MAX_PROGRESS_VALUE / page.getSections().size() * index);
+        getActivity().updateProgressBar(true, false, PageActivity.PROGRESS_BAR_MAX_VALUE
+                / page.getSections().size() * index);
 
         try {
             JSONObject wrapper = new JSONObject();
@@ -378,7 +377,7 @@ public class PageViewFragmentInternal {
 
         editHandler = new EditHandler(parentFragment, bridge);
 
-        new SearchBarHideHandler(webView, getActivity());
+        new SearchBarHideHandler(webView, getActivity().getToolbarView());
         imagesContainer = (ViewGroup) parentFragment.getView().findViewById(R.id.page_images_container);
         leadImagesHandler = new LeadImagesHandler(parentFragment, bridge, webView, imagesContainer);
 
@@ -640,9 +639,7 @@ public class PageViewFragmentInternal {
             public void onDestroyActionMode(ActionMode mode) {
                 findInPageActionMode = null;
                 webView.clearMatches();
-                if (!pageActivity.getSupportActionBar().isShowing()) {
-                    pageActivity.getSupportActionBar().show();
-                }
+                pageActivity.showToolbar();
                 Utils.hideSoftKeyboard(pageActivity);
             }
         });
