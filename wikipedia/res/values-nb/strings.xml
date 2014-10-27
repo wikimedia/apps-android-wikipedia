@@ -11,7 +11,7 @@
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="history_activity_title">Logg</string>
   <string name="nav_item_history">Logg</string>
-  <string name="error_network_error" fuzzy="true">Kunne ikke nå nettverket :(</string>
+  <string name="error_network_error">Ingen nettverksforbindelse :(</string>
   <string name="search_network_error">Nettverksfeil. Trykk for å prøve igjen.</string>
   <string name="page_error_retry">Prøv igjen</string>
   <string name="menu_clear_all_history">Tøm logg</string>
@@ -39,18 +39,22 @@
   <string name="delete_selected_saved_pages">Slett</string>
   <string name="toast_saved_page_deleted">Siden(e) ble fjernet</string>
   <string name="saved_pages_search_list_hint">Søk</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">Fant ingen sider som matchet \'%s\'</string>
+  <string name="saved_pages_search_empty_message">Fant ingen sider som matchet spørringen din.</string>
   <string name="nearby_activity_title">I nærheten</string>
   <string name="nav_item_nearby">I nærheten</string>
   <string name="menu_update_nearby">Oppdater «i nærheten»</string>
-  <string name="nearby_empty_title" fuzzy="true">Ingen sider i nærheten</string>
-  <string name="nearby_empty_message" fuzzy="true">Du kan gjenoppfriske denne siden når du forflytter deg.</string>
+  <string name="nearby_empty_title">Ingen sider i nærheten!</string>
+  <string name="nearby_empty_message">Når du forflytter deg til en ny plassering, prøv å gjenoppfriske denne siden for å finne ut hva som befinner seg rundt deg.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Ingen nettverksforbindelse</string>
   <string name="nearby_server_error">Kunne ikke hente liste over steder i nærheten.</string>
   <string name="nearby_no_location">Kunne ikke posisjonere deg</string>
   <string name="nearby_dialog_goto_settings">Posisjonering er ikke skrudd på for denne enheten. Vil du gå til innstilllinger for enheten din for å skru på posisjonering?</string>
+  <string name="nearby_set_metric">Vis meter/km</string>
+  <string name="nearby_set_imperial">Vis fot/engelsk mil</string>
   <string name="last_updated_text">Sist oppdatert %1$s</string>
   <string name="content_license_html">Innholdet er tilgjengelig under &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om ikke annet er angitt</string>
   <string name="edit_save_action_license_logged_in">Ved å lagre samtykker du til &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen.</string>
@@ -230,9 +234,13 @@
   <string name="page_similar_titles">Lignende sider</string>
   <string name="search_within_pages">Søk gjennom sider…</string>
   <string name="search_no_results">Ingen resultater funnet for «%s».</string>
+  <string name="search_did_you_mean">Mente du «%s»?</string>
   <string name="search_results_title">Søkeresultater</string>
   <string name="search_error_retry">Prøv igjen</string>
   <string name="search_redirect_title">Omdirigering fra «%s».</string>
+  <string name="search_recent_header">Nylige søk:</string>
+  <string name="search_titles_button">Titler</string>
+  <string name="search_full_button">I artikler</string>
   <string name="toc_hint">Sveip til venstre for avsnitt, eller bruk menyknappen øverst til høyre.</string>
   <string name="toc_know_it">Forstått</string>
   <string name="app_store_description">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som har blitt sammenstilt noensinne. Denne appen har blitt skrevet om fra grunnen av og er bedre enn noensinne.

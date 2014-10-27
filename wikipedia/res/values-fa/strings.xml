@@ -11,7 +11,7 @@
   <string name="search_hint">جستجوی ویکی‌پدیا</string>
   <string name="history_activity_title">تاریخچه</string>
   <string name="nav_item_history">تاریخچه</string>
-  <string name="error_network_error" fuzzy="true">به شبکه دسترسی ندارد :(</string>
+  <string name="error_network_error">شبکه‌ای در دسترس نیست :(</string>
   <string name="search_network_error">خطای شبکه. برای تلاش مجدد با انگشت بر روی صفحه بزنید.</string>
   <string name="page_error_retry">تلاش مجدد</string>
   <string name="menu_clear_all_history">پاک‌کردن تاریخچه</string>
@@ -39,7 +39,22 @@
   <string name="delete_selected_saved_pages">حذف</string>
   <string name="toast_saved_page_deleted">ذخیره صفحه(های) حذف‌شده</string>
   <string name="saved_pages_search_list_hint">جستجو</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">هیچ صفحه‌ای برای \'%s\' یافت نشد</string>
+  <string name="saved_pages_search_empty_message">هیچ صفحه‌ای برای کوئری شما یافت نشد</string>
+  <string name="nearby_activity_title">در نزدیکی</string>
+  <string name="nav_item_nearby">در نزدیکی</string>
+  <string name="menu_update_nearby">به‌روزرسانی درنزدیکی</string>
+  <string name="nearby_empty_title">صفحه‌ای در نزدیکی یافت نشد!</string>
+  <string name="nearby_empty_message">زمانی که به مکان جدیدی می‌روید این صفحه را از نو تازه کنید تا دربارهٔ چیزهایی که اطرافتان هست اطلاع کسب کنید.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
+  <string name="nearby_no_network">هیچ اتصال شبکه</string>
+  <string name="nearby_server_error">امکان تهیهٔ فهرست مکان‌های نزدیک نیست</string>
+  <string name="nearby_no_location">امکان پیدا کردن موقعیت نیست</string>
+  <string name="nearby_dialog_goto_settings">به‌روزرسانی موقعیت توسط تلفن همره شما پشیبانی نمی شود. آیا می‌خواهید به تنظیمات تلفن همراهتان بروید و از آنجا آن را فعال کنید؟</string>
+  <string name="nearby_set_metric">نمایش متر/کیلومتر</string>
+  <string name="nearby_set_imperial">نمایش فوت/مایل</string>
   <string name="last_updated_text"> %1$s آخرین به‌روزرسانی</string>
   <string name="content_license_html">مطالب تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
   <string name="edit_save_action_license_logged_in">با ذخیره‌کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید.</string>
@@ -51,6 +66,7 @@
   <string name="menu_other_languages">به زبان‌های دیگر مطالعه کنید.</string>
   <string name="langlinks_error_retry">سعی مجدد</string>
   <string name="langlinks_empty">این صفحه به زبان های دیگر در دسترس نمی‌باشد.</string>
+  <string name="langlinks_no_match">هیچ زبانی برای درخواست شما یافت نشد</string>
   <string name="settings_activity_title">تنظیمات</string>
   <string name="langlinks_activity_title">زبان‌های دیگر</string>
   <string name="menu_save_changes">ذخیره‌کردن تغییرات</string>
@@ -87,7 +103,7 @@
   <string name="preference_summary_logout">خروج</string>
   <string name="preference_summary_notloggedin">وارد سامانه نشده‌اید</string>
   <string name="toast_logout_complete">خارج شد</string>
-  <string name="saved_pages_empty_title" fuzzy="true">هنوز صفحه‌ای ذخیره نشده‌است.</string>
+  <string name="saved_pages_empty_title">صفحه‌ای در اینجا ذخیره نشده‌است.</string>
   <string name="saved_pages_empty_message">صفحات ذخیره‌شده بسیار عالی هستند. به آنها به چشم بوکمارک‌هایی نگاه کنید که می‌توانید بخوانید حتی زمانی که آفلاین هستید.</string>
   <string name="history_empty_title">هیچ صفحه اخیری اینجا نیست.</string>
   <string name="history_empty_message">شما احتمالاً همه آنها را حذف کردید. دفعه بعد که به صفحه‌ای می‌روید می‌توانید از اینجا به آن صفحه برگردید.</string>
@@ -109,6 +125,12 @@
   <string name="create_account_username_exists_error">نام کاربری در حال استفاده است</string>
   <string name="create_account_ip_throttle_error">حساب کاربری زیادی با این نشانی آی‌پی ساخته شده‌اند بعدا تلاش کنید.</string>
   <string name="create_account_open_proxy_error">این نشانی آی‌پی برای ایجاد حساب مسدود شده است.</string>
+  <string name="create_account_noname_error">نام کاربری‌ای که انتخاب کرده‌اید نامعتبر است. نام کاربری دیگری را انتخاب کنید</string>
+  <string name="create_account_invalid_email_error">رایانامه‌ای که وارد کردید نامعتبر است.</string>
+  <string name="create_account_password_too_short_error">گذرواژه خیلی کوتاه است.</string>
+  <string name="create_account_blocked_anon_error">امکان ساخت حساب کاربری به دلیل بسته بودن آی‌پی شما نیست.</string>
+  <string name="create_account_blocked_error">امکان ساخت حساب کاربری به دلیل بسته بودن حساب کاربریتان نیست.</string>
+  <string name="create_account_password_name_match_error">نام کاربری و گذرواژه‌تان باید متفاوت باشند.</string>
   <string name="create_account_generic_error">امکان ساختن حساب کاربری وجود ندارد</string>
   <string name="create_account_no_network">اتصال شبکه یافت نشد.</string>
   <string name="create_account_next">بعدی</string>
@@ -152,7 +174,7 @@
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
   <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه مسدود شده ( %s ) را شناسایی کرده است. لطفا آنها را حذف کنید و دوباره امتحان کنید.</string>
   <string name="history_search_list_hint">جستجو</string>
-  <string name="history_search_empty_message" fuzzy="true">هیچ صفحه‌ای برای %s یافت نشد</string>
+  <string name="history_search_empty_message">هیچ صفحه‌ای برای درخواست شما یافت نشد</string>
   <string name="error_can_not_process_link">نمی‌توان این پیوند را نمایش داد</string>
   <string name="page_protected_autoconfirmed">این صفحه نیمه‌محفاظت شده است.</string>
   <string name="page_protected_sysop">این صفحه به طور کامل محافظت شده است.</string>
@@ -209,13 +231,18 @@
   <string name="color_theme_select">پوسته</string>
   <string name="color_theme_light">روشن</string>
   <string name="color_theme_dark">تیره</string>
-  <string name="page_similar_titles" fuzzy="true">معانی دیگر</string>
+  <string name="page_similar_titles">معانی مشابه</string>
   <string name="search_within_pages">جستجو در صفحات...</string>
   <string name="search_no_results">هیچ نتیجه‌ای برای «%s» یافت نشد.</string>
+  <string name="search_did_you_mean">منظورتان «%s» بود؟</string>
   <string name="search_results_title">نتایج جستجو</string>
   <string name="search_error_retry">تلاش مجدد</string>
   <string name="search_redirect_title">تغییر مسیر از «%s».</string>
-  <string name="toc_hint" fuzzy="true">Swipe right for sections, or use the menu button on the top right.</string>
+  <string name="search_recent_header">جستجوهای اخیر:</string>
+  <string name="search_titles_button">عنوان‌ها</string>
+  <string name="search_full_button">در مقالات</string>
+  <string name="toc_hint">برای بخش‌ها به سمت چپ بچرخانید یا از دکمه بالا در سمت راست در منو استفاده کنید.</string>
+  <string name="toc_know_it">گرفتم</string>
   <string name="app_store_description">نرم افزار رسمی ویکی‌پدیا برای استفاده در آندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و  گسترده‌ترین مرجع کار انسان تا کنون است. این برنامه از ابتدا بازنویسی شده است و بهتر از قبل کار می کند.
 ویژگی‌ها:
    -سرعت: نرم افزار جدید، بومی ما به شما اجازهٔ مرور و ویرایش ویکی‌پدیا را با سریع بیشتری می‌دهد.
@@ -227,4 +254,6 @@
    -صفر ویکی: هزینه داده برای تعدادی از اپراتورهای تلفن همراه رایگان است.
 
 کد کاملا منبع باز است. اگر شما تجربه با جاوا و آندروید SDK دارید از https://github.com/wikimedia/apps-android-wikipedia برای فورک کردن استفاده کنید.</string>
+  <string name="alpha_update_notification_title">به‌روزرسانی نسخه  آلفا جدید موجود است</string>
+  <string name="alpha_update_notification_text">تپ برای دانلود</string>
 </resources>

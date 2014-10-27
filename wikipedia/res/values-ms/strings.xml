@@ -234,6 +234,7 @@
   <string name="page_similar_titles">Laman-laman serupa</string>
   <string name="search_within_pages">Cari dalam laman...</string>
   <string name="search_no_results">Tiada hasil ditemui untuk \" %s \".</string>
+  <string name="search_did_you_mean">Adakah maksud anda, \"%s\"?</string>
   <string name="search_results_title">Hasil carian</string>
   <string name="search_error_retry">Cuba lagi</string>
   <string name="search_redirect_title">Lencongan dari \"%s\".</string>

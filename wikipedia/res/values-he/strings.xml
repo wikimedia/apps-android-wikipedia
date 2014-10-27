@@ -11,7 +11,7 @@
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="history_activity_title">היסטוריה</string>
   <string name="nav_item_history">היסטוריה</string>
-  <string name="error_network_error" fuzzy="true">אין גישה לרשת :(</string>
+  <string name="error_network_error">אין גישה לרשת :(</string>
   <string name="search_network_error">שגיאת רשת. יש ללחוץ כדי לנסות שוב.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="menu_clear_all_history">ניקוי היסטוריה</string>
@@ -234,9 +234,13 @@
   <string name="page_similar_titles">דפים דומים</string>
   <string name="search_within_pages">חיפוש בדפים...</string>
   <string name="search_no_results">לא נמצאו תוצאות עבור \"%s\".</string>
+  <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
   <string name="search_results_title">תוצאות חיפוש</string>
   <string name="search_error_retry">לנסות שוב</string>
   <string name="search_redirect_title">הפניה מהדף \"%s\".</string>
+  <string name="search_recent_header">חיפוש אחרונים:</string>
+  <string name="search_titles_button">כותרות</string>
+  <string name="search_full_button">בערכים</string>
   <string name="toc_hint">יש להחליק ימינה בשביל ראשי הפרקים או להשתמש בכפתור התפריט בפינה השמאלית העליונה.</string>
   <string name="toc_know_it">הבנתי</string>
   <string name="app_store_description">יישום ויקיפדיה הרשמי לאנדרואיד. ויקיפדיה היא האנציקלופדיה החופשית עם יותר מ־32 מיליון ערכים ב־280 שפות, וזאת אחת מיצירות העיון המקיפות והנפוצות ביותר שאנשים כתבו אי־פעם. היישום נכתב מחדש מאפס והוא טוב יותר מתמיד.

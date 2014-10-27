@@ -11,7 +11,7 @@
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="history_activity_title">Историја</string>
   <string name="nav_item_history">Историја</string>
-  <string name="error_network_error" fuzzy="true">Не можам да ја најдам мрежата :(</string>
+  <string name="error_network_error">Не можам да се поврзам со мрежата :(</string>
   <string name="search_network_error">Мрежна грешка. Допрете за да се обиде повторно.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="menu_clear_all_history">Исчисти историја</string>
@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">Во близина</string>
   <string name="nav_item_nearby">Во близина</string>
   <string name="menu_update_nearby">Поднови „во близина“</string>
-  <string name="nearby_empty_title" fuzzy="true">Нема страници во близина</string>
-  <string name="nearby_empty_message" fuzzy="true">Можете да ја подновите страницава кога ќе отидете на друго место.</string>
+  <string name="nearby_empty_title">Тука нема страници во близина!</string>
+  <string name="nearby_empty_message">Кога ќе ќе отидете на друго место, превчитајте ја страницата за да дознаете што сè има околу вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d стапки</string>
@@ -234,9 +234,13 @@
   <string name="page_similar_titles">Слични страници</string>
   <string name="search_within_pages">Пребарај по страниците...</string>
   <string name="search_no_results">Не пронајдов ништо за „%s“.</string>
+  <string name="search_did_you_mean">Дали мислевте на „%s“?</string>
   <string name="search_results_title">Резултати од пребарувањето</string>
   <string name="search_error_retry">Пробај пак</string>
   <string name="search_redirect_title">Пренасочување од „%s“.</string>
+  <string name="search_recent_header">Скорешни пребарувања:</string>
+  <string name="search_titles_button">Наслови</string>
+  <string name="search_full_button">Во статиите</string>
   <string name="toc_hint">Повлечете лево за поднасловите или послужете се со копчето во менито горе-десно.</string>
   <string name="toc_know_it">Јасно</string>
   <string name="app_store_description">Официјален Википедиин прилог (апликација) за Android. Википедија е слободна енциклопедија со преку 32 милиони статии на 280 јазици, и претставува најопсежното и најкористеното прирачно дело во историјата на човештвото. Прилогов е преработен од нула и затоа е подобар од било кога.

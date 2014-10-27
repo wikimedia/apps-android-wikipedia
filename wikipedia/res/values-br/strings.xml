@@ -11,7 +11,7 @@
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="history_activity_title">Istor</string>
   <string name="nav_item_history">Istor</string>
-  <string name="error_network_error" fuzzy="true">N\'haller ket tizhout ar rouedad :(</string>
+  <string name="error_network_error">N\'eus kevreadenn ebet ouzh ar rouedad :(</string>
   <string name="search_network_error">Fazi rouedad : pouezañ evit klask en-dro.</string>
   <string name="page_error_retry">Klask en-dro</string>
   <string name="menu_clear_all_history">Diverkañ an istor</string>
@@ -39,9 +39,22 @@
   <string name="delete_selected_saved_pages">Dilemel</string>
   <string name="toast_saved_page_deleted">Pajenn(où) enrollet dilamet</string>
   <string name="saved_pages_search_list_hint">Klask</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">N\'eus bet kavet pajenn ebet hag a glot gant \"%s\"</string>
+  <string name="saved_pages_search_empty_message">N\'eus bet kavet pajenn ebet hag a glot gant ho reked.</string>
   <string name="nearby_activity_title">Tostik</string>
   <string name="nav_item_nearby">Tostik</string>
+  <string name="menu_update_nearby">Hizivaat an elfennoù nes</string>
+  <string name="nearby_empty_title">Pajenn dost ebet amañ !</string>
+  <string name="nearby_empty_message">Pa vezit o tilec\'hiañ war-zu ul lec\'hiadur nevez, klaskit freskaat ar bajenn-mañ evit gouzout hiroc\'h diwar-benn ar pezh zo tro-dro deoc\'h.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
+  <string name="nearby_no_network">Kevreadenn ebet ouzh ar rouedad</string>
+  <string name="nearby_server_error">Ne c\'haller ket kaout listenn al lec\'hiadurioù tostik.</string>
+  <string name="nearby_no_location">Ne c\'haller ket kaout al lec\'hiadur</string>
+  <string name="nearby_dialog_goto_settings">N\'eo ket gweredekaet hizivadennoù al lec\'hiadurioù war ho termenell. C\'hoant ho peus da vont war arventennoù ho termenell evit gweredekaat hizivadennoù al lec\'hiadurioù ?</string>
+  <string name="nearby_set_metric">Diskwel e m/km</string>
+  <string name="nearby_set_imperial">Diskwel e troatadoù/miltirioù</string>
   <string name="last_updated_text">Hizivadenn ziwezhañ %1$s</string>
   <string name="content_license_html">An endalc\'had a c\'haller kaout e &lt;a  href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
   <string name="edit_save_action_license_logged_in">Pa\'z enrollit e tegemerit an &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; en ur doare didorradus.</string>
@@ -53,6 +66,7 @@
   <string name="menu_other_languages">Lenn e yezhoù all</string>
   <string name="langlinks_error_retry">Klask en-dro</string>
   <string name="langlinks_empty">N\'haller ket kaout ar bajenn-mañ e yezhoù all</string>
+  <string name="langlinks_no_match">N\'eus bet kavet yezh ebet a glot gant ho reked.</string>
   <string name="settings_activity_title">Arventennoù</string>
   <string name="langlinks_activity_title">Yezhoù all</string>
   <string name="menu_save_changes">Enrollañ ar c\'hemmoù</string>
@@ -89,7 +103,7 @@
   <string name="preference_summary_logout">Digevreañ diouzh ho kont Wikipedia</string>
   <string name="preference_summary_notloggedin">Digevreet.</string>
   <string name="toast_logout_complete">Digevreet</string>
-  <string name="saved_pages_empty_title" fuzzy="true">N\'eus pajenn enrollet ebet c\'hoazh.</string>
+  <string name="saved_pages_empty_title">N\'eus pajenn enrollet ebet amañ.</string>
   <string name="saved_pages_empty_message">Mat-tre eo enrollañ pajennoù. Gallout a rit ober ganto evel sinedoù hag a c\'hallit lenn pa vezit ezlinenn.</string>
   <string name="history_empty_title">N\'eus pajenn nevez ebet amañ.</string>
   <string name="history_empty_message">Lamet ho peus pep tra moarvat. Ar wech kentañ ma\'z eot war ur bajenn e c\'hallot distreiñ warni ac\'halese.</string>
@@ -111,6 +125,12 @@
   <string name="create_account_username_exists_error">Implijet eo an anv implijer dija</string>
   <string name="create_account_ip_throttle_error">Re a gontoù zo bet  krouet diwar ar chomlec\'h IP-mañ. Klaskit en-dro diwezhatoc\'h.</string>
   <string name="create_account_open_proxy_error">Prennet eo bet ar chomlec\'h IP-mañ evit krouiñ kontoù.</string>
+  <string name="create_account_noname_error">N\'eo ket mat an anv implijer roet. Roit unan all, mar plij.</string>
+  <string name="create_account_invalid_email_error">N\'eo ket mat ar chomlec\'h postel roet.</string>
+  <string name="create_account_password_too_short_error">Re verr eo ar ger-tremen roet.</string>
+  <string name="create_account_blocked_anon_error">Ne c\'hallit ket krouiñ ur gont peogwir eo sparlet ho chomlec\'h IP.</string>
+  <string name="create_account_blocked_error">Ne c\'hallit ket krouiñ un gont peogwir eo sparlet ho kont.</string>
+  <string name="create_account_password_name_match_error">Disheñvel e rank hoc\'h anv implijer hag ho ger-tremen.</string>
   <string name="create_account_generic_error">N\'haller ket krouiñ ar gont</string>
   <string name="create_account_no_network">Kevreadenn ebet ouzh ar rouedad</string>
   <string name="create_account_next">War-lerc\'h</string>
@@ -154,7 +174,7 @@
   <string name="preference_summary_eventlogging_opt_in">Aotren Wikipedia da zastum titouroù diwar-benn an doare ma implijit an arload evit gwellaat anezhañ</string>
   <string name="editing_error_spamblacklist">Liammoù war-zu an domanioù stanket (%s). Lamit anezho ha klaskit en-dro, mar plij.</string>
   <string name="history_search_list_hint">Klask</string>
-  <string name="history_search_empty_message" fuzzy="true">N\'eus bet kavet pajenn ebet hag a glot gant \"%s\"</string>
+  <string name="history_search_empty_message">N\'eus bet kavet pajenn ebet hag a glot gant ho reked.</string>
   <string name="error_can_not_process_link">N\'eus ket bet gallet diskwel al liamm-mañ</string>
   <string name="page_protected_autoconfirmed">Damwarezet eo bet ar bajenn-mañ.</string>
   <string name="page_protected_sysop">Gwarezet penn-da-benn eo bet ar bajenn-mañ.</string>
@@ -211,12 +231,18 @@
   <string name="color_theme_select">Tem</string>
   <string name="color_theme_light">Sklaer</string>
   <string name="color_theme_dark">Teñval</string>
-  <string name="page_similar_titles" fuzzy="true">Titloù kar</string>
+  <string name="page_similar_titles">Pajennoù kar</string>
   <string name="search_within_pages">Klask er pajennoù...</string>
   <string name="search_no_results">Disoc\'h ebet kavet evit \"%s\".</string>
+  <string name="search_did_you_mean">\"$\" emezit-c\'hwi ?</string>
   <string name="search_results_title">Klask disoc\'hoù</string>
   <string name="search_error_retry">Klask en-dro</string>
   <string name="search_redirect_title">Adkaset war-zu \"%s\"</string>
+  <string name="search_recent_header">Enklaskoù nevez :</string>
+  <string name="search_titles_button">Titloù</string>
+  <string name="search_full_button">Er pennadoù</string>
+  <string name="toc_hint">Torchañ war-zu an tu kleiz evit ar rannskridoù, pe implijout bouton al lañser e krec\'h a-zehoù.</string>
+  <string name="toc_know_it">Mat eo</string>
   <string name="app_store_description">Arload ofisiel Wikepedia evit Android. Un holloueziadur eo Wikipedia. Ennañ ez eus ouzhpenn 32 vilion a bennadoù e 280 yezh. An holloueziadur klokañ hag implijetañ a zo bet kempunet gant an dud evel n’eus ket bet morse.
 
 Arc\'hwelioù
@@ -235,5 +261,6 @@ _ Pajennoù enrollet : gallout a reot enrollañ pajennoù evit lenn anezho ezlin
 - Wikipedia zero ; nullet e vez ar mizoù roadennoù evit an  oberataerien hezoug a gemer perzh. 
 
 Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hit diorren Android, deuit neuze da grouiñ hoc\'h adstumm : https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Un hizadenn alpha nevez a c\'haller kaout</string>
   <string name="alpha_update_notification_text">Pouezañ evit pellgargañ</string>
 </resources>

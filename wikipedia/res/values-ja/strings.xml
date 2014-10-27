@@ -11,7 +11,7 @@
   <string name="search_hint">ウィキペディアを検索</string>
   <string name="history_activity_title">履歴</string>
   <string name="nav_item_history">履歴</string>
-  <string name="error_network_error" fuzzy="true">ネットワークがつながりません :(</string>
+  <string name="error_network_error">ネットワークに接続していません :(</string>
   <string name="search_network_error">ネットワークエラーです。タップしてやり直してください。</string>
   <string name="page_error_retry">再試行</string>
   <string name="menu_clear_all_history">履歴を消去</string>
@@ -234,9 +234,13 @@
   <string name="page_similar_titles">類似したページ</string>
   <string name="search_within_pages">ページ内を検索…</string>
   <string name="search_no_results">「%s」に対する検索結果はありません</string>
+  <string name="search_did_you_mean">\"%s\"で良いですか?</string>
   <string name="search_results_title">検索結果</string>
   <string name="search_error_retry">再試行</string>
   <string name="search_redirect_title">「%s」からの転送</string>
+  <string name="search_recent_header">最近の検索:</string>
+  <string name="search_titles_button">ページ名検索</string>
+  <string name="search_full_button">記事を対象に</string>
   <string name="toc_hint">左向きにスワイプで節見出しが出ます。右上にはメニューボタンがあります。</string>
   <string name="toc_know_it">了解</string>
   <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。このバージョンではゼロから書きなおされ、これまでで最良のものになりました。

@@ -7,7 +7,7 @@
   <string name="search_hint">זוכן וויקיפעדיע</string>
   <string name="history_activity_title">היסטאריע</string>
   <string name="nav_item_history">היסטאריע</string>
-  <string name="error_network_error" fuzzy="true">נישט גע קענט דערגרייכן די נעצווערק :(</string>
+  <string name="error_network_error">נישט פאראן קיין נעצווערק פארבינדונג :(</string>
   <string name="search_network_error">נעצווערק פעלער. קלאפט אן צו פרובירן נאכאמאל.</string>
   <string name="page_error_retry">פרובירן ווידער</string>
   <string name="menu_clear_all_history">אפראמען היסטאריע</string>
@@ -19,7 +19,9 @@
   <string name="saved_pages_activity_title">אײַנגעשפייכלערטע בלעטער</string>
   <string name="nav_item_saved_pages">אײַנגעשפייכלערטע בלעטער</string>
   <string name="menu_update_all_saved_pages">דערהײַנטיקן געשפייכלערטע בלעטער</string>
+  <string name="menu_update_selected_saved_pages">דערהײַנטיקן געשפייכלערטע בלעטער</string>
   <string name="dialog_prompt_refresh_all_saved_pages">דערהײַנטיקן אלע געשפייכלערטע בלעטער?</string>
+  <string name="toast_saved_page_refreshed">געשפייכלערטע בלעטער דערהײַנטיקט</string>
   <string name="menu_save_page">אױפֿהיטן בלאַט</string>
   <string name="menu_share_page">טיילן</string>
   <string name="share_via">טיילן דורך</string>
@@ -28,7 +30,11 @@
   <string name="toast_saved_page">בלאט דערפאלגרייך געשפייכלערט</string>
   <string name="delete_selected_saved_pages">אויסמעקן</string>
   <string name="toast_saved_page_deleted">געשפייכלערטע בלעטער אויסגעמעקט</string>
+  <string name="saved_pages_search_list_hint">זוכן</string>
   <string name="saved_pages_search_empty_message">קיין בלעטער נישט געטראפן וואס זענען צוגעפאסט צו אײַער פראגע.</string>
+  <string name="nearby_activity_title">דערבײַ</string>
+  <string name="nav_item_nearby">דערבײַ</string>
+  <string name="nearby_no_network">קיין נעצווערק פארבינדונג</string>
   <string name="last_updated_text">לעצט דערהײַנטיקט %s</string>
   <string name="preference_title_language">וויקיפעדיע־שפראך</string>
   <string name="preference_summary_language">אינהאלט־שפראך</string>

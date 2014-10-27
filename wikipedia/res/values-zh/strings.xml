@@ -141,7 +141,7 @@
   <string name="zero_search_hint">搜索Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">离开Wikipedia Zero时提示</string>
   <string name="zero_warn_when_leaving_summary">如果您的移动运营商作为Wikipedia Zero的合作伙伴，而放弃维基百科应用程序相关的数据接入费用，启用该设置可以帮助您检查何时离开应用程序并开始计费。</string>
-  <string name="zero_webpage_title">维基百科零常见问题</string>
+  <string name="zero_webpage_title">Wikipedia Zero常见问题</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">离开Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">将收取数据费用。继续前往外部网站？</string>

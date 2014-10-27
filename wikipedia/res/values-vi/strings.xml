@@ -11,7 +11,7 @@
   <string name="search_hint">Tìm trong Wikipedia</string>
   <string name="history_activity_title">Lịch sử</string>
   <string name="nav_item_history">Lịch sử</string>
-  <string name="error_network_error" fuzzy="true">Không thể kết nối với mạng :(</string>
+  <string name="error_network_error">Không thể kết nối với mạng :(</string>
   <string name="search_network_error">Lỗi mạng. Chạm để thử lại.</string>
   <string name="page_error_retry">Thử lại</string>
   <string name="menu_clear_all_history">Xóa lịch sử</string>
@@ -234,9 +234,13 @@
   <string name="page_similar_titles">Trang tương tự</string>
   <string name="search_within_pages">Tìm trong trang…</string>
   <string name="search_no_results">Không tìm thấy kết quả cho “%s”.</string>
+  <string name="search_did_you_mean">Có phải bạn muốn tìm “%s”?</string>
   <string name="search_results_title">Kết quả tìm kiếm</string>
   <string name="search_error_retry">Thử lại</string>
   <string name="search_redirect_title">Đổi hướng từ “%s”.</string>
+  <string name="search_recent_header">Tìm kiếm gần đây:</string>
+  <string name="search_titles_button">Tên trang</string>
+  <string name="search_full_button">Nội dung bài</string>
   <string name="toc_hint">Để xem các phần, vuốt trái hoặc bấm nút trình đơn ở góc phải bên trên.</string>
   <string name="toc_know_it">Được rồi</string>
   <string name="app_store_description">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở với hơn 32 triệu mục từ trong 280 ngôn ngữ, và là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên. Ứng dụng này đã được viết mới hoàn toàn và là bản tốt nhất từ trước tới nay.

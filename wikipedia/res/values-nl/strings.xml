@@ -11,7 +11,7 @@
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="history_activity_title">Geschiedenis</string>
   <string name="nav_item_history">Geschiedenis</string>
-  <string name="error_network_error" fuzzy="true">Het netwerk was niet beschikbaar :(</string>
+  <string name="error_network_error">Er is geen netwerkverbinding :(</string>
   <string name="search_network_error">Netwerkfout. Klik om het opnieuw te proberen.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
@@ -44,12 +44,17 @@
   <string name="nav_item_nearby">In de buurt</string>
   <string name="menu_update_nearby">In de buurt bijwerken</string>
   <string name="nearby_empty_title">Geen pagina\'s in de buurt!</string>
+  <string name="nearby_empty_message">Wanneer u naar een nieuwe locatie verplaatst, probeer dan deze pagina te vernieuwen voor meer informatie over wat er om uw heen is.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d voet</string>
+  <string name="nearby_distance_in_miles">%.2f mijl</string>
   <string name="nearby_no_network">Geen netwerkverbinding</string>
+  <string name="nearby_server_error">Er kan geen lijst verkregen worden van plaatsen in de buurt.</string>
   <string name="nearby_no_location">Kan locatie niet verkrijgen</string>
+  <string name="nearby_dialog_goto_settings">Locatieupdates zijn niet ingeschakeld op uw apparaat. Zou u in uw apparaatinstellingen locatieupdates kunnen inschakelen?</string>
   <string name="nearby_set_metric">Toon meter/km</string>
+  <string name="nearby_set_imperial">Voeten/mijlen weergeven</string>
   <string name="last_updated_text">%1$s voor het laatst bijgewerkt</string>
   <string name="content_license_html">Inhoud is beschikbaar onder de licentie &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
   <string name="edit_save_action_license_logged_in">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdrage onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie.</string>
@@ -61,6 +66,7 @@
   <string name="menu_other_languages">In een andere taal lezen</string>
   <string name="langlinks_error_retry">Opnieuw proberen</string>
   <string name="langlinks_empty">Deze pagina is niet beschikbaar in andere talen</string>
+  <string name="langlinks_no_match">Geen talen gevonden die overeenkomen met uw zoekopdracht.</string>
   <string name="settings_activity_title">Instellingen</string>
   <string name="langlinks_activity_title">Andere talen</string>
   <string name="menu_save_changes">Wijzigingen opslaan</string>
@@ -119,6 +125,11 @@
   <string name="create_account_username_exists_error">De gebruikersnaam is al in gebruik</string>
   <string name="create_account_ip_throttle_error">Er zijn te veel gebruikers aangemaakt vanaf dit IP-adres. Probeer het later opnieuw.</string>
   <string name="create_account_open_proxy_error">Vanaf dit IP-adres mogen geen gebruikers aangemaakt worden.</string>
+  <string name="create_account_noname_error">De opgegeven gebruikersnaam is ongeldig. Geef een andere gebruikersnaam op.</string>
+  <string name="create_account_invalid_email_error">Het opgegeven e-mailadres is ongeldig.</string>
+  <string name="create_account_password_too_short_error">Het opgegeven wachtwoord is te kort.</string>
+  <string name="create_account_blocked_anon_error">U kan geen account maken omdat uw IP is geblokkeerd.</string>
+  <string name="create_account_blocked_error">U kan geen account maken omdat uw account is geblokkeerd.</string>
   <string name="create_account_password_name_match_error">De gebruikersnaam en wachtwoord mogen niet met elkaar overeenkomen.</string>
   <string name="create_account_generic_error">Het was niet mogelijk een gebruiker aan te maken</string>
   <string name="create_account_no_network">Geen netwerkverbinding</string>
@@ -161,10 +172,10 @@
   <string name="edit_save_action_ip_description">Uw bewerkingen worden openbaar toegeschreven aan uw IP-adres, dat mogelijk vaak wijzigt</string>
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
   <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe ik de app gebruik om de app te verbeteren</string>
-  <string name="editing_error_spamblacklist">Links naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
+  <string name="editing_error_spamblacklist">Er zijn koppelingen naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
   <string name="history_search_list_hint">Zoeken</string>
   <string name="history_search_empty_message">Geen pagina\'s gevonden die overeenkomen met uw zoekopdracht.</string>
-  <string name="error_can_not_process_link">Kon de link niet weergeven</string>
+  <string name="error_can_not_process_link">Kon de koppeling niet weergeven</string>
   <string name="page_protected_autoconfirmed">Deze pagina is semi-beveiligd.</string>
   <string name="page_protected_sysop">Deze pagina is volledig beveiligd.</string>
   <string name="page_protected_other">Deze pagina is beveiligd tot de volgende niveau\'s: %s</string>
@@ -211,7 +222,7 @@
   <string name="menu_refresh_saved_page">Pagina vernieuwen</string>
   <string name="abusefilter_title_warn">Dit kan een niet-constructieve bewerking zijn. Weet u zeker dat u wilt opslaan?</string>
   <string name="abusefilter_title_disallow">U kunt deze bewerking niet opslaan. Ga terug en wijzig de inhoud.</string>
-  <string name="abusefilter_text_warn">Een geautomatiseerde filter heeft deze bewerking als potentieel onconstructief geïdentificeerd. Het kan een of meer van de volgende bevatten:&lt;br /&gt;&lt;br /&gt;· Getypt in hoofdletters&lt;br /&gt;· Leeghalen van artikelen of spammen&lt;br /&gt;· Irrelevant externe links of afbeeldingen&lt;br /&gt;· Tekens herhalen</string>
+  <string name="abusefilter_text_warn">Een geautomatiseerde filter heeft deze bewerking als potentieel onconstructief geïdentificeerd. Het kan een of meer van de volgende bevatten:&lt;br /&gt;&lt;br /&gt;· Getypt in hoofdletters&lt;br /&gt;· Leeghalen van artikelen of spammen&lt;br /&gt;· Irrelevant externe koppelingen of afbeeldingen&lt;br /&gt;· Tekens herhalen</string>
   <string name="abusefilter_text_disallow">Een geautomatiseerde filter heeft deze bewerking als niet constructief of potentieel vandalisme geïdentificeerd.&lt;br /&gt;&lt;br /&gt; Wikipedia is een encyclopedie en alleen neutrale, relevante inhoud hoort hier thuis.</string>
   <string name="dialog_page_issues">Pagina-problemen</string>
   <string name="button_page_issues">Pagina-problemen</string>
@@ -223,9 +234,13 @@
   <string name="page_similar_titles">Vergelijkbare pagina\'s</string>
   <string name="search_within_pages">Zoeken binnen pagina\'s...</string>
   <string name="search_no_results">Geen resultaten gevonden voor \"%s\".</string>
+  <string name="search_did_you_mean">Bedoelde u \"%s\"?</string>
   <string name="search_results_title">Zoekresultaten</string>
   <string name="search_error_retry">Opnieuw proberen</string>
   <string name="search_redirect_title">Doorverwezen vanaf \"%s\".</string>
+  <string name="search_recent_header">Recente zoekopdrachten:</string>
+  <string name="search_titles_button">Titels</string>
+  <string name="search_full_button">In de artikelen:</string>
   <string name="toc_hint">Veeg naar links voor secties, of gebruik de knop in de rechterbovenhoek.</string>
   <string name="toc_know_it">Begrepen</string>
   <string name="app_store_description">Officiële Wikipedia-app voor Android. Wikipedia is de vrije encylopedie met meer dan 31 miljoen artikelen in 280 talen, en de meest uitgebreide en meest gebruikte bron gemaakt door de mens. De app is vanaf de grond opnieuw opgebouwd en is beter dan ooit te voren.
