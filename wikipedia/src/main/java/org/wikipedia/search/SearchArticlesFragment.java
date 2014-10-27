@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class SearchArticlesFragment extends Fragment {
@@ -358,6 +359,13 @@ public class SearchArticlesFragment extends Fragment {
         // automatically trigger the showing of the corresponding search results.
         if (isValidQuery(lastSearchedText)) {
             searchView.setQuery(lastSearchedText, false);
+
+            // automatically select all text in the search field, so that typing a new character
+            // will clear it by default
+            EditText editText = getSearchViewEditText(searchView);
+            if (editText != null) {
+                editText.selectAll();
+            }
         }
         MenuItemCompat.setActionView(searchAction, searchView);
     }
@@ -376,6 +384,26 @@ public class SearchArticlesFragment extends Fragment {
             default:
                 return false;
         }
+    }
+
+    /**
+     * Retrieve the EditText component from inside a SearchView widget, so that operations
+     * may be performed on the EditText, such as selecting text.
+     * @param parent SearchView from which to retrieve the EditText view.
+     * @return EditText view, or null if not found.
+     */
+    private EditText getSearchViewEditText(ViewGroup parent) {
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            if (parent.getChildAt(i) instanceof EditText) {
+                return (EditText)parent.getChildAt(i);
+            } else if (parent.getChildAt(i) instanceof ViewGroup) {
+                EditText et = getSearchViewEditText((ViewGroup)parent.getChildAt(i));
+                if (et != null) {
+                    return et;
+                }
+            }
+        }
+        return null;
     }
 
     /*

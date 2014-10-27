@@ -197,6 +197,17 @@ public class FullSearchFragment extends Fragment {
                     getWikidataDescriptions(lastResults.getResults());
                     getPageThumbnails(lastResults.getResults());
                 }
+
+                if (continueOffset == 0) {
+                    // scroll to top, but post it to the message queue, because it should be done
+                    // after the data set is updated.
+                    searchResultsList.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            searchResultsList.setSelectionAfterHeaderView();
+                        }
+                    });
+                }
             }
 
             @Override
