@@ -191,7 +191,7 @@
   <string name="edit_abandon_confirm">Na stránke boli vykonané úpravy. Naozaj chcete opustiť stránku bez uloženia úprav?</string>
   <string name="user_blocked_from_editing_title">Zablokované</string>
   <string name="user_logged_in_blocked_from_editing">Váš používateľský účet bol pre úpravy na tejto wiki zablokovaný.</string>
-  <string name="user_anon_blocked_from_editing">Vaša IP adresa bola pre editácie zablokovaná.</string>
+  <string name="user_anon_blocked_from_editing">Vaša IP adresa bola pre úpravy zablokovaná.</string>
   <string name="edit_how_page_improved">Ako ste vylepšili stránku?</string>
   <string name="edit_next">Ďalej</string>
   <string name="edit_done">Uložiť</string>
@@ -217,6 +217,7 @@
   <string name="abusefilter_text_warn">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu. Mohla by obsahovať jednu alebo viaceré nasledovné veci:&lt;br /&gt;&lt;br /&gt;· vloženie iba veľkých písmen&lt;br /&gt;· vymazávanie článkov alebo spam&lt;br /&gt;· nerelevantné externé linky alebo obrázky&lt;br /&gt;· opakujúce sa znaky</string>
   <string name="abusefilter_text_disallow">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu alebo vandalizmus.&lt;br /&gt;&lt;br /&gt; Wikipédia je encyklopédia a patrí do nej iba nesporný a relevantný obsah.</string>
   <string name="dialog_page_issues">Problémy stránky</string>
+  <string name="button_page_issues">Problémy stránky</string>
   <string name="menu_themechooser">Zmeniť písmo a vzhľad</string>
   <string name="text_size_select">Veľkosť písma</string>
   <string name="color_theme_select">Vzhľad</string>
@@ -229,6 +230,7 @@
   <string name="search_error_retry">Znova</string>
   <string name="search_redirect_title">Presmerované z \"%s\".</string>
   <string name="toc_know_it">Rozumiem</string>
+  <string name="error_browser_not_found">Nepodarilo sa otvoriť webovú stránku (nenašiel sa žiadny webový prehliadač).</string>
   <string name="app_store_description">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.
 
 Funkcie:

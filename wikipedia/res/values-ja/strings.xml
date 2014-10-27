@@ -243,6 +243,7 @@
   <string name="search_full_button">記事を対象に</string>
   <string name="toc_hint">左向きにスワイプで節見出しが出ます。右上にはメニューボタンがあります。</string>
   <string name="toc_know_it">了解</string>
+  <string name="error_browser_not_found">Webページを開くことができませんでした。(ブラウザアプリが見つかりません)</string>
   <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。このバージョンではゼロから書きなおされ、これまでで最良のものになりました。
 
 機能:
