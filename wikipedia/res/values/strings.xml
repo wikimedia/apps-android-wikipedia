@@ -246,6 +246,7 @@
     <string name="search_error_retry">Retry</string>
     <string name="search_redirect_title">Redirect from \"%s\".</string>
     <string name="search_recent_header">Recent searches:</string>
+    <string name="menu_clear_all_recent_searches">Clear recent searches</string>
     <string name="search_titles_button">Titles</string>
     <string name="search_full_button">Within articles</string>
     <string name="toc_hint">Swipe left for sections, or use the menu button on the top right.</string>

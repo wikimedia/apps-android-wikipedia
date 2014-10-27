@@ -330,6 +330,7 @@ See also:
 {{Identical|Retry}}</string>
   <string name="search_redirect_title">Label that tells the user that the search result is actually a redirect from another page, specified by the \"%s\" symbol.</string>
   <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
+  <string name="menu_clear_all_recent_searches">Menu item to clear search history;  visible when in search mode.</string>
   <string name="search_titles_button">Button label for searching page title matches.
 {{Identical|Title}}</string>
   <string name="search_full_button">Button label for searching the full text of pages.</string>

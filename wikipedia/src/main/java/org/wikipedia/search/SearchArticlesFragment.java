@@ -329,6 +329,7 @@ public class SearchArticlesFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         if (isSearchActive) {
             addSearchView(menu);
+            addDeleteRecentSearchesMenu(menu);
         }
     }
 
@@ -351,6 +352,22 @@ public class SearchArticlesFragment extends Fragment {
             searchView.setQuery(lastSearchedText, false);
         }
         MenuItemCompat.setActionView(searchAction, searchView);
+    }
+
+    private void addDeleteRecentSearchesMenu(Menu menu) {
+        MenuItem deleteAction = menu.add(0, R.id.menu_clear_all_recent_searches, Menu.NONE, getString(R.string.menu_clear_all_recent_searches));
+        MenuItemCompat.setShowAsAction(deleteAction, MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
+        deleteAction.setIcon(R.drawable.ic_delete);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_clear_all_recent_searches:
+                new DeleteAllRecentSearchesTask(app).execute();
+                return true;
+            default:
+                return false;
+        }
     }
 
     /*
