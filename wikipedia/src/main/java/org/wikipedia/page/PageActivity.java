@@ -239,10 +239,6 @@ public class PageActivity extends ThemedActionBarActivity {
 
         // Set the drawer toggle as the DrawerListener
         drawerLayout.setDrawerListener(mDrawerToggle);
-
-        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.ic_drawer));
-        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.search_w));
-        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.search));
     }
 
     @Override
@@ -265,6 +261,11 @@ public class PageActivity extends ThemedActionBarActivity {
         if (searchFragment != null && !searchFragment.isSearchActive()) {
             getMenuInflater().inflate(R.menu.menu_main, menu);
         }
+
+        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.ic_drawer));
+        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.search_w));
+        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.search));
+
         return super.onCreateOptionsMenu(menu);
     }
 
