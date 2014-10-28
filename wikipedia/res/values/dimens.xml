@@ -1,9 +1,5 @@
 <resources>
 
-    <!-- trick to be able to use match_parent and wrap_content in dimen resources -->
-    <dimen name="match_parent">-1dp</dimen>
-    <dimen name="wrap_content">-2dp</dimen>
-
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

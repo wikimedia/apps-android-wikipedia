@@ -3,7 +3,7 @@
     <!--
         ToC Intro
     -->
-    <dimen name="toc_intro_image_size">@dimen/wrap_content</dimen>
+    <dimen name="toc_intro_image_size">128dp</dimen>
     <dimen name="toc_intro_image_marginTop">16dp</dimen>
     <dimen name="toc_intro_image_marginBottom">48dp</dimen>
 
