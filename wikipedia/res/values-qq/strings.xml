@@ -175,7 +175,7 @@ See also:
   <string name="create_account_noname_error">Used as an error message during account creation when the account creation failed because username that was provided is invalid.</string>
   <string name="create_account_invalid_email_error">Used as an error message during account creation when the account creation failed because the email that was provided is invalid.</string>
   <string name="create_account_password_too_short_error">Used as an error message during account creation when the account creation failed because the password that was entered is too short.</string>
-  <string name="create_account_blocked_anon_error">Used as an error message during account creation when the account creation failed because their IP is blocked.
+  <string name="create_account_blocked_anon_error">Used as an error message during account creation when the account creation failed because their IP address is blocked.
 
 See also:
 * {{msg-wm|Wikipedia-android-strings-create account blocked error}}</string>
