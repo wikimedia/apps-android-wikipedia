@@ -89,8 +89,10 @@ public class FullSearchFragment extends Fragment {
         searchSuggestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (searchSuggestion.getTag() != null) {
-                    startSearch((String) searchSuggestion.getTag(), true);
+                String suggestion = (String) searchSuggestion.getTag();
+                if (suggestion != null) {
+                    searchFragment.setSearchText(suggestion);
+                    startSearch(suggestion, true);
                 }
             }
         });

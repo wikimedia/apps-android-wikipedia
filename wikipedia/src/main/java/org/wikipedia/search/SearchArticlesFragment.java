@@ -188,6 +188,14 @@ public class SearchArticlesFragment extends Fragment {
     }
 
     /**
+     * Changes the search text box to contain a different string.
+     * @param text The text you want to make the search box display.
+     */
+    public void setSearchText(String text) {
+        searchView.setQuery(text, false);
+    }
+
+    /**
      * Show a particular panel, which can be one of:
      * - PANEL_RECENT_SEARCHES
      * - PANEL_TITLE_SEARCH
