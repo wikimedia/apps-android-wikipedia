@@ -23,6 +23,7 @@ import com.squareup.picasso.Picasso;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.NewWikiPageNavigationEvent;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
 
 import java.text.DateFormat;
@@ -227,18 +228,24 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        if (((PageActivity)getActivity()).isSearching()) {
+            return;
+        }
         inflater.inflate(R.menu.menu_history, menu);
         app.adjustDrawableToTheme(menu.findItem(R.id.menu_clear_all_history).getIcon());
     }
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
         if (historyEntryList == null) {
             // in API10 this may be called before onCreateView...
             return;
         }
+        if (((PageActivity)getActivity()).isSearching()) {
+            return;
+        }
         menu.findItem(R.id.menu_clear_all_history).setEnabled(historyEntryList.getCount() > 0);
-        super.onPrepareOptionsMenu(menu);
     }
 
     @Override

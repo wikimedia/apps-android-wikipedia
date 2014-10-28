@@ -8,6 +8,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.mediawiki.api.json.ApiException;
+import org.wikipedia.page.PageActivity;
+
 import com.squareup.picasso.Picasso;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
@@ -491,6 +493,9 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        if (((PageActivity)getActivity()).isSearching()) {
+            return;
+        }
         inflater.inflate(R.menu.menu_nearby, menu);
         app.adjustDrawableToTheme(menu.findItem(R.id.menu_refresh_nearby).getIcon());
         menu.findItem(R.id.menu_metric_imperial).setTitle(showImperial
@@ -500,11 +505,14 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        if (((PageActivity)getActivity()).isSearching()) {
+            return;
+        }
         menu.findItem(R.id.menu_refresh_nearby).setEnabled(!refreshing);
         menu.findItem(R.id.menu_metric_imperial).setTitle(showImperial
                 ? getString(R.string.nearby_set_metric)
                 : getString(R.string.nearby_set_imperial));
-        super.onPrepareOptionsMenu(menu);
     }
 
     @Override

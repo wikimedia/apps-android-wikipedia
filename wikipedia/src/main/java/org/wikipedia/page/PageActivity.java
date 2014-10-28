@@ -258,7 +258,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (searchFragment != null && !searchFragment.isSearchActive()) {
+        if (searchFragment != null && !isSearching()) {
             getMenuInflater().inflate(R.menu.menu_main, menu);
         }
 
@@ -322,6 +322,17 @@ public class PageActivity extends ThemedActionBarActivity {
             // FIXME: Design something better for this?
             bus.post(new RequestMainPageEvent());
         }
+    }
+
+    /**
+     * Returns whether we're currently in a "searching" state (i.e. the search fragment is shown).
+     * @return True if currently searching, false otherwise.
+     */
+    public boolean isSearching() {
+        if (searchFragment == null) {
+            return false;
+        }
+        return searchFragment.isSearchActive();
     }
 
     /**

@@ -23,6 +23,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
 
 import java.util.ArrayList;
@@ -271,6 +272,9 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        if (((PageActivity)getActivity()).isSearching()) {
+            return;
+        }
         inflater.inflate(R.menu.menu_saved_pages, menu);
         app.adjustDrawableToTheme(menu.findItem(R.id.menu_refresh_all_saved_pages).getIcon());
         app.adjustDrawableToTheme(menu.findItem(R.id.menu_clear_all_saved_pages).getIcon());
@@ -278,13 +282,16 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
         if (savedPagesList == null) {
             // in API10 this may be called before onCreateView...
             return;
         }
+        if (((PageActivity)getActivity()).isSearching()) {
+            return;
+        }
         menu.findItem(R.id.menu_clear_all_saved_pages).setEnabled(savedPagesList.getCount() > 0);
         menu.findItem(R.id.menu_refresh_all_saved_pages).setEnabled(savedPagesList.getCount() > 0);
-        super.onPrepareOptionsMenu(menu);
     }
 
     @Override
