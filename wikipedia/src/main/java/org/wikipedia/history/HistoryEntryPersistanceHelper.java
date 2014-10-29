@@ -59,11 +59,15 @@ public class HistoryEntryPersistanceHelper extends PersistanceHelper<HistoryEntr
 
     @Override
     protected String getPrimaryKeySelection() {
-        throw new UnsupportedOperationException("No Primary Keys make sense for History");
+        return "site = ? AND title = ? AND timestamp = ?";
     }
 
     @Override
     protected String[] getPrimaryKeySelectionArgs(HistoryEntry obj) {
-        throw new UnsupportedOperationException("No Primary Keys make sense for History");
+        return new String[] {
+            obj.getTitle().getSite().getDomain(),
+            obj.getTitle().getPrefixedText(),
+            Long.toString(obj.getTimestamp().getTime())
+        };
     }
 }

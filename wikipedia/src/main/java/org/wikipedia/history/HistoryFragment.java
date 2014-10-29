@@ -11,14 +11,19 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.view.ActionMode;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.SparseBooleanArray;
 import android.view.*;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import com.squareup.picasso.Picasso;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -41,6 +46,8 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     private EditText entryFilter;
 
     private WikipediaApp app;
+
+    private ActionMode actionMode;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,9 +104,63 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
         historyEntryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                HistoryEntry oldEntry = (HistoryEntry) view.getTag();
-                HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
-                app.getBus().post(new NewWikiPageNavigationEvent(oldEntry.getTitle(), newEntry));
+                if (actionMode == null) {
+                    HistoryEntry oldEntry = (HistoryEntry) view.getTag();
+                    HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
+                    app.getBus().post(new NewWikiPageNavigationEvent(oldEntry.getTitle(), newEntry));
+                }
+            }
+        });
+
+        historyEntryList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                if (actionMode != null) {
+                    return false;
+                }
+                historyEntryList.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
+                actionMode = ((ActionBarActivity)getActivity()).startSupportActionMode(new ActionMode.Callback() {
+                    @Override
+                    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                        mode.getMenuInflater().inflate(R.menu.menu_history_context, menu);
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                        if (item.getItemId() == R.id.menu_delete_selected_history) {
+                            SparseBooleanArray checkedItems = historyEntryList.getCheckedItemPositions();
+                            for (int i = 0; i < checkedItems.size(); i++) {
+                                if (checkedItems.valueAt(i)) {
+                                    app.getPersister(HistoryEntry.class).delete(
+                                        HistoryEntry.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)))
+                                    );
+                                }
+                            }
+                            actionMode.finish();
+                            return true;
+                        } else {
+                            // This can't happen
+                            throw new RuntimeException("Unknown context menu item clicked");
+                        }
+                    }
+
+                    @Override
+                    public void onDestroyActionMode(ActionMode mode) {
+                        historyEntryList.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+                        actionMode = null;
+                        // Clear all selections
+                        historyEntryList.clearChoices();
+                        historyEntryList.requestLayout(); // Required to immediately redraw unchecked states
+                    }
+                });
+                historyEntryList.setItemChecked(position, true);
+                return true;
             }
         });
 
