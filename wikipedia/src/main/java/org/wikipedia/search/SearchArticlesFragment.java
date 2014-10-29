@@ -296,10 +296,15 @@ public class SearchArticlesFragment extends Fragment {
         // show ourselves
         searchContainerView.setVisibility(View.VISIBLE);
 
-        // find out whether full-text search has been disabled remotely, and
-        // hide the title/full switcher buttons accordingly.
-        fullSearchDisabled = app.getRemoteConfig().getConfig()
-                .optBoolean("disableFullTextSearch", false);
+        // TODO: remove this when ready for production
+        if (app.getReleaseType() == WikipediaApp.RELEASE_PROD) {
+            fullSearchDisabled = true;
+        } else {
+            // find out whether full-text search has been disabled remotely, and
+            // hide the title/full switcher buttons accordingly.
+            fullSearchDisabled = app.getRemoteConfig().getConfig()
+                    .optBoolean("disableFullTextSearch", false);
+        }
         getView().findViewById(R.id.search_type_button_container)
                 .setVisibility(fullSearchDisabled ? View.GONE : View.VISIBLE);
 
