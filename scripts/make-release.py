@@ -79,10 +79,10 @@ def push_to_gerrit(target):
     sh.git.push('gerrit', tag_name)
 
 
-def make_release(flavors):
+def make_release(flavors, custom_channel, custom_app):
     sh.cd(PATH_PREFIX)
     # ./gradlew -q assembleDevDebug
-    args = [GRADLEW, '-q', 'clean']
+    args = [GRADLEW, '-q', 'clean', '-PcustomChannel=' + custom_channel, '-PcustomApplicationId=' + custom_app]
     tasks = ['assemble{0}Release'.format(flavor.title()) for flavor in flavors]
     args += tasks
     subprocess.call(args)
@@ -106,22 +106,21 @@ def main():
     #                    help='Do not use manually, only for the automated build script',
     #                    action='store_true')
     group.add_argument('--prod',
-                       help='Step 1: Google Play stable. git checkout BUMPTAG first!',
+                       help='Step 1: Google Play stable.',
                        action='store_true')
-    # group.add_argument('--releasesprod',
-    #                    help='Step 1: releasesdot stable. git checkout BUMPTAG first!',
-    #                    action='store_true')
     group.add_argument('--amazon',
-                       help='Step 1: Amazon stable release. git checkout BUMPTAG first!',
+                       help='Step 1: Amazon stable release.',
                        action='store_true')
-    # group.add_argument('--channel',
-    #                    help='Step 1: Alphabetic versionName&channel. '
-    #                         'Usually, git checkout BUMPTAG first. OEMs w/ Play')
-    # group.add_argument('--custompackage',
-    #                    help='Step 1: Alphabetic versionName&channel&package; OEMs wout/ Play.')
-    parser.add_argument('--push', help='Step 2: push git tag created in step 1 to gerrit remote.',
+    group.add_argument('--channel',
+                       help='Step 1: Custom versionName&channel. OEMs w/ Play')
+    group.add_argument('--app',
+                       help='Step 1: Custom versionName&channel&applicationId '
+                            '(aka. package name). OEMs wout/ Play.')
+    parser.add_argument('--push', help='Step 2: create&push git tag to gerrit remote.',
                         action='store_true')
     args = parser.parse_args()
+    custom_channel = 'ignore'
+    custom_app = 'org.wikipedia'
     if args.beta:
         flavors = ['beta']
         targets = flavors
@@ -131,9 +130,15 @@ def main():
     elif args.amazon:
         flavors = ['amazon']
         targets = flavors
-    # elif args.channel:
-    #     flavors = [args.channel]
-    #     targets = flavors
+    elif args.channel:
+        flavors = ['custom']
+        targets = [args.channel]
+        custom_channel = args.channel
+    elif args.app:
+        flavors = ['custom']
+        targets = [args.app]
+        custom_channel = args.app
+        custom_app = 'org.wikipedia.' + args.app
     else:
         print('Error. Please specify --beta, --prod, or --amazon')
         sys.exit(-1)
@@ -143,7 +148,7 @@ def main():
             git_tag(target)
             push_to_gerrit(target)
     else:
-        make_release(flavors)
+        make_release(flavors, custom_channel, custom_app)
         copy_apk(flavors[0], targets[0])
         if flavors[0] == 'prod':
             copy_apk(flavors[1], flavors[1])
