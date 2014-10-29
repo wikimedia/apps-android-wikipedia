@@ -239,6 +239,7 @@
   <string name="search_error_retry">Erneut versuchen</string>
   <string name="search_redirect_title">Weitergeleitet von „%s“.</string>
   <string name="search_recent_header">Letzte Suchanfragen:</string>
+  <string name="menu_clear_all_recent_searches">Letzte Suchanfragen löschen</string>
   <string name="search_titles_button">Titel</string>
   <string name="search_full_button">Innerhalb Artikeln</string>
   <string name="toc_hint">Wische nach links für Abschnitte oder benutze rechts oben den Menü-Button.</string>

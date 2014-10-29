@@ -239,10 +239,12 @@
   <string name="search_error_retry">重试</string>
   <string name="search_redirect_title">重定向自“%s”。</string>
   <string name="search_recent_header">最近搜索：</string>
+  <string name="menu_clear_all_recent_searches">清除最近的搜索</string>
   <string name="search_titles_button">标题</string>
   <string name="search_full_button">在条目内</string>
   <string name="toc_hint">向左滑动选项，或使用右上角的菜单键。</string>
   <string name="toc_know_it">明白了</string>
+  <string name="error_browser_not_found">无法打开网页（未找到浏览器应用程序）。</string>
   <string name="app_store_description">这是维基百科的官方安卓应用程序。维基百科支持280种语言，拥有超过3200万条目，并且是最全面最广泛使用以及最多用户编辑的百科全书。此程序从零开始重写并比以往更好。
 
 功能：

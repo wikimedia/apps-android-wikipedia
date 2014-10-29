@@ -11,7 +11,7 @@
   <string name="search_hint">Cari dalam Wikipedia</string>
   <string name="history_activity_title">Sejarah</string>
   <string name="nav_item_history">Sejarah</string>
-  <string name="error_network_error" fuzzy="true">Rangkaian tidak dapat dicapai :(</string>
+  <string name="error_network_error">Tiada sambungan rangkaian :(</string>
   <string name="search_network_error">Ralat rangkaian. Ketik untuk cuba lagi.</string>
   <string name="page_error_retry">Cuba lagi</string>
   <string name="menu_clear_all_history">Padamkan sejarah</string>
@@ -238,8 +238,13 @@
   <string name="search_results_title">Hasil carian</string>
   <string name="search_error_retry">Cuba lagi</string>
   <string name="search_redirect_title">Lencongan dari \"%s\".</string>
+  <string name="search_recent_header">Carian terkini:</string>
+  <string name="menu_clear_all_recent_searches">Padamkan carian terkini</string>
+  <string name="search_titles_button">Tajuk</string>
+  <string name="search_full_button">Dalam rencana</string>
   <string name="toc_hint">Leret ke kiri untuk bahagian, atau gunakan butang menu di kanan atas.</string>
   <string name="toc_know_it">Saya faham</string>
+  <string name="error_browser_not_found">Tidak dapat membuka laman web (tiada aplikasi pelayar ditemui).</string>
   <string name="app_store_description">Aplikasi rasmi Wikipedia untuk Android. Wikipedia merupakan ensiklopedia bebas yang mengandungi lebih daripada 32 juta rencana dalam 280 bahasa, bahkan merupakan bahan rujukan paling menyeluruh dan meluas digunakan yang pernah dihimpunkan oleh manusia. Aplikasi ini telah ditulis ganti dari pangkal dan oleh itu lebih baik daripada dahulu.
 
 Ciri-ciri:

@@ -128,7 +128,7 @@
   <string name="create_account_noname_error">您提供的使用者名稱無效，請提供另一個。</string>
   <string name="create_account_invalid_email_error">您提供的電郵位址無效。</string>
   <string name="create_account_password_too_short_error">您提供的密碼太短。</string>
-  <string name="create_account_blocked_anon_error">您不能建立帳戶，因为您的帳戶已封禁。</string>
+  <string name="create_account_blocked_anon_error">您不能建立賬號，因为您的 IP 已封禁。</string>
   <string name="create_account_blocked_error">您不能建立帳戶，因为您的帳戶已封禁。</string>
   <string name="create_account_password_name_match_error">您的使用者名稱與密碼必須不同。</string>
   <string name="create_account_generic_error">無法建立帳戶</string>

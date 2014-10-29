@@ -193,7 +193,7 @@
   <string name="menu_page_saved">Stránka uložena</string>
   <string name="menu_refresh_saved_page">Obnovit stránku</string>
   <string name="abusefilter_title_warn">Může se jednat o nekonstruktivní editaci. Jste si jisti, že ji chcete uložit?</string>
-  <string name="abusefilter_title_disallow">Nemůžete uložit tuto editace. Prosím, vraťte se zpět a změnte jí.</string>
+  <string name="abusefilter_title_disallow">Tuto editaci nemůžete uložit. Prosím, vraťte se zpět a změnte ji.</string>
   <string name="menu_themechooser">Změnit písmo a vzhled</string>
   <string name="text_size_select">Velikost písma</string>
   <string name="color_theme_select">Vzhled</string>

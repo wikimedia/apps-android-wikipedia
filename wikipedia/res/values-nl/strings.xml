@@ -16,7 +16,7 @@
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
   <string name="menu_clear_all_bookmarks">Bladwijzers wissen</string>
-  <string name="menu_clear_all_saved_pages">Alle opgeslagen pagina\'s verwijderen</string>
+  <string name="menu_clear_all_saved_pages">Opgeslagen pagina\'s verwijderen</string>
   <string name="page_does_not_exist_error">Deze pagina bestaat niet.</string>
   <string name="nav_item_today">Vandaag</string>
   <string name="dialog_title_clear_history">Browsegeschiedenis wissen?</string>
@@ -29,10 +29,10 @@
   <string name="menu_save_page">Pagina opslaan</string>
   <string name="menu_share_page">Delen</string>
   <string name="share_via">Delen via</string>
-  <string name="dialog_title_clear_saved_pages">Alle opgeslagen pagina\'s verwijderen?</string>
+  <string name="dialog_title_clear_saved_pages">Alle opgeslagen pagina\'s wissen?</string>
   <string name="dialog_message_clear_saved_pages">Weet u zeker dat u alle opgeslagen pagina\'s wilt wissen?</string>
   <string name="toast_saving_page">Pagina aan het opslaan...</string>
-  <string name="toast_saved_page">Pagina succesvol opgeslagen</string>
+  <string name="toast_saved_page">Pagina opgeslagen</string>
   <string name="toast_saved_page_missing_images">Kon niet alle afbeeldingen opslaan</string>
   <string name="toast_save_page_failed">Het opslaan van de pagina is mislukt :(</string>
   <string name="toast_refresh_saved_page">Opgeslagen pagina vernieuwen...</string>
@@ -43,23 +43,23 @@
   <string name="nearby_activity_title">In de buurt</string>
   <string name="nav_item_nearby">In de buurt</string>
   <string name="menu_update_nearby">In de buurt bijwerken</string>
-  <string name="nearby_empty_title">Geen pagina\'s in de buurt!</string>
+  <string name="nearby_empty_title">Geen pagina\'s in de buurt.</string>
   <string name="nearby_empty_message">Wanneer u naar een nieuwe locatie verplaatst, probeer dan deze pagina te vernieuwen voor meer informatie over wat er om uw heen is.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d voet</string>
   <string name="nearby_distance_in_miles">%.2f mijl</string>
   <string name="nearby_no_network">Geen netwerkverbinding</string>
-  <string name="nearby_server_error">Er kan geen lijst verkregen worden van plaatsen in de buurt.</string>
-  <string name="nearby_no_location">Kan locatie niet verkrijgen</string>
-  <string name="nearby_dialog_goto_settings">Locatieupdates zijn niet ingeschakeld op uw apparaat. Zou u in uw apparaatinstellingen locatieupdates kunnen inschakelen?</string>
-  <string name="nearby_set_metric">Toon meter/km</string>
+  <string name="nearby_server_error">Er kan geen lijst opgehaald worden van plaatsen in de buurt.</string>
+  <string name="nearby_no_location">Kan locatie niet vaststellen</string>
+  <string name="nearby_dialog_goto_settings">Locatieupdates zijn niet ingeschakeld op uw apparaat. Wilt u in uw apparaatinstellingen locatieupdates inschakelen?</string>
+  <string name="nearby_set_metric">Meter/km weergeven</string>
   <string name="nearby_set_imperial">Voeten/mijlen weergeven</string>
   <string name="last_updated_text">%1$s voor het laatst bijgewerkt</string>
   <string name="content_license_html">Inhoud is beschikbaar onder de licentie &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
-  <string name="edit_save_action_license_logged_in">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdrage onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie.</string>
-  <string name="edit_save_action_license_anon">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdrage onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, heeft u meer privacy.</string>
-  <string name="preference_title_language">Wikipedia-taal</string>
+  <string name="edit_save_action_license_logged_in">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie.</string>
+  <string name="edit_save_action_license_anon">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, heeft u meer privacy.</string>
+  <string name="preference_title_language">Wikipediataal</string>
   <string name="preference_summary_language">Taal inhoud</string>
   <string name="preference_languages_filter_hint">Zoeken</string>
   <string name="langlinks_filter_hint">Zoeken</string>
@@ -83,7 +83,7 @@
   <string name="title_captcha">Voer CAPTCHA in</string>
   <string name="edit_section_abusefilter_back_text">Mijn bewerking wijzigen</string>
   <string name="edit_section_captcha_reload">Klik om opnieuw te laden</string>
-  <string name="edit_saved_page_refresh">Deze opgeslagen is mogelijk verouderd, en moet vernieuwd worden voordat bewerken mogelijk is. Wilt u de pagina vernieuwen?</string>
+  <string name="edit_saved_page_refresh">Deze opgeslagen pagina is mogelijk verouderd, en moet vernieuwd worden voordat bewerken mogelijk is. Wilt u de pagina vernieuwen?</string>
   <string name="nav_item_login">Aanmelden</string>
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wachtwoord</string>
@@ -100,12 +100,12 @@
   <string name="login_error_no_network">Geen netwerkverbinding</string>
   <string name="nav_item_logout">Afmelden</string>
   <string name="preference_title_logout">Afmelden</string>
-  <string name="preference_summary_logout">Afmelden uit uw Wikipedia-account</string>
+  <string name="preference_summary_logout">Afmelden bij Wikipedia</string>
   <string name="preference_summary_notloggedin">Niet aangemeld.</string>
   <string name="toast_logout_complete">Afgemeld</string>
-  <string name="saved_pages_empty_title">Nog geen opgeslagen pagina\'s!</string>
-  <string name="saved_pages_empty_message">Opgeslagen pagina\'s zijn best wel vet. Denk aan bladwijzers die u zelfs kunt lezen wanneer u offline bent.</string>
-  <string name="history_empty_title">Geen recente pagina\'s.</string>
+  <string name="saved_pages_empty_title">Nog geen opgeslagen pagina\'s</string>
+  <string name="saved_pages_empty_message">Opgeslagen pagina\'s zijn allemachtig prachtig. Denk aan bladwijzers die u zelfs kunt lezen wanneer u offline bent.</string>
+  <string name="history_empty_title">Geen recente pagina\'s</string>
   <string name="history_empty_message">U heeft ze vast allemaal verwijderd. De volgende keer als je een pagina bezoekt, kunt u hem hier terugvinden.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">De vrije encyclopedie</string>
@@ -114,7 +114,7 @@
   <string name="create_account_password_hint">Wachtwoord</string>
   <string name="menu_create_account">Registreren</string>
   <string name="login_create_account_link">Nog niet geregistreerd? Word lid van Wikipedia</string>
-  <string name="create_account_login_link">Hebt u al een account? Meld u aan</string>
+  <string name="create_account_login_link">Hebt u al een gebruiker? Meld u aan</string>
   <string name="create_account_activity_title">Gebruiker aanmaken</string>
   <string name="edit_section_activity_title">Paragraaf bewerken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
@@ -128,8 +128,8 @@
   <string name="create_account_noname_error">De opgegeven gebruikersnaam is ongeldig. Geef een andere gebruikersnaam op.</string>
   <string name="create_account_invalid_email_error">Het opgegeven e-mailadres is ongeldig.</string>
   <string name="create_account_password_too_short_error">Het opgegeven wachtwoord is te kort.</string>
-  <string name="create_account_blocked_anon_error">U kan geen account maken omdat uw IP is geblokkeerd.</string>
-  <string name="create_account_blocked_error">U kan geen account maken omdat uw account is geblokkeerd.</string>
+  <string name="create_account_blocked_anon_error">U kunt geen gebruiker maken omdat uw IP-adres is geblokkeerd.</string>
+  <string name="create_account_blocked_error">U kunt geen gebruiker maken omdat uw gebruiker is geblokkeerd.</string>
   <string name="create_account_password_name_match_error">De gebruikersnaam en wachtwoord mogen niet met elkaar overeenkomen.</string>
   <string name="create_account_generic_error">Het was niet mogelijk een gebruiker aan te maken</string>
   <string name="create_account_no_network">Geen netwerkverbinding</string>
@@ -137,7 +137,7 @@
   <string name="create_account_button">Registreren</string>
   <string name="preferences_general_heading">Algemeen</string>
   <string name="zero_charged_verbiage">Wikipedia Zero is uitgeschakeld</string>
-  <string name="zero_charged_verbiage_extended">Het laden van andere artikelen kan datakosten met zich meebrengen.</string>
+  <string name="zero_charged_verbiage_extended">Het laden van andere pagina\'s kan datakosten met zich meebrengen.</string>
   <string name="zero_search_hint">In Wikipedia Zero zoeken</string>
   <string name="zero_warn_when_leaving">Waarschuwen bij het verlaten van Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Als uw mobiele provider geen kosten in rekening brengt voor het gegevensgebruik via de Wikipedia-app vanwege een Wikipedia Zero-partnerschap, dan zorgt het inschakelen van deze instelling ervoor dat u wordt gewaarschuwd als u Wikipedia verlaat en mogelijk kosten voor data moet betalen.</string>
@@ -146,7 +146,7 @@
   <string name="zero_interstitial_title">U verlaat Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Er kunnen kosten gerekend worden voor mobiele data. Doorgaan naar de externe website?</string>
   <string name="zero_interstitial_continue">Afsluiten</string>
-  <string name="zero_interstitial_cancel">Blijf</string>
+  <string name="zero_interstitial_cancel">Hier blijven</string>
   <string name="zero_learn_more">Er worden geen kosten in rekening gebracht voor het gegevensgebruik via deze Wikipedia-app.</string>
   <string name="zero_learn_more_learn_more">Meer lezen</string>
   <string name="zero_learn_more_dismiss">Sluiten</string>
@@ -171,12 +171,12 @@
   <string name="edit_save_action_login_description">Uw bewerkingen wordt openbaar toegeschreven aan uw gebruikersnaam en andere bewerkers kunnen dan eenvoudiger met u in contact treden</string>
   <string name="edit_save_action_ip_description">Uw bewerkingen worden openbaar toegeschreven aan uw IP-adres, dat mogelijk vaak wijzigt</string>
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
-  <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe ik de app gebruik om de app te verbeteren</string>
+  <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe u de app gebruikt om de app te kunnen verbeteren</string>
   <string name="editing_error_spamblacklist">Er zijn koppelingen naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
   <string name="history_search_list_hint">Zoeken</string>
   <string name="history_search_empty_message">Geen pagina\'s gevonden die overeenkomen met uw zoekopdracht.</string>
   <string name="error_can_not_process_link">Kon de koppeling niet weergeven</string>
-  <string name="page_protected_autoconfirmed">Deze pagina is semi-beveiligd.</string>
+  <string name="page_protected_autoconfirmed">Deze pagina is semibeveiligd.</string>
   <string name="page_protected_sysop">Deze pagina is volledig beveiligd.</string>
   <string name="page_protected_other">Deze pagina is beveiligd tot de volgende niveau\'s: %s</string>
   <string name="page_protected_can_not_edit">U heeft niet de benodigde rechten om deze pagina te bewerken</string>
@@ -192,14 +192,14 @@
   <string name="about_libraries_heading">gebruikte bibliotheken</string>
   <string name="about_contributors_heading">bijdragers</string>
   <string name="about_translators_heading">vertalers</string>
-  <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers op &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Een product van de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
   <string name="edit_unchanged">Deze pagina is niet bewerkt.</string>
   <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
   <string name="user_blocked_from_editing_title">Geblokkeerd</string>
-  <string name="user_logged_in_blocked_from_editing">Uw gebruikersaccount is geblokkeerd van het bewerken op deze wiki.</string>
-  <string name="user_anon_blocked_from_editing">Uw IP-adres is geblokkeerd van bewerken.</string>
+  <string name="user_logged_in_blocked_from_editing">Uw gebruiker is geblokkeerd en kan deze wiki niet bewerken.</string>
+  <string name="user_anon_blocked_from_editing">Uw IP-adres is geblokkeerd en kan niet bewerken.</string>
   <string name="edit_how_page_improved">Hoe heeft u de pagina verbeterd?</string>
   <string name="edit_next">Volgende</string>
   <string name="edit_done">Opslaan</string>
@@ -208,25 +208,25 @@
   <string name="edit_summary_tag_grammar">Grammatica gecorrigeerd</string>
   <string name="edit_summary_tag_links">Koppelingen toegevoegd</string>
   <string name="edit_summary_tag_other">Overige</string>
-  <string name="edit_summary_tag_other_hint">Andere manier hoe u de pagina heeft verbeterd</string>
-  <string name="find_in_page">Zoek op pagina</string>
+  <string name="edit_summary_tag_other_hint">Andere manieren waarop hoe u de pagina hebt verbeterd</string>
+  <string name="find_in_page">Zoeken op pagina</string>
   <string name="find_next">Volgende zoeken</string>
   <string name="find_previous">Vorige zoeken</string>
   <string name="find_close">Zoekbalk sluiten</string>
-  <string name="error_network_error_try_again">Kon het netwerk niet bereiken, gelieve opnieuw te proberen.</string>
+  <string name="error_network_error_try_again">Kon het netwerk niet bereiken. Probeer het opnieuw.</string>
   <string name="saved_pages_update_all_error_retry">Opnieuw proberen</string>
-  <string name="saved_pages_update_all_error_message">Fout opgetreden bij het bijwerken van de opgeslagen pagina\'s</string>
+  <string name="saved_pages_update_all_error_message">Er is een fout opgetreden tijdens het bijwerken van de opgeslagen pagina\'s</string>
   <string name="saved_pages_progress_title">Opgeslagen pagina\'s aan het bijwerken</string>
-  <string name="saved_pages_refresh_pages_complete">Bijwerking voltooid</string>
+  <string name="saved_pages_refresh_pages_complete">Bijwerken voltooid</string>
   <string name="menu_page_saved">Pagina opgeslagen</string>
   <string name="menu_refresh_saved_page">Pagina vernieuwen</string>
-  <string name="abusefilter_title_warn">Dit kan een niet-constructieve bewerking zijn. Weet u zeker dat u wilt opslaan?</string>
+  <string name="abusefilter_title_warn">Dit kan een niet-constructieve bewerking zijn. Weet u zeker dat u die wilt opslaan?</string>
   <string name="abusefilter_title_disallow">U kunt deze bewerking niet opslaan. Ga terug en wijzig de inhoud.</string>
   <string name="abusefilter_text_warn">Een geautomatiseerde filter heeft deze bewerking als potentieel onconstructief geïdentificeerd. Het kan een of meer van de volgende bevatten:&lt;br /&gt;&lt;br /&gt;· Getypt in hoofdletters&lt;br /&gt;· Leeghalen van artikelen of spammen&lt;br /&gt;· Irrelevant externe koppelingen of afbeeldingen&lt;br /&gt;· Tekens herhalen</string>
-  <string name="abusefilter_text_disallow">Een geautomatiseerde filter heeft deze bewerking als niet constructief of potentieel vandalisme geïdentificeerd.&lt;br /&gt;&lt;br /&gt; Wikipedia is een encyclopedie en alleen neutrale, relevante inhoud hoort hier thuis.</string>
-  <string name="dialog_page_issues">Pagina-problemen</string>
-  <string name="button_page_issues">Pagina-problemen</string>
-  <string name="menu_themechooser">Wijzig lettertype en thema</string>
+  <string name="abusefilter_text_disallow">Een geautomatiseerde filter heeft deze bewerking als niet-constructief of potentieel vandalisme geïdentificeerd.&lt;br /&gt;&lt;br /&gt;Wikipedia is een encyclopedie en alleen neutrale, relevante inhoud hoort hier thuis.</string>
+  <string name="dialog_page_issues">Paginaproblemen</string>
+  <string name="button_page_issues">Paginaproblemen</string>
+  <string name="menu_themechooser">Lettertype en thema</string>
   <string name="text_size_select">Lettergrootte</string>
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Licht</string>
@@ -239,15 +239,17 @@
   <string name="search_error_retry">Opnieuw proberen</string>
   <string name="search_redirect_title">Doorverwezen vanaf \"%s\".</string>
   <string name="search_recent_header">Recente zoekopdrachten:</string>
-  <string name="search_titles_button">Titels</string>
-  <string name="search_full_button">In de artikelen:</string>
+  <string name="menu_clear_all_recent_searches">Recente zoekopdrachten wissen</string>
+  <string name="search_titles_button">Paginanamen</string>
+  <string name="search_full_button">In paginatekst</string>
   <string name="toc_hint">Veeg naar links voor secties, of gebruik de knop in de rechterbovenhoek.</string>
   <string name="toc_know_it">Begrepen</string>
+  <string name="error_browser_not_found">De webpagina kon niet geopend worden. Er is geen browser beschikbaar.</string>
   <string name="app_store_description">Officiële Wikipedia-app voor Android. Wikipedia is de vrije encylopedie met meer dan 31 miljoen artikelen in 280 talen, en de meest uitgebreide en meest gebruikte bron gemaakt door de mens. De app is vanaf de grond opnieuw opgebouwd en is beter dan ooit te voren.
 
 Functies:
    - Snelheid: onze nieuwe native app zorgt voor een snellere app dan ooit te voren, waarmee u nog sneller kunt verkennen en bewerken.
-   - Bewerken: U kan Wikipedia bewerken! Met of zonder account, we zijn blij met al uw bijdragen!
+   - Bewerken: U kan Wikipedia bewerken! Met of zonder gebruiker, we zijn blij met al uw bijdragen!
    - Recente pagina\'s: we bieden een overzicht van recent gelezen pagina\'s aan, waardoor u zoveel mogelijk kunt doorklikken zonder de weg kwijt te raken.
    - Delen: gebruik uw bestaande apps voor sociale media om de menselijke kennis te delen.
    - Meertalig: de app biedt makkelijke toegang tot Wikipedia in elke taal.
