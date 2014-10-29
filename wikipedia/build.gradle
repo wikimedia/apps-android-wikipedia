@@ -43,6 +43,12 @@ android {
         amazon {
             versionName "${versionStart}-amazon-${date}"
         }
+        custom {
+            versionName "${versionStart}-${customChannel}-${date}"
+            applicationId getProperty('customApplicationId')
+            // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
+            manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
+        }
     }
     sourceSets {
         // Still using old Maven archetype based directory structure and
