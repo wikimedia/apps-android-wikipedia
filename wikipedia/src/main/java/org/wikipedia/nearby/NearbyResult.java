@@ -25,7 +25,11 @@ class NearbyResult implements Parcelable {
     NearbyResult(JSONObject jsonObject) throws JSONException {
         this.jsonObject = jsonObject;
         list = new ArrayList<NearbyPage>();
-        final JSONObject pagesMap = jsonObject.optJSONObject("query").optJSONObject("pages");
+        JSONObject query = jsonObject.optJSONObject("query");
+        if (query == null) {
+            throw new JSONException("Received malformed response with no error.");
+        }
+        JSONObject pagesMap = query.optJSONObject("pages");
         Iterator iterator = pagesMap.keys();
 
         while (iterator.hasNext()) {

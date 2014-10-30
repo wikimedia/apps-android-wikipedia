@@ -2,6 +2,8 @@ package org.wikipedia.nearby;
 
 import android.content.Context;
 import android.location.Location;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
@@ -113,6 +115,8 @@ public class NearbyFetchTask extends ApiTask<NearbyResult> {
             } else {
                 throw e;
             }
+        } catch (JSONException e) {
+            throw new NearbyFetchException(e.toString(), e.getMessage());
         }
     }
 }
