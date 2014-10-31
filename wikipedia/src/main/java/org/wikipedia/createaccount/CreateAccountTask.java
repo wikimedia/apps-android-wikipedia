@@ -3,6 +3,7 @@ package org.wikipedia.createaccount;
 import android.content.Context;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
@@ -39,7 +40,7 @@ public abstract class CreateAccountTask extends ApiTask<CreateAccountResult> {
     }
 
     @Override
-    protected ApiResult makeRequest(RequestBuilder builder) {
+    protected ApiResult makeRequest(RequestBuilder builder) throws ApiException {
         return builder.post();
     }
 

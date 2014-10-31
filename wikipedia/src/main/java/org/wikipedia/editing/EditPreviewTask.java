@@ -2,6 +2,7 @@ package org.wikipedia.editing;
 
 import android.content.Context;
 import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
@@ -34,7 +35,7 @@ public class EditPreviewTask extends ApiTask<String> {
     }
 
     @Override
-    protected ApiResult makeRequest(RequestBuilder builder) {
+    protected ApiResult makeRequest(RequestBuilder builder) throws ApiException {
         return builder.post();
     }
 
