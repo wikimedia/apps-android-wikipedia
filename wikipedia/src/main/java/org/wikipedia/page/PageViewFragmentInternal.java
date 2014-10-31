@@ -223,13 +223,11 @@ public class PageViewFragmentInternal {
             ViewAnimations.fadeIn(webView);
         }
 
-        getActivity().setSupportProgressBarIndeterminate(true);
-        getActivity().setSupportProgressBarVisibility(true);
+        getActivity().updateProgressBar(true, true, 0);
     }
 
     private void displayNonLeadSection(int index) {
-        getActivity().setSupportProgressBarIndeterminate(false);
-        getActivity().setSupportProgress(MAX_PROGRESS_VALUE / page.getSections().size() * index);
+        getActivity().updateProgressBar(true, false, MAX_PROGRESS_VALUE / page.getSections().size() * index);
 
         try {
             JSONObject wrapper = new JSONObject();
@@ -428,7 +426,7 @@ public class PageViewFragmentInternal {
                     return;
                 }
                 // Do any other stuff that should happen upon page load completion...
-                getActivity().setSupportProgressBarVisibility(false);
+                getActivity().updateProgressBar(false, true, 0);
             }
         });
     }
@@ -452,9 +450,7 @@ public class PageViewFragmentInternal {
     private void performActionForState(int forState) {
         switch (forState) {
             case STATE_NO_FETCH:
-                getActivity().setSupportProgressBarIndeterminate(true);
-                getActivity().setSupportProgressBarVisibility(true);
-
+                getActivity().updateProgressBar(true, true, 0);
                 bridge.sendMessage("clearContents", new JSONObject());
                 if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
                     loadSavedPage();
@@ -757,7 +753,7 @@ public class PageViewFragmentInternal {
         }
         // in any case, make sure the TOC drawer is closed and disabled
         tocDrawer.setSlidingEnabled(false);
-        getActivity().setSupportProgressBarVisibility(false);
+        getActivity().updateProgressBar(false, true, 0);
 
         if (caught instanceof SectionsFetchException) {
             if (((SectionsFetchException) caught).getCode().equals("missingtitle")

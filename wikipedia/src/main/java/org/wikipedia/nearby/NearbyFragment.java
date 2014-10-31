@@ -72,7 +72,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
 
     private ViewGroup nearbyContainer;
     private ListView nearbyList;
-    private View nearbyLoadingContainer;
     private View nearbyEmptyContainer;
     private NearbyAdapter adapter;
 
@@ -124,7 +123,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
 
         nearbyContainer = (ViewGroup) rootView.findViewById(R.id.nearby_container);
         nearbyList = (ListView) rootView.findViewById(R.id.nearby_list);
-        nearbyLoadingContainer = rootView.findViewById(R.id.nearby_loading_container);
         nearbyEmptyContainer = rootView.findViewById(R.id.nearby_empty_container);
 
         nearbyEmptyContainer.setVisibility(View.GONE);
@@ -135,7 +133,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         nearbyList.setAdapter(adapter);
-        nearbyList.setEmptyView(nearbyLoadingContainer);
 
         nearbyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -435,9 +432,9 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     private void setRefreshingState(boolean newState) {
         refreshing = newState;
         if (refreshing) {
-            nearbyLoadingContainer.setVisibility(View.VISIBLE);
+            ((PageActivity)getActivity()).updateProgressBar(true, true, 0);
         } else {
-            nearbyLoadingContainer.setVisibility(View.GONE);
+            ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             getActivity().invalidateOptionsMenu();

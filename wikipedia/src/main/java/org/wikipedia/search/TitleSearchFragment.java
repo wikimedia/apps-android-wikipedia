@@ -264,8 +264,7 @@ public class TitleSearchFragment extends Fragment {
             TitleSearchTask searchTask = new TitleSearchTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), mySearchTerm) {
                 @Override
                 public void onBeforeExecute() {
-                    ((PageActivity)getActivity()).setSupportProgressBarIndeterminate(true);
-                    ((PageActivity)getActivity()).setSupportProgressBarVisibility(true);
+                    ((PageActivity)getActivity()).updateProgressBar(true, true, 0);
                 }
 
                 @Override
@@ -273,7 +272,7 @@ public class TitleSearchFragment extends Fragment {
                     if (!isAdded()) {
                         return;
                     }
-                    ((PageActivity)getActivity()).setSupportProgressBarVisibility(false);
+                    ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
                     searchNetworkError.setVisibility(View.GONE);
                     displayResults(result);
                     searchResultsCache.put(app.getPrimaryLanguage() + "-" + mySearchTerm, result);
@@ -296,7 +295,7 @@ public class TitleSearchFragment extends Fragment {
                     if (!isAdded()) {
                         return;
                     }
-                    ((PageActivity)getActivity()).setSupportProgressBarVisibility(false);
+                    ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
                     searchNetworkError.setVisibility(View.VISIBLE);
                     searchResultsList.setVisibility(View.GONE);
                     curSearchTask = null;

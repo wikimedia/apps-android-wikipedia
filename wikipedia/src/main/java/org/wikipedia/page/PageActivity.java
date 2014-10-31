@@ -325,6 +325,24 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     /**
+     * Update the state of the main progress bar that is shown inside the ActionBar of the activity.
+     * @param visible Whether the progress bar is visible.
+     * @param indeterminate Whether the progress bar is indeterminate.
+     * @param value Value of the progress bar (may be between 0 and 10000). Ignored if the
+     *              progress bar is indeterminate.
+     */
+    public void updateProgressBar(final boolean visible, final boolean indeterminate, final int value) {
+        fragmentContainerView.post(new Runnable() {
+            @Override
+            public void run() {
+                setSupportProgressBarIndeterminate(indeterminate);
+                setSupportProgress(value);
+                setSupportProgressBarVisibility(visible);
+            }
+        });
+    }
+
+    /**
      * Returns whether we're currently in a "searching" state (i.e. the search fragment is shown).
      * @return True if currently searching, false otherwise.
      */
@@ -367,7 +385,7 @@ public class PageActivity extends ThemedActionBarActivity {
             getSupportActionBar().show();
         }
         //also make sure the progress bar is not showing
-        setSupportProgressBarVisibility(false);
+        updateProgressBar(false, true, 0);
     }
 
     /**
@@ -383,7 +401,7 @@ public class PageActivity extends ThemedActionBarActivity {
             getSupportActionBar().show();
         }
         //also make sure the progress bar is not showing
-        setSupportProgressBarVisibility(false);
+        updateProgressBar(false, true, 0);
     }
 
     private void displayNewPage(final PageTitle title, final HistoryEntry entry) {

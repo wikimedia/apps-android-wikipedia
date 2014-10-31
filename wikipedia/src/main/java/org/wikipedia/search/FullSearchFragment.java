@@ -188,7 +188,7 @@ public class FullSearchFragment extends Fragment {
                 }
                 searchResultsContainer.setVisibility(View.VISIBLE);
 
-                ((PageActivity)getActivity()).setSupportProgressBarVisibility(false);
+                ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
                 if (lastResults.getResults().size() == 0) {
                     searchNoResults.setVisibility(View.VISIBLE);
                     searchResultsList.setVisibility(View.GONE);
@@ -215,7 +215,7 @@ public class FullSearchFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
-                ((PageActivity)getActivity()).setSupportProgressBarVisibility(false);
+                ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
 
                 if (continueOffset == 0) {
                     searchResultsContainer.setVisibility(View.GONE);
@@ -227,8 +227,7 @@ public class FullSearchFragment extends Fragment {
 
             @Override
             public void onBeforeExecute() {
-                ((PageActivity)getActivity()).setSupportProgressBarIndeterminate(true);
-                ((PageActivity)getActivity()).setSupportProgressBarVisibility(true);
+                ((PageActivity)getActivity()).updateProgressBar(true, true, 0);
                 if (continueOffset == 0) {
                     searchResultsContainer.setVisibility(View.GONE);
                     searchNoResults.setVisibility(View.GONE);
