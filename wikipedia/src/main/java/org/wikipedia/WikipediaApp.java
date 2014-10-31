@@ -469,32 +469,11 @@ public class WikipediaApp extends Application {
         return styleLoader;
     }
 
-    private String appInstallReadActionID;
-    public String getAppInstallReadActionID() {
-        appInstallReadActionID = getAppInstallIDForFeature(PrefKeys.getReadingAppInstallId());
-        Log.d("Wikipedia", "Read ID is" + appInstallReadActionID);
-        return appInstallReadActionID;
-    }
-
-    private String appInstallToCInteractionID;
-    public String getAppInstallToCInteractionID() {
-        appInstallToCInteractionID = getAppInstallIDForFeature(PrefKeys.getToCAppInstallId());
-        Log.d("Wikipedia", "ToC ID is" + appInstallToCInteractionID);
-        return appInstallToCInteractionID;
-    }
-
-    private String appInstallSavedPagesID;
-    public String getAppInstallSavedPagesID() {
-        appInstallSavedPagesID = getAppInstallIDForFeature(PrefKeys.getSavedPagesAppInstallId());
-        Log.d("Wikipedia", "Saved Pages ID is" + appInstallSavedPagesID);
-        return appInstallSavedPagesID;
-    }
-
-    private String appInstallSessionsID;
-    public String getAppInstallSessionsID() {
-        appInstallSessionsID = getAppInstallIDForFeature(PrefKeys.getSessionsAppInstallId());
-        Log.d("Wikipedia", "Sessions ID is" + appInstallSessionsID);
-        return appInstallSessionsID;
+    private String appInstallID;
+    public String getAppInstallID() {
+        appInstallID = getAppInstallIDForFeature(PrefKeys.getAppInstallId());
+        Log.d("Wikipedia", "appInstallID is" + appInstallID);
+        return appInstallID;
     }
 
     /**

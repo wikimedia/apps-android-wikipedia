@@ -7,16 +7,16 @@ import org.wikipedia.WikipediaApp;
 
 public class SavedPagesFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppSavedPages";
-    private static final int REV_ID = 8909354;
+    private static final int REV_ID = 10375480;
 
-    private final String appInstallSavedPagesID;
+    private final String appInstallID;
     private final Site site;
 
     public SavedPagesFunnel(WikipediaApp app, Site site) {
         super(app, SCHEMA_NAME, REV_ID);
 
-        //Retrieve this app installation's unique ID, used to record unique users of this feature
-        appInstallSavedPagesID = app.getAppInstallSavedPagesID();
+        //Retrieve this app installation's unique ID, used to record unique users of features
+        appInstallID = app.getAppInstallID();
 
         this.site = site;
     }
@@ -24,7 +24,7 @@ public class SavedPagesFunnel extends Funnel {
     @Override
     protected JSONObject preprocessData(JSONObject eventData) {
         try {
-            eventData.put("savedPagesAppInstallToken", appInstallSavedPagesID);
+            eventData.put("appInstallID", appInstallID);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

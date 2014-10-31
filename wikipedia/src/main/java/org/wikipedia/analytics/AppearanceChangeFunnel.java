@@ -7,16 +7,16 @@ import org.wikipedia.WikipediaApp;
 
 public class AppearanceChangeFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppAppearanceSettings";
-    private static final int REV_ID = 9378399;
+    private static final int REV_ID = 10375462;
 
-    private final String appInstallToCInteractionID;
+    private final String appInstallID;
     private final Site site;
 
     public AppearanceChangeFunnel(WikipediaApp app, Site site) {
         super(app, SCHEMA_NAME, REV_ID);
 
-        //Retrieve this app installation's unique ID, used to record unique users of this feature
-        appInstallToCInteractionID = app.getAppInstallToCInteractionID();
+        //Retrieve this app installation's unique ID, used to record unique users of features
+        appInstallID = app.getAppInstallID();
 
         this.site = site;
     }
@@ -24,7 +24,7 @@ public class AppearanceChangeFunnel extends Funnel {
     @Override
     protected JSONObject preprocessData(JSONObject eventData) {
         try {
-            eventData.put("appearanceAppInstallID", appInstallToCInteractionID);
+            eventData.put("appInstallID", appInstallID);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

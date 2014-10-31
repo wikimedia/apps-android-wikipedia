@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class SessionFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppSessions";
-    private static final int REVISION = 9742902;
+    private static final int REVISION = 10375481;
     private WikipediaApp app;
 
     /**
@@ -30,7 +30,7 @@ public class SessionFunnel extends Funnel {
     private static final String SESSION_PAGES_SAVED_PREF_NAME = "SESSION_PAGES_SAVED_PREF";
     private static final String SESSION_PAGES_BACK_PREF_NAME = "SESSION_PAGES_BACK_PREF";
 
-    private final String appInstallSessionsID;
+    private final String appInstallID;
     private Date lastEventTime;
     private int pagesFromSearch;
     private int pagesFromRandom;
@@ -57,8 +57,8 @@ public class SessionFunnel extends Funnel {
         pagesFromSaved = prefs.getInt(SESSION_PAGES_SAVED_PREF_NAME, 0);
         pagesFromBack = prefs.getInt(SESSION_PAGES_BACK_PREF_NAME, 0);
 
-        //Retrieve this app installation's unique ID, used to record unique users of this feature
-        appInstallSessionsID = app.getAppInstallSessionsID();
+        //Retrieve this app installation's unique ID, used to record unique users of features
+        appInstallID = app.getAppInstallID();
 
         touchSession();
     }
@@ -91,7 +91,7 @@ public class SessionFunnel extends Funnel {
             //if the result is 0, then we're one of the Chosen.
             final int uuidSubstrLen = 4;
             final int hexBase = 16;
-            boolean chosen = Integer.parseInt(appInstallSessionsID.substring(appInstallSessionsID.length() - uuidSubstrLen), hexBase) % sampleRate == 0;
+            boolean chosen = Integer.parseInt(appInstallID.substring(appInstallID.length() - uuidSubstrLen), hexBase) % sampleRate == 0;
 
             if (chosen) {
                 super.log(getApp().getPrimarySite(), params);
@@ -102,7 +102,7 @@ public class SessionFunnel extends Funnel {
     @Override
     protected JSONObject preprocessData(JSONObject eventData) {
         try {
-            eventData.put("appInstallID", appInstallSessionsID);
+            eventData.put("appInstallID", appInstallID);
         } catch (JSONException e) {
             // This isn't happening
             throw new RuntimeException(e);

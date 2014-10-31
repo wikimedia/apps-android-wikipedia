@@ -7,16 +7,16 @@ import org.wikipedia.WikipediaApp;
 
 public class ToCInteractionFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppToCInteraction";
-    private static final int REV_ID = 8461467;
+    private static final int REV_ID = 10375484;
 
-    private final String appInstallToCInteractionID;
+    private final String appInstallID;
     private final Site site;
 
     public ToCInteractionFunnel(WikipediaApp app, Site site) {
         super(app, SCHEMA_NAME, REV_ID);
 
-        //Retrieve this app installation's unique ID, used to record unique users of this feature
-        appInstallToCInteractionID = app.getAppInstallToCInteractionID();
+        //Retrieve this app installation's unique ID, used to record unique users of features
+        appInstallID = app.getAppInstallID();
 
         this.site = site;
     }
@@ -24,7 +24,7 @@ public class ToCInteractionFunnel extends Funnel {
     @Override
     protected JSONObject preprocessData(JSONObject eventData) {
         try {
-            eventData.put("tocInteractionToken", appInstallToCInteractionID);
+            eventData.put("appInstallID", appInstallID);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

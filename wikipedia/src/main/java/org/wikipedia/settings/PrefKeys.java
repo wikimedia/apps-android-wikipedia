@@ -14,10 +14,7 @@ public final class PrefKeys {
     private static String PREFERENCE_REMOTE_CONFIG;
     private static String PREFERENCE_EVENTLOGGING_ENABLED;
     private static String PREFERENCE_STYLES_LAST_UPDATED;
-    private static String PREFERENCE_READING_APP_INSTALL_ID;
-    private static String PREFERENCE_TOC_APP_INSTALL_ID;
-    private static String PREFERENCE_SAVED_PAGES_APP_INSTALL_ID;
-    private static String PREFERENCE_SESSIONS_APP_INSTALL_ID;
+    private static String PREFERENCE_APP_INSTALL_ID;
     private static String PREFERENCE_ONBOARD;
     private static String PREFERENCE_TEXT_SIZE_MULTIPLIER;
     private static String PREFERENCE_COLOR_THEME;
@@ -37,20 +34,14 @@ public final class PrefKeys {
         PREFERENCE_REMOTE_CONFIG = resources.getString(R.string.preference_key_remote_config);
         PREFERENCE_EVENTLOGGING_ENABLED = resources.getString(R.string.preference_key_eventlogging_opt_in);
         PREFERENCE_STYLES_LAST_UPDATED = resources.getString(R.string.preference_key_styles_last_updated);
-        PREFERENCE_READING_APP_INSTALL_ID = resources.getString(R.string.preference_reading_app_install_id);
+        // The app install ID uses readingAppInstallID for backwards compatibility with analytics
+        PREFERENCE_APP_INSTALL_ID = resources.getString(R.string.preference_reading_app_install_id);
         PREFERENCE_ONBOARD = resources.getString(R.string.preference_onboard);
         PREFERENCE_TEXT_SIZE_MULTIPLIER = resources.getString(R.string.preference_text_size_multiplier);
         PREFERENCE_COLOR_THEME = resources.getString(R.string.preference_color_theme);
         PREFERENCE_CHANNEL = resources.getString(R.string.preference_channel);
         PREFERENCE_LANGUAGE_MRU = resources.getString(R.string.preference_language_mru);
         PREFERENCE_KNOW_TOC_DRAWER = resources.getString(R.string.preference_know_toc_drawer);
-
-        // These pref keys were originally stored in different classes from the above ones, and as a
-        // result the strings assigned to them do not follow the same pattern as the rest.
-        // FIXME: Next time we invalidate these schemas, change strings below to follow the pattern
-        PREFERENCE_TOC_APP_INSTALL_ID = resources.getString(R.string.preference_toc_app_install_id);
-        PREFERENCE_SAVED_PAGES_APP_INSTALL_ID = resources.getString(R.string.preference_saved_pages_app_install_id);
-        PREFERENCE_SESSIONS_APP_INSTALL_ID = resources.getString(R.string.preference_sessions_app_install_id);
     }
 
     public static String getContentLanguageKey() {
@@ -89,20 +80,8 @@ public final class PrefKeys {
         return PREFERENCE_STYLES_LAST_UPDATED;
     }
 
-    public static String getReadingAppInstallId() {
-        return PREFERENCE_READING_APP_INSTALL_ID;
-    }
-
-    public static String getToCAppInstallId() {
-        return PREFERENCE_TOC_APP_INSTALL_ID;
-    }
-
-    public static String getSavedPagesAppInstallId() {
-        return PREFERENCE_SAVED_PAGES_APP_INSTALL_ID;
-    }
-
-    public static String getSessionsAppInstallId() {
-        return PREFERENCE_SESSIONS_APP_INSTALL_ID;
+    public static String getAppInstallId() {
+        return PREFERENCE_APP_INSTALL_ID;
     }
 
     public static String getOnboard() {
