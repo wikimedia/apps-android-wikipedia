@@ -94,7 +94,7 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q wikipedia:dependencies --configuration compile
 
-    compile('org.mediawiki.api:json:1.2-SNAPSHOT') {
+    compile('org.mediawiki.api:json:1.3-SNAPSHOT') {
         exclude group: 'org.json', module: 'json'
     }
     compile 'com.squareup.okhttp:okhttp:1.3.0'
