@@ -317,6 +317,9 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             new NearbyFetchTask(getActivity(), site, location) {
                 @Override
                 public void onFinish(NearbyResult result) {
+                    if (!isAdded()) {
+                        return;
+                    }
                     lastResult = result;
                     showNearbyPages(result);
                 }

@@ -270,6 +270,9 @@ public class TitleSearchFragment extends Fragment {
 
                 @Override
                 public void onFinish(List<PageTitle> result) {
+                    if (!isAdded()) {
+                        return;
+                    }
                     ((PageActivity)getActivity()).setSupportProgressBarVisibility(false);
                     searchNetworkError.setVisibility(View.GONE);
                     displayResults(result);
@@ -290,6 +293,9 @@ public class TitleSearchFragment extends Fragment {
 
                 @Override
                 public void onCatch(Throwable caught) {
+                    if (!isAdded()) {
+                        return;
+                    }
                     ((PageActivity)getActivity()).setSupportProgressBarVisibility(false);
                     searchNetworkError.setVisibility(View.VISIBLE);
                     searchResultsList.setVisibility(View.GONE);
