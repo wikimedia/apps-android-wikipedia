@@ -15,14 +15,8 @@ import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.editing.EditHandler;
 import org.wikipedia.editing.EditSectionActivity;
-import org.wikipedia.events.FindInPageEvent;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikipedia.events.SavePageEvent;
-import org.wikipedia.events.SharePageEvent;
-import org.wikipedia.events.ShowOtherLanguagesEvent;
-import org.wikipedia.events.ShowThemeChooserEvent;
-import org.wikipedia.events.ShowToCEvent;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.ImageUrlMap;
@@ -35,7 +29,6 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import com.squareup.otto.Bus;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.content.Intent;
@@ -129,7 +122,6 @@ public class PageViewFragmentInternal {
     private ActionMode findInPageActionMode;
 
     private WikipediaApp app;
-    private Bus bus;
 
     private int scrollY;
     public int getScrollY() {
@@ -279,7 +271,6 @@ public class PageViewFragmentInternal {
         sectionTargetFromTitle = title.getFragment();
 
         app = (WikipediaApp)getActivity().getApplicationContext();
-        bus = app.getBus();
 
         // disable TOC drawer until the page is loaded
         tocDrawer.setSlidingEnabled(false);
@@ -326,7 +317,7 @@ public class PageViewFragmentInternal {
                     referenceDialog.dismiss();
                 }
                 HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-                app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
+                getActivity().displayNewPage(title, historyEntry);
             }
 
             @Override
@@ -550,22 +541,39 @@ public class PageViewFragmentInternal {
                 return true;
             case R.id.menu_toc:
                 Utils.hideSoftKeyboard(getActivity());
-                ((WikipediaApp)getActivity().getApplication()).getBus().post(new ShowToCEvent(ShowToCEvent.ACTION_TOGGLE));
+                toggleToC(TOC_ACTION_TOGGLE);
                 return true;
             case R.id.menu_save_page:
-                bus.post(new SavePageEvent());
+                // This means the user explicitly chose to save a new saved page
+                app.getFunnelManager().getSavedPagesFunnel(title.getSite()).logSaveNew();
+                if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+                    // refreshing a saved page...
+                    refreshPage(true);
+                } else {
+                    savePage();
+                }
                 return true;
             case R.id.menu_share_page:
-                bus.post(new SharePageEvent());
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, title.getCanonicalUri());
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, title.getDisplayText());
+                shareIntent.setType("text/plain");
+                Intent chooser = Intent.createChooser(shareIntent, getResources().getString(R.string.share_via));
+                parentFragment.startActivity(chooser);
                 return true;
             case R.id.menu_other_languages:
-                bus.post(new ShowOtherLanguagesEvent());
+                Intent langIntent = new Intent();
+                langIntent.setClass(getActivity(), LangLinksActivity.class);
+                langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
+                langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, title);
+                getActivity().startActivityForResult(langIntent, PageActivity.ACTIVITY_REQUEST_LANGLINKS);
                 return true;
             case R.id.menu_find_in_page:
-                bus.post(new FindInPageEvent());
+                showFindInPage();
                 return true;
             case R.id.menu_themechooser:
-                bus.post(new ShowThemeChooserEvent());
+                getActivity().showThemeChooser();
                 return true;
             default:
                 return false;
@@ -895,6 +903,10 @@ public class PageViewFragmentInternal {
         performActionForState(state);
     }
 
+    public static final int TOC_ACTION_SHOW = 0;
+    public static final int TOC_ACTION_HIDE = 1;
+    public static final int TOC_ACTION_TOGGLE = 2;
+
     private ToCHandler tocHandler;
     public void toggleToC(int action) {
         // tocHandler could still be null while the page is loading
@@ -902,13 +914,13 @@ public class PageViewFragmentInternal {
             return;
         }
         switch (action) {
-            case ShowToCEvent.ACTION_SHOW:
+            case TOC_ACTION_SHOW:
                 tocHandler.show();
                 break;
-            case ShowToCEvent.ACTION_HIDE:
+            case TOC_ACTION_HIDE:
                 tocHandler.hide();
                 break;
-            case ShowToCEvent.ACTION_TOGGLE:
+            case TOC_ACTION_TOGGLE:
                 if (tocHandler.isVisible()) {
                     tocHandler.hide();
                 } else {

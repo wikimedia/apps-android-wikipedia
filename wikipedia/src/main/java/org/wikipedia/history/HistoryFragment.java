@@ -27,7 +27,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
 
@@ -107,7 +106,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                 if (actionMode == null) {
                     HistoryEntry oldEntry = (HistoryEntry) view.getTag();
                     HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
-                    app.getBus().post(new NewWikiPageNavigationEvent(oldEntry.getTitle(), newEntry));
+                    ((PageActivity)getActivity()).displayNewPage(oldEntry.getTitle(), newEntry);
                 }
             }
         });

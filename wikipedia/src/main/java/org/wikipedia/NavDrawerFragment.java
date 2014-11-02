@@ -15,7 +15,6 @@ import android.widget.Toast;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
-import org.wikipedia.events.RequestMainPageEvent;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.page.PageActivity;
@@ -78,7 +77,14 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
 
         randomHandler = new RandomHandler(getView().findViewById(R.id.nav_item_random),
                 getView().findViewById(R.id.nav_item_random_icon),
-                getView().findViewById(R.id.nav_item_random_progressbar));
+                getView().findViewById(R.id.nav_item_random_progressbar),
+                new RandomHandler.RandomListener() {
+                    @Override
+                    public void onRandomPageReceived(PageTitle title) {
+                        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
+                        ((PageActivity)getActivity()).displayNewPage(title, historyEntry);
+                    }
+                });
     }
 
     private View usernameContainer;
@@ -160,7 +166,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
         Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.nav_item_today:
-                app.getBus().post(new RequestMainPageEvent());
+                ((PageActivity)getActivity()).displayMainPage();
                 break;
             case R.id.nav_item_history:
                 ((PageActivity)getActivity()).pushFragment(new HistoryFragment());
@@ -201,7 +207,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 uiThread.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        WikipediaApp.getInstance().getBus().post(new RequestMainPageEvent());
+                        ((PageActivity)getActivity()).displayMainPage();
                         Log.d("Wikipedia", "Show da main page yo");
                     }
                 }, DateUtils.SECOND_IN_MILLIS);

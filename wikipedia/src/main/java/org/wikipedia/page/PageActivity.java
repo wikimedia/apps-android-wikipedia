@@ -8,14 +8,6 @@ import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.ChangeTextSizeEvent;
-import org.wikipedia.events.FindInPageEvent;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikipedia.events.RequestMainPageEvent;
-import org.wikipedia.events.SavePageEvent;
-import org.wikipedia.events.SharePageEvent;
-import org.wikipedia.events.ShowOtherLanguagesEvent;
-import org.wikipedia.events.ShowThemeChooserEvent;
-import org.wikipedia.events.ShowToCEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroInterstitialEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
@@ -143,7 +135,7 @@ public class PageActivity extends ThemedActionBarActivity {
             pausedMessageOfZero = getIntent().getExtras().getParcelable("pausedMessageOfZero");
             if (getIntent().getExtras().containsKey("themeChooserShowing")) {
                 if (getIntent().getExtras().getBoolean("themeChooserShowing")) {
-                    bus.post(new ShowThemeChooserEvent());
+                    showThemeChooser();
                 }
             }
         }
@@ -173,7 +165,7 @@ public class PageActivity extends ThemedActionBarActivity {
                 //multiple various exceptions may be thrown in the above few lines, so just catch all.
                 Log.e("PageActivity", "Error while instantiating fragment.", e);
                 //don't let the user see a blank screen, so just request the main page...
-                bus.post(new RequestMainPageEvent());
+                displayMainPage();
             }
         } else if (savedInstanceState == null) {
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
@@ -217,7 +209,9 @@ public class PageActivity extends ThemedActionBarActivity {
                     // Hide the keyboard when the drawer is opened
                     Utils.hideSoftKeyboard(PageActivity.this);
                     //also make sure ToC is hidden
-                    app.getBus().post(new ShowToCEvent(ShowToCEvent.ACTION_HIDE));
+                    if (getCurPageFragment() != null) {
+                        getCurPageFragment().toggleToC(PageViewFragmentInternal.TOC_ACTION_HIDE);
+                    }
                     //and make sure to update dynamic items and highlights
                     fragmentNavdrawer.setupDynamicItems();
                     oncePerSlideLock = true;
@@ -307,20 +301,20 @@ public class PageActivity extends ThemedActionBarActivity {
             Site site = new Site(intent.getData().getAuthority());
             PageTitle title = site.titleForUri(intent.getData());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
-            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+            displayNewPage(title, historyEntry);
         } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
-            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+            displayNewPage(title, historyEntry);
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getPrimarySite());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+            displayNewPage(title, historyEntry);
         } else {
             // Unrecognized, let us load the main page!
             // FIXME: Design something better for this?
-            bus.post(new RequestMainPageEvent());
+            displayMainPage();
         }
     }
 
@@ -404,7 +398,7 @@ public class PageActivity extends ThemedActionBarActivity {
         updateProgressBar(false, true, 0);
     }
 
-    private void displayNewPage(final PageTitle title, final HistoryEntry entry) {
+    public void displayNewPage(final PageTitle title, final HistoryEntry entry) {
         if (drawerLayout.isDrawerOpen(Gravity.START)) {
             drawerLayout.closeDrawer(Gravity.START);
         }
@@ -426,79 +420,13 @@ public class PageActivity extends ThemedActionBarActivity {
         app.getSessionFunnel().pageViewed(entry);
     }
 
-    @Subscribe
-    public void onRequestMainPageEvent(RequestMainPageEvent event) {
+    public void displayMainPage() {
         PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getPrimaryLanguage()), app.getPrimarySite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         displayNewPage(title, historyEntry);
-        Log.d("Wikipedia", "Doing for " + title);
     }
 
-    @Subscribe
-    public void onNewWikiPageNavigationEvent(NewWikiPageNavigationEvent event) {
-        displayNewPage(event.getTitle(), event.getHistoryEntry());
-    }
-
-    @Subscribe
-    public void onPageSaveEvent(SavePageEvent event) {
-        if (getCurPageFragment() == null) {
-            return;
-        }
-        // This means the user explicitly chose to save a new saved pages
-        app.getFunnelManager().getSavedPagesFunnel(getCurPageFragment().getTitle().getSite()).logSaveNew();
-
-        if (getCurPageFragment().getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
-            // refreshing a saved page...
-            getCurPageFragment().refreshPage(true);
-        } else {
-            getCurPageFragment().savePage();
-        }
-    }
-
-    @Subscribe
-    public void onSharePageEvent(SharePageEvent event) {
-        if (getCurPageFragment() == null) {
-            return;
-        }
-        Intent shareIntent = new Intent();
-        shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_TEXT, getCurPageFragment().getTitle().getCanonicalUri());
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, getCurPageFragment().getTitle().getDisplayText());
-        shareIntent.setType("text/plain");
-        Intent chooser = Intent.createChooser(shareIntent, getResources().getString(R.string.share_via));
-        startActivity(chooser);
-    }
-
-    @Subscribe
-    public void onOtherLanguagesEvent(ShowOtherLanguagesEvent event) {
-        if (getCurPageFragment() == null) {
-            return;
-        }
-        Intent shareIntent = new Intent();
-        shareIntent.setClass(this, LangLinksActivity.class);
-        shareIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
-        shareIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, getCurPageFragment().getTitle());
-        startActivityForResult(shareIntent, ACTIVITY_REQUEST_LANGLINKS);
-    }
-
-    @Subscribe
-    public void onShowToCEvent(ShowToCEvent event) {
-        if (getCurPageFragment() == null) {
-            return;
-        }
-        getCurPageFragment().toggleToC(event.getAction());
-    }
-
-    @Subscribe
-    public void onFindInPage(FindInPageEvent event) {
-        if (getCurPageFragment() == null) {
-            return;
-        }
-        getCurPageFragment().showFindInPage();
-    }
-
-    @Subscribe
-    public void onShowThemeChooser(ShowThemeChooserEvent event) {
+    public void showThemeChooser() {
         if (themeChooser == null) {
             themeChooser = new ThemeChooserDialog(this);
         }

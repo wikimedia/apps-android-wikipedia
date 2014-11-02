@@ -5,7 +5,6 @@ import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
@@ -473,7 +472,7 @@ public class SearchArticlesFragment extends Fragment {
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
         Utils.hideSoftKeyboard(getActivity());
         closeSearch();
-        app.getBus().post(new NewWikiPageNavigationEvent(title, historyEntry));
+        ((PageActivity)getActivity()).displayNewPage(title, historyEntry);
     }
 
     private void addRecentSearch(String title) {

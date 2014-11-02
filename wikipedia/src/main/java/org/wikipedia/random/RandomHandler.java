@@ -5,12 +5,9 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-import com.squareup.otto.Bus;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
-import org.wikipedia.history.HistoryEntry;
 
 public class RandomHandler {
     private WikipediaApp app;
@@ -21,11 +18,17 @@ public class RandomHandler {
     private View randomIcon;
     private View randomProgressBar;
     private boolean isClosed;
+    private RandomListener randomListener;
 
-    public RandomHandler(View menuItem, View icon, View progressBar) {
+    public interface RandomListener {
+        void onRandomPageReceived(PageTitle title);
+    }
+
+    public RandomHandler(View menuItem, View icon, View progressBar, RandomListener listener) {
         randomMenuItem = menuItem;
         randomIcon = icon;
         randomProgressBar = progressBar;
+        randomListener = listener;
         this.app = WikipediaApp.getInstance();
         isClosed = false;
 
@@ -44,7 +47,6 @@ public class RandomHandler {
     }
 
     public void doVisitRandomArticle() {
-        final Bus bus = app.getBus();
         Handler randomHandler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(Message msg) {
@@ -63,8 +65,7 @@ public class RandomHandler {
                         setState(false);
                         Log.d("Wikipedia", "Random article title pulled: " + title);
                         if (title != null) {
-                            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
-                            bus.post(new NewWikiPageNavigationEvent(title, historyEntry));
+                            randomListener.onRandomPageReceived(title);
                         } else {
                             // Rather than close the menubar and lose the current page...
                             Toast.makeText(app, app.getString(R.string.error_network_error), Toast.LENGTH_LONG).show();

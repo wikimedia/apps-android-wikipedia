@@ -21,7 +21,6 @@ import android.widget.*;
 import com.squareup.picasso.Picasso;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
@@ -172,7 +171,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                 if (actionMode == null) {
                     SavedPage savedPage = (SavedPage) view.getTag();
                     HistoryEntry newEntry = new HistoryEntry(savedPage.getTitle(), HistoryEntry.SOURCE_SAVED_PAGE);
-                    app.getBus().post(new NewWikiPageNavigationEvent(savedPage.getTitle(), newEntry));
+                    ((PageActivity)getActivity()).displayNewPage(savedPage.getTitle(), newEntry);
                 }
             }
         });

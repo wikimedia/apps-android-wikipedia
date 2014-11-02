@@ -5,7 +5,6 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.NewWikiPageNavigationEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.mediawiki.api.json.ApiException;
 import org.wikipedia.page.PageActivity;
@@ -140,7 +139,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 NearbyPage nearbyPage = adapter.getItem(position);
                 PageTitle title = new PageTitle(nearbyPage.getTitle(), site, nearbyPage.getThumblUrl());
                 HistoryEntry newEntry = new HistoryEntry(title, HistoryEntry.SOURCE_NEARBY);
-                app.getBus().post(new NewWikiPageNavigationEvent(title, newEntry));
+                ((PageActivity)getActivity()).displayNewPage(title, newEntry);
             }
         });
 
