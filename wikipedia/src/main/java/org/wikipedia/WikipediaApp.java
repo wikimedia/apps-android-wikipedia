@@ -40,6 +40,7 @@ import org.wikipedia.savedpages.SavedPagePersister;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.search.RecentSearchPersister;
 import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.wikidata.WikidataCache;
 import org.wikipedia.zero.WikipediaZeroHandler;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -134,6 +135,11 @@ public class WikipediaApp extends Application {
         return zeroHandler;
     }
 
+    private WikidataCache wikidataCache;
+    public WikidataCache getWikidataCache() {
+        return wikidataCache;
+    }
+
     /**
      * Preference manager for storing things like the app's install IDs for EventLogging, theme,
      * font size, etc.
@@ -190,6 +196,7 @@ public class WikipediaApp extends Application {
         }
 
         zeroHandler = new WikipediaZeroHandler(this);
+        wikidataCache = new WikidataCache(this);
 
         new PerformMigrationsTask().execute();
     }

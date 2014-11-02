@@ -52,8 +52,6 @@ public class FullSearchFragment extends Fragment {
     private FullSearchArticlesTask.FullSearchResults lastResults;
     private List<FullSearchResult> totalResults;
 
-    private ParcelableLruCache<String> descriptionCache
-            = new ParcelableLruCache<String>(MAX_CACHE_SIZE_DESCRIPTIONS, String.class);
     private ParcelableLruCache<String> pageImagesCache
             = new ParcelableLruCache<String>(MAX_CACHE_SIZE_IMAGES, String.class);
 
@@ -245,7 +243,7 @@ public class FullSearchFragment extends Fragment {
     private void getWikidataDescriptions(List<FullSearchResult> results) {
         List<String> idList = new ArrayList<String>();
         for (FullSearchResult r : results) {
-            if (descriptionCache.get(r.getTitle().getPrefixedText()) == null) {
+            if (app.getWikidataCache().get(r.getWikiBaseId()) == null) {
                 // not in our cache yet
                 idList.add(r.getWikiBaseId());
             }
@@ -264,7 +262,7 @@ public class FullSearchFragment extends Fragment {
                     if (entry.getValue() == null) {
                         continue;
                     }
-                    descriptionCache.put(entry.getKey(), entry.getValue());
+                    app.getWikidataCache().put(entry.getKey(), entry.getValue());
                 }
                 ((BaseAdapter) searchResultsList.getAdapter()).notifyDataSetChanged();
             }
@@ -354,7 +352,7 @@ public class FullSearchFragment extends Fragment {
             String wikidataId = result.getWikiBaseId();
             if (!TextUtils.isEmpty(wikidataId)) {
                 TextView descriptionText = (TextView) convertView.findViewById(R.id.result_description);
-                descriptionText.setText(descriptionCache.get(wikidataId));
+                descriptionText.setText(app.getWikidataCache().get(wikidataId));
             }
 
             ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);

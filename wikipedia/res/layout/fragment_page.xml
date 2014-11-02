@@ -35,10 +35,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"/>
-                <LinearLayout
+                <FrameLayout
                     android:id="@+id/page_title_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_gravity="bottom">
                     <TextView
                         android:id="@+id/page_title_text"
@@ -49,7 +50,17 @@
                         android:paddingBottom="16dp"
                         android:paddingRight="16dp"
                         android:paddingLeft="16dp"/>
-                </LinearLayout>
+                    <TextView
+                        android:id="@+id/page_description_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:visibility="invisible"
+                        android:fontFamily="serif"
+                        android:paddingBottom="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingLeft="16dp"/>
+                </FrameLayout>
             </FrameLayout>
 
         </FrameLayout>
