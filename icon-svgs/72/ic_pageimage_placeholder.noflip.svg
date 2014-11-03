@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 56 56"
+   enable-background="new 0 0 56 56"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   width="100%"
+   height="100%"
+   sodipodi:docname="ic_pageimage_placeholder.noflip.svg"
+   inkscape:export-filename="E:\Desktop\noimage.png"
+   inkscape:export-xdpi="205.65242"
+   inkscape:export-ydpi="205.65242">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1327"
+     inkscape:window-height="951"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="11.9198"
+     inkscape:cx="23.063455"
+     inkscape:cy="25.845996"
+     inkscape:window-x="636"
+     inkscape:window-y="33"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <path
+     d="M0 0h56v56h-56z"
+     id="path4"
+     fill="#eee"
+     style="fill:#808080;fill-opacity:0.1254902"
+     inkscape:export-filename="E:\Desktop\path6.png"
+     inkscape:export-xdpi="205.14706"
+     inkscape:export-ydpi="205.14706" />
+  <path
+     style="fill:#eeeeee"
+     inkscape:connector-curvature="0"
+     d="M 20.994111,16.422624 H 35.677324 V 37.522711 H 20.994111 z"
+     id="path4-7"
+     inkscape:export-filename="E:\Desktop\path6.png"
+     inkscape:export-xdpi="205.14706"
+     inkscape:export-ydpi="205.14706" />
+  <path
+     d="m 36.4,13.5 -18.6,0 0,25.018644 c 0,1.4 0.796186,2.181356 2.196186,2.181356 l 18.803814,0 0,-25 c 0.1,-1.4 -1,-2.2 -2.4,-2.2 z m -6.2,3.5 5.1,0 0,6.4 -5.1,0 z m -8.8,0 6,0 0,1.8 -6,0 z m 0,4.6 6,0 0,1.8 -6,0 z m 0,15.5 0,-1.8 13.8,0 0,1.8 z m 13.8,-4.5 -13.8,0 0,-1.8 13.8,0 z m 0,-4.7 -13.8,0 0,-1.8 13.8,0 z"
+     id="path6"
+     inkscape:export-xdpi="205.14706"
+     inkscape:export-ydpi="205.14706"
+     inkscape:connector-curvature="0"
+     style="fill:#999999"
+     sodipodi:nodetypes="scssccscccccccccccccccccccccccccccccc" />
+</svg>
