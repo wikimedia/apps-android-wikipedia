@@ -39,7 +39,20 @@
   <string name="delete_selected_saved_pages">Διαγραφή</string>
   <string name="toast_saved_page_deleted">Αποθηκευμένη(ες) σελίδα(ες) διαγράφτηκε(καν)</string>
   <string name="saved_pages_search_list_hint">Αναζήτηση</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">Δεν βρέθηκαν σελίδες που ταιριάζουν με το \'%s\'</string>
+  <string name="saved_pages_search_empty_message">Δεν βρέθηκαν σελίδες να αντιστοιχούν στο ερώτημά σας.</string>
+  <string name="nearby_activity_title">Κοντινά</string>
+  <string name="nav_item_nearby">Κοντινά</string>
+  <string name="menu_update_nearby">Ενημέρωση κοντινών</string>
+  <string name="nearby_empty_title">Δεν υπάρχουν κοντινές σελίδες εδώ!</string>
+  <string name="nearby_empty_message">Όταν μετακινείστε σε μια νέα θέση, δοκιμάστε να ανανεώσετε αυτή τη σελίδα για να μάθετε περισσότερα σχετικά με το τι είναι γύρω σας.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f χιλιόμετρα</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
+  <string name="nearby_distance_in_miles">%.2f μίλια</string>
+  <string name="nearby_no_network">Καμία σύνδεση δικτύου</string>
+  <string name="nearby_dialog_goto_settings">Οι ενημερώσεις Τοποθεσίας δεν είναι ενεργοποιημένες στη συσκευή σας. Θα θέλατε να πάτε στις ρυθμίσεις της συσκευής για να ενεργοποιήσετε της ενημερώσεις Τοποθεσίας;</string>
+  <string name="nearby_set_metric">Εμφάνιση μέτρα/χιλιόμετρα</string>
+  <string name="nearby_set_imperial">Εμφάνιση πόδια/μίλια</string>
   <string name="last_updated_text">Τελευταία ενημέρωση %s</string>
   <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>
   <string name="edit_save_action_license_logged_in">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -51,6 +64,7 @@
   <string name="menu_other_languages">Διαβάστε σε άλλες γλώσσες</string>
   <string name="langlinks_error_retry">Ξαναπροσπαθήστε</string>
   <string name="langlinks_empty">Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες</string>
+  <string name="langlinks_no_match">Δεν βρέθηκαν γλώσσες να αντιστοιχούν στο ερώτημά σας.</string>
   <string name="settings_activity_title">Ρυθμίσεις</string>
   <string name="langlinks_activity_title">Άλλες γλώσσες</string>
   <string name="menu_save_changes">Αποθήκευση αλλαγών</string>
@@ -87,10 +101,11 @@
   <string name="preference_summary_logout">Αποσυνδεθείτε από το λογαριασμό σας στη Βικιπαίδεια</string>
   <string name="preference_summary_notloggedin">Δεν έχετε συνδεθεί.</string>
   <string name="toast_logout_complete">Αποσύνδεση</string>
-  <string name="saved_pages_empty_title" fuzzy="true">Δεν υπάρχουν αποθηκευμένες σελίδες ακόμα.</string>
+  <string name="saved_pages_empty_title">Δεν υπάρχουν αποθηκευμένες σελίδες εδώ!</string>
   <string name="saved_pages_empty_message">Οι αποθηκευμένες σελίδες είναι αρκετά φοβερές. Σκεφτείτε τις ως σελιδοδείκτες που μπορείτε να διαβάσετε ακόμα και όταν είστε εκτός σύνδεσης.</string>
   <string name="history_empty_title">Δεν υπάρχουν πρόσφατες σελίδες εδώ.</string>
   <string name="history_empty_message">Πιθανώς να τα διαγράψατε όλα. Την επόμενη φορά που θα μεταβείτε σε μια σελίδα, μπορείτε να επιστρέψετε σε αυτήν από εδώ.</string>
+  <string name="delete_selected_history">Διαγραφή</string>
   <string name="wp_stylized">&lt;big&gt;Β&lt;/big&gt;ΙΚΙΠΑΙΔΕΙ&lt;big&gt;Α&lt;/big&gt;</string>
   <string name="wp_tag_line">Η Ελεύθερη Εγκυκλοπαίδεια</string>
   <string name="skip">Παράβλεψη</string>
@@ -109,6 +124,12 @@
   <string name="create_account_username_exists_error">Το όνομα χρήστη χρησιμοποιείται ήδη</string>
   <string name="create_account_ip_throttle_error">Από αυτή τη διεύθυνση IP δημιουργήθηκαν υπερβολικά πολλοί λογαριασμοί. Προσπαθήστε ξανά αργότερα.</string>
   <string name="create_account_open_proxy_error">Η δημιουργία λογαριασμών από αυτή τη διεύθυνση IP έχει αποκλειστεί.</string>
+  <string name="create_account_noname_error">Το όνομα χρήστη που δώσατε είναι δεν είναι έγκυρο. Παρακαλείσθε να δώσετε άλλο όνομα χρήστη.</string>
+  <string name="create_account_invalid_email_error">Η διεύθυνση ηλεκτρονικού ταχυδρομείου που καταχωρίσατε δεν είναι έγκυρη.</string>
+  <string name="create_account_password_too_short_error">Ο κωδικός πρόσβασης που δώσατε είναι πολύ μικρός.</string>
+  <string name="create_account_blocked_anon_error">Δεν μπορείτε να δημιουργήσετε ένα λογαριασμό, επειδή η διεύθυνση IP σας είναι αποκλεισμένη.</string>
+  <string name="create_account_blocked_error">Δεν μπορείτε να δημιουργήσετε ένα λογαριασμό, επειδή ο λογαριασμός σας έχει αποκλειστεί.</string>
+  <string name="create_account_password_name_match_error">Το όνομα χρήστη και ο κωδικός πρόσβασής σας πρέπει να είναι διαφορετικά.</string>
   <string name="create_account_generic_error">Δεν ήταν δυνατή η δημιουργία λογαριασμού</string>
   <string name="create_account_no_network">Καμία σύνδεση με το δίκτυο</string>
   <string name="create_account_next">Επόμενο</string>
@@ -152,7 +173,7 @@
   <string name="preference_summary_eventlogging_opt_in">Επιτρέψτε στο Wikimedia να συλλέξει πληροφορίες για το πως χρησιμοποιείτε την εφαρμογή ώστε να τη βελτιώσει</string>
   <string name="editing_error_spamblacklist">Ανιχνεύθηκαν σύνδεσμοι σε αποκλεισμένους ιστότοπους. Παρακαλώ αφαιρέστε τους και προσπαθήστε ξανά.</string>
   <string name="history_search_list_hint">Αναζήτηση</string>
-  <string name="history_search_empty_message" fuzzy="true">Δεν βρέθηκαν σελίδες που ταιριάζουν με το \'%s\'</string>
+  <string name="history_search_empty_message">Δεν βρέθηκαν σελίδες να αντιστοιχούν στο ερώτημά σας.</string>
   <string name="error_can_not_process_link">Αυτός ο σύνδεσμος δεν στάθηκε δυνατό να εμφανιστεί</string>
   <string name="page_protected_autoconfirmed">Αυτή η σελίδα είναι ημιπροστατευμένη</string>
   <string name="page_protected_sysop">Αυτή η σελίδα είναι πλήρως προσταστατευμένη.</string>
@@ -196,6 +217,7 @@
   <string name="saved_pages_update_all_error_message">Λάθος στην ενημέρωση αποθηκευμένων σελίδων</string>
   <string name="saved_pages_progress_title">Ανανέωση αποθηκευμένων σελίδων</string>
   <string name="saved_pages_refresh_pages_complete">Η ενημέρωση ολοκληρώθηκε</string>
+  <string name="menu_page_saved">Σελίδα αποθηκεύτηκε</string>
   <string name="menu_refresh_saved_page">Ανανέωση σελίδας</string>
   <string name="abusefilter_title_disallow">Δεν μπορείτε να αποθηκεύσετε αυτή την επεξεργασία. Παρακαλούμε πηγαίνετε πίσω και αλλάξτε την.</string>
   <string name="dialog_page_issues">Προβλήματα σελίδας</string>
@@ -205,7 +227,7 @@
   <string name="color_theme_select">Θέμα</string>
   <string name="color_theme_light">Φωτεινό</string>
   <string name="color_theme_dark">Σκούρο</string>
-  <string name="page_similar_titles" fuzzy="true">Άλλες έννοιες</string>
+  <string name="page_similar_titles">Παρόμοιες σελίδες</string>
   <string name="search_within_pages">Αναζήτηση σε σελίδες</string>
   <string name="search_no_results">Δεν βρέθηκαν αποτελέσματα για \"%s\".</string>
   <string name="search_did_you_mean">Μήπως εννοείτε \"%s\";</string>
@@ -213,8 +235,11 @@
   <string name="search_error_retry">Επανάληψη</string>
   <string name="search_redirect_title">Ανακατεύθυνση από \"%s\".</string>
   <string name="search_recent_header">Πρόσφατες αναζητήσεις:</string>
+  <string name="menu_clear_all_recent_searches">Εκκαθάριση πρόσφατων αναζητήσεων</string>
   <string name="search_titles_button">Τίτλοι:</string>
   <string name="search_full_button">Εντός λημμάτων</string>
+  <string name="toc_hint">Σύρετε προς τα αριστερά για ενότητες ή χρησιμοποιήστε το κουμπί \"μενού\" στην επάνω δεξιά γωνία.</string>
+  <string name="toc_know_it">Το κατάλαβα</string>
   <string name="app_store_description">Η επίσημη εφαρμογή της Βικιπαίδειας για το Android. Η Βικιπαίδεια είναι η δωρεάν εγκυκλοπαίδεια που περιλαμβάνει περισσότερα από 32 εκατομμύρια λήμματα σε 280 γλώσσες και είναι το πιο περιεκτικό και ευρύτερα χρησιμοποιημενο έργο αναφοράς στην ιστορία της ανθρώπινης δημιουργίας. Η εφαρμογή έχει επανασχεδιαστεί από την αρχή και είναι καλύτερη από ποτέ.
 
 Χαρακτηριστικά:
@@ -227,4 +252,5 @@
 -Βικιπαίδεια Μηδέν: Επιτρέπει ανάγνωση της Βικιπαίδειας χωρίς χρέωση δεδομένων σε δίκτυα κινητής τηλεφωνία που συμμετέχουν στο πρόγραμμα.
 
 Ο κώδικας της εφαρμογής είναι εντελώς ανοιχτός. Αν έχετε εμπειρία με Java και το Android SDK, τότε ελάτε να συνεισφέρετε!  https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_text">Πατήστε για να κατεβάσετε</string>
 </resources>

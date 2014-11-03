@@ -11,7 +11,7 @@
   <string name="search_hint">搜尋維基百科</string>
   <string name="history_activity_title">歷史</string>
   <string name="nav_item_history">歷史</string>
-  <string name="error_network_error" fuzzy="true">無法與網路連線 :(</string>
+  <string name="error_network_error">無網路連線 :(</string>
   <string name="search_network_error">網路錯誤。點選重試。</string>
   <string name="page_error_retry">重試</string>
   <string name="menu_clear_all_history">清除歷史</string>
@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">存儲頁面很棒。試想一下你存爲書籤後即使在離線時也可以閱讀。</string>
   <string name="history_empty_title">這裡沒有最近的頁面。</string>
   <string name="history_empty_message">你可能刪除它們的一切。下一次您進入到一個頁面時您可以從這裡返回。</string>
+  <string name="delete_selected_history">刪除</string>
   <string name="wp_stylized">&lt;big&gt;維&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="wp_tag_line">自由的百科全書</string>
   <string name="skip">略過</string>
@@ -128,7 +129,7 @@
   <string name="create_account_noname_error">您提供的使用者名稱無效，請提供另一個。</string>
   <string name="create_account_invalid_email_error">您提供的電郵位址無效。</string>
   <string name="create_account_password_too_short_error">您提供的密碼太短。</string>
-  <string name="create_account_blocked_anon_error">您不能建立賬號，因为您的 IP 已封禁。</string>
+  <string name="create_account_blocked_anon_error">您不能建立賬號，因为您的 IP 位址已被封鎖。</string>
   <string name="create_account_blocked_error">您不能建立帳戶，因为您的帳戶已封禁。</string>
   <string name="create_account_password_name_match_error">您的使用者名稱與密碼必須不同。</string>
   <string name="create_account_generic_error">無法建立帳戶</string>
@@ -234,11 +235,17 @@
   <string name="page_similar_titles">相似的頁面</string>
   <string name="search_within_pages">於頁面內搜尋...</string>
   <string name="search_no_results">找不到「%s」的結果。</string>
+  <string name="search_did_you_mean">您指的是不是「$1」？</string>
   <string name="search_results_title">搜尋結果</string>
   <string name="search_error_retry">重試</string>
   <string name="search_redirect_title">重新導向自「%s」。</string>
+  <string name="search_recent_header">最近搜尋：</string>
+  <string name="menu_clear_all_recent_searches">清除最近搜尋</string>
+  <string name="search_titles_button">標題</string>
+  <string name="search_full_button">在條目內</string>
   <string name="toc_hint">向左滑動或使用右上角的選項單按鈕顯示章節。</string>
   <string name="toc_know_it">明白了</string>
+  <string name="error_browser_not_found">無法開啟網頁（未找到瀏覽器應用程式）。</string>
   <string name="app_store_description">維基百科官方 Android 應用程式。維基百科是一部自由的百科全書，包含超過3200萬篇條目，以280種不同的語言撰寫，是人類創建過最詳實、且大量被引用的資料來源。這個應用程式已經全面重新編寫，使其比以前來得還要更好。
 
 特色功能：

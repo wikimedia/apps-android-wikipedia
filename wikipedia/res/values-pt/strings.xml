@@ -103,6 +103,7 @@
   <string name="saved_pages_empty_message">As páginas guardadas são bastante úteis. Pense como se fossem marcadores que pode ler mesmo quando estiver offline.</string>
   <string name="history_empty_title">Sem páginas recentes aqui.</string>
   <string name="history_empty_message">Provavelmente, deverá ter eliminado todos eles. Da próxima vez que aceder a uma página, pode obter a partir de aqui.</string>
+  <string name="delete_selected_history">Eliminar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">A enciclopédia livre</string>
   <string name="skip">Ignorar</string>
@@ -234,6 +235,7 @@
   <string name="search_error_retry">Tentar novamente</string>
   <string name="search_redirect_title">Redirecionamento de \"%s\".</string>
   <string name="search_recent_header">Pesquisas recentes:</string>
+  <string name="menu_clear_all_recent_searches">Limpar pesquisas recentes</string>
   <string name="search_titles_button">Títulos</string>
   <string name="toc_hint">Deslize para a esquerda para seções, ou use o botão de menu no canto superior direito.</string>
   <string name="toc_know_it">Percebido</string>

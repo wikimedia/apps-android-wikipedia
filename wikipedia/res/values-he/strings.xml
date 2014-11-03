@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">דפים שמורים זה דבר די מגניב. הם כמו סימניות שאפשר לקרוא גם כשהמכשיר אינו מחובר לרשת.</string>
   <string name="history_empty_title">אין פה דפים שקראת לאחרונה.</string>
   <string name="history_empty_message">כנראה מחקת את כולם. בפעם הבאה שיזדמן לך לקרוא דף, אפשר יהיה לחזור אליו מכאן.</string>
+  <string name="delete_selected_history">מחיקה</string>
   <string name="wp_stylized">ויקיפדיה</string>
   <string name="wp_tag_line">האנציקלופדיה החופשית</string>
   <string name="skip">לדלג</string>

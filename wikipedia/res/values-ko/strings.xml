@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">저장된 문서는 정말 훌륭합니다. 오프라인일 때여도 읽을 수 있는 책갈피라고 생각해주세요.</string>
   <string name="history_empty_title">여기에 최근 문서가 없습니다.</string>
   <string name="history_empty_message">방문 기록이 비어 있습니다. 다음 번에 당신이 간 문서를 여기에서 얻을 수 있습니다.</string>
+  <string name="delete_selected_history">삭제</string>
   <string name="wp_stylized">&lt;big&gt;위&lt;/big&gt;키백&lt;big&gt;과&lt;/big&gt;</string>
   <string name="wp_tag_line">우리 모두의 백과사전</string>
   <string name="skip">건너뛰기</string>
@@ -232,11 +233,17 @@
   <string name="page_similar_titles">비슷한 문서</string>
   <string name="search_within_pages">문서 안에서 검색…</string>
   <string name="search_no_results">\"%s\"에 대한 결과를 찾을 수 없습니다.</string>
+  <string name="search_did_you_mean">\"%s\"을(를) 찾으셨나요?</string>
   <string name="search_results_title">검색 결과</string>
   <string name="search_error_retry">다시 시도</string>
   <string name="search_redirect_title">\"%s\"에서 넘어옵니다.</string>
+  <string name="search_recent_header">최근 검색:</string>
+  <string name="menu_clear_all_recent_searches">최근 검색 지우기</string>
+  <string name="search_titles_button">제목</string>
+  <string name="search_full_button">문서 안에서</string>
   <string name="toc_hint">문단을 보려면 왼쪽으로 스와이프하거나, 위 오른쪽에 있는 메뉴 버튼을 사용하세요.</string>
   <string name="toc_know_it">알았어요</string>
+  <string name="error_browser_not_found">웹 페이지를 열 수 없습니다 (찾은 브라우저 앱이 없습니다).</string>
   <string name="app_store_description">안드로이드를 위한 공식 위키백과 앱입니다. 위키백과는 280개 언어의 3천2백만보다 많은 문서가 들어 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용합니다. 앱은 처음부터 다시 쓰여졌고 이전보다 더 나아졌습니다.
 
 기능:

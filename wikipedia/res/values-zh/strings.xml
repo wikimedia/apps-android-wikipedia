@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">保存页面非常棒。试想一下在你保存后，即使离线时也可以阅读。</string>
   <string name="history_empty_title">这里没有最新页面。</string>
   <string name="history_empty_message">您可能清空了它们。下次您前往一个页面时，可从此返回。</string>
+  <string name="delete_selected_history">删除</string>
   <string name="wp_stylized">&lt;big&gt;维&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="wp_tag_line">自由的百科全书</string>
   <string name="skip">跳过</string>
@@ -128,7 +129,7 @@
   <string name="create_account_noname_error">您提供的用户名无效。请提供另一个用户名。</string>
   <string name="create_account_invalid_email_error">您提供的电子邮件地址无效。</string>
   <string name="create_account_password_too_short_error">您提供的密码太短。</string>
-  <string name="create_account_blocked_anon_error">您不能创建账户因为您的IP已封禁。</string>
+  <string name="create_account_blocked_anon_error">您不能创建账户因为您的IP地址已封禁。</string>
   <string name="create_account_blocked_error">您不能创建账户因为您的账户已封禁。</string>
   <string name="create_account_password_name_match_error">您的用户名与密码必须不同。</string>
   <string name="create_account_generic_error">无法创建账户</string>

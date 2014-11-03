@@ -100,6 +100,7 @@
   <string name="saved_pages_empty_message">Uložené stránky sú úžasné. Vyskúšajte si ich aj ako obľúbené stránky, ktoré je možné používať v offline režime.</string>
   <string name="history_empty_title">Žiadne posledne zobrazené stránky.</string>
   <string name="history_empty_message">Pravdepodobne si vymazal všetky časti. Nabudúce, keď túto stránku navštíviš, sa možeš odtiaľto k nim vrátiť.</string>
+  <string name="delete_selected_history">Vymazať</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Slobodná encyklopédia</string>
   <string name="skip">Preskočiť</string>
@@ -230,6 +231,8 @@
   <string name="search_results_title">Výsledky vyhľadávania</string>
   <string name="search_error_retry">Znova</string>
   <string name="search_redirect_title">Presmerované z \"%s\".</string>
+  <string name="search_recent_header">Nedávno hľadané výrazy:</string>
+  <string name="menu_clear_all_recent_searches">Vymazať nedávno hľadané výrazy</string>
   <string name="toc_know_it">Rozumiem</string>
   <string name="error_browser_not_found">Nepodarilo sa otvoriť webovú stránku (nenašiel sa žiadny webový prehliadač).</string>
   <string name="app_store_description">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.

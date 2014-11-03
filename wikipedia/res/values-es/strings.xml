@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">Las páginas guardadas son bastante impresionantes. Piensa en ellas como marcadores que se pueden leer incluso cuando estás sin conexión.</string>
   <string name="history_empty_title">No hay páginas recientes aquí.</string>
   <string name="history_empty_message">Probablemente borraste el historial. La próxima vez que vayas a una página puedes recuperarla desde aquí.</string>
+  <string name="delete_selected_history">Borrar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">La enciclopedia libre</string>
   <string name="skip">Omitir</string>
@@ -239,10 +240,12 @@
   <string name="search_error_retry">Reintentar</string>
   <string name="search_redirect_title">Redirección desde \"%s\".</string>
   <string name="search_recent_header">Búsquedas recientes:</string>
+  <string name="menu_clear_all_recent_searches">Borrar búsquedas recientes</string>
   <string name="search_titles_button">Títulos</string>
   <string name="search_full_button">Dentro de los artículos</string>
   <string name="toc_hint">Deslízate a la izquierda para las secciones, o utilza el botón de menú en la parte superior derecha.</string>
   <string name="toc_know_it">Entendido</string>
+  <string name="error_browser_not_found">No se pudo abrir la página web (no se encontró una aplicación para navegar).</string>
   <string name="app_store_description">Aplicación oficial de Wikipedia para Android. Wikipedia es la enciclopedia libre que contiene más de 32 millones de artículos en 280 idiomas y es el trabajo de referencia más completo y ampliamente usado que los humanos hayan recopilado. La aplicación ha sido reescrita desde cero y está mejor que nunca.
 
 Características:

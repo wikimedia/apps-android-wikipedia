@@ -10,7 +10,7 @@
   <string name="search_hint">विकिपीडिया खोज</string>
   <string name="history_activity_title">इतिहास</string>
   <string name="nav_item_history">इतिहास</string>
-  <string name="error_network_error" fuzzy="true">सजाल को नही पहुच पा रहे है।</string>
+  <string name="error_network_error">आप नेटवर्क से जुड़े हुये नहीं हैं :(</string>
   <string name="search_network_error">संजाल मै रुकावट। पुनः प्रयास करने के लिए थपथपाहट करे।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
   <string name="menu_clear_all_history">इतिहास साफ़ करें</string>
@@ -38,7 +38,7 @@
   <string name="delete_selected_saved_pages">मिटाएँ</string>
   <string name="toast_saved_page_deleted">सहेजे गया (गये) पृष्ठ हटाये</string>
   <string name="saved_pages_search_list_hint">खोज</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">\"%s\" से मिलने वाला कोई पृष्ठ नही मिला।</string>
+  <string name="saved_pages_search_empty_message">आपकी आवश्यकता से मिलता कोई पृष्ठ नहीं पाया गया।</string>
   <string name="last_updated_text">%s अन्तिम अद्यतन हुआ।</string>
   <string name="content_license_html">सामग्री &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; पर उपलब्ध है अन्यथा लिखें</string>
   <string name="edit_save_action_license_logged_in">इसे सहेजते हुये आप &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदान को &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; मुद्राधिकार के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हो।</string>
@@ -86,10 +86,11 @@
   <string name="preference_summary_logout">आपके विकिपीडिया खाते से बाहर आ गये</string>
   <string name="preference_summary_notloggedin">लॉग-इन नहीं</string>
   <string name="toast_logout_complete">सत्र का अन्त हुआ।</string>
-  <string name="saved_pages_empty_title" fuzzy="true">अभी तक कोई सरंक्षित पृष्ठ नहीं है।</string>
+  <string name="saved_pages_empty_title">यहाँ कोई पृष्ठ नहीं सहेजा गया।</string>
   <string name="saved_pages_empty_message">सरंक्षित पृष्ठ बहुत आश्चर्यजनक हैं। उन्हें इस तरह के पुस्तक-चिह्न समझें कि आप उन्हें तब भी पढ़ सकते हो जब आप ऑफ़लाइन हो।</string>
   <string name="history_empty_title">यहाँ का कोई ताज़ा पृष्ठ नहीं मिला।</string>
   <string name="history_empty_message">सम्भवतया आप उन सभी को हटा चुके हो। अगली बार जब आप उस पृष्ठ पर जायें तब उसे पुनः प्राप्त किया जा सकता है।</string>
+  <string name="delete_selected_history">हटायें</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="wp_tag_line">मुक्त ज्ञानकोश</string>
   <string name="skip">छोड़ें</string>

@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">Зачуваните страници се одлична идеја. Претставете си ги како обележани (омилени) што можете да ги читате и кога не сте на линија.</string>
   <string name="history_empty_title">Тука нема скорешни страници.</string>
   <string name="history_empty_message">Веројатно сите сте ги избришале. Кога во иднина ќе отидете на некоја страница, ќе можете оттука да се вратите на неа.</string>
+  <string name="delete_selected_history">Избриши</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
   <string name="wp_tag_line">Слободната енциклопедија</string>
   <string name="skip">Прескокни</string>

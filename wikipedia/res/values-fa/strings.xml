@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">صفحات ذخیره‌شده بسیار عالی هستند. به آنها به چشم بوکمارک‌هایی نگاه کنید که می‌توانید بخوانید حتی زمانی که آفلاین هستید.</string>
   <string name="history_empty_title">هیچ صفحه اخیری اینجا نیست.</string>
   <string name="history_empty_message">شما احتمالاً همه آنها را حذف کردید. دفعه بعد که به صفحه‌ای می‌روید می‌توانید از اینجا به آن صفحه برگردید.</string>
+  <string name="delete_selected_history">حذف</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپدی&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="wp_tag_line">دانشنامه آزاد</string>
   <string name="skip">رها کردن</string>
@@ -239,10 +240,12 @@
   <string name="search_error_retry">تلاش مجدد</string>
   <string name="search_redirect_title">تغییر مسیر از «%s».</string>
   <string name="search_recent_header">جستجوهای اخیر:</string>
+  <string name="menu_clear_all_recent_searches">پاک کردن جستجوهای اخیر</string>
   <string name="search_titles_button">عنوان‌ها</string>
   <string name="search_full_button">در مقالات</string>
   <string name="toc_hint">برای بخش‌ها به سمت چپ بچرخانید یا از دکمه بالا در سمت راست در منو استفاده کنید.</string>
   <string name="toc_know_it">گرفتم</string>
+  <string name="error_browser_not_found">قادر به گشودن صفحهٔ وب نیست  (ببرنامهٔ مرورگر یافت نشد)</string>
   <string name="app_store_description">نرم افزار رسمی ویکی‌پدیا برای استفاده در آندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و  گسترده‌ترین مرجع کار انسان تا کنون است. این برنامه از ابتدا بازنویسی شده است و بهتر از قبل کار می کند.
 ویژگی‌ها:
    -سرعت: نرم افزار جدید، بومی ما به شما اجازهٔ مرور و ویرایش ویکی‌پدیا را با سریع بیشتری می‌دهد.

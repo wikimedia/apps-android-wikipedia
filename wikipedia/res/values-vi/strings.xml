@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">Các trang đã lưu là giống như các dấu trang có thể đọc ngay cả khi ngoại tuyến.</string>
   <string name="history_empty_title">Đây không có trang gần đây.</string>
   <string name="history_empty_message">Có lẽ bạn đã xóa toàn bộ. Lần sau xem một trang, trang sẽ xuất hiện tại đây để truy cập sau.</string>
+  <string name="delete_selected_history">Xóa</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Bách khoa toàn thư mở</string>
   <string name="skip">Bỏ qua</string>
@@ -239,10 +240,12 @@
   <string name="search_error_retry">Thử lại</string>
   <string name="search_redirect_title">Đổi hướng từ “%s”.</string>
   <string name="search_recent_header">Tìm kiếm gần đây:</string>
+  <string name="menu_clear_all_recent_searches">Xóa các tìm kiếm gần đây</string>
   <string name="search_titles_button">Tên trang</string>
   <string name="search_full_button">Nội dung bài</string>
   <string name="toc_hint">Để xem các phần, vuốt trái hoặc bấm nút trình đơn ở góc phải bên trên.</string>
   <string name="toc_know_it">Được rồi</string>
+  <string name="error_browser_not_found">Không thể mở trang web (không tìm thấy ứng dụng trình duyệt).</string>
   <string name="app_store_description">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở với hơn 32 triệu mục từ trong 280 ngôn ngữ, và là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên. Ứng dụng này đã được viết mới hoàn toàn và là bản tốt nhất từ trước tới nay.
 
 Tính năng:

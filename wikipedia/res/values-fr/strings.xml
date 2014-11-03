@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">Les pages enregistrées sont assez impressionnantes. Pensez à elles comme à des favoris que vous pourrez lire même en étant déconnecté.</string>
   <string name="history_empty_title">Aucune page récente ici.</string>
   <string name="history_empty_message">Vous les avez probablement toutes détruites. La prochaine fois que vous irez sur une page, vous pourrez y revenir en démarrant d’ici.</string>
+  <string name="delete_selected_history">Supprimer</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">L’Encyclopédie libre</string>
   <string name="skip">Sauter</string>

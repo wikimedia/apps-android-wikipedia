@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">Paginile salvate sunt minunate. Gândiți-vă la ele ca la niște semne de carte care vă permit să citiți chiar și atunci când sunteți off-line.</string>
   <string name="history_empty_title">Nicio pagină recentă aici.</string>
   <string name="history_empty_message">Probabil că le-ați șters pe toate. Data viitoare când doriți să accesați o pagină, puteți reveni la ea pornind de aici.</string>
+  <string name="delete_selected_history">Șterge</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Enciclopedia liberă</string>
   <string name="skip">Omite</string>
@@ -239,10 +240,12 @@
   <string name="search_error_retry">Reîncearcă</string>
   <string name="search_redirect_title">Redirecționare către „%s”.</string>
   <string name="search_recent_header">Căutări recente:</string>
+  <string name="menu_clear_all_recent_searches">Șterge căutările recente</string>
   <string name="search_titles_button">Titluri</string>
   <string name="search_full_button">În conținutul articolelor</string>
   <string name="toc_hint">Trageți înspre stânga pentru a vizualiza cuprinsul sau folosiți butonul de meniu din dreapta sus.</string>
   <string name="toc_know_it">Am înțeles!</string>
+  <string name="error_browser_not_found">Nu s-a putut deschide pagina web (nicio aplicație de browser găsită).</string>
   <string name="app_store_description">Aplicația oficială a Wikipediei pentru Android. Wikipedia este enciclopedia liberă, care conține peste 32 de milioane de articole în 280 de limbi, fiind cea mai cuprinzătoare și larg utilizată lucrare de referință elaborată vreodată de omenire. Aplicația a fost rescrisă din temelii și este mai bună ca oricând.
 
 Caracteristici:

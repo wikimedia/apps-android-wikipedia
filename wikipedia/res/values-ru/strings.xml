@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">Сохранённые страницы — это довольно здорово. Подумайте о них, как о закладках, которые вы сможете читать даже тогда, когда вы в находитесь в оффлайне.</string>
   <string name="history_empty_title">Недавно просмотренных страниц нет.</string>
   <string name="history_empty_message">Вы, вероятно, удалили их все. В следующий раз, когда зайдёте на страницу, вы сможете вернуться к ней отсюда.</string>
+  <string name="delete_selected_history">Удалить</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="wp_tag_line">Свободная энциклопедия</string>
   <string name="skip">Пропустить</string>

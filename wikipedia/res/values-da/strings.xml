@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">Gemte sider er temmelig praktiske. Tænk på dem som bogmærker, som du kan læse, selv når du er offline.</string>
   <string name="history_empty_title">Ingen nye sider her.</string>
   <string name="history_empty_message">Du har sikkert slettet dem alle. Næste gang du går til en side, kan du komme tilbage til den her.</string>
+  <string name="delete_selected_history">Slet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Den frie encyklopædi</string>
   <string name="skip">Spring over</string>
@@ -239,10 +240,12 @@
   <string name="search_error_retry">Prøv igen</string>
   <string name="search_redirect_title">Omdirigering fra \"%s\".</string>
   <string name="search_recent_header">Seneste søgninger:</string>
+  <string name="menu_clear_all_recent_searches">Ryd seneste søgninger</string>
   <string name="search_titles_button">Titler</string>
   <string name="search_full_button">Indhold i artikler</string>
   <string name="toc_hint">Stryg til venstre for afsnit, eller brug menuknappen øverst til højre.</string>
   <string name="toc_know_it">Forstået</string>
+  <string name="error_browser_not_found">Kunne ikke åbne webside (ingen browser app fundet).</string>
   <string name="app_store_description">Officiel Wikipedia App til Android. Wikipedia er en fri encyklopædi der indeholder mere end 32 millioner artikler på 280 sprog, og er den mest omfattende og udbredte referenceværk mennesker nogensinde har samlet. App\'en er blevet skrevet om fra bunden og er bedre end nogensinde før.
 
 Funktioner:

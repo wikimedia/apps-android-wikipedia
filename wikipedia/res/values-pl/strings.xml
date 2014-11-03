@@ -98,6 +98,7 @@
   <string name="saved_pages_empty_message">Zapisane strony są dość niesamowite. Pomyśl o nich jako o zakładkach, które można przeczytać nawet wtedy, gdy jesteś w trybie offline.</string>
   <string name="history_empty_title">Brak ostatnich zmian stron.</string>
   <string name="history_empty_message">Prawdopodobnie usunąłeś je wszystkie. Następnym razem gdy wejdziesz na stronę możesz się tam dostać z tąd.</string>
+  <string name="delete_selected_history">Usuń</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Wolna encyklopedia</string>
   <string name="skip">Pomiń</string>

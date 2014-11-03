@@ -168,4 +168,6 @@
   <string name="menu_page_saved">பக்கம் சேமிக்கப்பட்டது</string>
   <string name="text_size_select">எழுத்துரு அளவு</string>
   <string name="color_theme_dark">இருட்டான</string>
+  <string name="search_did_you_mean">தாங்கள் குறிப்பது \"%s\"?</string>
+  <string name="search_titles_button">தலைப்புகள்</string>
 </resources>
