@@ -89,7 +89,7 @@ def make_release(flavors, custom_channel, custom_app):
 
 
 def copy_apk(flavor, target):
-    folder_path = 'wikipedia/build/outputs/release'
+    folder_path = 'releases'
     sh.mkdir("-p", folder_path)
     output_file = '%s/wikipedia-%s.apk' % (folder_path, get_release_name(target))
     sh.cp('wikipedia/build/outputs/apk/wikipedia-%s-release.apk' % flavor, output_file)
