@@ -85,8 +85,11 @@ public class ThemeChooserDialog extends Dialog {
         buttonThemeLight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                funnel.logThemeChange(app.getCurrentTheme(), WikipediaApp.THEME_LIGHT);
-                app.setCurrentTheme(WikipediaApp.THEME_LIGHT);
+                //Only change the theme to light mode and log change if user is not on light mode
+                if (app.getCurrentTheme() != WikipediaApp.THEME_LIGHT) {
+                    funnel.logThemeChange(app.getCurrentTheme(), WikipediaApp.THEME_LIGHT);
+                    app.setCurrentTheme(WikipediaApp.THEME_LIGHT);
+                }
             }
         });
 
@@ -94,8 +97,11 @@ public class ThemeChooserDialog extends Dialog {
         buttonThemeDark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                funnel.logThemeChange(app.getCurrentTheme(), WikipediaApp.THEME_DARK);
-                app.setCurrentTheme(WikipediaApp.THEME_DARK);
+                //Only change the theme to dark mode and log change if user is not on dark mode
+                if (app.getCurrentTheme() != WikipediaApp.THEME_DARK) {
+                    funnel.logThemeChange(app.getCurrentTheme(), WikipediaApp.THEME_DARK);
+                    app.setCurrentTheme(WikipediaApp.THEME_DARK);
+                }
             }
         });
 
