@@ -105,6 +105,8 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             @Override
             public void onValidationFailed(View view, Rule<?> rule) {
                 if (view instanceof EditText) {
+                    //Request focus on the EditText before setting error, so that error is visible
+                    view.requestFocus();
                     ((EditText) view).setError(rule.getFailureMessage());
                 } else {
                     throw new RuntimeException("This should not be happening");
@@ -211,6 +213,8 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         } else if (errorCode.equals("sorbs_create_account_reason")) {
             Crouton.makeText(this, R.string.create_account_open_proxy_error, Style.ALERT).show();
         } else if (errorCode.equals("userexists")) {
+            //Request focus before displaying error message, so that it pops up on its own
+            usernameEdit.requestFocus();
             usernameEdit.setError(getString(R.string.create_account_username_exists_error));
         } else if (errorCode.equals("noname")) {
             Crouton.makeText(this, R.string.create_account_noname_error, Style.ALERT).show();
