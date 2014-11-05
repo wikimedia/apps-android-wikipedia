@@ -7,7 +7,6 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.Site;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.Section;
 import org.wikipedia.pageimages.PageImage;
@@ -52,9 +51,9 @@ public class ParcelableTest extends TestCase {
             sections.add(new Section(i, 1, "Something " + i, "Something_" + i, "Content Something" + i));
         }
         PageTitle title = new PageTitle(null, "Test", new Site("en.wikipedia.org"));
-        PageProperties props = new PageProperties("", "Something", "autoconfirmed", false, false);
-        Page page = new Page(title, sections, props);
-        parcelAndTestObjects(page);
+        PageProperties props = new PageProperties("", "Something", "autoconfirmed", false, false, null, null);
+        parcelAndTestObjects(title);
+        parcelAndTestObjects(props);
     }
 
     public void testLruCache() throws Exception {
