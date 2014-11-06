@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import org.wikipedia.R;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
@@ -11,12 +12,15 @@ import android.view.WindowManager;
 
 /**
  * A dialog that appears at the bottom of the page.
+ *
+ * It slides up when the dialog is opened, and down when the dialog is closed.
+ * see R.style.DialogSlideAnim for the animation
  */
 public class BottomDialog extends Dialog {
     private View dialogLayout;
 
     public BottomDialog(Context context, int dialogLayoutResId) {
-        super(context);
+        super(context, R.style.DialogSlideAnim);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         dialogLayout = inflater.inflate(dialogLayoutResId, null);

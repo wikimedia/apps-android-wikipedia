@@ -38,4 +38,12 @@
         <item name="android:textColor">@color/page_info_heading</item>
     </style>
 
+    <!-- For dialog Animation, uses appcompat-v7 -->
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/abc_slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/abc_slide_out_bottom</item>
+    </style>
+    <style name="DialogSlideAnim" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
+    </style>
 </resources>
