@@ -1,0 +1,42 @@
+package org.wikipedia.page;
+
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Build;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+
+/**
+ * A dialog that appears at the bottom of the page.
+ */
+public class BottomDialog extends Dialog {
+    private View dialogLayout;
+
+    public BottomDialog(Context context, int dialogLayoutResId) {
+        super(context);
+
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        dialogLayout = inflater.inflate(dialogLayoutResId, null);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            getWindow().setDimAmount(0.0f);
+        }
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(dialogLayout);
+
+        getWindow().setBackgroundDrawable(null);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        getWindow().setAttributes(lp);
+    }
+
+    protected View getDialogLayout() {
+        return dialogLayout;
+    }
+}

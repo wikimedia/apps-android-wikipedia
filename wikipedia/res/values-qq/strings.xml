@@ -348,4 +348,5 @@ Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.
   <string name="alpha_update_notification_text">Text for notification when new alpha update is available.
 
 Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}.</string>
+  <string name="dialog_close_description">Button description for the close image button. The text is mainly for screen readers.</string>
 </resources>

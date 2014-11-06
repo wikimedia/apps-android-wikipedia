@@ -28,6 +28,7 @@
     <color name="fulltext_search_highlight">#00AF89</color>
     <color name="announcement_background">#0C0C0C</color>
     <color name="announcement_text">#AAAAAA</color>
+    <color name="page_info_heading">#555555</color>
 
     <color name="link_light">#ff347BFF</color>
     <color name="button_light">#ff777777</color>

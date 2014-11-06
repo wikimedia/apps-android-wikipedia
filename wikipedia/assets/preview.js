@@ -66,30 +66,6 @@ document.onclick = function() {
         curNode = curNode.parentNode;
     }
 
-    function collectIssues( sourceNode ) {
-        var res = [];
-        var issues = sourceNode.parentNode.querySelectorAll( 'table.ambox' );
-        var i = 0,
-            len = issues.length;
-        for (; i < len; i++) {
-            // .ambox- is used e.g. on eswiki
-            res.push( issues[i].querySelector( '.mbox-text, .ambox-text' ).innerHTML );
-        }
-
-        bridge.sendMessage( 'issuesClicked', { "issues": res } );
-    }
-
-    function handleDisambig( sourceNode ) {
-        var res = [];
-        var hatnotes = sourceNode.parentNode.querySelectorAll( 'div.hatnote' );
-        var i = 0,
-            len = hatnotes.length;
-        for (; i < len; i++) {
-            res.push( hatnotes[i].innerHTML );
-        }
-        bridge.sendMessage( 'disambigClicked', { "hatnotes": res } );
-    }
-
     if (sourceNode) {
         if ( sourceNode.hasAttribute( "data-action" ) ) {
             var action = sourceNode.getAttribute( "data-action" );
@@ -101,10 +77,10 @@ document.onclick = function() {
             var href = sourceNode.getAttribute( "href" );
             if ( href[0] === "#" ) {
                 var targetId = href.slice(1);
-                if ("issues" === targetId) {
-                    collectIssues(sourceNode);
-                } else if ("disambig" === targetId) {
-                    handleDisambig(sourceNode);
+                if ( "issues" === targetId ) {
+                    issuesClicked( sourceNode );
+                } else if ( "disambig" === targetId ) {
+                    disambigClicked( sourceNode );
                 } else {
                     handleReference( targetId, ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
                 }
@@ -115,6 +91,41 @@ document.onclick = function() {
         }
     }
 };
+
+function issuesClicked( sourceNode ) {
+    var issues = collectIssues( sourceNode.parentNode );
+    var disambig = collectDisambig( sourceNode.parentNode.parentNode ); // not clicked node
+    bridge.sendMessage( 'issuesClicked', { "hatnotes": disambig, "issues": issues } );
+}
+
+function disambigClicked( sourceNode ) {
+    var disambig = collectDisambig( sourceNode.parentNode );
+    var issues = collectIssues( sourceNode.parentNode.parentNode ); // not clicked node
+    bridge.sendMessage( 'disambigClicked', { "hatnotes": disambig, "issues": issues } );
+}
+
+function collectDisambig( sourceNode ) {
+    var res = [];
+    var hatnotes = sourceNode.querySelectorAll( 'div.hatnote' );
+    var i = 0,
+        len = hatnotes.length;
+    for (; i < len; i++) {
+        res.push( hatnotes[i].innerHTML );
+    }
+    return res;
+}
+
+function collectIssues( sourceNode ) {
+    var res = [];
+    var issues = sourceNode.querySelectorAll( 'table.ambox' );
+    var i = 0,
+        len = issues.length;
+    for (; i < len; i++) {
+        // .ambox- is used e.g. on eswiki
+        res.push( issues[i].querySelector( '.mbox-text, .ambox-text' ).innerHTML );
+    }
+    return res;
+}
 
 module.exports = new ActionsHandler();
 

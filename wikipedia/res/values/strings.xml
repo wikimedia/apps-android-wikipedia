@@ -239,7 +239,7 @@
     <string name="color_theme_select">Theme</string>
     <string name="color_theme_light">Light</string>
     <string name="color_theme_dark">Dark</string>
-    <string name="page_similar_titles">Similar pages</string>
+    <string name="page_similar_titles">Other meanings</string>
     <string name="search_within_pages">Search within pages…</string>
     <string name="search_no_results">No results found for \"%s\".</string>
     <string name="search_did_you_mean">Did you mean \"%s\"?</string>
@@ -268,4 +268,5 @@ Features:
 The code is fully open source. If you have experience with Java and the Android SDK, then come fork us! https://github.com/wikimedia/apps-android-wikipedia</string>
     <string name="alpha_update_notification_title">New alpha update available</string>
     <string name="alpha_update_notification_text">Tap to download</string>
+    <string name="dialog_close_description">Close</string>
 </resources>

@@ -33,4 +33,9 @@
         <item name="android:background">@drawable/button_selector_gray</item>
     </style>
 
+    <style name="text_heading_gray" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/page_info_heading</item>
+    </style>
+
 </resources>

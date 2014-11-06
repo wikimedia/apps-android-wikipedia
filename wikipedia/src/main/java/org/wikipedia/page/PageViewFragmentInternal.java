@@ -105,6 +105,7 @@ public class PageViewFragmentInternal {
     private PageTitle title;
     private PageTitle titleOriginal;
     private View contentsContainer;
+    private ViewGroup imagesContainer;
     private LeadImagesHandler leadImagesHandler;
     private ObservableWebView webView;
     private View networkError;
@@ -346,12 +347,16 @@ public class PageViewFragmentInternal {
             }
         };
 
-        new IssuesHandler(getActivity(), bridge);
-
-        new DisambigHandler(getActivity(), bridge){
+        new PageInfoHandler(getActivity(), bridge) {
             @Override
-            public LinkHandler getLinkHandler() {
+            LinkHandler getLinkHandler() {
                 return linkHandler;
+            }
+
+            @Override
+            int getDialogHeight() {
+                // could have scrolled up a bit but the page info links must still be visible else they couldn't have been clicked
+                return webView.getHeight() + webView.getScrollY() - imagesContainer.getHeight();
             }
         };
 
@@ -379,8 +384,8 @@ public class PageViewFragmentInternal {
         editHandler = new EditHandler(parentFragment, bridge);
 
         new SearchBarHideHandler(webView, getActivity());
-        leadImagesHandler = new LeadImagesHandler(parentFragment, bridge, webView,
-                (ViewGroup)parentFragment.getView().findViewById(R.id.page_images_container));
+        imagesContainer = (ViewGroup) parentFragment.getView().findViewById(R.id.page_images_container);
+        leadImagesHandler = new LeadImagesHandler(parentFragment, bridge, webView, imagesContainer);
 
         //is this page in cache??
         if (PAGE_CACHE.has(titleOriginal)) {

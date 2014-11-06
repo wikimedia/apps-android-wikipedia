@@ -375,7 +375,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                     return;
                 }
                 final int animDuration = 500;
-                final int newMargin = pageDescriptionText.getHeight() - (int)(8 * displayDensity);
+                final int marginSp = 8;
+                final int newMargin = pageDescriptionText.getHeight() - (int)(marginSp * displayDensity);
                 // create an animation that will grow the bottom margin of the Title text,
                 // pushing it upward, and creating sufficient space for the Description.
                 Animation anim = new Animation() {
