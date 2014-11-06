@@ -21,9 +21,10 @@
 
     <TextView
         android:id="@+id/onboarding_skip_link"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
+        android:gravity="center"
         android:minHeight="48dp"
         android:padding="8dp"
         android:text="@string/skip"
