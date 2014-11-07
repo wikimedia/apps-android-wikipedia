@@ -64,7 +64,7 @@
     <color name="lead_text_color">#fff0f0f0</color>
     <color name="lead_text_shadow">#80000000</color>
     <color name="lead_disabled_text_light">#ff000000</color>
-    <color name="lead_disabled_text_dark">#ff909090</color>
+    <color name="lead_disabled_text_dark">#ffffffff</color>
 
     <!-- Copied for 2.3 -->
     <color name="holo_green_light">#ff99cc00</color>

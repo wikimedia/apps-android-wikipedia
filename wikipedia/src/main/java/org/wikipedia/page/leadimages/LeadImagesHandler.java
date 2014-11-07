@@ -76,7 +76,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * Number of pixels to offset the WebView content (in addition to page title height),
      * when lead images are disabled.
      */
-    private static final int DISABLED_OFFSET_DP = 32;
+    private static final int DISABLED_OFFSET_DP = 80;
 
     /**
      * Whether lead images are enabled, overall.  They will be disabled automatically
@@ -257,21 +257,25 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         if (!parentFragment.isAdded()) {
             return;
         }
-        final int webViewPadding;
+        int titleContainerHeight;
+        int titleBottomPadding = 0;
         if (!leadImagesEnabled) {
             // ok, we're not going to show lead images, so we need to make some
             // adjustments to our layout:
             // make the WebView padding be just the height of the title text, plus a fixed offset
-            webViewPadding = (int) ((pageTitleContainer.getHeight() / displayDensity))
+            titleContainerHeight = (int) ((pageTitleContainer.getHeight() / displayDensity))
                     + DISABLED_OFFSET_DP;
             imageContainer.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
-                    FrameLayout.LayoutParams.WRAP_CONTENT));
+                    (int) ((titleContainerHeight) * displayDensity)));
             // hide the lead image
             image1.setVisibility(View.GONE);
             // set the color of the title
             pageTitleText.setTextColor(parentFragment
                     .getResources()
                     .getColor(Utils.getThemedAttributeId(parentFragment.getActivity(), R.attr.lead_disabled_text_color)));
+            // remove bottom padding from the description
+            pageDescriptionText.setPadding(pageDescriptionText.getPaddingLeft(),
+                    pageDescriptionText.getPaddingTop(), pageDescriptionText.getPaddingRight(), 0);
             // and give it no drop shadow
             pageTitleText.setShadowLayer(0, 0, 0, 0);
             // do the same for the description...
@@ -287,13 +291,14 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             // we're going to show the lead image, so make some adjustments to the
             // layout, in case we were previously not showing it:
             // make the WebView padding be a proportion of the total screen height
-            webViewPadding = (int) (displayHeight * IMAGES_CONTAINER_RATIO);
+            titleContainerHeight = (int) (displayHeight * IMAGES_CONTAINER_RATIO);
             imageContainer.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
-                    (int) (webViewPadding * displayDensity)));
+                    (int) (titleContainerHeight * displayDensity)));
             // show the lead image
             image1.setVisibility(View.VISIBLE);
             // set the color of the title
             pageTitleText.setTextColor(parentFragment.getResources().getColor(R.color.lead_text_color));
+            titleBottomPadding = pageTitleText.getPaddingBottom();
             // and give it a nice drop shadow!
             pageTitleText.setShadowLayer(2, 1, 1, parentFragment.getResources().getColor(R.color.lead_text_shadow));
             // do the same for the description...
@@ -304,11 +309,22 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             // set the correct padding on the container
             pageTitleContainer.setPadding(0, (int) (TITLE_GRADIENT_HEIGHT_DP * displayDensity), 0, 0);
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            // for API >10, decrease line spacing and boost bottom padding to account for it.
+            // (in API 10, decreased line spacing cuts off the bottom of the text)
+            final float lineSpacing = 0.8f;
+            final int lineSpacePadding = (int)(12 * displayDensity);
+            pageTitleText.setLineSpacing(0, lineSpacing);
+            titleBottomPadding += lineSpacePadding;
+        }
+        pageTitleText.setPadding(pageTitleText.getPaddingLeft(), pageTitleText.getPaddingTop(),
+                pageTitleText.getPaddingRight(), titleBottomPadding);
         // pad the webview contents, to account for the lead image view height that we've
         // ended up with
         JSONObject payload = new JSONObject();
         try {
-            payload.put("paddingTop", webViewPadding);
+            final int paddingExtra = 8;
+            payload.put("paddingTop", titleContainerHeight + paddingExtra);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -321,8 +337,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         listener.onLayoutComplete();
 
         // kick off loading of the WikiData description, if we have one
-        // (and only if the lead image is enabled)
-        if (leadImagesEnabled) {
+        // (and only if it's not the Main page)
+        if (!parentFragment.getFragment().getPage().getPageProperties().isMainPage()) {
             fetchWikiDataDescription();
         }
     }
@@ -375,16 +391,28 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                     return;
                 }
                 final int animDuration = 500;
-                final int marginSp = 8;
-                final int newMargin = pageDescriptionText.getHeight() - (int)(marginSp * displayDensity);
+                final int marginSp = 14;
+                final int newMargin = pageDescriptionText.getHeight()
+                        - (leadImagesEnabled ? (int)(marginSp * displayDensity) : 0);
+                final int origPadding = pageTitleText.getPaddingBottom();
                 // create an animation that will grow the bottom margin of the Title text,
                 // pushing it upward, and creating sufficient space for the Description.
                 Animation anim = new Animation() {
                     @Override
                     protected void applyTransformation(float interpolatedTime, Transformation t) {
-                        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) pageTitleText.getLayoutParams();
-                        params.bottomMargin = (int) (newMargin * interpolatedTime);
-                        pageTitleText.setLayoutParams(params);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) pageTitleText.getLayoutParams();
+                            params.bottomMargin = (int) (newMargin * interpolatedTime);
+                            pageTitleText.setLayoutParams(params);
+                        } else {
+                            // for API 10, setting bottom margin doesn't work, so use padding
+                            // instead. (For API >10, setting padding works too, but looks a little
+                            // choppy)
+                            pageTitleText.setPadding(pageTitleText.getPaddingLeft(),
+                                    pageTitleText.getPaddingTop(),
+                                    pageTitleText.getPaddingRight(),
+                                    origPadding + (int)(newMargin * interpolatedTime));
+                        }
                     }
                 };
                 anim.setDuration(animDuration);
