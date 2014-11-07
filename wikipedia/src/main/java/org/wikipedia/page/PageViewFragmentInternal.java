@@ -284,12 +284,6 @@ public class PageViewFragmentInternal {
 
         connectionIssueFunnel = new ConnectionIssueFunnel(app);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            // Enable Pinch-Zoom
-            webView.getSettings().setBuiltInZoomControls(true);
-            webView.getSettings().setDisplayZoomControls(false);
-        }
-
         updateFontSize();
 
         // Explicitly set background color of the WebView (independently of CSS, because
