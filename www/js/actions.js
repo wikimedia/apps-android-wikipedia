@@ -105,11 +105,11 @@ function disambigClicked( sourceNode ) {
 
 function collectDisambig( sourceNode ) {
     var res = [];
-    var hatnotes = sourceNode.querySelectorAll( 'div.hatnote' );
+    var links = sourceNode.querySelectorAll( 'div.hatnote > a' );
     var i = 0,
-        len = hatnotes.length;
+        len = links.length;
     for (; i < len; i++) {
-        res.push( hatnotes[i].innerHTML );
+        res.push( links[i].innerHTML );
     }
     return res;
 }

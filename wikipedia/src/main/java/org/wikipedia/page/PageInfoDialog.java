@@ -1,9 +1,12 @@
 package org.wikipedia.page;
 
+import org.wikipedia.PageTitle;
 import org.wikipedia.R;
-import android.app.Activity;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.search.FullSearchResult;
 import android.graphics.Typeface;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,12 +20,12 @@ class PageInfoDialog extends BottomDialog {
     private final TextView disambigHeading;
     private final TextView issuesHeading;
 
-    PageInfoDialog(Activity activity, PageInfo pageInfo, int height, LinkMovementMethodExt movementMethod) {
+    PageInfoDialog(final PageActivity activity, PageInfo pageInfo, int height) {
         super(activity, R.layout.dialog_page_info);
 
         View parentView = getDialogLayout();
         flipper = (ViewFlipper) parentView.findViewById(R.id.page_info_flipper);
-        ListView disambigList = (ListView) parentView.findViewById(R.id.disambig_list);
+        final ListView disambigList = (ListView) parentView.findViewById(R.id.disambig_list);
         ListView issuesList = (ListView) parentView.findViewById(R.id.page_issues_list);
         disambigHeading = (TextView) parentView.findViewById(R.id.page_info_similar_titles_heading);
         issuesHeading = (TextView) parentView.findViewById(R.id.page_info_page_issues_heading);
@@ -36,11 +39,20 @@ class PageInfoDialog extends BottomDialog {
             }
         });
 
-//        parentView.setMinimumHeight(height);
         parentView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, height));
 
-        disambigList.setAdapter(new DisambigListAdapter(activity, pageInfo.getDisambigs(), movementMethod));
+        disambigList.setAdapter(new DisambigListAdapter(activity, pageInfo.getDisambigs()));
         issuesList.setAdapter(new IssuesListAdapter(activity, pageInfo.getIssues()));
+
+        disambigList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                PageTitle title = ((FullSearchResult) disambigList.getAdapter().getItem(position)).getTitle();
+                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+                dismiss();
+                activity.displayNewPage(title, historyEntry);
+            }
+        });
 
         if (pageInfo.getDisambigs().length > 0) {
             disambigHeading.setOnClickListener(new View.OnClickListener() {

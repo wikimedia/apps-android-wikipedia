@@ -347,12 +347,7 @@ public class PageViewFragmentInternal {
             }
         };
 
-        new PageInfoHandler(getActivity(), bridge) {
-            @Override
-            LinkHandler getLinkHandler() {
-                return linkHandler;
-            }
-
+        new PageInfoHandler(getActivity(), bridge, title.getSite()) {
             @Override
             int getDialogHeight() {
                 // could have scrolled up a bit but the page info links must still be visible else they couldn't have been clicked

@@ -1,13 +1,12 @@
 package org.wikipedia.page;
 
+import org.wikipedia.PageTitle;
+import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import android.app.Activity;
-import android.text.Spannable;
-import android.view.MotionEvent;
-import android.widget.TextView;
 
 /**
  * A handler for both disambiguation and page issues information.
@@ -15,33 +14,23 @@ import android.widget.TextView;
  * When clicked it shows the PageInfoDialog with the respective list.
  */
 abstract class PageInfoHandler implements CommunicationBridge.JSEventListener {
-    private final Activity activity;
-    private PageInfoDialog dialog;
+    private final PageActivity activity;
+    private final Site site;
 
-    PageInfoHandler(Activity activity, CommunicationBridge bridge) {
+    PageInfoHandler(PageActivity activity, CommunicationBridge bridge, Site site) {
         this.activity = activity;
+        this.site = site;
         bridge.addListener("disambigClicked", this);
         bridge.addListener("issuesClicked", this);
     }
-
-    private LinkMovementMethodExt movementMethod = new LinkMovementMethodExt(getLinkHandler()) {
-        @Override
-        public boolean onTouchEvent(final TextView widget, final Spannable buffer, final MotionEvent event) {
-            boolean ret = super.onTouchEvent(widget, buffer, event);
-            if (ret && event.getAction() == MotionEvent.ACTION_UP) {
-                dialog.dismiss();
-            }
-            return ret;
-        }
-    };
 
     // message from JS bridge:
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
-            PageInfo info = new PageInfo(Utils.jsonArrayToStringArray(messagePayload.getJSONArray("hatnotes")),
+            PageInfo info = new PageInfo(parseDisambigJson(messagePayload.getJSONArray("hatnotes")),
                                          Utils.jsonArrayToStringArray(messagePayload.getJSONArray("issues")));
-            dialog = new PageInfoDialog(activity, info, getDialogHeight(), movementMethod);
+            PageInfoDialog dialog = new PageInfoDialog(activity, info, getDialogHeight());
             dialog.show();
             if ("disambigClicked".equals(messageType)) {
                 dialog.showDisambig();
@@ -53,7 +42,16 @@ abstract class PageInfoHandler implements CommunicationBridge.JSEventListener {
         }
     }
 
-    abstract LinkHandler getLinkHandler();
+    private DisambigResult[] parseDisambigJson(JSONArray array) throws JSONException {
+        if (array == null) {
+            return null;
+        }
+        DisambigResult[] stringArray = new DisambigResult[array.length()];
+        for (int i = 0; i < array.length(); i++) {
+            stringArray[i] = new DisambigResult(new PageTitle(array.getString(i), site));
+        }
+        return stringArray;
+    }
 
     abstract int getDialogHeight();
 }

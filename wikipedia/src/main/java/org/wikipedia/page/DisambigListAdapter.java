@@ -1,42 +1,157 @@
 package org.wikipedia.page;
 
+import org.wikipedia.PageTitle;
+import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
+import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.pageimages.PageImagesTask;
+import org.wikipedia.wikidata.WikidataCache;
+import org.wikipedia.wikidata.WikidataIdsTask;
+import com.squareup.picasso.Picasso;
 import android.app.Activity;
-import android.text.Html;
-import android.text.Spannable;
-import android.text.TextPaint;
-import android.text.style.URLSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
- *
+ * ListAdapter for disambiguation items.
  */
-class DisambigListAdapter extends ArrayAdapter<String> {
+class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
+    private static final int MAX_CACHE_SIZE_IMAGES = 24;
+    private final ParcelableLruCache<String> pageImagesCache
+            = new ParcelableLruCache<String>(MAX_CACHE_SIZE_IMAGES, String.class);
     private final Activity activity;
-    private final String[] items;
-    private LinkMovementMethodExt movementMethod;
+    private final DisambigResult[] items;
+    private final WikipediaApp app;
+    private final Site site;
+    private final Map<PageTitle, String> titleWikidataIdMap = new HashMap<PageTitle, String>();
+    private final WikidataCache wikidataCache;
 
     /**
      * Constructor
      * @param activity The current activity.
      * @param items The objects to represent in the ListView.
      */
-    public DisambigListAdapter(Activity activity, String[] items, LinkMovementMethodExt movementMethod) {
+    public DisambigListAdapter(Activity activity, DisambigResult[] items) {
         super(activity, 0, items);
         this.activity = activity;
         this.items = items;
-        this.movementMethod = movementMethod;
+        app = (WikipediaApp) getContext().getApplicationContext();
+        site = app.getPrimarySite();
+        requestPageImages();
+        wikidataCache = app.getWikidataCache();
+        fetchWikiDataIds();
+    }
+
+    private void requestPageImages() {
+        List<PageTitle> titleList = new ArrayList<PageTitle>();
+        for (DisambigResult r : items) {
+            if (pageImagesCache.get(r.getTitle().getPrefixedText()) == null) {
+                // not in our cache yet
+                titleList.add(r.getTitle());
+            }
+        }
+        if (titleList.isEmpty()) {
+            return;
+        }
+
+        PageImagesTask imagesTask = new PageImagesTask(
+                app.getAPIForSite(site),
+                site,
+                titleList,
+                (int)(WikipediaApp.PREFERRED_THUMB_SIZE * WikipediaApp.getInstance().getScreenDensity())) {
+            @Override
+            public void onFinish(Map<PageTitle, String> result) {
+                for (Map.Entry<PageTitle, String> entry : result.entrySet()) {
+                    if (entry.getValue() == null) {
+                        continue;
+                    }
+                    pageImagesCache.put(entry.getKey().getPrefixedText(), entry.getValue());
+                }
+                notifyDataSetInvalidated();
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                // Don't actually do anything.
+                // Thumbnails are expendable
+            }
+        };
+        imagesTask.execute();
+    }
+
+    /**
+     * Start getting Wikidata ID, so that we can request Wikidata descriptions.
+     */
+    private void fetchWikiDataIds() {
+        List<PageTitle> titleList = new ArrayList<PageTitle>();
+        for (DisambigResult r : items) {
+            titleList.add(r.getTitle());
+        }
+        if (titleList.isEmpty()) {
+            return;
+        }
+
+        WikidataIdsTask wikidataIdsTask = new WikidataIdsTask(
+                app.getAPIForSite(site),
+                site,
+                titleList) {
+            @Override
+            public void onFinish(Map<PageTitle, String> result) {
+                List<String> wikidataIds = new ArrayList<String>(result.size());
+                for (Map.Entry<PageTitle, String> entry : result.entrySet()) {
+                    if (entry.getValue() == null) {
+                        continue;
+                    }
+                    titleWikidataIdMap.put(entry.getKey(), entry.getValue());
+                    wikidataIds.add(entry.getValue());
+                }
+                fetchWikiDataDescription(wikidataIds);
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                // Don't actually do anything.
+                // Thumbnails are expendable
+            }
+        };
+        wikidataIdsTask.execute();
+    }
+
+    /**
+     * Start the task of fetching the WikiData description for our page, if it has one.
+     * This should be done after the lead image view is laid out, but can be done independently
+     * of loading the WebView contents.
+     */
+    private void fetchWikiDataDescription(final List<String> wikiDataIds) {
+        if (!wikiDataIds.isEmpty()) {
+            wikidataCache.get(wikiDataIds,
+                      new WikidataCache.OnWikidataReceiveListener() {
+                          @Override
+                          public void onWikidataReceived(Map<String, String> result) {
+                              notifyDataSetChanged();
+                          }
+
+                          @Override
+                          public void onWikidataFailed(Throwable caught) {
+                              // don't care
+                          }
+                      });
+        }
     }
 
     class ViewHolder {
         private ImageView icon;
-        private TextView text;
+        private TextView title;
+        private TextView description;
     }
 
     @Override
@@ -51,37 +166,47 @@ class DisambigListAdapter extends ArrayAdapter<String> {
             convertView = inflater.inflate(R.layout.item_disambig, null);
             holder = new ViewHolder();
             holder.icon = (ImageView) convertView.findViewById(R.id.disambig_icon);
-            holder.text = (TextView) convertView.findViewById(R.id.disambig_text);
+            holder.title = (TextView) convertView.findViewById(R.id.disambig_title);
+            holder.description = (TextView) convertView.findViewById(R.id.disambig_description);
             convertView.setTag(holder);
         } else {
             // view already defined, retrieve view holder
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.text.setText(Html.fromHtml(items[position]));
-        holder.text.setMovementMethod(movementMethod);
-        stripUnderlines(holder.text);
-        final WikipediaApp app = (WikipediaApp) activity.getApplicationContext();
-        app.adjustLinkDrawableToTheme(holder.icon.getDrawable());
-        return convertView;
-    }
+        final DisambigResult item = items[position];
+        holder.title.setText(item.getTitle().getPrefixedText());
 
-    private void stripUnderlines(TextView textView) {
-        Spannable s = (Spannable)textView.getText();
-        URLSpan[] spans = s.getSpans(0, s.length(), URLSpan.class);
-        for (URLSpan span: spans) {
-            int start = s.getSpanStart(span);
-            int end = s.getSpanEnd(span);
-            s.removeSpan(span);
-            span = new URLSpan(span.getURL()) {
-                @Override
-                public void updateDrawState(TextPaint ds) {
-                    super.updateDrawState(ds);
-                    ds.setUnderlineText(false);
-                }
-            };
-            s.setSpan(span, start, end, 0);
+//        convertView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                PageTitle title = item.getTitle();
+//                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+////                dismiss();
+////                activity.displayNewPage(title, historyEntry);
+//            }
+//        });
+
+        String description = null;
+        String wikidataId = titleWikidataIdMap.get(item.getTitle());
+        if (wikidataId != null) {
+            description = wikidataCache.get(wikidataId);
         }
-        textView.setText(s);
+        holder.description.setText(description);
+
+        String thumbnail = pageImagesCache.get(item.getTitle().getPrefixedText());
+        if (thumbnail == null) {
+            Picasso.with(parent.getContext())
+                   .load(R.drawable.ic_pageimage_placeholder)
+                   .into(holder.icon);
+        } else {
+            Picasso.with(parent.getContext())
+                   .load(thumbnail)
+                   .placeholder(R.drawable.ic_pageimage_placeholder)
+                   .error(R.drawable.ic_pageimage_placeholder)
+                   .into(holder.icon);
+        }
+
+        return convertView;
     }
 }

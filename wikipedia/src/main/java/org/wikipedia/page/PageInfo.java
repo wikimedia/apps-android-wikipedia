@@ -1,18 +1,18 @@
 package org.wikipedia.page;
 
 /**
- *
+ * Holds information about disambigs and page issues for a page.
  */
 public class PageInfo {
-    private final String[] disambigs;
+    private final DisambigResult[] disambigs;
     private final String[] issues;
 
-    public PageInfo(String[] disambigs, String[] issues) {
+    public PageInfo(DisambigResult[] disambigs, String[] issues) {
         this.disambigs = disambigs;
         this.issues = issues;
     }
 
-    public String[] getDisambigs() {
+    public DisambigResult[] getDisambigs() {
         return disambigs;
     }
 
