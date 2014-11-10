@@ -154,11 +154,6 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         private TextView description;
     }
 
-    @Override
-    public boolean isEnabled(int position) {
-        return false; // don't make it appear clickable
-    }
-
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = activity.getLayoutInflater();
         ViewHolder holder;
@@ -176,16 +171,6 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
 
         final DisambigResult item = items[position];
         holder.title.setText(item.getTitle().getPrefixedText());
-
-//        convertView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                PageTitle title = item.getTitle();
-//                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-////                dismiss();
-////                activity.displayNewPage(title, historyEntry);
-//            }
-//        });
 
         String description = null;
         String wikidataId = titleWikidataIdMap.get(item.getTitle());
