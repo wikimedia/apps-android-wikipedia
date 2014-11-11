@@ -82,6 +82,9 @@
     <string name="dialog_message_edit_failed">Edit failed!</string>
     <string name="dialog_message_edit_failed_retry">Retry</string>
     <string name="dialog_message_edit_failed_cancel">Cancel</string>
+    <string name="dialog_message_leaving_edit">"Your changes have not been saved yet. Are you sure you want to leave this page?"</string>
+    <string name="dialog_message_leaving_edit_leave">Leave</string>
+    <string name="dialog_message_leaving_edit_stay">Stay</string>
     <string name="menu_show_toc">Table of Contents</string>
     <string name="search_no_results_found">No results found</string>
     <string name="edit_section_captcha_message">To help protect against automated spam, please enter the words that appear below</string>
