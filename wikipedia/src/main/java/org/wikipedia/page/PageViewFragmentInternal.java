@@ -103,7 +103,6 @@ public class PageViewFragmentInternal {
 
     private PageTitle title;
     private PageTitle titleOriginal;
-    private View contentsContainer;
     private ViewGroup imagesContainer;
     private LeadImagesHandler leadImagesHandler;
     private ObservableWebView webView;
@@ -217,8 +216,8 @@ public class PageViewFragmentInternal {
             throw new RuntimeException(e);
         }
 
-        if (webView.getVisibility() == View.GONE) {
-            ViewAnimations.fadeIn(webView);
+        if (webView.getVisibility() != View.VISIBLE) {
+            webView.setVisibility(View.VISIBLE);
         }
 
         getActivity().updateProgressBar(true, true, 0);
@@ -252,7 +251,6 @@ public class PageViewFragmentInternal {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         View rootView =  inflater.inflate(R.layout.fragment_page, container, false);
-        contentsContainer = rootView.findViewById(R.id.page_contents_container);
         webView = (ObservableWebView) rootView.findViewById(R.id.page_web_view);
         networkError = rootView.findViewById(R.id.page_error);
         retryButton = rootView.findViewById(R.id.page_error_retry);
@@ -383,8 +381,6 @@ public class PageViewFragmentInternal {
             Log.d(TAG, "Using page from cache: " + titleOriginal.getDisplayText());
             page = PAGE_CACHE.get(titleOriginal);
             title = page.getTitle();
-            //make the webview immediately visible
-            contentsContainer.setVisibility(View.VISIBLE);
             state = STATE_COMPLETE_FETCH;
         }
 
@@ -434,7 +430,9 @@ public class PageViewFragmentInternal {
             scrollY = 0;
 
             // immediately hide the webview
-            contentsContainer.setVisibility(View.GONE);
+            webView.setVisibility(View.GONE);
+            // and the lead image
+            leadImagesHandler.hide();
 
             // and reload the page...
             setState(STATE_NO_FETCH);
@@ -817,6 +815,7 @@ public class PageViewFragmentInternal {
     private void showNetworkError() {
         // Check for the source of the error and have different things turn up
         leadImagesHandler.hide();
+        webView.setVisibility(View.INVISIBLE);
         ViewAnimations.fadeIn(networkError);
     }
 
