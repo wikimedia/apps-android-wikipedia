@@ -243,7 +243,8 @@ public class FullSearchFragment extends Fragment {
     private void getWikidataDescriptions(List<FullSearchResult> results) {
         List<String> idList = new ArrayList<String>();
         for (FullSearchResult r : results) {
-            if (app.getWikidataCache().get(r.getWikiBaseId()) == null) {
+            if (!TextUtils.isEmpty(r.getWikiBaseId())
+                    && app.getWikidataCache().get(r.getWikiBaseId()) == null) {
                 // not in our cache yet
                 idList.add(r.getWikiBaseId());
             }
