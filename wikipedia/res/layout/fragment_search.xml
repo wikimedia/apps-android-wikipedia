@@ -6,8 +6,8 @@
     android:id="@+id/search_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/window_background_color"
-    android:paddingTop="@dimen/actionBarHeight">
+    android:background="?attr/search_background_color"
+    android:paddingTop="?attr/actionBarSize">
 
     <LinearLayout
         android:id="@+id/search_panel_types"
@@ -18,28 +18,31 @@
         <LinearLayout
             android:id="@+id/search_type_button_container"
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"
             android:layout_gravity="center_horizontal">
             <Button
-                android:layout_width="140dp"
-                android:layout_height="32dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_weight="0.5"
                 android:id="@+id/button_search_title"
-                android:background="@drawable/button_shape_flat"
+                android:background="?attr/window_background_color"
                 android:text="@string/search_titles_button"
-                style="?android:textAppearanceSmall"
                 />
+
+            <View android:layout_width="0.5dp" android:layout_height="match_parent" android:background="?attr/list_separator_color" />
+
             <Button
-                android:layout_width="140dp"
-                android:layout_height="32dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_weight="0.5"
                 android:id="@+id/button_search_full"
-                android:background="@drawable/button_shape_flat"
+                android:background="?attr/window_background_color"
                 android:text="@string/search_full_button"
-                style="?android:textAppearanceSmall"
                 />
         </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="?attr/list_separator_color" />
 
         <FrameLayout
             android:id="@+id/search_types_container"

@@ -10,7 +10,9 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import com.squareup.otto.Subscribe;
 
-import android.graphics.Color;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -25,6 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SearchArticlesFragment extends Fragment {
@@ -80,7 +83,6 @@ public class SearchArticlesFragment extends Fragment {
 
     private View buttonTitleSearch;
     private View buttonFullSearch;
-    private int defaultTextColor;
 
     public SearchArticlesFragment() {
     }
@@ -113,6 +115,23 @@ public class SearchArticlesFragment extends Fragment {
             }
         });
 
+        View deleteButton = parentLayout.findViewById(R.id.recent_searches_delete_button);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                alert.setMessage(getString(R.string.clear_recent_searches_confirm));
+                alert.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        new DeleteAllRecentSearchesTask(app).execute();
+                    }
+                });
+                alert.setNegativeButton(getString(R.string.no), null);
+                alert.create().show();
+            }
+        });
+        app.adjustDrawableToTheme(((ImageView)deleteButton).getDrawable());
+
         recentSearchesFragment = (RecentSearchesFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.search_panel_recent);
         searchTypesContainer = parentLayout.findViewById(R.id.search_panel_types);
 
@@ -139,8 +158,6 @@ public class SearchArticlesFragment extends Fragment {
                 startSearch(lastSearchedText, true);
             }
         });
-
-        defaultTextColor = ((TextView)buttonFullSearch).getTextColors().getDefaultColor();
 
         titleSearchFragment = (TitleSearchFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_search_title);
         titleSearchFragment.setOnNoResultsListener(new TitleSearchFragment.OnNoResultsListener() {
@@ -221,18 +238,18 @@ public class SearchArticlesFragment extends Fragment {
                 break;
             case PANEL_TITLE_SEARCH:
                 searchTypesContainer.setVisibility(View.VISIBLE);
-                buttonTitleSearch.setBackgroundResource(R.drawable.button_shape_flat_highlight);
-                ((TextView)buttonTitleSearch).setTextColor(Color.WHITE);
-                buttonFullSearch.setBackgroundResource(R.drawable.button_shape_flat);
-                ((TextView)buttonFullSearch).setTextColor(defaultTextColor);
+                buttonTitleSearch.setBackgroundColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.search_background_color)));
+                ((TextView)buttonTitleSearch).setTypeface(null, Typeface.BOLD);
+                buttonFullSearch.setBackgroundColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.window_background_color)));
+                ((TextView)buttonFullSearch).setTypeface(null, Typeface.NORMAL);
                 titleSearchFragment.show();
                 break;
             case PANEL_FULL_SEARCH:
                 searchTypesContainer.setVisibility(View.VISIBLE);
-                buttonFullSearch.setBackgroundResource(R.drawable.button_shape_flat_highlight);
-                ((TextView)buttonFullSearch).setTextColor(Color.WHITE);
-                buttonTitleSearch.setBackgroundResource(R.drawable.button_shape_flat);
-                ((TextView)buttonTitleSearch).setTextColor(defaultTextColor);
+                buttonFullSearch.setBackgroundColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.search_background_color)));
+                ((TextView)buttonFullSearch).setTypeface(null, Typeface.BOLD);
+                buttonTitleSearch.setBackgroundColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.window_background_color)));
+                ((TextView)buttonTitleSearch).setTypeface(null, Typeface.NORMAL);
                 fullSearchFragment.show();
                 break;
             default:
@@ -358,10 +375,6 @@ public class SearchArticlesFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         if (isSearchActive) {
             addSearchView(menu);
-            // TODO: remove this when ready for production
-            if (app.getReleaseType() != WikipediaApp.RELEASE_PROD) {
-                addDeleteRecentSearchesMenu(menu);
-            }
         }
     }
 
@@ -391,22 +404,6 @@ public class SearchArticlesFragment extends Fragment {
             }
         }
         MenuItemCompat.setActionView(searchAction, searchView);
-    }
-
-    private void addDeleteRecentSearchesMenu(Menu menu) {
-        MenuItem deleteAction = menu.add(0, R.id.menu_clear_all_recent_searches, Menu.NONE, getString(R.string.menu_clear_all_recent_searches));
-        MenuItemCompat.setShowAsAction(deleteAction, MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
-        deleteAction.setIcon(R.drawable.ic_delete);
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_clear_all_recent_searches:
-                new DeleteAllRecentSearchesTask(app).execute();
-                return true;
-            default:
-                return false;
-        }
     }
 
     /**

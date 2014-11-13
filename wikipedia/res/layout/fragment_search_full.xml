@@ -29,14 +29,13 @@
                 android:layout_gravity="center_horizontal"
                 android:visibility="gone"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"/>
         <ListView
                 android:id="@+id/full_search_results_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
                 android:dividerHeight="0dp"
                 />
