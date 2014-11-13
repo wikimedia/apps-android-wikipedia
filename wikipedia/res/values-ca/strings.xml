@@ -11,7 +11,7 @@
   <string name="search_hint">Cerca a la Viquipèdia</string>
   <string name="history_activity_title">Historial</string>
   <string name="nav_item_history">Historial</string>
-  <string name="error_network_error" fuzzy="true">No s\'ha pogut connectar a la xarxa :(</string>
+  <string name="error_network_error">No hi ha connexió a la xarxa :(</string>
   <string name="search_network_error">Error de xarxa. Toca la pantalla per intentar-ho de nou.</string>
   <string name="page_error_retry">Tornar a provar</string>
   <string name="menu_clear_all_history">Neteja l\'historial</string>
@@ -43,14 +43,18 @@
   <string name="nearby_activity_title">A prop</string>
   <string name="nav_item_nearby">A prop</string>
   <string name="menu_update_nearby">Actualitza les properes</string>
-  <string name="nearby_empty_title" fuzzy="true">No hi ha cap pàgina propera</string>
-  <string name="nearby_empty_message" fuzzy="true">Podeu refrescar la pàgina quan us mogueu a una ubicació nova.</string>
+  <string name="nearby_empty_title">Cap pàgina propera des d\'aquí!</string>
+  <string name="nearby_empty_message">Quan us mogueu a una ubicació nova, proveu de refrescar la pàgina per saber què hi ha al voltant.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">&lt;span class=\"notranslate\" traduir=\"no\"&gt;%d&lt;/span&gt;</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">No hi ha connexió a la xarxa</string>
   <string name="nearby_server_error">No s\'ha pogut recuperar la llista de llocs propers.</string>
   <string name="nearby_no_location">No s\'ha pogut obtenir la ubicació</string>
   <string name="nearby_dialog_goto_settings">Les actualitzacions d\'ubicació no estan actives al vostre dispositiu. Voldríeu anar als paràmetres del dispositiu per tal d\'habilitar-les?</string>
+  <string name="nearby_set_metric">Mostra m/km</string>
+  <string name="nearby_set_imperial">Mostra peus/milles</string>
   <string name="last_updated_text">Última actualització %1$s</string>
   <string name="content_license_html">El contingut està disponible sota llicència &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
   <string name="edit_save_action_license_logged_in">En desar accepteu les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -103,6 +107,7 @@
   <string name="saved_pages_empty_message">Les pàgines desades són fantàstiques. Penseu que són talment com adreces d\'interès que podeu llegir fins i tot sense connexió.</string>
   <string name="history_empty_title">No hi ha pàgines recents aquí.</string>
   <string name="history_empty_message">Probablement les heu eliminat totes. La propera vegada que aneu a una pàgina podeu tornar-hi des d\'aquí.</string>
+  <string name="delete_selected_history">Esborra</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IQUIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">L\'enciclopèdia lliure</string>
   <string name="skip">Omet</string>
@@ -230,9 +235,17 @@
   <string name="page_similar_titles">Pàgines similars</string>
   <string name="search_within_pages">Cerca dins les pàgines…</string>
   <string name="search_no_results">No s\'han trobat resultats de «%s».</string>
+  <string name="search_did_you_mean">Voleu dir \"&lt;span class=\"notranslate\" traduir=\"no\"&gt;%s&lt;/span&gt;\"?</string>
   <string name="search_results_title">Resultats de cerca</string>
   <string name="search_error_retry">Torna a provar</string>
   <string name="search_redirect_title">Redirecció de «%s».</string>
+  <string name="search_recent_header">Cerques recents:</string>
+  <string name="menu_clear_all_recent_searches">Esborra cerques recents</string>
+  <string name="search_titles_button">Títols</string>
+  <string name="search_full_button">Dins d\'articles</string>
+  <string name="toc_hint">Feu lliscar el dit cap a l\'esquerra per a les seccions, o utilitzeu el botó de menú a la part superior dreta.</string>
+  <string name="toc_know_it">Ho he entès</string>
+  <string name="error_browser_not_found">No s\'ha pogut obrir la pàgina web (no s\'ha trobat cap navegador)</string>
   <string name="app_store_description">Aplicació oficial de la Viquipèdia per a l\'Android. La Viquipèdia és una enciclopèdia lliure que conté més de 32 milions d\'articles en 280 llengües. Es tracta d\'una de les obres de referència més usades i comprensives mai compilada per la humanitat. L\'aplicació ha estat reescrita de bell nou i és millor que mai.
 
 Característiques:
@@ -245,4 +258,6 @@ Característiques:
  - Wikipedia Zero: alguns operadors mòbils renuncien als costos de dades associats en l\'ús de l\'aplicació.
 
 El codi és totalment obert. Si teniu experiència en Java i en l\'SDK de l\'Android, «feu-ne fork»! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Hi ha disponible una nova versió alfa</string>
+  <string name="alpha_update_notification_text">Toqueu per descarregar</string>
 </resources>

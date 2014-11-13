@@ -11,7 +11,7 @@
   <string name="search_hint">위키백과 검색</string>
   <string name="history_activity_title">방문 기록</string>
   <string name="nav_item_history">방문 기록</string>
-  <string name="error_network_error" fuzzy="true">네트워크에 접속할 수 없습니다 :(</string>
+  <string name="error_network_error">네트워크 연결이 없습니다 :(</string>
   <string name="search_network_error">네트워크 오류입니다. 다시 시도하려면 누르세요.</string>
   <string name="page_error_retry">다시 시도</string>
   <string name="menu_clear_all_history">방문 기록 지우기</string>
@@ -43,8 +43,8 @@
   <string name="nearby_activity_title">근처</string>
   <string name="nav_item_nearby">근처</string>
   <string name="menu_update_nearby">근처 업데이트</string>
-  <string name="nearby_empty_title" fuzzy="true">근처에 문서가 없습니다</string>
-  <string name="nearby_empty_message" fuzzy="true">새 위치로 움직일 때 이 문서를 새로 고칠 수 있습니다.</string>
+  <string name="nearby_empty_title">여기 근처에 문서가 없습니다!</string>
+  <string name="nearby_empty_message">새 위치로 움직일 때, 주위에 무엇이 있는지 자세히 알아 보려면 이 문서를 새로 고치세요.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

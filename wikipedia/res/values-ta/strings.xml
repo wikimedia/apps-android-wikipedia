@@ -9,7 +9,7 @@
   <string name="search_hint">விக்கிப்பீடியாவில் தேடவும்</string>
   <string name="history_activity_title">வரலாறு</string>
   <string name="nav_item_history">வரலாறு</string>
-  <string name="error_network_error" fuzzy="true">வலையத்தை அடைய முடியவில்லை :(</string>
+  <string name="error_network_error">வலைய இணைப்பு இல்லை :(</string>
   <string name="search_network_error">வலையத் தவறு. திரும்ப முயல தட்டவும்.</string>
   <string name="page_error_retry">மறு முயற்சி செய்</string>
   <string name="menu_clear_all_history">வரலாற்றை நீக்கவும்</string>
@@ -85,6 +85,7 @@
   <string name="saved_pages_empty_message">சேமிக்கப்பட்ட பக்கங்கள் மிக அருமையானவை. இணைப்பில்லாத போதும் படிக்கக்கூடிய இணைப்புக்குறிகள் என்று நினைக்கவும்.</string>
   <string name="history_empty_title">அண்மைய பக்கங்கள் ஏதுமில்லை.</string>
   <string name="history_empty_message">அனைத்தையும் அழித்துவிட்டீர்கள் போல. அடுத்த முறை ஒருபக்கத்துக்கு செல்லும்போது அதற்கு இங்கிருந்து திரும்பச் செல்லலாம்.</string>
+  <string name="delete_selected_history">நீக்கவும்</string>
   <string name="wp_stylized">&lt;big&gt;வி&lt;/big&gt;க்கிப்பீடி&lt;big&gt;யா&lt;/big&gt;</string>
   <string name="wp_tag_line">கட்டற்ற கலைக்களஞ்சியம்</string>
   <string name="skip">தாண்டிச் செல்க</string>
