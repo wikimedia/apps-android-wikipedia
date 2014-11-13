@@ -1,9 +1,8 @@
 package org.wikipedia.theme;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
-import android.view.*;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import com.squareup.otto.Subscribe;
@@ -11,8 +10,9 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppearanceChangeFunnel;
 import org.wikipedia.events.WebViewInvalidateEvent;
+import org.wikipedia.page.BottomDialog;
 
-public class ThemeChooserDialog extends Dialog {
+public class ThemeChooserDialog extends BottomDialog {
     private WikipediaApp app;
     private Button buttonDefaultTextSize;
     private Button buttonDecreaseTextSize;
@@ -24,28 +24,11 @@ public class ThemeChooserDialog extends Dialog {
     private AppearanceChangeFunnel funnel;
 
     public ThemeChooserDialog(Context context) {
-        super(context);
+        super(context, R.layout.dialog_themechooser);
         app = WikipediaApp.getInstance();
-
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View dlgLayout = inflater.inflate(R.layout.dialog_themechooser, null);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            getWindow().setDimAmount(0.0f);
-        }
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(dlgLayout);
         funnel = new AppearanceChangeFunnel(app, app.getPrimarySite());
 
-        getWindow().setBackgroundDrawable(null);
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.copyFrom(getWindow().getAttributes());
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        lp.gravity = Gravity.BOTTOM;
-        getWindow().setAttributes(lp);
-
-        buttonDecreaseTextSize = (Button) dlgLayout.findViewById(R.id.buttonDecreaseTextSize);
+        buttonDecreaseTextSize = (Button) getDialogLayout().findViewById(R.id.buttonDecreaseTextSize);
         buttonDecreaseTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +40,7 @@ public class ThemeChooserDialog extends Dialog {
             }
         });
 
-        buttonDefaultTextSize = (Button) dlgLayout.findViewById(R.id.buttonDefaultTextSize);
+        buttonDefaultTextSize = (Button) getDialogLayout().findViewById(R.id.buttonDefaultTextSize);
         buttonDefaultTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +52,7 @@ public class ThemeChooserDialog extends Dialog {
             }
         });
 
-        buttonIncreaseTextSize = (Button) dlgLayout.findViewById(R.id.buttonIncreaseTextSize);
+        buttonIncreaseTextSize = (Button) getDialogLayout().findViewById(R.id.buttonIncreaseTextSize);
         buttonIncreaseTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,7 +64,7 @@ public class ThemeChooserDialog extends Dialog {
             }
         });
 
-        buttonThemeLight = (Button) dlgLayout.findViewById(R.id.buttonColorsLight);
+        buttonThemeLight = (Button) getDialogLayout().findViewById(R.id.buttonColorsLight);
         buttonThemeLight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,7 +76,7 @@ public class ThemeChooserDialog extends Dialog {
             }
         });
 
-        buttonThemeDark = (Button) dlgLayout.findViewById(R.id.buttonColorsDark);
+        buttonThemeDark = (Button) getDialogLayout().findViewById(R.id.buttonColorsDark);
         buttonThemeDark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,7 +88,7 @@ public class ThemeChooserDialog extends Dialog {
             }
         });
 
-        fontChangeProgressBar = (ProgressBar) dlgLayout.findViewById(R.id.font_change_progress_bar);
+        fontChangeProgressBar = (ProgressBar) getDialogLayout().findViewById(R.id.font_change_progress_bar);
 
         updateButtonState();
     }
