@@ -234,7 +234,7 @@
   <string name="page_similar_titles">Pajennoù kar</string>
   <string name="search_within_pages">Klask er pajennoù...</string>
   <string name="search_no_results">Disoc\'h ebet kavet evit \"%s\".</string>
-  <string name="search_did_you_mean">\"$\" emezit-c\'hwi ?</string>
+  <string name="search_did_you_mean">\"%s\" emezit-c\'hwi ?</string>
   <string name="search_results_title">Klask disoc\'hoù</string>
   <string name="search_error_retry">Klask en-dro</string>
   <string name="search_redirect_title">Adkaset war-zu \"%s\"</string>
