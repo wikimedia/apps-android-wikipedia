@@ -334,9 +334,14 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         if (!parentFragment.isAdded()) {
             return;
         }
+        boolean isMainPage = parentFragment.getFragment().getPage().getPageProperties().isMainPage();
         int titleContainerHeight;
         int titleBottomPadding = 0;
-        if (!leadImagesEnabled) {
+
+        if (isMainPage) {
+            titleContainerHeight = (int)(parentFragment.getResources().getDimension(R.dimen.actionBarHeight) / displayDensity);
+            imageContainer.setVisibility(View.INVISIBLE);
+        } else if (!leadImagesEnabled) {
             // ok, we're not going to show lead images, so we need to make some
             // adjustments to our layout:
             // make the WebView padding be just the height of the title text, plus a fixed offset
@@ -412,7 +417,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
 
         // and start fetching the lead image, if we have one
         String thumbUrl = parentFragment.getFragment().getPage().getPageProperties().getLeadImageUrl();
-        if (thumbUrl != null && leadImagesEnabled) {
+        if (!isMainPage && thumbUrl != null && leadImagesEnabled) {
             thumbUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + thumbUrl;
             Picasso.with(parentFragment.getActivity())
                     .load(thumbUrl)
@@ -420,15 +425,14 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                     .into((Target)image1);
         }
 
-        // make everything visible!
-        imageContainer.setVisibility(View.VISIBLE);
-
         // tell our listener that it's ok to start loading the rest of the WebView content
         listener.onLayoutComplete();
 
-        // kick off loading of the WikiData description, if we have one
-        // (and only if it's not the Main page)
-        if (!parentFragment.getFragment().getPage().getPageProperties().isMainPage()) {
+        if (!isMainPage) {
+            // make everything visible!
+            imageContainer.setVisibility(View.VISIBLE);
+
+            // kick off loading of the WikiData description, if we have one
             fetchWikiDataDescription();
         }
     }
