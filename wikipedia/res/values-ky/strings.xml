@@ -47,7 +47,7 @@
   <string name="nearby_empty_message">Сиз башка жерге жылгандан кийин, сиз жакта эмне бар экенин билүү үчүн бул баракты жаңылап көрүңүз.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
-  <string name="nearby_distance_in_feet">%.2f фут</string>
+  <string name="nearby_distance_in_feet">%d фут</string>
   <string name="nearby_distance_in_miles">%.2f миль</string>
   <string name="nearby_no_network">Тармактык туташуу жокко эсе</string>
   <string name="nearby_server_error">Жакынкы жерлердин тизмесин алууга мүмкүнчүлүк болбоду.</string>

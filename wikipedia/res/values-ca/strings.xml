@@ -47,7 +47,7 @@
   <string name="nearby_empty_message">Quan us mogueu a una ubicació nova, proveu de refrescar la pàgina per saber què hi ha al voltant.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">&lt;span class=\"notranslate\" traduir=\"no\"&gt;%d&lt;/span&gt;</string>
+  <string name="nearby_distance_in_feet" fuzzy="true">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">No hi ha connexió a la xarxa</string>
   <string name="nearby_server_error">No s\'ha pogut recuperar la llista de llocs propers.</string>
@@ -235,7 +235,7 @@
   <string name="page_similar_titles">Pàgines similars</string>
   <string name="search_within_pages">Cerca dins les pàgines…</string>
   <string name="search_no_results">No s\'han trobat resultats de «%s».</string>
-  <string name="search_did_you_mean">Voleu dir \"&lt;span class=\"notranslate\" traduir=\"no\"&gt;%s&lt;/span&gt;\"?</string>
+  <string name="search_did_you_mean">Voleu dir \"%s\"?</string>
   <string name="search_results_title">Resultats de cerca</string>
   <string name="search_error_retry">Torna a provar</string>
   <string name="search_redirect_title">Redirecció de «%s».</string>

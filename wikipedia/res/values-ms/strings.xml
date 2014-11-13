@@ -245,13 +245,13 @@
   <string name="toc_hint">Leret ke kiri untuk bahagian, atau gunakan butang menu di kanan atas.</string>
   <string name="toc_know_it">Saya faham</string>
   <string name="error_browser_not_found">Tidak dapat membuka laman web (tiada aplikasi pelayar ditemui).</string>
-  <string name="app_store_description">Aplikasi rasmi Wikipedia untuk Android. Wikipedia merupakan ensiklopedia bebas yang mengandungi lebih daripada 32 juta rencana dalam 280 bahasa, bahkan merupakan bahan rujukan paling menyeluruh dan meluas digunakan yang pernah dihimpunkan oleh manusia. Aplikasi ini telah ditulis ganti dari pangkal dan oleh itu lebih baik daripada dahulu.
+  <string name="app_store_description" fuzzy="true">Aplikasi rasmi Wikipedia untuk Android. Wikipedia merupakan ensiklopedia bebas yang mengandungi lebih daripada 32 juta rencana dalam 280 bahasa, bahkan merupakan bahan rujukan paling menyeluruh dan meluas digunakan yang pernah dihimpunkan oleh manusia. Aplikasi ini telah ditulis ganti dari pangkal dan oleh itu lebih baik daripada dahulu.
 
 Ciri-ciri:
    - Kelajuan: Aplikasi asli baru kami membolehkan anda untuk melayari dan menyunting Wikipedia dengan lebih cepat daripada dahulu.
    - Penyuntingan: Anda boleh menyunting Wikipedia! Tak kira yang log masuk mahupun keluar, kami amat menghargai sumbangan anda.
    - Laman terbaru: Kami menyediakan sejarah pembacaan supaya anda boleh mengetik sebanyak mana pautan yang anda mahu tanpa sesekali tersesat jalan.
-   - Laman simpanan: Anda boleh menyimpan laman-laman terpilih untuk dibaca secara &lt;i&gt;offline&lt;/i&gt; dan juga dilayari walaupun tiada sambungan data.
+   - Laman simpanan: Anda boleh menyimpan laman-laman terpilih untuk dibaca secara offline dan juga dilayari walaupun tiada sambungan data.
    - Perkongsian: Gunakan aplikasi media sosial sedia anda untuk menyebarkan seluruh ilmu pengetahuan insan.
    - Sokongan bahasa: Aplikasi ini membolehkan anda untuk menukar bahasa bacaan Wikipedia dengan lancar.
    - Wikipedia Zero: Caj data dikecualikan untuk pengendali khidmat telekom selular yang mengambil bahagian.
