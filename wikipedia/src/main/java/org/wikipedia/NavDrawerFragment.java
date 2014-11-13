@@ -211,6 +211,9 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                         Log.d("Wikipedia", "Show da main page yo");
                     }
                 }, DateUtils.SECOND_IN_MILLIS);
+                // clear Wikidata cache, since the descriptions will need to be
+                // re-fetched in the new language.
+                app.getWikidataCache().clear();
             } else if (resultCode == SettingsActivity.ACTIVITY_RESULT_LOGOUT) {
                 doLogout();
             }

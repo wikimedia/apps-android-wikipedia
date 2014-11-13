@@ -19,6 +19,10 @@ public class WikidataCache {
         this.app = app;
     }
 
+    public void clear() {
+        descriptionCache.evictAll();
+    }
+
     public void put(String key, String value) {
         descriptionCache.put(key, value);
     }
