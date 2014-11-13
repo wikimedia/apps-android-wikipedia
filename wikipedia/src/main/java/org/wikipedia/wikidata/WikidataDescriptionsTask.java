@@ -47,6 +47,8 @@ public class WikidataDescriptionsTask extends ApiTask<Map<String, String>> {
             if (descriptions != null && descriptions.has(language)) {
                 JSONObject langEntry = descriptions.getJSONObject(language);
                 String value = langEntry.optString("value");
+                //Capitalise the first letter of the description, for style
+                value = value.substring(0, 1).toUpperCase() + value.substring(1);
                 map.put(key, value);
             }
         }
