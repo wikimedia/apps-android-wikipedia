@@ -106,7 +106,7 @@ function disambigClicked( sourceNode ) {
 
 function collectDisambig( sourceNode ) {
     var res = [];
-    var links = sourceNode.querySelectorAll( 'div.hatnote > a' );
+    var links = sourceNode.querySelectorAll( 'div.hatnote a' );
     var i = 0,
         len = links.length;
     for (; i < len; i++) {
