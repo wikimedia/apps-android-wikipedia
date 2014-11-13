@@ -271,7 +271,8 @@ See also:
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.
 {{Identical|Contributor}}</string>
-  <string name="about_translators_heading">Heading for section that gives credit to translatewiki transators.</string>
+  <string name="about_translators_heading">Heading for section that gives credit to translatewiki transators.
+{{Identical|Translator}}</string>
   <string name="about_translators_translatewiki">Credit given to translatewiki translators.
 
 {{doc-important|Please don\'t translate the link and the site title.}}</string>
@@ -342,10 +343,6 @@ See also:
   <string name="error_browser_not_found">Toast message shown when we try to open an external browser but none seems to be installed.</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
   <string name="alpha_update_notification_title">Title for notification when new alpha update is available.
-  <string name="table_infobox">Title displayed in a collapsed infobox table.</string>
-  <string name="table_other">Title displayed in a collapsed table that is not an infobox.</string>
-  <string name="table_close">Button title shown at the bottom of an expanded table, to collapse it and scroll back up.</string>
-
 
 Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
   <string name="alpha_update_notification_text">Text for notification when new alpha update is available.

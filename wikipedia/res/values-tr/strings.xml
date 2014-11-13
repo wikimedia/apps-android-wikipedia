@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">Kaydedilmiş sayfalar çok güzeldir. Bunu çevrim dışıyken bile okuyabileceğiniz yer imleri olarak düşünün.</string>
   <string name="history_empty_title">Hiç ziyaret edilmiş sayfa yok.</string>
   <string name="history_empty_message">Muhtemelen hepsini sildiniz. Bir daha herhangi bir sayfaya gittiğinizde, buradan ona tekrar ulaşabilirsiniz.</string>
+  <string name="delete_selected_history">Sil</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;İKİPED&lt;big&gt;İ&lt;/big&gt;</string>
   <string name="wp_tag_line">Özgür Ansiklopedi</string>
   <string name="skip">Atla</string>
@@ -239,10 +240,12 @@
   <string name="search_error_retry">Tekrar dene</string>
   <string name="search_redirect_title">\"%s\" sayfasından yönlendirme.</string>
   <string name="search_recent_header">Son aramalar:</string>
+  <string name="menu_clear_all_recent_searches">Son aramaları temizle</string>
   <string name="search_titles_button">Madde adları</string>
   <string name="search_full_button">Maddeler içinde</string>
   <string name="toc_hint">Başlıkları görmek için sayfayı sola çekin veya sağ üstteki menü tuşunu kullanın.</string>
   <string name="toc_know_it">Anladım</string>
+  <string name="error_browser_not_found">Web sayfası açılamadı (tarayıcı uygulaması bulunamadı).</string>
   <string name="app_store_description">Android için resmi Vikipedi Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır. Sıfırdan tekrar yazılan uygulama, şimdi her zamankinden daha iyi.
 
 Özellikler:

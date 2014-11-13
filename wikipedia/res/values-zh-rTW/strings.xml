@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">維基百科</string>
-  <string name="app_name_beta">維基百科測試版</string>
-  <string name="app_name_alpha">維基百科Alpha</string>
+  <string name="app_name_beta">維基百科公測版</string>
+  <string name="app_name_alpha">維基百科內測版</string>
   <string name="yes">是</string>
   <string name="no">否</string>
   <string name="acra_report_dialog_title">維基百科發生錯誤 :(</string>
@@ -58,7 +58,7 @@
   <string name="last_updated_text">最後更新：%s</string>
   <string name="content_license_html">內容在&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/A&gt;之條款下提供，除非另有註明。</string>
   <string name="edit_save_action_license_logged_in">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。</string>
-  <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href=“https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA3.0&lt;/A&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
+  <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href=“https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\"&gt;CC BY-SA3.0&lt;/A&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="preference_summary_language">內容語言</string>
   <string name="preference_languages_filter_hint">搜尋</string>
@@ -135,7 +135,7 @@
   <string name="create_account_generic_error">無法建立帳戶</string>
   <string name="create_account_no_network">沒有網路連線</string>
   <string name="create_account_next">下一步</string>
-  <string name="create_account_button">建立帳戶</string>
+  <string name="create_account_button">建立帳號</string>
   <string name="preferences_general_heading">一般</string>
   <string name="zero_charged_verbiage">Wikipedia Zero已被關掉（可能要付標準資料費用）</string>
   <string name="zero_charged_verbiage_extended">載入其他條目可能產生資料費用。</string>
