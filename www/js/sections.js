@@ -139,9 +139,15 @@ bridge.registerListener( "scrollToSection", function ( payload ) {
 });
 
 function scrollToSection( anchor ) {
-    var el = document.getElementById( anchor );
-    var scrollY = el.offsetTop - 48;
-    window.scrollTo( 0, scrollY );
+    if (anchor === "heading_0") {
+        // if it's the first section, then scroll all the way to the top, since there could
+        // be a lead image, native title components, etc.
+        window.scrollTo( 0, 0 );
+    } else {
+        var el = document.getElementById( anchor );
+        var scrollY = el.offsetTop - 48;
+        window.scrollTo( 0, scrollY );
+    }
 }
 
 /**
