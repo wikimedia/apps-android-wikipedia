@@ -505,6 +505,9 @@ public class PageViewFragmentInternal {
     }
 
     private void setState(int state, int subState) {
+        if (!isAdded()) {
+            return;
+        }
         this.state = state;
         this.subState = subState;
         getActivity().supportInvalidateOptionsMenu();

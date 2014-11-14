@@ -113,7 +113,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
         site = app.getPrimarySite();
-        adapter = new NearbyAdapter(getActivity(), new ArrayList<NearbyPage>());
     }
 
     @Override
@@ -132,6 +131,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
+        adapter = new NearbyAdapter(getActivity(), new ArrayList<NearbyPage>());
         nearbyList.setAdapter(adapter);
 
         nearbyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -438,9 +438,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             ((PageActivity)getActivity()).updateProgressBar(true, true, 0);
         } else {
             ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            getActivity().invalidateOptionsMenu();
         }
     }
 
