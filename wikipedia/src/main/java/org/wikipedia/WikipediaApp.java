@@ -103,7 +103,6 @@ public class WikipediaApp extends Application {
     public static final int RELEASE_ALPHA = 2;
     private int releaseType = RELEASE_PROD;
 
-    public static final int LEAD_IMAGE_SIZE = 640;
     public static final int PREFERRED_THUMB_SIZE = 96;
 
     /**

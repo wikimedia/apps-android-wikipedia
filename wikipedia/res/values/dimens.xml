@@ -13,6 +13,13 @@
     <!-- Default height of list items -->
     <dimen name="defaultListItemSize">72dp</dimen>
 
+    <!-- Default width of the lead image to be downloaded -->
+    <dimen name="leadImageWidth">640dp</dimen>
+    <!-- Default font size of the page title -->
+    <dimen name="titleTextSize">28sp</dimen>
+    <!-- Default font size of the Wikidata description for the page -->
+    <dimen name="descriptionTextSize">14sp</dimen>
+
     <!--
         Onboarding screen
     -->

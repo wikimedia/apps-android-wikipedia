@@ -188,8 +188,15 @@ public class PageViewFragmentInternal {
     }
 
     private void displayLeadSection() {
-        JSONObject leadSectionPayload = new JSONObject();
         try {
+            JSONObject marginPayload = new JSONObject();
+            int margin = (int)(getResources().getDimension(R.dimen.activity_horizontal_margin)
+                    / getResources().getDisplayMetrics().density);
+            marginPayload.put("marginLeft", margin);
+            marginPayload.put("marginRight", margin);
+            bridge.sendMessage("setMargins", marginPayload);
+
+            JSONObject leadSectionPayload = new JSONObject();
             leadSectionPayload.put("title", page.getDisplayTitle());
             leadSectionPayload.put("section", page.getSections().get(0).toJSON());
             leadSectionPayload.put("string_page_similar_titles", getString(R.string.page_similar_titles));
@@ -718,7 +725,8 @@ public class PageViewFragmentInternal {
             RequestBuilder builder =  super.buildRequest(api);
             builder.param("prop", builder.getParams().get("prop") + "|pageprops|thumb|"
                     + Page.API_REQUEST_PROPS);
-            builder.param("thumbsize", Integer.toString(WikipediaApp.LEAD_IMAGE_SIZE));
+            builder.param("thumbsize", Integer.toString((int)(getResources().getDimension(R.dimen.leadImageWidth)
+                    / getResources().getDisplayMetrics().density)));
             builder.param("appInstallID", app.getAppInstallID());
             return builder;
         }

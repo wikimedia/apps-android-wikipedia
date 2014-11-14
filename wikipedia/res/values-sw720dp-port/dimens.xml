@@ -2,11 +2,11 @@
 
     <!--
          Customize dimensions originally defined in res/values/dimens.xml (such as
-         screen margins) for sw600dp devices (e.g. 7" tablets) in landscape here.
+         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     -->
     <dimen name="activity_horizontal_margin">64dp</dimen>
 
-    <dimen name="titleTextSize">32sp</dimen>
-    <dimen name="descriptionTextSize">16sp</dimen>
+    <dimen name="titleTextSize">40sp</dimen>
+    <dimen name="descriptionTextSize">18sp</dimen>
 
 </resources>

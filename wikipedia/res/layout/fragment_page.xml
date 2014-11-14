@@ -58,8 +58,8 @@
                         android:fontFamily="serif"
                         android:paddingTop="16dp"
                         android:paddingBottom="16dp"
-                        android:paddingRight="16dp"
-                        android:paddingLeft="16dp"/>
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"/>
                     <TextView
                         android:id="@+id/page_description_text"
                         android:layout_width="match_parent"
@@ -67,9 +67,10 @@
                         android:layout_gravity="bottom"
                         android:visibility="invisible"
                         android:fontFamily="serif"
+                        android:textSize="@dimen/descriptionTextSize"
                         android:paddingBottom="16dp"
-                        android:paddingRight="16dp"
-                        android:paddingLeft="16dp"/>
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"/>
                 </FrameLayout>
             </FrameLayout>
         </FrameLayout>

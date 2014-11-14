@@ -4,5 +4,8 @@
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw600dp devices (e.g. 7" tablets) here.
     -->
+    <dimen name="leadImageWidth">800dp</dimen>
+
+    <dimen name="textSize">16sp</dimen>
 
 </resources>

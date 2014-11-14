@@ -62,11 +62,6 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     private static final int TITLE_MAX_HEIGHT_DP = 256;
 
     /**
-     * Default font size of the page title, before any resizing.
-     */
-    private static final int TITLE_DEFAULT_TEXT_SIZE_SP = 28;
-
-    /**
      * Minimum font size of the page title. Will not be reduced any further than this.
      */
     private static final int TITLE_MIN_TEXT_SIZE_SP = 12;
@@ -265,7 +260,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         pageDescriptionText.setVisibility(View.INVISIBLE);
 
         // kick off the (asynchronous) laying out of the page title text
-        layoutPageTitle(TITLE_DEFAULT_TEXT_SIZE_SP, listener);
+        layoutPageTitle((int)(parentFragment.getResources().getDimension(R.dimen.titleTextSize)
+                / displayDensity), listener);
     }
 
     /**

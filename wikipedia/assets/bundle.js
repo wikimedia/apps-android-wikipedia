@@ -434,6 +434,11 @@ bridge.registerListener( "clearContents", function() {
     clearContents();
 });
 
+bridge.registerListener( "setMargins", function( payload ) {
+    document.body.style.marginLeft = payload.marginLeft + "px";
+    document.body.style.marginRight = payload.marginRight + "px";
+});
+
 bridge.registerListener( "setPaddingTop", function( payload ) {
     document.body.style.paddingTop = payload.paddingTop + "px";
 });
