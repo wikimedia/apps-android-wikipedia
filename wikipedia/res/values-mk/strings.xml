@@ -246,6 +246,9 @@
   <string name="toc_hint">Повлечете лево за поднасловите или послужете се со копчето во менито горе-десно.</string>
   <string name="toc_know_it">Јасно</string>
   <string name="error_browser_not_found">Не можам да ја отворам страницата (не најдов прелистувачки прилог).</string>
+  <string name="table_infobox">Накратко</string>
+  <string name="table_other">Повеќе информации</string>
+  <string name="table_close">Затвори</string>
   <string name="app_store_description">Официјален Википедиин прилог (апликација) за Android. Википедија е слободна енциклопедија со преку 32 милиони статии на 280 јазици, и претставува најопсежното и најкористеното прирачно дело во историјата на човештвото. Прилогов е преработен од нула и затоа е подобар од било кога.
 
 Можности:
@@ -260,4 +263,5 @@
 Кодот е сосема отворен. Ако имате искуство со Java и SDK на Android, тогаш повелете — работете кај нас! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">Имаме нова алфа-надградба</string>
   <string name="alpha_update_notification_text">Допрете за да ја симнете</string>
+  <string name="dialog_close_description">Затвори</string>
 </resources>

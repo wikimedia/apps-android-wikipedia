@@ -2,13 +2,15 @@
 <resources>
   <string name="app_name">ვიკიპედია</string>
   <string name="app_name_beta">ვიკიპედია ბეტა</string>
+  <string name="app_name_alpha">ვიკიპედია ალფა</string>
   <string name="yes">დიახ</string>
   <string name="no">არა</string>
   <string name="acra_report_dialog_title">ვიკიპედიის შეცდომა :(</string>
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="history_activity_title">ისტორია</string>
   <string name="nav_item_history">ისტორია</string>
-  <string name="error_network_error" fuzzy="true">ქსელს ვერ უკავშირდება :(</string>
+  <string name="error_network_error">ქსელთან კავშირი არ არის :(</string>
+  <string name="search_network_error">ქსელის შეცდომა. სცადეთ ახლიდან.</string>
   <string name="page_error_retry">გამეორება</string>
   <string name="menu_clear_all_history">ისტორიის გასუფთავება</string>
   <string name="menu_clear_all_bookmarks">გაასუბთავეთ სანიშნეები</string>
@@ -35,6 +37,15 @@
   <string name="delete_selected_saved_pages">წაშლა</string>
   <string name="toast_saved_page_deleted">შენახული გვერდ(ებ)ი წაიშალა</string>
   <string name="saved_pages_search_list_hint">ძებნა</string>
+  <string name="nearby_activity_title">სიახლოვეს</string>
+  <string name="nav_item_nearby">სიახლოვეს</string>
+  <string name="menu_update_nearby">განაახლე ახლომდებარე</string>
+  <string name="nearby_empty_title">ახლომდებარე გვერდები ვერ მოიძებნა!</string>
+  <string name="nearby_distance_in_meters">%d მ</string>
+  <string name="nearby_distance_in_kilometers">%.2f კმ</string>
+  <string name="nearby_distance_in_feet">%d ფტ</string>
+  <string name="nearby_distance_in_miles">%.2f მი</string>
+  <string name="nearby_no_network">არ არის ინტერნეტ-კავშირი</string>
   <string name="last_updated_text">ბოლოს განახლდა %s</string>
   <string name="preference_title_language">ვიკიპედიის ენები</string>
   <string name="preference_summary_language">შინაარსის ენა</string>

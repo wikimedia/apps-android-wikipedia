@@ -132,4 +132,6 @@
   <string name="search_titles_button">Титулаш</string>
   <string name="search_full_button">Яззамашкахь</string>
   <string name="toc_know_it">Кхетий</string>
+  <string name="table_close">ДӀачӀагӀа</string>
+  <string name="dialog_close_description">ДӀачӀагӀа</string>
 </resources>

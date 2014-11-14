@@ -229,6 +229,9 @@
   <string name="search_recent_header">Ostatnie wyszukiwania:</string>
   <string name="search_titles_button">Tytuły</string>
   <string name="search_full_button">W artykułach</string>
+  <string name="table_other">Więcej informacji</string>
+  <string name="table_close">Zamknij</string>
   <string name="alpha_update_notification_title">Dostępna jest nowa aktualizacja alfa</string>
   <string name="alpha_update_notification_text">Kliknij, aby pobrać.</string>
+  <string name="dialog_close_description">Zamknij</string>
 </resources>

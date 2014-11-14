@@ -246,6 +246,9 @@
   <string name="toc_hint">Wische nach links für Abschnitte oder benutze rechts oben den Menü-Button.</string>
   <string name="toc_know_it">Verstanden</string>
   <string name="error_browser_not_found">Webseite konnte nicht geöffnet werden (keine Browser-App gefunden).</string>
+  <string name="table_infobox">Schnelle Fakten</string>
+  <string name="table_other">Weitere Informationen</string>
+  <string name="table_close">Schließen</string>
   <string name="app_store_description">Offizielle Wikipedia-App für Android. Wikipedia ist die freie Enzyklopädie mit mehr als 32 Millionen Artikeln in 280 Sprachen und ist das umfangreichste und am meisten genutzte Nachschlagewerk, das von Menschen zusammengestellt wurde. Die App wurde neu geschrieben und ist besser als jemals zuvor.
 
 Funktionen:
@@ -260,4 +263,5 @@ Funktionen:
 Der Code ist völlig quelloffen. Falls du Erfahrungen mit Java und dem Android-SDK hast, dann unterstütze uns! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">Neue Alpha-Aktualisierung verfügbar</string>
   <string name="alpha_update_notification_text">Zum Herunterladen tippen</string>
+  <string name="dialog_close_description">Schließen</string>
 </resources>

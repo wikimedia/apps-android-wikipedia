@@ -246,6 +246,9 @@
   <string name="toc_hint">Balayer vers la gauche pour les sections, ou utiliser le bouton de menu en haut à droite.</string>
   <string name="toc_know_it">C’est bon !</string>
   <string name="error_browser_not_found">Impossible d’ouvrir la page web (aucune application de navigateur trouvée).</string>
+  <string name="table_infobox">Faits en bref</string>
+  <string name="table_other">Plus d’information</string>
+  <string name="table_close">Fermer</string>
   <string name="app_store_description">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée. L’application a été réécrite de zéro et est meilleure que jamais.
 
 Fonctionnalités :
@@ -260,4 +263,5 @@ Fonctionnalités :
 Le code est entièrement ouvert. Si vous êtes expérimenté avec Java et le kit de développement Android, alors venez créer votre variante ! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">Nouvelle mise à jour alpha disponible</string>
   <string name="alpha_update_notification_text">Touchez pour télécharger</string>
+  <string name="dialog_close_description">Fermer</string>
 </resources>

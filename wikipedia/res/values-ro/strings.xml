@@ -246,6 +246,9 @@
   <string name="toc_hint">Trageți înspre stânga pentru a vizualiza cuprinsul sau folosiți butonul de meniu din dreapta sus.</string>
   <string name="toc_know_it">Am înțeles!</string>
   <string name="error_browser_not_found">Nu s-a putut deschide pagina web (nicio aplicație de browser găsită).</string>
+  <string name="table_infobox">Informații pe scurt</string>
+  <string name="table_other">Mai multe informații</string>
+  <string name="table_close">Închide</string>
   <string name="app_store_description">Aplicația oficială a Wikipediei pentru Android. Wikipedia este enciclopedia liberă, care conține peste 32 de milioane de articole în 280 de limbi, fiind cea mai cuprinzătoare și larg utilizată lucrare de referință elaborată vreodată de omenire. Aplicația a fost rescrisă din temelii și este mai bună ca oricând.
 
 Caracteristici:
@@ -260,4 +263,5 @@ Caracteristici:
 Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) cu Java și kitul de dezvoltare al Androidului, creați-vă propria versiune! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">O nouă actualizare alfa disponibilă</string>
   <string name="alpha_update_notification_text">Atingeți pentru a descărca</string>
+  <string name="dialog_close_description">Închide</string>
 </resources>
