@@ -23,7 +23,7 @@ public class CaptchaResult extends EditingResult {
     }
 
     public String getCaptchaUrl(Site site) {
-        return site.getFullUrl("/w/index.php?title=Special:Captcha/image&wpCaptchaId=" + captchaId);
+        return site.getFullUrl("index.php") + "?title=Special:Captcha/image&wpCaptchaId=" + captchaId;
     }
 
     @Override

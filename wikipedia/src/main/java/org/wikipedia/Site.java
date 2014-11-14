@@ -6,21 +6,38 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 
 /**
- * Represents a particular Wikimedia project.
+ * Represents a particular wiki.
  */
 public class Site implements Parcelable {
     private final String domain;
+    private final String language;
 
     public Site(String domain) {
+        this(domain, domain.split("\\.")[0]);
+    }
+    public Site(String domain, String language) {
         this.domain = domain.replaceFirst("\\.m\\.", ".");
+        this.language = language;
+    }
+
+    public Site(Parcel in) {
+        this(in.readString());
+    }
+
+    public String getScriptPath(String script) {
+        return "/w/" + script;
+    }
+
+    public String getResourceLoaderPath() {
+        return "https://bits.wikimedia.org/" + language + ".wikipedia.org/load.php";
     }
 
     public String getApiDomain() {
         return WikipediaApp.getInstance().getSslFallback() ? domain : domain.replaceFirst("\\.", ".m.");
     }
 
-    public Site(Parcel in) {
-        domain = in.readString();
+    public boolean getUseSecure() {
+        return true;
     }
 
     public String getDomain() {
@@ -69,8 +86,8 @@ public class Site implements Parcelable {
                 + '}';
     }
 
-    public String getFullUrl(String path) {
-        return WikipediaApp.getInstance().getNetworkProtocol() + "://" + getDomain() + path;
+    public String getFullUrl(String script) {
+        return WikipediaApp.getInstance().getNetworkProtocol() + "://" + getDomain() + getScriptPath(script);
     }
 
     /**
@@ -98,16 +115,12 @@ public class Site implements Parcelable {
         return titleForInternalLink(path);
     }
 
-    private String language;
     public String getLanguage() {
-        if (language == null) {
-            language = domain.split("\\.")[0];
-        }
         return language;
     }
 
     public static Site forLang(String lang) {
-        return new Site(lang + ".wikipedia.org");
+        return new Site(lang + ".wikipedia.org", lang);
     }
 
     /**

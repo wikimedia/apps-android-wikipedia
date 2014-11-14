@@ -297,7 +297,7 @@ public class WikipediaApp extends Application {
         if (api == null) {
             String domainAndApiAndVariantKey = site.getDomain() + "-" + site.getApiDomain() + "-" + acceptLanguage;
             if (!apis.containsKey(domainAndApiAndVariantKey)) {
-                apis.put(domainAndApiAndVariantKey, new Api(site.getApiDomain(), customHeaders));
+                apis.put(domainAndApiAndVariantKey, new Api(site.getApiDomain(), site.getUseSecure(), site.getScriptPath("api.php"), customHeaders));
             }
             api = apis.get(domainAndApiAndVariantKey);
         }
@@ -314,7 +314,7 @@ public class WikipediaApp extends Application {
      */
     public Site getPrimarySite() {
         if (primarySite == null) {
-            primarySite = new Site(getPrimaryLanguage() + ".wikipedia.org");
+            primarySite = Site.forLang(getPrimaryLanguage());
         }
 
         return primarySite;
