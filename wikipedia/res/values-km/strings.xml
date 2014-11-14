@@ -213,7 +213,7 @@
   <string name="search_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="search_redirect_title">បញ្ជូនបន្តពី \"%s\"។</string>
   <string name="search_recent_header">ការស្វែងរកថ្មីៗនេះ៖</string>
-  <string name="menu_clear_all_recent_searches">សម្អាតការស្វែងរកថ្មីៗនេះ</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">សម្អាតការស្វែងរកថ្មីៗនេះ</string>
   <string name="search_titles_button">ចំណងជើង</string>
   <string name="search_full_button">នៅក្នុងអត្ថបទ</string>
 </resources>

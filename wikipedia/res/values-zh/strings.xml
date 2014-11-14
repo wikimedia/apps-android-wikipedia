@@ -240,7 +240,7 @@
   <string name="search_error_retry">重试</string>
   <string name="search_redirect_title">重定向自“%s”。</string>
   <string name="search_recent_header">最近搜索：</string>
-  <string name="menu_clear_all_recent_searches">清除最近的搜索</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">清除最近的搜索</string>
   <string name="search_titles_button">标题</string>
   <string name="search_full_button">在条目内</string>
   <string name="toc_hint">向左滑动选项，或使用右上角的菜单键。</string>

@@ -239,7 +239,7 @@
   <string name="search_error_retry">Cuba lagi</string>
   <string name="search_redirect_title">Lencongan dari \"%s\".</string>
   <string name="search_recent_header">Carian terkini:</string>
-  <string name="menu_clear_all_recent_searches">Padamkan carian terkini</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">Padamkan carian terkini</string>
   <string name="search_titles_button">Tajuk</string>
   <string name="search_full_button">Dalam rencana</string>
   <string name="toc_hint">Leret ke kiri untuk bahagian, atau gunakan butang menu di kanan atas.</string>

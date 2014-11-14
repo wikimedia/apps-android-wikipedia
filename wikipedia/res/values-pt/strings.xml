@@ -235,7 +235,7 @@
   <string name="search_error_retry">Tentar novamente</string>
   <string name="search_redirect_title">Redirecionamento de \"%s\".</string>
   <string name="search_recent_header">Pesquisas recentes:</string>
-  <string name="menu_clear_all_recent_searches">Limpar pesquisas recentes</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">Limpar pesquisas recentes</string>
   <string name="search_titles_button">Títulos</string>
   <string name="toc_hint">Deslize para a esquerda para seções, ou use o botão de menu no canto superior direito.</string>
   <string name="toc_know_it">Percebido</string>

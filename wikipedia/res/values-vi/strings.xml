@@ -240,7 +240,7 @@
   <string name="search_error_retry">Thử lại</string>
   <string name="search_redirect_title">Đổi hướng từ “%s”.</string>
   <string name="search_recent_header">Tìm kiếm gần đây:</string>
-  <string name="menu_clear_all_recent_searches">Xóa các tìm kiếm gần đây</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">Xóa các tìm kiếm gần đây</string>
   <string name="search_titles_button">Tên trang</string>
   <string name="search_full_button">Nội dung bài</string>
   <string name="toc_hint">Để xem các phần, vuốt trái hoặc bấm nút trình đơn ở góc phải bên trên.</string>

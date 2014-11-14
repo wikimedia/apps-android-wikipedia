@@ -240,7 +240,7 @@
   <string name="search_error_retry">Reîncearcă</string>
   <string name="search_redirect_title">Redirecționare către „%s”.</string>
   <string name="search_recent_header">Căutări recente:</string>
-  <string name="menu_clear_all_recent_searches">Șterge căutările recente</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">Șterge căutările recente</string>
   <string name="search_titles_button">Titluri</string>
   <string name="search_full_button">În conținutul articolelor</string>
   <string name="toc_hint">Trageți înspre stânga pentru a vizualiza cuprinsul sau folosiți butonul de meniu din dreapta sus.</string>

@@ -236,7 +236,7 @@
   <string name="search_error_retry">Кайра аракет кылуу</string>
   <string name="search_redirect_title">\"%s\" барагынан багытталды.</string>
   <string name="search_recent_header">Соңку издөөлөр:</string>
-  <string name="menu_clear_all_recent_searches">Соңку издөөлөр тизмесин өчүрүү</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">Соңку издөөлөр тизмесин өчүрүү</string>
   <string name="search_titles_button">Башжазуулар</string>
   <string name="search_full_button">Макалалар ичинде</string>
   <string name="toc_hint">Бөлүмдөрдү көрүү үчүн солго сүрүңүз же жогорку оң бурчтагы меню баскычын колдонуңуз.</string>

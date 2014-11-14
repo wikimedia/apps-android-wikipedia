@@ -240,7 +240,7 @@
   <string name="search_error_retry">Повторить</string>
   <string name="search_redirect_title">Перенаправление с «%s».</string>
   <string name="search_recent_header">Последние поиски:</string>
-  <string name="menu_clear_all_recent_searches">Очистить список последних поисковых запросов</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">Очистить список последних поисковых запросов</string>
   <string name="search_titles_button">Заголовки</string>
   <string name="search_full_button">Внутри статей</string>
   <string name="toc_hint">Потяните влево для просмотра разделов или используйте кнопку меню в правом верхнем углу.</string>

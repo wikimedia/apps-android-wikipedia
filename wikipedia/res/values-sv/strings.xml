@@ -240,7 +240,7 @@
   <string name="search_error_retry">Försök igen</string>
   <string name="search_redirect_title">Omdirigera från \"%s\".</string>
   <string name="search_recent_header">Senaste sökningar:</string>
-  <string name="menu_clear_all_recent_searches">Rensa senaste sökningar</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">Rensa senaste sökningar</string>
   <string name="search_titles_button">Titlar</string>
   <string name="search_full_button">Inom artiklar</string>
   <string name="toc_hint">Svep åt vänster för avsnitt, eller använd menyknappen längst upp till höger.</string>

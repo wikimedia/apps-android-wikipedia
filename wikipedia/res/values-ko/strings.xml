@@ -238,7 +238,7 @@
   <string name="search_error_retry">다시 시도</string>
   <string name="search_redirect_title">\"%s\"에서 넘어옵니다.</string>
   <string name="search_recent_header">최근 검색:</string>
-  <string name="menu_clear_all_recent_searches">최근 검색 지우기</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">최근 검색 지우기</string>
   <string name="search_titles_button">제목</string>
   <string name="search_full_button">문서 안에서</string>
   <string name="toc_hint">문단을 보려면 왼쪽으로 스와이프하거나, 위 오른쪽에 있는 메뉴 버튼을 사용하세요.</string>

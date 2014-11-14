@@ -240,7 +240,7 @@
   <string name="search_error_retry">تلاش مجدد</string>
   <string name="search_redirect_title">تغییر مسیر از «%s».</string>
   <string name="search_recent_header">جستجوهای اخیر:</string>
-  <string name="menu_clear_all_recent_searches">پاک کردن جستجوهای اخیر</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">پاک کردن جستجوهای اخیر</string>
   <string name="search_titles_button">عنوان‌ها</string>
   <string name="search_full_button">در مقالات</string>
   <string name="toc_hint">برای بخش‌ها به سمت چپ بچرخانید یا از دکمه بالا در سمت راست در منو استفاده کنید.</string>

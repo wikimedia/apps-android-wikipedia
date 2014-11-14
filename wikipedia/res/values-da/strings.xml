@@ -240,7 +240,7 @@
   <string name="search_error_retry">Prøv igen</string>
   <string name="search_redirect_title">Omdirigering fra \"%s\".</string>
   <string name="search_recent_header">Seneste søgninger:</string>
-  <string name="menu_clear_all_recent_searches">Ryd seneste søgninger</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">Ryd seneste søgninger</string>
   <string name="search_titles_button">Titler</string>
   <string name="search_full_button">Indhold i artikler</string>
   <string name="toc_hint">Stryg til venstre for afsnit, eller brug menuknappen øverst til højre.</string>

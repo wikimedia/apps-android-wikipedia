@@ -240,7 +240,7 @@
   <string name="search_error_retry">Opnieuw proberen</string>
   <string name="search_redirect_title">Doorverwezen vanaf \"%s\".</string>
   <string name="search_recent_header">Recente zoekopdrachten:</string>
-  <string name="menu_clear_all_recent_searches">Recente zoekopdrachten wissen</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">Recente zoekopdrachten wissen</string>
   <string name="search_titles_button">Paginanamen</string>
   <string name="search_full_button">In paginatekst</string>
   <string name="toc_hint">Veeg naar links voor secties, of gebruik de knop in de rechterbovenhoek.</string>

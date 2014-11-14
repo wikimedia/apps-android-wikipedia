@@ -240,7 +240,7 @@
   <string name="search_error_retry">Reintentar</string>
   <string name="search_redirect_title">Redirección desde \"%s\".</string>
   <string name="search_recent_header">Búsquedas recientes:</string>
-  <string name="menu_clear_all_recent_searches">Borrar búsquedas recientes</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">Borrar búsquedas recientes</string>
   <string name="search_titles_button">Títulos</string>
   <string name="search_full_button">Dentro de los artículos</string>
   <string name="toc_hint">Deslízate a la izquierda para las secciones, o utilza el botón de menú en la parte superior derecha.</string>

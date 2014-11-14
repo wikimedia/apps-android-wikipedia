@@ -240,7 +240,7 @@
   <string name="search_error_retry">再試行</string>
   <string name="search_redirect_title">「%s」からの転送</string>
   <string name="search_recent_header">最近の検索：</string>
-  <string name="menu_clear_all_recent_searches">最近の検索を消去</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">最近の検索を消去</string>
   <string name="search_titles_button">ページ名検索</string>
   <string name="search_full_button">記事全体を対象に</string>
   <string name="toc_hint">左向きにスワイプで節見出しが出ます。右上にはメニューボタンがあります。</string>

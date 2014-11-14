@@ -232,7 +232,7 @@
   <string name="search_error_retry">Znova</string>
   <string name="search_redirect_title">Presmerované z \"%s\".</string>
   <string name="search_recent_header">Nedávno hľadané výrazy:</string>
-  <string name="menu_clear_all_recent_searches">Vymazať nedávno hľadané výrazy</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">Vymazať nedávno hľadané výrazy</string>
   <string name="toc_know_it">Rozumiem</string>
   <string name="error_browser_not_found">Nepodarilo sa otvoriť webovú stránku (nenašiel sa žiadny webový prehliadač).</string>
   <string name="app_store_description">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.

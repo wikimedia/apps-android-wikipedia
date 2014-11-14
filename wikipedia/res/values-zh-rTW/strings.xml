@@ -240,7 +240,7 @@
   <string name="search_error_retry">重試</string>
   <string name="search_redirect_title">重新導向自「%s」。</string>
   <string name="search_recent_header">最近搜尋：</string>
-  <string name="menu_clear_all_recent_searches">清除最近搜尋</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">清除最近搜尋</string>
   <string name="search_titles_button">標題</string>
   <string name="search_full_button">在條目內</string>
   <string name="toc_hint">向左滑動或使用右上角的選項單按鈕顯示章節。</string>

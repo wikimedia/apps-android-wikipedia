@@ -240,7 +240,7 @@
   <string name="search_error_retry">Torna a provar</string>
   <string name="search_redirect_title">Redirecció de «%s».</string>
   <string name="search_recent_header">Cerques recents:</string>
-  <string name="menu_clear_all_recent_searches">Esborra cerques recents</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">Esborra cerques recents</string>
   <string name="search_titles_button">Títols</string>
   <string name="search_full_button">Dins d\'articles</string>
   <string name="toc_hint">Feu lliscar el dit cap a l\'esquerra per a les seccions, o utilitzeu el botó de menú a la part superior dreta.</string>

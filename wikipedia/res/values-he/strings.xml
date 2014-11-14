@@ -240,7 +240,7 @@
   <string name="search_error_retry">לנסות שוב</string>
   <string name="search_redirect_title">הפניה מהדף \"%s\".</string>
   <string name="search_recent_header">חיפוש אחרונים:</string>
-  <string name="menu_clear_all_recent_searches">ניקוי החיפושים האחרונים</string>
+  <string name="button_clear_all_recent_searches" fuzzy="true">ניקוי החיפושים האחרונים</string>
   <string name="search_titles_button">כותרות</string>
   <string name="search_full_button">בערכים</string>
   <string name="toc_hint">יש להחליק ימינה בשביל ראשי הפרקים או להשתמש בכפתור התפריט בפינה השמאלית העליונה.</string>
