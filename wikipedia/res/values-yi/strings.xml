@@ -139,4 +139,7 @@
   <string name="color_theme_dark">טונקל</string>
   <string name="page_similar_titles">ענלעכע בלעטער</string>
   <string name="toc_hint">ווישט לינקס פאר אפטיילונגען, אדער ניצט דאס מעניו־קנעפל אויבן רעכטס.</string>
+  <string name="table_other">נאך אינפֿאָרמאַציע</string>
+  <string name="table_close">פארמאכן</string>
+  <string name="dialog_close_description">פארמאכן</string>
 </resources>

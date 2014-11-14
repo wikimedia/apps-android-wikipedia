@@ -240,7 +240,8 @@
   <string name="search_error_retry">Erneut versuchen</string>
   <string name="search_redirect_title">Weitergeleitet von „%s“.</string>
   <string name="search_recent_header">Letzte Suchanfragen:</string>
-  <string name="button_clear_all_recent_searches" fuzzy="true">Letzte Suchanfragen löschen</string>
+  <string name="button_clear_all_recent_searches">Letzte Suchanfragen löschen</string>
+  <string name="clear_recent_searches_confirm">Bist du sicher, dass du deinen Suchverlauf löschen möchtest?</string>
   <string name="search_titles_button">Titel</string>
   <string name="search_full_button">Innerhalb Artikeln</string>
   <string name="toc_hint">Wische nach links für Abschnitte oder benutze rechts oben den Menü-Button.</string>

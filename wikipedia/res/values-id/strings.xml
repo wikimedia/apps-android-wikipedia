@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="yes">Ya</string>
   <string name="no">Tidak</string>
   <string name="acra_report_dialog_title">Terjadi kesalahan di Wikipedia :(</string>
@@ -10,7 +11,7 @@
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="history_activity_title">Riwayat</string>
   <string name="nav_item_history">Riwayat</string>
-  <string name="error_network_error" fuzzy="true">Tidak dapat mencapai jaringan :(</string>
+  <string name="error_network_error">Tidak ada sambungan jaringan :(</string>
   <string name="search_network_error">Kesalahan jaringan. Ketuk untuk mencoba lagi.</string>
   <string name="page_error_retry">Coba lagi</string>
   <string name="menu_clear_all_history">Hapus riwayat</string>
@@ -41,9 +42,19 @@
   <string name="saved_pages_search_empty_message">Tidak ada halaman yang cocok dengan \'%s\'</string>
   <string name="nearby_activity_title">Sekitar</string>
   <string name="nav_item_nearby">Sekitar</string>
+  <string name="menu_update_nearby">Perbarui dekat</string>
+  <string name="nearby_empty_title">Tidak ada halaman terdekat di sini!</string>
+  <string name="nearby_empty_message">Bila Anda pindah ke lokasi baru, coba menyegarkan halaman ini untuk mempelajari lebih lanjut tentang apa yang ada di sekitar Anda.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d kaki</string>
+  <string name="nearby_distance_in_miles">%.2f mil</string>
   <string name="nearby_no_network">Tidak ada sambungan jaringan</string>
   <string name="nearby_server_error">Tidak bisa mendapatkan daftar tempat terdekat.</string>
   <string name="nearby_no_location">Tidak dapat menentukan lokasi</string>
+  <string name="nearby_dialog_goto_settings">Pemutakhiran lokasi tidak diaktifkan pada perangkat Anda. Apakah Anda ingin pergi ke pengaturan perangkat Anda untuk mengaktifkan pemutakhiran Lokasi?</string>
+  <string name="nearby_set_metric">Tampilkan dalam meter/km</string>
+  <string name="nearby_set_imperial">Tampilkan dalam kaki/mil</string>
   <string name="last_updated_text">Terakhir diperbarui %1$s</string>
   <string name="content_license_html">Konten tersedia di bawah &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; kecuali dinyatakan lain</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, Anda setuju terhadap &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -55,6 +66,7 @@
   <string name="menu_other_languages">Baca dalam bahasa lain</string>
   <string name="langlinks_error_retry">Coba lagi</string>
   <string name="langlinks_empty">Halaman ini tidak tersedia dalam bahasa lain</string>
+  <string name="langlinks_no_match">Tidak ada bahasa yang ditemukan yang cocok dengan permintaan Anda.</string>
   <string name="settings_activity_title">Pengaturan</string>
   <string name="langlinks_activity_title">Bahasa lain</string>
   <string name="menu_save_changes">Simpan perubahan</string>
@@ -91,10 +103,11 @@
   <string name="preference_summary_logout">Keluar log dari akun Wikipedia</string>
   <string name="preference_summary_notloggedin">Belum masuk log</string>
   <string name="toast_logout_complete">Telah keluar log</string>
-  <string name="saved_pages_empty_title" fuzzy="true">Tidak ada halaman yang disimpan.</string>
+  <string name="saved_pages_empty_title">Tidak ada halaman yang disimpan di sini!</string>
   <string name="saved_pages_empty_message">Halaman yang disimpan cukup mengagumkan. Menganggap mereka sebagai penanda yang dapat Anda baca bahkan ketika Anda sedang luring.</string>
   <string name="history_empty_title">Tidak ada halaman terbaru di sini.</string>
   <string name="history_empty_message">Anda mungkin menghapus mereka semua. Lain kali Anda pergi ke halaman Anda dapat kembali ke sana dari sini.</string>
+  <string name="delete_selected_history">Hapus</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Ensiklopedia Bebas</string>
   <string name="skip">Lewati</string>
@@ -213,14 +226,30 @@
   <string name="abusefilter_text_warn">Penyaring otomatis telah mengidentifikasi suntingan ini sebagai berpotensi tidak konstruktif. Ini mungkin berisi satu atau lebih hal berikut:&lt;br /&gt;&lt;br /&gt;· Mengetik dengan semua huruf besar&lt;br /&gt;· Mengosongkan artikel atau spam &lt;br /&gt;· Pranala luar atau yang tidak relevan &lt;br /&gt;· Karakter berulang</string>
   <string name="abusefilter_text_disallow">Penyaring otomatis telah mengidentifikasi suntingan ini sebagai berpotensi tidak konstruktif, atau potensi vandalisme. &lt;br /&gt;&lt;br /&gt; Wikipedia adalah sebuah ensiklopedia dan hanya netral, konten penting milik di sini.</string>
   <string name="dialog_page_issues">Masalah pada halaman</string>
+  <string name="button_page_issues">Masalah pada halaman</string>
   <string name="menu_themechooser">Huruf dan tema</string>
   <string name="text_size_select">Ukuran huruf</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Terang</string>
   <string name="color_theme_dark">Gelap</string>
-  <string name="page_similar_titles" fuzzy="true">Judul yang serupa</string>
+  <string name="page_similar_titles">Halaman yang serupa</string>
+  <string name="search_within_pages">Cari dalam halaman...</string>
+  <string name="search_no_results">Tidak ada hasil yang ditemukan untuk \"%s\".</string>
+  <string name="search_did_you_mean">Apakah maksud Anda \"%s\"?</string>
+  <string name="search_results_title">Hasil pencarian</string>
+  <string name="search_error_retry">Coba lagi</string>
+  <string name="search_redirect_title">Dialihkan dari \"%s\".</string>
+  <string name="search_recent_header">Pencarian terkini:</string>
+  <string name="button_clear_all_recent_searches">Hapus pencarian terkini</string>
+  <string name="clear_recent_searches_confirm">Apakah Anda yakin ingin menghapus riwayat penelusuran?</string>
+  <string name="search_titles_button">Judul</string>
+  <string name="search_full_button">Dalam artikel</string>
   <string name="toc_hint">Geser ke kiri untuk bagian, atau gunakan tombol menu di atas kanan</string>
   <string name="toc_know_it">Mengerti</string>
+  <string name="error_browser_not_found">Tidak dapat membuka halaman web (tidak ada peramban yang ditemukan)</string>
+  <string name="table_infobox">Fakta cepat</string>
+  <string name="table_other">Informasi lebih lanjur</string>
+  <string name="table_close">Tutup</string>
   <string name="app_store_description">Aplikasi resmi Wikipedia untuk Android. Wikipedia adalah ensiklopedia bebas yang berisi lebih dari 32 juta artikel dalam 280 bahasa sekaligus karya referensi buatan manusia yang paling lengkap dan banyak digunakan sepanjang sejarah. Aplikasi ini telah ditulis ulang dari awal dan lebih baik dari sebelumnya.
 
 Fitur:
@@ -233,5 +262,7 @@ Fitur:
    - Wikipedia Nol: Biaya data dibebaskan untuk operator selular yang berpartisipasi.
 
 Kode sepenuhnya bersifat sumber terbuka. Jika Anda memiliki pengalaman dengan Java dan Android SDK, silakan bantu kami! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Pemutakhiran alpha baru telah tersedia</string>
   <string name="alpha_update_notification_text">Sentuh untuk mengunduh</string>
+  <string name="dialog_close_description">Tutup</string>
 </resources>

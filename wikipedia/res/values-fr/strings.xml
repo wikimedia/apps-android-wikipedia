@@ -240,7 +240,8 @@
   <string name="search_error_retry">Réessayer</string>
   <string name="search_redirect_title">Redirigé depuis « %s ».</string>
   <string name="search_recent_header">Recherches récentes :</string>
-  <string name="button_clear_all_recent_searches" fuzzy="true">Effacer les recherches récentes</string>
+  <string name="button_clear_all_recent_searches">Effacer les recherches récentes</string>
+  <string name="clear_recent_searches_confirm">Êtes-vous sûr de vouloir effacer votre historique de recherche ?</string>
   <string name="search_titles_button">Titres</string>
   <string name="search_full_button">Dans les articles</string>
   <string name="toc_hint">Balayer vers la gauche pour les sections, ou utiliser le bouton de menu en haut à droite.</string>
