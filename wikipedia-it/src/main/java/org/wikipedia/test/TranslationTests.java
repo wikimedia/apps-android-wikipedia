@@ -26,7 +26,11 @@ import java.util.Locale;
  * TODO: check for missing translations
  */
 public class TranslationTests extends ActivityInstrumentationTestCase2<PageActivity> {
-    public static final String TAG = "TrTest";
+    private static final String TAG = "TrTest";
+
+    /** Add more if needed, but then also add some tests. */
+    private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%d", "%.2f"};
+
     private PageActivity activity;
     private StringBuilder mismatches = new StringBuilder();
 
@@ -48,9 +52,9 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
         setLocale(Locale.ROOT.toString());
         List<Res> tagRes = new ResourceCollector("<", "&lt;").collectParameterResources();
         List<Res> noTagRes = new ResourceCollector("<", "&lt;").not().collectParameterResources();
-        List<Res> stringParamRes = new ResourceCollector("%s", "%1$s").collectParameterResources();
-        List<Res> decimalParamRes = new ResourceCollector("%d", "%1$d").collectParameterResources();
-        List<Res> floatParamRes = new ResourceCollector("%f", "%.2f").collectParameterResources();
+        List<Res> stringParamRes = new ResourceCollector("%s").collectParameterResources();
+        List<Res> decimalParamRes = new ResourceCollector("%d").collectParameterResources();
+        List<Res> floatParamRes = new ResourceCollector("%.2f").collectParameterResources();
 
         AssetManager assetManager = getInstrumentation().getTargetContext().getResources().getAssets();
         for (String lang : assetManager.getLocales()) {
@@ -84,26 +88,19 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
                         // taking forever to get those fixed :(
                         continue;
                     }
-                    checkTranslationHasParameter(res, "[stringParam]", null);
-                }
-
-                if (lang.startsWith("fa") || lang.startsWith("ar") || lang.equals("bn")
-                    || lang.equals("mr") || lang.equals("my") || lang.startsWith("ne") || lang.equals("ps")) {
-                    // don't check the number params since those languages have different string representations for numbers
-                    continue;
+                    checkTranslationHasParameter(res, "%s", "[stringParam]", null);
                 }
 
                 // decimal parameters
                 for (Res res : decimalParamRes) {
                     final int param1 = 42;
-                    checkTranslationHasParameter(res, param1, null);
+                    checkTranslationHasParameter(res, "%d", param1, null);
                 }
 
-                // float parameters
+                // floating point parameters
                 for (Res res : floatParamRes) {
                     final float param1 = .27f;
-                    checkTranslationHasParameter(res, param1, "0,27");
-//                // TODO: build a list of all parameterized string resources from default strings dynamically first
+                    checkTranslationHasParameter(res, "%.2f", param1, "0,27");
                 }
             }
         }
@@ -114,6 +111,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
 
     public void setLocale(String lang) {
         myLocale = new Locale(lang);
+        Locale.setDefault(myLocale);
         Resources res = getInstrumentation().getTargetContext().getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
@@ -161,22 +159,22 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
     }
 
     private void checkTranslationHasNoParameter(Res res) {
-        final String param1 = "[param1]";
-        String translatedString = getInstrumentation().getTargetContext().getString(res.id, param1);
+        final String val1 = "[val1]";
+        String translatedString = getInstrumentation().getTargetContext().getString(res.id, val1);
 //        Log.i(TAG, myLocale + ":" + translatedString);
-        if (translatedString.contains(param1)) {
-            final String msg = myLocale + ":" + res.name + " = " + translatedString + "' contains " + param1;
+        if (translatedString.contains(val1)) {
+            final String msg = myLocale + ":" + res.name + " = " + translatedString + "' contains " + val1;
             Log.e(TAG, msg);
             mismatches.append(msg).append("\n");
         }
     }
 
-    public void checkTranslationHasParameter(Res res, Object param1, String alternate) throws Exception {
-        String translatedString = getInstrumentation().getTargetContext().getString(res.id, param1);
+    public void checkTranslationHasParameter(Res res, String paramName, Object val1, String alternateFormat) throws Exception {
+        String translatedString = getInstrumentation().getTargetContext().getString(res.id, val1);
 //        Log.i(TAG, myLocale + ":" + translatedString);
-        if (!translatedString.contains(param1.toString())
-            && (alternate == null || !translatedString.contains(alternate))) {
-            final String msg = myLocale + ":" + res.name + " = " + translatedString + "' doesn't contain " + param1;
+        if (!translatedString.contains(String.format(paramName, val1))
+            && (alternateFormat == null || !translatedString.contains(alternateFormat))) {
+            final String msg = myLocale + ":" + res.name + " = " + translatedString + "' doesn't contain " + val1;
             Log.e(TAG, msg);
             mismatches.append(msg).append("\n");
         }
@@ -197,7 +195,6 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
 
         private List<Res> collectParameterResources() {
             final List<Res> resources = new ArrayList<Res>();
-
             final R.string stringResources = new R.string();
             final Class<R.string> c = R.string.class;
             final Field[] fields = c.getDeclaredFields();
@@ -214,23 +211,16 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
                 }
                 try {
                     String value = getInstrumentation().getTargetContext().getResources().getString(resourceId);
-//                Log.i(TAG, buildLogString(i, name) + " = " + value);
-                    if (!name.startsWith("abc_") && !name.startsWith("preference_")) {
-                        boolean found = false;
-                        if (value.contains("wikimediafoundation.org") && negate) {
-                            System.out.println("found = " + found);
-                        }
-                        for (String paramExample : paramExamples) {
-                            if (value.contains(paramExample)) {
-                                found = true;
-                                if (!negate) {
-                                    break;
-                                }
-                            }
-                        }
-                        if ((!negate && found) || (negate && !found)) {
-                            resources.add(new Res(resourceId, name));
-                        }
+                    if (name.startsWith("abc_") || name.startsWith("preference_")) {
+                        continue; // don't care about appcompat string; and preference string resources don't get translated
+                    }
+
+                    assertParameterFormats(name, value);
+
+                    // Find parameter
+                    boolean found = findParameter(value);
+                    if ((!negate && found) || (negate && !found)) {
+                        resources.add(new Res(resourceId, name));
                     }
                 } catch (Resources.NotFoundException e) {
                     Log.w(TAG, buildLogString(i, name) + "; <not found>");
@@ -240,6 +230,51 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
             }
 
             return resources;
+        }
+
+        /**
+         * If it has a parameter it should be one of POSSIBLE_PARAMS.
+         * If not then flag this so we can improve the tests.
+         */
+        private void assertParameterFormats(String name, String value) {
+            if (value.startsWith("Last updated")) {
+                System.out.println();
+            }
+            if (value.contains("%")) {
+                boolean ok = false;
+                int start = value.indexOf('%');
+                for (String possible : POSSIBLE_PARAMS) {
+                    int end = value.indexOf(getLastChar(possible), start);
+                    if (end != -1 && end < value.length()) {
+                        String candidate = value.substring(start, end + 1);
+                        System.out.println("candidate = " + candidate);
+                        if (possible.equals(candidate)) {
+                            ok = true;
+                            break;
+                        }
+                    }
+                }
+                if (!ok) {
+                    fail("Unexpected format in " +  name + ": '" + value + "'. Update tests!");
+                }
+            }
+        }
+
+        private String getLastChar(String str) {
+            return str.substring(str.length() - 1);
+        }
+
+        private boolean findParameter(String value) {
+            boolean found = false;
+            for (String paramExample : paramExamples) {
+                if (value.contains(paramExample)) {
+                    found = true;
+                    if (!negate) {
+                        break;
+                    }
+                }
+            }
+            return found;
         }
     }
 
