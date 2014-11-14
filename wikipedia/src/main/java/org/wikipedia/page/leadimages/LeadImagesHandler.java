@@ -340,7 +340,11 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
 
         if (isMainPage) {
             titleContainerHeight = (int)(parentFragment.getResources().getDimension(R.dimen.actionBarHeight) / displayDensity);
-            imageContainer.setVisibility(View.INVISIBLE);
+            // hide everything
+            image1.setVisibility(View.GONE);
+            imagePlaceholder.setVisibility(View.GONE);
+            pageTitleText.setVisibility(View.GONE);
+            pageDescriptionText.setVisibility(View.GONE);
         } else if (!leadImagesEnabled) {
             // ok, we're not going to show lead images, so we need to make some
             // adjustments to our layout:
