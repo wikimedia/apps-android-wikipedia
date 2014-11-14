@@ -264,15 +264,6 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
 
         // kick off the (asynchronous) laying out of the page title text
         layoutPageTitle(TITLE_DEFAULT_TEXT_SIZE_SP, listener);
-
-        // and start fetching the lead image, if we have one
-        if (thumbUrl != null && leadImagesEnabled) {
-            thumbUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + thumbUrl;
-            Picasso.with(parentFragment.getActivity())
-                    .load(thumbUrl)
-                    .noFade()
-                    .into((Target) image1);
-        }
     }
 
     /**
