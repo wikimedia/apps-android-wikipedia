@@ -233,11 +233,25 @@ function invertOneElement( el ) {
 }
 
 function invertElement( el ) {
+    // first, invert the colors of tables and other elements
 	var allElements = el.querySelectorAll( '*[style]' );
-	console.log( 'rewriting ' + allElements.length + ' elements' );
 	for ( var i = 0; i < allElements.length; i++ ) {
 		invertOneElement( allElements[i] );
 	}
+    // and now, look for Math formula images, and invert them
+    var mathImgs = el.querySelectorAll( "[class*='math-fallback']" );
+    for ( i = 0; i < mathImgs.length; i++ ) {
+        var mathImg = mathImgs[i];
+        // KitKat and higher can use webkit to invert colors
+        if (window.apiLevel >= 19) {
+            mathImg.style.cssText = mathImg.style.cssText + ";-webkit-filter: invert(100%);";
+        } else {
+            // otherwise, just give it a mild background color
+            mathImg.style.backgroundColor = "#ccc";
+            // and give it a little padding, since the text is right up against the edge.
+            mathImg.style.padding = "2px";
+        }
+    }
 }
 
 function toggle( nightCSSURL, hasPageLoaded ) {

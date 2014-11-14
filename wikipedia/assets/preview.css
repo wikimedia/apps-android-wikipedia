@@ -1062,3 +1062,25 @@ th .sortkey {
   -webkit-column-count: 1 !important;
   column-count: 1 !important;
 }
+.mwe-math-fallback-image-inline {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.mwe-math-fallback-image-display {
+  display: block;
+  max-width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.mwe-math-fallback-source-inline {
+  display: inline;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.mwe-math-fallback-source-display {
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}

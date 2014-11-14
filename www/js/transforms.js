@@ -60,7 +60,7 @@ If there are no TH elements in the table, an empty array is returned.
 */
 function getTableHeader( element ) {
     var thArray = [];
-    if (element.children === null) {
+    if (element.children === undefined || element.children === null) {
         return thArray;
     }
     for (var i = 0; i < element.children.length; i++) {

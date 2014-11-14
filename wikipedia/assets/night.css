@@ -14,10 +14,6 @@ a.external {
 img {
   background: #fff;
 }
-img.mwe-math-fallback-png-inline {
-  background: none;
-  -webkit-filter: invert(100%);
-}
 .content table td,
 .content table th {
   background-color: #000;
