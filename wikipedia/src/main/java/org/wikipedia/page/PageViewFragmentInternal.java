@@ -32,12 +32,15 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.view.ActionMode;
 import android.text.Html;
 import android.util.Log;
@@ -109,6 +112,7 @@ public class PageViewFragmentInternal {
     private ViewGroup imagesContainer;
     private LeadImagesHandler leadImagesHandler;
     private ObservableWebView webView;
+    private SwipeRefreshLayoutWithScroll refreshView;
     private View networkError;
     private View retryButton;
     private View pageDoesNotExistError;
@@ -224,6 +228,7 @@ public class PageViewFragmentInternal {
             webView.setVisibility(View.VISIBLE);
         }
 
+        refreshView.setRefreshing(false);
         getActivity().updateProgressBar(true, true, 0);
     }
 
@@ -261,6 +266,31 @@ public class PageViewFragmentInternal {
         retryButton = rootView.findViewById(R.id.page_error_retry);
         pageDoesNotExistError = rootView.findViewById(R.id.page_does_not_exist);
         tocDrawer = (DisableableDrawerLayout) rootView.findViewById(R.id.page_toc_drawer);
+
+        refreshView = (SwipeRefreshLayoutWithScroll) rootView.findViewById(R.id.page_refresh_container);
+        int swipeOffset = Utils.getActionBarSize(getActivity());
+        refreshView.setProgressViewOffset(true, -swipeOffset, swipeOffset);
+        refreshView.setSize(SwipeRefreshLayout.LARGE);
+        // if we want to give it a custom color:
+        //refreshView.setProgressBackgroundColor(R.color.swipe_refresh_circle);
+        refreshView.setScrollableChild(webView);
+        refreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // don't refresh if it's still loading...
+                if (state != STATE_COMPLETE_FETCH) {
+                    refreshView.setRefreshing(false);
+                    return;
+                }
+                if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+                    // if it's a saved page, then refresh it and re-save!
+                    refreshPage(true);
+                } else {
+                    // otherwise, refresh the page normally
+                    refreshPage(false);
+                }
+            }
+        });
 
         return rootView;
     }
@@ -806,6 +836,7 @@ public class PageViewFragmentInternal {
         // in any case, make sure the TOC drawer is closed and disabled
         tocDrawer.setSlidingEnabled(false);
         getActivity().updateProgressBar(false, true, 0);
+        refreshView.setRefreshing(false);
 
         if (caught instanceof SectionsFetchException) {
             if (((SectionsFetchException) caught).getCode().equals("missingtitle")
@@ -951,6 +982,10 @@ public class PageViewFragmentInternal {
         if (saveOnComplete) {
             Toast.makeText(getActivity(), R.string.toast_refresh_saved_page, Toast.LENGTH_LONG).show();
         }
+        // immediately hide the webview
+        webView.setVisibility(View.GONE);
+        // and the lead image
+        leadImagesHandler.hide();
         curEntry = new HistoryEntry(title, HistoryEntry.SOURCE_HISTORY);
         setState(STATE_NO_FETCH);
         performActionForState(state);

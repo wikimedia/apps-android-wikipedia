@@ -48,10 +48,15 @@
             />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/nearby_list"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/nearby_refresh_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/nearby_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </FrameLayout>

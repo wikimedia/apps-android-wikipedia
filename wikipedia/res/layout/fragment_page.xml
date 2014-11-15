@@ -11,11 +11,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
+
+        <org.wikipedia.views.SwipeRefreshLayoutWithScroll
+            android:id="@+id/page_refresh_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         <FrameLayout
             android:id="@+id/page_contents_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
             <org.wikipedia.views.ObservableWebView
                 android:id="@+id/page_web_view"
@@ -28,8 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingTop="?attr/actionBarSize"
-                >
+                android:paddingTop="?attr/actionBarSize">
                 <org.wikipedia.page.leadimages.ImageViewWithFace
                     android:id="@+id/page_image_1"
                     android:layout_width="match_parent"
@@ -68,8 +72,10 @@
                         android:paddingLeft="16dp"/>
                 </FrameLayout>
             </FrameLayout>
-
         </FrameLayout>
+
+        </org.wikipedia.views.SwipeRefreshLayoutWithScroll>
+
         <FrameLayout
                 android:layout_width="288dp"
                 android:layout_height="match_parent"

@@ -261,6 +261,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
 
         // give the title to the measurer...
         pageTitleText.setText(parentFragment.getFragment().getPage().getTitle().getDisplayText());
+        // hide the description text...
+        pageDescriptionText.setVisibility(View.INVISIBLE);
 
         // kick off the (asynchronous) laying out of the page title text
         layoutPageTitle(TITLE_DEFAULT_TEXT_SIZE_SP, listener);
@@ -378,7 +380,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
 
             // set the color of the title
             pageTitleText.setTextColor(parentFragment.getResources().getColor(R.color.lead_text_color));
-            titleBottomPadding = pageTitleText.getPaddingBottom();
+            final int bottomPaddingNominal = 16;
+            titleBottomPadding = (int)(bottomPaddingNominal * displayDensity);
             // and give it a nice drop shadow!
             pageTitleText.setShadowLayer(2, 1, 1, parentFragment.getResources().getColor(R.color.lead_text_shadow));
             // do the same for the description...

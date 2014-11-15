@@ -32,6 +32,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -73,6 +74,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     private ListView nearbyList;
     private View nearbyEmptyContainer;
     private NearbyAdapter adapter;
+    private SwipeRefreshLayout refreshView;
 
     private WikipediaApp app;
     private Site site;
@@ -122,8 +124,19 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         nearbyContainer = (ViewGroup) rootView.findViewById(R.id.nearby_container);
         nearbyList = (ListView) rootView.findViewById(R.id.nearby_list);
         nearbyEmptyContainer = rootView.findViewById(R.id.nearby_empty_container);
-
         nearbyEmptyContainer.setVisibility(View.GONE);
+        refreshView = (SwipeRefreshLayout) rootView.findViewById(R.id.nearby_refresh_container);
+        refreshView.setSize(SwipeRefreshLayout.LARGE);
+        // if we want to give it a custom color:
+        //refreshView.setProgressBackgroundColor(R.color.swipe_refresh_circle);
+        refreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setRefreshingState(true);
+                requestLocationUpdates();
+                refreshView.setRefreshing(false);
+            }
+        });
         return rootView;
     }
 
@@ -509,7 +522,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
             return;
         }
-        menu.findItem(R.id.menu_refresh_nearby).setEnabled(!refreshing);
         menu.findItem(R.id.menu_metric_imperial).setTitle(showImperial
                 ? getString(R.string.nearby_set_metric)
                 : getString(R.string.nearby_set_imperial));
