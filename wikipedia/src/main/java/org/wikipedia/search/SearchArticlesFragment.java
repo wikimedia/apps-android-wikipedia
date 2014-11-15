@@ -373,7 +373,7 @@ public class SearchArticlesFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (isSearchActive) {
+        if (isSearchActive && isAdded()) {
             addSearchView(menu);
         }
     }
