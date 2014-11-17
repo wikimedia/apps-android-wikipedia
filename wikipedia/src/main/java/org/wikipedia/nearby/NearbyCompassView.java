@@ -17,7 +17,9 @@ public class NearbyCompassView extends ImageView {
     private Paint paintTick;
     private Paint paintArrow;
     private int tickColor = Color.BLACK;
-    private int maskColor = Color.WHITE;
+    // initialize the mask color to a ridiculous value, so that the mask bitmap is recreated for
+    // the Dark and Light theme
+    private int maskColor = Color.MAGENTA;
 
     // make the mask bitmap static, so that it's re-used by all instances of this view
     // (we're assuming that all instances will be the same size)
