@@ -240,12 +240,15 @@
   <string name="search_error_retry">Tekrar dene</string>
   <string name="search_redirect_title">\"%s\" sayfasından yönlendirme.</string>
   <string name="search_recent_header">Son aramalar:</string>
-  <string name="button_clear_all_recent_searches" fuzzy="true">Son aramaları temizle</string>
+  <string name="button_clear_all_recent_searches">Son aramaları temizle</string>
+  <string name="clear_recent_searches_confirm">Arama geçmişini temizlemek istediğinizden emin misiniz?</string>
   <string name="search_titles_button">Madde adları</string>
   <string name="search_full_button">Maddeler içinde</string>
   <string name="toc_hint">Başlıkları görmek için sayfayı sola çekin veya sağ üstteki menü tuşunu kullanın.</string>
   <string name="toc_know_it">Anladım</string>
   <string name="error_browser_not_found">Web sayfası açılamadı (tarayıcı uygulaması bulunamadı).</string>
+  <string name="table_other">Daha fazla bilgi</string>
+  <string name="table_close">Kapat</string>
   <string name="app_store_description">Android için resmi Vikipedi Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır. Sıfırdan tekrar yazılan uygulama, şimdi her zamankinden daha iyi.
 
 Özellikler:
@@ -260,4 +263,5 @@
 Uygulama kodları tamamen açık kaynaklıdır. Java ve Android SDK kullanıyorsanız, gelip bizle çalışın!  https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">Yeni alfa güncellemesi var</string>
   <string name="alpha_update_notification_text">İndirmek için dokunun</string>
+  <string name="dialog_close_description">Kapat</string>
 </resources>

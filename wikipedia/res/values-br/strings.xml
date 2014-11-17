@@ -107,6 +107,7 @@
   <string name="saved_pages_empty_message">Mat-tre eo enrollañ pajennoù. Gallout a rit ober ganto evel sinedoù hag a c\'hallit lenn pa vezit ezlinenn.</string>
   <string name="history_empty_title">N\'eus pajenn nevez ebet amañ.</string>
   <string name="history_empty_message">Lamet ho peus pep tra moarvat. Ar wech kentañ ma\'z eot war ur bajenn e c\'hallot distreiñ warni ac\'halese.</string>
+  <string name="delete_selected_history">Diverkañ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">An Holloueziadur digor</string>
   <string name="skip">Lezel a-gostez</string>
@@ -239,10 +240,16 @@
   <string name="search_error_retry">Klask en-dro</string>
   <string name="search_redirect_title">Adkaset war-zu \"%s\"</string>
   <string name="search_recent_header">Enklaskoù nevez :</string>
+  <string name="button_clear_all_recent_searches">diverkañ an enklaskoù nevez</string>
+  <string name="clear_recent_searches_confirm">Ha sur eo ho peus c\'hoant da ziverkañ roll-istor  hoc\'h enklaskoù ?</string>
   <string name="search_titles_button">Titloù</string>
   <string name="search_full_button">Er pennadoù</string>
   <string name="toc_hint">Torchañ war-zu an tu kleiz evit ar rannskridoù, pe implijout bouton al lañser e krec\'h a-zehoù.</string>
   <string name="toc_know_it">Mat eo</string>
+  <string name="error_browser_not_found">Ne c\'haller ket digeriñ ar bajenn web (n\'eus bet kavet arload  merdeer)</string>
+  <string name="table_infobox">Graet buan</string>
+  <string name="table_other">Muioc\'h a ditouroù</string>
+  <string name="table_close">Serriñ</string>
   <string name="app_store_description">Arload ofisiel Wikepedia evit Android. Un holloueziadur eo Wikipedia. Ennañ ez eus ouzhpenn 32 vilion a bennadoù e 280 yezh. An holloueziadur klokañ hag implijetañ a zo bet kempunet gant an dud evel n’eus ket bet morse.
 
 Arc\'hwelioù
@@ -263,4 +270,5 @@ _ Pajennoù enrollet : gallout a reot enrollañ pajennoù evit lenn anezho ezlin
 Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hit diorren Android, deuit neuze da grouiñ hoc\'h adstumm : https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">Un hizadenn alpha nevez a c\'haller kaout</string>
   <string name="alpha_update_notification_text">Pouezañ evit pellgargañ</string>
+  <string name="dialog_close_description">Serriñ</string>
 </resources>

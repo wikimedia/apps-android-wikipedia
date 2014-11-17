@@ -240,12 +240,16 @@
   <string name="search_error_retry">Повторить</string>
   <string name="search_redirect_title">Перенаправление с «%s».</string>
   <string name="search_recent_header">Последние поиски:</string>
-  <string name="button_clear_all_recent_searches" fuzzy="true">Очистить список последних поисковых запросов</string>
+  <string name="button_clear_all_recent_searches">Очистить список последних поисковых запросов</string>
+  <string name="clear_recent_searches_confirm">Вы уверены, что хотите стереть историю поисковых запросов?</string>
   <string name="search_titles_button">Заголовки</string>
   <string name="search_full_button">Внутри статей</string>
   <string name="toc_hint">Потяните влево для просмотра разделов или используйте кнопку меню в правом верхнем углу.</string>
   <string name="toc_know_it">Понятно</string>
   <string name="error_browser_not_found">Не удалось открыть веб-страницу (приложение браузера не найдено).</string>
+  <string name="table_infobox">Короткие факты</string>
+  <string name="table_other">Дополнительная информация</string>
+  <string name="table_close">Закрыть</string>
   <string name="app_store_description">Официальное приложение «Википедия» под Android. Википедия — свободная энциклопедия, содержащая более 32 миллионов статей на 280 языках. Она является наиболее полным и широко используемым справочником, который люди когда-либо создавали. Приложение было переписано с нуля и стало лучше, чем когда-либо прежде.
 
 Особенности:
@@ -260,4 +264,5 @@
 Исходный код является полностью открытым. Если у вас есть опыт работы с Java и Android SDK, присоединяйтесь к нам! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">Доступно новое обновление альфа-версии</string>
   <string name="alpha_update_notification_text">Нажмите чтобы скачать</string>
+  <string name="dialog_close_description">Закрыть</string>
 </resources>

@@ -240,7 +240,8 @@
   <string name="search_error_retry">Пробај пак</string>
   <string name="search_redirect_title">Пренасочување од „%s“.</string>
   <string name="search_recent_header">Скорешни пребарувања:</string>
-  <string name="button_clear_all_recent_searches" fuzzy="true">Исчисти скорешни пребарувања</string>
+  <string name="button_clear_all_recent_searches">Исчисти скорешни пребарувања</string>
+  <string name="clear_recent_searches_confirm">Дали сте сигурни дека сакате да ја избришете историјата на пребарувања?</string>
   <string name="search_titles_button">Наслови</string>
   <string name="search_full_button">Во статиите</string>
   <string name="toc_hint">Повлечете лево за поднасловите или послужете се со копчето во менито горе-десно.</string>

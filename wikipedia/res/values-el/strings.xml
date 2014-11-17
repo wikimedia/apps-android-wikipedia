@@ -235,7 +235,7 @@
   <string name="search_error_retry">Επανάληψη</string>
   <string name="search_redirect_title">Ανακατεύθυνση από \"%s\".</string>
   <string name="search_recent_header">Πρόσφατες αναζητήσεις:</string>
-  <string name="button_clear_all_recent_searches" fuzzy="true">Εκκαθάριση πρόσφατων αναζητήσεων</string>
+  <string name="button_clear_all_recent_searches">Εκκαθάριση πρόσφατων αναζητήσεων</string>
   <string name="search_titles_button">Τίτλοι:</string>
   <string name="search_full_button">Εντός λημμάτων</string>
   <string name="toc_hint">Σύρετε προς τα αριστερά για ενότητες ή χρησιμοποιήστε το κουμπί \"μενού\" στην επάνω δεξιά γωνία.</string>

@@ -236,4 +236,5 @@
   <string name="error_browser_not_found">Websäit konnt net opgemaach ginn (keng App fonnt).</string>
   <string name="alpha_update_notification_title">Nei alpha-Versioun disponibel</string>
   <string name="alpha_update_notification_text">Tippe fir erofzelueden</string>
+  <string name="dialog_close_description">Zoumaachen</string>
 </resources>

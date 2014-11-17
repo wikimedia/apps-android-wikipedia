@@ -240,12 +240,16 @@
   <string name="search_error_retry">Thử lại</string>
   <string name="search_redirect_title">Đổi hướng từ “%s”.</string>
   <string name="search_recent_header">Tìm kiếm gần đây:</string>
-  <string name="button_clear_all_recent_searches" fuzzy="true">Xóa các tìm kiếm gần đây</string>
+  <string name="button_clear_all_recent_searches">Xóa các tìm kiếm gần đây</string>
+  <string name="clear_recent_searches_confirm">Bạn có chắc chắn muốn xóa lịch sử tìm kiếm của bạn?</string>
   <string name="search_titles_button">Tên trang</string>
   <string name="search_full_button">Nội dung bài</string>
   <string name="toc_hint">Để xem các phần, vuốt trái hoặc bấm nút trình đơn ở góc phải bên trên.</string>
   <string name="toc_know_it">Được rồi</string>
   <string name="error_browser_not_found">Không thể mở trang web (không tìm thấy ứng dụng trình duyệt).</string>
+  <string name="table_infobox">Thông tin nhanh</string>
+  <string name="table_other">Thêm thông tin</string>
+  <string name="table_close">Đóng</string>
   <string name="app_store_description">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở với hơn 32 triệu mục từ trong 280 ngôn ngữ, và là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên. Ứng dụng này đã được viết mới hoàn toàn và là bản tốt nhất từ trước tới nay.
 
 Tính năng:
@@ -260,4 +264,5 @@ Tính năng:
 Mã nguồn là hoàn toàn mở. Nếu bạn có kinh nghiệm với Java và Android SDK, hãy tham gia dự án với chúng tôi! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">Có sẵn bản cập nhật alpha mới</string>
   <string name="alpha_update_notification_text">Chạm để tải về</string>
+  <string name="dialog_close_description">Đóng</string>
 </resources>
