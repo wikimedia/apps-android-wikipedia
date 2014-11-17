@@ -94,7 +94,7 @@ public class FullSearchFragment extends Fragment {
         searchNetworkError.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                doSearch(currentSearchTerm, 0);
+                doSearch(currentSearchTerm, null);
                 searchNetworkError.setVisibility(View.GONE);
             }
         });
@@ -123,7 +123,7 @@ public class FullSearchFragment extends Fragment {
         @Override
         public boolean handleMessage(Message msg) {
             final String mySearchTerm = (String) msg.obj;
-            doSearch(mySearchTerm, 0);
+            doSearch(mySearchTerm, null);
             return true;
         }
     }
@@ -158,7 +158,7 @@ public class FullSearchFragment extends Fragment {
         }
     }
 
-    private void doSearch(final String searchTerm, final int continueOffset) {
+    private void doSearch(final String searchTerm, final FullSearchArticlesTask.ContinueOffset continueOffset) {
         (new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, continueOffset) {
             @Override
             public void onFinish(FullSearchResults results) {
@@ -188,7 +188,7 @@ public class FullSearchFragment extends Fragment {
                     getWikidataDescriptions(lastResults.getResults());
                 }
 
-                if (continueOffset == 0) {
+                if (continueOffset == null) {
                     // scroll to top, but post it to the message queue, because it should be done
                     // after the data set is updated.
                     searchResultsList.post(new Runnable() {
@@ -207,7 +207,7 @@ public class FullSearchFragment extends Fragment {
                 }
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
 
-                if (continueOffset == 0) {
+                if (continueOffset == null) {
                     searchResultsContainer.setVisibility(View.GONE);
                     searchNetworkError.setVisibility(View.VISIBLE);
                 } else {
@@ -218,7 +218,7 @@ public class FullSearchFragment extends Fragment {
             @Override
             public void onBeforeExecute() {
                 ((PageActivity)getActivity()).updateProgressBar(true, true, 0);
-                if (continueOffset == 0) {
+                if (continueOffset == null) {
                     searchResultsContainer.setVisibility(View.GONE);
                     searchNoResults.setVisibility(View.GONE);
                     searchNetworkError.setVisibility(View.GONE);
@@ -326,7 +326,7 @@ public class FullSearchFragment extends Fragment {
 
             //...and lastly, if we've scrolled to the last item in the list, then
             //continue searching!
-            if (position == results.size() - 1 && lastResults.getContinueOffset() > 0) {
+            if (position == results.size() - 1 && lastResults.getContinueOffset() != null) {
                 doSearch(currentSearchTerm, lastResults.getContinueOffset());
             }
 
