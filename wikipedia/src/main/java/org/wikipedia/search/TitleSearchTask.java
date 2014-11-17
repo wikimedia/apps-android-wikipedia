@@ -66,16 +66,16 @@ public class TitleSearchTask extends ApiTask<List<PageTitle>> {
         give the results in the wrong order, but with thumbnails!  So, all we have to do is use the
         first list, and correlate the pageids with the second list to extract the thumbnails.
         */
-        JSONObject query = data.optJSONObject("query");
-        JSONObject pages = query.optJSONObject("pages");
+        JSONObject queryResult = data.optJSONObject("query");
+        JSONObject pages = queryResult.optJSONObject("pages");
         if (pages == null) {
             return pageTitles;
         }
-        JSONArray prefixsearch = query.getJSONArray("prefixsearch");
+        JSONArray search = queryResult.getJSONArray("prefixsearch");
 
-        for (int i = 0; i < prefixsearch.length(); i++) {
+        for (int i = 0; i < search.length(); i++) {
             String thumbUrl = null;
-            JSONObject item = prefixsearch.getJSONObject(i);
+            JSONObject item = search.getJSONObject(i);
             String pageid = item.getString("pageid");
             if (pages.has(pageid) && pages.getJSONObject(pageid).has("thumbnail")) {
                 thumbUrl = pages.getJSONObject(pageid)

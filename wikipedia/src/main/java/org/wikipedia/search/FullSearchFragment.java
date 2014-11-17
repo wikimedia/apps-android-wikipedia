@@ -1,11 +1,9 @@
 package org.wikipedia.search;
 
 import org.wikipedia.PageTitle;
-import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.wikidata.WikidataDescriptionsTask;
 import org.wikipedia.wikidata.WikidataSite;
 import com.squareup.picasso.Picasso;
@@ -30,8 +28,6 @@ import java.util.Map;
 
 public class FullSearchFragment extends Fragment {
     private static final int DELAY_MILLIS = 1000;
-    private static final int MAX_CACHE_SIZE_IMAGES = 48;
-    private static final int MAX_CACHE_SIZE_DESCRIPTIONS = 96;
     private static final int MESSAGE_SEARCH = 1;
 
     private WikipediaApp app;
@@ -39,7 +35,6 @@ public class FullSearchFragment extends Fragment {
     private SearchArticlesFragment searchFragment;
     private View searchResultsContainer;
     private ListView searchResultsList;
-    private SearchResultAdapter adapter;
     private String currentSearchTerm = "";
 
     private View searchFullContainer;
@@ -51,9 +46,6 @@ public class FullSearchFragment extends Fragment {
 
     private FullSearchArticlesTask.FullSearchResults lastResults;
     private List<FullSearchResult> totalResults;
-
-    private ParcelableLruCache<String> pageImagesCache
-            = new ParcelableLruCache<String>(MAX_CACHE_SIZE_IMAGES, String.class);
 
     public FullSearchFragment() {
     }
@@ -81,7 +73,7 @@ public class FullSearchFragment extends Fragment {
             }
         });
 
-        adapter = new SearchResultAdapter(inflater);
+        SearchResultAdapter adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
         searchSuggestion = (TextView) rootView.findViewById(R.id.search_suggestion);
@@ -194,7 +186,6 @@ public class FullSearchFragment extends Fragment {
                 } else {
                     searchResultsList.setVisibility(View.VISIBLE);
                     getWikidataDescriptions(lastResults.getResults());
-                    getPageThumbnails(lastResults.getResults());
                 }
 
                 if (continueOffset == 0) {
@@ -277,43 +268,6 @@ public class FullSearchFragment extends Fragment {
         descriptionTask.execute();
     }
 
-    private void getPageThumbnails(List<FullSearchResult> results) {
-        List<PageTitle> titleList = new ArrayList<PageTitle>();
-        for (FullSearchResult r : results) {
-            if (pageImagesCache.get(r.getTitle().getPrefixedText()) == null) {
-                // not in our cache yet
-                titleList.add(r.getTitle());
-            }
-        }
-        if (titleList.isEmpty()) {
-            return;
-        }
-
-        PageImagesTask imagesTask = new PageImagesTask(
-                app.getAPIForSite(app.getPrimarySite()),
-                app.getPrimarySite(),
-                titleList,
-                (int)(WikipediaApp.PREFERRED_THUMB_SIZE * WikipediaApp.getInstance().getScreenDensity())) {
-            @Override
-            public void onFinish(Map<PageTitle, String> result) {
-                for (Map.Entry<PageTitle, String> entry : result.entrySet()) {
-                    if (entry.getValue() == null) {
-                        continue;
-                    }
-                    pageImagesCache.put(entry.getKey().getPrefixedText(), entry.getValue());
-                }
-                ((BaseAdapter) searchResultsList.getAdapter()).notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                // Don't actually do anything.
-                // Thumbnails are expendable
-            }
-        };
-        imagesTask.execute();
-    }
-
     private final class SearchResultAdapter extends BaseAdapter {
         private List<FullSearchResult> results;
         private final LayoutInflater inflater;
@@ -357,7 +311,7 @@ public class FullSearchFragment extends Fragment {
             }
 
             ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
-            String thumbnail = pageImagesCache.get(result.getTitle().getPrefixedText());
+            String thumbnail = result.getThumbUrl();
             if (thumbnail == null) {
                 Picasso.with(parent.getContext())
                         .load(R.drawable.ic_pageimage_placeholder)
