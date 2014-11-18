@@ -24,9 +24,9 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
 
     private final Site site;
     private final String searchTerm;
-    private final int continueOffset;
+    private final ContinueOffset continueOffset;
 
-    public FullSearchArticlesTask(Api api, Site site, String searchTerm, int continueOffset) {
+    public FullSearchArticlesTask(Api api, Site site, String searchTerm, ContinueOffset continueOffset) {
         super(LOW_CONCURRENCY, api);
         this.site = site;
         this.searchTerm = searchTerm;
@@ -35,8 +35,7 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
 
     @Override
     public RequestBuilder buildRequest(Api api) {
-        final String offset = Integer.toString(continueOffset);
-        return api.action("query")
+        final RequestBuilder req = api.action("query")
                 .param("prop", "pageprops|pageimages")
                 .param("ppprop", "wikibase_item") // only interested in wikibase_item
                 .param("generator", "search")
@@ -45,7 +44,6 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
                 .param("gsrwhat", "text")
                 .param("gsrinfo", "")
                 .param("gsrprop", "redirecttitle")
-                .param("gsroffset", offset)
                 .param("gsrlimit", NUM_RESULTS_PER_QUERY)
                 .param("list", "search") // for correct order
                 .param("srsearch", searchTerm)
@@ -53,11 +51,22 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
                 .param("srwhat", "text")
                 .param("srinfo", "suggestion")
                 .param("srprop", "")
-                .param("sroffset", offset)
                 .param("srlimit", NUM_RESULTS_PER_QUERY)
                 .param("piprop", "thumbnail") // for thumbnail URLs
                 .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
                 .param("pilimit", NUM_RESULTS_PER_QUERY);
+        if (continueOffset != null) {
+            req.param("continue", continueOffset.cont);
+            if (continueOffset.sroffset > 0) {
+                req.param("sroffset", Integer.toString(continueOffset.sroffset));
+            }
+            if (continueOffset.gsroffset > 0) {
+                req.param("gsroffset", Integer.toString(continueOffset.gsroffset));
+            }
+        } else {
+            req.param("continue", ""); // add empty continue to avoid the API warning
+        }
+        return req;
     }
 
     @Override
@@ -74,9 +83,13 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
             }
         }
 
-        int newOffset = 0;
-        if (data.has("query-continue")) {
-            newOffset = data.getJSONObject("query-continue").getJSONObject("search").getInt("gsroffset");
+        ContinueOffset nextContinueOffset = null;
+        final JSONObject continueData = data.optJSONObject("continue");
+        if (continueData != null) {
+            String continueString = continueData.optString("continue", null);
+            Integer sroffset = continueData.optInt("sroffset");
+            Integer gsroffset = continueData.optInt("gsroffset");
+            nextContinueOffset = new ContinueOffset(continueString, sroffset, gsroffset);
         }
 
         JSONObject queryResult = data.optJSONObject("query");
@@ -134,20 +147,20 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
             resultList.add(map.get(search.getJSONObject(i).getString("title")));
         }
 
-        return new FullSearchResults(resultList, newOffset, suggestion);
+        return new FullSearchResults(resultList, nextContinueOffset, suggestion);
     }
 
     private FullSearchResults emptyResults() {
-        return new FullSearchResults(Collections.<FullSearchResult>emptyList(), 0, "");
+        return new FullSearchResults(Collections.<FullSearchResult>emptyList(), null, "");
     }
 
     public class FullSearchResults {
-        private int continueOffset;
+        private ContinueOffset continueOffset;
         private List<FullSearchResult> resultsList;
         private String suggestion;
 
         public FullSearchResults(List<FullSearchResult> resultList,
-                                 int continueOffset,
+                                 ContinueOffset continueOffset,
                                  String suggestion) {
             this.resultsList = resultList;
             this.continueOffset = continueOffset;
@@ -158,12 +171,24 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
             return suggestion;
         }
 
-        public int getContinueOffset() {
+        public ContinueOffset getContinueOffset() {
             return continueOffset;
         }
 
         public List<FullSearchResult> getResults() {
             return resultsList;
+        }
+    }
+
+    class ContinueOffset {
+        private String cont;
+        private int sroffset;
+        private int gsroffset;
+
+        ContinueOffset(String cont, int sroffset, int gsroffset) {
+            this.cont = cont;
+            this.sroffset = sroffset;
+            this.gsroffset = gsroffset;
         }
     }
 }
