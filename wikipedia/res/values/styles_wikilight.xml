@@ -22,6 +22,7 @@
         <item name="list_separator_color">@color/list_separator_light</item>
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_light</item>
         <item name="search_bar_shape">@drawable/search_bar_shape_light</item>
+        <item name="subtle_gray_color">@color/subtle_gray_light</item>
     </style>
 
     <style name="Toolbar.WikiLight" parent="@style/Widget.AppCompat.Toolbar">

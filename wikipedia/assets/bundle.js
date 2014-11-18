@@ -248,16 +248,6 @@ module.exports = {
 };
 },{"./bridge":2}],7:[function(require,module,exports){
 var bridge = require( "./bridge" );
-bridge.registerListener( "displayAttribution", function( payload ) {
-    var attributionDiv = document.getElementById( "attribution" );
-    attributionDiv.setAttribute( "dir", window.directionality );
-    var lastUpdatedA = document.getElementById( "lastupdated" );
-    lastUpdatedA.innerText = payload.historyText;
-    lastUpdatedA.href = payload.historyTarget;
-    var licenseText = document.getElementById( "licensetext" );
-    licenseText.innerHTML = payload.licenseHTML;
-    attributionDiv.style.visibility = "visible";
-});
 
 bridge.registerListener( "requestImagesList", function( payload ) {
     var imageURLs = [];
@@ -424,6 +414,10 @@ bridge.registerListener( "setPaddingTop", function( payload ) {
     document.body.style.paddingTop = payload.paddingTop + "px";
 });
 
+bridge.registerListener( "setPaddingBottom", function( payload ) {
+    document.body.style.paddingBottom = payload.paddingBottom + "px";
+});
+
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!
     clearContents();
@@ -495,7 +489,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
 function clearContents() {
     document.getElementById( "content" ).innerHTML = "";
-    document.getElementById( "attribution" ).style.visibility = "hidden";
     window.scrollTo( 0, 0 );
 }
 
@@ -569,6 +562,10 @@ function scrollToSection( anchor ) {
         window.scrollTo( 0, scrollY );
     }
 }
+
+bridge.registerListener( "scrollToBottom", function () {
+    window.scrollTo(0, document.body.scrollHeight);
+});
 
 /**
  * Returns the section id of the section that has the header closest to but above midpoint of screen

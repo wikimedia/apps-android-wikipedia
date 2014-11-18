@@ -32,6 +32,7 @@ import java.util.ArrayList;
 public class ToCHandler {
     private static final int MAX_LEVELS = 3;
     private static final int INDENTATION_WIDTH_DP = 16;
+    private static final int READ_MORE_SECTION_ID = -1;
     private final ListView tocList;
     private final ProgressBar tocProgress;
     private final CommunicationBridge bridge;
@@ -152,7 +153,13 @@ public class ToCHandler {
 
     public void scrollToSection(Section section) {
         if (section != null) {
-            scrollToSection(section.isLead() ? "heading_" + section.getId() : section.getAnchor());
+            // is it the bottom (read more) section?
+            if (section.getId() == READ_MORE_SECTION_ID) {
+                bridge.sendMessage("scrollToBottom", new JSONObject());
+            } else {
+                scrollToSection(
+                        section.isLead() ? "heading_" + section.getId() : section.getAnchor());
+            }
         }
     }
 
@@ -218,6 +225,9 @@ public class ToCHandler {
                     sections.add(s);
                 }
             }
+            // add a fake section at the end to represent the "read more" contents at the bottom:
+            sections.add(new Section(READ_MORE_SECTION_ID, 0,
+                    parentActivity.getString(R.string.read_more_section), "", ""));
         }
 
         @Override

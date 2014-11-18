@@ -18,4 +18,5 @@
     <attr name="list_separator_color" format="reference"/>
     <attr name="syntax_highlight_template_color" format="reference"/>
     <attr name="search_bar_shape" format="reference"/>
+    <attr name="subtle_gray_color" format="reference"/>
 </resources>

@@ -22,6 +22,7 @@
         <item name="list_separator_color">@color/list_separator_dark</item>
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_dark</item>
         <item name="search_bar_shape">@drawable/search_bar_shape_dark</item>
+        <item name="subtle_gray_color">@color/subtle_gray_dark</item>
     </style>
 
     <style name="Toolbar.WikiDark" parent="@style/Widget.AppCompat.Toolbar">

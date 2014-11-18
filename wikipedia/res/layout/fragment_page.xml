@@ -73,6 +73,46 @@
                         android:paddingLeft="@dimen/activity_horizontal_margin"/>
                 </FrameLayout>
             </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/bottom_content_container"
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:orientation="vertical"
+                android:background="?attr/subtle_gray_color"
+                android:layout_gravity="bottom"
+                android:visibility="invisible">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_gravity="top"
+                    android:background="@drawable/toolbar_bottom_shadow"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom">
+                    <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="?attr/list_separator_color" />
+
+                    <TextView
+                        android:id="@+id/page_last_updated_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="?android:textAppearanceSmall"
+                        android:textColorLink="?attr/link_color"
+                        android:paddingTop="16dp"
+                        android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/page_license_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="?android:textAppearanceSmall"
+                        android:textColorLink="?attr/link_color"
+                        android:paddingBottom="16dp"
+                        android:gravity="center"/>
+                </LinearLayout>
+            </FrameLayout>
+
         </FrameLayout>
 
         </org.wikipedia.views.SwipeRefreshLayoutWithScroll>

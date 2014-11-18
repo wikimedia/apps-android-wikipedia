@@ -60,16 +60,6 @@ module.exports = {
 };
 },{"./bridge":1}],3:[function(require,module,exports){
 var bridge = require( "./bridge" );
-bridge.registerListener( "displayAttribution", function( payload ) {
-    var attributionDiv = document.getElementById( "attribution" );
-    attributionDiv.setAttribute( "dir", window.directionality );
-    var lastUpdatedA = document.getElementById( "lastupdated" );
-    lastUpdatedA.innerText = payload.historyText;
-    lastUpdatedA.href = payload.historyTarget;
-    var licenseText = document.getElementById( "licensetext" );
-    licenseText.innerHTML = payload.licenseHTML;
-    attributionDiv.style.visibility = "visible";
-});
 
 bridge.registerListener( "requestImagesList", function( payload ) {
     var imageURLs = [];

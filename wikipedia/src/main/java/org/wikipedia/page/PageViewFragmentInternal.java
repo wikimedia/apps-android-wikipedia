@@ -16,6 +16,7 @@ import org.wikipedia.editing.EditHandler;
 import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
+import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesTask;
@@ -209,13 +210,6 @@ public class PageViewFragmentInternal {
             leadSectionPayload.put("isMainPage", page.getPageProperties().isMainPage());
             leadSectionPayload.put("apiLevel", Build.VERSION.SDK_INT);
             bridge.sendMessage("displayLeadSection", leadSectionPayload);
-
-            JSONObject attributionPayload = new JSONObject();
-            String lastUpdatedText = getString(R.string.last_updated_text, Utils.formatDateRelative(page.getPageProperties().getLastModified()));
-            attributionPayload.put("historyText", lastUpdatedText);
-            attributionPayload.put("historyTarget", page.getTitle().getUriForAction("history"));
-            attributionPayload.put("licenseHTML", getString(R.string.content_license_html));
-            bridge.sendMessage("displayAttribution", attributionPayload);
 
             Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
 
@@ -486,6 +480,11 @@ public class PageViewFragmentInternal {
                 }
                 // Do any other stuff that should happen upon page load completion...
                 getActivity().updateProgressBar(false, true, 0);
+
+                // create bottom content for this page...
+                new BottomContentHandler(parentFragment, bridge, webView, linkHandler,
+                        (ViewGroup) parentFragment.getView().findViewById(R.id.bottom_content_container));
+
             }
         });
     }

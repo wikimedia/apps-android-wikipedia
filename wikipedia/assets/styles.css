@@ -766,14 +766,6 @@ body {
   height: 24px;
   width: 24px;
 }
-#attribution {
-  border-top: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-  color: #888;
-  font-size: 80%;
-  clear: both;
-}
 
 a.edit_section_button {
   height: 32px;

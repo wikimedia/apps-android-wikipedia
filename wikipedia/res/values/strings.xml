@@ -278,4 +278,5 @@ The code is fully open source. If you have experience with Java and the Android 
     <string name="dialog_close_description">Close</string>
     <string name="preference_title_show_images">Show images</string>
     <string name="preference_summary_show_images">Enable or disable loading of images in pages. Uncheck this setting if your internet connection is slow, or if your data plan is limited.</string>
+    <string name="read_more_section">Read more</string>
 </resources>
