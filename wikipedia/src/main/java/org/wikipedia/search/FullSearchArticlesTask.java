@@ -19,22 +19,22 @@ import java.util.List;
 import java.util.Map;
 
 public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullSearchResults> {
-    private static final int MAX_RESULTS = 12;
-    private static final String NUM_RESULTS_PER_QUERY = Integer.toString(MAX_RESULTS);
-
     private final Site site;
     private final String searchTerm;
+    private final int maxResults;
     private final ContinueOffset continueOffset;
 
-    public FullSearchArticlesTask(Api api, Site site, String searchTerm, ContinueOffset continueOffset) {
+    public FullSearchArticlesTask(Api api, Site site, String searchTerm, int maxResults, ContinueOffset continueOffset) {
         super(LOW_CONCURRENCY, api);
         this.site = site;
         this.searchTerm = searchTerm;
+        this.maxResults = maxResults;
         this.continueOffset = continueOffset;
     }
 
     @Override
     public RequestBuilder buildRequest(Api api) {
+        final String maxResultsString = Integer.toString(maxResults);
         final RequestBuilder req = api.action("query")
                 .param("prop", "pageprops|pageimages")
                 .param("ppprop", "wikibase_item") // only interested in wikibase_item
@@ -44,17 +44,17 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
                 .param("gsrwhat", "text")
                 .param("gsrinfo", "")
                 .param("gsrprop", "redirecttitle")
-                .param("gsrlimit", NUM_RESULTS_PER_QUERY)
+                .param("gsrlimit", maxResultsString)
                 .param("list", "search") // for correct order
                 .param("srsearch", searchTerm)
                 .param("srnamespace", "0")
                 .param("srwhat", "text")
                 .param("srinfo", "suggestion")
                 .param("srprop", "")
-                .param("srlimit", NUM_RESULTS_PER_QUERY)
+                .param("srlimit", maxResultsString)
                 .param("piprop", "thumbnail") // for thumbnail URLs
                 .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
-                .param("pilimit", NUM_RESULTS_PER_QUERY);
+                .param("pilimit", maxResultsString);
         if (continueOffset != null) {
             req.param("continue", continueOffset.cont);
             if (continueOffset.sroffset > 0) {
@@ -119,7 +119,7 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
         */
 
         // build a map of full result objects
-        Map<String, FullSearchResult> map = new HashMap<String, FullSearchResult>(MAX_RESULTS + 1, 1.0f);
+        Map<String, FullSearchResult> map = new HashMap<String, FullSearchResult>(maxResults + 1, 1.0f);
         Iterator<String> keys = pages.keys();
         while (keys.hasNext()) {
             String key = keys.next();
@@ -183,12 +183,12 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
         }
     }
 
-    class ContinueOffset {
+    public class ContinueOffset {
         private String cont;
         private int sroffset;
         private int gsroffset;
 
-        ContinueOffset(String cont, int sroffset, int gsroffset) {
+        private ContinueOffset(String cont, int sroffset, int gsroffset) {
             this.cont = cont;
             this.sroffset = sroffset;
             this.gsroffset = gsroffset;

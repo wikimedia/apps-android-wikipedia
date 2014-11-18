@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 public class FullSearchFragment extends Fragment {
+    private static final int BATCH_SIZE = 12;
     private static final int DELAY_MILLIS = 1000;
     private static final int MESSAGE_SEARCH = 1;
 
@@ -159,7 +160,7 @@ public class FullSearchFragment extends Fragment {
     }
 
     private void doSearch(final String searchTerm, final FullSearchArticlesTask.ContinueOffset continueOffset) {
-        (new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, continueOffset) {
+        (new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, BATCH_SIZE, continueOffset) {
             @Override
             public void onFinish(FullSearchResults results) {
                 if (!isAdded()) {
