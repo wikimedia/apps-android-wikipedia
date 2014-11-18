@@ -27,11 +27,11 @@ class NearbyResult implements Parcelable {
         list = new ArrayList<NearbyPage>();
         JSONObject query = jsonObject.optJSONObject("query");
         if (query == null) {
-            throw new JSONException("Received malformed response with no error.");
+            return;
         }
+
         JSONObject pagesMap = query.optJSONObject("pages");
         Iterator iterator = pagesMap.keys();
-
         while (iterator.hasNext()) {
             NearbyPage newPage = new NearbyPage(pagesMap.getJSONObject((String) iterator.next()));
             list.add(newPage);
