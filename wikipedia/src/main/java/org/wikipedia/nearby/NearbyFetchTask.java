@@ -25,7 +25,6 @@ public class NearbyFetchTask extends ApiTask<NearbyResult> {
     private static final String LIMIT = "50";
     /** requested thumbnail size in pixel */
     private static final String THUMBNAIL_WIDTH = "144";
-    private final WikipediaApp app;
     private final Location location;
 
     public NearbyFetchTask(Context context, Site site, Location location) {
@@ -33,7 +32,6 @@ public class NearbyFetchTask extends ApiTask<NearbyResult> {
                 SINGLE_THREAD,
                 ((WikipediaApp) context.getApplicationContext()).getAPIForSite(site)
         );
-        this.app = (WikipediaApp) context.getApplicationContext();
         this.location = location;
     }
 
