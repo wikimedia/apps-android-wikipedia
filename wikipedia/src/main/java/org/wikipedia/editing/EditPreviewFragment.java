@@ -186,12 +186,67 @@ public class EditPreviewFragment extends Fragment {
                 }
 
                 @Override
-                public void onInternalLinkClicked(PageTitle title) {
-                    Intent intent = new Intent(getActivity(), PageActivity.class);
-                    intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-                    intent.putExtra(PageActivity.EXTRA_PAGETITLE, title);
-                    intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK));
-                    startActivity(intent);
+                public void onUrlClick(final String href) {
+                    // Check if this is an internal link, and if it is then open it internally
+                    if (href.startsWith("/wiki/")) {
+                        PageTitle title = getSite().titleForInternalLink(href);
+                        onInternalLinkClicked(title);
+                    } else {
+                        //Show dialogue asking user to confirm they want to leave
+                        showLeavingEditDialogue(new Runnable() {
+                            @Override
+                            public void run() {
+                                openExternalLink(href);
+                            }
+                        });
+                    }
+                }
+
+                @Override
+                public void onInternalLinkClicked(final PageTitle title) {
+                    //Show dialogue asking user to confirm they want to leave
+                    showLeavingEditDialogue(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(getActivity(), PageActivity.class);
+                            intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
+                            intent.putExtra(PageActivity.EXTRA_PAGETITLE, title);
+                            intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK));
+                            startActivity(intent);
+                        }
+                    });
+                }
+
+                /**
+                 * Shows the user a dialogue asking them if they really meant to leave the edit
+                 * workflow, and warning them that their changes have not yet been saved.
+                 * @param runnable The runnable that is run if the user chooses to leave.
+                 */
+                private void showLeavingEditDialogue(final Runnable runnable) {
+                    //Ask the user if they really meant to leave the edit workflow
+                    final AlertDialog leavingEditDialog = new AlertDialog.Builder(getActivity())
+                            .setMessage(R.string.dialog_message_leaving_edit)
+                            .setPositiveButton(R.string.dialog_message_leaving_edit_leave, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //They meant to leave; close dialogue and run specified action
+                                    dialog.dismiss();
+                                    runnable.run();
+                                }
+                            })
+                            .setNegativeButton(R.string.dialog_message_leaving_edit_stay, null)
+                            .create();
+                    leavingEditDialog.show();
+                }
+
+                /**
+                 * Open an external link. The method uses the onUrlClick method in the superclass of
+                 * of LinkHandler to do the heavy lifting. You can't call this method from inside a
+                 * Runnable or an AlertDialog, so we put it in here instead.
+                 * @param href The href of the external link to be opened.
+                 */
+                private void openExternalLink(String href) {
+                    super.onUrlClick(href);
                 }
 
                 @Override
