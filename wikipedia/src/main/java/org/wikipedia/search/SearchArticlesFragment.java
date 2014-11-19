@@ -32,6 +32,7 @@ import android.widget.TextView;
 
 public class SearchArticlesFragment extends Fragment {
     private static final String ARG_LAST_SEARCHED_TEXT = "lastSearchedText";
+    private static final String ARG_SEARCH_CURRENT_PANEL = "searchCurrentPanel";
 
     private static final int PANEL_RECENT_SEARCHES = 0;
     private static final int PANEL_TITLE_SEARCH = 1;
@@ -185,6 +186,7 @@ public class SearchArticlesFragment extends Fragment {
 
         if (savedInstanceState != null) {
             lastSearchedText = savedInstanceState.getString(ARG_LAST_SEARCHED_TEXT);
+            showPanel(savedInstanceState.getInt(ARG_SEARCH_CURRENT_PANEL));
         }
         return parentLayout;
     }
@@ -199,6 +201,7 @@ public class SearchArticlesFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString(ARG_LAST_SEARCHED_TEXT, lastSearchedText);
+        outState.putInt(ARG_SEARCH_CURRENT_PANEL, getActivePanel());
     }
 
     public void switchToTitleSearch(String queryText) {
@@ -333,8 +336,12 @@ public class SearchArticlesFragment extends Fragment {
             fullSearchDisabled = app.getRemoteConfig().getConfig()
                     .optBoolean("disableFullTextSearch", false);
 
-            //show recent searches by default...
-            showPanel(PANEL_RECENT_SEARCHES);
+            // if the current search string is empty, then it's a fresh start, so we'll show
+            // recent searches by default. Otherwise, the currently-selected panel should already
+            // be visible, so we don't need to do anything.
+            if (TextUtils.isEmpty(lastSearchedText)) {
+                showPanel(PANEL_RECENT_SEARCHES);
+            }
         }
         getView().findViewById(R.id.search_type_button_container)
                 .setVisibility(fullSearchDisabled ? View.GONE : View.VISIBLE);
