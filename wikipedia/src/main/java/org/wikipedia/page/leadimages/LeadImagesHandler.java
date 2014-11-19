@@ -442,9 +442,10 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      */
     private void fetchWikiDataDescription() {
         final String wikiDataId = parentFragment.getFragment().getPage().getPageProperties().getWikiDataId();
+        final String language = parentFragment.getFragment().getTitle().getSite().getLanguage();
 
         if (wikiDataId != null) {
-            WikipediaApp.getInstance().getWikidataCache().get(wikiDataId,
+            WikipediaApp.getInstance().getWikidataCache().get(wikiDataId, language,
                 new WikidataCache.OnWikidataReceiveListener() {
                     @Override
                     public void onWikidataReceived(Map<String, String> result) {
