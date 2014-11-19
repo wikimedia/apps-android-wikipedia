@@ -52,7 +52,7 @@ public class WikidataCache {
             (new WikidataDescriptionsTask(
                     app.getAPIForSite(new WikidataSite()),
                     app.getPrimaryLanguage(),
-                    ids) {
+                    idsToFetch) {
                 @Override
                 public void onFinish(Map<String, String> result) {
                     for (Map.Entry<String, String> entry : result.entrySet()) {

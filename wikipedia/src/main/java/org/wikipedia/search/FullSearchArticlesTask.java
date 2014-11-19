@@ -183,7 +183,7 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
         }
     }
 
-    public class ContinueOffset {
+    public final class ContinueOffset {
         private String cont;
         private int sroffset;
         private int gsroffset;

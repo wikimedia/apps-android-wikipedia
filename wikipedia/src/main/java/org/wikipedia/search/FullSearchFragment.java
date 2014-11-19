@@ -4,8 +4,8 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.wikidata.WikidataDescriptionsTask;
-import org.wikipedia.wikidata.WikidataSite;
+import org.wikipedia.wikidata.WikidataCache;
+import org.wikipedia.wikidata.WikidataDescriptionFeeder;
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import android.os.Handler;
@@ -160,7 +160,7 @@ public class FullSearchFragment extends Fragment {
     }
 
     private void doSearch(final String searchTerm, final FullSearchArticlesTask.ContinueOffset continueOffset) {
-        (new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, BATCH_SIZE, continueOffset) {
+        new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, BATCH_SIZE, continueOffset) {
             @Override
             public void onFinish(FullSearchResults results) {
                 if (!isAdded()) {
@@ -186,7 +186,20 @@ public class FullSearchFragment extends Fragment {
                     searchResultsList.setVisibility(View.GONE);
                 } else {
                     searchResultsList.setVisibility(View.VISIBLE);
-                    getWikidataDescriptions(lastResults.getResults());
+                    WikidataDescriptionFeeder.retrieveWikidataDescriptions(lastResults.getResults(), app,
+                                                                           new WikidataCache.OnWikidataReceiveListener() {
+                                                                               @Override
+                                                                               public void onWikidataReceived(Map<String, String> result) {
+                                                                                   ((BaseAdapter) searchResultsList.getAdapter())
+                                                                                           .notifyDataSetChanged();
+                                                                               }
+
+                                                                               @Override
+                                                                               public void onWikidataFailed(Throwable caught) {
+                                                                                   // Don't actually do anything.
+                                                                                   // Descriptions are expendable
+                                                                               }
+                                                                           });
                 }
 
                 if (continueOffset == null) {
@@ -229,44 +242,7 @@ public class FullSearchFragment extends Fragment {
                     ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetChanged();
                 }
             }
-        }).execute();
-    }
-
-    private void getWikidataDescriptions(List<FullSearchResult> results) {
-        List<String> idList = new ArrayList<String>();
-        for (FullSearchResult r : results) {
-            if (!TextUtils.isEmpty(r.getWikiBaseId())
-                    && app.getWikidataCache().get(r.getWikiBaseId()) == null) {
-                // not in our cache yet
-                idList.add(r.getWikiBaseId());
-            }
-        }
-        if (idList.isEmpty()) {
-            return;
-        }
-
-        WikidataDescriptionsTask descriptionTask = new WikidataDescriptionsTask(
-                app.getAPIForSite(new WikidataSite()),
-                app.getPrimaryLanguage(),
-                idList) {
-            @Override
-            public void onFinish(Map<String, String> result) {
-                for (Map.Entry<String, String> entry : result.entrySet()) {
-                    if (entry.getValue() == null) {
-                        continue;
-                    }
-                    app.getWikidataCache().put(entry.getKey(), entry.getValue());
-                }
-                ((BaseAdapter) searchResultsList.getAdapter()).notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                // Don't actually do anything.
-                // Descriptions are expendable
-            }
-        };
-        descriptionTask.execute();
+        }.execute();
     }
 
     private final class SearchResultAdapter extends BaseAdapter {
