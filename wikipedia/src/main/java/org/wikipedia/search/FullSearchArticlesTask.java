@@ -144,7 +144,10 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
         ArrayList<FullSearchResult> resultList = new ArrayList<FullSearchResult>();
         JSONArray search = queryResult.getJSONArray("search");
         for (int i = 0; i < search.length(); i++) {
-            resultList.add(map.get(search.getJSONObject(i).getString("title")));
+            final FullSearchResult res = map.get(search.getJSONObject(i).getString("title"));
+            if (res != null) {
+                resultList.add(res);
+            }
         }
 
         return new FullSearchResults(resultList, nextContinueOffset, suggestion);
