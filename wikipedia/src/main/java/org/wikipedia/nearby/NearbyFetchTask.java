@@ -46,7 +46,8 @@ public class NearbyFetchTask extends ApiTask<NearbyResult> {
                 .param("ggscoord", locationParam(location))
                 .param("ggsradius", RADIUS)
                 .param("ggslimit", LIMIT)
-                .param("format", "json");
+                .param("format", "json")
+                .param("continue", ""); // to avoid warning about new continuation syntax
     }
 
     private String locationParam(Location location) {

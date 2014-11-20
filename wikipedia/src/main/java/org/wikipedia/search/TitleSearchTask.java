@@ -40,7 +40,8 @@ public class TitleSearchTask extends ApiTask<List<PageTitle>> {
                 .param("pilimit", NUM_RESULTS_PER_QUERY)
                 .param("list", "prefixsearch")
                 .param("pssearch", prefix)
-                .param("pslimit", NUM_RESULTS_PER_QUERY);
+                .param("pslimit", NUM_RESULTS_PER_QUERY)
+                .param("continue", ""); // to avoid warning about new continuation syntax
     }
 
     @Override

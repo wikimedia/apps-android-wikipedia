@@ -11,14 +11,11 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 
 public class RandomArticleIdTask extends ApiTask<PageTitle> {
-
-    private Context ctx;
     private Site site;
 
     public RandomArticleIdTask(Api api, Site site, Context context) {
         super(SINGLE_THREAD, api);
         this.site = site;
-        this.ctx = context;
     }
 
     @Override
@@ -26,7 +23,8 @@ public class RandomArticleIdTask extends ApiTask<PageTitle> {
         return api.action("query")
                 .param("list", "random")
                 .param("rnnamespace", "0")
-                .param("rnlimit", "1"); // maybe we grab 10 in the future and persist it somewhere
+                .param("rnlimit", "1") // maybe we grab 10 in the future and persist it somewhere
+                .param("continue", ""); // to avoid warning about new continuation syntax
     }
 
     @Override

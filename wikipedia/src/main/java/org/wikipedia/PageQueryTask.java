@@ -23,7 +23,9 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle, T>> {
 
     @Override
     public RequestBuilder buildRequest(Api api) {
-        RequestBuilder builder = api.action("query").param("titles", TextUtils.join("|", titles));
+        RequestBuilder builder = api.action("query")
+                .param("titles", TextUtils.join("|", titles))
+                .param("continue", ""); // to avoid warning about new continuation syntax
         buildQueryParams(builder);
         return builder;
     }

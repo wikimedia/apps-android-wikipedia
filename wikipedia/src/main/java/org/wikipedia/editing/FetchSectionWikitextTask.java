@@ -12,7 +12,6 @@ import org.wikipedia.WikipediaApp;
 public class FetchSectionWikitextTask extends ApiTask<String> {
     private final PageTitle title;
     private final int sectionID;
-    private final WikipediaApp app;
 
     public FetchSectionWikitextTask(Context context, PageTitle title, int sectionID) {
         super(
@@ -21,7 +20,6 @@ public class FetchSectionWikitextTask extends ApiTask<String> {
         );
         this.title = title;
         this.sectionID = sectionID;
-        this.app = (WikipediaApp)context.getApplicationContext();
     }
 
     @Override
@@ -39,7 +37,7 @@ public class FetchSectionWikitextTask extends ApiTask<String> {
         JSONObject pagesJSON = result.asObject()
                 .optJSONObject("query")
                 .optJSONObject("pages");
-        String pageId = (String) pagesJSON.keys().next();
+        String pageId = pagesJSON.keys().next();
 
         JSONObject revisionJSON = pagesJSON.optJSONObject(pageId).optJSONArray("revisions").getJSONObject(0);
 

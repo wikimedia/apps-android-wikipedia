@@ -15,14 +15,12 @@ import java.util.ArrayList;
 
 public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
     private final PageTitle title;
-    private final WikipediaApp app;
     public LangLinksFetchTask(Context context, PageTitle title) {
         super(
                 SINGLE_THREAD,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
         );
         this.title = title;
-        this.app = (WikipediaApp)context.getApplicationContext();
     }
 
     @Override
@@ -30,7 +28,8 @@ public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
         return api.action("query")
                 .param("prop", "langlinks")
                 .param("titles", title.getPrefixedText())
-                .param("lllimit", "500");
+                .param("lllimit", "500")
+                .param("continue", ""); // to avoid warning about new continuation syntax
     }
 
     @Override
@@ -39,7 +38,7 @@ public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
         JSONObject pagesJSON = result.asObject()
                 .optJSONObject("query")
                 .optJSONObject("pages");
-        String pageId = (String) pagesJSON.keys().next();
+        String pageId = pagesJSON.keys().next();
         if (!pagesJSON.optJSONObject(pageId).has("langlinks")) {
             // No links found
             return linkTitles;
