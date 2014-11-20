@@ -145,7 +145,7 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
         return new FullSearchResults(Collections.<PageTitle>emptyList(), null, "");
     }
 
-    public class FullSearchResults {
+    public static class FullSearchResults {
         private ContinueOffset continueOffset;
         private List<PageTitle> resultsList;
         private String suggestion;
@@ -167,6 +167,10 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
         }
 
         public List<PageTitle> getResults() {
+            return resultsList;
+        }
+
+        public List<PageTitle> getPageTitles() {
             return resultsList;
         }
     }

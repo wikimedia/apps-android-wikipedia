@@ -483,7 +483,8 @@ public class PageViewFragmentInternal {
 
                 // create bottom content for this page...
                 new BottomContentHandler(parentFragment, bridge, webView, linkHandler,
-                        (ViewGroup) parentFragment.getView().findViewById(R.id.bottom_content_container));
+                        (ViewGroup) parentFragment.getView().findViewById(R.id.bottom_content_container),
+                        title, page.getPageProperties().isMainPage());
 
             }
         });

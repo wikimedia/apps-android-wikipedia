@@ -26,10 +26,19 @@ public class SuggestionsTask extends FullSearchArticlesTask {
 
     @Override
     public FullSearchResults processResult(final ApiResult result) throws Throwable {
-        FullSearchResults searchResults = super.processResult(result);
+        return filterResults(super.processResult(result));
+    }
+
+    /**
+     * Keep only top three entries that aren't the actual page title in question.
+     *
+     * @param searchResults original results from server
+     * @return filtered results
+     */
+    public FullSearchResults filterResults(FullSearchResults searchResults) {
         List<PageTitle> filteredResults = new ArrayList<PageTitle>();
         List<PageTitle> results = searchResults.getResults();
-        for (int i = 0, count = 0; i < MAX_REQUESTED && count < MAX_SIZE; i++) {
+        for (int i = 0, count = 0; i < results.size() && count < MAX_SIZE; i++) {
             final PageTitle res = results.get(i);
             if (!title.equalsIgnoreCase(res.getPrefixedText())) {
                 filteredResults.add(res);

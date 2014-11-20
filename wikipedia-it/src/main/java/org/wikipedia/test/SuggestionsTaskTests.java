@@ -4,9 +4,13 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.SuggestionsTask;
+import org.wikipedia.search.FullSearchArticlesTask;
 
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -18,23 +22,25 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
     private static final int BATCH_SIZE = 3;
     private static final Site SITE = new Site("test.wikipedia.org");
 
+    private WikipediaApp app;
+
     public SuggestionsTaskTests() {
         super(TestDummyActivity.class);
     }
 
-    public void testFullTextSearchWithResults() throws Throwable {
+    @Override
+    public void setUp() throws Exception {
+        super.setUp();
         startActivity(new Intent(), null, null);
+        app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
+    }
+
+    public void testTask() throws Throwable {
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
                 new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test") {
-                    @Override
-                    public void onCatch(Throwable caught) {
-                        super.onCatch(caught);
-                    }
-
                     @Override
                     public void onFinish(FullSearchResults results) {
                         assertNotNull(results);
@@ -49,5 +55,42 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
             }
         });
         assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+    }
+
+    //
+    // unit tests:
+    //
+
+    public void testFilterNoResults() throws Throwable {
+        List<PageTitle> originalResults = new ArrayList<PageTitle>();
+        checkFilter(0, originalResults);
+    }
+
+    public void testFilter1ResultSameAsTitleIgnoreCase() throws Throwable {
+        List<PageTitle> originalResults = new ArrayList<PageTitle>();
+        originalResults.add(new PageTitle("Test", SITE, null, null));
+        checkFilter(0, originalResults);
+    }
+
+    public void testFilter1ResultDifferentFromTitle() throws Throwable {
+        List<PageTitle> originalResults = new ArrayList<PageTitle>();
+        originalResults.add(new PageTitle("something else", SITE, null, null));
+        checkFilter(1, originalResults);
+    }
+
+    public void testFilter4ResultsDifferentFromTitle() throws Throwable {
+        List<PageTitle> originalResults = new ArrayList<PageTitle>();
+        originalResults.add(new PageTitle("something else", SITE, null, null));
+        originalResults.add(new PageTitle("something else", SITE, null, null));
+        originalResults.add(new PageTitle("something else", SITE, null, null));
+        originalResults.add(new PageTitle("something else", SITE, null, null));
+        checkFilter(BATCH_SIZE, originalResults);
+    }
+
+    private void checkFilter(int expected, List<PageTitle> originalResults) {
+        SuggestionsTask task = new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test");
+        FullSearchArticlesTask.FullSearchResults searchResults = new FullSearchArticlesTask.FullSearchResults(originalResults, null, null);
+        List<PageTitle> filteredList = task.filterResults(searchResults).getResults();
+        assertEquals(expected, filteredList.size());
     }
 }

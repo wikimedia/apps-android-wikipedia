@@ -2,10 +2,11 @@
 
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/page_background_color"
-    >
+    tools:context=".page.PageActivity">
     <org.wikipedia.views.DisableableDrawerLayout
             android:id="@+id/page_toc_drawer"
             android:layout_width="match_parent"
@@ -77,22 +78,44 @@
             <FrameLayout
                 android:id="@+id/bottom_content_container"
                 android:layout_width="match_parent"
-                android:layout_height="256dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="?attr/subtle_gray_color"
+                android:background="?attr/page_background_color"
                 android:layout_gravity="bottom"
                 android:visibility="invisible">
-                <View
+                <LinearLayout
+                    android:id="@+id/read_more_container"
                     android:layout_width="match_parent"
-                    android:layout_height="8dp"
-                    android:layout_gravity="top"
-                    android:background="@drawable/toolbar_bottom_shadow"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        style="?android:textAppearanceLarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:fontFamily="serif"
+                        android:textSize="24sp"
+                        android:text="@string/read_more_section"
+                        />
+                    <ListView
+                        android:id="@+id/read_more_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="320dp">
+                    </ListView>
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_gravity="bottom">
-                    <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="?attr/list_separator_color" />
+                    android:layout_gravity="bottom"
+                    android:background="?attr/subtle_gray_color">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:layout_gravity="top"
+                        android:background="@drawable/toolbar_bottom_shadow"/>
 
                     <TextView
                         android:id="@+id/page_last_updated_text"
