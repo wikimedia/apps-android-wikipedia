@@ -477,6 +477,9 @@ public class SearchArticlesFragment extends Fragment {
     }
 
     public void navigateToTitle(PageTitle title) {
+        if (!isAdded()) {
+            return;
+        }
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
         Utils.hideSoftKeyboard(getActivity());
         closeSearch();
