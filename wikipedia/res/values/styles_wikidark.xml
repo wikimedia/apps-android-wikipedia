@@ -4,8 +4,6 @@
         <item name="windowActionModeOverlay">true</item>
         <item name="toolbarStyle">@style/Toolbar.WikiDark</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.WikiDark</item>
-        <item name="popupMenuStyle">@style/PopupMenu.WikiDark</item>
-        <item name="android:popupMenuStyle">@style/PopupMenu.WikiDark</item>
         <item name="android:windowBackground">@color/window_background_dark</item>
         <item name="window_background_color">@color/window_background_dark</item>
         <item name="page_background_color">@color/page_background_dark</item>
@@ -23,6 +21,7 @@
         <item name="lead_disabled_text_color">@color/lead_disabled_text_dark</item>
         <item name="list_separator_color">@color/list_separator_dark</item>
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_dark</item>
+        <item name="search_bar_shape">@drawable/search_bar_shape_dark</item>
     </style>
 
     <style name="Toolbar.WikiDark" parent="@style/Widget.AppCompat.Toolbar">
@@ -33,10 +32,6 @@
 
     <style name="DropDownListView.WikiDark" parent="@style/Widget.AppCompat.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_item_background</item>
-    </style>
-
-    <style name="PopupMenu.WikiDark" parent="@style/Widget.AppCompat.ListPopupWindow">
-        <item name="android:popupBackground">@drawable/popupmenu_shape_dark</item>
     </style>
 
 </resources>

@@ -41,6 +41,7 @@
     <color name="abusefilter_background_light">#E8E8E8</color>
     <color name="subtle_gray_light">#fff0f0f0</color>
     <color name="list_separator_light">#ffcccccc</color>
+    <color name="search_bar_light">#fff0f0f0</color>
 
     <color name="link_dark">#ff2B6FB2</color>
     <color name="button_dark">#ff2B6FB2</color>
@@ -55,6 +56,7 @@
     <color name="abusefilter_background_dark">#505050</color>
     <color name="subtle_gray_dark">#ff141414</color>
     <color name="list_separator_dark">#ff606060</color>
+    <color name="search_bar_dark">#ff606060</color>
 
     <color name="list_item_highlight">#a033b5e5</color>
     <color name="list_item_selected">#d033b5e5</color>

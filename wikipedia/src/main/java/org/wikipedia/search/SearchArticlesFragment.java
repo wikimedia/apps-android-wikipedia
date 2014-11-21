@@ -15,17 +15,12 @@ import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -317,9 +312,10 @@ public class SearchArticlesFragment extends Fragment {
      */
     public void openSearch() {
         isSearchActive = true;
-        // invalidate our activity's ActionBar, so that we'll have a chance to inject our
-        // SearchView into it.
+        // invalidate our activity's ActionBar, so that all action items are removed, and
+        // we can fill up the whole width of the ActionBar with our SearchView.
         getActivity().supportInvalidateOptionsMenu();
+        setSearchViewEnabled(true);
         ((PageActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(false);
         // show ourselves
         searchContainerView.setVisibility(View.VISIBLE);
@@ -349,8 +345,9 @@ public class SearchArticlesFragment extends Fragment {
 
     public void closeSearch() {
         isSearchActive = false;
-        // invalidate our activity's ActionBar, so that our SearchView is removed.
+        // invalidate our activity's ActionBar, so that the original action items are restored.
         getActivity().supportInvalidateOptionsMenu();
+        setSearchViewEnabled(false);
         ((PageActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(true);
         // hide ourselves
         searchContainerView.setVisibility(View.GONE);
@@ -378,39 +375,37 @@ public class SearchArticlesFragment extends Fragment {
         return false;
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (isSearchActive && isAdded()) {
-            addSearchView(menu);
-        }
-    }
-
-    private void addSearchView(Menu menu) {
-        MenuItem searchAction = menu.add(0, Menu.NONE, Menu.NONE, getString(R.string.search_hint));
-        MenuItemCompat.setShowAsAction(searchAction, MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
-        searchView = new SearchView(getActivity());
-        searchView.setFocusable(true);
-        searchView.requestFocusFromTouch();
-        searchView.setOnQueryTextListener(searchQueryListener);
-        searchView.setOnCloseListener(searchCloseListener);
-        searchView.setIconified(false);
-        searchView.setInputType(EditorInfo.TYPE_CLASS_TEXT);
-        searchView.setImeOptions(EditorInfo.IME_ACTION_GO);
-        searchView.setSubmitButtonEnabled(true);
-        updateZeroChrome();
-        // if we already have a previous search query, then put it into the SearchView, and it will
-        // automatically trigger the showing of the corresponding search results.
-        if (isValidQuery(lastSearchedText)) {
-            searchView.setQuery(lastSearchedText, false);
-
-            // automatically select all text in the search field, so that typing a new character
-            // will clear it by default
+    private void setSearchViewEnabled(boolean enabled) {
+        View searchButton = getActivity().findViewById(R.id.main_search_bar);
+        searchView = (SearchView)getActivity().findViewById(R.id.main_search_view);
+        if (enabled) {
+            searchView.setIconified(false);
+            searchView.requestFocusFromTouch();
+            searchView.setOnQueryTextListener(searchQueryListener);
+            searchView.setOnCloseListener(searchCloseListener);
+            searchView.setSubmitButtonEnabled(true);
+            updateZeroChrome();
             EditText editText = getSearchViewEditText(searchView);
             if (editText != null) {
-                editText.selectAll();
+                // need to explicitly set text color (you're welcome, 2.3!).
+                editText.setTextColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.edit_text_color)));
             }
+            // if we already have a previous search query, then put it into the SearchView, and it will
+            // automatically trigger the showing of the corresponding search results.
+            if (isValidQuery(lastSearchedText)) {
+                searchView.setQuery(lastSearchedText, false);
+                // automatically select all text in the search field, so that typing a new character
+                // will clear it by default
+                if (editText != null) {
+                    editText.selectAll();
+                }
+            }
+            searchButton.setVisibility(View.GONE);
+            searchView.setVisibility(View.VISIBLE);
+        } else {
+            searchView.setVisibility(View.GONE);
+            searchButton.setVisibility(View.VISIBLE);
         }
-        MenuItemCompat.setActionView(searchAction, searchView);
     }
 
     /**

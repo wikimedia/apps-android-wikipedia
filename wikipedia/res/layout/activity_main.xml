@@ -42,7 +42,54 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/main_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"/>
+                android:layout_height="?attr/actionBarSize">
+                <FrameLayout
+                    android:id="@+id/main_toolbar_inner_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:id="@+id/main_search_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:background="?attr/search_bar_shape">
+                        <ImageView
+                            android:id="@+id/main_search_bar_icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_vertical"
+                            android:contentDescription="@string/search_hint"
+                            android:src="@drawable/ic_search"/>
+                        <TextView
+                            android:id="@+id/main_search_bar_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            android:text="@string/search_hint"
+                            style="?android:textAppearanceMedium"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                    <android.support.v7.widget.SearchView
+                        android:id="@+id/main_search_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:visibility="gone"
+                        android:focusable="true"
+                        android:inputType="text"
+                        android:imeOptions="actionGo"
+                        />
+                </FrameLayout>
+            </android.support.v7.widget.Toolbar>
             <ProgressBar
                 android:id="@+id/main_progressbar"
                 android:layout_width="match_parent"

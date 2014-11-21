@@ -45,10 +45,11 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class PageActivity extends ThemedActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
@@ -69,6 +70,7 @@ public class PageActivity extends ThemedActionBarActivity {
     private DrawerLayout drawerLayout;
     private NavDrawerFragment fragmentNavdrawer;
     private SearchArticlesFragment searchFragment;
+    private TextView searchHintText;
 
     public static final int PROGRESS_BAR_MAX_VALUE = 10000;
     private ProgressBar progressBar;
@@ -136,59 +138,27 @@ public class PageActivity extends ThemedActionBarActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navdrawer);
         searchFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
+        searchHintText = (TextView) findViewById(R.id.main_search_bar_text);
 
         fragmentContainerView = findViewById(R.id.content_fragment_container);
         progressBar = (ProgressBar)findViewById(R.id.main_progressbar);
         progressBar.setMax(PROGRESS_BAR_MAX_VALUE);
         updateProgressBar(false, true, 0);
 
-        mDrawerToggle = new ActionBarDrawerToggle(
+        findViewById(R.id.main_search_bar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchFragment.openSearch();
+            }
+        });
+        app.adjustDrawableToTheme(((ImageView)findViewById(R.id.main_search_bar_icon)).getDrawable());
+
+        mDrawerToggle = new MainDrawerToggle(
                 this,                  /* host Activity */
                 drawerLayout,          /* DrawerLayout object */
                 R.string.app_name,     /* "open drawer" description */
                 R.string.app_name      /* "close drawer" description */
-        ) {
-
-            public void onDrawerClosed(View view) {
-                super.onDrawerClosed(view);
-                // if we want to change the title upon closing:
-                //getSupportActionBar().setTitle("");
-            }
-
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                // if we want to change the title upon opening:
-                //getSupportActionBar().setTitle("");
-            }
-
-            private boolean oncePerSlideLock = false;
-
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
-                super.onDrawerSlide(drawerView, slideOffset);
-                if (!oncePerSlideLock) {
-                    // Hide the keyboard when the drawer is opened
-                    Utils.hideSoftKeyboard(PageActivity.this);
-                    //also make sure ToC is hidden
-                    if (getCurPageFragment() != null) {
-                        getCurPageFragment().toggleToC(PageViewFragmentInternal.TOC_ACTION_HIDE);
-                    }
-                    //and make sure to update dynamic items and highlights
-                    fragmentNavdrawer.setupDynamicItems();
-                    oncePerSlideLock = true;
-                }
-                // and make sure the Toolbar is showing
-                showToolbar();
-            }
-
-            @Override
-            public void onDrawerStateChanged(int newState) {
-                super.onDrawerStateChanged(newState);
-                if (newState == DrawerLayout.STATE_IDLE) {
-                    oncePerSlideLock = false;
-                }
-            }
-        };
+        );
 
         // Set the drawer toggle as the DrawerListener
         drawerLayout.setDrawerListener(mDrawerToggle);
@@ -232,6 +202,7 @@ public class PageActivity extends ThemedActionBarActivity {
                 searchFragment.openSearch();
             }
         }
+        searchHintText.setText(getString(pausedStateOfZero ? R.string.zero_search_hint : R.string.search_hint));
 
         // If we're coming back from a Theme change, we'll need to "restore" our state based on
         // what's given in our Intent (since there's no way to relaunch the Activity in a way that
@@ -269,6 +240,56 @@ public class PageActivity extends ThemedActionBarActivity {
         }
     }
 
+    private class MainDrawerToggle extends ActionBarDrawerToggle {
+        public MainDrawerToggle(android.app.Activity activity,
+                                android.support.v4.widget.DrawerLayout drawerLayout,
+                                int openDrawerContentDescRes, int closeDrawerContentDescRes) {
+            super(activity, drawerLayout, openDrawerContentDescRes, closeDrawerContentDescRes);
+        }
+
+        @Override
+        public void onDrawerClosed(View view) {
+            super.onDrawerClosed(view);
+            // if we want to change the title upon closing:
+            //getSupportActionBar().setTitle("");
+        }
+
+        @Override
+        public void onDrawerOpened(View drawerView) {
+            super.onDrawerOpened(drawerView);
+            // if we want to change the title upon opening:
+            //getSupportActionBar().setTitle("");
+        }
+
+        private boolean oncePerSlideLock = false;
+
+        @Override
+        public void onDrawerSlide(View drawerView, float slideOffset) {
+            super.onDrawerSlide(drawerView, slideOffset);
+            if (!oncePerSlideLock) {
+                // Hide the keyboard when the drawer is opened
+                Utils.hideSoftKeyboard(PageActivity.this);
+                //also make sure ToC is hidden
+                if (getCurPageFragment() != null) {
+                    getCurPageFragment().toggleToC(PageViewFragmentInternal.TOC_ACTION_HIDE);
+                }
+                //and make sure to update dynamic items and highlights
+                fragmentNavdrawer.setupDynamicItems();
+                oncePerSlideLock = true;
+            }
+            // and make sure the Toolbar is showing
+            showToolbar();
+        }
+
+        @Override
+        public void onDrawerStateChanged(int newState) {
+            super.onDrawerStateChanged(newState);
+            if (newState == DrawerLayout.STATE_IDLE) {
+                oncePerSlideLock = false;
+            }
+        }
+    }
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -283,15 +304,6 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        if (searchFragment != null && !isSearching()) {
-            getMenuInflater().inflate(R.menu.menu_main, menu);
-            app.adjustDrawableToTheme(menu.findItem(R.id.menu_search).getIcon());
-        }
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Pass the event to ActionBarDrawerToggle, if it returns
         // true, then it has handled the app icon touch event
@@ -301,9 +313,6 @@ public class PageActivity extends ThemedActionBarActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
-                return true;
-            case R.id.menu_search:
-                searchFragment.openSearch();
                 return true;
             default:
                 break;
@@ -543,6 +552,7 @@ public class PageActivity extends ThemedActionBarActivity {
         }
         pausedStateOfZero = latestWikipediaZeroDisposition;
         pausedMessageOfZero = latestCarrierMessage;
+        searchHintText.setText(getString(latestWikipediaZeroDisposition ? R.string.zero_search_hint : R.string.search_hint));
     }
 
     private void makeWikipediaZeroCrouton(int bgcolor, int fgcolor, String verbiage) {

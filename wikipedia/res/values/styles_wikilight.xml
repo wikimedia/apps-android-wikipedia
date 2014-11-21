@@ -21,6 +21,7 @@
         <item name="lead_disabled_text_color">@color/lead_disabled_text_light</item>
         <item name="list_separator_color">@color/list_separator_light</item>
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_light</item>
+        <item name="search_bar_shape">@drawable/search_bar_shape_light</item>
     </style>
 
     <style name="Toolbar.WikiLight" parent="@style/Widget.AppCompat.Toolbar">
