@@ -113,6 +113,7 @@ public class PageViewFragmentInternal {
     private PageTitle titleOriginal;
     private ViewGroup imagesContainer;
     private LeadImagesHandler leadImagesHandler;
+    private BottomContentHandler bottomContentHandler;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
     private View networkError;
@@ -414,6 +415,11 @@ public class PageViewFragmentInternal {
         imagesContainer = (ViewGroup) parentFragment.getView().findViewById(R.id.page_images_container);
         leadImagesHandler = new LeadImagesHandler(parentFragment, bridge, webView, imagesContainer);
 
+        bottomContentHandler = new BottomContentHandler(parentFragment, bridge,
+                webView, linkHandler,
+                (ViewGroup) parentFragment.getView().findViewById(R.id.bottom_content_container),
+                title);
+
         //is this page in cache??
         if (PAGE_CACHE.has(titleOriginal)) {
             Log.d(TAG, "Using page from cache: " + titleOriginal.getDisplayText());
@@ -481,11 +487,8 @@ public class PageViewFragmentInternal {
                 // Do any other stuff that should happen upon page load completion...
                 getActivity().updateProgressBar(false, true, 0);
 
-                // create bottom content for this page...
-                new BottomContentHandler(parentFragment, bridge, webView, linkHandler,
-                        (ViewGroup) parentFragment.getView().findViewById(R.id.bottom_content_container),
-                        title, page.getPageProperties().isMainPage());
-
+                // trigger layout of the bottom content
+                bottomContentHandler.beginLayout();
             }
         });
     }
@@ -502,6 +505,8 @@ public class PageViewFragmentInternal {
             webView.setVisibility(View.GONE);
             // and the lead image
             leadImagesHandler.hide();
+            // and the bottom content
+            bottomContentHandler.hide();
 
             // and reload the page...
             setState(STATE_NO_FETCH);
@@ -888,6 +893,7 @@ public class PageViewFragmentInternal {
     private void showNetworkError() {
         // Check for the source of the error and have different things turn up
         leadImagesHandler.hide();
+        bottomContentHandler.hide();
         webView.setVisibility(View.INVISIBLE);
         ViewAnimations.fadeIn(networkError);
     }
@@ -1004,6 +1010,8 @@ public class PageViewFragmentInternal {
         webView.setVisibility(View.GONE);
         // and the lead image
         leadImagesHandler.hide();
+        // and the bottom content
+        bottomContentHandler.hide();
         curEntry = new HistoryEntry(title, HistoryEntry.SOURCE_HISTORY);
         setState(STATE_NO_FETCH);
         performActionForState(state);

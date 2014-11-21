@@ -1,9 +1,8 @@
 package org.wikipedia.page.bottomcontent;
 
-import android.graphics.Point;
-import android.os.Build;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -40,7 +40,9 @@ import org.wikipedia.wikidata.WikidataDescriptionFeeder;
 import java.util.List;
 import java.util.Map;
 
-public class BottomContentHandler implements ObservableWebView.OnScrollChangeListener {
+public class BottomContentHandler implements ObservableWebView.OnScrollChangeListener,
+        ObservableWebView.OnContentHeightChangedListener {
+    private static final String TAG = "BottomContentHandler";
     private final PageViewFragment parentFragment;
     private final CommunicationBridge bridge;
     private final WebView webView;
@@ -48,17 +50,20 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
     private final PageTitle pageTitle;
     private final PageActivity activity;
     private final WikipediaApp app;
-
-    private int displayHeight;
     private float displayDensity;
+    private boolean firstTimeShown = false;
 
     private View bottomContentContainer;
     private TextView pageLastUpdatedText;
     private TextView pageLicenseText;
+    private ListView readMoreList;
+
+    private SuggestedPagesFunnel funnel;
+    private FullSearchArticlesTask.FullSearchResults readMoreItems;
 
     public BottomContentHandler(final PageViewFragment parentFragment, CommunicationBridge bridge,
-                                ObservableWebView webview, LinkHandler linkHandler, ViewGroup hidingView,
-                                PageTitle pageTitle, boolean isMainPage) {
+                                ObservableWebView webview, LinkHandler linkHandler,
+                                ViewGroup hidingView, PageTitle pageTitle) {
         this.parentFragment = parentFragment;
         this.bridge = bridge;
         this.webView = webview;
@@ -70,77 +75,115 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
 
         bottomContentContainer = hidingView;
         webview.addOnScrollChangeListener(this);
+        webview.addOnContentHeightChangedListener(this);
 
         pageLastUpdatedText = (TextView)bottomContentContainer.findViewById(R.id.page_last_updated_text);
         pageLicenseText = (TextView)bottomContentContainer.findViewById(R.id.page_license_text);
+        readMoreList = (ListView)bottomContentContainer.findViewById(R.id.read_more_list);
+
+        funnel = new SuggestedPagesFunnel(app, pageTitle.getSite());
 
         // preload the display density, since it will be used in a lot of places
         displayDensity = parentFragment.getResources().getDisplayMetrics().density;
-
-        // get the screen height, using correct methods for different API versions
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-            Point size = new Point();
-            parentFragment.getActivity().getWindowManager().getDefaultDisplay().getSize(size);
-            displayHeight = (int)(size.y / displayDensity);
-        } else {
-            displayHeight = (int)(parentFragment.getActivity()
-                    .getWindowManager().getDefaultDisplay().getHeight() / displayDensity);
-        }
-
-        if (isMainPage) {
-            bottomContentContainer.findViewById(R.id.read_more_container).setVisibility(View.GONE);
-        } else {
-            requestReadMoreItems(activity.getLayoutInflater());
-        }
-
-        setupAttribution();
-
-        // give it a chance to redraw, and then see if it fits
-        bottomContentContainer.post(new Runnable() {
-            @Override
-            public void run() {
-                if (!parentFragment.isAdded()) {
-                    return;
-                }
-                layoutContent();
-            }
-        });
+        // hide ourselves by default
+        hide();
     }
 
     @Override
     public void onScrollChanged(int oldScrollY, int scrollY) {
+        if (bottomContentContainer.getVisibility() == View.GONE) {
+            return;
+        }
         int contentHeight = (int)(webView.getContentHeight() * displayDensity);
-        int screenHeight = (int)(displayHeight * displayDensity);
-        final int bottomOffsetExtra = 25;
-        int bottomOffset = contentHeight - scrollY - screenHeight
-                + (int)(bottomOffsetExtra * displayDensity);
+        int bottomOffset = contentHeight - scrollY - webView.getHeight();
         int bottomHeight = bottomContentContainer.getHeight();
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) bottomContentContainer.getLayoutParams();
         if (bottomOffset > bottomHeight) {
             if (params.bottomMargin != -bottomHeight) {
                 params.bottomMargin = -bottomHeight;
                 bottomContentContainer.setLayoutParams(params);
+                bottomContentContainer.setVisibility(View.INVISIBLE);
             }
         } else {
             params.bottomMargin = -bottomOffset;
             bottomContentContainer.setLayoutParams(params);
+            if (bottomContentContainer.getVisibility() != View.VISIBLE) {
+                bottomContentContainer.setVisibility(View.VISIBLE);
+            }
+            if (!firstTimeShown && readMoreItems != null) {
+                firstTimeShown = true;
+                funnel.logSuggestionsShown(pageTitle, readMoreItems.getPageTitles());
+            }
+        }
+    }
+
+    @Override
+    public void onContentHeightChanged(int contentHeight) {
+        if (bottomContentContainer.getVisibility() != View.VISIBLE) {
+            return;
+        }
+        // trigger a manual scroll event to update our position
+        onScrollChanged(webView.getScrollY(), webView.getScrollY());
+    }
+
+    /**
+     * Hide the bottom content entirely.
+     * It can only be shown again by calling layoutContent()
+     */
+    public void hide() {
+        bottomContentContainer.setVisibility(View.GONE);
+    }
+
+    public void beginLayout() {
+        setupAttribution();
+        if (parentFragment.getFragment().getPage().getPageProperties().isMainPage()) {
+            bottomContentContainer.findViewById(R.id.read_more_container).setVisibility(View.GONE);
+            layoutContent();
+        } else {
+            requestReadMoreItems(activity.getLayoutInflater());
         }
     }
 
     private void layoutContent() {
+        if (!parentFragment.isAdded()) {
+            return;
+        }
+        bottomContentContainer.setVisibility(View.INVISIBLE);
+        // keep trying until our layout has a height...
+        if (bottomContentContainer.getHeight() == 0) {
+            final int postDelay = 50;
+            bottomContentContainer.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    layoutContent();
+                }
+            }, postDelay);
+            return;
+        }
+
+        // calculate the height of the listview, based on the number of items inside it.
+        ListAdapter adapter = readMoreList.getAdapter();
+        int listHeight = 0;
+        if (adapter != null && adapter.getCount() > 0) {
+            ViewGroup.LayoutParams params = readMoreList.getLayoutParams();
+            final int itemHeight = (int)parentFragment.getResources().getDimension(R.dimen.defaultListItemSize);
+            listHeight = adapter.getCount() * itemHeight
+                    + (readMoreList.getDividerHeight() * (adapter.getCount() - 1));
+            params.height = listHeight;
+            readMoreList.setLayoutParams(params);
+        }
+
         // pad the bottom of the webview, to make room for ourselves
+        int totalHeight = bottomContentContainer.getHeight() + listHeight;
         JSONObject payload = new JSONObject();
         try {
-            payload.put("paddingBottom", (int)(bottomContentContainer.getHeight() / displayDensity));
+            payload.put("paddingBottom", (int)(totalHeight / displayDensity));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
         bridge.sendMessage("setPaddingBottom", payload);
-
-        // and make it visible!
-        bottomContentContainer.setVisibility(View.VISIBLE);
-        // trigger a manual scroll event to update our position
-        onScrollChanged(webView.getScrollY(), webView.getScrollY());
+        // ^ sending the padding event will guarantee a ContentHeightChanged event to be triggered,
+        // which will update our margin based on the scroll offset, so we don't need to do it here.
     }
 
     private void setupAttribution() {
@@ -160,23 +203,28 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
                 pageTitle.getPrefixedText()) {
             @Override
             public void onFinish(FullSearchResults results) {
-                setupReadMoreSection(bottomContentContainer, layoutInflater, results);
+                readMoreItems = results;
+                if (readMoreItems.getResults().size() > 0) {
+                    setupReadMoreSection(layoutInflater, readMoreItems);
+                }
+                layoutContent();
             }
 
             @Override
             public void onCatch(Throwable caught) {
-                super.onCatch(caught);
+                // Read More titles are expendable.
+                Log.w(TAG, "Error while fetching Read More titles.", caught);
+                // but lay out the bottom content anyway:
+                layoutContent();
             }
         }.execute();
     }
 
-    private void setupReadMoreSection(View parentView, LayoutInflater layoutInflater,
+    private void setupReadMoreSection(LayoutInflater layoutInflater,
                                       final FullSearchArticlesTask.FullSearchResults results) {
-        final SuggestedPagesFunnel funnel = new SuggestedPagesFunnel(app, pageTitle.getSite());
         final ReadMoreAdapter adapter = new ReadMoreAdapter(layoutInflater, results.getResults());
-        ListView list = (ListView) parentView.findViewById(R.id.read_more_list);
-        list.setAdapter(adapter);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        readMoreList.setAdapter(adapter);
+        readMoreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle title = (PageTitle) adapter.getItem(position);

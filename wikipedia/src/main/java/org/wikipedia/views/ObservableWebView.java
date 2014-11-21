@@ -14,6 +14,9 @@ public class ObservableWebView extends WebView {
     private List<OnScrollChangeListener> onScrollChangeListeners;
     private List<OnDownMotionEventListener> onDownMotionEventListeners;
     private List<OnUpOrCancelMotionEventListener> onUpOrCancelMotionEventListeners;
+    private List<OnContentHeightChangedListener> onContentHeightChangedListeners;
+
+    private int contentHeight = 0;
 
     public void addOnScrollChangeListener(OnScrollChangeListener onScrollChangeListener) {
         onScrollChangeListeners.add(onScrollChangeListener);
@@ -27,6 +30,10 @@ public class ObservableWebView extends WebView {
         onUpOrCancelMotionEventListeners.add(onUpOrCancelMotionEventListener);
     }
 
+    public void addOnContentHeightChangedListener(OnContentHeightChangedListener onContentHeightChangedListener) {
+        onContentHeightChangedListeners.add(onContentHeightChangedListener);
+    }
+
     public interface OnScrollChangeListener {
         void onScrollChanged(int oldScrollY, int scrollY);
     }
@@ -37,6 +44,10 @@ public class ObservableWebView extends WebView {
 
     public interface OnUpOrCancelMotionEventListener {
         void onUpOrCancelMotionEvent();
+    }
+
+    public interface OnContentHeightChangedListener {
+        void onContentHeightChanged(int contentHeight);
     }
 
     public ObservableWebView(Context context) {
@@ -63,6 +74,7 @@ public class ObservableWebView extends WebView {
         onScrollChangeListeners = new ArrayList<OnScrollChangeListener>();
         onDownMotionEventListeners = new ArrayList<OnDownMotionEventListener>();
         onUpOrCancelMotionEventListeners = new ArrayList<OnUpOrCancelMotionEventListener>();
+        onContentHeightChangedListeners = new ArrayList<OnContentHeightChangedListener>();
     }
 
     @Override
@@ -102,7 +114,12 @@ public class ObservableWebView extends WebView {
         if (isInEditMode()) {
             return;
         }
+        if (contentHeight != getContentHeight()) {
+            contentHeight = getContentHeight();
+            for (OnContentHeightChangedListener listener : onContentHeightChangedListeners) {
+                listener.onContentHeightChanged(contentHeight);
+            }
+        }
         WikipediaApp.getInstance().getBus().post(new WebViewInvalidateEvent());
     }
-
 }

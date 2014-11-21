@@ -75,14 +75,14 @@
                 </FrameLayout>
             </FrameLayout>
 
-            <FrameLayout
+            <LinearLayout
                 android:id="@+id/bottom_content_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="?attr/page_background_color"
+                android:layout_marginBottom="-400dp"
                 android:layout_gravity="bottom"
-                android:visibility="invisible">
+                android:orientation="vertical"
+                android:visibility="gone">
                 <LinearLayout
                     android:id="@+id/read_more_container"
                     android:layout_width="match_parent"
@@ -92,38 +92,35 @@
                         style="?android:textAppearanceLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
                         android:paddingBottom="16dp"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
                         android:fontFamily="serif"
                         android:textSize="24sp"
-                        android:text="@string/read_more_section"
-                        />
+                        android:text="@string/read_more_section"/>
                     <ListView
                         android:id="@+id/read_more_list"
                         android:layout_width="match_parent"
-                        android:layout_height="320dp">
-                    </ListView>
+                        android:layout_height="0dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_gravity="bottom"
+                    android:paddingBottom="16dp"
                     android:background="?attr/subtle_gray_color">
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="8dp"
-                        android:layout_gravity="top"
                         android:background="@drawable/toolbar_bottom_shadow"/>
 
                     <TextView
                         android:id="@+id/page_last_updated_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:paddingTop="16dp"
                         style="?android:textAppearanceSmall"
                         android:textColorLink="?attr/link_color"
-                        android:paddingTop="16dp"
                         android:gravity="center"/>
                     <TextView
                         android:id="@+id/page_license_text"
@@ -131,10 +128,9 @@
                         android:layout_height="wrap_content"
                         style="?android:textAppearanceSmall"
                         android:textColorLink="?attr/link_color"
-                        android:paddingBottom="16dp"
                         android:gravity="center"/>
                 </LinearLayout>
-            </FrameLayout>
+            </LinearLayout>
 
         </FrameLayout>
 
