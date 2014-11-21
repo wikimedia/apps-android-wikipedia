@@ -10,7 +10,6 @@ import java.util.Map;
 
 public class WikidataCache {
     private static final int MAX_CACHE_SIZE_DESCRIPTIONS = 96;
-
     private WikipediaApp app;
     private ParcelableLruCache<String> descriptionCache
             = new ParcelableLruCache<String>(MAX_CACHE_SIZE_DESCRIPTIONS, String.class);
@@ -19,31 +18,81 @@ public class WikidataCache {
         this.app = app;
     }
 
+    /**
+     * Removes all the data in the Wikidata descriptions cache.
+     */
     public void clear() {
         descriptionCache.evictAll();
     }
 
+    /**
+     * Adds the description for a Wikidata item directly to the Wikidata description cache.
+     *
+     * This method should be used sparingly. Instead of putting descriptions directly into the
+     * cache consider using the get method instead, which will (if necessary) retrieve descriptions
+     * that the cache currently does not contain and cache them itself if appropriate.
+     *
+     * @param key Wikidata ID of the page for which the description is to be cached.
+     * @param value Wikidata description of the page associated with the Wikidata ID.
+     */
     public void put(String key, String value) {
         descriptionCache.put(key, value);
     }
 
+    /**
+     * Retrieves the description for a Wikidata item directly from the Wikidata description cache.
+     *
+     * This method should be used sparingly. Instead of getting descriptions directly from the
+     * cache consider using the get method instead, which will (if necessary) retrieve descriptions
+     * that the cache currently does not contain and cache them itself if appropriate.
+     *
+     * @param id Wikidata ID of the page for which the description is required.
+     * @return The Wikidata description that was cached, or null if the description is not cached.
+     */
     public String get(String id) {
         return descriptionCache.get(id);
     }
 
+    /**
+     * Retrieves Wikidata description for a page in the app's current primary language.
+     *
+     * @param id Wikidata ID of the page for which the description is required.
+     * @param listener Listener that will receive the description retrieved from the cache.
+     */
     public void get(String id, OnWikidataReceiveListener listener) {
         get(id, app.getPrimaryLanguage(), listener);
     }
 
+    /**
+     * Retrieves Wikidata description for a page in the specified language.
+     *
+     * @param id Wikidata ID of the page for which the description is required.
+     * @param language The language in which the description is required.
+     * @param listener Listener that will receive the description retrieved from the cache.
+     */
     public void get(String id, String language, OnWikidataReceiveListener listener) {
         List<String> idList = new ArrayList<String>();
         idList.add(id);
         get(idList, language, listener);
     }
+
+    /**
+     * Retrieves Wikidata descriptions for a list of pages in the app's current primary language.
+     *
+     * @param ids Wikidata IDs of the pages for which the descriptions are required.
+     * @param listener Listener that will receive the descriptions retrieved from the cache.
+     */
     public void get(List<String> ids, final OnWikidataReceiveListener listener) {
         get(ids, app.getPrimaryLanguage(), listener);
     }
 
+    /**
+     * Retrieves Wikidata descriptions for a list of pages in the specified language.
+     *
+     * @param ids Wikidata IDs of the pages for which the descriptions are required.
+     * @param language The language in which the descriptions are required.
+     * @param listener Listener that will receive the descriptions retrieved from the cache.
+     */
     public void get(List<String> ids, final String language, final OnWikidataReceiveListener listener) {
         final Map<String, String> results = new HashMap<String, String>();
         List<String> idsToFetch = new ArrayList<String>();
@@ -68,8 +117,8 @@ public class WikidataCache {
                             continue;
                         }
                         // Only store results in cache if they correspond to the language we're
-                        // currently using; that way if you choose "Read in another language" you
-                        // won't cache and display results from the incorrect language
+                        // currently using; that way if the user chose "Read in another language"
+                        // we're not caching and displaying results from the incorrect language
                         if (language.equals(app.getPrimaryLanguage())) {
                             descriptionCache.put(entry.getKey(), entry.getValue());
                         }
