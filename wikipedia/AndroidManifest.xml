@@ -30,7 +30,6 @@
         android:allowBackup="true"
         android:supportsRtl="true"
         android:icon="@drawable/launcher"
-        android:logo="@drawable/search_w"
         android:label="@string/app_name"
         android:name=".WikipediaApp"
         android:theme="@style/AppTheme">
