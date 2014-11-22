@@ -130,7 +130,7 @@ public class ToCHandler {
     }
 
     private void knowSwipe(SharedPreferences prefs, View knowToCContainer) {
-        prefs.edit().putBoolean(PrefKeys.getKnowTocDrawer(), true).commit();
+        prefs.edit().putBoolean(PrefKeys.getKnowTocDrawer(), true).apply();
         if (knowToCContainer.isShown()) {
             ViewAnimations.crossFade(knowToCContainer, tocList);
         }

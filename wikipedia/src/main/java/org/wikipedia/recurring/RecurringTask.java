@@ -42,7 +42,7 @@ public abstract class RecurringTask {
         if (shouldRun(lastRunDate)) {
             Log.d("Wikipedia", "Running task " + getName());
             run(lastRunDate);
-            prefs.edit().putLong(prefKey, System.currentTimeMillis()).commit();
+            prefs.edit().putLong(prefKey, System.currentTimeMillis()).apply();
         } else {
             Log.d("Wikipedia", "Skipping task " + getName());
         }

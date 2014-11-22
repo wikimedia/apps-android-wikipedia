@@ -23,7 +23,7 @@ public class UserInfoStorage {
                 .putString(PREFERENCE_USERNAME, user.getUsername())
                 .putString(PREFERENCE_PASSWORD, user.getPassword())
                 .putInt(PREFERENCE_USERID, user.getUserID())
-                .commit();
+                .apply();
     }
 
     public User getUser() {
@@ -45,7 +45,7 @@ public class UserInfoStorage {
                 .remove(PREFERENCE_USERNAME)
                 .remove(PREFERENCE_PASSWORD)
                 .remove(PREFERENCE_USERID)
-                .commit();
+                .apply();
         currentUser = null;
     }
 

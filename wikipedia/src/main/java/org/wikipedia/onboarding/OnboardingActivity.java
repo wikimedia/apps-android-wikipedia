@@ -91,7 +91,7 @@ public class OnboardingActivity extends Activity {
 
     private void markAllAboard() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.edit().putBoolean(PrefKeys.getOnboard(), true).commit();
+        prefs.edit().putBoolean(PrefKeys.getOnboard(), true).apply();
     }
 
     @Override

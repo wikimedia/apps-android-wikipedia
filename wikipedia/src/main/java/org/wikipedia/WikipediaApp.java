@@ -347,7 +347,7 @@ public class WikipediaApp extends Application {
 
     public void setPrimaryLanguage(String language) {
         primaryLanguage = language;
-        prefs.edit().putString(PrefKeys.getContentLanguageKey(), language).commit();
+        prefs.edit().putString(PrefKeys.getContentLanguageKey(), language).apply();
         primarySite = null;
     }
 
@@ -496,7 +496,7 @@ public class WikipediaApp extends Application {
             installID = prefs.getString(prefKey, null);
         } else {
             installID = UUID.randomUUID().toString();
-            prefs.edit().putString(prefKey, installID).commit();
+            prefs.edit().putString(prefKey, installID).apply();
         }
         return installID;
     }
@@ -526,7 +526,7 @@ public class WikipediaApp extends Application {
             return;
         }
         currentTheme = newTheme;
-        prefs.edit().putInt(PrefKeys.getColorTheme(), currentTheme).commit();
+        prefs.edit().putInt(PrefKeys.getColorTheme(), currentTheme).apply();
 
         //update color filter for logo icon (used in ActionBar activities)...
         adjustDrawableToTheme(getResources().getDrawable(R.drawable.search_w));
@@ -570,7 +570,7 @@ public class WikipediaApp extends Application {
         } else if (multiplier > FONT_SIZE_MULTIPLIER_MAX) {
             multiplier = FONT_SIZE_MULTIPLIER_MAX;
         }
-        prefs.edit().putInt(PrefKeys.getTextSizeMultiplier(), multiplier).commit();
+        prefs.edit().putInt(PrefKeys.getTextSizeMultiplier(), multiplier).apply();
         bus.post(new ChangeTextSizeEvent());
     }
 
@@ -598,7 +598,7 @@ public class WikipediaApp extends Application {
         if (languageMruList != null) {
             languageMruList.remove(langCode);
             languageMruList.add(0, langCode);
-            prefs.edit().putString(PrefKeys.getLanguageMru(), TextUtils.join(",", languageMruList)).commit();
+            prefs.edit().putString(PrefKeys.getLanguageMru(), TextUtils.join(",", languageMruList)).apply();
         }
     }
 }

@@ -569,7 +569,7 @@ public class PageActivity extends ThemedActionBarActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(app);
         if (prefsKey == null || !prefs.getBoolean(prefsKey, false)) {
             if (prefsKey != null) {
-                prefs.edit().putBoolean(prefsKey, true).commit();
+                prefs.edit().putBoolean(prefsKey, true).apply();
             }
 
             alert = new AlertDialog.Builder(this);

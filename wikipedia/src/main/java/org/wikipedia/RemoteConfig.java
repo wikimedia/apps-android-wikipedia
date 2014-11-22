@@ -22,7 +22,7 @@ public class RemoteConfig {
     public void updateConfig(JSONObject newConfig) {
         prefs.edit()
                 .putString(PrefKeys.getRemoteConfig(), newConfig.toString())
-                .commit();
+                .apply();
         curConfig = newConfig;
     }
 
