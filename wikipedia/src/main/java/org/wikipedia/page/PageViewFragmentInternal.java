@@ -241,7 +241,7 @@ public class PageViewFragmentInternal {
             if (index < page.getSections().size()) {
                 wrapper.put("section", page.getSections().get(index).toJSON());
                 wrapper.put("index", index);
-                if (sectionTargetFromIntent > 0) {
+                if (sectionTargetFromIntent > 0 && sectionTargetFromIntent < page.getSections().size()) {
                     //if we have a section to scroll to (from our Intent):
                     wrapper.put("fragment", page.getSections().get(sectionTargetFromIntent).getAnchor());
                 } else if (sectionTargetFromTitle != null) {
