@@ -92,7 +92,7 @@ public class StyleFetcherTask extends RecurringTask {
             //if any of the above code throws an exception, the following last-updated date will not
             //be updated, so the task will be retried on the next go.
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            prefs.edit().putString(PrefKeys.getStylesLastUpdated(), Utils.formatISO8601(new Date())).commit();
+            prefs.edit().putString(PrefKeys.getStylesLastUpdated(), Utils.formatISO8601(new Date())).apply();
 
         } catch (Exception e) {
             // Could be one of several exceptions, but it doesn't matter too much, since

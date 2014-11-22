@@ -98,7 +98,7 @@ public class SharedPreferenceCookieManager extends CookieManager {
             editor.putString(prefKey, makeString(makeCookieList(cookieJar.get(domain))));
 
         }
-        editor.commit();
+        editor.apply();
     }
 
     @Override
@@ -114,7 +114,7 @@ public class SharedPreferenceCookieManager extends CookieManager {
             editor.remove(key);
         }
         editor.remove(PrefKeys.getCookieDomainsKey());
-        editor.commit();
+        editor.apply();
         cookieJar.clear();
     }
 

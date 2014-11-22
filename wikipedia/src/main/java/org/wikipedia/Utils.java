@@ -628,7 +628,7 @@ public final class Utils {
     public static void setChannel(Context ctx) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
         String channel = getChannelDescriptor(ctx);
-        prefs.edit().putString(PrefKeys.getChannel(), channel).commit();
+        prefs.edit().putString(PrefKeys.getChannel(), channel).apply();
     }
 
     /**

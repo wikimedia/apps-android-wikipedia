@@ -548,7 +548,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     private void setImperialUnits(boolean imperial) {
         showImperial = imperial;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        prefs.edit().putBoolean(PREF_KEY_UNITS, showImperial).commit();
+        prefs.edit().putBoolean(PREF_KEY_UNITS, showImperial).apply();
         getActivity().supportInvalidateOptionsMenu();
     }
 

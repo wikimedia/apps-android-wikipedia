@@ -57,7 +57,7 @@ public class AlphaUpdateChecker extends RecurringTask {
             }
         }
 
-        prefs.edit().putString(PREFERENCE_KEY_ALPHA_COMMIT, meta.optString("commit_hash")).commit();
+        prefs.edit().putString(PREFERENCE_KEY_ALPHA_COMMIT, meta.optString("commit_hash")).apply();
     }
 
     private void showNotification() {

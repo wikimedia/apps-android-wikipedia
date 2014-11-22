@@ -63,7 +63,7 @@ public class EditTokenStorage {
             editor.remove(key);
         }
         editor.remove(PrefKeys.getEditTokenWikis());
-        editor.commit();
+        editor.apply();
         tokenJar.clear();
     }
 
@@ -74,7 +74,7 @@ public class EditTokenStorage {
         prefs.edit()
                 .putString(PrefKeys.getEditTokenWikis(), wikisList)
                 .putString(wikiKey, token)
-                .commit();
+                .apply();
     }
 
     private String makeString(Iterable<String> list) {

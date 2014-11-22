@@ -77,7 +77,7 @@ public class SessionFunnel extends Funnel {
              .putInt(SESSION_PAGES_EXTERNAL_PREF_NAME, pagesFromExternal)
              .putInt(SESSION_PAGES_HISTORY_PREF_NAME, pagesFromHistory)
              .putInt(SESSION_PAGES_SAVED_PREF_NAME, pagesFromSaved)
-             .putInt(SESSION_PAGES_BACK_PREF_NAME, pagesFromBack).commit();
+             .putInt(SESSION_PAGES_BACK_PREF_NAME, pagesFromBack).apply();
     }
 
     protected void log(Object... params) {
