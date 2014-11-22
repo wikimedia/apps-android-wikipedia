@@ -288,9 +288,6 @@ public class PageActivity extends ThemedActionBarActivity {
             getMenuInflater().inflate(R.menu.menu_main, menu);
             app.adjustDrawableToTheme(menu.findItem(R.id.menu_search).getIcon());
         }
-        View wLogo = findViewById(R.id.main_w_logo);
-        app.adjustDrawableToTheme(wLogo.getBackground());
-        wLogo.setVisibility(isSearching() ? View.GONE : View.VISIBLE);
         return super.onCreateOptionsMenu(menu);
     }
 
