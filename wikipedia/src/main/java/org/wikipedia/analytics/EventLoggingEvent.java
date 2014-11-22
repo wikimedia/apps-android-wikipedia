@@ -67,19 +67,13 @@ public class EventLoggingEvent {
             String dataURL = Uri.parse(elUrl)
                     .buildUpon().query(data.toString())
                     .build().toString();
-            Log.d("Wikipedia", "hitting " + dataURL);
             return HttpRequest.get(dataURL).header("User-Agent", userAgent).code();
-        }
-
-        @Override
-        public void onFinish(Integer result) {
-            Log.d("Wikipedia", "result is " + result);
         }
 
         @Override
         public void onCatch(Throwable caught) {
             // Do nothing bad. EL data is ok to lose.
-            Log.d("Wikipedia", "Lost EL data: " + data.toString());
+            Log.d(Funnel.ANALYTICS_TAG, "Lost EL data: " + data.toString());
         }
     }
 }

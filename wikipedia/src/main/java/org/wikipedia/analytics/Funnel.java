@@ -1,6 +1,5 @@
 package org.wikipedia.analytics;
 
-
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -15,6 +14,11 @@ public abstract class Funnel {
     private final String schemaName;
     private final int revision;
     private final WikipediaApp app;
+
+    /**
+     * The tag used for any analytics-related events sent to the Log.
+     */
+    public static final String ANALYTICS_TAG = "Analytics";
 
     private final SharedPreferences prefs;
     protected Funnel(WikipediaApp app, String schemaName, int revision) {
@@ -72,11 +76,14 @@ public abstract class Funnel {
         }
         JSONObject eventData = new JSONObject();
 
+        //Build the string which is logged to debug EventLogging code
+        String logString = this.getClass().getSimpleName() + ": Sending event";
         try {
             for (int i = 0; i < params.length; i += 2) {
                 eventData.put(params[i].toString(), params[i + 1]);
-                Log.d("Wikipedia", params[i] + " " + params[i + 1]);
+                logString += ", event_" + params[i] + " = " + params[i + 1];
             }
+            Log.d(ANALYTICS_TAG, logString);
         } catch (JSONException e) {
             // This does not happen
             throw new RuntimeException(e);
