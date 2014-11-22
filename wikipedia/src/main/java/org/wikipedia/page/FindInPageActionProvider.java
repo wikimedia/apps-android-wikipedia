@@ -2,6 +2,8 @@ package org.wikipedia.page;
 
 import org.wikipedia.R;
 import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
+
 import android.os.Build;
 import android.support.v4.view.ActionProvider;
 import android.support.v7.widget.SearchView;
