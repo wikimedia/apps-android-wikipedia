@@ -241,11 +241,15 @@
   <string name="search_redirect_title">Redirecció de «%s».</string>
   <string name="search_recent_header">Cerques recents:</string>
   <string name="button_clear_all_recent_searches" fuzzy="true">Esborra cerques recents</string>
+  <string name="clear_recent_searches_confirm">Esteu segur que voleu esborrar l\'historial de cerca?</string>
   <string name="search_titles_button">Títols</string>
   <string name="search_full_button">Dins d\'articles</string>
   <string name="toc_hint">Feu lliscar el dit cap a l\'esquerra per a les seccions, o utilitzeu el botó de menú a la part superior dreta.</string>
   <string name="toc_know_it">Ho he entès</string>
   <string name="error_browser_not_found">No s\'ha pogut obrir la pàgina web (no s\'ha trobat cap navegador)</string>
+  <string name="table_infobox">Dades bàsiques</string>
+  <string name="table_other">Més informació</string>
+  <string name="table_close">Tanca</string>
   <string name="app_store_description">Aplicació oficial de la Viquipèdia per a l\'Android. La Viquipèdia és una enciclopèdia lliure que conté més de 32 milions d\'articles en 280 llengües. Es tracta d\'una de les obres de referència més usades i comprensives mai compilada per la humanitat. L\'aplicació ha estat reescrita de bell nou i és millor que mai.
 
 Característiques:
@@ -260,4 +264,5 @@ Característiques:
 El codi és totalment obert. Si teniu experiència en Java i en l\'SDK de l\'Android, «feu-ne fork»! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">Hi ha disponible una nova versió alfa</string>
   <string name="alpha_update_notification_text">Toqueu per descarregar</string>
+  <string name="dialog_close_description">Tanca</string>
 </resources>

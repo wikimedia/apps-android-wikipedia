@@ -92,7 +92,7 @@
   <string name="login_error_no_network">Brak połączenia z siecią</string>
   <string name="nav_item_logout">Wyloguj</string>
   <string name="preference_title_logout">Wyloguj</string>
-  <string name="preference_summary_logout">Wyloguj się z konta na Wikipedii</string>
+  <string name="preference_summary_logout">Wyloguj się z konta w Wikipedii</string>
   <string name="preference_summary_notloggedin">Niezalogowany(-a)</string>
   <string name="toast_logout_complete">Wylogowany(-a)</string>
   <string name="saved_pages_empty_title">Nie zapisano tu jeszcze żadnych stron!</string>

@@ -66,6 +66,7 @@
   <string name="saved_pages_empty_message" fuzzy="true">Ӏалашйина агӀонаш яц.</string>
   <string name="history_empty_title">Кеста хьаьжна агӀонаш яц.</string>
   <string name="history_empty_message" fuzzy="true">Хьа истори еса ю.</string>
+  <string name="delete_selected_history">ДӀаяккха</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕД&lt;big&gt;И&lt;/big&gt;</string>
   <string name="wp_tag_line">Маьрша энциклопеди</string>
   <string name="skip">Ӏадйита</string>

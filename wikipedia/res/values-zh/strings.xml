@@ -120,7 +120,7 @@
   <string name="edit_section_activity_title">编辑章节</string>
   <string name="dialog_create_account_checking_progress">验证</string>
   <string name="create_account_email_hint">电子邮件（可选）</string>
-  <string name="create_account_password_repeat_hint">重新输入密码</string>
+  <string name="create_account_password_repeat_hint">重复密码</string>
   <string name="create_account_passwords_mismatch_error">两次密码不一致</string>
   <string name="create_account_email_error">无效的电子邮件地址</string>
   <string name="create_account_username_exists_error">用户名已被使用</string>
@@ -240,12 +240,16 @@
   <string name="search_error_retry">重试</string>
   <string name="search_redirect_title">重定向自“%s”。</string>
   <string name="search_recent_header">最近搜索：</string>
-  <string name="button_clear_all_recent_searches" fuzzy="true">清除最近的搜索</string>
+  <string name="button_clear_all_recent_searches">清除最近搜索</string>
+  <string name="clear_recent_searches_confirm">您确信要清空您的搜索历史？</string>
   <string name="search_titles_button">标题</string>
   <string name="search_full_button">在条目内</string>
   <string name="toc_hint">向左滑动选项，或使用右上角的菜单键。</string>
   <string name="toc_know_it">明白了</string>
   <string name="error_browser_not_found">无法打开网页（未找到浏览器应用程序）。</string>
+  <string name="table_infobox">快速判断</string>
+  <string name="table_other">更多信息</string>
+  <string name="table_close">关闭</string>
   <string name="app_store_description">这是维基百科的官方安卓应用程序。维基百科支持280种语言，拥有超过3200万条目，并且是最全面最广泛使用以及最多用户编辑的百科全书。此程序从零开始重写并比以往更好。
 
 功能：
@@ -260,4 +264,5 @@
 代码也是完全开源的。如果您对Java和安卓SDK开发感兴趣，我们欢迎您改进我们的程序！https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">有新的alpha更新可用</string>
   <string name="alpha_update_notification_text">点击下载</string>
+  <string name="dialog_close_description">关闭</string>
 </resources>
