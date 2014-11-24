@@ -2,8 +2,9 @@ package org.wikipedia;
 
 import android.content.Context;
 import com.github.kevinsawicki.http.HttpRequest;
-import com.squareup.okhttp.HttpResponseCache;
+import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.OkUrlFactory;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -20,7 +21,7 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
         client.setCookieHandler(((WikipediaApp)context.getApplicationContext()).getCookieManager());
 
         try {
-            client.setResponseCache(new HttpResponseCache(context.getCacheDir(), HTTP_CACHE_SIZE));
+            client.setCache(new Cache(context.getCacheDir(), HTTP_CACHE_SIZE));
         } catch (IOException e) {
             // Shouldn't happen...
             throw new RuntimeException(e);
@@ -28,7 +29,7 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
     }
 
     public HttpURLConnection create(URL url) throws IOException {
-        return client.open(url);
+        return new OkUrlFactory(client).open(url);
     }
 
     @Override
