@@ -97,21 +97,17 @@ dependencies {
     compile('org.mediawiki.api:json:1.3-SNAPSHOT') {
         exclude group: 'org.json', module: 'json'
     }
-    compile 'com.squareup.okhttp:okhttp:1.3.0'
-//    compile 'com.squareup.okhttp:okhttp:1.6.0'
-    // maybe even 2.0.0
-    compile 'com.squareup:otto:1.3.4'
-//    compile 'com.squareup:otto:1.3.5'
-    compile 'com.squareup.picasso:picasso:2.1.1'
-//    compile 'com.squareup.picasso:picasso:2.3.2'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.1.0'
+    compile 'com.squareup.okhttp:okhttp:2.1.0'
+    compile 'com.squareup:otto:1.3.5'
+    compile 'com.squareup.picasso:picasso:2.4.0'
     compile 'com.mobsandgeeks:android-saripaar:1.0.3'
     compile 'com.nineoldandroids:library:2.4.0'
     compile('ch.acra:acra:4.5.0') {
         exclude group: 'org.json', module: 'json'
     }
     compile 'de.keyboardsurfer.android.widget:crouton:1.8.5@aar'
-    compile 'com.android.support:support-v4:21.0.2'
-    compile 'com.android.support:appcompat-v7:21.0.2'
+    compile 'com.android.support:appcompat-v7:21.0.2' // includes support-v4
 }
 
 // The next block is for setting the release signing config from a file outside the git repo
