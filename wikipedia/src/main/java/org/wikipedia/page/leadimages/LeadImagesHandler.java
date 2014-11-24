@@ -480,7 +480,11 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                     return;
                 }
                 final int animDuration = 500;
-                final int marginSp = 14;
+                // adjust the space between the title and the description...
+                // in 2.3, the descenders of the font go a little lower, so the space needs to be slightly different:
+                final int marginSpHC = 20;
+                final int marginSpGB = 16;
+                int marginSp = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ? marginSpHC : marginSpGB;
                 final int newMargin = pageDescriptionText.getHeight()
                         - (leadImagesEnabled ? (int)(marginSp * displayDensity) : 0);
                 final int origPadding = pageTitleText.getPaddingBottom();
