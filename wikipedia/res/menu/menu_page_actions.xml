@@ -5,7 +5,7 @@
 
     <item android:id="@+id/menu_toc"
           android:title="@string/menu_show_toc"
-          android:icon="@drawable/toc_collapsed"
+          android:icon="@drawable/ic_toc"
           app:showAsAction="ifRoom"
           android:visible="false"
           />

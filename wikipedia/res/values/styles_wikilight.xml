@@ -15,8 +15,8 @@
         <item name="edit_text_color">@color/edit_text_light</item>
         <item name="link_color">@color/link_light</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_light</item>
-        <item name="ic_find_previous_drawable">@drawable/ic_find_previous_light</item>
-        <item name="ic_find_next_drawable">@drawable/ic_find_next_light</item>
+        <item name="ic_find_previous_drawable">@drawable/ic_expand_less</item>
+        <item name="ic_find_next_drawable">@drawable/ic_expand_more</item>
         <item name="lead_image_drawable">@drawable/lead_default</item>
         <item name="lead_disabled_text_color">@color/lead_disabled_text_light</item>
         <item name="list_separator_color">@color/list_separator_light</item>

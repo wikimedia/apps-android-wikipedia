@@ -569,12 +569,10 @@ public class PageViewFragmentInternal {
     }
 
     public void onPrepareOptionsMenu(Menu menu) {
-        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.toc_collapsed));
-        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.toc_expanded));
+        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.ic_toc));
 
         MenuItem tocMenuItem = menu.findItem(R.id.menu_toc);
         tocMenuItem.setVisible(tocDrawer.getSlidingEnabled(Gravity.END));
-        tocMenuItem.setIcon(tocDrawer.isDrawerOpen(Gravity.END) ? R.drawable.toc_expanded : R.drawable.toc_collapsed);
 
         switch (state) {
             case PageViewFragmentInternal.STATE_NO_FETCH:

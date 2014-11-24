@@ -235,7 +235,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                 case HistoryEntry.SOURCE_HISTORY:
                     return R.drawable.external;
                 case HistoryEntry.SOURCE_SEARCH:
-                    return R.drawable.search;
+                    return R.drawable.hist_search;
                 case HistoryEntry.SOURCE_SAVED_PAGE:
                     return R.drawable.external;
                 case HistoryEntry.SOURCE_LANGUAGE_LINK:
