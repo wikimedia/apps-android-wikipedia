@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Utility to add more entries to our shared WikidataCache.
  */
-public class WikidataDescriptionFeeder {
+public final class WikidataDescriptionFeeder {
     // do not instantiate!
     private WikidataDescriptionFeeder() {
     }

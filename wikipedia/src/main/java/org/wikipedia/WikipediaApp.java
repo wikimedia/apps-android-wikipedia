@@ -527,10 +527,6 @@ public class WikipediaApp extends Application {
         }
         currentTheme = newTheme;
         prefs.edit().putInt(PrefKeys.getColorTheme(), currentTheme).apply();
-
-        //update color filter for logo icon (used in ActionBar activities)...
-        adjustDrawableToTheme(getResources().getDrawable(R.drawable.search_w));
-
         bus.post(new ThemeChangeEvent());
     }
 
