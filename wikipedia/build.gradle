@@ -110,8 +110,8 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
     compile 'de.keyboardsurfer.android.widget:crouton:1.8.5@aar'
-    compile 'com.android.support:support-v4:21.0.0'
-    compile 'com.android.support:appcompat-v7:21.0.0'
+    compile 'com.android.support:support-v4:21.0.2'
+    compile 'com.android.support:appcompat-v7:21.0.2'
 }
 
 // The next block is for setting the release signing config from a file outside the git repo
