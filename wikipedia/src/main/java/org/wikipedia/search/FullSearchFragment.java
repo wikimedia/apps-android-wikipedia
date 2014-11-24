@@ -91,6 +91,7 @@ public class FullSearchFragment extends Fragment {
             public void onClick(View view) {
                 String suggestion = (String) searchSuggestion.getTag();
                 if (suggestion != null) {
+                    searchFragment.getFunnel().searchDidYouMean();
                     searchFragment.setSearchText(suggestion);
                     startSearch(suggestion, true);
                 }
@@ -169,11 +170,13 @@ public class FullSearchFragment extends Fragment {
 
     private void doSearch(final String searchTerm, final int continueOffset) {
         (new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, continueOffset) {
+        final long startMillis = System.currentTimeMillis();
             @Override
             public void onFinish(FullSearchResults results) {
                 if (!isAdded()) {
                     return;
                 }
+                searchFragment.getFunnel().searchResults(true, results.getResults().size(), (int)(System.currentTimeMillis() - startMillis));
                 lastResults = results;
                 totalResults.addAll(lastResults.getResults());
 
@@ -215,6 +218,7 @@ public class FullSearchFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
+                searchFragment.getFunnel().searchError(true, (int)(System.currentTimeMillis() - startMillis));
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
 
                 if (continueOffset == 0) {

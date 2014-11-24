@@ -261,6 +261,7 @@ public class TitleSearchFragment extends Fragment {
         @Override
         public boolean handleMessage(Message msg) {
             final String mySearchTerm = (String) msg.obj;
+            final long startMillis = System.currentTimeMillis();
             TitleSearchTask searchTask = new TitleSearchTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), mySearchTerm) {
                 @Override
                 public void onBeforeExecute() {
@@ -272,6 +273,7 @@ public class TitleSearchFragment extends Fragment {
                     if (!isAdded()) {
                         return;
                     }
+                    searchFragment.getFunnel().searchResults(false, result.size(), (int)(System.currentTimeMillis() - startMillis));
                     ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
                     searchNetworkError.setVisibility(View.GONE);
                     displayResults(result);
@@ -295,6 +297,7 @@ public class TitleSearchFragment extends Fragment {
                     if (!isAdded()) {
                         return;
                     }
+                    searchFragment.getFunnel().searchError(false, (int)(System.currentTimeMillis() - startMillis));
                     ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
                     searchNetworkError.setVisibility(View.VISIBLE);
                     searchResultsList.setVisibility(View.GONE);
