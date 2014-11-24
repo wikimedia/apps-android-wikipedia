@@ -4,6 +4,7 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
@@ -35,6 +36,10 @@ public class SearchArticlesFragment extends Fragment {
 
     private WikipediaApp app;
     private SearchView searchView;
+    private SearchFunnel funnel;
+    public SearchFunnel getFunnel() {
+        return funnel;
+    }
 
     /**
      * Whether the Search fragment is currently showing.
@@ -87,6 +92,7 @@ public class SearchArticlesFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
+        funnel = new SearchFunnel(WikipediaApp.getInstance());
     }
 
     @Override
@@ -171,6 +177,7 @@ public class SearchArticlesFragment extends Fragment {
                 //automatically switch to full-text search!
                 showPanel(PANEL_FULL_SEARCH);
                 startSearch(lastSearchedText, true);
+                funnel.searchAutoSwitch();
             }
         });
 
@@ -311,6 +318,7 @@ public class SearchArticlesFragment extends Fragment {
      * Activate the Search fragment.
      */
     public void openSearch() {
+        funnel.searchStart();
         isSearchActive = true;
         // invalidate our activity's ActionBar, so that all action items are removed, and
         // we can fill up the whole width of the ActionBar with our SearchView.
@@ -370,6 +378,7 @@ public class SearchArticlesFragment extends Fragment {
     public boolean onBackPressed() {
         if (isSearchActive) {
             closeSearch();
+            funnel.searchCancel();
             return true;
         }
         return false;
@@ -463,6 +472,7 @@ public class SearchArticlesFragment extends Fragment {
         @Override
         public boolean onClose() {
             closeSearch();
+            funnel.searchCancel();
             return false;
         }
     };
@@ -475,6 +485,7 @@ public class SearchArticlesFragment extends Fragment {
         if (!isAdded()) {
             return;
         }
+        funnel.searchClick();
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
         Utils.hideSoftKeyboard(getActivity());
         closeSearch();
