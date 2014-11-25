@@ -2,47 +2,47 @@ var transformer = require("./transformer");
 var night = require("./night");
 var bridge = require( "./bridge" );
 
-// Move infobox to the bottom of the lead section
+// Move any tables to the bottom of the lead section
 transformer.register( "leadSection", function( leadContent ) {
-    var infobox = leadContent.querySelector( "table.infobox" );
-    var pTags;
-    if ( infobox ) {
-
+    var leadTables = leadContent.querySelectorAll( "table" );
+    var pTags, i;
+    for ( i = 0; i < leadTables.length; i++ ) {
         /*
-        If the infobox table itself sits within a table or series of tables,
-        move the most distant ancestor table instead of just moving the
-        infobox. Otherwise you end up with table(s) with a hole where the
-        infobox had been. World War II article on enWiki has this issue.
+        If the table itself sits within a table or series of tables,
+        move the most distant ancestor table instead of just moving this
+        table. Otherwise you end up with table(s) with a hole where the
+        child table had been. World War II article on enWiki has this issue.
         Note that we need to stop checking ancestor tables when we hit
         content_block_0.
         */
-        var infoboxParentTable = null;
-        var el = infobox;
-        while (el.parentNode) {
-            el = el.parentNode;
-            if (el.id === 'content_block_0') {
+        var tableEl = leadTables[i];
+        var parentTable = null;
+        var tempEl = tableEl;
+        while (tempEl.parentNode) {
+            tempEl = tempEl.parentNode;
+            if (tempEl.id === 'content_block_0') {
                 break;
             }
-            if (el.tagName === 'TABLE') {
-                infoboxParentTable = el;
+            if (tempEl.tagName === 'TABLE') {
+                parentTable = tempEl;
             }
         }
-        if (infoboxParentTable) {
-            infobox = infoboxParentTable;
+        if (parentTable) {
+            tableEl = parentTable;
         }
 
-        infobox.parentNode.removeChild( infobox );
+        tableEl.parentNode.removeChild( tableEl );
         pTags = leadContent.getElementsByTagName( "p" );
         if ( pTags.length ) {
-            pTags[0].appendChild( infobox );
+            pTags[0].appendChild( tableEl );
         } else {
-            leadContent.appendChild( infobox );
+            leadContent.appendChild( tableEl );
         }
     }
     //also move any thumbnail images to the bottom of the section,
     //since we have a lead image, and we want the content to appear at the very beginning.
     var thumbs = leadContent.querySelectorAll( "div.thumb" );
-    for ( var i = 0; i < thumbs.length; i++ ) {
+    for ( i = 0; i < thumbs.length; i++ ) {
         thumbs[i].parentNode.removeChild( thumbs[i] );
         pTags = leadContent.getElementsByTagName( "p" );
         if ( pTags.length ) {
