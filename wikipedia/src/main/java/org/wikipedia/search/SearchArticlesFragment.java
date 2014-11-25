@@ -318,6 +318,8 @@ public class SearchArticlesFragment extends Fragment {
      * Activate the Search fragment.
      */
     public void openSearch() {
+        // create a new funnel every time Search is opened, to get a new session ID
+        funnel = new SearchFunnel(WikipediaApp.getInstance());
         funnel.searchStart();
         isSearchActive = true;
         // invalidate our activity's ActionBar, so that all action items are removed, and
