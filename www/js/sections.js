@@ -44,6 +44,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     window.string_table_infobox = payload.string_table_infobox;
     window.string_table_other = payload.string_table_other;
     window.string_table_close = payload.string_table_close;
+    window.pageTitle = payload.title;
 
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );

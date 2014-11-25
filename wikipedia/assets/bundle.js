@@ -473,6 +473,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     window.string_table_infobox = payload.string_table_infobox;
     window.string_table_other = payload.string_table_other;
     window.string_table_close = payload.string_table_close;
+    window.pageTitle = payload.title;
 
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
@@ -706,17 +707,25 @@ function getTableHeader( element ) {
         return thArray;
     }
     for (var i = 0; i < element.children.length; i++) {
-        if (element.children[i].tagName === "TH") {
-            if (element.children[i].innerText.length > 0) {
-                thArray.push(element.children[i].innerText);
+        var el = element.children[i];
+        if (el.tagName === "TH") {
+            // ok, we have a TH element!
+            // However, if it contains more than two links, then ignore it, because
+            // it will probably appear weird when rendered as plain text.
+            var aNodes = el.querySelectorAll( "a" );
+            if (aNodes.length < 3) {
+                // Also ignore it if it's identical to the page title.
+                if (el.innerText.length > 0 && el.innerText !== window.pageTitle && el.innerHTML !== window.pageTitle) {
+                    thArray.push(el.innerText);
+                }
             }
         }
         //if it's a table within a table, don't worry about it
-        if (element.children[i].tagName === "TABLE") {
+        if (el.tagName === "TABLE") {
             continue;
         }
         //recurse into children of this element
-        var ret = getTableHeader(element.children[i]);
+        var ret = getTableHeader(el);
         //did we get a list of TH from this child?
         if (ret.length > 0) {
             thArray = thArray.concat(ret);
@@ -773,7 +782,7 @@ transformer.register( "hideTables", function( content ) {
         if (headerText.length > 1) {
             caption += ", " + headerText[1];
         }
-        if (headerText.length > 2) {
+        if (headerText.length > 0) {
             caption += ", ...";
         }
         caption += "</span>";
