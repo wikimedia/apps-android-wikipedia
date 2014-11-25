@@ -395,7 +395,11 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             final float lineSpacing = 0.8f;
             final int lineSpacePadding = (int)(12 * displayDensity);
             pageTitleText.setLineSpacing(0, lineSpacing);
-            titleBottomPadding += lineSpacePadding;
+            // however, if it's Lollipop or greater, then don't boost the bottom padding of the
+            // title text, since it now correctly does it automatically.
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                titleBottomPadding += lineSpacePadding;
+            }
         }
         pageTitleText.setPadding(pageTitleText.getPaddingLeft(), pageTitleText.getPaddingTop(),
                 pageTitleText.getPaddingRight(), titleBottomPadding);
@@ -482,10 +486,15 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 }
                 final int animDuration = 500;
                 // adjust the space between the title and the description...
-                // in 2.3, the descenders of the font go a little lower, so the space needs to be slightly different:
-                final int marginSpHC = 20;
-                final int marginSpGB = 16;
-                int marginSp = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ? marginSpHC : marginSpGB;
+                // for >2.3 and <5.0, the space needs to be a little different, because it doesn't
+                // correctly adjust the bottom padding of the page title.
+                final int marginSpL = 16;
+                final int marginSpH = 20;
+                int marginSp = marginSpL;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB
+                    && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                    marginSp = marginSpH;
+                }
                 final int newMargin = pageDescriptionText.getHeight()
                         - (leadImagesEnabled ? (int)(marginSp * displayDensity) : 0);
                 final int origPadding = pageTitleText.getPaddingBottom();
