@@ -3,17 +3,20 @@ package org.wikipedia.analytics;
 import org.wikipedia.WikipediaApp;
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.util.UUID;
 
 public class SearchFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppSearch";
-    private static final int REVISION = 10633564;
+    private static final int REVISION = 10641988;
 
+    private final String searchSessionToken;
     private final String appInstallID;
 
     public SearchFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REVISION);
         //Retrieve this app installation's unique ID, used to record unique users of features
         appInstallID = app.getAppInstallID();
+        searchSessionToken = UUID.randomUUID().toString();
     }
 
     protected void log(Object... params) {
@@ -40,6 +43,7 @@ public class SearchFunnel extends Funnel {
     protected JSONObject preprocessData(JSONObject eventData) {
         try {
             eventData.put("appInstallID", appInstallID);
+            eventData.put("searchSessionToken", searchSessionToken);
         } catch (JSONException e) {
             // This isn't happening
             throw new RuntimeException(e);
