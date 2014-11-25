@@ -27,6 +27,7 @@
                 android:layout_weight="0.5"
                 android:id="@+id/button_search_title"
                 android:background="?attr/window_background_color"
+                android:textColor="?attr/edit_text_color"
                 android:text="@string/search_titles_button"
                 />
 
@@ -38,6 +39,7 @@
                 android:layout_weight="0.5"
                 android:id="@+id/button_search_full"
                 android:background="?attr/window_background_color"
+                android:textColor="?attr/edit_text_color"
                 android:text="@string/search_full_button"
                 />
         </LinearLayout>
