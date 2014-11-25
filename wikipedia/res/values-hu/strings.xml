@@ -14,7 +14,6 @@
   <string name="page_error_retry">Újra</string>
   <string name="menu_clear_all_history">Előzmények törlése</string>
   <string name="dialog_title_clear_history">Törlöd az előzményeket?</string>
-  <string name="dialog_message_clear_history">Biztosan törölni szeretnéd az előzményeket?</string>
   <string name="saved_pages_activity_title">Elmentett lapok</string>
   <string name="nav_item_saved_pages">Elmentett lapok</string>
   <string name="menu_save_page">Lap mentése</string>
@@ -30,7 +29,6 @@
   <string name="content_license_html">A tartalom a &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt elérhető, ha nincs másképp feltüntetve</string>
   <string name="preference_title_language">Nyelv</string>
   <string name="preference_summary_language">A tartalom nyelve</string>
-  <string name="nav_item_preferences">Beállítások</string>
   <string name="preference_languages_filter_hint">Keresés</string>
   <string name="langlinks_filter_hint">Keresés</string>
   <string name="menu_other_languages">További nyelvek</string>
@@ -38,7 +36,6 @@
   <string name="langlinks_empty">Ez a szócikk nem érhető el más nyelveken</string>
   <string name="settings_activity_title">Beállítások</string>
   <string name="langlinks_activity_title">További nyelvek</string>
-  <string name="editsection_activity_title">Szakasz szerkesztése</string>
   <string name="edit_section_error_retry">Újra</string>
   <string name="dialog_saving_in_progress">Mentés...</string>
   <string name="edit_saved_successfully">Szerkesztése elmentve!</string>

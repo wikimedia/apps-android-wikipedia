@@ -8,14 +8,12 @@
   <string name="history_activity_title">Istorija</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
   <string name="dialog_title_clear_history">Valyti istoriją?</string>
-  <string name="dialog_message_clear_history">Ar tikrai norite išvalyti visą istoriją?</string>
   <string name="menu_save_page" fuzzy="true">Išsaugoti puslapį</string>
   <string name="menu_share_page">Dalintis</string>
   <string name="toast_saving_page" fuzzy="true">Saugomas puslapis...</string>
   <string name="delete_selected_saved_pages">Ištrinti</string>
   <string name="last_updated_text">Paskutinį kartą atnaujinta %1$s</string>
   <string name="preference_title_language" fuzzy="true">Kalba</string>
-  <string name="nav_item_preferences">Nustatymai</string>
   <string name="preference_languages_filter_hint">Ieškoti</string>
   <string name="langlinks_filter_hint">Ieškoti</string>
   <string name="menu_other_languages">Kitos kalbos</string>

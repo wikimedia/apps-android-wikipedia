@@ -8,7 +8,6 @@
   <string name="page_error_retry">Riprovo</string>
   <string name="menu_clear_all_history">Fshij historikun?</string>
   <string name="dialog_title_clear_history">Fshij historikun?</string>
-  <string name="dialog_message_clear_history">Jeni i sigurt se doni të fshini të gjithë historisë?</string>
   <string name="saved_pages_activity_title" fuzzy="true">Faqet e ruajtura</string>
   <string name="menu_save_page" fuzzy="true">Ruaj faqen</string>
   <string name="menu_share_page">ndaj</string>

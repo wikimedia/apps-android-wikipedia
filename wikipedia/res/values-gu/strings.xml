@@ -14,7 +14,6 @@
   <string name="toast_save_page_failed">પાનું સંગ્રહવાનું નિષ્ફળ :(</string>
   <string name="delete_selected_saved_pages">દૂર કરો</string>
   <string name="preference_title_language">ભાષા</string>
-  <string name="nav_item_preferences">ગોઠવણીઓ</string>
   <string name="preference_languages_filter_hint">શોધ</string>
   <string name="langlinks_filter_hint">શોધ</string>
   <string name="menu_other_languages">અન્ય ભાષાઓ</string>
