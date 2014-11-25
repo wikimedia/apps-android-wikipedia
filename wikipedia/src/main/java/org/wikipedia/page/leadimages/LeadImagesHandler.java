@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
+import android.text.Html;
 import android.util.TypedValue;
 import android.graphics.PointF;
 import android.view.View;
@@ -254,8 +255,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             leadImagesEnabled = thumbUrl != null;
         }
 
-        // give the title to the measurer...
-        pageTitleText.setText(parentFragment.getFragment().getPage().getTitle().getDisplayText());
+        // set the page title text, and honor any HTML formatting in the title
+        pageTitleText.setText(Html.fromHtml(parentFragment.getFragment().getPage().getDisplayTitle()));
         // hide the description text...
         pageDescriptionText.setVisibility(View.INVISIBLE);
 
