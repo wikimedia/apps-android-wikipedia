@@ -43,6 +43,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -443,10 +444,15 @@ public class PageActivity extends ThemedActionBarActivity {
 
         //is the new title the same as what's already being displayed?
         if (getTopFragment() instanceof PageViewFragment) {
-            if (((PageViewFragment)getTopFragment()).getFragment().getTitle().equals(title)) {
+            PageViewFragmentInternal frag = getCurPageFragment();
+            if (frag.getTitle().equals(title)) {
+                //if we have a section to scroll to, then pass it to the fragment
+                if (!TextUtils.isEmpty(title.getFragment())) {
+                    frag.scrollToSection(title.getFragment());
+                }
                 return;
             }
-            getCurPageFragment().closeFindInPage();
+            frag.closeFindInPage();
         }
 
         pushFragment(PageViewFragment.newInstance(title, entry));

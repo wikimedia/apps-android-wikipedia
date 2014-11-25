@@ -139,16 +139,19 @@ public class ToCHandler {
         }
     }
 
-    public void scrollToSection(Section section) {
+    public void scrollToSection(String sectionAnchor) {
         JSONObject payload = new JSONObject();
         try {
-            payload.put("anchor", section.isLead() ? "heading_" + section.getId() : section.getAnchor());
+            payload.put("anchor", sectionAnchor);
         } catch (JSONException e) {
             // This won't happen
             throw new RuntimeException(e);
         }
-
         bridge.sendMessage("scrollToSection", payload);
+    }
+
+    public void scrollToSection(Section section) {
+        scrollToSection(section.isLead() ? "heading_" + section.getId() : section.getAnchor());
     }
 
     public void setupToC(final Page page) {

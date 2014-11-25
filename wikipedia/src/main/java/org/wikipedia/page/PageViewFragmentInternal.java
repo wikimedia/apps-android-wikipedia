@@ -687,6 +687,17 @@ public class PageViewFragmentInternal {
     }
 
     /**
+     * Scroll to a specific section in the WebView.
+     * @param sectionAnchor Anchor link of the section to scroll to.
+     */
+    public void scrollToSection(String sectionAnchor) {
+        if (!isAdded() || tocHandler == null) {
+            return;
+        }
+        tocHandler.scrollToSection(sectionAnchor);
+    }
+
+    /**
      * Save the history entry for the specified page.
      */
     private class SaveHistoryTask extends SaneAsyncTask<Void> {
