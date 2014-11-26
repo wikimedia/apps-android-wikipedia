@@ -10,10 +10,13 @@ import org.wikipedia.views.ObservableWebView;
 public class SearchBarHideHandler implements  ObservableWebView.OnScrollChangeListener, ObservableWebView.OnUpOrCancelMotionEventListener, ObservableWebView.OnDownMotionEventListener {
     private final ObservableWebView webview;
     private final View quickReturnView;
+    private final int HUMAN_SCROLL_THRESHOLD = 200;
+    private final float displayDensity;
 
     public SearchBarHideHandler(ObservableWebView webview, View quickReturnView) {
         this.webview = webview;
         this.quickReturnView =  quickReturnView;
+        this.displayDensity = quickReturnView.getResources().getDisplayMetrics().density;
 
         webview.addOnScrollChangeListener(this);
         webview.addOnDownMotionEventListener(this);
@@ -34,11 +37,17 @@ public class SearchBarHideHandler implements  ObservableWebView.OnScrollChangeLi
             int newMargin = (int) ViewHelper.getTranslationY(quickReturnView) + scrollDelta;
             animMargin = Math.min(minMargin, newMargin);
         } else {
-            // scroll downn!
-            int minMargin = -quickReturnView.getHeight();
+            // scroll down!
             int scrollDelta = scrollY - oldScrollY;
-            int newMargin = (int)ViewHelper.getTranslationY(quickReturnView) - scrollDelta;
-            animMargin = Math.max(minMargin, newMargin);
+            if (scrollDelta > (int)(HUMAN_SCROLL_THRESHOLD * displayDensity)) {
+                // we've been scrolled programmatically, probably to go to
+                // a specific section, so keep the toolbar shown.
+                animMargin = 0;
+            } else {
+                int minMargin = -quickReturnView.getHeight();
+                int newMargin = (int) ViewHelper.getTranslationY(quickReturnView) - scrollDelta;
+                animMargin = Math.max(minMargin, newMargin);
+            }
         }
         ViewHelper.setTranslationY(quickReturnView, animMargin);
     }
