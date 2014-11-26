@@ -7,7 +7,6 @@
           android:title="@string/menu_show_toc"
           android:icon="@drawable/ic_toc"
           app:showAsAction="ifRoom"
-          android:visible="false"
           />
     <item android:id="@+id/menu_other_languages"
           android:title="@string/menu_other_languages"

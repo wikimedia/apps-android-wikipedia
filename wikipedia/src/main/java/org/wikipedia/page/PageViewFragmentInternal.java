@@ -319,9 +319,6 @@ public class PageViewFragmentInternal {
 
         app = (WikipediaApp)getActivity().getApplicationContext();
 
-        // disable TOC drawer until the page is loaded
-        tocDrawer.setSlidingEnabled(false);
-
         savedPagesFunnel = app.getFunnelManager().getSavedPagesFunnel(title.getSite());
 
         connectionIssueFunnel = new ConnectionIssueFunnel(app);
@@ -424,6 +421,13 @@ public class PageViewFragmentInternal {
             page = PAGE_CACHE.get(titleOriginal);
             title = page.getTitle();
             state = STATE_COMPLETE_FETCH;
+        }
+
+        if (tocHandler == null) {
+            tocHandler = new ToCHandler(getActivity(),
+                    tocDrawer,
+                    bridge,
+                    title.getSite());
         }
 
         setState(state);
@@ -551,14 +555,7 @@ public class PageViewFragmentInternal {
 
         // FIXME: Move this out into a PageComplete event of sorts
         if (state == STATE_COMPLETE_FETCH) {
-            if (tocHandler == null) {
-                tocHandler = new ToCHandler(getActivity(),
-                                            tocDrawer,
-                                            bridge);
-            }
             tocHandler.setupToC(page);
-
-            getActivity().supportInvalidateOptionsMenu();
 
             //add the page to cache!
             PAGE_CACHE.put(titleOriginal, page);
@@ -570,9 +567,6 @@ public class PageViewFragmentInternal {
 
     public void onPrepareOptionsMenu(Menu menu) {
         app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.ic_toc));
-
-        MenuItem tocMenuItem = menu.findItem(R.id.menu_toc);
-        tocMenuItem.setVisible(tocDrawer.getSlidingEnabled(Gravity.END));
 
         switch (state) {
             case PageViewFragmentInternal.STATE_NO_FETCH:
@@ -839,8 +833,8 @@ public class PageViewFragmentInternal {
         if (!isAdded()) {
             return;
         }
-        // in any case, make sure the TOC drawer is closed and disabled
-        tocDrawer.setSlidingEnabled(false);
+        // in any case, make sure the TOC drawer is closed
+        tocDrawer.closeDrawers();
         getActivity().updateProgressBar(false, true, 0);
         refreshView.setRefreshing(false);
 

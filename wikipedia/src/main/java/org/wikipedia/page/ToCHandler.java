@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import org.wikipedia.R;
+import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
@@ -48,10 +49,12 @@ public class ToCHandler {
     private boolean openedViaSwipe = true;
 
     public ToCHandler(final ActionBarActivity activity, final DisableableDrawerLayout slidingPane,
-                      final CommunicationBridge bridge) {
+                      final CommunicationBridge bridge, final Site site) {
         this.parentActivity = activity;
         this.bridge = bridge;
         this.slidingPane = slidingPane;
+
+        funnel = new ToCInteractionFunnel((WikipediaApp)slidingPane.getContext().getApplicationContext(), site);
 
         this.tocList = (ListView) slidingPane.findViewById(R.id.page_toc_list);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
@@ -152,8 +155,6 @@ public class ToCHandler {
         tocProgress.setVisibility(View.GONE);
         tocList.setVisibility(View.VISIBLE);
 
-        funnel = new ToCInteractionFunnel((WikipediaApp)slidingPane.getContext().getApplicationContext(), page.getTitle().getSite());
-
         headerView.setText(page.getTitle().getDisplayText());
         headerView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,11 +178,7 @@ public class ToCHandler {
             }
         });
 
-        //enable ToC, but only if we have more than one section
-        boolean enable = page.getSections().size() > 1;
-        slidingPane.setSlidingEnabled(enable);
-
-        if (enable) {
+        if (!page.getPageProperties().isMainPage()) {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(parentActivity);
             final boolean knowsToC = prefs.getBoolean(PrefKeys.getKnowTocDrawer(), false);
             if (!knowsToC) {
