@@ -155,7 +155,7 @@ public class ToCHandler {
         tocProgress.setVisibility(View.GONE);
         tocList.setVisibility(View.VISIBLE);
 
-        headerView.setText(page.getTitle().getDisplayText());
+        headerView.setText(Html.fromHtml(page.getDisplayTitle()));
         headerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
