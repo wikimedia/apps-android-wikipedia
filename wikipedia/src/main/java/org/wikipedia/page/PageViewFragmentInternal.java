@@ -205,6 +205,7 @@ public class PageViewFragmentInternal {
             leadSectionPayload.put("string_table_other", getString(R.string.table_other));
             leadSectionPayload.put("string_table_close", getString(R.string.table_close));
             leadSectionPayload.put("isBeta", app.getReleaseType() != WikipediaApp.RELEASE_PROD);
+            leadSectionPayload.put("isMainPage", page.getPageProperties().isMainPage());
             leadSectionPayload.put("apiLevel", Build.VERSION.SDK_INT);
             bridge.sendMessage("displayLeadSection", leadSectionPayload);
 

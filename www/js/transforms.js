@@ -4,6 +4,11 @@ var bridge = require( "./bridge" );
 
 // Move any tables to the bottom of the lead section
 transformer.register( "leadSection", function( leadContent ) {
+    if (window.isMainPage) {
+        // don't do anything if this is the main page, since many wikis
+        // arrange the main page in a series of tables.
+        return leadContent;
+    }
     var leadTables = leadContent.querySelectorAll( "table" );
     var pTags, i;
     for ( i = 0; i < leadTables.length; i++ ) {

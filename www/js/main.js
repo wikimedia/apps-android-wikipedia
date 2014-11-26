@@ -54,22 +54,3 @@ bridge.registerListener( "setPageProtected", function( payload ) {
         el.classList.remove("no-editing");
     }
 } );
-
-/**
- * Message sent when the current page is determined to be the main page of a wiki.
- *
- * Should remove all edit icons, and in the future also other changes.
- *
- * No payload.
- */
-bridge.registerListener( "setMainPage", function() {
-    // Wrap .content in #mainpage. Differs from MF which wraps #mainpage in .content
-    var content = document.getElementById( "content" );
-    var mainpage = document.createElement( "div" );
-    mainpage.setAttribute( "id", "mainpage" );
-
-    document.body.insertBefore( mainpage, content.nextSibling );
-
-    mainpage.appendChild( content );
-
-} );

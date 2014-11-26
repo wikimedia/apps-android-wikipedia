@@ -304,25 +304,6 @@ bridge.registerListener( "setPageProtected", function( payload ) {
     }
 } );
 
-/**
- * Message sent when the current page is determined to be the main page of a wiki.
- *
- * Should remove all edit icons, and in the future also other changes.
- *
- * No payload.
- */
-bridge.registerListener( "setMainPage", function() {
-    // Wrap .content in #mainpage. Differs from MF which wraps #mainpage in .content
-    var content = document.getElementById( "content" );
-    var mainpage = document.createElement( "div" );
-    mainpage.setAttribute( "id", "mainpage" );
-
-    document.body.insertBefore( mainpage, content.nextSibling );
-
-    mainpage.appendChild( content );
-
-} );
-
 },{"./bridge":2}],8:[function(require,module,exports){
 var parseCSSColor = require("../lib/js/css-color-parser");
 var bridge = require("./bridge");
@@ -474,6 +455,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     window.string_table_other = payload.string_table_other;
     window.string_table_close = payload.string_table_close;
     window.pageTitle = payload.title;
+    window.isMainPage = payload.isMainPage;
 
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
@@ -647,6 +629,11 @@ var bridge = require( "./bridge" );
 
 // Move any tables to the bottom of the lead section
 transformer.register( "leadSection", function( leadContent ) {
+    if (window.isMainPage) {
+        // don't do anything if this is the main page, since many wikis
+        // arrange the main page in a series of tables.
+        return leadContent;
+    }
     var leadTables = leadContent.querySelectorAll( "table" );
     var pTags, i;
     for ( i = 0; i < leadTables.length; i++ ) {
