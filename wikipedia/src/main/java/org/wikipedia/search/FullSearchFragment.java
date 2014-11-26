@@ -184,7 +184,7 @@ public class FullSearchFragment extends Fragment {
                 searchResultsContainer.setVisibility(View.VISIBLE);
 
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
-                if (lastResults.getResults().size() == 0) {
+                if (lastResults.getResults().size() == 0 && continueOffset == null) {
                     searchNoResults.setVisibility(View.VISIBLE);
                     searchResultsList.setVisibility(View.GONE);
                 } else {
