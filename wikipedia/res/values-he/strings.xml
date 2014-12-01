@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">העריכה נכשלה!</string>
   <string name="dialog_message_edit_failed_retry">לנסות שוב</string>
   <string name="dialog_message_edit_failed_cancel">ביטול</string>
+  <string name="dialog_message_leaving_edit">השינויים שלך עוד לא נשמרו. האם ברצונך לעזוב את הדף הזה?</string>
+  <string name="dialog_message_leaving_edit_leave">לעזוב</string>
+  <string name="dialog_message_leaving_edit_stay">להישאר</string>
   <string name="menu_show_toc">תוכן עניינים</string>
   <string name="search_no_results_found">אין תוצאות</string>
   <string name="edit_section_captcha_message">כדי לסייע בהגנה מפני ספאם, הזינו את המילים המופיעות להלן</string>

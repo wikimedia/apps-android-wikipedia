@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">Échec de l’enregistrement !</string>
   <string name="dialog_message_edit_failed_retry">Réessayer</string>
   <string name="dialog_message_edit_failed_cancel">Annuler</string>
+  <string name="dialog_message_leaving_edit">« Vos modifications n’ont pas encore été enregistrées. Êtes-vous sûr de vouloir quitter cette page ? »</string>
+  <string name="dialog_message_leaving_edit_leave">Quitter</string>
+  <string name="dialog_message_leaving_edit_stay">Rester</string>
   <string name="menu_show_toc">Sommaire</string>
   <string name="search_no_results_found">Aucun résultat trouvé</string>
   <string name="edit_section_captcha_message">Pour aider à la protection contre le pourriel automatique, veuillez saisir les mots qui apparaissent ci-dessous</string>

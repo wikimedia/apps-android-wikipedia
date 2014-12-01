@@ -72,6 +72,7 @@
   <string name="dialog_message_edit_failed">Tahrirni saqlab bo\'lmadi!</string>
   <string name="dialog_message_edit_failed_retry">Qayta urinib ko\'rish</string>
   <string name="dialog_message_edit_failed_cancel">Bekor qilish</string>
+  <string name="dialog_message_leaving_edit_leave">Tark etish</string>
   <string name="menu_show_toc">Mundarija</string>
   <string name="search_no_results_found">Natija topilmadi</string>
   <string name="edit_section_captcha_hint">Tepadagi so\'zlarni takrorlang</string>

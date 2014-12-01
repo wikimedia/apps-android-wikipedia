@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">Уредувањето не успеа!</string>
   <string name="dialog_message_edit_failed_retry">Повтори</string>
   <string name="dialog_message_edit_failed_cancel">Откажи</string>
+  <string name="dialog_message_leaving_edit">„Вашите промени сè уште не се зачувани. Дали сигурно сакате да ја напуштите страницава?“</string>
+  <string name="dialog_message_leaving_edit_leave">Напушти</string>
+  <string name="dialog_message_leaving_edit_stay">Остани</string>
   <string name="menu_show_toc">Содржина</string>
   <string name="search_no_results_found">Нема пронајдов ништо</string>
   <string name="edit_section_captcha_message">За да се аштитиме од автоматизиран спам, внесете ги долуприкажаните зборови</string>

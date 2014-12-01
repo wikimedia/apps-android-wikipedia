@@ -115,8 +115,10 @@ See also:
   <string name="dialog_message_edit_failed_cancel">Button text to cancel retrying a failed edit save.
 {{Identical|Cancel}}</string>
   <string name="dialog_message_leaving_edit">Message for dialog box shown to users when they click on a link in an edit preview, informing them that if they leave the edit then they may lose their changes.</string>
-  <string name="dialog_message_leaving_edit_leave">Button text for choosing to leave the edit workflow when the user clicks on a link in preview.</string>
-  <string name="dialog_message_leaving_edit_stay">Button text for choosing to stay inside edit workflow when the user clicks on a link in preview.</string>
+  <string name="dialog_message_leaving_edit_leave">Button text for choosing to leave the edit workflow when the user clicks on a link in preview.
+{{Identical|Leave}}</string>
+  <string name="dialog_message_leaving_edit_stay">Button text for choosing to stay inside edit workflow when the user clicks on a link in preview.
+{{Identical|Stay}}</string>
   <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article.
 {{Identical|Table of contents}}</string>
   <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>

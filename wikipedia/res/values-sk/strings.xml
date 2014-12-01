@@ -69,6 +69,9 @@
   <string name="dialog_message_edit_failed">Úprava zlyhala!</string>
   <string name="dialog_message_edit_failed_retry">Znova</string>
   <string name="dialog_message_edit_failed_cancel">Zrušiť</string>
+  <string name="dialog_message_leaving_edit">\"Vaše úpravy ešte neboli uložené. Prajete si opustiť stránku bez uloženia úprav?\"</string>
+  <string name="dialog_message_leaving_edit_leave">Opustiť</string>
+  <string name="dialog_message_leaving_edit_stay">Zostať na stránke</string>
   <string name="menu_show_toc">Obsah</string>
   <string name="search_no_results_found">Neboli nájdené žiadne výsledky</string>
   <string name="edit_section_captcha_message">Kvôli ochrane pred automatizovaným spamom, prosím zadajte slová ktoré sa objavujú nižšie.</string>
@@ -232,9 +235,11 @@
   <string name="search_error_retry">Znova</string>
   <string name="search_redirect_title">Presmerované z \"%s\".</string>
   <string name="search_recent_header">Nedávno hľadané výrazy:</string>
-  <string name="button_clear_all_recent_searches" fuzzy="true">Vymazať nedávno hľadané výrazy</string>
+  <string name="button_clear_all_recent_searches">Vymazať nedávno hľadané výrazy</string>
   <string name="toc_know_it">Rozumiem</string>
   <string name="error_browser_not_found">Nepodarilo sa otvoriť webovú stránku (nenašiel sa žiadny webový prehliadač).</string>
+  <string name="table_other">Viac informácií</string>
+  <string name="table_close">Zatvoriť</string>
   <string name="app_store_description">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.
 
 Funkcie:
@@ -249,4 +254,5 @@ Funkcie:
 Používame otvorený zdrojový kód. Pokiaľ máte skúsenosti s Javou a SDK Androidu, môžete forkovať! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">K dispozícii je nová alfa verzia.</string>
   <string name="alpha_update_notification_text">Ťuknutím ju stiahnete.</string>
+  <string name="dialog_close_description">Zatvoriť</string>
 </resources>

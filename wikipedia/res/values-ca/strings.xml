@@ -47,7 +47,7 @@
   <string name="nearby_empty_message">Quan us mogueu a una ubicació nova, proveu de refrescar la pàgina per saber què hi ha al voltant.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet" fuzzy="true">%d ft</string>
+  <string name="nearby_distance_in_feet">%d peus</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">No hi ha connexió a la xarxa</string>
   <string name="nearby_server_error">No s\'ha pogut recuperar la llista de llocs propers.</string>
@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">L\'edició no s\'ha desat!</string>
   <string name="dialog_message_edit_failed_retry">Reintenta</string>
   <string name="dialog_message_edit_failed_cancel">Cancel·la</string>
+  <string name="dialog_message_leaving_edit">«Els canvis no s\'han desat encara. Esteu segur que voleu sortir d\'aquesta pàgina?»</string>
+  <string name="dialog_message_leaving_edit_leave">Surt</string>
+  <string name="dialog_message_leaving_edit_stay">Roman</string>
   <string name="menu_show_toc">Taula de continguts</string>
   <string name="search_no_results_found">Cap resultat</string>
   <string name="edit_section_captcha_message">Per ajudar a protegir contra l\'spam automàtic, si us plau, introduïu les paraules que apareixen a sota</string>
@@ -240,7 +243,7 @@
   <string name="search_error_retry">Torna a provar</string>
   <string name="search_redirect_title">Redirecció de «%s».</string>
   <string name="search_recent_header">Cerques recents:</string>
-  <string name="button_clear_all_recent_searches" fuzzy="true">Esborra cerques recents</string>
+  <string name="button_clear_all_recent_searches">Esborra les cerques recents</string>
   <string name="clear_recent_searches_confirm">Esteu segur que voleu esborrar l\'historial de cerca?</string>
   <string name="search_titles_button">Títols</string>
   <string name="search_full_button">Dins d\'articles</string>

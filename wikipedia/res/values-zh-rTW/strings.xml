@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">編輯失敗 ！</string>
   <string name="dialog_message_edit_failed_retry">重試</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
+  <string name="dialog_message_leaving_edit">「您的修改尚未儲存，您確定要離開此頁面嗎？」</string>
+  <string name="dialog_message_leaving_edit_leave">離開</string>
+  <string name="dialog_message_leaving_edit_stay">留在這裡</string>
   <string name="menu_show_toc">目錄</string>
   <string name="search_no_results_found">找不到任何結果</string>
   <string name="edit_section_captcha_message">為了防止自動化的惡意編輯，請輸入下方的文字</string>
@@ -240,7 +243,7 @@
   <string name="search_error_retry">重試</string>
   <string name="search_redirect_title">重新導向自「%s」。</string>
   <string name="search_recent_header">最近搜尋：</string>
-  <string name="button_clear_all_recent_searches" fuzzy="true">清除最近搜尋</string>
+  <string name="button_clear_all_recent_searches">清除近期搜尋</string>
   <string name="clear_recent_searches_confirm">您確信您要清除您的搜尋歷史嗎？</string>
   <string name="search_titles_button">標題</string>
   <string name="search_full_button">在條目內</string>

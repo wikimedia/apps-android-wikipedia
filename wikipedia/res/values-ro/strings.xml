@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">Salvarea nu a reușit!</string>
   <string name="dialog_message_edit_failed_retry">Reîncercare</string>
   <string name="dialog_message_edit_failed_cancel">Revocare</string>
+  <string name="dialog_message_leaving_edit">\"Modificările dumnevoastră nu au fost încă salvate. Sigur doriți să părăsiți această pagină?\"</string>
+  <string name="dialog_message_leaving_edit_leave">Părăsește</string>
+  <string name="dialog_message_leaving_edit_stay">Rămâi</string>
   <string name="menu_show_toc">Cuprins</string>
   <string name="search_no_results_found">Niciun rezultat găsit</string>
   <string name="edit_section_captcha_message">Pentru a ajuta la protejarea împotriva spamului automat, vă rugăm să introduceți cuvintele care apar mai jos</string>
