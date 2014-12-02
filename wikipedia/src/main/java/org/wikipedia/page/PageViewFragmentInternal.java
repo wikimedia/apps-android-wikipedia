@@ -567,7 +567,7 @@ public class PageViewFragmentInternal {
     }
 
     public void onPrepareOptionsMenu(Menu menu) {
-        app.adjustDrawableToTheme(getResources().getDrawable(R.drawable.ic_toc));
+        app.adjustDrawableToTheme(menu.findItem(R.id.menu_toc).getIcon());
 
         switch (state) {
             case PageViewFragmentInternal.STATE_NO_FETCH:
