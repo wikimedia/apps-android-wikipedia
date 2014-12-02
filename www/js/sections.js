@@ -48,6 +48,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     window.string_table_infobox = payload.string_table_infobox;
     window.string_table_other = payload.string_table_other;
     window.string_table_close = payload.string_table_close;
+    window.string_expand_refs = payload.string_expand_refs;
     window.pageTitle = payload.title;
     window.isMainPage = payload.isMainPage;
 
@@ -113,6 +114,7 @@ function elementsForSection( section ) {
     content = transformer.transform( "section", content );
     content = transformer.transform( "hideTables", content );
     content = transformer.transform( "hideIPA", content );
+    content = transformer.transform( "hideRefs", content );
 
     return [ heading, content ];
 }

@@ -384,4 +384,5 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
     * The first parameter is the title of the page the text snippet is from.
     * The second parameter is an HTML link to the page.
   </string>
+  <string name="expand_refs">Title for a button that, when clicked, will expand the list of references or notes at the bottom of a page.</string>
 </resources>
