@@ -146,6 +146,7 @@ public class PageViewFragment extends Fragment {
             return;
         }
         inflater.inflate(R.menu.menu_page_actions, menu);
+        fragment.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override

@@ -48,6 +48,7 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -566,9 +567,11 @@ public class PageViewFragmentInternal {
         }
     }
 
-    public void onPrepareOptionsMenu(Menu menu) {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         app.adjustDrawableToTheme(menu.findItem(R.id.menu_toc).getIcon());
+    }
 
+    public void onPrepareOptionsMenu(Menu menu) {
         switch (state) {
             case PageViewFragmentInternal.STATE_NO_FETCH:
             case PageViewFragmentInternal.STATE_INITIAL_FETCH:
