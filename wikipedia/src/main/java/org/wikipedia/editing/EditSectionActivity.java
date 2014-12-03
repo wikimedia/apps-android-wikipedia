@@ -71,7 +71,6 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     private String sectionWikitext;
 
-    private SyntaxHighlighter syntaxHighlighter;
     private EditText sectionText;
     private boolean sectionTextModified = false;
     private boolean sectionTextFirstLoad = true;
@@ -79,7 +78,6 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     private View sectionProgress;
     private View sectionContainer;
     private View sectionError;
-    private Button sectionErrorRetry;
 
     private View abusefilterContainer;
     private ImageView abuseFilterImage;
@@ -93,8 +91,6 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     private EditPreviewFragment editPreviewFragment;
 
     private EditSummaryFragment editSummaryFragment;
-
-    private TextView editLicenseText;
 
     private EditFunnel funnel;
 
@@ -125,13 +121,13 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         sectionText = (EditText) findViewById(R.id.edit_section_text);
 
         if (app.getReleaseType() != WikipediaApp.RELEASE_PROD) {
-            syntaxHighlighter = new SyntaxHighlighter(this, sectionText);
+            new SyntaxHighlighter(this, sectionText);
         }
 
         sectionProgress = findViewById(R.id.edit_section_load_progress);
         sectionContainer = findViewById(R.id.edit_section_container);
         sectionError = findViewById(R.id.edit_section_error);
-        sectionErrorRetry = (Button) findViewById(R.id.edit_section_error_retry);
+        Button sectionErrorRetry = (Button) findViewById(R.id.edit_section_error_retry);
 
         abusefilterContainer = findViewById(R.id.edit_section_abusefilter_container);
         abuseFilterImage = (ImageView) findViewById(R.id.edit_section_abusefilter_image);
@@ -213,7 +209,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     }
 
     private void updateEditLicenseText() {
-        editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
+        TextView editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
         if (app.getUserInfoStorage().isLoggedIn()) {
             editLicenseText.setText(Html.fromHtml(getString(R.string.edit_save_action_license_logged_in)));
         } else {
@@ -288,7 +284,9 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                 new DoEditTask(EditSectionActivity.this, title, sectionText.getText().toString(), sectionID, token, summaryText) {
                     @Override
                     public void onBeforeExecute() {
-                        progressDialog.show();
+                        if (!isFinishing()) {
+                            progressDialog.show();
+                        }
                     }
 
                     @Override
@@ -298,7 +296,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
                     @Override
                     public void onCatch(Throwable caught) {
-                        if (!progressDialog.isShowing()) {
+                        if (isFinishing() || !progressDialog.isShowing()) {
                             // no longer attached to activity!
                             return;
                         }
@@ -315,7 +313,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
                     @Override
                     public void onFinish(EditingResult result) {
-                        if (!progressDialog.isShowing()) {
+                        if (isFinishing() || !progressDialog.isShowing()) {
                             // no longer attached to activity!
                             return;
                         }
@@ -363,6 +361,9 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
             @Override
             public void onTokenFailed(Throwable caught) {
+                if (isFinishing()) {
+                    return;
+                }
                 if (!(caught instanceof ApiException)) {
                     throw new RuntimeException(caught);
                 }
