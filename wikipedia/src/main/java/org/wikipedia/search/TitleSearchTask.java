@@ -8,11 +8,13 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.content.Context;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 public class TitleSearchTask extends ApiTask<List<PageTitle>> {
@@ -38,9 +40,6 @@ public class TitleSearchTask extends ApiTask<List<PageTitle>> {
                 .param("piprop", "thumbnail")
                 .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
                 .param("pilimit", NUM_RESULTS_PER_QUERY)
-                .param("list", "prefixsearch")
-                .param("pssearch", prefix)
-                .param("pslimit", NUM_RESULTS_PER_QUERY)
                 .param("continue", ""); // to avoid warning about new continuation syntax
     }
 
@@ -59,32 +58,44 @@ public class TitleSearchTask extends ApiTask<List<PageTitle>> {
             }
         }
 
-        /*
-        So here's what we're doing here:
-        We're requesting two sets of results with our API query. They both contain the same titles,
-        but in different orders.  The results given by "list=prefixsearch" give us the results in
-        the correct order, but with no thumbnails.  The results given by "generator=prefixsearch"
-        give the results in the wrong order, but with thumbnails!  So, all we have to do is use the
-        first list, and correlate the pageids with the second list to extract the thumbnails.
-        */
+        // The search results arrive unordered, but they do have an "index" property, which we'll
+        // use to sort the results ourselves.
         JSONObject queryResult = data.optJSONObject("query");
+        if (queryResult == null) {
+            return pageTitles;
+        }
         JSONObject pages = queryResult.optJSONObject("pages");
         if (pages == null) {
             return pageTitles;
         }
-        JSONArray search = queryResult.getJSONArray("prefixsearch");
-
-        for (int i = 0; i < search.length(); i++) {
+        // First, put all the page objects into an array
+        JSONObject[] pageArray = new JSONObject[pages.length()];
+        int pageIndex = 0;
+        Iterator<String> pageIter = pages.keys();
+        while (pageIter.hasNext()) {
+            pageArray[pageIndex++] = (JSONObject)pages.get(pageIter.next());
+        }
+        // now sort the array based on the "index" property
+        Arrays.sort(pageArray, new Comparator<JSONObject>() {
+            @Override
+            public int compare(JSONObject lhs, JSONObject rhs) {
+                int ret = 0;
+                try {
+                    ret = ((Integer) lhs.getInt("index")).compareTo(rhs.getInt("index"));
+                } catch (JSONException e) {
+                    //doesn't matter
+                }
+                return ret;
+            }
+        });
+        // and create our list of PageTitles from the now-sorted array
+        for (JSONObject item : pageArray) {
             String thumbUrl = null;
-            JSONObject item = search.getJSONObject(i);
-            String pageid = item.getString("pageid");
-            if (pages.has(pageid) && pages.getJSONObject(pageid).has("thumbnail")) {
-                thumbUrl = pages.getJSONObject(pageid)
-                                .getJSONObject("thumbnail").getString("source");
+            if (item.has("thumbnail")) {
+                thumbUrl = item.getJSONObject("thumbnail").optString("source", null);
             }
             pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl));
         }
-
         return pageTitles;
     }
 }
