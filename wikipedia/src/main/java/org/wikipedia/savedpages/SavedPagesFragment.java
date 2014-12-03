@@ -251,6 +251,10 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                        .placeholder(R.drawable.ic_pageimage_placeholder)
                        .error(R.drawable.ic_pageimage_placeholder)
                        .into(thumbnail);
+            } else {
+                Picasso.with(getActivity())
+                       .load(R.drawable.ic_pageimage_placeholder)
+                       .into(thumbnail);
             }
 
             // If this page title's first letter is different from the previous title's

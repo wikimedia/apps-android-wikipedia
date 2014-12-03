@@ -299,6 +299,10 @@ public class FullSearchFragment extends Fragment {
                         .placeholder(R.drawable.ic_pageimage_placeholder)
                         .error(R.drawable.ic_pageimage_placeholder)
                         .into(imageView);
+            } else {
+                Picasso.with(getActivity())
+                       .load(R.drawable.ic_pageimage_placeholder)
+                       .into(imageView);
             }
 
             //...and lastly, if we've scrolled to the last item in the list, then

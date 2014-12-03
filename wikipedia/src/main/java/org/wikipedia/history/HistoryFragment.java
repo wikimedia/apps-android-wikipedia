@@ -267,6 +267,10 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                        .placeholder(R.drawable.ic_pageimage_placeholder)
                        .error(R.drawable.ic_pageimage_placeholder)
                        .into(thumbnail);
+            } else {
+                Picasso.with(getActivity())
+                       .load(R.drawable.ic_pageimage_placeholder)
+                       .into(thumbnail);
             }
 
             // Check the previous item, see if the times differ enough
