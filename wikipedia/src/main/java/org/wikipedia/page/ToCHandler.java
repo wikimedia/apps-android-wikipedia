@@ -151,7 +151,9 @@ public class ToCHandler {
     }
 
     public void scrollToSection(Section section) {
-        scrollToSection(section.isLead() ? "heading_" + section.getId() : section.getAnchor());
+        if (section != null) {
+            scrollToSection(section.isLead() ? "heading_" + section.getId() : section.getAnchor());
+        }
     }
 
     public void setupToC(final Page page) {
