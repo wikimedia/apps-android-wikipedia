@@ -8,9 +8,9 @@ import org.wikipedia.ViewAnimations;
 import org.wikipedia.views.ObservableWebView;
 
 public class SearchBarHideHandler implements  ObservableWebView.OnScrollChangeListener, ObservableWebView.OnUpOrCancelMotionEventListener, ObservableWebView.OnDownMotionEventListener {
+    private static final int HUMAN_SCROLL_THRESHOLD = 200;
     private final ObservableWebView webview;
     private final View quickReturnView;
-    private final int HUMAN_SCROLL_THRESHOLD = 200;
     private final float displayDensity;
 
     public SearchBarHideHandler(ObservableWebView webview, View quickReturnView) {

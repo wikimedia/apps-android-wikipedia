@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -207,8 +206,10 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 uiThread.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        if (!isAdded()) {
+                            return;
+                        }
                         ((PageActivity)getActivity()).displayMainPage();
-                        Log.d("Wikipedia", "Show da main page yo");
                     }
                 }, DateUtils.SECOND_IN_MILLIS);
                 // clear Wikidata cache, since the descriptions will need to be
