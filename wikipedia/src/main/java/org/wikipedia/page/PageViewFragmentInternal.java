@@ -353,6 +353,9 @@ public class PageViewFragmentInternal {
 
             @Override
             public void onInternalLinkClicked(PageTitle title) {
+                if (!isAdded()) {
+                    return;
+                }
                 if (referenceDialog != null && referenceDialog.isShowing()) {
                     referenceDialog.dismiss();
                 }
