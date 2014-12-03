@@ -178,7 +178,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                     // I think this case is rare enough for us to just ignore
                     // This would mean long pressing won't do anything, which is fine, I think
                 }
-                return false;
+                return true;
             }
         });
 
