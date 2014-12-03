@@ -357,4 +357,6 @@ Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.
 Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}.</string>
   <string name="dialog_close_description">Button description for the close image button. The text is mainly for screen readers.
 {{Identical|Close}}</string>
+  <string name="preference_title_show_images">Preference title for selecting whether images are loaded in pages</string>
+  <string name="preference_summary_show_images">Description of the preference for whether images are loaded, mentioning that this setting should be disabled if the user\'s internet connection is slow, or if their data plan is limited or restricted.</string>
 </resources>

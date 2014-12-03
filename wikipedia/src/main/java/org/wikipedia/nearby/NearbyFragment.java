@@ -596,11 +596,13 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 viewHolder.thumbnail.setEnabled(false);
             }
 
-            Picasso.with(getActivity())
-                    .load(nearbyPage.getThumblUrl())
-                    .placeholder(R.drawable.ic_pageimage_placeholder)
-                    .error(R.drawable.ic_pageimage_placeholder)
-                    .into(viewHolder.thumbnail);
+            if (app.showImages()) {
+                Picasso.with(getActivity())
+                       .load(nearbyPage.getThumblUrl())
+                       .placeholder(R.drawable.ic_pageimage_placeholder)
+                       .error(R.drawable.ic_pageimage_placeholder)
+                       .into(viewHolder.thumbnail);
+            }
             return convertView;
         }
 

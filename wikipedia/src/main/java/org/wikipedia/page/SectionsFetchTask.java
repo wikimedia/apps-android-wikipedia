@@ -32,13 +32,17 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
 
     @Override
     public RequestBuilder buildRequest(Api api) {
-        return api.action("mobileview")
+        RequestBuilder builder = api.action("mobileview")
                 .param("page", title.getPrefixedText())
                 .param("prop", "text|sections")
                 .param("onlyrequestedsections", "1") // Stupid mediawiki & stupid backwardscompat
                 .param("sections", sectionsRequested)
                 .param("sectionprop", "toclevel|line|anchor")
                 .param("noheadings", "true");
+        if (!app.showImages()) {
+            builder.param("noimages", "true");
+        }
+        return builder;
     }
 
     @Override

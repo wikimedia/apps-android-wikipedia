@@ -261,11 +261,13 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             source.setImageResource(getImageForSource(entry.getSource()));
             view.setTag(entry);
 
-            Picasso.with(getActivity())
-                    .load(cursor.getString(HistoryEntryContentProvider.COL_INDEX_IMAGE))
-                    .placeholder(R.drawable.ic_pageimage_placeholder)
-                    .error(R.drawable.ic_pageimage_placeholder)
-                    .into(thumbnail);
+            if (app.showImages()) {
+                Picasso.with(getActivity())
+                       .load(cursor.getString(HistoryEntryContentProvider.COL_INDEX_IMAGE))
+                       .placeholder(R.drawable.ic_pageimage_placeholder)
+                       .error(R.drawable.ic_pageimage_placeholder)
+                       .into(thumbnail);
+            }
 
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.

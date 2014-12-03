@@ -293,11 +293,7 @@ public class FullSearchFragment extends Fragment {
 
             ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
             String thumbnail = result.getThumbUrl();
-            if (thumbnail == null) {
-                Picasso.with(parent.getContext())
-                        .load(R.drawable.ic_pageimage_placeholder)
-                        .into(imageView);
-            } else {
+            if (app.showImages() && thumbnail != null) {
                 Picasso.with(parent.getContext())
                         .load(thumbnail)
                         .placeholder(R.drawable.ic_pageimage_placeholder)

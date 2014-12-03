@@ -29,6 +29,7 @@
                 android:layout_width="32dp"
                 android:layout_margin="8dp"
                 android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_pageimage_placeholder"
                 android:background="@android:color/transparent"
                 />
 

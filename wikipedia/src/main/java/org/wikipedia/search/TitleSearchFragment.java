@@ -242,11 +242,7 @@ public class TitleSearchFragment extends Fragment {
             ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
 
             String thumbnail = pageImagesCache.get(title.getPrefixedText());
-            if (thumbnail == null) {
-                Picasso.with(getActivity())
-                        .load(R.drawable.ic_pageimage_placeholder)
-                        .into(imageView);
-            } else {
+            if (app.showImages() && thumbnail != null) {
                 Picasso.with(getActivity())
                         .load(thumbnail)
                         .placeholder(R.drawable.ic_pageimage_placeholder)

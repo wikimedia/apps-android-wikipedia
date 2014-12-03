@@ -596,4 +596,8 @@ public class WikipediaApp extends Application {
             prefs.edit().putString(PrefKeys.getLanguageMru(), TextUtils.join(",", languageMruList)).apply();
         }
     }
+
+    public boolean showImages() {
+        return prefs.getBoolean(PrefKeys.getShowImages(), true);
+    }
 }

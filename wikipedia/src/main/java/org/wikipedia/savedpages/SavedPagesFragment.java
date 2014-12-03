@@ -245,11 +245,13 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
 
-            Picasso.with(getActivity())
-                    .load(cursor.getString(SavedPageContentProvider.COL_INDEX_IMAGE))
-                    .placeholder(R.drawable.ic_pageimage_placeholder)
-                    .error(R.drawable.ic_pageimage_placeholder)
-                    .into(thumbnail);
+            if (app.showImages()) {
+                Picasso.with(getActivity())
+                       .load(cursor.getString(SavedPageContentProvider.COL_INDEX_IMAGE))
+                       .placeholder(R.drawable.ic_pageimage_placeholder)
+                       .error(R.drawable.ic_pageimage_placeholder)
+                       .into(thumbnail);
+            }
 
             // If this page title's first letter is different from the previous title's
             // first letter, then display the heading.

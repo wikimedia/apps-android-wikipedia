@@ -247,7 +247,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     public void beginLayout(OnLeadImageLayoutListener listener) {
         String thumbUrl = parentFragment.getFragment().getPage().getPageProperties().getLeadImageUrl();
 
-        if (displayHeight < MIN_SCREEN_HEIGHT_DP) {
+        if (!WikipediaApp.getInstance().showImages() || displayHeight < MIN_SCREEN_HEIGHT_DP) {
             // disable the lead image completely
             leadImagesEnabled = false;
         } else {
@@ -278,6 +278,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         if (!parentFragment.isAdded()) {
             return;
         }
+        // remove padding from the title container while measuring
+        pageTitleContainer.setPadding(0, 0, 0, 0);
         // set the font size of the title
         pageTitleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
         // if we're still not being shown (if the fragment is still being created),
