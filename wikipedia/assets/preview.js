@@ -84,6 +84,8 @@ document.onclick = function() {
                 } else {
                     handleReference( targetId, ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
                 }
+            } else if (sourceNode.classList.contains( 'image' )) {
+                bridge.sendMessage( 'imageClicked', { "href": href } );
             } else {
                 bridge.sendMessage( 'linkClicked', { "href": href } );
             }

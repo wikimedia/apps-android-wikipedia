@@ -17,6 +17,7 @@ import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.page.bottomcontent.BottomContentHandler;
+import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesTask;
@@ -56,6 +57,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import javax.net.ssl.SSLException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -497,6 +500,24 @@ public class PageViewFragmentInternal {
                 bottomContentHandler.beginLayout();
             }
         });
+        bridge.addListener("imageClicked", new CommunicationBridge.JSEventListener() {
+            @Override
+            public void onMessage(String messageType, JSONObject messagePayload) {
+                try {
+                    String href = URLDecoder.decode(messagePayload.getString("href"), "UTF-8");
+                    if (href.startsWith("/wiki/")) {
+                        PageTitle imageTitle = title.getSite().titleForInternalLink(href);
+                        showImageGallery(imageTitle);
+                    } else {
+                        linkHandler.onUrlClick(href);
+                    }
+                } catch (JSONException e) {
+                    //nope
+                } catch (UnsupportedEncodingException e) {
+                    //nope
+                }
+            }
+        });
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -721,6 +742,18 @@ public class PageViewFragmentInternal {
     }
 
     /**
+     * Launch the image gallery activity, and start with the provided image.
+     * @param imageTitle Image with which to begin the gallery.
+     */
+    public void showImageGallery(PageTitle imageTitle) {
+        Intent galleryIntent = new Intent();
+        galleryIntent.setClass(getActivity(), GalleryActivity.class);
+        galleryIntent.putExtra(GalleryActivity.EXTRA_IMAGETITLE, imageTitle);
+        galleryIntent.putExtra(GalleryActivity.EXTRA_PAGETITLE, title);
+        getActivity().startActivity(galleryIntent);
+    }
+
+    /**
      * Save the history entry for the specified page.
      */
     private class SaveHistoryTask extends SaneAsyncTask<Void> {
@@ -750,7 +783,7 @@ public class PageViewFragmentInternal {
         @Override
         public RequestBuilder buildRequest(Api api) {
             RequestBuilder builder =  super.buildRequest(api);
-            builder.param("prop", builder.getParams().get("prop") + "|thumb|"
+            builder.param("prop", builder.getParams().get("prop") + "|thumb|image|"
                     + Page.API_REQUEST_PROPS);
             builder.param("thumbsize", Integer.toString((int)(getResources().getDimension(R.dimen.leadImageWidth)
                     / getResources().getDisplayMetrics().density)));

@@ -6,6 +6,7 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -18,6 +19,13 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle, T>> {
     public PageQueryTask(int concurrencyLevel, Api api, Site site, List<PageTitle> titles) {
         super(concurrencyLevel, api);
         this.titles = titles;
+        this.site = site;
+    }
+
+    public PageQueryTask(int concurrencyLevel, Api api, Site site, PageTitle title) {
+        super(concurrencyLevel, api);
+        this.titles = new ArrayList<PageTitle>();
+        titles.add(title);
         this.site = site;
     }
 

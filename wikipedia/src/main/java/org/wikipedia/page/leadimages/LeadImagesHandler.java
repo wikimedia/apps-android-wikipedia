@@ -131,6 +131,21 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                     .getWindowManager().getDefaultDisplay().getHeight() / displayDensity);
         }
 
+        image1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String imageName = parentFragment.getFragment().getPage().getPageProperties()
+                                                 .getLeadImageName();
+                if (imageName == null) {
+                    return;
+                }
+                PageTitle imageTitle = new PageTitle("File:" + imageName,
+                                                     parentFragment.getFragment().getTitle()
+                                                                   .getSite());
+                parentFragment.getFragment().showImageGallery(imageTitle);
+            }
+        });
+
         // hide ourselves by default
         hide();
 

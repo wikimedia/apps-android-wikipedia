@@ -23,6 +23,7 @@ public class PageProperties implements Parcelable {
     private final String editProtectionStatus;
     private final boolean isMainPage;
     private final String leadImageUrl;
+    private final String leadImageName;
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
 
     /**
@@ -40,7 +41,7 @@ public class PageProperties implements Parcelable {
      */
     public PageProperties(String lastModifiedText, String displayTitleText,
                           String editProtectionStatus, boolean canEdit, boolean isMainPage,
-                          String leadImageUrl) {
+                          String leadImageUrl, String leadImageName) {
         lastModified = new Date();
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
@@ -53,6 +54,7 @@ public class PageProperties implements Parcelable {
         this.canEdit = canEdit;
         this.isMainPage = isMainPage;
         this.leadImageUrl = leadImageUrl;
+        this.leadImageName = leadImageName;
     }
 
     public Date getLastModified() {
@@ -79,6 +81,10 @@ public class PageProperties implements Parcelable {
         return leadImageUrl;
     }
 
+    public String getLeadImageName() {
+        return leadImageName;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -92,6 +98,7 @@ public class PageProperties implements Parcelable {
         parcel.writeInt(canEdit ? 1 : 0);
         parcel.writeInt(isMainPage ? 1 : 0);
         parcel.writeString(leadImageUrl);
+        parcel.writeString(leadImageName);
     }
 
     private PageProperties(Parcel in) {
@@ -102,6 +109,7 @@ public class PageProperties implements Parcelable {
         canEdit = in.readInt() == 1;
         isMainPage = in.readInt() == 1;
         leadImageUrl = in.readString();
+        leadImageName = in.readString();
     }
 
     public static final Parcelable.Creator<PageProperties> CREATOR
@@ -131,7 +139,8 @@ public class PageProperties implements Parcelable {
                 && canEdit == that.canEdit
                 && isMainPage == that.isMainPage
                 && TextUtils.equals(editProtectionStatus, that.editProtectionStatus)
-                && TextUtils.equals(leadImageUrl, that.leadImageUrl);
+                && TextUtils.equals(leadImageUrl, that.leadImageUrl)
+                && TextUtils.equals(leadImageName, that.leadImageName);
     }
 
     @Override
@@ -175,6 +184,11 @@ public class PageProperties implements Parcelable {
                 thumbObject.put("url", leadImageUrl);
                 json.put("thumb", thumbObject);
             }
+            if (leadImageName != null) {
+                JSONObject imageObject = new JSONObject();
+                imageObject.put("file", leadImageUrl);
+                json.put("image", imageObject);
+            }
         } catch (JSONException e) {
             // Goddamn it Java
             throw new RuntimeException(e);
@@ -202,13 +216,19 @@ public class PageProperties implements Parcelable {
         if (thumb != null) {
             leadImageUrl = thumb.optString("url");
         }
+        String leadImageName = null;
+        JSONObject image = json.optJSONObject("image");
+        if (image != null) {
+            leadImageName = image.optString("file");
+        }
         return new PageProperties(
                 json.optString("lastmodified"),
                 json.optString("displaytitle"),
                 editProtection,
                 json.optBoolean("editable"),
                 json.has("mainpage"),
-                leadImageUrl
+                leadImageUrl,
+                leadImageName
         );
     }
 }

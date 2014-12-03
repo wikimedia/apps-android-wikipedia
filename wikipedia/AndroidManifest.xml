@@ -97,6 +97,9 @@
         <activity android:name=".onboarding.OnboardingActivity"
                   android:theme="@style/NoTitle"
                 />
+        <activity android:name=".page.gallery.GalleryActivity"
+                  android:theme="@style/NoTitle"
+                />
 
         <provider
             android:authorities="${applicationId}.history"
