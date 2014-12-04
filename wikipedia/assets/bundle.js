@@ -752,7 +752,7 @@ transformer.register( "hideTables", function( content ) {
     var tables = content.querySelectorAll( "table" );
     for (var i = 0; i < tables.length; i++) {
         //is the table already hidden? if so, don't worry about it
-        if (tables[i].style.display === 'none' || tables[i].classList.contains( 'navbox' ) || tables[i].classList.contains( 'vertical-navbox' ) || tables[i].classList.contains( 'navbox-inner' )) {
+        if (tables[i].style.display === 'none' || tables[i].classList.contains( 'navbox' ) || tables[i].classList.contains( 'vertical-navbox' ) || tables[i].classList.contains( 'navbox-inner' ) || tables[i].classList.contains( 'metadata' )) {
             continue;
         }
 
