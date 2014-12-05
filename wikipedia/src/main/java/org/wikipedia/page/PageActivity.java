@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import org.acra.ACRA;
 import org.wikipedia.NavDrawerFragment;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
@@ -434,6 +435,9 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     public void displayNewPage(final PageTitle title, final HistoryEntry entry) {
+        ACRA.getErrorReporter().putCustomData("api", title.getSite().getApiDomain());
+        ACRA.getErrorReporter().putCustomData("title", title.toString());
+
         if (drawerLayout.isDrawerOpen(Gravity.START)) {
             drawerLayout.closeDrawer(Gravity.START);
         }
