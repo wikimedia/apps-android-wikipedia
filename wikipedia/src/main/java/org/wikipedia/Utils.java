@@ -78,6 +78,16 @@ public final class Utils {
     }
 
     /**
+     * Capitalise the first character of the description, for style
+     *
+     * @param orig original string
+     * @return same string as orig, except the first letter is capitalized
+     */
+    public static String capitalizeFirstChar(String orig) {
+        return orig.substring(0, 1).toUpperCase() + orig.substring(1);
+    }
+
+    /**
      * Creates an MD5 hash of the provided string & returns its base64 representation
      * @param s String to hash
      * @return Base64'd MD5 representation of the string passed in

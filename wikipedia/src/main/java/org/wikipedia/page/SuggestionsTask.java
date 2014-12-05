@@ -1,10 +1,11 @@
 package org.wikipedia.page;
 
+import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.search.FullSearchArticlesTask;
-import org.wikipedia.search.FullSearchResult;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,11 +27,11 @@ public class SuggestionsTask extends FullSearchArticlesTask {
     @Override
     public FullSearchResults processResult(final ApiResult result) throws Throwable {
         FullSearchResults searchResults = super.processResult(result);
-        List<FullSearchResult> filteredResults = new ArrayList<FullSearchResult>();
-        List<FullSearchResult> results = searchResults.getResults();
+        List<PageTitle> filteredResults = new ArrayList<PageTitle>();
+        List<PageTitle> results = searchResults.getResults();
         for (int i = 0, count = 0; i < MAX_REQUESTED && count < MAX_SIZE; i++) {
-            final FullSearchResult res = results.get(i);
-            if (!title.equalsIgnoreCase(res.getTitle().getPrefixedText())) {
+            final PageTitle res = results.get(i);
+            if (!title.equalsIgnoreCase(res.getPrefixedText())) {
                 filteredResults.add(res);
                 count++;
             }

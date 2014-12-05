@@ -1,5 +1,6 @@
 package org.wikipedia.search;
 
+import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
@@ -41,7 +42,7 @@ public class FullSearchFragment extends Fragment {
     private Handler searchHandler;
 
     private FullSearchArticlesTask.FullSearchResults lastResults;
-    private List<FullSearchResult> totalResults;
+    private List<PageTitle> totalResults;
 
     public FullSearchFragment() {
     }
@@ -64,10 +65,10 @@ public class FullSearchFragment extends Fragment {
         searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                FullSearchResult item = (FullSearchResult) searchResultsList.getAdapter().getItem(position);
+                PageTitle item = (PageTitle) searchResultsList.getAdapter().getItem(position);
                 // always add the description of the item to the cache so we don't even try to get it again
-                app.getWikidataCache().put(item.getTitle().toString(), item.getDescription());
-                searchFragment.navigateToTitle(item.getTitle());
+                app.getWikidataCache().put(item.toString(), item.getDescription());
+                searchFragment.navigateToTitle(item);
             }
         });
 
@@ -98,7 +99,7 @@ public class FullSearchFragment extends Fragment {
             }
         });
 
-        totalResults = new ArrayList<FullSearchResult>();
+        totalResults = new ArrayList<PageTitle>();
         adapter.setResults(totalResults);
 
         searchHandler = new Handler(new SearchHandlerCallback());
@@ -233,14 +234,14 @@ public class FullSearchFragment extends Fragment {
     }
 
     private final class SearchResultAdapter extends BaseAdapter {
-        private List<FullSearchResult> results;
+        private List<PageTitle> results;
         private final LayoutInflater inflater;
 
         private SearchResultAdapter(LayoutInflater inflater) {
             this.inflater = inflater;
         }
 
-        private void setResults(List<FullSearchResult> results) {
+        private void setResults(List<PageTitle> results) {
             this.results = results;
         }
 
@@ -262,11 +263,11 @@ public class FullSearchFragment extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = inflater.inflate(R.layout.item_full_search_result, parent, false);
+                convertView = inflater.inflate(R.layout.item_search_result, parent, false);
             }
             TextView pageTitleText = (TextView) convertView.findViewById(R.id.result_title);
-            FullSearchResult result = (FullSearchResult) getItem(position);
-            pageTitleText.setText(result.getTitle().getDisplayText());
+            PageTitle result = (PageTitle) getItem(position);
+            pageTitleText.setText(result.getDisplayText());
 
             TextView descriptionText = (TextView) convertView.findViewById(R.id.result_description);
             descriptionText.setText(result.getDescription());
@@ -285,8 +286,8 @@ public class FullSearchFragment extends Fragment {
                        .into(imageView);
             }
 
-            //...and lastly, if we've scrolled to the last item in the list, then
-            //continue searching!
+            // ...and lastly, if we've scrolled to the last item in the list, then
+            // continue searching!
             if (position == results.size() - 1 && lastResults.getContinueOffset() != null) {
                 doSearch(currentSearchTerm, lastResults.getContinueOffset());
             }

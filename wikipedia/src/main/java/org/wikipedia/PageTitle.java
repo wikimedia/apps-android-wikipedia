@@ -26,6 +26,7 @@ public class PageTitle implements Parcelable {
     private final String fragment;
     private String thumbUrl;
     private final Site site;
+    private String description = null;
 
     public PageTitle(final String namespace, final String text, final String fragment, final String thumbUrl, final Site site) {
         this.namespace = namespace;
@@ -33,6 +34,11 @@ public class PageTitle implements Parcelable {
         this.fragment = fragment;
         this.thumbUrl = thumbUrl;
         this.site = site;
+    }
+
+    public PageTitle(final String text, final Site site, final String thumbUrl, final String description) {
+        this(text, site, thumbUrl);
+        this.description = description;
     }
 
     public PageTitle(final String namespace, final String text, final Site site) {
@@ -98,6 +104,10 @@ public class PageTitle implements Parcelable {
         this.thumbUrl = thumbUrl;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public String getDisplayText() {
         return getPrefixedText().replace("_", " ");
     }
@@ -126,6 +136,7 @@ public class PageTitle implements Parcelable {
         try {
             JSONObject json = toIdentifierJSON();
             json.put("thumbUrl", getThumbUrl());
+            json.put("description", getDescription());
             return json;
         } catch (JSONException e) {
             // This will also never happen
@@ -139,6 +150,7 @@ public class PageTitle implements Parcelable {
         this.fragment = json.optString("fragment", null);
         this.text = json.optString("text", null);
         this.thumbUrl = json.optString("thumbUrl", null);
+        this.description = json.optString("description", null);
     }
 
     private String getUriForDomain(String domain) {
@@ -240,6 +252,7 @@ public class PageTitle implements Parcelable {
         fragment = in.readString();
         site = in.readParcelable(Site.class.getClassLoader());
         thumbUrl = in.readString();
+        description = in.readString();
     }
 
     @Override
@@ -249,6 +262,7 @@ public class PageTitle implements Parcelable {
         parcel.writeString(fragment);
         parcel.writeParcelable(site, flags);
         parcel.writeString(thumbUrl);
+        parcel.writeString(description);
     }
 
     @Override

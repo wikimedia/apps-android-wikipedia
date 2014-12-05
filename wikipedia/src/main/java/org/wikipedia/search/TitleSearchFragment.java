@@ -123,8 +123,10 @@ public class TitleSearchFragment extends Fragment {
         searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle title = (PageTitle) searchResultsList.getAdapter().getItem(position);
-                searchFragment.navigateToTitle(title);
+                PageTitle item = (PageTitle) searchResultsList.getAdapter().getItem(position);
+                // always add the description of the item to the cache so we don't even try to get it again
+                app.getWikidataCache().put(item.toString(), item.getDescription());
+                searchFragment.navigateToTitle(item);
             }
         });
 
@@ -227,7 +229,7 @@ public class TitleSearchFragment extends Fragment {
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.item_search_result, parent, false);
             }
-            TextView pageTitleText = (TextView) convertView.findViewById(R.id.result_text);
+            TextView pageTitleText = (TextView) convertView.findViewById(R.id.result_title);
             PageTitle title = (PageTitle) getItem(position);
 
             // highlight search term within the text
@@ -239,6 +241,10 @@ public class TitleSearchFragment extends Fragment {
                         + highlightedString.substring(currentSearchTerm.length(), highlightedString.length());
             }
             pageTitleText.setText(Html.fromHtml(highlightedString));
+
+            TextView descriptionText = (TextView) convertView.findViewById(R.id.result_description);
+            descriptionText.setText(title.getDescription());
+
             ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
 
             String thumbnail = pageImagesCache.get(title.getPrefixedText());

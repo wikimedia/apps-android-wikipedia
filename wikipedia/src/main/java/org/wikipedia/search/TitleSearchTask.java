@@ -1,8 +1,10 @@
 package org.wikipedia.search;
 
+import org.json.JSONArray;
 import org.wikipedia.ApiTask;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
+import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
@@ -35,7 +37,8 @@ public class TitleSearchTask extends ApiTask<List<PageTitle>> {
                 .param("gpssearch", prefix)
                 .param("gpsnamespace", "0")
                 .param("gpslimit", NUM_RESULTS_PER_QUERY)
-                .param("prop", "pageimages")
+                .param("prop", "pageterms|pageimages")
+                .param("wbptterms", "description") // only interested in Wikidata description
                 .param("piprop", "thumbnail")
                 .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
                 .param("pilimit", NUM_RESULTS_PER_QUERY)
@@ -93,7 +96,14 @@ public class TitleSearchTask extends ApiTask<List<PageTitle>> {
             if (item.has("thumbnail")) {
                 thumbUrl = item.getJSONObject("thumbnail").optString("source", null);
             }
-            pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl));
+            String description = null;
+            if (item.has("terms")) {
+                JSONArray arr = item.getJSONObject("terms").optJSONArray("description");
+                if (arr != null && arr.length() > 0) {
+                    description = Utils.capitalizeFirstChar(arr.getString(0));
+                }
+            }
+            pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl, description));
         }
         return pageTitles;
     }

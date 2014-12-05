@@ -3,11 +3,11 @@ package org.wikipedia.test;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.search.FullSearchResult;
 import org.wikipedia.wikidata.WikidataCache;
 import org.wikipedia.wikidata.WikidataDescriptionFeeder;
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
@@ -41,29 +41,29 @@ public final class WikidataDescriptionFeederTests extends ActivityUnitTestCase<T
     }
 
     public void testZeroID() throws Throwable {
-        getWikidataDescriptions(new FullSearchResult[] {
+        getWikidataDescriptions(new PageTitle[] {
         });
     }
 
     public void testOneIDTwice() throws Throwable {
-        getWikidataDescriptions(new FullSearchResult[] {
-                new FullSearchResult(new PageTitle("Test", SITE), null, null)
+        getWikidataDescriptions(new PageTitle[] {
+                new PageTitle("Test", SITE, null, null)
         });
-        getWikidataDescriptions(new FullSearchResult[] {
-                new FullSearchResult(new PageTitle("Test", SITE), null, null)
+        getWikidataDescriptions(new PageTitle[] {
+                new PageTitle("Test", SITE, null, null)
         });
     }
 
     public void testThreeIDs() throws Throwable {
-        getWikidataDescriptions(new FullSearchResult[] {
-                new FullSearchResult(new PageTitle("SAT", SITE), null, null),
-                new FullSearchResult(new PageTitle("Miller–Rabin primality test", SITE), null, null),
-                new FullSearchResult(new PageTitle("Radiocarbon dating", SITE), null, null)
+        getWikidataDescriptions(new PageTitle[] {
+                new PageTitle("SAT", SITE, null, null),
+                new PageTitle("Miller–Rabin primality test", SITE, null, null),
+                new PageTitle("Radiocarbon dating", SITE, null, null)
         });
     }
 
-    public void getWikidataDescriptions(final FullSearchResult[] input) throws Throwable {
-        final ArrayList<FullSearchResult> inputList = new ArrayList<FullSearchResult>(Arrays.asList(input));
+    public void getWikidataDescriptions(final PageTitle[] input) throws Throwable {
+        final ArrayList<PageTitle> inputList = new ArrayList<PageTitle>(Arrays.asList(input));
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override
@@ -76,10 +76,10 @@ public final class WikidataDescriptionFeederTests extends ActivityUnitTestCase<T
 
                 WikidataDescriptionFeeder.retrieveWikidataDescriptions(inputList, app, new WikidataCache.OnWikidataReceiveListener() {
                     @Override
-                    public void onWikidataReceived(Map<PageTitle, String> descriptions) {
+                    public void onWikidataReceived(Map<org.wikipedia.PageTitle, String> descriptions) {
                         assertEquals(input.length, descriptions.size());
-                        for (FullSearchResult res : input) {
-                            assertFalse(descriptions.get(res.getTitle()).isEmpty());
+                        for (PageTitle title : input) {
+                            assertFalse(descriptions.get(title).isEmpty());
                         }
                         completionLatch.countDown();
                     }

@@ -2,7 +2,7 @@ package org.wikipedia.wikidata;
 
 import org.wikipedia.PageTitle;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.search.FullSearchResult;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,15 +15,15 @@ public final class WikidataDescriptionFeeder {
     }
 
     /**
-     * Adds new description entries to our shared WikidataCache.
+     * Adds new description entries for the titles in titleList to our shared WikidataCache.
      */
-    public static void retrieveWikidataDescriptions(List<FullSearchResult> results, final WikipediaApp app,
+    public static void retrieveWikidataDescriptions(List<PageTitle> titleList, final WikipediaApp app,
                                                     final WikidataCache.OnWikidataReceiveListener listener) {
-        List<PageTitle> pageTitles = new ArrayList<PageTitle>();
+        List<org.wikipedia.PageTitle> pageTitles = new ArrayList<org.wikipedia.PageTitle>();
         final WikidataCache wikidataCache = app.getWikidataCache();
-        for (FullSearchResult r : results) {
-            if (r.getDescription() == null) {
-                pageTitles.add(r.getTitle());
+        for (PageTitle pageTitle : titleList) {
+            if (pageTitle.getDescription() == null) {
+                pageTitles.add(pageTitle);
             }
         }
         wikidataCache.get(pageTitles, listener);

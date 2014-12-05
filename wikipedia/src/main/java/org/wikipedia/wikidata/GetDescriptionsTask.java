@@ -7,6 +7,7 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.PageQueryTask;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
+import org.wikipedia.Utils;
 
 import java.util.List;
 
@@ -31,9 +32,7 @@ public class GetDescriptionsTask extends PageQueryTask<String> {
         if (terms != null) {
             final JSONArray array = terms.optJSONArray("description");
             if (array != null && array.length() > 0) {
-                String value = array.getString(0);
-                //Capitalise the first letter of the description, for style
-                return value.substring(0, 1).toUpperCase() + value.substring(1);
+                return Utils.capitalizeFirstChar(array.getString(0));
             }
         }
         return null;

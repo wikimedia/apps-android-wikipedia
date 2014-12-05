@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.wikipedia.ApiTask;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
+import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
@@ -122,9 +123,8 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
             }
         });
         // and create our list of results from the now-sorted array
-        ArrayList<FullSearchResult> resultList = new ArrayList<FullSearchResult>();
+        ArrayList<PageTitle> pageTitles = new ArrayList<PageTitle>();
         for (JSONObject item : pageArray) {
-            PageTitle pageTitle = new PageTitle(item.getString("title"), site);
             String thumbUrl = null;
             if (item.has("thumbnail")) {
                 thumbUrl = item.getJSONObject("thumbnail").optString("source", null);
@@ -133,24 +133,24 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
             if (item.has("terms")) {
                 JSONArray arr = item.getJSONObject("terms").optJSONArray("description");
                 if (arr != null && arr.length() > 0) {
-                    description = arr.getString(0);
+                    description = Utils.capitalizeFirstChar(arr.getString(0));
                 }
             }
-            resultList.add(new FullSearchResult(pageTitle, thumbUrl, description));
+            pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl, description));
         }
-        return new FullSearchResults(resultList, nextContinueOffset, suggestion);
+        return new FullSearchResults(pageTitles, nextContinueOffset, suggestion);
     }
 
     private FullSearchResults emptyResults() {
-        return new FullSearchResults(Collections.<FullSearchResult>emptyList(), null, "");
+        return new FullSearchResults(Collections.<PageTitle>emptyList(), null, "");
     }
 
     public class FullSearchResults {
         private ContinueOffset continueOffset;
-        private List<FullSearchResult> resultsList;
+        private List<PageTitle> resultsList;
         private String suggestion;
 
-        public FullSearchResults(List<FullSearchResult> resultList,
+        public FullSearchResults(List<PageTitle> resultList,
                                  ContinueOffset continueOffset,
                                  String suggestion) {
             this.resultsList = resultList;
@@ -166,7 +166,7 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
             return continueOffset;
         }
 
-        public List<FullSearchResult> getResults() {
+        public List<PageTitle> getResults() {
             return resultsList;
         }
     }

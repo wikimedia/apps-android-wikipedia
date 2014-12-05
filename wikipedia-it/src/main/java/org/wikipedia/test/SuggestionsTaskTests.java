@@ -1,9 +1,10 @@
 package org.wikipedia.test;
 
+import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.SuggestionsTask;
-import org.wikipedia.search.FullSearchResult;
+
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import java.util.concurrent.CountDownLatch;
@@ -39,8 +40,8 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
                         assertNotNull(results);
                         assertEquals(results.getResults().size(), BATCH_SIZE);
 
-                        for (FullSearchResult result : results.getResults()) {
-                            assertFalse(result.getTitle().getPrefixedText().equals("Test"));
+                        for (PageTitle result : results.getResults()) {
+                            assertFalse(result.getPrefixedText().equals("Test"));
                         }
                         completionLatch.countDown();
                     }

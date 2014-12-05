@@ -1,9 +1,10 @@
 package org.wikipedia.test;
 
+import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.search.FullSearchArticlesTask;
-import org.wikipedia.search.FullSearchResult;
+
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import java.util.concurrent.CountDownLatch;
@@ -38,8 +39,8 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
                         assertEquals(results.getSuggestion(), "");
                         assertNotNull(results.getContinueOffset());
 
-                        for (FullSearchResult result : results.getResults()) {
-                            if (result.getTitle().getPrefixedText().equals("Test")) {
+                        for (PageTitle result : results.getResults()) {
+                            if (result.getPrefixedText().equals("Test")) {
                                 assertEquals(result.getDescription(), "Wikipedia disambiguation page");
                             }
                         }
