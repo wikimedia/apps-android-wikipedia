@@ -38,8 +38,8 @@ public class ToCHandler {
     private final CommunicationBridge bridge;
     private final DisableableDrawerLayout slidingPane;
     private final TextView headerView;
-    private ToCInteractionFunnel funnel;
-    private ActionBarActivity parentActivity;
+    private final ToCInteractionFunnel funnel;
+    private final ActionBarActivity parentActivity;
 
     /**
      * Flag to track if the drawer is closing because a link was clicked.
@@ -225,9 +225,11 @@ public class ToCHandler {
                     sections.add(s);
                 }
             }
-            // add a fake section at the end to represent the "read more" contents at the bottom:
-            sections.add(new Section(READ_MORE_SECTION_ID, 0,
-                    parentActivity.getString(R.string.read_more_section), "", ""));
+            if (!page.getPageProperties().isMainPage()) {
+                // add a fake section at the end to represent the "read more" contents at the bottom:
+                sections.add(new Section(READ_MORE_SECTION_ID, 0,
+                        parentActivity.getString(R.string.read_more_section), "", ""));
+            }
         }
 
         @Override
