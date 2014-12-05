@@ -141,6 +141,6 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
     }
 
     public static String getAuthorityForTable(String table) {
-        return BuildConfig.PACKAGE_NAME + "." + table;
+        return BuildConfig.APPLICATION_ID + "." + table;
     }
 }

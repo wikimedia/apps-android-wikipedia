@@ -32,7 +32,7 @@ public class SettingsActivity extends PreferenceActivityWithBack implements Shar
             }
         });
 
-        if (!BuildConfig.PACKAGE_NAME.equals("org.wikipedia")) {
+        if (!BuildConfig.APPLICATION_ID.equals("org.wikipedia")) {
             overridePackageName();
         }
     }
