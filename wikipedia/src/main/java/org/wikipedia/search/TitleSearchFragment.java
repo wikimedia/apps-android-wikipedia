@@ -263,7 +263,7 @@ public class TitleSearchFragment extends Fragment {
         public boolean handleMessage(Message msg) {
             final String mySearchTerm = (String) msg.obj;
             final long startMillis = System.currentTimeMillis();
-            TitleSearchTask searchTask = new TitleSearchTask(app, app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), mySearchTerm) {
+            TitleSearchTask searchTask = new TitleSearchTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), mySearchTerm) {
                 @Override
                 public void onBeforeExecute() {
                     ((PageActivity)getActivity()).updateProgressBar(true, true, 0);

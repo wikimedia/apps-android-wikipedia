@@ -22,7 +22,6 @@ public class PageProperties implements Parcelable {
     private final String displayTitleText;
     private final String editProtectionStatus;
     private final boolean isMainPage;
-    private final String wikiDataId;
     private final String leadImageUrl;
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
 
@@ -41,7 +40,7 @@ public class PageProperties implements Parcelable {
      */
     public PageProperties(String lastModifiedText, String displayTitleText,
                           String editProtectionStatus, boolean canEdit, boolean isMainPage,
-                          String wikiDataId, String leadImageUrl) {
+                          String leadImageUrl) {
         lastModified = new Date();
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
@@ -53,7 +52,6 @@ public class PageProperties implements Parcelable {
         this.editProtectionStatus = editProtectionStatus;
         this.canEdit = canEdit;
         this.isMainPage = isMainPage;
-        this.wikiDataId = wikiDataId;
         this.leadImageUrl = leadImageUrl;
     }
 
@@ -77,10 +75,6 @@ public class PageProperties implements Parcelable {
         return isMainPage;
     }
 
-    public String getWikiDataId() {
-        return wikiDataId;
-    }
-
     public String getLeadImageUrl() {
         return leadImageUrl;
     }
@@ -97,7 +91,6 @@ public class PageProperties implements Parcelable {
         parcel.writeString(editProtectionStatus);
         parcel.writeInt(canEdit ? 1 : 0);
         parcel.writeInt(isMainPage ? 1 : 0);
-        parcel.writeString(wikiDataId);
         parcel.writeString(leadImageUrl);
     }
 
@@ -108,7 +101,6 @@ public class PageProperties implements Parcelable {
         editProtectionStatus = in.readString();
         canEdit = in.readInt() == 1;
         isMainPage = in.readInt() == 1;
-        wikiDataId = in.readString();
         leadImageUrl = in.readString();
     }
 
@@ -139,7 +131,6 @@ public class PageProperties implements Parcelable {
                 && canEdit == that.canEdit
                 && isMainPage == that.isMainPage
                 && TextUtils.equals(editProtectionStatus, that.editProtectionStatus)
-                && TextUtils.equals(wikiDataId, that.wikiDataId)
                 && TextUtils.equals(leadImageUrl, that.leadImageUrl);
     }
 
@@ -152,9 +143,6 @@ public class PageProperties implements Parcelable {
         }
         if (leadImageUrl != null) {
             result = 127 * result + leadImageUrl.hashCode();
-        }
-        if (wikiDataId != null) {
-            result = 255 * result + wikiDataId.hashCode();
         }
         return result;
     }
@@ -181,11 +169,6 @@ public class PageProperties implements Parcelable {
             json.put("editable", canEdit);
             if (isMainPage) {
                 json.put("mainpage", "");
-            }
-            if (wikiDataId != null) {
-                JSONObject pagePropsObject = new JSONObject();
-                pagePropsObject.put("wikibase_item", wikiDataId);
-                json.put("pageprops", pagePropsObject);
             }
             if (leadImageUrl != null) {
                 JSONObject thumbObject = new JSONObject();
@@ -214,12 +197,7 @@ public class PageProperties implements Parcelable {
                 ) {
             editProtection = json.optJSONObject("protection").optJSONArray("edit").optString(0);
         }
-        String wikiDataId = null;
         String leadImageUrl = null;
-        JSONObject pageProps = json.optJSONObject("pageprops");
-        if (pageProps != null) {
-            wikiDataId = pageProps.optString("wikibase_item");
-        }
         JSONObject thumb = json.optJSONObject("thumb");
         if (thumb != null) {
             leadImageUrl = thumb.optString("url");
@@ -230,7 +208,6 @@ public class PageProperties implements Parcelable {
                 editProtection,
                 json.optBoolean("editable"),
                 json.has("mainpage"),
-                wikiDataId,
                 leadImageUrl
         );
     }

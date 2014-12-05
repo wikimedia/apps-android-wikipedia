@@ -15,11 +15,12 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Tests retrieval of Wikidata descriptions. Talks to wikidata.org.
+ * Tests retrieval of Wikidata descriptions. Talks to enwiki since there a probably no Wikidata
+ * items related to pages on testwiki.
  */
 public final class WikidataDescriptionFeederTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 200000;
-    private static final Site SITE = new Site("test.wikipedia.org");
+    private static final Site SITE = new Site("en.wikipedia.org");
     private String originalLanguage;
 
     public WikidataDescriptionFeederTests() {
@@ -46,18 +47,18 @@ public final class WikidataDescriptionFeederTests extends ActivityUnitTestCase<T
 
     public void testOneIDTwice() throws Throwable {
         getWikidataDescriptions(new FullSearchResult[] {
-                new FullSearchResult(new PageTitle("p1", SITE), null, "Q42")
+                new FullSearchResult(new PageTitle("Test", SITE), null, null)
         });
         getWikidataDescriptions(new FullSearchResult[] {
-                new FullSearchResult(new PageTitle("p1", SITE), null, "Q42")
+                new FullSearchResult(new PageTitle("Test", SITE), null, null)
         });
     }
 
     public void testThreeIDs() throws Throwable {
         getWikidataDescriptions(new FullSearchResult[] {
-                new FullSearchResult(new PageTitle("p1", SITE), null, "Q1"),
-                new FullSearchResult(new PageTitle("p2", SITE), null, "Q2"),
-                new FullSearchResult(new PageTitle("p3", SITE), null, "Q3")
+                new FullSearchResult(new PageTitle("SAT", SITE), null, null),
+                new FullSearchResult(new PageTitle("Miller–Rabin primality test", SITE), null, null),
+                new FullSearchResult(new PageTitle("Radiocarbon dating", SITE), null, null)
         });
     }
 
@@ -75,9 +76,10 @@ public final class WikidataDescriptionFeederTests extends ActivityUnitTestCase<T
 
                 WikidataDescriptionFeeder.retrieveWikidataDescriptions(inputList, app, new WikidataCache.OnWikidataReceiveListener() {
                     @Override
-                    public void onWikidataReceived(Map<String, String> descriptions) {
+                    public void onWikidataReceived(Map<PageTitle, String> descriptions) {
+                        assertEquals(input.length, descriptions.size());
                         for (FullSearchResult res : input) {
-                            assertFalse(descriptions.get(res.getWikiBaseId()).isEmpty());
+                            assertFalse(descriptions.get(res.getTitle()).isEmpty());
                         }
                         completionLatch.countDown();
                     }

@@ -7,7 +7,6 @@ import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.wikidata.WikidataCache;
-import org.wikipedia.wikidata.WikidataIdsTask;
 import com.squareup.picasso.Picasso;
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -17,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +30,6 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     private final DisambigResult[] items;
     private final WikipediaApp app;
     private final Site site;
-    private final Map<PageTitle, String> titleWikidataIdMap = new HashMap<PageTitle, String>();
     private final WikidataCache wikidataCache;
 
     /**
@@ -48,7 +45,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         site = app.getPrimarySite();
         requestPageImages();
         wikidataCache = app.getWikidataCache();
-        fetchWikiDataIds();
+        fetchDescriptions();
     }
 
     private void requestPageImages() {
@@ -89,9 +86,9 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     }
 
     /**
-     * Start getting Wikidata ID, so that we can request Wikidata descriptions.
+     * Start getting Wikidata descriptions (directly from the current Wikipedia site).
      */
-    private void fetchWikiDataIds() {
+    private void fetchDescriptions() {
         List<PageTitle> titleList = new ArrayList<PageTitle>();
         for (DisambigResult r : items) {
             titleList.add(r.getTitle());
@@ -100,52 +97,17 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
             return;
         }
 
-        WikidataIdsTask wikidataIdsTask = new WikidataIdsTask(
-                app.getAPIForSite(site),
-                site,
-                titleList) {
+        wikidataCache.get(titleList, new WikidataCache.OnWikidataReceiveListener() {
             @Override
-            public void onFinish(Map<PageTitle, String> result) {
-                List<String> wikidataIds = new ArrayList<String>(result.size());
-                for (Map.Entry<PageTitle, String> entry : result.entrySet()) {
-                    if (entry.getValue() == null) {
-                        continue;
-                    }
-                    titleWikidataIdMap.put(entry.getKey(), entry.getValue());
-                    wikidataIds.add(entry.getValue());
-                }
-                fetchWikiDataDescription(wikidataIds);
+            public void onWikidataReceived(Map<PageTitle, String> result) {
+                notifyDataSetChanged();
             }
 
             @Override
-            public void onCatch(Throwable caught) {
-                // Don't actually do anything.
-                // Thumbnails are expendable
+            public void onWikidataFailed(Throwable caught) {
+                // descriptions are expendable
             }
-        };
-        wikidataIdsTask.execute();
-    }
-
-    /**
-     * Start the task of fetching the WikiData description for our page, if it has one.
-     * This should be done after the lead image view is laid out, but can be done independently
-     * of loading the WebView contents.
-     */
-    private void fetchWikiDataDescription(final List<String> wikiDataIds) {
-        if (!wikiDataIds.isEmpty()) {
-            wikidataCache.get(wikiDataIds,
-                      new WikidataCache.OnWikidataReceiveListener() {
-                          @Override
-                          public void onWikidataReceived(Map<String, String> result) {
-                              notifyDataSetChanged();
-                          }
-
-                          @Override
-                          public void onWikidataFailed(Throwable caught) {
-                              // don't care
-                          }
-                      });
-        }
+        });
     }
 
     class ViewHolder {
@@ -172,12 +134,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         final DisambigResult item = items[position];
         holder.title.setText(item.getTitle().getPrefixedText());
 
-        String description = null;
-        String wikidataId = titleWikidataIdMap.get(item.getTitle());
-        if (wikidataId != null) {
-            description = wikidataCache.get(wikidataId);
-        }
-        holder.description.setText(description);
+        holder.description.setText(wikidataCache.get(item.getTitle()));
 
         String thumbnail = pageImagesCache.get(item.getTitle().getPrefixedText());
         if (thumbnail == null) {

@@ -5,11 +5,11 @@ import org.wikipedia.PageTitle;
 public class FullSearchResult {
     private final PageTitle title;
     private final String thumbUrl;
-    private final String wikiBaseId;
+    private final String description;
 
-    public FullSearchResult(PageTitle title, String thumbUrl, String wikiBaseId) {
+    public FullSearchResult(PageTitle title, String thumbUrl, String description) {
         this.thumbUrl = thumbUrl;
-        this.wikiBaseId = wikiBaseId;
+        this.description = description;
         this.title = title;
     }
 
@@ -21,7 +21,7 @@ public class FullSearchResult {
         return thumbUrl;
     }
 
-    public String getWikiBaseId() {
-        return wikiBaseId;
+    public String getDescription() {
+        return description;
     }
 }

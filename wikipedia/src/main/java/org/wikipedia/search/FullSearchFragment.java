@@ -1,18 +1,14 @@
 package org.wikipedia.search;
 
-import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.wikidata.WikidataCache;
-import org.wikipedia.wikidata.WikidataDescriptionFeeder;
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.text.Html;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class FullSearchFragment extends Fragment {
     private static final int BATCH_SIZE = 12;
@@ -69,8 +64,10 @@ public class FullSearchFragment extends Fragment {
         searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle title = ((FullSearchResult) searchResultsList.getAdapter().getItem(position)).getTitle();
-                searchFragment.navigateToTitle(title);
+                FullSearchResult item = (FullSearchResult) searchResultsList.getAdapter().getItem(position);
+                // always add the description of the item to the cache so we don't even try to get it again
+                app.getWikidataCache().put(item.getTitle().toString(), item.getDescription());
+                searchFragment.navigateToTitle(item.getTitle());
             }
         });
 
@@ -189,20 +186,6 @@ public class FullSearchFragment extends Fragment {
                     searchResultsList.setVisibility(View.GONE);
                 } else {
                     searchResultsList.setVisibility(View.VISIBLE);
-                    WikidataDescriptionFeeder.retrieveWikidataDescriptions(lastResults.getResults(), app,
-                                                                           new WikidataCache.OnWikidataReceiveListener() {
-                                                                               @Override
-                                                                               public void onWikidataReceived(Map<String, String> result) {
-                                                                                   ((BaseAdapter) searchResultsList.getAdapter())
-                                                                                           .notifyDataSetChanged();
-                                                                               }
-
-                                                                               @Override
-                                                                               public void onWikidataFailed(Throwable caught) {
-                                                                                   // Don't actually do anything.
-                                                                                   // Descriptions are expendable
-                                                                               }
-                                                                           });
                 }
 
                 if (continueOffset == null) {
@@ -285,11 +268,8 @@ public class FullSearchFragment extends Fragment {
             FullSearchResult result = (FullSearchResult) getItem(position);
             pageTitleText.setText(result.getTitle().getDisplayText());
 
-            String wikidataId = result.getWikiBaseId();
-            if (!TextUtils.isEmpty(wikidataId)) {
-                TextView descriptionText = (TextView) convertView.findViewById(R.id.result_description);
-                descriptionText.setText(app.getWikidataCache().get(wikidataId));
-            }
+            TextView descriptionText = (TextView) convertView.findViewById(R.id.result_description);
+            descriptionText.setText(result.getDescription());
 
             ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
             String thumbnail = result.getThumbUrl();

@@ -733,7 +733,7 @@ public class PageViewFragmentInternal {
         @Override
         public RequestBuilder buildRequest(Api api) {
             RequestBuilder builder =  super.buildRequest(api);
-            builder.param("prop", builder.getParams().get("prop") + "|pageprops|thumb|"
+            builder.param("prop", builder.getParams().get("prop") + "|thumb|"
                     + Page.API_REQUEST_PROPS);
             builder.param("thumbsize", Integer.toString((int)(getResources().getDimension(R.dimen.leadImageWidth)
                     / getResources().getDisplayMetrics().density)));

@@ -10,7 +10,6 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
-import android.content.Context;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -23,7 +22,7 @@ public class TitleSearchTask extends ApiTask<List<PageTitle>> {
 
     private static final String NUM_RESULTS_PER_QUERY = "12";
 
-    public TitleSearchTask(Context context, Api api, Site site, String prefix) {
+    public TitleSearchTask(Api api, Site site, String prefix) {
         super(HIGH_CONCURRENCY, api);
         this.prefix = prefix;
         this.site = site;

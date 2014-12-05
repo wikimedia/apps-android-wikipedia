@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.graphics.PointF;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.squareup.picasso.Target;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
@@ -444,19 +446,22 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * of loading the WebView contents.
      */
     private void fetchWikiDataDescription() {
-        final String wikiDataId = parentFragment.getFragment().getPage().getPageProperties().getWikiDataId();
-        final String language = parentFragment.getFragment().getTitle().getSite().getLanguage();
+        final PageTitle pageTitle = parentFragment.getFragment().getPage().getTitle();
 
-        if (wikiDataId != null) {
-            WikipediaApp.getInstance().getWikidataCache().get(wikiDataId, language,
+        if (pageTitle != null) {
+            final String language = pageTitle.getSite().getLanguage();
+            WikipediaApp.getInstance().getWikidataCache().get(pageTitle, language,
                 new WikidataCache.OnWikidataReceiveListener() {
                     @Override
-                    public void onWikidataReceived(Map<String, String> result) {
+                    public void onWikidataReceived(Map<PageTitle, String> result) {
                         if (!parentFragment.isAdded()) {
                             return;
                         }
-                        if (result.containsKey(wikiDataId)) {
-                            layoutWikiDataDescription(result.get(wikiDataId));
+                        if (result.containsKey(pageTitle)) {
+                            final String description = result.get(pageTitle);
+                            if (!TextUtils.isEmpty(description)) {
+                                layoutWikiDataDescription(description);
+                            }
                         }
                     }
                     @Override

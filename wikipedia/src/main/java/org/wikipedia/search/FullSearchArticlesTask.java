@@ -1,5 +1,6 @@
 package org.wikipedia.search;
 
+import org.json.JSONArray;
 import org.wikipedia.ApiTask;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
@@ -35,8 +36,8 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
     public RequestBuilder buildRequest(Api api) {
         final String maxResultsString = Integer.toString(maxResults);
         final RequestBuilder req = api.action("query")
-                .param("prop", "pageprops|pageimages")
-                .param("ppprop", "wikibase_item") // only interested in wikibase_item
+                .param("prop", "pageterms|pageimages")
+                .param("wbptterms", "description") // only interested in Wikidata description
                 .param("generator", "search")
                 .param("gsrsearch", searchTerm)
                 .param("gsrnamespace", "0")
@@ -128,11 +129,14 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
             if (item.has("thumbnail")) {
                 thumbUrl = item.getJSONObject("thumbnail").optString("source", null);
             }
-            String wikiBaseId = null;
-            if (item.has("pageprops")) {
-                wikiBaseId = item.getJSONObject("pageprops").optString("wikibase_item", null);
+            String description = null;
+            if (item.has("terms")) {
+                JSONArray arr = item.getJSONObject("terms").optJSONArray("description");
+                if (arr != null && arr.length() > 0) {
+                    description = arr.getString(0);
+                }
             }
-            resultList.add(new FullSearchResult(pageTitle, thumbUrl, wikiBaseId));
+            resultList.add(new FullSearchResult(pageTitle, thumbUrl, description));
         }
         return new FullSearchResults(resultList, nextContinueOffset, suggestion);
     }

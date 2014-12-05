@@ -1,8 +1,8 @@
 package org.wikipedia.wikidata;
 
+import org.wikipedia.PageTitle;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.search.FullSearchResult;
-import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,13 +19,13 @@ public final class WikidataDescriptionFeeder {
      */
     public static void retrieveWikidataDescriptions(List<FullSearchResult> results, final WikipediaApp app,
                                                     final WikidataCache.OnWikidataReceiveListener listener) {
-        List<String> wikiDataIds = new ArrayList<String>();
+        List<PageTitle> pageTitles = new ArrayList<PageTitle>();
         final WikidataCache wikidataCache = app.getWikidataCache();
         for (FullSearchResult r : results) {
-            if (!TextUtils.isEmpty(r.getWikiBaseId())) {
-                wikiDataIds.add(r.getWikiBaseId());
+            if (r.getDescription() == null) {
+                pageTitles.add(r.getTitle());
             }
         }
-        wikidataCache.get(wikiDataIds, listener);
+        wikidataCache.get(pageTitles, listener);
     }
 }
