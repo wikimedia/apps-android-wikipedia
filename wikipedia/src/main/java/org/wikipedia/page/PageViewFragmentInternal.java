@@ -488,6 +488,12 @@ public class PageViewFragmentInternal {
                 getActivity().updateProgressBar(false, true, 0);
 
                 // trigger layout of the bottom content
+                // Check to see if the page title has changed (e.g. due to following a redirect),
+                // because if it has then the handler needs the new title to make sure it doesn't
+                // accidentally display the current article as a "read more" suggestion
+                if (!bottomContentHandler.getTitle().equals(title)) {
+                    bottomContentHandler.setTitle(title);
+                }
                 bottomContentHandler.beginLayout();
             }
         });

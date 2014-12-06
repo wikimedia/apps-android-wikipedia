@@ -48,7 +48,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
     private final CommunicationBridge bridge;
     private final WebView webView;
     private final LinkHandler linkHandler;
-    private final PageTitle pageTitle;
+    private PageTitle pageTitle;
     private final PageActivity activity;
     private final WikipediaApp app;
     private float displayDensity;
@@ -274,6 +274,14 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
                 layoutContent();
             }
         }.execute();
+    }
+
+    public PageTitle getTitle() {
+        return pageTitle;
+    }
+
+    public void setTitle(PageTitle newTitle) {
+        pageTitle = newTitle;
     }
 
     private void setupReadMoreSection(LayoutInflater layoutInflater,
