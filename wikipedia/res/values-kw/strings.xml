@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">An chanj a fyllis!</string>
   <string name="dialog_message_edit_failed_retry">Assaya arta</string>
   <string name="dialog_message_edit_failed_cancel">Hedhi</string>
-  <string name="dialog_message_leaving_edit">Nyns yw agas chanjyow gwithys hwath. Owgh hwi sur bos hwans dhywgh diberth?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Nyns yw agas chanjyow gwithys hwath. Owgh hwi sur bos hwans dhywgh diberth?</string>
   <string name="dialog_message_leaving_edit_leave">Diberth</string>
   <string name="dialog_message_leaving_edit_stay">Triga</string>
   <string name="menu_show_toc">Rol an dalgh</string>

@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">C\'hwitet ar c\'hemm !</string>
   <string name="dialog_message_edit_failed_retry">Klask en-dro</string>
   <string name="dialog_message_edit_failed_cancel">Nullañ</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">\"N\'eo ket bet enrollet ho kemmoù c\'hoazh. Ha sur eo ho peus c\'hoant da guitaat ar bajenn-mañ ?\"</string>
+  <string name="dialog_message_leaving_edit_leave">Mont kuit</string>
+  <string name="dialog_message_leaving_edit_stay">Chom</string>
   <string name="menu_show_toc">Taolenn</string>
   <string name="search_no_results_found">N\'eus bet kavet disoc\'h ebet</string>
   <string name="edit_section_captcha_message">Evit reiñ sikour d\'ar gwareziñ a-enep ar posteloù strobus emgefre, bizskrivit ar gerioù a zeu war wel amañ dindan</string>

@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">Bearbeitung fehlgeschlagen!</string>
   <string name="dialog_message_edit_failed_retry">Erneut versuchen</string>
   <string name="dialog_message_edit_failed_cancel">Abbrechen</string>
-  <string name="dialog_message_leaving_edit">„Deine Änderungen wurden noch nicht gespeichert. Bist du sicher, dass du diese Seite verlassen möchtest?“</string>
+  <string name="dialog_message_leaving_edit">Deine Änderungen wurden noch nicht gespeichert. Bist du sicher, dass du diese Seite verlassen möchtest?</string>
   <string name="dialog_message_leaving_edit_leave">Verlassen</string>
   <string name="dialog_message_leaving_edit_stay">Bleiben</string>
   <string name="menu_show_toc">Inhaltsverzeichnis</string>

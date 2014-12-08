@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">¡Error de edición!</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
-  <string name="dialog_message_leaving_edit">\"Los cambios no se han guardado aún. ¿Estás seguro de que quieres salir de esta página?\"</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">\"Los cambios no se han guardado aún. ¿Estás seguro de que quieres salir de esta página?\"</string>
   <string name="dialog_message_leaving_edit_leave">Salir</string>
   <string name="dialog_message_leaving_edit_stay">Permanecer</string>
   <string name="menu_show_toc">Tabla de contenidos</string>

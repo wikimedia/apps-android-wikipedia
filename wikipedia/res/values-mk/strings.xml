@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">Уредувањето не успеа!</string>
   <string name="dialog_message_edit_failed_retry">Повтори</string>
   <string name="dialog_message_edit_failed_cancel">Откажи</string>
-  <string name="dialog_message_leaving_edit">„Вашите промени сè уште не се зачувани. Дали сигурно сакате да ја напуштите страницава?“</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">„Вашите промени сè уште не се зачувани. Дали сигурно сакате да ја напуштите страницава?“</string>
   <string name="dialog_message_leaving_edit_leave">Напушти</string>
   <string name="dialog_message_leaving_edit_stay">Остани</string>
   <string name="menu_show_toc">Содржина</string>

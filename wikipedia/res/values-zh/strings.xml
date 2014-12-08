@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">编辑失败！</string>
   <string name="dialog_message_edit_failed_retry">重试</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
-  <string name="dialog_message_leaving_edit">“您的更改尚未保存。您确信要离开这个页面么？”</string>
+  <string name="dialog_message_leaving_edit">您的更改尚未保存。您确信要离开这个页面么？</string>
   <string name="dialog_message_leaving_edit_leave">离开</string>
   <string name="dialog_message_leaving_edit_stay">留在这里</string>
   <string name="menu_show_toc">目录</string>

@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">Salvarea nu a reușit!</string>
   <string name="dialog_message_edit_failed_retry">Reîncercare</string>
   <string name="dialog_message_edit_failed_cancel">Revocare</string>
-  <string name="dialog_message_leaving_edit">\"Modificările dumnevoastră nu au fost încă salvate. Sigur doriți să părăsiți această pagină?\"</string>
+  <string name="dialog_message_leaving_edit">Modificările dumnevoastră nu au fost încă salvate. Sigur doriți să părăsiți această pagină?</string>
   <string name="dialog_message_leaving_edit_leave">Părăsește</string>
   <string name="dialog_message_leaving_edit_stay">Rămâi</string>
   <string name="menu_show_toc">Cuprins</string>

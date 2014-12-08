@@ -68,6 +68,8 @@
   <string name="dialog_message_edit_failed">Falha de edição!</string>
   <string name="dialog_message_edit_failed_retry">Repetir</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
+  <string name="dialog_message_leaving_edit_leave">Sair</string>
+  <string name="dialog_message_leaving_edit_stay">Ficar</string>
   <string name="menu_show_toc">Tabela de Conteúdos</string>
   <string name="search_no_results_found">Nenhum resultado encontrado</string>
   <string name="edit_section_captcha_message">Para ajudar a proteger contra spam automatizado, digite as palavras abaixo</string>

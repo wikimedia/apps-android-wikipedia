@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">Ошибка редактирования!</string>
   <string name="dialog_message_edit_failed_retry">Повторить</string>
   <string name="dialog_message_edit_failed_cancel">Отмена</string>
-  <string name="dialog_message_leaving_edit">«Внесённые изменения не были ещё сохранены. Вы уверены, что хотите покинуть эту страницу?»</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">«Внесённые изменения не были ещё сохранены. Вы уверены, что хотите покинуть эту страницу?»</string>
   <string name="dialog_message_leaving_edit_leave">Уйти</string>
   <string name="dialog_message_leaving_edit_stay">Остаться</string>
   <string name="menu_show_toc">Содержание</string>

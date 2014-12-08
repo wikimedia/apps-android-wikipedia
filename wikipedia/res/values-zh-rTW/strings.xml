@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">編輯失敗 ！</string>
   <string name="dialog_message_edit_failed_retry">重試</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
-  <string name="dialog_message_leaving_edit">「您的修改尚未儲存，您確定要離開此頁面嗎？」</string>
+  <string name="dialog_message_leaving_edit">您的修改尚未儲存，您確定要離開此頁面嗎？</string>
   <string name="dialog_message_leaving_edit_leave">離開</string>
   <string name="dialog_message_leaving_edit_stay">留在這裡</string>
   <string name="menu_show_toc">目錄</string>
@@ -196,7 +196,7 @@
   <string name="about_libraries_heading">使用庫</string>
   <string name="about_contributors_heading">貢獻者</string>
   <string name="about_translators_heading">翻譯人員</string>
-  <string name="about_translators_translatewiki">此應用程式由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的義工翻譯。</string>
+  <string name="about_translators_translatewiki">此應用程式是由 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; 的志工翻譯的。</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
   <string name="edit_unchanged">頁面未被修改。</string>

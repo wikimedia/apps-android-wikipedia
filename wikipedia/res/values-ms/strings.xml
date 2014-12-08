@@ -76,6 +76,7 @@
   <string name="dialog_message_edit_failed">Suntingan gagal disimpan!</string>
   <string name="dialog_message_edit_failed_retry">Cuba lagi</string>
   <string name="dialog_message_edit_failed_cancel">Batalkan</string>
+  <string name="dialog_message_leaving_edit">Suntingan anda belum disimpan. Betulkah anda mahu meninggalkan laman ini?</string>
   <string name="menu_show_toc">Jadual Isi Kandungan</string>
   <string name="search_no_results_found">Tiada hasil carian</string>
   <string name="edit_section_captcha_message">Sebagai perlindungan daripada spam automatik, sila taipkan kata-kata yang tertera di bawah</string>

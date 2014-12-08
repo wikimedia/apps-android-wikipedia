@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">Değişiklik başarısız!</string>
   <string name="dialog_message_edit_failed_retry">Tekrar dene</string>
   <string name="dialog_message_edit_failed_cancel">İptal</string>
+  <string name="dialog_message_leaving_edit">Yaptığınız değişiklikler henüz kaydedilmedi. Bu sayfadan ayrılmak istediğinizden emin misiniz?</string>
+  <string name="dialog_message_leaving_edit_leave">Ayrıl</string>
+  <string name="dialog_message_leaving_edit_stay">Kal</string>
   <string name="menu_show_toc">İçindekiler Tablosu</string>
   <string name="search_no_results_found">Hiçbir sonuç bulunamadı</string>
   <string name="edit_section_captcha_message">Otomatik spamlara karşı korunmaya yardımcı olmak için, aşağıda görünen kelimeleri yazınız.</string>
@@ -247,6 +250,7 @@
   <string name="toc_hint">Başlıkları görmek için sayfayı sola çekin veya sağ üstteki menü tuşunu kullanın.</string>
   <string name="toc_know_it">Anladım</string>
   <string name="error_browser_not_found">Web sayfası açılamadı (tarayıcı uygulaması bulunamadı).</string>
+  <string name="table_infobox">Pratik bilgiler</string>
   <string name="table_other">Daha fazla bilgi</string>
   <string name="table_close">Kapat</string>
   <string name="app_store_description">Android için resmi Vikipedi Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır. Sıfırdan tekrar yazılan uygulama, şimdi her zamankinden daha iyi.

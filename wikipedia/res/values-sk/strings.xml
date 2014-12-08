@@ -69,7 +69,7 @@
   <string name="dialog_message_edit_failed">Úprava zlyhala!</string>
   <string name="dialog_message_edit_failed_retry">Znova</string>
   <string name="dialog_message_edit_failed_cancel">Zrušiť</string>
-  <string name="dialog_message_leaving_edit">\"Vaše úpravy ešte neboli uložené. Prajete si opustiť stránku bez uloženia úprav?\"</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">\"Vaše úpravy ešte neboli uložené. Prajete si opustiť stránku bez uloženia úprav?\"</string>
   <string name="dialog_message_leaving_edit_leave">Opustiť</string>
   <string name="dialog_message_leaving_edit_stay">Zostať na stránke</string>
   <string name="menu_show_toc">Obsah</string>

@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">Échec de l’enregistrement !</string>
   <string name="dialog_message_edit_failed_retry">Réessayer</string>
   <string name="dialog_message_edit_failed_cancel">Annuler</string>
-  <string name="dialog_message_leaving_edit">« Vos modifications n’ont pas encore été enregistrées. Êtes-vous sûr de vouloir quitter cette page ? »</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">« Vos modifications n’ont pas encore été enregistrées. Êtes-vous sûr de vouloir quitter cette page ? »</string>
   <string name="dialog_message_leaving_edit_leave">Quitter</string>
   <string name="dialog_message_leaving_edit_stay">Rester</string>
   <string name="menu_show_toc">Sommaire</string>

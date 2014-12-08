@@ -68,6 +68,7 @@
   <string name="dialog_message_edit_failed">Edycja nie powiodła się!</string>
   <string name="dialog_message_edit_failed_retry">Ponów próbę</string>
   <string name="dialog_message_edit_failed_cancel">Anuluj</string>
+  <string name="dialog_message_leaving_edit">Twoje zmiany nie zostały jeszcze zapisane. Czy na pewno chcesz opuścić tę stronę?</string>
   <string name="dialog_message_leaving_edit_leave">Wyjdź</string>
   <string name="dialog_message_leaving_edit_stay">Pozostań</string>
   <string name="menu_show_toc">Spis treści</string>

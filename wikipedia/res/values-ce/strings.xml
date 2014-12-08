@@ -33,7 +33,7 @@
   <string name="preference_title_language" fuzzy="true">Мотт</string>
   <string name="preference_summary_language">Чулацаман мотт</string>
   <string name="preference_languages_filter_hint">Лаха</string>
-  <string name="langlinks_filter_hint">Лаха</string>
+  <string name="langlinks_filter_hint">Лахар</string>
   <string name="menu_other_languages" fuzzy="true">Кхин меттанаш</string>
   <string name="langlinks_error_retry">ЮхагӀорта</string>
   <string name="langlinks_no_match">Хьан дехарца меттанаш цакарий</string>
@@ -128,7 +128,7 @@
   <string name="color_theme_dark">Бодане</string>
   <string name="page_similar_titles">Тера агӀонаш</string>
   <string name="search_within_pages">Лаха агӀонашкахь...</string>
-  <string name="search_results_title">Лахарна хилам</string>
+  <string name="search_results_title">Карийнарш</string>
   <string name="search_error_retry">ЮхагӀорта</string>
   <string name="search_titles_button">Титулаш</string>
   <string name="search_full_button">Яззамашкахь</string>

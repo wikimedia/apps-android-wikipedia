@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">Redigeringen gick inte att spara!</string>
   <string name="dialog_message_edit_failed_retry">Försök igen</string>
   <string name="dialog_message_edit_failed_cancel">Avbryt</string>
-  <string name="dialog_message_leaving_edit">\"Dina ändringar har inte sparats ännu. Är du säker på att du vill lämna denna sida?\"</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">\"Dina ändringar har inte sparats ännu. Är du säker på att du vill lämna denna sida?\"</string>
   <string name="dialog_message_leaving_edit_leave">Lämna</string>
   <string name="dialog_message_leaving_edit_stay">Stanna</string>
   <string name="menu_show_toc">Innehållsförteckning</string>

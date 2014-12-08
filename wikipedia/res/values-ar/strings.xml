@@ -54,6 +54,7 @@
   <string name="dialog_message_edit_failed">التعديل فشل!</string>
   <string name="dialog_message_edit_failed_retry">أعد المحاولة</string>
   <string name="dialog_message_edit_failed_cancel">إلغاء</string>
+  <string name="dialog_message_leaving_edit">لم يتم حفظ التغييرات التي قمت بها حتى الان. هل أنت متأكد أنك تريد أن تترك هذه الصفحة؟</string>
   <string name="menu_show_toc">قائمة المحتويات</string>
   <string name="search_no_results_found">لا توجد نتائج</string>
   <string name="edit_section_captcha_message">للمساعدة على الحماية ضد البريد المزعج الآلي، الرجاء إدخال الكلمات التي تظهر أدناه</string>

@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">ویرایش نشد!</string>
   <string name="dialog_message_edit_failed_retry">تلاش مجدد</string>
   <string name="dialog_message_edit_failed_cancel">انصراف</string>
+  <string name="dialog_message_leaving_edit">تغییرات شما هنوز ذخیره نشده‌است. آیا هنوز قصد ترک این صفحه را دارید؟</string>
+  <string name="dialog_message_leaving_edit_leave">ترک کردن</string>
+  <string name="dialog_message_leaving_edit_stay">ماندن</string>
   <string name="menu_show_toc">فهرست مندرجات</string>
   <string name="search_no_results_found">نتیجه‌ای یافت نشد</string>
   <string name="edit_section_captcha_message">برای محافظت در برابر اسپم لطفا کلمات زیر را وارد کنید</string>
@@ -240,12 +243,16 @@
   <string name="search_error_retry">تلاش مجدد</string>
   <string name="search_redirect_title">تغییر مسیر از «%s».</string>
   <string name="search_recent_header">جستجوهای اخیر:</string>
-  <string name="button_clear_all_recent_searches" fuzzy="true">پاک کردن جستجوهای اخیر</string>
+  <string name="button_clear_all_recent_searches">پاک‌کردن جستجوهای اخیر</string>
+  <string name="clear_recent_searches_confirm">آیا مطمئنید که می‌خواهید تاریخچهٔ جستجوهای اخیر را حذف کنید؟</string>
   <string name="search_titles_button">عنوان‌ها</string>
   <string name="search_full_button">در مقالات</string>
   <string name="toc_hint">برای بخش‌ها به سمت چپ بچرخانید یا از دکمه بالا در سمت راست در منو استفاده کنید.</string>
   <string name="toc_know_it">گرفتم</string>
   <string name="error_browser_not_found">قادر به گشودن صفحهٔ وب نیست  (ببرنامهٔ مرورگر یافت نشد)</string>
+  <string name="table_infobox">واقعیت‌های سریع</string>
+  <string name="table_other">اطلاعات بیشتر</string>
+  <string name="table_close">بستن</string>
   <string name="app_store_description">نرم افزار رسمی ویکی‌پدیا برای استفاده در آندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و  گسترده‌ترین مرجع کار انسان تا کنون است. این برنامه از ابتدا بازنویسی شده است و بهتر از قبل کار می کند.
 ویژگی‌ها:
    -سرعت: نرم افزار جدید، بومی ما به شما اجازهٔ مرور و ویرایش ویکی‌پدیا را با سریع بیشتری می‌دهد.
@@ -259,4 +266,5 @@
 کد کاملا منبع باز است. اگر شما تجربه با جاوا و آندروید SDK دارید از https://github.com/wikimedia/apps-android-wikipedia برای فورک کردن استفاده کنید.</string>
   <string name="alpha_update_notification_title">به‌روزرسانی نسخه  آلفا جدید موجود است</string>
   <string name="alpha_update_notification_text">تپ برای دانلود</string>
+  <string name="dialog_close_description">بستن</string>
 </resources>

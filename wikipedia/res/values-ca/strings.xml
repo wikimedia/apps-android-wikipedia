@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">L\'edició no s\'ha desat!</string>
   <string name="dialog_message_edit_failed_retry">Reintenta</string>
   <string name="dialog_message_edit_failed_cancel">Cancel·la</string>
-  <string name="dialog_message_leaving_edit">«Els canvis no s\'han desat encara. Esteu segur que voleu sortir d\'aquesta pàgina?»</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">«Els canvis no s\'han desat encara. Esteu segur que voleu sortir d\'aquesta pàgina?»</string>
   <string name="dialog_message_leaving_edit_leave">Surt</string>
   <string name="dialog_message_leaving_edit_stay">Roman</string>
   <string name="menu_show_toc">Taula de continguts</string>

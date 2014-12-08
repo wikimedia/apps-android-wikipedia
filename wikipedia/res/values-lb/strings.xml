@@ -72,7 +72,7 @@
   <string name="dialog_message_edit_failed">Feeler beim Änneren!</string>
   <string name="dialog_message_edit_failed_retry">Nach eng Kéier probéieren</string>
   <string name="dialog_message_edit_failed_cancel">Ofbriechen</string>
-  <string name="dialog_message_leaving_edit">\"Är Ännerunge goufen nach net gespäichert. Sidd Dir sécher datt Dir vun dëser Säit erofgoe wëllt?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">\"Är Ännerunge goufen nach net gespäichert. Sidd Dir sécher datt Dir vun dëser Säit erofgoe wëllt?</string>
   <string name="dialog_message_leaving_edit_leave">Fortgoen</string>
   <string name="dialog_message_leaving_edit_stay">Bleiwen</string>
   <string name="menu_show_toc">Inhaltsverzeechnes</string>

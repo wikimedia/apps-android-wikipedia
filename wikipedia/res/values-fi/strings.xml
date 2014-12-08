@@ -11,7 +11,7 @@
   <string name="search_hint">Wikipedia-haku</string>
   <string name="history_activity_title">Historia</string>
   <string name="nav_item_history">Historia</string>
-  <string name="error_network_error" fuzzy="true">Ei pääsyä verkkoon :(</string>
+  <string name="error_network_error">Verkkoyhteyttä ei ole :(</string>
   <string name="search_network_error">Verkkovirhe. Yritä uudelleen.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
   <string name="menu_clear_all_history">Tyhjennä historia</string>
@@ -43,11 +43,16 @@
   <string name="nearby_activity_title">Lähistöllä</string>
   <string name="nav_item_nearby">Lähistöllä</string>
   <string name="menu_update_nearby">Päivitä \"Lähistöllä\"</string>
-  <string name="nearby_empty_title" fuzzy="true">Sivuja ei ole lähistöllä</string>
-  <string name="nearby_empty_message" fuzzy="true">Voit päivittää tämän sivun, kun siirryt uuteen paikkaan.</string>
+  <string name="nearby_empty_title">Lähistöllä olevia sivuja ei ole!</string>
+  <string name="nearby_empty_message">Päivittämällä tämän sivun, kun vaihdat paikkaa saat ajantasaista tietoa siitä, mitä lähelläsi on.</string>
+  <string name="nearby_distance_in_feet">%d jalkaa</string>
+  <string name="nearby_distance_in_miles">%.2f  mailia</string>
   <string name="nearby_no_network">Ei verkkoyhteyttä</string>
   <string name="nearby_server_error">Lähellä olevien paikkojen luetteloa ei saatu haettua.</string>
   <string name="nearby_no_location">Sijaintia ei kyetä paikantamaan</string>
+  <string name="nearby_dialog_goto_settings">Sijaintipäivitykset eivät ole käytössä laitteessasi? Haluatko ottaa sijaintipäivitykset käyttöön?</string>
+  <string name="nearby_set_metric">näytä metrit/kilometrit</string>
+  <string name="nearby_set_imperial">Näytä jalkoja/maileja</string>
   <string name="last_updated_text">Viimeksi päivitetty %1$s</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla ellei toisin ilmoiteta</string>
   <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
@@ -69,6 +74,9 @@
   <string name="dialog_message_edit_failed">Muokkaus epäonnistui!</string>
   <string name="dialog_message_edit_failed_retry">Yritä uudelleen</string>
   <string name="dialog_message_edit_failed_cancel">Peru</string>
+  <string name="dialog_message_leaving_edit">Muutoksia ei ole päivitetty vielä. Haluatko varmasti poistua sivulta?</string>
+  <string name="dialog_message_leaving_edit_leave">Poistu</string>
+  <string name="dialog_message_leaving_edit_stay">Jää</string>
   <string name="menu_show_toc">Sisällysluettelo</string>
   <string name="search_no_results_found">Tuloksia ei löytynyt</string>
   <string name="edit_section_captcha_message">Syötä alla näkyvät sanat (auttaa suojautumaan automaattiselta spämmiltä)</string>
@@ -100,6 +108,7 @@
   <string name="saved_pages_empty_message">Tallennetut sivut ovat melko loistavia. Ajattele niitä kirjanmerkkeinä, joita voit lukea ilman verkkoyhteyttä.</string>
   <string name="history_empty_title">Ei tuoreita sivuja täällä.</string>
   <string name="history_empty_message">Olet todennäköisesti poistanut ne kaikki. Seuraavalla kerralla kun menet sivulle, voit palata sinne tätä kautta.</string>
+  <string name="delete_selected_history">Poista</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Vapaa tietosanakirja</string>
   <string name="skip">Ohita</string>
@@ -227,10 +236,21 @@
   <string name="page_similar_titles">Samankaltaiset sivut</string>
   <string name="search_within_pages">Etsi sivuilta…</string>
   <string name="search_no_results">Ei tuloksia hakusanalla \"%s\".</string>
+  <string name="search_did_you_mean">Tarkoititko \"%s\"?</string>
   <string name="search_results_title">Hakutulokset</string>
   <string name="search_error_retry">Yritä uudelleen</string>
   <string name="search_redirect_title">Ohjattu sivulta \"%s\".</string>
+  <string name="search_recent_header">Äskettäin tehdyt haut:</string>
+  <string name="button_clear_all_recent_searches">Tyhjennä äskettäin tehdyt haut</string>
+  <string name="clear_recent_searches_confirm">Haluatko varmasti tyhjentää hakuhistorian?</string>
+  <string name="search_titles_button">Otsikot</string>
+  <string name="search_full_button">Artikkeleissa</string>
+  <string name="toc_hint">Pyyhkäise vasemmalle nähdäksesi osiot tai käytä valikko-näppäintä oikeassa yläkulmassa.</string>
   <string name="toc_know_it">Hanki se</string>
+  <string name="error_browser_not_found">Sivua ei voi avata (selainohjelmaa ei löydy).</string>
+  <string name="table_infobox">Pikafaktoja</string>
+  <string name="table_other">Lisätietoja</string>
+  <string name="table_close">Sulje</string>
   <string name="app_store_description">Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 32 miljoonaa artikkelia 280 eri kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut. Sovellus on kirjoitettu alusta alkaen uusiksi ja on parempi kuin koskaan aiemmin.
 
 Ominaisuudet:
@@ -245,4 +265,5 @@ Ominaisuudet:
 Lähdekoodi on täysin avointa. Jos sinulla on kokemusta Javan ja Android SDK:n parissa työskentelystä, tee kopio koodistamme! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">Uusi alfaversio saatavilla</string>
   <string name="alpha_update_notification_text">Napauta ladataksesi</string>
+  <string name="dialog_close_description">Sulje</string>
 </resources>
