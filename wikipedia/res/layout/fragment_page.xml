@@ -116,14 +116,14 @@
 
                     <TextView
                         android:id="@+id/page_last_updated_text"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
                         android:paddingTop="16dp"
                         android:paddingLeft="@dimen/activity_horizontal_margin"
                         android:paddingRight="@dimen/activity_horizontal_margin"
                         style="?android:textAppearanceSmall"
-                        android:textColorLink="?attr/link_color"
-                        android:gravity="center"/>
+                        android:textColorLink="?attr/link_color"/>
                     <TextView
                         android:id="@+id/page_license_text"
                         android:layout_width="match_parent"

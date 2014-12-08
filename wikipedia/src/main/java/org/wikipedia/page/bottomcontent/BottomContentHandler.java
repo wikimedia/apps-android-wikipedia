@@ -154,11 +154,13 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
         if (bottomOffset > bottomHeight) {
             if (params.bottomMargin != -bottomHeight) {
                 params.bottomMargin = -bottomHeight;
+                params.topMargin = 0;
                 bottomContentContainer.setLayoutParams(params);
                 bottomContentContainer.setVisibility(View.INVISIBLE);
             }
         } else {
             params.bottomMargin = -bottomOffset;
+            params.topMargin = -bottomHeight;
             bottomContentContainer.setLayoutParams(params);
             if (bottomContentContainer.getVisibility() != View.VISIBLE) {
                 bottomContentContainer.setVisibility(View.VISIBLE);
