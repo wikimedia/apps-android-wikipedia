@@ -127,7 +127,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
 
     /**
      * Hide the bottom content entirely.
-     * It can only be shown again by calling layoutContent()
+     * It can only be shown again by calling beginLayout()
      */
     public void hide() {
         bottomContentContainer.setVisibility(View.GONE);
@@ -162,18 +162,19 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
 
         // calculate the height of the listview, based on the number of items inside it.
         ListAdapter adapter = readMoreList.getAdapter();
-        int listHeight = 0;
         if (adapter != null && adapter.getCount() > 0) {
             ViewGroup.LayoutParams params = readMoreList.getLayoutParams();
             final int itemHeight = (int)parentFragment.getResources().getDimension(R.dimen.defaultListItemSize);
-            listHeight = adapter.getCount() * itemHeight
-                    + (readMoreList.getDividerHeight() * (adapter.getCount() - 1));
-            params.height = listHeight;
+            params.height = adapter.getCount() * itemHeight
+                            + (readMoreList.getDividerHeight() * (adapter.getCount() - 1));
             readMoreList.setLayoutParams(params);
         }
 
+        readMoreList.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        bottomContentContainer.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+
         // pad the bottom of the webview, to make room for ourselves
-        int totalHeight = bottomContentContainer.getHeight() + listHeight;
+        int totalHeight = bottomContentContainer.getMeasuredHeight();
         JSONObject payload = new JSONObject();
         try {
             payload.put("paddingBottom", (int)(totalHeight / displayDensity));
