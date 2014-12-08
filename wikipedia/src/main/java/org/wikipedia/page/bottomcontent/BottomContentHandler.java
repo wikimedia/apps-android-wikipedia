@@ -248,8 +248,6 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
                         // Descriptions are expendable
                     }
                 });
-
-        funnel.logSuggestionsShown(pageTitle, results.getPageTitles());
     }
 
     private final class ReadMoreAdapter extends BaseAdapter {
