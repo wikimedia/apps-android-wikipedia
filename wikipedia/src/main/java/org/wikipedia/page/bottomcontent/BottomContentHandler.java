@@ -3,7 +3,9 @@ package org.wikipedia.page.bottomcontent;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.AdapterView;
@@ -60,7 +62,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
     private SuggestedPagesFunnel funnel;
     private FullSearchArticlesTask.FullSearchResults readMoreItems;
 
-    public BottomContentHandler(final PageViewFragment parentFragment, CommunicationBridge bridge,
+    public BottomContentHandler(PageViewFragment parentFragment, CommunicationBridge bridge,
                                 ObservableWebView webview, LinkHandler linkHandler,
                                 ViewGroup hidingView, PageTitle pageTitle) {
         this.parentFragment = parentFragment;
@@ -79,6 +81,58 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
         pageLastUpdatedText = (TextView)bottomContentContainer.findViewById(R.id.page_last_updated_text);
         pageLicenseText = (TextView)bottomContentContainer.findViewById(R.id.page_license_text);
         readMoreList = (ListView)bottomContentContainer.findViewById(R.id.read_more_list);
+
+        // set up pass-through scroll functionality for the ListView
+        readMoreList.setOnTouchListener(new View.OnTouchListener() {
+            private int touchSlop = ViewConfiguration.get(readMoreList.getContext())
+                                                     .getScaledTouchSlop();
+            private boolean slopReached;
+            private boolean doingSlopEvent;
+            private boolean isPressed = false;
+            private float startY;
+            private float amountScrolled;
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getActionMasked() & MotionEvent.ACTION_MASK;
+                switch (action) {
+                    case MotionEvent.ACTION_DOWN:
+                        isPressed = true;
+                        startY = event.getY();
+                        amountScrolled = 0;
+                        slopReached = false;
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        if (isPressed && !doingSlopEvent) {
+                            int contentHeight = (int)(webView.getContentHeight() * displayDensity);
+                            int maxScroll = contentHeight - webView.getScrollY()
+                                            - webView.getHeight();
+                            int scrollAmount = Math.min((int) (startY - event.getY()), maxScroll);
+                            // manually scroll the WebView that's underneath us...
+                            webView.scrollBy(0, scrollAmount);
+                            amountScrolled += scrollAmount;
+                            if (Math.abs(amountScrolled) > touchSlop && !slopReached) {
+                                slopReached = true;
+                                // send an artificial Move event that scrolls it by an amount
+                                // that's greater than the touch slop, so that the currently
+                                // highlighted item is unselected.
+                                MotionEvent moveEvent = MotionEvent.obtain(event);
+                                moveEvent.setLocation(event.getX(), event.getY() + touchSlop * 2);
+                                doingSlopEvent = true;
+                                readMoreList.dispatchTouchEvent(moveEvent);
+                                doingSlopEvent = false;
+                            }
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_CANCEL:
+                        isPressed = false;
+                        break;
+                    default:
+                        break;
+                }
+                return false;
+            }
+        });
 
         funnel = new SuggestedPagesFunnel(app, pageTitle.getSite());
 
@@ -289,7 +343,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
 
             ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
             String thumbnail = result.getThumbUrl();
-            if (thumbnail == null) {
+            if (!app.showImages() || thumbnail == null) {
                 Picasso.with(parent.getContext())
                         .load(R.drawable.ic_pageimage_placeholder)
                         .into(imageView);
