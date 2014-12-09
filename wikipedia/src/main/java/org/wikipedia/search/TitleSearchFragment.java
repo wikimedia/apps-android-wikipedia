@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TitleSearchFragment extends Fragment {
@@ -55,16 +56,16 @@ public class TitleSearchFragment extends Fragment {
     }
 
     /**
-     * Interface for receiving an event when a Title search returns no results.
+     * Interface for receiving the number of results returned by Title search.
      * Will be useful for automatically switching to a Full search
      */
-    public interface OnNoResultsListener {
-        void onNoResults();
+    public interface OnResultsCountListener {
+        void onResultsCount(int count);
     }
 
-    private OnNoResultsListener onNoResultsListener;
-    public void setOnNoResultsListener(OnNoResultsListener listener) {
-        onNoResultsListener = listener;
+    private OnResultsCountListener onResultsCountListener;
+    public void setOnResultsCountListener(OnResultsCountListener listener) {
+        onResultsCountListener = listener;
     }
 
     /**
@@ -178,6 +179,8 @@ public class TitleSearchFragment extends Fragment {
             return;
         }
 
+        // clear the list of results
+        displayResults(new ArrayList<PageTitle>());
         searchNoResults.setVisibility(View.GONE);
         searchNetworkError.setVisibility(View.GONE);
 
@@ -185,6 +188,9 @@ public class TitleSearchFragment extends Fragment {
 
         List<PageTitle> cacheResult = searchResultsCache.get(app.getPrimaryLanguage() + "-" + term);
         if (cacheResult != null) {
+            if (onResultsCountListener != null) {
+                onResultsCountListener.onResultsCount(cacheResult.size());
+            }
             displayResults(cacheResult);
             return;
         }
@@ -286,8 +292,8 @@ public class TitleSearchFragment extends Fragment {
                     displayResults(result);
                     searchResultsCache.put(app.getPrimaryLanguage() + "-" + mySearchTerm, result);
                     curSearchTask = null;
-                    if (result.size() == 0 && onNoResultsListener != null) {
-                        onNoResultsListener.onNoResults();
+                    if (onResultsCountListener != null) {
+                        onResultsCountListener.onResultsCount(result.size());
                     }
                     // scroll to top, but post it to the message queue, because it should be done
                     // after the data set is updated.

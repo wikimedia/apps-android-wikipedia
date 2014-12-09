@@ -341,9 +341,6 @@ See also:
   <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
   <string name="button_clear_all_recent_searches">Button hint for clearing search history;  visible when in search mode.</string>
   <string name="clear_recent_searches_confirm">Dialog message that asks if the user really wants to clear the search history.</string>
-  <string name="search_titles_button">Button label for searching page title matches.
-{{Identical|Title}}</string>
-  <string name="search_full_button">Button label for searching the full text of pages.</string>
   <string name="toc_hint">Instructions how to open the Table of Contents drawer. In left-to-right languages (most) this means to swipe left from the right edge. In right-to-left languages (Hebrew, Arabic, etc.) this means to swipe right from the left edge. \'\'\'In RTL languages\'\'\' please adjust the text to say right swipe instead of left swipe.</string>
   <string name="toc_know_it">Button text to acknowledge instructions for opening Table of Contents drawer.</string>
   <string name="error_browser_not_found">Toast message shown when we try to open an external browser but none seems to be installed.</string>

@@ -13,7 +13,6 @@ import com.squareup.otto.Subscribe;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SearchView;
@@ -24,7 +23,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class SearchArticlesFragment extends Fragment {
     private static final String ARG_LAST_SEARCHED_TEXT = "lastSearchedText";
@@ -53,14 +51,6 @@ public class SearchArticlesFragment extends Fragment {
     private String lastSearchedText;
 
     /**
-     * Whether the last search was forced. A search is forced if the user explicitly
-     * clicks on the buttons to select Title or Full search. It's also forced if the user
-     * is taken to Full search when a Title search produced no results.
-     * A search is NOT forced when it comes from the user typing characters in the search field.
-     */
-    private boolean lastSearchForced = false;
-
-    /**
      * View that contains the whole Search fragment. This is what should be shown/hidden when
      * the search is called for from the main activity.
      */
@@ -81,9 +71,6 @@ public class SearchArticlesFragment extends Fragment {
     private RecentSearchesFragment recentSearchesFragment;
     private TitleSearchFragment titleSearchFragment;
     private FullSearchFragment fullSearchFragment;
-
-    private View buttonTitleSearch;
-    private View buttonFullSearch;
 
     public SearchArticlesFragment() {
     }
@@ -137,37 +124,13 @@ public class SearchArticlesFragment extends Fragment {
         recentSearchesFragment = (RecentSearchesFragment)getChildFragmentManager().findFragmentById(R.id.search_panel_recent);
         searchTypesContainer = parentLayout.findViewById(R.id.search_panel_types);
 
-        buttonTitleSearch = parentLayout.findViewById(R.id.button_search_title);
-        buttonTitleSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (getActivePanel() == PANEL_TITLE_SEARCH) {
-                    return;
-                }
-                showPanel(PANEL_TITLE_SEARCH);
-                startSearch(lastSearchedText, true);
-            }
-        });
-
-        buttonFullSearch = parentLayout.findViewById(R.id.button_search_full);
-        buttonFullSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (getActivePanel() == PANEL_FULL_SEARCH) {
-                    return;
-                }
-                showPanel(PANEL_FULL_SEARCH);
-                startSearch(lastSearchedText, true);
-            }
-        });
-
         titleSearchFragment = (TitleSearchFragment)getChildFragmentManager().findFragmentById(R.id.fragment_search_title);
-        titleSearchFragment.setOnNoResultsListener(new TitleSearchFragment.OnNoResultsListener() {
+        titleSearchFragment.setOnResultsCountListener(new TitleSearchFragment.OnResultsCountListener() {
             @Override
-            public void onNoResults() {
-                if (lastSearchForced) {
-                    // don't automatically go to Full search if the previous search was forced.
-                    // i.e. if the user had explicitly clicked on Title search.
+            public void onResultsCount(int count) {
+                final int minTitleResults = 5;
+                if (count >= minTitleResults) {
+                    // got enough title results, so don't switch over to full text.
                     return;
                 }
                 if (fullSearchDisabled) {
@@ -206,11 +169,7 @@ public class SearchArticlesFragment extends Fragment {
         outState.putInt(ARG_SEARCH_CURRENT_PANEL, getActivePanel());
     }
 
-    public void switchToTitleSearch(String queryText) {
-        if (getActivePanel() == PANEL_TITLE_SEARCH) {
-            return;
-        }
-        showPanel(PANEL_TITLE_SEARCH);
+    public void switchToSearch(String queryText) {
         startSearch(queryText, true);
         searchView.setQuery(queryText, false);
     }
@@ -243,18 +202,10 @@ public class SearchArticlesFragment extends Fragment {
                 break;
             case PANEL_TITLE_SEARCH:
                 searchTypesContainer.setVisibility(View.VISIBLE);
-                buttonTitleSearch.setBackgroundColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.search_background_color)));
-                ((TextView)buttonTitleSearch).setTypeface(null, Typeface.BOLD);
-                buttonFullSearch.setBackgroundColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.window_background_color)));
-                ((TextView)buttonFullSearch).setTypeface(null, Typeface.NORMAL);
                 titleSearchFragment.show();
                 break;
             case PANEL_FULL_SEARCH:
                 searchTypesContainer.setVisibility(View.VISIBLE);
-                buttonFullSearch.setBackgroundColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.search_background_color)));
-                ((TextView)buttonFullSearch).setTypeface(null, Typeface.BOLD);
-                buttonTitleSearch.setBackgroundColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.window_background_color)));
-                ((TextView)buttonTitleSearch).setTypeface(null, Typeface.NORMAL);
                 fullSearchFragment.show();
                 break;
             default:
@@ -289,7 +240,6 @@ public class SearchArticlesFragment extends Fragment {
      *              too often.  If the search is forced, the network request is sent immediately.
      */
     public void startSearch(String term, boolean force) {
-        lastSearchForced = force;
         if (!isSearchActive) {
             openSearch();
         }
@@ -306,12 +256,22 @@ public class SearchArticlesFragment extends Fragment {
             }
         }
 
+        if (!TextUtils.isEmpty(lastSearchedText) && !TextUtils.isEmpty(term)) {
+            if (term.startsWith(lastSearchedText)) {
+                // they just typed another character, so continue with whatever search was
+                // last active
+            } else {
+                // it's an entirely new search term, so default to title search
+                showPanel(PANEL_TITLE_SEARCH);
+            }
+        }
+        lastSearchedText = term;
+
         if (getActivePanel() == PANEL_TITLE_SEARCH) {
             titleSearchFragment.startSearch(term, force);
         } else if (getActivePanel() == PANEL_FULL_SEARCH) {
             fullSearchFragment.startSearch(term, force);
         }
-        lastSearchedText = term;
     }
 
     /**
@@ -349,8 +309,6 @@ public class SearchArticlesFragment extends Fragment {
                 showPanel(PANEL_RECENT_SEARCHES);
             }
         }
-        getView().findViewById(R.id.search_type_button_container)
-                .setVisibility(fullSearchDisabled ? View.GONE : View.VISIBLE);
     }
 
     public void closeSearch() {

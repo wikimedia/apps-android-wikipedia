@@ -15,35 +15,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/search_type_button_container"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="0.5"
-                android:id="@+id/button_search_title"
-                android:background="?attr/window_background_color"
-                android:textColor="?attr/edit_text_color"
-                android:text="@string/search_titles_button"
-                />
-
-            <View android:layout_width="0.5dp" android:layout_height="match_parent" android:background="?attr/list_separator_color" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="0.5"
-                android:id="@+id/button_search_full"
-                android:background="?attr/window_background_color"
-                android:textColor="?attr/edit_text_color"
-                android:text="@string/search_full_button"
-                />
-        </LinearLayout>
-
         <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="?attr/list_separator_color" />
 
         <FrameLayout

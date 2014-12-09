@@ -60,7 +60,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 RecentSearch entry = (RecentSearch) view.getTag();
-                searchFragment.switchToTitleSearch(entry.getText());
+                searchFragment.switchToSearch(entry.getText());
             }
         });
 
