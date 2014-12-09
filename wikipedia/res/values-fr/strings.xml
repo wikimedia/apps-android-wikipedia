@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">Échec de l’enregistrement !</string>
   <string name="dialog_message_edit_failed_retry">Réessayer</string>
   <string name="dialog_message_edit_failed_cancel">Annuler</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">« Vos modifications n’ont pas encore été enregistrées. Êtes-vous sûr de vouloir quitter cette page ? »</string>
+  <string name="dialog_message_leaving_edit">Vos modifications n’ont pas encore été enregistrées. Êtes-vous sûr de vouloir quitter cette page ?</string>
   <string name="dialog_message_leaving_edit_leave">Quitter</string>
   <string name="dialog_message_leaving_edit_stay">Rester</string>
   <string name="menu_show_toc">Sommaire</string>
@@ -268,4 +268,7 @@ Le code est entièrement ouvert. Si vous êtes expérimenté avec Java et le kit
   <string name="alpha_update_notification_title">Nouvelle mise à jour alpha disponible</string>
   <string name="alpha_update_notification_text">Touchez pour télécharger</string>
   <string name="dialog_close_description">Fermer</string>
+  <string name="preference_title_show_images">Voir les images</string>
+  <string name="preference_summary_show_images">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à internet est lente, ou si votre volume de données est limité.</string>
+  <string name="read_more_section">En savoir plus</string>
 </resources>

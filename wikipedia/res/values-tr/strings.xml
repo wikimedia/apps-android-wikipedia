@@ -268,4 +268,7 @@ Uygulama kodları tamamen açık kaynaklıdır. Java ve Android SDK kullanıyors
   <string name="alpha_update_notification_title">Yeni alfa güncellemesi var</string>
   <string name="alpha_update_notification_text">İndirmek için dokunun</string>
   <string name="dialog_close_description">Kapat</string>
+  <string name="preference_title_show_images">Resimleri göster</string>
+  <string name="preference_summary_show_images">Sayfalardaki resimlerin yüklenmesini etkinleştirin veya devre dışı bırakın. İnternet bağlantınız yavaş ya da veri paketiniz sınırlı ise bu seçeneği işaretlemeyin.</string>
+  <string name="read_more_section">Devamı</string>
 </resources>

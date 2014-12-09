@@ -268,4 +268,7 @@ Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) c
   <string name="alpha_update_notification_title">O nouă actualizare alfa disponibilă</string>
   <string name="alpha_update_notification_text">Atingeți pentru a descărca</string>
   <string name="dialog_close_description">Închide</string>
+  <string name="preference_title_show_images">Afișează imaginile</string>
+  <string name="preference_summary_show_images">Activează sau dezactivează încărcarea imaginilor în pagini. Debifați această opțiune dacă aveți o conexiune la internet slabă sau dacă abonamentul dumneavoastră de date este limitat.</string>
+  <string name="read_more_section">Citiți mai multe</string>
 </resources>

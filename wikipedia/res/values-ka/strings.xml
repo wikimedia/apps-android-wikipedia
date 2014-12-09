@@ -71,6 +71,7 @@
   <string name="dialog_message_leaving_edit_stay">დარჩენა</string>
   <string name="menu_show_toc">სარჩევი</string>
   <string name="search_no_results_found">შედეგები ვერ მოიძებნა</string>
+  <string name="edit_section_captcha_hint">გაიმეორეთ ზემოთ მოცემული სიტყვები</string>
   <string name="title_captcha">შეიყვანეთ CAPTCHA</string>
   <string name="edit_section_abusefilter_back_text">შეიტანეთ ცვლილებები ჩემს რედაქტირებაში</string>
   <string name="nav_item_login">შესვლა</string>
@@ -92,6 +93,7 @@
   <string name="preference_summary_notloggedin">არ ხართ შესული.</string>
   <string name="toast_logout_complete">გამოსული.</string>
   <string name="saved_pages_empty_title">შენახული გვერდები არ არის!</string>
+  <string name="history_empty_title">ბოლო გვერდები ვერ მოიძებნა!</string>
   <string name="delete_selected_history">წაშლა</string>
   <string name="wp_stylized">&lt;big&gt;ვ&lt;/big&gt;იკიპედი&lt;big&gt;ა&lt;/big&gt;</string>
   <string name="wp_tag_line">თავისუფალი ენციკლოპედია</string>
@@ -110,6 +112,8 @@
   <string name="create_account_email_error">ელ-ფოსტის არასწორი მისამართი</string>
   <string name="create_account_username_exists_error">მომხმარებლის სახელი უკვე გამოიყენება</string>
   <string name="create_account_open_proxy_error">ეს IP-მისამართი დაბლოკილია ანგარიშების შექმნისაგან</string>
+  <string name="create_account_invalid_email_error">თქვენ მიერ მითითებული ელ-ფოსტის მისამართი არასწორია.</string>
+  <string name="create_account_password_too_short_error">თქვენ მიერ მითითებული პაროლი ზედმეტად მოკლეა.</string>
   <string name="create_account_blocked_anon_error">თქვენ არ შეგიძლიათ ანგარიშის შექმნა, რადგან თქვენი IP-მისამართი დაბლოკილია.</string>
   <string name="create_account_blocked_error">თქვენ არ შეგიძლიათ ანგარიშის შექმნა, რადგან თქვენი IP-მისამართი დაბლოკილია.</string>
   <string name="create_account_password_name_match_error">თქვენი მომხამრებლის სახელი და პაროლი ერთმანეთისგან უნდა განსხვავდებოდეს.</string>
@@ -118,8 +122,10 @@
   <string name="create_account_next">შემდეგი</string>
   <string name="create_account_button">ანგარიშის შექმნა</string>
   <string name="preferences_general_heading">მთავარი</string>
+  <string name="zero_charged_verbiage">ვიკიპედია ზერო გამორთულია</string>
   <string name="zero_search_hint">ძიება ვიკიპედია ზეროში</string>
   <string name="zero_interstitial_continue">დატოვება</string>
+  <string name="zero_interstitial_cancel">დარჩი აქ</string>
   <string name="zero_learn_more_learn_more">წაიკითხეთ მეტი</string>
   <string name="zero_learn_more_dismiss">უარყოფა</string>
   <string name="zero_settings">კონფიგურაცია</string>
@@ -174,11 +180,23 @@
   <string name="color_theme_light">ნათელი</string>
   <string name="color_theme_dark">ბნელი</string>
   <string name="page_similar_titles">მსგავსი გვერდები</string>
+  <string name="search_did_you_mean">ხომ არ იგულისხმეთ „%s“?</string>
   <string name="search_results_title">ძიების შედეგები</string>
   <string name="search_error_retry">გამეორება</string>
+  <string name="search_redirect_title">გადამისამართება „%s“-დან.</string>
+  <string name="search_recent_header">ბოლოს მოძიებულები</string>
+  <string name="button_clear_all_recent_searches">ბოლოს მოძიებულების გასუფთავება</string>
+  <string name="clear_recent_searches_confirm">დარწმუნებული ხართ, რომ გსურთ ძიების ისტორიის გასუფთავება?</string>
   <string name="search_titles_button">სათაურები</string>
+  <string name="search_full_button">სტატიებში</string>
+  <string name="toc_hint">სექციების გამოსაჩენად გაუსვით მარცხნივ ან გამოიყენეთ ზედა მარჯვენა მხარეს არსებული მენიუს ღილაკი.</string>
   <string name="toc_know_it">არის!</string>
+  <string name="error_browser_not_found">ვებ-გვერდის გახსნა შეუძლებელია (ბრაუზერის აპლიკაცია ვერ მოიძებნა).</string>
+  <string name="table_other">მეტი ინფორმაცია</string>
   <string name="table_close">დახურვა</string>
+  <string name="alpha_update_notification_title">ახალი ალფა განახლება ხელმისაწვდომია</string>
   <string name="alpha_update_notification_text">შეეხეთ, რათა ჩამოტვირთოთ.</string>
   <string name="dialog_close_description">დახურვა</string>
+  <string name="preference_title_show_images">სურათების ჩვენება</string>
+  <string name="read_more_section">წაიკითხე მეტი</string>
 </resources>

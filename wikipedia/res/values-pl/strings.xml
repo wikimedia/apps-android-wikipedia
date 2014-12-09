@@ -238,4 +238,5 @@
   <string name="alpha_update_notification_title">Dostępna jest nowa aktualizacja alfa</string>
   <string name="alpha_update_notification_text">Kliknij, aby pobrać.</string>
   <string name="dialog_close_description">Zamknij</string>
+  <string name="read_more_section">Czytaj więcej</string>
 </resources>

@@ -268,4 +268,7 @@ Der Code ist völlig quelloffen. Falls du Erfahrungen mit Java und dem Android-S
   <string name="alpha_update_notification_title">Neue Alpha-Aktualisierung verfügbar</string>
   <string name="alpha_update_notification_text">Zum Herunterladen tippen</string>
   <string name="dialog_close_description">Schließen</string>
+  <string name="preference_title_show_images">Bilder anzeigen</string>
+  <string name="preference_summary_show_images">Aktiviere oder deaktiviere das Laden von Bildern in Seiten. Entmarkiere diese Einstellung, falls deine Internetverbindung langsam oder dein Datenvolumen beschränkt ist.</string>
+  <string name="read_more_section">Mehr lesen</string>
 </resources>
