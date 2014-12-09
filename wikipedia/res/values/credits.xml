@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="contributors_list">Adam Baso, Amir E. Aharoni, Anirudh S, Bernd Sitzmann, Brion Vibber, Dan Garry, Dmitry Brant, Kenan Wang, Maryana Pinchuk, Max Semenik, Moiz Syed, Monte Hurd, Mun May Tee, Nicole Borrelli, Niklas Laxström, Thomas PT, Tomasz Finc, Vibha Bamba, Yuvi Panda</string>
-    <string name="libraries_list"><a href="https://code.google.com/p/maven-android-plugin/">Android Maven Plugin</a>,
-        <a href="https://github.com/keyboardsurfer/Crouton">Crouton</a>,
+    <string name="libraries_list"><a href="https://github.com/keyboardsurfer/Crouton">Crouton</a>,
         <a href="https://github.com/ragunathjawahar/android-saripaar">Saripaar</a>,
         <a href="https://square.github.io/otto/">Otto</a>,
         <a href="http://acra.ch">ACRA</a>,
