@@ -521,6 +521,9 @@ public class PageViewFragmentInternal {
     }
 
     private void performActionForState(int forState) {
+        if (!isAdded()) {
+            return;
+        }
         switch (forState) {
             case STATE_NO_FETCH:
                 getActivity().updateProgressBar(true, true, 0);
@@ -544,6 +547,9 @@ public class PageViewFragmentInternal {
                 leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
                     @Override
                     public void onLayoutComplete() {
+                        if (!isAdded()) {
+                            return;
+                        }
                         // when the lead image layout is complete, load the lead section and
                         // the other sections into the webview.
                         displayLeadSection();
@@ -949,6 +955,9 @@ public class PageViewFragmentInternal {
                 leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
                     @Override
                     public void onLayoutComplete() {
+                        if (!isAdded()) {
+                            return;
+                        }
                         // when the lead image is laid out, load the lead section and the rest
                         // of the sections into the webview.
                         displayLeadSection();
