@@ -142,7 +142,7 @@ public class PageViewFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (((PageActivity)getActivity()).isSearching()) {
+        if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
             return;
         }
         inflater.inflate(R.menu.menu_page_actions, menu);
@@ -152,7 +152,7 @@ public class PageViewFragment extends Fragment {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if (((PageActivity)getActivity()).isSearching()) {
+        if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
             return;
         }
         fragment.onPrepareOptionsMenu(menu);
