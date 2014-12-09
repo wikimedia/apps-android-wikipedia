@@ -280,6 +280,9 @@ The code is fully open source. If you have experience with Java and the Android 
     <string name="preference_summary_show_images">Enable or disable loading of images in pages. Uncheck this setting if your internet connection is slow, or if your data plan is limited.</string>
     <string name="read_more_section">Read more</string>
     <string name="gallery_menu_more_info">More information</string>
+    <string name="menu_gallery_visit_page">Go to file page</string>
     <string name="gallery_error_draw_failed">Could not draw the image.</string>
     <string name="license_title">License text for %s library</string>
+    <string name="gallery_license_text">License: %s</string>
+    <string name="gallery_credit_text">Credit: %s</string>
 </resources>

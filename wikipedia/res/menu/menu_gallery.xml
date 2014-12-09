@@ -6,5 +6,8 @@
     <item android:id="@+id/menu_gallery_more_info"
           android:title="@string/gallery_menu_more_info"
           app:showAsAction="never"/>
+    <item android:id="@+id/menu_gallery_visit_page"
+        android:title="@string/menu_gallery_visit_page"
+        app:showAsAction="never"/>
 
 </menu>

@@ -11,11 +11,11 @@ import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
-import org.wikipedia.events.WikipediaZeroInterstitialEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.onboarding.OnboardingActivity;
+import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.settings.PrefKeys;
@@ -64,6 +64,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
     public static final int ACTIVITY_REQUEST_LANGLINKS = 0;
     public static final int ACTIVITY_REQUEST_EDIT_SECTION = 1;
+    public static final int ACTIVITY_REQUEST_GALLERY = 2;
 
     private Bus bus;
     private WikipediaApp app;
@@ -116,8 +117,6 @@ public class PageActivity extends ThemedActionBarActivity {
 
     private boolean pausedStateOfZero;
     private ZeroMessage pausedMessageOfZero;
-
-    private AlertDialog.Builder alert;
 
     private ThemeChooserDialog themeChooser;
 
@@ -589,7 +588,7 @@ public class PageActivity extends ThemedActionBarActivity {
                 prefs.edit().putBoolean(prefsKey, true).apply();
             }
 
-            alert = new AlertDialog.Builder(this);
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.setMessage(Html.fromHtml("<b>" + title + "</b><br/><br/>" + message));
             if (prefsKey != null) {
                 alert.setPositiveButton(getString(R.string.zero_learn_more_learn_more), new DialogInterface.OnClickListener() {
@@ -606,25 +605,6 @@ public class PageActivity extends ThemedActionBarActivity {
             AlertDialog ad = alert.create();
             ad.show();
         }
-    }
-
-    @Subscribe
-    public void onWikipediaZeroInterstitialEvent(final WikipediaZeroInterstitialEvent event) {
-        alert = new AlertDialog.Builder(this);
-        alert.setTitle(getString(R.string.zero_interstitial_title));
-        alert.setMessage(getString(R.string.zero_interstitial_leave_app));
-        alert.setPositiveButton(getString(R.string.zero_interstitial_continue), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                Utils.visitInExternalBrowser(PageActivity.this, event.getUri());
-            }
-        });
-        alert.setNegativeButton(getString(R.string.zero_interstitial_cancel), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.dismiss();
-            }
-        });
-        AlertDialog ad = alert.create();
-        ad.show();
     }
 
     @Override
@@ -676,6 +656,13 @@ public class PageActivity extends ThemedActionBarActivity {
             Log.d("Wikipedia", "Registering bus");
         }
         if ((requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT)) {
+            fragmentContainerView.post(new Runnable() {
+                @Override
+                public void run() {
+                    handleIntent(data);
+                }
+            });
+        } else if ((requestCode == ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT)) {
             fragmentContainerView.post(new Runnable() {
                 @Override
                 public void run() {

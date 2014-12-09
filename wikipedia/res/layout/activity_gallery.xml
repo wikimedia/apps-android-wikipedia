@@ -19,7 +19,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/gallery_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="72dp"
             android:background="@drawable/gallery_toolbar_shape">
         </android.support.v7.widget.Toolbar>
         <ProgressBar
@@ -34,10 +34,40 @@
     <LinearLayout
         android:id="@+id/gallery_info_container"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="32dp"
+        android:paddingTop="64dp"
         android:background="@drawable/lead_title_gradient">
-
+        <TextView
+            android:id="@+id/gallery_description_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="128dp"
+            android:scrollbars="vertical"
+            android:fadeScrollbars="false"
+            android:textColor="@color/lead_text_color"
+            android:textColorLink="@color/lead_text_color"/>
+        <TextView
+            android:id="@+id/gallery_credit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/lead_text_color"
+            android:textColorLink="@color/lead_text_color"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/gallery_license_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/lead_text_color"
+            android:textColorLink="@color/lead_text_color"
+            android:layout_marginTop="4dp"/>
     </LinearLayout>
 </FrameLayout>

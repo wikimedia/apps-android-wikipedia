@@ -745,7 +745,7 @@ public class PageViewFragmentInternal {
         galleryIntent.setClass(getActivity(), GalleryActivity.class);
         galleryIntent.putExtra(GalleryActivity.EXTRA_IMAGETITLE, imageTitle);
         galleryIntent.putExtra(GalleryActivity.EXTRA_PAGETITLE, title);
-        getActivity().startActivity(galleryIntent);
+        getActivity().startActivityForResult(galleryIntent, PageActivity.ACTIVITY_REQUEST_GALLERY);
     }
 
     /**

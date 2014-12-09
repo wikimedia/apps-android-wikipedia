@@ -25,6 +25,10 @@
         <!-- end of http://square.github.io/otto -->
         (<a href="file:///android_asset/licenses/Otto">license</a>),
 
+        <a href="https://github.com/chrisbanes/PhotoView">PhotoView</a>
+        <!-- end of https://github.com/chrisbanes/PhotoView -->
+        (<a href="file:///android_asset/licenses/PhotoView">license</a>),
+
         <a href="https://github.com/ragunathjawahar/android-saripaar">Saripaar</a>
         <!-- end of https://github.com/ragunathjawahar/android-saripaar/blob/master/README.md -->
         (<a href="file:///android_asset/licenses/Saripaar">license</a>)

@@ -1,7 +1,9 @@
 package org.wikipedia;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
@@ -32,7 +34,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.events.WikipediaZeroInterstitialEvent;
 import org.wikipedia.settings.PrefKeys;
 
 import java.io.BufferedReader;
@@ -369,12 +370,26 @@ public final class Utils {
         if (WikipediaApp.getInstance().getWikipediaZeroHandler().isZeroEnabled()) {
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
             if (sharedPref.getBoolean(PrefKeys.getZeroInterstitial(), true)) {
-                WikipediaApp.getInstance().getBus().post(new WikipediaZeroInterstitialEvent(uri));
+                AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                alert.setTitle(context.getString(R.string.zero_interstitial_title));
+                alert.setMessage(context.getString(R.string.zero_interstitial_leave_app));
+                alert.setPositiveButton(context.getString(R.string.zero_interstitial_continue), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        visitInExternalBrowser(context, uri);
+                    }
+                });
+                alert.setNegativeButton(context.getString(R.string.zero_interstitial_cancel), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog ad = alert.create();
+                ad.show();
             } else {
-                Utils.visitInExternalBrowser(context, uri);
+                visitInExternalBrowser(context, uri);
             }
         } else {
-            Utils.visitInExternalBrowser(context, uri);
+            visitInExternalBrowser(context, uri);
         }
     }
 

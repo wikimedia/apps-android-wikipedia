@@ -108,6 +108,7 @@ dependencies {
     }
     compile 'de.keyboardsurfer.android.widget:crouton:1.8.5@aar'
     compile 'com.android.support:appcompat-v7:21.0.2' // includes support-v4
+    compile 'com.github.chrisbanes.photoview:library:1.2.3'
 }
 
 // The next block is for setting the release signing config from a file outside the git repo

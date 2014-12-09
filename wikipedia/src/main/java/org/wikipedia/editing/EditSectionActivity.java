@@ -25,7 +25,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.squareup.otto.Bus;
-import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import org.mediawiki.api.json.Api;
@@ -41,7 +40,6 @@ import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.editing.summaries.EditSummaryFragment;
 import org.wikipedia.editing.richtext.SyntaxHighlighter;
-import org.wikipedia.events.WikipediaZeroInterstitialEvent;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.login.LoginResult;
 import org.wikipedia.login.LoginTask;
@@ -230,26 +228,6 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                 }
             }
         }));
-    }
-
-    // TODO: refactor; same code in PageActivity
-    @Subscribe
-    public void onWikipediaZeroInterstitialEvent(final WikipediaZeroInterstitialEvent event) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle(getString(R.string.zero_interstitial_title));
-        alert.setMessage(getString(R.string.zero_interstitial_leave_app));
-        alert.setPositiveButton(getString(R.string.zero_interstitial_continue), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                Utils.visitInExternalBrowser(EditSectionActivity.this, event.getUri());
-            }
-        });
-        alert.setNegativeButton(getString(R.string.zero_interstitial_cancel), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.dismiss();
-            }
-        });
-        AlertDialog ad = alert.create();
-        ad.show();
     }
 
     // TODO: refactor; same code in PageActivity
