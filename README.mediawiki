@@ -1,26 +1,43 @@
 See also https://git.wikimedia.org/summary/apps%2Fandroid%2Fjava-mwapi.git
 
-== Steps to Get Up and Developing on a Mac ==
+== Steps to Set Up a Development Environment ==
 
-These instructions should help a Mac owner download the Wikipedia for Android source code and get the latest version running in an emulator or on a real Android device. If you don't know anything about how to navigate around a UNIX/Linux/Mac filesystem and edit files with a program like pico, emacs, or vim, these instructions probably won't make any sense. And as noted below, you probably need to understand git in order to ever contribute source code updates to the new app. And regarding source code, you will need to probably be pretty good at Java or iOS programming, but more ideally the Android-flavored Java used in Android development to really get down to work or play quickly. If you use another shell than bash (e.g. zsh) then you'll probably know enough to adjust accordingly. But anyway, here we go for those who enjoy a fun side project for a good cause...
+These instructions should help you download the Wikipedia for Android source code and get the latest version running in an emulator or on a real Android device. Some of the steps assume you are using bash but should be easily translatable for other shells as well. We've written theses instructions initially for OS X but most should also work on Linux and Windows. But anyway, here we go for those who enjoy a fun side project for a good cause...
+
+=== Git ===
+
+We assume you already have Git installed. If you've never used Git, you will need to search the web on how to add git to the system from Apple Xcode, and then study on how to use git (look for material on https://mediawiki.org for git convention as practiced by MediaWiki programmers).
+
+In the parent directory of your programming projects, run the following commands:
+ git clone https://git.wikimedia.org/git/apps/android/wikipedia.git
+
+Assuming the git clone operation worked, you will have a new folder representing the freshly cloned repository, "wikipedia".
+
+It is recommended to rename the folder for the "wikipedia" repository to ensure you know which OS it's for (there's an iOS app by the name of "wikipedia", too, so it's good to have different folder names at the root of the repos).
+ mv wikipedia/ android-wikipedia/
 
 === Install Java SDK ===
 
-The Java SDK (aka. JDK) is needed to build Android apps. If in the Terminal you can type the command "java -version" and you don't have a $JAVA_HOME environment variable, Maven will probably Just Work on Mac, so you don't necessarily need to add and export JAVA_HOME in ~/.bash_profile like the instructions suggest. If, on the other hand you don't have Java, download and install the latest version of the Java SDK in the 1.6 series (or if unsupported, maybe 1.7, ...) and ensure you can get "java -version" to work.
+The Java SDK 7 or higher (aka. JDK) is needed to build Android apps. To test:
+ javac -version
 
 === Install Android SDK ===
 
-1. Install brew if you don't already have it
+It's probably best to install the Android SDK separately from Android Studio -- instead of the bundle.
 
-See: http://brew.sh/
+==== On a Mac you can use brew ====
+Install brew if you don't already have it. Instructions are at http://brew.sh.
 
-2. Install Android SDK
-
+Install Android SDK
  brew update
  brew doctor
  brew install android
 
-3. On a Mac, you'll want to update your ~/.bash_profile file to set the $ANDROID_HOME variable to point to the 'sdk' folder contained in the compressed file you just extracted and to update your system path to point at some binaries.
+==== Other Platforms ====
+Download the SDK Tools from http://developer.android.com/sdk/index.html#Other
+
+==== All Platforms ====
+Update your ~/.bash_profile file to set the $ANDROID_HOME variable to point to the 'sdk' folder contained in the compressed file you just extracted and to update your system path to point at some binaries.
 
  export ANDROID_HOME=/usr/local/opt/android-studio-sdk
  export PATH=$ANDROID_HOME/tools:$PATH
@@ -31,7 +48,7 @@ Source your your ~/.bash_profile
 
 Now, and any time you open a new Terminal, the $ANDROID_HOME variable will be set automatically and you'll be able to run command line tools pertinent to Android software development, such as the tool aptly named "android".
 
-4. Speaking of which, in a new Terminal window, run the following commands:
+Install the Android SDK components needed for the Wikipedia Android app:
  android update sdk -u --filter "tools,platform-tools,build-tools-21.1.1,android-21,extra-android-m2repository"
 
 After you accept the licenses, this will download and install the necessary SDK components for you to build the app.
@@ -40,7 +57,6 @@ You can find more components via:
  android list sdk -e -a
 
 Alternatively, you can use the GUI:
-
  android &
 
 This will load a GUI tool called "Android SDK Manager" for managing the Android-related packages necessary for Android programming.
@@ -51,7 +67,7 @@ You may want to install some more packages from there.
 
 It's usually best to run the app on real devices, but sometimes it's useful to use an emulator when a certain physical device is not available, like a different form factor (7", 10" tablet, ...).
 
-5. If planning to use Android emulators, consider adding the "System Image" packages of various API levels in in the Android SDK Manager.
+If planning to use Android emulators, consider adding the "System Image" packages of various API levels in in the Android SDK Manager.
 Example:
 * ARM EABI v7a System Image (API 21)
 
@@ -65,7 +81,7 @@ You can find the dmg in $ANDROID_HOME/extras/intel/Hardware_Accelerated_Executio
 Select a good memory limit. It depends on your machine. Some got it set to 2048 MB.
 
 
-To set up actual emulators you'd want to run the following command in Terminal:
+To set up actual emulators you'd want to run the following command in Terminal (or from Android Studio):
 
  android avd &
 
@@ -83,67 +99,9 @@ If instead you get:
  HAX is working and emulator runs in fast virt mode
 Congrats! You should have a much faster emulator. :)
 
-=== Git ===
+=== Gradle and Android Studio ===
 
-6. In the parent directory of your programming projects, run the following commands:
-
- git clone https://git.wikimedia.org/git/apps/android/wikipedia.git
-
-If you've never used git, you will need to search the web on how to add git to the system from Apple Xcode, and then study on how to use git (look for material on https://mediawiki.org for git convention as practiced by MediaWiki programmers).
-
-Assuming the git clone operation worked, you will have a new folder representing the freshly cloned repository, "wikipedia".
-
-7. It is recommended to rename the folder for the "wikipedia" repository to ensure you know which OS it's for (there's an iOS app by the name of "wikipedia", too, so it's good to have different folder names at the root of the repos).
-
- mv wikipedia/ android-wikipedia/
-
-
-=== Option 1: Maven and IntelliJ ===
-
-In the past we've been using Maven and IntelliJ. In the future it'll be Gradle and Android Studio. Currently you can use either combination, the latter is probably simple to get started. So, if you're new jump straight to the Gradle and Android Studio section.
-If you plan to use Maven for the build then it's probably good to rm or mv the build.gradle file at the root level, as to not confuse IntelliJ with it.
-
-==== Install Maven ====
-
-8. Download and install Maven from http://maven.apache.org/download.cgi. Follow the instructions in the section "Unix-based Operating Systems (Linux, Solaris and Mac OS X)". Note again how the instructions talk about setting environment variables. Assuming, you created /usr/local/apache-maven and planted a folder in there called, for example, "apache-maven-3.1.1", you would want to add the following to your ~/.bash_profile:
-
- export M2_HOME=/usr/local/apache-maven/apache-maven-3.1.1
- export M2=$M2_HOME/bin
- export MAVEN_OPTS="-Xms256m -Xmx512m"
- export PATH=$M2:$PATH
-
-Source your your ~/.bash_profile
-
- source ~/.bash_profile
-
-Type the following command to ensure Maven is working.
-
- mvn --version
-
-==== Install IntelliJ IDEA ====
-
-9. Install IntelliJ IDEA Community Edition from http://www.jetbrains.com/idea/download/index.html.
-
-10. Open IntelliJ IDEA, and choose to Import Project. Select the "android-wikipedia" folder and click OK.
-
-In the Import Project dialog box, select the "Import project from external model" radio button and then choose "Maven" from the list of options. Click Next.
-
-The defaults on the next screen need one tweak: check the checkbox labeled "Import Maven Projects automatically". Click Next.
-
-On the next screen, there should be one checkbox checked for the project to import. Leave it as is, and then click Next.
-
-In the next screen, on the left hand pane, highlight the "Android API 19 Platform", ensure that Build Target of 4.4 and and Java SDK of 1.6 are set before clicking Next. If you didn't see the "Android API 19 Platform" option, you will probably need to (1) click the "+" symbol and choose "JDK" on this dialog box to first add the base SDK '1.6' value; IntelliJ kind of just figures out where the Java SDK is based for you, so don't be surprised if it has dug several folders deep...then (2) click the "+" symbol again choose "Android SDK", then navigate to the "sdk" folder of the ADT folder.
-
-On the next screen accept the default of "wikipedia-parent" and click Finish.
-
-11. Now wait - it can take a while! - IntelliJ IDEA will try to download project dependencies with its Maven integration. Sometimes you need to cd into the android-wikimedia folder do a mvn install to jumpstart the process, alternating back and forth to figure out the source of dependency problems and to get things downloaded.
-
-A message may pop up that says, "Error when importing module '~apklib-android.support_compatibility-v7-appcompat_20.0.0': Cannot find src directory in <project path>/wikipedia/gen-external-apklibs/android.support_compatibility-v7-appcompat_20.0.0" - this message may safely be ignored.
-
-
-=== Option 2: New: Gradle and Android Studio ===
-
-The Gradle build works best in combination with Android Studio but it should work with IntelliJ as well. (Android Studio is based on IntelliJ Community Edition.)
+We've moved from Maven to Gradle builds. The Gradle build works best in combination with Android Studio but it should work with IntelliJ as well but we don't test/support it anymore. (Android Studio is based on IntelliJ Community Edition.)
 If you a trying out both the Maven build (from IntelliJ) and the Gradle build (from Android Studio or IntelliJ) a separate repo clone is recommended as to not confuse IntelliJ.
 
 ==== No need to install Gradle ====
@@ -153,9 +111,11 @@ This also ensures that everyone has the same build environment.
 
 ==== Install Android Studio ====
 
-Download and install the latest beta from http://tools.android.com/download/studio. (Stable is not available as of this writing).
+Download and install the latest Android Studio IDE from http://developer.android.com/sdk/index.html#Other.
+Alternatively, you can find the latest beta also at http://tools.android.com/download/studio.
+Make sure you have 1.0.0 or newer.
 
-Optional plugins for Android Studio 0.8.9 (= 135.*):
+Optional plugins for Android Studio 1.0.0 (= 135.*):
 * [http://plugins.jetbrains.com/plugin/7322?pr= Python Community Edition]: use version 3.4.135.24.
 
 * For JavaScript there is no plugin available, but you can get syntax highlighting with this
@@ -167,18 +127,59 @@ On MacOS the file is ~/Library/Preferences/AndroidStudioBeta/filetypes/Javascrip
 In the Quick Start or later from the File menu select "Import Project..."
 Select the folder you clone the git repo to (e.g. android-wikipedia)
 
-If prompted, provide the path to the Android SDK: /usr/local/opt/android-sdk
-
-No need to install Gradle since we're using the Gradle wrapper script.
+If prompted, provide the path to the Android SDK: e.g. /usr/local/opt/android-sdk
 
 The defaults on the next screen may need one tweak: check the radio button labeled "Use customizable gradle wrapper". (The Gradle wrapper files already exist in the android-wikipedia Git repository.) Click Next.
 
-Once the import is complete, you probably want to change the build variant to devDebug.
+Once the import is complete, you can change the build variant to devDebug but leaving it at alphaDebug is fine, too.
 To do so see the Build Variants tab on the left hand side of Android Studio. If you don't see any tabs on the side click on the button in the lower left, which looks like a computer display.
 
 In Android Studio go to Build > Make Project.
 
-If you are missing the Android support libraries please note that Gradle pulls them from the local Android SDK installation if the '''extra-android-m2repository''' package is installed. See step 4 above.
+If you are missing the Android support libraries please note that Gradle pulls them from the local Android SDK installation if the '''extra-android-m2repository''' package is installed.
+
+==== Run the app ====
+
+Now, it's time to either run the app on an Android device or in an emulator. The emulator is slow due to being a full stack implementation. So most people seem to prefer to push apps to real Android devices.
+
+To setup a configuration for a real Android device, first, on your Android device, go into Settings. Depending on your version of Android OS, you may need to take a different approach, but usually you can go to "About <phone/table>" and tap repeatedly on the "Build number" cell until it tells you that you've put the device in developer mode. Now that developer mode is turned on, from the Settings app go into "Developer options" and turn on USB debugging (you may want to turn this feature off later on when you don't need it). Now, connect your Android device to your Mac. You'll be prompted with a message about allowing USB debugging for a particular RSA key fingerprint. Click OK to that.
+
+Next, in Android Studio
+# Go to Run > Edit Configurations.
+# Click the "+" symbol and choose Android Application.
+# Choose "wikipedia" for the Module.
+# Change the Target Device from Emulator to USB Device.
+# Enter a name in the Name field, such as "Default Activity USB".
+# Click OK
+
+Now up in the top right part of IDEA/AS you should see a green colored play button. Also if you go to the Run menu you should see an option to, for example "Default Activity USB". Use either option to pop the app onto your device and run it!
+
+One of IntelliJ's standout features is debugging. If you want to do that, you just need to click the Debug (green bug) button. To set breakpoints in your code, as with other IDEs, click in the gutter to the left of the source code in the IDE and notice that a little red circle is added. For example, if you set a breakpoint in the first line of public CommunicationBridge(final WebView webView, final String baseURL) in CommunicationBridge.java -
+
+ this.webView = webView;
+
+- you'll get a glimpse into what actually happens the moment after tapping on an article title from search results. With the debugger, you can step through the code one line at a time, jump over methods, manipulate variables to see what would happen, and so on. Refer to online documentation to learn more about how the debugger works.
+
+If you wanted to use the emulator you can create another Run configuration.
+
+Go to Run > Edit Configurations in IDEA/AS again, click the '+' symbol, choose Android Application, set the Module to 'wikipedia' again, and chose Show chooser dialog, set a name like Default Activity Prompt, and click OK. Then click the Play button or use the Run menu to get it started. Once the build is complete a dialog will let you chose the emulator to start or you can chose an already running one, which is much faster, of course. Then wait a while for everything to fire up and enjoy the emulator.
+
+==== Logcat Configuration ====
+
+After starting the project you'll likely notice a torrent of messages in the logcat window, and so it can help to setup a filter to cut down on those messages.
+
+* At the top of the window, click on the "No Filters" drop-down list and select "Edit Filter Configuration"
+* Change the name to something more meaningful ("org.wikipedia" for example)
+* In the text field "by Package Name" enter "org.wikipedia"
+* Because the log level can be changed on the main interface, it may be helpful to leave the level set to "Verbose"
+* Select "OK"
+
+==== Checkstyle Configuration to see Checkstyle errors as you type ====
+
+In the IDEA/AS preferences (settings), go to Plugins and install the Checkstyle-IDEA inspection plugin.
+Then go to the Checkstyle setting and add a new configuration file: browse to the local file checkstyle.xml.
+Make sure you check the new configuration file so our checkstyle inspections are enabled and show up as IntelliJ errors in the code editor.
+Also check "Scan test classes" above.
 
 ==== Useful Gradle commands ====
 
@@ -199,67 +200,36 @@ To run tests:
 This might take some time.
 The output will contain an HTML page with nicely formatted test results
 
+Refresh dependencies (usually not needed):
+./gradlew --refresh-dependencies
+
 List dependencies:
  ./gradlew wikipedia:dependencies --configuration compile
 
+Instead of "DevDebug" you can also use other build variants like "AlphaDebug", "BetaDebug", or "ProdDebug".
+Note that to use the "Release" build type you need to have a keystore and a properties file set up, see the end of the wikipedia/build.gradle file for hints.
+
 More info: http://developer.android.com/sdk/installing/studio-build.html
 
-=== Back to common Setup in IntelliJ (IDEA) or Android Studio (AS) ===
 
-We'll just call it IDEA/AS for IntelliJ IDEA or Android Studio.
+== Help make it better! ==
 
-12. Assuming all dependencies were downloaded cleanly, in IDEA/AS go to Build > Make Project.
+=== Testing ===
+* Alpha releases: https://android-builds.wmflabs.org (happen automatically on the half hour mark after code gets merged to master)
+* Beta releases: https://play.google.com/store/apps/details?id=org.wikipedia.beta
+* Production releases: https://play.google.com/store/apps/details?id=org.wikipedia
 
-13. If everything goes well, the project will have compiled neatly. There may be a few warnings, but no fatal errors.
+=== Gerrit ===
+Learn about Gerrit and how to submit patches in this [http://www.mediawiki.org/wiki/Gerrit/Getting_started short guide] or the  [http://www.mediawiki.org/wiki/Gerrit/Tutorial tutorial].
 
-Now, it's time to either run the app on an Android device or in an emulator. The emulator is slow due to being a full stack implementation. So most people seem to prefer to push apps to real Android devices.
-
-14. To setup a configuration for a real Android device, first, on your Android device, go into Settings. Depending on your version of Android OS, you may need to take a different approach, but usually you can go to "About <phone/table>" and tap repeatedly on the "Build number" cell until it tells you that you've put the device in developer mode. Now that developer mode is turned on, from the Settings app go into "Developer options" and turn on USB debugging (you may want to turn this feature off later on when you don't need it). Now, connect your Android device to your Mac. You'll be prompted with a message about allowing USB debugging for a particular RSA key fingerprint. Click OK to that.
-
-Next, in IDEA/AS
-
-*A. Go to Run > Edit Configurations.
-*B. Click the "+" symbol and choose Android Application.
-*C. Choose "wikipedia" for the Module.
-*D. Change the Target Device from Emulator to USB Device.
-*E. Enter a name in the Name field, such as "Default Activity USB".
-*F. Click OK
-
-Now up in the top right part of IDEA/AS you should see a green colored play button. Also if you go to the Run menu you should see an option to, for example "Default Activity USB". Use either option to pop the app onto your device and run it!
-
-One of IntelliJ's standout features is debugging. If you want to do that, you just need to click the Debug (green bug) button. To set breakpoints in your code, as with other IDEs, click in the gutter to the left of the source code in the IDE and notice that a little red circle is added. For example, if you set a breakpoint in the first line of public CommunicationBridge(final WebView webView, final String baseURL) in CommunicationBridge.java -
-
- this.webView = webView;
-
-- you'll get a glimpse into what actually happens the moment after tapping on an article title from search results. With the debugger, you can step through the code one line at a time, jump over methods, manipulate variables to see what would happen, and so on. Refer to online documentation to learn more about how the debugger works.
-
-15. If you wanted to use the emulator you can create another Run configuration.
-
-Go to Run > Edit Configurations in IDEA/AS again, click the '+' symbol, choose Android Application, set the Module to 'wikipedia' again, and chose Show chooser dialog, set a name like Default Activity Prompt, and click OK. Then click the Play button or use the Run menu to get it started. Once the build is complete a dialog will let you chose the emulator to start or you can chose an already running one, which is much faster, of course. Then wait a while for everything to fire up and enjoy the emulator.
-
-16. Logcat Configuration
-
-After starting the project you'll likely notice a torrent of messages in the logcat window, and so it can help to setup a filter to cut down on those messages.
-
-* At the top of the window, click on the "No Filters" drop-down list and select "Edit Filter Configuration"
-* Change the name to something more meaningful ("org.wikipedia" for example)
-* In the text field "by Package Name" enter "org.wikipedia"
-* Because the log level can be changed on the main interface, it may be helpful to leave the level set to "Verbose"
-* Select "OK"
-
-17. Checkstyle Configuration to see Checkstyle errors as you type
-
-In the IDEA/AS preferences (settings), go to Plugins and install the Checkstyle-IDEA inspection plugin.
-Then go to the Checkstyle setting and add a new configuration file: browse to the local file checkstyle.xml.
-Make sure you check the new configuration file so our checkstyle inspections are enabled and show up as IntelliJ errors in the code editor.
-Also check "Scan test classes" above.
-
-18. Enjoy.
-
-19. Help make it better!
+See pending/recent code reviews:
+* Wikipedia app: https://gerrit.wikimedia.org/r/#/projects/apps/android/wikipedia,dashboards/default
+* Java MW-API: https://gerrit.wikimedia.org/r/#/projects/apps/android/java-mwapi,dashboards/default
 
 
-== Specials ==
+== Scripts ==
+
+Theses scripts are for certain situations. The results of these scripts get added to version control, so they are not needed for building the app.
 
 === Update bundled CSS files ===
 
@@ -289,12 +259,10 @@ Install dependencies for packaging:
  npm install
 
 Building:
-
  cd www
  grunt
 
 This will produce output files under wikipedia/assets which will be included in the .apk.
-
 
 You can also have grunt run continuously, watching the effected files for updates and running the build tasks automatically.
 This might be useful.
