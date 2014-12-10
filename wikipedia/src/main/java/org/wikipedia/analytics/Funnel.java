@@ -1,14 +1,11 @@
 package org.wikipedia.analytics;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.settings.PrefKeys;
 
 public abstract class Funnel {
     private final String schemaName;
@@ -20,13 +17,10 @@ public abstract class Funnel {
      */
     public static final String ANALYTICS_TAG = "Analytics";
 
-    private final SharedPreferences prefs;
     protected Funnel(WikipediaApp app, String schemaName, int revision) {
         this.app = app;
         this.schemaName = schemaName;
         this.revision = revision;
-
-        this.prefs = PreferenceManager.getDefaultSharedPreferences(app);
     }
 
     protected WikipediaApp getApp() {
@@ -70,8 +64,8 @@ public abstract class Funnel {
      *                depending on what they are logging.
      */
     protected void log(Site site, Object... params) {
-        if (!prefs.getBoolean(PrefKeys.getEventLoggingEnabled(), true)) {
-            // If EL is turned off, this is a NOP
+        if (!app.isEventLoggingEnabled()) {
+            // Do not send events if the user opted out of EventLogging
             return;
         }
         JSONObject eventData = new JSONObject();

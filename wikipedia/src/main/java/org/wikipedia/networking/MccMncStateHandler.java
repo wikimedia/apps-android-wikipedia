@@ -1,12 +1,10 @@
 package org.wikipedia.networking;
 
 import android.content.Context;
-import android.preference.PreferenceManager;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.settings.PrefKeys;
 
 import java.util.HashMap;
 
@@ -30,7 +28,7 @@ public class MccMncStateHandler {
         }
         // Forget about it if it was already sent or user opted out of logging or the API server isn't a mobile Wikipedia.
         if (this.mccMncSent
-            || !PreferenceManager.getDefaultSharedPreferences(this.app).getBoolean(PrefKeys.getEventLoggingEnabled(), true)
+            || !app.isEventLoggingEnabled()
             || !(site.getApiDomain().contains(".m.wikipedia.org"))) {
             return null;
         }

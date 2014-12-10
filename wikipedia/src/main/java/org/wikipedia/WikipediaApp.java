@@ -580,6 +580,15 @@ public class WikipediaApp extends Application {
         return Utils.getFontSizeFromSp(window, getResources().getDimension(R.dimen.textSize)) * (1.0f + multiplier * FONT_SIZE_FACTOR);
     }
 
+    /**
+     * Gets whether EventLogging is currently enabled or disabled.
+     *
+     * @return A boolean that is true if EventLogging is enabled, and false if it is not.
+     */
+    public boolean isEventLoggingEnabled() {
+        return prefs.getBoolean(PrefKeys.getEventLoggingEnabled(), true);
+    }
+
     public List<String> getLanguageMruList() {
         if (languageMruList == null) {
             languageMruList = new ArrayList<String>();
