@@ -33,6 +33,7 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -570,12 +571,19 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 convertView = inflater.inflate(LAYOUT_ID, parent, false);
                 viewHolder.thumbnail = (NearbyCompassView) convertView.findViewById(R.id.nearby_thumbnail);
                 viewHolder.title = (TextView) convertView.findViewById(R.id.nearby_title);
+                viewHolder.description = (TextView) convertView.findViewById(R.id.nearby_description);
                 viewHolder.distance = (TextView) convertView.findViewById(R.id.nearby_distance);
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
             viewHolder.title.setText(nearbyPage.getTitle());
+            if (TextUtils.isEmpty(nearbyPage.getDescription())) {
+                viewHolder.description.setVisibility(View.GONE);
+            } else {
+                viewHolder.description.setText(nearbyPage.getDescription());
+                viewHolder.description.setVisibility(View.VISIBLE);
+            }
 
             if (nearbyPage.getLocation() != null) {
                 // set the calculated angle as the base angle for our compass view
@@ -630,6 +638,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         private class ViewHolder {
             private NearbyCompassView thumbnail;
             private TextView title;
+            private TextView description;
             private TextView distance;
         }
     }

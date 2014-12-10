@@ -38,10 +38,11 @@ public class NearbyFetchTask extends ApiTask<NearbyResult> {
     @Override
     public RequestBuilder buildRequest(Api api) {
         return api.action("query")
-                .param("prop", "coordinates|pageimages")
+                .param("prop", "coordinates|pageimages|pageterms")
                 .param("colimit", LIMIT)
                 .param("pithumbsize", THUMBNAIL_WIDTH)
                 .param("pilimit", LIMIT)
+                .param("wbptterms", "description")
                 .param("generator", "geosearch")
                 .param("ggscoord", locationParam(location))
                 .param("ggsradius", RADIUS)

@@ -39,15 +39,24 @@
             style="?android:textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="1dp"
             android:text="Title"
             tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/nearby_description"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/reference_text" />
 
         <TextView
             android:id="@+id/nearby_distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="2dp"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
             android:paddingLeft="8dp"

@@ -29,6 +29,7 @@ class NearbyPage {
 
     private String title;
     private String thumblUrl;
+    private String description;
     private Location location;
 
     /** calculated externally */
@@ -57,6 +58,13 @@ class NearbyPage {
                     thumblUrl = source;
                 }
             }
+            final JSONObject terms = json.optJSONObject("terms");
+            if (terms != null) {
+                final JSONArray descArray = terms.optJSONArray("description");
+                if (descArray != null) {
+                    description = descArray.optString(0);
+                }
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -68,6 +76,10 @@ class NearbyPage {
 
     public String getThumblUrl() {
         return thumblUrl;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public Location getLocation() {
