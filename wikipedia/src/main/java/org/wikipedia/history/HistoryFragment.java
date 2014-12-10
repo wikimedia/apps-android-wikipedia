@@ -295,7 +295,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (((PageActivity)getActivity()).isSearching()) {
+        if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
             return;
         }
         inflater.inflate(R.menu.menu_history, menu);
@@ -305,7 +305,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if (((PageActivity)getActivity()).isSearching()) {
+        if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
             return;
         }
         menu.findItem(R.id.menu_clear_all_history).setEnabled(historyEntryList.getCount() > 0);

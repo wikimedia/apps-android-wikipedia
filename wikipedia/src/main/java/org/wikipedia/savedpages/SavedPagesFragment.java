@@ -278,7 +278,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (((PageActivity)getActivity()).isSearching()) {
+        if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
             return;
         }
         inflater.inflate(R.menu.menu_saved_pages, menu);
@@ -289,7 +289,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if (((PageActivity)getActivity()).isSearching()) {
+        if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
             return;
         }
         menu.findItem(R.id.menu_clear_all_saved_pages).setEnabled(savedPagesList.getCount() > 0);
