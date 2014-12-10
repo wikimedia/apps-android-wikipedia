@@ -528,12 +528,7 @@ public class PageViewFragmentInternal {
             //reset our scroll offset, since we have a section scroll target
             scrollY = 0;
 
-            // immediately hide the webview
-            webView.setVisibility(View.GONE);
-            // and the lead image
-            leadImagesHandler.hide();
-            // and the bottom content
-            bottomContentHandler.hide();
+            hidePageContent();
 
             // and reload the page...
             setState(STATE_NO_FETCH);
@@ -935,11 +930,18 @@ public class PageViewFragmentInternal {
         }
     }
 
-    private void showNetworkError() {
-        // Check for the source of the error and have different things turn up
+    /**
+     * Convenience method for hiding all the content of a page.
+     */
+    private void hidePageContent() {
         leadImagesHandler.hide();
         bottomContentHandler.hide();
         webView.setVisibility(View.INVISIBLE);
+    }
+
+    private void showNetworkError() {
+        // Check for the source of the error and have different things turn up
+        hidePageContent();
         ViewAnimations.fadeIn(networkError);
     }
 
@@ -1054,12 +1056,7 @@ public class PageViewFragmentInternal {
         if (saveOnComplete) {
             Toast.makeText(getActivity(), R.string.toast_refresh_saved_page, Toast.LENGTH_LONG).show();
         }
-        // immediately hide the webview
-        webView.setVisibility(View.GONE);
-        // and the lead image
-        leadImagesHandler.hide();
-        // and the bottom content
-        bottomContentHandler.hide();
+        hidePageContent();
         curEntry = new HistoryEntry(title, HistoryEntry.SOURCE_HISTORY);
         setState(STATE_NO_FETCH);
         performActionForState(state);
