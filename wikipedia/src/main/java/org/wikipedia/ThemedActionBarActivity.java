@@ -1,8 +1,10 @@
 package org.wikipedia;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 import java.lang.reflect.Field;
 
@@ -38,5 +40,25 @@ public abstract class ThemedActionBarActivity extends ActionBarActivity {
         } catch (Exception ex) {
             // multiple exceptions may be thrown above, but it's not super critical if it fails.
         }
+    }
+
+    // Hack for https://phabricator.wikimedia.org/T78117: onKeyDown + onKeyUp
+    // Consider removing once updating appcompat-v7.
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_MENU && "LGE".equalsIgnoreCase(Build.BRAND)) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_MENU && "LGE".equalsIgnoreCase(Build.BRAND)) {
+            openOptionsMenu();
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
     }
 }
