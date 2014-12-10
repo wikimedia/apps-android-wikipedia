@@ -33,7 +33,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     private ViewGroup infoContainer;
     private ProgressBar progressBar;
 
-    boolean controlsShowing = true;
+    private boolean controlsShowing = true;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
