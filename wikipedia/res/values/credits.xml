@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="contributors_list">Adam Baso, Amir E. Aharoni, Anirudh S, Bernd Sitzmann, Brion Vibber, Dan Garry, Dmitry Brant, Kenan Wang, Maryana Pinchuk, Max Semenik, Moiz Syed, Monte Hurd, Mun May Tee, Nicole Borrelli, Niklas Laxström, Thomas PT, Tomasz Finc, Vibha Bamba, Yuvi Panda</string>
-    <string name="libraries_list"><a href="https://github.com/keyboardsurfer/Crouton">Crouton</a>,
-        <a href="https://github.com/ragunathjawahar/android-saripaar">Saripaar</a>,
-        <a href="https://square.github.io/otto/">Otto</a>,
-        <a href="http://acra.ch">ACRA</a>,
-        <a href="http://square.github.io/okhttp/">OkHttp</a>,
-        <a href="https://github.com/kevinsawicki/http-request">Http Request</a>,
+    <string name="libraries_list"><a href="http://acra.ch">ACRA</a>
+        <!--  https://raw.githubusercontent.com/ACRA/acra/master/LICENSE -->
+        (<a title="acra-title" name="acra-name" href="file:///android_asset/licenses/ACRA">license</a>),
+
+        <a href="https://github.com/keyboardsurfer/Crouton">Crouton</a>
+        <!-- https://raw.githubusercontent.com/keyboardsurfer/Crouton/master/LICENSE -->
+        (<a href="file:///android_asset/licenses/Crouton">license</a>),
+
+        <a href="https://github.com/kevinsawicki/http-request">Http-Request</a>
+        <!-- https://raw.githubusercontent.com/kevinsawicki/http-request/master/LICENSE.md -->
+        (<a href="file:///android_asset/licenses/Http-Request">license</a>),
+
         <a href="http://nineoldandroids.com/">NineOldAndroids</a>
+        <!-- end of https://github.com/JakeWharton/NineOldAndroids/ -->
+        (<a href="file:///android_asset/licenses/NineOldAndroids">license</a>),
+
+        <a href="https://square.github.io/okhttp/">OkHttp</a>
+        <!-- end of https://square.github.io/okhttp -->
+        (<a href="file:///android_asset/licenses/OkHttp">license</a>),
+
+        <a href="https://square.github.io/otto/">Otto</a>
+        <!-- end of http://square.github.io/otto -->
+        (<a href="file:///android_asset/licenses/Otto">license</a>),
+
+        <a href="https://github.com/ragunathjawahar/android-saripaar">Saripaar</a>
+        <!-- end of https://github.com/ragunathjawahar/android-saripaar/blob/master/README.md -->
+        (<a href="file:///android_asset/licenses/Saripaar">license</a>)
     </string>
 </resources>

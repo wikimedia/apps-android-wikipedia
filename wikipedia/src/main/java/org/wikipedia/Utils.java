@@ -486,6 +486,25 @@ public final class Utils {
     }
 
     /**
+     * Reads the contents of a file, preserving line breaks.
+     * @return contents of the given file as a String.
+     * @throws IOException
+     */
+    public static String readFile(final InputStream inputStream) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        try {
+            StringBuilder stringBuilder = new StringBuilder();
+            String readStr;
+            while ((readStr = reader.readLine()) != null) {
+                stringBuilder.append(readStr).append('\n');
+            }
+            return stringBuilder.toString();
+        } finally {
+            reader.close();
+        }
+    }
+
+    /**
      * Format for formatting/parsing dates to/from the ISO 8601 standard
      */
     private static final String ISO8601_FORMAT_STRING = "yyyy-MM-dd'T'HH:mm:ss'Z'";

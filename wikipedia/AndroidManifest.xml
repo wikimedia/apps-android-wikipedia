@@ -100,6 +100,13 @@
         <activity android:name=".page.gallery.GalleryActivity"
                   android:theme="@style/NoTitle"
                 />
+        <activity android:name=".settings.LicenseActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:pathPrefix="/android_asset/licenses/" android:scheme="file" />
+            </intent-filter>
+        </activity>
 
         <provider
             android:authorities="${applicationId}.history"
