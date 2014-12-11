@@ -13,16 +13,21 @@ import com.squareup.otto.Subscribe;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class SearchArticlesFragment extends Fragment {
     private static final String ARG_LAST_SEARCHED_TEXT = "lastSearchedText";
@@ -34,6 +39,7 @@ public class SearchArticlesFragment extends Fragment {
 
     private WikipediaApp app;
     private SearchView searchView;
+    private EditText searchEditText;
     private SearchFunnel funnel;
     public SearchFunnel getFunnel() {
         return funnel;
@@ -346,27 +352,50 @@ public class SearchArticlesFragment extends Fragment {
 
     private void setSearchViewEnabled(boolean enabled) {
         View searchButton = getActivity().findViewById(R.id.main_search_bar);
-        searchView = (SearchView)getActivity().findViewById(R.id.main_search_view);
         if (enabled) {
+            // set up the SearchView...
+            if (searchView == null) {
+                searchView = (SearchView)getActivity().findViewById(R.id.main_search_view);
+                searchView.setOnQueryTextListener(searchQueryListener);
+                searchView.setOnCloseListener(searchCloseListener);
+
+                searchEditText = (EditText) searchView
+                        .findViewById(android.support.v7.appcompat.R.id.search_src_text);
+                // need to explicitly set text color (you're welcome, 2.3!).
+                searchEditText.setTextColor(getResources().getColor(
+                        Utils.getThemedAttributeId(getActivity(), R.attr.edit_text_color)));
+                // and make the text size be the same as the size of the search field
+                // placeholder in the main activity
+                searchEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX, ((TextView) getActivity()
+                        .findViewById(R.id.main_search_bar_text)).getTextSize());
+                // reset its background
+                searchEditText.setBackgroundColor(Color.TRANSPARENT);
+                // make the search frame match_parent
+                View searchEditFrame = searchView
+                        .findViewById(android.support.v7.appcompat.R.id.search_edit_frame);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                searchEditFrame.setLayoutParams(params);
+                // center the search text in it
+                searchEditText.setGravity(Gravity.CENTER_VERTICAL);
+                // and make the background of the search plate the same as our placeholder...
+                View searchPlate = searchView
+                        .findViewById(android.support.v7.appcompat.R.id.search_plate);
+                searchPlate.setBackgroundResource(Utils.getThemedAttributeId(getActivity(), R.attr.search_bar_shape));
+            }
+
+            updateZeroChrome();
             searchView.setIconified(false);
             searchView.requestFocusFromTouch();
-            searchView.setOnQueryTextListener(searchQueryListener);
-            searchView.setOnCloseListener(searchCloseListener);
-            searchView.setSubmitButtonEnabled(true);
-            updateZeroChrome();
-            EditText editText = getSearchViewEditText(searchView);
-            if (editText != null) {
-                // need to explicitly set text color (you're welcome, 2.3!).
-                editText.setTextColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.edit_text_color)));
-            }
+
             // if we already have a previous search query, then put it into the SearchView, and it will
             // automatically trigger the showing of the corresponding search results.
             if (isValidQuery(lastSearchedText)) {
                 searchView.setQuery(lastSearchedText, false);
                 // automatically select all text in the search field, so that typing a new character
                 // will clear it by default
-                if (editText != null) {
-                    editText.selectAll();
+                if (searchEditText != null) {
+                    searchEditText.selectAll();
                 }
             }
             searchButton.setVisibility(View.GONE);
@@ -377,33 +406,15 @@ public class SearchArticlesFragment extends Fragment {
         }
     }
 
-    /**
-     * Retrieve the EditText component from inside a SearchView widget, so that operations
-     * may be performed on the EditText, such as selecting text.
-     * @param parent SearchView from which to retrieve the EditText view.
-     * @return EditText view, or null if not found.
-     */
-    private EditText getSearchViewEditText(ViewGroup parent) {
-        for (int i = 0; i < parent.getChildCount(); i++) {
-            if (parent.getChildAt(i) instanceof EditText) {
-                return (EditText)parent.getChildAt(i);
-            } else if (parent.getChildAt(i) instanceof ViewGroup) {
-                EditText et = getSearchViewEditText((ViewGroup)parent.getChildAt(i));
-                if (et != null) {
-                    return et;
-                }
-            }
-        }
-        return null;
-    }
-
     /*
     Update any UI elements related to WP Zero
      */
     private void updateZeroChrome() {
-        if (searchView != null) {
-            searchView.setQueryHint(
-                    app.getWikipediaZeroHandler().isZeroEnabled() ? getString(R.string.zero_search_hint) : getString(R.string.search_hint));
+        if (searchEditText != null) {
+            // setting the hint directly on the search EditText (instead of the SearchView)
+            // gets rid of the magnify icon, which we don't want.
+            searchEditText.setHint(app.getWikipediaZeroHandler().isZeroEnabled() ? getString(
+                    R.string.zero_search_hint) : getString(R.string.search_hint));
         }
     }
 

@@ -266,8 +266,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
                     // If there are results, set up section and make sure it's visible
                     setupReadMoreSection(layoutInflater, readMoreItems);
                     readMoreContainer.setVisibility(View.VISIBLE);
-                }
-                else {
+                } else {
                     // If there's no results, just hide the section
                     readMoreContainer.setVisibility(View.GONE);
                 }

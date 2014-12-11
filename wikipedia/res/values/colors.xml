@@ -32,7 +32,7 @@
     <color name="button_light">#ff777777</color>
     <color name="window_background_light">#fff2f2f2</color>
     <color name="page_background_light">#ffffffff</color>
-    <color name="actionbar_background_light">#ffe0e0e0</color>
+    <color name="actionbar_background_light">#ffe8e8e8</color>
     <color name="search_background_light">#ffffffff</color>
     <color name="toc_background_light">#ffffffff</color>
     <color name="toc_section_text_light">#ff333333</color>
@@ -41,7 +41,7 @@
     <color name="abusefilter_background_light">#E8E8E8</color>
     <color name="subtle_gray_light">#fff0f0f0</color>
     <color name="list_separator_light">#ffcccccc</color>
-    <color name="search_bar_light">#fff0f0f0</color>
+    <color name="search_bar_light">#fff2f2f2</color>
 
     <color name="link_dark">#ff2B6FB2</color>
     <color name="button_dark">#ff2B6FB2</color>
