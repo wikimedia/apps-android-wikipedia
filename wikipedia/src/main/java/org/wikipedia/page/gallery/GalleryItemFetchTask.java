@@ -16,7 +16,7 @@ public class GalleryItemFetchTask extends PageQueryTask<GalleryItem> {
     public void buildQueryParams(RequestBuilder builder) {
         builder.param("prop", "imageinfo")
                .param("iiprop", "url|dimensions|mime|extmetadata")
-               .param("iiurlwidth", "2048");
+               .param("iiurlwidth", "2880");
     }
 
     @Override
