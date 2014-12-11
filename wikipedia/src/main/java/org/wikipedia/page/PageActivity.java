@@ -391,6 +391,16 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param f New fragment to place on top.
      */
     public void pushFragment(Fragment f) {
+        pushFragment(f, false);
+    }
+
+    /**
+     * Add a new fragment to the top of the activity's backstack, and optionally allow state loss.
+     * Useful for cases where we might push a fragment from an AsyncTask result.
+     * @param f New fragment to place on top.
+     * @param allowStateLoss Whether to allow state loss.
+     */
+    public void pushFragment(Fragment f, boolean allowStateLoss) {
         drawerLayout.closeDrawer(Gravity.START);
         // if the new fragment is the same class as the current topmost fragment,
         // then just keep the previous fragment there. (unless it's a PageViewFragment)
@@ -411,7 +421,11 @@ public class PageActivity extends ThemedActionBarActivity {
 
         trans.replace(R.id.content_fragment_container, f, "fragment_" + Integer.toString(totalFragments));
         trans.addToBackStack(null);
-        trans.commit();
+        if (allowStateLoss) {
+            trans.commitAllowingStateLoss();
+        } else {
+            trans.commit();
+        }
 
         // and make sure the ActionBar is visible
         showToolbar();
@@ -433,7 +447,23 @@ public class PageActivity extends ThemedActionBarActivity {
         updateProgressBar(false, true, 0);
     }
 
-    public void displayNewPage(final PageTitle title, final HistoryEntry entry) {
+    /**
+     * Load a new page, and put it on top of the backstack.
+     * @param title Title of the page to load.
+     * @param entry HistoryEntry associated with this page.
+     */
+    public void displayNewPage(PageTitle title, HistoryEntry entry) {
+        displayNewPage(title, entry, false);
+    }
+
+    /**
+     * Load a new page, and put it on top of the backstack, optionally allowing state loss of the
+     * fragment manager. Useful for when this function is called from an AsyncTask result.
+     * @param title Title of the page to load.
+     * @param entry HistoryEntry associated with this page.
+     * @param allowStateLoss Whether to allow state loss.
+     */
+    public void displayNewPage(PageTitle title, HistoryEntry entry, boolean allowStateLoss) {
         ACRA.getErrorReporter().putCustomData("api", title.getSite().getApiDomain());
         ACRA.getErrorReporter().putCustomData("title", title.toString());
 
@@ -458,15 +488,27 @@ public class PageActivity extends ThemedActionBarActivity {
             frag.closeFindInPage();
         }
 
-        pushFragment(PageViewFragment.newInstance(title, entry));
+        pushFragment(PageViewFragment.newInstance(title, entry), allowStateLoss);
 
         app.getSessionFunnel().pageViewed(entry);
     }
 
+    /**
+     * Go directly to the Main Page of the current Wiki.
+     */
     public void displayMainPage() {
+        displayMainPage(false);
+    }
+
+    /**
+     * Go directly to the Main Page of the current Wiki, optionally allowing state loss of the
+     * fragment manager. Useful for when this function is called from an AsyncTask result.
+     * @param allowStateLoss Whether to allow state loss.
+     */
+    public void displayMainPage(boolean allowStateLoss) {
         PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getPrimaryLanguage()), app.getPrimarySite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
-        displayNewPage(title, historyEntry);
+        displayNewPage(title, historyEntry, allowStateLoss);
     }
 
     public void showThemeChooser() {

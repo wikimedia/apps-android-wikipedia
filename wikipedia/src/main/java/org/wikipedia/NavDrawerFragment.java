@@ -80,8 +80,11 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 new RandomHandler.RandomListener() {
                     @Override
                     public void onRandomPageReceived(PageTitle title) {
+                        if (!isAdded()) {
+                            return;
+                        }
                         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
-                        ((PageActivity)getActivity()).displayNewPage(title, historyEntry);
+                        ((PageActivity)getActivity()).displayNewPage(title, historyEntry, true);
                     }
                 });
     }
@@ -209,7 +212,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                         if (!isAdded()) {
                             return;
                         }
-                        ((PageActivity)getActivity()).displayMainPage();
+                        ((PageActivity)getActivity()).displayMainPage(true);
                     }
                 }, DateUtils.SECOND_IN_MILLIS);
                 // clear Wikidata cache, since the descriptions will need to be
