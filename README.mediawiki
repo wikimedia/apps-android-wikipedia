@@ -195,6 +195,9 @@ You can skip the clean part usually, which makes it much faster (from 1m:05s to 
 To install build on device/emulator:
  ./gradlew -q installDevDebug
 
+To see ProGuard output:
+./gradlew clean --info proguardDevRelease
+
 To run tests:
  ./gradlew wikipedia:connectedAndroidTestDevDebug
 This might take some time.
