@@ -6,16 +6,16 @@ bridge.registerListener( "clearContents", function() {
 });
 
 bridge.registerListener( "setMargins", function( payload ) {
-    document.body.style.marginLeft = payload.marginLeft + "px";
-    document.body.style.marginRight = payload.marginRight + "px";
+    document.getElementById( "content" ).style.marginLeft = payload.marginLeft + "px";
+    document.getElementById( "content" ).style.marginRight = payload.marginRight + "px";
 });
 
 bridge.registerListener( "setPaddingTop", function( payload ) {
-    document.body.style.paddingTop = payload.paddingTop + "px";
+    document.getElementById( "content" ).style.paddingTop = payload.paddingTop + "px";
 });
 
 bridge.registerListener( "setPaddingBottom", function( payload ) {
-    document.body.style.paddingBottom = payload.paddingBottom + "px";
+    document.getElementById( "content" ).style.paddingBottom = payload.paddingBottom + "px";
 });
 
 bridge.registerListener( "displayLeadSection", function( payload ) {
