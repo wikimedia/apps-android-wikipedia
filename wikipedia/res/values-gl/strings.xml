@@ -44,7 +44,7 @@
   <string name="nav_item_nearby">Preto</string>
   <string name="menu_update_nearby">Actualizar preto</string>
   <string name="nearby_empty_title">Non hai páxinas achegadas aquí!</string>
-  <string name="nearby_distance_in_meters">%s m</string>
+  <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pés</string>
   <string name="nearby_distance_in_miles">%.2f millas</string>

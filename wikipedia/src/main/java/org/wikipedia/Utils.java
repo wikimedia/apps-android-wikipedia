@@ -424,7 +424,7 @@ public final class Utils {
                 // intent from the list, since the chooser already has it, and we don't need to
                 // add it again in putExtra. (initialize with the last item in the list, to preserve order)
                 Intent chooserIntent = Intent.createChooser(browserIntents.remove(browserIntents.size() - 1), null);
-                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, browserIntents.toArray(new Parcelable[]{}));
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, browserIntents.toArray(new Parcelable[browserIntents.size()]));
                 context.startActivity(chooserIntent);
                 return;
             }

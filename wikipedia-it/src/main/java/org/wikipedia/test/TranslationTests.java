@@ -169,7 +169,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
         }
     }
 
-    public void checkTranslationHasParameter(Res res, String paramName, Object val1, String alternateFormat) throws Exception {
+    public void checkTranslationHasParameter(Res res, String paramName, Object val1, String alternateFormat) {
         String translatedString = getInstrumentation().getTargetContext().getString(res.id, val1);
 //        Log.i(TAG, myLocale + ":" + translatedString);
         if (!translatedString.contains(String.format(paramName, val1))

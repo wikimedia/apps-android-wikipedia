@@ -24,7 +24,6 @@ public class CreateAccountTokenTest extends ActivityUnitTestCase<TestDummyActivi
         final Site testWiki = new Site("test.wikipedia.org");
         final String username = "someusername" + System.currentTimeMillis();
         final String password = "somepassword" + System.currentTimeMillis();
-        final WikipediaApp app = (WikipediaApp)getInstrumentation().getTargetContext().getApplicationContext();
 
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {

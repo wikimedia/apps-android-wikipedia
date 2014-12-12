@@ -45,7 +45,8 @@
                     android:id="@+id/page_image_placeholder"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@null"/>
                 <FrameLayout
                     android:id="@+id/page_title_container"
                     android:layout_width="match_parent"

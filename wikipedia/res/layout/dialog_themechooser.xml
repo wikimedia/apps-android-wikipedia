@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="wrap_content">
 
@@ -34,7 +35,7 @@
                     android:layout_margin="0dp"
                     android:text="−"
                     android:textSize="26sp"
-                    />
+                    tools:ignore="HardcodedText"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -46,7 +47,7 @@
                     android:layout_marginBottom="0dp"
                     android:text="○"
                     android:textSize="26sp"
-                    />
+                    tools:ignore="HardcodedText"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -55,7 +56,7 @@
                     android:layout_margin="0dp"
                     android:text="+"
                     android:textSize="26sp"
-                    />
+                    tools:ignore="HardcodedText"/>
         </LinearLayout>
 
         <View
@@ -84,6 +85,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonColorsLight"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:paddingLeft="28dp"
@@ -96,7 +99,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonColorsDark"
-                    android:layout_marginLeft="12dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:paddingLeft="28dp"
@@ -112,7 +116,7 @@
     <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|right"
+            android:layout_gravity="top|end"
             android:layout_margin="8dp"
             android:id="@+id/font_change_progress_bar"/>
 

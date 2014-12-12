@@ -16,7 +16,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/savedpages"/>
+                android:src="@drawable/savedpages"
+                android:contentDescription="@null"/>
         <TextView
                 android:id="@+id/saved_pages_empty_title"
                 android:layout_width="wrap_content"

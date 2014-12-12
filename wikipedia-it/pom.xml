@@ -9,7 +9,6 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.wikimedia</groupId>
     <artifactId>wikipedia-it</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>apk</packaging>

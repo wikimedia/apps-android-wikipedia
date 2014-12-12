@@ -5,7 +5,7 @@ import android.preference.PreferenceActivity;
 import android.view.MenuItem;
 import org.wikipedia.WikipediaApp;
 
-public class PreferenceActivityWithBack extends PreferenceActivity {
+public abstract class PreferenceActivityWithBack extends PreferenceActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         setTheme(WikipediaApp.getInstance().getCurrentTheme());

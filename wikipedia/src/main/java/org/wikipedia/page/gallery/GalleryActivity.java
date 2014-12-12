@@ -208,7 +208,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             } else {
                 Uri uri = Uri.parse(url);
                 String authority = uri.getAuthority();
-                if (authority != null && site.isSupportedSite(authority)
+                if (authority != null && Site.isSupportedSite(authority)
                     && uri.getPath().startsWith("/wiki/")) {
                     PageTitle title = site.titleForUri(uri);
                     finishWithPageResult(title);

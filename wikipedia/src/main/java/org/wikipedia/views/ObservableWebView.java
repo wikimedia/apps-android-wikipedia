@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ObservableWebView extends WebView {
+    private static final WebViewInvalidateEvent INVALIDATE_EVENT = new WebViewInvalidateEvent();
+
     private List<OnScrollChangeListener> onScrollChangeListeners;
     private List<OnDownMotionEventListener> onDownMotionEventListeners;
     private List<OnUpOrCancelMotionEventListener> onUpOrCancelMotionEventListeners;
@@ -120,6 +122,6 @@ public class ObservableWebView extends WebView {
                 listener.onContentHeightChanged(contentHeight);
             }
         }
-        WikipediaApp.getInstance().getBus().post(new WebViewInvalidateEvent());
+        WikipediaApp.getInstance().getBus().post(INVALIDATE_EVENT);
     }
 }

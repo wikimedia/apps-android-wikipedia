@@ -34,16 +34,16 @@ public class NonEmptyValidator {
             }
         };
 
-        for (int i = 0; i < editTexts.length; i++) {
-            editTexts[i].addTextChangedListener(triggerWatcher);
+        for (EditText editText : editTexts) {
+            editText.addTextChangedListener(triggerWatcher);
         }
     }
 
     private boolean lastIsValidValue = false;
     private void revalidate() {
         boolean isValid = true;
-        for (int i = 0; i < editTexts.length; i++) {
-            isValid = isValid && editTexts[i].getText().length() != 0;
+        for (EditText editText : editTexts) {
+            isValid = isValid && editText.getText().length() != 0;
         }
 
         if (isValid != lastIsValidValue) {

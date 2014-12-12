@@ -25,6 +25,7 @@
                     android:layout_width="96dp"
                     android:layout_height="96dp"
                     android:src="@drawable/about_logo"
+                    android:contentDescription="@null"
                     />
             <LinearLayout android:layout_width="0dp"
                           android:layout_height="72dp"

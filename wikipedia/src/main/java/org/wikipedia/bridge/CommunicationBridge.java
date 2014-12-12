@@ -1,5 +1,6 @@
 package org.wikipedia.bridge;
 
+import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -34,6 +35,7 @@ public class CommunicationBridge {
         void onMessage(String messageType, JSONObject messagePayload);
     }
 
+    @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
     public CommunicationBridge(final WebView webView, final String baseURL) {
         this.webView = webView;
         this.marshaller = new BridgeMarshaller();

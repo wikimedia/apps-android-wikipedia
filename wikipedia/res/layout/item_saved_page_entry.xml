@@ -31,7 +31,7 @@
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_pageimage_placeholder"
                 android:background="@android:color/transparent"
-                />
+                android:contentDescription="@null"/>
 
         <TextView
                 android:id="@+id/saved_page_title"
