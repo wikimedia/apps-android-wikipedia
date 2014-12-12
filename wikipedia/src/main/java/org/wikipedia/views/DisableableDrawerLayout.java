@@ -44,7 +44,7 @@ public class DisableableDrawerLayout extends FixedDrawerLayout {
     /**
      * The logical width (in dp) of the drag edge from which the user can drag out the drawer.
      */
-    private static final int DRAG_EDGE_WIDTH = 48;
+    private static final int DRAG_EDGE_WIDTH = 32;
 
     private void setDragEdgeWidth() {
         this.post(new Runnable() {
