@@ -45,6 +45,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     private GalleryItem currentGalleryItem;
     private PhotoViewAttacher attacher;
 
+    private View galleryContainer;
     private ImageView mainImage;
     private ViewGroup toolbarContainer;
     private ViewGroup infoContainer;
@@ -67,6 +68,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
 
+        galleryContainer = findViewById(R.id.gallery_container);
         mainImage = (ImageView) findViewById(R.id.gallery_image);
         attacher = new PhotoViewAttacher(mainImage);
         attacher.setOnViewTapListener(new PhotoViewAttacher.OnViewTapListener() {
@@ -90,7 +92,6 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
         creditText = (TextView) findViewById(R.id.gallery_credit_text);
         creditText.setShadowLayer(2, 1, 1, getResources().getColor(R.color.lead_text_shadow));
-        creditText.setMovementMethod(linkMovementMethod);
 
         pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
         currentImageTitle = getIntent().getParcelableExtra(EXTRA_IMAGETITLE);
@@ -276,7 +277,9 @@ public class GalleryActivity extends ThemedActionBarActivity {
                                public void onSuccess() {
                                    updateProgressBar(false, true, 0);
                                    attacher.update();
+                                   scaleImageToWindow();
                                }
+
                                @Override
                                public void onError() {
                                    showError(getString(R.string.gallery_error_draw_failed));
@@ -303,6 +306,29 @@ public class GalleryActivity extends ThemedActionBarActivity {
     }
 
     /**
+     * If the aspect ratio of the image is *almost* the same as the aspect ratio of our window,
+     * then just scale the image to fit, so that we won't see gray bars around the image upon
+     * first loading it!
+     */
+    private void scaleImageToWindow() {
+        if (currentGalleryItem.getWidth() == 0 || currentGalleryItem.getHeight() == 0) {
+            return;
+        }
+        final float scaleThreshold = 0.3f;
+        float windowAspect = (float) galleryContainer.getWidth()
+                             / (float) galleryContainer.getHeight();
+        float imageAspect = (float) currentGalleryItem.getWidth()
+                            / (float) currentGalleryItem.getHeight();
+        if (Math.abs(1.0f - imageAspect / windowAspect) < scaleThreshold) {
+            if (windowAspect > imageAspect) {
+                attacher.setScale(windowAspect / imageAspect);
+            } else {
+                attacher.setScale(imageAspect / windowAspect);
+            }
+        }
+    }
+
+    /**
      * Populate the description and license text fields with data from the current gallery item.
      */
     private void layoutGalleryDescription() {
@@ -311,38 +337,44 @@ public class GalleryActivity extends ThemedActionBarActivity {
             return;
         }
 
+        CharSequence descriptionStr = "";
         if (currentGalleryItem.getMetadata().containsKey("ImageDescription")) {
-            descriptionText.setText(
-                    Html.fromHtml(currentGalleryItem.getMetadata().get("ImageDescription")));
+            descriptionStr = Html
+                    .fromHtml(currentGalleryItem.getMetadata().get("ImageDescription"));
+            descriptionText.setText(Utils.trim(descriptionStr));
+            descriptionText.setVisibility(View.VISIBLE);
         } else {
-            descriptionText.setText("");
+            descriptionText.setVisibility(View.GONE);
         }
 
-        String licenseStr = "";
+        CharSequence licenseStr = "";
         if (currentGalleryItem.getMetadata().containsKey("LicenseShortName")) {
             licenseStr = currentGalleryItem.getMetadata().get("LicenseShortName");
         } else if (currentGalleryItem.getMetadata().containsKey("License")) {
             licenseStr = currentGalleryItem.getMetadata().get("License");
         }
-
         if (!TextUtils.isEmpty(licenseStr)) {
             // is there a license URL? If so, surround the string with it!
             if (currentGalleryItem.getMetadata().containsKey("LicenseUrl")) {
                 licenseStr = "<a href=\"" + currentGalleryItem.getMetadata().get("LicenseUrl")
-                             + "\">" + licenseStr + "</a>";
+                             + "\">" + Utils.trim(licenseStr) + "</a>";
             }
-            licenseText.setText(Html.fromHtml(
-                    String.format(getString(R.string.gallery_license_text), licenseStr)));
+            licenseStr = Html
+                    .fromHtml(String.format(getString(R.string.gallery_license_text), licenseStr));
+            licenseText.setText(licenseStr);
+            licenseText.setVisibility(View.VISIBLE);
         } else {
-            licenseText.setText("");
+            licenseText.setVisibility(View.GONE);
         }
 
+        CharSequence creditStr = "";
         if (currentGalleryItem.getMetadata().containsKey("Artist")) {
-            creditText.setText(Html.fromHtml(String.format(getString(R.string.gallery_credit_text),
-                                                           currentGalleryItem.getMetadata()
-                                                                             .get("Artist"))));
+            creditStr = String.format(getString(R.string.gallery_credit_text), Utils.trim(
+                    Html.fromHtml(currentGalleryItem.getMetadata().get("Artist"))));
+            creditText.setText(creditStr);
+            creditText.setVisibility(View.VISIBLE);
         } else {
-            creditText.setText("");
+            creditText.setVisibility(View.GONE);
         }
 
         infoContainer.setVisibility(View.VISIBLE);

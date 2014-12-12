@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="2dp"
-        android:textColor="@color/lead_text_color"
-        android:textColorLink="@color/lead_text_color"
+        android:textColor="@color/gallery_license_text"
+        android:textColorLink="@color/gallery_license_text"
         android:textSize="12sp"/>
 </LinearLayout>

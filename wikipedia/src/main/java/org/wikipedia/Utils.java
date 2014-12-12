@@ -89,6 +89,31 @@ public final class Utils {
     }
 
     /**
+     * Remove leading and trailing whitespace from a CharSequence. This is useful after using
+     * the fromHtml() function to convert HTML to a CharSequence.
+     * @param str CharSequence to be trimmed.
+     * @return The trimmed CharSequence.
+     */
+    public static CharSequence trim(CharSequence str) {
+        if (str == null || str.length() == 0) {
+            return "";
+        }
+        int len = str.length();
+        int start = 0;
+        int end = len - 1;
+        while (Character.isWhitespace(str.charAt(start)) && start < len) {
+            start++;
+        }
+        while (Character.isWhitespace(str.charAt(end)) && end > 0) {
+            end--;
+        }
+        if (end > start) {
+            return str.subSequence(start, end + 1);
+        }
+        return "";
+    }
+
+    /**
      * Creates an MD5 hash of the provided string & returns its base64 representation
      * @param s String to hash
      * @return Base64'd MD5 representation of the string passed in

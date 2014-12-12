@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import org.wikipedia.R;
+import org.wikipedia.Utils;
 import org.wikipedia.page.BottomDialog;
 import org.wikipedia.page.LinkMovementMethodExt;
 
@@ -73,7 +74,7 @@ public class DetailsDialog extends BottomDialog {
             }
 
             holder.text.setText((String)keys[position]);
-            holder.subText.setText(Html.fromHtml(item.getMetadata().get(keys[position])));
+            holder.subText.setText(Utils.trim(Html.fromHtml(item.getMetadata().get(keys[position]))));
             return convertView;
         }
     }

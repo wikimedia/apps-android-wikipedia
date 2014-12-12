@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gallery_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gallery_background">
@@ -55,19 +56,19 @@
             android:id="@+id/gallery_credit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/lead_text_color"
-            android:textColorLink="@color/lead_text_color"
-            android:maxLines="1"
+            android:textColor="@color/gallery_license_text"
+            android:textColorLink="@color/gallery_license_text"
             android:ellipsize="end"
+            android:maxLines="2"
             android:layout_marginTop="8dp"/>
         <TextView
             android:id="@+id/gallery_license_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/lead_text_color"
-            android:textColorLink="@color/lead_text_color"
+            android:textColor="@color/gallery_license_text"
+            android:textColorLink="@color/gallery_license_text"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:layout_marginTop="4dp"/>
     </LinearLayout>
 </FrameLayout>
