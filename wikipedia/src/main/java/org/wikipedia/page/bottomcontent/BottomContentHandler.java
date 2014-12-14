@@ -57,6 +57,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
     private View bottomContentContainer;
     private TextView pageLastUpdatedText;
     private TextView pageLicenseText;
+    private View readMoreContainer;
     private ListView readMoreList;
 
     private SuggestedPagesFunnel funnel;
@@ -80,6 +81,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
 
         pageLastUpdatedText = (TextView)bottomContentContainer.findViewById(R.id.page_last_updated_text);
         pageLicenseText = (TextView)bottomContentContainer.findViewById(R.id.page_license_text);
+        readMoreContainer = bottomContentContainer.findViewById(R.id.read_more_container);
         readMoreList = (ListView)bottomContentContainer.findViewById(R.id.read_more_list);
 
         // set up pass-through scroll functionality for the ListView
@@ -261,7 +263,13 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
             public void onFinish(FullSearchResults results) {
                 readMoreItems = results;
                 if (readMoreItems.getResults().size() > 0) {
+                    // If there are results, set up section and make sure it's visible
                     setupReadMoreSection(layoutInflater, readMoreItems);
+                    readMoreContainer.setVisibility(View.VISIBLE);
+                }
+                else {
+                    // If there's no results, just hide the section
+                    readMoreContainer.setVisibility(View.GONE);
                 }
                 layoutContent();
             }
