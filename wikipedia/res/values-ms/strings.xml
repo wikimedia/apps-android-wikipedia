@@ -77,6 +77,8 @@
   <string name="dialog_message_edit_failed_retry">Cuba lagi</string>
   <string name="dialog_message_edit_failed_cancel">Batalkan</string>
   <string name="dialog_message_leaving_edit">Suntingan anda belum disimpan. Betulkah anda mahu meninggalkan laman ini?</string>
+  <string name="dialog_message_leaving_edit_leave">Pergi</string>
+  <string name="dialog_message_leaving_edit_stay">Kekal di sini</string>
   <string name="menu_show_toc">Jadual Isi Kandungan</string>
   <string name="search_no_results_found">Tiada hasil carian</string>
   <string name="edit_section_captcha_message">Sebagai perlindungan daripada spam automatik, sila taipkan kata-kata yang tertera di bawah</string>
@@ -243,8 +245,6 @@
   <string name="search_recent_header">Carian terkini:</string>
   <string name="button_clear_all_recent_searches">Padamkan carian terkini</string>
   <string name="clear_recent_searches_confirm">Betulkah anda ingin memadamkan sejarah carian anda?</string>
-  <string name="search_titles_button">Tajuk</string>
-  <string name="search_full_button">Dalam rencana</string>
   <string name="toc_hint">Leret ke kiri untuk bahagian, atau gunakan butang menu di kanan atas.</string>
   <string name="toc_know_it">Saya faham</string>
   <string name="error_browser_not_found">Tidak dapat membuka laman web (tiada aplikasi pelayar ditemui).</string>
@@ -266,4 +266,13 @@ Kod ini adalah sumber terbuka sepenuhnya. Jika anda mempunyai pengalaman dengan 
   <string name="alpha_update_notification_title">Terdapat kemaskinian alfa baru</string>
   <string name="alpha_update_notification_text">Ketik untuk muat turun</string>
   <string name="dialog_close_description">Tutup</string>
+  <string name="preference_title_show_images">Paparkan imej</string>
+  <string name="preference_summary_show_images">Hidupkan atau matikan ciri-ciri memuatkan gambar dalam laman. Anda disaran supaya mematikan ciri-ciri ini jika sambungan internet anda perlahan ataupun pelan data anda terhad.</string>
+  <string name="read_more_section">Selanjutnya</string>
+  <string name="gallery_menu_more_info">Maklumat lanjut</string>
+  <string name="menu_gallery_visit_page">Pergi ke laman fail</string>
+  <string name="gallery_error_draw_failed">Imej tidak dapat dilukis.</string>
+  <string name="license_title">Teks lesen untuk perpustakaan %s</string>
+  <string name="gallery_license_text" fuzzy="true">Lesen: %s</string>
+  <string name="gallery_credit_text" fuzzy="true">Kredit: %s</string>
 </resources>

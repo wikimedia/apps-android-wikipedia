@@ -242,8 +242,6 @@
   <string name="search_recent_header">Nylige søk:</string>
   <string name="button_clear_all_recent_searches">Tøm nylige søk</string>
   <string name="clear_recent_searches_confirm">Er du sikker på at du vil tømme din søkehistorikk?</string>
-  <string name="search_titles_button">Titler</string>
-  <string name="search_full_button">I artikler</string>
   <string name="toc_hint">Sveip til venstre for avsnitt, eller bruk menyknappen øverst til høyre.</string>
   <string name="toc_know_it">Forstått</string>
   <string name="error_browser_not_found">Kunne ikke åpne nettside (ingen nettleser-app ble funnet).</string>

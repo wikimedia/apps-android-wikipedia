@@ -245,8 +245,6 @@
   <string name="search_recent_header">Recherches récentes :</string>
   <string name="button_clear_all_recent_searches">Effacer les recherches récentes</string>
   <string name="clear_recent_searches_confirm">Êtes-vous sûr de vouloir effacer votre historique de recherche ?</string>
-  <string name="search_titles_button">Titres</string>
-  <string name="search_full_button">Dans les articles</string>
   <string name="toc_hint">Balayer vers la gauche pour les sections, ou utiliser le bouton de menu en haut à droite.</string>
   <string name="toc_know_it">C’est bon !</string>
   <string name="error_browser_not_found">Impossible d’ouvrir la page web (aucune application de navigateur trouvée).</string>
@@ -271,4 +269,10 @@ Le code est entièrement ouvert. Si vous êtes expérimenté avec Java et le kit
   <string name="preference_title_show_images">Voir les images</string>
   <string name="preference_summary_show_images">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à internet est lente, ou si votre volume de données est limité.</string>
   <string name="read_more_section">En savoir plus</string>
+  <string name="gallery_menu_more_info">Plus d’information</string>
+  <string name="menu_gallery_visit_page">Aller à la page du fichier</string>
+  <string name="gallery_error_draw_failed">Impossible de dessiner l’image.</string>
+  <string name="license_title">Texte de la licence pour la bibliothèque %s</string>
+  <string name="gallery_license_text" fuzzy="true">Licence : %s</string>
+  <string name="gallery_credit_text" fuzzy="true">Remerciements : %s</string>
 </resources>

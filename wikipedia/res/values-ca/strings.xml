@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">L\'edició no s\'ha desat!</string>
   <string name="dialog_message_edit_failed_retry">Reintenta</string>
   <string name="dialog_message_edit_failed_cancel">Cancel·la</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">«Els canvis no s\'han desat encara. Esteu segur que voleu sortir d\'aquesta pàgina?»</string>
+  <string name="dialog_message_leaving_edit">Els canvis no s\'han desat encara. Esteu segur que voleu sortir d\'aquesta pàgina?</string>
   <string name="dialog_message_leaving_edit_leave">Surt</string>
   <string name="dialog_message_leaving_edit_stay">Roman</string>
   <string name="menu_show_toc">Taula de continguts</string>
@@ -245,8 +245,6 @@
   <string name="search_recent_header">Cerques recents:</string>
   <string name="button_clear_all_recent_searches">Esborra les cerques recents</string>
   <string name="clear_recent_searches_confirm">Esteu segur que voleu esborrar l\'historial de cerca?</string>
-  <string name="search_titles_button">Títols</string>
-  <string name="search_full_button">Dins d\'articles</string>
   <string name="toc_hint">Feu lliscar el dit cap a l\'esquerra per a les seccions, o utilitzeu el botó de menú a la part superior dreta.</string>
   <string name="toc_know_it">Ho he entès</string>
   <string name="error_browser_not_found">No s\'ha pogut obrir la pàgina web (no s\'ha trobat cap navegador)</string>
@@ -268,4 +266,13 @@ El codi és totalment obert. Si teniu experiència en Java i en l\'SDK de l\'And
   <string name="alpha_update_notification_title">Hi ha disponible una nova versió alfa</string>
   <string name="alpha_update_notification_text">Toqueu per descarregar</string>
   <string name="dialog_close_description">Tanca</string>
+  <string name="preference_title_show_images">Mostrar imatges</string>
+  <string name="preference_summary_show_images">Activar o desactivar la càrrega d\'imatges a les pàgines. Desactiva aquesta preferència si el teu internet va lent, o si el teu pla de data és limitat.</string>
+  <string name="read_more_section">Llegir més</string>
+  <string name="gallery_menu_more_info">Més informació</string>
+  <string name="menu_gallery_visit_page">Anar a la pàgina del fitxer</string>
+  <string name="gallery_error_draw_failed">No s\'ha pogut carregar la imatge.</string>
+  <string name="license_title">Text de la llicència per la llibreria %s</string>
+  <string name="gallery_license_text" fuzzy="true">Llicència: %s</string>
+  <string name="gallery_credit_text" fuzzy="true">Crèdit: %s</string>
 </resources>

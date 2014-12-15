@@ -245,21 +245,19 @@
   <string name="search_recent_header">最近搜尋：</string>
   <string name="button_clear_all_recent_searches">清除近期搜尋</string>
   <string name="clear_recent_searches_confirm">您確信您要清除您的搜尋歷史嗎？</string>
-  <string name="search_titles_button">標題</string>
-  <string name="search_full_button">在條目內</string>
   <string name="toc_hint">向左滑動或使用右上角的選項單按鈕顯示章節。</string>
   <string name="toc_know_it">明白了</string>
   <string name="error_browser_not_found">無法開啟網頁（未找到瀏覽器應用程式）。</string>
   <string name="table_other">更多資訊</string>
   <string name="table_close">關閉</string>
-  <string name="app_store_description">維基百科官方 Android 應用程式。維基百科是一部自由的百科全書，包含超過3200萬篇條目，以280種不同的語言撰寫，是人類創建過最詳實、且大量被引用的資料來源。這個應用程式已經全面重新編寫，使其比以前來得還要更好。
+  <string name="app_store_description">維基百科官方 Android 應用程式。維基百科是一部自由的百科全書，包含超過 3200 萬篇條目，以 280 種不同的語言撰寫，是人類建立過的最詳實、且大量被引用的資料來源。這個應用程式已經全面重新編寫，使其比以前來得還要更好。
 
 特色功能：
    - 速度：我們的全新、原生應用程式讓你用比以前更快的速度瀏覽和編輯維基百科。
    - 編輯：你可以編輯維基百科！無論是登入或未登入的狀態，我們感謝您做出的每一份貢獻。
-   - 最近瀏覽頁面：我們將提供您一份閱讀記錄清單，所以您可以放心點擊無數連結而不必擔心迷失。
+   - 最近瀏覽頁面：我們將提供您一份閱讀記錄清單，所以您可以放心點選無數連結而不必擔心迷失。
    - 已儲存頁面：您可以將頁面儲存下來以供離線閱讀，在您沒有網路時依然能夠瀏覽。
-   - 分享：使用您現有的社交網路應用程式來分享人類知識的總和。
+   - 分享：使用您現有的社群網路應用程式來分享人類知識的總和。
    - 語言支援：本應用程式能讓您在任何維基百科語言中順暢切換。
    - Wikipedia Zero：特定的電信服務商將不對本應用程式的資料流量收費。
 
@@ -267,4 +265,12 @@
   <string name="alpha_update_notification_title">有新的內測版更新可用</string>
   <string name="alpha_update_notification_text">點選下載</string>
   <string name="dialog_close_description">關閉</string>
+  <string name="preference_title_show_images">顯示圖片</string>
+  <string name="preference_summary_show_images">在頁面中啟用或停用圖片載入。如果您的網路連線很慢，或如果您的資料流量計劃受限制，則取消選擇本設定。</string>
+  <string name="read_more_section">閱讀更多</string>
+  <string name="gallery_menu_more_info">更多資訊</string>
+  <string name="menu_gallery_visit_page">前往檔案頁面</string>
+  <string name="gallery_error_draw_failed">不能畫圖片。</string>
+  <string name="license_title">%s 庫的授權文字</string>
+  <string name="gallery_license_text" fuzzy="true">授權：%s</string>
 </resources>

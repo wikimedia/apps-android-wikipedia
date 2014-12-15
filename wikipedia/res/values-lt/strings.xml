@@ -175,8 +175,6 @@
   <string name="search_within_pages">Ieškoti puslapiuose…</string>
   <string name="search_results_title">Paieškos rezultatai</string>
   <string name="search_error_retry">Bandyti dar kartą</string>
-  <string name="search_titles_button">Pavadinimai</string>
-  <string name="search_full_button">Straipsniuose</string>
   <string name="toc_know_it">Supratau</string>
   <string name="table_other">Daugiau informacijos</string>
   <string name="table_close">Uždaryti</string>

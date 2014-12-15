@@ -241,8 +241,6 @@
   <string name="search_redirect_title">Redirect da \"%s\".</string>
   <string name="search_recent_header">Ricerche recenti:</string>
   <string name="button_clear_all_recent_searches">Pulisci le ricerche recenti</string>
-  <string name="search_titles_button">Titoli</string>
-  <string name="search_full_button">All\'interno delle voci</string>
   <string name="toc_hint">Scorri a sinistra per le sezioni, o usa il tasto del menu in alto a destra.</string>
   <string name="toc_know_it">OK!</string>
   <string name="error_browser_not_found">Impossibile aprire la pagina web (nessun app browser trovato).</string>

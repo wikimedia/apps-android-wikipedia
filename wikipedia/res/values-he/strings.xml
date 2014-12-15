@@ -245,8 +245,6 @@
   <string name="search_recent_header">חיפוש אחרונים:</string>
   <string name="button_clear_all_recent_searches">ניקוי החיפושים האחרונים</string>
   <string name="clear_recent_searches_confirm">האם באמת רצית לנקות את היסטוריית החיפוש שלך?</string>
-  <string name="search_titles_button">כותרות</string>
-  <string name="search_full_button">בערכים</string>
   <string name="toc_hint">יש להחליק ימינה בשביל ראשי הפרקים או להשתמש בכפתור התפריט בפינה השמאלית העליונה.</string>
   <string name="toc_know_it">הבנתי</string>
   <string name="error_browser_not_found">לא ניתן לפתוח אתר אינטרנט (לא נמצא יישום דפדפן).</string>
@@ -270,4 +268,10 @@
   <string name="preference_title_show_images">להציג תמונות</string>
   <string name="preference_summary_show_images">הפעלה או כיבוי של טעינת תמונות בדפים. אפשר לכבות את ההגדרה הזאת אם חיבור האינטרנט שלך אטי או אם ספק התקשורת מגביל את צריכת הנתונים בקו שלך.</string>
   <string name="read_more_section">מידע נוסף</string>
+  <string name="gallery_menu_more_info">מידע נוסף</string>
+  <string name="menu_gallery_visit_page">ללכת לדף הקובץ</string>
+  <string name="gallery_error_draw_failed">לא היה אפשר לצייר את התמונה.</string>
+  <string name="license_title">טקסט הרישיון עבור הספרייה %s</string>
+  <string name="gallery_license_text" fuzzy="true">רישיון: %s</string>
+  <string name="gallery_credit_text" fuzzy="true">מאת: %s</string>
 </resources>

@@ -37,19 +37,26 @@
   <string name="delete_selected_saved_pages">წაშლა</string>
   <string name="toast_saved_page_deleted">შენახული გვერდ(ებ)ი წაიშალა</string>
   <string name="saved_pages_search_list_hint">ძებნა</string>
+  <string name="saved_pages_search_empty_message">თქვენს მოთხოვნას არცერთი გვერდი არ დაემთხვა.</string>
   <string name="nearby_activity_title">სიახლოვეს</string>
   <string name="nav_item_nearby">სიახლოვეს</string>
   <string name="menu_update_nearby">განაახლე ახლომდებარე</string>
   <string name="nearby_empty_title">ახლომდებარე გვერდები ვერ მოიძებნა!</string>
+  <string name="nearby_empty_message">როდესაც შეიცვლი ადგილმდებარეობას, გადატვირთე ეს გვერდი, რათა გაიგო თუ რა ხდება ახალ გარემოში.</string>
   <string name="nearby_distance_in_meters">%d მ</string>
   <string name="nearby_distance_in_kilometers">%.2f კმ</string>
   <string name="nearby_distance_in_feet">%d ფტ</string>
   <string name="nearby_distance_in_miles">%.2f მი</string>
   <string name="nearby_no_network">არ არის ინტერნეტ-კავშირი</string>
+  <string name="nearby_server_error">ახლომდებარე ადგილების სიის დადგენა ვერ მოხერხდა.</string>
   <string name="nearby_no_location">ადგილმდებარეობის განსაზღვრა ვერ მოხერხდა</string>
+  <string name="nearby_dialog_goto_settings">განახლებები მდებაორებაზე (Location updates) არაა ჩართული შენს მოწყობილობაზე. გსურთ კონფიგურაციის გვერდზე გადასვლა მდებაორებაზე განახლებების ჩასართავად?</string>
   <string name="nearby_set_metric">უჩვენე მეტრები/კმ</string>
   <string name="nearby_set_imperial">უჩვენე ფუტები/მილები</string>
   <string name="last_updated_text">ბოლოს განახლდა %s</string>
+  <string name="content_license_html">შინაარსი ვრცელდება &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით, თუკი სხვაგვარად არ არის აღნიშნული</string>
+  <string name="edit_save_action_license_logged_in">შენახვით, თქვენ ეთანხმებით &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას.</string>
+  <string name="edit_save_action_license_anon">შენახვით, თქვენ ეთანხმებით &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას. რედაქტირების ავტორად დაფიქსირდება თქვენი მოწყობილობის IP-მისამართი. რეკომენდებულია &lt;a href=\"https://#login\"&gt;ავტორიზაციის&lt;/a&gt; გავლა მეტი დაცულობისათვის.</string>
   <string name="preference_title_language">ვიკიპედიის ენები</string>
   <string name="preference_summary_language">შინაარსის ენა</string>
   <string name="preference_languages_filter_hint">ძიება</string>
@@ -67,6 +74,7 @@
   <string name="dialog_message_edit_failed">ცვლილება ვერ მოხერხდა!</string>
   <string name="dialog_message_edit_failed_retry">გამეორება</string>
   <string name="dialog_message_edit_failed_cancel">გაუქმება</string>
+  <string name="dialog_message_leaving_edit">თქვენი მიერ განხორციელებული ცვლილებები ჯერ კიდევ არ არის შენახული. დარწმუნებული ხართ რომ გსურთ ამ გვერდის დატოვება?</string>
   <string name="dialog_message_leaving_edit_leave">დატოვება</string>
   <string name="dialog_message_leaving_edit_stay">დარჩენა</string>
   <string name="menu_show_toc">სარჩევი</string>
@@ -74,6 +82,7 @@
   <string name="edit_section_captcha_hint">გაიმეორეთ ზემოთ მოცემული სიტყვები</string>
   <string name="title_captcha">შეიყვანეთ CAPTCHA</string>
   <string name="edit_section_abusefilter_back_text">შეიტანეთ ცვლილებები ჩემს რედაქტირებაში</string>
+  <string name="edit_section_captcha_reload">დააჭირეთ CAPTCHA-ს გადასატვირთად</string>
   <string name="nav_item_login">შესვლა</string>
   <string name="login_username_hint">მომხმარებლის სახელი</string>
   <string name="login_password_hint">პაროლი</string>
@@ -111,7 +120,9 @@
   <string name="create_account_passwords_mismatch_error">პაროლები არ დაემთხვა</string>
   <string name="create_account_email_error">ელ-ფოსტის არასწორი მისამართი</string>
   <string name="create_account_username_exists_error">მომხმარებლის სახელი უკვე გამოიყენება</string>
+  <string name="create_account_ip_throttle_error">ამ IP-მისამართიდან ბევრი ანგარიშია შექმნილი. გთხოვთ, სცადეთ მოგვიანებით.</string>
   <string name="create_account_open_proxy_error">ეს IP-მისამართი დაბლოკილია ანგარიშების შექმნისაგან</string>
+  <string name="create_account_noname_error">თქვენს მიერ შეყვანილი მომხმარებლის სახელი არასწორია. გთხოვთ, შეიყვანეთ სხვა მომხმარებლის სახელი.</string>
   <string name="create_account_invalid_email_error">თქვენ მიერ მითითებული ელ-ფოსტის მისამართი არასწორია.</string>
   <string name="create_account_password_too_short_error">თქვენ მიერ მითითებული პაროლი ზედმეტად მოკლეა.</string>
   <string name="create_account_blocked_anon_error">თქვენ არ შეგიძლიათ ანგარიშის შექმნა, რადგან თქვენი IP-მისამართი დაბლოკილია.</string>
@@ -124,6 +135,8 @@
   <string name="preferences_general_heading">მთავარი</string>
   <string name="zero_charged_verbiage">ვიკიპედია ზერო გამორთულია</string>
   <string name="zero_search_hint">ძიება ვიკიპედია ზეროში</string>
+  <string name="zero_wikipedia_zero_heading">ვიკიპედია ზერო</string>
+  <string name="zero_interstitial_title">ვიკიპედია ზეროდან გამოსვლა</string>
   <string name="zero_interstitial_continue">დატოვება</string>
   <string name="zero_interstitial_cancel">დარჩი აქ</string>
   <string name="zero_learn_more_learn_more">წაიკითხეთ მეტი</string>
@@ -150,6 +163,7 @@
   <string name="page_protected_can_not_edit_title">ეს გვერდი დაცულია</string>
   <string name="more_item_preferences">მეტი</string>
   <string name="more_activity_title">მეტი</string>
+  <string name="about_description">ვიკიპედიის აპლიკაციის შესახებ</string>
   <string name="privacy_policy_description">კონფიდენციალურობის პოლიტიკა</string>
   <string name="terms_of_use_description">გამოყენების პირობები</string>
   <string name="preference_title_version">ვერსია</string>
@@ -157,11 +171,14 @@
   <string name="about_contributors_heading">ავტორები</string>
   <string name="about_translators_heading">მთარგმნელები</string>
   <string name="about_activity_title">შესახებ</string>
+  <string name="edit_unchanged">ეს გვერდი ვერ შესწორდა.</string>
   <string name="user_blocked_from_editing_title">დაბლოკილია</string>
+  <string name="user_anon_blocked_from_editing">თქვენი IP მისამართი დაბლოკილია.</string>
   <string name="edit_how_page_improved">რითი გააუმჯობესეთ გვერდი?</string>
   <string name="edit_next">შემდეგი</string>
   <string name="edit_done">შენახვა</string>
   <string name="edit_preview">წინასწარი გადახედვა</string>
+  <string name="edit_summary_tag_grammar">გრამატიკის შესწორება</string>
   <string name="edit_summary_tag_links">დამატებული ბმულები</string>
   <string name="edit_summary_tag_other">სხვა</string>
   <string name="find_in_page">გვერდში ძიება</string>
@@ -175,11 +192,15 @@
   <string name="saved_pages_refresh_pages_complete">განახლება დასრულებულია</string>
   <string name="menu_page_saved">გვერდი შენახულია</string>
   <string name="menu_refresh_saved_page">გვერდის გადატვირთვა</string>
+  <string name="abusefilter_title_disallow">ამ ცვლილების შენახვა არ შეგიძლიათ. დაბრუნდით უკან და შეცვალეთ.</string>
+  <string name="menu_themechooser">ფონტი და თემა</string>
   <string name="text_size_select">შრიფტის ზომა</string>
   <string name="color_theme_select">თემა</string>
   <string name="color_theme_light">ნათელი</string>
   <string name="color_theme_dark">ბნელი</string>
   <string name="page_similar_titles">მსგავსი გვერდები</string>
+  <string name="search_within_pages">ძიება გვერდებში...</string>
+  <string name="search_no_results">„%s“-თვის არაფერი არ მოიძებნა.</string>
   <string name="search_did_you_mean">ხომ არ იგულისხმეთ „%s“?</string>
   <string name="search_results_title">ძიების შედეგები</string>
   <string name="search_error_retry">გამეორება</string>
@@ -187,8 +208,6 @@
   <string name="search_recent_header">ბოლოს მოძიებულები</string>
   <string name="button_clear_all_recent_searches">ბოლოს მოძიებულების გასუფთავება</string>
   <string name="clear_recent_searches_confirm">დარწმუნებული ხართ, რომ გსურთ ძიების ისტორიის გასუფთავება?</string>
-  <string name="search_titles_button">სათაურები</string>
-  <string name="search_full_button">სტატიებში</string>
   <string name="toc_hint">სექციების გამოსაჩენად გაუსვით მარცხნივ ან გამოიყენეთ ზედა მარჯვენა მხარეს არსებული მენიუს ღილაკი.</string>
   <string name="toc_know_it">არის!</string>
   <string name="error_browser_not_found">ვებ-გვერდის გახსნა შეუძლებელია (ბრაუზერის აპლიკაცია ვერ მოიძებნა).</string>
@@ -199,4 +218,8 @@
   <string name="dialog_close_description">დახურვა</string>
   <string name="preference_title_show_images">სურათების ჩვენება</string>
   <string name="read_more_section">წაიკითხე მეტი</string>
+  <string name="gallery_menu_more_info">მეტი ინფორმაცია</string>
+  <string name="menu_gallery_visit_page">გადადით ფაილის გვერდზე</string>
+  <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
+  <string name="gallery_license_text" fuzzy="true">ლიცენზია: %</string>
 </resources>

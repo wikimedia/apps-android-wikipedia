@@ -245,8 +245,6 @@
   <string name="search_recent_header">Son aramalar:</string>
   <string name="button_clear_all_recent_searches">Son aramaları temizle</string>
   <string name="clear_recent_searches_confirm">Arama geçmişini temizlemek istediğinizden emin misiniz?</string>
-  <string name="search_titles_button">Madde adları</string>
-  <string name="search_full_button">Maddeler içinde</string>
   <string name="toc_hint">Başlıkları görmek için sayfayı sola çekin veya sağ üstteki menü tuşunu kullanın.</string>
   <string name="toc_know_it">Anladım</string>
   <string name="error_browser_not_found">Web sayfası açılamadı (tarayıcı uygulaması bulunamadı).</string>

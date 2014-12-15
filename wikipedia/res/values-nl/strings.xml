@@ -242,8 +242,6 @@
   <string name="search_recent_header">Recente zoekopdrachten:</string>
   <string name="button_clear_all_recent_searches">Recente zoekopdrachten wissen</string>
   <string name="clear_recent_searches_confirm">Weet u zeker dat u uw zoekgeschiedenis wilt wissen?</string>
-  <string name="search_titles_button">Paginanamen</string>
-  <string name="search_full_button">In paginatekst</string>
   <string name="toc_hint">Veeg naar links voor secties, of gebruik de knop in de rechterbovenhoek.</string>
   <string name="toc_know_it">Begrepen</string>
   <string name="error_browser_not_found">De webpagina kon niet geopend worden. Er is geen browser beschikbaar.</string>
@@ -264,4 +262,10 @@ De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK,
   <string name="alpha_update_notification_title">Nieuwe alpha-update beschikbaar</string>
   <string name="alpha_update_notification_text">Tik om te downloaden</string>
   <string name="dialog_close_description">Sluiten</string>
+  <string name="preference_title_show_images">Afbeeldingen tonen</string>
+  <string name="read_more_section">Meer lezen</string>
+  <string name="gallery_menu_more_info">Meer informatie</string>
+  <string name="menu_gallery_visit_page">Ga naar bestandspagina</string>
+  <string name="gallery_license_text" fuzzy="true">Licentie: %s</string>
+  <string name="gallery_credit_text" fuzzy="true">Naamsvermelding: %s</string>
 </resources>

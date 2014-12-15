@@ -239,4 +239,7 @@
   <string name="toc_know_it">বুঝেছি</string>
   <string name="alpha_update_notification_title">নতুন আলফা হালনাগাদ উপলব্ধ</string>
   <string name="alpha_update_notification_text">ডাউনলোড করতে টোকা দিন</string>
+  <string name="gallery_menu_more_info">আরও তথ্য</string>
+  <string name="gallery_license_text" fuzzy="true">লাইসেন্স: %s</string>
+  <string name="gallery_credit_text" fuzzy="true">কৃতিত্ব: %s</string>
 </resources>

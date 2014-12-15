@@ -148,7 +148,6 @@
   <string name="color_theme_dark">အမှောင်</string>
   <string name="search_results_title">ရှာဖွေမှု ရလဒ်များ</string>
   <string name="search_error_retry">ပြန်လုပ်</string>
-  <string name="search_titles_button">ခေါင်းစဉ်များ -</string>
   <string name="toc_know_it">ရပြီဟေ့</string>
   <string name="alpha_update_notification_title">စမ်းသပ်သုံးစွဲမှု အသစ်ရယူနိုင်ပါပြီ</string>
   <string name="alpha_update_notification_text">ထိနိုပ်ခြင်းဖြင့် ရယူပါ</string>

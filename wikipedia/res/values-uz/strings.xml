@@ -208,8 +208,6 @@
   <string name="search_error_retry">Qayta urinib ko\'rish</string>
   <string name="search_redirect_title">\"%s\"dan joʻnatma.</string>
   <string name="search_recent_header">Oxirgi qidirishlar:</string>
-  <string name="search_titles_button">Sarlavhalar</string>
-  <string name="search_full_button">Maqolalarda</string>
   <string name="toc_know_it">Tushunarli</string>
   <string name="alpha_update_notification_title">Yangi alfa versiya mavjud</string>
   <string name="alpha_update_notification_text">Koʻchirib olish uchun bosing</string>

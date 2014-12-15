@@ -245,8 +245,6 @@
   <string name="search_recent_header">جستجوهای اخیر:</string>
   <string name="button_clear_all_recent_searches">پاک‌کردن جستجوهای اخیر</string>
   <string name="clear_recent_searches_confirm">آیا مطمئنید که می‌خواهید تاریخچهٔ جستجوهای اخیر را حذف کنید؟</string>
-  <string name="search_titles_button">عنوان‌ها</string>
-  <string name="search_full_button">در مقالات</string>
   <string name="toc_hint">برای بخش‌ها به سمت چپ بچرخانید یا از دکمه بالا در سمت راست در منو استفاده کنید.</string>
   <string name="toc_know_it">گرفتم</string>
   <string name="error_browser_not_found">قادر به گشودن صفحهٔ وب نیست  (ببرنامهٔ مرورگر یافت نشد)</string>

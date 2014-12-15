@@ -234,7 +234,6 @@
   <string name="search_error_retry">Nach eng Kéier probéieren</string>
   <string name="search_redirect_title">Viruleedung vu(n) \"%s\".</string>
   <string name="button_clear_all_recent_searches">Rezent Ufroen, fir ze sichen, läschen</string>
-  <string name="search_titles_button">Titelen</string>
   <string name="toc_know_it">Verstan</string>
   <string name="error_browser_not_found">Websäit konnt net opgemaach ginn (keng App fonnt).</string>
   <string name="table_other">Méi Informatiounen</string>
@@ -244,4 +243,7 @@
   <string name="dialog_close_description">Zoumaachen</string>
   <string name="preference_title_show_images">Biller weisen</string>
   <string name="read_more_section">Liest méi</string>
+  <string name="gallery_menu_more_info">Méi Informatiounen</string>
+  <string name="gallery_error_draw_failed">D\'Bild konnt net gezeechent ginn.</string>
+  <string name="gallery_license_text" fuzzy="true">Lizenz: %s</string>
 </resources>

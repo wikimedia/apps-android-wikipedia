@@ -44,7 +44,7 @@
   <string name="nav_item_nearby">Lähistöllä</string>
   <string name="menu_update_nearby">Päivitä \"Lähistöllä\"</string>
   <string name="nearby_empty_title">Lähistöllä olevia sivuja ei ole!</string>
-  <string name="nearby_empty_message">Päivittämällä tämän sivun, kun vaihdat paikkaa saat ajantasaista tietoa siitä, mitä lähelläsi on.</string>
+  <string name="nearby_empty_message">Kun vaihdat paikkaa, päivitä tämä sivu saadaksesi ajantasaista tietoa siitä mitä lähelläsi on.</string>
   <string name="nearby_distance_in_feet">%d jalkaa</string>
   <string name="nearby_distance_in_miles">%.2f  mailia</string>
   <string name="nearby_no_network">Ei verkkoyhteyttä</string>
@@ -243,8 +243,6 @@
   <string name="search_recent_header">Äskettäin tehdyt haut:</string>
   <string name="button_clear_all_recent_searches">Tyhjennä äskettäin tehdyt haut</string>
   <string name="clear_recent_searches_confirm">Haluatko varmasti tyhjentää hakuhistorian?</string>
-  <string name="search_titles_button">Otsikot</string>
-  <string name="search_full_button">Artikkeleissa</string>
   <string name="toc_hint">Pyyhkäise vasemmalle nähdäksesi osiot tai käytä valikko-näppäintä oikeassa yläkulmassa.</string>
   <string name="toc_know_it">Hanki se</string>
   <string name="error_browser_not_found">Sivua ei voi avata (selainohjelmaa ei löydy).</string>

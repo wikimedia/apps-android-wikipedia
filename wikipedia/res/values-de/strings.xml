@@ -245,8 +245,6 @@
   <string name="search_recent_header">Letzte Suchanfragen:</string>
   <string name="button_clear_all_recent_searches">Letzte Suchanfragen löschen</string>
   <string name="clear_recent_searches_confirm">Bist du sicher, dass du deinen Suchverlauf löschen möchtest?</string>
-  <string name="search_titles_button">Titel</string>
-  <string name="search_full_button">Innerhalb Artikeln</string>
   <string name="toc_hint">Wische nach links für Abschnitte oder benutze rechts oben den Menü-Button.</string>
   <string name="toc_know_it">Verstanden</string>
   <string name="error_browser_not_found">Webseite konnte nicht geöffnet werden (keine Browser-App gefunden).</string>
@@ -271,4 +269,11 @@ Der Code ist völlig quelloffen. Falls du Erfahrungen mit Java und dem Android-S
   <string name="preference_title_show_images">Bilder anzeigen</string>
   <string name="preference_summary_show_images">Aktiviere oder deaktiviere das Laden von Bildern in Seiten. Entmarkiere diese Einstellung, falls deine Internetverbindung langsam oder dein Datenvolumen beschränkt ist.</string>
   <string name="read_more_section">Mehr lesen</string>
+  <string name="gallery_menu_more_info">Weitere Informationen</string>
+  <string name="menu_gallery_visit_page">Gehe zur Dateiseite</string>
+  <string name="gallery_error_draw_failed">Das Bild konnte nicht gezeichnet werden.</string>
+  <string name="license_title">Lizenztext für die Bibliothek %s</string>
+  <string name="gallery_license_text">Lizenz – %s</string>
+  <string name="gallery_credit_text">Urheber – %s</string>
+  <string name="gallery_image_info">Bildinformation</string>
 </resources>

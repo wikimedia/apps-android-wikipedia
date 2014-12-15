@@ -245,8 +245,6 @@
   <string name="search_recent_header">最近搜索：</string>
   <string name="button_clear_all_recent_searches">清除最近搜索</string>
   <string name="clear_recent_searches_confirm">您确信要清空您的搜索历史？</string>
-  <string name="search_titles_button">标题</string>
-  <string name="search_full_button">在条目内</string>
   <string name="toc_hint">向左滑动选项，或使用右上角的菜单键。</string>
   <string name="toc_know_it">明白了</string>
   <string name="error_browser_not_found">无法打开网页（未找到浏览器应用程序）。</string>
@@ -268,4 +266,13 @@
   <string name="alpha_update_notification_title">有新的alpha更新可用</string>
   <string name="alpha_update_notification_text">点击下载</string>
   <string name="dialog_close_description">关闭</string>
+  <string name="preference_title_show_images">显示图片</string>
+  <string name="preference_summary_show_images">在页面中启用或禁用图片加载。如果您的网络连接很慢，或如果您的数据流量计划受限制，则取消选择此设置。</string>
+  <string name="read_more_section">阅读更多</string>
+  <string name="gallery_menu_more_info">更多信息</string>
+  <string name="menu_gallery_visit_page">转到文件页面</string>
+  <string name="gallery_error_draw_failed">不能画图片。</string>
+  <string name="license_title">%s库的许可文本</string>
+  <string name="gallery_license_text" fuzzy="true">授权：%s</string>
+  <string name="gallery_credit_text" fuzzy="true">制作者：%s</string>
 </resources>

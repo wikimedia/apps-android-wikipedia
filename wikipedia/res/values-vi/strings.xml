@@ -242,8 +242,6 @@
   <string name="search_recent_header">Tìm kiếm gần đây:</string>
   <string name="button_clear_all_recent_searches">Xóa các tìm kiếm gần đây</string>
   <string name="clear_recent_searches_confirm">Bạn có chắc chắn muốn xóa lịch sử tìm kiếm của bạn?</string>
-  <string name="search_titles_button">Tên trang</string>
-  <string name="search_full_button">Nội dung bài</string>
   <string name="toc_hint">Để xem các phần, vuốt trái hoặc bấm nút trình đơn ở góc phải bên trên.</string>
   <string name="toc_know_it">Được rồi</string>
   <string name="error_browser_not_found">Không thể mở trang web (không tìm thấy ứng dụng trình duyệt).</string>

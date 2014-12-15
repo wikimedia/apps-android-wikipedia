@@ -245,8 +245,6 @@
   <string name="search_recent_header">Căutări recente:</string>
   <string name="button_clear_all_recent_searches">Șterge căutările recente</string>
   <string name="clear_recent_searches_confirm">Sunteți sigur(ă) că doriți să ștergeți istoricul căutărilor?</string>
-  <string name="search_titles_button">Titluri</string>
-  <string name="search_full_button">În conținutul articolelor</string>
   <string name="toc_hint">Trageți înspre stânga pentru a vizualiza cuprinsul sau folosiți butonul de meniu din dreapta sus.</string>
   <string name="toc_know_it">Am înțeles!</string>
   <string name="error_browser_not_found">Nu s-a putut deschide pagina web (nicio aplicație de browser găsită).</string>
@@ -271,4 +269,10 @@ Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) c
   <string name="preference_title_show_images">Afișează imaginile</string>
   <string name="preference_summary_show_images">Activează sau dezactivează încărcarea imaginilor în pagini. Debifați această opțiune dacă aveți o conexiune la internet slabă sau dacă abonamentul dumneavoastră de date este limitat.</string>
   <string name="read_more_section">Citiți mai multe</string>
+  <string name="gallery_menu_more_info">Mai multe informații</string>
+  <string name="menu_gallery_visit_page">Du-te la pagina fișierului</string>
+  <string name="gallery_error_draw_failed">Imposibil de afișat imaginea.</string>
+  <string name="license_title">Textul licenței pentru biblioteca %s</string>
+  <string name="gallery_license_text" fuzzy="true">Licență: %s</string>
+  <string name="gallery_credit_text" fuzzy="true">Autor: %s</string>
 </resources>

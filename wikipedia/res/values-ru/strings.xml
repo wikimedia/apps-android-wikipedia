@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">Ошибка редактирования!</string>
   <string name="dialog_message_edit_failed_retry">Повторить</string>
   <string name="dialog_message_edit_failed_cancel">Отмена</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">«Внесённые изменения не были ещё сохранены. Вы уверены, что хотите покинуть эту страницу?»</string>
+  <string name="dialog_message_leaving_edit">Внесённые изменения не были ещё сохранены. Вы уверены, что хотите покинуть эту страницу?</string>
   <string name="dialog_message_leaving_edit_leave">Уйти</string>
   <string name="dialog_message_leaving_edit_stay">Остаться</string>
   <string name="menu_show_toc">Содержание</string>
@@ -245,8 +245,6 @@
   <string name="search_recent_header">Последние поиски:</string>
   <string name="button_clear_all_recent_searches">Очистить список последних поисковых запросов</string>
   <string name="clear_recent_searches_confirm">Вы уверены, что хотите стереть историю поисковых запросов?</string>
-  <string name="search_titles_button">Заголовки</string>
-  <string name="search_full_button">Внутри статей</string>
   <string name="toc_hint">Потяните влево для просмотра разделов или используйте кнопку меню в правом верхнем углу.</string>
   <string name="toc_know_it">Понятно</string>
   <string name="error_browser_not_found">Не удалось открыть веб-страницу (приложение браузера не найдено).</string>
@@ -268,4 +266,13 @@
   <string name="alpha_update_notification_title">Доступно новое обновление альфа-версии</string>
   <string name="alpha_update_notification_text">Нажмите чтобы скачать</string>
   <string name="dialog_close_description">Закрыть</string>
+  <string name="preference_title_show_images">Показывать изображения</string>
+  <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
+  <string name="read_more_section">Читать подробнее</string>
+  <string name="gallery_menu_more_info">Дополнительная информация</string>
+  <string name="menu_gallery_visit_page">Перейти к странице файла</string>
+  <string name="gallery_error_draw_failed">Не удалось вывести изображение.</string>
+  <string name="license_title">Текст лицензии для библиотеки %s</string>
+  <string name="gallery_license_text" fuzzy="true">Лицензия: %s</string>
+  <string name="gallery_credit_text" fuzzy="true">Автор: %s</string>
 </resources>
