@@ -13,7 +13,8 @@ Step 2: (e.g., --beta --push):
     - TODO (Not implemented yet): Uploads certain bits to releases.mediawiki.org: releasesprod, beta
 
 To run
-1) tell people on #wikimedia-mobile you're about to bump the version, so hold off on merging to master
+1) tell people on #wikimedia-mobile you're about to bump the version,
+   so hold off on merging to master
 2) git checkout master
 3) git pull
 4) git reset --hard
@@ -82,10 +83,21 @@ def push_to_gerrit(target):
 def make_release(flavors, custom_channel, custom_app):
     sh.cd(PATH_PREFIX)
     # ./gradlew -q assembleDevDebug
-    args = [GRADLEW, '-q', 'clean', '-PcustomChannel=' + custom_channel, '-PcustomApplicationId=' + custom_app]
+    args = [GRADLEW,
+            '-q',
+            'clean',
+            '-PcustomChannel=' + custom_channel,
+            '-PcustomApplicationId=' + custom_app]
     tasks = ['assemble{0}Release'.format(flavor.title()) for flavor in flavors]
     args += tasks
     subprocess.call(args)
+
+
+def copy_artifacts(flavor, target):
+    folder_path = 'releases'
+    sh.mkdir("-p", folder_path)
+    copy_apk(flavor, target)
+    copy_proguard_mapping(flavor, target)
 
 
 def copy_apk(flavor, target):
@@ -94,6 +106,15 @@ def copy_apk(flavor, target):
     output_file = '%s/wikipedia-%s.apk' % (folder_path, get_release_name(target))
     sh.cp('wikipedia/build/outputs/apk/wikipedia-%s-release.apk' % flavor, output_file)
     print ' apk: %s' % output_file
+
+
+def copy_proguard_mapping(flavor, target):
+    folder_path = 'releases'
+    sh.mkdir("-p", folder_path)
+    output_file = '%s/wikipedia-%s.mapping.tar.gz' % (folder_path, get_release_name(target))
+    input_file = 'wikipedia/build/outputs/mapping/%s/release/mapping.txt' % flavor
+    sh.tar('czf', output_file, input_file)
+    print ' proguard mapping: %s' % output_file
 
 
 def main():
@@ -149,10 +170,10 @@ def main():
             push_to_gerrit(target)
     else:
         make_release(flavors, custom_channel, custom_app)
-        copy_apk(flavors[0], targets[0])
+        copy_artifacts(flavors[0], targets[0])
         if flavors[0] == 'prod':
-            copy_apk(flavors[1], flavors[1])
-        print('Please test the APK. After that, run w/ --push flag, and as needed release the tested APK.')
+            copy_artifacts(flavors[1], flavors[1])
+        print('Please test the APK. After that, run w/ --push flag, and release the tested APK.')
         print('A useful command for collecting the release notes:')
         print('git log --pretty=format:"%h | %cr | %s" --abbrev-commit --no-merges '
               + '`git tag --list ' + targets[0] + '/* | tail -1`..')
