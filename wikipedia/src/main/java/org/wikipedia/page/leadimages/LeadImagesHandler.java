@@ -29,7 +29,10 @@ import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageViewFragment;
+import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.wikidata.WikidataCache;
 
@@ -262,7 +265,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * @param listener Listener that will receive an event when the layout is completed.
      */
     public void beginLayout(OnLeadImageLayoutListener listener) {
-        String thumbUrl = parentFragment.getFragment().getPage().getPageProperties().getLeadImageUrl();
+        String thumbUrl = getLeadImageUrl();
 
         if (!WikipediaApp.getInstance().showImages() || displayHeight < MIN_SCREEN_HEIGHT_DP
                 || WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_PROD) {
@@ -281,6 +284,23 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         // kick off the (asynchronous) laying out of the page title text
         layoutPageTitle((int)(parentFragment.getResources().getDimension(R.dimen.titleTextSize)
                 / displayDensity), listener);
+    }
+
+    // NPE, you shall not pass: https://phabricator.wikimedia.org/T78501
+    private String getLeadImageUrl() {
+        final PageViewFragmentInternal internalFragment = parentFragment.getFragment();
+        if (internalFragment == null) {
+            return null;
+        }
+        final Page page = internalFragment.getPage();
+        if (page == null) {
+            return null;
+        }
+        final PageProperties pageProperties = page.getPageProperties();
+        if (pageProperties == null) {
+            return null;
+        }
+        return pageProperties.getLeadImageUrl();
     }
 
     /**
@@ -435,7 +455,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         bridge.sendMessage("setPaddingTop", payload);
 
         // and start fetching the lead image, if we have one
-        String thumbUrl = parentFragment.getFragment().getPage().getPageProperties().getLeadImageUrl();
+        String thumbUrl = getLeadImageUrl();
         if (!isMainPage && thumbUrl != null && leadImagesEnabled) {
             thumbUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + thumbUrl;
             Picasso.with(parentFragment.getActivity())
