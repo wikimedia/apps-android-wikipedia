@@ -3,9 +3,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
         >
+    <item android:id="@+id/menu_gallery_share"
+        android:title="@string/gallery_menu_share"
+        android:icon="@android:drawable/ic_menu_share"
+        app:showAsAction="ifRoom"/>
     <item android:id="@+id/menu_gallery_more_info"
           android:title="@string/gallery_menu_more_info"
           app:showAsAction="never"/>
+    <item android:id="@+id/menu_gallery_save"
+        android:title="@string/gallery_menu_save"
+        app:showAsAction="never"/>
     <item android:id="@+id/menu_gallery_visit_page"
         android:title="@string/menu_gallery_visit_page"
         app:showAsAction="never"/>

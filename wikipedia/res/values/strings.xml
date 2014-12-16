@@ -284,4 +284,9 @@ The code is fully open source. If you have experience with Java and the Android 
     <string name="gallery_license_text">License – %s</string>
     <string name="gallery_credit_text">Author – %s</string>
     <string name="gallery_image_info">Image information</string>
+    <string name="gallery_menu_share">Share</string>
+    <string name="gallery_share_error">Could not share image: %s</string>
+    <string name="gallery_menu_save">Save to device</string>
+    <string name="gallery_save_error">Could not save image: %s</string>
+    <string name="gallery_save_success">Image saved successfully.</string>
 </resources>
