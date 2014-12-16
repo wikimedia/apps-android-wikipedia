@@ -17,6 +17,8 @@ import org.wikipedia.analytics.OnboardingFunnel;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.settings.PrefKeys;
 
+import java.util.Locale;
+
 /**
  * Onboarding screen, which shows up the first time this app is started unless the user is already logged in.
  * From there you can create an account, login, or skip to the main activity.
@@ -49,6 +51,11 @@ public class OnboardingActivity extends Activity {
         } else {
             wikipediaWordMarkImage.setVisibility(View.GONE);
             wikipediaWordMarkText.setText(Html.fromHtml(getString(R.string.wp_stylized)));
+            if ("iw".equals(Locale.getDefault().getLanguage())) {
+                final float dp = WikipediaApp.getInstance().getScreenDensity();
+                // move wordmark a bit to the right so it lines up better with the slogan
+                wikipediaWordMarkText.setPadding((int) (10 * dp), 0, 0, 0);
+            }
         }
 
         createAccountButton.setOnClickListener(new View.OnClickListener() {
