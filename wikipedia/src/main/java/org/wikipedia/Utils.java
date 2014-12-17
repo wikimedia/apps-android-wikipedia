@@ -676,10 +676,9 @@ public final class Utils {
 
     /**
      * Returns the distribution channel for the app from AndroidManifest.xml
-     * @param ctx
      * @return The channel (the empty string if not defined)
      */
-    public static String getChannelDescriptor(Context ctx) {
+    private static String getChannelDescriptor(Context ctx) {
         try {
             ApplicationInfo a = ctx.getPackageManager().getApplicationInfo(ctx.getPackageName(), PackageManager.GET_META_DATA);
             String channel = a.metaData.getString(PrefKeys.getChannel());
@@ -692,27 +691,22 @@ public final class Utils {
 
     /**
      * Sets the distribution channel for the app into SharedPreferences
-     * @param ctx
      */
-    public static void setChannel(Context ctx) {
+    private static void setChannel(Context ctx, String channel) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
-        String channel = getChannelDescriptor(ctx);
         prefs.edit().putString(PrefKeys.getChannel(), channel).apply();
     }
 
     /**
      * Gets the distribution channel for the app from SharedPreferences
-     * @param ctx
      */
     public static String getChannel(Context ctx) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
         String channel = prefs.getString(PrefKeys.getChannel(), null);
-        if (channel != null) {
-            return channel;
-        } else {
-            setChannel(ctx);
-            return getChannel(ctx);
+        if (channel == null) {
+            channel = getChannelDescriptor(ctx);
+            setChannel(ctx, channel);
         }
+        return channel;
     }
-
 }
