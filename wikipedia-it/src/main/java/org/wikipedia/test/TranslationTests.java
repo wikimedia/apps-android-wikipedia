@@ -170,8 +170,9 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
     }
 
     public void checkTranslationHasParameter(Res res, String paramName, Object val1, String alternateFormat) {
+//        Log.i(TAG, myLocale + ":" + res.name);
         String translatedString = getInstrumentation().getTargetContext().getString(res.id, val1);
-//        Log.i(TAG, myLocale + ":" + translatedString);
+//        Log.d(TAG, translatedString);
         if (!translatedString.contains(String.format(paramName, val1))
             && (alternateFormat == null || !translatedString.contains(alternateFormat))) {
             final String msg = myLocale + ":" + res.name + " = " + translatedString + "' doesn't contain " + val1;

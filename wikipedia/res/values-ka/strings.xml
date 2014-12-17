@@ -221,5 +221,5 @@
   <string name="gallery_menu_more_info">მეტი ინფორმაცია</string>
   <string name="menu_gallery_visit_page">გადადით ფაილის გვერდზე</string>
   <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
-  <string name="gallery_license_text" fuzzy="true">ლიცენზია: %</string>
+  <string name="gallery_license_text" fuzzy="true">ლიცენზია: %s</string>
 </resources>
