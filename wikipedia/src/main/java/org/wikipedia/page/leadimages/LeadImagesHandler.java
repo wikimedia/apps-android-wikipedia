@@ -1,5 +1,6 @@
 package org.wikipedia.page.leadimages;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -29,9 +30,6 @@ import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.page.Page;
-import org.wikipedia.page.PageProperties;
-import org.wikipedia.page.PageViewFragment;
 import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.wikidata.WikidataCache;
@@ -39,7 +37,8 @@ import org.wikipedia.wikidata.WikidataCache;
 import java.util.Map;
 
 public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListener, ImageViewWithFace.OnImageLoadListener {
-    private final PageViewFragment parentFragment;
+    private final Context context;
+    private final PageViewFragmentInternal parentFragment;
     private final CommunicationBridge bridge;
     private final WebView webView;
 
@@ -106,13 +105,15 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         void onLayoutComplete();
     }
 
-    public LeadImagesHandler(final PageViewFragment parentFragment, CommunicationBridge bridge,
-                             ObservableWebView webview, ViewGroup hidingView) {
+    public LeadImagesHandler(final Context context, final PageViewFragmentInternal parentFragment,
+                             CommunicationBridge bridge, ObservableWebView webview,
+                             ViewGroup hidingView) {
+        this.context = context;
         this.parentFragment = parentFragment;
         this.imageContainer = hidingView;
         this.bridge = bridge;
         this.webView = webview;
-        displayDensity = parentFragment.getResources().getDisplayMetrics().density;
+        displayDensity = context.getResources().getDisplayMetrics().density;
 
         imagePlaceholder = (ImageView)imageContainer.findViewById(R.id.page_image_placeholder);
         image1 = (ImageViewWithFace)imageContainer.findViewById(R.id.page_image_1);
@@ -122,7 +123,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         webview.addOnScrollChangeListener(this);
 
         // preload the display density, since it will be used in a lot of places
-        displayDensity = parentFragment.getResources().getDisplayMetrics().density;
+        displayDensity = context.getResources().getDisplayMetrics().density;
 
         // get the screen height, using correct methods for different API versions
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
@@ -137,15 +138,13 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String imageName = parentFragment.getFragment().getPage().getPageProperties()
-                                                 .getLeadImageName();
+                String imageName = parentFragment.getPage().getPageProperties().getLeadImageName();
                 if (imageName == null) {
                     return;
                 }
                 PageTitle imageTitle = new PageTitle("File:" + imageName,
-                                                     parentFragment.getFragment().getTitle()
-                                                                   .getSite());
-                parentFragment.getFragment().showImageGallery(imageTitle);
+                                                     parentFragment.getTitle().getSite());
+                parentFragment.showImageGallery(imageTitle);
             }
         });
 
@@ -276,7 +275,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * @param listener Listener that will receive an event when the layout is completed.
      */
     public void beginLayout(OnLeadImageLayoutListener listener) {
-        String thumbUrl = getLeadImageUrl();
+        String thumbUrl = parentFragment.getPage().getPageProperties().getLeadImageUrl();
 
         if (!WikipediaApp.getInstance().showImages() || displayHeight < MIN_SCREEN_HEIGHT_DP
                 || WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_PROD) {
@@ -288,30 +287,13 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         }
 
         // set the page title text, and honor any HTML formatting in the title
-        pageTitleText.setText(Html.fromHtml(parentFragment.getFragment().getPage().getDisplayTitle()));
+        pageTitleText.setText(Html.fromHtml(parentFragment.getPage().getDisplayTitle()));
         // hide the description text...
         pageDescriptionText.setVisibility(View.INVISIBLE);
 
         // kick off the (asynchronous) laying out of the page title text
-        layoutPageTitle((int)(parentFragment.getResources().getDimension(R.dimen.titleTextSize)
+        layoutPageTitle((int)(context.getResources().getDimension(R.dimen.titleTextSize)
                 / displayDensity), listener);
-    }
-
-    // NPE, you shall not pass: https://phabricator.wikimedia.org/T78501
-    private String getLeadImageUrl() {
-        final PageViewFragmentInternal internalFragment = parentFragment.getFragment();
-        if (internalFragment == null) {
-            return null;
-        }
-        final Page page = internalFragment.getPage();
-        if (page == null) {
-            return null;
-        }
-        final PageProperties pageProperties = page.getPageProperties();
-        if (pageProperties == null) {
-            return null;
-        }
-        return pageProperties.getLeadImageUrl();
     }
 
     /**
@@ -375,7 +357,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         if (!parentFragment.isAdded()) {
             return;
         }
-        boolean isMainPage = parentFragment.getFragment().getPage().getPageProperties().isMainPage();
+        boolean isMainPage = parentFragment.getPage().getPageProperties().isMainPage();
         int titleContainerHeight;
         int titleBottomPadding = 0;
 
@@ -398,17 +380,16 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             image1.setVisibility(View.GONE);
             imagePlaceholder.setVisibility(View.GONE);
             // set the color of the title
-            pageTitleText.setTextColor(parentFragment
-                    .getResources()
-                    .getColor(Utils.getThemedAttributeId(parentFragment.getActivity(), R.attr.lead_disabled_text_color)));
+            pageTitleText.setTextColor(context.getResources()
+                    .getColor(Utils.getThemedAttributeId(parentFragment.getActivity(),
+                                                         R.attr.lead_disabled_text_color)));
             // remove bottom padding from the description
             pageDescriptionText.setPadding(pageDescriptionText.getPaddingLeft(),
                     pageDescriptionText.getPaddingTop(), pageDescriptionText.getPaddingRight(), 0);
             // and give it no drop shadow
             pageTitleText.setShadowLayer(0, 0, 0, 0);
             // do the same for the description...
-            pageDescriptionText.setTextColor(parentFragment
-                    .getResources()
+            pageDescriptionText.setTextColor(context.getResources()
                     .getColor(Utils.getThemedAttributeId(parentFragment.getActivity(), R.attr.lead_disabled_text_color)));
             pageDescriptionText.setShadowLayer(0, 0, 0, 0);
             // remove any background from the title container
@@ -427,14 +408,14 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             imagePlaceholder.setVisibility(View.VISIBLE);
 
             // set the color of the title
-            pageTitleText.setTextColor(parentFragment.getResources().getColor(R.color.lead_text_color));
+            pageTitleText.setTextColor(context.getResources().getColor(R.color.lead_text_color));
             final int bottomPaddingNominal = 16;
             titleBottomPadding = (int)(bottomPaddingNominal * displayDensity);
             // and give it a nice drop shadow!
-            pageTitleText.setShadowLayer(2, 1, 1, parentFragment.getResources().getColor(R.color.lead_text_shadow));
+            pageTitleText.setShadowLayer(2, 1, 1, context.getResources().getColor(R.color.lead_text_shadow));
             // do the same for the description...
-            pageDescriptionText.setTextColor(parentFragment.getResources().getColor(R.color.lead_text_color));
-            pageDescriptionText.setShadowLayer(2, 1, 1, parentFragment.getResources().getColor(R.color.lead_text_shadow));
+            pageDescriptionText.setTextColor(context.getResources().getColor(R.color.lead_text_color));
+            pageDescriptionText.setShadowLayer(2, 1, 1, context.getResources().getColor(R.color.lead_text_shadow));
             // set the title container background to be a gradient
             pageTitleContainer.setBackgroundResource(R.drawable.lead_title_gradient);
             // set the correct padding on the container
@@ -466,7 +447,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         bridge.sendMessage("setPaddingTop", payload);
 
         // and start fetching the lead image, if we have one
-        String thumbUrl = getLeadImageUrl();
+        String thumbUrl = parentFragment.getPage().getPageProperties().getLeadImageUrl();
         if (!isMainPage && thumbUrl != null && leadImagesEnabled) {
             thumbUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + thumbUrl;
             Picasso.with(parentFragment.getActivity())
@@ -493,7 +474,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * of loading the WebView contents.
      */
     private void fetchWikiDataDescription() {
-        final PageTitle pageTitle = parentFragment.getFragment().getPage().getTitle();
+        final PageTitle pageTitle = parentFragment.getPage().getTitle();
 
         if (pageTitle != null) {
             final String language = pageTitle.getSite().getLanguage();

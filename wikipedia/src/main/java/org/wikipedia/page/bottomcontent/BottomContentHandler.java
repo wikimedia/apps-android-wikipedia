@@ -31,7 +31,7 @@ import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageViewFragment;
+import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.page.SuggestionsTask;
 import org.wikipedia.search.FullSearchArticlesTask;
 import org.wikipedia.views.ObservableWebView;
@@ -44,7 +44,7 @@ import java.util.Map;
 public class BottomContentHandler implements ObservableWebView.OnScrollChangeListener,
         ObservableWebView.OnContentHeightChangedListener {
     private static final String TAG = "BottomContentHandler";
-    private final PageViewFragment parentFragment;
+    private final PageViewFragmentInternal parentFragment;
     private final CommunicationBridge bridge;
     private final WebView webView;
     private final LinkHandler linkHandler;
@@ -63,7 +63,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
     private SuggestedPagesFunnel funnel;
     private FullSearchArticlesTask.FullSearchResults readMoreItems;
 
-    public BottomContentHandler(PageViewFragment parentFragment, CommunicationBridge bridge,
+    public BottomContentHandler(PageViewFragmentInternal parentFragment, CommunicationBridge bridge,
                                 ObservableWebView webview, LinkHandler linkHandler,
                                 ViewGroup hidingView, PageTitle pageTitle) {
         this.parentFragment = parentFragment;
@@ -71,9 +71,9 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
         this.webView = webview;
         this.linkHandler = linkHandler;
         this.pageTitle = pageTitle;
-        activity = parentFragment.getFragment().getActivity();
+        activity = parentFragment.getActivity();
         app = (WikipediaApp) activity.getApplicationContext();
-        displayDensity = parentFragment.getResources().getDisplayMetrics().density;
+        displayDensity = activity.getResources().getDisplayMetrics().density;
 
         bottomContentContainer = hidingView;
         webview.addOnScrollChangeListener(this);
@@ -139,7 +139,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
         funnel = new SuggestedPagesFunnel(app, pageTitle.getSite());
 
         // preload the display density, since it will be used in a lot of places
-        displayDensity = parentFragment.getResources().getDisplayMetrics().density;
+        displayDensity = activity.getResources().getDisplayMetrics().density;
         // hide ourselves by default
         hide();
     }
@@ -193,7 +193,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
 
     public void beginLayout() {
         setupAttribution();
-        if (parentFragment.getFragment().getPage().couldHaveReadMoreSection()) {
+        if (parentFragment.getPage().couldHaveReadMoreSection()) {
             requestReadMoreItems(activity.getLayoutInflater());
         } else {
             bottomContentContainer.findViewById(R.id.read_more_container).setVisibility(View.GONE);
@@ -222,7 +222,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
         ListAdapter adapter = readMoreList.getAdapter();
         if (adapter != null && adapter.getCount() > 0) {
             ViewGroup.LayoutParams params = readMoreList.getLayoutParams();
-            final int itemHeight = (int)parentFragment.getResources().getDimension(R.dimen.defaultListItemSize);
+            final int itemHeight = (int)activity.getResources().getDimension(R.dimen.defaultListItemSize);
             params.height = adapter.getCount() * itemHeight
                             + (readMoreList.getDividerHeight() * (adapter.getCount() - 1));
             readMoreList.setLayoutParams(params);
@@ -245,14 +245,14 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
     }
 
     private void setupAttribution() {
-        Page page = parentFragment.getFragment().getPage();
+        Page page = parentFragment.getPage();
         String lastUpdatedHtml = "<a href=\"" + page.getTitle().getUriForAction("history")
-                + "\">" + parentFragment.getString(R.string.last_updated_text,
+                + "\">" + activity.getString(R.string.last_updated_text,
                 Utils.formatDateRelative(page.getPageProperties().getLastModified())
                 + "</a>");
         pageLastUpdatedText.setText(Html.fromHtml(lastUpdatedHtml));
         pageLastUpdatedText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
-        pageLicenseText.setText(Html.fromHtml(parentFragment.getString(R.string.content_license_html)));
+        pageLicenseText.setText(Html.fromHtml(activity.getString(R.string.content_license_html)));
         pageLicenseText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
     }
 

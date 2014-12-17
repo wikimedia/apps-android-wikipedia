@@ -416,9 +416,9 @@ public class PageViewFragmentInternal {
 
         new SearchBarHideHandler(webView, getActivity().getToolbarView());
         imagesContainer = (ViewGroup) parentFragment.getView().findViewById(R.id.page_images_container);
-        leadImagesHandler = new LeadImagesHandler(parentFragment, bridge, webView, imagesContainer);
+        leadImagesHandler = new LeadImagesHandler(getActivity(), this, bridge, webView, imagesContainer);
 
-        bottomContentHandler = new BottomContentHandler(parentFragment, bridge,
+        bottomContentHandler = new BottomContentHandler(this, bridge,
                 webView, linkHandler,
                 (ViewGroup) parentFragment.getView().findViewById(R.id.bottom_content_container),
                 title);
