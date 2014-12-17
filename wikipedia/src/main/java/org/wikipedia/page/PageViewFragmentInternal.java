@@ -435,11 +435,17 @@ public class PageViewFragmentInternal {
             tocHandler = new ToCHandler(getActivity(),
                     tocDrawer,
                     bridge,
-                    title.getSite());
+                    title.getSite(),
+                    isFirstPage());
         }
 
         setState(state);
         performActionForState(state);
+    }
+
+    private boolean isFirstPage() {
+        return parentFragment.getFragmentManager().getBackStackEntryCount() == 0
+                && !webView.canGoBack();
     }
 
     /**
