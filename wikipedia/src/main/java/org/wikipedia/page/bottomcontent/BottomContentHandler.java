@@ -193,11 +193,11 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
 
     public void beginLayout() {
         setupAttribution();
-        if (parentFragment.getFragment().getPage().getPageProperties().isMainPage()) {
+        if (parentFragment.getFragment().getPage().couldHaveReadMoreSection()) {
+            requestReadMoreItems(activity.getLayoutInflater());
+        } else {
             bottomContentContainer.findViewById(R.id.read_more_container).setVisibility(View.GONE);
             layoutContent();
-        } else {
-            requestReadMoreItems(activity.getLayoutInflater());
         }
     }
 

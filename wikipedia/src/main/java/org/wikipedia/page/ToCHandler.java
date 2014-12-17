@@ -225,7 +225,7 @@ public class ToCHandler {
                     sections.add(s);
                 }
             }
-            if (!page.getPageProperties().isMainPage()) {
+            if (page.couldHaveReadMoreSection()) {
                 // add a fake section at the end to represent the "read more" contents at the bottom:
                 sections.add(new Section(READ_MORE_SECTION_ID, 0,
                         parentActivity.getString(R.string.read_more_section), "", ""));
