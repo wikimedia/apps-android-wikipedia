@@ -42,6 +42,11 @@ public class ToCHandler {
     private final ActionBarActivity parentActivity;
 
     /**
+     * We don't want to open the ToC drawer on the first page loaded automatically
+     * so the back button sends users back to the previous activity.
+     */
+    private final boolean firstPage;
+    /**
      * Flag to track if the drawer is closing because a link was clicked.
      * Used to make sure that we don't track closes that are caused by
      * the user clicking on a section.
@@ -50,10 +55,11 @@ public class ToCHandler {
     private boolean openedViaSwipe = true;
 
     public ToCHandler(final ActionBarActivity activity, final DisableableDrawerLayout slidingPane,
-                      final CommunicationBridge bridge, final Site site) {
+                      final CommunicationBridge bridge, final Site site, boolean firstPage) {
         this.parentActivity = activity;
         this.bridge = bridge;
         this.slidingPane = slidingPane;
+        this.firstPage = firstPage;
 
         funnel = new ToCInteractionFunnel((WikipediaApp)slidingPane.getContext().getApplicationContext(), site);
 
@@ -190,7 +196,7 @@ public class ToCHandler {
             }
         });
 
-        if (!page.getPageProperties().isMainPage()) {
+        if (!page.getPageProperties().isMainPage() && !firstPage) {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(parentActivity);
             final boolean knowsToC = prefs.getBoolean(PrefKeys.getKnowTocDrawer(), false);
             if (!knowsToC) {
