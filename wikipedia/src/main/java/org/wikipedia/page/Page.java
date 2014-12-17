@@ -42,6 +42,12 @@ public class Page {
         return pageProperties;
     }
 
+    public boolean couldHaveReadMoreSection() {
+        return !getPageProperties().isMainPage()
+                && !getTitle().isFilePage()
+                && !getTitle().isSpecial();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Page)) {
