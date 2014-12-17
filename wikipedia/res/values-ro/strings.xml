@@ -273,6 +273,7 @@ Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) c
   <string name="menu_gallery_visit_page">Du-te la pagina fișierului</string>
   <string name="gallery_error_draw_failed">Imposibil de afișat imaginea.</string>
   <string name="license_title">Textul licenței pentru biblioteca %s</string>
-  <string name="gallery_license_text" fuzzy="true">Licență: %s</string>
-  <string name="gallery_credit_text" fuzzy="true">Autor: %s</string>
+  <string name="gallery_license_text">Licență – %s</string>
+  <string name="gallery_credit_text">Autor – %s</string>
+  <string name="gallery_image_info">Informații despre imagine</string>
 </resources>

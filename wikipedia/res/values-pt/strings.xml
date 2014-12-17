@@ -72,7 +72,7 @@
   <string name="dialog_message_edit_failed">A edição falhou!</string>
   <string name="dialog_message_edit_failed_retry">Tente novamente</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">\"As suas alterações ainda não foram gravadas. Tem a certeza que pretende sair desta página?\"</string>
+  <string name="dialog_message_leaving_edit">As suas alterações ainda não foram gravadas. Tem a certeza que pretende sair desta página?</string>
   <string name="dialog_message_leaving_edit_leave">Sair</string>
   <string name="dialog_message_leaving_edit_stay">Ficar</string>
   <string name="menu_show_toc">Índice</string>
@@ -260,4 +260,10 @@ O código é totalmente aberto. Se tem experiência com linguagens Java e Androi
   <string name="alpha_update_notification_title">Nova atualização alfa disponível</string>
   <string name="alpha_update_notification_text">Toque para descarregar</string>
   <string name="dialog_close_description">Fechar</string>
+  <string name="preference_title_show_images">Mostrar imagens</string>
+  <string name="read_more_section">Ler mais</string>
+  <string name="gallery_menu_more_info">Mais informação</string>
+  <string name="gallery_license_text">Licença – %s</string>
+  <string name="gallery_credit_text">Autor – %s</string>
+  <string name="gallery_image_info">Informação da imagem</string>
 </resources>

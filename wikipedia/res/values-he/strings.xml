@@ -272,6 +272,7 @@
   <string name="menu_gallery_visit_page">ללכת לדף הקובץ</string>
   <string name="gallery_error_draw_failed">לא היה אפשר לצייר את התמונה.</string>
   <string name="license_title">טקסט הרישיון עבור הספרייה %s</string>
-  <string name="gallery_license_text" fuzzy="true">רישיון: %s</string>
-  <string name="gallery_credit_text" fuzzy="true">מאת: %s</string>
+  <string name="gallery_license_text">רישיון – %s</string>
+  <string name="gallery_credit_text">מאת – %s</string>
+  <string name="gallery_image_info">מידע על התמונה</string>
 </resources>

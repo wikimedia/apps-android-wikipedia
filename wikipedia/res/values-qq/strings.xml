@@ -328,8 +328,10 @@ See also:
 {{Identical|Font size}}</string>
   <string name="color_theme_select">Label that describes color theme selection
 {{Identical|Theme}}</string>
-  <string name="color_theme_light">Button label for Light color theme</string>
-  <string name="color_theme_dark">Button label for Dark color theme</string>
+  <string name="color_theme_light">Button label for Light color theme
+{{Identical|Light}}</string>
+  <string name="color_theme_dark">Button label for Dark color theme
+{{Identical|Dark}}</string>
   <string name="page_similar_titles">Button label for showing a list of similar titles (disambiguation) for the current page</string>
   <string name="search_within_pages">Button label for full-text searching within pages for the current search term</string>
   <string name="search_no_results">Label that tells the user that no results were found. The \"%s\" symbol is replaced with the phrase that was searched.</string>

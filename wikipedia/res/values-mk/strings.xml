@@ -273,6 +273,7 @@
   <string name="menu_gallery_visit_page">Оди на податотечната страница</string>
   <string name="gallery_error_draw_failed">Не можев да ја исцртам сликата.</string>
   <string name="license_title">Лиценцен текст за библиотеката %s</string>
-  <string name="gallery_license_text" fuzzy="true">Лиценца: %s</string>
-  <string name="gallery_credit_text" fuzzy="true">Автор: %s</string>
+  <string name="gallery_license_text">Лиценца — %s</string>
+  <string name="gallery_credit_text">Автор — %s</string>
+  <string name="gallery_image_info">Информации за сликата</string>
 </resources>

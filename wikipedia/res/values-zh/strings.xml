@@ -273,6 +273,7 @@
   <string name="menu_gallery_visit_page">转到文件页面</string>
   <string name="gallery_error_draw_failed">不能画图片。</string>
   <string name="license_title">%s库的许可文本</string>
-  <string name="gallery_license_text" fuzzy="true">授权：%s</string>
-  <string name="gallery_credit_text" fuzzy="true">制作者：%s</string>
+  <string name="gallery_license_text">授权–%s</string>
+  <string name="gallery_credit_text">制作者–%s</string>
+  <string name="gallery_image_info">图像信息</string>
 </resources>

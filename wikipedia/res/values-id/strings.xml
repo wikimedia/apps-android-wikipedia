@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">Penyuntingan gagal!</string>
   <string name="dialog_message_edit_failed_retry">Coba lagi</string>
   <string name="dialog_message_edit_failed_cancel">Batal</string>
+  <string name="dialog_message_leaving_edit">Perubahan anda belum disimpan. Anda yakin ingin meninggalkan halaman ini?</string>
+  <string name="dialog_message_leaving_edit_leave">Tinggalkan</string>
+  <string name="dialog_message_leaving_edit_stay">Tetap</string>
   <string name="menu_show_toc">Daftar isi</string>
   <string name="search_no_results_found">Tidak ada hasil yang ditemukan</string>
   <string name="edit_section_captcha_message">Untuk membantu melindungi terhadap spam otomatis, masukkan kata-kata yang muncul di bawah ini</string>
@@ -263,4 +266,14 @@ Kode sepenuhnya bersifat sumber terbuka. Jika Anda memiliki pengalaman dengan Ja
   <string name="alpha_update_notification_title">Pemutakhiran alpha baru telah tersedia</string>
   <string name="alpha_update_notification_text">Sentuh untuk mengunduh</string>
   <string name="dialog_close_description">Tutup</string>
+  <string name="preference_title_show_images">Tampilkan gambar</string>
+  <string name="preference_summary_show_images">Mengaktifkan atau menonaktifkan pemuatan gambar dalam halaman. Hapus centang pengaturan jika koneksi internet anda lambat, atau jika plan data anda terbatas.</string>
+  <string name="read_more_section">Baca lebih lanjut</string>
+  <string name="gallery_menu_more_info">Informasi lebih lanjut</string>
+  <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>
+  <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
+  <string name="license_title">Teks Lisensi untuk pustaka %s</string>
+  <string name="gallery_license_text">Lisensi - %s</string>
+  <string name="gallery_credit_text">Penulis - %s</string>
+  <string name="gallery_image_info">Informasi gambar</string>
 </resources>

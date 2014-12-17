@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">編集の保存に失敗しました!</string>
   <string name="dialog_message_edit_failed_retry">再試行</string>
   <string name="dialog_message_edit_failed_cancel">キャンセル</string>
+  <string name="dialog_message_leaving_edit">あなたの変更は、まだ保存されていません。このページを離れますか？</string>
+  <string name="dialog_message_leaving_edit_leave">離れる</string>
+  <string name="dialog_message_leaving_edit_stay">留まる</string>
   <string name="menu_show_toc">目次</string>
   <string name="search_no_results_found">検索結果なし</string>
   <string name="edit_section_captcha_message">自動投稿スパム避けのため、以下に表示される言葉を入力してください</string>
@@ -263,4 +266,11 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">新しいアルファアップデートが利用可能です</string>
   <string name="alpha_update_notification_text">タップでダウンロード</string>
   <string name="dialog_close_description">閉じる</string>
+  <string name="preference_title_show_images">イメージを見る</string>
+  <string name="read_more_section">続きを読む</string>
+  <string name="gallery_menu_more_info">詳細情報</string>
+  <string name="menu_gallery_visit_page">ファイルのページに移動</string>
+  <string name="gallery_license_text">ライセンス – %s</string>
+  <string name="gallery_credit_text">作者 – %s</string>
+  <string name="gallery_image_info">画像情報</string>
 </resources>

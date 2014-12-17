@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">¡Error de edición!</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">\"Los cambios no se han guardado aún. ¿Estás seguro de que quieres salir de esta página?\"</string>
+  <string name="dialog_message_leaving_edit">Los cambios no se han guardado aún. ¿Estás seguro de que quieres salir de esta página?</string>
   <string name="dialog_message_leaving_edit_leave">Salir</string>
   <string name="dialog_message_leaving_edit_stay">Permanecer</string>
   <string name="menu_show_toc">Tabla de contenidos</string>
@@ -266,4 +266,12 @@ El código es completamente abierto. Si tienes experiencia con Java y el SDK de 
   <string name="alpha_update_notification_title">Hay una actualización alfa disponible</string>
   <string name="alpha_update_notification_text">Toca para descargar</string>
   <string name="dialog_close_description">Cerrar</string>
+  <string name="preference_title_show_images">Mostrar imágenes</string>
+  <string name="read_more_section">Leer más</string>
+  <string name="gallery_menu_more_info">Más información</string>
+  <string name="gallery_error_draw_failed">No se pudo dibujar la imagen.</string>
+  <string name="license_title">Texto de la licencia de la biblioteca %s</string>
+  <string name="gallery_license_text">Licencia – %s</string>
+  <string name="gallery_credit_text">Autor - %s</string>
+  <string name="gallery_image_info">Información de la imagen</string>
 </resources>

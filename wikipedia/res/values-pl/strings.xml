@@ -231,6 +231,7 @@
   <string name="search_error_retry">Ponów próbę</string>
   <string name="search_redirect_title">Przekierowanie z „%s”.</string>
   <string name="search_recent_header">Ostatnie wyszukiwania:</string>
+  <string name="table_infobox">Szybkie fakty</string>
   <string name="table_other">Więcej informacji</string>
   <string name="table_close">Zamknij</string>
   <string name="alpha_update_notification_title">Dostępna jest nowa aktualizacja alfa</string>
@@ -240,7 +241,9 @@
   <string name="read_more_section">Czytaj więcej</string>
   <string name="gallery_menu_more_info">Więcej informacji</string>
   <string name="menu_gallery_visit_page">Przejdź do strony pliku</string>
+  <string name="gallery_error_draw_failed">Nie udało się wyświetlić obrazu.</string>
   <string name="license_title">Tekst licencji dla biblioteki %s</string>
-  <string name="gallery_license_text" fuzzy="true">Licencja: %s</string>
-  <string name="gallery_credit_text" fuzzy="true">Autor: %s</string>
+  <string name="gallery_license_text">Licencja - %s</string>
+  <string name="gallery_credit_text">Autor - %s</string>
+  <string name="gallery_image_info">Informacje o obrazie</string>
 </resources>

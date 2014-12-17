@@ -133,4 +133,10 @@
   <string name="toc_know_it">Кхетий</string>
   <string name="table_close">ДӀачӀагӀа</string>
   <string name="dialog_close_description">ДӀачӀагӀа</string>
+  <string name="gallery_menu_more_info">Кхин тӀе хаам</string>
+  <string name="menu_gallery_visit_page">Файлан агӀонг гӀо</string>
+  <string name="gallery_error_draw_failed">Сурт гучудаккха цаделира</string>
+  <string name="license_title">Лицензин йоза %s библиотекина</string>
+  <string name="gallery_license_text">Лицензи – %s</string>
+  <string name="gallery_credit_text">Автор – %s</string>
 </resources>
