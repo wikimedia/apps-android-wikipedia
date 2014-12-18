@@ -203,6 +203,14 @@ public class TitleSearchFragment extends Fragment {
         searchHandler.sendMessageDelayed(searchMessage, DELAY_MILLIS);
     }
 
+    public PageTitle getFirstSuggestion() {
+        if (adapter.getCount() > 0) {
+            return (PageTitle) adapter.getItem(0);
+        } else {
+            return null;
+        }
+    }
+
     private final class SearchResultAdapter extends BaseAdapter {
         private List<PageTitle> results;
         private final LayoutInflater inflater;

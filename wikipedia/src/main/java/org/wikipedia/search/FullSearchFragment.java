@@ -13,6 +13,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -231,6 +232,15 @@ public class FullSearchFragment extends Fragment {
                 }
             }
         }.execute();
+    }
+
+    public PageTitle getFirstSuggestion() {
+        Adapter adapter = searchResultsList.getAdapter();
+        if (adapter.getCount() > 0) {
+            return (PageTitle) adapter.getItem(0);
+        } else {
+            return null;
+        }
     }
 
     private final class SearchResultAdapter extends BaseAdapter {

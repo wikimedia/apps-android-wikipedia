@@ -425,10 +425,16 @@ public class SearchArticlesFragment extends Fragment {
     private final SearchView.OnQueryTextListener searchQueryListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String queryText) {
-            if (isValidQuery(queryText)) {
-                navigateToTitle(queryText);
+            PageTitle firstSuggestion = null;
+            if (getActivePanel() == PANEL_TITLE_SEARCH) {
+                firstSuggestion = titleSearchFragment.getFirstSuggestion();
+            } else if (getActivePanel() == PANEL_FULL_SEARCH) {
+                firstSuggestion = fullSearchFragment.getFirstSuggestion();
             }
-            closeSearch();
+            if (firstSuggestion != null) {
+                navigateToTitle(firstSuggestion);
+                closeSearch();
+            }
             return true;
         }
 
