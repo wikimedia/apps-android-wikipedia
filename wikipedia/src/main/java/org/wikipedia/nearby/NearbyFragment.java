@@ -307,8 +307,14 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         alert.setMessage(R.string.nearby_dialog_goto_settings);
         alert.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                Intent myIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                startActivity(myIntent);
+                try {
+                    Intent myIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    startActivity(myIntent);
+                } catch (ActivityNotFoundException e) {
+                    // it's highly unusual for a device not to have a Settings activity,
+                    // but nevertheless, let's not crash in case it happens.
+                    e.printStackTrace();
+                }
             }
         });
         alert.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
