@@ -37,6 +37,15 @@ public class ImageViewWithFace extends ImageView implements Target {
         (new SaneAsyncTask<Void>(SaneAsyncTask.LOW_CONCURRENCY) {
             @Override
             public Void performTask() throws Throwable {
+                final int minSize = 64;
+                // don't load the image if it's terrible resolution
+                // (or indeed, if it's zero width or height)
+                if (bitmap.getWidth() < minSize || bitmap.getHeight() < minSize) {
+                    if (onImageLoadListener != null) {
+                        onImageLoadListener.onImageFailed();
+                    }
+                    return null;
+                }
                 // boost this thread's priority a bit
                 Thread.currentThread().setPriority(Thread.MAX_PRIORITY - 1);
                 long millis = System.currentTimeMillis();
@@ -69,6 +78,14 @@ public class ImageViewWithFace extends ImageView implements Target {
                     onImageLoadListener.onImageLoaded(bitmap, facePos);
                 }
                 return null;
+            }
+            @Override
+            public void onCatch(Throwable caught) {
+                // it's not super important to do anything if face detection fails,
+                // but let our listener know about it anyway:
+                if (onImageLoadListener != null) {
+                    onImageLoadListener.onImageFailed();
+                }
             }
         }).execute();
         // and, of course, set the original bitmap as our image
