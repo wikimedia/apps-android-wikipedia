@@ -40,13 +40,16 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.view.ActionMode;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -74,6 +77,7 @@ public class PageActivity extends ThemedActionBarActivity {
     private NavDrawerFragment fragmentNavdrawer;
     private SearchArticlesFragment searchFragment;
     private TextView searchHintText;
+    private ActionMode webViewActionMode;
 
     public static final int PROGRESS_BAR_MAX_VALUE = 10000;
     private ProgressBar progressBar;
@@ -729,4 +733,37 @@ public class PageActivity extends ThemedActionBarActivity {
         bus = null;
         Log.d("Wikipedia", "Deregistering bus");
     }
+
+    @Override
+    public void onSupportActionModeStarted(ActionMode mode) {
+        if (webViewActionMode == null) {
+            webViewActionMode = mode;
+            Menu menu = mode.getMenu();
+            MenuItem shareItem = menu.add(R.string.share_via);
+            shareItem.setIcon(app.getCurrentTheme() == WikipediaApp.THEME_DARK
+                                      ? R.drawable.ic_share_dark
+                                      : R.drawable.ic_share);
+            MenuItemCompat.setShowAsAction(shareItem, MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
+            shareItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+
+                    // TODO: implement sharing of image with quote!
+
+                    if (webViewActionMode != null) {
+                        webViewActionMode.finish();
+                    }
+                    return true;
+                }
+            });
+        }
+        super.onSupportActionModeStarted(mode);
+    }
+
+    @Override
+    public void onSupportActionModeFinished(ActionMode mode) {
+        webViewActionMode = null;
+        super.onSupportActionModeFinished(mode);
+    }
+
 }
