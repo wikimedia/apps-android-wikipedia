@@ -15,9 +15,9 @@ import android.view.animation.Transformation;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.nineoldandroids.view.ViewHelper;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -159,12 +159,21 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
 
     @Override
     public void onScrollChanged(int oldScrollY, int scrollY) {
+        LinearLayout.LayoutParams contParams = (LinearLayout.LayoutParams) imageContainer
+                .getLayoutParams();
+        LinearLayout.LayoutParams imgParams = (LinearLayout.LayoutParams) image1.getLayoutParams();
         if (scrollY > imageContainer.getHeight()) {
-            ViewHelper.setTranslationY(imageContainer, -imageContainer.getHeight());
-            ViewHelper.setTranslationY(image1, 0);
+            if (contParams.topMargin != -imageContainer.getHeight()) {
+                contParams.topMargin = -imageContainer.getHeight();
+                imgParams.topMargin = 0;
+                imageContainer.setLayoutParams(contParams);
+                image1.setLayoutParams(imgParams);
+            }
         } else {
-            ViewHelper.setTranslationY(imageContainer, -scrollY);
-            ViewHelper.setTranslationY(image1, imageBaseYOffset + scrollY / 2); //parallax, baby
+            contParams.topMargin = -scrollY;
+            imgParams.topMargin = imageBaseYOffset + scrollY / 2; //parallax, baby
+            imageContainer.setLayoutParams(contParams);
+            image1.setLayoutParams(imgParams);
         }
     }
 
@@ -218,12 +227,14 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 if (newHeight < imagePlaceholder.getHeight()) {
                     // if the height of the image is less than the container, then just
                     // make it fill-parent
-                    image1.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
-                            FrameLayout.LayoutParams.MATCH_PARENT));
+                    image1.setLayoutParams(
+                            new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                                                          LinearLayout.LayoutParams.MATCH_PARENT));
                     imageBaseYOffset = 0;
                 } else {
-                    image1.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
-                            newHeight));
+                    image1.setLayoutParams(
+                            new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                                                          newHeight));
                 }
 
                 // and force a refresh of its position within the container view.
@@ -381,7 +392,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             // make the WebView padding be just the height of the title text, plus a fixed offset
             titleContainerHeight = (int) ((pageTitleContainer.getHeight() / displayDensity))
                     + DISABLED_OFFSET_DP;
-            imageContainer.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
+            imageContainer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                     (int) ((titleContainerHeight) * displayDensity)));
             // hide the lead image
             image1.setVisibility(View.GONE);
@@ -409,7 +420,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             // layout, in case we were previously not showing it:
             // make the WebView padding be a proportion of the total screen height
             titleContainerHeight = (int) (displayHeight * IMAGES_CONTAINER_RATIO);
-            imageContainer.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
+            imageContainer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                     (int) (titleContainerHeight * displayDensity)));
             // prepare the lead image to be populated
             image1.setVisibility(View.INVISIBLE);
