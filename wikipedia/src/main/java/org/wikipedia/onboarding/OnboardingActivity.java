@@ -53,8 +53,9 @@ public class OnboardingActivity extends Activity {
             wikipediaWordMarkText.setText(Html.fromHtml(getString(R.string.wp_stylized)));
             if ("iw".equals(Locale.getDefault().getLanguage())) {
                 final float dp = WikipediaApp.getInstance().getScreenDensity();
+                final int padAdjust = 10;
                 // move wordmark a bit to the right so it lines up better with the slogan
-                wikipediaWordMarkText.setPadding((int) (10 * dp), 0, 0, 0);
+                wikipediaWordMarkText.setPadding((int) (padAdjust * dp), 0, 0, 0);
             }
         }
 
