@@ -373,7 +373,8 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="gallery_credit_text">Label that specifies the person or entity to whom the image should be credited. The \"%s\" symbol will be replaced by the author of the image.
 {{Identical|Credit}}</string>
   <string name="gallery_image_info">Label for a dialog that shows detailed information about the current image shown in the gallery.</string>
-  <string name="gallery_menu_share">Label for menu item to share the current image.</string>
+  <string name="gallery_menu_share">Label for menu item to share the current image.
+{{Identical|Share}}</string>
   <string name="gallery_share_error">Error message shown when there was a problem with sharing the image. The \"%s\" symbol is replaced with the actual error message from the system.</string>
   <string name="gallery_menu_save">Label for menu item to save the current image to the Media collection on the local device.</string>
   <string name="gallery_save_error">Error message shown when there was a problem with saving the image to the local device. The \"%s\" symbol is replaced with the actual error message from the system.</string>

@@ -32,7 +32,7 @@
   <string name="dialog_title_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
   <string name="dialog_message_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
   <string name="toast_saving_page">문서를 저장하는 중...</string>
-  <string name="toast_saved_page">성공적으로 문서를 저장했습니다</string>
+  <string name="toast_saved_page">문서를 성공적으로 저장했습니다</string>
   <string name="toast_saved_page_missing_images">모든 그림을 저장할 수 없습니다</string>
   <string name="toast_save_page_failed">문서를 저장하는 데 실패함 :(</string>
   <string name="toast_refresh_saved_page">저장된 문서를 새로 고치는 중...</string>
@@ -271,6 +271,12 @@
   <string name="menu_gallery_visit_page">파일 문서로 가기</string>
   <string name="gallery_error_draw_failed">그림을 그릴 수 없습니다.</string>
   <string name="license_title">%s 라이브러리의 라이선스 텍스트</string>
-  <string name="gallery_license_text" fuzzy="true">라이선스: %s</string>
-  <string name="gallery_credit_text" fuzzy="true">제작진: %s</string>
+  <string name="gallery_license_text">라이선스 – %s</string>
+  <string name="gallery_credit_text">저자 – %s</string>
+  <string name="gallery_image_info">그림 정보</string>
+  <string name="gallery_menu_share">공유</string>
+  <string name="gallery_share_error">그림을 공유할 수 없습니다: %s</string>
+  <string name="gallery_menu_save">장치에 저장</string>
+  <string name="gallery_save_error">그림을 저장할 수 없습니다: %s</string>
+  <string name="gallery_save_success">그림을 성공적으로 저장했습니다.</string>
 </resources>

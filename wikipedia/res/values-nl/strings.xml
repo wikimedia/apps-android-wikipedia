@@ -266,6 +266,12 @@ De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK,
   <string name="read_more_section">Meer lezen</string>
   <string name="gallery_menu_more_info">Meer informatie</string>
   <string name="menu_gallery_visit_page">Ga naar bestandspagina</string>
-  <string name="gallery_license_text" fuzzy="true">Licentie: %s</string>
-  <string name="gallery_credit_text" fuzzy="true">Naamsvermelding: %s</string>
+  <string name="gallery_license_text">Licentie: %s</string>
+  <string name="gallery_credit_text">Auteur: %s</string>
+  <string name="gallery_image_info">Paginagegevens</string>
+  <string name="gallery_menu_share">Delen</string>
+  <string name="gallery_share_error">Kon afbeelding niet delen: %s</string>
+  <string name="gallery_menu_save">Opslaan op apparaat</string>
+  <string name="gallery_save_error">Kon afbeelding niet opslaan: %s</string>
+  <string name="gallery_save_success">Afbeelding succesvol opgeslagen</string>
 </resources>

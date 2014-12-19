@@ -273,6 +273,12 @@ Le code est entièrement ouvert. Si vous êtes expérimenté avec Java et le kit
   <string name="menu_gallery_visit_page">Aller à la page du fichier</string>
   <string name="gallery_error_draw_failed">Impossible de dessiner l’image.</string>
   <string name="license_title">Texte de la licence pour la bibliothèque %s</string>
-  <string name="gallery_license_text" fuzzy="true">Licence : %s</string>
-  <string name="gallery_credit_text" fuzzy="true">Remerciements : %s</string>
+  <string name="gallery_license_text">Licence — %s</string>
+  <string name="gallery_credit_text">Auteur — %s</string>
+  <string name="gallery_image_info">Information sur l’image</string>
+  <string name="gallery_menu_share">Partager</string>
+  <string name="gallery_share_error">Impossible de partager l’image : %s</string>
+  <string name="gallery_menu_save">Enregistrer sur l’appareil</string>
+  <string name="gallery_save_error">Impossible d’enregistrer l’image : %s</string>
+  <string name="gallery_save_success">Image bien enregistrée.</string>
 </resources>

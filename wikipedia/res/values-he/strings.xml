@@ -275,4 +275,5 @@
   <string name="gallery_license_text">רישיון – %s</string>
   <string name="gallery_credit_text">מאת – %s</string>
   <string name="gallery_image_info">מידע על התמונה</string>
+  <string name="gallery_menu_share">שיתוף</string>
 </resources>

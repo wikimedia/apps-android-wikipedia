@@ -273,6 +273,12 @@
   <string name="menu_gallery_visit_page">Перейти к странице файла</string>
   <string name="gallery_error_draw_failed">Не удалось вывести изображение.</string>
   <string name="license_title">Текст лицензии для библиотеки %s</string>
-  <string name="gallery_license_text" fuzzy="true">Лицензия: %s</string>
-  <string name="gallery_credit_text" fuzzy="true">Автор: %s</string>
+  <string name="gallery_license_text">Лицензия — %s</string>
+  <string name="gallery_credit_text">Автор — %s</string>
+  <string name="gallery_image_info">Сведения об изображении</string>
+  <string name="gallery_menu_share">Поделиться</string>
+  <string name="gallery_share_error">Не удалось поделиться изображением: %s</string>
+  <string name="gallery_menu_save">Сохранить на устройство</string>
+  <string name="gallery_save_error">Не удалось сохранить изображение: %s</string>
+  <string name="gallery_save_success">Изображение успешно сохранено.</string>
 </resources>

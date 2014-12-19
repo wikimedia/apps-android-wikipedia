@@ -276,4 +276,9 @@ Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) c
   <string name="gallery_license_text">Licență – %s</string>
   <string name="gallery_credit_text">Autor – %s</string>
   <string name="gallery_image_info">Informații despre imagine</string>
+  <string name="gallery_menu_share">Distribuie</string>
+  <string name="gallery_share_error">Nu s-a putut distribui imaginea: %s</string>
+  <string name="gallery_menu_save">Salvează în dispozitiv</string>
+  <string name="gallery_save_error">Nu s-a putut salva imaginea: %s</string>
+  <string name="gallery_save_success">Imagine salvată cu succes.</string>
 </resources>

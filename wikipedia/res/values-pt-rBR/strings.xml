@@ -41,6 +41,14 @@
   <string name="saved_pages_search_list_hint">Pesquisar</string>
   <string name="saved_pages_search_empty_message">Nenhuma página foi encontrada.</string>
   <string name="nearby_activity_title">Redondezas</string>
+  <string name="nav_item_nearby">Próximo</string>
+  <string name="menu_update_nearby">Atualizar páginas nas redondezas</string>
+  <string name="nearby_empty_title">Sem páginas nas redondezas!</string>
+  <string name="nearby_empty_message">Quando estiver num novo local, experimente atualizar esta página para saber mais sobre o que o rodeia.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Nenhuma conexão de rede</string>
   <string name="nearby_server_error">Não foi possível obter a lista de locais próximos.</string>
   <string name="nearby_no_location">Não foi possível obter a localização</string>
@@ -68,6 +76,7 @@
   <string name="dialog_message_edit_failed">Falha de edição!</string>
   <string name="dialog_message_edit_failed_retry">Repetir</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
+  <string name="dialog_message_leaving_edit">As suas alterações ainda não foram gravadas. Tem a certeza que pretende sair desta página?</string>
   <string name="dialog_message_leaving_edit_leave">Sair</string>
   <string name="dialog_message_leaving_edit_stay">Ficar</string>
   <string name="menu_show_toc">Tabela de Conteúdos</string>
@@ -101,6 +110,7 @@
   <string name="saved_pages_empty_message">As páginas salvas são incríveis. Pense nelas como se fossem marcadores que você pode ler mesmo quando estiver offline.</string>
   <string name="history_empty_title">Não existem páginas recentes aqui.</string>
   <string name="history_empty_message">Seu histórico está vazio. Na próxima vez que você buscar uma página, você pode acessar a mesma por aqui.</string>
+  <string name="delete_selected_history">Apagar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">A Enciclopédia Livre</string>
   <string name="skip">Pular</string>
@@ -228,11 +238,19 @@
   <string name="page_similar_titles">Títulos semelhantes</string>
   <string name="search_within_pages">Procurar na páginas...</string>
   <string name="search_no_results">Nenhum resultado encontrado para \"%s\".</string>
+  <string name="search_did_you_mean">Você quis dizer \"%s\"?</string>
   <string name="search_results_title">Resultados da pesquisa</string>
   <string name="search_error_retry">Tentar novamente</string>
   <string name="search_redirect_title">Redirecionar de \"%s\".</string>
+  <string name="search_recent_header">Pesquisas recentes:</string>
+  <string name="button_clear_all_recent_searches">Limpar pesquisas recentes</string>
+  <string name="clear_recent_searches_confirm">Você tem certeza que quer apagar o historico de pesquisa?</string>
   <string name="toc_hint">Arraste para a esquerda para seções, ou use o botão de menu no canto superior direito.</string>
   <string name="toc_know_it">Entendi</string>
+  <string name="error_browser_not_found">Não se podê abrir a pagina da web (nenhum browser foi localizado).</string>
+  <string name="table_infobox">Fatos rapidos</string>
+  <string name="table_other">Mais informação</string>
+  <string name="table_close">Fechar</string>
   <string name="app_store_description">Aplicativo oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada até hoje. O aplicativo foi re-criado do zero e está melhor que nunca.
 
 Caraterísticas:
@@ -247,4 +265,20 @@ Caraterísticas:
 O código é totalmente aberto. Se você tem experiência com linguagens como Java e Android SDK, venha trabalhar connosco! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">Nova versão alfa disponível</string>
   <string name="alpha_update_notification_text">Toque para baixar</string>
+  <string name="dialog_close_description">Fechar</string>
+  <string name="preference_title_show_images">Mostrar imagens</string>
+  <string name="preference_summary_show_images">Habilitar ou desabilitar o carregamento de imagens em paginas. Desmarque essa opção se sua conexão de internet for lenta, ou se seu plano for limitado.</string>
+  <string name="read_more_section">Ler mais</string>
+  <string name="gallery_menu_more_info">Mais informação</string>
+  <string name="menu_gallery_visit_page">Ir para a pagina do arquivo</string>
+  <string name="gallery_error_draw_failed">Impossivel desenhar a imagem</string>
+  <string name="license_title">Texto de licensa para a livraria %s</string>
+  <string name="gallery_license_text">Licensa - %s</string>
+  <string name="gallery_credit_text">Autor - %s</string>
+  <string name="gallery_image_info">Informação de imagem</string>
+  <string name="gallery_menu_share">Compartilhar</string>
+  <string name="gallery_share_error">Não podê-se compartilhar a imagem: %s</string>
+  <string name="gallery_menu_save">Sauvar no dispositivo</string>
+  <string name="gallery_save_error">Não podê-se salvar a imagem: %s</string>
+  <string name="gallery_save_success">Imagem salva com sucesso.</string>
 </resources>

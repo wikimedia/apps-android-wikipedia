@@ -276,4 +276,9 @@
   <string name="gallery_license_text">Лиценца — %s</string>
   <string name="gallery_credit_text">Автор — %s</string>
   <string name="gallery_image_info">Информации за сликата</string>
+  <string name="gallery_menu_share">Сподели</string>
+  <string name="gallery_share_error">Не можев да ја споделам сликата: %s</string>
+  <string name="gallery_menu_save">Зачувај на уредот</string>
+  <string name="gallery_save_error">Не можев да ја зачувам сликата: %s</string>
+  <string name="gallery_save_success">Сликата е успешно зачувана.</string>
 </resources>
