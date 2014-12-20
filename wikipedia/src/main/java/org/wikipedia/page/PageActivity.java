@@ -27,8 +27,11 @@ import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.SearchManager;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -70,6 +73,7 @@ public class PageActivity extends ThemedActionBarActivity {
     public static final int ACTIVITY_REQUEST_GALLERY = 2;
 
     private Bus bus;
+    private EventBusMethods busMethods;
     private WikipediaApp app;
 
     private View fragmentContainerView;
@@ -77,7 +81,10 @@ public class PageActivity extends ThemedActionBarActivity {
     private NavDrawerFragment fragmentNavdrawer;
     private SearchArticlesFragment searchFragment;
     private TextView searchHintText;
+
     private ActionMode webViewActionMode;
+    private ClipboardManager.OnPrimaryClipChangedListener clipListener;
+    private MenuItem copyMenuItem;
 
     public static final int PROGRESS_BAR_MAX_VALUE = 10000;
     private ProgressBar progressBar;
@@ -138,7 +145,8 @@ public class PageActivity extends ThemedActionBarActivity {
         toolbarContainer = findViewById(R.id.main_toolbar_container);
 
         bus = app.getBus();
-        bus.register(this);
+        busMethods = new EventBusMethods();
+        bus.register(busMethods);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navdrawer);
@@ -522,46 +530,6 @@ public class PageActivity extends ThemedActionBarActivity {
         themeChooser.show();
     }
 
-    @Subscribe
-    public void onChangeTextSize(ChangeTextSizeEvent event) {
-        if (getCurPageFragment() != null && getCurPageFragment().getWebView() != null) {
-            getCurPageFragment().updateFontSize();
-        }
-    }
-
-    @Subscribe
-    public void onChangeTheme(ThemeChangeEvent event) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-
-            // this is all that's necessary!
-            // ALL of the other code relating to changing themes is only for API 10 support!
-            this.recreate();
-
-        } else {
-            // TODO: remove this when we drop support for API 10
-            // sigh.
-            Bundle state = new Bundle();
-            Intent intent = new Intent(this, PageActivity.class);
-            // In order to change our theme, we need to relaunch the activity.
-            // There doesn't seem to be a way to relaunch an activity in a way that forces it to save its
-            // instance state (and all of its fragments' instance state)... so we need to explicitly save
-            // the state that we need, and pass it into the Intent.
-            // We'll simply save the last Fragment that was on top of the backstack, as well as its arguments.
-            Fragment curFragment = getSupportFragmentManager().findFragmentById(R.id.content_fragment_container);
-            state.putString(KEY_LAST_FRAGMENT, curFragment.getClass().getName());
-            // if the fragment had arguments, save them too:
-            if (curFragment.getArguments() != null) {
-                state.putBundle(KEY_LAST_FRAGMENT_ARGS, curFragment.getArguments());
-            }
-
-            saveState(state);
-            state.putBoolean("changeTheme", true);
-            finish();
-            intent.putExtras(state);
-            startActivity(intent);
-        }
-    }
-
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(Gravity.START)) {
@@ -583,31 +551,79 @@ public class PageActivity extends ThemedActionBarActivity {
         }
     }
 
-    @Subscribe
-    public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
-        boolean latestWikipediaZeroDisposition = app.getWikipediaZeroHandler().isZeroEnabled();
-        ZeroMessage latestCarrierMessage = app.getWikipediaZeroHandler().getCarrierMessage();
-
-        if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
-            String title = getString(R.string.zero_charged_verbiage);
-            String verbiage = getString(R.string.zero_charged_verbiage_extended);
-            makeWikipediaZeroCrouton(getResources().getColor(R.color.holo_red_dark),
-                    getResources().getColor(android.R.color.white),
-                    title);
-            fragmentNavdrawer.setupDynamicItems();
-            showDialogAboutZero(null, title, verbiage);
-        } else if ((!pausedStateOfZero || !pausedMessageOfZero.equals(latestCarrierMessage)) && latestWikipediaZeroDisposition) {
-            String title = latestCarrierMessage.getMsg();
-            int fg = latestCarrierMessage.getFg();
-            int bg = latestCarrierMessage.getBg();
-            String verbiage = getString(R.string.zero_learn_more);
-            makeWikipediaZeroCrouton(bg, fg, title);
-            fragmentNavdrawer.setupDynamicItems();
-            showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, title, verbiage);
+    private class EventBusMethods {
+        @Subscribe
+        public void onChangeTextSize(ChangeTextSizeEvent event) {
+            if (getCurPageFragment() != null && getCurPageFragment().getWebView() != null) {
+                getCurPageFragment().updateFontSize();
+            }
         }
-        pausedStateOfZero = latestWikipediaZeroDisposition;
-        pausedMessageOfZero = latestCarrierMessage;
-        searchHintText.setText(getString(latestWikipediaZeroDisposition ? R.string.zero_search_hint : R.string.search_hint));
+
+        @Subscribe
+        public void onChangeTheme(ThemeChangeEvent event) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+
+                // this is all that's necessary!
+                // ALL of the other code relating to changing themes is only for API 10 support!
+                PageActivity.this.recreate();
+            } else {
+                // TODO: remove this when we drop support for API 10
+                // sigh.
+                Bundle state = new Bundle();
+                Intent intent = new Intent(PageActivity.this, PageActivity.class);
+                // In order to change our theme, we need to relaunch the activity.
+                // There doesn't seem to be a way to relaunch an activity in a way that forces it to save its
+
+                // instance state (and all of its fragments' instance state)... so we need to
+                // explicitly save
+                // the state that we need, and pass it into the Intent.
+                // We'll simply save the last Fragment that was on top of the backstack, as well as its arguments.
+                Fragment curFragment = getSupportFragmentManager()
+                        .findFragmentById(R.id.content_fragment_container);
+                state.putString(KEY_LAST_FRAGMENT, curFragment.getClass().getName());
+                // if the fragment had arguments, save them too:
+                if (curFragment.getArguments() != null) {
+                    state.putBundle(KEY_LAST_FRAGMENT_ARGS, curFragment.getArguments());
+                }
+
+                saveState(state);
+                state.putBoolean("changeTheme", true);
+                finish();
+                intent.putExtras(state);
+                startActivity(intent);
+            }
+        }
+
+        @Subscribe
+        public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
+            boolean latestWikipediaZeroDisposition = app.getWikipediaZeroHandler().isZeroEnabled();
+            ZeroMessage latestCarrierMessage = app.getWikipediaZeroHandler().getCarrierMessage();
+
+            if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
+                String title = getString(R.string.zero_charged_verbiage);
+                String verbiage = getString(R.string.zero_charged_verbiage_extended);
+                makeWikipediaZeroCrouton(getResources().getColor(R.color.holo_red_dark),
+                                         getResources().getColor(android.R.color.white),
+                                         title);
+                fragmentNavdrawer.setupDynamicItems();
+                showDialogAboutZero(null, title, verbiage);
+            } else if ((!pausedStateOfZero || !pausedMessageOfZero.equals(latestCarrierMessage))
+                       && latestWikipediaZeroDisposition) {
+                String title = latestCarrierMessage.getMsg();
+                int fg = latestCarrierMessage.getFg();
+                int bg = latestCarrierMessage.getBg();
+                String verbiage = getString(R.string.zero_learn_more);
+                makeWikipediaZeroCrouton(bg, fg, title);
+                fragmentNavdrawer.setupDynamicItems();
+                showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, title, verbiage);
+            }
+            pausedStateOfZero = latestWikipediaZeroDisposition;
+            pausedMessageOfZero = latestCarrierMessage;
+            searchHintText.setText(getString(
+                    latestWikipediaZeroDisposition
+                            ? R.string.zero_search_hint
+                            : R.string.search_hint));
+        }
     }
 
     private void makeWikipediaZeroCrouton(int bgcolor, int fgcolor, String verbiage) {
@@ -658,7 +674,7 @@ public class PageActivity extends ThemedActionBarActivity {
         super.onStart();
         if (bus == null) {
             bus = app.getBus();
-            bus.register(this);
+            bus.register(busMethods);
             Log.d("Wikipedia", "Registering bus");
         }
     }
@@ -698,7 +714,7 @@ public class PageActivity extends ThemedActionBarActivity {
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         if (bus == null) {
             bus = app.getBus();
-            bus.register(this);
+            bus.register(busMethods);
             Log.d("Wikipedia", "Registering bus");
         }
         if ((requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT)) {
@@ -729,27 +745,87 @@ public class PageActivity extends ThemedActionBarActivity {
         app.getSessionFunnel().persistSession();
 
         super.onStop();
-        bus.unregister(this);
+        bus.unregister(busMethods);
         bus = null;
         Log.d("Wikipedia", "Deregistering bus");
     }
 
+    /**
+     * ActionMode that is invoked when the user long-presses inside the WebView.
+     * Since API <11 doesn't provide a long-press context for the WebView anyway, and we're
+     * using clipboard features that are only supported in API 11+, we'll mark this whole
+     * method as TargetApi(11), so that the IDE doesn't get upset.
+     * @param mode ActionMode under which this context is starting.
+     */
+    @TargetApi(11)
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
         if (webViewActionMode == null) {
             webViewActionMode = mode;
             Menu menu = mode.getMenu();
+
+            // Find the context menu item for copying text to the clipboard...
+            // The most practical way to do this seems to be to get the resource name of the
+            // menu item, and see if it resembles "action_menu_copy", which appears to remain
+            // consistent throughout the various APIs.
+            for (int i = 0; i < menu.size(); i++) {
+                String resourceName = getResources().getResourceName(menu.getItem(i).getItemId());
+                if (resourceName.contains("action_menu_copy")) {
+                    copyMenuItem = menu.getItem(i);
+                    break;
+                }
+            }
+
+            // add our clipboard listener, so that we'll get an event when the text
+            // is copied onto it...
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(
+                    Context.CLIPBOARD_SERVICE);
+            if (clipListener == null) {
+                clipListener = new ClipboardManager.OnPrimaryClipChangedListener() {
+                    @Override
+                    public void onPrimaryClipChanged() {
+                        // get the text from the clipboard!
+                        ClipboardManager clipboard = (ClipboardManager) getSystemService(
+                                Context.CLIPBOARD_SERVICE);
+                        if (clipboard.hasPrimaryClip()
+                            && clipboard.getPrimaryClip().getItemCount() > 0) {
+
+
+                            // TODO: Pass the clipboard text to the Share handler!
+
+
+                            Log.d("Share", ">>> Clipboard text: " + clipboard.getPrimaryClip()
+                                            .getItemAt(0).coerceToText(PageActivity.this));
+
+                        }
+                        clipboard.removePrimaryClipChangedListener(clipListener);
+                    }
+                };
+            }
+            // remove it first, just in case it was added from the last context, and
+            // ended up not being used.
+            clipboard.removePrimaryClipChangedListener(clipListener);
+            // and add it again.
+            clipboard.addPrimaryClipChangedListener(clipListener);
+
+            // inject our Share item into the menu...
             MenuItem shareItem = menu.add(R.string.share_via);
             shareItem.setIcon(app.getCurrentTheme() == WikipediaApp.THEME_DARK
                                       ? R.drawable.ic_share_dark
                                       : R.drawable.ic_share);
             MenuItemCompat.setShowAsAction(shareItem, MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
+
             shareItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-
-                    // TODO: implement sharing of image with quote!
-
+                    if (copyMenuItem != null) {
+                        // programmatically invoke the copy-to-clipboard action...
+                        webViewActionMode.getMenu()
+                                         .performIdentifierAction(copyMenuItem.getItemId(), 0);
+                        // this will trigger a state-change event in the Clipboard, which we'll
+                        // catch with our listener above.
+                    }
+                    // leave context mode...
                     if (webViewActionMode != null) {
                         webViewActionMode.finish();
                     }
