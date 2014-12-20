@@ -21,6 +21,7 @@ import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
+import org.wikipedia.util.ShareUtils;
 import org.wikipedia.zero.ZeroMessage;
 
 import com.squareup.otto.Bus;
@@ -36,6 +37,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.BadParcelableException;
 import android.os.Build;
@@ -58,6 +60,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PageActivity extends ThemedActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
@@ -790,15 +793,38 @@ public class PageActivity extends ThemedActionBarActivity {
                         if (clipboard.hasPrimaryClip()
                             && clipboard.getPrimaryClip().getItemCount() > 0) {
 
+                            CharSequence selectedText = clipboard.getPrimaryClip().getItemAt(0)
+                                    .coerceToText(PageActivity.this);
+                            Log.d("Share", ">>> Clipboard text: " + selectedText);
 
-                            // TODO: Pass the clipboard text to the Share handler!
-
-
-                            Log.d("Share", ">>> Clipboard text: " + clipboard.getPrimaryClip()
-                                            .getItemAt(0).coerceToText(PageActivity.this));
-
+                            // Pass the clipboard text to the Share handler!
+                            shareSnippet(selectedText);
                         }
                         clipboard.removePrimaryClipChangedListener(clipListener);
+                    }
+
+                    private void shareSnippet(CharSequence selectedText) {
+                        // TODO: create sharable image with selected text
+                        // currently only using lead image
+
+                        PageTitle title = getCurPageFragment().getTitle();
+                        String text = getString(R.string.snippet_share_intro,
+                                title.getDisplayText(),
+                                title.getCanonicalUri());
+
+                        Bitmap leadImageBitmap = getCurPageFragment().getLeadImageBitmap();
+
+                        if (leadImageBitmap != null) {
+                            ShareUtils.shareImage(PageActivity.this, leadImageBitmap, "*/*",
+                                    title.getDisplayText(), text);
+                        } else {
+                            // TODO: remove if check once we build our own image
+                            // For now, as we're using the lead image we may not always have one,
+                            // esp. on the main page.
+                            Toast.makeText(PageActivity.this,
+                                    "For now: only works on pages that have a lead image loaded",
+                                    Toast.LENGTH_SHORT).show();
+                        }
                     }
                 };
             }
@@ -841,5 +867,4 @@ public class PageActivity extends ThemedActionBarActivity {
         webViewActionMode = null;
         super.onSupportActionModeFinished(mode);
     }
-
 }

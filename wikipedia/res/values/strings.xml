@@ -288,4 +288,5 @@ The code is fully open source. If you have experience with Java and the Android 
     <string name="gallery_menu_save">Save to device</string>
     <string name="gallery_save_error">Could not save image: %s</string>
     <string name="gallery_save_success">Image saved successfully.</string>
+    <string name="snippet_share_intro">Interesting fact on @Wikipedia about %1$s: %2$s</string>
 </resources>

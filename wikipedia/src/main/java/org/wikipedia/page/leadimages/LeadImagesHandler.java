@@ -100,6 +100,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     private int displayHeight;
     private int imageBaseYOffset = 0;
     private float displayDensity;
+    private Bitmap leadImageBitmap;
 
     public interface OnLeadImageLayoutListener {
         void onLayoutComplete();
@@ -184,8 +185,13 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         imageContainer.setVisibility(View.INVISIBLE);
     }
 
+    public Bitmap getLeadImageBitmap() {
+        return leadImageBitmap;
+    }
+
     @Override
     public void onImageLoaded(Bitmap bitmap, final PointF faceLocation) {
+        leadImageBitmap = bitmap;
         final int bmpHeight = bitmap.getHeight();
         final float aspect = (float)bitmap.getHeight() / (float)bitmap.getWidth();
         imageContainer.post(new Runnable() {

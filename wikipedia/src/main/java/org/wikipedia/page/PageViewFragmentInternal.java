@@ -39,6 +39,7 @@ import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
@@ -444,6 +445,10 @@ public class PageViewFragmentInternal {
     private boolean isFirstPage() {
         return parentFragment.getFragmentManager().getBackStackEntryCount() == 0
                 && !webView.canGoBack();
+    }
+
+    public Bitmap getLeadImageBitmap() {
+        return leadImagesHandler.getLeadImageBitmap();
     }
 
     /**

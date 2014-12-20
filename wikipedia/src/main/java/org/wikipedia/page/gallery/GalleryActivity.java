@@ -11,12 +11,12 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.util.ShareUtils;
+
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
@@ -36,9 +36,7 @@ import com.squareup.picasso.Picasso;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import uk.co.senab.photoview.PhotoViewAttacher;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
+
 import java.util.Map;
 
 public class GalleryActivity extends ThemedActionBarActivity {
@@ -198,49 +196,22 @@ public class GalleryActivity extends ThemedActionBarActivity {
     }
 
     /**
-     * Share the current image using an activity chooser, so that the user can choose the
-     * app with which to share the content.
-     * This is done by saving the image to a temporary file in external storage, then specifying
-     * that file in the share intent. The name of the temporary file is kept constant, so that
-     * it's overwritten every time an image is shared from the app, so that it takes up a
-     * constant amount of space.
+     * Share the current image using an activity chooser.
+     *
+     * @see org.wikipedia.util.ShareUtils#shareImage
      */
     private void shareImage() {
         if (currentGalleryItem == null) {
             return;
         }
-        final int jpegQuality = 85;
-        final String tempShareFileName = getPackageName() + "_tempShareImage.jpg";
-        new SaneAsyncTask<String>(SaneAsyncTask.SINGLE_THREAD) {
-            @Override
-            public String performTask() throws Throwable {
-                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-                Bitmap bmp = ((BitmapDrawable) mainImage.getDrawable()).getBitmap();
-                bmp.compress(Bitmap.CompressFormat.JPEG, jpegQuality, bytes);
-                File f = new File(Environment.getExternalStorageDirectory() + File.separator
-                                  + tempShareFileName);
-                FileOutputStream fo = new FileOutputStream(f);
-                fo.write(bytes.toByteArray());
-                fo.close();
-                return f.getAbsolutePath();
-            }
-            @Override
-            public void onFinish(String result) {
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_SUBJECT, pageTitle.getDisplayText());
-                shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + result));
-                shareIntent.setType(currentGalleryItem.getMimeType());
-                Intent chooser = Intent.createChooser(shareIntent, getResources()
-                        .getString(R.string.share_via));
-                startActivity(chooser);
-            }
-            @Override
-            public void onCatch(Throwable caught) {
-                Toast.makeText(GalleryActivity.this,
-                        String.format(getString(R.string.gallery_share_error),
-                        caught.getLocalizedMessage()), Toast.LENGTH_SHORT).show();
-            }
-        }.execute();
+        ShareUtils.shareImage(GalleryActivity.this,
+                ((BitmapDrawable) mainImage.getDrawable()).getBitmap(),
+                // shouldn't this always be
+                "image/jpeg",
+                // instead of:
+//                currentGalleryItem.getMimeType(),
+                pageTitle.getDisplayText(),
+                "");
     }
 
     /**
