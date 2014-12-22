@@ -294,7 +294,11 @@ public class TitleSearchFragment extends Fragment {
                     if (!isAdded()) {
                         return;
                     }
-                    searchFragment.getFunnel().searchResults(false, result.size(), (int)(System.currentTimeMillis() - startMillis));
+                    // To ease data analysis and better make the funnel track with user behaviour,
+                    // only transmit search results events if there are a nonzero number of results
+                    if (result.size() > 0) {
+                        searchFragment.getFunnel().searchResults(false, result.size(), (int) (System.currentTimeMillis() - startMillis));
+                    }
                     ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
                     searchNetworkError.setVisibility(View.GONE);
                     displayResults(result);
