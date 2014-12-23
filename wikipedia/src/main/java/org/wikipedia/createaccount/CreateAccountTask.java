@@ -51,17 +51,18 @@ public abstract class CreateAccountTask extends ApiTask<CreateAccountResult> {
         }
         JSONObject ca = result.asObject().optJSONObject("createaccount");
         String apiResult = ca.optString("result");
-        if (apiResult.equals("NeedToken")) {
-            // We need to just repeat the request.
-            // Set token and restart the request
-            token = ca.optString("token");
-            return performTask();
-        } else if (apiResult.equals("NeedCaptcha")) {
-            return new CreateAccountCaptchaResult(new CaptchaResult(ca.optJSONObject("captcha").optString("id")));
-        } else if (apiResult.equals("Success")) {
-            return new CreateAccountSuccessResult(ca.optString("username"));
-        } else {
-            return new CreateAccountResult(apiResult);
+        switch (apiResult) {
+            case "NeedToken":
+                // We need to just repeat the request.
+                // Set token and restart the request
+                token = ca.optString("token");
+                return performTask();
+            case "NeedCaptcha":
+                return new CreateAccountCaptchaResult(new CaptchaResult(ca.optJSONObject("captcha").optString("id")));
+            case "Success":
+                return new CreateAccountSuccessResult(ca.optString("username"));
+            default:
+                return new CreateAccountResult(apiResult);
         }
     }
 }

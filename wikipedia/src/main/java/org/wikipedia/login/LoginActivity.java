@@ -198,19 +198,25 @@ public class LoginActivity extends ThemedActionBarActivity {
     }
 
     private void handleError(String result) {
-        if (result.equals("WrongPass")) {
-            passwordText.requestFocus();
-            passwordText.setError(getString(R.string.login_error_wrong_password));
-        } else if (result.equals("NotExists")) {
-            usernameText.requestFocus();
-            usernameText.setError(getString(R.string.login_error_wrong_username));
-        } else if (result.equals("Blocked")) {
-            Crouton.makeText(this, R.string.login_error_blocked, Style.ALERT).show();
-        } else if (result.equals("Throttled")) {
-            Crouton.makeText(this, R.string.login_error_throttled, Style.ALERT).show();
-        } else {
-            Crouton.makeText(this, R.string.login_error_unknown, Style.ALERT).show();
-            Log.d("Wikipedia", "Login failed with result " + result);
+        switch (result) {
+            case "WrongPass":
+                passwordText.requestFocus();
+                passwordText.setError(getString(R.string.login_error_wrong_password));
+                break;
+            case "NotExists":
+                usernameText.requestFocus();
+                usernameText.setError(getString(R.string.login_error_wrong_username));
+                break;
+            case "Blocked":
+                Crouton.makeText(this, R.string.login_error_blocked, Style.ALERT).show();
+                break;
+            case "Throttled":
+                Crouton.makeText(this, R.string.login_error_throttled, Style.ALERT).show();
+                break;
+            default:
+                Crouton.makeText(this, R.string.login_error_unknown, Style.ALERT).show();
+                Log.d("Wikipedia", "Login failed with result " + result);
+                break;
         }
     }
 
