@@ -277,7 +277,10 @@ public class WikipediaApp extends Application {
         // https://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
         HashMap<String, String> customHeaders = new HashMap<String, String>();
         customHeaders.put("User-Agent", getUserAgent());
-        customHeaders.put("X-WMF-UUID", getAppInstallID());
+        // Add the app install ID to the header, but only if the user has not opted out of logging
+        if (isEventLoggingEnabled()) {
+            customHeaders.put("X-WMF-UUID", getAppInstallID());
+        }
         String acceptLanguage = getAcceptLanguage();
 
         // TODO: once we're not constraining this to just Chinese, add the header unconditionally.
