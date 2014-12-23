@@ -59,14 +59,7 @@ public abstract class PersistanceHelper<T> {
      }
 
     public void createTables(SQLiteDatabase db, int version) {
-        String tableName = getTableName();
-        ArrayList<Column> columns = getElements(1, version);
-        StringBuilder builder = new StringBuilder();
-        builder.append("CREATE TABLE ").append(tableName).append(" ( ")
-                .append(TextUtils.join(", ", columns))
-                .append(" );");
-
-        db.execSQL(builder.toString());
+        db.execSQL("CREATE TABLE " + getTableName() + " ( " + TextUtils.join(", ", getElements(1, version)) + " );");
     }
 
     public void upgradeSchema(SQLiteDatabase db, int fromVersion, int toVersion) {
@@ -83,14 +76,9 @@ public abstract class PersistanceHelper<T> {
         for (Column column : columns) {
             columnCommands.add("ADD COLUMN " + column);
         }
-        StringBuilder builder = new StringBuilder();
-        builder.append("ALTER TABLE ").append(tableName).append(" ")
-                .append(TextUtils.join(", ", columnCommands))
-                .append(";");
-
-        Log.d("Wikipedia", builder.toString());
-
-        db.execSQL(builder.toString());
+        String alterTableString = "ALTER TABLE " + tableName + " " + TextUtils.join(", ", columnCommands) + ";";
+        Log.d("Wikipedia", alterTableString);
+        db.execSQL(alterTableString);
     }
 
     private Uri baseContentURI;

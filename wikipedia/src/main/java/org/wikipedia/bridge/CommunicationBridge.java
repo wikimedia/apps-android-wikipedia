@@ -89,15 +89,11 @@ public class CommunicationBridge {
     public void sendMessage(String messageName, JSONObject messageData) {
         String messagePointer =  marshaller.putPayload(messageData.toString());
 
-        StringBuilder jsString = new StringBuilder();
-        jsString.append("javascript:handleMessage( ")
-                .append("\"").append(messageName).append("\", \"")
-                .append(messagePointer)
-                .append("\" );");
+        String jsString = "javascript:handleMessage( \"" + messageName + "\", \"" + messagePointer + "\" );";
         if (!isDOMReady) {
-            pendingJSMessages.add(jsString.toString());
+            pendingJSMessages.add(jsString);
         } else {
-            webView.loadUrl(jsString.toString());
+            webView.loadUrl(jsString);
         }
     }
 
