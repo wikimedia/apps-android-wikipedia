@@ -133,7 +133,6 @@ public class PageViewFragmentInternal {
     private LinkHandler linkHandler;
     private ReferenceDialog referenceDialog;
     private EditHandler editHandler;
-    private NightModeHandler nightModeHandler;
     private ActionMode findInPageActionMode;
 
     private WikipediaApp app;
@@ -394,8 +393,7 @@ public class PageViewFragmentInternal {
         bridge.injectStyleBundle(app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_PAGEVIEW));
 
         if (app.getCurrentTheme() == WikipediaApp.THEME_DARK) {
-            nightModeHandler = new NightModeHandler(bridge);
-            nightModeHandler.turnOn(true);
+            new NightModeHandler(bridge).turnOn(true);
         }
 
         retryButton.setOnClickListener(new View.OnClickListener() {

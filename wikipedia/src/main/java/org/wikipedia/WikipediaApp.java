@@ -480,9 +480,8 @@ public class WikipediaApp extends Application {
         return styleLoader;
     }
 
-    private String appInstallID;
     public String getAppInstallID() {
-        appInstallID = getAppInstallIDForFeature(PrefKeys.getAppInstallId());
+        String appInstallID = getAppInstallIDForFeature(PrefKeys.getAppInstallId());
         Log.d("Wikipedia", "appInstallID is" + appInstallID);
         return appInstallID;
     }

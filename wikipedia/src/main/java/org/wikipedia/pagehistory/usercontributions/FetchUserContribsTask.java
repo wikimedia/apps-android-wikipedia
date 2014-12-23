@@ -16,7 +16,6 @@ import org.wikipedia.pagehistory.PageHistoryItem;
 import java.util.ArrayList;
 
 public class FetchUserContribsTask extends ApiTask<FetchUserContribsTask.UserContributionsList> {
-    private final WikipediaApp app;
     private final Site site;
     private final String username;
     private final int numberToFetch;
@@ -27,7 +26,6 @@ public class FetchUserContribsTask extends ApiTask<FetchUserContribsTask.UserCon
                 SINGLE_THREAD,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(site)
         );
-        app = (WikipediaApp)context.getApplicationContext();
         this.site = site;
         this.username = username;
         this.numberToFetch = numberToFetch;

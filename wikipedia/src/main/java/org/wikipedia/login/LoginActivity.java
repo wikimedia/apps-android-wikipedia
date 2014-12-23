@@ -31,8 +31,6 @@ public class LoginActivity extends ThemedActionBarActivity {
     private EditText passwordText;
     private View loginButton;
 
-    private NonEmptyValidator nonEmptyValidator;
-
     private WikipediaApp app;
 
     private LoginFunnel funnel;
@@ -51,7 +49,8 @@ public class LoginActivity extends ThemedActionBarActivity {
         passwordText = (EditText) findViewById(R.id.login_password_text);
         View createAccountLink = findViewById(R.id.login_create_account_link);
 
-        nonEmptyValidator = new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
+        // Don't allow user to attempt login until they've put in a username and password
+        new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
             @Override
             public void onValidationChanged(boolean isValid) {
                 loginButton.setEnabled(isValid);

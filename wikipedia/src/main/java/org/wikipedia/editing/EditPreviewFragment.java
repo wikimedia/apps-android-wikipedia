@@ -43,8 +43,6 @@ public class EditPreviewFragment extends Fragment {
 
     private CommunicationBridge bridge;
 
-    private NightModeHandler nightModeHandler;
-
     private List<EditSummaryTag> summaryTags;
     private EditSummaryTag otherTag;
 
@@ -175,8 +173,7 @@ public class EditPreviewFragment extends Fragment {
             bridge.injectStyleBundle(styleLoader.getAvailableBundle(StyleLoader.BUNDLE_PREVIEW));
             Utils.setupDirectionality(parentActivity.getPageTitle().getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
             if (WikipediaApp.getInstance().getCurrentTheme() == WikipediaApp.THEME_DARK) {
-                nightModeHandler = new NightModeHandler(bridge);
-                nightModeHandler.turnOn(false);
+                new NightModeHandler(bridge).turnOn(false);
             }
 
             new LinkHandler(getActivity(), bridge) {

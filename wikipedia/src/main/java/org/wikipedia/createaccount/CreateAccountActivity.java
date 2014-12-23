@@ -59,9 +59,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     private CaptchaHandler captchaHandler;
 
-    private NonEmptyValidator nonEmptyValidator;
-    private NonEmptyValidator nonEmptyValidatorCaptcha;
-
     private CreateAccountResult createAccountResult;
 
     private Validator validator;
@@ -114,14 +111,16 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             }
         });
 
-        nonEmptyValidator = new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
+        // Don't allow user to submit registration unless they've put in a username and password
+        new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
             @Override
             public void onValidationChanged(boolean isValid) {
                 createAccountButton.setEnabled(isValid);
             }
         }, usernameEdit, passwordEdit, passwordRepeatEdit);
 
-        nonEmptyValidatorCaptcha = new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
+        // Don't allow user to continue when they're shown a captcha until they fill it in
+        new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
             @Override
             public void onValidationChanged(boolean isValid) {
                 createAccountButtonCaptcha.setEnabled(isValid);

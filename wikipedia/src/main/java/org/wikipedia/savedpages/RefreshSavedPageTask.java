@@ -21,8 +21,6 @@ public class RefreshSavedPageTask extends SectionsFetchTask {
     private final SavedPage savedPage;
     private final WikipediaApp app;
 
-    private PageProperties pageProperties;
-
     public RefreshSavedPageTask(Context context, SavedPage savedPage) {
         super(context, savedPage.getTitle(), "all");
         this.savedPage = savedPage;
@@ -42,7 +40,7 @@ public class RefreshSavedPageTask extends SectionsFetchTask {
     public List<Section> processResult(ApiResult result) throws Throwable {
         JSONObject mobileView = result.asObject().optJSONObject("mobileview");
         if (mobileView != null) {
-            pageProperties = PageProperties.parseJSON(mobileView);
+            PageProperties pageProperties = PageProperties.parseJSON(mobileView);
             List<Section> sections = super.processResult(result);
             final Page page = new Page(savedPage.getTitle(), (ArrayList<Section>) sections, pageProperties);
             final CountDownLatch savePagesLatch = new CountDownLatch(1);

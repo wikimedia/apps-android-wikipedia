@@ -19,15 +19,12 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
     public static final int RESULT_REFRESH_PAGE = 1;
 
     private final PageViewFragment fragment;
-    private final CommunicationBridge bridge;
     private ProtectedEditAttemptFunnel funnel;
     private Page currentPage;
 
     public EditHandler(PageViewFragment fragment, CommunicationBridge bridge) {
         this.fragment = fragment;
-        this.bridge = bridge;
-
-        this.bridge.addListener("editSectionClicked", this);
+        bridge.addListener("editSectionClicked", this);
     }
 
     public void setPage(Page page) {

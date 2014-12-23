@@ -16,7 +16,6 @@ public class DoEditTask extends ApiTask<EditingResult> {
     private final int sectionID;
     private final String summary;
     private final String editToken;
-    private final WikipediaApp app;
 
     public DoEditTask(Context context, PageTitle title, String sectionWikitext, int sectionID, String editToken, String summary) {
         super(
@@ -28,7 +27,6 @@ public class DoEditTask extends ApiTask<EditingResult> {
         this.sectionID = sectionID;
         this.editToken = editToken;
         this.summary = summary;
-        this.app = (WikipediaApp)context.getApplicationContext();
     }
 
     @Override

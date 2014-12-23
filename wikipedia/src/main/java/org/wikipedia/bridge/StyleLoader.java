@@ -20,13 +20,11 @@ public class StyleLoader {
     public static final String BUNDLE_ABUSEFILTER = "abusefilter.css";
     public static final String BUNDLE_NIGHT_MODE = "night.css";
 
-    private final Context context;
     private final Date assetsUpdated;
     private final SharedPreferences prefs;
 
 
     public StyleLoader(Context context) {
-        this.context = context;
         this.prefs = PreferenceManager.getDefaultSharedPreferences(context);
         try {
             this.assetsUpdated = Utils.parseISO8601(context.getString(R.string.bundled_styles_updated));
