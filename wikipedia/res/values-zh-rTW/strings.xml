@@ -272,5 +272,12 @@
   <string name="menu_gallery_visit_page">前往檔案頁面</string>
   <string name="gallery_error_draw_failed">不能畫圖片。</string>
   <string name="license_title">%s 庫的授權文字</string>
-  <string name="gallery_license_text" fuzzy="true">授權：%s</string>
+  <string name="gallery_license_text">許可 – %s</string>
+  <string name="gallery_credit_text">作者 – %s</string>
+  <string name="gallery_image_info">圖片資訊</string>
+  <string name="gallery_menu_share">分享</string>
+  <string name="gallery_share_error">無法分享圖片：  %s</string>
+  <string name="gallery_menu_save">儲存至裝置</string>
+  <string name="gallery_save_error">無法儲存圖片： %s</string>
+  <string name="gallery_save_success">已成功儲存圖片。</string>
 </resources>

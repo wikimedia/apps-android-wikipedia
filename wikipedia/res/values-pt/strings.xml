@@ -47,10 +47,14 @@
   <string name="nearby_empty_message">Quando estiver num novo local, experimente atualizar esta página para saber mais sobre o que o rodeia.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Nenhuma conexão de rede</string>
   <string name="nearby_server_error">Não foi possível obter a lista de locais próximos.</string>
   <string name="nearby_no_location">Não foi possível obter a localização</string>
   <string name="nearby_dialog_goto_settings">Atualizações de localização não estão ativadas no seu dispositivo. Gostaria de ir para as configurações do seu dispositivo para as ativar?</string>
+  <string name="nearby_set_metric">Mostrar metros/km</string>
+  <string name="nearby_set_imperial">Mostrar pés/milhas</string>
   <string name="last_updated_text">Última atualização: %s</string>
   <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
   <string name="edit_save_action_license_logged_in">Ao gravar, concorda com as &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -242,6 +246,7 @@
   <string name="clear_recent_searches_confirm">Tem certeza de que deseja limpar o histórico de pesquisa?</string>
   <string name="toc_hint">Deslize para a esquerda para seções, ou use o botão de menu no canto superior direito.</string>
   <string name="toc_know_it">Percebido</string>
+  <string name="error_browser_not_found">Não foi possível abrir a página web (nenhuma aplicação de navegador encontrada).</string>
   <string name="table_infobox">Fatos rápidos</string>
   <string name="table_other">Mais informação</string>
   <string name="table_close">Fechar</string>
@@ -261,9 +266,17 @@ O código é totalmente aberto. Se tem experiência com linguagens Java e Androi
   <string name="alpha_update_notification_text">Toque para descarregar</string>
   <string name="dialog_close_description">Fechar</string>
   <string name="preference_title_show_images">Mostrar imagens</string>
+  <string name="preference_summary_show_images">Ativar ou desativar o carregamento de imagens em páginas. Desmarque esta opção se sua ligação à Internet está lenta ou se o seu plano de dados é limitado.</string>
   <string name="read_more_section">Ler mais</string>
   <string name="gallery_menu_more_info">Mais informação</string>
+  <string name="menu_gallery_visit_page">Ir para a página do ficheiro</string>
+  <string name="gallery_error_draw_failed">Não é possível mostrar a imagem.</string>
   <string name="gallery_license_text">Licença – %s</string>
   <string name="gallery_credit_text">Autor – %s</string>
   <string name="gallery_image_info">Informação da imagem</string>
+  <string name="gallery_menu_share">Partilhar</string>
+  <string name="gallery_share_error">Não é possível partilhar a imagem: %s</string>
+  <string name="gallery_menu_save">Guardar no dispositivo</string>
+  <string name="gallery_save_error">Não é possível guardar a imagem: %s</string>
+  <string name="gallery_save_success">Imagem guardada com êxito</string>
 </resources>

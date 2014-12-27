@@ -263,4 +263,9 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">Nuovo aggiornamento alfa disponibile</string>
   <string name="alpha_update_notification_text">Tocca per scaricare</string>
   <string name="dialog_close_description">Chiudi</string>
+  <string name="gallery_menu_more_info">Ulteriori informazioni</string>
+  <string name="gallery_license_text">Licenza – %s</string>
+  <string name="gallery_credit_text">Autore – %s</string>
+  <string name="gallery_image_info">Informazioni sull\'immagine</string>
+  <string name="gallery_menu_share">Condividi</string>
 </resources>

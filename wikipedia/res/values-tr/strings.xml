@@ -276,4 +276,9 @@ Uygulama kodları tamamen açık kaynaklıdır. Java ve Android SDK kullanıyors
   <string name="gallery_license_text">Lisans - %s</string>
   <string name="gallery_credit_text">Üreten - %s</string>
   <string name="gallery_image_info">Dosya bilgisi</string>
+  <string name="gallery_menu_share">Paylaş</string>
+  <string name="gallery_share_error">Resim paylaşılamadı: %s</string>
+  <string name="gallery_menu_save">Cihaza kaydet</string>
+  <string name="gallery_save_error">Resim kaydedilemedi: %s</string>
+  <string name="gallery_save_success">Resim başarıyla kaydedildi.</string>
 </resources>

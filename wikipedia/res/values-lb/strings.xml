@@ -63,6 +63,7 @@
   <string name="menu_other_languages">An anere Sprooche liesen</string>
   <string name="langlinks_error_retry">Nach eng Kéier probéieren</string>
   <string name="langlinks_empty">Dës Säit ass net an anere Sproochen disponibel</string>
+  <string name="langlinks_no_match">Keng Sprooche fonnt déi Ärer Ufro passen.</string>
   <string name="settings_activity_title">Astellungen</string>
   <string name="langlinks_activity_title">Aner Sproochen</string>
   <string name="menu_save_changes">Ännerunge späicheren</string>
@@ -244,6 +245,14 @@
   <string name="preference_title_show_images">Biller weisen</string>
   <string name="read_more_section">Liest méi</string>
   <string name="gallery_menu_more_info">Méi Informatiounen</string>
+  <string name="menu_gallery_visit_page">Op d\'Säit vum Fichier goen</string>
   <string name="gallery_error_draw_failed">D\'Bild konnt net gezeechent ginn.</string>
-  <string name="gallery_license_text" fuzzy="true">Lizenz: %s</string>
+  <string name="license_title">Lizenztext fir d\'Bibliothek %s</string>
+  <string name="gallery_license_text">Lizenz - %s</string>
+  <string name="gallery_credit_text">Auteur - %s</string>
+  <string name="gallery_image_info">Informatioun iwwert d\'Bild</string>
+  <string name="gallery_menu_share">Deelen</string>
+  <string name="gallery_menu_save">Um Apparat späicheren</string>
+  <string name="gallery_save_error">Bild konnt net gespspäichert ginn: %$</string>
+  <string name="gallery_save_success">Bild gespäichert.</string>
 </resources>

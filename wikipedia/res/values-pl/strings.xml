@@ -49,6 +49,8 @@
   <string name="nearby_distance_in_miles">%.2f mil</string>
   <string name="nearby_no_network">Brak połączenia z siecią</string>
   <string name="nearby_server_error">Nie można uzyskać listy miejsc w pobliżu.</string>
+  <string name="nearby_no_location">Nie udało się ustalić położenia</string>
+  <string name="nearby_dialog_goto_settings">Aktualizacja położenia nie jest włączona na twoim urządzeniu. Czy chcesz przejść do ustawień urządzenia, aby ją włączyć?</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="preference_title_language">Język Wikipedii</string>
@@ -99,7 +101,7 @@
   <string name="preference_summary_notloggedin">Niezalogowany(-a)</string>
   <string name="toast_logout_complete">Wylogowany(-a)</string>
   <string name="saved_pages_empty_title">Nie zapisano tu jeszcze żadnych stron!</string>
-  <string name="saved_pages_empty_message">Zapisane strony są dość niesamowite. Pomyśl o nich jako o zakładkach, które można przeczytać nawet wtedy, gdy jesteś w trybie offline.</string>
+  <string name="saved_pages_empty_message">Zapisane strony są całkiem fajne. Pomyśl o nich jako o zakładkach, które można przeczytać nawet wtedy, gdy jesteś w trybie offline.</string>
   <string name="history_empty_title">Brak ostatnich zmian stron.</string>
   <string name="history_empty_message">Prawdopodobnie usunąłeś je wszystkie. Następnym razem gdy wejdziesz na stronę możesz się tam dostać z tąd.</string>
   <string name="delete_selected_history">Usuń</string>
@@ -226,11 +228,16 @@
   <string name="color_theme_light">Jasna</string>
   <string name="color_theme_dark">Ciemna</string>
   <string name="page_similar_titles">Podobne strony</string>
+  <string name="search_within_pages">Szukaj na stronach...</string>
   <string name="search_no_results">Nie znaleziono żadnych wyników dla „%s”.</string>
   <string name="search_results_title">Wyniki wyszukiwania</string>
   <string name="search_error_retry">Ponów próbę</string>
   <string name="search_redirect_title">Przekierowanie z „%s”.</string>
   <string name="search_recent_header">Ostatnie wyszukiwania:</string>
+  <string name="button_clear_all_recent_searches">Wyczyść listę ostatnich wyszukiwań</string>
+  <string name="clear_recent_searches_confirm">Czy jesteś pewien, że chcesz usunąć historię wyszukiwań?</string>
+  <string name="toc_hint">Pociągnij palcem w lewo lub skorzystaj z przycisku menu w prawym górnym rogu.</string>
+  <string name="error_browser_not_found">Nie udało się otworzyć strony internetowej (nie znaleziono przeglądarki).</string>
   <string name="table_infobox">Szybkie fakty</string>
   <string name="table_other">Więcej informacji</string>
   <string name="table_close">Zamknij</string>
@@ -246,4 +253,9 @@
   <string name="gallery_license_text">Licencja - %s</string>
   <string name="gallery_credit_text">Autor - %s</string>
   <string name="gallery_image_info">Informacje o obrazie</string>
+  <string name="gallery_menu_share">Udostępnij</string>
+  <string name="gallery_share_error">Nie udało się udostępnić obrazu: %s</string>
+  <string name="gallery_menu_save">Zapisz na urządzeniu</string>
+  <string name="gallery_save_error">Nie udało się zapisać obrazka: %s</string>
+  <string name="gallery_save_success">Obraz został zapisany.</string>
 </resources>

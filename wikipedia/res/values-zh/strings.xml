@@ -273,12 +273,12 @@
   <string name="menu_gallery_visit_page">转到文件页面</string>
   <string name="gallery_error_draw_failed">不能画图片。</string>
   <string name="license_title">%s库的许可文本</string>
-  <string name="gallery_license_text">授权–%s</string>
-  <string name="gallery_credit_text">制作者–%s</string>
+  <string name="gallery_license_text">授权 – %s</string>
+  <string name="gallery_credit_text">作者 – %s</string>
   <string name="gallery_image_info">图像信息</string>
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">无法分享图片：%s</string>
-  <string name="gallery_menu_save">保存至设备</string>
+  <string name="gallery_menu_save">保存到设备</string>
   <string name="gallery_save_error">无法保存图片：%s</string>
   <string name="gallery_save_success">图片保存成功。</string>
 </resources>

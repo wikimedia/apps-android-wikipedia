@@ -139,4 +139,5 @@
   <string name="license_title">Лицензин йоза %s библиотекина</string>
   <string name="gallery_license_text">Лицензи – %s</string>
   <string name="gallery_credit_text">Автор – %s</string>
+  <string name="gallery_image_info">Суьртах лаьцна</string>
 </resources>

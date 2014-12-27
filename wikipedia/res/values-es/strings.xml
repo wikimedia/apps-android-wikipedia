@@ -271,7 +271,12 @@ El código es completamente abierto. Si tienes experiencia con Java y el SDK de 
   <string name="gallery_menu_more_info">Más información</string>
   <string name="gallery_error_draw_failed">No se pudo dibujar la imagen.</string>
   <string name="license_title">Texto de la licencia de la biblioteca %s</string>
-  <string name="gallery_license_text">Licencia – %s</string>
-  <string name="gallery_credit_text">Autor - %s</string>
+  <string name="gallery_license_text">Licencia: %s</string>
+  <string name="gallery_credit_text">Autor: %s</string>
   <string name="gallery_image_info">Información de la imagen</string>
+  <string name="gallery_menu_share">Compartir</string>
+  <string name="gallery_share_error">No se pudo compartir la imagen: %s</string>
+  <string name="gallery_menu_save">Guardar en dispositivo</string>
+  <string name="gallery_save_error">No se pudo guardar la imagen: %s</string>
+  <string name="gallery_save_success">Imagen guardada correctamente.</string>
 </resources>

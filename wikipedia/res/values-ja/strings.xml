@@ -248,6 +248,7 @@
   <string name="toc_hint">左向きにスワイプで節見出しが出ます。右上にはメニューボタンがあります。</string>
   <string name="toc_know_it">了解</string>
   <string name="error_browser_not_found">Webページを開くことができませんでした。(ブラウザーアプリが見つかりません)</string>
+  <string name="table_infobox">簡単な統計</string>
   <string name="table_other">さらに見る</string>
   <string name="table_close">閉じる</string>
   <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。このバージョンではゼロから書きなおされ、これまでで最良のものになりました。
@@ -267,10 +268,18 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_text">タップでダウンロード</string>
   <string name="dialog_close_description">閉じる</string>
   <string name="preference_title_show_images">イメージを見る</string>
+  <string name="preference_summary_show_images">ページ内の画像読み込みを有効/無効にする インターネット接続が遅い時や、データ契約が限られているときには、このチェックを外してください</string>
   <string name="read_more_section">続きを読む</string>
   <string name="gallery_menu_more_info">詳細情報</string>
   <string name="menu_gallery_visit_page">ファイルのページに移動</string>
+  <string name="gallery_error_draw_failed">画像が描画できませんでした</string>
+  <string name="license_title">%s ライブラリのライセンス文</string>
   <string name="gallery_license_text">ライセンス – %s</string>
   <string name="gallery_credit_text">作者 – %s</string>
   <string name="gallery_image_info">画像情報</string>
+  <string name="gallery_menu_share">シェア</string>
+  <string name="gallery_share_error">画像がシェアできませんでした: %s</string>
+  <string name="gallery_menu_save">デバイスに保存</string>
+  <string name="gallery_save_error">画像がシェアできませんでした: %s</string>
+  <string name="gallery_save_success">画像を保存しました</string>
 </resources>

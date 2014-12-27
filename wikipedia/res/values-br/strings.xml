@@ -272,4 +272,9 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="alpha_update_notification_title">Un hizadenn alpha nevez a c\'haller kaout</string>
   <string name="alpha_update_notification_text">Pouezañ evit pellgargañ</string>
   <string name="dialog_close_description">Serriñ</string>
+  <string name="preference_title_show_images">Diskouez ar skeudennoù</string>
+  <string name="read_more_section">Lenn muioc\'h</string>
+  <string name="gallery_menu_more_info">Muioc\'h a ditouroù</string>
+  <string name="gallery_license_text">Aotre-implijout - %s</string>
+  <string name="gallery_menu_share">Rannañ</string>
 </resources>

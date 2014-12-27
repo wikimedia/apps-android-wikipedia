@@ -238,6 +238,8 @@
   <string name="button_clear_all_recent_searches">Εκκαθάριση πρόσφατων αναζητήσεων</string>
   <string name="toc_hint">Σύρετε προς τα αριστερά για ενότητες ή χρησιμοποιήστε το κουμπί \"μενού\" στην επάνω δεξιά γωνία.</string>
   <string name="toc_know_it">Το κατάλαβα</string>
+  <string name="table_other">Περισσότερες πληροφορίες</string>
+  <string name="table_close">Κλείσιμο</string>
   <string name="app_store_description">Η επίσημη εφαρμογή της Βικιπαίδειας για το Android. Η Βικιπαίδεια είναι η δωρεάν εγκυκλοπαίδεια που περιλαμβάνει περισσότερα από 32 εκατομμύρια λήμματα σε 280 γλώσσες και είναι το πιο περιεκτικό και ευρύτερα χρησιμοποιημενο έργο αναφοράς στην ιστορία της ανθρώπινης δημιουργίας. Η εφαρμογή έχει επανασχεδιαστεί από την αρχή και είναι καλύτερη από ποτέ.
 
 Χαρακτηριστικά:
@@ -250,5 +252,18 @@
 -Βικιπαίδεια Μηδέν: Επιτρέπει ανάγνωση της Βικιπαίδειας χωρίς χρέωση δεδομένων σε δίκτυα κινητής τηλεφωνία που συμμετέχουν στο πρόγραμμα.
 
 Ο κώδικας της εφαρμογής είναι εντελώς ανοιχτός. Αν έχετε εμπειρία με Java και το Android SDK, τότε ελάτε να συνεισφέρετε!  https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Νέα έκδοση alpha είναι διαθέσιμη</string>
   <string name="alpha_update_notification_text">Πατήστε για να κατεβάσετε</string>
+  <string name="dialog_close_description">Κλείσιμο</string>
+  <string name="preference_title_show_images">Προβολή εικόνων</string>
+  <string name="read_more_section">Διαβάστε περισσότερα</string>
+  <string name="gallery_menu_more_info">Περισσότερες πληροφορίες</string>
+  <string name="menu_gallery_visit_page">Μεταβείτε στη σελίδα αρχείου</string>
+  <string name="license_title">Κείμενο της άδειας χρήσης για τη βιβλιοθήκη %s</string>
+  <string name="gallery_license_text">Άδεια χρήσης - %s</string>
+  <string name="gallery_credit_text">Δημιουργός - %s</string>
+  <string name="gallery_image_info">Πληροφορίες εικόνας</string>
+  <string name="gallery_menu_share">Κοινοποίηση</string>
+  <string name="gallery_menu_save">Αποθήκευση στη συσκευή</string>
+  <string name="gallery_save_success">Η εικόνα αποθηκεύτηκε επιτυχώς</string>
 </resources>

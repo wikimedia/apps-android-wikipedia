@@ -9,21 +9,21 @@
   <string name="search_hint">ଉଇକିପିଡ଼ିଆରେ ଖୋଜନ୍ତୁ</string>
   <string name="history_activity_title">ଇତିହାସ</string>
   <string name="nav_item_history">ଇତିହାସ</string>
-  <string name="error_network_error" fuzzy="true">ନେଟୱାର୍କରେ ଖୋଜିପାଇଲୁ ନାହିଁ :(</string>
+  <string name="error_network_error">ନେଟୱର୍କ ସହ ସଯୋଗ ହୋଇ ନାହିଁ :(</string>
   <string name="search_network_error">ନେଟୱାର୍କରେ ତ୍ରୁଟି । ଆଉଥରେ ଦେଖିବା ପାଇଁ ଟ୍ୟାପ କରନ୍ତୁ ।</string>
   <string name="page_error_retry">ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ</string>
   <string name="menu_clear_all_history">ଇତିହାସ ଲିଭାନ୍ତୁ</string>
   <string name="menu_clear_all_bookmarks">ବୁକମାର୍କ ଲିଭାନ୍ତୁ</string>
   <string name="page_does_not_exist_error">ଏହି ପୃଷ୍ଠାଟି ନାହିଁ ।</string>
-  <string name="dialog_title_clear_history" fuzzy="true">ଇତିହାସ ଲିଭାଇବେ?</string>
-  <string name="saved_pages_activity_title" fuzzy="true">ବୁକମାର୍କ</string>
-  <string name="nav_item_saved_pages" fuzzy="true">ବୁକମାର୍କ</string>
-  <string name="menu_save_page" fuzzy="true">ବୁକମାର୍କ</string>
+  <string name="dialog_title_clear_history">ଇତିହାସ ଲିଭାଇବେ?</string>
+  <string name="saved_pages_activity_title">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠା</string>
+  <string name="nav_item_saved_pages">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
+  <string name="menu_save_page">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
   <string name="menu_share_page">ବାଣ୍ଟିବେ</string>
   <string name="share_via">କାହା ଦ୍ୱାରା ଜଣାଇବେ:</string>
-  <string name="dialog_title_clear_saved_pages" fuzzy="true">ବୁକମାର୍କ ଲିଭାଇବେ?</string>
-  <string name="dialog_message_clear_saved_pages" fuzzy="true">ସମସ୍ତ ବୁକମାର୍କ ଲିଭାଇବା ବାବଦରେ ଆପଣ ନିଶ୍ଚିତ ତ?</string>
-  <string name="toast_saving_page" fuzzy="true">ପୃଷ୍ଠାଟିକୁ ବୁକମାର୍କ କରୁଛୁ...</string>
+  <string name="dialog_title_clear_saved_pages">ସାଇତା ପୃଷ୍ଠାସମୂହ ଲିଭାଇବେ?</string>
+  <string name="dialog_message_clear_saved_pages">ସମସ୍ତ ସାଇତା ପୃଷ୍ଠାସମୂହ ଲିଭାଇବା ବାବଦରେ ଆପଣ ନିଶ୍ଚିତ ତ?</string>
+  <string name="toast_saving_page">ପୃଷ୍ଠାଟିକୁ ସାଇତା ଯାଉଛି...</string>
   <string name="toast_saved_page" fuzzy="true">ବୁକମାର୍କ ହୋଇଥିବା ପୃଷ୍ଠା</string>
   <string name="toast_save_page_failed" fuzzy="true">ପୃଷ୍ଠାଟିକୁ ବୁକମାର୍କ କରିବାରେ ବିଫଳ :(</string>
   <string name="delete_selected_saved_pages">ଲିଭାନ୍ତୁ</string>

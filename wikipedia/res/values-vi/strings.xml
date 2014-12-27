@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">Thất bại khi sửa đổi!</string>
   <string name="dialog_message_edit_failed_retry">Thử lại</string>
   <string name="dialog_message_edit_failed_cancel">Hủy bỏ</string>
+  <string name="dialog_message_leaving_edit">Các thay đổi của bạn chưa được lưu. Bạn có chắc chắn muốn rời bỏ trang này?</string>
+  <string name="dialog_message_leaving_edit_leave">Rời bỏ</string>
+  <string name="dialog_message_leaving_edit_stay">Ở lại</string>
   <string name="menu_show_toc">Mục lục</string>
   <string name="search_no_results_found">Không tìm thấy kết quả</string>
   <string name="edit_section_captcha_message">Để giúp tránh các sửa đổi spam tự động, xin vui lòng nhập các từ xuất hiện ở dưới</string>
@@ -228,7 +231,7 @@
   <string name="dialog_page_issues">Vấn đề trang</string>
   <string name="button_page_issues">Vấn đề trang</string>
   <string name="menu_themechooser">Phông chữ và thiết kế</string>
-  <string name="text_size_select">Kích thước phông chữ</string>
+  <string name="text_size_select">Kích thước chữ</string>
   <string name="color_theme_select">Thiết kế</string>
   <string name="color_theme_light">Sáng</string>
   <string name="color_theme_dark">Tối</string>
@@ -263,4 +266,19 @@ Mã nguồn là hoàn toàn mở. Nếu bạn có kinh nghiệm với Java và A
   <string name="alpha_update_notification_title">Có sẵn bản cập nhật alpha mới</string>
   <string name="alpha_update_notification_text">Chạm để tải về</string>
   <string name="dialog_close_description">Đóng</string>
+  <string name="preference_title_show_images">Xem hình ảnh</string>
+  <string name="preference_summary_show_images">Bật/tắt việc tải các hình ảnh trong trang. Tắt hình ảnh nếu có kết nối mạng chậm hoặc dữ liệu bị hạn chế.</string>
+  <string name="read_more_section">Đọc tiếp</string>
+  <string name="gallery_menu_more_info">Thêm thông tin</string>
+  <string name="menu_gallery_visit_page">Xem trang tập tin</string>
+  <string name="gallery_error_draw_failed">Không thể hiển thị hình.</string>
+  <string name="license_title">Văn bản giấy phép của thư viện %s</string>
+  <string name="gallery_license_text">Giấy phép – %s</string>
+  <string name="gallery_credit_text">Tác giả – %s</string>
+  <string name="gallery_image_info">Thông tin hình ảnh</string>
+  <string name="gallery_menu_share">Chia sẻ</string>
+  <string name="gallery_share_error">Không thể chia sẻ hình: %s</string>
+  <string name="gallery_menu_save">Lưu vào thiết bị</string>
+  <string name="gallery_save_error">Không thể lưu hình: %s</string>
+  <string name="gallery_save_success">Đã lưu hình thành công.</string>
 </resources>
