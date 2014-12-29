@@ -253,6 +253,6 @@
   <string name="gallery_image_info">Informatioun iwwert d\'Bild</string>
   <string name="gallery_menu_share">Deelen</string>
   <string name="gallery_menu_save">Um Apparat späicheren</string>
-  <string name="gallery_save_error">Bild konnt net gespspäichert ginn: %$</string>
+  <string name="gallery_save_error">Bild konnt net gespspäichert ginn: %s</string>
   <string name="gallery_save_success">Bild gespäichert.</string>
 </resources>
