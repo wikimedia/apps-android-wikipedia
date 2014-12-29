@@ -90,7 +90,6 @@
     <string name="edit_section_captcha_message">To help protect against automated spam, please enter the words that appear below</string>
     <string name="edit_section_captcha_hint">Repeat words from above</string>
     <string name="title_captcha">Enter CAPTCHA</string>
-    <string name="edit_section_abusefilter_back_text">Make changes to my edit</string>
     <string name="edit_section_captcha_reload">Tap CAPTCHA to reload</string>
     <string name="edit_saved_page_refresh">This saved page may be out of date, and must be refreshed for editing to be enabled. Would you like to refresh the page?</string>
     <string name="nav_item_login">Log in</string>
