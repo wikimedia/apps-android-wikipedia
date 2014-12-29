@@ -371,7 +371,7 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="gallery_license_text">Label that specifies the license under which the image is protected. The \"%s\" symbol will be replaced by the name of the license.
 {{Identical|License}}</string>
   <string name="gallery_credit_text">Label that specifies the person or entity to whom the image should be credited. The \"%s\" symbol will be replaced by the author of the image.
-{{Identical|Credit}}</string>
+{{Identical|Author}}</string>
   <string name="gallery_image_info">Label for a dialog that shows detailed information about the current image shown in the gallery.</string>
   <string name="gallery_menu_share">Label for menu item to share the current image.
 {{Identical|Share}}</string>

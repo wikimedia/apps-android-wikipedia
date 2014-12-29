@@ -11,7 +11,7 @@
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="history_activity_title">Logg</string>
   <string name="nav_item_history">Logg</string>
-  <string name="error_network_error">Ingen nettverksforbindelse :(</string>
+  <string name="error_network_error">Det er ingen nettverksforbindelse :(</string>
   <string name="search_network_error">Nettverksfeil. Trykk for å prøve igjen.</string>
   <string name="page_error_retry">Prøv igjen</string>
   <string name="menu_clear_all_history">Tøm logg</string>
@@ -36,7 +36,7 @@
   <string name="toast_saved_page_missing_images">Kunne ikke lagre alle bilder</string>
   <string name="toast_save_page_failed">Lagring av siden feilet :(</string>
   <string name="toast_refresh_saved_page">Gjenoppfrisker lagret side…</string>
-  <string name="delete_selected_saved_pages">Slett</string>
+  <string name="delete_selected_saved_pages">Fjern</string>
   <string name="toast_saved_page_deleted">Siden(e) ble fjernet</string>
   <string name="saved_pages_search_list_hint">Søk</string>
   <string name="saved_pages_search_empty_message">Fant ingen sider som matchet spørringen din.</string>
@@ -80,7 +80,7 @@
   <string name="search_no_results_found">Ingen resultater ble funnet</string>
   <string name="edit_section_captcha_message">For å beskytte mot automatisk spam, vær vennlig å skrive inn ordene som vises under</string>
   <string name="edit_section_captcha_hint">Gjenta ordene ovenfor</string>
-  <string name="title_captcha">Fyll inn captcha</string>
+  <string name="title_captcha">Fyll inn CAPTCHA</string>
   <string name="edit_section_abusefilter_back_text">Gjør endringer i min redigering</string>
   <string name="edit_section_captcha_reload">Trykk på CAPTCHA for å laste inn på nytt</string>
   <string name="edit_saved_page_refresh">Denne lagrede siden kan være utdatert, og må gjenoppfriskes for å kunne redigeres. Vil du gjenoppfriske siden?</string>
@@ -105,9 +105,9 @@
   <string name="toast_logout_complete">Logget ut</string>
   <string name="saved_pages_empty_title">Ingen lagrede sider her!</string>
   <string name="saved_pages_empty_message">Lagrede sider er veldig praktisk. Tenk på dem som bokmerker som du også kan lese når du er offline.</string>
-  <string name="history_empty_title">Ingen besøkte sider.</string>
-  <string name="history_empty_message">Du har kanskje tømt loggen. Neste gang du besøker en side kan du finne den igjen her etterpå.</string>
-  <string name="delete_selected_history">Slett</string>
+  <string name="history_empty_title">Ingen besøkte sider her!</string>
+  <string name="history_empty_message">Du har antakelig fjernet alle sammen. Neste gang du besøker en side kan du etterpå finne den igjen her.</string>
+  <string name="delete_selected_history">Fjern</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Den frie encyklopedi</string>
   <string name="skip">Hopp over</string>
@@ -129,7 +129,7 @@
   <string name="create_account_noname_error">Brukernavnet du oppga er ugyldig. Vennligst oppgi et annet brukernavn.</string>
   <string name="create_account_invalid_email_error">Epost-adressen du oppga er ugyldig.</string>
   <string name="create_account_password_too_short_error">Passordet du oppga er for kort.</string>
-  <string name="create_account_blocked_anon_error">Du kan ikke opprette en konto fordi IP-en din er blokkert.</string>
+  <string name="create_account_blocked_anon_error">Du kan ikke opprette en konto fordi IP-adressen din er blokkert.</string>
   <string name="create_account_blocked_error">Du kan ikke opprette en konto fordi kontoen din er blokkert.</string>
   <string name="create_account_password_name_match_error">Brukernavnet og passordet kan ikke være like.</string>
   <string name="create_account_generic_error">Kunne ikke opprette konto</string>
@@ -147,7 +147,7 @@
   <string name="zero_interstitial_title">Forlater Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Datakostnader kan påløpe. Fortsette til eksternt nettsted?</string>
   <string name="zero_interstitial_continue">Forlat appen</string>
-  <string name="zero_interstitial_cancel">Forbli her</string>
+  <string name="zero_interstitial_cancel">Bli her</string>
   <string name="zero_learn_more">Datakostnader påløper ikke for denne Wikipedia-appen.</string>
   <string name="zero_learn_more_learn_more">Lær mer</string>
   <string name="zero_learn_more_dismiss">Lukk</string>
@@ -216,7 +216,7 @@
   <string name="find_close">Lukk søkefeltet</string>
   <string name="error_network_error_try_again">Kunne ikke nå nettverket, vennligst prøv igjen.</string>
   <string name="saved_pages_update_all_error_retry">Prøv igjen</string>
-  <string name="saved_pages_update_all_error_message">Det oppsto en feil under gjenoppfrisking av lagrede sider</string>
+  <string name="saved_pages_update_all_error_message">Feil under gjenoppfrisking av lagrede sider</string>
   <string name="saved_pages_progress_title">Gjenoppfrisker lagrede sider</string>
   <string name="saved_pages_refresh_pages_complete">Oppdatering ferdig</string>
   <string name="menu_page_saved">Siden ble lagret</string>
@@ -227,7 +227,7 @@
   <string name="abusefilter_text_disallow">Redigeringen har blitt identifisert som potentiselt destruktiv, eller som potensiell vandalisme av et automatisk filter.&lt;br /&gt;&lt;br /&gt;Wikipedia er en encyklopedi og kun nøytralt og relevant innhold hører hjemme her.</string>
   <string name="dialog_page_issues">Problemer med siden</string>
   <string name="button_page_issues">Problemer med siden</string>
-  <string name="menu_themechooser">Utseende</string>
+  <string name="menu_themechooser">Skrift og utseende</string>
   <string name="text_size_select">Skriftstørrelse</string>
   <string name="color_theme_select">Drakt</string>
   <string name="color_theme_light">Lys</string>
