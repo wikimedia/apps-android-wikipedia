@@ -61,13 +61,17 @@
         <activity android:name="org.acra.CrashReportDialog"
                   android:launchMode="singleInstance"
                   android:excludeFromRecents="true"
-                  android:finishOnTaskLaunch="true" />
+                  android:finishOnTaskLaunch="true"
+                  android:exported="false"
+                />
         <activity android:name=".settings.SettingsActivity"
                   android:label="@string/more_activity_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+                  android:exported="false"
                 />
         <activity android:name=".settings.AboutActivity"
-                  android:label="@string/about_activity_title">
+                  android:label="@string/about_activity_title"
+                  android:exported="false">
             <intent-filter>
                 <action android:name=".settings.AboutActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -76,32 +80,40 @@
         <activity android:name=".interlanguage.LangLinksActivity"
                   android:label="@string/langlinks_activity_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+                  android:exported="false"
                 />
         <activity android:name=".editing.EditSectionActivity"
                   android:windowSoftInputMode="adjustResize|stateVisible"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+                  android:exported="false"
                 />
         <activity android:name=".login.LoginActivity"
                   android:label="@string/login_activity_title"
                   android:windowSoftInputMode="stateVisible|adjustResize"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+                  android:exported="false"
                 />
         <activity android:name=".createaccount.CreateAccountActivity"
                   android:label="@string/create_account_activity_title"
                   android:windowSoftInputMode="stateVisible|adjustResize"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+                  android:exported="false"
                 />
         <activity android:name=".pagehistory.usercontributions.UserContribsActivity"
                   android:label="@string/activity_my_contributions_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                />
+                  android:exported="false"
+            />
         <activity android:name=".onboarding.OnboardingActivity"
                   android:theme="@style/NoTitle"
+                  android:exported="false"
                 />
         <activity android:name=".page.gallery.GalleryActivity"
                   android:theme="@style/NoTitle"
+                  android:exported="false"
                 />
-        <activity android:name=".settings.LicenseActivity">
+        <activity android:name=".settings.LicenseActivity"
+                  android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT"/>
