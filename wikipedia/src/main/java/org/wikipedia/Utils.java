@@ -315,9 +315,9 @@ public final class Utils {
                 return "id"; // Indonesian
             case "ji":
                 return "yi"; // Yiddish
+            default:
+                return langCode;
         }
-
-        return langCode;
     }
 
     /**
