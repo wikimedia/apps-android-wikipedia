@@ -451,6 +451,10 @@ public class PageViewFragmentInternal {
         return leadImagesHandler.getLeadImageBitmap();
     }
 
+    public int getImageBaseYOffset() {
+        return leadImagesHandler.getImageBaseYOffset();
+    }
+
     /**
      * Update the WebView's base font size, based on the specified font size from the app preferences.
      */

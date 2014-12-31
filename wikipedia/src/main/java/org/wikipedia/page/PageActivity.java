@@ -16,28 +16,24 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.onboarding.OnboardingActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
+import org.wikipedia.page.snippet.SnippetShareAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
-import org.wikipedia.util.ShareUtils;
 import org.wikipedia.zero.ZeroMessage;
 
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.SearchManager;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.BadParcelableException;
 import android.os.Build;
@@ -45,7 +41,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -54,13 +49,11 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class PageActivity extends ThemedActionBarActivity {
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
@@ -85,14 +78,12 @@ public class PageActivity extends ThemedActionBarActivity {
     private SearchArticlesFragment searchFragment;
     private TextView searchHintText;
 
-    private ActionMode webViewActionMode;
-    private ClipboardManager.OnPrimaryClipChangedListener clipListener;
-    private MenuItem copyMenuItem;
-
     public static final int PROGRESS_BAR_MAX_VALUE = 10000;
     private ProgressBar progressBar;
 
     private View toolbarContainer;
+    private SnippetShareAdapter snippetShareAdapter;
+
     public View getToolbarView() {
         return toolbarContainer;
     }
@@ -760,111 +751,18 @@ public class PageActivity extends ThemedActionBarActivity {
      * method as TargetApi(11), so that the IDE doesn't get upset.
      * @param mode ActionMode under which this context is starting.
      */
-    @TargetApi(11)
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
-        if (webViewActionMode == null) {
-            webViewActionMode = mode;
-            Menu menu = mode.getMenu();
-
-            // Find the context menu item for copying text to the clipboard...
-            // The most practical way to do this seems to be to get the resource name of the
-            // menu item, and see if it resembles "action_menu_copy", which appears to remain
-            // consistent throughout the various APIs.
-            for (int i = 0; i < menu.size(); i++) {
-                String resourceName = getResources().getResourceName(menu.getItem(i).getItemId());
-                if (resourceName.contains("action_menu_copy")) {
-                    copyMenuItem = menu.getItem(i);
-                    break;
-                }
-            }
-
-            // add our clipboard listener, so that we'll get an event when the text
-            // is copied onto it...
-            ClipboardManager clipboard = (ClipboardManager) getSystemService(
-                    Context.CLIPBOARD_SERVICE);
-            if (clipListener == null) {
-                clipListener = new ClipboardManager.OnPrimaryClipChangedListener() {
-                    @Override
-                    public void onPrimaryClipChanged() {
-                        // get the text from the clipboard!
-                        ClipboardManager clipboard = (ClipboardManager) getSystemService(
-                                Context.CLIPBOARD_SERVICE);
-                        if (clipboard.hasPrimaryClip()
-                            && clipboard.getPrimaryClip().getItemCount() > 0) {
-
-                            CharSequence selectedText = clipboard.getPrimaryClip().getItemAt(0)
-                                    .coerceToText(PageActivity.this);
-                            Log.d("Share", ">>> Clipboard text: " + selectedText);
-
-                            // Pass the clipboard text to the Share handler!
-                            shareSnippet(selectedText);
-                        }
-                        clipboard.removePrimaryClipChangedListener(clipListener);
-                    }
-
-                    private void shareSnippet(CharSequence selectedText) {
-                        // TODO: create sharable image with selected text
-                        // currently only using lead image
-
-                        PageTitle title = getCurPageFragment().getTitle();
-                        String text = getString(R.string.snippet_share_intro,
-                                title.getDisplayText(),
-                                title.getCanonicalUri());
-
-                        Bitmap leadImageBitmap = getCurPageFragment().getLeadImageBitmap();
-
-                        if (leadImageBitmap != null) {
-                            ShareUtils.shareImage(PageActivity.this, leadImageBitmap, "*/*",
-                                    title.getDisplayText(), text);
-                        } else {
-                            // TODO: remove if check once we build our own image
-                            // For now, as we're using the lead image we may not always have one,
-                            // esp. on the main page.
-                            Toast.makeText(PageActivity.this,
-                                    "For now: only works on pages that have a lead image loaded",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                };
-            }
-            // remove it first, just in case it was added from the last context, and
-            // ended up not being used.
-            clipboard.removePrimaryClipChangedListener(clipListener);
-            // and add it again.
-            clipboard.addPrimaryClipChangedListener(clipListener);
-
-            // inject our Share item into the menu...
-            MenuItem shareItem = menu.add(R.string.share_via);
-            shareItem.setIcon(app.getCurrentTheme() == WikipediaApp.THEME_DARK
-                                      ? R.drawable.ic_share_dark
-                                      : R.drawable.ic_share);
-            MenuItemCompat.setShowAsAction(shareItem, MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
-
-            shareItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem item) {
-                    if (copyMenuItem != null) {
-                        // programmatically invoke the copy-to-clipboard action...
-                        webViewActionMode.getMenu()
-                                         .performIdentifierAction(copyMenuItem.getItemId(), 0);
-                        // this will trigger a state-change event in the Clipboard, which we'll
-                        // catch with our listener above.
-                    }
-                    // leave context mode...
-                    if (webViewActionMode != null) {
-                        webViewActionMode.finish();
-                    }
-                    return true;
-                }
-            });
+        if (snippetShareAdapter == null) {
+            snippetShareAdapter = new SnippetShareAdapter(this);
+            snippetShareAdapter.onTextSelected(mode);
         }
         super.onSupportActionModeStarted(mode);
     }
 
     @Override
     public void onSupportActionModeFinished(ActionMode mode) {
-        webViewActionMode = null;
+        snippetShareAdapter = null;
         super.onSupportActionModeFinished(mode);
     }
 }

@@ -189,6 +189,10 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         return leadImageBitmap;
     }
 
+    public int getImageBaseYOffset() {
+        return imageBaseYOffset;
+    }
+
     @Override
     public void onImageLoaded(Bitmap bitmap, final PointF faceLocation) {
         leadImageBitmap = bitmap;
@@ -206,7 +210,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 // give our image an offset based on the location of the face,
                 // relative to the image container
                 float scale = (float)newHeight / (float)bmpHeight;
-                if (faceLocation.y > 0) {
+                if (faceLocation.y > 0.0f) {
                     int faceY = (int)(faceLocation.y * scale);
                     // if we have a face, then offset to the face location
                     imageBaseYOffset = -(faceY - (imagePlaceholder.getHeight() / 2));

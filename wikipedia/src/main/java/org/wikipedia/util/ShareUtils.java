@@ -30,7 +30,7 @@ public final class ShareUtils {
      * constant amount of space.
      */
     public static void shareImage(final Activity activity, final Bitmap bmp, final String mimeType,
-                                  final String subject, final String text) {
+                                  final String subject, final String text, final boolean recycleBmp) {
         final int jpegQuality = 85;
         final String tempShareFileName = activity.getPackageName() + "_tempShareImage.jpg";
         new SaneAsyncTask<String>(SaneAsyncTask.SINGLE_THREAD) {
@@ -38,6 +38,9 @@ public final class ShareUtils {
             public String performTask() throws Throwable {
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                 bmp.compress(Bitmap.CompressFormat.JPEG, jpegQuality, bytes);
+                if (recycleBmp) {
+                    bmp.recycle();
+                }
                 File f = new File(Environment.getExternalStorageDirectory() + File.separator
                         + tempShareFileName);
                 FileOutputStream fo = new FileOutputStream(f);

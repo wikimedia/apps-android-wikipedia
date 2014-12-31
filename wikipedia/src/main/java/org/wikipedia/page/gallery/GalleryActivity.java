@@ -211,7 +211,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
                 // instead of:
 //                currentGalleryItem.getMimeType(),
                 pageTitle.getDisplayText(),
-                "");
+                "", false);
     }
 
     /**
