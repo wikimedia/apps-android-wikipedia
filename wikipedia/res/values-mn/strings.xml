@@ -52,7 +52,6 @@
   <string name="edit_section_captcha_message">Автомат спамаас хамгаалахын тулд доор харагдаж байгаа үгнүүдийг оруулна уу</string>
   <string name="edit_section_captcha_hint">Дээрх үгнүүдийг давтана уу</string>
   <string name="title_captcha">CAPTCHA -г оруулна уу</string>
-  <string name="edit_section_abusefilter_back_text">Миний засварт өөрчлөлт оруулах</string>
   <string name="nav_item_login">Нэвтрэх</string>
   <string name="login_username_hint">Хэрэглэгчийн нэр</string>
   <string name="login_password_hint">Нууц үг</string>

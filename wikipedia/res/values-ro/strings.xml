@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">Pentru a ajuta la protejarea împotriva spamului automat, vă rugăm să introduceți cuvintele care apar mai jos</string>
   <string name="edit_section_captcha_hint">Repetați cuvintele de mai sus</string>
   <string name="title_captcha">Introducere captcha</string>
-  <string name="edit_section_abusefilter_back_text">Aduce schimbări modificării mele</string>
   <string name="edit_section_captcha_reload">Atingeți captcha pentru a reîncărca</string>
   <string name="edit_saved_page_refresh">Această pagină salvată ar putea fi neactualizată și trebuie reîncărcată pentru a activa modificarea sa. Doriți să reîncărcați pagina?</string>
   <string name="nav_item_login">Autentificare</string>

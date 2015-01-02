@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">Для того, что бы помочь нам защититься от автоматизированного спама, пожалуйста, введите слова, которые показаны ниже</string>
   <string name="edit_section_captcha_hint">Повторите слова, показанные выше</string>
   <string name="title_captcha">Введите капчу</string>
-  <string name="edit_section_abusefilter_back_text">Внести изменения в мою правку</string>
   <string name="edit_section_captcha_reload">Коснитесь капчи для её обновления</string>
   <string name="edit_saved_page_refresh">Эта сохранённая страница может быть устаревшей, поэтому должна быть обновлена для возможности редактирования. Вы хотите обновить страницу?</string>
   <string name="nav_item_login">Войти</string>

@@ -55,7 +55,6 @@
   <string name="edit_section_captcha_message">Fyri at verja móti sjálvvirkandi spammi, vinarliga skriva orðini ið tú sært omanfyri</string>
   <string name="edit_section_captcha_hint">Endurtak orðini omanfyri</string>
   <string name="title_captcha">Skriva hetta captcha</string>
-  <string name="edit_section_abusefilter_back_text">Ger broytingar til mína rætting</string>
   <string name="edit_section_captcha_reload">Trýst á CAPTCHA fyri at dagføra</string>
   <string name="edit_saved_page_refresh">Henda síðan kann vera ikki-dagførd, og hevur tørv á at blíva uppfríska fyri at rætting kann gerast virki. Ynskir tú at uppfríska síðuna?</string>
   <string name="nav_item_login">Rita inn</string>

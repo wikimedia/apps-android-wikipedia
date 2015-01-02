@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">Sebagai perlindungan daripada spam automatik, sila taipkan kata-kata yang tertera di bawah</string>
   <string name="edit_section_captcha_hint">Ulangi kata-kata dari atas</string>
   <string name="title_captcha">Taipkan captcha</string>
-  <string name="edit_section_abusefilter_back_text">Lakukan perubahan pada suntingan saya</string>
   <string name="edit_section_captcha_reload">Ketik CAPTCHA untuk muat semula</string>
   <string name="edit_saved_page_refresh">Laman tersimpan ini mungkin sudah ketinggalan dan mesti dimuatkan semula untuk dapat disunting. Inginkah anda memuatkan semula laman ini?</string>
   <string name="nav_item_login">Log masuk</string>

@@ -81,7 +81,6 @@
   <string name="edit_section_captcha_message">For å beskytte mot automatisk spam, vær vennlig å skrive inn ordene som vises under</string>
   <string name="edit_section_captcha_hint">Gjenta ordene ovenfor</string>
   <string name="title_captcha">Fyll inn CAPTCHA</string>
-  <string name="edit_section_abusefilter_back_text">Gjør endringer i min redigering</string>
   <string name="edit_section_captcha_reload">Trykk på CAPTCHA for å laste inn på nytt</string>
   <string name="edit_saved_page_refresh">Denne lagrede siden kan være utdatert, og må gjenoppfriskes for å kunne redigeres. Vil du gjenoppfriske siden?</string>
   <string name="nav_item_login">Logg inn</string>

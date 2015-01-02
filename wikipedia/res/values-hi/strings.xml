@@ -64,7 +64,6 @@
   <string name="edit_section_captcha_message">स्वतचालित रद्दी से बचने के लिए कृपया नीचे दिखाये गए शब्दों को लिखें</string>
   <string name="edit_section_captcha_hint">ऊपर के शब्दो को फिर से दोहराएँ।</string>
   <string name="title_captcha">कॅप्चा डालें</string>
-  <string name="edit_section_abusefilter_back_text">मेरे संपादित को परिवर्तन करें।</string>
   <string name="edit_section_captcha_reload">कॅप्चा को पुनः लाने के लिए यहाँ दबायें</string>
   <string name="edit_saved_page_refresh">यह संरक्षित पृष्ठ बहुत पुराना हो सकता है और सम्पादन आरम्भ करने के लिए पुनः ताज़ा करना चाहिए। क्या आप पृष्ठ को ताज़ा करना चाहेंगे?</string>
   <string name="nav_item_login">लॉग-इन</string>

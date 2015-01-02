@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">Voer de onderstaande woorden in om te beschermen tegen geautomatiseerde spam</string>
   <string name="edit_section_captcha_hint">Herhaal de bovenstaande woorden</string>
   <string name="title_captcha">Voer CAPTCHA in</string>
-  <string name="edit_section_abusefilter_back_text">Mijn bewerking wijzigen</string>
   <string name="edit_section_captcha_reload">Klik om opnieuw te laden</string>
   <string name="edit_saved_page_refresh">Deze opgeslagen pagina is mogelijk verouderd, en moet vernieuwd worden voordat bewerken mogelijk is. Wilt u de pagina vernieuwen?</string>
   <string name="nav_item_login">Aanmelden</string>
@@ -123,7 +122,7 @@
   <string name="edit_section_activity_title">Paragraaf bewerken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
   <string name="create_account_email_hint">E-mailadres (optioneel)</string>
-  <string name="create_account_password_repeat_hint">Wachtwoord opnieuw invoeren</string>
+  <string name="create_account_password_repeat_hint">Wachtwoord bevestigen</string>
   <string name="create_account_passwords_mismatch_error">Wachtwoorden komen niet overeen</string>
   <string name="create_account_email_error">Ongeldig e-mailadres</string>
   <string name="create_account_username_exists_error">De gebruikersnaam is al in gebruik</string>

@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">برای محافظت در برابر اسپم لطفا کلمات زیر را وارد کنید</string>
   <string name="edit_section_captcha_hint">تکرار کلمات از بالا</string>
   <string name="title_captcha">کپچا را وارد کنید</string>
-  <string name="edit_section_abusefilter_back_text">ایجاد تغییرات در ویرایش من</string>
   <string name="edit_section_captcha_reload">بر روی کپچا با انگشت بزنید تا تغییر کند</string>
   <string name="edit_saved_page_refresh">با توجه به تغییرهای احتمالی، برای ویرایش این صفحه باید آن را دوباره بارگذاری نمایید. آیا مایل به بارگذاری مجدد هستید؟</string>
   <string name="nav_item_login">ورود به سامانه</string>

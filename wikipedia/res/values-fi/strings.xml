@@ -82,7 +82,6 @@
   <string name="edit_section_captcha_message">Syötä alla näkyvät sanat (auttaa suojautumaan automaattiselta spämmiltä)</string>
   <string name="edit_section_captcha_hint">Toista edeltävät sanat</string>
   <string name="title_captcha">Syötä captcha</string>
-  <string name="edit_section_abusefilter_back_text">Tee muutoksia muokkaukseeni</string>
   <string name="edit_section_captcha_reload">Lataa uusi napauttamalla</string>
   <string name="edit_saved_page_refresh">Tämä tallennettu sivu saattaa olla vanhentunut ja se tulee päivittää, jotta muokkaaminen on mahdollista. Haluatko päivittää sivun?</string>
   <string name="nav_item_login">Kirjaudu sisään</string>

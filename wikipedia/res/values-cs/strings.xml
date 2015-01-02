@@ -61,7 +61,6 @@
   <string name="edit_section_captcha_message">V zájmu ochrany před automatickým spamováním vás prosíme o opsání slov, která vidíte níže</string>
   <string name="edit_section_captcha_hint">Zopakujte výše uvedená slova</string>
   <string name="title_captcha">Zadejte captcha</string>
-  <string name="edit_section_abusefilter_back_text">Změnit mou editaci</string>
   <string name="edit_section_captcha_reload">Klepnutím načtete captcha znovu</string>
   <string name="edit_saved_page_refresh">Tato uložená stránka může být zastaralá a pro umožnění editace je potřeba ji aktualizovat. Chcete stránku aktualizovat?</string>
   <string name="nav_item_login">Přihlásit se</string>

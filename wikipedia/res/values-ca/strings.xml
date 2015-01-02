@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">Per ajudar a protegir contra l\'spam automàtic, si us plau, introduïu les paraules que apareixen a sota</string>
   <string name="edit_section_captcha_hint">Repetiu les paraules de dalt</string>
   <string name="title_captcha">Entreu captcha</string>
-  <string name="edit_section_abusefilter_back_text">Revisar la meva edició</string>
   <string name="edit_section_captcha_reload">Toqueu el captcha per recarregar</string>
   <string name="edit_saved_page_refresh">La pàgina desada podria no estar al dia i cal refrescar-la per permetre\'n la modificació. Voleu refrescar la pàgina?</string>
   <string name="nav_item_login">Inici de sessió</string>

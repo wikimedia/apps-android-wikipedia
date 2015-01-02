@@ -81,7 +81,6 @@
   <string name="edit_section_captcha_message">Fir géint automatiséierte Spam ze schütze gitt w.e.g. d\'Wierder déi hei drënner stinn an</string>
   <string name="edit_section_captcha_hint">D\'Wierder hei driwwer widderhuelen</string>
   <string name="title_captcha">Captcha aginn</string>
-  <string name="edit_section_abusefilter_back_text">Ännerungen u menger Ännerung maachen</string>
   <string name="edit_section_captcha_reload">CAPTCHA antippe fir nei ze lueden</string>
   <string name="edit_saved_page_refresh">Dës gespäichert Säit kënnt vereelst sinn a muss aktualiséiert ginn ier d\'Änneren aktivéiert ka ginn. Wëllt Dir d\'Säit aktualiséieren?</string>
   <string name="nav_item_login">Aloggen</string>

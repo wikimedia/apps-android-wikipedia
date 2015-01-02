@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">För att skydda mot automatiserad spam, var god skriv in orden som visas nedan</string>
   <string name="edit_section_captcha_hint">Upprepa orden ovan</string>
   <string name="title_captcha">Ange captcha</string>
-  <string name="edit_section_abusefilter_back_text">Gör ändringar i min redigering</string>
   <string name="edit_section_captcha_reload">Tryck på captcha för att uppdatera</string>
   <string name="edit_saved_page_refresh">Denna sparade sida kan vara för gammal, och måste laddas om för att kunna redigeras. Vill du ladda om sidan?</string>
   <string name="nav_item_login">Logga in</string>

@@ -81,7 +81,6 @@
   <string name="edit_section_captcha_message">အလိုအလျောက်ပေးပို့နေသော မေလ်းများရန်မှ ကာကွယ်ရန် အောက်ပါ စာလုံးများကို လိုက်ရိုက်ကြည့်ပါ။</string>
   <string name="edit_section_captcha_hint">အထက်မှ စာလုံးအား ထပ်ရိုက်ပါ</string>
   <string name="title_captcha">CAPTCHA ဖြည့်ပါ</string>
-  <string name="edit_section_abusefilter_back_text">ကျွနု်ပ်၏ တည်းဖြတ်ချက်အား အပြောင်းအလဲလုပ်မည်</string>
   <string name="edit_section_captcha_reload">CAPTCHA ကိုထိပြီးအသစ်ထပ်ယူပါ</string>
   <string name="nav_item_login">မှတ်တမ်းဖြင့် ဝင်ရန်</string>
   <string name="login_username_hint">အသုံးပြုသူအမည်</string>

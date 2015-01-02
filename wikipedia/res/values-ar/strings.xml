@@ -60,7 +60,6 @@
   <string name="edit_section_captcha_message">للمساعدة على الحماية ضد البريد المزعج الآلي، الرجاء إدخال الكلمات التي تظهر أدناه</string>
   <string name="edit_section_captcha_hint">كرر الكلمات من فوق</string>
   <string name="title_captcha">أدخل كلمة التحقق</string>
-  <string name="edit_section_abusefilter_back_text">إجراء تغييرات على تعديلي</string>
   <string name="edit_section_captcha_reload">انقر على كلمة التحقق لإعادة التحميل</string>
   <string name="edit_saved_page_refresh">قد تكون الصفحة المحفوظة غير محدثة. وقد يستوجب تحديثها للتمكن من تعديلها. هل تود تحديث الصفحة؟</string>
   <string name="nav_item_login">تسجيل الدخول</string>

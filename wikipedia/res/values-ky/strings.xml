@@ -80,7 +80,6 @@
   <string name="edit_section_captcha_message">Автоматташтырылган спамдан коргонууга жардам берүү үчүн, кичи пейилдикке ылдыйда көрсөтүлгөн сөздөрдү териңиз</string>
   <string name="edit_section_captcha_hint">Жогоруда көрсөтүлгөн сөздөрдү кайталаңыз</string>
   <string name="title_captcha">CAPTCHA\'ны териңиз</string>
-  <string name="edit_section_abusefilter_back_text">Менин ондоомо өзгөртүүлөрдү киргизүү</string>
   <string name="edit_section_captcha_reload">CAPTCHA\'ны жаңылоо үчүн, аны басып коюңуз</string>
   <string name="edit_saved_page_refresh">Бул сакталган барак эскирген болушу мүмкүн жана оңдоо мүмкүнчүлүгү үчүн жаңыланышы абзел. Сиз баракты жаңылоону каалайсызбы?</string>
   <string name="nav_item_login">Кирүү</string>

@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">For at beskytte mod automatiseret spam, indtast de ord, der vises nedenfor</string>
   <string name="edit_section_captcha_hint">Gentag ordene ovenfor</string>
   <string name="title_captcha">Indtast CAPTCHA</string>
-  <string name="edit_section_abusefilter_back_text">Lav ændringer af min redigering</string>
   <string name="edit_section_captcha_reload">Tryk på CAPTCHA for at genindlæse</string>
   <string name="edit_saved_page_refresh">Denne gemte side kan være forældet og skal opdateres for at redigering kan aktiveres. Ønsker du at opdatere siden?</string>
   <string name="nav_item_login">Log på</string>

@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">כדי לסייע בהגנה מפני ספאם, הזינו את המילים המופיעות להלן</string>
   <string name="edit_section_captcha_hint">נא לחזור על המילים לעיל</string>
   <string name="title_captcha">נא להזין קוד אימות אנוש</string>
-  <string name="edit_section_abusefilter_back_text">לעשות שינויים לעריכה שלי</string>
   <string name="edit_section_captcha_reload">יש ללחוץ על תמונת האימות לשם רענון</string>
   <string name="edit_saved_page_refresh">ייתכן שהדף השמור הזה אינו עדכני וצריך לרענן אותו כדי לאפשר עריכה. האם לרענן את הדף?</string>
   <string name="nav_item_login">כניסה לחשבון</string>

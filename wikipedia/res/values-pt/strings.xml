@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">Para ajudar a proteger contra spam automatizado, digite as palavras abaixo</string>
   <string name="edit_section_captcha_hint">Repita as palavras acima</string>
   <string name="title_captcha">Inserir CAPTCHA</string>
-  <string name="edit_section_abusefilter_back_text">Fazer alterações à minha edição</string>
   <string name="edit_section_captcha_reload">Toque no CAPTCHA para recarregar</string>
   <string name="edit_saved_page_refresh">Esta página guardada pode estar desatualizada, e deve ser recarregada para ativar a sua edição. Gostaria de recarregar a página?</string>
   <string name="nav_item_login">Entrar</string>

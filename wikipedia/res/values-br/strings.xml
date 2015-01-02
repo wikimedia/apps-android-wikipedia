@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">Evit reiñ sikour d\'ar gwareziñ a-enep ar posteloù strobus emgefre, bizskrivit ar gerioù a zeu war wel amañ dindan</string>
   <string name="edit_section_captcha_hint">Advizskrivañ ar gerioù amañ a-us</string>
   <string name="title_captcha">Ebarzhiñ ar c\'haptcha</string>
-  <string name="edit_section_abusefilter_back_text">Adkemmañ</string>
   <string name="edit_section_captcha_reload">Bizskrivañ ar c\'haptcha evit pellgargañ</string>
   <string name="edit_saved_page_refresh">Dispredet e c\'hall bezañ ar bajenn-mañ. Ret eo freskaat anezhi evit gweredekaat ar c\'hemm-mañ. Ha c\'hoant ho peus da freskaat ar bajenn ?</string>
   <string name="nav_item_login">Kevreañ</string>

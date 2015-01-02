@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">Rag gweres dhe witha rag spam awtomategys, entrewgh an geryow a dhiskwa a-woles</string>
   <string name="edit_section_captcha_hint">Skrifewgh arta an geryow a-ugh</string>
   <string name="title_captcha">Entrewgh an CAPTCHA</string>
-  <string name="edit_section_abusefilter_back_text">Nowedhi ow chanj(yow)</string>
   <string name="edit_section_captcha_reload">Gweskewgh an CAPTCHA rag y dhaskarga</string>
   <string name="edit_saved_page_refresh">An folen withys ma a alsa bos re goth, ha res yw hy daskarga rag diallosegi chanjya. Eus hwans dhywgh daskarga an folen?</string>
   <string name="nav_item_login">Omgelmi</string>

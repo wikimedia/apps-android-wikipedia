@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">为了防止垃圾邮件，请输入下面出现的文字</string>
   <string name="edit_section_captcha_hint">重复上面的文字</string>
   <string name="title_captcha">输入验证码</string>
-  <string name="edit_section_abusefilter_back_text">更改为我的编辑</string>
   <string name="edit_section_captcha_reload">点击验证码重新加载</string>
   <string name="edit_saved_page_refresh">这个已保存页面可能过时了，必须刷新才可编辑。您需要刷新页面么？</string>
   <string name="nav_item_login">登录</string>

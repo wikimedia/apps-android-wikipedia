@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">За да се аштитиме од автоматизиран спам, внесете ги долуприкажаните зборови</string>
   <string name="edit_section_captcha_hint">Повторете ги гореприкажаните зборови</string>
   <string name="title_captcha">Внесете Captcha</string>
-  <string name="edit_section_abusefilter_back_text">Направи промени во моето уредување</string>
   <string name="edit_section_captcha_reload">Допрете да ја превчитате captcha-та</string>
   <string name="edit_saved_page_refresh">Зачуваната страница може да е застарена и мора да се превчита за да се овозможи уредувањето. Дали сакате да ја превчитате?</string>
   <string name="nav_item_login">Најавете се</string>

@@ -79,7 +79,6 @@
   <string name="edit_section_captcha_message">Για να βοηθήσετε στην προστασία από αυτόματα ανεπιθύμητα μηνύματα, παρακαλούμε εισάγετε τις λέξεις που εμφανίζονται από κάτω</string>
   <string name="edit_section_captcha_hint">Επαναλάβετε τις λέξεις από πάνω</string>
   <string name="title_captcha">Εισάγετε CAPTCHA</string>
-  <string name="edit_section_abusefilter_back_text">Κάντε αλλαγές στην επεξεργασία μου</string>
   <string name="edit_section_captcha_reload">Πατήστε το CAPTCHA για επαναφόρτωση</string>
   <string name="edit_saved_page_refresh">Αυτή η αποθηκευμένη σελίδα μπορεί να είναι ανενημέρωτη, και πρέπει να ανανεωθεί για να ενεργοποιηθεί η επεξεργασία. Θα θέλατε να ανανεώσετε τη σελίδα;</string>
   <string name="nav_item_login">Σύνδεση</string>

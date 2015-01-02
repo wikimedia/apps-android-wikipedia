@@ -8,7 +8,7 @@
   <string name="history_activity_title">היסטאריע</string>
   <string name="nav_item_history">היסטאריע</string>
   <string name="error_network_error">נישט פאראן קיין נעצווערק פארבינדונג :(</string>
-  <string name="search_network_error">נעצווערק פעלער. קלאפט אן צו פרובירן נאכאמאל.</string>
+  <string name="search_network_error">נעצווערק פֿעלער. קלאַפט אן צו פרובירן נאכאַמאָל.</string>
   <string name="page_error_retry">פרובירן ווידער</string>
   <string name="menu_clear_all_history">אפראמען היסטאריע</string>
   <string name="menu_clear_all_bookmarks">אפראמען לייען־צייכנס</string>
@@ -67,8 +67,8 @@
   <string name="login_success_toast">אריינלאגירט מיט הצלחה!</string>
   <string name="login_error_unknown">ארײַנלאגירן אדורכגעפאלן :(</string>
   <string name="login_error_no_network">קיין נעצווערק פארבינדונג</string>
-  <string name="nav_item_logout">אַרויסלאגירן</string>
-  <string name="preference_title_logout">אַרויסלאגירן</string>
+  <string name="nav_item_logout">אַרויסלאָגירן</string>
+  <string name="preference_title_logout">אַרויסלאָגירן</string>
   <string name="preference_summary_logout">ארויסלאגירן פון אײַער וויקיפעדיע קאנטע</string>
   <string name="preference_summary_notloggedin">נישט ארײַנלאגירט</string>
   <string name="toast_logout_complete">אַרויסלאגירט</string>

@@ -76,7 +76,6 @@
   <string name="menu_show_toc">តារាង​មាតិកា</string>
   <string name="search_no_results_found">មិន​មាន​លទ្ធផល</string>
   <string name="title_captcha">វាយបញ្ចូល CAPTCHA</string>
-  <string name="edit_section_abusefilter_back_text">ធ្វើ​បន្លាស់​ប្ដូរ​ទៅ​ការ​កែប្រែ​របស់​ខ្ញុំ</string>
   <string name="edit_section_captcha_reload">ចុច CAPTCHA ដើម្បីផ្ទុកឡើងវិញ</string>
   <string name="nav_item_login">ចូល</string>
   <string name="login_username_hint">ឈ្មោះ​អ្នក​ប្រើ</string>

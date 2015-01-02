@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">Pour aider à la protection contre le pourriel automatique, veuillez saisir les mots qui apparaissent ci-dessous</string>
   <string name="edit_section_captcha_hint">Répéter les mots ci-dessus</string>
   <string name="title_captcha">Entrer le captcha</string>
-  <string name="edit_section_abusefilter_back_text">Modifier ma saisie</string>
   <string name="edit_section_captcha_reload">Taper le captcha pour recharger</string>
   <string name="edit_saved_page_refresh">Cette page enregistrée peut être obsolète et doit être rafraîchie pour activer sa modification. Voulez-vous rafraîchir la page ?</string>
   <string name="nav_item_login">Connexion</string>

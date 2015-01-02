@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">為了防止自動化的惡意編輯，請輸入下方的文字</string>
   <string name="edit_section_captcha_hint">請輸入上面的文字</string>
   <string name="title_captcha">輸入驗證碼</string>
-  <string name="edit_section_abusefilter_back_text">更改為我的編輯</string>
   <string name="edit_section_captcha_reload">點選\"CAPTCHA\"以重新載入</string>
   <string name="edit_saved_page_refresh">此存儲的頁面可能是過時的，必須進行重載以啟用編輯。您想重載頁面嗎？</string>
   <string name="nav_item_login">登入</string>

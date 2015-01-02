@@ -55,7 +55,6 @@
   <string name="search_no_results_found">Neniu rezulto trovita</string>
   <string name="edit_section_captcha_message">Por helpi al la projekto kontraŭ spamado, bve skribu la vortojn kiuj aperas sube</string>
   <string name="edit_section_captcha_hint">Ripetu la suprajn vortojn</string>
-  <string name="edit_section_abusefilter_back_text">Ŝanĝi kiam redakton</string>
   <string name="edit_section_captcha_reload">Tuŝu la CAPTCHA-n por reprovi</string>
   <string name="nav_item_login">Ensaluti</string>
   <string name="login_username_hint">Uzantnomo</string>

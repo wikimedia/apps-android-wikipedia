@@ -79,7 +79,6 @@
   <string name="edit_section_captcha_message">I helpu i ddiogelu rhag sbam awtomataidd, rhowch y geiriau sy\' n ymddangos isod</string>
   <string name="edit_section_captcha_hint">Ailadrodd geiriau oddi uchod</string>
   <string name="title_captcha">Teipiwch y captcha</string>
-  <string name="edit_section_abusefilter_back_text">Newid fy ngolygiad/au</string>
   <string name="edit_section_captcha_reload">Tapiwch captcha i ail-lwytho</string>
   <string name="nav_item_login">Mewngofnodi</string>
   <string name="login_username_hint">Enw defnyddiwr</string>

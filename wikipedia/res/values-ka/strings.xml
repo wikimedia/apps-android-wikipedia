@@ -81,7 +81,6 @@
   <string name="search_no_results_found">შედეგები ვერ მოიძებნა</string>
   <string name="edit_section_captcha_hint">გაიმეორეთ ზემოთ მოცემული სიტყვები</string>
   <string name="title_captcha">შეიყვანეთ CAPTCHA</string>
-  <string name="edit_section_abusefilter_back_text">შეიტანეთ ცვლილებები ჩემს რედაქტირებაში</string>
   <string name="edit_section_captcha_reload">დააჭირეთ CAPTCHA-ს გადასატვირთად</string>
   <string name="nav_item_login">შესვლა</string>
   <string name="login_username_hint">მომხმარებლის სახელი</string>

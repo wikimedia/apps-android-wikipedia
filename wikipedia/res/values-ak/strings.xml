@@ -58,7 +58,6 @@
   <string name="edit_section_captcha_message">Nea ɛbɛyɛ na nkurɔfo nhaw yɛn adwene no, fa nsɛm a ɛwɔ ase ha no hyɛhyɛ mu</string>
   <string name="edit_section_captcha_hint">San kyerɛw ɛsoro hɔ nsɛm</string>
   <string name="title_captcha">Kyerɛw CAPTCHA</string>
-  <string name="edit_section_abusefilter_back_text">Yɛ nsakrae wɔ nea makyerɛw no mu</string>
   <string name="edit_section_captcha_reload">Mia CAPTCHA no so na ɛnsesa</string>
   <string name="edit_saved_page_refresh">Saa krataa yi, ɛte sɛ nea atwam, ma enti ɛsɛ sɛ wosan bue bio. Wopɛ sɛ wobue bio anaa?</string>
   <string name="nav_item_login">Kɔ mu</string>

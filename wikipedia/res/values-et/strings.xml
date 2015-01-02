@@ -59,7 +59,6 @@
   <string name="edit_section_captcha_message">Et kaitsta lehekülgi automatiseeritud rämpspostituste eest, sisesta palun alljärgnevad sõnad!</string>
   <string name="edit_section_captcha_hint">Palun korda ülaltoodud sõnu!</string>
   <string name="title_captcha">Sisesta robotilõksu (CAPTCHA) kuvatud tekst!</string>
-  <string name="edit_section_abusefilter_back_text">Tee muudatusi minu muudatusse</string>
   <string name="edit_section_captcha_reload">Puuduta robotilõksu (CAPTCHA) selle uuesti laadimiseks!</string>
   <string name="edit_saved_page_refresh">See salvestatud lehekülg võib olla aegunud ja et seda saaks muuta, tuleb lehekülge uuendada. Kas soovid lehekülge uuendada?</string>
   <string name="nav_item_login">Logi sisse</string>

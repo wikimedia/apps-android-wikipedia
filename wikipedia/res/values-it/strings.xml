@@ -76,12 +76,14 @@
   <string name="dialog_message_edit_failed">Modifica non riuscita!</string>
   <string name="dialog_message_edit_failed_retry">Riprova</string>
   <string name="dialog_message_edit_failed_cancel">Annulla</string>
+  <string name="dialog_message_leaving_edit">Le tue modifiche non sono state ancora salvate. Sei proprio sicuro di voler lasciare questa pagina?</string>
+  <string name="dialog_message_leaving_edit_leave">Lascia</string>
+  <string name="dialog_message_leaving_edit_stay">Rimani</string>
   <string name="menu_show_toc">Sommario</string>
   <string name="search_no_results_found">Nessun risultato</string>
   <string name="edit_section_captcha_message">Per aiutare a combattere lo spam automatico, inseririsci per favore le parole che compaiono sotto</string>
   <string name="edit_section_captcha_hint">Ripeti le parole in alto</string>
   <string name="title_captcha">Inserisci il captcha</string>
-  <string name="edit_section_abusefilter_back_text">Apporta modifiche al mio contributo</string>
   <string name="edit_section_captcha_reload">Toccare il CAPTCHA per ricaricare</string>
   <string name="edit_saved_page_refresh">Questa pagina salvata potrebbe essere obsoleta, e bisogna ricaricarla per abilitarne la modifica. Vuoi ricaricare la pagina?</string>
   <string name="nav_item_login">Entra</string>
@@ -241,9 +243,11 @@
   <string name="search_redirect_title">Redirect da \"%s\".</string>
   <string name="search_recent_header">Ricerche recenti:</string>
   <string name="button_clear_all_recent_searches">Pulisci le ricerche recenti</string>
+  <string name="clear_recent_searches_confirm">Sei sicuro di voler cancellare la tua cronologia di ricerca?</string>
   <string name="toc_hint">Scorri a sinistra per le sezioni, o usa il tasto del menu in alto a destra.</string>
   <string name="toc_know_it">OK!</string>
   <string name="error_browser_not_found">Impossibile aprire la pagina web (nessun app browser trovato).</string>
+  <string name="table_infobox">Fatti in breve</string>
   <string name="table_other">Ulteriori informazioni</string>
   <string name="table_close">Chiudi</string>
   <string name="app_store_description">App ufficiale di Wikipedia per Android.
@@ -263,9 +267,19 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">Nuovo aggiornamento alfa disponibile</string>
   <string name="alpha_update_notification_text">Tocca per scaricare</string>
   <string name="dialog_close_description">Chiudi</string>
+  <string name="preference_title_show_images">Mostra immagini</string>
+  <string name="preference_summary_show_images">Abilitare o disabilitare il caricamento delle immagini nelle pagine. Deseleziona questa impostazione se la tua connessione internet è lenta, o se il tuo traffico dati è limitato.</string>
+  <string name="read_more_section">Per saperne di più</string>
   <string name="gallery_menu_more_info">Ulteriori informazioni</string>
+  <string name="menu_gallery_visit_page">Vai alla pagina del file</string>
+  <string name="gallery_error_draw_failed">Impossibile rendere l\'immagine.</string>
+  <string name="license_title">Testo di licenza per la libreria %s</string>
   <string name="gallery_license_text">Licenza – %s</string>
   <string name="gallery_credit_text">Autore – %s</string>
   <string name="gallery_image_info">Informazioni sull\'immagine</string>
   <string name="gallery_menu_share">Condividi</string>
+  <string name="gallery_share_error">Impossibile condividere immagine: %s</string>
+  <string name="gallery_menu_save">Salva sul dispositivo</string>
+  <string name="gallery_save_error">Impossibile salvare l\'immagine: %s</string>
+  <string name="gallery_save_success">Immagine salvata con successo.</string>
 </resources>

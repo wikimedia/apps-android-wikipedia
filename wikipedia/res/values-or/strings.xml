@@ -50,7 +50,6 @@
   <string name="edit_section_captcha_message">ଆପେଆପେ ହେଉଥିବା ସ୍ପାମ ରୋକିବା ପାଇଁ ତଳେ ଥିବା ଶବ୍ଦ ଭରନ୍ତୁ</string>
   <string name="edit_section_captcha_hint">ଉପର ଶବ୍ଦ ଦେଖି ଆଉଥରେ ଭରନ୍ତୁ</string>
   <string name="title_captcha">କ୍ୟାପଚା ଭରନ୍ତୁ</string>
-  <string name="edit_section_abusefilter_back_text">ମୋ ସମ୍ପାଦନା ବଦଳାନ୍ତୁ</string>
   <string name="edit_section_captcha_reload">CAPTCHA ଆଉଥରେ ଭରିବା ପାଇଁ ଟ୍ୟାପ କରନ୍ତୁ</string>
   <string name="nav_item_login">ଲଗ ଇନ</string>
   <string name="login_username_hint">ସଭ୍ୟ ନାମ</string>

@@ -77,7 +77,6 @@
   <string name="edit_section_captcha_message">Щоб якнайкраще захиститися від спаму, будь ласка, введіть слова, які з\'являються нижче</string>
   <string name="edit_section_captcha_hint">Повторіть слова зверху</string>
   <string name="title_captcha">Введіть символи із малюнку</string>
-  <string name="edit_section_abusefilter_back_text">Внести зміни в моє редагування</string>
   <string name="edit_section_captcha_reload">Натисніть малюнок для оновлення</string>
   <string name="edit_saved_page_refresh">Ця збережена сторінка може бути застарілою і повинна бути оновленою для ввімкнення можливості редагування. Чи бажаєте Ви оновити цю сторінку?</string>
   <string name="nav_item_login">Увійти</string>

@@ -61,7 +61,6 @@
   <string name="edit_section_captcha_message">தானியங்கு எரிதத்தை எதிர்த்து காக்க, கீழ்வரும் சொற்களை உள்ளிடவும்</string>
   <string name="edit_section_captcha_hint">மேலுள்ள சொற்களை மீண்டும் உள்ளிடவும்</string>
   <string name="title_captcha">CAPTCHAவை உள்ளிடவும்</string>
-  <string name="edit_section_abusefilter_back_text">என் தொகுப்புகளை மாற்று</string>
   <string name="edit_section_captcha_reload">மறுஏற்றம் செய்ய கேப்ட்சாவை தட்டவும்</string>
   <string name="edit_saved_page_refresh">இந்த சேமிக்கப்பட்ட பக்கம் காலாவதியாகி இருக்கலாம், அதனால் தொகுத்தலை இயக்க புதிப்பிக்கப்பட வேண்டும். பக்கத்தைப் புதிப்பிக்க விரும்புகிறீர்களா?</string>
   <string name="nav_item_login">புகுபதிகை</string>

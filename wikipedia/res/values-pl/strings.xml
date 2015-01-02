@@ -78,7 +78,6 @@
   <string name="edit_section_captcha_message">Aby pomóc nam bronić się przed spamem, przepisz słowa podane poniżej</string>
   <string name="edit_section_captcha_hint">Powtórz powyższe słowa</string>
   <string name="title_captcha">Wpisz CAPTCHA</string>
-  <string name="edit_section_abusefilter_back_text">Wprowadź zmiany do mojej edycji</string>
   <string name="edit_section_captcha_reload">Dotknij, aby przeładować CAPTCHA</string>
   <string name="edit_saved_page_refresh">Zapisana strona może być nieaktualna i musi zostać odświeżona, any umożliwić edycję. Czy chcesz odświeżyć stronę?</string>
   <string name="nav_item_login">Zaloguj się</string>

@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">Zum Schutz vor automatisiertem Spam gib bitte die unten erscheinenden Wörter ein.</string>
   <string name="edit_section_captcha_hint">Wörter von oben wiederholen</string>
   <string name="title_captcha">Captcha eingeben</string>
-  <string name="edit_section_abusefilter_back_text">Änderungen an meiner Bearbeitung durchführen</string>
   <string name="edit_section_captcha_reload">Tippen zum Aktualisieren des Captchas</string>
   <string name="edit_saved_page_refresh">Diese gespeicherte Seite könnte veraltet sein und muss zur Aktivierung der Bearbeitung aktualisiert werden. Möchtest du die Seite neu laden?</string>
   <string name="nav_item_login">Anmelden</string>

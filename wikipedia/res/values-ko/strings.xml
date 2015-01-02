@@ -84,7 +84,6 @@
   <string name="edit_section_captcha_message">자동화된 스팸으로부터 보호하기 위해, 아래에 나타나는 낱말을 입력해 주세요</string>
   <string name="edit_section_captcha_hint">위의 낱말을 한 번 더 입력하세요</string>
   <string name="title_captcha">캡차를 입력하세요</string>
-  <string name="edit_section_abusefilter_back_text">내 편집 바꾸기</string>
   <string name="edit_section_captcha_reload">새로 고치려면 캡차를 누르세요</string>
   <string name="edit_saved_page_refresh">이 저장된 문서는 오래되었을 수 있고, 편집을 활성화하려면 새로 고쳐야 합니다. 문서를 새로 고치겠습니까?</string>
   <string name="nav_item_login">로그인</string>

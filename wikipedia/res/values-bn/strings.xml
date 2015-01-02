@@ -81,7 +81,6 @@
   <string name="edit_section_captcha_message">সয়ংক্রিয় স্প্যাম থেকে সুরক্ষার জন্য, অনুগ্রহ করে নিচে দেখানো শব্দটি লিখুন</string>
   <string name="edit_section_captcha_hint">শব্দটি পুনরায় লিখুন</string>
   <string name="title_captcha">ক্যাপচা লিখুন</string>
-  <string name="edit_section_abusefilter_back_text">আমার সম্পাদনায় পরিবর্তন করো</string>
   <string name="edit_section_captcha_reload">CAPTCHA-তে ক্লিক করে রিলোড করুন</string>
   <string name="edit_saved_page_refresh">এই পাতাটি হালনাগাদ নয়, এবং সম্পাদনা করার জন্য পাতাটি রিফ্রেশ করা প্রয়োজন। আপনি কি এখনই রিফ্রেশ করতে চান?</string>
   <string name="nav_item_login">প্রবেশ</string>
