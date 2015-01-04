@@ -1,11 +1,12 @@
 package org.wikipedia.search;
 
-import org.wikipedia.data.PersistanceHelper;
+import org.wikipedia.data.PersistenceHelper;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 import java.util.Date;
 
-public class RecentSearchPersistanceHelper extends PersistanceHelper<RecentSearch> {
+public class RecentSearchPersistenceHelper extends PersistenceHelper<RecentSearch> {
 
     private static final int DB_VER_INTRODUCED = 5;
 

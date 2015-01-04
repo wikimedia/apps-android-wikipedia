@@ -1,44 +1,48 @@
-package org.wikipedia.history;
+package org.wikipedia.savedpages;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.data.PersistanceHelper;
+import org.wikipedia.data.PersistenceHelper;
 
 import java.util.Date;
 
-public class HistoryEntryPersistanceHelper extends PersistanceHelper<HistoryEntry> {
+public class SavedPagePersistenceHelper extends PersistenceHelper<SavedPage> {
+
+    private static final int DB_VER_INTRODUCED = 4;
 
     private static final int COL_INDEX_SITE = 1;
     private static final int COL_INDEX_TITLE = 2;
-    private static final int COL_INDEX_TIMESTAMP = 3;
-    private static final int COL_INDEX_SOURCE = 4;
+    private static final int COL_INDEX_TIME = 3;
 
     @Override
-    public HistoryEntry fromCursor(Cursor c) {
+    public SavedPage fromCursor(Cursor c) {
         // Carefully, get them back by using position only
         Site site = new Site(c.getString(COL_INDEX_SITE));
         // FIXME: Does not handle non mainspace pages
         PageTitle title = new PageTitle(null, c.getString(COL_INDEX_TITLE), site);
-        Date timestamp = new Date(c.getLong(COL_INDEX_TIMESTAMP));
-        int source = c.getInt(COL_INDEX_SOURCE);
-        return new HistoryEntry(title, timestamp, source);
+        Date timestamp = new Date(c.getLong(COL_INDEX_TIME));
+        return new SavedPage(title, timestamp);
     }
 
     @Override
-    protected ContentValues toContentValues(HistoryEntry obj) {
+    protected ContentValues toContentValues(SavedPage obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("site", obj.getTitle().getSite().getDomain());
         contentValues.put("title", obj.getTitle().getPrefixedText());
         contentValues.put("timestamp", obj.getTimestamp().getTime());
-        contentValues.put("source", obj.getSource());
+        contentValues.put("site", obj.getTitle().getSite().getDomain());
         return contentValues;
     }
 
     @Override
     public String getTableName() {
-        return "history";
+        return "savedpages";
+    }
+
+    @Override
+    protected int getDBVersionIntroducedAt() {
+        return DB_VER_INTRODUCED;
     }
 
     @Override
@@ -49,8 +53,7 @@ public class HistoryEntryPersistanceHelper extends PersistanceHelper<HistoryEntr
                         new Column("_id", "integer primary key"),
                         new Column("site", "string"),
                         new Column("title", "string"),
-                        new Column("timestamp", "integer"),
-                        new Column("source", "integer"),
+                        new Column("timestamp", "integer")
                 };
             default:
                 return new Column[0];
@@ -59,15 +62,14 @@ public class HistoryEntryPersistanceHelper extends PersistanceHelper<HistoryEntr
 
     @Override
     protected String getPrimaryKeySelection() {
-        return "site = ? AND title = ? AND timestamp = ?";
+        return "site = ? AND title = ?";
     }
 
     @Override
-    protected String[] getPrimaryKeySelectionArgs(HistoryEntry obj) {
+    protected String[] getPrimaryKeySelectionArgs(SavedPage obj) {
         return new String[] {
-            obj.getTitle().getSite().getDomain(),
-            obj.getTitle().getPrefixedText(),
-            Long.toString(obj.getTimestamp().getTime())
+                obj.getTitle().getSite().getDomain(),
+                obj.getTitle().getPrefixedText()
         };
     }
 }

@@ -10,7 +10,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public abstract class PersistanceHelper<T> {
+public abstract class PersistenceHelper<T> {
 
     public static class Column{
         private final String name;

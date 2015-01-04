@@ -2,11 +2,11 @@ package org.wikipedia.editing.summaries;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import org.wikipedia.data.PersistanceHelper;
+import org.wikipedia.data.PersistenceHelper;
 
 import java.util.Date;
 
-public class EditSummaryPersistanceHelper extends PersistanceHelper<EditSummary> {
+public class EditSummaryPersistenceHelper extends PersistenceHelper<EditSummary> {
     @Override
     public EditSummary fromCursor(Cursor c) {
         // Carefully, get them back by using position only
