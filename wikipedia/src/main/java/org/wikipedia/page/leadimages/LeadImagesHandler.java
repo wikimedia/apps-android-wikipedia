@@ -225,10 +225,10 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 // resize our image to have the same proportions as the acquired bitmap
                 if (newHeight < imagePlaceholder.getHeight()) {
                     // if the height of the image is less than the container, then just
-                    // make it fill-parent
+                    // make it the same height as the placeholder.
                     image1.setLayoutParams(
                             new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                                                          LinearLayout.LayoutParams.MATCH_PARENT));
+                                                          imagePlaceholder.getHeight()));
                     imageBaseYOffset = 0;
                 } else {
                     image1.setLayoutParams(
