@@ -281,6 +281,9 @@ public class TitleSearchFragment extends Fragment {
     private class SearchHandlerCallback implements Handler.Callback {
         @Override
         public boolean handleMessage(Message msg) {
+            if (!isAdded()) {
+                return true;
+            }
             final String mySearchTerm = (String) msg.obj;
             final long startMillis = System.currentTimeMillis();
             TitleSearchTask searchTask = new TitleSearchTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), mySearchTerm) {

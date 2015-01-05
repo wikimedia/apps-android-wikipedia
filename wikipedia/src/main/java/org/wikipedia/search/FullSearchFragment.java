@@ -123,6 +123,9 @@ public class FullSearchFragment extends Fragment {
     private class SearchHandlerCallback implements Handler.Callback {
         @Override
         public boolean handleMessage(Message msg) {
+            if (!isAdded()) {
+                return true;
+            }
             final String mySearchTerm = (String) msg.obj;
             doSearch(mySearchTerm, null);
             return true;
