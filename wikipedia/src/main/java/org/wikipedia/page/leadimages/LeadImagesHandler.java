@@ -283,7 +283,14 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             leadImagesEnabled = false;
         } else {
             // enable the lead image, only if we actually have a url for it
-            leadImagesEnabled = thumbUrl != null;
+            if (thumbUrl == null) {
+                leadImagesEnabled = false;
+            } else {
+                // ...and only if the image is not a GIF, since GIF images are usually
+                // mathematical diagrams or animations that won't look good as a lead image.
+                // TODO: retrieve the MIME type of the lead image, instead of relying on file name.
+                leadImagesEnabled = !thumbUrl.endsWith(".gif");
+            }
         }
 
         // set the page title text, and honor any HTML formatting in the title
