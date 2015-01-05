@@ -247,6 +247,7 @@
   <string name="toc_hint">向左滑動或使用右上角的選項單按鈕顯示章節。</string>
   <string name="toc_know_it">明白了</string>
   <string name="error_browser_not_found">無法開啟網頁（未找到瀏覽器應用程式）。</string>
+  <string name="table_infobox">事實速覽</string>
   <string name="table_other">更多資訊</string>
   <string name="table_close">關閉</string>
   <string name="app_store_description">維基百科官方 Android 應用程式。維基百科是一部自由的百科全書，包含超過 3200 萬篇條目，以 280 種不同的語言撰寫，是人類建立過的最詳實、且大量被引用的資料來源。這個應用程式已經全面重新編寫，使其比以前來得還要更好。

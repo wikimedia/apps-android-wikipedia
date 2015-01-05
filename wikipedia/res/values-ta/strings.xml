@@ -55,7 +55,7 @@
   <string name="dialog_message_edit_failed_retry">மறு முயற்சி செய்</string>
   <string name="dialog_message_edit_failed_cancel">இரத்து செய்</string>
   <string name="dialog_message_leaving_edit" fuzzy="true">\"தங்களின் மாற்றங்கள் இன்னும் சேமிக்கப்படவில்லை. தாங்கள் நிச்சயமாக இந்த பக்கத்தை விட்டு வெளியேற விரும்புகிறீர்களா?\"</string>
-  <string name="dialog_message_leaving_edit_leave">விலகவும்</string>
+  <string name="dialog_message_leaving_edit_leave">விட்டுவிடவும்</string>
   <string name="menu_show_toc">உள்ளடக்க அட்டவணை</string>
   <string name="search_no_results_found">முடிவுகள் எதுவும் காணப்படவில்லை</string>
   <string name="edit_section_captcha_message">தானியங்கு எரிதத்தை எதிர்த்து காக்க, கீழ்வரும் சொற்களை உள்ளிடவும்</string>

@@ -105,7 +105,7 @@
   <string name="saved_pages_empty_title">Ingen lagrede sider her!</string>
   <string name="saved_pages_empty_message">Lagrede sider er veldig praktisk. Tenk på dem som bokmerker som du også kan lese når du er offline.</string>
   <string name="history_empty_title">Ingen besøkte sider her!</string>
-  <string name="history_empty_message">Du har antakelig fjernet alle sammen. Neste gang du besøker en side kan du etterpå finne den igjen her.</string>
+  <string name="history_empty_message">Du har antakelig fjernet alle sammen. Neste gang du besøker en side kan du finne den igjen her etterpå.</string>
   <string name="delete_selected_history">Fjern</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Den frie encyklopedi</string>
@@ -146,7 +146,7 @@
   <string name="zero_interstitial_title">Forlater Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Datakostnader kan påløpe. Fortsette til eksternt nettsted?</string>
   <string name="zero_interstitial_continue">Forlat appen</string>
-  <string name="zero_interstitial_cancel">Bli her</string>
+  <string name="zero_interstitial_cancel">Forbli her</string>
   <string name="zero_learn_more">Datakostnader påløper ikke for denne Wikipedia-appen.</string>
   <string name="zero_learn_more_learn_more">Lær mer</string>
   <string name="zero_learn_more_dismiss">Lukk</string>
