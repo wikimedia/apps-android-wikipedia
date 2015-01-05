@@ -6,17 +6,17 @@ import android.os.RemoteException;
 
 public abstract class ContentPersister<T> {
     private final ContentProviderClient client;
-    private final PersistanceHelper<T> persistanceHelper;
+    private final PersistenceHelper<T> persistenceHelper;
 
-    public ContentPersister(ContentProviderClient client, PersistanceHelper<T> persistanceHelper) {
+    public ContentPersister(ContentProviderClient client, PersistenceHelper<T> persistenceHelper) {
         this.client = client;
-        this.persistanceHelper = persistanceHelper;
+        this.persistenceHelper = persistenceHelper;
     }
 
     public void persist(T obj) {
-        Uri uri = persistanceHelper.getBaseContentURI();
+        Uri uri = persistenceHelper.getBaseContentURI();
         try {
-            client.insert(uri, persistanceHelper.toContentValues(obj));
+            client.insert(uri, persistenceHelper.toContentValues(obj));
         } catch (RemoteException e) {
             // This shouldn't happen
             throw new RuntimeException(e);
@@ -28,7 +28,7 @@ public abstract class ContentPersister<T> {
     }
 
     public void deleteWhere(String selection, String[] selectionArgs) {
-        Uri uri = persistanceHelper.getBaseContentURI();
+        Uri uri = persistenceHelper.getBaseContentURI();
         try {
             client.delete(uri, selection, selectionArgs);
         } catch (RemoteException e) {
@@ -38,12 +38,12 @@ public abstract class ContentPersister<T> {
     }
 
     public void delete(T obj) {
-        Uri uri = persistanceHelper.getBaseContentURI();
+        Uri uri = persistenceHelper.getBaseContentURI();
         try {
             client.delete(
                     uri,
-                    persistanceHelper.getPrimaryKeySelection(),
-                    persistanceHelper.getPrimaryKeySelectionArgs(obj)
+                    persistenceHelper.getPrimaryKeySelection(),
+                    persistenceHelper.getPrimaryKeySelectionArgs(obj)
             );
         } catch (RemoteException e) {
             throw new RuntimeException(e);
@@ -51,13 +51,13 @@ public abstract class ContentPersister<T> {
     }
 
     public void upsert(T obj) {
-        Uri uri = persistanceHelper.getBaseContentURI();
+        Uri uri = persistenceHelper.getBaseContentURI();
         try {
             int rowsUpdated = client.update(
                     uri,
-                    persistanceHelper.toContentValues(obj),
-                    persistanceHelper.getPrimaryKeySelection(),
-                    persistanceHelper.getPrimaryKeySelectionArgs(obj)
+                    persistenceHelper.toContentValues(obj),
+                    persistenceHelper.getPrimaryKeySelection(),
+                    persistenceHelper.getPrimaryKeySelectionArgs(obj)
             );
             if (rowsUpdated == 0) {
                 // Insert!

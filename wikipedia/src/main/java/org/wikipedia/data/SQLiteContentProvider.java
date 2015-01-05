@@ -11,10 +11,10 @@ import android.net.Uri;
 import org.wikipedia.BuildConfig;
 
 public abstract class SQLiteContentProvider<T> extends ContentProvider {
-    private final PersistanceHelper<T> persistanceHelper;
+    private final PersistenceHelper<T> persistenceHelper;
 
-    protected SQLiteContentProvider(PersistanceHelper<T> persistanceHelper) {
-        this.persistanceHelper = persistanceHelper;
+    protected SQLiteContentProvider(PersistenceHelper<T> persistenceHelper) {
+        this.persistenceHelper = persistenceHelper;
     }
 
     protected abstract DBOpenHelper getDbOpenHelper();
@@ -133,7 +133,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
     }
 
     protected String getTableName() {
-        return persistanceHelper.getTableName();
+        return persistenceHelper.getTableName();
     }
 
     protected String getAuthority() {

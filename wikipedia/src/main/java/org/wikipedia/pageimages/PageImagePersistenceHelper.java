@@ -4,9 +4,9 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.data.PersistanceHelper;
+import org.wikipedia.data.PersistenceHelper;
 
-public class PageImagePersistanceHelper extends PersistanceHelper<PageImage> {
+public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
 
     private static final int COL_INDEX_SITE = 1;
     private static final int COL_INDEX_TITLE = 2;

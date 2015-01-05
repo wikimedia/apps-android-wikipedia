@@ -18,7 +18,7 @@ public class DBOpenHelper  extends SQLiteOpenHelper{
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    private PersistanceHelper[] persistanceHelpers = {
+    private PersistenceHelper[] persistenceHelpers = {
             HistoryEntry.PERSISTANCE_HELPER,
             PageImage.PERSISTANCE_HELPER,
             RecentSearch.PERSISTANCE_HELPER,
@@ -27,14 +27,14 @@ public class DBOpenHelper  extends SQLiteOpenHelper{
     };
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        for (PersistanceHelper ph : persistanceHelpers) {
+        for (PersistenceHelper ph : persistenceHelpers) {
             ph.createTables(sqLiteDatabase, DATABASE_VERSION);
         }
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int from, int to) {
-        for (PersistanceHelper ph : persistanceHelpers) {
+        for (PersistenceHelper ph : persistenceHelpers) {
             ph.upgradeSchema(sqLiteDatabase, from, to);
         }
     }
