@@ -762,6 +762,12 @@ public class PageViewFragmentInternal {
 
         @Override
         public Void performTask() throws Throwable {
+            // Instead of "upserting" the history entry, we'll delete and re-persist it.
+            // This is because upserting will update all previous instances of the history entry,
+            // and won't collapse them into a single entry at the top. Deleting it will ensure
+            // that all previous instances will be deleted, and then only the most recent instance
+            // will be placed at the top.
+            app.getPersister(HistoryEntry.class).delete(entry);
             app.getPersister(HistoryEntry.class).persist(entry);
             return null;
         }

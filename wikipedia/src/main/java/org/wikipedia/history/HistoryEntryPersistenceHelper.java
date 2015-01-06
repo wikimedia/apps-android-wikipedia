@@ -59,15 +59,14 @@ public class HistoryEntryPersistenceHelper extends PersistenceHelper<HistoryEntr
 
     @Override
     protected String getPrimaryKeySelection() {
-        return "site = ? AND title = ? AND timestamp = ?";
+        return "site = ? AND title = ?";
     }
 
     @Override
     protected String[] getPrimaryKeySelectionArgs(HistoryEntry obj) {
         return new String[] {
             obj.getTitle().getSite().getDomain(),
-            obj.getTitle().getPrefixedText(),
-            Long.toString(obj.getTimestamp().getTime())
+            obj.getTitle().getPrefixedText()
         };
     }
 }
