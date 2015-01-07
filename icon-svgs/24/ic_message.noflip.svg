@@ -10,12 +10,12 @@
    width="24"
    height="24"
    viewBox="0 0 24 24"
-   id="svg3059"
+   id="svg3033"
    version="1.1"
    inkscape:version="0.48.5 r10040"
-   sodipodi:docname="ic_share.svg">
+   sodipodi:docname="ic_message.noflip.svg">
   <metadata
-     id="metadata3067">
+     id="metadata3041">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -26,7 +26,7 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs3065" />
+     id="defs3039" />
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -36,20 +36,20 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="937"
-     inkscape:window-height="736"
-     id="namedview3063"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview3037"
      showgrid="false"
      inkscape:zoom="9.8333333"
-     inkscape:cx="-3.8644068"
+     inkscape:cx="12"
      inkscape:cy="12"
-     inkscape:window-x="284"
-     inkscape:window-y="164"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg3059" />
+     inkscape:current-layer="svg3033" />
   <path
-     d="m 18,16.08 c -0.76,0 -1.44,0.3 -1.96,0.77 L 8.91,12.7 C 8.96,12.47 9,12.24 9,12 9,11.76 8.96,11.53 8.91,11.3 L 15.96,7.19 C 16.5,7.69 17.21,8 18,8 19.66,8 21,6.66 21,5 21,3.34 19.66,2 18,2 c -1.66,0 -3,1.34 -3,3 0,0.24 0.04,0.47 0.09,0.7 L 8.04,9.81 C 7.5,9.31 6.79,9 6,9 4.34,9 3,10.34 3,12 c 0,1.66 1.34,3 3,3 0.79,0 1.5,-0.31 2.04,-0.81 l 7.12,4.16 c -0.05,0.21 -0.08,0.43 -0.08,0.65 0,1.61 1.31,2.92 2.92,2.92 1.61,0 2.92,-1.31 2.92,-2.92 0,-1.61 -1.31,-2.92 -2.92,-2.92 z"
-     id="path3061"
-     style="fill:#333333;fill-opacity:0.60000002"
+     d="M 20,2 4,2 C 2.9,2 2.01,2.9 2.01,4 L 2,22 6,18 20,18 c 1.1,0 2,-0.9 2,-2 L 22,4 C 22,2.9 21.1,2 20,2 z m -2,12 -12,0 0,-2 12,0 0,2 z m 0,-3 -12,0 0,-2 12,0 0,2 z M 18,8 6,8 6,6 18,6 18,8 z"
+     id="path3035"
+     style="fill:#333333;fill-opacity:0.6"
      inkscape:connector-curvature="0" />
 </svg>
