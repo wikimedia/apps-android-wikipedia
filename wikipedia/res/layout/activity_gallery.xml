@@ -6,12 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/gallery_background">
 
-    <ImageView
-        android:id="@+id/gallery_image"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/gallery_item_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitCenter"
-        />
+        android:layout_height="match_parent"/>
 
     <FrameLayout
         android:id="@+id/gallery_toolbar_container"

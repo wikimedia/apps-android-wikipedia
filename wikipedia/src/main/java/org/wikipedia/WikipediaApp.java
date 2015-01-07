@@ -33,6 +33,7 @@ import org.wikipedia.history.HistoryEntryPersister;
 import org.wikipedia.login.UserInfoStorage;
 import org.wikipedia.migration.PerformMigrationsTask;
 import org.wikipedia.networking.MccMncStateHandler;
+import org.wikipedia.page.PageCache;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagePersister;
 import org.wikipedia.savedpages.SavedPage;
@@ -140,6 +141,17 @@ public class WikipediaApp extends Application {
     }
 
     /**
+     * Our page cache, which discards the eldest entries based on access time.
+     * This will allow the user to go "back" smoothly (the previous page is guaranteed
+     * to be in cache), but also to go "forward" smoothly (if the user clicks on a link
+     * that was already visited within a short time).
+     */
+    private PageCache pageCache;
+    public PageCache getPageCache() {
+        return pageCache;
+    }
+
+    /**
      * Preference manager for storing things like the app's install IDs for EventLogging, theme,
      * font size, etc.
      */
@@ -196,6 +208,7 @@ public class WikipediaApp extends Application {
 
         zeroHandler = new WikipediaZeroHandler(this);
         wikidataCache = new WikidataCache(this);
+        pageCache = new PageCache();
 
         new PerformMigrationsTask().execute();
     }

@@ -31,9 +31,9 @@ public class GalleryItem {
     public GalleryItem(JSONObject json) throws JSONException {
         this.name = json.getString("title");
         JSONObject imageinfo = (JSONObject)json.getJSONArray("imageinfo").get(0);
-        this.url = imageinfo.getString("url");
+        this.url = imageinfo.optString("url", "");
         this.mimeType = imageinfo.getString("mime");
-        this.thumbUrl = imageinfo.getString("thumburl");
+        this.thumbUrl = imageinfo.optString("thumburl", "");
         this.width = imageinfo.getInt("width");
         this.height = imageinfo.getInt("height");
         metadata = new HashMap<>();

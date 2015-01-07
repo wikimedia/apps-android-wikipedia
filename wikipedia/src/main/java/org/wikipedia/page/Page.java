@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.PageTitle;
+import org.wikipedia.page.gallery.GalleryCollection;
 
 import java.util.ArrayList;
 
@@ -11,14 +12,27 @@ import java.util.ArrayList;
  * Represents a particular page along with its full contents.
  */
 public class Page {
+    /**
+     * The props to send to api=mobileview to get all the data required for filling up Page object
+     */
+    public static final String API_REQUEST_PROPS = "lastmodified|normalizedtitle|displaytitle|protection|editable";
     private final PageTitle title;
     private final ArrayList<Section> sections;
     private final PageProperties pageProperties;
 
     /**
-     * The props to send to api=mobileview to get all the data required for filling up Page object
+     * The media gallery collection associated with this page.
+     * This will be populated by the Gallery activity when necessary, and will be kept in
+     * the page cache because the page itself is cached. Subsequent instances of the Gallery
+     * activity will then be able to retrieve the page's gallery collection from cache.
      */
-    public static final String API_REQUEST_PROPS = "lastmodified|normalizedtitle|displaytitle|protection|editable";
+    private GalleryCollection galleryCollection;
+    public GalleryCollection getGalleryCollection() {
+        return galleryCollection;
+    }
+    public void setGalleryCollection(GalleryCollection collection) {
+        galleryCollection = collection;
+    }
 
     public Page(PageTitle title, ArrayList<Section> sections, PageProperties pageProperties) {
         this.title = title;

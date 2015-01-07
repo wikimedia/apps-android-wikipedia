@@ -105,14 +105,6 @@ public class PageViewFragmentInternal {
 
     private PageViewFragment parentFragment;
 
-    /**
-     * Our page cache, which discards the eldest entries based on access time.
-     * This will allow the user to go "back" smoothly (the previous page is guaranteed
-     * to be in cache), but also to go "forward" smoothly (if the user clicks on a link
-     * that was already visited within a short time).
-     */
-    private static PageCache PAGE_CACHE;
-
     private PageTitle title;
     private PageTitle titleOriginal;
     private ViewGroup imagesContainer;
@@ -151,9 +143,6 @@ public class PageViewFragmentInternal {
         this.title = title;
         this.curEntry = historyEntry;
         this.scrollY = scrollY;
-        if (PAGE_CACHE == null) {
-            PAGE_CACHE = new PageCache();
-        }
     }
 
     public PageActivity getActivity() {
@@ -423,9 +412,9 @@ public class PageViewFragmentInternal {
                 title);
 
         //is this page in cache??
-        if (PAGE_CACHE.has(titleOriginal)) {
+        if (app.getPageCache().has(titleOriginal)) {
             Log.d(TAG, "Using page from cache: " + titleOriginal.getDisplayText());
-            page = PAGE_CACHE.get(titleOriginal);
+            page = app.getPageCache().get(titleOriginal);
             title = page.getTitle();
             state = STATE_COMPLETE_FETCH;
         }
@@ -609,9 +598,9 @@ public class PageViewFragmentInternal {
             tocHandler.setupToC(page);
 
             //add the page to cache!
-            PAGE_CACHE.put(titleOriginal, page);
+            app.getPageCache().put(titleOriginal, page);
             if (!titleOriginal.equals(title)) {
-                PAGE_CACHE.put(title, page);
+                app.getPageCache().put(title, page);
             }
         }
     }
