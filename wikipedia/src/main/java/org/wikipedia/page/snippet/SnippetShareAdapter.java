@@ -135,7 +135,7 @@ public class SnippetShareAdapter {
         PageTitle title = curPageFragment.getTitle();
         String introText = activity.getString(R.string.snippet_share_intro,
                 title.getDisplayText(),
-                title.getCanonicalUri());
+                title.getCanonicalUri() + "?source=app");
         Bitmap resultBitmap = SnippetImage.createImage(activity,
                 curPageFragment.getLeadImageBitmap(),
                 curPageFragment.getImageBaseYOffset(),
