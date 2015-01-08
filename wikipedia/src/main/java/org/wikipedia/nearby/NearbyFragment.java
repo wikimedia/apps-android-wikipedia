@@ -284,12 +284,22 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     private void requestLocationUpdates() {
         boolean atLeastOneEnabled = false;
         if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-            requestLocation(LocationManager.NETWORK_PROVIDER);
-            atLeastOneEnabled = true;
+            try {
+                requestLocation(LocationManager.NETWORK_PROVIDER);
+                atLeastOneEnabled = true;
+            } catch (SecurityException e) {
+                Log.e("Wikipedia", "Could not request location from "
+                        + LocationManager.NETWORK_PROVIDER, e);
+            }
         }
         if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            requestLocation(LocationManager.GPS_PROVIDER);
-            atLeastOneEnabled = true;
+            try {
+                requestLocation(LocationManager.GPS_PROVIDER);
+                atLeastOneEnabled = true;
+            } catch (SecurityException e) {
+                Log.e("Wikipedia", "Could not request location from "
+                        + LocationManager.GPS_PROVIDER, e);
+            }
         }
         // if neither of the location providers are enabled, then give the user the option
         // to go to Settings, so that they enable Location in the actual OS.
