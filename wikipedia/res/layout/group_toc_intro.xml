@@ -10,6 +10,7 @@
     android:orientation="vertical"
     android:paddingLeft="32dp"
     android:paddingRight="32dp"
+    android:background="?attr/toc_background_color"
     >
 
     <TextView

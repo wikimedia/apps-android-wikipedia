@@ -155,7 +155,18 @@
         <FrameLayout
                 android:layout_width="288dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="end">
+                android:layout_gravity="end"
+                android:background="?attr/toc_background_color"
+                >
+
+            <ProgressBar
+                android:id="@+id/page_toc_in_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:progressBarStyleLarge"
+                android:indeterminate="true"
+                android:layout_gravity="center"
+                />
 
             <LinearLayout
                     android:layout_width="match_parent"
@@ -172,14 +183,12 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:background="?attr/toc_background_color"
                         >
                     <ListView
                             android:id="@+id/page_toc_list"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginTop="?attr/actionBarSize"
-                            android:background="?attr/toc_background_color"
                             android:visibility="gone"
                             android:choiceMode="singleChoice"
                             />
@@ -192,14 +201,6 @@
 
             </LinearLayout>
 
-            <ProgressBar
-                    android:id="@+id/page_toc_in_progress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="?android:progressBarStyleLarge"
-                    android:indeterminate="true"
-                    android:layout_gravity="center"
-                    />
         </FrameLayout>
     </org.wikipedia.views.DisableableDrawerLayout>
     <LinearLayout
