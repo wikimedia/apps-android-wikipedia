@@ -18,6 +18,8 @@ import java.util.TimeZone;
  * Immutable class that contains metadata associated with a PageTitle.
  */
 public class PageProperties implements Parcelable {
+    private final int pageId;
+    private final long revisionId;
     private final Date lastModified;
     private final String displayTitleText;
     private final String editProtectionStatus;
@@ -39,9 +41,12 @@ public class PageProperties implements Parcelable {
      * @param displayTitleText The title to be displayed for this page
      * @param editProtectionStatus The edit protection status applied to this page
      */
-    public PageProperties(String lastModifiedText, String displayTitleText,
+    public PageProperties(int pageId, long revisionId,
+                          String lastModifiedText, String displayTitleText,
                           String editProtectionStatus, boolean canEdit, boolean isMainPage,
                           String leadImageUrl, String leadImageName) {
+        this.pageId = pageId;
+        this.revisionId = revisionId;
         lastModified = new Date();
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
@@ -55,6 +60,14 @@ public class PageProperties implements Parcelable {
         this.isMainPage = isMainPage;
         this.leadImageUrl = leadImageUrl;
         this.leadImageName = leadImageName;
+    }
+
+    public int getPageId() {
+        return pageId;
+    }
+
+    public long getRevisionId() {
+        return revisionId;
     }
 
     public Date getLastModified() {
@@ -92,6 +105,8 @@ public class PageProperties implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeInt(pageId);
+        parcel.writeLong(revisionId);
         parcel.writeLong(lastModified.getTime());
         parcel.writeString(displayTitleText);
         parcel.writeString(editProtectionStatus);
@@ -102,6 +117,8 @@ public class PageProperties implements Parcelable {
     }
 
     private PageProperties(Parcel in) {
+        pageId = in.readInt();
+        revisionId = in.readLong();
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
@@ -134,7 +151,9 @@ public class PageProperties implements Parcelable {
 
         PageProperties that = (PageProperties) o;
 
-        return lastModified.equals(that.lastModified)
+        return pageId == that.pageId
+                && revisionId == that.revisionId
+                && lastModified.equals(that.lastModified)
                 && displayTitleText.equals(that.displayTitleText)
                 && canEdit == that.canEdit
                 && isMainPage == that.isMainPage
@@ -147,12 +166,13 @@ public class PageProperties implements Parcelable {
     public int hashCode() {
         int result = lastModified.hashCode();
         result = 31 * result + displayTitleText.hashCode();
-        if (editProtectionStatus != null) {
-            result = 63 * result + editProtectionStatus.hashCode();
-        }
-        if (leadImageUrl != null) {
-            result = 127 * result + leadImageUrl.hashCode();
-        }
+        result = 31 * result + (editProtectionStatus != null ? editProtectionStatus.hashCode() : 0);
+        result = 31 * result + (isMainPage ? 1 : 0);
+        result = 31 * result + (leadImageUrl != null ? leadImageUrl.hashCode() : 0);
+        result = 31 * result + (leadImageName != null ? leadImageName.hashCode() : 0);
+        result = 31 * result + (canEdit ? 1 : 0);
+        result = 31 * result + pageId;
+        result = 31 * result + (int) revisionId;
         return result;
     }
 
@@ -164,6 +184,8 @@ public class PageProperties implements Parcelable {
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
         try {
+            json.put("id", pageId);
+            json.put("revision", revisionId);
             json.put("lastmodified", sdf.format(getLastModified()));
             json.put("displaytitle", displayTitleText);
             if (editProtectionStatus == null) {
@@ -222,6 +244,8 @@ public class PageProperties implements Parcelable {
             leadImageName = image.optString("file");
         }
         return new PageProperties(
+                json.optInt("id"),
+                json.optLong("revision"),
                 json.optString("lastmodified"),
                 json.optString("displaytitle"),
                 editProtection,

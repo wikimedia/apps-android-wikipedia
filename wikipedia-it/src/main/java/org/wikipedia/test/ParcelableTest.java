@@ -51,7 +51,9 @@ public class ParcelableTest extends TestCase {
             sections.add(new Section(i, 1, "Something " + i, "Something_" + i, "Content Something" + i));
         }
         PageTitle title = new PageTitle(null, "Test", new Site("en.wikipedia.org"));
-        PageProperties props = new PageProperties("", "Something", "autoconfirmed", false, false, null, null);
+        final int pageId = 15580374;
+        final int revId = 615503846;
+        PageProperties props = new PageProperties(pageId, revId, "", "Something", "autoconfirmed", false, false, null, null);
         parcelAndTestObjects(title);
         parcelAndTestObjects(props);
     }

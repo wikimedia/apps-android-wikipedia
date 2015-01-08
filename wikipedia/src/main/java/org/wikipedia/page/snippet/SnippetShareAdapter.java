@@ -13,7 +13,9 @@ import android.view.MenuItem;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.util.ShareUtils;
 
@@ -26,7 +28,7 @@ public class SnippetShareAdapter {
     private ActionMode webViewActionMode;
     private ClipboardManager.OnPrimaryClipChangedListener clipListener;
     private MenuItem copyMenuItem;
-    private boolean snippetShared;
+    private ShareAFactFunnel funnel;
 
     public SnippetShareAdapter(PageActivity activity) {
         this.activity = activity;
@@ -114,6 +116,12 @@ public class SnippetShareAdapter {
                 return true;
             }
         });
+
+        final Page page = activity.getCurPageFragment().getPage();
+        final PageProperties pageProperties = page.getPageProperties();
+        funnel = new ShareAFactFunnel(app, page.getTitle(), pageProperties.getPageId(),
+                pageProperties.getRevisionId());
+        funnel.logHighlight();
     }
 
     private String sanitizeText(String selectedText) {
@@ -122,9 +130,9 @@ public class SnippetShareAdapter {
                 .replaceAll("\\s{2,}", " ");
     }
 
-    private void shareSnippet(CharSequence selectedText) {
+    private void shareSnippet(CharSequence input) {
         final int minTextSnippetLength = 6;
-        selectedText = selectedText.toString().trim();
+        String selectedText = input.toString().trim();
         if (selectedText.length() < minTextSnippetLength) {
             return;
         }
@@ -143,5 +151,6 @@ public class SnippetShareAdapter {
                 title.getDisplayText(), selectedText);
         ShareUtils.shareImage(activity, resultBitmap, "*/*",
                 title.getDisplayText(), title.getDisplayText(), introText, false);
+        funnel.logShareIntent(selectedText);
     }
 }
