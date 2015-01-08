@@ -28,6 +28,16 @@ public class GalleryItem {
     private final int height;
     public int getHeight() { return height; }
 
+    public GalleryItem(String name) {
+        this.name = name;
+        this.url = null;
+        this.mimeType = "*/*";
+        this.thumbUrl = null;
+        this.metadata = null;
+        this.width = 0;
+        this.height = 0;
+    }
+
     public GalleryItem(JSONObject json) throws JSONException {
         this.name = json.getString("title");
         JSONObject imageinfo = (JSONObject)json.getJSONArray("imageinfo").get(0);

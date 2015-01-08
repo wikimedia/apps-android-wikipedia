@@ -358,17 +358,32 @@ public class GalleryActivity extends ThemedActionBarActivity {
     private void applyGalleryCollection(GalleryCollection collection) {
         // remove the page transformer while we operate on the pager...
         galleryPager.setPageTransformer(false, null);
-        // pass the collection to the adapter!
-        galleryAdapter.setCollection(collection);
+        // first, verify that the collection contains the item that the user
+        // initially requested, if we have one...
+        int initialImagePos = -1;
         if (initialImageTitle != null) {
-            // if we have a target image to jump to,
-            // then find its position in the collection
             for (GalleryItem item : collection.getItemList()) {
                 if (item.getName().equals(initialImageTitle.getDisplayText())) {
-                    galleryPager.setCurrentItem(collection.getItemList().indexOf(item), false);
+                    initialImagePos = collection.getItemList().indexOf(item);
                     break;
                 }
             }
+            if (initialImagePos == -1) {
+                // the requested image is not present in the gallery collection, so
+                // add it manually.
+                // (this can happen if the user clicked on an SVG file, since we hide SVGs
+                // by default in the gallery)
+                initialImagePos = 0;
+                collection.getItemList().add(initialImagePos,
+                                             new GalleryItem(initialImageTitle.getDisplayText()));
+            }
+        }
+
+        // pass the collection to the adapter!
+        galleryAdapter.setCollection(collection);
+        if (initialImagePos != -1) {
+            // if we have a target image to jump to, then do it!
+            galleryPager.setCurrentItem(initialImagePos, false);
         } else if (initialImageIndex >= 0
                    && initialImageIndex < galleryAdapter.getCount()) {
             // if we have a target image index to jump to, then do it!
