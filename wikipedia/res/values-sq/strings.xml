@@ -24,7 +24,6 @@
   <string name="dialog_message_edit_failed_retry">Riprovo</string>
   <string name="edit_section_captcha_message">Për të ndihmuar në mbrojtjen kundër spamet e automatizuar, ju lutem shkruani fjalët që shfaqet poshtë</string>
   <string name="edit_section_captcha_hint">Përsërit fjalët nga lart</string>
-  <string name="edit_section_abusefilter_back_text">Të bëni ndryshimet në redaktimet e mia</string>
   <string name="edit_section_captcha_reload">Shtyp  mbi captcha per te ringarkuaar</string>
   <string name="login_password_hint">Fjalëkalimi</string>
   <string name="login_password_show_check">Shfaq fjalëkalimin</string>
