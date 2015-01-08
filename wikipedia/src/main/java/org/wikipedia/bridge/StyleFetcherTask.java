@@ -27,7 +27,7 @@ public class StyleFetcherTask extends RecurringTask {
     };
 
     // The 'l' suffix is needed because stupid Java overflows constants otherwise
-    private static final long RUN_INTERVAL_MILLI =  24L * 60L * 60L * 1000L;
+    private static final long RUN_INTERVAL_MILLI = 24L * 60L * 60L * 1000L;
 
     public StyleFetcherTask(Context context) {
         super(context);

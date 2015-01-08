@@ -26,6 +26,7 @@ public class SnippetShareAdapter {
     private ActionMode webViewActionMode;
     private ClipboardManager.OnPrimaryClipChangedListener clipListener;
     private MenuItem copyMenuItem;
+    private boolean snippetShared;
 
     public SnippetShareAdapter(PageActivity activity) {
         this.activity = activity;
@@ -141,6 +142,6 @@ public class SnippetShareAdapter {
                 curPageFragment.getImageBaseYOffset(),
                 title.getDisplayText(), selectedText);
         ShareUtils.shareImage(activity, resultBitmap, "*/*",
-                title.getDisplayText(), introText, false);
+                title.getDisplayText(), title.getDisplayText(), introText, false);
     }
 }

@@ -270,9 +270,13 @@ public class GalleryItemFragment extends Fragment {
         if (galleryItem == null) {
             return;
         }
-        ShareUtils
-                .shareImage(parentActivity, ((BitmapDrawable) mainImage.getDrawable()).getBitmap(),
-                            "image/jpeg", pageTitle.getDisplayText(), "", false);
+        ShareUtils.shareImage(parentActivity,
+                ((BitmapDrawable) mainImage.getDrawable()).getBitmap(),
+                "image/jpeg",
+                new java.io.File(galleryItem.getUrl()).getName(),
+                pageTitle.getDisplayText(),
+                "",
+                false);
     }
 
     /**

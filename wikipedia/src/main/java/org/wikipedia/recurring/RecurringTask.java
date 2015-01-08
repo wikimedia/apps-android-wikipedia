@@ -37,7 +37,7 @@ public abstract class RecurringTask {
     public void runIfNecessary() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String prefKey = getName() + "-lastrun";
-        Date lastRunDate =  new Date(prefs.getLong(prefKey, 0));
+        Date lastRunDate = new Date(prefs.getLong(prefKey, 0));
 
         if (shouldRun(lastRunDate)) {
             Log.d("Wikipedia", "Running task " + getName());

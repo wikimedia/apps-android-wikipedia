@@ -7,6 +7,7 @@ import org.wikipedia.alphaupdater.AlphaUpdateChecker;
 import org.wikipedia.bridge.StyleFetcherTask;
 import org.wikipedia.concurrency.ExecutorService;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.page.snippet.SharedImageCleanupTask;
 
 import java.util.concurrent.Executor;
 
@@ -26,6 +27,7 @@ public class RecurringTasksExecutor {
                         // Has list of all rotating tasks that need to be run
                         new RemoteConfigRefreshTask(context),
                         new StyleFetcherTask(context),
+                        new SharedImageCleanupTask(context),
                 };
                 for (RecurringTask task: allTasks) {
                     task.runIfNecessary();
