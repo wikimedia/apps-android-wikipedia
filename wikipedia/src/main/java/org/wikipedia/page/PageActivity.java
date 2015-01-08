@@ -753,7 +753,8 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
-        if (snippetShareAdapter == null
+        if (WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_ALPHA
+                && snippetShareAdapter == null
                 && SnippetShareAdapter.isTextSelectionMenu(mode.getMenu())) {
             snippetShareAdapter = new SnippetShareAdapter(this);
             snippetShareAdapter.onTextSelected(mode);
