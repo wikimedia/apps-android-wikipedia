@@ -151,7 +151,7 @@
     <string name="zero_warn_when_leaving">Warn if leaving Wikipedia Zero</string>
     <string name="zero_warn_when_leaving_summary">If your mobile operator waives data access charges for the Wikipedia app through a Wikipedia Zero partnership, leaving this setting checked helps you know when you are leaving the Wikipedia app and could be charged.</string>
     <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
-    <string name="zero_webpage_url">https://wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
+    <string name="zero_webpage_url">https://m.wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
     <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
     <string name="zero_interstitial_title">Leaving Wikipedia Zero</string>
     <string name="zero_interstitial_leave_app">Data charges may apply. Continue to external site?</string>
@@ -196,8 +196,8 @@
     <string name="about_description">About the Wikipedia app</string>
     <string name="privacy_policy_description">Privacy policy</string>
     <string name="terms_of_use_description">Terms of use</string>
-    <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
-    <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
+    <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_Policy</string>
+    <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="preference_title_version">Version</string>
     <string name="about_libraries_heading">libraries used</string>
     <string name="about_contributors_heading">contributors</string>
