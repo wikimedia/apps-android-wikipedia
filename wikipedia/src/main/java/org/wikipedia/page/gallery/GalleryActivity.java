@@ -7,6 +7,7 @@ import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.Page;
@@ -45,6 +46,11 @@ public class GalleryActivity extends ThemedActionBarActivity {
     private WikipediaApp app;
     private PageTitle pageTitle;
     private Page page;
+
+    private GalleryFunnel funnel;
+    public GalleryFunnel getFunnel() {
+        return funnel;
+    }
 
     private ViewPager galleryPager;
     private GalleryItemAdapter galleryAdapter;
@@ -121,6 +127,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         galleryAdapter = new GalleryItemAdapter(this);
         galleryPager.setAdapter(galleryAdapter);
         galleryPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            private int currentPosition = -1;
             @Override
             public void onPageScrolled(int position, float positionOffset,
                                        int positionOffsetPixels) {
@@ -129,6 +136,14 @@ public class GalleryActivity extends ThemedActionBarActivity {
             public void onPageSelected(int position) {
                 // the pager has settled on a new position
                 layoutGalleryDescription();
+                if (currentPosition != -1 && getCurrentItem() != null) {
+                    if (position < currentPosition) {
+                        funnel.logGallerySwipeLeft(pageTitle, getCurrentItem().getName());
+                    } else if (position > currentPosition) {
+                        funnel.logGallerySwipeRight(pageTitle, getCurrentItem().getName());
+                    }
+                }
+                currentPosition = position;
             }
             @Override
             public void onPageScrollStateChanged(int state) {
@@ -138,7 +153,13 @@ public class GalleryActivity extends ThemedActionBarActivity {
             }
         });
 
-        if (savedInstanceState != null) {
+        funnel = new GalleryFunnel(app, pageTitle.getSite());
+
+        if (savedInstanceState == null) {
+            if (initialImageTitle != null) {
+                funnel.logGalleryOpen(pageTitle, initialImageTitle.getDisplayText());
+            }
+        } else {
             controlsShowing = savedInstanceState.getBoolean("controlsShowing");
             initialImageIndex = savedInstanceState.getInt("pagerIndex");
             // if we have a savedInstanceState, then the initial index overrides
@@ -208,6 +229,16 @@ public class GalleryActivity extends ThemedActionBarActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // log the "gallery close" event only upon explicit closing of the activity
+        // (back button, or home-as-up button in the toolbar)
+        if (getCurrentItem() != null) {
+            funnel.logGalleryClose(pageTitle, getCurrentItem().getName());
+        }
+        super.onBackPressed();
     }
 
     /**

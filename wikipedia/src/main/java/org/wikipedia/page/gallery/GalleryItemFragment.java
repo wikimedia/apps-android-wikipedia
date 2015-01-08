@@ -270,6 +270,7 @@ public class GalleryItemFragment extends Fragment {
         if (galleryItem == null) {
             return;
         }
+        parentActivity.getFunnel().logGalleryShare(pageTitle, galleryItem.getName());
         ShareUtils.shareImage(parentActivity,
                 ((BitmapDrawable) mainImage.getDrawable()).getBitmap(),
                 "image/jpeg",
@@ -286,6 +287,7 @@ public class GalleryItemFragment extends Fragment {
         if (galleryItem == null) {
             return;
         }
+        parentActivity.getFunnel().logGallerySave(pageTitle, galleryItem.getName());
         new SaneAsyncTask<Void>(SaneAsyncTask.SINGLE_THREAD) {
             @Override
             public Void performTask() throws Throwable {
