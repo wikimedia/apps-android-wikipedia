@@ -328,6 +328,13 @@ public class PageActivity extends ThemedActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onSearchRequested() {
+        showToolbar();
+        searchFragment.openSearch();
+        return true;
+    }
+
     public void showToolbar() {
         ViewAnimations.ensureTranslationY(toolbarContainer, 0);
     }
