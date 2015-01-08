@@ -557,7 +557,7 @@ a.issues_button:active {
   color: #b0b0b0;
 }
 
-div.hatnote {
+#issues_container div.hatnote {
   display: none;
 }
 a.disambig_button {
