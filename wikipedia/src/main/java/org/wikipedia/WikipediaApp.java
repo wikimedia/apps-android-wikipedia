@@ -494,9 +494,7 @@ public class WikipediaApp extends Application {
     }
 
     public String getAppInstallID() {
-        String appInstallID = getAppInstallIDForFeature(PrefKeys.getAppInstallId());
-        Log.d("Wikipedia", "appInstallID is" + appInstallID);
-        return appInstallID;
+        return getAppInstallIDForFeature(PrefKeys.getAppInstallId());
     }
 
     /**
