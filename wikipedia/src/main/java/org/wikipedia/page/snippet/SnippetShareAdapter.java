@@ -30,6 +30,11 @@ public class SnippetShareAdapter {
     private MenuItem copyMenuItem;
     private ShareAFactFunnel funnel;
 
+    public static boolean isTextSelectionMenu(Menu menu) {
+        // While not perfect, this at least filters out our own "Find in page" action mode
+        return menu.getItem(0) != null && menu.getItem(0).getItemId() != 0;
+    }
+
     public SnippetShareAdapter(PageActivity activity) {
         this.activity = activity;
         app = (WikipediaApp) activity.getApplicationContext();
