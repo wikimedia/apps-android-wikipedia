@@ -428,6 +428,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     var titleDiv = document.createElement( "div" );
     titleDiv.id = "heading_" + payload.section.id;
     titleDiv.setAttribute( "data-id", 0 );
+    titleDiv.className = "section_heading";
     document.getElementById( "content" ).appendChild( titleDiv );
 
     var issuesContainer = document.createElement( "div" );

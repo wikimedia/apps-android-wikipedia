@@ -71,11 +71,26 @@ public class ToCHandler {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
                 int sectionID = messagePayload.optInt("sectionID");
-
-                tocList.setItemChecked(sectionID, true);
-                tocList.smoothScrollToPosition(Math.max(sectionID - 1, 0));
-
                 Log.d("Wikipedia", "current section is " + sectionID);
+                if (tocList.getAdapter() == null) {
+                    return;
+                }
+                int itemToSelect = 0;
+                // Find the list item that corresponds to the returned sectionID.
+                // Start with index 1 of the list adapter, since index 0 is the header view,
+                // and won't have a Section object associated with it.
+                // And end with the second-to-last section, since the last section is the
+                // artificial Read More section, and unknown to the WebView.
+                // The lead section (id 0) will automatically fall through the loop.
+                for (int i = 1; i < tocList.getAdapter().getCount() - 1; i++) {
+                    if (((Section) tocList.getAdapter().getItem(i)).getId() <= sectionID) {
+                        itemToSelect = i;
+                    } else {
+                        break;
+                    }
+                }
+                tocList.setItemChecked(itemToSelect, true);
+                tocList.smoothScrollToPosition(itemToSelect);
             }
         });
 
@@ -83,12 +98,12 @@ public class ToCHandler {
         tocList.addHeaderView(headerView);
 
         slidingPane.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            private boolean sectionRequested = false;
 
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 parentActivity.supportInvalidateOptionsMenu();
-                bridge.sendMessage("requestCurrentSection", new JSONObject());
                 funnel.logOpen();
                 wasClicked = false;
                 final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(parentActivity);
@@ -106,6 +121,7 @@ public class ToCHandler {
                     funnel.logClose();
                 }
                 openedViaSwipe = true;
+                sectionRequested = false;
             }
 
             @Override
@@ -113,6 +129,11 @@ public class ToCHandler {
                 super.onDrawerSlide(drawerView, slideOffset);
                 // make sure the ActionBar is showing
                 ((PageActivity)parentActivity).showToolbar();
+                // request the current section to highlight, if we haven't yet
+                if (!sectionRequested) {
+                    bridge.sendMessage("requestCurrentSection", new JSONObject());
+                    sectionRequested = true;
+                }
             }
         });
     }
