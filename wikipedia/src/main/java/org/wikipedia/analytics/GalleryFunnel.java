@@ -6,10 +6,13 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 
+import java.util.UUID;
+
 public class GalleryFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppMediaGallery";
-    private static final int REV_ID = 10914526;
+    private static final int REV_ID = 10923135;
 
+    private final String gallerySessionToken;
     private final String appInstallID;
     private final Site site;
 
@@ -18,6 +21,7 @@ public class GalleryFunnel extends Funnel {
 
         //Retrieve this app installation's unique ID, used to record unique users of features
         appInstallID = app.getAppInstallID();
+        gallerySessionToken = UUID.randomUUID().toString();
 
         this.site = site;
     }
@@ -26,6 +30,7 @@ public class GalleryFunnel extends Funnel {
     protected JSONObject preprocessData(JSONObject eventData) {
         try {
             eventData.put("appInstallID", appInstallID);
+            eventData.put("gallerySessionToken", gallerySessionToken);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
