@@ -26,7 +26,7 @@ public class SnippetShareAdapter {
     private final PageActivity activity;
     private final WikipediaApp app;
     private ActionMode webViewActionMode;
-    private ClipboardManager.OnPrimaryClipChangedListener clipListener;
+    private static ClipboardManager.OnPrimaryClipChangedListener CLIP_LISTENER;
     private MenuItem copyMenuItem;
     private ShareAFactFunnel funnel;
 
@@ -38,6 +38,12 @@ public class SnippetShareAdapter {
     public SnippetShareAdapter(PageActivity activity) {
         this.activity = activity;
         app = (WikipediaApp) activity.getApplicationContext();
+    }
+
+    public void finish() {
+        if (webViewActionMode != null) {
+            webViewActionMode.finish();
+        }
     }
 
     /**
@@ -68,8 +74,8 @@ public class SnippetShareAdapter {
         // is copied onto it...
         ClipboardManager clipboard = (ClipboardManager) activity.getSystemService(
                 Context.CLIPBOARD_SERVICE);
-        if (clipListener == null) {
-            clipListener = new ClipboardManager.OnPrimaryClipChangedListener() {
+        if (CLIP_LISTENER == null) {
+            CLIP_LISTENER = new ClipboardManager.OnPrimaryClipChangedListener() {
                 @Override
                 public void onPrimaryClipChanged() {
                     // get the text from the clipboard!
@@ -87,15 +93,15 @@ public class SnippetShareAdapter {
                         // Pass the clipboard text to the Share handler!
                         shareSnippet(textSnippet);
                     }
-                    clipboard.removePrimaryClipChangedListener(clipListener);
+                    clipboard.removePrimaryClipChangedListener(CLIP_LISTENER);
                 }
             };
         }
         // remove it first, just in case it was added from the last context, and
         // ended up not being used.
-        clipboard.removePrimaryClipChangedListener(clipListener);
+        clipboard.removePrimaryClipChangedListener(CLIP_LISTENER);
         // and add it again.
-        clipboard.addPrimaryClipChangedListener(clipListener);
+        clipboard.addPrimaryClipChangedListener(CLIP_LISTENER);
 
         // inject our Share item into the menu...
         MenuItem shareItem = menu.add(R.string.share_via);
