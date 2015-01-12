@@ -5,11 +5,11 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.os.Build;
+import android.graphics.drawable.Drawable;
 import android.text.Html;
 import android.text.Layout;
+import android.text.Spanned;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
@@ -17,196 +17,272 @@ import android.text.TextUtils;
 import org.wikipedia.R;
 
 /**
- * Creator of Bitmap objects that include an optional lead image, a title, and text.
+ * Creator and holder of a Bitmap which is comprised of an optional lead image, a title,
+ * optional description, text, the Wikipedia wordmark, and some license icons.
  */
 public final class SnippetImage {
-    private SnippetImage() {
+    private static final int WIDTH = 640;
+    private static final int HEIGHT = 360;
+    private static final int HORIZONTAL_PADDING = 30;
+    private static final int TEXT_WIDTH = WIDTH - 2 * HORIZONTAL_PADDING;
+    private static final int DESCRIPTION_WIDTH = 360;
+    private static final float SPACING_MULTIPLIER = 1.0f;
+    private static final Typeface SERIF = Typeface.create("serif", Typeface.NORMAL);
+
+    private final Context context;
+    private final Bitmap leadImageBitmap;
+    private final int faceYOffset;
+    private final String title;
+    private final String description;
+    private final CharSequence textSnippet;
+    private boolean isArticleRTL;
+
+    public SnippetImage(Context context, Bitmap leadImageBitmap,
+                        int faceYOffset, String title, String description,
+                        CharSequence textSnippet) {
+        this.context = context;
+        this.leadImageBitmap = leadImageBitmap;
+        this.faceYOffset = faceYOffset;
+        this.title = title;
+        this.description = description;
+        this.textSnippet = textSnippet;
     }
 
     /**
-     * Initially we create a a fixed size Bitmap that is a bit taller than what we need.
-     * We manually keep track of the vertical space (y) we draw on.
-     * Once we're done drawing we adjust the height of the bitmap.
-     *
-     * If we have a lead image, it goes on top, followed by the title, an opening double quote sign,
-     * then the text, and lastly the Wikipedia wordmark.
-     *
-     * The lead image portion gets clipped and scaled to fit the width of the screen. It's reusing
-     * the faceYOffset for the face detection adjustment and the Bitmap from LeadImageHandler.
+     * Creates a card image usable for sharing and the preview of the same.
+     * If we have a leadImageBitmap the use that as the background. If not then
+     * just use a black background.
      */
-    public static Bitmap createImage(Context context, Bitmap leadImageBitmap, int faceYOffset,
-                                     String title, CharSequence textSnippet) {
-        final int width = 560;
-        final int initialHeight = 2000; // will be cut down later
-        final int maxImageHeight = 330;
-        final int horizontalPadding = 24;
-        final int textIndent = 52;
-        final int belowTitle = 8; // when title inside image: bottom padding
-        final int aboveTitle = 32; // when title under image: top padding
-        final int aboveQuotationMark = 16; // between bottom of title or image and top of quotation mark
-        final int aboveText = 40; // between top of quotation mark and top of text
-        final int aboveWordmark = 40; // between end of text and top of wordmark
-        final int maxTitleLines = 3;
-        final int maxTextLines = 10;
-
-        final int titleLineWidth = width - 2 * horizontalPadding;
-        final int textLineWidth = titleLineWidth - textIndent;
-
-        final float titleFontSize = 40.0f;
-        final float minTitleFontSize = 32.0f;
-        final float textFontSize = 32.0f;
-        final float minTextFontSize = 24.0f;
-        final float wordmarkFontSize = 32.0f;
-        final float quoteFontSize = 96.0f;
-        final float titleSpacingMultiplier = 0.8f;
-        final float spacingMultiplier = 1.4f;
-        final Typeface serif = Typeface.create("serif", Typeface.NORMAL);
-
-        Bitmap resultBitmap = Bitmap.createBitmap(width, initialHeight, Bitmap.Config.ARGB_8888);
-        // final int backgroundColor = Color.parseColor("#242438");
-        final int backgroundColor = -14408648;
-        resultBitmap.eraseColor(backgroundColor);
-
-        int y = 0, dy = 0;
-
-        // prepare title layout
-        TextPaint textPaint = new TextPaint();
-        textPaint.setAntiAlias(true);
-        textPaint.setColor(context.getResources().getColor(R.color.lead_text_color));
-        textPaint.setTextSize(titleFontSize);
-        textPaint.setTypeface(serif);
-        // and give it a nice drop shadow!
-        textPaint.setShadowLayer(2, 1, 1, context.getResources().getColor(R.color.lead_text_shadow));
-
-        StaticLayout textLayout = optimizeTextSize(title,
-                titleLineWidth, maxTitleLines, textPaint,
-                titleSpacingMultiplier, titleFontSize, minTitleFontSize);
-
+    public Bitmap createImage() {
+        Bitmap resultBitmap = drawBackground(leadImageBitmap, faceYOffset);
         Canvas canvas = new Canvas(resultBitmap);
-        if (leadImageBitmap != null) {
-            // draw lead image
-            Bitmap tmpLeadImageBitmap
-                    = scaleCropToFitFace(leadImageBitmap, width, maxImageHeight, faceYOffset);
 
-            y = tmpLeadImageBitmap.getHeight();
-            canvas.drawBitmap(tmpLeadImageBitmap,
-                    null,
-                    new Rect(0, 0, tmpLeadImageBitmap.getWidth(), tmpLeadImageBitmap.getHeight()),
-                    null);
+        Layout textLayout = drawTextSnippet(canvas, textSnippet);
+        isArticleRTL = textLayout.getParagraphDirection(0) == Layout.DIR_RIGHT_TO_LEFT;
 
-            tmpLeadImageBitmap.recycle();
-
-            dy = tmpLeadImageBitmap.getHeight() - textLayout.getHeight() - belowTitle;
-            canvas.translate(horizontalPadding, dy);
-
-            // draw title inside lead image
-            textLayout.draw(canvas);
-
-            dy = textLayout.getHeight() + aboveQuotationMark;
-            canvas.translate(0, dy);
-        } else {
-            dy += aboveTitle;
-            canvas.translate(horizontalPadding, dy);
-            y += dy;
-
-            // draw title under lead image
-            textLayout.draw(canvas);
-
-            dy = textLayout.getHeight() + aboveQuotationMark;
-            canvas.translate(0, dy);
-            y += dy;
+        drawLicenseIcons(canvas, context);
+        if (!TextUtils.isEmpty(description)) {
+            drawDescription(canvas, description);
         }
+        drawTitle(canvas, title);
 
-        // draw quotation mark
-        textPaint = new TextPaint();
-        textPaint.setAntiAlias(true);
-        textPaint.setColor(Color.GRAY);
-        textPaint.setTextSize(quoteFontSize);
-        textPaint.setTypeface(serif);
-
-        textLayout = buildLayout("\u201C", textPaint, textIndent, spacingMultiplier);
-        textLayout.draw(canvas);
-
-        dy = aboveText;
-        canvas.translate(textIndent, dy);
-        y += dy;
-
-        // draw textSnippet
-        textPaint = new TextPaint();
-        textPaint.setAntiAlias(true);
-        textPaint.setColor(Color.WHITE);
-        textPaint.setTextSize(textFontSize);
-        textPaint.setStyle(Paint.Style.FILL);
-
-        textLayout = optimizeTextSize(textSnippet,
-                textLineWidth, maxTextLines, textPaint,
-                spacingMultiplier, textFontSize, minTextFontSize);
-        textLayout.draw(canvas);
-
-        dy = textLayout.getHeight() + aboveWordmark;
-        canvas.translate(-textIndent, dy);
-        y += dy;
-
-        // draw wordmark
-        textPaint = new TextPaint();
-        textPaint.setAntiAlias(true);
-        textPaint.setColor(Color.GRAY);
-        textPaint.setTextSize(wordmarkFontSize);
-        textPaint.setTypeface(serif);
-
-        textLayout = buildLayout(Html.fromHtml(context.getString(R.string.wp_stylized)),
-                textPaint, width, 1.0f);
-        textLayout.draw(canvas);
-
-        dy = textLayout.getHeight() + horizontalPadding;
-        y += dy;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            resultBitmap.setHeight(y);
-        } else {
-            resultBitmap = setImageHeight(resultBitmap, y);
-        }
+        drawWordmark(canvas, context);
 
         return resultBitmap;
     }
 
-    private static Bitmap setImageHeight(Bitmap bmp, int y) {
-        Bitmap croppedImage = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), y);
-        bmp.recycle();
-        return croppedImage;
+    private Bitmap drawBackground(Bitmap leadImageBitmap, int faceYOffset) {
+        Bitmap resultBitmap;
+        if (leadImageBitmap != null) {
+            // use lead image
+            resultBitmap = scaleCropToFitFace(leadImageBitmap, WIDTH, HEIGHT, faceYOffset);
+        } else {
+            resultBitmap = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.ARGB_8888);
+            // final int backgroundColor = Color.parseColor("#242438");
+            final int backgroundColor = -14408648;
+            resultBitmap.eraseColor(backgroundColor);
+        }
+        return resultBitmap;
+    }
+
+    private Layout drawTextSnippet(Canvas canvas, CharSequence textSnippet) {
+        final int top = 10;
+        final int maxHeight = 200;
+        final int maxLines = 5;
+        final float maxFontSize = 96.0f;
+        final float minFontSize = 32.0f;
+
+        TextPaint textPaint = new TextPaint();
+        textPaint.setAntiAlias(true);
+        textPaint.setColor(Color.WHITE);
+        textPaint.setTextSize(maxFontSize);
+        textPaint.setStyle(Paint.Style.FILL);
+        textPaint.setShadowLayer(1.0f, 1.0f, 1.0f, Color.GRAY);
+
+        StaticLayout textLayout = optimizeTextSize(
+                new TextLayoutParams(textSnippet, textPaint, TEXT_WIDTH, SPACING_MULTIPLIER),
+                maxHeight, maxLines, maxFontSize, minFontSize);
+
+        canvas.save();
+        canvas.translate(HORIZONTAL_PADDING, top);
+        textLayout.draw(canvas);
+        canvas.restore();
+
+        return textLayout;
+    }
+
+    private void drawDescription(Canvas canvas, String description) {
+        final int descriptionY = 287;
+        final int maxHeight = 24;
+        final int maxLines = 2;
+        final float maxFontSize = 15.0f;
+        final float minFontSize = 10.0f;
+
+        TextPaint textPaint = new TextPaint();
+        textPaint.setAntiAlias(true);
+        textPaint.setColor(Color.WHITE);
+        textPaint.setTextSize(maxFontSize);
+        textPaint.setStyle(Paint.Style.FILL);
+        textPaint.setShadowLayer(1.0f, 0.0f, 0.0f, Color.GRAY);
+
+        StaticLayout textLayout = optimizeTextSize(
+                new TextLayoutParams(description, textPaint, DESCRIPTION_WIDTH, SPACING_MULTIPLIER),
+                maxHeight, maxLines, maxFontSize, minFontSize);
+        int left = HORIZONTAL_PADDING;
+        if (isArticleRTL) {
+            left = WIDTH - HORIZONTAL_PADDING - textLayout.getWidth();
+        }
+
+        canvas.save();
+        canvas.translate(left, descriptionY);
+        textLayout.draw(canvas);
+        canvas.restore();
+    }
+
+    private void drawTitle(Canvas canvas, String title) {
+        final int top = 242;
+        final int height = 44;
+        final int maxLines = 2;
+        final float maxFontSize = 30.0f;
+        final float minFontSize = 19.0f;
+        final float spacingMultiplier = 0.7f;
+
+        TextPaint textPaint = new TextPaint();
+        textPaint.setAntiAlias(true);
+        textPaint.setColor(Color.WHITE);
+        textPaint.setTextSize(maxFontSize);
+        textPaint.setStyle(Paint.Style.FILL);
+        textPaint.setTypeface(SERIF);
+        textPaint.setShadowLayer(1.0f, 0.0f, 1.0f, Color.GRAY);
+
+        StaticLayout textLayout = optimizeTextSize(
+                new TextLayoutParams(title, textPaint, DESCRIPTION_WIDTH, spacingMultiplier),
+                height, maxLines, maxFontSize, minFontSize);
+        int left = HORIZONTAL_PADDING;
+        if (isArticleRTL) {
+            left = WIDTH - HORIZONTAL_PADDING - textLayout.getWidth();
+        }
+
+        canvas.save();
+        canvas.translate(left, top);
+        textLayout.draw(canvas);
+        canvas.restore();
+    }
+
+    private void drawLicenseIcons(Canvas canvas, Context context) {
+        final int iconsWidth = 52;
+        final int iconsHeight = 16;
+        final int top = 319;
+        final int bottom = top + iconsHeight;
+
+        int left = HORIZONTAL_PADDING;
+        int right = left + iconsWidth;
+        if (isArticleRTL) {
+            right = WIDTH - HORIZONTAL_PADDING;
+            left = right - iconsWidth;
+        }
+
+        Drawable d = context.getResources().getDrawable(R.drawable.cc_by_sa_gray);
+        d.setBounds(left, top, right, bottom);
+        d.draw(canvas);
+    }
+
+    private void drawWordmark(Canvas canvas, Context context) {
+        final int top = 293;
+        final float fontSize = 24.0f;
+        final int maxWidth = WIDTH - DESCRIPTION_WIDTH - 2 * HORIZONTAL_PADDING;
+
+        TextPaint textPaint = new TextPaint();
+        textPaint.setAntiAlias(true);
+        textPaint.setColor(Color.LTGRAY);
+        textPaint.setTextSize(fontSize);
+        textPaint.setTypeface(SERIF);
+
+        Spanned wikipedia = Html.fromHtml(context.getString(R.string.wp_stylized));
+        StaticLayout wordmarkLayout = buildLayout(
+                new TextLayoutParams(wikipedia, textPaint, maxWidth, 1.0f));
+        final int wordMarkWidth = (int) wordmarkLayout.getLineWidth(0);
+
+        // (R) as part of wordmark -- add registered trademark symbol
+        final float rFontSize = 12.0f;
+        final int rMaxWidth = (int) rFontSize;
+        TextPaint rPaint = new TextPaint(textPaint);
+        rPaint.setTextSize(rFontSize);
+        StaticLayout rLayout = buildLayout(new TextLayoutParams("\u24C7", rPaint, rMaxWidth, 1.0f));
+        final int rWidth = (int) rLayout.getLineWidth(0);
+
+        int left = WIDTH - HORIZONTAL_PADDING - wordMarkWidth - rWidth;
+        if (isArticleRTL) {
+            left = HORIZONTAL_PADDING;
+        }
+
+        canvas.save(); // --
+        // Combined wordmark and registered trademark drawing
+        // Note that internally, the directionality is based on the wordmark string
+        // and not the article language.
+        if (wordmarkLayout.getParagraphDirection(0) != Layout.DIR_RIGHT_TO_LEFT) {
+            // LTR for wordmark string resource
+            final int rYOffset = 4;
+            // draw wordmark
+            canvas.translate(left, top);
+            wordmarkLayout.draw(canvas);
+            // draw (R)
+            canvas.translate(wordMarkWidth, rYOffset);
+            rLayout.draw(canvas);
+        } else {
+            // RTL for wordmark string resource
+            // draw (R)
+            canvas.translate(left, top);
+            rLayout.draw(canvas);
+            // draw wordmark
+            canvas.translate(rWidth - maxWidth + wordMarkWidth, 0);
+            wordmarkLayout.draw(canvas);
+        }
+        canvas.restore(); // --
     }
 
     /**
      * If the title or text is too long we first reduce the font size.
      * If that is not enough it gets ellipsized.
      */
-    private static StaticLayout optimizeTextSize(CharSequence text, int lineWidth, int maxLines,
-                                                 TextPaint textPaint, float spacingMultiplier,
-                                                 float maxFontSize, float minFontSize) {
+    private StaticLayout optimizeTextSize(TextLayoutParams params, int maxHeight, int maxLines,
+                                          float maxFontSize, float minFontSize) {
+        final float threshold1 = 60.0f;
+        final float threshold2 = 40.0f;
+        final float extraStep1 = 3.0f;
+        final float extraStep2 = 1.0f;
         boolean fits = false;
         StaticLayout textLayout = null;
 
         // Try decreasing font size first
-        for (float fontSize = maxFontSize; fontSize >= minFontSize; fontSize -= 2.0f) {
-            textPaint.setTextSize(fontSize);
-            textLayout = buildLayout(text, textPaint, lineWidth, spacingMultiplier);
-            if (textLayout.getLineCount() <= maxLines) {
+        for (float fontSize = maxFontSize; fontSize >= minFontSize; fontSize -= 1.0f) {
+            params.textPaint.setTextSize(fontSize);
+            textLayout = buildLayout(params);
+            if (textLayout.getHeight() <= maxHeight) {
                 fits = true;
                 break;
+            }
+
+            // make it go faster at the beginning...
+            if (fontSize > threshold1) {
+                fontSize -= extraStep1;
+            } else if (fontSize > threshold2) {
+                fontSize -= extraStep2;
             }
         }
 
         // Then do own ellipsize: cut text off after last fitting space and add "..."
         // Didn't want to cut off randomly in the middle of a line or word.
         if (!fits) {
-            final String textStr = text.toString();
+            final String textStr = params.text.toString();
             final int ellipsisLength = 3;
             final int ellipsisStart = textLayout != null
                     ? textLayout.getLineStart(maxLines) - ellipsisLength
                     : textStr.length();
             final int end = textStr.lastIndexOf(' ', ellipsisStart) + 1;
             if (end > 0) {
-                textLayout = buildLayout(textStr.substring(0, end) + "...",
-                        textPaint, lineWidth, spacingMultiplier);
+                textLayout = buildLayout(
+                        new TextLayoutParams(params, textStr.substring(0, end) + "..."));
                 if (textLayout.getLineCount() <= maxLines) {
                     fits = true;
                 }
@@ -216,32 +292,30 @@ public final class SnippetImage {
         // last resort: use TextUtils.ellipsize()
         if (!fits) {
             final float textRatio = .87f;
-            float maxWidth = textRatio * maxLines * lineWidth;
-            text = TextUtils.ellipsize(text, textPaint, maxWidth, TextUtils.TruncateAt.END);
-            textLayout = buildLayout(text, textPaint, lineWidth, spacingMultiplier);
+            final float maxWidth = textRatio * maxLines * params.lineWidth;
+            textLayout = buildLayout(new TextLayoutParams(params,
+                    TextUtils.ellipsize(params.text, params.textPaint, maxWidth,
+                            TextUtils.TruncateAt.END)));
         }
 
         return textLayout;
     }
 
-    private static StaticLayout buildLayout(CharSequence text, TextPaint textPaint, int lineWidth,
-                                            float spacingMultiplier) {
-        StaticLayout textLayout;
-        textLayout = new StaticLayout(
-                text,
-                textPaint,
-                lineWidth,
+    private StaticLayout buildLayout(TextLayoutParams params) {
+        return new StaticLayout(
+                params.text,
+                params.textPaint,
+                params.lineWidth,
                 Layout.Alignment.ALIGN_NORMAL,
-                spacingMultiplier,
+                params.spacingMultiplier,
                 0.0f,
                 false);
-        return textLayout;
     }
 
     // Borrowed from http://stackoverflow.com/questions/5226922/crop-to-fit-image-in-android
     // Modified to allow for face detection adjustment, startY
-    private static Bitmap scaleCropToFitFace(Bitmap original, int targetWidth, int targetHeight,
-                                             int startY) {
+    private Bitmap scaleCropToFitFace(Bitmap original, int targetWidth, int targetHeight,
+                                      int yOffset) {
         // Need to scale the image, keeping the aspect ratio first
         int width = original.getWidth();
         int height = original.getHeight();
@@ -252,29 +326,49 @@ public final class SnippetImage {
         float scaledHeight;
 
         int startX = 0;
+        int startY = 0;
 
         if (widthScale > heightScale) {
             scaledWidth = targetWidth;
             scaledHeight = height * widthScale;
             // crop height by...
-            // not needed here since we already have startY passed in (=face detection adjustment)
-            // startY = (int) ((scaledHeight - targetHeight) / 2);
-
-            final int minY = 8;
-            startY = (int) (startY * heightScale);
-            if (startY < minY) {
-                startY = minY;
-            }
+//            startY = (int) ((scaledHeight - targetHeight) / 2);
         } else {
             scaledHeight = targetHeight;
             scaledWidth = width * heightScale;
             // crop width by..
-            startX = (int) ((scaledWidth - targetWidth) / 2);
+//            startX = (int) ((scaledWidth - targetWidth) / 2);
         }
 
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(original, (int) scaledWidth, (int) scaledHeight, true);
+        Bitmap scaledBitmap
+                = Bitmap.createScaledBitmap(original, (int) scaledWidth, (int) scaledHeight, true);
         Bitmap bitmap = Bitmap.createBitmap(scaledBitmap, startX, startY, targetWidth, targetHeight);
         scaledBitmap.recycle();
         return bitmap;
+    }
+
+    /**
+     * Parameter object for #buildLayout and #optimizeTextSize.
+     */
+    private static class TextLayoutParams {
+        private final CharSequence text;
+        private final TextPaint textPaint;
+        private final int lineWidth;
+        private final float spacingMultiplier;
+
+        private TextLayoutParams(CharSequence text, TextPaint textPaint, int lineWidth,
+                                 float spacingMultiplier) {
+            this.text = text;
+            this.textPaint = textPaint;
+            this.lineWidth = lineWidth;
+            this.spacingMultiplier = spacingMultiplier;
+        }
+
+        public TextLayoutParams(TextLayoutParams other, CharSequence text) {
+            this.text = text;
+            this.textPaint = other.textPaint;
+            this.lineWidth = other.lineWidth;
+            this.spacingMultiplier = other.spacingMultiplier;
+        }
     }
 }

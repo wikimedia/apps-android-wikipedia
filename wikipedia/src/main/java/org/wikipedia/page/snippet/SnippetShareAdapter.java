@@ -3,17 +3,20 @@ package org.wikipedia.page.snippet;
 import android.annotation.TargetApi;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.view.ActionMode;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.BottomDialog;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageProperties;
@@ -21,7 +24,7 @@ import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.util.ShareUtils;
 
 /**
- * Deals with selected text in the WebView.
+ * Allows sharing selected text in the WebView.
  */
 public class SnippetShareAdapter {
     private final PageActivity activity;
@@ -29,12 +32,8 @@ public class SnippetShareAdapter {
     private ActionMode webViewActionMode;
     private static ClipboardManager.OnPrimaryClipChangedListener CLIP_LISTENER;
     private MenuItem copyMenuItem;
+    private MenuItem shareItem;
     private ShareAFactFunnel funnel;
-
-    public static boolean isTextSelectionMenu(Menu menu) {
-        // While not perfect, this at least filters out our own "Find in page" action mode
-        return menu.getItem(0) != null && menu.getItem(0).getItemId() != 0;
-    }
 
     public SnippetShareAdapter(PageActivity activity) {
         this.activity = activity;
@@ -67,6 +66,19 @@ public class SnippetShareAdapter {
                     = activity.getResources().getResourceName(menu.getItem(i).getItemId());
             if (resourceName.contains("action_menu_copy")) {
                 copyMenuItem = menu.getItem(i);
+                break;
+            }
+        }
+
+        // Find the context menu item for sharing text...
+        // The most practical way to do this seems to be to get the resource name of the
+        // menu item, and see if it resembles "action_menu_share", which appears to remain
+        // consistent throughout the various APIs.
+        for (int i = 0; i < menu.size(); i++) {
+            String resourceName
+                    = activity.getResources().getResourceName(menu.getItem(i).getItemId());
+            if (resourceName.contains("action_menu_share")) {
+                shareItem = menu.getItem(i);
                 break;
             }
         }
@@ -104,11 +116,7 @@ public class SnippetShareAdapter {
         // and add it again.
         clipboard.addPrimaryClipChangedListener(CLIP_LISTENER);
 
-        // inject our Share item into the menu...
-        MenuItem shareItem = menu.add(R.string.share_via);
-        shareItem.setIcon(Utils.getThemedAttributeId(activity, R.attr.share_button_drawable));
-        MenuItemCompat.setShowAsAction(shareItem, MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
-
+        // intercept share menu...
         shareItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -141,7 +149,7 @@ public class SnippetShareAdapter {
     }
 
     private void shareSnippet(CharSequence input) {
-        final int minTextSnippetLength = 6;
+        final int minTextSnippetLength = 1;
         String selectedText = input.toString().trim();
         if (selectedText.length() < minTextSnippetLength) {
             return;
@@ -155,12 +163,57 @@ public class SnippetShareAdapter {
         String introText = activity.getString(R.string.snippet_share_intro,
                 title.getDisplayText(),
                 title.getCanonicalUri() + "?source=app");
-        Bitmap resultBitmap = SnippetImage.createImage(activity,
+        Bitmap resultBitmap = new SnippetImage(activity,
                 curPageFragment.getLeadImageBitmap(),
                 curPageFragment.getImageBaseYOffset(),
-                title.getDisplayText(), selectedText);
-        ShareUtils.shareImage(activity, resultBitmap, "*/*",
-                title.getDisplayText(), title.getDisplayText(), introText, false);
-        funnel.logShareIntent(selectedText);
+                title.getDisplayText(),
+                title.getDescription(),
+                selectedText).createImage();
+        new PreviewDialog(activity, resultBitmap, title.getDisplayText(), introText,
+                selectedText, funnel).show();
+    }
+}
+
+
+/**
+ * A dialog to be displayed before sharing with two action buttons:
+ * "Share as image", "Share as text".
+ */
+class PreviewDialog extends BottomDialog {
+    public PreviewDialog(final PageActivity activity, final Bitmap resultBitmap,
+                         final String title, final String introText, final String selectedText,
+                         final ShareAFactFunnel funnel) {
+        super(activity, R.layout.dialog_share_preview);
+        ImageView previewImage = (ImageView) getDialogLayout().findViewById(R.id.preview_img);
+        previewImage.setImageBitmap(resultBitmap);
+        getDialogLayout().findViewById(R.id.share_as_image_button)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ShareUtils.shareImage(activity, resultBitmap, "*/*",
+                                title, title, introText, false);
+                        funnel.logShareIntent(selectedText);
+                    }
+                });
+        getDialogLayout().findViewById(R.id.share_as_text_button)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent shareIntent = new Intent();
+                        shareIntent.setAction(Intent.ACTION_SEND);
+                        shareIntent.putExtra(Intent.EXTRA_TEXT, selectedText);
+                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, title);
+                        shareIntent.setType("text/plain");
+                        Intent chooser = Intent.createChooser(shareIntent,
+                                activity.getResources().getString(R.string.share_via));
+                        activity.startActivity(chooser);
+                    }
+                });
+        setOnDismissListener(new OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                resultBitmap.recycle();
+            }
+        });
     }
 }

@@ -30,6 +30,12 @@
         <item name="android:textColor">@color/green_complete_dark</item>
     </style>
 
+    <style name="button_blue_on_white" parent="button_progressive">
+        <item name="android:background">@drawable/button_selector_white</item>
+        <item name="android:textColor">@color/blue_progressive_dark</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+
     <style name="button_gray" parent="button_progressive">
         <item name="android:background">@drawable/button_selector_gray</item>
     </style>

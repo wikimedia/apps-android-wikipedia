@@ -2,6 +2,7 @@ package org.wikipedia.page.leadimages;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
@@ -100,7 +101,6 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     private int displayHeight;
     private int imageBaseYOffset = 0;
     private float displayDensity;
-    private Bitmap leadImageBitmap;
 
     public interface OnLeadImageLayoutListener {
         void onLayoutComplete();
@@ -186,7 +186,28 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     }
 
     public Bitmap getLeadImageBitmap() {
-        return leadImageBitmap;
+        return getBitmapFromView(image1);
+    }
+
+    // ideas from:
+    // http://stackoverflow.com/questions/2801116/converting-a-view-to-bitmap-without-displaying-it-in-android
+    // View has to be already displayed
+    private static Bitmap getBitmapFromView(ImageView view) {
+        // Define a bitmap with the same size as the view
+        Bitmap returnedBitmap
+                = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+        // Bind a canvas to it
+        Canvas canvas = new Canvas(returnedBitmap);
+//        // Get the view's background
+//        Drawable bgDrawable = view.getBackground();
+//        if (bgDrawable != null)
+//            // has background drawable, then draw it on the canvas
+//            bgDrawable.draw(canvas);
+//        else
+//            // does not have background drawable, then draw white background on the canvas
+//            canvas.drawColor(Color.WHITE);
+        view.draw(canvas);
+        return returnedBitmap;
     }
 
     public int getImageBaseYOffset() {
@@ -195,7 +216,6 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
 
     @Override
     public void onImageLoaded(Bitmap bitmap, final PointF faceLocation) {
-        leadImageBitmap = bitmap;
         final int bmpHeight = bitmap.getHeight();
         final float aspect = (float)bitmap.getHeight() / (float)bitmap.getWidth();
         imageContainer.post(new Runnable() {
