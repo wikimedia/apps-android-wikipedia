@@ -29,7 +29,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
     private static final String TAG = "TrTest";
 
     /** Add more if needed, but then also add some tests. */
-    private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%d", "%.2f"};
+    private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%d", "%.2f"};
 
     private PageActivity activity;
     private StringBuilder mismatches = new StringBuilder();
@@ -53,6 +53,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
         List<Res> tagRes = new ResourceCollector("<", "&lt;").collectParameterResources();
         List<Res> noTagRes = new ResourceCollector("<", "&lt;").not().collectParameterResources();
         List<Res> stringParamRes = new ResourceCollector("%s").collectParameterResources();
+        List<Res> twoStringParamRes = new ResourceCollector("%2$s").collectParameterResources();
         List<Res> decimalParamRes = new ResourceCollector("%d").collectParameterResources();
         List<Res> floatParamRes = new ResourceCollector("%.2f").collectParameterResources();
 
@@ -89,6 +90,11 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
                         continue;
                     }
                     checkTranslationHasParameter(res, "%s", "[stringParam]", null);
+                }
+
+                // 2 string parameters
+                for (Res res : twoStringParamRes) {
+                    checkTranslationHasTwoParameters(res, "%s", "[stringParam1]", "[stringParam2]");
                 }
 
                 // decimal parameters
@@ -170,12 +176,26 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
     }
 
     public void checkTranslationHasParameter(Res res, String paramName, Object val1, String alternateFormat) {
-//        Log.i(TAG, myLocale + ":" + res.name);
+//        Log.i(TAG, myLocale + ":" + res.name + ":" + paramName);
         String translatedString = getInstrumentation().getTargetContext().getString(res.id, val1);
 //        Log.d(TAG, translatedString);
         if (!translatedString.contains(String.format(paramName, val1))
             && (alternateFormat == null || !translatedString.contains(alternateFormat))) {
-            final String msg = myLocale + ":" + res.name + " = " + translatedString + "' doesn't contain " + val1;
+            final String msg = myLocale + ":" + res.name + " = " + translatedString + "' is missing " + val1;
+            Log.e(TAG, msg);
+            mismatches.append(msg).append("\n");
+        }
+    }
+
+    private void checkTranslationHasTwoParameters(Res res, String paramName, Object val1, Object val2) {
+        Log.i(TAG, myLocale + ":" + res.name + ":" + paramName);
+        String translatedString = getInstrumentation().getTargetContext().getString(res.id, val1, val2);
+        Log.d(TAG, translatedString);
+        if (!translatedString.contains(String.format(paramName, val1))
+                || !translatedString.contains(String.format(paramName, val2))) {
+            final String msg = myLocale + ":" + res.name + " = " + translatedString
+                    + "' is missing " + val1
+                    + "' or " + val2;
             Log.e(TAG, msg);
             mismatches.append(msg).append("\n");
         }
