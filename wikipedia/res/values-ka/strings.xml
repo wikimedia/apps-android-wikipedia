@@ -93,6 +93,7 @@
   <string name="login_error_wrong_username">არასწორი მომხმარებლის სახელი</string>
   <string name="login_success_toast">შესვლა წარმატებით განხორციელდა!</string>
   <string name="login_error_blocked">მომხმარებელი დაიბლოკა</string>
+  <string name="login_error_throttled">თქვენ საკმაოდ ბევრჯერ სცადეთ შესვლა. მოიცადეთ რამდენიმე წუთი და სცადეთ ხელახლა.</string>
   <string name="login_error_unknown">შესვლა ვერ მოხერხდა :(</string>
   <string name="login_error_no_network">არ არის ინტერნეტ-კავშირი</string>
   <string name="nav_item_logout">გასვლა</string>
@@ -134,6 +135,7 @@
   <string name="preferences_general_heading">მთავარი</string>
   <string name="zero_charged_verbiage">ვიკიპედია ზერო გამორთულია</string>
   <string name="zero_search_hint">ძიება ვიკიპედია ზეროში</string>
+  <string name="zero_warn_when_leaving">გამაფრთხილე ვიკიპედია ზეროს დატოვებისას</string>
   <string name="zero_wikipedia_zero_heading">ვიკიპედია ზერო</string>
   <string name="zero_interstitial_title">ვიკიპედია ზეროდან გამოსვლა</string>
   <string name="zero_interstitial_continue">დატოვება</string>
@@ -153,6 +155,7 @@
   <string name="edit_save_action_login">შესვლა და დამახსოვრება</string>
   <string name="edit_save_action_ip">ანონიმურად დამახსოვრება</string>
   <string name="preference_title_eventlogging_opt_in">გამოყენების ანგარიშის გაგზავნა</string>
+  <string name="preference_summary_eventlogging_opt_in">ნება მიეცი ვიკიმედიას მოაგროვოს ინფორმაცია თუ როგორ იყენებ ამ აპლიკაციას, რათა ის უკეთესი გახადოს</string>
   <string name="history_search_list_hint">ძიება</string>
   <string name="history_search_empty_message">თქვენს მოთხოვნაზე არც ერთი გვერდი არ მოიძებნა.</string>
   <string name="error_can_not_process_link">ბმულის ჩვენება ვერ მოხერხდა</string>
@@ -210,6 +213,7 @@
   <string name="toc_hint">სექციების გამოსაჩენად გაუსვით მარცხნივ ან გამოიყენეთ ზედა მარჯვენა მხარეს არსებული მენიუს ღილაკი.</string>
   <string name="toc_know_it">არის!</string>
   <string name="error_browser_not_found">ვებ-გვერდის გახსნა შეუძლებელია (ბრაუზერის აპლიკაცია ვერ მოიძებნა).</string>
+  <string name="table_infobox">სწრაფი ფაქტები</string>
   <string name="table_other">მეტი ინფორმაცია</string>
   <string name="table_close">დახურვა</string>
   <string name="alpha_update_notification_title">ახალი ალფა განახლება ხელმისაწვდომია</string>
@@ -221,4 +225,10 @@
   <string name="menu_gallery_visit_page">გადადით ფაილის გვერდზე</string>
   <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
   <string name="gallery_license_text" fuzzy="true">ლიცენზია: %s</string>
+  <string name="gallery_image_info">სურათის ინფორმაცია</string>
+  <string name="gallery_menu_share">გაზიარება</string>
+  <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
+  <string name="gallery_menu_save">მოწყობილობაში შენახვა</string>
+  <string name="gallery_save_error">სურათის შენახვა შეუძლებელია: %s</string>
+  <string name="gallery_save_success">სურათი წარმატებით შეინახა.</string>
 </resources>

@@ -272,6 +272,15 @@ El codi és totalment obert. Si teniu experiència en Java i en l\'SDK de l\'And
   <string name="menu_gallery_visit_page">Anar a la pàgina del fitxer</string>
   <string name="gallery_error_draw_failed">No s\'ha pogut carregar la imatge.</string>
   <string name="license_title">Text de la llicència per la llibreria %s</string>
-  <string name="gallery_license_text" fuzzy="true">Llicència: %s</string>
-  <string name="gallery_credit_text" fuzzy="true">Crèdit: %s</string>
+  <string name="gallery_license_text">Llicència – %s</string>
+  <string name="gallery_credit_text">Autor – %s</string>
+  <string name="gallery_image_info">Informació de la imatge</string>
+  <string name="gallery_menu_share">Comparteix</string>
+  <string name="gallery_share_error">No s\'ha pogut compartir la imatge: %s</string>
+  <string name="gallery_menu_save">Desa al dispositiu</string>
+  <string name="gallery_save_error">No s\'ha pogut desar la imatge: %s</string>
+  <string name="gallery_save_success">La imatge s\'ha desat amb èxit.</string>
+  <string name="err_cannot_save_file">No es pot desar el fitxer</string>
+  <string name="snippet_share_intro">«%1$s» a @Wikipedia: %2$s</string>
+  <string name="expand_refs">Toqueu per ampliar</string>
 </resources>

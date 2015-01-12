@@ -7,7 +7,7 @@
   <string name="no">Nie</string>
   <string name="acra_report_dialog_title">Wikipédia zlyhala :(</string>
   <string name="acra_report_dialog_text">Odoslať správu o zlyhaní</string>
-  <string name="acra_report_dialog_comment">Čo si robil keď došlo k zlyhaniu?</string>
+  <string name="acra_report_dialog_comment">Čo ste robili keď došlo k zlyhaniu?</string>
   <string name="search_hint">Hľadať</string>
   <string name="history_activity_title">História</string>
   <string name="nav_item_history">História</string>
@@ -30,7 +30,7 @@
   <string name="menu_share_page">Zdieľať</string>
   <string name="share_via">Zdieľať cez</string>
   <string name="dialog_title_clear_saved_pages">Vymazať všetky uložené stránky?</string>
-  <string name="dialog_message_clear_saved_pages">Naozaj chceš vymazať všetky uložené stránky?</string>
+  <string name="dialog_message_clear_saved_pages">Naozaj chcete vymazať všetky uložené stránky?</string>
   <string name="toast_saving_page">Ukladanie stránky...</string>
   <string name="toast_saved_page">Stránka bola úspešne uložená</string>
   <string name="toast_saved_page_missing_images">Nepodarilo sa uložiť všetky obrázky</string>
@@ -40,19 +40,19 @@
   <string name="toast_saved_page_deleted">Uložené stránky boli odstránené</string>
   <string name="saved_pages_search_list_hint">Hľadať</string>
   <string name="saved_pages_search_empty_message">Nenašli sa žiadne stránky zodpovedajúce týmto kritériám.</string>
-  <string name="nearby_activity_title">Na okolí</string>
-  <string name="nav_item_nearby">Na okolí</string>
+  <string name="nearby_activity_title">V okolí</string>
+  <string name="nav_item_nearby">V okolí</string>
   <string name="menu_update_nearby">Aktualizovať okolie</string>
-  <string name="nearby_empty_title">Nenašli sa žiadne stránky okolia!</string>
+  <string name="nearby_empty_title">V okolí sa nenašli žiadne stránky!</string>
   <string name="nearby_empty_message">Keď sa presuniete na nové miesto, skúste obnoviť túto stránku pre zistenie ďalších informácií o tom, čo je okolo vás.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Žiadne sieťové pripojenie</string>
-  <string name="nearby_server_error">Nepodarilo sa nájsť zoznam miest na okolí.</string>
+  <string name="nearby_server_error">Nepodarilo sa nájsť zoznam miest v okolí.</string>
   <string name="nearby_no_location">Nebolo možné získať polohu</string>
-  <string name="nearby_dialog_goto_settings">Lokalizačné služby nie sú v tvojom prístroji povolené. Praješ si prejsť do nastavení zariadenia pre povolenie lokalizačných služieb?</string>
+  <string name="nearby_dialog_goto_settings">Informácie o polohe nie sú vo vašom prístroji povolené. Chceli by ste prejsť do nastavení vášho zariadenia týkajúcich sa lokalizačných služieb?</string>
   <string name="nearby_set_metric">Zobraziť metre/km</string>
   <string name="nearby_set_imperial">Zobraziť stopy/míle</string>
   <string name="last_updated_text">Posledná aktualizácia %s</string>
@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">Úprava zlyhala!</string>
   <string name="dialog_message_edit_failed_retry">Znova</string>
   <string name="dialog_message_edit_failed_cancel">Zrušiť</string>
-  <string name="dialog_message_leaving_edit">Tvoje úpravy ešte neboli uložené. Si si istý, že si praješ opustiť túto stránku?</string>
+  <string name="dialog_message_leaving_edit">Vaše úpravy ešte neboli uložené. Prajete si opustiť túto stránku bez uloženia úprav?</string>
   <string name="dialog_message_leaving_edit_leave">Opustiť</string>
   <string name="dialog_message_leaving_edit_stay">Zostať na stránke</string>
   <string name="menu_show_toc">Obsah</string>
@@ -85,7 +85,7 @@
   <string name="edit_section_captcha_hint">Zadajte text z obrázku vyššie</string>
   <string name="title_captcha">Zadajte text</string>
   <string name="edit_section_captcha_reload">Ťuknutím načítate captchu znovu</string>
-  <string name="edit_saved_page_refresh">Táto uložená stránka môže byť zastaralá a pre umožnenie editácie je potrebnú ju aktualizovať. Chcete stránku aktualizovať?</string>
+  <string name="edit_saved_page_refresh">Táto uložená stránka môže byť zastaralá a pre umožnenie úprav je potrebnú ju aktualizovať. Chcete stránku aktualizovať?</string>
   <string name="nav_item_login">Prihlásiť sa</string>
   <string name="login_username_hint">Používateľské meno</string>
   <string name="login_password_hint">Heslo</string>
@@ -108,7 +108,7 @@
   <string name="saved_pages_empty_title">Nemáte žiadne uložené stránky!</string>
   <string name="saved_pages_empty_message">Uložené stránky sú úžasné. Vyskúšajte si ich aj ako obľúbené stránky, ktoré je možné používať v offline režime.</string>
   <string name="history_empty_title">Žiadne posledne zobrazené stránky.</string>
-  <string name="history_empty_message">Pravdepodobne si vymazal všetky časti. Nabudúce, keď túto stránku navštíviš, sa možeš odtiaľto k nim vrátiť.</string>
+  <string name="history_empty_message">Vaša história je prázdna.</string>
   <string name="delete_selected_history">Vymazať</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Slobodná encyklopédia</string>
@@ -143,7 +143,7 @@
   <string name="zero_charged_verbiage_extended">Načítaním daľších článkov môžu vzniknúť poplatky za prenos dát.</string>
   <string name="zero_search_hint">Hľadať vo Wikipédii Zero</string>
   <string name="zero_warn_when_leaving">Upozorniť ma ak opúšťam Wikipédiu Zero</string>
-  <string name="zero_warn_when_leaving_summary">Pokiaľ si tvoj mobilný operátor v rámci partnerstva Wikipédia Zero za dátové pripojenie k aplikácii Wikipédie zrieka poplatkov, budeš po aktivácii tohto políčka informovaný, o opustení aplikácie Wikipédie a možného vzniku poplatkov.</string>
+  <string name="zero_warn_when_leaving_summary">Pokiaľ si váš mobilný operátor v rámci Wikipédie Zero za dátové pripojenie k aplikácii Wikipédie zrieka poplatkov, budete po aktivácii tohto políčka informovaný o opustení aplikácie Wikipédie a možného vzniku poplatkov.</string>
   <string name="zero_webpage_title">Wikipédia Zero FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipédia Zero</string>
   <string name="zero_interstitial_title">Opúšťate Wikipédiu Zero</string>
@@ -186,7 +186,7 @@
   <string name="page_protected_can_not_edit_title">Táto stránka je chránená</string>
   <string name="more_item_preferences">Viac</string>
   <string name="more_activity_title">Viac</string>
-  <string name="about_description">O aplikácií</string>
+  <string name="about_description">O aplikácii</string>
   <string name="privacy_policy_description">Ochrana osobných údajov</string>
   <string name="terms_of_use_description">Podmienky používania</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy/sk</string>
@@ -226,7 +226,7 @@
   <string name="abusefilter_title_warn">Táto editácia môže byť nekonštruktívna. Naozaj si ju prajete uložiť?</string>
   <string name="abusefilter_title_disallow">Túto úpravu nie je možné uložiť. Vráťte sa prosím späť a zmeňte ju.</string>
   <string name="abusefilter_text_warn">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu. Mohla by obsahovať jednu alebo viaceré nasledovné veci:&lt;br /&gt;&lt;br /&gt;· vloženie iba veľkých písmen&lt;br /&gt;· vymazávanie článkov alebo spam&lt;br /&gt;· nerelevantné externé linky alebo obrázky&lt;br /&gt;· opakujúce sa znaky</string>
-  <string name="abusefilter_text_disallow">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu alebo vandalizmus.&lt;br /&gt;&lt;br /&gt; Wikipédia je encyklopédia a patrí do nej iba nesporný a relevantný obsah.</string>
+  <string name="abusefilter_text_disallow">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu alebo ako vandalizmus.&lt;br /&gt;&lt;br /&gt; Wikipédia je encyklopédia a patrí do nej iba nesporný a relevantný obsah.</string>
   <string name="dialog_page_issues">Problémy stránky</string>
   <string name="button_page_issues">Problémy stránky</string>
   <string name="menu_themechooser">Zmeniť písmo a vzhľad</string>
@@ -243,25 +243,25 @@
   <string name="search_redirect_title">Presmerované z \"%s\".</string>
   <string name="search_recent_header">Nedávno hľadané výrazy:</string>
   <string name="button_clear_all_recent_searches">Vymazať nedávno hľadané výrazy</string>
-  <string name="clear_recent_searches_confirm">Si si istý, že si praješ vymazať tvoju históriu vyhľadávania?</string>
-  <string name="toc_hint">Pre sekcie potiahni prstom doľava alebo použi tlačidlo menu v pravom hornom rohu.</string>
+  <string name="clear_recent_searches_confirm">Naozaj chcete vymazať vašu históriu vyhľadávania?</string>
+  <string name="toc_hint">Pre sekcie potiahnite prstom doľava alebo použite tlačidlo menu v pravom hornom rohu.</string>
   <string name="toc_know_it">Rozumiem</string>
   <string name="error_browser_not_found">Nepodarilo sa otvoriť webovú stránku (nenašiel sa žiadny webový prehliadač).</string>
   <string name="table_infobox">Rýchle fakty</string>
   <string name="table_other">Viac informácií</string>
   <string name="table_close">Zatvoriť</string>
-  <string name="app_store_description">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola napísaná odznova a je lepšia ako kedykoľvek predtým.
+  <string name="app_store_description">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.
 
 Funkcie:
-   - Rýchlosť: Naša nová, pôvodná aplikácia ti umožní čítanie a upravovanie Wikipédie rýchlejšie ako kedykoľvek predtým.
-   - Upravovanie: Wikipédiu môžeš upravovať! Prihlásený alebo neprihlásený, ďakujeme ti za všetky tvoje príspevky. 
-   - Posledné stránky: Ponúkame ti históriu prečítaných stránok. Takto sa môžeš preklikávať ľubovoľným množstvom článkov bez toho, aby sa niečo stratilo.
-   - Uložené stránky: Zvolené stránky si môžeš uložiť na off-line čítanie a zalistovať si v nich aj bez dátového pripojenia.
-   - Zdieľanie: Zdieľaj súhrn ľudských vedomostí pomocou tvojich dostupných aplikácií sociálnych sietí.
-   - Podpora jazykov: Aplikácia ti umožní ľahké prechádzanie medzi rôznymi jazykovými mutáciami článkov vo Wikipédii.
+   - Rýchlosť: Naša nová aplikácia vám umožňuje čítať a upravovať Wikipédiu rýchlejšie ako kedykoľvek predtým.
+   - Upravovanie: Wikipédiu môžete upravovať! Či už ste prihlásený alebo neprihlásený, ďakujeme za všetky vaše príspevky. 
+   - Nedávne stránky: Ponúkame vám históriu toho čo ste čítali, takže sa môžete preklikávať ľubovoľným množstvom článkov bez toho, aby ste sa stratili.
+   - Uložené stránky: Môžete si uložiť vybrané stránky na offline čítanie a čítať si ich aj bez dátového pripojenie..
+   - Zdieľanie: Zdieľajte množstvo ľudských znalostí pomocou existujúcich aplikácií sociálnych sietí.
+   - Podpora jazykov: Aplikácia vám umožňuje ľahko prechádzať medzi rôznymi jazykovými mutáciami článkov na Wikipédii.
    - Wikipédia Zero: Bezplatné dátové pripojenie od vybraných mobilných operátorov.
 
-Používame otvorený zdrojový kód. Podpor nás, ak máš skúsenosti s Javou a SDK Android! https://github.com/wikimedia/apps-android-wikipedia</string>
+Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti s Javou a SDK Androidu! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">K dispozícii je nová alfa verzia.</string>
   <string name="alpha_update_notification_text">Ťuknutím ju stiahnete.</string>
   <string name="dialog_close_description">Zatvoriť</string>
@@ -280,4 +280,6 @@ Používame otvorený zdrojový kód. Podpor nás, ak máš skúsenosti s Javou 
   <string name="gallery_menu_save">Uložiť v zariadení</string>
   <string name="gallery_save_error">Obrázok nebolo možné uložiť: %s</string>
   <string name="gallery_save_success">Obrázok bol úspešne uložený.</string>
+  <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>
+  <string name="expand_refs">Ťuknutím rozšírite</string>
 </resources>

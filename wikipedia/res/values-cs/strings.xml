@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Wikipedie</string>
   <string name="app_name_beta">Wikipedie Beta</string>
+  <string name="app_name_alpha">Wikipedie Alfa</string>
   <string name="yes">Ano</string>
   <string name="no">Ne</string>
   <string name="acra_report_dialog_title">Wikipedie spadla :(</string>
@@ -17,6 +18,7 @@
   <string name="menu_clear_all_bookmarks">Vymazat záložky</string>
   <string name="menu_clear_all_saved_pages">Vymazat uložené stránky</string>
   <string name="page_does_not_exist_error">Tato stránka neexistuje.</string>
+  <string name="nav_item_today">Dnes</string>
   <string name="dialog_title_clear_history">Vymazat historii prohlížení?</string>
   <string name="saved_pages_activity_title">Uložené stránky</string>
   <string name="nav_item_saved_pages">Uložené stránky</string>
@@ -38,6 +40,12 @@
   <string name="toast_saved_page_deleted">Uložené stránky vymazány</string>
   <string name="saved_pages_search_list_hint">Hledat</string>
   <string name="saved_pages_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
+  <string name="nearby_activity_title">Poblíž</string>
+  <string name="nav_item_nearby">Poblíž</string>
+  <string name="nearby_no_network">Bez připojení k síti</string>
+  <string name="nearby_server_error">Nelze získat seznam blízkých míst.</string>
+  <string name="nearby_set_metric">Zobraz metry/km</string>
+  <string name="nearby_set_imperial">Zobraz stopy/míle</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>
   <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
   <string name="preference_title_language">Jazyk Wikipedie</string>
@@ -56,6 +64,9 @@
   <string name="dialog_message_edit_failed">Editace se nezdařila!</string>
   <string name="dialog_message_edit_failed_retry">Zkusit znovu</string>
   <string name="dialog_message_edit_failed_cancel">Storno</string>
+  <string name="dialog_message_leaving_edit">Vaše změny nebyly dosud uloženy. Jste si jisti, že chcete opustit tuto stránku?</string>
+  <string name="dialog_message_leaving_edit_leave">Opustit</string>
+  <string name="dialog_message_leaving_edit_stay">Zůstat</string>
   <string name="menu_show_toc">Obsah</string>
   <string name="search_no_results_found">Nebyly nalezeny žádné výsledky</string>
   <string name="edit_section_captcha_message">V zájmu ochrany před automatickým spamováním vás prosíme o opsání slov, která vidíte níže</string>
@@ -82,8 +93,10 @@
   <string name="preference_summary_logout">Odhlásit se z uživatelského účtu na Wikipedii</string>
   <string name="preference_summary_notloggedin">Nepřihlášen(a).</string>
   <string name="toast_logout_complete">Odhlášeno</string>
+  <string name="saved_pages_empty_title">Nejsou zde žádné uložené stránky!</string>
   <string name="saved_pages_empty_message" fuzzy="true">Žádné uložené stránky</string>
   <string name="history_empty_message" fuzzy="true">Vaše historie je prázdná.</string>
+  <string name="delete_selected_history">Smazat</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;E&lt;/big&gt;</string>
   <string name="wp_tag_line">Otevřená encyklopedie</string>
   <string name="skip">Přeskočit</string>
@@ -102,6 +115,11 @@
   <string name="create_account_username_exists_error">Uživatelské jméno se již používá</string>
   <string name="create_account_ip_throttle_error">Z této IP adresy bylo založeno příliš mnoho účtů. Zkuste to znovu později.</string>
   <string name="create_account_open_proxy_error">Této IP adrese bylo zablokováno vytváření účtů.</string>
+  <string name="create_account_invalid_email_error">E-mailová adresa, kterou jste vložili je neplatná.</string>
+  <string name="create_account_password_too_short_error">Heslo, které jste vložili je příliš krátké.</string>
+  <string name="create_account_blocked_anon_error">Nemůžete vytvořit účet, protože je vaše IP adresa zablokována.</string>
+  <string name="create_account_blocked_error">Nemůžete vytvořit čet, protože je váš účet zablokován.</string>
+  <string name="create_account_password_name_match_error">Vaše uživatelské jméno a heslo se musí lišit.</string>
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
   <string name="create_account_no_network">Bez připojení k síti</string>
   <string name="create_account_next">Další</string>
@@ -199,9 +217,19 @@
   <string name="color_theme_light">Světlý</string>
   <string name="color_theme_dark">Tmavý</string>
   <string name="page_similar_titles">Podobné stránky</string>
+  <string name="search_within_pages">Hledat na stránkách…</string>
   <string name="search_no_results">Nebyly nalezeny žádné výsledky pro „%s“.</string>
+  <string name="search_did_you_mean">Myslely jste \"%s\"?</string>
   <string name="search_results_title">Výsledky vyhledávání</string>
   <string name="search_error_retry">Zkusit znovu</string>
+  <string name="search_redirect_title">Přeměrování z \"%s\".</string>
+  <string name="search_recent_header">Poslední hledání:</string>
+  <string name="button_clear_all_recent_searches">Vymaž poslední hledání</string>
+  <string name="clear_recent_searches_confirm">Jste si jisti, že chcete vymazat historii vyhledávání?</string>
+  <string name="toc_know_it">Mám to</string>
+  <string name="error_browser_not_found">Nemohu otevřít webovou stránku (nenalezene aplikace prohlížeče).</string>
+  <string name="table_other">Více informací</string>
+  <string name="table_close">Zavřít</string>
   <string name="app_store_description">Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.
 
 Funkce:
@@ -214,4 +242,10 @@ Funkce:
    - Wikipedia Zero: Bezplatné datové připojení od účastnících se mobilních operátorů.
 
 Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu, můžete forkovat! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_title">Je dostupný nový update alfaverze</string>
+  <string name="dialog_close_description">Zavřít</string>
+  <string name="preference_title_show_images">Zobraz obrázky</string>
+  <string name="read_more_section">Přečti si více</string>
+  <string name="gallery_menu_more_info">Více informací</string>
+  <string name="menu_gallery_visit_page">Jdi na stránku souboru</string>
 </resources>

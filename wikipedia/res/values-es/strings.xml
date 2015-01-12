@@ -266,8 +266,10 @@ El código es completamente abierto. Si tienes experiencia con Java y el SDK de 
   <string name="alpha_update_notification_text">Toca para descargar</string>
   <string name="dialog_close_description">Cerrar</string>
   <string name="preference_title_show_images">Mostrar imágenes</string>
+  <string name="preference_summary_show_images">Activar o desactivar la carga de imágenes en las páginas. Desmarca esta opción si tu conexión de internet es lenta, o si tu plan de datos es limitado.</string>
   <string name="read_more_section">Leer más</string>
   <string name="gallery_menu_more_info">Más información</string>
+  <string name="menu_gallery_visit_page">Ir a la página del archivo</string>
   <string name="gallery_error_draw_failed">No se pudo dibujar la imagen.</string>
   <string name="license_title">Texto de la licencia de la biblioteca %s</string>
   <string name="gallery_license_text">Licencia: %s</string>
@@ -278,4 +280,6 @@ El código es completamente abierto. Si tienes experiencia con Java y el SDK de 
   <string name="gallery_menu_save">Guardar en dispositivo</string>
   <string name="gallery_save_error">No se pudo guardar la imagen: %s</string>
   <string name="gallery_save_success">Imagen guardada correctamente.</string>
+  <string name="err_cannot_save_file">No puede guardar el archivo</string>
+  <string name="expand_refs">Pulsa para ampliar</string>
 </resources>

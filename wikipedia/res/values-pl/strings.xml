@@ -253,8 +253,9 @@
   <string name="gallery_credit_text">Autor - %s</string>
   <string name="gallery_image_info">Informacje o obrazie</string>
   <string name="gallery_menu_share">Udostępnij</string>
-  <string name="gallery_share_error">Nie udało się udostępnić obrazu: %s</string>
+  <string name="gallery_share_error">Nie można udostępnić obrazu: %s</string>
   <string name="gallery_menu_save">Zapisz na urządzeniu</string>
   <string name="gallery_save_error">Nie udało się zapisać obrazka: %s</string>
-  <string name="gallery_save_success">Obraz został zapisany.</string>
+  <string name="gallery_save_success">Obraz pomyślnie zapisany.</string>
+  <string name="err_cannot_save_file">Nie można zapisać pliku</string>
 </resources>

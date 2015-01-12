@@ -280,4 +280,7 @@ Der Code ist völlig quelloffen. Falls du Erfahrungen mit Java und dem Android-S
   <string name="gallery_menu_save">In Gerät speichern</string>
   <string name="gallery_save_error">Bild konnte nicht gespeichert werden: %s</string>
   <string name="gallery_save_success">Bild erfolgreich gespeichert.</string>
+  <string name="err_cannot_save_file">Datei konnte nicht gespeichert werden</string>
+  <string name="snippet_share_intro">Interessante Tatsache auf @Wikipedia %1$s: %2$s</string>
+  <string name="expand_refs">Tippen zum Erweitern</string>
 </resources>

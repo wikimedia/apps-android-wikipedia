@@ -280,4 +280,7 @@
   <string name="gallery_menu_save">Зачувај на уредот</string>
   <string name="gallery_save_error">Не можев да ја зачувам сликата: %s</string>
   <string name="gallery_save_success">Сликата е успешно зачувана.</string>
+  <string name="err_cannot_save_file">Не можам да ја зачувам податотеката</string>
+  <string name="snippet_share_intro">Занимливост на @Википедија %1$s: %2$s</string>
+  <string name="expand_refs">Допрете за да проширите</string>
 </resources>

@@ -382,7 +382,6 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="err_cannot_save_file">Error message when we detect that a file cannot be written to storage.</string>
   <string name="snippet_share_intro">Intro text included as part of the shared text snippet, aka Tweet-a-fact. This message has two parameters. Please keep the parameters exactly as in the original English message.
     * The first parameter is the title of the page the text snippet is from.
-    * The second parameter is an HTML link to the page.
-  </string>
+    * The second parameter is an HTML link to the page.</string>
   <string name="expand_refs">Title for a button that, when clicked, will expand the list of references or notes at the bottom of a page.</string>
 </resources>

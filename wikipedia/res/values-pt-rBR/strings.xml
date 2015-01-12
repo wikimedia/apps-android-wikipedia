@@ -11,8 +11,8 @@
   <string name="search_hint">Procurar na Wikipédia</string>
   <string name="history_activity_title">Histórico</string>
   <string name="nav_item_history">Histórico</string>
-  <string name="error_network_error">Sem conexão à internet :(</string>
-  <string name="search_network_error">Erro de conexão. Clique para tentar de novo.</string>
+  <string name="error_network_error">Não há conexão de rede :(</string>
+  <string name="search_network_error">Erro de conexão. Toque para tentar novamente.</string>
   <string name="page_error_retry">Repetir</string>
   <string name="menu_clear_all_history">Limpar histórico</string>
   <string name="menu_clear_all_bookmarks">Limpar favoritos</string>
@@ -40,10 +40,10 @@
   <string name="toast_saved_page_deleted">Página(s) salva(s) excluída(s)</string>
   <string name="saved_pages_search_list_hint">Pesquisar</string>
   <string name="saved_pages_search_empty_message">Nenhuma página foi encontrada.</string>
-  <string name="nearby_activity_title">Redondezas</string>
+  <string name="nearby_activity_title">Próximo</string>
   <string name="nav_item_nearby">Próximo</string>
-  <string name="menu_update_nearby">Atualizar páginas nas redondezas</string>
-  <string name="nearby_empty_title">Sem páginas nas redondezas!</string>
+  <string name="menu_update_nearby">Atualizar páginas próximas</string>
+  <string name="nearby_empty_title">Sem páginas por perto!</string>
   <string name="nearby_empty_message">Quando estiver num novo local, experimente atualizar esta página para saber mais sobre o que o rodeia.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -280,4 +280,7 @@ O código é totalmente aberto. Se você tem experiência com linguagens como Ja
   <string name="gallery_menu_save">Sauvar no dispositivo</string>
   <string name="gallery_save_error">Não podê-se salvar a imagem: %s</string>
   <string name="gallery_save_success">Imagem salva com sucesso.</string>
+  <string name="err_cannot_save_file">Não é possível salvar o arquivo</string>
+  <string name="snippet_share_intro">\"%1$s\" em @Wikipedia: %2$s</string>
+  <string name="expand_refs">Toque para expandir</string>
 </resources>

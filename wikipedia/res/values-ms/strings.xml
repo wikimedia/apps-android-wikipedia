@@ -272,6 +272,15 @@ Kod ini adalah sumber terbuka sepenuhnya. Jika anda mempunyai pengalaman dengan 
   <string name="menu_gallery_visit_page">Pergi ke laman fail</string>
   <string name="gallery_error_draw_failed">Imej tidak dapat dilukis.</string>
   <string name="license_title">Teks lesen untuk perpustakaan %s</string>
-  <string name="gallery_license_text" fuzzy="true">Lesen: %s</string>
-  <string name="gallery_credit_text" fuzzy="true">Kredit: %s</string>
+  <string name="gallery_license_text">Lesen – %s</string>
+  <string name="gallery_credit_text">Pengarang – %s</string>
+  <string name="gallery_image_info">Maklumat imej</string>
+  <string name="gallery_menu_share">Kongsi</string>
+  <string name="gallery_share_error">Imej tidak dapat dikongsikan: %s</string>
+  <string name="gallery_menu_save">Simpan ke dalam peranti</string>
+  <string name="gallery_save_error">Imej tidak dapat disimpan: %s</string>
+  <string name="gallery_save_success">Imej berjaya disimpan.</string>
+  <string name="err_cannot_save_file">Fail tidak dapat disimpan</string>
+  <string name="snippet_share_intro">Fakta menarik di @Wikipedia %1$s: %2$s</string>
+  <string name="expand_refs">Ketik untuk kembangkan</string>
 </resources>

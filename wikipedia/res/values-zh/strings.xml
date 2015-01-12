@@ -4,7 +4,7 @@
   <string name="app_name_beta">维基百科公测版</string>
   <string name="app_name_alpha">维基百科内测版</string>
   <string name="yes">是</string>
-  <string name="no">不</string>
+  <string name="no">否</string>
   <string name="acra_report_dialog_title">维基百科崩溃了:(</string>
   <string name="acra_report_dialog_text">将崩溃报告发送给我们</string>
   <string name="acra_report_dialog_comment">崩溃发生时您进行了什么操作?</string>
@@ -280,4 +280,7 @@
   <string name="gallery_menu_save">保存到设备</string>
   <string name="gallery_save_error">无法保存图片：%s</string>
   <string name="gallery_save_success">图片保存成功。</string>
+  <string name="err_cannot_save_file">无法保存文件</string>
+  <string name="snippet_share_intro">有趣的事实尽在：@Wikipedia %1$s：%2$s</string>
+  <string name="expand_refs">点按展开</string>
 </resources>

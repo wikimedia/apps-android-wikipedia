@@ -280,4 +280,6 @@ Uygulama kodları tamamen açık kaynaklıdır. Java ve Android SDK kullanıyors
   <string name="gallery_menu_save">Cihaza kaydet</string>
   <string name="gallery_save_error">Resim kaydedilemedi: %s</string>
   <string name="gallery_save_success">Resim başarıyla kaydedildi.</string>
+  <string name="err_cannot_save_file">Dosya kaydedilemiyor</string>
+  <string name="expand_refs">Genişletmek için tıklayın</string>
 </resources>

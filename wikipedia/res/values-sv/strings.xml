@@ -281,4 +281,7 @@ Koden har öppen källkod. Om du har erfarenhet av Java och Android SDK kan du h
   <string name="gallery_menu_save">Spara till enheten</string>
   <string name="gallery_save_error">Kunde inte spara bilden: %s</string>
   <string name="gallery_save_success">Bilden har sparats.</string>
+  <string name="err_cannot_save_file">Kan inte spara filen</string>
+  <string name="snippet_share_intro">Intressant fakta på @Wikipedia %1$s: %2$s</string>
+  <string name="expand_refs">Tryck för att expandera</string>
 </resources>

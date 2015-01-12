@@ -74,6 +74,8 @@
   <string name="dialog_message_edit_failed">Methodd y golygiad!</string>
   <string name="dialog_message_edit_failed_retry">Ailgeisio</string>
   <string name="dialog_message_edit_failed_cancel">Canslo</string>
+  <string name="dialog_message_leaving_edit_leave">Gadael</string>
+  <string name="dialog_message_leaving_edit_stay">Aros</string>
   <string name="menu_show_toc">Tabl cynnwys</string>
   <string name="search_no_results_found">Ni chafwyd unrhyw ganlyniadau</string>
   <string name="edit_section_captcha_message">I helpu i ddiogelu rhag sbam awtomataidd, rhowch y geiriau sy\' n ymddangos isod</string>
@@ -95,11 +97,21 @@
   <string name="login_error_unknown">Methodd y mewngofnodi :(</string>
   <string name="login_error_no_network">Nid oes cysylltiad rhwydwaith</string>
   <string name="nav_item_logout">Allgofnodi</string>
+  <string name="preference_title_logout">Allgofnodi</string>
+  <string name="preference_summary_logout">Allgofnodi o\'ch cyfrif Wicipedia</string>
+  <string name="preference_summary_notloggedin">Heb mewngofnodi.</string>
+  <string name="toast_logout_complete">Wedi allgofnodi</string>
   <string name="saved_pages_empty_message" fuzzy="true">Dim tudalennau wedi\'u cadw.</string>
   <string name="history_empty_message" fuzzy="true">Mae eich hanes yn wag.</string>
+  <string name="delete_selected_history">Dileu</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;ICIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_tag_line">Y Gwyddoniadur Rhydd</string>
+  <string name="skip">Neidio</string>
   <string name="create_account_username_hint">Enw defnyddiwr</string>
   <string name="create_account_password_hint">Cyfrinair</string>
-  <string name="login_create_account_link" fuzzy="true">Crëwch gyfrif</string>
+  <string name="menu_create_account">Creu cyfrif</string>
+  <string name="login_create_account_link">Heb gyfrif? Ymunwch â Wicipedia</string>
+  <string name="create_account_login_link">Gyda chyfrif? Mewngofnodwch</string>
   <string name="create_account_activity_title">Crëwch gyfrif</string>
   <string name="edit_section_activity_title">Golygwch yr adran</string>
   <string name="dialog_create_account_checking_progress">Wrthi\' n dilysu</string>
@@ -110,9 +122,35 @@
   <string name="create_account_username_exists_error">Mae\'r enw defnyddiwr eisioes yn bodoli</string>
   <string name="create_account_ip_throttle_error">Crewyd gormod o cyfrifon wedi\'u creu gan y cyfeiriad IP hwn. Ceisiwch eto\'n ddiweddarach.</string>
   <string name="create_account_open_proxy_error">Mae\'r IP hwn wedi\'i rwystro rhag creu cyfrifon.</string>
+  <string name="create_account_invalid_email_error">Dyw\'r cyfeiriad ebost ddim yn ddilys.</string>
+  <string name="create_account_password_too_short_error">Dyw\'r cyfrinair ddim digon hir.</string>
+  <string name="create_account_blocked_anon_error">Methwyd creu cyfrif gan fod eich cyfeiriad IP wedi\'i rwystro.</string>
+  <string name="create_account_blocked_error">Ni allech greu cyfrif gan fod eich cyfrif wedi\'i rwystro.</string>
+  <string name="create_account_password_name_match_error">Rhaid i\'ch cyfrinair fod yn wahanol i\'ch enw defnyddiwr.</string>
   <string name="create_account_generic_error">Ni lwyddwyd i greu\'r cyfrif</string>
+  <string name="create_account_no_network">Dim cysylltiad rhwydwaith</string>
+  <string name="create_account_next">Nesaf</string>
+  <string name="create_account_button">Creu cyfrif</string>
   <string name="preferences_general_heading">Cyffredinol</string>
+  <string name="zero_charged_verbiage_extended">Gall llwytho erthyglau eraill achosi costau data.</string>
   <string name="zero_search_hint">Chwiliwch yn Wicipedia Sero</string>
+  <string name="zero_interstitial_continue">Gadael</string>
+  <string name="zero_interstitial_cancel">Aros Yma</string>
+  <string name="zero_learn_more_learn_more">Darllen mwy</string>
+  <string name="zero_settings">Gosodiadau</string>
+  <string name="edit_preview_fetching_dialog_message">Yn nôl y rhagolwg...</string>
+  <string name="edit_preview_activity_title">Rhagolwg o\'r golygiad</string>
+  <string name="create_account_logging_in">Yn mewngofnodi...</string>
+  <string name="send_feedback">Anfon adborth am yr ap</string>
+  <string name="edit_summary_hint">Crynodeb o\'r golygiad</string>
+  <string name="nav_item_random">Ar hap</string>
+  <string name="random_progress">Yn nôl tudalen ar hap...</string>
+  <string name="create_account_account_created_toast">Wedi creu cyfrif!</string>
+  <string name="user_contribs_more_action">Llwytho mwy</string>
+  <string name="activity_my_contributions_title">Fy Nghyfraniadau</string>
+  <string name="nav_item_my_contributions">Fy nghyfraniadau</string>
+  <string name="edit_save_action_login">Mewngofnodi a chadw</string>
+  <string name="edit_save_action_ip">Cadw yn ddienw</string>
   <string name="about_activity_title">Amdanom</string>
   <string name="edit_unchanged">Ni newidiwyd y dudalen.</string>
   <string name="edit_abandon_confirm">Mae\'r dudalen wedi cael ei newid. Ydych chi\'n siwr eich bod chi am ymadael heb roi eich newidiadau ar gadw?</string>
