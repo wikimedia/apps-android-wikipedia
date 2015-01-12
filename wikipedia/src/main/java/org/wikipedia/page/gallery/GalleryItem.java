@@ -1,5 +1,6 @@
 package org.wikipedia.page.gallery;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.text.TextUtils;
@@ -11,7 +12,7 @@ public class GalleryItem {
     private final String name;
     public String getName() { return name; }
 
-    private final String url;
+    private String url;
     public String getUrl() { return url; }
 
     private final String mimeType;
@@ -71,14 +72,35 @@ public class GalleryItem {
 
     public GalleryItem(JSONObject json) throws JSONException {
         this.name = json.getString("title");
-        JSONObject imageinfo = (JSONObject)json.getJSONArray("imageinfo").get(0);
-        this.url = imageinfo.optString("url", "");
-        this.mimeType = imageinfo.getString("mime");
-        this.thumbUrl = imageinfo.optString("thumburl", "");
-        this.width = imageinfo.getInt("width");
-        this.height = imageinfo.getInt("height");
+        JSONObject objinfo;
+        if (json.has("imageinfo")) {
+            objinfo = (JSONObject)json.getJSONArray("imageinfo").get(0);
+        } else if (json.has("videoinfo")) {
+            objinfo = (JSONObject)json.getJSONArray("videoinfo").get(0);
+            // in the case of video, look for a list of transcodings, so that we might
+            // find a WebM version, which is playable in Android.
+            if (objinfo.has("derivatives")) {
+                JSONArray derivatives = objinfo.getJSONArray("derivatives");
+                for (int i = 0; i < derivatives.length(); i++) {
+                    JSONObject derObj = derivatives.getJSONObject(i);
+                    if (derObj.getString("type").contains("webm")) {
+                        // that's the one!
+                        this.url = derObj.getString("src");
+                    }
+                }
+            }
+        } else {
+            throw new JSONException("Response did not contain required info.");
+        }
+        if (TextUtils.isEmpty(url)) {
+            this.url = objinfo.optString("url", "");
+        }
+        this.mimeType = objinfo.getString("mime");
+        this.thumbUrl = objinfo.optString("thumburl", "");
+        this.width = objinfo.getInt("width");
+        this.height = objinfo.getInt("height");
         metadata = new HashMap<>();
-        JSONObject extmetadata = imageinfo.optJSONObject("extmetadata");
+        JSONObject extmetadata = objinfo.optJSONObject("extmetadata");
         if (extmetadata != null) {
             Iterator<String> keys = extmetadata.keys();
             while (keys.hasNext()) {

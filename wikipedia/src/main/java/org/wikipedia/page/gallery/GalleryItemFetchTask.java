@@ -8,15 +8,25 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 
 public class GalleryItemFetchTask extends PageQueryTask<GalleryItem> {
-    public GalleryItemFetchTask(Api api, Site site, PageTitle title) {
+    private static final String MAX_IMAGE_WIDTH = "1280";
+    private final boolean isVideo;
+
+    public GalleryItemFetchTask(Api api, Site site, PageTitle title, boolean isVideo) {
         super(LOW_CONCURRENCY, api, site, title);
+        this.isVideo = isVideo;
     }
 
     @Override
     public void buildQueryParams(RequestBuilder builder) {
-        builder.param("prop", "imageinfo")
-               .param("iiprop", "url|dimensions|mime|extmetadata")
-               .param("iiurlwidth", "1280");
+        if (isVideo) {
+            builder.param("prop", "videoinfo")
+                   .param("viprop", "url|dimensions|mime|extmetadata|derivatives")
+                   .param("viurlwidth", MAX_IMAGE_WIDTH);
+        } else {
+            builder.param("prop", "imageinfo")
+                   .param("iiprop", "url|dimensions|mime|extmetadata")
+                   .param("iiurlwidth", MAX_IMAGE_WIDTH);
+        }
     }
 
     @Override

@@ -160,6 +160,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             public void onPageSelected(int position) {
                 // the pager has settled on a new position
                 layoutGalleryDescription();
+                galleryAdapter.notifyFragments(position);
                 if (currentPosition != -1 && getCurrentItem() != null) {
                     if (position < currentPosition) {
                         funnel.logGallerySwipeLeft(pageTitle, getCurrentItem().getName());
@@ -448,6 +449,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             infoContainer.setVisibility(View.GONE);
             return;
         }
+        galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
 
         CharSequence descriptionStr = "";
         if (item.getMetadata().containsKey("ImageDescription")) {
@@ -523,6 +525,14 @@ public class GalleryActivity extends ThemedActionBarActivity {
             notifyDataSetChanged();
         }
 
+        public void notifyFragments(int currentPosition) {
+            for (int i = 0; i < getCount(); i++) {
+                if (fragmentArray.get(i) != null) {
+                    fragmentArray.get(i).onUpdatePosition(i, currentPosition);
+                }
+            }
+        }
+
         /**
          * Remove any active fragments to the left+1 and right+1 of the current
          * fragment, to reduce memory usage.
@@ -556,8 +566,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             // instantiate a new fragment if it doesn't exist
             if (fragmentArray.get(position) == null) {
                 fragmentArray.put(position, GalleryItemFragment
-                        .newInstance(pageTitle, new PageTitle(galleryCollection.getItemList().get(
-                                position).getName(), pageTitle.getSite())));
+                        .newInstance(pageTitle, galleryCollection.getItemList().get(position)));
             }
             return fragmentArray.get(position);
         }

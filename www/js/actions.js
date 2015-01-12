@@ -69,6 +69,8 @@ document.onclick = function() {
                 } else {
                     handleReference( targetId, util.ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
                 }
+            } else if (sourceNode.classList.contains( 'app_media' )) {
+                bridge.sendMessage( 'mediaClicked', { "href": href } );
             } else if (sourceNode.classList.contains( 'image' )) {
                 bridge.sendMessage( 'imageClicked', { "href": href } );
             } else {

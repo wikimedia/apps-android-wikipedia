@@ -529,6 +529,19 @@ public class PageViewFragmentInternal implements BackPressedHandler {
                 }
             }
         });
+        bridge.addListener("mediaClicked", new CommunicationBridge.JSEventListener() {
+            @Override
+            public void onMessage(String messageType, JSONObject messagePayload) {
+                try {
+                    String href = URLDecoder.decode(messagePayload.getString("href"), "UTF-8");
+                    showImageGallery(new PageTitle(href, title.getSite()));
+                } catch (JSONException e) {
+                    //nope
+                } catch (UnsupportedEncodingException e) {
+                    //nope
+                }
+            }
+        });
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

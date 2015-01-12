@@ -266,6 +266,7 @@ Terms of Use: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="gallery_save_error">Could not save image: %s</string>
     <string name="gallery_save_error_mediastore">Failed to import image to media collection</string>
     <string name="gallery_save_success">Image saved successfully.</string>
+    <string name="gallery_error_video_failed">Could not play the video.</string>
     <string name="err_cannot_save_file">Cannot save file</string>
     <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>
     <string name="expand_refs">Tap to expand</string>
@@ -274,5 +275,4 @@ Terms of Use: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="snippet_share_preview_image_desc">Preview image</string>
     <string name="cc_logo">Creative Commons license</string>
     <string name="captcha_image">Captcha image</string>
-
 </resources>

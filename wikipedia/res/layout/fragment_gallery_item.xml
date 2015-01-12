@@ -4,8 +4,36 @@
              android:id="@+id/gallery_item_container"
              android:layout_width="match_parent"
              android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/gallery_video_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <VideoView
+            android:id="@+id/gallery_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            />
+        <ImageView
+            android:id="@+id/gallery_video_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:contentDescription="@null"
+            />
+        <ImageView
+            android:id="@+id/gallery_video_play_button"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_play_circle"
+            android:contentDescription="@null"
+            />
+    </FrameLayout>
     <ImageView
         android:id="@+id/gallery_image"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitCenter"
