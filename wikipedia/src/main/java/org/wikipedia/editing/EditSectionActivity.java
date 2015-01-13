@@ -118,9 +118,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
         sectionText = (EditText) findViewById(R.id.edit_section_text);
 
-        if (app.getReleaseType() != WikipediaApp.RELEASE_PROD) {
-            new SyntaxHighlighter(this, sectionText);
-        }
+        new SyntaxHighlighter(this, sectionText);
 
         sectionProgress = findViewById(R.id.edit_section_load_progress);
         sectionContainer = findViewById(R.id.edit_section_container);
