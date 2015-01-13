@@ -250,16 +250,11 @@ public class SearchArticlesFragment extends Fragment {
             openSearch();
         }
 
-        // TODO: remove this when ready for production
-        if (app.getReleaseType() == WikipediaApp.RELEASE_PROD) {
+        if (TextUtils.isEmpty(term)) {
+            showPanel(PANEL_RECENT_SEARCHES);
+        } else if (getActivePanel() == PANEL_RECENT_SEARCHES) {
+            //start with title search...
             showPanel(PANEL_TITLE_SEARCH);
-        } else {
-            if (TextUtils.isEmpty(term)) {
-                showPanel(PANEL_RECENT_SEARCHES);
-            } else if (getActivePanel() == PANEL_RECENT_SEARCHES) {
-                //start with title search...
-                showPanel(PANEL_TITLE_SEARCH);
-            }
         }
 
         if (!TextUtils.isEmpty(lastSearchedText) && !TextUtils.isEmpty(term)) {
@@ -296,24 +291,16 @@ public class SearchArticlesFragment extends Fragment {
         // show ourselves
         searchContainerView.setVisibility(View.VISIBLE);
 
-        // TODO: remove this when ready for production
-        if (app.getReleaseType() == WikipediaApp.RELEASE_PROD) {
-            fullSearchDisabled = true;
-            //show title search by default...
-            showPanel(PANEL_TITLE_SEARCH);
+        // find out whether full-text search has been disabled remotely, and
+        // hide the title/full switcher buttons accordingly.
+        fullSearchDisabled = app.getRemoteConfig().getConfig()
+                .optBoolean("disableFullTextSearch", false);
 
-        } else {
-            // find out whether full-text search has been disabled remotely, and
-            // hide the title/full switcher buttons accordingly.
-            fullSearchDisabled = app.getRemoteConfig().getConfig()
-                    .optBoolean("disableFullTextSearch", false);
-
-            // if the current search string is empty, then it's a fresh start, so we'll show
-            // recent searches by default. Otherwise, the currently-selected panel should already
-            // be visible, so we don't need to do anything.
-            if (TextUtils.isEmpty(lastSearchedText)) {
-                showPanel(PANEL_RECENT_SEARCHES);
-            }
+        // if the current search string is empty, then it's a fresh start, so we'll show
+        // recent searches by default. Otherwise, the currently-selected panel should already
+        // be visible, so we don't need to do anything.
+        if (TextUtils.isEmpty(lastSearchedText)) {
+            showPanel(PANEL_RECENT_SEARCHES);
         }
     }
 
@@ -326,11 +313,7 @@ public class SearchArticlesFragment extends Fragment {
         // hide ourselves
         searchContainerView.setVisibility(View.GONE);
         Utils.hideSoftKeyboard(getActivity());
-
-        // TODO: remove this when ready for production
-        if (app.getReleaseType() != WikipediaApp.RELEASE_PROD) {
-            addRecentSearch(lastSearchedText);
-        }
+        addRecentSearch(lastSearchedText);
     }
 
     /**
