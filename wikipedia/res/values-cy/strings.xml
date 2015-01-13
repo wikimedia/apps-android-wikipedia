@@ -11,7 +11,7 @@
   <string name="search_hint">Chwilio Wicipedia</string>
   <string name="history_activity_title">Hanes</string>
   <string name="nav_item_history">Hanes</string>
-  <string name="error_network_error" fuzzy="true">Methwyd a chyrraedd y rhwydwaith :(</string>
+  <string name="error_network_error">Ni ellir cysylltu gyda\'r rhwydwaith :(</string>
   <string name="search_network_error">Gwall yn y rhwydwaith. Ceisiwch eto.</string>
   <string name="page_error_retry">Ailgeisiwch</string>
   <string name="menu_clear_all_history">Clirio\'r hanes</string>
@@ -99,7 +99,7 @@
   <string name="nav_item_logout">Allgofnodi</string>
   <string name="preference_title_logout">Allgofnodi</string>
   <string name="preference_summary_logout">Allgofnodi o\'ch cyfrif Wicipedia</string>
-  <string name="preference_summary_notloggedin">Heb mewngofnodi.</string>
+  <string name="preference_summary_notloggedin">Heb fewngofnodi.</string>
   <string name="toast_logout_complete">Wedi allgofnodi</string>
   <string name="saved_pages_empty_message" fuzzy="true">Dim tudalennau wedi\'u cadw.</string>
   <string name="history_empty_message" fuzzy="true">Mae eich hanes yn wag.</string>

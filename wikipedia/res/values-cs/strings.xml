@@ -11,7 +11,7 @@
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="history_activity_title">Historie</string>
   <string name="nav_item_history">Historie</string>
-  <string name="error_network_error" fuzzy="true">Nepořadilo se připojit k síti :(</string>
+  <string name="error_network_error">Není k dispozici připojení k Internetu :(</string>
   <string name="search_network_error">Chyba sítě. Klepnutím to zkusíte znovu.</string>
   <string name="page_error_retry">Zkusit znovu</string>
   <string name="menu_clear_all_history">Vymazat historii</string>
@@ -42,8 +42,13 @@
   <string name="saved_pages_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
   <string name="nearby_activity_title">Poblíž</string>
   <string name="nav_item_nearby">Poblíž</string>
+  <string name="menu_update_nearby">Blíží se aktualizace</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Bez připojení k síti</string>
-  <string name="nearby_server_error">Nelze získat seznam blízkých míst.</string>
+  <string name="nearby_server_error">Nepodařilo se získat seznam blízkých míst.</string>
   <string name="nearby_set_metric">Zobraz metry/km</string>
   <string name="nearby_set_imperial">Zobraz stopy/míle</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>
@@ -65,7 +70,7 @@
   <string name="dialog_message_edit_failed_retry">Zkusit znovu</string>
   <string name="dialog_message_edit_failed_cancel">Storno</string>
   <string name="dialog_message_leaving_edit">Vaše změny nebyly dosud uloženy. Jste si jisti, že chcete opustit tuto stránku?</string>
-  <string name="dialog_message_leaving_edit_leave">Opustit</string>
+  <string name="dialog_message_leaving_edit_leave">Odejít</string>
   <string name="dialog_message_leaving_edit_stay">Zůstat</string>
   <string name="menu_show_toc">Obsah</string>
   <string name="search_no_results_found">Nebyly nalezeny žádné výsledky</string>
@@ -115,10 +120,10 @@
   <string name="create_account_username_exists_error">Uživatelské jméno se již používá</string>
   <string name="create_account_ip_throttle_error">Z této IP adresy bylo založeno příliš mnoho účtů. Zkuste to znovu později.</string>
   <string name="create_account_open_proxy_error">Této IP adrese bylo zablokováno vytváření účtů.</string>
-  <string name="create_account_invalid_email_error">E-mailová adresa, kterou jste vložili je neplatná.</string>
-  <string name="create_account_password_too_short_error">Heslo, které jste vložili je příliš krátké.</string>
+  <string name="create_account_invalid_email_error">E-mailová adresa, kterou jste uvedli, je neplatná.</string>
+  <string name="create_account_password_too_short_error">Heslo, které jste uvedli, je příliš krátké.</string>
   <string name="create_account_blocked_anon_error">Nemůžete vytvořit účet, protože je vaše IP adresa zablokována.</string>
-  <string name="create_account_blocked_error">Nemůžete vytvořit čet, protože je váš účet zablokován.</string>
+  <string name="create_account_blocked_error">Nemůžete vytvořit účet, protože je váš účet zablokován.</string>
   <string name="create_account_password_name_match_error">Vaše uživatelské jméno a heslo se musí lišit.</string>
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
   <string name="create_account_no_network">Bez připojení k síti</string>
@@ -217,17 +222,17 @@
   <string name="color_theme_light">Světlý</string>
   <string name="color_theme_dark">Tmavý</string>
   <string name="page_similar_titles">Podobné stránky</string>
-  <string name="search_within_pages">Hledat na stránkách…</string>
+  <string name="search_within_pages">Hledat v obsahu stránek</string>
   <string name="search_no_results">Nebyly nalezeny žádné výsledky pro „%s“.</string>
-  <string name="search_did_you_mean">Myslely jste \"%s\"?</string>
+  <string name="search_did_you_mean">Měli jste na mysli „%s“?</string>
   <string name="search_results_title">Výsledky vyhledávání</string>
   <string name="search_error_retry">Zkusit znovu</string>
-  <string name="search_redirect_title">Přeměrování z \"%s\".</string>
-  <string name="search_recent_header">Poslední hledání:</string>
-  <string name="button_clear_all_recent_searches">Vymaž poslední hledání</string>
-  <string name="clear_recent_searches_confirm">Jste si jisti, že chcete vymazat historii vyhledávání?</string>
-  <string name="toc_know_it">Mám to</string>
-  <string name="error_browser_not_found">Nemohu otevřít webovou stránku (nenalezene aplikace prohlížeče).</string>
+  <string name="search_redirect_title">Přesměrování z „%s“.</string>
+  <string name="search_recent_header">Nedávná hledání:</string>
+  <string name="button_clear_all_recent_searches">Vymazat nedávná hledání</string>
+  <string name="clear_recent_searches_confirm">Jste si jisti, že chcete vymazat historii hledání?</string>
+  <string name="toc_know_it">Chápu</string>
+  <string name="error_browser_not_found">Nepodařilo se otevřít webovou stránku (nenalezena žádná aplikace prohlížeče).</string>
   <string name="table_other">Více informací</string>
   <string name="table_close">Zavřít</string>
   <string name="app_store_description">Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.
@@ -242,10 +247,20 @@ Funkce:
    - Wikipedia Zero: Bezplatné datové připojení od účastnících se mobilních operátorů.
 
 Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu, můžete forkovat! https://github.com/wikimedia/apps-android-wikipedia</string>
-  <string name="alpha_update_notification_title">Je dostupný nový update alfaverze</string>
+  <string name="alpha_update_notification_title">Je dostupná nová aktualizace alfaverze</string>
+  <string name="alpha_update_notification_text">Klepnutím ji stáhnete</string>
   <string name="dialog_close_description">Zavřít</string>
-  <string name="preference_title_show_images">Zobraz obrázky</string>
-  <string name="read_more_section">Přečti si více</string>
+  <string name="preference_title_show_images">Zobrazovat obrázky</string>
+  <string name="read_more_section">Číst dál</string>
   <string name="gallery_menu_more_info">Více informací</string>
-  <string name="menu_gallery_visit_page">Jdi na stránku souboru</string>
+  <string name="menu_gallery_visit_page">Přejít na stránku souboru</string>
+  <string name="gallery_error_draw_failed">Nemožno vykreslit obrázek.</string>
+  <string name="gallery_license_text">Licence – %s</string>
+  <string name="gallery_credit_text">Autor – %s</string>
+  <string name="gallery_image_info">Informace o obrázku</string>
+  <string name="gallery_menu_share">Sdílet</string>
+  <string name="gallery_share_error">Není možno sdílet obrázek: %s</string>
+  <string name="gallery_save_error">Není možno uložit obrázek: %s</string>
+  <string name="gallery_save_success">Obrázek úspěšně uložen.</string>
+  <string name="err_cannot_save_file">Není možno uložit soubor</string>
 </resources>
