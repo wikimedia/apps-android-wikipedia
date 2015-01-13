@@ -3,7 +3,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:id="@+id/search_full_container">
+             android:id="@+id/search_results_display">
     <Button
         android:id="@+id/search_network_error"
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"/>
         <ListView
-                android:id="@+id/full_search_results_list"
+                android:id="@+id/search_results_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginRight="8dp"

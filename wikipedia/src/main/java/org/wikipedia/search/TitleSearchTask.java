@@ -22,7 +22,7 @@ public class TitleSearchTask extends ApiTask<List<PageTitle>> {
     private final String prefix;
     private final Site site;
 
-    private static final String NUM_RESULTS_PER_QUERY = "12";
+    private static final String NUM_RESULTS_PER_QUERY = "20";
 
     public TitleSearchTask(Api api, Site site, String prefix) {
         super(HIGH_CONCURRENCY, api);
