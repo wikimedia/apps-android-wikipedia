@@ -287,8 +287,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     public void beginLayout(OnLeadImageLayoutListener listener) {
         String thumbUrl = parentFragment.getPage().getPageProperties().getLeadImageUrl();
 
-        if (!WikipediaApp.getInstance().showImages() || displayHeight < MIN_SCREEN_HEIGHT_DP
-                || WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_PROD) {
+        if (!WikipediaApp.getInstance().showImages() || displayHeight < MIN_SCREEN_HEIGHT_DP) {
             // disable the lead image completely
             leadImagesEnabled = false;
         } else {
