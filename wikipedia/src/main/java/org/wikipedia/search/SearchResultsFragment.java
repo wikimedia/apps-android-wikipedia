@@ -89,8 +89,6 @@ public class SearchResultsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle item = (PageTitle) searchResultsList.getAdapter().getItem(position);
-                // always add the description of the item to the cache so we don't even try to get it again
-                app.getWikidataCache().put(item.toString(), item.getDescription());
                 searchFragment.navigateToTitle(item);
             }
         });

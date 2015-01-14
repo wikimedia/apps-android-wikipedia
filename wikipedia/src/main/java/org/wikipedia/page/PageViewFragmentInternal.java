@@ -790,7 +790,7 @@ public class PageViewFragmentInternal {
         @Override
         public RequestBuilder buildRequest(Api api) {
             RequestBuilder builder =  super.buildRequest(api);
-            builder.param("prop", builder.getParams().get("prop") + "|thumb|image|id|revision|"
+            builder.param("prop", builder.getParams().get("prop") + "|thumb|image|id|revision|description|"
                     + Page.API_REQUEST_PROPS);
             builder.param("thumbsize", Integer.toString((int)(getResources().getDimension(R.dimen.leadImageWidth)
                     / getResources().getDisplayMetrics().density)));
@@ -811,6 +811,9 @@ public class PageViewFragmentInternal {
                 } else if (mobileView.has("normalizedtitle")) {
                     // We care about the normalized title only if we were not redirected
                     title = new PageTitle(mobileView.optString("normalizedtitle"), title.getSite(), title.getThumbUrl());
+                }
+                if (mobileView.has("description")) {
+                    title.setDescription(mobileView.getString("description"));
                 }
             }
             return super.processResult(result);

@@ -32,9 +32,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.views.ObservableWebView;
-import org.wikipedia.wikidata.WikidataCache;
-
-import java.util.Map;
 
 public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListener, ImageViewWithFace.OnImageLoadListener {
     private final Context context;
@@ -480,39 +477,9 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             imageContainer.setVisibility(View.VISIBLE);
 
             // kick off loading of the WikiData description, if we have one
-            fetchWikiDataDescription();
-        }
-    }
-
-    /**
-     * Start the task of fetching the WikiData description for our page, if it has one.
-     * This should be done after the lead image view is laid out, but can be done independently
-     * of loading the WebView contents.
-     */
-    private void fetchWikiDataDescription() {
-        final PageTitle pageTitle = parentFragment.getPage().getTitle();
-
-        if (pageTitle != null) {
-            final String language = pageTitle.getSite().getLanguage();
-            WikipediaApp.getInstance().getWikidataCache().get(pageTitle, language,
-                new WikidataCache.OnWikidataReceiveListener() {
-                    @Override
-                    public void onWikidataReceived(Map<PageTitle, String> result) {
-                        if (!parentFragment.isAdded()) {
-                            return;
-                        }
-                        if (result.containsKey(pageTitle)) {
-                            final String description = result.get(pageTitle);
-                            if (!TextUtils.isEmpty(description)) {
-                                layoutWikiDataDescription(description);
-                            }
-                        }
-                    }
-                    @Override
-                    public void onWikidataFailed(Throwable caught) {
-                        // don't care
-                    }
-                });
+            if (!TextUtils.isEmpty(parentFragment.getPage().getTitle().getDescription())) {
+                layoutWikiDataDescription(parentFragment.getPage().getTitle().getDescription());
+            }
         }
     }
 

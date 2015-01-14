@@ -15,10 +15,13 @@ import java.net.URLEncoder;
 import java.util.Arrays;
 
 /**
- * Immutable value object representing the text of a page.
+ * Represents certain vital information about a page, including the title, namespace,
+ * and fragment (section anchor target).  It can also contain a thumbnail URL for the
+ * page, and a short description retrieved from Wikidata.
  *
- * Points to a specific page in a specific namespace on a specific site.
- * Is immutable.
+ * WARNING: This class is not immutable! Specifically, the thumbnail URL and the Wikidata
+ * description can be altered after construction. Therefore do NOT rely on all the fields
+ * of a PageTitle to remain constant for the lifetime of the object.
  */
 public class PageTitle implements Parcelable {
     private final String namespace;
@@ -106,6 +109,10 @@ public class PageTitle implements Parcelable {
 
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getDisplayText() {

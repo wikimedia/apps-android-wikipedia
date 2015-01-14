@@ -40,7 +40,6 @@ import org.wikipedia.savedpages.SavedPagePersister;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.search.RecentSearchPersister;
 import org.wikipedia.settings.PrefKeys;
-import org.wikipedia.wikidata.WikidataCache;
 import org.wikipedia.zero.WikipediaZeroHandler;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -134,11 +133,6 @@ public class WikipediaApp extends Application {
         return zeroHandler;
     }
 
-    private WikidataCache wikidataCache;
-    public WikidataCache getWikidataCache() {
-        return wikidataCache;
-    }
-
     /**
      * Our page cache, which discards the eldest entries based on access time.
      * This will allow the user to go "back" smoothly (the previous page is guaranteed
@@ -206,7 +200,6 @@ public class WikipediaApp extends Application {
         }
 
         zeroHandler = new WikipediaZeroHandler(this);
-        wikidataCache = new WikidataCache(this);
         pageCache = new PageCache();
 
         new PerformMigrationsTask().execute();

@@ -6,7 +6,7 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.pageimages.PageImagesTask;
-import org.wikipedia.wikidata.WikidataCache;
+import org.wikipedia.wikidata.GetDescriptionsTask;
 import com.squareup.picasso.Picasso;
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -30,7 +30,6 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     private final DisambigResult[] items;
     private final WikipediaApp app;
     private final Site site;
-    private final WikidataCache wikidataCache;
 
     /**
      * Constructor
@@ -44,7 +43,6 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         app = (WikipediaApp) getContext().getApplicationContext();
         site = app.getPrimarySite();
         requestPageImages();
-        wikidataCache = app.getWikidataCache();
         fetchDescriptions();
     }
 
@@ -97,17 +95,16 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
             return;
         }
 
-        wikidataCache.get(titleList, new WikidataCache.OnWikidataReceiveListener() {
+        new GetDescriptionsTask(app.getPrimarySiteApi(), site, titleList) {
             @Override
-            public void onWikidataReceived(Map<PageTitle, String> result) {
+            public void onFinish(Map<PageTitle, Void> result) {
                 notifyDataSetChanged();
             }
-
             @Override
-            public void onWikidataFailed(Throwable caught) {
+            public void onCatch(Throwable caught) {
                 // descriptions are expendable
             }
-        });
+        }.execute();
     }
 
     class ViewHolder {
@@ -134,7 +131,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         final DisambigResult item = items[position];
         holder.title.setText(item.getTitle().getPrefixedText());
 
-        holder.description.setText(wikidataCache.get(item.getTitle()));
+        holder.description.setText(item.getTitle().getDescription());
 
         String thumbnail = pageImagesCache.get(item.getTitle().getPrefixedText());
         if (thumbnail == null) {

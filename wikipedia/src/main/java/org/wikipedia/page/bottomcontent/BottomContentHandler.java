@@ -35,11 +35,8 @@ import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.page.SuggestionsTask;
 import org.wikipedia.search.FullSearchArticlesTask;
 import org.wikipedia.views.ObservableWebView;
-import org.wikipedia.wikidata.WikidataCache;
-import org.wikipedia.wikidata.WikidataDescriptionFeeder;
 
 import java.util.List;
-import java.util.Map;
 
 public class BottomContentHandler implements ObservableWebView.OnScrollChangeListener,
         ObservableWebView.OnContentHeightChangedListener {
@@ -300,26 +297,11 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle title = (PageTitle) adapter.getItem(position);
                 HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-                // always add the description of the item to the cache so we don't even try to get it again
-                app.getWikidataCache().put(title.toString(), title.getDescription());
                 activity.displayNewPage(title, historyEntry);
                 funnel.logSuggestionClicked(pageTitle, results.getPageTitles(), position);
             }
         });
-
-        WikidataDescriptionFeeder.retrieveWikidataDescriptions(results.getResults(), app,
-                new WikidataCache.OnWikidataReceiveListener() {
-                    @Override
-                    public void onWikidataReceived(Map<PageTitle, String> result) {
-                        adapter.notifyDataSetChanged();
-                    }
-
-                    @Override
-                    public void onWikidataFailed(Throwable caught) {
-                        // Don't actually do anything.
-                        // Descriptions are expendable
-                    }
-                });
+        adapter.notifyDataSetChanged();
     }
 
     private final class ReadMoreAdapter extends BaseAdapter {

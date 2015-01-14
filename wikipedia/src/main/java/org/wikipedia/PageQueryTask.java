@@ -24,7 +24,7 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle, T>> {
 
     public PageQueryTask(int concurrencyLevel, Api api, Site site, PageTitle title) {
         super(concurrencyLevel, api);
-        this.titles = new ArrayList<PageTitle>();
+        this.titles = new ArrayList<>();
         titles.add(title);
         this.site = site;
     }
@@ -40,7 +40,7 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle, T>> {
 
     @Override
     public Map<PageTitle, T> processResult(ApiResult result) throws Throwable {
-        Map<PageTitle, T> map = new HashMap<PageTitle, T>();
+        Map<PageTitle, T> map = new HashMap<>();
         JSONObject data = result.asObject();
         JSONObject query = data.getJSONObject("query");
         JSONObject pages = query.getJSONObject("pages");

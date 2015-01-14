@@ -12,12 +12,15 @@ import org.wikipedia.Utils;
 import java.util.List;
 
 /**
- * Retrieves Wikidata descriptions via a Wikipedia site.
+ * Populates a list of PageTitles with Wikidata descriptions for each item.
+ * This task doesn't "return" anything; it simply modifies the PageTitle objects in place.
  */
-public class GetDescriptionsTask extends PageQueryTask<String> {
+public class GetDescriptionsTask extends PageQueryTask<Void> {
+    private List<PageTitle> titles;
 
     public GetDescriptionsTask(Api api, Site site, List<PageTitle> titles) {
         super(LOW_CONCURRENCY, api, site, titles);
+        this.titles = titles;
     }
 
     @Override
@@ -27,12 +30,17 @@ public class GetDescriptionsTask extends PageQueryTask<String> {
     }
 
     @Override
-    public String processPage(int pageId, PageTitle pageTitle, JSONObject pageData) throws Throwable {
+    public Void processPage(int pageId, PageTitle pageTitle, JSONObject pageData) throws Throwable {
         JSONObject terms = pageData.optJSONObject("terms");
         if (terms != null) {
             final JSONArray array = terms.optJSONArray("description");
             if (array != null && array.length() > 0) {
-                return Utils.capitalizeFirstChar(array.getString(0));
+                for (PageTitle title : titles) {
+                    if (title.getPrefixedText().equals(pageTitle.getPrefixedText())) {
+                        title.setDescription(Utils.capitalizeFirstChar(array.getString(0)));
+                        break;
+                    }
+                }
             }
         }
         return null;

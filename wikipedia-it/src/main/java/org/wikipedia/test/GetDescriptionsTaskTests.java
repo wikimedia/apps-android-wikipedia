@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -47,9 +48,13 @@ public class GetDescriptionsTaskTests extends ActivityUnitTestCase<TestDummyActi
                 final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
                 new GetDescriptionsTask(app.getAPIForSite(SITE), SITE, idList) {
                     @Override
-                    public void onFinish(Map<PageTitle, String> descriptionsMap) {
+                    public void onFinish(Map<PageTitle, Void> descriptionsMap) {
                         assertNotNull(descriptionsMap);
                         assertEquals(descriptionsMap.size(), idList.size());
+                        Iterator<PageTitle> iter = descriptionsMap.keySet().iterator();
+                        while (iter.hasNext()) {
+                            assertNotNull(iter.next().getDescription());
+                        }
                         completionLatch.countDown();
                     }
                 }.execute();
