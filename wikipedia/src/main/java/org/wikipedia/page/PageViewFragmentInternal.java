@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import org.wikipedia.BackPressedHandler;
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
@@ -77,7 +78,7 @@ import java.util.Map;
  * of PageViewFragments to be in the backstack of the FragmentManager, without significantly
  * impacting memory usage.
  */
-public class PageViewFragmentInternal {
+public class PageViewFragmentInternal implements BackPressedHandler {
     private static final String TAG = "PageViewFragmentInternal";
 
     public static final int STATE_NO_FETCH = 1;
@@ -695,6 +696,7 @@ public class PageViewFragmentInternal {
         final FindInPageActionProvider findInPageActionProvider = new FindInPageActionProvider(pageActivity);
 
         pageActivity.startSupportActionMode(new ActionMode.Callback() {
+            private final String actionModeTag = "actionModeFindInPage";
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 findInPageActionMode = mode;
@@ -705,6 +707,7 @@ public class PageViewFragmentInternal {
 
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                mode.setTag(actionModeTag);
                 return false;
             }
 
@@ -1106,7 +1109,7 @@ public class PageViewFragmentInternal {
         }
     }
 
-    public boolean handleBackPressed() {
+    public boolean onBackPressed() {
         if (tocHandler != null && tocHandler.isVisible()) {
             tocHandler.hide();
             return true;

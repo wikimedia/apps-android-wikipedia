@@ -25,6 +25,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+
+import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
@@ -33,7 +35,7 @@ import org.wikipedia.pageimages.PageImage;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class HistoryFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class HistoryFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, BackPressedHandler {
     // make sure this number is unique among other fragments that use a loader
     private static final int LOADER_ID = 100;
 
@@ -120,6 +122,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                 }
                 historyEntryList.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
                 actionMode = ((ActionBarActivity)getActivity()).startSupportActionMode(new ActionMode.Callback() {
+                    private final String actionModeTag = "actionModeHistory";
                     @Override
                     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                         mode.getMenuInflater().inflate(R.menu.menu_history_context, menu);
@@ -128,6 +131,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
                     @Override
                     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                        mode.setTag(actionModeTag);
                         return false;
                     }
 
@@ -172,6 +176,14 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     public void onDestroyView() {
         getActivity().getSupportLoaderManager().destroyLoader(LOADER_ID);
         super.onDestroyView();
+    }
+
+    public boolean onBackPressed() {
+        if (actionMode != null) {
+            actionMode.finish();
+            return true;
+        }
+        return false;
     }
 
     @Override

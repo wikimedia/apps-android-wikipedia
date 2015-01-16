@@ -19,6 +19,8 @@ import android.util.SparseBooleanArray;
 import android.view.*;
 import android.widget.*;
 import com.squareup.picasso.Picasso;
+
+import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
@@ -27,7 +29,7 @@ import org.wikipedia.pageimages.PageImage;
 
 import java.util.ArrayList;
 
-public class SavedPagesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class SavedPagesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, BackPressedHandler {
     // make sure this number is unique among other fragments that use a loader
     private static final int LOADER_ID = 101;
 
@@ -79,6 +81,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                 }
                 savedPagesList.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
                 actionMode = ((ActionBarActivity)getActivity()).startSupportActionMode(new ActionMode.Callback() {
+                    private final String actionModeTag = "actionModeSavedPages";
                     @Override
                     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                         mode.getMenuInflater().inflate(R.menu.menu_saved_pages_context, menu);
@@ -87,6 +90,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
                     @Override
                     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                        mode.setTag(actionModeTag);
                         return false;
                     }
 
@@ -187,6 +191,14 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     public void onDestroyView() {
         getActivity().getSupportLoaderManager().destroyLoader(LOADER_ID);
         super.onDestroyView();
+    }
+
+    public boolean onBackPressed() {
+        if (actionMode != null) {
+            actionMode.finish();
+            return true;
+        }
+        return false;
     }
 
     @Override

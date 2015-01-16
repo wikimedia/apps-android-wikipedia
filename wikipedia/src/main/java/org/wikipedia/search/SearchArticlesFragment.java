@@ -1,5 +1,6 @@
 package org.wikipedia.search;
 
+import org.wikipedia.BackPressedHandler;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
@@ -29,7 +30,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class SearchArticlesFragment extends Fragment {
+public class SearchArticlesFragment extends Fragment implements BackPressedHandler {
     private static final String ARG_LAST_SEARCHED_TEXT = "lastSearchedText";
     private static final String ARG_SEARCH_CURRENT_PANEL = "searchCurrentPanel";
 

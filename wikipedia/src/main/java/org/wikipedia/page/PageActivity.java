@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import org.acra.ACRA;
+import org.wikipedia.BackPressedHandler;
 import org.wikipedia.NavDrawerFragment;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
@@ -544,7 +545,11 @@ public class PageActivity extends ThemedActionBarActivity {
         if (searchFragment.onBackPressed()) {
             return;
         }
-        if (!(getCurPageFragment() != null && getCurPageFragment().handleBackPressed())) {
+        if (getTopFragment() instanceof BackPressedHandler
+                && ((BackPressedHandler) getTopFragment()).onBackPressed()) {
+            return;
+        }
+        if (!(getCurPageFragment() != null && getCurPageFragment().onBackPressed())) {
 
             app.getSessionFunnel().backPressed();
 
@@ -764,9 +769,13 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
+        // Check what kind of ActionMode this is...
+        // If its tag is non-null, it means that the ActionMode is one of ours (History,
+        // Saved Pages, or Find In Page). Otherwise, it must be the default WebView text-
+        // highlighting ActionMode, in which case we'll invoke the Share adapter!
         if (WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_ALPHA
                 && snippetShareAdapter == null
-                && SnippetShareAdapter.isTextSelectionMenu(mode.getMenu())) {
+                && mode.getTag() == null) {
             snippetShareAdapter = new SnippetShareAdapter(this);
             snippetShareAdapter.onTextSelected(mode);
         }
