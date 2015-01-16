@@ -34,8 +34,7 @@ public class SearchArticlesFragment extends Fragment {
     private static final String ARG_SEARCH_CURRENT_PANEL = "searchCurrentPanel";
 
     private static final int PANEL_RECENT_SEARCHES = 0;
-    private static final int PANEL_TITLE_SEARCH = 1;
-    private static final int PANEL_FULL_SEARCH = 2;
+    private static final int PANEL_SEARCH_RESULTS = 1;
 
     private WikipediaApp app;
     private SearchView searchView;
@@ -62,21 +61,8 @@ public class SearchArticlesFragment extends Fragment {
      */
     private View searchContainerView;
 
-    /**
-     * View that contains the two types of search result fragments (Title and Full), as well
-     * as the buttons to switch between the two.
-     */
-    private View searchTypesContainer;
-
-    /**
-     * Whether full-text search has been disabled via remote kill-switch.
-     * TODO: remove this when we're comfortable that it won't melt down the servers.
-     */
-    private boolean fullSearchDisabled = false;
-
     private RecentSearchesFragment recentSearchesFragment;
-    private TitleSearchFragment titleSearchFragment;
-    private FullSearchFragment fullSearchFragment;
+    private SearchResultsFragment searchResultsFragment;
 
     public SearchArticlesFragment() {
     }
@@ -128,31 +114,10 @@ public class SearchArticlesFragment extends Fragment {
         app.adjustDrawableToTheme(((ImageView)deleteButton).getDrawable());
 
         recentSearchesFragment = (RecentSearchesFragment)getChildFragmentManager().findFragmentById(R.id.search_panel_recent);
-        searchTypesContainer = parentLayout.findViewById(R.id.search_panel_types);
 
-        titleSearchFragment = (TitleSearchFragment)getChildFragmentManager().findFragmentById(R.id.fragment_search_title);
-        titleSearchFragment.setOnResultsCountListener(new TitleSearchFragment.OnResultsCountListener() {
-            @Override
-            public void onResultsCount(int count) {
-                final int minTitleResults = 5;
-                if (count >= minTitleResults) {
-                    // got enough title results, so don't switch over to full text.
-                    return;
-                }
-                if (fullSearchDisabled) {
-                    // full-text search disabled by kill-switch
-                    return;
-                }
-                //automatically switch to full-text search!
-                showPanel(PANEL_FULL_SEARCH);
-                startSearch(lastSearchedText, true);
-                funnel.searchAutoSwitch();
-            }
-        });
+        searchResultsFragment = (SearchResultsFragment)getChildFragmentManager().findFragmentById(R.id.fragment_search_results);
 
-        fullSearchFragment = (FullSearchFragment)getChildFragmentManager().findFragmentById(R.id.fragment_search_full);
-
-        //make sure we're hidden by default
+        // make sure we're hidden by default
         searchContainerView.setVisibility(View.GONE);
 
         if (savedInstanceState != null) {
@@ -191,28 +156,19 @@ public class SearchArticlesFragment extends Fragment {
     /**
      * Show a particular panel, which can be one of:
      * - PANEL_RECENT_SEARCHES
-     * - PANEL_TITLE_SEARCH
-     * - PANEL_FULL_SEARCH
+     * - PANEL_SEARCH_RESULTS
      * Automatically hides the previous panel.
      * @param panel Which panel to show.
      */
     private void showPanel(int panel) {
-        searchTypesContainer.setVisibility(View.GONE);
-        recentSearchesFragment.hide();
-        titleSearchFragment.hide();
-        fullSearchFragment.hide();
-
         switch (panel) {
             case PANEL_RECENT_SEARCHES:
+                searchResultsFragment.hide();
                 recentSearchesFragment.show();
                 break;
-            case PANEL_TITLE_SEARCH:
-                searchTypesContainer.setVisibility(View.VISIBLE);
-                titleSearchFragment.show();
-                break;
-            case PANEL_FULL_SEARCH:
-                searchTypesContainer.setVisibility(View.VISIBLE);
-                fullSearchFragment.show();
+            case PANEL_SEARCH_RESULTS:
+                recentSearchesFragment.hide();
+                searchResultsFragment.show();
                 break;
             default:
                 break;
@@ -220,15 +176,12 @@ public class SearchArticlesFragment extends Fragment {
     }
 
     private int getActivePanel() {
-        if (searchTypesContainer.getVisibility() == View.VISIBLE) {
-            if (titleSearchFragment.isShowing()) {
-                return PANEL_TITLE_SEARCH;
-            } else if (fullSearchFragment.isShowing()) {
-                return PANEL_FULL_SEARCH;
-            }
+        if (searchResultsFragment.isShowing()) {
+            return PANEL_SEARCH_RESULTS;
+        } else {
+            //otherwise, the recent searches must be showing:
+            return PANEL_RECENT_SEARCHES;
         }
-        //otherwise, the recent searches must be showing:
-        return PANEL_RECENT_SEARCHES;
     }
 
     @Subscribe
@@ -254,25 +207,12 @@ public class SearchArticlesFragment extends Fragment {
             showPanel(PANEL_RECENT_SEARCHES);
         } else if (getActivePanel() == PANEL_RECENT_SEARCHES) {
             //start with title search...
-            showPanel(PANEL_TITLE_SEARCH);
+            showPanel(PANEL_SEARCH_RESULTS);
         }
 
-        if (!TextUtils.isEmpty(lastSearchedText) && !TextUtils.isEmpty(term)) {
-            if (term.startsWith(lastSearchedText)) {
-                // they just typed another character, so continue with whatever search was
-                // last active
-            } else {
-                // it's an entirely new search term, so default to title search
-                showPanel(PANEL_TITLE_SEARCH);
-            }
-        }
         lastSearchedText = term;
 
-        if (getActivePanel() == PANEL_TITLE_SEARCH) {
-            titleSearchFragment.startSearch(term, force);
-        } else if (getActivePanel() == PANEL_FULL_SEARCH) {
-            fullSearchFragment.startSearch(term, force);
-        }
+        searchResultsFragment.startSearch(term, force);
     }
 
     /**
@@ -290,11 +230,6 @@ public class SearchArticlesFragment extends Fragment {
         ((PageActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(false);
         // show ourselves
         searchContainerView.setVisibility(View.VISIBLE);
-
-        // find out whether full-text search has been disabled remotely, and
-        // hide the title/full switcher buttons accordingly.
-        fullSearchDisabled = app.getRemoteConfig().getConfig()
-                .optBoolean("disableFullTextSearch", false);
 
         // if the current search string is empty, then it's a fresh start, so we'll show
         // recent searches by default. Otherwise, the currently-selected panel should already
@@ -408,14 +343,12 @@ public class SearchArticlesFragment extends Fragment {
     private final SearchView.OnQueryTextListener searchQueryListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String queryText) {
-            PageTitle firstSuggestion = null;
-            if (getActivePanel() == PANEL_TITLE_SEARCH) {
-                firstSuggestion = titleSearchFragment.getFirstSuggestion();
-            } else if (getActivePanel() == PANEL_FULL_SEARCH) {
-                firstSuggestion = fullSearchFragment.getFirstSuggestion();
+            PageTitle firstResult = null;
+            if (getActivePanel() == PANEL_SEARCH_RESULTS) {
+                firstResult = searchResultsFragment.getFirstResult();
             }
-            if (firstSuggestion != null) {
-                navigateToTitle(firstSuggestion);
+            if (firstResult != null) {
+                navigateToTitle(firstResult);
                 closeSearch();
             }
             return true;
@@ -436,10 +369,6 @@ public class SearchArticlesFragment extends Fragment {
             return false;
         }
     };
-
-    private void navigateToTitle(String queryText) {
-        navigateToTitle(new PageTitle(queryText, app.getPrimarySite(), null));
-    }
 
     public void navigateToTitle(PageTitle title) {
         if (!isAdded()) {

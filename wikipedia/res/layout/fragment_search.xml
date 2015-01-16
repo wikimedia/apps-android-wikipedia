@@ -9,31 +9,12 @@
     android:background="?attr/search_background_color"
     android:paddingTop="?attr/actionBarSize">
 
-    <LinearLayout
-        android:id="@+id/search_panel_types"
+    <fragment
+        android:id="@+id/fragment_search_results"
+        android:name="org.wikipedia.search.SearchResultsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="?attr/list_separator_color" />
-
-        <FrameLayout
-            android:id="@+id/search_types_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <fragment android:layout_width="match_parent" android:layout_height="match_parent"
-                android:id="@+id/fragment_search_title"
-                android:name="org.wikipedia.search.TitleSearchFragment"
-                tools:layout="@layout/fragment_search_title"/>
-
-            <fragment android:layout_width="match_parent" android:layout_height="match_parent"
-                android:id="@+id/fragment_search_full"
-                android:name="org.wikipedia.search.FullSearchFragment"
-                tools:layout="@layout/fragment_search_full"/>
-        </FrameLayout>
-
-    </LinearLayout>
+        tools:layout="@layout/fragment_search_results" />
 
     <fragment android:layout_width="match_parent" android:layout_height="match_parent"
         android:id="@+id/search_panel_recent"
