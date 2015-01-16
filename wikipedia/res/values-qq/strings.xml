@@ -178,7 +178,9 @@ See also:
   <string name="edit_section_activity_title">Title for screen where user is editing a single section.</string>
   <string name="create_account_password_repeat_hint">{{Identical|Repeat password}}</string>
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
-  <string name="create_account_username_exists_error">Used as error message on creating a user account.</string>
+  <string name="create_account_username_exists_error">Used as error message on creating a user account where the username already exists.</string>
+  <string name="create_account_ip_throttle_error">Used as an error message on creating a user account where the user's IP has created too many accounts already and hit the account creation throttle.</string>
+  <string name="create_account_open_proxy_error">Used as error message on creating a user account where the user is trying to create an account from a blocked open proxy.</string>
   <string name="create_account_noname_error">Used as an error message during account creation when the account creation failed because username that was provided is invalid.</string>
   <string name="create_account_invalid_email_error">Used as an error message during account creation when the account creation failed because the email that was provided is invalid.</string>
   <string name="create_account_password_too_short_error">Used as an error message during account creation when the account creation failed because the password that was entered is too short.</string>
@@ -191,6 +193,7 @@ See also:
 See also:
 * {{msg-wm|Wikipedia-android-strings-create account blocked anon error}}</string>
   <string name="create_account_password_name_match_error">Used as an error message during account creation when the the account creation failed because the username and password provided are the same.</string>
+  <string name="create_account_generic_error">Used as a generic error message during account creation when a more specific error message cannot be given to the user.</string>
   <string name="create_account_no_network">Message shown when the network is unavailable during account creation</string>
   <string name="create_account_next">Button text on Create Account screen to go \"next\" (to CAPTCHA).
 {{Identical|Next}}</string>
