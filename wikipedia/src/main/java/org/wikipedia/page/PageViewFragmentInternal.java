@@ -807,7 +807,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
         public List<Section> processResult(ApiResult result) throws Throwable {
             JSONObject mobileView = result.asObject().optJSONObject("mobileview");
             if (mobileView != null) {
-                pageProperties = PageProperties.parseJSON(mobileView);
+                pageProperties = new PageProperties(mobileView);
                 if (mobileView.has("redirected")) {
                     // Handle redirects properly.
                     title = new PageTitle(mobileView.optString("redirected"), title.getSite(), title.getThumbUrl());

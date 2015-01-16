@@ -39,7 +39,7 @@ public class GetDescriptionsTaskTests extends ActivityUnitTestCase<TestDummyActi
     }
 
     public void getWikidataDescriptions(final PageTitle[] ids) throws Throwable {
-        final ArrayList<PageTitle> idList = new ArrayList<PageTitle>(Arrays.asList(ids));
+        final ArrayList<PageTitle> idList = new ArrayList<>(Arrays.asList(ids));
         startActivity(new Intent(), null, null);
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
@@ -51,9 +51,8 @@ public class GetDescriptionsTaskTests extends ActivityUnitTestCase<TestDummyActi
                     public void onFinish(Map<PageTitle, Void> descriptionsMap) {
                         assertNotNull(descriptionsMap);
                         assertEquals(descriptionsMap.size(), idList.size());
-                        Iterator<PageTitle> iter = descriptionsMap.keySet().iterator();
-                        while (iter.hasNext()) {
-                            assertNotNull(iter.next().getDescription());
+                        for (PageTitle title : idList) {
+                            assertNotNull(title.getDescription());
                         }
                         completionLatch.countDown();
                     }

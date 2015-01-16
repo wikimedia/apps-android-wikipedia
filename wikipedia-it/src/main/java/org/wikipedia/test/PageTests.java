@@ -1,6 +1,7 @@
 package org.wikipedia.test;
 
 import junit.framework.TestCase;
+import org.json.JSONObject;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.page.Page;
@@ -21,9 +22,7 @@ public class PageTests extends TestCase {
             sections.add(new Section(i, 1, "Something " + i, "Something_" + i, "Content Something" + i));
         }
         PageTitle title = new PageTitle(null, "Test", new Site("en.wikipedia.org"));
-        final int pageId = 15580374;
-        final int revId = 615503846;
-        PageProperties props = new PageProperties(pageId, revId, "2001-02-03T04:00:00Z", "Test", null, true, true, null, null);
+        PageProperties props = new PageProperties(new JSONObject("{\"id\":15580374,\"displaytitle\":\"Test\",\"revision\":615503846,\"lastmodified\":\"2001-02-03T04:00:00Z\",\"editable\":true,\"mainpage\":true}"));
         Page page = new Page(title, sections, props);
         assertEquals(page, new Page(page.toJSON()));
     }

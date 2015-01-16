@@ -115,6 +115,6 @@ public class Page {
         for (int i = 0; i < sectionsJSON.length(); i++) {
             sections.add(new Section(sectionsJSON.optJSONObject(i)));
         }
-        pageProperties = PageProperties.parseJSON(json.optJSONObject("properties"));
+        pageProperties = new PageProperties(json.optJSONObject("properties"));
     }
 }

@@ -40,7 +40,7 @@ public class RefreshSavedPageTask extends SectionsFetchTask {
     public List<Section> processResult(ApiResult result) throws Throwable {
         JSONObject mobileView = result.asObject().optJSONObject("mobileview");
         if (mobileView != null) {
-            PageProperties pageProperties = PageProperties.parseJSON(mobileView);
+            PageProperties pageProperties = new PageProperties(mobileView);
             List<Section> sections = super.processResult(result);
             final Page page = new Page(savedPage.getTitle(), (ArrayList<Section>) sections, pageProperties);
             final CountDownLatch savePagesLatch = new CountDownLatch(1);

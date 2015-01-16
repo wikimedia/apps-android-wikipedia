@@ -3,6 +3,7 @@ package org.wikipedia.test;
 import android.os.Parcel;
 import android.os.Parcelable;
 import junit.framework.TestCase;
+import org.json.JSONObject;
 import org.wikipedia.PageTitle;
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.Site;
@@ -51,9 +52,7 @@ public class ParcelableTest extends TestCase {
             sections.add(new Section(i, 1, "Something " + i, "Something_" + i, "Content Something" + i));
         }
         PageTitle title = new PageTitle(null, "Test", new Site("en.wikipedia.org"));
-        final int pageId = 15580374;
-        final int revId = 615503846;
-        PageProperties props = new PageProperties(pageId, revId, "", "Something", "autoconfirmed", false, false, null, null);
+        PageProperties props = new PageProperties(new JSONObject("{\"protection\":{\"edit\":[\"autoconfirmed\"],\"move\":[\"sysop\"]},\"id\":15580374,\"displaytitle\":\"Something\",\"revision\":615503846,\"lastmodified\":\"\",\"editable\":false,\"mainpage\":false}"));
         parcelAndTestObjects(title);
         parcelAndTestObjects(props);
     }

@@ -36,30 +36,35 @@ public class PageProperties implements Parcelable {
 
     /**
      * Create a new PageProperties object.
-     *
-     * @param lastModifiedText Last modified date in ISO8601 format
-     * @param displayTitleText The title to be displayed for this page
-     * @param editProtectionStatus The edit protection status applied to this page
+     * @param json JSON object from which this item will be built.
      */
-    public PageProperties(int pageId, long revisionId,
-                          String lastModifiedText, String displayTitleText,
-                          String editProtectionStatus, boolean canEdit, boolean isMainPage,
-                          String leadImageUrl, String leadImageName) {
-        this.pageId = pageId;
-        this.revisionId = revisionId;
+    public PageProperties(JSONObject json) {
+        pageId = json.optInt("id");
+        revisionId = json.optLong("revision");
+        displayTitleText = json.optString("displaytitle");
+        // Mediawiki API is stupid!
+        if (!(json.opt("protection") instanceof JSONArray)
+            && json.optJSONObject("protection") != null
+            && json.optJSONObject("protection").has("edit")
+                ) {
+            editProtectionStatus = json.optJSONObject("protection").optJSONArray("edit").optString(0);
+        } else {
+            editProtectionStatus = null;
+        }
+        JSONObject thumb = json.optJSONObject("thumb");
+        leadImageUrl = thumb != null ? thumb.optString("url") : null;
+        JSONObject image = json.optJSONObject("image");
+        leadImageName = image != null ? image.optString("file") : null;
         lastModified = new Date();
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        String lastModifiedText = json.optString("lastmodified");
         try {
             lastModified.setTime(sdf.parse(lastModifiedText).getTime());
         } catch (ParseException e) {
             Log.d("PageProperties", "Failed to parse date: " + lastModifiedText);
         }
-        this.displayTitleText = displayTitleText;
-        this.editProtectionStatus = editProtectionStatus;
-        this.canEdit = canEdit;
-        this.isMainPage = isMainPage;
-        this.leadImageUrl = leadImageUrl;
-        this.leadImageName = leadImageName;
+        canEdit = json.optBoolean("editable");
+        isMainPage = json.has("mainpage");
     }
 
     public int getPageId() {
@@ -217,42 +222,5 @@ public class PageProperties implements Parcelable {
         }
 
         return json;
-    }
-
-    /**
-     * Construct a PageProperties object from JSON returned either from mobileview or toJSON
-     *
-     * @param json JSON generated either by action=mobileview or by toJSON()
-     */
-    public static PageProperties parseJSON(JSONObject json) {
-        String editProtection = null;
-        // Mediawiki API is stupid!
-        if (!(json.opt("protection") instanceof JSONArray)
-                && json.optJSONObject("protection") != null
-                && json.optJSONObject("protection").has("edit")
-                ) {
-            editProtection = json.optJSONObject("protection").optJSONArray("edit").optString(0);
-        }
-        String leadImageUrl = null;
-        JSONObject thumb = json.optJSONObject("thumb");
-        if (thumb != null) {
-            leadImageUrl = thumb.optString("url");
-        }
-        String leadImageName = null;
-        JSONObject image = json.optJSONObject("image");
-        if (image != null) {
-            leadImageName = image.optString("file");
-        }
-        return new PageProperties(
-                json.optInt("id"),
-                json.optLong("revision"),
-                json.optString("lastmodified"),
-                json.optString("displaytitle"),
-                editProtection,
-                json.optBoolean("editable"),
-                json.has("mainpage"),
-                leadImageUrl,
-                leadImageName
-        );
     }
 }
