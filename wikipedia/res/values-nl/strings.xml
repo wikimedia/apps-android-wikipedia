@@ -5,8 +5,8 @@
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="yes">Ja</string>
   <string name="no">Nee</string>
-  <string name="acra_report_dialog_title">De apps is gecrashed :(</string>
-  <string name="acra_report_dialog_text">Crashmelding naar ons sturen</string>
+  <string name="acra_report_dialog_title">Wikipedia is gecrasht :(</string>
+  <string name="acra_report_dialog_text">Stuur ons een crashrapport</string>
   <string name="acra_report_dialog_comment">Wat was u aan het doen toen de crash optrad?</string>
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="history_activity_title">Geschiedenis</string>
@@ -19,7 +19,7 @@
   <string name="menu_clear_all_saved_pages">Opgeslagen pagina\'s verwijderen</string>
   <string name="page_does_not_exist_error">Deze pagina bestaat niet.</string>
   <string name="nav_item_today">Vandaag</string>
-  <string name="dialog_title_clear_history">Browsegeschiedenis wissen?</string>
+  <string name="dialog_title_clear_history">Browsergeschiedenis wissen?</string>
   <string name="saved_pages_activity_title">Opgeslagen pagina\'s</string>
   <string name="nav_item_saved_pages">Opgeslagen pagina\'s</string>
   <string name="menu_update_all_saved_pages">Opgeslagen pagina\'s bijwerken</string>
@@ -117,7 +117,7 @@
   <string name="create_account_password_hint">Wachtwoord</string>
   <string name="menu_create_account">Registreren</string>
   <string name="login_create_account_link">Nog niet geregistreerd? Word lid van Wikipedia</string>
-  <string name="create_account_login_link">Hebt u al een gebruiker? Meld u aan</string>
+  <string name="create_account_login_link">Hebt u al een gebruikersnaam? Meld u aan</string>
   <string name="create_account_activity_title">Gebruiker aanmaken</string>
   <string name="edit_section_activity_title">Paragraaf bewerken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>

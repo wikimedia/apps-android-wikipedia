@@ -281,5 +281,6 @@ El código es completamente abierto. Si tienes experiencia con Java y el SDK de 
   <string name="gallery_save_error">No se pudo guardar la imagen: %s</string>
   <string name="gallery_save_success">Imagen guardada correctamente.</string>
   <string name="err_cannot_save_file">No puede guardar el archivo</string>
+  <string name="snippet_share_intro">\"%1$s\" en @Wikipedia: %2$s</string>
   <string name="expand_refs">Pulsa para ampliar</string>
 </resources>

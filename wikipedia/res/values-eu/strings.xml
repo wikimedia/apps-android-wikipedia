@@ -44,6 +44,7 @@
   <string name="menu_other_languages">Irakurri beste hizkuntzetan</string>
   <string name="langlinks_error_retry">Saiatu berriro</string>
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>
+  <string name="settings_activity_title">Ezarpenak</string>
   <string name="langlinks_activity_title">Beste hizkuntzak</string>
   <string name="menu_save_changes">Aldaketak gorde</string>
   <string name="edit_section_error_retry">Saiatu berriro</string>
@@ -71,8 +72,10 @@
   <string name="create_account_next">Hurrengoa</string>
   <string name="create_account_button">Kontua sortu</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+  <string name="user_contribs_more_action">Gehiago kargatu</string>
   <string name="activity_my_contributions_title">Nire Ekarpenak</string>
   <string name="nav_item_my_contributions">Nire ekarpenak</string>
+  <string name="history_search_list_hint">Bilatu</string>
   <string name="more_item_preferences">Gehiago</string>
   <string name="more_activity_title">Gehiago</string>
   <string name="about_description">Wikipediaren aplikazioari buruz</string>

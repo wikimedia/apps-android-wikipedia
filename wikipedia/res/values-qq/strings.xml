@@ -178,7 +178,7 @@ See also:
   <string name="edit_section_activity_title">Title for screen where user is editing a single section.</string>
   <string name="create_account_password_repeat_hint">{{Identical|Repeat password}}</string>
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
-  <string name="create_account_username_exists_error">Used as error message on creating a user account where the username already exists.</string>
+  <string name="create_account_username_exists_error">Used as error message on creating a user account.</string>
   <string name="create_account_ip_throttle_error">Used as an error message on creating a user account where the user\'s IP has created too many accounts already and hit the account creation throttle.</string>
   <string name="create_account_open_proxy_error">Used as error message on creating a user account where the user is trying to create an account from a blocked open proxy.</string>
   <string name="create_account_noname_error">Used as an error message during account creation when the account creation failed because username that was provided is invalid.</string>
@@ -384,8 +384,7 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="gallery_save_success">Toast message shown when the current image was saved successfully to the local device.</string>
   <string name="err_cannot_save_file">Error message when we detect that a file cannot be written to storage.</string>
   <string name="snippet_share_intro">Intro text included as part of the shared text snippet, aka Tweet-a-fact. Please do not translate the \"@Wikipedia\" in the message and preserve the spaces around it, as it refers specifically to Wikipedia\'s Twitter account. This message has two parameters. Please keep the parameters exactly as in the original English message.
-    * The first parameter is the title of the page the text snippet is from.
-    * The second parameter is an HTML link to the page.
-  </string>
+* %1$s is the title of the page the text snippet is from.
+* %2$s is an HTML link to the page.</string>
   <string name="expand_refs">Title for a button that, when clicked, will expand the list of references or notes at the bottom of a page.</string>
 </resources>

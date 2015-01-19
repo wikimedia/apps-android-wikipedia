@@ -279,4 +279,7 @@
   <string name="gallery_menu_save">שמירה למכשיר</string>
   <string name="gallery_save_error">לא היה ניתן לשמור את התמונה: %s</string>
   <string name="gallery_save_success">התמונה נשמרה בהצלחה.</string>
+  <string name="err_cannot_save_file">לא ניתן לשמור קובץ</string>
+  <string name="snippet_share_intro">\"%1$s\" בוויקיפדיה @Wikipedia: %2$s</string>
+  <string name="expand_refs">יש ללחוץ להרחבה</string>
 </resources>

@@ -42,7 +42,7 @@
   <string name="saved_pages_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
   <string name="nearby_activity_title">Poblíž</string>
   <string name="nav_item_nearby">Poblíž</string>
-  <string name="menu_update_nearby">Blíží se aktualizace</string>
+  <string name="menu_update_nearby">Aktualizovat „poblíž“</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -254,7 +254,7 @@ Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu,
   <string name="read_more_section">Číst dál</string>
   <string name="gallery_menu_more_info">Více informací</string>
   <string name="menu_gallery_visit_page">Přejít na stránku souboru</string>
-  <string name="gallery_error_draw_failed">Nemožno vykreslit obrázek.</string>
+  <string name="gallery_error_draw_failed">Nepodařilo se vykreslit obrázek.</string>
   <string name="gallery_license_text">Licence – %s</string>
   <string name="gallery_credit_text">Autor – %s</string>
   <string name="gallery_image_info">Informace o obrázku</string>

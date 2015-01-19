@@ -248,7 +248,7 @@
   <string name="toc_know_it">C’est bon !</string>
   <string name="error_browser_not_found">Impossible d’ouvrir la page web (aucune application de navigateur trouvée).</string>
   <string name="table_infobox">Faits en bref</string>
-  <string name="table_other">Plus d’information</string>
+  <string name="table_other">Plus d’informations</string>
   <string name="table_close">Fermer</string>
   <string name="app_store_description">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée. L’application a été réécrite de zéro et est meilleure que jamais.
 
@@ -268,7 +268,7 @@ Le code est entièrement ouvert. Si vous êtes expérimenté avec Java et le kit
   <string name="preference_title_show_images">Voir les images</string>
   <string name="preference_summary_show_images">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à internet est lente, ou si votre volume de données est limité.</string>
   <string name="read_more_section">En savoir plus</string>
-  <string name="gallery_menu_more_info">Plus d’information</string>
+  <string name="gallery_menu_more_info">Plus d’informations</string>
   <string name="menu_gallery_visit_page">Aller à la page du fichier</string>
   <string name="gallery_error_draw_failed">Impossible de dessiner l’image.</string>
   <string name="license_title">Texte de la licence pour la bibliothèque %s</string>

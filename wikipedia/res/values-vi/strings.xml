@@ -280,4 +280,7 @@ Mã nguồn là hoàn toàn mở. Nếu bạn có kinh nghiệm với Java và A
   <string name="gallery_menu_save">Lưu vào thiết bị</string>
   <string name="gallery_save_error">Không thể lưu hình: %s</string>
   <string name="gallery_save_success">Đã lưu hình thành công.</string>
+  <string name="err_cannot_save_file">Không thể lưu tập tin</string>
+  <string name="snippet_share_intro">“%1$s” trên @Wikipedia: %2$s</string>
+  <string name="expand_refs">Chạm để mở rộng</string>
 </resources>
