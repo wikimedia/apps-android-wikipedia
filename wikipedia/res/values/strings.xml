@@ -164,14 +164,12 @@
     <string name="zero_settings_devmode">Zero Devmode</string>
     <string name="zero_settings_devmode_summary">During development this enables code execution of Wikipedia Zero things.</string>
     <string name="edit_preview_fetching_dialog_message">Fetching preview...</string>
-    <string name="edit_preview_activity_title">Preview edit</string>
     <string name="create_account_logging_in">Logging in...</string>
     <string name="send_feedback">Send app feedback</string>
     <string name="edit_summary_guide_text">Tell us how you improved this page. This helps other editors review your edit quickly.</string>
     <string name="edit_summary_hint">Edit summary</string>
     <string name="nav_item_random">Random</string>
     <string name="random_progress">Fetching random page...</string>
-    <string name="nav_item_login_benefits">If you Log in, your edits will be associated with your username and your IP address will not be publicly visible.</string>
     <string name="create_account_account_created_toast">Account created!</string>
     <string name="user_contribs_more_action">Load more</string>
     <string name="activity_my_contributions_title">My Contributions</string>

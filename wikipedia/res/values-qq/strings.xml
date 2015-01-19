@@ -176,9 +176,12 @@ See also:
 * {{msg-wm|Wikipedia-android-strings-login create account link}}</string>
   <string name="create_account_activity_title">{{Identical|Create account}}</string>
   <string name="edit_section_activity_title">Title for screen where user is editing a single section.</string>
+  <string name="dialog_create_account_checking_progress">Message shown to the user while a request is sent to the server to create an account and the app is awaiting the server response</string>
+  <string name="create_account_email_hint">Label shown inside the email text box in the account creation form, to inform the user what they have to enter into that box.</string>
   <string name="create_account_password_repeat_hint">{{Identical|Repeat password}}</string>
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
-  <string name="create_account_username_exists_error">Used as error message on creating a user account.</string>
+  <string name="create_account_email_error">Used as an error message on creating a user account where the email address the user entered does not appear to be a valid email address.</string>
+  <string name="create_account_username_exists_error">Used as error message on creating a user account where the username already exists.</string>
   <string name="create_account_ip_throttle_error">Used as an error message on creating a user account where the user\'s IP has created too many accounts already and hit the account creation throttle.</string>
   <string name="create_account_open_proxy_error">Used as error message on creating a user account where the user is trying to create an account from a blocked open proxy.</string>
   <string name="create_account_noname_error">Used as an error message during account creation when the account creation failed because username that was provided is invalid.</string>
@@ -223,6 +226,7 @@ See also:
 {{Identical|Settings}}</string>
   <string name="zero_settings_devmode">Prerelease label text for enabling Wikipedia Zero Devmode to enable Wikipedia Zero support</string>
   <string name="zero_settings_devmode_summary">Prerelease explanation text explaining that Wikipedia Zero Devmode on means that Wikipedia Zero detection will be turned on</string>
+  <string name="edit_preview_fetching_dialog_message">Message shown to the user while the user is waiting for the preview of their edit to be shown</string>
   <string name="create_account_logging_in">{{Identical|Logging in}}</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
   <string name="edit_summary_guide_text">An imperative message, which appears after starting to save an edit.</string>
@@ -273,7 +277,12 @@ See also:
 * {{msg-wm|Wikipedia-android-strings-more item preferences}} - menu item to come to this screen
 {{Identical|More}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
-  <string name="privacy_policy_description">{{Identical|Privacy policy}}</string>
+  <string name="privacy_policy_description">Summary of the preference item to show the terms of use.</string>
+  <string name="terms_of_use_description">Summary of the preference item to show the terms of use.</string>
+  <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de
+Please test the URL to make sure it works.</string>
+  <string name="terms_of_use_url">URL leading to the Wikimedia Foundation terms of use. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://m.wikimediafoundation.org/wiki/Terms_of_Use/de
+Please test the URL to make sure it works</string>
   <string name="preference_title_version">Text for the preference item that shows the app version number.
 {{Identical|Version}}</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
@@ -350,6 +359,7 @@ See also:
   <string name="toc_hint">Instructions how to open the Table of Contents drawer. In left-to-right languages (most) this means to swipe left from the right edge. In right-to-left languages (Hebrew, Arabic, etc.) this means to swipe right from the left edge. \'\'\'In RTL languages\'\'\' please adjust the text to say right swipe instead of left swipe.</string>
   <string name="toc_know_it">Button text to acknowledge instructions for opening Table of Contents drawer.</string>
   <string name="error_browser_not_found">Toast message shown when we try to open an external browser but none seems to be installed.</string>
+  <string name="table_infobox">Text shown on the panel which, when tapped, displays the full infobox to the user.</string>
   <string name="table_other">{{Identical|More information}}</string>
   <string name="table_close">{{Identical|Close}}</string>
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
