@@ -22,7 +22,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/create_account_username_hint"
                     android:singleLine="true"
-                    android:inputType="textNoSuggestions"
+                    android:inputType="textVisiblePassword|textNoSuggestions"
                     />
 
             <org.wikipedia.views.PlainPasteEditText

@@ -246,7 +246,7 @@ public final class Utils {
                 // EditText loses the cursor position when you change the InputType
                 int curPos = edit.getSelectionStart();
                 if (isChecked) {
-                    edit.setInputType(InputType.TYPE_CLASS_TEXT);
+                    edit.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                 } else {
                     edit.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 }
