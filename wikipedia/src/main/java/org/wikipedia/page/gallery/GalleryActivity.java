@@ -333,7 +333,8 @@ public class GalleryActivity extends ThemedActionBarActivity {
      */
     private void fetchGalleryCollection() {
         updateProgressBar(true, true, 0);
-        new GalleryCollectionFetchTask(app.getPrimarySiteApi(), pageTitle.getSite(), pageTitle) {
+        new GalleryCollectionFetchTask(app.getAPIForSite(pageTitle.getSite()),
+                pageTitle.getSite(), pageTitle) {
             @Override
             public void onGalleryResult(GalleryCollection result) {
                 updateProgressBar(false, true, 0);
@@ -345,6 +346,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             }
             @Override
             public void onCatch(Throwable caught) {
+                Log.e("Wikipedia", "caught " + caught.getMessage());
                 updateProgressBar(false, true, 0);
                 showError(getString(R.string.error_network_error));
             }

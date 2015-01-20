@@ -161,7 +161,8 @@ public class GalleryItemFragment extends Fragment {
      */
     private void loadGalleryItem() {
         updateProgressBar(true, true, 0);
-        new GalleryItemFetchTask(app.getPrimarySiteApi(), pageTitle.getSite(), imageTitle) {
+        new GalleryItemFetchTask(app.getAPIForSite(pageTitle.getSite()),
+                pageTitle.getSite(), imageTitle) {
             @Override
             public void onFinish(Map<PageTitle, GalleryItem> result) {
                 if (!isAdded()) {
@@ -179,6 +180,7 @@ public class GalleryItemFragment extends Fragment {
             }
             @Override
             public void onCatch(Throwable caught) {
+                Log.e("Wikipedia", "caught " + caught.getMessage());
                 if (!isAdded()) {
                     return;
                 }
