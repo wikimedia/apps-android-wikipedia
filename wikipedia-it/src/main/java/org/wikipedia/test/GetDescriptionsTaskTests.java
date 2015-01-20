@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -38,7 +37,7 @@ public class GetDescriptionsTaskTests extends ActivityUnitTestCase<TestDummyActi
         });
     }
 
-    public void getWikidataDescriptions(final PageTitle[] ids) throws Throwable {
+    void getWikidataDescriptions(final PageTitle[] ids) throws Throwable {
         final ArrayList<PageTitle> idList = new ArrayList<>(Arrays.asList(ids));
         startActivity(new Intent(), null, null);
         final CountDownLatch completionLatch = new CountDownLatch(1);

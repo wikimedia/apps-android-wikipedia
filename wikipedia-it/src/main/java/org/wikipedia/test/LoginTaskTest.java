@@ -3,6 +3,8 @@ package org.wikipedia.test;
 
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
+import android.test.suitebuilder.annotation.Suppress;
+
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.editing.EditTokenStorage;
@@ -19,6 +21,13 @@ public class LoginTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
         super(TestDummyActivity.class);
     }
 
+    /**
+     * Don't run automatically since this requires some setup, see method body.
+     * Remove the @Suppress annotation when we've implemented a way to configure the user
+     * name/password without having to store a file inside the Git repo.
+     * This makes this test a hassle.
+     */
+    @Suppress
     public void testLogin() throws Throwable {
         startActivity(new Intent(), null, null);
         final Site testWiki = new Site("test.wikipedia.org");

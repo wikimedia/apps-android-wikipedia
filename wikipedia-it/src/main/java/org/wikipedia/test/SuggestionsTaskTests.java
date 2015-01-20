@@ -62,24 +62,24 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
     //
 
     public void testFilterNoResults() throws Throwable {
-        List<PageTitle> originalResults = new ArrayList<PageTitle>();
+        List<PageTitle> originalResults = new ArrayList<>();
         checkFilter(0, originalResults);
     }
 
     public void testFilter1ResultSameAsTitleIgnoreCase() throws Throwable {
-        List<PageTitle> originalResults = new ArrayList<PageTitle>();
+        List<PageTitle> originalResults = new ArrayList<>();
         originalResults.add(new PageTitle("Test", SITE, null, null));
         checkFilter(0, originalResults);
     }
 
     public void testFilter1ResultDifferentFromTitle() throws Throwable {
-        List<PageTitle> originalResults = new ArrayList<PageTitle>();
+        List<PageTitle> originalResults = new ArrayList<>();
         originalResults.add(new PageTitle("something else", SITE, null, null));
         checkFilter(1, originalResults);
     }
 
     public void testFilter4ResultsDifferentFromTitle() throws Throwable {
-        List<PageTitle> originalResults = new ArrayList<PageTitle>();
+        List<PageTitle> originalResults = new ArrayList<>();
         originalResults.add(new PageTitle("something else", SITE, null, null));
         originalResults.add(new PageTitle("something else", SITE, null, null));
         originalResults.add(new PageTitle("something else", SITE, null, null));

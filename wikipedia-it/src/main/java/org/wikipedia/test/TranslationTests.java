@@ -32,7 +32,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
     private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%d", "%.2f"};
 
     private PageActivity activity;
-    private StringBuilder mismatches = new StringBuilder();
+    private final StringBuilder mismatches = new StringBuilder();
 
     public TranslationTests() {
         super(PageActivity.class);
@@ -42,10 +42,6 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
     protected void setUp() throws Exception {
         super.setUp();
         activity = getActivity();
-    }
-
-    public void testPreconditions() {
-        assertNotNull(activity);
     }
 
     public void testAllTranslations() throws Exception {
@@ -115,7 +111,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
 
     private Locale myLocale;
 
-    public void setLocale(String lang) {
+    void setLocale(String lang) {
         myLocale = new Locale(lang);
         Locale.setDefault(myLocale);
         Resources res = getInstrumentation().getTargetContext().getResources();
@@ -175,7 +171,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
         }
     }
 
-    public void checkTranslationHasParameter(Res res, String paramName, Object val1, String alternateFormat) {
+    void checkTranslationHasParameter(Res res, String paramName, Object val1, String alternateFormat) {
 //        Log.i(TAG, myLocale + ":" + res.name + ":" + paramName);
         String translatedString = getInstrumentation().getTargetContext().getString(res.id, val1);
 //        Log.d(TAG, translatedString);
@@ -215,7 +211,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
         }
 
         private List<Res> collectParameterResources() {
-            final List<Res> resources = new ArrayList<Res>();
+            final List<Res> resources = new ArrayList<>();
             final R.string stringResources = new R.string();
             final Class<R.string> c = R.string.class;
             final Field[] fields = c.getDeclaredFields();
@@ -300,8 +296,8 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
     }
 
     class Res {
-        private int id;
-        private String name;
+        private final int id;
+        private final String name;
 
         public Res(int id, String name) {
             this.id = id;

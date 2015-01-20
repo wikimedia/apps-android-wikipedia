@@ -15,7 +15,7 @@ public class PageTests extends TestCase {
     private static final int NUM_SECTIONS = 10;
 
     public void testJSONSerialization() throws Exception {
-        ArrayList<Section> sections = new ArrayList<Section>();
+        ArrayList<Section> sections = new ArrayList<>();
         Section headSection = new Section(0, 1, null, null, "Hi there!");
         sections.add(headSection);
         for (int i = 1; i <= NUM_SECTIONS; i++) {

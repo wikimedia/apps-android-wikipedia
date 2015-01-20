@@ -11,7 +11,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 public class BridgeTests extends ActivityUnitTestCase<TestDummyActivity> {
-    public static final int TEST_COMPLETION_TIMEOUT = 2000;
+    private static final int TEST_COMPLETION_TIMEOUT = 2000;
 
     public BridgeTests() {
         super(TestDummyActivity.class);
