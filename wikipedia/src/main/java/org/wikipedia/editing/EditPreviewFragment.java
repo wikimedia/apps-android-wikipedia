@@ -251,6 +251,13 @@ public class EditPreviewFragment extends Fragment {
                     return parentActivity.getPageTitle().getSite();
                 }
             };
+            bridge.addListener("imageClicked", new CommunicationBridge.JSEventListener() {
+                @Override
+                public void onMessage(String messageType, JSONObject messagePayload) {
+                    // just give it a stub message handler
+                    // (images will not be clickable in Preview)
+                }
+            });
         }
 
         ViewAnimations.fadeIn(previewContainer, new Runnable() {
