@@ -1,5 +1,5 @@
-/* Same specificity as in less/content/main.less */
-/* Same specificity as in less/content/hacks.less */
+/* Same specificity as in MFE/less/content/hacks.less */
+/* Same specificity as in MFE/less/content/hacks.less */
 body {
   color: #999;
   background: #000;
@@ -14,16 +14,17 @@ a.external {
 img {
   background: #fff;
 }
-.content table td,
-.content table th {
-  background-color: #000;
-  border: 1px #555 solid;
-}
-.content table.infobox {
+.stable .content table.infobox {
   background: #000;
 }
+.content table td,
+.content table th,
+.content table.infobox th,
+.content table.infobox td {
+  border-color: rgba(128,128,128,0.12);
+}
 .app_table_container {
-  box-shadow: 0px 1px 4px 4px rgba(128,128,128,0.12);
+  box-shadow: 0 1px 4px 4px rgba(128,128,128,0.12);
 }
 .app_table_collapsed_container {
   background-color: #202020;

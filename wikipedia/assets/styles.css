@@ -390,30 +390,24 @@ sup {
   display: block;
   text-align: left;
 }
-.stable table,
-.stable caption,
-.stable tbody,
-.stable tfoot,
-.stable thead,
-.stable tr,
-.stable th,
-.stable td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-  background: none;
+.content table.wikitable {
+  background-color: transparent !important;
+  border: none !important;
 }
-.stable .content table td,
-.stable .content table th {
-  padding: 3px;
-  border: 1px #CCC solid;
+.content table.wikitable tr {
+  border-bottom: 1px solid #EEE !important;
 }
-.stable .content table th {
-  font-weight: bold;
-  background-color: #EEE;
-  text-align: center;
+.content table.wikitable tr:last-child {
+  border-bottom: none !important;
+}
+.content table.wikitable th,
+.content table.wikitable td {
+  border-right: 1px solid #EEE !important;
+  padding: .2em;
+}
+.content table.wikitable td:last-child,
+.content table.wikitable th:last-child {
+  border-right: none !important;
 }
 
 /*
@@ -428,7 +422,6 @@ https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templates
 FIXME: Review all of these hacks to see if they still apply.
 */
 /* use -webkit prefix for older android browsers eg. nexus 1 */
-/* Hide some on-wiki defined classes */
 /* force portals to use a one column layout on mobile */
 /* bug 34878: Set an optimal width for a column.
  * Makes sure that on small screens column-count is only honored if column-width hint is not violated.
@@ -437,6 +430,7 @@ FIXME: Review all of these hacks to see if they still apply.
 .client-js .alpha .infobox {
   display: none;
 }
+.content .mbox-small,
 .content .tmbox,
 .content .ambox,
 .content #coordinates,
@@ -445,6 +439,30 @@ FIXME: Review all of these hacks to see if they still apply.
 .content .topicon,
 .content .metadata {
   display: none !important;
+}
+.content table {
+  float: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.content table.infobox {
+  font-size: 90%;
+  position: relative;
+  border: none;
+  margin-bottom: 2em;
+  text-align: left;
+  background-color: #F9F9F9;
+}
+.content table.infobox th,
+.content table.infobox td {
+  vertical-align: top;
+  border: none;
+  border-bottom: 1px solid #DDD;
+  padding: .2em;
+}
+.content table.infobox tr:last-child th,
+.content table.infobox tr:last-child td {
+  border: none;
 }
 .hatnote,
 #filetoc,
@@ -461,19 +479,6 @@ FIXME: Review all of these hacks to see if they still apply.
 }
 .collapsible td {
   width: auto !important;
-}
-.stable .content table {
-  border-spacing: 0 !important;
-  float: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-.stable .content table.infobox {
-  background: #F9F9F9;
-  text-align: center !important;
-}
-.stable .content table.infobox table td {
-  border: none;
 }
 .references-column-count {
   -moz-column-width: 35em;
@@ -593,12 +598,15 @@ a.disambig_button:active {
   color: #b0b0b0;
 }
 
+.content table.infobox {
+  font-size: 100%;
+}
 .app_table_container {
   width: 100%;
   margin-top: 14px;
   margin-bottom: 14px;
   border-radius: 2px 2px 2px 2px;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.12), 0px 1px 5px 0px rgba(0,0,0,0.24);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.24);
 }
 .app_table_collapsed_container {
   width: 100%;
