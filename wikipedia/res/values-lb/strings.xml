@@ -152,14 +152,12 @@
   <string name="zero_settings">Astellungen</string>
   <string name="zero_settings_devmode">Zero-Entwécklermodus</string>
   <string name="edit_preview_fetching_dialog_message">Kucken ouni ze späicheren...</string>
-  <string name="edit_preview_activity_title">Ännerung kucken ouni ze späicheren</string>
   <string name="create_account_logging_in">Aloggen...</string>
   <string name="send_feedback">Feedback vun der App schécken</string>
   <string name="edit_summary_guide_text">Sot eis wéi Dir dës Säit verbessert hutt. Dat hëlleft aneren Auteure fir Är Ännerung séier nozekucken.</string>
   <string name="edit_summary_hint">Resumé vun der Ännerung</string>
   <string name="nav_item_random">Zoufall</string>
   <string name="random_progress">Zoufälleg Säit froen...</string>
-  <string name="nav_item_login_benefits">Wann Dir Iech aloggt sinn Är Ännerunge mat Ärem Benotzernumm associéiert an Är IP-Adress ass net ëffentlech ze gesinn.</string>
   <string name="create_account_account_created_toast">Benotzerkont ugeluecht!</string>
   <string name="user_contribs_more_action">Méi lueden</string>
   <string name="activity_my_contributions_title">Meng Kontributiounen</string>

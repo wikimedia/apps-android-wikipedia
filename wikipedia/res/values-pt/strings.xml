@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Modo de programador Zero</string>
   <string name="zero_settings_devmode_summary">Durante o seu desenvolvimento, habilita a execução de código de coisas no Wikipédia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">A processar pré-visualização...</string>
-  <string name="edit_preview_activity_title">Pré-visualizar edição</string>
   <string name="create_account_logging_in">A iniciar sessão...</string>
   <string name="send_feedback">Enviar comentários sobre a aplicação</string>
   <string name="edit_summary_guide_text">Diga-nos o que melhorou no artigo. Isto vai ajudar outros editores a reverem a sua edição rapidamente.</string>
   <string name="edit_summary_hint">Editar resumo</string>
   <string name="nav_item_random">Aleatório</string>
   <string name="random_progress">A obter uma página aleatória...</string>
-  <string name="nav_item_login_benefits">Se iniciar sessão, as suas edições serão associadas ao seu nome de utilizador(a) e o seu endereço de IP não será visível publicamente.</string>
   <string name="create_account_account_created_toast">Conta criada!</string>
   <string name="user_contribs_more_action">Ver mais</string>
   <string name="activity_my_contributions_title">As minhas contribuições</string>
@@ -280,7 +278,7 @@ O código é totalmente aberto. Se tem experiência com linguagens Java e Androi
   <string name="gallery_menu_save">Guardar no dispositivo</string>
   <string name="gallery_save_error">Não é possível guardar a imagem: %s</string>
   <string name="gallery_save_success">Imagem guardada com êxito</string>
-  <string name="err_cannot_save_file">Não é possível salvar o arquivo</string>
+  <string name="err_cannot_save_file">Não é possível gravar o ficheiro</string>
   <string name="snippet_share_intro">\"%1$s\" em @Wikipedia: %2$s</string>
   <string name="expand_refs">Toque para expandir</string>
 </resources>

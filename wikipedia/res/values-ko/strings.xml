@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">제로 개발모드</string>
   <string name="zero_settings_devmode_summary">개발하는 동안 위키백과 제로 개발모드의 코드 실행을 허용합니다.</string>
   <string name="edit_preview_fetching_dialog_message">미리 보기를 가져오는 중...</string>
-  <string name="edit_preview_activity_title">편집 미리 보기</string>
   <string name="create_account_logging_in">로그인 중...</string>
   <string name="send_feedback">앱 피드백 보내기</string>
   <string name="edit_summary_guide_text">이 문서를 어떻게 개선할지 알려주세요. 다른 편집자들이 당신의 편집을 빠르게 검토하는 것을 돕습니다.</string>
   <string name="edit_summary_hint">편집 요약</string>
   <string name="nav_item_random">임의 문서</string>
   <string name="random_progress">임의 문서를 가져오는 중...</string>
-  <string name="nav_item_login_benefits">만약 로그인한다면 당신의 편집은 사용자 이름과 함께 보여지고, IP 주소는 공개적으로 보여주지 않습니다.</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
   <string name="user_contribs_more_action">더 불러오기</string>
   <string name="activity_my_contributions_title">내 기여</string>
@@ -248,7 +246,7 @@
   <string name="table_infobox">빠른 사실</string>
   <string name="table_other">자세한 정보</string>
   <string name="table_close">닫기</string>
-  <string name="app_store_description">안드로이드를 위한 공식 위키백과 앱입니다. 위키백과는 280개 언어의 3천2백만보다 많은 문서가 들어 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용합니다. 앱은 처음부터 다시 쓰여졌고 이전보다 더 나아졌습니다.
+  <string name="app_store_description">Android를 위한 공식 위키백과 앱입니다. 위키백과는 280개 언어의 3천2백만보다 많은 문서가 들어 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용합니다. 앱은 처음부터 다시 쓰여졌고 이전보다 더 나아졌습니다.
 
 기능:
    - 속도: 새로운 네이티브 앱으로 위키백과를 이전보다 빠르게 찾아보고 편집할 수 있습니다.
@@ -259,7 +257,7 @@
    - 언어 지원: 어떠한 언어로도 쓰여져 있는 위키백과를 읽기 위해 원활하게 전환할 수 있습니다.
    - 위키백과 제로: 이동 통신사가 참여한다면 데이터 요금이 면제됩니다.
 
-코드는 완전한 오픈 소스입니다. 여러분이 자바와 안드로이드 SDK에 경험이 있다면, 우리에게 포크하러 오세요! https://github.com/wikimedia/apps-android-wikipedia</string>
+코드는 완전한 오픈 소스입니다. 여러분이 Java와 Android SDK에 경험이 있다면, 우리에게 포크하러 오세요! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">새 알파 업뎨이트를 사용할 수 있습니다</string>
   <string name="alpha_update_notification_text">다운로드하려면 탭하세요</string>
   <string name="dialog_close_description">닫기</string>
@@ -278,5 +276,7 @@
   <string name="gallery_menu_save">장치에 저장</string>
   <string name="gallery_save_error">그림을 저장할 수 없습니다: %s</string>
   <string name="gallery_save_success">그림을 성공적으로 저장했습니다.</string>
-  <string name="expand_refs">펼쳐보려면 클릭</string>
+  <string name="err_cannot_save_file">파일을 저장할 수 없음</string>
+  <string name="snippet_share_intro">@Wikipedia 의 \"%1$s\": %2$s</string>
+  <string name="expand_refs">펼치려면 탭</string>
 </resources>

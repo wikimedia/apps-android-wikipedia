@@ -152,14 +152,12 @@
   <string name="zero_settings_devmode">Zero Devmode</string>
   <string name="zero_settings_devmode_summary">Κατά τη διάρκεια της ανάπτυξης αυτό επιτρέπει την εκτέλεση κώδικα σχετικού με το Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Προετοιμάζοντας προεπισκόπηση...</string>
-  <string name="edit_preview_activity_title">Προεπισκόπηση επεξεργασίας</string>
   <string name="create_account_logging_in">Σύνδεση...</string>
   <string name="send_feedback">Αποστολή σχολίων για την εφαρμογή</string>
   <string name="edit_summary_guide_text">Πείτε μας πώς βελτιώσατε αυτή τη σελίδα. Αυτό βοηθά άλλους συντάκτες για να επιθεωρήσουν γρήγορα την  επεξεργασία σας.</string>
   <string name="edit_summary_hint">Σύνοψη επεξεργασίας</string>
   <string name="nav_item_random">Τυχαία</string>
   <string name="random_progress">Επιλογή τυχαίας σελίδας...</string>
-  <string name="nav_item_login_benefits">Αν συνδεθείτε οι επεξεργασίες σας θα συνδεθούν με το όνομα χρήστη σας και η διεύθυνση IP σας δεν θα είναι δημόσια ορατή.</string>
   <string name="create_account_account_created_toast">Ο λογαριασμός δημιουργήθηκε!</string>
   <string name="user_contribs_more_action">Φορτώστε περισσότερα</string>
   <string name="activity_my_contributions_title">Οι συνεισφορές μου</string>

@@ -43,6 +43,7 @@
   <string name="nearby_activity_title">Poblíž</string>
   <string name="nav_item_nearby">Poblíž</string>
   <string name="menu_update_nearby">Aktualizovat „poblíž“</string>
+  <string name="nearby_empty_title">Žádné stránky poblíž!</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -148,14 +149,12 @@
   <string name="zero_settings_devmode">Vývojářský režim Zero</string>
   <string name="zero_settings_devmode_summary">Toto během vývoje umožňuje provádění kódu věcí kolem Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Načítání náhledu…</string>
-  <string name="edit_preview_activity_title">Náhled editace</string>
   <string name="create_account_logging_in">Přihlašování…</string>
   <string name="send_feedback">Poslat názor na aplikaci</string>
   <string name="edit_summary_guide_text">Řekněte nám, jak jste tuto stránku vylepšili. To pomůže ostatním editorům vaši editaci rychle zkontrolovat.</string>
   <string name="edit_summary_hint">Shrnutí editace</string>
   <string name="nav_item_random">Náhodně</string>
   <string name="random_progress">Načítá se náhodná stránka…</string>
-  <string name="nav_item_login_benefits">Pokud se přihlásíte, budou vaše editace přiřazeny vašemu uživatelskému jménu a vaše IP adresa nebude veřejně viditelná.</string>
   <string name="create_account_account_created_toast">Účet založen!</string>
   <string name="user_contribs_more_action">Načíst další</string>
   <string name="activity_my_contributions_title">Mé příspěvky</string>
@@ -233,6 +232,7 @@
   <string name="clear_recent_searches_confirm">Jste si jisti, že chcete vymazat historii hledání?</string>
   <string name="toc_know_it">Chápu</string>
   <string name="error_browser_not_found">Nepodařilo se otevřít webovou stránku (nenalezena žádná aplikace prohlížeče).</string>
+  <string name="table_infobox">Stručné informace</string>
   <string name="table_other">Více informací</string>
   <string name="table_close">Zavřít</string>
   <string name="app_store_description">Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.

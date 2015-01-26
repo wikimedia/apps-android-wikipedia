@@ -88,6 +88,9 @@
   <string name="edit_next">Hurrengoa</string>
   <string name="edit_done">Gorde</string>
   <string name="saved_pages_update_all_error_retry">Saiatu berriro</string>
+  <string name="color_theme_light">Argia</string>
+  <string name="color_theme_dark">Iluna</string>
+  <string name="page_similar_titles">Antzeko orrialdeak</string>
   <string name="search_did_you_mean">\"%s\" esan nahi zenuen?</string>
   <string name="search_results_title">Bilaketaren emaitzak</string>
   <string name="search_error_retry">Saiatu berriro</string>
@@ -104,4 +107,5 @@
   <string name="gallery_credit_text">Egilea – %s</string>
   <string name="gallery_menu_save">Gailuan gorde</string>
   <string name="gallery_save_error">Ezin izan da irudia gorde: %s</string>
+  <string name="err_cannot_save_file">Ezin da fitxategia gorde</string>
 </resources>

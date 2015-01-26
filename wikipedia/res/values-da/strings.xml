@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Zero udviklertilstand</string>
   <string name="zero_settings_devmode_summary">Under udviklingen muliggør dette kørsel af programkode af Wikipedia Zero ting.</string>
   <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning…</string>
-  <string name="edit_preview_activity_title">Forhåndsvis redigering</string>
   <string name="create_account_logging_in">Logger på...</string>
   <string name="send_feedback">Send tilbagemelding om app</string>
   <string name="edit_summary_guide_text">Fortæl os, hvordan du har forbedret denne side. Dette hjælper andre redaktører med at gennemgå dine redigering hurtigt.</string>
   <string name="edit_summary_hint">Opsummér redigering</string>
   <string name="nav_item_random">Tilfældig</string>
   <string name="random_progress">Henter tilfældig side...</string>
-  <string name="nav_item_login_benefits">Hvis du logger på, vil dine redigeringer være forbundet med dit brugernavn og din IP-adresse vil ikke være offentligt synlig.</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
   <string name="user_contribs_more_action">Indlæs mere</string>
   <string name="activity_my_contributions_title">Mine bidrag</string>

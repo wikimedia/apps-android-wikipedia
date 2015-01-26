@@ -143,8 +143,8 @@
   <string name="zero_charged_verbiage_extended">Cargar otros artículos puede incurrir en cargos por datos.</string>
   <string name="zero_search_hint">Buscar en Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avisar al salir de Wikipedia Zero</string>
-  <string name="zero_warn_when_leaving_summary">Si tu operador de telefonía móvil renuncia a cargos de acceso de datos para la aplicación de Wikipedia a través de una asociación de Wikipedia cero, dejando este valor comprobado te ayuda a saber cuando vas a la aplicación de Wikipedia y podría ser acusado.</string>
-  <string name="zero_webpage_title">P+F de Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving_summary">Si tu operador de telefonía móvil renuncia a cargos de acceso de datos para la aplicación de Wikipedia a través de una asociación de Wikipedia Zero, dejando este valor comprobado te ayuda a saber cuando vas a salir de la aplicación de Wikipedia y podría ser cobrado.</string>
+  <string name="zero_webpage_title">Preguntas y respuestas frecuentes de Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Dejando Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Pueden aplicarse cargos por datos. ¿Continuar a sitio externo?</string>
@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Modo de desarrollador Zero</string>
   <string name="zero_settings_devmode_summary">Durante el desarrollo de este permite la ejecución de código de cosas de Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Procesando la previsualización…</string>
-  <string name="edit_preview_activity_title">Vista previa de edición</string>
   <string name="create_account_logging_in">Iniciando sesión...</string>
   <string name="send_feedback">Enviar comentarios sobre la aplicación</string>
   <string name="edit_summary_guide_text">Dinos cómo mejorar esta página. Esto ayuda a otros editores a revisar tu edición más rápido.</string>
   <string name="edit_summary_hint">Resumen de edición</string>
   <string name="nav_item_random">Aleatorio</string>
   <string name="random_progress">Obteniendo una página aleatoria...</string>
-  <string name="nav_item_login_benefits">Si inicias sesión, tus modificaciones serán asociadas a tu nombre de usuario y tu dirección IP no será visible públicamente.</string>
   <string name="create_account_account_created_toast">Se creó la cuenta.</string>
   <string name="user_contribs_more_action">Cargar más</string>
   <string name="activity_my_contributions_title">Mis contribuciones</string>

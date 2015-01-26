@@ -155,14 +155,12 @@
   <string name="zero_settings">Settyansow</string>
   <string name="zero_settings_devmode">Modh displegyer Zero</string>
   <string name="edit_preview_fetching_dialog_message">Ow kerghes ragwel...</string>
-  <string name="edit_preview_activity_title">Ragweles an chanj</string>
   <string name="create_account_logging_in">Orth agas omgelmi...</string>
   <string name="send_feedback">Danvon dasliv a\'n towlennik</string>
   <string name="edit_summary_guide_text">Leverewgh dhyn fatla wellhasowgh an folen ma. Hemm a weres dhe janjyoryon erel dasweles agas chanj yn uskis.</string>
   <string name="edit_summary_hint">Berrskrif</string>
   <string name="nav_item_random">Chonsus</string>
   <string name="random_progress">Ow kerghes folen jonsus...</string>
-  <string name="nav_item_login_benefits">Mar omgelmowgh y fydh kevrennys agas chanjyow dh\'agas hanow devnydhyer ha ny vydh gweladow agas trigva IP dhe bubonan.</string>
   <string name="create_account_account_created_toast">Akont gwrys!</string>
   <string name="user_contribs_more_action">Karga moy</string>
   <string name="activity_my_contributions_title">Ow hevrohow</string>

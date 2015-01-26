@@ -45,6 +45,8 @@
   <string name="menu_update_nearby">Päivitä \"Lähistöllä\"</string>
   <string name="nearby_empty_title">Lähistöllä olevia sivuja ei ole!</string>
   <string name="nearby_empty_message">Kun vaihdat paikkaa, päivitä tämä sivu saadaksesi ajantasaista tietoa siitä mitä lähelläsi on.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d jalkaa</string>
   <string name="nearby_distance_in_miles">%.2f  mailia</string>
   <string name="nearby_no_network">Ei verkkoyhteyttä</string>
@@ -155,14 +157,12 @@
   <string name="zero_settings_devmode">Zeron kehitystila</string>
   <string name="zero_settings_devmode_summary">Tämä mahdollistaa Wikipedia Zeroon liittyvän koodin suorittamisen kehityksen aikana.</string>
   <string name="edit_preview_fetching_dialog_message">Noudetaan esikatselua...</string>
-  <string name="edit_preview_activity_title">Muokkaa esikatselua</string>
   <string name="create_account_logging_in">Kirjaudutaan...</string>
   <string name="send_feedback">Lähetä palautetta sovelluksesta</string>
   <string name="edit_summary_guide_text">Kerro meille miten paransit tätä sivua. Tämä auttaa muita muokkaajia tarkistamaan muutoksesi nopeammin.</string>
   <string name="edit_summary_hint">Yhteenveto</string>
   <string name="nav_item_random">Satunnainen</string>
   <string name="random_progress">Noudetaan satunnaista sivua...</string>
-  <string name="nav_item_login_benefits">Jos kirjaudut sisään, muokkauksesi liitetään käyttäjätunnukseesi ja IP-osoitteesi ei näy.</string>
   <string name="create_account_account_created_toast">Käyttäjätunnus luotu!</string>
   <string name="user_contribs_more_action">Lataa lisää</string>
   <string name="activity_my_contributions_title">Muokkaukset</string>
@@ -263,4 +263,22 @@ Lähdekoodi on täysin avointa. Jos sinulla on kokemusta Javan ja Android SDK:n 
   <string name="alpha_update_notification_title">Uusi alfaversio saatavilla</string>
   <string name="alpha_update_notification_text">Napauta ladataksesi</string>
   <string name="dialog_close_description">Sulje</string>
+  <string name="preference_title_show_images">Näytä kuvat</string>
+  <string name="preference_summary_show_images">Ota käyttöön tai poista käytöstä kuvien lataaminen sivuilla. Ota tämä asetus pois käytöstä, jos Internet-yhteytesi on hidas tai jos datayhteytesi on rajoitettu.</string>
+  <string name="read_more_section">Lue lisää</string>
+  <string name="gallery_menu_more_info">Lisätietoja</string>
+  <string name="menu_gallery_visit_page">Mene tiedostosivulle</string>
+  <string name="gallery_error_draw_failed">Kuvaa ei voitu piirtää.</string>
+  <string name="license_title">Kirjaston %s lisenssiteksti</string>
+  <string name="gallery_license_text">Lisenssi - %s</string>
+  <string name="gallery_credit_text">Tekijä - %s</string>
+  <string name="gallery_image_info">Kuvan tiedot</string>
+  <string name="gallery_menu_share">Jaa</string>
+  <string name="gallery_share_error">Kuvaa ei voitu jakaa: %s</string>
+  <string name="gallery_menu_save">Tallenna laitteeseen</string>
+  <string name="gallery_save_error">Kuvaa ei voitu tallentaa: %s</string>
+  <string name="gallery_save_success">Kuva tallennettu onnistuneesti.</string>
+  <string name="err_cannot_save_file">Tiedostoa ei voi tallentaa</string>
+  <string name="snippet_share_intro">\"%1$s\" @Wikipedia ssa: %2$s</string>
+  <string name="expand_refs">Napauta laajentaaksesi</string>
 </resources>

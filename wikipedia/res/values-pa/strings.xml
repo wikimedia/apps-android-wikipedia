@@ -153,14 +153,12 @@
   <string name="zero_settings_devmode">ਜ਼ੀਰੋ ਵਿਕਾਸ ਤੌਰ</string>
   <string name="zero_settings_devmode_summary">ਵਿਕਾਸ ਮੌਕੇ ਇਹ ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਦੀਆਂ ਚੀਜ਼ਾਂ ਦੇ ਕੋਡ ਦੀ ਤਾਮੀਲ ਨੂੰ ਚਾਲੂ ਕਰਦਾ ਹੈ।</string>
   <string name="edit_preview_fetching_dialog_message">ਝਾਤ ਲਿਆਈ ਜਾ ਰਹੀ ਹੈ...</string>
-  <string name="edit_preview_activity_title">ਸੋਧ \'ਤੇ ਝਾਤ ਮਾਰੋ</string>
   <string name="create_account_logging_in">ਦਾਖ਼ਲਾ ਹੋ ਰਿਹਾ ਹੈ...</string>
   <string name="send_feedback">ਐਪ ਬਾਬਤ ਜਾਣਕਾਰੀ ਵਾਪਸ ਘੱਲੋ</string>
   <string name="edit_summary_guide_text">ਸਾਨੂੰ ਦੱਸੋ ਕਿ ਤੁਸੀਂ ਸਫ਼ਾ ਕਿਵੇਂ ਸੁਧਾਰਿਆ। ਅਜਿਹਾ ਕਰਨ ਨਾਲ਼ ਹੋਰ ਸੰਪਾਦਕਾਂ ਲਈ ਤੁਹਾਡੀਆਂ ਸੋਧਾਂ ਦੀ ਪੜਚੋਲ ਕਰਨੀ ਸੁਖਾਲ਼ੀ ਹੋ ਜਾਂਦੀ ਹੈ।</string>
   <string name="edit_summary_hint">ਸੋਧ ਸਾਰ</string>
   <string name="nav_item_random">ਰਲ਼ਵਾਂ</string>
   <string name="random_progress">ਰਲ਼ਵਾਂ ਸਫ਼ਾ ਲਿਆਇਆ ਜਾ ਰਿਹਾ ਹੈ...</string>
-  <string name="nav_item_login_benefits">ਜੇਕਰ ਤੁਸੀਂ ਦਾਖ਼ਲ ਹੁੰਦੇ ਹੋ ਤਾਂ ਤੁਹਾਡੀਆਂ ਸੋਧਾਂ ਦਾ ਸਿਹਰਾ ਤੁਹਾਡੇ ਵਰਤੋਂਕਾਰ-ਨਾਂ ਸਿਰ ਦਿੱਤਾ ਜਾਵੇਗਾ ਅਤੇ ਤੁਹਾਡਾ ਆਈ.ਪੀ. ਪਤਾ ਲੋਕਾਂ ਨੂੰ ਨਹੀਂ ਵਿਖੇਗਾ।</string>
   <string name="create_account_account_created_toast">ਖਾਤਾ ਬਣਿਆ!</string>
   <string name="user_contribs_more_action">ਹੋਰ ਲਿਆਉ</string>
   <string name="activity_my_contributions_title">ਮੇਰੇ ਯੋਗਦਾਨ</string>

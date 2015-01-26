@@ -149,14 +149,12 @@
   <string name="zero_settings_devmode">Режим разрбника Zero</string>
   <string name="zero_settings_devmode_summary">У процесі розробки це дозволяє виконувати код, що відноситься до Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Отримання попереднього перегляду...</string>
-  <string name="edit_preview_activity_title">Попередній перегляд редагування</string>
   <string name="create_account_logging_in">Входження до системи…</string>
   <string name="send_feedback">Надіслати відгук про програму</string>
   <string name="edit_summary_guide_text">Розкажіть нам, як ви поліпшили цю сторінку. Це допомагає іншим редакторам швидко відстежити вашу правку.</string>
   <string name="edit_summary_hint">Редагувати підсумок</string>
   <string name="nav_item_random">Випадково</string>
   <string name="random_progress">Вибірка випадкової сторінки...</string>
-  <string name="nav_item_login_benefits">Якщо ви увійдете в систему, ваші правки будуть пов\'язані з вашим ім\'ям учасника і ваш IP не буде показаний.</string>
   <string name="create_account_account_created_toast">Створено обліковий запис!</string>
   <string name="user_contribs_more_action">Завантажити більше</string>
   <string name="activity_my_contributions_title">Мій внесок</string>

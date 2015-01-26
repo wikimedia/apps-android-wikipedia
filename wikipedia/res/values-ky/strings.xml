@@ -152,14 +152,12 @@
   <string name="zero_settings_devmode">Нөлдү (Zero) иштеп чыгуучунун режими</string>
   <string name="zero_settings_devmode_summary">Бул, иштеп чыгуу кезинде, Уикипедия Нөлгө караштуу кодду аткарууга мүмкүнчүлүк берет.</string>
   <string name="edit_preview_fetching_dialog_message">Алдын ала көрсөтүү даярдалууда...</string>
-  <string name="edit_preview_activity_title">Оңдоону алдын ала көрсөтүү</string>
   <string name="create_account_logging_in">Системге кирип жатасыз...</string>
   <string name="send_feedback">Тиркемеге өз бааңызды жөнөтүңүз</string>
   <string name="edit_summary_guide_text">Бизге баракты кантип жакшыртканыңызды айтып бериңиз. Бул, башка оңдоочуларга сиздин оңдооңузду тез алдын алып көрүүгө жардам берет.</string>
   <string name="edit_summary_hint">Оңдоолордун сыпаттамасы</string>
   <string name="nav_item_random">Тушкелди</string>
   <string name="random_progress">Тушкелди барак даярдалууда...</string>
-  <string name="nav_item_login_benefits">Эгер системге кирсеңиз, оңдоолоруңуз сиздин колдонуучу атыңызга байланыштуу болот жана IP-дарегиңиз көрүнбөй калат.</string>
   <string name="create_account_account_created_toast">Эсеп жазуусу түзүлдү!</string>
   <string name="user_contribs_more_action">Көбүрөөк жүктөө</string>
   <string name="activity_my_contributions_title">Салымдарым</string>

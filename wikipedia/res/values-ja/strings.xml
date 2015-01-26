@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">ゼロ開発者モード</string>
   <string name="zero_settings_devmode_summary">開発者モードではウィキペディアゼロのコード実行が有効になります</string>
   <string name="edit_preview_fetching_dialog_message">プレビューを取得中...</string>
-  <string name="edit_preview_activity_title">編集をプレビュー</string>
   <string name="create_account_logging_in">ログイン中...</string>
   <string name="send_feedback">フィードバックを送る</string>
   <string name="edit_summary_guide_text">このページをどう改善したか教えてください。他の編集者があなたの編集を手早くレビューするのに役立ちます。</string>
   <string name="edit_summary_hint">要約の編集</string>
   <string name="nav_item_random">おまかせ表示</string>
   <string name="random_progress">おまかせページを取得中...</string>
-  <string name="nav_item_login_benefits">ログインすると、編集内容はあなたの利用者名に関連付けられます。あなたの IP アドレスは公開されません。</string>
   <string name="create_account_account_created_toast">アカウントを作成しました</string>
   <string name="user_contribs_more_action">続きを読み込む</string>
   <string name="activity_my_contributions_title">投稿記録</string>

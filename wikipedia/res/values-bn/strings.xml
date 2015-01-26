@@ -152,14 +152,12 @@
   <string name="zero_settings_devmode">জিরো ডেভমোড</string>
   <string name="zero_settings_devmode_summary">উন্নয়নের সময় উইকিপিডিয়া জিরোর জিনিসের এই কোড সঞ্চালনে সক্ষম।</string>
   <string name="edit_preview_fetching_dialog_message">প্রাকদর্শন আনা হচ্ছে...</string>
-  <string name="edit_preview_activity_title">সম্পাদনা প্রাকদর্শন</string>
   <string name="create_account_logging_in">আপনি প্রবেশ করছেন...</string>
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
   <string name="edit_summary_guide_text">এই পাতায় কি ধরনের পরিবর্তন করেছেন তা আমাদের জানান। এর ফলে অন্য ব্যবহারকারীরা সহজে আপনার সম্পাদনাগুলো যাচাই করতে পারবেন।</string>
   <string name="edit_summary_hint">সম্পাদনা সারাংশ</string>
   <string name="nav_item_random">অজানা পাতা</string>
   <string name="random_progress">অজানা পাতা নিয়ে আসা হচ্ছে...</string>
-  <string name="nav_item_login_benefits">যদি আপনি প্রবেশ করেন, তাহলে আপনার সম্পাদনাগুলিতে আপনার ব্যবহারকারী নাম যুক্ত করা হবে এবং আপনার আইপি ঠিকানা প্রকাশ্যে দৃশ্যমান হবে না।</string>
   <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>
   <string name="user_contribs_more_action">আরও লোড করুন</string>
   <string name="activity_my_contributions_title">আমার অবদান</string>

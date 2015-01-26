@@ -113,7 +113,6 @@
   <string name="edit_summary_hint">Samandráttur um rættingina</string>
   <string name="nav_item_random">Tilvildarlig grein</string>
   <string name="random_progress">Heintar tilvildarliga grein...</string>
-  <string name="nav_item_login_benefits">Um tú ritar inn, so verða tínar rættingar knýttar at tínum brúkaranavni og tín IP adressa verður ikki víst alment.</string>
   <string name="create_account_account_created_toast">Konto upprættað!</string>
   <string name="user_contribs_more_action">Innles meira</string>
   <string name="activity_my_contributions_title">Míni íkøst</string>

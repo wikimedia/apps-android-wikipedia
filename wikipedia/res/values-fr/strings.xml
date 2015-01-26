@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Mode de développement Zéro</string>
   <string name="zero_settings_devmode_summary">Lors du développement, cela permet l’exécution du code des éléments de Wikipédia Zéro.</string>
   <string name="edit_preview_fetching_dialog_message">Récupération de l’aperçu…</string>
-  <string name="edit_preview_activity_title">Aperçu de la modification</string>
   <string name="create_account_logging_in">Connexion en cours…</string>
   <string name="send_feedback">Envoyer un avis sur l’application</string>
   <string name="edit_summary_guide_text">Dites-nous comment vous avez amélioré cette page. Cela aide les autres éditeurs à relire plus rapidement votre modification.</string>
   <string name="edit_summary_hint">Modifier le résumé</string>
   <string name="nav_item_random">Aléatoire</string>
   <string name="random_progress">Récupération d’une page au hasard…</string>
-  <string name="nav_item_login_benefits">Si vous vous connectez, vos modifications seront associées avec votre nom d’utilisateur et votre adresse IP ne sera pas visible publiquement.</string>
   <string name="create_account_account_created_toast">Compte créé !</string>
   <string name="user_contribs_more_action">En savoir plus</string>
   <string name="activity_my_contributions_title">Mes contributions</string>

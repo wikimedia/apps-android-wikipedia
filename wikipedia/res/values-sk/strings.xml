@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Vývojársky režim</string>
   <string name="zero_settings_devmode_summary">Počas vývoja to umožňuje spustenie kódu týkajúceho sa Wikipédie Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Generujem náhľad...</string>
-  <string name="edit_preview_activity_title">Zobraziť úpravy</string>
   <string name="create_account_logging_in">Prihlasujem ...</string>
   <string name="send_feedback">Odoslať spätnú väzbu</string>
   <string name="edit_summary_guide_text">Povedzte nám, ako ste túto stránku vylepšili. Toto pomôže ostatným redaktorom rýchlejšie skontrolovať vaše úpravy.</string>
   <string name="edit_summary_hint">Zhrnutie úprav</string>
   <string name="nav_item_random">Náhodný článok</string>
   <string name="random_progress">Generujem náhodnú stránku...</string>
-  <string name="nav_item_login_benefits">Ak sa prihlásite, vaše úpravy budú spojené s vaším používateľským menom a vaša IP adresa nebude viditeľná pre ostatných.</string>
   <string name="create_account_account_created_toast">Účet bol vytvorený!</string>
   <string name="user_contribs_more_action">Načítať viac</string>
   <string name="activity_my_contributions_title">Moje príspevky</string>

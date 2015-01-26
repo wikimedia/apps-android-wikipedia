@@ -102,13 +102,11 @@
   <string name="zero_settings">ସଂରଚନା</string>
   <string name="zero_settings_devmode">ଜିରୋ ଡେଭ ମୋଡ଼</string>
   <string name="edit_preview_fetching_dialog_message">ଦେଖଣା ଆହରଣ କରୁଛି</string>
-  <string name="edit_preview_activity_title">ସମ୍ପାଦନା ଦେଖଣା</string>
   <string name="create_account_logging_in">ଲଗ ଇନ କରୁଛି</string>
   <string name="edit_summary_guide_text" fuzzy="true">କହିବେ କି ଆପଣ କିପରି ଏହି ପ୍ରସଙ୍ଗଟିକୁ ସୁଧାରିଲେ? ଏହା ବାକି ସମ୍ପାଦକମାନଙ୍କୁ ଆପଣଙ୍କ ସମ୍ପାଦନା ସହଜରେ ପରଖିବାରେ ସାହାଯ୍ୟ କରିବ ।</string>
   <string name="edit_summary_hint">ସାରକଥା ସମ୍ପାଦନା କରନ୍ତୁ</string>
   <string name="nav_item_random">ଯାହିତାହି</string>
   <string name="random_progress">ଯାହିତାହି ପୃଷ୍ଠାଟିଏ ଆହରଣ କରୁଛି...</string>
-  <string name="nav_item_login_benefits">ଯଦି ଆପଣ ଲଗ ଇନ କରିଛନ୍ତି, ଆପଣଙ୍କ ସମ୍ପାଦନାରେ ଆପଣଙ୍କ ସଭ୍ୟ ନାମ ସମସ୍ତଙ୍କୁ ଦେଖାଯିବ କିନ୍ତୁ IP ଠିକଣା କେହି ଦେଖିପାରିବେ ନାହିଁ ।</string>
   <string name="create_account_account_created_toast">ଖାତାଟି ଖୋଲିଗଲା!</string>
   <string name="user_contribs_more_action">ଅଧିକ ଆହରଣ କରନ୍ତୁ</string>
   <string name="activity_my_contributions_title">ମୋ ଅବଦାନ</string>

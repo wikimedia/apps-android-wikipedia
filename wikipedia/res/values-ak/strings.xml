@@ -119,14 +119,12 @@
   <string name="zero_settings_devmode">Zero Devmode</string>
   <string name="zero_settings_devmode_summary">Sɛ woguso reyɛ adwinade yi adwuma a, eyi boa ma Wikipedia Zero nneɛma</string>
   <string name="edit_preview_fetching_dialog_message">Hwɛ sɛnea ɛte...</string>
-  <string name="edit_preview_activity_title">Hwɛ nsakrae a woyɛe</string>
   <string name="create_account_logging_in">Rekɔ mu</string>
   <string name="send_feedback">Ma yɛn nyansahyɛ</string>
   <string name="edit_summary_guide_text">Kyerɛ nsakrae a woyɛe wɔ krataa yi so. ɛboa atuhoamafo afoforo.</string>
   <string name="edit_summary_hint">Bɔ nsakrae a woyɛe no mua</string>
   <string name="nav_item_random">Randɔm</string>
   <string name="random_progress">Retwe krataa bi aba</string>
-  <string name="nav_item_login_benefits">Sɛ wo k) mu a, nsakrae a wobɛyɛ nyinaa, w)bɛkyerɛw ahyɛ wo username ne wo IP address ase, nanso, obiara renhu.</string>
   <string name="create_account_account_created_toast">Woabue wo account!</string>
   <string name="user_contribs_more_action">Fa pii bra</string>
   <string name="activity_my_contributions_title">Mensakrae</string>

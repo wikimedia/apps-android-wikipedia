@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Zero-utvecklarläge</string>
   <string name="zero_settings_devmode_summary">Under utveckling aktiverar detta kodexekvering för Wikipedia Zero-relaterade saker.</string>
   <string name="edit_preview_fetching_dialog_message">Hämtar förhandsgranskning...</string>
-  <string name="edit_preview_activity_title">Förhandsgranska redigering</string>
   <string name="create_account_logging_in">Loggar in...</string>
   <string name="send_feedback">Skicka feedback för appen</string>
   <string name="edit_summary_guide_text">Berätta hur du förbättrade sidan. Detta hjälper andra redigerare att granska din redigering snabbt.</string>
   <string name="edit_summary_hint">Redigeringssammanfattning</string>
   <string name="nav_item_random">Slumpartikel</string>
   <string name="random_progress">Hämtar slumpartikel...</string>
-  <string name="nav_item_login_benefits">Om du loggar in kommer dina redigeringar associeras med ditt användarnamn och din IP-adress kommer inte att visas offentligt.</string>
   <string name="create_account_account_created_toast">Konto har skapats!</string>
   <string name="user_contribs_more_action">Läs in fler</string>
   <string name="activity_my_contributions_title">Mina bidrag</string>

@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Zero開發模式</string>
   <string name="zero_settings_devmode_summary">在開發期間啟用Wikipedia Zero的代碼執行。</string>
   <string name="edit_preview_fetching_dialog_message">正在取得預覽...</string>
-  <string name="edit_preview_activity_title">預覽編輯</string>
   <string name="create_account_logging_in">登入中...</string>
   <string name="send_feedback">傳送應用程式回饋</string>
   <string name="edit_summary_guide_text">告訴我們你如何改進此頁。這可以幫助其他編者快速審查您的編輯。</string>
   <string name="edit_summary_hint">編輯摘要</string>
   <string name="nav_item_random">隨機條目</string>
   <string name="random_progress">正在取得隨機頁面...</string>
-  <string name="nav_item_login_benefits">如果閣下已登入，閣下所做的編輯的編輯者將會以閣下的使用者名稱顯示，使閣下的IP位址不會公開顯示。</string>
   <string name="create_account_account_created_toast">已建立帳號</string>
   <string name="user_contribs_more_action">載入更多</string>
   <string name="activity_my_contributions_title">我的貢獻</string>
@@ -200,7 +198,7 @@
   <string name="about_activity_title">關於</string>
   <string name="edit_unchanged">頁面未被修改。</string>
   <string name="edit_abandon_confirm">頁面已被修改。你確定你想要離開而不存儲您的更改？</string>
-  <string name="user_blocked_from_editing_title">已封禁</string>
+  <string name="user_blocked_from_editing_title">已封鎖</string>
   <string name="user_logged_in_blocked_from_editing">您的使用者帳號被封禁，不能編輯此 wiki。</string>
   <string name="user_anon_blocked_from_editing">您的IP位址已被封禁編輯。</string>
   <string name="edit_how_page_improved">你如何改善此頁面？</string>
@@ -281,6 +279,6 @@
   <string name="gallery_save_error">無法儲存圖片： %s</string>
   <string name="gallery_save_success">已成功儲存圖片。</string>
   <string name="err_cannot_save_file">無法保存檔案</string>
-  <string name="snippet_share_intro">有趣的事實盡在：@Wikipedia %1$s：%2$s</string>
+  <string name="snippet_share_intro">「%1$s」 於 @Wikipedia：%2$s</string>
   <string name="expand_refs">點擊以展開</string>
 </resources>

@@ -117,7 +117,7 @@
   <string name="create_account_password_hint">Wachtwoord</string>
   <string name="menu_create_account">Registreren</string>
   <string name="login_create_account_link">Nog niet geregistreerd? Word lid van Wikipedia</string>
-  <string name="create_account_login_link">Hebt u al een gebruikersnaam? Meld u aan</string>
+  <string name="create_account_login_link">Hebt u al een account? Meld u aan</string>
   <string name="create_account_activity_title">Gebruiker aanmaken</string>
   <string name="edit_section_activity_title">Paragraaf bewerken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Zero-ontwikkelmodus</string>
   <string name="zero_settings_devmode_summary">Deze instelling schakelt tijdens de ontwikkeling de uitvoering van code voor Wikipedia Zero in.</string>
   <string name="edit_preview_fetching_dialog_message">Ophalen van voorbeeld...</string>
-  <string name="edit_preview_activity_title">Voorbeeld bewerken</string>
   <string name="create_account_logging_in">Aan het aanmelden...</string>
   <string name="send_feedback">Terugkoppeling over app geven</string>
   <string name="edit_summary_guide_text">Geef aan hoe u de deze pagina hebt verbeterd. Dit helpt andere redacteuren uw bewerkingen sneller te controleren.</string>
   <string name="edit_summary_hint">Bewerkingssamenvatting</string>
   <string name="nav_item_random">Willekeurig</string>
   <string name="random_progress">Willekeurige pagina ophalen...</string>
-  <string name="nav_item_login_benefits">Als u aanmeldt, worden uw bewerkingen gekoppeld aan uw gebruikersnaam en dan is uw IP-adres niet openbaar zichtbaar.</string>
   <string name="create_account_account_created_toast">Gebruiker aangemaakt</string>
   <string name="user_contribs_more_action">Meer laden</string>
   <string name="activity_my_contributions_title">Uw bijdragen</string>

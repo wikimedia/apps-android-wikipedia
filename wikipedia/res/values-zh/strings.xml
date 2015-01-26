@@ -57,8 +57,8 @@
   <string name="nearby_set_imperial">显示英尺/英里</string>
   <string name="last_updated_text">最后更新：%s</string>
   <string name="content_license_html">除非另有说明，内容依据&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;协议发布。</string>
-  <string name="edit_save_action_license_logged_in">通过保存，您同意&lt;a href=\"https://wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并不可撤销地在&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;许可下提交您的贡献。</string>
-  <string name="edit_save_action_license_anon">通过保存，您同意&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并义无反顾地根据&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;协议发布您的贡献。编辑历史将显示您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登陆&lt;/a&gt;，您的隐私会被保护。</string>
+  <string name="edit_save_action_license_logged_in">一旦保存，表示您同意&lt;a href=\"https://wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并不可撤销地在&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;许可下提交您的贡献。</string>
+  <string name="edit_save_action_license_anon">一旦保存，表示您同意&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并义无反顾地根据&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;协议发布您的贡献。编辑历史将显示您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;，您的隐私会被保护。</string>
   <string name="preference_title_language">维基百科语言</string>
   <string name="preference_summary_language">内容语言</string>
   <string name="preference_languages_filter_hint">搜索</string>
@@ -154,17 +154,15 @@
   <string name="zero_learn_more_learn_more">阅读更多</string>
   <string name="zero_learn_more_dismiss">隐藏</string>
   <string name="zero_settings">设置</string>
-  <string name="zero_settings_devmode">零开发模式</string>
+  <string name="zero_settings_devmode">Zero开发模式</string>
   <string name="zero_settings_devmode_summary">在开发期间启用Wikipedia Zero的代码执行。</string>
   <string name="edit_preview_fetching_dialog_message">正在获取预览效果...</string>
-  <string name="edit_preview_activity_title">预览编辑</string>
   <string name="create_account_logging_in">正在登录...</string>
   <string name="send_feedback">发送程序反馈</string>
   <string name="edit_summary_guide_text">告诉我们您如何改进此页面。这将有助于其他编辑者快速复核您的编辑。</string>
   <string name="edit_summary_hint">编辑摘要</string>
   <string name="nav_item_random">随机</string>
   <string name="random_progress">正在获取随机页面...</string>
-  <string name="nav_item_login_benefits">如果您已登录，您的编辑将被关联到您的账号，而您的 IP 地址将不会公开显示。</string>
   <string name="create_account_account_created_toast">已建立账户</string>
   <string name="user_contribs_more_action">加载更多</string>
   <string name="activity_my_contributions_title">我的贡献</string>
@@ -187,9 +185,9 @@
   <string name="more_item_preferences">更多</string>
   <string name="more_activity_title">更多</string>
   <string name="about_description">关于维基百科应用程序</string>
-  <string name="privacy_policy_description">隐私权政策</string>
+  <string name="privacy_policy_description">隐私政策</string>
   <string name="terms_of_use_description">使用条款</string>
-  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Special:MyLanguage/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_version">版本</string>
   <string name="about_libraries_heading">使用库</string>
@@ -203,12 +201,12 @@
   <string name="user_blocked_from_editing_title">已封禁</string>
   <string name="user_logged_in_blocked_from_editing">您的用户账户被封禁，不能编辑此wiki。</string>
   <string name="user_anon_blocked_from_editing"> 您的IP地址被封禁编辑。</string>
-  <string name="edit_how_page_improved">您是如何改进此页面的？</string>
+  <string name="edit_how_page_improved">您要如何改进此页面的？</string>
   <string name="edit_next">下一页</string>
   <string name="edit_done">保存</string>
   <string name="edit_preview">预览</string>
-  <string name="edit_summary_tag_typo">校正笔误</string>
-  <string name="edit_summary_tag_grammar">校正语法</string>
+  <string name="edit_summary_tag_typo">修改错别字</string>
+  <string name="edit_summary_tag_grammar">修正语病</string>
   <string name="edit_summary_tag_links">添加链接</string>
   <string name="edit_summary_tag_other">其他</string>
   <string name="edit_summary_tag_other_hint">您其他改进页面的方法</string>
@@ -281,6 +279,6 @@
   <string name="gallery_save_error">无法保存图片：%s</string>
   <string name="gallery_save_success">图片保存成功。</string>
   <string name="err_cannot_save_file">无法保存文件</string>
-  <string name="snippet_share_intro">有趣的事实尽在：@Wikipedia %1$s：%2$s</string>
+  <string name="snippet_share_intro">“%1$s”在 @Wikipedia：%2$s</string>
   <string name="expand_refs">点按展开</string>
 </resources>

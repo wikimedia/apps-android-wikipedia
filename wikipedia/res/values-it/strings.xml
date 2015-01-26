@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Zero Devmode</string>
   <string name="zero_settings_devmode_summary">Durante lo sviluppo, consente l\'esecuzione di codice riguardante Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Recupero anteprima...</string>
-  <string name="edit_preview_activity_title">Anteprima della modifica</string>
   <string name="create_account_logging_in">Accesso in corso...</string>
   <string name="send_feedback">Invia commento sull\'applicazione</string>
   <string name="edit_summary_guide_text">Dicci cosa hai migliorato di questa pagina. Questo facilita la revisione da parte di altri editor.</string>
   <string name="edit_summary_hint">Oggetto della modifica</string>
   <string name="nav_item_random">Una pagina a caso</string>
   <string name="random_progress">Recupero pagina casuale...</string>
-  <string name="nav_item_login_benefits">Se effettui l\'accesso, le tue modifiche saranno associate al tuo nome utente e il tuo indirizzo IP non sarà visibile pubblicamente.</string>
   <string name="create_account_account_created_toast">Utenza creata!</string>
   <string name="user_contribs_more_action">Caricane ancora</string>
   <string name="activity_my_contributions_title">I miei contributi</string>

@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">وضعیت برنامه‌نویسی صفر</string>
   <string name="zero_settings_devmode_summary">در طول توسعهٔ این اجرای کد ویکی‌پدیا زیرو را فعال می‌کند.</string>
   <string name="edit_preview_fetching_dialog_message">واکشی پیش‌نمایش...</string>
-  <string name="edit_preview_activity_title">ویرایش پیش‌نمایش</string>
   <string name="create_account_logging_in">ورود به سیستم...</string>
   <string name="send_feedback">فرستادن بازخورد برنامه</string>
   <string name="edit_summary_guide_text">بگویید از چه لحاظ این مقاله را بهبود  داده‌اید. این به سایر ویرایشگران کمک می‌کند ویرایش‌تان به‌سرعت بازبینی کنند.</string>
   <string name="edit_summary_hint">خلاصهٔ ویرایش</string>
   <string name="nav_item_random">تصادفی</string>
   <string name="random_progress">واکشی صفحهٔ تصادفی...</string>
-  <string name="nav_item_login_benefits">اگر وارد شده‌باشید، ویرایش‌های شما با نام کاربری متصل خواهد شد و نشانی آی‌پی‌تان به‌صورت عمومی نمایان نخواهد بود.</string>
   <string name="create_account_account_created_toast">حساب ساخته شد!</string>
   <string name="user_contribs_more_action">بارگیری بیشتر</string>
   <string name="activity_my_contributions_title">مشارکت‌های من</string>

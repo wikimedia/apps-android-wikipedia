@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Mod de dezvoltare Zero</string>
   <string name="zero_settings_devmode_summary">În timpul dezvoltării, aceasta permite executarea de cod specific Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Se preia previzualizarea...</string>
-  <string name="edit_preview_activity_title">Previzualizare modificare</string>
   <string name="create_account_logging_in">Autentificare în curs...</string>
   <string name="send_feedback">Trimiteți o părere despre aplicație</string>
   <string name="edit_summary_guide_text">Spuneți-ne cum ați îmbunătățit această pagină. Acest lucru le va fi de folos altor editori să vă revizuiască modificarea mai rapid.</string>
   <string name="edit_summary_hint">Descrierea modificării</string>
   <string name="nav_item_random">Aleatoriu</string>
   <string name="random_progress">Se preia pagina aleatorie...</string>
-  <string name="nav_item_login_benefits">Dacă vă autentificați, modificările dumneavoastră vor fi asociate cu numele de utilizator, iar adresa dumneavoastră IP nu va fi vizibilă în mod public.</string>
   <string name="create_account_account_created_toast">Cont creat!</string>
   <string name="user_contribs_more_action">Încarcă mai multe</string>
   <string name="activity_my_contributions_title">Contribuțiile mele</string>

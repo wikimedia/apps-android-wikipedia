@@ -151,14 +151,12 @@
   <string name="zero_settings_devmode">Zero Devmode</string>
   <string name="zero_settings_devmode_summary">W trakcie prac rozwojowych to umozliwia wykonanie kodu związanego z Wikipedia Zero</string>
   <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu...</string>
-  <string name="edit_preview_activity_title">Podgląd zmian</string>
   <string name="create_account_logging_in">Logowanie...</string>
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
   <string name="edit_summary_guide_text">Opisz, w jaki sposób zmodyfikowałaś/eś tę stronę. Ułatwi to innym edytorom szybkie przejrzenie twoich zmian.</string>
   <string name="edit_summary_hint">Opis zmian</string>
   <string name="nav_item_random">Losowa strona</string>
   <string name="random_progress">Ładowanie losowej strony...</string>
-  <string name="nav_item_login_benefits">Jeśli się zalogujesz, edycje będą przypisane do twojej nazwy użytkownika, a twój adres IP nie będzie publicznie widoczny.</string>
   <string name="create_account_account_created_toast">Konto zostało utworzone!</string>
   <string name="user_contribs_more_action">Czytaj całość</string>
   <string name="activity_my_contributions_title">Mój wkład</string>

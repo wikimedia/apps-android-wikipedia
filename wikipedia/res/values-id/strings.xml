@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Zero Devmode</string>
   <string name="zero_settings_devmode_summary">Selama pengembangan ini memungkinkan eksekusi kode hal-hal Wikipedia Nol.</string>
   <string name="edit_preview_fetching_dialog_message">Mengambil pratayang...</string>
-  <string name="edit_preview_activity_title">Pratayang suntingan</string>
   <string name="create_account_logging_in">Sedang masuk log...</string>
   <string name="send_feedback">Kirim umpan balik aplikasi</string>
   <string name="edit_summary_guide_text">Beritahu kami bagaimana Anda meningkatkan halaman ini. Ini membantu penyunting lain meninjau suntingan Anda dengan cepat.</string>
   <string name="edit_summary_hint">Ringkasan suntingan</string>
   <string name="nav_item_random">Sembarang</string>
   <string name="random_progress">Mengambil halaman sembarang...</string>
-  <string name="nav_item_login_benefits">Jika Anda masuk log, suntingan Anda akan dikaitkan dengan nama pengguna dan alamat IP Anda tidak akan terlihat oleh umum.</string>
   <string name="create_account_account_created_toast">Akun dibuat!</string>
   <string name="user_contribs_more_action">Baca lebih lanjut</string>
   <string name="activity_my_contributions_title">Kontribusiku</string>
@@ -275,4 +273,10 @@ Kode sepenuhnya bersifat sumber terbuka. Jika Anda memiliki pengalaman dengan Ja
   <string name="gallery_license_text">Lisensi - %s</string>
   <string name="gallery_credit_text">Penulis - %s</string>
   <string name="gallery_image_info">Informasi gambar</string>
+  <string name="gallery_menu_share">Bagikan</string>
+  <string name="gallery_share_error">Tidak dapat membagi foto:%s</string>
+  <string name="gallery_menu_save">Simpan kedalam perangkat</string>
+  <string name="gallery_save_error">Tidak dapat menyimpan gambar: %s</string>
+  <string name="gallery_save_success">Penyimpanan gambar sukses.</string>
+  <string name="err_cannot_save_file">Tidak dapat menyimpan file</string>
 </resources>

@@ -181,7 +181,7 @@ See also:
   <string name="create_account_password_repeat_hint">{{Identical|Repeat password}}</string>
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
   <string name="create_account_email_error">Used as an error message on creating a user account where the email address the user entered does not appear to be a valid email address.</string>
-  <string name="create_account_username_exists_error">Used as error message on creating a user account where the username already exists.</string>
+  <string name="create_account_username_exists_error">Used as error message on creating a user account.</string>
   <string name="create_account_ip_throttle_error">Used as an error message on creating a user account where the user\'s IP has created too many accounts already and hit the account creation throttle.</string>
   <string name="create_account_open_proxy_error">Used as error message on creating a user account where the user is trying to create an account from a blocked open proxy.</string>
   <string name="create_account_noname_error">Used as an error message during account creation when the account creation failed because username that was provided is invalid.</string>
@@ -277,7 +277,8 @@ See also:
 * {{msg-wm|Wikipedia-android-strings-more item preferences}} - menu item to come to this screen
 {{Identical|More}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
-  <string name="privacy_policy_description">Summary of the preference item to show the terms of use.</string>
+  <string name="privacy_policy_description">Summary of the preference item to show the terms of use.
+{{Identical|Privacy policy}}</string>
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.</string>
   <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de
 Please test the URL to make sure it works.</string>

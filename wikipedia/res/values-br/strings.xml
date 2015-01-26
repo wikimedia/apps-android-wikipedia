@@ -76,7 +76,7 @@
   <string name="dialog_message_edit_failed">C\'hwitet ar c\'hemm !</string>
   <string name="dialog_message_edit_failed_retry">Klask en-dro</string>
   <string name="dialog_message_edit_failed_cancel">Nullañ</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">\"N\'eo ket bet enrollet ho kemmoù c\'hoazh. Ha sur eo ho peus c\'hoant da guitaat ar bajenn-mañ ?\"</string>
+  <string name="dialog_message_leaving_edit">\"N\'eo ket bet enrollet ho kemmoù c\'hoazh. Ha sur eo ho peus c\'hoant da guitaat ar bajenn-mañ ?\"</string>
   <string name="dialog_message_leaving_edit_leave">Mont kuit</string>
   <string name="dialog_message_leaving_edit_stay">Chom</string>
   <string name="menu_show_toc">Taolenn</string>
@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Mod diorren zero</string>
   <string name="zero_settings_devmode_summary">E-pad an diorroadur e ro tro da seveniñ kod an traoù Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">O klask un alberz...</string>
-  <string name="edit_preview_activity_title">Alberz eus ar c\'hemm</string>
   <string name="create_account_logging_in">O kevreañ ouzh...</string>
   <string name="send_feedback">Kasit hoc\'h evezhiadennoù diwar-benn an arload</string>
   <string name="edit_summary_guide_text">Lavarit dimp penaos ho peus gwellaet ar bajenn-mañ. Kement-se a sikour an aozerien all da adwelet buan hoc\'h aozadenn.</string>
   <string name="edit_summary_hint">Kemmañ an diverradenn</string>
   <string name="nav_item_random">Dargouezhek</string>
   <string name="random_progress">O tapout ur bajenn evel ma teu e teu...</string>
-  <string name="nav_item_login_benefits">Ma kevreit e vo liammet hoc\'h aozadennoù ouzh hoc\'h anv implijer ha ne vo ket diskouezet ho chomlec\'h IP d\'an holl.</string>
   <string name="create_account_account_created_toast">Kont krouet !</string>
   <string name="user_contribs_more_action">Lenn muioc\'h</string>
   <string name="activity_my_contributions_title">Ma degasadennoù</string>
@@ -272,8 +270,21 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="alpha_update_notification_text">Pouezañ evit pellgargañ</string>
   <string name="dialog_close_description">Serriñ</string>
   <string name="preference_title_show_images">Diskouez ar skeudennoù</string>
+  <string name="preference_summary_show_images">Gweredekaat evit diweredekaat pellgargadur ar skeudennoù er pajennoù. Diaskit an arventenn-mañ m\'eo gorrek ho kevreadur Internet, pe m\'eo bevennet hoc\'h ampled roadennoù.</string>
   <string name="read_more_section">Lenn muioc\'h</string>
   <string name="gallery_menu_more_info">Muioc\'h a ditouroù</string>
+  <string name="menu_gallery_visit_page">Mont da bajenn ar restr</string>
+  <string name="gallery_error_draw_failed">Ne c\'haller ket tresañ ar skeudenn.</string>
+  <string name="license_title">Testenn aotre-imoplijout evit al levraoueg %s</string>
   <string name="gallery_license_text">Aotre-implijout - %s</string>
+  <string name="gallery_credit_text">Aozer - %s</string>
+  <string name="gallery_image_info">Titouroù war ar skeudenn</string>
   <string name="gallery_menu_share">Rannañ</string>
+  <string name="gallery_share_error">Ne c\'haller ket rannañ ar skeudenn : %s</string>
+  <string name="gallery_menu_save">Enrollañ en ardivink</string>
+  <string name="gallery_save_error">Ne c\'haller ket saveteiñ ar skeudenn : %s</string>
+  <string name="gallery_save_success">Pajenn enrollet mat</string>
+  <string name="err_cannot_save_file">Ne c\'haller ket enrollañ ar restr</string>
+  <string name="snippet_share_intro">Fed dedennus e @Wikipedia %1$s : %2$s</string>
+  <string name="expand_refs">Pouezañ war ur stokell evit diorren</string>
 </resources>

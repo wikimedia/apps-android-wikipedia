@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Zero-Entwicklermodus</string>
   <string name="zero_settings_devmode_summary">Während der Entwicklungsphase ermöglicht dies Code-Ausführung von Wikipedia-Zero-Dingen.</string>
   <string name="edit_preview_fetching_dialog_message">Vorschau wird abgerufen …</string>
-  <string name="edit_preview_activity_title">Vorschau der Bearbeitung anzeigen</string>
   <string name="create_account_logging_in">Anmelden …</string>
   <string name="send_feedback">App-Rückmeldung senden</string>
   <string name="edit_summary_guide_text">Erzähle uns, wie du diese Seite verbessert hast. Dies hilft anderen Autoren, deine Bearbeitung schnell zu überprüfen.</string>
   <string name="edit_summary_hint">Bearbeitungszusammenfassung</string>
   <string name="nav_item_random">Zufällig</string>
   <string name="random_progress">Rufe zufällige Seite ab …</string>
-  <string name="nav_item_login_benefits">Wenn du dich anmeldest, werden deine Bearbeitungen mit deinem Benutzernamen verknüpft und deine IP-Adresse wird nicht öffentlich sichtbar.</string>
   <string name="create_account_account_created_toast">Benutzerkonto erstellt!</string>
   <string name="user_contribs_more_action">Mehr laden</string>
   <string name="activity_my_contributions_title">Meine Beiträge</string>

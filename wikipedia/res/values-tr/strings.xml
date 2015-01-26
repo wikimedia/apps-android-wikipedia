@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Zero geliştirme modu</string>
   <string name="zero_settings_devmode_summary">Bu seçenek, geliştirme sürecinde Wikipedia Zero işlemlerinin kod çalıştırabilmesini sağlar.</string>
   <string name="edit_preview_fetching_dialog_message">Ön izleme getiriliyor...</string>
-  <string name="edit_preview_activity_title">Düzenleme önizleme</string>
   <string name="create_account_logging_in">Oturum açılıyor...</string>
   <string name="send_feedback">Uygulama geri bildirimi gönder</string>
   <string name="edit_summary_guide_text">Bize sayfayı hangi yönden geliştirdiğinizi belirtin. Bu, devriyelerin değişikliğinizi hızla incelemesine yardımcı olur.</string>
   <string name="edit_summary_hint">Değişiklik özeti</string>
   <string name="nav_item_random">Rastgele</string>
   <string name="random_progress">Rastgele sayfa getiriliyor...</string>
-  <string name="nav_item_login_benefits">Eğer oturum açarsanız, değişiklikleriniz kullanıcı adınızla kaydedilecek ve IP adresiniz görünmeyecektir.</string>
   <string name="create_account_account_created_toast">Hesap yaratıldı!</string>
   <string name="user_contribs_more_action">Daha fazla yükle</string>
   <string name="activity_my_contributions_title">Katkılarım</string>

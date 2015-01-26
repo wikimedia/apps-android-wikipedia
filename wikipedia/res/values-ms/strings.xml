@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Zero Devmode</string>
   <string name="zero_settings_devmode_summary">Sewaktu pembangunan, ini membolehkan pelaksanaan perkara-perkara Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Mengolah pralihat...</string>
-  <string name="edit_preview_activity_title">Pralihatkan suntingan</string>
   <string name="create_account_logging_in">Sedang log masuk...</string>
   <string name="send_feedback">Hantar maklum balas aplikasi</string>
   <string name="edit_summary_guide_text">Ceritakan bagaimana anda menambah baik rencana ini supaya para penyunting lain senang menyemak suntingan anda dengan cepat.</string>
   <string name="edit_summary_hint">Ringkasan suntingan</string>
   <string name="nav_item_random">Rawak</string>
   <string name="random_progress">Mengambil halaman rawak...</string>
-  <string name="nav_item_login_benefits">Jika anda log masuk, suntingan-suntingan anda akan dikaitkan dengan nama pengguna anda, malah alamat IP anda tidak akan diperlihatkan kepada umum.</string>
   <string name="create_account_account_created_toast">Akaun dicipta!</string>
   <string name="user_contribs_more_action">Muatkan yang selanjutnya</string>
   <string name="activity_my_contributions_title">Sumbangan Saya</string>

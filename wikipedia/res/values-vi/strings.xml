@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Chế độ phát triển Miễn phí</string>
   <string name="zero_settings_devmode_summary">Trong quá trình phát triển, hộp này cho phép thực thi mã phát hiện Wikipedia Miễn phí.</string>
   <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem thử…</string>
-  <string name="edit_preview_activity_title">Xem thử sửa đổi</string>
   <string name="create_account_logging_in">Đang đăng nhập…</string>
   <string name="send_feedback">Gửi phản hồi về ứng dụng</string>
   <string name="edit_summary_guide_text">Hãy cho biết bạn đã cải thiện trang này thế nào, để cho người khác có thể duyệt sửa đổi của bạn một cách nhanh chóng.</string>
   <string name="edit_summary_hint">Tóm lược sửa đổi</string>
   <string name="nav_item_random">Ngẫu nhiên</string>
   <string name="random_progress">Đang lấy trang ngẫu nhiên…</string>
-  <string name="nav_item_login_benefits">Nếu bạn đăng nhập, các sửa đổi của bạn sẽ ghi nhận tên người dùng của bạn và địa chỉ IP sẽ không được hiển thị công khai.</string>
   <string name="create_account_account_created_toast">Đã mở tài khoản thành công!</string>
   <string name="user_contribs_more_action">Tải thêm</string>
   <string name="activity_my_contributions_title">Đóng góp của Tôi</string>

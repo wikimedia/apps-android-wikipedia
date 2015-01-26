@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Zero Devmode</string>
   <string name="zero_settings_devmode_summary">Durant el desenvolupament això permet l\'execució de codi de Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Obtenció de la previsualització...</string>
-  <string name="edit_preview_activity_title">Previsualitza la modificació</string>
   <string name="create_account_logging_in">Inici de sessió...</string>
   <string name="send_feedback">Envia comentaris de l\'aplicació</string>
   <string name="edit_summary_guide_text">Explica els canvis que has relitzat en aquesta pàgina. Això ajuda als altres editors a supervisar la teva edició més ràpidament</string>
   <string name="edit_summary_hint">Resum d\'edició</string>
   <string name="nav_item_random">A l\'atzar</string>
   <string name="random_progress">S\'està carregant una pàgina a l\'atzar...</string>
-  <string name="nav_item_login_benefits">Si entres al compte d\'usuari les teves edicions s\'associaran amb el teu nom d\'usuari i la teva adreça IP no serà visible públicament</string>
   <string name="create_account_account_created_toast">S\'ha creat satisfactòriament el vostre compte d\'usuari!</string>
   <string name="user_contribs_more_action">Carrega\'n més</string>
   <string name="activity_my_contributions_title">Les meves contribucions</string>

@@ -157,14 +157,12 @@
   <string name="zero_settings_devmode">Modo para desenvolvedor Zero</string>
   <string name="zero_settings_devmode_summary">Durante o desenvolvimento do aplicativo, isso habilita a execução de código da Wikipédia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Processando pré-visualização</string>
-  <string name="edit_preview_activity_title">Visualizar edição</string>
   <string name="create_account_logging_in">Iniciando a sessão...</string>
   <string name="send_feedback">Enviar comentários sobre o aplicativo</string>
   <string name="edit_summary_guide_text">Conte como você melhorou este artigo. Isto ajuda a outros editores a revisarem sua edição rapidamente.</string>
   <string name="edit_summary_hint">Editar sumário</string>
   <string name="nav_item_random">Aleatório</string>
   <string name="random_progress">Obtendo página aleatória</string>
-  <string name="nav_item_login_benefits">Se você entrar, suas edições serão associadas com o seu nome de usuário e o seu endereço de IP não ficará visível publicamente.</string>
   <string name="create_account_account_created_toast">Conta criada!</string>
   <string name="user_contribs_more_action">Carregar mais</string>
   <string name="activity_my_contributions_title">Minhas contribuições</string>

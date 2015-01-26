@@ -100,10 +100,8 @@
   <string name="zero_interstitial_cancel">Resti ĉi tie</string>
   <string name="zero_learn_more_learn_more">Legi plu</string>
   <string name="zero_settings">Agordoj</string>
-  <string name="edit_preview_activity_title">Antaŭgardi redakton</string>
   <string name="create_account_logging_in">Ensalutante...</string>
   <string name="nav_item_random">Hazarda paĝo</string>
-  <string name="nav_item_login_benefits">Se vi ensalutas, viaj redaktoj estos aluditaj al via uzantnomo kaj via IP-Adreso ne estos publike videbla.</string>
   <string name="create_account_account_created_toast">Konto kreita</string>
   <string name="user_contribs_more_action">Ŝarĝi pli</string>
   <string name="activity_my_contributions_title">Miaj kontribuoj</string>
