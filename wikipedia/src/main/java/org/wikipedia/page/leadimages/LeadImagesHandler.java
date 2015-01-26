@@ -216,9 +216,9 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                     final int faceBoost = 24;
                     imageBaseYOffset -= (faceBoost * displayDensity);
                 } else {
-                    // if we don't have a face, then center on the midpoint of the image
-                    imageBaseYOffset = -(newHeight / 2
-                            - (imagePlaceholder.getHeight() / 2));
+                    // No face, so we'll just chop the top 25% off rather than centering
+                    final int offsetDenom = 4;
+                    imageBaseYOffset = -(newHeight - imagePlaceholder.getHeight()) / offsetDenom;
                 }
                 // is the offset too far to the top?
                 if (imageBaseYOffset > 0) {
