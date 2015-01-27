@@ -5,6 +5,7 @@ import org.wikipedia.Site;
 import org.wikipedia.search.FullSearchArticlesTask;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
+import org.wikipedia.search.SearchResults;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class SuggestionsTask extends FullSearchArticlesTask {
     }
 
     @Override
-    public FullSearchResults processResult(final ApiResult result) throws Throwable {
+    public SearchResults processResult(final ApiResult result) throws Throwable {
         return filterResults(super.processResult(result));
     }
 
@@ -35,9 +36,9 @@ public class SuggestionsTask extends FullSearchArticlesTask {
      * @param searchResults original results from server
      * @return filtered results
      */
-    public FullSearchResults filterResults(FullSearchResults searchResults) {
+    public SearchResults filterResults(SearchResults searchResults) {
         List<PageTitle> filteredResults = new ArrayList<PageTitle>();
-        List<PageTitle> results = searchResults.getResults();
+        List<PageTitle> results = searchResults.getPageTitles();
         for (int i = 0, count = 0; i < results.size() && count < MAX_SIZE; i++) {
             final PageTitle res = results.get(i);
             if (!title.equalsIgnoreCase(res.getPrefixedText())) {
@@ -45,6 +46,6 @@ public class SuggestionsTask extends FullSearchArticlesTask {
                 count++;
             }
         }
-        return new FullSearchResults(filteredResults, null, null);
+        return new SearchResults(filteredResults, null, null);
     }
 }

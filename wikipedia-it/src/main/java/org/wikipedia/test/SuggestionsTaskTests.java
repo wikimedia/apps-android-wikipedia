@@ -4,7 +4,7 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.SuggestionsTask;
-import org.wikipedia.search.FullSearchArticlesTask;
+import org.wikipedia.search.SearchResults;
 
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
@@ -42,11 +42,11 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
             public void run() {
                 new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test") {
                     @Override
-                    public void onFinish(FullSearchResults results) {
+                    public void onFinish(SearchResults results) {
                         assertNotNull(results);
-                        assertEquals(results.getResults().size(), BATCH_SIZE);
+                        assertEquals(results.getPageTitles().size(), BATCH_SIZE);
 
-                        for (PageTitle result : results.getResults()) {
+                        for (PageTitle result : results.getPageTitles()) {
                             assertFalse(result.getPrefixedText().equals("Test"));
                         }
                         completionLatch.countDown();
@@ -89,8 +89,8 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
 
     private void checkFilter(int expected, List<PageTitle> originalResults) {
         SuggestionsTask task = new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test");
-        FullSearchArticlesTask.FullSearchResults searchResults = new FullSearchArticlesTask.FullSearchResults(originalResults, null, null);
-        List<PageTitle> filteredList = task.filterResults(searchResults).getResults();
+        SearchResults searchResults = new SearchResults(originalResults, null, null);
+        List<PageTitle> filteredList = task.filterResults(searchResults).getPageTitles();
         assertEquals(expected, filteredList.size());
     }
 }

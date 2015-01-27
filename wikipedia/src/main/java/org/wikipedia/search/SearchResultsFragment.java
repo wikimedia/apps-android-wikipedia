@@ -42,12 +42,12 @@ public class SearchResultsFragment extends Fragment {
 
     private WikipediaApp app;
     private ParcelableLruCache<List<PageTitle>> searchResultsCache
-            = new ParcelableLruCache<List<PageTitle>>(MAX_CACHE_SIZE_SEARCH_RESULTS, List.class);
+            = new ParcelableLruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS, List.class);
     private Handler searchHandler;
     private TitleSearchTask curSearchTask;
     private String currentSearchTerm = "";
-    private FullSearchArticlesTask.FullSearchResults lastFullTextResults;
-    private List<PageTitle> totalResults = new ArrayList<PageTitle>();
+    private SearchResults lastFullTextResults;
+    private List<PageTitle> totalResults = new ArrayList<>();
 
     /**
      * Whether full-text search has been disabled via remote kill-switch.
@@ -203,24 +203,34 @@ public class SearchResultsFragment extends Fragment {
             }
 
             @Override
-            public void onFinish(List<PageTitle> result) {
+            public void onFinish(SearchResults results) {
                 if (!isAdded()) {
                     return;
                 }
+                List<PageTitle> pageTitles = results.getPageTitles();
                 // To ease data analysis and better make the funnel track with user behaviour,
                 // only transmit search results events if there are a nonzero number of results
-                if (!result.isEmpty()) {
-                    searchFragment.getFunnel().searchResults(false, result.size(),
+                if (!pageTitles.isEmpty()) {
+                    searchFragment.getFunnel().searchResults(false, pageTitles.size(),
                             (int) (System.currentTimeMillis() - startMillis));
                 }
 
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
                 searchNetworkError.setVisibility(View.GONE);
-                displayResults(result);
+                displayResults(pageTitles);
 
                 // title search special:
-                searchResultsCache.put(app.getPrimaryLanguage() + "-" + searchTerm, result);
+                searchResultsCache.put(app.getPrimaryLanguage() + "-" + searchTerm, pageTitles);
                 curSearchTask = null;
+
+                final String suggestion = results.getSuggestion();
+                if (!suggestion.isEmpty()) {
+                    searchSuggestion.setText(Html.fromHtml("<u>"
+                            + String.format(getString(R.string.search_did_you_mean), suggestion)
+                            + "</u>"));
+                    searchSuggestion.setTag(suggestion);
+                    searchSuggestion.setVisibility(View.VISIBLE);
+                }
 
                 // scroll to top, but post it to the message queue, because it should be done
                 // after the data set is updated.
@@ -231,7 +241,7 @@ public class SearchResultsFragment extends Fragment {
                     }
                 });
 
-                if (result.isEmpty()) {
+                if (pageTitles.isEmpty()) {
                     // kick off full text search if we get no results
                     doFullTextSearch(currentSearchTerm, null);
                 }
@@ -262,7 +272,7 @@ public class SearchResultsFragment extends Fragment {
         searchTask.execute();
     }
 
-    private void doFullTextSearch(final String searchTerm, final FullSearchArticlesTask.ContinueOffset continueOffset) {
+    private void doFullTextSearch(final String searchTerm, final SearchResults.ContinueOffset continueOffset) {
         final long startMillis = System.currentTimeMillis();
         new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, BATCH_SIZE, continueOffset) {
             @Override
@@ -271,30 +281,24 @@ public class SearchResultsFragment extends Fragment {
             }
 
             @Override
-            public void onFinish(FullSearchResults results) {
+            public void onFinish(SearchResults results) {
                 if (!isAdded()) {
                     return;
                 }
                 // To ease data analysis and better make the funnel track with user behaviour,
                 // only transmit search results events if there are a nonzero number of results
-                if (!results.getResults().isEmpty()) {
-                    searchFragment.getFunnel().searchResults(true, results.getResults().size(),
+                final List<PageTitle> pageTitles = results.getPageTitles();
+                if (!pageTitles.isEmpty()) {
+                    searchFragment.getFunnel().searchResults(true, pageTitles.size(),
                             (int) (System.currentTimeMillis() - startMillis));
                 }
 
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
                 searchNetworkError.setVisibility(View.GONE);
-                displayResults(results.getResults());
+                displayResults(pageTitles);
 
                 // full text special:
-                lastFullTextResults = results;
-                if (results.getSuggestion().length() > 0) {
-                    searchSuggestion.setText(Html.fromHtml("<u>"
-                            + String.format(getString(R.string.search_did_you_mean), results.getSuggestion())
-                            + "</u>"));
-                    searchSuggestion.setTag(results.getSuggestion());
-                    searchSuggestion.setVisibility(View.VISIBLE);
-                }
+                SearchResultsFragment.this.lastFullTextResults = results;
             }
 
             @Override

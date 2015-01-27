@@ -33,7 +33,7 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.page.SuggestionsTask;
-import org.wikipedia.search.FullSearchArticlesTask;
+import org.wikipedia.search.SearchResults;
 import org.wikipedia.views.ObservableWebView;
 
 import java.util.List;
@@ -58,7 +58,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
     private ListView readMoreList;
 
     private SuggestedPagesFunnel funnel;
-    private FullSearchArticlesTask.FullSearchResults readMoreItems;
+    private SearchResults readMoreItems;
 
     public BottomContentHandler(PageViewFragmentInternal parentFragment, CommunicationBridge bridge,
                                 ObservableWebView webview, LinkHandler linkHandler,
@@ -257,9 +257,9 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
         new SuggestionsTask(app.getAPIForSite(pageTitle.getSite()), pageTitle.getSite(),
                 pageTitle.getPrefixedText()) {
             @Override
-            public void onFinish(FullSearchResults results) {
+            public void onFinish(SearchResults results) {
                 readMoreItems = results;
-                if (readMoreItems.getResults().size() > 0) {
+                if (!readMoreItems.getPageTitles().isEmpty()) {
                     // If there are results, set up section and make sure it's visible
                     setupReadMoreSection(layoutInflater, readMoreItems);
                     readMoreContainer.setVisibility(View.VISIBLE);
@@ -288,9 +288,8 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
         pageTitle = newTitle;
     }
 
-    private void setupReadMoreSection(LayoutInflater layoutInflater,
-                                      final FullSearchArticlesTask.FullSearchResults results) {
-        final ReadMoreAdapter adapter = new ReadMoreAdapter(layoutInflater, results.getResults());
+    private void setupReadMoreSection(LayoutInflater layoutInflater, final SearchResults results) {
+        final ReadMoreAdapter adapter = new ReadMoreAdapter(layoutInflater, results.getPageTitles());
         readMoreList.setAdapter(adapter);
         readMoreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -16,9 +16,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
 
-public class TitleSearchTask extends ApiTask<List<PageTitle>> {
+public class TitleSearchTask extends ApiTask<SearchResults> {
     private final String prefix;
     private final Site site;
 
@@ -37,6 +36,16 @@ public class TitleSearchTask extends ApiTask<List<PageTitle>> {
                 .param("gpssearch", prefix)
                 .param("gpsnamespace", "0")
                 .param("gpslimit", NUM_RESULTS_PER_QUERY)
+                // -- Parameters causing prefix search to return suggestion.
+                .param("list", "search")
+                .param("srsearch", prefix)
+                .param("srnamespace", "0")
+                .param("srwhat", "text")
+                .param("srinfo", "suggestion")
+                .param("srprop", "")
+                .param("sroffset", "0")
+                .param("srlimit", "1")
+                // --
                 .param("prop", "pageterms|pageimages")
                 .param("wbptterms", "description") // only interested in Wikidata description
                 .param("piprop", "thumbnail")
@@ -46,15 +55,14 @@ public class TitleSearchTask extends ApiTask<List<PageTitle>> {
     }
 
     @Override
-    public List<PageTitle> processResult(final ApiResult result) throws Throwable {
-        ArrayList<PageTitle> pageTitles = new ArrayList<PageTitle>();
+    public SearchResults processResult(final ApiResult result) throws Throwable {
         JSONObject data;
         try {
             data = result.asObject();
         } catch (ApiException e) {
             if (e.getCause() instanceof JSONException) {
                 // the only reason for a JSONException is if the response is an empty array.
-                return pageTitles;
+                return new SearchResults();
             } else {
                 throw new RuntimeException(e);
             }
@@ -64,12 +72,22 @@ public class TitleSearchTask extends ApiTask<List<PageTitle>> {
         // use to sort the results ourselves.
         JSONObject queryResult = data.optJSONObject("query");
         if (queryResult == null) {
-            return pageTitles;
+            return new SearchResults();
         }
+
+        String suggestion = "";
+        JSONObject searchinfo = queryResult.optJSONObject("searchinfo");
+        if (searchinfo != null) {
+            if (searchinfo.has("suggestion")) {
+                suggestion = searchinfo.getString("suggestion");
+            }
+        }
+        ArrayList<PageTitle> pageTitles = new ArrayList<>();
         JSONObject pages = queryResult.optJSONObject("pages");
         if (pages == null) {
-            return pageTitles;
+            return new SearchResults(pageTitles, null, suggestion);
         }
+
         // First, put all the page objects into an array
         JSONObject[] pageArray = new JSONObject[pages.length()];
         int pageIndex = 0;
@@ -105,6 +123,6 @@ public class TitleSearchTask extends ApiTask<List<PageTitle>> {
             }
             pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl, description));
         }
-        return pageTitles;
+        return new SearchResults(pageTitles, null, suggestion);
     }
 }

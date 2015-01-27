@@ -4,6 +4,7 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.search.FullSearchArticlesTask;
+import org.wikipedia.search.SearchResults;
 
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
@@ -33,13 +34,13 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
                 final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
                 new FullSearchArticlesTask(app.getAPIForSite(EN_SITE), EN_SITE, "test", BATCH_SIZE, null) {
                     @Override
-                    public void onFinish(FullSearchResults results) {
+                    public void onFinish(SearchResults results) {
                         assertNotNull(results);
-                        assertEquals(results.getResults().size(), BATCH_SIZE);
-                        assertEquals(results.getSuggestion(), "");
+                        assertEquals(results.getPageTitles().size(), BATCH_SIZE);
+                        assertNull(results.getSuggestion());
                         assertNotNull(results.getContinueOffset());
 
-                        for (PageTitle result : results.getResults()) {
+                        for (PageTitle result : results.getPageTitles()) {
                             if (result.getPrefixedText().equals("Test")) {
                                 assertEquals(result.getDescription(), "Wikipedia disambiguation page");
                             }
@@ -52,7 +53,7 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
         assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
     }
 
-    // can't seem to get suggestions anymore since search has changed
+    // TODO: move to TitleSearchTest once we have it
 
 //    public void testFullTextSearchWithSuggestion() throws Throwable {
 //        startActivity(new Intent(), null, null);
@@ -63,7 +64,7 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
 //                final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
 //                new FullSearchArticlesTask(app.getAPIForSite(SITE), SITE, "teest", BATCH_SIZE, null) { // small typo should produce a suggestion
 //                    @Override
-//                    public void onFinish(FullSearchResults results) {
+//                    public void onFinish(SearchResults results) {
 //                        assertNotNull(results);
 //                        assertEquals(results.getSuggestion(), "test");
 //                        completionLatch.countDown();
@@ -83,9 +84,9 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
                 final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
                 new FullSearchArticlesTask(app.getAPIForSite(SITE), SITE, "jkfsdfpefdsfwoirpoik", BATCH_SIZE, null) { // total gibberish, should not exist on testwiki
                     @Override
-                    public void onFinish(FullSearchResults results) {
+                    public void onFinish(SearchResults results) {
                         assertNotNull(results);
-                        assertEquals(results.getResults().size(), 0);
+                        assertEquals(results.getPageTitles().size(), 0);
                         assertEquals(results.getSuggestion(), "");
                         assertNull(results.getContinueOffset());
                         completionLatch.countDown();

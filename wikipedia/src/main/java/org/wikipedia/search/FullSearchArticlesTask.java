@@ -14,23 +14,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
 
-public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullSearchResults> {
+public class FullSearchArticlesTask extends ApiTask<SearchResults> {
     private final Site site;
     private final String searchTerm;
     private final int maxResults;
-    private final ContinueOffset continueOffset;
+    private final FTContinueOffset continueOffset;
 
-    public FullSearchArticlesTask(Api api, Site site, String searchTerm, int maxResults, ContinueOffset continueOffset) {
+    public FullSearchArticlesTask(Api api, Site site, String searchTerm, int maxResults,
+                                  SearchResults.ContinueOffset continueOffset) {
         super(LOW_CONCURRENCY, api);
         this.site = site;
         this.searchTerm = searchTerm;
         this.maxResults = maxResults;
-        this.continueOffset = continueOffset;
+        this.continueOffset = (FTContinueOffset) continueOffset;
     }
 
     @Override
@@ -61,43 +60,35 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
     }
 
     @Override
-    public FullSearchResults processResult(final ApiResult result) throws Throwable {
+    public SearchResults processResult(final ApiResult result) throws Throwable {
         JSONObject data;
         try {
             data = result.asObject();
         } catch (ApiException e) {
             if (e.getCause() instanceof JSONException) {
                 // the only reason for a JSONException is if the response is an empty array.
-                return emptyResults();
+                return new SearchResults();
             } else {
                 throw new RuntimeException(e);
             }
         }
 
-        ContinueOffset nextContinueOffset = null;
+        FTContinueOffset nextContinueOffset = null;
         final JSONObject continueData = data.optJSONObject("continue");
         if (continueData != null) {
             String continueString = continueData.optString("continue", null);
             Integer gsroffset = continueData.optInt("gsroffset");
-            nextContinueOffset = new ContinueOffset(continueString, gsroffset);
+            nextContinueOffset = new FTContinueOffset(continueString, gsroffset);
         }
 
         JSONObject queryResult = data.optJSONObject("query");
         if (queryResult == null) {
-            return emptyResults();
-        }
-
-        String suggestion = "";
-        JSONObject searchinfo = queryResult.optJSONObject("searchinfo");
-        if (searchinfo != null) {
-            if (searchinfo.has("suggestion")) {
-                suggestion = searchinfo.getString("suggestion");
-            }
+            return new SearchResults();
         }
 
         JSONObject pages = queryResult.optJSONObject("pages");
         if (pages == null) {
-            return emptyResults();
+            return new SearchResults();
         }
 
         // The search results arrive unordered, but they do have an "index" property, which we'll
@@ -123,7 +114,7 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
             }
         });
         // and create our list of results from the now-sorted array
-        ArrayList<PageTitle> pageTitles = new ArrayList<PageTitle>();
+        ArrayList<PageTitle> pageTitles = new ArrayList<>();
         for (JSONObject item : pageArray) {
             String thumbUrl = null;
             if (item.has("thumbnail")) {
@@ -138,48 +129,15 @@ public class FullSearchArticlesTask extends ApiTask<FullSearchArticlesTask.FullS
             }
             pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl, description));
         }
-        return new FullSearchResults(pageTitles, nextContinueOffset, suggestion);
+        return new SearchResults(pageTitles, nextContinueOffset, null);
     }
 
-    private FullSearchResults emptyResults() {
-        return new FullSearchResults(Collections.<PageTitle>emptyList(), null, "");
-    }
 
-    public static class FullSearchResults {
-        private ContinueOffset continueOffset;
-        private List<PageTitle> resultsList;
-        private String suggestion;
-
-        public FullSearchResults(List<PageTitle> resultList,
-                                 ContinueOffset continueOffset,
-                                 String suggestion) {
-            this.resultsList = resultList;
-            this.continueOffset = continueOffset;
-            this.suggestion = suggestion;
-        }
-
-        public String getSuggestion() {
-            return suggestion;
-        }
-
-        public ContinueOffset getContinueOffset() {
-            return continueOffset;
-        }
-
-        public List<PageTitle> getResults() {
-            return resultsList;
-        }
-
-        public List<PageTitle> getPageTitles() {
-            return resultsList;
-        }
-    }
-
-    public final class ContinueOffset {
+    public final class FTContinueOffset extends SearchResults.ContinueOffset {
         private String cont;
         private int gsroffset;
 
-        private ContinueOffset(String cont, int gsroffset) {
+        private FTContinueOffset(String cont, int gsroffset) {
             this.cont = cont;
             this.gsroffset = gsroffset;
         }

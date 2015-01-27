@@ -2,7 +2,6 @@ package org.wikipedia;
 
 import android.app.Application;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -47,7 +46,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
-
 
 @ReportsCrashes(
         formKey = "",
