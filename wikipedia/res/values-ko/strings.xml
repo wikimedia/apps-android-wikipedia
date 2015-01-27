@@ -277,6 +277,6 @@
   <string name="gallery_save_error">그림을 저장할 수 없습니다: %s</string>
   <string name="gallery_save_success">그림을 성공적으로 저장했습니다.</string>
   <string name="err_cannot_save_file">파일을 저장할 수 없음</string>
-  <string name="snippet_share_intro">@Wikipedia 의 \"%1$s\": %2$s</string>
+  <string name="snippet_share_intro">\@Wikipedia 의 \"%1$s\": %2$s</string>
   <string name="expand_refs">펼치려면 탭</string>
 </resources>
