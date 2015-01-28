@@ -78,7 +78,6 @@
   <string name="zero_learn_more_learn_more" fuzzy="true">Даведацца больш</string>
   <string name="zero_settings">Настройкі</string>
   <string name="edit_preview_fetching_dialog_message">Атрыманне папярэдняга прагляду...</string>
-  <string name="edit_preview_activity_title">Папярэдні прагляд</string>
   <string name="create_account_logging_in">Уваходжу...</string>
   <string name="edit_summary_hint">Рэдагаваць рэзюмэ</string>
   <string name="nav_item_random">Выпадковы</string>
