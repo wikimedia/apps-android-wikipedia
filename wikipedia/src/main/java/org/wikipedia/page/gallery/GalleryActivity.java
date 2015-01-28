@@ -518,7 +518,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
         @Override
         public Fragment getItem(int position) {
-            if (galleryCollection == null) {
+            if (galleryCollection == null || galleryCollection.getItemList().size() <= position) {
                 return null;
             }
             // instantiate a new fragment if it doesn't exist
