@@ -46,6 +46,7 @@
     <color name="link_dark">#ff2B6FB2</color>
     <color name="button_dark">#ff2B6FB2</color>
     <color name="window_background_dark">#ff000000</color>
+    <color name="window_background_dark_prefs">#ff191919</color>
     <color name="page_background_dark">#ff000000</color>
     <color name="actionbar_background_dark">#ff505050</color>
     <color name="search_background_dark">#ff303030</color>
