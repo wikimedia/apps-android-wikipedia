@@ -1,0 +1,15 @@
+// see also http://stackoverflow.com/questions/17050654/get-android-gradle-plugin-checkstyle-working-together-command-line-usage
+
+apply plugin: 'checkstyle'
+
+check.dependsOn 'checkstyle'
+
+task checkstyle(type: Checkstyle) {
+    configFile file("${project.rootDir}/checkstyle.xml")
+    source 'src/main/java'
+    source '../wikipedia-it/src/main/java'
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    classpath = configurations.compile
+}

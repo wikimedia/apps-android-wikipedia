@@ -88,19 +88,22 @@ If you prefer command line use the wrapper script in the root of the repo:
  ./gradlew
 
 To run a clean debug build:
- ./gradlew -q clean assembleDevDebug
+ ./gradlew -q clean assembleAlphaDebug
 
 You can skip the clean part usually, which makes it much faster (from 1m:05s to 7s on my box):
- ./gradlew -q assembleDevDebug
+ ./gradlew -q assembleAlphaDebug
 
 To install build on device/emulator:
- ./gradlew -q installDevDebug
+ ./gradlew -q installAlphaDebug
 
 To see ProGuard output:
-./gradlew clean --info proguardDevRelease
+./gradlew clean --info proguardBetaRelease
+
+To run checkstyle:
+./gradlew checkstyle
 
 To run tests:
- ./gradlew wikipedia:connectedAndroidTestDevDebug
+./gradlew wikipedia:connectedAndroidTestAlphaDebug
 This might take some time.
 The output will contain an HTML page with nicely formatted test results
 
@@ -110,7 +113,7 @@ Refresh dependencies (usually not needed):
 List dependencies:
  ./gradlew wikipedia:dependencies --configuration compile
 
-Instead of "DevDebug" you can also use other build variants like "AlphaDebug", "BetaDebug", or "ProdDebug".
+Instead of "AlphaDebug" you can also use other build variants like "BetaDebug", or "ProdDebug".
 Note that to use the "Release" build type you need to have a keystore and a properties file set up, see the end of the wikipedia/build.gradle file for hints.
 
 More info: http://developer.android.com/sdk/installing/studio-build.html
