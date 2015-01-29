@@ -26,6 +26,7 @@
   <string name="menu_save_page">Gorde orrialdea</string>
   <string name="menu_share_page">Partekatu</string>
   <string name="dialog_title_clear_saved_pages">Gordetako orrialde guztiak garbitu?</string>
+  <string name="dialog_message_clear_saved_pages">Ziur zaude gordetako orrialde guztiak garbitu nahi dituzula?</string>
   <string name="toast_saving_page">Orrialdea gordetzen...</string>
   <string name="toast_saved_page_missing_images">Ezin izan dira irudi guztiak gorde</string>
   <string name="delete_selected_saved_pages">Ezabatu</string>
@@ -37,6 +38,7 @@
   <string name="nearby_distance_in_miles">%.2f milia</string>
   <string name="nearby_set_metric">Erakutsi metroak/km</string>
   <string name="nearby_set_imperial">Erakutsi oinak/miliak</string>
+  <string name="last_updated_text">Azken eguneratzea %s</string>
   <string name="preference_title_language">Wikipediaren hizkuntza</string>
   <string name="preference_summary_language">Edukiaren hizkuntza</string>
   <string name="preference_languages_filter_hint">Bilatu</string>
@@ -71,7 +73,9 @@
   <string name="create_account_passwords_mismatch_error">Pasahitzak ez datoz bat</string>
   <string name="create_account_next">Hurrengoa</string>
   <string name="create_account_button">Kontua sortu</string>
+  <string name="zero_search_hint">Bilatu Wikipedia Zeron</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+  <string name="zero_learn_more_learn_more">Irakurri gehiago</string>
   <string name="user_contribs_more_action">Gehiago kargatu</string>
   <string name="activity_my_contributions_title">Nire Ekarpenak</string>
   <string name="nav_item_my_contributions">Nire ekarpenak</string>
@@ -87,6 +91,9 @@
   <string name="about_activity_title">Honi buruz</string>
   <string name="edit_next">Hurrengoa</string>
   <string name="edit_done">Gorde</string>
+  <string name="find_in_page">Aurkitu orrialdean</string>
+  <string name="find_next">Aurkitu hurrengoa</string>
+  <string name="find_previous">Aurkitu aurrekoa</string>
   <string name="saved_pages_update_all_error_retry">Saiatu berriro</string>
   <string name="color_theme_light">Argia</string>
   <string name="color_theme_dark">Iluna</string>

@@ -277,5 +277,7 @@ De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK,
   <string name="gallery_menu_save">Opslaan op apparaat</string>
   <string name="gallery_save_error">Kon afbeelding niet opslaan: %s</string>
   <string name="gallery_save_success">Afbeelding opgeslagen.</string>
+  <string name="err_cannot_save_file">Het bestand kan niet opgeslagen worden</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
+  <string name="expand_refs">Aantikken om te vergroten</string>
 </resources>

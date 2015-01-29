@@ -49,7 +49,7 @@
   <string name="nearby_distance_in_kilometers">%.2f千米</string>
   <string name="nearby_distance_in_feet">%d英尺</string>
   <string name="nearby_distance_in_miles">%.2f英里</string>
-  <string name="nearby_no_network">无网络连接</string>
+  <string name="nearby_no_network">没有网络连接</string>
   <string name="nearby_server_error">无法获取附近地点的列表。</string>
   <string name="nearby_no_location">不能获取位置</string>
   <string name="nearby_dialog_goto_settings">您的设备未启用位置更新。您想要前往您的设备设置启用位置更新么？</string>

@@ -134,7 +134,7 @@
   <string name="edit_save_action_login_description">Wo nsakrae no bɛda adi ma obiara ahu wɔ wo username ase. Atuhoamafo afoforo betumi ne wo adi nkɔmmɔ</string>
   <string name="edit_save_action_ip_description">Wo nsakrae no b3da adi ma obiara ahu w) wo IP address ase</string>
   <string name="preference_summary_eventlogging_opt_in">Ma Wikimedia kwan ma ɔnfa wo adwinade yi ho nsɛm nyɛ nhwehwɛmu sɛnea ebetu mpɔn</string>
-  <string name="editing_error_spamblacklist">Yi links ahorow a yɛmpɛ no fi mu, na san yɛ bio</string>
+  <string name="editing_error_spamblacklist" fuzzy="true">Yi links ahorow a yɛmpɛ no fi mu, na san yɛ bio (%s). Please remove them and try again.</string>
   <string name="history_search_list_hint">Hwehwɛ</string>
   <string name="history_search_empty_message" fuzzy="true">Yɛanhu hwee a ɛne \'%s\' hyia</string>
   <string name="error_can_not_process_link">Antumi anfa link no ankyerɛ</string>
