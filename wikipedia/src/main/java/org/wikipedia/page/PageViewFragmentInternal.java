@@ -612,28 +612,38 @@ public class PageViewFragmentInternal implements BackPressedHandler {
     }
 
     public void onPrepareOptionsMenu(Menu menu) {
+        MenuItem savePageMenu = menu.findItem(R.id.menu_save_page);
+        if (savePageMenu == null) {
+            return;
+        }
+
+        MenuItem shareMenu = menu.findItem(R.id.menu_share_page);
+        MenuItem otherLangMenu = menu.findItem(R.id.menu_other_languages);
+        MenuItem findInPageMenu = menu.findItem(R.id.menu_find_in_page);
+        MenuItem themeChooserMenu = menu.findItem(R.id.menu_themechooser);
+
         switch (state) {
             case PageViewFragmentInternal.STATE_NO_FETCH:
             case PageViewFragmentInternal.STATE_INITIAL_FETCH:
-                menu.findItem(R.id.menu_save_page).setEnabled(false);
-                menu.findItem(R.id.menu_share_page).setEnabled(false);
-                menu.findItem(R.id.menu_other_languages).setEnabled(false);
-                menu.findItem(R.id.menu_find_in_page).setEnabled(false);
-                menu.findItem(R.id.menu_themechooser).setEnabled(false);
+                savePageMenu.setEnabled(false);
+                shareMenu.setEnabled(false);
+                otherLangMenu.setEnabled(false);
+                findInPageMenu.setEnabled(false);
+                themeChooserMenu.setEnabled(false);
                 break;
             case PageViewFragmentInternal.STATE_COMPLETE_FETCH:
-                menu.findItem(R.id.menu_save_page).setEnabled(true);
-                menu.findItem(R.id.menu_share_page).setEnabled(true);
-                menu.findItem(R.id.menu_other_languages).setEnabled(true);
-                menu.findItem(R.id.menu_find_in_page).setEnabled(true);
-                menu.findItem(R.id.menu_themechooser).setEnabled(true);
+                savePageMenu.setEnabled(true);
+                shareMenu.setEnabled(true);
+                otherLangMenu.setEnabled(true);
+                findInPageMenu.setEnabled(true);
+                themeChooserMenu.setEnabled(true);
                 if (subState == PageViewFragmentInternal.SUBSTATE_PAGE_SAVED) {
-                    menu.findItem(R.id.menu_save_page).setEnabled(false);
-                    menu.findItem(R.id.menu_save_page).setTitle(WikipediaApp.getInstance().getString(R.string.menu_page_saved));
+                    savePageMenu.setEnabled(false);
+                    savePageMenu.setTitle(WikipediaApp.getInstance().getString(R.string.menu_page_saved));
                 } else if (subState == PageViewFragmentInternal.SUBSTATE_SAVED_PAGE_LOADED) {
-                    menu.findItem(R.id.menu_save_page).setTitle(WikipediaApp.getInstance().getString(R.string.menu_refresh_saved_page));
+                    savePageMenu.setTitle(WikipediaApp.getInstance().getString(R.string.menu_refresh_saved_page));
                 } else {
-                    menu.findItem(R.id.menu_save_page).setTitle(WikipediaApp.getInstance().getString(R.string.menu_save_page));
+                    savePageMenu.setTitle(WikipediaApp.getInstance().getString(R.string.menu_save_page));
                 }
                 break;
             default:
