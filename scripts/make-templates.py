@@ -16,7 +16,7 @@ from jinja2 import Environment, FileSystemLoader
 OSTRITCH_WIKIS = [u"got"]
 
 
-# Represents a single wiki, along with arbitrary properites of that wiki
+# Represents a single wiki, along with arbitrary properties of that wiki
 # Simple data container object
 class Wiki(object):
     def __init__(self, lang):
@@ -76,15 +76,17 @@ def list_from_wikistats():
     return WikiList(wikis)
 
 
-# Populate the aliases for "Special:" in all wikis
+# Populate the aliases for "Special:" and "File:" in all wikis
 def populate_aliases(wikis):
     for wiki in wikis.wikis:
-        print(u"Fetching Special Page alias for %s" % wiki.lang)
+        print(u"Fetching Special Page and File alias for %s" % wiki.lang)
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
               u"?action=query&meta=siteinfo&format=json&siprop=namespaces"
         data = json.load(urlopen(url))
+        # according to https://www.mediawiki.org/wiki/Manual:Namespace
         # -1 seems to be the ID for Special Pages
         wiki.props[u"special_alias"] = data[u"query"][u"namespaces"][u"-1"][u"*"]
+        # 6 is the ID for File pages
         wiki.props[u"file_alias"] = data[u"query"][u"namespaces"][u"6"][u"*"]
     return wikis
 
