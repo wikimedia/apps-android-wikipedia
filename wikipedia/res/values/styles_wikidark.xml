@@ -35,14 +35,4 @@
         <item name="android:listSelector">@drawable/selectable_item_background</item>
     </style>
 
-    <!-- Make checkboxes visible in dark mode on 3.x + 4.x -->
-    <style name="Theme.WikiDark.Prefs">
-        <item name="android:listViewStyle">@style/listViewPrefs</item>
-        <item name="android:background">@color/window_background_dark_prefs</item>
-    </style>
-    <style name="listViewPrefs" parent="@android:style/Widget.ListView">
-        <item name="android:windowBackground">@color/window_background_dark_prefs</item>
-        <item name="android:cacheColorHint">@color/window_background_dark_prefs</item>
-    </style>
-
 </resources>
