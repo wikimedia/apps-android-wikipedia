@@ -826,7 +826,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
                     title = new PageTitle(mobileView.optString("normalizedtitle"), title.getSite(), title.getThumbUrl());
                 }
                 if (mobileView.has("description")) {
-                    title.setDescription(mobileView.getString("description"));
+                    title.setDescription(Utils.capitalizeFirstChar(mobileView.getString("description")));
                 }
             }
             return super.processResult(result);
