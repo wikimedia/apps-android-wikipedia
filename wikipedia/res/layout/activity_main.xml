@@ -1,13 +1,13 @@
-<FrameLayout
+<org.wikipedia.views.DisableableDrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
+    android:saveEnabled="false"
     android:layout_height="match_parent">
 
-    <org.wikipedia.views.DisableableDrawerLayout
-        android:id="@+id/drawer_layout"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:saveEnabled="false"
         android:layout_height="match_parent">
 
         <!-- The main content view -->
@@ -17,125 +17,125 @@
             android:layout_height="match_parent">
         </FrameLayout>
 
-        <!-- The navigation drawer -->
-        <fragment android:layout_width="288dp" android:layout_height="match_parent"
-                  android:id="@+id/navdrawer"
-                  android:name="org.wikipedia.NavDrawerFragment"
-                  android:layout_gravity="start"
-                  tools:layout="@layout/fragment_navdrawer"/>
-    </org.wikipedia.views.DisableableDrawerLayout>
+        <!-- The search container -->
+        <fragment android:layout_width="match_parent" android:layout_height="match_parent"
+            android:id="@+id/search_fragment"
+            android:name="org.wikipedia.search.SearchArticlesFragment"
+            tools:layout="@layout/fragment_search"/>
 
-    <!-- The search container -->
-    <fragment android:layout_width="match_parent" android:layout_height="match_parent"
-        android:id="@+id/search_fragment"
-        android:name="org.wikipedia.search.SearchArticlesFragment"
-        tools:layout="@layout/fragment_search"/>
-
-    <FrameLayout
-        android:id="@+id/main_toolbar_container"
-        android:layout_width="match_parent"
-        android:layout_height="96dp">
-        <LinearLayout
-            android:id="@+id/main_toolbar_gradient"
+        <FrameLayout
+            android:id="@+id/main_toolbar_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="?attr/actionbar_gradient"
-            android:orientation="vertical">
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <FrameLayout
+            android:layout_height="96dp">
+            <LinearLayout
+                android:id="@+id/main_toolbar_gradient"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:background="?attr/actionbar_gradient"
+                android:orientation="vertical">
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
                 <FrameLayout
-                    android:id="@+id/main_toolbar_background"
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="?attr/actionbar_background_color">
-                </FrameLayout>
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/main_toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize">
+                    android:layout_height="wrap_content">
                     <FrameLayout
-                        android:id="@+id/main_toolbar_inner_container"
+                        android:id="@+id/main_toolbar_background"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <LinearLayout
-                            android:id="@+id/main_search_background"
-                            android:layout_width="match_parent"
-                            android:layout_height="36dp"
-                            android:orientation="horizontal"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:paddingLeft="6dp"
-                            android:paddingRight="6dp"
-                            android:background="?attr/search_bar_shape">
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/main_search_bar"
-                            android:layout_width="match_parent"
-                            android:layout_height="36dp"
-                            android:orientation="horizontal"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:paddingLeft="6dp"
-                            android:paddingRight="6dp">
-                            <ImageView
-                                android:id="@+id/main_search_bar_icon"
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_gravity="center_vertical"
-                                android:contentDescription="@string/search_hint"
-                                android:src="@drawable/ic_search"/>
-                            <TextView
-                                android:id="@+id/main_search_bar_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:paddingLeft="4dp"
-                                android:paddingRight="4dp"
-                                android:gravity="center"
-                                android:text="@string/search_hint"
-                                android:textSize="16sp"
-                                android:singleLine="true"
-                                android:ellipsize="end"
-                                android:layout_gravity="center_vertical"/>
-                        </LinearLayout>
-                        <android.support.v7.widget.SearchView
-                            android:id="@+id/main_search_view"
-                            android:layout_width="match_parent"
-                            android:layout_height="36dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:textSize="16sp"
-                            android:visibility="gone"
-                            android:focusable="true"
-                            android:inputType="text"
-                            android:imeOptions="actionGo"
-                            />
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="?attr/actionbar_background_color">
                     </FrameLayout>
-                </android.support.v7.widget.Toolbar>
-                <ProgressBar
-                    android:id="@+id/main_progressbar"
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/main_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize">
+                        <FrameLayout
+                            android:id="@+id/main_toolbar_inner_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <LinearLayout
+                                android:id="@+id/main_search_background"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:orientation="horizontal"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="4dp"
+                                android:layout_marginRight="4dp"
+                                android:paddingLeft="6dp"
+                                android:paddingRight="6dp"
+                                android:background="?attr/search_bar_shape">
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/main_search_bar"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:orientation="horizontal"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="4dp"
+                                android:layout_marginRight="4dp"
+                                android:paddingLeft="6dp"
+                                android:paddingRight="6dp">
+                                <ImageView
+                                    android:id="@+id/main_search_bar_icon"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:contentDescription="@string/search_hint"
+                                    android:src="@drawable/ic_search"/>
+                                <TextView
+                                    android:id="@+id/main_search_bar_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="4dp"
+                                    android:paddingRight="4dp"
+                                    android:gravity="center"
+                                    android:text="@string/search_hint"
+                                    android:textSize="16sp"
+                                    android:singleLine="true"
+                                    android:ellipsize="end"
+                                    android:layout_gravity="center_vertical"/>
+                            </LinearLayout>
+                            <android.support.v7.widget.SearchView
+                                android:id="@+id/main_search_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                android:focusable="true"
+                                android:inputType="text"
+                                android:imeOptions="actionGo"
+                                />
+                        </FrameLayout>
+                    </android.support.v7.widget.Toolbar>
+                    <ProgressBar
+                        android:id="@+id/main_progressbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-7.5dp"
+                        android:layout_gravity="top"
+                        style="?android:attr/progressBarStyleHorizontal"/>
+                </FrameLayout>
+                <View
+                    android:id="@+id/main_toolbar_shadow"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-7.5dp"
-                    android:layout_gravity="top"
-                    style="?android:attr/progressBarStyleHorizontal"/>
-            </FrameLayout>
-            <View
-                android:id="@+id/main_toolbar_shadow"
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:layout_gravity="bottom"
-                android:background="@drawable/toolbar_bottom_shadow"
-                />
-        </LinearLayout>
+                    android:layout_height="3dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/toolbar_bottom_shadow"
+                    />
+            </LinearLayout>
+        </FrameLayout>
     </FrameLayout>
 
-</FrameLayout>
+    <!-- The navigation drawer -->
+    <fragment android:layout_width="288dp" android:layout_height="match_parent"
+        android:id="@+id/navdrawer"
+        android:name="org.wikipedia.NavDrawerFragment"
+        android:layout_gravity="start"
+        tools:layout="@layout/fragment_navdrawer"/>
+
+</org.wikipedia.views.DisableableDrawerLayout>

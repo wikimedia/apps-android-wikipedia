@@ -86,6 +86,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
     private View toolbarContainer;
     private SnippetShareAdapter snippetShareAdapter;
+    private ActionMode currentActionMode;
 
     private ActionBarDrawerToggle mDrawerToggle;
     public ActionBarDrawerToggle getDrawerToggle() {
@@ -272,6 +273,14 @@ public class PageActivity extends ThemedActionBarActivity {
             super.onDrawerOpened(drawerView);
             // if we want to change the title upon opening:
             //getSupportActionBar().setTitle("");
+            // If we're in the search state, then get out of it.
+            if (isSearching()) {
+                searchFragment.closeSearch();
+            }
+            // also make sure we're not inside an action mode
+            if (currentActionMode != null) {
+                currentActionMode.finish();
+            }
         }
 
         private boolean oncePerSlideLock = false;
@@ -803,6 +812,7 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
+        currentActionMode = mode;
         // Check what kind of ActionMode this is...
         // If its tag is non-null, it means that the ActionMode is one of ours (History,
         // Saved Pages, or Find In Page). Otherwise, it must be the default WebView text-
@@ -819,6 +829,7 @@ public class PageActivity extends ThemedActionBarActivity {
     @Override
     public void onSupportActionModeFinished(ActionMode mode) {
         snippetShareAdapter = null;
+        currentActionMode = null;
         super.onSupportActionModeFinished(mode);
     }
 }

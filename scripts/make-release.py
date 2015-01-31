@@ -175,8 +175,8 @@ def main():
             copy_artifacts(flavors[1], flavors[1])
         print('Please test the APK. After that, run w/ --push flag, and release the tested APK.')
         print('A useful command for collecting the release notes:')
-        print('git log --pretty=format:"%h | %cr | %s" --abbrev-commit --no-merges '
-              + '`git tag --list ' + targets[0] + '/* | tail -1`..')
+        print('git log --pretty=format:"%h | %cr | %s" --abbrev-commit --no-merges ' +
+              '`git tag --list ' + targets[0] + '/* | tail -1`..')
 
 
 if __name__ == '__main__':
