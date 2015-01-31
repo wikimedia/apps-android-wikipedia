@@ -9,7 +9,7 @@ a {
 }
 a.external {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAGJJREFUKFN1jdENgCAMBYmJn47Bak7DZrhTpc/XIm34OAjXA4qIgHI/dSBbLGTcOKjBryFlinGmjDQGiOF0MQkxI3v5wq6L38qR7SnsAx8ul37igPjAd+o5Oz2MRA+xY4ZSXuaW6wYouOLpAAAAAElFTkSuQmCC);
-  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/styles/../images/external-link-ltr.png?2015-01-14T18:05:00Z)!ie;
+  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/styles/../images/external-link-ltr.png?2015-02-03T18:38:20Z)!ie;
 }
 img {
   background: #fff;
@@ -24,14 +24,23 @@ img {
   border-color: rgba(128,128,128,0.12);
 }
 .app_table_container {
-  box-shadow: 0 1px 4px 4px rgba(128,128,128,0.12);
+  box-shadow: none;
+  border: 1px solid #202020;
+  background-color: #202020;
 }
 .app_table_collapsed_container {
   background-color: #202020;
+}
+.app_table_collapsed_open {
+  border-radius: 0;
+}
+.app_table_collapse_close {
+  border-radius: 0;
 }
 .app_span_collapse_text {
   color: #808080;
 }
 .app_table_collapsed_bottom {
   background-color: #202020;
+  border-radius: 0;
 }
