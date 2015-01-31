@@ -103,7 +103,7 @@
         </FrameLayout>
         <View
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="3dp"
             android:layout_gravity="bottom"
             android:background="@drawable/toolbar_bottom_shadow"
             />

@@ -156,7 +156,6 @@
                 android:layout_width="288dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
-                android:background="?attr/toc_background_color"
                 >
 
             <ProgressBar
@@ -175,7 +174,7 @@
                     android:orientation="horizontal"
                     >
 
-                <View android:layout_width="0.5dp" android:layout_height="match_parent" android:background="@color/nav_border" />
+                <View android:layout_width="3dp" android:layout_height="match_parent" android:background="@drawable/toc_shadow" />
 
                 <LinearLayout
                         android:layout_width="0dp"
@@ -183,6 +182,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:orientation="vertical"
+                        android:background="?attr/toc_background_color"
                         >
                     <ListView
                             android:id="@+id/page_toc_list"

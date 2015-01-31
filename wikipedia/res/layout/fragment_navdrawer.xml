@@ -3,8 +3,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:fillViewport="true"
-              android:background="@color/nav_background">
+              android:fillViewport="true">
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
@@ -16,6 +15,7 @@
                   android:orientation="vertical"
                   android:layout_weight="1"
                   android:id="@+id/nav_item_container"
+                  android:background="@color/nav_background"
             >
 
         <!-- Spacer to make room for the search bar on top -->
@@ -236,7 +236,7 @@
 
     </LinearLayout>
 
-    <View android:layout_width="0.5dp" android:layout_height="match_parent" android:background="@color/nav_border" />
+    <View android:layout_width="4dp" android:layout_height="match_parent" android:background="@drawable/nav_drawer_shadow" />
 
     </LinearLayout>
 </ScrollView>
