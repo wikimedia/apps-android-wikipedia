@@ -35,6 +35,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -47,6 +48,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -155,31 +157,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 PageTitle title = new PageTitle(nearbyPage.getTitle(), site, nearbyPage.getThumblUrl());
                 HistoryEntry newEntry = new HistoryEntry(title, HistoryEntry.SOURCE_NEARBY);
                 ((PageActivity)getActivity()).displayNewPage(title, newEntry);
-            }
-        });
-
-        // Long click creates an intent for viewing geo:// providers, which
-        // opens up in the map application installed
-        nearbyList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                NearbyPage nearbyPage = adapter.getItem(position);
-                PageTitle title = new PageTitle(nearbyPage.getTitle(), site, nearbyPage.getThumblUrl());
-                String geoUri = String.format(Locale.ENGLISH,
-                                              "geo:0,0?q=%s,%s(%s)",
-                                              nearbyPage.getLocation().getLatitude(),
-                                              nearbyPage.getLocation().getLongitude(),
-                                              title.getDisplayText()
-                );
-                Intent geoIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
-                try {
-                    startActivity(geoIntent);
-                } catch (ActivityNotFoundException e) {
-                    // Means no map application was installed to handle geo://
-                    // I think this case is rare enough for us to just ignore
-                    // This would mean long pressing won't do anything, which is fine, I think
-                }
-                return true;
             }
         });
 
@@ -570,6 +547,43 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     }
 
 
+    private View.OnClickListener markerClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            NearbyPage nearbyPage = (NearbyPage)v.getTag();
+            PageTitle title = new PageTitle(nearbyPage.getTitle(), site, nearbyPage.getThumblUrl());
+            String geoUri = String.format(Locale.ENGLISH,
+                                          "geo:0,0?q=%s,%s(%s)",
+                                          nearbyPage.getLocation().getLatitude(),
+                                          nearbyPage.getLocation().getLongitude(),
+                                          title.getDisplayText()
+            );
+            Intent geoIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
+            try {
+                startActivity(geoIntent);
+            } catch (ActivityNotFoundException e) {
+                // Means no map application was installed to handle geo://
+                // I think this case is rare enough for us to just ignore
+                // This would mean clicking the secondary action won't do anything,
+                // which is fine, I think
+            }
+        }
+    };
+
+    private View.OnLongClickListener markerLongClickListener = new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View v) {
+            int[] pos = new int[2];
+            v.getLocationInWindow(pos);
+            // display a toast that shows a tooltip based on the button's content description,
+            // like the standard ActionBar does.
+            Toast t = Toast.makeText(getActivity(), v.getContentDescription(), Toast.LENGTH_SHORT);
+            t.setGravity(Gravity.TOP | Gravity.END, 0, pos[1]);
+            t.show();
+            return true;
+        }
+    };
+
     private class NearbyAdapter extends ArrayAdapter<NearbyPage> {
         private static final int LAYOUT_ID = R.layout.item_nearby_entry;
 
@@ -589,6 +603,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 viewHolder.title = (TextView) convertView.findViewById(R.id.nearby_title);
                 viewHolder.description = (TextView) convertView.findViewById(R.id.nearby_description);
                 viewHolder.distance = (TextView) convertView.findViewById(R.id.nearby_distance);
+                viewHolder.markerButton = convertView.findViewById(R.id.nearby_marker);
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
@@ -612,12 +627,17 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
 
                 viewHolder.distance.setText(getDistanceLabel(nearbyPage.getLocation()));
                 viewHolder.distance.setVisibility(View.VISIBLE);
+                viewHolder.markerButton.setTag(nearbyPage);
+                viewHolder.markerButton.setOnClickListener(markerClickListener);
+                viewHolder.markerButton.setOnLongClickListener(markerLongClickListener);
+                viewHolder.markerButton.setVisibility(View.VISIBLE);
                 viewHolder.thumbnail.setEnabled(true);
             } else {
                 // Strangely, we don't know the full coordinates of this nearby place.
                 // Something in the DB must have gotten out of sync; may happen intermittently.
                 viewHolder.distance.setVisibility(View.INVISIBLE); // don't affect the layout measurements
                 viewHolder.thumbnail.setEnabled(false);
+                viewHolder.markerButton.setVisibility(View.INVISIBLE);
             }
 
             if (app.showImages()) {
@@ -656,6 +676,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             private TextView title;
             private TextView description;
             private TextView distance;
+            private View markerButton;
         }
     }
 

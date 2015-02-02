@@ -153,10 +153,10 @@
                       android:id="@+id/nav_item_nearby"
                       android:background="@drawable/nav_item_background"
                 >
-            <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                       android:layout_margin="12dp"
+            <ImageView android:layout_width="32dp" android:layout_height="32dp"
+                       android:layout_margin="8dp"
                        android:layout_gravity="center_vertical"
-                       android:src="@drawable/nearby_white"
+                       android:src="@drawable/ic_place_dark"
                        android:contentDescription="@null"
                     />
             <TextView

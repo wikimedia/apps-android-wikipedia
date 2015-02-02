@@ -257,7 +257,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                 case HistoryEntry.SOURCE_MAIN_PAGE:
                     return R.drawable.link;
                 case HistoryEntry.SOURCE_NEARBY:
-                    return R.drawable.nearby;
+                    return R.drawable.ic_place;
                 default:
                     throw new RuntimeException("Unknown source id encountered");
             }

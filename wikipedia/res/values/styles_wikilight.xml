@@ -23,6 +23,8 @@
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_light</item>
         <item name="search_bar_shape">@drawable/search_bar_shape_light</item>
         <item name="subtle_gray_color">@color/subtle_gray_light</item>
+        <item name="share_button_drawable">@drawable/ic_message</item>
+        <item name="nearby_marker_drawable">@drawable/ic_place</item>
     </style>
 
     <style name="Toolbar.WikiLight" parent="@style/Widget.AppCompat.Toolbar">

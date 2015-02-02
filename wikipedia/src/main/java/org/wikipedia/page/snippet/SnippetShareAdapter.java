@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
+import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
@@ -105,9 +106,7 @@ public class SnippetShareAdapter {
 
         // inject our Share item into the menu...
         MenuItem shareItem = menu.add(R.string.share_via);
-        shareItem.setIcon(app.getCurrentTheme() == WikipediaApp.THEME_DARK
-                ? R.drawable.ic_message_dark
-                : R.drawable.ic_message);
+        shareItem.setIcon(Utils.getThemedAttributeId(activity, R.attr.share_button_drawable));
         MenuItemCompat.setShowAsAction(shareItem, MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
 
         shareItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
