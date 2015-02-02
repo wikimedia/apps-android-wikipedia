@@ -425,12 +425,26 @@ public class PageActivity extends ThemedActionBarActivity {
                 && !(f instanceof PageViewFragment)) {
             return;
         }
+
+        // if the fragment onto which the new fragment is being placed is not a PageViewFragment,
+        // then remove it from the backstack (to comply with Google navigation guidelines).
+        if (getTopFragment() != null && !(getTopFragment() instanceof PageViewFragment)) {
+            getSupportFragmentManager().popBackStackImmediate();
+        }
+
         int totalFragments = getSupportFragmentManager().getBackStackEntryCount();
         FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
 
         // do an animation on the new fragment, but only if there was a previous one before it.
         if (getTopFragment() != null) {
-            trans.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right);
+            if (f instanceof PageViewFragment) {
+                // animate page fragments by sliding them in/out
+                trans.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left,
+                                          R.anim.slide_in_left, R.anim.slide_out_right);
+            } else {
+                // animate other fragments (history/saved/etc) by fading them in/out
+                trans.setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out, 0, 0);
+            }
         }
 
         trans.replace(R.id.content_fragment_container, f, "fragment_" + Integer.toString(totalFragments));
