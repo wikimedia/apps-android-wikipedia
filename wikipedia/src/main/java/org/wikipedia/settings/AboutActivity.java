@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;
@@ -29,10 +31,10 @@ public class AboutActivity extends ThemedActionBarActivity {
         mScrollView = (ScrollView) findViewById(R.id.about_scrollview);
         ((TextView) findViewById(R.id.about_translators)).setText(Html.fromHtml(getString(R.string.about_translators_translatewiki)));
         ((TextView) findViewById(R.id.about_wmf)).setText(Html.fromHtml(getString(R.string.about_wmf)));
-        ((TextView) findViewById(R.id.about_version_text)).setText(WikipediaApp.getInstance().getAppVersionString());
+        ((TextView) findViewById(R.id.about_version_text)).setText(BuildConfig.VERSION_NAME);
         ((TextView) findViewById(R.id.send_feedback_text)).setText(Html.fromHtml(
                 "<a href=\"mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App "
-                + WikipediaApp.getInstance().getAppVersionString()
+                + BuildConfig.VERSION_NAME
                 + " Feedback\">"
                 + getString(R.string.send_feedback)
                 + "</a>"));

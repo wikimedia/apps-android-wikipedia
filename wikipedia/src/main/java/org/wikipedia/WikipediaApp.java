@@ -85,11 +85,6 @@ public class WikipediaApp extends Application {
         return ++sslFailCount;
     }
 
-    private String appVersionString;
-    public String getAppVersionString() {
-        return appVersionString;
-    }
-
     public static final int THEME_LIGHT = R.style.Theme_WikiLight;
     public static final int THEME_DARK = R.style.Theme_WikiDark;
 
@@ -168,9 +163,9 @@ public class WikipediaApp extends Application {
         super.onCreate();
         ACRA.init(this);
 
-        if (getPackageName().contains("beta")) {
+        if (BuildConfig.APPLICATION_ID.contains("beta")) {
             releaseType = RELEASE_BETA;
-        } else if (getPackageName().contains("alpha")) {
+        } else if (BuildConfig.APPLICATION_ID.contains("alpha")) {
             releaseType = RELEASE_ALPHA;
         }
 
@@ -192,13 +187,6 @@ public class WikipediaApp extends Application {
 
         Api.setConnectionFactory(new OkHttpConnectionFactory(this));
 
-        try {
-            appVersionString = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            // This will never happen!
-            throw new RuntimeException(e);
-        }
-
         zeroHandler = new WikipediaZeroHandler(this);
         pageCache = new PageCache();
 
@@ -216,7 +204,7 @@ public class WikipediaApp extends Application {
             String channel = Utils.getChannel(this);
             channel = channel.equals("") ? channel : " ".concat(channel);
             userAgent = String.format("WikipediaApp/%s (Android %s; %s)%s",
-                    getAppVersionString(),
+                    BuildConfig.VERSION_NAME,
                     Build.VERSION.RELEASE,
                     getString(R.string.device_type),
                     channel
