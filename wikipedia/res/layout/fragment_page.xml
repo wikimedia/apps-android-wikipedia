@@ -37,8 +37,7 @@
                 <FrameLayout
                     android:id="@+id/page_images_container"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="?attr/actionBarSize">
+                    android:layout_height="wrap_content">
                     <!-- dummy LinearLayout container for 2.3 support.
                     Remove when we drop support for 2.3. -->
                     <LinearLayout

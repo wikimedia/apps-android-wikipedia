@@ -111,6 +111,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
     private ViewGroup imagesContainer;
     private LeadImagesHandler leadImagesHandler;
     private BottomContentHandler bottomContentHandler;
+    private SearchBarHideHandler searchBarHideHandler;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
     private View networkError;
@@ -404,9 +405,10 @@ public class PageViewFragmentInternal implements BackPressedHandler {
 
         editHandler = new EditHandler(parentFragment, bridge);
 
-        new SearchBarHideHandler(webView, getActivity().getToolbarView());
         imagesContainer = (ViewGroup) parentFragment.getView().findViewById(R.id.page_images_container);
         leadImagesHandler = new LeadImagesHandler(getActivity(), this, bridge, webView, imagesContainer);
+        searchBarHideHandler = getActivity().getSearchBarHideHandler();
+        searchBarHideHandler.setScrollView(webView);
 
         bottomContentHandler = new BottomContentHandler(this, bridge,
                 webView, linkHandler,
@@ -551,6 +553,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
 
                 // hide the lead image...
                 leadImagesHandler.hide();
+                getActivity().getSearchBarHideHandler().setFadeEnabled(false);
 
                 if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
                     loadSavedPage();
@@ -570,6 +573,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
                         if (!isAdded()) {
                             return;
                         }
+                        searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
                         // when the lead image layout is complete, load the lead section and
                         // the other sections into the webview.
                         displayLeadSection();
@@ -847,6 +851,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
             leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
                 @Override
                 public void onLayoutComplete() {
+                    searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
                     // when the lead image is laid out, display the lead section in the webview,
                     // and start loading the rest of the sections.
                     displayLeadSection();
@@ -963,6 +968,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
      */
     private void hidePageContent() {
         leadImagesHandler.hide();
+        searchBarHideHandler.setFadeEnabled(false);
         bottomContentHandler.hide();
         webView.setVisibility(View.INVISIBLE);
     }
@@ -1021,6 +1027,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
                         if (!isAdded()) {
                             return;
                         }
+                        searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
                         // when the lead image is laid out, load the lead section and the rest
                         // of the sections into the webview.
                         displayLeadSection();

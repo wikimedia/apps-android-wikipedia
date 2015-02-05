@@ -9,6 +9,7 @@
         <item name="page_background_color">@color/page_background_dark</item>
         <item name="search_background_color">@color/search_background_dark</item>
         <item name="actionbar_background_color">@color/actionbar_background_dark</item>
+        <item name="actionbar_gradient">@drawable/toolbar_lead_gradient_dark</item>
         <item name="toc_background_color">@color/toc_background_dark</item>
         <item name="toc_section_text_color">@color/toc_section_text_dark</item>
         <item name="toc_subsection_text_color">@color/toc_subsection_text_dark</item>
@@ -28,7 +29,7 @@
     </style>
 
     <style name="Toolbar.WikiDark" parent="@style/Widget.AppCompat.Toolbar">
-        <item name="android:background">?attr/actionbar_background_color</item>
+        <item name="android:background">@android:color/transparent</item>
         <item name="android:navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
     </style>

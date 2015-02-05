@@ -20,6 +20,7 @@ import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.snippet.SnippetShareAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
+import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
@@ -85,13 +86,14 @@ public class PageActivity extends ThemedActionBarActivity {
     private View toolbarContainer;
     private SnippetShareAdapter snippetShareAdapter;
 
-    public View getToolbarView() {
-        return toolbarContainer;
-    }
-
     private ActionBarDrawerToggle mDrawerToggle;
     public ActionBarDrawerToggle getDrawerToggle() {
         return mDrawerToggle;
+    }
+
+    private SearchBarHideHandler searchBarHideHandler;
+    public SearchBarHideHandler getSearchBarHideHandler() {
+        return searchBarHideHandler;
     }
 
     /**
@@ -171,6 +173,8 @@ public class PageActivity extends ThemedActionBarActivity {
         // Set the drawer toggle as the DrawerListener
         drawerLayout.setDrawerListener(mDrawerToggle);
         getSupportActionBar().setTitle("");
+
+        searchBarHideHandler = new SearchBarHideHandler(toolbarContainer);
 
         // TODO: remove this when we drop support for API 10
         boolean themeChanged = false;
@@ -416,6 +420,8 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     public void pushFragment(Fragment f, boolean allowStateLoss) {
         drawerLayout.closeDrawer(Gravity.START);
+        searchBarHideHandler.setForceNoFade(false);
+        searchBarHideHandler.setFadeEnabled(false);
         // if the new fragment is the same class as the current topmost fragment,
         // then just keep the previous fragment there. (unless it's a PageViewFragment)
         // e.g. if the user selected History, and there's already a History fragment on top,

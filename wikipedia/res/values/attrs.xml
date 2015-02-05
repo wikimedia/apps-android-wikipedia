@@ -4,6 +4,7 @@
     <attr name="page_background_color" format="reference"/>
     <attr name="search_background_color" format="reference"/>
     <attr name="actionbar_background_color" format="reference"/>
+    <attr name="actionbar_gradient" format="reference"/>
     <attr name="toc_background_color" format="reference"/>
     <attr name="toc_section_text_color" format="reference"/>
     <attr name="toc_subsection_text_color" format="reference"/>

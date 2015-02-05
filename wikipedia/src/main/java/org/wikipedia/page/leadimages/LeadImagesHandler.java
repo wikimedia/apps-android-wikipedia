@@ -85,7 +85,10 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * if the screen height is less than a defined constant (above), or if the current article
      * doesn't have a lead image associated with it.
      */
-    private boolean leadImagesEnabled = true;
+    private boolean leadImagesEnabled = false;
+    public boolean isLeadImageEnabled() {
+        return leadImagesEnabled;
+    }
 
     private final ViewGroup imageContainer;
     private ImageView imagePlaceholder;

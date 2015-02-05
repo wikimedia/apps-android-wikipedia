@@ -117,6 +117,7 @@ public class ToCHandler {
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
                 parentActivity.supportInvalidateOptionsMenu();
+                ((PageActivity)parentActivity).getSearchBarHideHandler().setForceNoFade(false);
                 if (!wasClicked) {
                     funnel.logClose();
                 }
@@ -131,6 +132,7 @@ public class ToCHandler {
                 ((PageActivity)parentActivity).showToolbar();
                 // request the current section to highlight, if we haven't yet
                 if (!sectionRequested) {
+                    ((PageActivity)parentActivity).getSearchBarHideHandler().setForceNoFade(true);
                     bridge.sendMessage("requestCurrentSection", new JSONObject());
                     sectionRequested = true;
                 }

@@ -227,6 +227,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         // invalidate our activity's ActionBar, so that all action items are removed, and
         // we can fill up the whole width of the ActionBar with our SearchView.
         getActivity().supportInvalidateOptionsMenu();
+        ((PageActivity)getActivity()).getSearchBarHideHandler().setForceNoFade(true);
         setSearchViewEnabled(true);
         ((PageActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(false);
         // show ourselves
@@ -244,6 +245,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         isSearchActive = false;
         // invalidate our activity's ActionBar, so that the original action items are restored.
         getActivity().supportInvalidateOptionsMenu();
+        ((PageActivity)getActivity()).getSearchBarHideHandler().setForceNoFade(false);
         setSearchViewEnabled(false);
         ((PageActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(true);
         // hide ourselves
