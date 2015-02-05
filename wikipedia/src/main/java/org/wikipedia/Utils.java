@@ -681,7 +681,8 @@ public final class Utils {
      */
     private static String getChannelDescriptor(Context ctx) {
         try {
-            ApplicationInfo a = ctx.getPackageManager().getApplicationInfo(ctx.getPackageName(), PackageManager.GET_META_DATA);
+            ApplicationInfo a = ctx.getPackageManager()
+                    .getApplicationInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_META_DATA);
             String channel = a.metaData.getString(PrefKeys.getChannel());
             return channel != null ? channel : "";
         } catch (Throwable t) {
