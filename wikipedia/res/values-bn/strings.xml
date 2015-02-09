@@ -76,6 +76,9 @@
   <string name="dialog_message_edit_failed">সম্পাদনা সংরক্ষণ ব্যর্থ!</string>
   <string name="dialog_message_edit_failed_retry">পুনঃচেষ্টা করুন</string>
   <string name="dialog_message_edit_failed_cancel">বাতিল</string>
+  <string name="dialog_message_leaving_edit">আপনার পরিবর্তনগুলি এখনো সংরক্ষিত হয়নি।আপ্নি কি নিশ্চিত আপনি এই পৃষ্ঠা ছেড়ে যেতে চান?</string>
+  <string name="dialog_message_leaving_edit_leave">অগ্রসর হোন</string>
+  <string name="dialog_message_leaving_edit_stay">থাকুন</string>
   <string name="menu_show_toc">সূচিপত্র</string>
   <string name="search_no_results_found">কোনো ফলাফল পাওয়া যায়নি</string>
   <string name="edit_section_captcha_message">সয়ংক্রিয় স্প্যাম থেকে সুরক্ষার জন্য, অনুগ্রহ করে নিচে দেখানো শব্দটি লিখুন</string>
@@ -106,6 +109,7 @@
   <string name="saved_pages_empty_message">সংরক্ষিত পাতা বেশ ভালো। তাদের বুকমার্ক হিসাবে চিন্তা করুন যা এমনকি আপনি অফলাইনে থাকাকালীন আপনি পড়তে পারেন।</string>
   <string name="history_empty_title">এখানে কোন সাম্প্রতিক পাতা নেই।</string>
   <string name="history_empty_message">আপনি সম্ভবত সবকিছু মুছে ফেলেছেন। পরবর্তী সময়ে আপনি একটি পাতায় গেলে আপনি এখানে থেকে তা ফিরে পেতে পারেন।</string>
+  <string name="delete_selected_history">অপসারণ</string>
   <string name="wp_stylized">&lt;big&gt;উ&lt;/big&gt;ইকিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="wp_tag_line">একটু মুক্ত বিশ্বকোষ</string>
   <string name="skip">উপেক্ষা করো</string>
@@ -230,13 +234,26 @@
   <string name="page_similar_titles">অনুরূপ পাতাগুলি</string>
   <string name="search_within_pages">পাতাগুলির মধ্যে অনুসন্ধান করুন...</string>
   <string name="search_no_results">\"%s\"-এর জন্য কোন ফলাফল পাওয়া যায়নি।</string>
+  <string name="search_did_you_mean">আপনার মানে কি \"%s\"?</string>
   <string name="search_results_title">অনুসন্ধানের ফলাফল</string>
   <string name="search_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="search_redirect_title">\"%s\" থেকে পুনর্নির্দেশ।</string>
+  <string name="search_recent_header">সাম্প্রতিক অনুসন্ধান</string>
+  <string name="button_clear_all_recent_searches">সাম্প্রতিক অনুসন্ধান গুলি মুছে ফেলুন</string>
+  <string name="clear_recent_searches_confirm">আপনি কি নিশ্চিত যে আপনি আপনার অনুসান্ধান ইতিহাস মুছে ফেলতে ?</string>
   <string name="toc_know_it">বুঝেছি</string>
+  <string name="error_browser_not_found">ওয়েব পেজ টি খোলা যায়নি ( কোনও ব্রাউজার অ্যাপ্লিকেশান পাওয়া যায়নি )।</string>
+  <string name="table_infobox">দ্রুত তথ্য</string>
+  <string name="table_other">আরও তথ্য</string>
+  <string name="table_close">বন্ধ</string>
   <string name="alpha_update_notification_title">নতুন আলফা হালনাগাদ উপলব্ধ</string>
   <string name="alpha_update_notification_text">ডাউনলোড করতে টোকা দিন</string>
+  <string name="dialog_close_description">বন্ধ</string>
+  <string name="read_more_section">আরও জানুন</string>
   <string name="gallery_menu_more_info">আরও তথ্য</string>
-  <string name="gallery_license_text" fuzzy="true">লাইসেন্স: %s</string>
-  <string name="gallery_credit_text" fuzzy="true">কৃতিত্ব: %s</string>
+  <string name="menu_gallery_visit_page">ফাইল এর পৃষ্ঠাতে যান</string>
+  <string name="gallery_error_draw_failed">ছবি টে আঁকা সম্ভব হইতাছে না।</string>
+  <string name="gallery_license_text">লাইসেন্স: %s</string>
+  <string name="gallery_credit_text">কৃতিত্ব: %s</string>
+  <string name="gallery_menu_share">শেয়ার</string>
 </resources>

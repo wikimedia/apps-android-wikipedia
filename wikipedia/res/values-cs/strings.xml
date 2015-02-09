@@ -44,12 +44,14 @@
   <string name="nav_item_nearby">Poblíž</string>
   <string name="menu_update_nearby">Aktualizovat „poblíž“</string>
   <string name="nearby_empty_title">Žádné stránky poblíž!</string>
+  <string name="nearby_empty_message">Když se přesunete na nové místo, zkuste obnovit tuto stránku a dozvíte se více o tom, co je kolem vás.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Bez připojení k síti</string>
   <string name="nearby_server_error">Nepodařilo se získat seznam blízkých míst.</string>
+  <string name="nearby_no_location">Nepovedlo se získat umístění</string>
   <string name="nearby_set_metric">Zobraz metry/km</string>
   <string name="nearby_set_imperial">Zobraz stopy/míle</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>

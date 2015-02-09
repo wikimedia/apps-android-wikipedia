@@ -91,6 +91,9 @@
   <string name="about_activity_title">Honi buruz</string>
   <string name="edit_next">Hurrengoa</string>
   <string name="edit_done">Gorde</string>
+  <string name="edit_preview">Aurrebista</string>
+  <string name="edit_summary_tag_typo">Ortografia zuzenketa</string>
+  <string name="edit_summary_tag_grammar">Gramatika zuzenketa</string>
   <string name="find_in_page">Aurkitu orrialdean</string>
   <string name="find_next">Aurkitu hurrengoa</string>
   <string name="find_previous">Aurkitu aurrekoa</string>

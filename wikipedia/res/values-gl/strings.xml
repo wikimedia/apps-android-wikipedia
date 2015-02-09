@@ -280,5 +280,5 @@ O código é completamente aberto. Se ten experiencia co Java e o SDK de Android
   <string name="gallery_save_success">Imaxe gardada correctamente.</string>
   <string name="err_cannot_save_file">Non se pode gardar o ficheiro</string>
   <string name="snippet_share_intro">\"%1$s\" en @Wikipedia: %2$s</string>
-  <string name="expand_refs">Prema para ampliar</string>
+  <string name="expand_refs">Toque para ampliar</string>
 </resources>

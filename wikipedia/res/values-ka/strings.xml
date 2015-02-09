@@ -136,6 +136,7 @@
   <string name="zero_charged_verbiage">ვიკიპედია ზერო გამორთულია</string>
   <string name="zero_search_hint">ძიება ვიკიპედია ზეროში</string>
   <string name="zero_warn_when_leaving">გამაფრთხილე ვიკიპედია ზეროს დატოვებისას</string>
+  <string name="zero_webpage_title">ვიკიპედია ზერო ხდშ</string>
   <string name="zero_wikipedia_zero_heading">ვიკიპედია ზერო</string>
   <string name="zero_interstitial_title">ვიკიპედია ზეროდან გამოსვლა</string>
   <string name="zero_interstitial_continue">დატოვება</string>
@@ -223,11 +224,14 @@
   <string name="gallery_menu_more_info">მეტი ინფორმაცია</string>
   <string name="menu_gallery_visit_page">გადადით ფაილის გვერდზე</string>
   <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
-  <string name="gallery_license_text" fuzzy="true">ლიცენზია: %s</string>
+  <string name="gallery_license_text">ლიცენზია – %s</string>
+  <string name="gallery_credit_text">ავტორი – %s</string>
   <string name="gallery_image_info">სურათის ინფორმაცია</string>
   <string name="gallery_menu_share">გაზიარება</string>
   <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
   <string name="gallery_menu_save">მოწყობილობაში შენახვა</string>
   <string name="gallery_save_error">სურათის შენახვა შეუძლებელია: %s</string>
   <string name="gallery_save_success">სურათი წარმატებით შეინახა.</string>
+  <string name="err_cannot_save_file">ფაილი ვერ შეინახა</string>
+  <string name="snippet_share_intro">„%1$s“ საიტზე @Wikipedia: %2$s</string>
 </resources>

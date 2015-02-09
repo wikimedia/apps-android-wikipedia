@@ -179,7 +179,7 @@
   <string name="edit_preview">Koʻrib chiqish</string>
   <string name="edit_summary_tag_typo">Xatoni tuzatdim</string>
   <string name="edit_summary_tag_grammar">Grammatikani tuzatdim</string>
-  <string name="edit_summary_tag_links">Qoʻshilgan havolalar</string>
+  <string name="edit_summary_tag_links">Havola(lar) qoʻshildi</string>
   <string name="edit_summary_tag_other">Boshqa</string>
   <string name="find_in_page">Sahifadan topish</string>
   <string name="find_next">Keyingisini topish</string>

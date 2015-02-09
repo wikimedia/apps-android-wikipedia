@@ -269,14 +269,16 @@ Kode sepenuhnya bersifat sumber terbuka. Jika Anda memiliki pengalaman dengan Ja
   <string name="gallery_menu_more_info">Informasi lebih lanjut</string>
   <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>
   <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
-  <string name="license_title">Teks Lisensi untuk pustaka %s</string>
+  <string name="license_title">Teks lisensi untuk pustaka %s</string>
   <string name="gallery_license_text">Lisensi - %s</string>
   <string name="gallery_credit_text">Penulis - %s</string>
   <string name="gallery_image_info">Informasi gambar</string>
   <string name="gallery_menu_share">Bagikan</string>
-  <string name="gallery_share_error">Tidak dapat membagi foto:%s</string>
-  <string name="gallery_menu_save">Simpan kedalam perangkat</string>
+  <string name="gallery_share_error">Tidak dapat membagi gambar: %s</string>
+  <string name="gallery_menu_save">Simpan ke dalam perangkat</string>
   <string name="gallery_save_error">Tidak dapat menyimpan gambar: %s</string>
-  <string name="gallery_save_success">Penyimpanan gambar sukses.</string>
-  <string name="err_cannot_save_file">Tidak dapat menyimpan file</string>
+  <string name="gallery_save_success">Penyimpanan gambar berhasil.</string>
+  <string name="err_cannot_save_file">Tidak dapat menyimpan berkas</string>
+  <string name="snippet_share_intro">\"%1$s\" di @Wikipedia: %2$s</string>
+  <string name="expand_refs">Ketuk untuk memperluas</string>
 </resources>
