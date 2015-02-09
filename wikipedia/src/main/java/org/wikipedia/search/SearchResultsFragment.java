@@ -394,10 +394,12 @@ public class SearchResultsFragment extends Fragment {
             String displayText = title.getDisplayText();
             int startIndex = indexOf(displayText, currentSearchTerm);
             if (startIndex >= 0) {
-                displayText = "<strong>"
-                        + displayText.substring(startIndex, startIndex + currentSearchTerm.length())
-                        + "</strong>"
-                        + displayText.substring(currentSearchTerm.length(), displayText.length());
+                displayText = displayText.substring(0, startIndex)
+                      + "<strong>"
+                      + displayText.substring(startIndex, startIndex + currentSearchTerm.length())
+                      + "</strong>"
+                      + displayText.substring(startIndex + currentSearchTerm.length(),
+                                              displayText.length());
                 pageTitleText.setText(Html.fromHtml(displayText));
             } else {
                 pageTitleText.setText(displayText);
