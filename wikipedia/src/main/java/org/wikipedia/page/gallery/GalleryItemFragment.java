@@ -293,9 +293,12 @@ public class GalleryItemFragment extends Fragment {
         new SaneAsyncTask<Void>(SaneAsyncTask.SINGLE_THREAD) {
             @Override
             public Void performTask() throws Throwable {
-                MediaStore.Images.Media.insertImage(parentActivity.getContentResolver(),
-                            ((BitmapDrawable) mainImage.getDrawable()).getBitmap(),
-                            pageTitle.getDisplayText(), galleryItem.getName());
+                String url = MediaStore.Images.Media.insertImage(parentActivity.getContentResolver(),
+                                ((BitmapDrawable) mainImage.getDrawable()).getBitmap(),
+                                pageTitle.getDisplayText(), galleryItem.getName());
+                if (url == null) {
+                    throw new RuntimeException(getString(R.string.gallery_save_error_mediastore));
+                }
                 return null;
             }
             @Override
@@ -304,7 +307,7 @@ public class GalleryItemFragment extends Fragment {
                     return;
                 }
                 Toast.makeText(parentActivity, getString(R.string.gallery_save_success),
-                               Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onCatch(Throwable caught) {
