@@ -296,8 +296,6 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
             return;
         }
         inflater.inflate(R.menu.menu_saved_pages, menu);
-        app.adjustDrawableToTheme(menu.findItem(R.id.menu_refresh_all_saved_pages).getIcon());
-        app.adjustDrawableToTheme(menu.findItem(R.id.menu_clear_all_saved_pages).getIcon());
     }
 
     @Override

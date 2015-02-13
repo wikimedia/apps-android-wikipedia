@@ -1,36 +1,31 @@
 <resources>
 
-    <style name="Theme.WikiLight" parent="Theme.AppCompat.Light">
+    <style name="Theme.WikiLight" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionModeOverlay">true</item>
-        <item name="toolbarStyle">@style/Toolbar.WikiLight</item>
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowStyle</item>
+        <item name="actionOverflowButtonStyle">@style/AppTheme.OverflowStyle</item>
+        <item name="actionBarTheme">@style/AppTheme.ToolbarTheme</item>
+        <item name="actionBarStyle">@style/AppTheme.ToolbarStyle</item>
+        <item name="actionModeStyle">@style/AppTheme.ActionModeStyle</item>
+        <item name="android:actionModeStyle">@style/AppTheme.ActionModeStyle</item>
+        <item name="android:autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.WikiLight</item>
         <item name="android:windowBackground">@color/window_background_light</item>
         <item name="window_background_color">@color/window_background_light</item>
         <item name="page_background_color">@color/page_background_light</item>
         <item name="search_background_color">@color/search_background_light</item>
-        <item name="actionbar_background_color">@color/actionbar_background_light</item>
-        <item name="actionbar_gradient">@drawable/toolbar_lead_gradient_light</item>
         <item name="toc_background_color">@color/toc_background_light</item>
         <item name="toc_section_text_color">@color/toc_section_text_light</item>
         <item name="toc_subsection_text_color">@color/toc_subsection_text_light</item>
         <item name="edit_text_color">@color/edit_text_light</item>
         <item name="link_color">@color/link_light</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_light</item>
-        <item name="ic_find_previous_drawable">@drawable/ic_expand_less</item>
-        <item name="ic_find_next_drawable">@drawable/ic_expand_more</item>
         <item name="lead_image_drawable">@drawable/lead_default</item>
         <item name="lead_disabled_text_color">@color/lead_disabled_text_light</item>
         <item name="list_separator_color">@color/list_separator_light</item>
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_light</item>
-        <item name="search_bar_shape">@drawable/search_bar_shape_light</item>
         <item name="subtle_gray_color">@color/subtle_gray_light</item>
         <item name="nearby_marker_drawable">@drawable/ic_place</item>
-    </style>
-
-    <style name="Toolbar.WikiLight" parent="@style/Widget.AppCompat.Toolbar">
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:navigationIcon">?attr/homeAsUpIndicator</item>
-        <item name="navigationIcon">?attr/homeAsUpIndicator</item>
     </style>
 
     <style name="DropDownListView.WikiLight" parent="@style/Widget.AppCompat.Light.ListView.DropDown">

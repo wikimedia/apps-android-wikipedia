@@ -1,8 +1,11 @@
 package org.wikipedia.search;
 
+import android.app.Activity;
+import android.graphics.Color;
 import android.os.Build;
 import android.view.View;
 
+import com.nineoldandroids.animation.ArgbEvaluator;
 import com.nineoldandroids.view.ViewHelper;
 
 import org.wikipedia.R;
@@ -11,24 +14,33 @@ import org.wikipedia.views.ObservableWebView;
 
 public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeListener, ObservableWebView.OnUpOrCancelMotionEventListener, ObservableWebView.OnDownMotionEventListener {
     private static final int HUMAN_SCROLL_THRESHOLD = 200;
+    private static final int FULL_OPACITY = 255;
+    private final Activity parentActivity;
     private final View quickReturnView;
     private final float displayDensity;
+    private final int toolbarColor;
+    private final ArgbEvaluator colorEvaluator;
+
     private ObservableWebView webview;
     private boolean fadeEnabled = false;
     private boolean forceNoFade = false;
     private View toolbarBackground;
-    private View toolbarSearchBackground;
     private View toolbarGradient;
     private View toolbarShadow;
 
-    public SearchBarHideHandler(View quickReturnView) {
+    public SearchBarHideHandler(Activity activity, View quickReturnView) {
+        this.parentActivity = activity;
         this.quickReturnView =  quickReturnView;
         this.displayDensity = quickReturnView.getResources().getDisplayMetrics().density;
 
-        toolbarBackground = quickReturnView.findViewById(R.id.main_toolbar_background);
-        toolbarSearchBackground = quickReturnView.findViewById(R.id.main_search_background);
+        toolbarBackground = quickReturnView.findViewById(R.id.main_toolbar);
         toolbarShadow = quickReturnView.findViewById(R.id.main_toolbar_shadow);
         toolbarGradient = quickReturnView.findViewById(R.id.main_toolbar_gradient);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+            toolbarGradient.setVisibility(View.GONE);
+        }
+        colorEvaluator = new ArgbEvaluator();
+        toolbarColor = activity.getResources().getColor(R.color.actionbar_background);
     }
 
     /**
@@ -79,15 +91,19 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             // enable fading/translucent search bar only in API 11+
             final int fadeHeight = 256;
-            final float searchBoxFadeOffset = 0.3f;
-            float alpha = 1f;
+            int opacity = FULL_OPACITY;
             if (fadeEnabled && !forceNoFade) {
-                alpha = (float) scrollY / (fadeHeight * displayDensity);
+                opacity = scrollY * FULL_OPACITY / (int)(fadeHeight * displayDensity);
             }
-            toolbarBackground.setAlpha(alpha);
-            toolbarShadow.setAlpha(alpha);
-            toolbarSearchBackground.setAlpha(Math.min(1f, alpha + searchBoxFadeOffset));
-            toolbarGradient.setAlpha(1f - alpha);
+            opacity = Math.max(0, opacity);
+            opacity = Math.min(FULL_OPACITY, opacity);
+            toolbarBackground.getBackground().setAlpha(opacity);
+            toolbarShadow.getBackground().setAlpha(opacity);
+            toolbarGradient.getBackground().setAlpha(FULL_OPACITY - opacity);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                parentActivity.getWindow().setStatusBarColor(
+                        (int) colorEvaluator.evaluate((float)opacity / FULL_OPACITY, Color.BLACK, toolbarColor));
+            }
         }
         if (scrollY <= webview.getHeight()) {
             // For the first screenful, ensure it always exists.

@@ -4,8 +4,52 @@
 
     <style name="NoTitle" parent="AppTheme">
         <item name="windowActionBar">false</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowTitleSize">0dp</item>
+    </style>
+
+    <style name="AppTheme.ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:colorControlNormal">@android:color/white</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">@color/actionbar_highlight</item>
+        <item name="colorControlHighlight">@color/actionbar_highlight</item>
+    </style>
+
+    <style name="AppTheme.ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/actionbar_background</item>
+        <item name="background">@color/actionbar_background</item>
+        <item name="navigationIcon">?attr/homeAsUpIndicator</item>
+        <item name="elevation">4dp</item>
+        <item name="titleTextStyle">@style/AppTheme.ToolBarTitleText</item>
+    </style>
+
+    <style name="AppTheme.ToolBarTitleText"
+        parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="android:color">@android:color/white</item>
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.OverflowStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_more_vert</item>
+    </style>
+
+    <style name="AppTheme.ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
+        <item name="background">@color/actionbar_background</item>
+        <item name="android:background">@color/actionbar_background</item>
+        <item name="backgroundSplit">@color/actionbar_background</item>
+    </style>
+
+    <style name="AppTheme.SearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
+        <item name="closeIcon">@drawable/ic_close_white</item>
+        <item name="searchIcon">@drawable/ic_search</item>
+    </style>
+
+    <style name="AppTheme.SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@color/search_text_hint</item>
     </style>
 
     <style name="button_progressive" parent="@android:style/TextAppearance.Large">

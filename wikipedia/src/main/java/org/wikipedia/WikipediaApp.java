@@ -522,16 +522,25 @@ public class WikipediaApp extends Application {
     }
 
     /**
+     * Apply a tint to the provided drawable.
+     * @param d Drawable to be tinted.
+     * @param tintColor Color of the tint. Setting to 0 will remove the tint.
+     */
+    public void setDrawableTint(Drawable d, int tintColor) {
+        if (tintColor == 0) {
+            d.clearColorFilter();
+        } else {
+            d.setColorFilter(tintColor, PorterDuff.Mode.SRC_ATOP);
+        }
+    }
+
+    /**
      * Make adjustments to a Drawable object to look better in the current theme.
      * (e.g. apply a white color filter for night mode)
      * @param d Drawable to be adjusted.
      */
     public void adjustDrawableToTheme(Drawable d) {
-        if (getCurrentTheme() == THEME_DARK) {
-            d.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
-        } else {
-            d.clearColorFilter();
-        }
+        setDrawableTint(d, currentTheme == THEME_DARK ? Color.WHITE : 0);
     }
 
     /**
@@ -540,11 +549,7 @@ public class WikipediaApp extends Application {
      * @param d Drawable to be adjusted.
      */
     public void adjustLinkDrawableToTheme(Drawable d) {
-        if (getCurrentTheme() == THEME_DARK) {
-            d.setColorFilter(getResources().getColor(R.color.button_dark), PorterDuff.Mode.SRC_ATOP);
-        } else {
-            d.setColorFilter(getResources().getColor(R.color.button_light), PorterDuff.Mode.SRC_ATOP);
-        }
+        setDrawableTint(d, getResources().getColor(currentTheme == THEME_DARK ? R.color.button_dark : R.color.button_light));
     }
 
     public int getFontSizeMultiplier() {

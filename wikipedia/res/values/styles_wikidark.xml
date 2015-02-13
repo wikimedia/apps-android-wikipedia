@@ -2,35 +2,30 @@
 
     <style name="Theme.WikiDark" parent="Theme.AppCompat">
         <item name="windowActionModeOverlay">true</item>
-        <item name="toolbarStyle">@style/Toolbar.WikiDark</item>
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowStyle</item>
+        <item name="actionOverflowButtonStyle">@style/AppTheme.OverflowStyle</item>
+        <item name="actionBarTheme">@style/AppTheme.ToolbarTheme</item>
+        <item name="actionBarStyle">@style/AppTheme.ToolbarStyle</item>
+        <item name="actionModeStyle">@style/AppTheme.ActionModeStyle</item>
+        <item name="android:actionModeStyle">@style/AppTheme.ActionModeStyle</item>
+        <item name="android:autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.WikiDark</item>
         <item name="android:windowBackground">@color/window_background_dark</item>
         <item name="window_background_color">@color/window_background_dark</item>
         <item name="page_background_color">@color/page_background_dark</item>
         <item name="search_background_color">@color/search_background_dark</item>
-        <item name="actionbar_background_color">@color/actionbar_background_dark</item>
-        <item name="actionbar_gradient">@drawable/toolbar_lead_gradient_dark</item>
         <item name="toc_background_color">@color/toc_background_dark</item>
         <item name="toc_section_text_color">@color/toc_section_text_dark</item>
         <item name="toc_subsection_text_color">@color/toc_subsection_text_dark</item>
         <item name="edit_text_color">@color/edit_text_dark</item>
         <item name="link_color">@color/link_dark</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_dark</item>
-        <item name="ic_find_previous_drawable">@drawable/ic_expand_less_dark</item>
-        <item name="ic_find_next_drawable">@drawable/ic_expand_more_dark</item>
         <item name="lead_image_drawable">@drawable/lead_default_dark</item>
         <item name="lead_disabled_text_color">@color/lead_disabled_text_dark</item>
         <item name="list_separator_color">@color/list_separator_dark</item>
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_dark</item>
-        <item name="search_bar_shape">@drawable/search_bar_shape_dark</item>
         <item name="subtle_gray_color">@color/subtle_gray_dark</item>
         <item name="nearby_marker_drawable">@drawable/ic_place_dark</item>
-    </style>
-
-    <style name="Toolbar.WikiDark" parent="@style/Widget.AppCompat.Toolbar">
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:navigationIcon">?attr/homeAsUpIndicator</item>
-        <item name="navigationIcon">?attr/homeAsUpIndicator</item>
     </style>
 
     <style name="DropDownListView.WikiDark" parent="@style/Widget.AppCompat.ListView.DropDown">

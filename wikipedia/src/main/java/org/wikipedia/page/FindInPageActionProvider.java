@@ -68,7 +68,6 @@ public class FindInPageActionProvider extends ActionProvider {
         searchView.setInputType(EditorInfo.TYPE_CLASS_TEXT);
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
         searchView.setSubmitButtonEnabled(false);
-
         return view;
     }
 

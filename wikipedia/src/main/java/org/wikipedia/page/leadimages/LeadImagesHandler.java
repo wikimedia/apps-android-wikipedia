@@ -335,6 +335,11 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 // mathematical diagrams or animations that won't look good as a lead image.
                 // TODO: retrieve the MIME type of the lead image, instead of relying on file name.
                 leadImagesEnabled = !thumbUrl.endsWith(".gif");
+                // also, if the image is not a JPG (i.e. it's a PNG or SVG) and might have
+                // transparency, give it a white background.
+                if (!thumbUrl.endsWith(".jpg")) {
+                    image1.setBackgroundColor(Color.WHITE);
+                }
             }
         }
 

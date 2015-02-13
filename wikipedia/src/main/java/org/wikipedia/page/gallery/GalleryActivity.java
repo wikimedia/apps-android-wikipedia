@@ -100,6 +100,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.gallery_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
 
         toolbarContainer = (ViewGroup) findViewById(R.id.gallery_toolbar_container);

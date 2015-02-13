@@ -504,7 +504,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             return;
         }
         inflater.inflate(R.menu.menu_nearby, menu);
-        app.adjustDrawableToTheme(menu.findItem(R.id.menu_refresh_nearby).getIcon());
         menu.findItem(R.id.menu_metric_imperial).setTitle(showImperial
                 ? getString(R.string.nearby_set_metric)
                 : getString(R.string.nearby_set_imperial));

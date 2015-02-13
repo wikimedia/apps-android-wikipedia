@@ -12,8 +12,8 @@
    viewBox="0 0 24 24"
    id="svg3072"
    version="1.1"
-   inkscape:version="0.48.5 r10040"
-   sodipodi:docname="ic_search_24.svg">
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="ic_search.svg">
   <metadata
      id="metadata3080">
     <rdf:RDF>
@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -37,7 +37,7 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="640"
+     inkscape:window-width="686"
      inkscape:window-height="480"
      id="namedview3076"
      showgrid="false"
@@ -51,6 +51,6 @@
   <path
      d="m 15.5,14 -0.79,0 -0.28,-0.27 C 15.41,12.59 16,11.11 16,9.5 16,5.91 13.09,3 9.5,3 5.91,3 3,5.91 3,9.5 3,13.09 5.91,16 9.5,16 c 1.61,0 3.09,-0.59 4.23,-1.57 L 14,14.71 14,15.5 19,20.49 20.49,19 15.5,14 z m -6,0 C 7.01,14 5,11.99 5,9.5 5,7.01 7.01,5 9.5,5 11.99,5 14,7.01 14,9.5 14,11.99 11.99,14 9.5,14 z"
      id="path3074"
-     style="fill:#333333;fill-opacity:0.6"
+     style="fill:#ffffff;fill-opacity:1"
      inkscape:connector-curvature="0" />
 </svg>

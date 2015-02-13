@@ -55,7 +55,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -167,7 +166,6 @@ public class PageActivity extends ThemedActionBarActivity {
                 searchFragment.openSearch();
             }
         });
-        app.adjustDrawableToTheme(((ImageView)findViewById(R.id.main_search_bar_icon)).getDrawable());
 
         mDrawerToggle = new MainDrawerToggle(
                 this,                  /* host Activity */
@@ -180,7 +178,7 @@ public class PageActivity extends ThemedActionBarActivity {
         drawerLayout.setDrawerListener(mDrawerToggle);
         getSupportActionBar().setTitle("");
 
-        searchBarHideHandler = new SearchBarHideHandler(toolbarContainer);
+        searchBarHideHandler = new SearchBarHideHandler(this, toolbarContainer);
 
         noTextSelectedShareAdapter = new NoTextSelectedShareAdapter(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
@@ -852,12 +850,14 @@ public class PageActivity extends ThemedActionBarActivity {
             textSelectedShareAdapter.onTextSelected(mode);
         }
         currentActionMode = mode;
+        searchBarHideHandler.setForceNoFade(true);
         super.onSupportActionModeStarted(mode);
     }
 
     @Override
     public void onSupportActionModeFinished(ActionMode mode) {
         currentActionMode = null;
+        searchBarHideHandler.setForceNoFade(false);
         super.onSupportActionModeFinished(mode);
     }
 

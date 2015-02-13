@@ -3,22 +3,16 @@
     <attr name="window_background_color" format="reference"/>
     <attr name="page_background_color" format="reference"/>
     <attr name="search_background_color" format="reference"/>
-    <attr name="actionbar_background_color" format="reference"/>
-    <attr name="actionbar_gradient" format="reference"/>
     <attr name="toc_background_color" format="reference"/>
     <attr name="toc_section_text_color" format="reference"/>
     <attr name="toc_subsection_text_color" format="reference"/>
     <attr name="edit_text_color" format="reference"/>
     <attr name="link_color" format="reference"/>
     <attr name="abusefilter_background_color" format="reference"/>
-    <attr name="actionbar_drawable" format="reference"/>
-    <attr name="ic_find_previous_drawable" format="reference"/>
-    <attr name="ic_find_next_drawable" format="reference"/>
     <attr name="lead_image_drawable" format="reference"/>
     <attr name="lead_disabled_text_color" format="reference"/>
     <attr name="list_separator_color" format="reference"/>
     <attr name="syntax_highlight_template_color" format="reference"/>
-    <attr name="search_bar_shape" format="reference"/>
     <attr name="subtle_gray_color" format="reference"/>
     <attr name="nearby_marker_drawable" format="reference"/>
 </resources>

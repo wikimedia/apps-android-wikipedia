@@ -23,12 +23,21 @@
     <color name="gray_disabled">#80606060</color>
     <color name="gray_highlight">#ff808080</color>
     <color name="page_info_heading">#555555</color>
+    <color name="actionbar_background">#ff303030</color>
+    <color name="actionbar_highlight">#ff808080</color>
+    <color name="search_bar">#ff404040</color>
+    <color name="search_text_hint">#ff808080</color>
+
+    <!-- Make the main toolbar have its own unique color (but indistinguishable from
+    actionbar_background). This is because we'll be setting its opacity programmatically
+    which, in certain API versions, seems to apply globally (i.e. other components that use
+    the same color value get the same transparency). -->
+    <color name="main_toolbar_background">#ff313131</color>
 
     <color name="link_light">#ff347BFF</color>
     <color name="button_light">#ff777777</color>
-    <color name="window_background_light">#fff2f2f2</color>
+    <color name="window_background_light">#ffffffff</color>
     <color name="page_background_light">#ffffffff</color>
-    <color name="actionbar_background_light">#ffe8e8e8</color>
     <color name="search_background_light">#ffffffff</color>
     <color name="toc_background_light">#ffffffff</color>
     <color name="toc_section_text_light">#ff333333</color>
@@ -37,13 +46,11 @@
     <color name="abusefilter_background_light">#E8E8E8</color>
     <color name="subtle_gray_light">#fff0f0f0</color>
     <color name="list_separator_light">#ffcccccc</color>
-    <color name="search_bar_light">#fff2f2f2</color>
 
     <color name="link_dark">#ff2B6FB2</color>
     <color name="button_dark">#ff2B6FB2</color>
     <color name="window_background_dark">#ff000000</color>
     <color name="page_background_dark">#ff000000</color>
-    <color name="actionbar_background_dark">#ff505050</color>
     <color name="search_background_dark">#ff303030</color>
     <color name="toc_background_dark">#ff0C0C0C</color>
     <color name="toc_section_text_dark">#ffd0d0d0</color>
@@ -52,7 +59,6 @@
     <color name="abusefilter_background_dark">#505050</color>
     <color name="subtle_gray_dark">#ff141414</color>
     <color name="list_separator_dark">#ff606060</color>
-    <color name="search_bar_dark">#ff606060</color>
 
     <color name="list_item_highlight">#a033b5e5</color>
     <color name="list_item_selected">#d033b5e5</color>

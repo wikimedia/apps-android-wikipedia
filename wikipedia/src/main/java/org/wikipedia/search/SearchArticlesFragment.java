@@ -26,7 +26,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -120,7 +119,6 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                 alert.create().show();
             }
         });
-        app.adjustDrawableToTheme(((ImageView)deleteButton).getDrawable());
 
         recentSearchesFragment = (RecentSearchesFragment)getChildFragmentManager().findFragmentById(R.id.search_panel_recent);
 
@@ -290,10 +288,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
                 searchEditText = (EditText) searchView
                         .findViewById(android.support.v7.appcompat.R.id.search_src_text);
-                // need to explicitly set text color (you're welcome, 2.3!).
-                searchEditText.setTextColor(getResources().getColor(
-                        Utils.getThemedAttributeId(getActivity(), R.attr.edit_text_color)));
-                // and make the text size be the same as the size of the search field
+                // make the text size be the same as the size of the search field
                 // placeholder in the main activity
                 searchEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX, ((TextView) getActivity()
                         .findViewById(R.id.main_search_bar_text)).getTextSize());
@@ -307,10 +302,6 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                 searchEditFrame.setLayoutParams(params);
                 // center the search text in it
                 searchEditText.setGravity(Gravity.CENTER_VERTICAL);
-                // and make the background of the search plate the same as our placeholder...
-                View searchPlate = searchView
-                        .findViewById(android.support.v7.appcompat.R.id.search_plate);
-                searchPlate.setBackgroundResource(Utils.getThemedAttributeId(getActivity(), R.attr.search_bar_shape));
             }
 
             updateZeroChrome();

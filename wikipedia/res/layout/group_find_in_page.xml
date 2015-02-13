@@ -15,6 +15,7 @@
             android:hint="@string/find_in_page"
             android:layout_gravity="center_vertical"
             android:singleLine="true"
+            style="@style/AppTheme.SearchViewStyle"
             />
     <TextView
             android:id="@+id/find_in_page_match"
@@ -22,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:textColor="@android:color/white"
             style="?android:textAppearanceSmall"
             />
     <ImageButton
@@ -34,7 +36,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:contentDescription="@string/find_previous"
-            android:src="?attr/ic_find_previous_drawable"/>
+            android:src="@drawable/ic_expand_less_dark"/>
     <ImageButton
             android:id="@+id/find_in_page_next"
             android:layout_width="48dp"
@@ -45,5 +47,5 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:contentDescription="@string/find_next"
-            android:src="?attr/ic_find_next_drawable"/>
+            android:src="@drawable/ic_expand_more_dark"/>
 </LinearLayout>

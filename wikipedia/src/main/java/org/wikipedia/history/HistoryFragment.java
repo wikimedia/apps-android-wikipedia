@@ -313,7 +313,6 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             return;
         }
         inflater.inflate(R.menu.menu_history, menu);
-        app.adjustDrawableToTheme(menu.findItem(R.id.menu_clear_all_history).getIcon());
     }
 
     @Override
