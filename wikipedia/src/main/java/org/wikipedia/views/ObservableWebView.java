@@ -3,6 +3,7 @@ package org.wikipedia.views;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.ViewConfiguration;
 import android.webkit.WebView;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.WebViewInvalidateEvent;
@@ -13,12 +14,20 @@ import java.util.List;
 public class ObservableWebView extends WebView {
     private static final WebViewInvalidateEvent INVALIDATE_EVENT = new WebViewInvalidateEvent();
 
+    private List<OnClickListener> onClickListeners;
     private List<OnScrollChangeListener> onScrollChangeListeners;
     private List<OnDownMotionEventListener> onDownMotionEventListeners;
     private List<OnUpOrCancelMotionEventListener> onUpOrCancelMotionEventListeners;
     private List<OnContentHeightChangedListener> onContentHeightChangedListeners;
 
     private int contentHeight = 0;
+    private float touchStartX;
+    private float touchStartY;
+    private int touchSlop;
+
+    public void addOnClickListener(OnClickListener onClickListener) {
+        onClickListeners.add(onClickListener);
+    }
 
     public void addOnScrollChangeListener(OnScrollChangeListener onScrollChangeListener) {
         onScrollChangeListeners.add(onScrollChangeListener);
@@ -34,6 +43,10 @@ public class ObservableWebView extends WebView {
 
     public void addOnContentHeightChangedListener(OnContentHeightChangedListener onContentHeightChangedListener) {
         onContentHeightChangedListeners.add(onContentHeightChangedListener);
+    }
+
+    public interface OnClickListener {
+        void onClick(float x, float y);
     }
 
     public interface OnScrollChangeListener {
@@ -73,10 +86,12 @@ public class ObservableWebView extends WebView {
     }
 
     private void init() {
-        onScrollChangeListeners = new ArrayList<OnScrollChangeListener>();
-        onDownMotionEventListeners = new ArrayList<OnDownMotionEventListener>();
-        onUpOrCancelMotionEventListeners = new ArrayList<OnUpOrCancelMotionEventListener>();
-        onContentHeightChangedListeners = new ArrayList<OnContentHeightChangedListener>();
+        onClickListeners = new ArrayList<>();
+        onScrollChangeListeners = new ArrayList<>();
+        onDownMotionEventListeners = new ArrayList<>();
+        onUpOrCancelMotionEventListeners = new ArrayList<>();
+        onContentHeightChangedListeners = new ArrayList<>();
+        touchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     @Override
@@ -89,23 +104,29 @@ public class ObservableWebView extends WebView {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (onDownMotionEventListeners.size() > 0 && onUpOrCancelMotionEventListeners.size() > 0) {
-            switch (event.getActionMasked()) {
-                case MotionEvent.ACTION_DOWN:
-                    for (OnDownMotionEventListener listener : onDownMotionEventListeners) {
-                        listener.onDownMotionEvent();
+        switch (event.getActionMasked()) {
+            case MotionEvent.ACTION_DOWN:
+                for (OnDownMotionEventListener listener : onDownMotionEventListeners) {
+                    listener.onDownMotionEvent();
+                }
+                touchStartX = event.getX();
+                touchStartY = event.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                if (Math.abs(event.getX() - touchStartX) <= touchSlop
+                    && Math.abs(event.getY() - touchStartY) <= touchSlop) {
+                    for (OnClickListener listener : onClickListeners) {
+                        listener.onClick(event.getX(), event.getY());
                     }
-                    break;
-                case MotionEvent.ACTION_UP:
-                case MotionEvent.ACTION_CANCEL:
-                    for (OnUpOrCancelMotionEventListener listener : onUpOrCancelMotionEventListeners) {
-                        listener.onUpOrCancelMotionEvent();
-                    }
-                    break;
-                default:
-                    // Do nothing for all the other things
-                    break;
-            }
+                }
+            case MotionEvent.ACTION_CANCEL:
+                for (OnUpOrCancelMotionEventListener listener : onUpOrCancelMotionEventListeners) {
+                    listener.onUpOrCancelMotionEvent();
+                }
+                break;
+            default:
+                // Do nothing for all the other things
+                break;
         }
         return super.onTouchEvent(event);
     }

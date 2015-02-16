@@ -107,7 +107,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     }
 
     public LeadImagesHandler(final Context context, final PageViewFragmentInternal parentFragment,
-                             CommunicationBridge bridge, ObservableWebView webview,
+                             CommunicationBridge bridge, final ObservableWebView webview,
                              ViewGroup hidingView) {
         this.context = context;
         this.parentFragment = parentFragment;
@@ -136,16 +136,21 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                     .getWindowManager().getDefaultDisplay().getHeight() / displayDensity);
         }
 
-        image1.setOnClickListener(new View.OnClickListener() {
+        webview.addOnClickListener(new ObservableWebView.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String imageName = parentFragment.getPage().getPageProperties().getLeadImageName();
-                if (imageName == null) {
-                    return;
+            public void onClick(float x, float y) {
+                // if the click event is within the area of the lead image, then the user
+                // must have wanted to click on the lead image!
+                if (leadImagesEnabled && y < imageContainer.getHeight() - webview.getScrollY()) {
+                    String imageName = parentFragment.getPage().getPageProperties()
+                                                     .getLeadImageName();
+                    if (imageName != null) {
+                        PageTitle imageTitle = new PageTitle("File:" + imageName,
+                                                             parentFragment.getTitle()
+                                                                           .getSite());
+                        parentFragment.showImageGallery(imageTitle);
+                    }
                 }
-                PageTitle imageTitle = new PageTitle("File:" + imageName,
-                                                     parentFragment.getTitle().getSite());
-                parentFragment.showImageGallery(imageTitle);
             }
         });
 
