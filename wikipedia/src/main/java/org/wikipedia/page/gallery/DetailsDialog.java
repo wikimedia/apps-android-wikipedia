@@ -16,7 +16,6 @@ import org.wikipedia.page.LinkMovementMethodExt;
 
 public class DetailsDialog extends BottomDialog {
     private GalleryItem item;
-    private ListView infoList;
     private LinkMovementMethodExt linkMovementMethod;
 
     public DetailsDialog(Context context, GalleryItem item, LinkMovementMethodExt linkMovementMethod, int height) {
@@ -25,7 +24,6 @@ public class DetailsDialog extends BottomDialog {
         this.linkMovementMethod = linkMovementMethod;
 
         View parentView = getDialogLayout();
-        infoList = (ListView) parentView.findViewById(R.id.dialog_details_list);
         View closeButton = parentView.findViewById(R.id.dialog_details_close);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +35,7 @@ public class DetailsDialog extends BottomDialog {
         parentView.setLayoutParams(
                 new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, height));
 
+        ListView infoList = (ListView) parentView.findViewById(R.id.dialog_details_list);
         infoList.setAdapter(new DetailsListAdapter(item.getMetadata().keySet().toArray()));
     }
 

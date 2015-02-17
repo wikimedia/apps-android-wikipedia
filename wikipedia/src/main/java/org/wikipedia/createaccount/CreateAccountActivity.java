@@ -51,8 +51,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     private Button createAccountButton;
     private Button createAccountButtonCaptcha;
 
-    private View primaryContainer;
-
     private WikipediaApp app;
 
     private ProgressDialog progressDialog;
@@ -75,11 +73,11 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         passwordEdit = (EditText) findViewById(R.id.create_account_password);
         passwordRepeatEdit = (EditText) findViewById(R.id.create_account_password_repeat);
         emailEdit = (EditText) findViewById(R.id.create_account_email);
-        primaryContainer = findViewById(R.id.create_account_primary_container);
         showPasswordCheck = (CheckBox) findViewById(R.id.create_account_show_password);
         createAccountButton = (Button) findViewById(R.id.create_account_submit_button);
         createAccountButtonCaptcha = (Button) findViewById(R.id.captcha_submit_button);
         EditText captchaText = (EditText) findViewById(R.id.captcha_text);
+        View primaryContainer = findViewById(R.id.create_account_primary_container);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);

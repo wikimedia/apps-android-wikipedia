@@ -33,13 +33,11 @@ public class LangLinksActivity extends ThemedActionBarActivity {
     private WikipediaApp app;
 
     private ListView langLinksList;
-    private EditText langLinksFilter;
     private View langLinksProgress;
     private View langLinksContainer;
     private View langLinksEmpty;
     private View langLinksNoMatch;
     private View langLinksError;
-    private Button langLinksErrorRetry;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,13 +50,13 @@ public class LangLinksActivity extends ThemedActionBarActivity {
         }
 
         langLinksList = (ListView) findViewById(R.id.langlinks_list);
-        langLinksFilter = (EditText) findViewById(R.id.langlinks_filter);
         langLinksProgress = findViewById(R.id.langlinks_load_progress);
         langLinksContainer = findViewById(R.id.langlinks_list_container);
         langLinksEmpty = findViewById(R.id.langlinks_empty);
         langLinksNoMatch = findViewById(R.id.langlinks_no_match);
         langLinksError = findViewById(R.id.langlinks_error);
-        langLinksErrorRetry = (Button) findViewById(R.id.langlinks_error_retry);
+        EditText langLinksFilter = (EditText) findViewById(R.id.langlinks_filter);
+        Button langLinksErrorRetry = (Button) findViewById(R.id.langlinks_error_retry);
 
         title = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
 

@@ -23,7 +23,6 @@ import java.util.Locale;
 
 public class LanguagePreference extends DialogPreference {
     private ListView languagesList;
-    private EditText languagesFilter;
 
     private final List<String> languages;
     private final WikipediaApp app;
@@ -63,8 +62,8 @@ public class LanguagePreference extends DialogPreference {
     @Override
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
-        languagesFilter = (EditText) view.findViewById(R.id.preference_languages_filter);
         languagesList = (ListView) view.findViewById(R.id.preference_languages_list);
+        EditText languagesFilter = (EditText) view.findViewById(R.id.preference_languages_filter);
 
         languagesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

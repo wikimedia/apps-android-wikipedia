@@ -19,7 +19,6 @@ import java.util.ArrayList;
 public class UserContribsActivity extends ThemedActionBarActivity {
     private static final int NUMBER_TO_FETCH = 24;
 
-    private ListView userContribsList;
     private View moreContainer;
     private TextView moreText;
     private ProgressBar moreProgress;
@@ -37,7 +36,6 @@ public class UserContribsActivity extends ThemedActionBarActivity {
 
         app = (WikipediaApp)getApplicationContext();
 
-        userContribsList = (ListView)findViewById(R.id.user_contribs_list);
         moreContainer = getLayoutInflater().inflate(R.layout.group_load_more, null, false);
         moreText = (TextView) moreContainer.findViewById(R.id.load_more_text);
         moreProgress = (ProgressBar) moreContainer.findViewById(R.id.load_more_progress);
@@ -50,8 +48,9 @@ public class UserContribsActivity extends ThemedActionBarActivity {
         });
 
         adapter = new UserContribsAdapter();
-        userContribsList.setAdapter(adapter);
 
+        ListView userContribsList = (ListView) findViewById(R.id.user_contribs_list);
+        userContribsList.setAdapter(adapter);
         userContribsList.addFooterView(moreContainer);
 
         if (savedInstanceState != null) {
