@@ -6,7 +6,7 @@ import org.wikipedia.data.SQLiteContentProvider;
 
 public class EditSummaryContentProvider extends SQLiteContentProvider<EditSummary> {
     public EditSummaryContentProvider() {
-        super(EditSummary.PERSISTANCE_HELPER);
+        super(EditSummary.PERSISTENCE_HELPER);
     }
 
     @Override

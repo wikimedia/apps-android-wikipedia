@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import java.util.Date;
 
 public class RecentSearch implements Parcelable {
-    public static final RecentSearchPersistenceHelper PERSISTANCE_HELPER = new RecentSearchPersistenceHelper();
+    public static final RecentSearchPersistenceHelper PERSISTENCE_HELPER = new RecentSearchPersistenceHelper();
 
     private final String text;
     private final Date timestamp;

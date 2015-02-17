@@ -116,7 +116,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                         SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
                         for (int i = 0; i < checkedItems.size(); i++) {
                             if (checkedItems.valueAt(i)) {
-                                final SavedPage page = SavedPage.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
+                                final SavedPage page = SavedPage.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
                                 new DeleteSavedPageTask(getActivity(), page) {
                                     @Override
                                     public void onFinish(Boolean result) {
@@ -218,7 +218,9 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         }
         return new CursorLoader(
                 getActivity(),
-                Uri.parse(SavedPage.PERSISTANCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTANCE_HELPER.getTableName()),
+                Uri.parse(SavedPage.PERSISTENCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTENCE_HELPER
+
+                        .getTableName()),
                 null,
                 selection,
                 selectionArgs,
@@ -253,7 +255,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         public void bindView(View view, Context context, Cursor cursor) {
             TextView title = (TextView) view.findViewById(R.id.saved_page_title);
             ImageView thumbnail = (ImageView) view.findViewById(R.id.saved_page_thumbnail);
-            SavedPage entry = SavedPage.PERSISTANCE_HELPER.fromCursor(cursor);
+            SavedPage entry = SavedPage.PERSISTENCE_HELPER.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
 
@@ -274,7 +276,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
             String curLetter, prevLetter = "";
             if (cursor.getPosition() != 0) {
                 Cursor prevCursor = (Cursor) getItem(cursor.getPosition() - 1);
-                SavedPage prevEntry = SavedPage.PERSISTANCE_HELPER.fromCursor(prevCursor);
+                SavedPage prevEntry = SavedPage.PERSISTENCE_HELPER.fromCursor(prevCursor);
                 prevLetter = prevEntry.getTitle().getDisplayText().substring(0, 1);
             }
             curLetter = entry.getTitle().getDisplayText().substring(0, 1);
@@ -360,7 +362,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         ArrayList<SavedPage> savedPages = new ArrayList<SavedPage>();
         for (int i = 0; i < checkedItems.size(); i++) {
             if (checkedItems.valueAt(i)) {
-                SavedPage page = SavedPage.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
+                SavedPage page = SavedPage.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
                 savedPages.add(page);
             }
         }
@@ -371,7 +373,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     private void refreshAll() {
         ArrayList<SavedPage> savedPages = new ArrayList<SavedPage>();
         for (int i = 0; i < adapter.getCount(); i++) {
-            SavedPage page = SavedPage.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(i));
+            SavedPage page = SavedPage.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(i));
             savedPages.add(page);
         }
         refreshHandler = new RefreshPagesHandler(getActivity(), savedPages);

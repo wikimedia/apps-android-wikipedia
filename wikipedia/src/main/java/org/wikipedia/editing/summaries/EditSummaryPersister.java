@@ -8,9 +8,9 @@ public class EditSummaryPersister extends ContentPersister<EditSummary> {
         // lolJava
         super(
                 context.getContentResolver().acquireContentProviderClient(
-                        EditSummary.PERSISTANCE_HELPER.getBaseContentURI()
+                        EditSummary.PERSISTENCE_HELPER.getBaseContentURI()
                 ),
-                EditSummary.PERSISTANCE_HELPER
+                EditSummary.PERSISTENCE_HELPER
         );
     }
 }

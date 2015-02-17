@@ -6,7 +6,7 @@ import org.wikipedia.data.SQLiteContentProvider;
 
 public class RecentSearchContentProvider extends SQLiteContentProvider<RecentSearch> {
     public RecentSearchContentProvider() {
-        super(RecentSearch.PERSISTANCE_HELPER);
+        super(RecentSearch.PERSISTENCE_HELPER);
     }
 
     @Override

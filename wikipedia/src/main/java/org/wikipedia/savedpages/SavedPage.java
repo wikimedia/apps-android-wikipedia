@@ -13,7 +13,7 @@ import java.io.*;
 import java.util.Date;
 
 public class SavedPage implements Parcelable {
-    public static final SavedPagePersistenceHelper PERSISTANCE_HELPER = new SavedPagePersistenceHelper();
+    public static final SavedPagePersistenceHelper PERSISTENCE_HELPER = new SavedPagePersistenceHelper();
 
     private final PageTitle title;
     private final Date timestamp;

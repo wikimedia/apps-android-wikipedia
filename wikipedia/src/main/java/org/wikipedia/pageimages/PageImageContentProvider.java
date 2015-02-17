@@ -6,7 +6,7 @@ import org.wikipedia.data.SQLiteContentProvider;
 
 public class PageImageContentProvider extends SQLiteContentProvider<PageImage> {
     public PageImageContentProvider() {
-        super(PageImage.PERSISTANCE_HELPER);
+        super(PageImage.PERSISTENCE_HELPER);
     }
 
     @Override

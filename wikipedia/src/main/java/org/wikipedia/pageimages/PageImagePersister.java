@@ -8,9 +8,9 @@ public class PageImagePersister extends ContentPersister<PageImage> {
         // lolJava
         super(
                 context.getContentResolver().acquireContentProviderClient(
-                        PageImage.PERSISTANCE_HELPER.getBaseContentURI()
+                        PageImage.PERSISTENCE_HELPER.getBaseContentURI()
                 ),
-                PageImage.PERSISTANCE_HELPER
+                PageImage.PERSISTENCE_HELPER
         );
     }
 }

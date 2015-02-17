@@ -142,7 +142,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                             for (int i = 0; i < checkedItems.size(); i++) {
                                 if (checkedItems.valueAt(i)) {
                                     app.getPersister(HistoryEntry.class).delete(
-                                        HistoryEntry.PERSISTANCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)))
+                                        HistoryEntry.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)))
                                     );
                                 }
                             }
@@ -203,7 +203,9 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
         }
         return new CursorLoader(
                 getActivity(),
-                Uri.parse(HistoryEntry.PERSISTANCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTANCE_HELPER.getTableName()),
+                Uri.parse(HistoryEntry.PERSISTENCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTENCE_HELPER
+
+                        .getTableName()),
                 null,
                 selection,
                 selectionArgs,
@@ -268,7 +270,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             TextView title = (TextView) view.findViewById(R.id.history_title);
             ImageView source = (ImageView) view.findViewById(R.id.history_source);
             ImageView thumbnail = (ImageView) view.findViewById(R.id.history_thumbnail);
-            HistoryEntry entry = HistoryEntry.PERSISTANCE_HELPER.fromCursor(cursor);
+            HistoryEntry entry = HistoryEntry.PERSISTENCE_HELPER.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
             source.setImageResource(getImageForSource(entry.getSource()));
             view.setTag(entry);
@@ -291,7 +293,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             String curTime, prevTime = "";
             if (cursor.getPosition() != 0) {
                 Cursor prevCursor = (Cursor) getItem(cursor.getPosition() - 1);
-                HistoryEntry prevEntry = HistoryEntry.PERSISTANCE_HELPER.fromCursor(prevCursor);
+                HistoryEntry prevEntry = HistoryEntry.PERSISTENCE_HELPER.fromCursor(prevCursor);
                 prevTime = getDateString(prevEntry.getTimestamp());
             }
             curTime = getDateString(entry.getTimestamp());

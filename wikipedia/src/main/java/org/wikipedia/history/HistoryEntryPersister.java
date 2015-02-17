@@ -10,10 +10,10 @@ public class HistoryEntryPersister extends ContentPersister<HistoryEntry> {
         super(
                 context.getContentResolver().acquireContentProviderClient(
                         SQLiteContentProvider.getAuthorityForTable(
-                                HistoryEntry.PERSISTANCE_HELPER.getTableName()
+                                HistoryEntry.PERSISTENCE_HELPER.getTableName()
                         )
                 ),
-                HistoryEntry.PERSISTANCE_HELPER
+                HistoryEntry.PERSISTENCE_HELPER
         );
     }
 }

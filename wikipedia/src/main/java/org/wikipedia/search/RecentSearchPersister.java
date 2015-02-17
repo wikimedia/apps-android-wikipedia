@@ -10,10 +10,10 @@ public class RecentSearchPersister extends ContentPersister<RecentSearch> {
         super(
                 context.getContentResolver().acquireContentProviderClient(
                         SQLiteContentProvider.getAuthorityForTable(
-                                RecentSearch.PERSISTANCE_HELPER.getTableName()
+                                RecentSearch.PERSISTENCE_HELPER.getTableName()
                         )
                 ),
-                RecentSearch.PERSISTANCE_HELPER
+                RecentSearch.PERSISTENCE_HELPER
         );
     }
 }
