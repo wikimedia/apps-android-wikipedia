@@ -676,16 +676,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
                 }
                 return true;
             case R.id.menu_share_page:
-                Intent shareIntent = new Intent();
-                shareIntent.setAction(Intent.ACTION_SEND);
-                String shareMessage = getActivity().getString(R.string.snippet_share_intro,
-                        title.getDisplayText(),
-                        title.getCanonicalUri());
-                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-                shareIntent.putExtra(Intent.EXTRA_SUBJECT, title.getDisplayText());
-                shareIntent.setType("text/plain");
-                Intent chooser = Intent.createChooser(shareIntent, getResources().getString(R.string.share_via));
-                parentFragment.startActivity(chooser);
+                getActivity().share(title);
                 return true;
             case R.id.menu_other_languages:
                 Intent langIntent = new Intent();

@@ -17,7 +17,8 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.onboarding.OnboardingActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
-import org.wikipedia.page.snippet.SnippetShareAdapter;
+import org.wikipedia.page.snippet.NoTextSelectedShareAdapter;
+import org.wikipedia.page.snippet.TextSelectedShareAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.search.SearchBarHideHandler;
@@ -85,7 +86,7 @@ public class PageActivity extends ThemedActionBarActivity {
     private ProgressBar progressBar;
 
     private View toolbarContainer;
-    private SnippetShareAdapter snippetShareAdapter;
+    private TextSelectedShareAdapter textSelectedShareAdapter;
     private ActionMode currentActionMode;
 
     private ActionBarDrawerToggle mDrawerToggle;
@@ -574,8 +575,8 @@ public class PageActivity extends ThemedActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        if (snippetShareAdapter != null) {
-            snippetShareAdapter.finish();
+        if (textSelectedShareAdapter != null) {
+            textSelectedShareAdapter.finish();
             return;
         }
         if (drawerLayout.isDrawerOpen(Gravity.START)) {
@@ -818,18 +819,36 @@ public class PageActivity extends ThemedActionBarActivity {
         // Saved Pages, or Find In Page). Otherwise, it must be the default WebView text-
         // highlighting ActionMode, in which case we'll invoke the Share adapter!
         if (WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_ALPHA
-                && snippetShareAdapter == null
+                && textSelectedShareAdapter == null
                 && mode.getTag() == null) {
-            snippetShareAdapter = new SnippetShareAdapter(this);
-            snippetShareAdapter.onTextSelected(mode);
+            textSelectedShareAdapter = new TextSelectedShareAdapter(this);
+            textSelectedShareAdapter.onTextSelected(mode);
         }
         super.onSupportActionModeStarted(mode);
     }
 
     @Override
     public void onSupportActionModeFinished(ActionMode mode) {
-        snippetShareAdapter = null;
+        textSelectedShareAdapter = null;
         currentActionMode = null;
         super.onSupportActionModeFinished(mode);
+    }
+
+    public void share(PageTitle title) {
+        if (WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_ALPHA) {
+            new NoTextSelectedShareAdapter(this).share();
+        } else {
+            // TODO: remove once above block is promoted to production
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            String shareMessage = getString(R.string.snippet_share_intro,
+                    title.getDisplayText(),
+                    title.getCanonicalUri());
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, title.getDisplayText());
+            shareIntent.setType("text/plain");
+            Intent chooser = Intent.createChooser(shareIntent, getResources().getString(R.string.share_via));
+            startActivity(chooser);
+        }
     }
 }
