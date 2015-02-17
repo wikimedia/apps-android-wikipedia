@@ -27,6 +27,10 @@ public class EditSummaryFragment extends Fragment {
         editSummaryContainer = inflater.inflate(R.layout.fragment_preview_summary, container, false);
         summaryText = (AutoCompleteTextView) editSummaryContainer.findViewById(R.id.edit_summary_edit);
 
+        // Explicitly enable standard dictionary autocompletion in the edit summary box
+        // We should be able to do this in the XML, but doing it there doesn't work. Thanks Android!
+        summaryText.setInputType(summaryText.getInputType() & (~EditorInfo.TYPE_TEXT_FLAG_AUTO_COMPLETE));
+
         // ...so that clicking the "Done" button on the keyboard will have the effect of
         // clicking the "Next" button in the actionbar:
         summaryText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
