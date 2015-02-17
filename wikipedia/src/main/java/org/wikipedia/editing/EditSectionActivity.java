@@ -228,13 +228,6 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         }));
     }
 
-    // TODO: refactor; same code in PageActivity
-    private void visitSettings() {
-        Intent intent = new Intent();
-        intent.setClass(getApplicationContext(), SettingsActivity.class);
-        startActivity(intent);
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == LoginActivity.REQUEST_LOGIN) {
