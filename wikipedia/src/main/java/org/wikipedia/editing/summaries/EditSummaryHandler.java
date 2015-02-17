@@ -22,7 +22,6 @@ public class EditSummaryHandler {
     private final Activity activity;
     private final View container;
     private final AutoCompleteTextView summaryEdit;
-    private final EditSummaryAdapter adapter;
 
     public EditSummaryHandler(final Activity activity, final View parent, PageTitle title) {
         this.activity = activity;
@@ -48,7 +47,7 @@ public class EditSummaryHandler {
             // because mDropDownListHighlight seems to be null instead
             // of an expected drawable, and that ends up failing when used.
 
-            adapter = new EditSummaryAdapter(activity, null, true);
+            final EditSummaryAdapter adapter = new EditSummaryAdapter(activity, null, true);
             summaryEdit.setAdapter(adapter);
 
             adapter.setFilterQueryProvider(new FilterQueryProvider() {
@@ -68,8 +67,6 @@ public class EditSummaryHandler {
                     }
                 }
             });
-        } else {
-            adapter = null;
         }
 
         Utils.setTextDirection(summaryEdit, title.getSite().getLanguage());
