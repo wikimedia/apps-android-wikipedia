@@ -91,7 +91,7 @@ public class TextSelectedShareAdapter {
                         Log.d("Share", ">>> Clipboard text: " + selectedText);
 
                         // Pass the clipboard text to a new Share handler!
-                        new ShareHandler(activity, funnel).shareSnippet(selectedText);
+                        new ShareHandler(activity, funnel).shareSnippet(selectedText, false);
                     }
                     clipboard.removePrimaryClipChangedListener(CLIP_LISTENER);
                 }

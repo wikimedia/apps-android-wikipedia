@@ -23,6 +23,20 @@ public final class ShareUtils {
     private ShareUtils() { }
 
     /**
+     * Share some text and subject (title) as plain text using an activity chooser,
+     * so that the user can choose the app with which to share the content.
+     */
+    public static void shareText(final Activity activity, final String subject, final String text) {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+        shareIntent.setType("text/plain");
+        Intent chooser = Intent.createChooser(shareIntent,
+                activity.getResources().getString(R.string.share_via));
+        activity.startActivity(chooser);
+    }
+
+    /**
      * Share a bitmap image using an activity chooser, so that the user can choose the
      * app with which to share the content.
      * This is done by saving the image to a temporary file in external storage, then specifying

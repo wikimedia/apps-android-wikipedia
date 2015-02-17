@@ -17,6 +17,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.onboarding.OnboardingActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
+import org.wikipedia.page.snippet.NoTextSelectedShareAdapter;
 import org.wikipedia.page.snippet.TextSelectedShareAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
@@ -834,15 +835,20 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     public void share(PageTitle title) {
-        Intent shareIntent = new Intent();
-        shareIntent.setAction(Intent.ACTION_SEND);
-        String shareMessage = getString(R.string.snippet_share_intro,
-                title.getDisplayText(),
-                title.getCanonicalUri());
-        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, title.getDisplayText());
-        shareIntent.setType("text/plain");
-        Intent chooser = Intent.createChooser(shareIntent, getResources().getString(R.string.share_via));
-        startActivity(chooser);
+        if (WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_ALPHA) {
+            new NoTextSelectedShareAdapter(this).share();
+        } else {
+            // TODO: remove once above block is promoted to production
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            String shareMessage = getString(R.string.snippet_share_intro,
+                    title.getDisplayText(),
+                    title.getCanonicalUri());
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, title.getDisplayText());
+            shareIntent.setType("text/plain");
+            Intent chooser = Intent.createChooser(shareIntent, getResources().getString(R.string.share_via));
+            startActivity(chooser);
+        }
     }
 }
