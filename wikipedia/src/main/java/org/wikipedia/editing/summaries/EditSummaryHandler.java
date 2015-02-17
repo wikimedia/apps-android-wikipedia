@@ -26,7 +26,7 @@ public class EditSummaryHandler {
     public EditSummaryHandler(final Activity activity, final View parent, PageTitle title) {
         this.activity = activity;
         container = parent.findViewById(R.id.edit_summary_container);
-        summaryEdit = (AutoCompleteTextView)parent.findViewById(R.id.edit_summary_edit);
+        summaryEdit = (AutoCompleteTextView) parent.findViewById(R.id.edit_summary_edit);
 
         container.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,41 +35,33 @@ public class EditSummaryHandler {
             }
         });
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            // For some reason the autocomplete popup view crashes on
-            // Gingerbread. This seems to be related to styles but I
-            // can't quite figure out why.
-            //
-            // This call in AutoCompleteTextView.buildDropDown ends up failing:
-            //
-            //             mDropDownList.setSelector(mDropDownListHighlight);
-            //
-            // because mDropDownListHighlight seems to be null instead
-            // of an expected drawable, and that ends up failing when used.
-
-            final EditSummaryAdapter adapter = new EditSummaryAdapter(activity, null, true);
-            summaryEdit.setAdapter(adapter);
-
-            adapter.setFilterQueryProvider(new FilterQueryProvider() {
-                @Override
-                public Cursor runQuery(CharSequence charSequence) {
-                    ContentProviderClient client = activity.getContentResolver().acquireContentProviderClient(EditSummary.PERSISTENCE_HELPER
-
-                                                                                                                      .getBaseContentURI());
-                    try {
-                        return client.query(
-                                EditSummary.PERSISTENCE_HELPER.getBaseContentURI(),
-                                null,
-                                "summary LIKE ?",
-                                new String[] {charSequence + "%"},
-                                "lastUsed DESC");
-                    } catch (RemoteException e) {
-                        // This shouldn't really be happening
-                        throw new RuntimeException(e);
-                    }
-                }
-            });
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB
+            && WikipediaApp.getInstance().getCurrentTheme() == WikipediaApp.THEME_DARK) {
+            // explicitly set text hint color
+            summaryEdit.setHintTextColor(activity.getResources()
+                .getColor(Utils.getThemedAttributeId(activity, R.attr.edit_text_color)));
         }
+        EditSummaryAdapter adapter = new EditSummaryAdapter(activity, null, true);
+        summaryEdit.setAdapter(adapter);
+        adapter.setFilterQueryProvider(new FilterQueryProvider() {
+            @Override
+            public Cursor runQuery(CharSequence charSequence) {
+                ContentProviderClient client = activity.getContentResolver()
+                                       .acquireContentProviderClient(EditSummary.PERSISTENCE_HELPER
+                                                                             .getBaseContentURI());
+                try {
+                    return client.query(
+                            EditSummary.PERSISTENCE_HELPER.getBaseContentURI(),
+                            null,
+                            "summary LIKE ?",
+                            new String[] {charSequence + "%"},
+                            "lastUsed DESC");
+                } catch (RemoteException e) {
+                    // This shouldn't really be happening
+                    throw new RuntimeException(e);
+                }
+            }
+        });
 
         Utils.setTextDirection(summaryEdit, title.getSite().getLanguage());
     }
@@ -99,7 +91,13 @@ public class EditSummaryHandler {
 
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup parent) {
-            return activity.getLayoutInflater().inflate(android.R.layout.simple_list_item_1, parent, false);
+            View rootView = activity.getLayoutInflater().inflate(android.R.layout.simple_list_item_1, parent, false);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+                // explicitly set background color of the list item
+                rootView.setBackgroundColor(activity.getResources().getColor(
+                        Utils.getThemedAttributeId(activity, R.attr.window_background_color)));
+            }
+            return rootView;
         }
 
         @Override

@@ -18,6 +18,7 @@
             android:paddingRight="16dp"
             android:singleLine="true"
             android:maxLength="255"
+            android:textColor="?attr/edit_text_color"
             android:hint="@string/edit_summary_tag_other_hint"/>
 
 </LinearLayout>
