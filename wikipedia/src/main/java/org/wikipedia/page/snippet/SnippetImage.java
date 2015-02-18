@@ -60,11 +60,11 @@ public final class SnippetImage {
         Layout textLayout = drawTextSnippet(canvas, textSnippet);
         isArticleRTL = textLayout.getParagraphDirection(0) == Layout.DIR_RIGHT_TO_LEFT;
 
-        drawLicenseIcons(canvas, context);
+        int top = drawLicenseIcons(canvas, context);
         if (!TextUtils.isEmpty(description)) {
-            drawDescription(canvas, description);
+            top = drawDescription(canvas, description, top);
         }
-        drawTitle(canvas, title);
+        drawTitle(canvas, title, top);
 
         drawWordmark(canvas, context);
 
@@ -86,7 +86,7 @@ public final class SnippetImage {
     }
 
     private Layout drawTextSnippet(Canvas canvas, CharSequence textSnippet) {
-        final int top = 10;
+        final int top = 5;
         final int maxHeight = 200;
         final int maxLines = 5;
         final float maxFontSize = 96.0f;
@@ -111,9 +111,9 @@ public final class SnippetImage {
         return textLayout;
     }
 
-    private void drawDescription(Canvas canvas, String description) {
-        final int descriptionY = 287;
-        final int maxHeight = 24;
+    private int drawDescription(Canvas canvas, String description, int top) {
+        final int marginBottom = 5;
+        final int maxHeight = 23;
         final int maxLines = 2;
         final float maxFontSize = 15.0f;
         final float minFontSize = 10.0f;
@@ -133,18 +133,20 @@ public final class SnippetImage {
             left = WIDTH - HORIZONTAL_PADDING - textLayout.getWidth();
         }
 
+        top = top - marginBottom - textLayout.getHeight();
         canvas.save();
-        canvas.translate(left, descriptionY);
+        canvas.translate(left, top);
         textLayout.draw(canvas);
         canvas.restore();
+
+        return top;
     }
 
-    private void drawTitle(Canvas canvas, String title) {
-        final int top = 242;
-        final int height = 44;
+    private void drawTitle(Canvas canvas, String title, int top) {
+        final int marginBottom = 1;
+        final int maxHeight = 70;
         final int maxLines = 2;
         final float maxFontSize = 30.0f;
-        final float minFontSize = 19.0f;
         final float spacingMultiplier = 0.7f;
 
         TextPaint textPaint = new TextPaint();
@@ -157,19 +159,20 @@ public final class SnippetImage {
 
         StaticLayout textLayout = optimizeTextSize(
                 new TextLayoutParams(title, textPaint, DESCRIPTION_WIDTH, spacingMultiplier),
-                height, maxLines, maxFontSize, minFontSize);
+                maxHeight, maxLines, maxFontSize, maxFontSize);
         int left = HORIZONTAL_PADDING;
         if (isArticleRTL) {
             left = WIDTH - HORIZONTAL_PADDING - textLayout.getWidth();
         }
 
+        top = top - marginBottom - textLayout.getHeight();
         canvas.save();
         canvas.translate(left, top);
         textLayout.draw(canvas);
         canvas.restore();
     }
 
-    private void drawLicenseIcons(Canvas canvas, Context context) {
+    private int drawLicenseIcons(Canvas canvas, Context context) {
         final int iconsWidth = 52;
         final int iconsHeight = 16;
         final int top = 319;
@@ -182,9 +185,11 @@ public final class SnippetImage {
             left = right - iconsWidth;
         }
 
-        Drawable d = context.getResources().getDrawable(R.drawable.cc_by_sa_gray);
+        Drawable d = context.getResources().getDrawable(R.drawable.cc_by_sa_white);
         d.setBounds(left, top, right, bottom);
         d.draw(canvas);
+
+        return top;
     }
 
     private void drawWordmark(Canvas canvas, Context context) {
