@@ -39,9 +39,9 @@ public class ShareHandler {
                     title.getCanonicalUri() + "?source=app");
             Bitmap resultBitmap = new SnippetImage(activity,
                     curPageFragment.getLeadImageBitmap(),
-                    curPageFragment.getImageBaseYOffset(),
+                    curPageFragment.getLeadImageFocusY(),
                     title.getDisplayText(),
-                    title.getDescription(),
+                    curPageFragment.getPage().getPageProperties().isMainPage() ? "" : title.getDescription(),
                     selectedText).createImage();
             if (preferUrl) {
                 new PreviewDialog(activity, resultBitmap, title.getDisplayText(), introText,

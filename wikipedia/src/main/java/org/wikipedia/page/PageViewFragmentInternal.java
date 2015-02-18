@@ -444,8 +444,13 @@ public class PageViewFragmentInternal implements BackPressedHandler {
         return leadImagesHandler.getLeadImageBitmap();
     }
 
-    public int getImageBaseYOffset() {
-        return leadImagesHandler.getImageBaseYOffset();
+    /**
+     * Returns the normalized (0.0 to 1.0) vertical focus position of the lead image.
+     * A value of 0.0 represents the top of the image, and 1.0 represents the bottom.
+     * @return Normalized vertical focus position.
+     */
+    public float getLeadImageFocusY() {
+        return leadImagesHandler.getLeadImageFocusY();
     }
 
     /**

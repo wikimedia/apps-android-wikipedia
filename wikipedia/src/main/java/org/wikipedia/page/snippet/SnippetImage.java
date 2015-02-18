@@ -4,9 +4,13 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spanned;
@@ -31,18 +35,18 @@ public final class SnippetImage {
 
     private final Context context;
     private final Bitmap leadImageBitmap;
-    private final int faceYOffset;
+    private final float leadImageFocusY;
     private final String title;
     private final String description;
     private final CharSequence textSnippet;
     private boolean isArticleRTL;
 
     public SnippetImage(Context context, Bitmap leadImageBitmap,
-                        int faceYOffset, String title, String description,
+                        float leadImageFocusY, String title, String description,
                         CharSequence textSnippet) {
         this.context = context;
         this.leadImageBitmap = leadImageBitmap;
-        this.faceYOffset = faceYOffset;
+        this.leadImageFocusY = leadImageFocusY;
         this.title = title;
         this.description = description;
         this.textSnippet = textSnippet;
@@ -54,39 +58,50 @@ public final class SnippetImage {
      * just use a black background.
      */
     public Bitmap createImage() {
-        Bitmap resultBitmap = drawBackground(leadImageBitmap, faceYOffset);
+        Bitmap resultBitmap = drawBackground(leadImageBitmap, leadImageFocusY);
         Canvas canvas = new Canvas(resultBitmap);
+        if (leadImageBitmap != null) {
+            drawGradient(canvas);
+        }
 
         Layout textLayout = drawTextSnippet(canvas, textSnippet);
         isArticleRTL = textLayout.getParagraphDirection(0) == Layout.DIR_RIGHT_TO_LEFT;
 
         int top = drawLicenseIcons(canvas, context);
-        if (!TextUtils.isEmpty(description)) {
-            top = drawDescription(canvas, description, top);
-        }
+        top = drawDescription(canvas, description, top);
         drawTitle(canvas, title, top);
-
         drawWordmark(canvas, context);
 
         return resultBitmap;
     }
 
-    private Bitmap drawBackground(Bitmap leadImageBitmap, int faceYOffset) {
+    private Bitmap drawBackground(Bitmap leadImageBitmap, float leadImageFocusY) {
         Bitmap resultBitmap;
         if (leadImageBitmap != null) {
             // use lead image
-            resultBitmap = scaleCropToFitFace(leadImageBitmap, WIDTH, HEIGHT, faceYOffset);
+            resultBitmap = scaleCropToFitFace(leadImageBitmap, WIDTH, HEIGHT, leadImageFocusY);
         } else {
             resultBitmap = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.ARGB_8888);
-            // final int backgroundColor = Color.parseColor("#242438");
-            final int backgroundColor = -14408648;
+            final int backgroundColor = 0xff242438;
             resultBitmap.eraseColor(backgroundColor);
         }
         return resultBitmap;
     }
 
+    private void drawGradient(Canvas canvas) {
+        // draw a dark gradient over the image, so that the white text
+        // will stand out better against it.
+        final int gradientStartColor = 0x20000000;
+        final int gradientStopColor = 0x60000000;
+        Shader shader = new LinearGradient(0, 0, 0, canvas.getHeight(), gradientStartColor,
+                gradientStopColor, Shader.TileMode.CLAMP);
+        Paint paint = new Paint();
+        paint.setShader(shader);
+        canvas.drawRect(new Rect(0, 0, canvas.getWidth(), canvas.getHeight()), paint);
+    }
+
     private Layout drawTextSnippet(Canvas canvas, CharSequence textSnippet) {
-        final int top = 5;
+        final int top = 16;
         final int maxHeight = 200;
         final int maxLines = 5;
         final float maxFontSize = 96.0f;
@@ -118,6 +133,9 @@ public final class SnippetImage {
         final float maxFontSize = 15.0f;
         final float minFontSize = 10.0f;
 
+        if (TextUtils.isEmpty(description)) {
+            return top - marginBottom;
+        }
         TextPaint textPaint = new TextPaint();
         textPaint.setAntiAlias(true);
         textPaint.setColor(Color.WHITE);
@@ -143,7 +161,7 @@ public final class SnippetImage {
     }
 
     private void drawTitle(Canvas canvas, String title, int top) {
-        final int marginBottom = 1;
+        final int marginBottom = 0;
         final int maxHeight = 70;
         final int maxLines = 2;
         final float maxFontSize = 30.0f;
@@ -164,8 +182,15 @@ public final class SnippetImage {
         if (isArticleRTL) {
             left = WIDTH - HORIZONTAL_PADDING - textLayout.getWidth();
         }
+        int marginBottomTotal = marginBottom;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            // versions < 5.0 don't compensate for bottom margin correctly when line
+            // spacing is less than 1.0, so we'll compensate ourselves
+            final int marginBoost = 10;
+            marginBottomTotal += marginBoost;
+        }
 
-        top = top - marginBottom - textLayout.getHeight();
+        top = top - marginBottomTotal - textLayout.getHeight();
         canvas.save();
         canvas.translate(left, top);
         textLayout.draw(canvas);
@@ -213,7 +238,7 @@ public final class SnippetImage {
         final int rMaxWidth = (int) rFontSize;
         TextPaint rPaint = new TextPaint(textPaint);
         rPaint.setTextSize(rFontSize);
-        StaticLayout rLayout = buildLayout(new TextLayoutParams("\u24C7", rPaint, rMaxWidth, 1.0f));
+        StaticLayout rLayout = buildLayout(new TextLayoutParams("\u00AE", rPaint, rMaxWidth, 1.0f));
         final int rWidth = (int) rLayout.getLineWidth(0);
 
         int left = WIDTH - HORIZONTAL_PADDING - wordMarkWidth - rWidth;
@@ -320,7 +345,7 @@ public final class SnippetImage {
     // Borrowed from http://stackoverflow.com/questions/5226922/crop-to-fit-image-in-android
     // Modified to allow for face detection adjustment, startY
     private Bitmap scaleCropToFitFace(Bitmap original, int targetWidth, int targetHeight,
-                                      int yOffset) {
+                                      float normalizedYOffset) {
         // Need to scale the image, keeping the aspect ratio first
         int width = original.getWidth();
         int height = original.getHeight();
@@ -337,12 +362,22 @@ public final class SnippetImage {
             scaledWidth = targetWidth;
             scaledHeight = height * widthScale;
             // crop height by...
-//            startY = (int) ((scaledHeight - targetHeight) / 2);
+            startY = (int) (normalizedYOffset * scaledHeight - targetHeight / 2);
+            // Adjust the face position by a slight amount.
+            // The face recognizer gives the location of the *eyes*, whereas we actually
+            // want to center on the *nose*...
+            final int faceBoost = 32;
+            startY += faceBoost;
+            if (startY < 0) {
+                startY = 0;
+            } else if (startY + targetHeight > scaledHeight) {
+                startY = (int)(scaledHeight - targetHeight);
+            }
         } else {
             scaledHeight = targetHeight;
             scaledWidth = width * heightScale;
             // crop width by..
-//            startX = (int) ((scaledWidth - targetWidth) / 2);
+            // startX = (int) ((scaledWidth - targetWidth) / 2);
         }
 
         Bitmap scaledBitmap
