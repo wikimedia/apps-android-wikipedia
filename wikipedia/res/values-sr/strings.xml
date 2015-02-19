@@ -49,7 +49,7 @@
   <string name="dialog_message_edit_failed">Чување није успело!</string>
   <string name="dialog_message_edit_failed_retry">Пробај опет</string>
   <string name="dialog_message_edit_failed_cancel">Откажи</string>
-  <string name="dialog_message_leaving_edit">Ваше измене нису још сачуване. Да ли сте сигурни да напустите ову страницу?</string>
+  <string name="dialog_message_leaving_edit">Ваше измене нису сачуване. Да ли сигурно желите да напустите ову страницу?</string>
   <string name="menu_show_toc">Табела садржаја</string>
   <string name="search_no_results_found">Нема резултата</string>
   <string name="nav_item_login">Пријави ме</string>

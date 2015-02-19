@@ -55,6 +55,7 @@
   <string name="nearby_dialog_goto_settings">Locatieupdates zijn niet ingeschakeld op uw apparaat. Wilt u in uw apparaatinstellingen locatieupdates inschakelen?</string>
   <string name="nearby_set_metric">Meter/km weergeven</string>
   <string name="nearby_set_imperial">Voeten/mijlen weergeven</string>
+  <string name="nearby_view_on_map">Plaats op kaart bekijken</string>
   <string name="last_updated_text">%1$s voor het laatst bijgewerkt</string>
   <string name="content_license_html">Inhoud is beschikbaar onder de licentie &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
   <string name="edit_save_action_license_logged_in">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie.</string>
@@ -248,6 +249,9 @@
   <string name="table_infobox">Snelle feiten</string>
   <string name="table_other">Meer informatie</string>
   <string name="table_close">Sluiten</string>
+  <string name="widget_name_featured_page">Uitgelichte pagina op Wikipedia</string>
+  <string name="widget_title_featured_page">Vandaag uitgelicht:</string>
+  <string name="widget_name_search">Zoeken op Wikipedia</string>
   <string name="app_store_description">Officiële Wikipedia-app voor Android. Wikipedia is de vrije encylopedie met meer dan 31 miljoen artikelen in 280 talen, en de meest uitgebreide en meest gebruikte bron gemaakt door de mens. De app is vanaf de grond opnieuw opgebouwd en is beter dan ooit te voren.
 
 Functies:
@@ -280,4 +284,7 @@ De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK,
   <string name="err_cannot_save_file">Het bestand kan niet opgeslagen worden</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
   <string name="expand_refs">Aantikken om te vergroten</string>
+  <string name="share_snippet_button">Als afbeelding delen</string>
+  <string name="share_normal_button">Als tekst delen</string>
+  <string name="snippet_share_preview_image_desc">Voorbeeldafbeelding</string>
 </resources>

@@ -55,6 +55,7 @@
   <string name="nearby_dialog_goto_settings">Немате овозможено поднова на места. Дали би сакале да појдете во нагодувањата за да ја овозможите?</string>
   <string name="nearby_set_metric">Прикажувај метри/километри</string>
   <string name="nearby_set_imperial">Прикажувај стапки/милји</string>
+  <string name="nearby_view_on_map">Местото на карта</string>
   <string name="last_updated_text">Последен пат изменето на %1$s</string>
   <string name="content_license_html">Содржината е достапна под &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
   <string name="edit_save_action_license_logged_in">Зачувувајќи, се согласувате со &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
@@ -248,6 +249,9 @@
   <string name="table_infobox">Накратко</string>
   <string name="table_other">Повеќе информации</string>
   <string name="table_close">Затвори</string>
+  <string name="widget_name_featured_page">Избрана страница на Википедија</string>
+  <string name="widget_title_featured_page">Избрана страница за денес:</string>
+  <string name="widget_name_search">Пребарување по Википедија</string>
   <string name="app_store_description">Официјален Википедиин извршник (апликација) за Android. Википедија е слободна енциклопедија со преку 32 милиони статии на 280 јазици, и претставува најопсежното и најкористеното прирачно дело во историјата на човештвото. Извршников е преработен од нула и затоа е подобар од било кога.
 
 Можности:
@@ -277,8 +281,12 @@
   <string name="gallery_share_error">Не можев да ја споделам сликата: %s</string>
   <string name="gallery_menu_save">Зачувај на уредот</string>
   <string name="gallery_save_error">Не можев да ја зачувам сликата: %s</string>
+  <string name="gallery_save_error_mediastore">Не можев да ја увезам сликата во збирката</string>
   <string name="gallery_save_success">Сликата е успешно зачувана.</string>
   <string name="err_cannot_save_file">Не можам да ја зачувам податотеката</string>
   <string name="snippet_share_intro">Занимливост на @Википедија %1$s: %2$s</string>
   <string name="expand_refs">Допрете за да проширите</string>
+  <string name="share_snippet_button">Сподели како слика</string>
+  <string name="share_normal_button">Сподели како текст</string>
+  <string name="snippet_share_preview_image_desc">Преглед на сликата</string>
 </resources>

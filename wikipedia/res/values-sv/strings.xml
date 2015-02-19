@@ -55,6 +55,7 @@
   <string name="nearby_dialog_goto_settings">Platsuppdateringar är inte aktiverat på din enhet. Vill du gå till din enhets inställningar för att aktivera platsuppdateringar?</string>
   <string name="nearby_set_metric">Visa meter/km</string>
   <string name="nearby_set_imperial">Visa fot/engelsk mil</string>
+  <string name="nearby_view_on_map">Visa plats på karta</string>
   <string name="last_updated_text">Senast uppdaterad %s</string>
   <string name="content_license_html">Innehållet är tillgängligt under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
   <string name="edit_save_action_license_logged_in">Genom att spara godkänner du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Användarvillkoren&lt;/a&gt;, och att oåterkalleligen släppa ditt bidrag med licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -248,6 +249,9 @@
   <string name="table_infobox">Snabbfakta</string>
   <string name="table_other">Mer information</string>
   <string name="table_close">Stäng</string>
+  <string name="widget_name_featured_page">Utmärkt Wikipedia-artikel</string>
+  <string name="widget_title_featured_page">Dagens utmärkta artikel:</string>
+  <string name="widget_name_search">Wikipedia-sök</string>
   <string name="app_store_description">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt. Appen har skrivits om från grunden och är bättre än någonsin.
 
 Funktioner:
@@ -278,8 +282,12 @@ Koden har öppen källkod. Om du har erfarenhet av Java och Android SDK kan du h
   <string name="gallery_share_error">Kunde inte dela bilden: %s</string>
   <string name="gallery_menu_save">Spara till enheten</string>
   <string name="gallery_save_error">Kunde inte spara bilden: %s</string>
+  <string name="gallery_save_error_mediastore">Kunde inte importera bilden till mediasamlingen</string>
   <string name="gallery_save_success">Bilden har sparats.</string>
   <string name="err_cannot_save_file">Kan inte spara filen</string>
   <string name="snippet_share_intro">Intressant fakta på @Wikipedia %1$s: %2$s</string>
   <string name="expand_refs">Tryck för att expandera</string>
+  <string name="share_snippet_button">Dela som bild</string>
+  <string name="share_normal_button">Dela som text</string>
+  <string name="snippet_share_preview_image_desc">Förhandsvisa bild</string>
 </resources>

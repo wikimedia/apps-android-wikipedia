@@ -53,6 +53,7 @@
   <string name="nearby_no_location">Plaz konnt net festgestallt ginn</string>
   <string name="nearby_set_metric">A Meter/Kilometer weisen</string>
   <string name="nearby_set_imperial">A Fouss/Meilen weisen</string>
+  <string name="nearby_view_on_map">Plaz op der Kaart weisen</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>
   <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
   <string name="edit_save_action_license_logged_in">Mam Späichere sidd Dir mat den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt;.</string>
@@ -238,6 +239,7 @@
   <string name="table_infobox">Séier Fakten</string>
   <string name="table_other">Méi Informatiounen</string>
   <string name="table_close">Zoumaachen</string>
+  <string name="widget_name_featured_page">Liesenswäert Säit op Wikipedia</string>
   <string name="alpha_update_notification_title">Nei alpha-Versioun disponibel</string>
   <string name="alpha_update_notification_text">Tippe fir erofzelueden</string>
   <string name="dialog_close_description">Zoumaachen</string>
@@ -256,4 +258,7 @@
   <string name="gallery_save_success">Bild gespäichert.</string>
   <string name="err_cannot_save_file">Fichier kann net gespäichert ginn</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
+  <string name="share_snippet_button">Als Bild deelen</string>
+  <string name="share_normal_button">Als Text deelen</string>
+  <string name="snippet_share_preview_image_desc">Bild kucken ouni ze späicheren</string>
 </resources>

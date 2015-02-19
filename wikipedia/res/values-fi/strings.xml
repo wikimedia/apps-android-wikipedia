@@ -243,7 +243,7 @@
   <string name="button_clear_all_recent_searches">Tyhjennä äskettäin tehdyt haut</string>
   <string name="clear_recent_searches_confirm">Haluatko varmasti tyhjentää hakuhistorian?</string>
   <string name="toc_hint">Pyyhkäise vasemmalle nähdäksesi osiot tai käytä valikko-näppäintä oikeassa yläkulmassa.</string>
-  <string name="toc_know_it">Hanki se</string>
+  <string name="toc_know_it">Selvä!</string>
   <string name="error_browser_not_found">Sivua ei voi avata (selainohjelmaa ei löydy).</string>
   <string name="table_infobox">Pikafaktoja</string>
   <string name="table_other">Lisätietoja</string>

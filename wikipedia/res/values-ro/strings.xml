@@ -55,6 +55,7 @@
   <string name="nearby_dialog_goto_settings">Actualizarea localizării nu este activată pe dispozitivul dumnevoastră. Doriți să accesați setările dispozitivului pentru a activa actualizarea localizării?</string>
   <string name="nearby_set_metric">Arată în metri/km</string>
   <string name="nearby_set_imperial">Arată în picioare/mile</string>
+  <string name="nearby_view_on_map">Vizualizează locul pe hartă</string>
   <string name="last_updated_text">Ultima actualizare: %1$s</string>
   <string name="content_license_html">Conținutul este disponibil sub licența &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, cu excepția cazurilor în care se specifică altfel</string>
   <string name="edit_save_action_license_logged_in">Salvând, sunteți de acord cu &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -248,6 +249,9 @@
   <string name="table_infobox">Informații pe scurt</string>
   <string name="table_other">Mai multe informații</string>
   <string name="table_close">Închide</string>
+  <string name="widget_name_featured_page">Articol de calitate la Wikipedia</string>
+  <string name="widget_title_featured_page">Articolul de calitate al zilei:</string>
+  <string name="widget_name_search">Căutare Wikipedia</string>
   <string name="app_store_description">Aplicația oficială a Wikipediei pentru Android. Wikipedia este enciclopedia liberă, care conține peste 32 de milioane de articole în 280 de limbi, fiind cea mai cuprinzătoare și larg utilizată lucrare de referință elaborată vreodată de omenire. Aplicația a fost rescrisă din temelii și este mai bună ca oricând.
 
 Caracteristici:
@@ -277,8 +281,12 @@ Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) c
   <string name="gallery_share_error">Nu s-a putut distribui imaginea: %s</string>
   <string name="gallery_menu_save">Salvează în dispozitiv</string>
   <string name="gallery_save_error">Nu s-a putut salva imaginea: %s</string>
+  <string name="gallery_save_error_mediastore">Importarea imaginii în galeria multimedia a eșuat</string>
   <string name="gallery_save_success">Imagine salvată cu succes.</string>
   <string name="err_cannot_save_file">Nu se poate salva fișierul</string>
   <string name="snippet_share_intro">O informație interesantă despre %1$s la @Wikipedia: %2$s</string>
   <string name="expand_refs">Atingeți pentru a extinde</string>
+  <string name="share_snippet_button">Distribuie ca imagine</string>
+  <string name="share_normal_button">Distribuie ca text</string>
+  <string name="snippet_share_preview_image_desc">Previzualizează imaginea</string>
 </resources>

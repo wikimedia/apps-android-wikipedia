@@ -55,6 +55,7 @@
   <string name="nearby_dialog_goto_settings">Atualizações de localização não estão ativadas no seu dispositivo. Gostaria de ir para as configurações do seu dispositivo para as ativar?</string>
   <string name="nearby_set_metric">Mostrar metros/km</string>
   <string name="nearby_set_imperial">Mostrar pés/milhas</string>
+  <string name="nearby_view_on_map">Ver local no mapa</string>
   <string name="last_updated_text">Última atualização: %s</string>
   <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
   <string name="edit_save_action_license_logged_in">Ao gravar, concorda com as &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -248,6 +249,9 @@
   <string name="table_infobox">Fatos rápidos</string>
   <string name="table_other">Mais informação</string>
   <string name="table_close">Fechar</string>
+  <string name="widget_name_featured_page">Artigo em destaque na Wikipédia</string>
+  <string name="widget_title_featured_page">Artigo em destaque de hoje:</string>
+  <string name="widget_name_search">Pesquisa Wikipédia</string>
   <string name="app_store_description">Aplicação oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada por trabalho humano. A aplicação foi reescrita do zero e está melhor que nunca.
 
 Caraterísticas:
@@ -277,8 +281,12 @@ O código é totalmente aberto. Se tem experiência com linguagens Java e Androi
   <string name="gallery_share_error">Não é possível partilhar a imagem: %s</string>
   <string name="gallery_menu_save">Guardar no dispositivo</string>
   <string name="gallery_save_error">Não é possível guardar a imagem: %s</string>
+  <string name="gallery_save_error_mediastore">Falha ao importar a imagem para a coleção multimédia</string>
   <string name="gallery_save_success">Imagem guardada com êxito</string>
   <string name="err_cannot_save_file">Não é possível gravar o ficheiro</string>
   <string name="snippet_share_intro">\"%1$s\" em @Wikipedia: %2$s</string>
   <string name="expand_refs">Toque para expandir</string>
+  <string name="share_snippet_button">Partilhar como imagem</string>
+  <string name="share_normal_button">Partilhar como texto</string>
+  <string name="snippet_share_preview_image_desc">Pré-visualizar imagem</string>
 </resources>

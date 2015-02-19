@@ -55,6 +55,7 @@
   <string name="nearby_dialog_goto_settings">お使いのデバイスでは位置情報の更新が無効になっています。デバイスの [設定] に移動して位置情報の更新を有効にしますか?</string>
   <string name="nearby_set_metric">メートル/キロメートルで表示</string>
   <string name="nearby_set_imperial">フィート/マイルで表示</string>
+  <string name="nearby_view_on_map">地図上でこの場所を見る</string>
   <string name="last_updated_text">最終更新: %s</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
   <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
@@ -201,7 +202,7 @@
   <string name="user_blocked_from_editing_title">ブロック済み</string>
   <string name="user_logged_in_blocked_from_editing">あなたの利用者アカウントはこのウィキで編集ブロックされています。</string>
   <string name="user_anon_blocked_from_editing">あなたの IP アドレスは編集ブロックされています。</string>
-  <string name="edit_how_page_improved">どのようにこのページを改善しましたか？</string>
+  <string name="edit_how_page_improved">このページでどんな点を改善しましたか？</string>
   <string name="edit_next">次へ</string>
   <string name="edit_done">保存</string>
   <string name="edit_preview">プレビュー</string>
@@ -245,9 +246,11 @@
   <string name="toc_hint">左向きにスワイプで節見出しが出ます。右上にはメニューボタンがあります。</string>
   <string name="toc_know_it">了解</string>
   <string name="error_browser_not_found">Webページを開くことができませんでした。(ブラウザーアプリが見つかりません)</string>
-  <string name="table_infobox">簡単な統計</string>
+  <string name="table_infobox">基本データ</string>
   <string name="table_other">さらに見る</string>
   <string name="table_close">閉じる</string>
+  <string name="widget_title_featured_page">今日の選り抜き記事</string>
+  <string name="widget_name_search">ウィキペディアを検索</string>
   <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。このバージョンではゼロから書きなおされ、これまでで最良のものになりました。
 
 機能:
@@ -278,5 +281,11 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="gallery_share_error">画像がシェアできませんでした: %s</string>
   <string name="gallery_menu_save">デバイスに保存</string>
   <string name="gallery_save_error">画像がシェアできませんでした: %s</string>
+  <string name="gallery_save_error_mediastore">メディアコレクションへの画像のインポートに失敗しました</string>
   <string name="gallery_save_success">画像を保存しました</string>
+  <string name="err_cannot_save_file">ファイルを保存できません。</string>
+  <string name="expand_refs">タップして開く</string>
+  <string name="share_snippet_button">画像をシェア</string>
+  <string name="share_normal_button">テキストとしてシェア</string>
+  <string name="snippet_share_preview_image_desc">画像をプレビュー</string>
 </resources>

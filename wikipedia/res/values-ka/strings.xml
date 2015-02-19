@@ -53,6 +53,7 @@
   <string name="nearby_dialog_goto_settings">განახლებები მდებაორებაზე (Location updates) არაა ჩართული შენს მოწყობილობაზე. გსურთ კონფიგურაციის გვერდზე გადასვლა მდებაორებაზე განახლებების ჩასართავად?</string>
   <string name="nearby_set_metric">უჩვენე მეტრები/კმ</string>
   <string name="nearby_set_imperial">უჩვენე ფუტები/მილები</string>
+  <string name="nearby_view_on_map">ადგილის ნახვა რუკაზე</string>
   <string name="last_updated_text">ბოლოს განახლდა %s</string>
   <string name="content_license_html">შინაარსი ვრცელდება &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით, თუკი სხვაგვარად არ არის აღნიშნული</string>
   <string name="edit_save_action_license_logged_in">შენახვით, თქვენ ეთანხმებით &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას.</string>
@@ -216,6 +217,8 @@
   <string name="table_infobox">სწრაფი ფაქტები</string>
   <string name="table_other">მეტი ინფორმაცია</string>
   <string name="table_close">დახურვა</string>
+  <string name="widget_title_featured_page">დღის რჩეული გვერდი:</string>
+  <string name="widget_name_search">ვიკიპედიაში ძიება</string>
   <string name="alpha_update_notification_title">ახალი ალფა განახლება ხელმისაწვდომია</string>
   <string name="alpha_update_notification_text">შეეხეთ, რათა ჩამოტვირთოთ.</string>
   <string name="dialog_close_description">დახურვა</string>
@@ -234,4 +237,7 @@
   <string name="gallery_save_success">სურათი წარმატებით შეინახა.</string>
   <string name="err_cannot_save_file">ფაილი ვერ შეინახა</string>
   <string name="snippet_share_intro">„%1$s“ საიტზე @Wikipedia: %2$s</string>
+  <string name="share_snippet_button">სურათად გაზიარება</string>
+  <string name="share_normal_button">ტექსტად გაზიარება</string>
+  <string name="snippet_share_preview_image_desc">სურათის წინასწარ გადახედვა</string>
 </resources>

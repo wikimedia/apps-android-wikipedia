@@ -248,6 +248,9 @@
   <string name="table_infobox">Fatti in breve</string>
   <string name="table_other">Ulteriori informazioni</string>
   <string name="table_close">Chiudi</string>
+  <string name="widget_name_featured_page">Pagina di Wikipedia in primo piano</string>
+  <string name="widget_title_featured_page">Pagina di oggi in primo piano:</string>
+  <string name="widget_name_search">Ricerca di Wikipedia</string>
   <string name="app_store_description">App ufficiale di Wikipedia per Android.
 Wikipedia è l\'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l\'opera di consultazione più completa e più diffusa che l\'uomo abbia mai compilato. L\'app è stata completamente riscritta ed è di gran lunga migliore.
 
@@ -280,4 +283,10 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="gallery_menu_save">Salva sul dispositivo</string>
   <string name="gallery_save_error">Impossibile salvare l\'immagine: %s</string>
   <string name="gallery_save_success">Immagine salvata con successo.</string>
+  <string name="err_cannot_save_file">Impossibile salvare il file</string>
+  <string name="snippet_share_intro">\"%1$s\" su @Wikipedia: %2$s</string>
+  <string name="expand_refs">Tocca per espandere</string>
+  <string name="share_snippet_button">Condividi come immagine</string>
+  <string name="share_normal_button">Condividi come testo</string>
+  <string name="snippet_share_preview_image_desc">Anteprima immagine</string>
 </resources>

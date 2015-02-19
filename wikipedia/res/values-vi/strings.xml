@@ -211,7 +211,7 @@
   <string name="edit_summary_tag_other">Khác</string>
   <string name="edit_summary_tag_other_hint">Những cách khác để cải thiện trang</string>
   <string name="find_in_page">Tìm trong trang</string>
-  <string name="find_next">Tìm sau</string>
+  <string name="find_next">Tìm tiếp</string>
   <string name="find_previous">Tìm trước</string>
   <string name="find_close">Đóng thanh tìm kiếm</string>
   <string name="error_network_error_try_again">Không thể kết nối mạng. Vui lòng thử lại.</string>
