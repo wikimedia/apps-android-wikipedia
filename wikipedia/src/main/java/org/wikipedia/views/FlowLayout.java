@@ -8,6 +8,8 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.wikipedia.BuildConfig;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +36,9 @@ public class FlowLayout extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        assert (MeasureSpec.getMode(widthMeasureSpec) != MeasureSpec.UNSPECIFIED);
+        if (BuildConfig.DEBUG && MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.UNSPECIFIED) {
+            throw new AssertionError();
+        }
 
         int width = MeasureSpec.getSize(widthMeasureSpec) - getPaddingLeft() - getPaddingRight();
         int height = MeasureSpec.getSize(heightMeasureSpec) - getPaddingTop() - getPaddingBottom();

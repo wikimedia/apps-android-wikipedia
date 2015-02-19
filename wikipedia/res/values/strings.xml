@@ -297,5 +297,7 @@ The code is fully open source. If you have experience with Java and the Android 
     <string name="share_snippet_button">Share as image</string>
     <string name="share_normal_button">Share as text</string>
     <string name="snippet_share_preview_image_desc">Preview image</string>
+    <string name="cc_logo">Creative Commons license</string>
+    <string name="captcha_image">Captcha image</string>
 
 </resources>

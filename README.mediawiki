@@ -97,18 +97,21 @@ To install build on device/emulator:
  ./gradlew -q installAlphaDebug
 
 To see ProGuard output:
-./gradlew clean --info proguardBetaRelease
+ ./gradlew clean --info proguardBetaRelease
 
 To run checkstyle:
-./gradlew checkstyle
+ ./gradlew checkstyle
+
+To run Lint:
+ ./gradlew lintAlphaDebug
 
 To run tests:
-./gradlew wikipedia:connectedAndroidTestAlphaDebug
+ ./gradlew wikipedia:connectedAndroidTestAlphaDebug
 This might take some time.
 The output will contain an HTML page with nicely formatted test results
 
 Refresh dependencies (usually not needed):
-./gradlew --refresh-dependencies
+ ./gradlew --refresh-dependencies
 
 List dependencies:
  ./gradlew wikipedia:dependencies --configuration compile

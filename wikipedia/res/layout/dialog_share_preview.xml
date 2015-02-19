@@ -5,36 +5,37 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:background="@color/white_progressive_dark">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:layout_margin="0dp"
-    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/preview_img"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:scaleType="centerInside"
-        android:src="?attr/lead_image_drawable"
-        android:background="@android:color/black"
-        android:contentDescription="@string/snippet_share_preview_image_desc" />
-
-    <Button
-        android:id="@+id/share_as_image_button"
-        style="@style/button_blue_on_white"
         android:layout_gravity="center_horizontal"
-        android:text="@string/share_snippet_button" />
+        android:layout_margin="0dp"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/share_as_text_button"
-        style="@style/button_blue_on_white"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/share_normal_button" />
+        <ImageView
+            android:id="@+id/preview_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:scaleType="centerInside"
+            android:src="?attr/lead_image_drawable"
+            android:background="@android:color/black"
+            android:contentDescription="@string/snippet_share_preview_image_desc" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/share_as_image_button"
+            style="@style/button_blue_on_white"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/share_snippet_button" />
+
+        <Button
+            android:id="@+id/share_as_text_button"
+            style="@style/button_blue_on_white"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/share_normal_button" />
+
+    </LinearLayout>
 </ScrollView>

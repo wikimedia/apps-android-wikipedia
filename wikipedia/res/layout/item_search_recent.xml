@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView
         style="?android:textAppearanceMedium"
         android:id="@+id/text1"
         android:layout_width="wrap_content"

@@ -1,5 +1,6 @@
 package org.wikipedia.views;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
@@ -58,6 +59,7 @@ public class DisableableDrawerLayout extends FixedDrawerLayout {
                     int absGravity = GravityCompat.getAbsoluteGravity(((LayoutParams)pullOutView.getLayoutParams()).gravity,
                                                                       ViewCompat.getLayoutDirection(pullOutView));
                     // Determine whether to modify the left or right dragger, based on RTL/LTR orientation
+                    @SuppressLint("RtlHardcoded")
                     Field mDragger = (absGravity & Gravity.HORIZONTAL_GRAVITY_MASK) == Gravity.LEFT
                             ? DisableableDrawerLayout.this.getClass().getSuperclass().getSuperclass().getDeclaredField("mLeftDragger")
                             : DisableableDrawerLayout.this.getClass().getSuperclass().getSuperclass().getDeclaredField("mRightDragger");

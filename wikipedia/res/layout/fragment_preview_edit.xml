@@ -54,7 +54,7 @@
                     android:layout_height="20dp"
                     android:src="@drawable/cc_logo"
                     android:layout_gravity="center_vertical"
-                    />
+                    android:contentDescription="@string/cc_logo" />
 
             <TextView
                     android:id="@+id/edit_section_license_text"

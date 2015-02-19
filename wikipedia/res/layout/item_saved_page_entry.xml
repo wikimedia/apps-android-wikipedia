@@ -17,11 +17,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
-        <ImageView android:layout_width="16dp" android:layout_height="16dp"
+        <ImageView android:layout_width="16dp"
+                   android:layout_height="16dp"
                    android:id="@+id/saved_page_source"
                    android:layout_gravity="center_vertical"
                    android:layout_marginLeft="8dp"
                    android:layout_marginStart="8dp"
+                   android:contentDescription="@null"
                 />
         <ImageView
                 android:id="@+id/saved_page_thumbnail"
