@@ -46,7 +46,6 @@ import org.wikipedia.login.LoginTask;
 import org.wikipedia.login.User;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
-import org.wikipedia.settings.SettingsActivity;
 
 public class EditSectionActivity extends ThemedActionBarActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";

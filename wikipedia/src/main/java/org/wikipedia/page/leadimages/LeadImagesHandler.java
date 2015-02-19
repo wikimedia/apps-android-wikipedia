@@ -100,6 +100,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
 
     private int displayHeight;
     private int imageBaseYOffset = 0;
+    private float faceYOffsetNormalized = 0f;
     private float displayDensity;
 
     public interface OnLeadImageLayoutListener {
@@ -191,7 +192,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     }
 
     public Bitmap getLeadImageBitmap() {
-        return getBitmapFromView(image1);
+        return leadImagesEnabled ? getBitmapFromView(image1) : null;
     }
 
     // ideas from:
@@ -215,8 +216,15 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         return returnedBitmap;
     }
 
-    public int getImageBaseYOffset() {
-        return imageBaseYOffset;
+    /**
+     * Returns the normalized (0.0 to 1.0) vertical focus position of the lead image.
+     * A value of 0.0 represents the top of the image, and 1.0 represents the bottom.
+     * The "focus position" is currently defined by automatic face detection, but may be
+     * defined by other factors in the future.
+     * @return Normalized vertical focus position.
+     */
+    public float getLeadImageFocusY() {
+        return faceYOffsetNormalized;
     }
 
     @Override
@@ -239,14 +247,17 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                     int faceY = (int)(faceLocation.y * scale);
                     // if we have a face, then offset to the face location
                     imageBaseYOffset = -(faceY - (imagePlaceholder.getHeight() / 2));
-                    // give it a slight artificial boost, so that it appears slightly
-                    // above the page title...
+                    // Adjust the face position by a slight amount.
+                    // The face recognizer gives the location of the *eyes*, whereas we actually
+                    // want to center on the *nose*...
                     final int faceBoost = 24;
                     imageBaseYOffset -= (faceBoost * displayDensity);
+                    faceYOffsetNormalized = faceLocation.y / bmpHeight;
                 } else {
                     // No face, so we'll just chop the top 25% off rather than centering
-                    final int offsetDenom = 4;
-                    imageBaseYOffset = -(newHeight - imagePlaceholder.getHeight()) / offsetDenom;
+                    final float oneQuarter = 0.25f;
+                    imageBaseYOffset = -(int)((newHeight - imagePlaceholder.getHeight()) * oneQuarter);
+                    faceYOffsetNormalized = oneQuarter;
                 }
                 // is the offset too far to the top?
                 if (imageBaseYOffset > 0) {

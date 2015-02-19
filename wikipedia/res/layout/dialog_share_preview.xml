@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/white_progressive_dark">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:layout_margin="0dp"
-    android:background="@color/white_progressive_dark"
     android:orientation="vertical">
 
     <ImageView
@@ -14,8 +18,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:scaleType="centerInside"
-        android:src="@drawable/empty_nearby"
+        android:src="?attr/lead_image_drawable"
         android:background="@android:color/black"
         android:contentDescription="@string/snippet_share_preview_image_desc" />
 
@@ -32,3 +37,4 @@
         android:text="@string/share_normal_button" />
 
 </LinearLayout>
+</ScrollView>
