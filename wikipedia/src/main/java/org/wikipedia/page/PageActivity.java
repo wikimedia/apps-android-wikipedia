@@ -383,8 +383,8 @@ public class PageActivity extends ThemedActionBarActivity {
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
             displayNewPage(title, historyEntry);
         } else {
-            // Unrecognized, let us load the main page!
-            // FIXME: Design something better for this?
+            // Unrecognized Intent was handled, or the user opened the app by tapping on the icon.
+            // Let us load the main page!
             displayMainPage();
         }
         if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
