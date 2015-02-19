@@ -122,15 +122,15 @@
   <string name="create_account_activity_title">Criar uma conta</string>
   <string name="edit_section_activity_title">Editar seção</string>
   <string name="dialog_create_account_checking_progress">A verificar</string>
-  <string name="create_account_email_hint">Endereço de correio eletrónico (Opcional)</string>
+  <string name="create_account_email_hint" fuzzy="true">Endereço de correio eletrónico (Opcional)</string>
   <string name="create_account_password_repeat_hint">Repita a palavra-passe</string>
   <string name="create_account_passwords_mismatch_error">As palavras-passe não correspondem</string>
-  <string name="create_account_email_error">Endereço de correio eletrónico inválido</string>
+  <string name="create_account_email_error" fuzzy="true">Endereço de correio eletrónico inválido</string>
   <string name="create_account_username_exists_error">Nome de utilizador(a) já em utilização</string>
   <string name="create_account_ip_throttle_error">Demasiadas contas criadas a partir deste endereço de IP. Tente novamente mais tarde.</string>
   <string name="create_account_open_proxy_error">Este endereço de IP está bloqueado de criar contas.</string>
   <string name="create_account_noname_error">O nome de utilizador(a) fornecido é inválido. Por favor, escolha outro.</string>
-  <string name="create_account_invalid_email_error">O endereço de correio eletrónico fornecido é inválido.</string>
+  <string name="create_account_invalid_email_error" fuzzy="true">O endereço de correio eletrónico fornecido é inválido.</string>
   <string name="create_account_password_too_short_error">A palavra-passe fornecida é demasiado curta.</string>
   <string name="create_account_blocked_anon_error">Não pode criar uma conta porque o seu endereço IP está bloqueado.</string>
   <string name="create_account_blocked_error">Não pode criar uma conta porque a sua conta está bloqueada.</string>

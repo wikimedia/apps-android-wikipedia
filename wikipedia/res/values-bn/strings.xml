@@ -55,6 +55,7 @@
   <string name="nearby_dialog_goto_settings">অবস্থান হালনাগাদ আপনার ডিভাইসে সক্রিয় করা নেই। আপনি কি অবস্থান হালনাগাদ সক্রিয় করতে আপনার ডিভাইসের সেটিংসে যেতে চান?</string>
   <string name="nearby_set_metric">মিটার/কিমি দেখাও</string>
   <string name="nearby_set_imperial">ফুট/মাইল দেখাও</string>
+  <string name="nearby_view_on_map">মানচিত্রে স্থান দেখুন</string>
   <string name="last_updated_text">%1$s তারিখে সর্বশেষ হালনাগাদ</string>
   <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
   <string name="edit_save_action_license_logged_in">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.bn\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন।</string>
@@ -246,6 +247,7 @@
   <string name="table_infobox">দ্রুত তথ্য</string>
   <string name="table_other">আরও তথ্য</string>
   <string name="table_close">বন্ধ</string>
+  <string name="widget_name_search">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="alpha_update_notification_title">নতুন আলফা হালনাগাদ উপলব্ধ</string>
   <string name="alpha_update_notification_text">ডাউনলোড করতে টোকা দিন</string>
   <string name="dialog_close_description">বন্ধ</string>
@@ -263,5 +265,7 @@
   <string name="gallery_save_error">সংরক্ষণ করা যাচ্ছে না: %s</string>
   <string name="gallery_save_success">ছবিটি সফলভাবে সংরক্ষণ করা হয়েছে।</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>
+  <string name="snippet_share_intro">\@Wikipedia তে \"%1$s\": %2$s</string>
   <string name="expand_refs">বিস্তারিত জানতে ক্লিক করুন</string>
+  <string name="snippet_share_preview_image_desc">চিত্র প্রাকদর্শন</string>
 </resources>

@@ -55,6 +55,7 @@
   <string name="nearby_dialog_goto_settings">As atualizações de localização não estão ativadas. Gostaria de ir para as configurações do seu dispositivo para ativa-las?</string>
   <string name="nearby_set_metric">Mostrar metros/km</string>
   <string name="nearby_set_imperial">Mostrar pés/milhas</string>
+  <string name="nearby_view_on_map">Ver local no mapa</string>
   <string name="last_updated_text">Última atualização: %s</string>
   <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado o contrário</string>
   <string name="edit_save_action_license_logged_in">Ao salvar, você concorda com as &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -241,13 +242,16 @@
   <string name="search_redirect_title">Redirecionar de \"%s\".</string>
   <string name="search_recent_header">Pesquisas recentes:</string>
   <string name="button_clear_all_recent_searches">Limpar pesquisas recentes</string>
-  <string name="clear_recent_searches_confirm">Você tem certeza que quer apagar o historico de pesquisa?</string>
+  <string name="clear_recent_searches_confirm">Tem certeza de que deseja apagar o histórico de pesquisa?</string>
   <string name="toc_hint">Arraste para a esquerda para seções, ou use o botão de menu no canto superior direito.</string>
   <string name="toc_know_it">Entendi</string>
-  <string name="error_browser_not_found">Não se podê abrir a pagina da web (nenhum browser foi localizado).</string>
+  <string name="error_browser_not_found">Não foi possível abrir a pagina da web (nenhum navegador foi localizado).</string>
   <string name="table_infobox">Fatos rapidos</string>
   <string name="table_other">Mais informação</string>
   <string name="table_close">Fechar</string>
+  <string name="widget_name_featured_page">Artigo destacado na Wikipédia</string>
+  <string name="widget_title_featured_page">Artigo destacado de hoje:</string>
+  <string name="widget_name_search">Pesquisa da Wikipédia</string>
   <string name="app_store_description">Aplicativo oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada até hoje. O aplicativo foi re-criado do zero e está melhor que nunca.
 
 Caraterísticas:
@@ -267,18 +271,22 @@ O código é totalmente aberto. Se você tem experiência com linguagens como Ja
   <string name="preference_summary_show_images">Habilitar ou desabilitar o carregamento de imagens em paginas. Desmarque essa opção se sua conexão de internet for lenta, ou se seu plano for limitado.</string>
   <string name="read_more_section">Ler mais</string>
   <string name="gallery_menu_more_info">Mais informação</string>
-  <string name="menu_gallery_visit_page">Ir para a pagina do arquivo</string>
+  <string name="menu_gallery_visit_page">Ir para a página do arquivo</string>
   <string name="gallery_error_draw_failed">Impossivel desenhar a imagem</string>
-  <string name="license_title">Texto de licensa para a livraria %s</string>
-  <string name="gallery_license_text">Licensa - %s</string>
+  <string name="license_title">Texto da licença para %s biblioteca</string>
+  <string name="gallery_license_text">Licença – %s</string>
   <string name="gallery_credit_text">Autor - %s</string>
   <string name="gallery_image_info">Informação de imagem</string>
   <string name="gallery_menu_share">Compartilhar</string>
   <string name="gallery_share_error">Não podê-se compartilhar a imagem: %s</string>
   <string name="gallery_menu_save">Sauvar no dispositivo</string>
   <string name="gallery_save_error">Não podê-se salvar a imagem: %s</string>
+  <string name="gallery_save_error_mediastore">Falha ao importar a imagem para a coleção multimídia</string>
   <string name="gallery_save_success">Imagem salva com sucesso.</string>
   <string name="err_cannot_save_file">Não é possível salvar o arquivo</string>
   <string name="snippet_share_intro">\"%1$s\" em @Wikipedia: %2$s</string>
   <string name="expand_refs">Toque para expandir</string>
+  <string name="share_snippet_button">Compartilhar como imagem</string>
+  <string name="share_normal_button">Compartilhar como texto</string>
+  <string name="snippet_share_preview_image_desc">Pré-visualizar imagem</string>
 </resources>
