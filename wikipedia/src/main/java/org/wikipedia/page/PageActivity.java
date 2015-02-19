@@ -10,6 +10,7 @@ import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.WidgetsFunnel;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
@@ -63,6 +64,7 @@ public class PageActivity extends ThemedActionBarActivity {
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
     public static final String EXTRA_SEARCH_FROM_WIDGET = "searchFromWidget";
+    public static final String EXTRA_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
     private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
 
     private static final String KEY_LAST_FRAGMENT = "lastFragment";
@@ -387,7 +389,13 @@ public class PageActivity extends ThemedActionBarActivity {
             // Let us load the main page!
             displayMainPage();
         }
+
+        //Check to see if user tapped on an app widget to open the app, and take appropriate action
         if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
+            // Log that the user tapped on the search widget
+            // Instantiate the funnel anonymously to save on memory overhead
+            new WidgetsFunnel(app, app.getPrimarySite()).logSearchWidgetTap();
+
             // we were sent here from the Search widget, so go straight to the search fragment!
             fragmentContainerView.post(new Runnable() {
                 @Override
@@ -396,6 +404,12 @@ public class PageActivity extends ThemedActionBarActivity {
                     searchFragment.openSearch();
                 }
             });
+        } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
+            // Log that the user tapped on the featured article widget
+            // Instantiate the funnel anonymously to save on memory overhead
+            new WidgetsFunnel(app, app.getPrimarySite()).logFeaturedArticleWidgetTap();
+
+            // We don't need to do anything else, because the main page is already being displayed
         }
     }
 

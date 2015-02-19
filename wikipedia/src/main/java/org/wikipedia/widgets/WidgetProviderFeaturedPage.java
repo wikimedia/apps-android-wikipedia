@@ -82,6 +82,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
             // Create a PendingIntent to act as the onClickListener
             Intent intent = new Intent(context, PageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra(PageActivity.EXTRA_FEATURED_ARTICLE_FROM_WIDGET, true);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
             // If we want to update the widget itself from the click event, then do something like this:
