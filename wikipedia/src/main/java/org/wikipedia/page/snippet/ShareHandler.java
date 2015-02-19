@@ -1,5 +1,6 @@
 package org.wikipedia.page.snippet;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.view.View;
@@ -13,15 +14,34 @@ import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.util.ShareUtils;
 
 /**
- * Let user chose between sharing as text or as image.
+ * Let user choose between sharing as text or as image.
  */
 public class ShareHandler {
     private final PageActivity activity;
-    private final ShareAFactFunnel funnel;
+    private Dialog shareDialog;
+    private ShareAFactFunnel funnel;
 
-    public ShareHandler(PageActivity activity, ShareAFactFunnel funnel) {
-        this.activity = activity;
+    protected PageActivity getActivity() {
+        return activity;
+    }
+
+    protected ShareAFactFunnel getFunnel() {
+        return funnel;
+    }
+
+    protected void setFunnel(ShareAFactFunnel funnel) {
         this.funnel = funnel;
+    }
+
+    public ShareHandler(PageActivity activity) {
+        this.activity = activity;
+    }
+
+    public void onStop() {
+        if (shareDialog != null) {
+            shareDialog.dismiss();
+            shareDialog = null;
+        }
     }
 
     public void shareSnippet(CharSequence input, boolean preferUrl) {
@@ -43,20 +63,19 @@ public class ShareHandler {
                     title.getDisplayText(),
                     curPageFragment.getPage().getPageProperties().isMainPage() ? "" : title.getDescription(),
                     selectedText).createImage();
-            if (preferUrl) {
-                new PreviewDialog(activity, resultBitmap, title.getDisplayText(), introText,
-                        selectedText, title.getCanonicalUri(), funnel).show();
-            } else {
-                new PreviewDialog(activity, resultBitmap, title.getDisplayText(), introText,
-                        selectedText, selectedText, funnel).show();
+            if (shareDialog != null) {
+                shareDialog.dismiss();
             }
+            shareDialog = new PreviewDialog(activity, resultBitmap, title.getDisplayText(), introText,
+                    selectedText, preferUrl ? title.getCanonicalUri() : selectedText, funnel);
+            shareDialog.show();
         } else {
             // only share the URL
             ShareUtils.shareText(activity, title.getDisplayText(), title.getCanonicalUri());
         }
     }
 
-    private String sanitizeText(String selectedText) {
+    private static String sanitizeText(String selectedText) {
         return selectedText.replaceAll("\\[\\d+\\]", "") // [1]
                 .replaceAll("\\(\\s*;\\s*", "\\(") // (; -> (    hacky way for IPA remnants
                 .replaceAll("\\s{2,}", " ")

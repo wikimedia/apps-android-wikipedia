@@ -89,6 +89,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
     private View toolbarContainer;
     private TextSelectedShareAdapter textSelectedShareAdapter;
+    private NoTextSelectedShareAdapter noTextSelectedShareAdapter;
     private ActionMode currentActionMode;
 
     private ActionBarDrawerToggle mDrawerToggle;
@@ -180,6 +181,11 @@ public class PageActivity extends ThemedActionBarActivity {
         getSupportActionBar().setTitle("");
 
         searchBarHideHandler = new SearchBarHideHandler(toolbarContainer);
+
+        noTextSelectedShareAdapter = new NoTextSelectedShareAdapter(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            textSelectedShareAdapter = new TextSelectedShareAdapter(this);
+        }
 
         // TODO: remove this when we drop support for API 10
         boolean themeChanged = false;
@@ -589,8 +595,8 @@ public class PageActivity extends ThemedActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        if (textSelectedShareAdapter != null) {
-            textSelectedShareAdapter.finish();
+        if (currentActionMode != null) {
+            currentActionMode.finish();
             return;
         }
         if (drawerLayout.isDrawerOpen(Gravity.START)) {
@@ -809,6 +815,10 @@ public class PageActivity extends ThemedActionBarActivity {
         if (themeChooser != null && themeChooser.isShowing()) {
             themeChooser.dismiss();
         }
+        if (textSelectedShareAdapter != null) {
+            textSelectedShareAdapter.onStop();
+        }
+        noTextSelectedShareAdapter.onStop();
 
         app.getSessionFunnel().persistSession();
 
@@ -833,9 +843,8 @@ public class PageActivity extends ThemedActionBarActivity {
         // Saved Pages, or Find In Page). Otherwise, it must be the default WebView text-
         // highlighting ActionMode, in which case we'll invoke the Share adapter!
         if (WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_ALPHA
-                && textSelectedShareAdapter == null
-                && mode.getTag() == null) {
-            textSelectedShareAdapter = new TextSelectedShareAdapter(this);
+                && mode.getTag() == null
+                && textSelectedShareAdapter != null) {
             textSelectedShareAdapter.onTextSelected(mode);
         }
         super.onSupportActionModeStarted(mode);
@@ -843,14 +852,13 @@ public class PageActivity extends ThemedActionBarActivity {
 
     @Override
     public void onSupportActionModeFinished(ActionMode mode) {
-        textSelectedShareAdapter = null;
         currentActionMode = null;
         super.onSupportActionModeFinished(mode);
     }
 
     public void share(PageTitle title) {
         if (WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_ALPHA) {
-            new NoTextSelectedShareAdapter(this).share();
+            noTextSelectedShareAdapter.share();
         } else {
             // TODO: remove once above block is promoted to production
             Intent shareIntent = new Intent();

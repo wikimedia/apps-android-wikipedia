@@ -12,21 +12,18 @@ import java.util.regex.Pattern;
 /**
  * Share the first paragraph text since no text was selected.
  */
-public class NoTextSelectedShareAdapter {
-    private final PageActivity activity;
+public class NoTextSelectedShareAdapter extends ShareHandler {
 
     public NoTextSelectedShareAdapter(PageActivity activity) {
-        this.activity = activity;
+        super(activity);
     }
 
     public void share() {
-        final PageViewFragmentInternal curPageFragment = activity.getCurPageFragment();
+        final PageViewFragmentInternal curPageFragment = getActivity().getCurPageFragment();
         if (curPageFragment == null) {
             return;
         }
-
-        new ShareHandler(activity, /* TODO */ null)
-                .shareSnippet(getFirstParagraphText(curPageFragment), true);
+        shareSnippet(getFirstParagraphText(curPageFragment), true);
     }
 
     private CharSequence getFirstParagraphText(final PageViewFragmentInternal curPageFragment) {
