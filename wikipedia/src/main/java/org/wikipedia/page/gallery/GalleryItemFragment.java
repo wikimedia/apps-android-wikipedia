@@ -5,6 +5,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.ShareUtils;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -218,6 +219,12 @@ public class GalleryItemFragment extends Fragment {
                            return;
                        }
                        updateProgressBar(false, true, 0);
+                       // if it's an SVG or PNG, give it a white background, since most
+                       // images with transparency were intended to be viewed on white.
+                       if (galleryItem.getMimeType().contains("svg")
+                           || galleryItem.getMimeType().contains("png")) {
+                           mainImage.setBackgroundColor(Color.WHITE);
+                       }
                        attacher.update();
                        scaleImageToWindow();
                        parentActivity.supportInvalidateOptionsMenu();
