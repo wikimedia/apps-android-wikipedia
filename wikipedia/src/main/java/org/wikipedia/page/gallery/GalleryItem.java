@@ -2,6 +2,7 @@ package org.wikipedia.page.gallery;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -28,6 +29,36 @@ public class GalleryItem {
     private final int height;
     public int getHeight() { return height; }
 
+    private String licenseName;
+    private String licenseUrl;
+    private boolean licenseFree = true;
+
+    public String getLicenseUrl() {
+        return licenseUrl;
+    }
+
+    public boolean isLicenseCC() {
+        if (!TextUtils.isEmpty(licenseName)) {
+            if (licenseName.startsWith("cc")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isLicensePD() {
+        if (!TextUtils.isEmpty(licenseName)) {
+            if (licenseName.startsWith("pd")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isLicenseFree() {
+        return licenseFree;
+    }
+
     public GalleryItem(String name) {
         this.name = name;
         this.url = null;
@@ -52,7 +83,21 @@ public class GalleryItem {
             Iterator<String> keys = extmetadata.keys();
             while (keys.hasNext()) {
                 String key = keys.next();
-                metadata.put(key, extmetadata.getJSONObject(key).getString("value"));
+                String value = extmetadata.getJSONObject(key).getString("value");
+                metadata.put(key, value);
+                switch (key) {
+                    case "License":
+                        licenseName = value;
+                        break;
+                    case "LicenseUrl":
+                        licenseUrl = value;
+                        break;
+                    case "NonFree":
+                        licenseFree = !value.equals("true");
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }

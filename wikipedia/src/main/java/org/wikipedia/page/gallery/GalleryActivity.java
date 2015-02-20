@@ -26,12 +26,15 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import java.util.HashMap;
@@ -79,7 +82,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     private ViewGroup infoContainer;
     private ProgressBar progressBar;
     private TextView descriptionText;
-    private TextView licenseText;
+    private ImageView licenseIcon;
     private TextView creditText;
     private boolean controlsShowing = true;
 
@@ -107,9 +110,30 @@ public class GalleryActivity extends ThemedActionBarActivity {
         descriptionText.setShadowLayer(2, 1, 1, getResources().getColor(R.color.lead_text_shadow));
         descriptionText.setMovementMethod(linkMovementMethod);
 
-        licenseText = (TextView) findViewById(R.id.gallery_license_text);
-        licenseText.setShadowLayer(2, 1, 1, getResources().getColor(R.color.lead_text_shadow));
-        licenseText.setMovementMethod(linkMovementMethod);
+        licenseIcon = (ImageView) findViewById(R.id.gallery_license_icon);
+        licenseIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String licenseUrl = (String) v.getTag();
+                if (!TextUtils.isEmpty(licenseUrl)) {
+                    Utils.handleExternalLink(GalleryActivity.this, Uri.parse(licenseUrl));
+                }
+            }
+        });
+        licenseIcon.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (v.getContentDescription() == null) {
+                    return false;
+                }
+                int[] pos = new int[2];
+                v.getLocationInWindow(pos);
+                Toast t = Toast.makeText(GalleryActivity.this, v.getContentDescription(), Toast.LENGTH_SHORT);
+                t.setGravity(Gravity.TOP | Gravity.START, pos[0], pos[1]);
+                t.show();
+                return true;
+            }
+        });
 
         creditText = (TextView) findViewById(R.id.gallery_credit_text);
         creditText.setShadowLayer(2, 1, 1, getResources().getColor(R.color.lead_text_shadow));
@@ -440,36 +464,44 @@ public class GalleryActivity extends ThemedActionBarActivity {
             descriptionText.setVisibility(View.GONE);
         }
 
-        CharSequence licenseStr = "";
-        if (item.getMetadata().containsKey("LicenseShortName")) {
-            licenseStr = item.getMetadata().get("LicenseShortName");
-        } else if (item.getMetadata().containsKey("License")) {
-            licenseStr = item.getMetadata().get("License");
-        }
-        if (!TextUtils.isEmpty(licenseStr)) {
-            // is there a license URL? If so, surround the string with it!
-            if (item.getMetadata().containsKey("LicenseUrl")) {
-                licenseStr = "<a href=\"" + item.getMetadata().get("LicenseUrl")
-                             + "\">" + Utils.trim(licenseStr) + "</a>";
-            }
-            licenseStr = Html
-                    .fromHtml(String.format(getString(R.string.gallery_license_text), licenseStr));
-            licenseText.setText(licenseStr);
-            licenseText.setVisibility(View.VISIBLE);
-        } else {
-            licenseText.setVisibility(View.GONE);
-        }
+        // determine which icon to display...
+        licenseIcon.setImageDrawable(getResources().getDrawable(getLicenseIcon(item)));
+        // Set the icon's content description to the UsageTerms property.
+        // (will automatically be null if there are no UsageTerms)
+        licenseIcon.setContentDescription(item.getMetadata().get("UsageTerms"));
+        // Give the license URL to the icon, to be received by the click handler (may be null).
+        licenseIcon.setTag(item.getLicenseUrl());
 
-        CharSequence creditStr = "";
+        String creditStr = "";
         if (item.getMetadata().containsKey("Artist")) {
-            creditStr = String.format(getString(R.string.gallery_credit_text), Utils.trim(
-                    Html.fromHtml(item.getMetadata().get("Artist"))));
-            creditText.setText(creditStr);
-            creditText.setVisibility(View.VISIBLE);
-        } else {
-            creditText.setVisibility(View.GONE);
+            creditStr = Html.fromHtml(item.getMetadata().get("Artist")).toString();
+        } else if (item.getMetadata().containsKey("LicenseShortName")) {
+            // if we don't have the author name, then display the license name
+            creditStr = item.getMetadata().get("LicenseShortName");
+        } else if (item.getMetadata().containsKey("UsageTerms")) {
+            // and if there's no license name, then at least show usage terms.
+            creditStr = item.getMetadata().get("UsageTerms");
         }
+        creditText.setText(creditStr.trim());
+
         infoContainer.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * Return an icon (drawable resource id) that corresponds to the type of license
+     * under which the specified Gallery item is provided.
+     * @param item Gallery item for which to give a license icon.
+     * @return Resource ID of the icon to display.
+     */
+    private static int getLicenseIcon(GalleryItem item) {
+        if (item.isLicenseFree()) {
+            if (item.isLicensePD()) {
+                return R.drawable.ic_license_pd;
+            } else if (item.isLicenseCC()) {
+                return R.drawable.ic_license_cc;
+            }
+        }
+        return R.drawable.ic_license_cite;
     }
 
     /**

@@ -282,8 +282,6 @@ The code is fully open source. If you have experience with Java and the Android 
     <string name="menu_gallery_visit_page">Go to file page</string>
     <string name="gallery_error_draw_failed">Could not draw the image.</string>
     <string name="license_title">License text for %s library</string>
-    <string name="gallery_license_text">License – %s</string>
-    <string name="gallery_credit_text">Author – %s</string>
     <string name="gallery_image_info">Image information</string>
     <string name="gallery_menu_share">Share</string>
     <string name="gallery_share_error">Could not share image: %s</string>
