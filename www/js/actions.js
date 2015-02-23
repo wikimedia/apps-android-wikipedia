@@ -1,4 +1,5 @@
 var bridge = require('./bridge');
+var util = require('./util');
 
 function ActionsHandler() {
 }
@@ -16,21 +17,6 @@ ActionsHandler.prototype.register = function( action, fun ) {
 bridge.registerListener( "handleReference", function( payload ) {
     handleReference( payload.anchor, false );
 });
-
-function ancestorContainsClass( element, className ) {
-    var contains = false;
-    var curNode = element;
-    while (curNode) {
-        if ((typeof curNode.classList !== "undefined")) {
-            if (curNode.classList.contains(className)) {
-                contains = true;
-                break;
-            }
-        }
-        curNode = curNode.parentNode;
-    }
-    return contains;
-}
 
 function handleReference( targetId, backlink ) {
     var targetElem = document.getElementById( targetId );
@@ -81,7 +67,7 @@ document.onclick = function() {
                 } else if ( "disambig" === targetId ) {
                     disambigClicked( sourceNode );
                 } else {
-                    handleReference( targetId, ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
+                    handleReference( targetId, util.ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
                 }
             } else if (sourceNode.classList.contains( 'image' )) {
                 bridge.sendMessage( 'imageClicked', { "href": href } );

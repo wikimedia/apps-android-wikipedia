@@ -2,59 +2,48 @@ var transformer = require("./transformer");
 var night = require("./night");
 var bridge = require( "./bridge" );
 
-// Move any tables to the bottom of the lead section
+// Move the first non-empty paragraph of text to the top of the section.
+// This will have the effect of shifting the infobox and/or any images at the top of the page
+// below the first paragraph, allowing the user to start reading the page right away.
 transformer.register( "leadSection", function( leadContent ) {
     if (window.isMainPage) {
         // don't do anything if this is the main page, since many wikis
         // arrange the main page in a series of tables.
         return leadContent;
     }
-    var leadTables = leadContent.querySelectorAll( "table" );
-    var pTags, i;
-    for ( i = 0; i < leadTables.length; i++ ) {
-        /*
-        If the table itself sits within a table or series of tables,
-        move the most distant ancestor table instead of just moving this
-        table. Otherwise you end up with table(s) with a hole where the
-        child table had been. World War II article on enWiki has this issue.
-        Note that we need to stop checking ancestor tables when we hit
-        content_block_0.
-        */
-        var tableEl = leadTables[i];
-        var parentTable = null;
-        var tempEl = tableEl;
-        while (tempEl.parentNode) {
-            tempEl = tempEl.parentNode;
-            if (tempEl.id === 'content_block_0') {
-                break;
-            }
-            if (tempEl.tagName === 'TABLE') {
-                parentTable = tempEl;
-            }
+    var block_0 = document.getElementById( "content_block_0" );
+    if (!block_0) {
+        return leadContent;
+    }
+
+    var allPs = block_0.getElementsByTagName( "p" );
+    if (!allPs) {
+        return leadContent;
+    }
+
+    for ( var i = 0; i < allPs.length; i++ ) {
+        var p = allPs[i];
+        // Narrow down to first P which is direct child of content_block_0 DIV.
+        // (Don't want to yank P from somewhere in the middle of a table!)
+        if (p.parentNode !== block_0) {
+            continue;
         }
-        if (parentTable) {
-            tableEl = parentTable;
+        // Ensure the P being pulled up has at least a couple lines of text.
+        // Otherwise silly things like a empty P or P which only contains a
+        // BR tag will get pulled up (see articles on "Chemical Reaction" and
+        // "Hawaii").
+        // Trick for quickly determining element height:
+        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement.offsetHeight
+        // http://stackoverflow.com/a/1343350/135557
+        var minHeight = 40;
+        if (p.offsetHeight < minHeight){
+            continue;
         }
 
-        tableEl.parentNode.removeChild( tableEl );
-        pTags = leadContent.getElementsByTagName( "p" );
-        if ( pTags.length ) {
-            pTags[0].appendChild( tableEl );
-        } else {
-            leadContent.appendChild( tableEl );
-        }
-    }
-    //also move any thumbnail images to the bottom of the section,
-    //since we have a lead image, and we want the content to appear at the very beginning.
-    var thumbs = leadContent.querySelectorAll( "div.thumb" );
-    for ( i = 0; i < thumbs.length; i++ ) {
-        thumbs[i].parentNode.removeChild( thumbs[i] );
-        pTags = leadContent.getElementsByTagName( "p" );
-        if ( pTags.length ) {
-            pTags[pTags.length - 1].appendChild( thumbs[i] );
-        } else {
-            leadContent.appendChild( thumbs[i] );
-        }
+        // Move the P!
+        block_0.insertBefore(p.parentNode.removeChild(p), block_0.firstChild);
+        // But only move one P!
+        break;
     }
     return leadContent;
 } );

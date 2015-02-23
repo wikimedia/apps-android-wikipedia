@@ -42,7 +42,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     var content = document.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
-    content.innerHTML = editButton.outerHTML + payload.section.text;
+    content.innerHTML = payload.section.text;
     content.id = "content_block_0";
 
     window.apiLevel = payload.apiLevel;
@@ -53,10 +53,17 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     window.pageTitle = payload.title;
     window.isMainPage = payload.isMainPage;
 
+    // append the content to the DOM now, so that we can obtain
+    // dimension measurements for items.
+    document.getElementById( "content" ).appendChild( content );
+
     content = transformer.transform( "leadSection", content );
     content = transformer.transform( "section", content );
     content = transformer.transform( "hideTables", content );
     content = transformer.transform( "hideIPA", content );
+
+    // insert the edit pencil
+    content.insertBefore( editButton, content.firstChild );
 
     content = transformer.transform("displayDisambigLink", content);
     content = transformer.transform("displayIssuesLink", content);
@@ -82,8 +89,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
         separator.className = 'issues_separator';
         issuesContainer.insertBefore(separator, issuesBtn.parentNode);
     }
-
-    document.getElementById( "content" ).appendChild( content );
 
     document.getElementById( "loading_sections").className = "loading";
     scrolledOnLoad = false;

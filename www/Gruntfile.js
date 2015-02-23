@@ -40,7 +40,8 @@ module.exports = function ( grunt ) {
                         "js/issues.js",
                         "js/disambig.js",
                         "js/sections.js",
-                        "js/rtlsupport.js"
+                        "js/rtlsupport.js",
+                        "js/util.js"
                     ].concat( oldDroidPolyfills ),
                     "bundle-test.js": [
                         "js/loader.js",
@@ -54,7 +55,8 @@ module.exports = function ( grunt ) {
                         "js/night.js",
                         "js/actions.js",
                         "js/preview.js",
-                        "js/rtlsupport.js"
+                        "js/rtlsupport.js",
+                        "js/util.js"
                     ].concat( oldDroidPolyfills )
                 }
             }

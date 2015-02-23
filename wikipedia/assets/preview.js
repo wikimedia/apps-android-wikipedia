@@ -1,5 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var bridge = require('./bridge');
+var util = require('./util');
 
 function ActionsHandler() {
 }
@@ -17,21 +18,6 @@ ActionsHandler.prototype.register = function( action, fun ) {
 bridge.registerListener( "handleReference", function( payload ) {
     handleReference( payload.anchor, false );
 });
-
-function ancestorContainsClass( element, className ) {
-    var contains = false;
-    var curNode = element;
-    while (curNode) {
-        if ((typeof curNode.classList !== "undefined")) {
-            if (curNode.classList.contains(className)) {
-                contains = true;
-                break;
-            }
-        }
-        curNode = curNode.parentNode;
-    }
-    return contains;
-}
 
 function handleReference( targetId, backlink ) {
     var targetElem = document.getElementById( targetId );
@@ -82,7 +68,7 @@ document.onclick = function() {
                 } else if ( "disambig" === targetId ) {
                     disambigClicked( sourceNode );
                 } else {
-                    handleReference( targetId, ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
+                    handleReference( targetId, util.ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
                 }
             } else if (sourceNode.classList.contains( 'image' )) {
                 bridge.sendMessage( 'imageClicked', { "href": href } );
@@ -132,7 +118,7 @@ function collectIssues( sourceNode ) {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2}],2:[function(require,module,exports){
+},{"./bridge":2,"./util":7}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -166,7 +152,7 @@ Bridge.prototype.sendMessage = function( messageType, payload ) {
 };
 
 module.exports = new Bridge();
-// FIXME: Move this to somwehere else, eh?
+// FIXME: Move this to somewhere else, eh?
 window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
 };
@@ -196,6 +182,7 @@ module.exports = {
 var parseCSSColor = require("../lib/js/css-color-parser");
 var bridge = require("./bridge");
 var loader = require("./loader");
+var util = require("./util");
 
 function invertColorProperty( el, propertyName ) {
 	var property = el.style[propertyName];
@@ -209,21 +196,9 @@ function invertColorProperty( el, propertyName ) {
 	el.style[propertyName] = 'rgb(' + (255 - r) + ', ' + (255 - g) + ', ' + (255 - b ) + ')';
 }
 
-function hasAncestor( el, tagName ) {
-	if ( el.tagName === tagName) {
-		return true;
-	} else {
-		if ( el.parentNode !== null && el.parentNode.tagName !== 'BODY' ) {
-			return hasAncestor( el.parentNode, tagName );
-		} else {
-			return false;
-		}
-	}
-}
-
 var invertProperties = [ 'color', 'background-color', 'border-color' ];
 function invertOneElement( el ) {
-	var shouldStrip = hasAncestor( el, 'TABLE' );
+	var shouldStrip = util.hasAncestor( el, 'TABLE' );
 	for ( var i = 0; i < invertProperties.length; i++ ) {
 		if ( el.style[invertProperties[i]] ) {
 			if ( shouldStrip ) {
@@ -285,7 +260,7 @@ module.exports = {
 	invertElement: invertElement
 };
 
-},{"../lib/js/css-color-parser":8,"./bridge":2,"./loader":3}],5:[function(require,module,exports){
+},{"../lib/js/css-color-parser":9,"./bridge":2,"./loader":3,"./util":7}],5:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "displayPreviewHTML", function( payload ) {
@@ -305,6 +280,40 @@ bridge.registerListener( "setDirectionality", function( payload ) {
 } );
 
 },{"./bridge":2}],7:[function(require,module,exports){
+
+function hasAncestor( el, tagName ) {
+    if ( el !== null && el.tagName === tagName) {
+        return true;
+    } else {
+        if ( el.parentNode !== null && el.parentNode.tagName !== 'BODY' ) {
+            return hasAncestor( el.parentNode, tagName );
+        } else {
+            return false;
+        }
+    }
+}
+
+function ancestorContainsClass( element, className ) {
+    var contains = false;
+    var curNode = element;
+    while (curNode) {
+        if ((typeof curNode.classList !== "undefined")) {
+            if (curNode.classList.contains(className)) {
+                contains = true;
+                break;
+            }
+        }
+        curNode = curNode.parentNode;
+    }
+    return contains;
+}
+
+module.exports = {
+    hasAncestor: hasAncestor,
+    ancestorContainsClass: ancestorContainsClass
+};
+
+},{}],8:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills
@@ -381,7 +390,7 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 // (c) Dean McNamee <dean@gmail.com>, 2012.
 //
 // https://github.com/deanm/css-color-parser-js
@@ -583,4 +592,4 @@ function parseCSSColor(css_str) {
 
 try { module.exports = parseCSSColor } catch(e) { }
 
-},{}]},{},[3,2,4,1,5,6,7])
+},{}]},{},[3,2,4,1,5,6,7,8])
