@@ -243,14 +243,20 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
 
     private void setupAttribution() {
         Page page = parentFragment.getPage();
-        String lastUpdatedHtml = "<a href=\"" + page.getTitle().getUriForAction("history")
-                + "\">" + activity.getString(R.string.last_updated_text,
-                Utils.formatDateRelative(page.getPageProperties().getLastModified())
-                + "</a>");
-        pageLastUpdatedText.setText(Html.fromHtml(lastUpdatedHtml));
-        pageLastUpdatedText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
         pageLicenseText.setText(Html.fromHtml(activity.getString(R.string.content_license_html)));
         pageLicenseText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
+
+        // Don't display last updated message for main page or file pages, because it's always wrong
+        if (page.isMainPage() || page.isFilePage()) {
+            pageLastUpdatedText.setVisibility(View.GONE);
+        } else {
+            String lastUpdatedHtml = "<a href=\"" + page.getTitle().getUriForAction("history")
+                    + "\">" + activity.getString(R.string.last_updated_text,
+                    Utils.formatDateRelative(page.getPageProperties().getLastModified())
+                            + "</a>");
+            pageLastUpdatedText.setText(Html.fromHtml(lastUpdatedHtml));
+            pageLastUpdatedText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
+        }
     }
 
     private void requestReadMoreItems(final LayoutInflater layoutInflater) {

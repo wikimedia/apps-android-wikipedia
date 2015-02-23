@@ -91,6 +91,14 @@ public class Page {
                 + '}';
     }
 
+    public boolean isFilePage() {
+        return title.isFilePage();
+    }
+
+    public boolean isMainPage() {
+        return pageProperties.isMainPage();
+    }
+
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
         try {
