@@ -41,6 +41,7 @@
     </style>
 
     <style name="text_heading_gray" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textAllCaps">false</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/page_info_heading</item>
     </style>
