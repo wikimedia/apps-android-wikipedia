@@ -27,7 +27,6 @@ public class RefreshSavedPageTask extends SectionsFetchTask {
         this.app = WikipediaApp.getInstance();
     }
 
-
     @Override
     public RequestBuilder buildRequest(Api api) {
         RequestBuilder builder =  super.buildRequest(api);
