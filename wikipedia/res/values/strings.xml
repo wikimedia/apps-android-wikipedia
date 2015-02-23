@@ -260,18 +260,26 @@
     <string name="widget_title_featured_page">Today\'s featured page:</string>
     <string name="widget_name_search">Wikipedia search</string>
 
-    <string name="app_store_description">Official Wikipedia App for Android. Wikipedia is the free encyclopedia containing more than 32 million articles in 280 languages, and is the most comprehensive and widely used reference work humans have ever compiled. The app has been rewritten from scratch and is better than ever before.
+    <string name="app_store_description">Official Wikipedia App for Android. Wikipedia is the free encyclopedia containing more than 32 million articles in 280 languages, and is the most comprehensive and widely used reference work humans have ever compiled.
 
 Features:
-   - Speed: Our new, native app allows you to browse and edit Wikipedia faster than ever before.
-   - Editing: You can edit Wikipedia! Logged in or logged out, we thank you for all your contributions.
-   - Recent pages: We provide you with your reading history, so you can tap as many links as you like without ever getting lost.
-   - Saved pages: You can save select pages for offline reading and browse them even when you don\'t have a data connection.
-   - Share: Use your existing social networking apps to share in the sum of all human knowledge.
-   - Language support: The app allows you to seamlessly switch to reading Wikipedia written in any language.
-   - Wikipedia Zero: Data charges waived for participating mobile operators.
+- Lead images: experience Wikipedia like never before with a prominent, contextually-relevant image and description at the top of articles
+- Image gallery: tapping on an image shows you the image full-screen in high resolution, with options to swipe left/right for browsing additional images
+- Descriptions from Wikidata: when searching, each search result now contains a quick description that helps to contextualize the result. These descriptions are also shown in other areas of the app, like Nearby
+- Article suggestions: scroll to the bottom of an article to see suggestions about what you could read next
+- Saved pages: You can save select pages for offline reading and browse them even when you don\'t have a data connection
+- Nearby: Learn more about what\'s around you by getting links to articles about things that are near your current location
+- Language support: The app allows you to seamlessly switch to reading Wikipedia written in any language
+- Table of contents: Swipe left on any article to bring up the table of contents, which lets you jump to article sections easily
+- Wikipedia Zero: Data charges waived for participating mobile operators
 
-The code is fully open source. If you have experience with Java and the Android SDK, then come fork us! https://github.com/wikimedia/apps-android-wikipedia</string>
+Send us your feedback about the app! In the menu, press "More", then "About the Wikipedia app", then "Send app feedback".
+
+The code is 100% open source. If you have experience with Java and the Android SDK, then we look forward to your contributions! https://github.com/wikimedia/apps-android-wikipedia
+
+Privacy policy: http://wikimediafoundation.org/wiki/Privacy_policy
+
+Terms of Use: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="alpha_update_notification_title">New alpha update available</string>
     <string name="alpha_update_notification_text">Tap to download</string>
     <string name="dialog_close_description">Close</string>
