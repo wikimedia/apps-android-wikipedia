@@ -48,7 +48,8 @@ abstract class PageInfoHandler implements CommunicationBridge.JSEventListener {
         }
         DisambigResult[] stringArray = new DisambigResult[array.length()];
         for (int i = 0; i < array.length(); i++) {
-            stringArray[i] = new DisambigResult(new PageTitle(array.getString(i), site));
+            // Decode the href that we got into a PageTitle, and create a DisambigResult with it
+            stringArray[i] = new DisambigResult(site.titleForInternalLink(array.getString(i)));
         }
         return stringArray;
     }

@@ -111,7 +111,8 @@ function collectDisambig( sourceNode ) {
     var i = 0,
         len = links.length;
     for (; i < len; i++) {
-        res.push( links[i].innerHTML );
+        // Pass the href; we'll decode it into a proper page title in Java
+        res.push( links[i].getAttribute( 'href' ) );
     }
     return res;
 }
