@@ -125,7 +125,11 @@ public abstract class SaneAsyncTask<T> {
             if (thrown != null) {
                 onCatch(thrown);
             } else {
-                onFinish(result);
+                try {
+                    onFinish(result);
+                } catch (Exception e) {
+                    onCatch(e);
+                }
             }
         }
 
