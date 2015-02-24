@@ -841,16 +841,17 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
-        currentActionMode = mode;
         // Check what kind of ActionMode this is...
         // If its tag is non-null, it means that the ActionMode is one of ours (History,
         // Saved Pages, or Find In Page). Otherwise, it must be the default WebView text-
         // highlighting ActionMode, in which case we'll invoke the Share adapter!
         if (WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_ALPHA
+                && currentActionMode == null
                 && mode.getTag() == null
                 && textSelectedShareAdapter != null) {
             textSelectedShareAdapter.onTextSelected(mode);
         }
+        currentActionMode = mode;
         super.onSupportActionModeStarted(mode);
     }
 

@@ -23,6 +23,10 @@ public class NoTextSelectedShareAdapter extends ShareHandler {
         if (curPageFragment == null) {
             return;
         }
+
+        createFunnel();
+        getFunnel().logShareTap(null);
+
         shareSnippet(getFirstParagraphText(curPageFragment), true);
     }
 

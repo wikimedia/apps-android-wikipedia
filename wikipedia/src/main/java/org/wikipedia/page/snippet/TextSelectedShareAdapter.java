@@ -7,16 +7,12 @@ import android.support.v7.view.ActionMode;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageProperties;
 
 /**
  * Allows sharing selected text in the WebView.
  */
 public class TextSelectedShareAdapter extends ShareHandler {
-    private final WikipediaApp app;
     private ActionMode webViewActionMode;
     private ClipboardManager clipboard;
     private ClipboardManager.OnPrimaryClipChangedListener clipChangedListener;
@@ -27,7 +23,6 @@ public class TextSelectedShareAdapter extends ShareHandler {
     @TargetApi(11)
     public TextSelectedShareAdapter(PageActivity parentActivity) {
         super(parentActivity);
-        app = (WikipediaApp) parentActivity.getApplicationContext();
         clipboard = (ClipboardManager) parentActivity.getSystemService(Context.CLIPBOARD_SERVICE);
         // add our clipboard listener, so that we'll get an event when the text
         // is copied onto it...
@@ -43,8 +38,9 @@ public class TextSelectedShareAdapter extends ShareHandler {
                                                          .coerceToText(getActivity());
                     Log.d("Share", ">>> Clipboard text: " + selectedText);
 
-                    // Pass the clipboard text to a new Share handler!
+                    // Share the clipboard text!
                     shareSnippet(selectedText, false);
+                    getFunnel().logShareTap(selectedText.toString());
                 }
             }
         };
@@ -115,10 +111,7 @@ public class TextSelectedShareAdapter extends ShareHandler {
             }
         });
 
-        final Page page = getActivity().getCurPageFragment().getPage();
-        final PageProperties pageProperties = page.getPageProperties();
-        setFunnel(new ShareAFactFunnel(app, page.getTitle(), pageProperties.getPageId(),
-                pageProperties.getRevisionId()));
+        createFunnel();
         getFunnel().logHighlight();
     }
 }

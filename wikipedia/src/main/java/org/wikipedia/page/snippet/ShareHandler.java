@@ -8,10 +8,15 @@ import android.widget.ImageView;
 
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.BottomDialog;
+import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.util.ShareUtils;
+
+import static org.wikipedia.page.snippet.ShareAFactFunnel.ShareMode;
 
 /**
  * Let user choose between sharing as text or as image.
@@ -29,8 +34,12 @@ public class ShareHandler {
         return funnel;
     }
 
-    protected void setFunnel(ShareAFactFunnel funnel) {
-        this.funnel = funnel;
+    protected void createFunnel() {
+        WikipediaApp app = (WikipediaApp) getActivity().getApplicationContext();
+        final Page page = getActivity().getCurPageFragment().getPage();
+        final PageProperties pageProperties = page.getPageProperties();
+        funnel = new ShareAFactFunnel(app, page.getTitle(), pageProperties.getPageId(),
+                pageProperties.getRevisionId());
     }
 
     public ShareHandler(PageActivity activity) {
@@ -44,6 +53,7 @@ public class ShareHandler {
         }
     }
 
+    /** Call #setFunnel before #shareSnippet. */
     public void shareSnippet(CharSequence input, boolean preferUrl) {
         final PageViewFragmentInternal curPageFragment = activity.getCurPageFragment();
         if (curPageFragment == null) {
@@ -89,6 +99,8 @@ public class ShareHandler {
  * "Share as image", "Share as text".
  */
 class PreviewDialog extends BottomDialog {
+    private boolean completed = false;
+
     public PreviewDialog(final PageActivity activity, final Bitmap resultBitmap,
                          final String title, final String introText, final String selectedText,
                          final String alternativeText, final ShareAFactFunnel funnel) {
@@ -101,9 +113,8 @@ class PreviewDialog extends BottomDialog {
                     public void onClick(View v) {
                         ShareUtils.shareImage(activity, resultBitmap, "*/*",
                                 title, title, introText, false);
-                        if (funnel != null) {
-                            funnel.logShareIntent(selectedText);
-                        }
+                        funnel.logShareIntent(selectedText, ShareMode.image);
+                        completed = true;
                     }
                 });
         getDialogLayout().findViewById(R.id.share_as_text_button)
@@ -111,12 +122,17 @@ class PreviewDialog extends BottomDialog {
                     @Override
                     public void onClick(View v) {
                         ShareUtils.shareText(activity, title, alternativeText);
+                        funnel.logShareIntent(alternativeText, ShareMode.text);
+                        completed = true;
                     }
                 });
         setOnDismissListener(new OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
                 resultBitmap.recycle();
+                if (!completed) {
+                    funnel.logAbandoned(alternativeText);
+                }
             }
         });
     }
