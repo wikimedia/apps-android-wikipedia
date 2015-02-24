@@ -1,6 +1,7 @@
 package org.wikipedia.page.bottomcontent;
 
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -191,7 +192,7 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
     public void beginLayout() {
         setupAttribution();
         if (parentFragment.getPage().couldHaveReadMoreSection()) {
-            requestReadMoreItems(activity.getLayoutInflater());
+            preRequestReadMoreItems(activity.getLayoutInflater());
         } else {
             bottomContentContainer.findViewById(R.id.read_more_container).setVisibility(View.GONE);
             layoutContent();
@@ -259,19 +260,46 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
         }
     }
 
-    private void requestReadMoreItems(final LayoutInflater layoutInflater) {
-        new SuggestionsTask(app.getAPIForSite(pageTitle.getSite()), pageTitle.getSite(),
-                pageTitle.getPrefixedText()) {
+    private void preRequestReadMoreItems(final LayoutInflater layoutInflater) {
+        if (parentFragment.getPage().isMainPage()) {
+            new MainPageReadMoreTopicTask(activity) {
+                @Override
+                public void onFinish(PageTitle myTitle) {
+                    requestReadMoreItems(layoutInflater, myTitle);
+                }
+
+                @Override
+                public void onCatch(Throwable caught) {
+                    // Read More titles are expendable.
+                    Log.w(TAG, "Error while getting Read More topic for main page.", caught);
+                    // but lay out the bottom content anyway:
+                    layoutContent();
+                }
+            }.execute();
+        } else {
+            requestReadMoreItems(layoutInflater, pageTitle);
+        }
+    }
+
+    private void requestReadMoreItems(final LayoutInflater layoutInflater,
+                                      final PageTitle myTitle) {
+        if (myTitle == null || TextUtils.isEmpty(myTitle.getPrefixedText())) {
+            hideReadMore();
+            layoutContent();
+            return;
+        }
+        new SuggestionsTask(app.getAPIForSite(myTitle.getSite()), myTitle.getSite(),
+                myTitle.getPrefixedText()) {
             @Override
             public void onFinish(SearchResults results) {
                 readMoreItems = results;
                 if (!readMoreItems.getPageTitles().isEmpty()) {
                     // If there are results, set up section and make sure it's visible
                     setupReadMoreSection(layoutInflater, readMoreItems);
-                    readMoreContainer.setVisibility(View.VISIBLE);
+                    showReadMore();
                 } else {
                     // If there's no results, just hide the section
-                    readMoreContainer.setVisibility(View.GONE);
+                    hideReadMore();
                 }
                 layoutContent();
             }
@@ -284,6 +312,14 @@ public class BottomContentHandler implements ObservableWebView.OnScrollChangeLis
                 layoutContent();
             }
         }.execute();
+    }
+
+    private void hideReadMore() {
+        readMoreContainer.setVisibility(View.GONE);
+    }
+
+    private void showReadMore() {
+        readMoreContainer.setVisibility(View.VISIBLE);
     }
 
     public PageTitle getTitle() {
