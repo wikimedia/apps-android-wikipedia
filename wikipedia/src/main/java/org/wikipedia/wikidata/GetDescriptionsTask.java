@@ -36,7 +36,8 @@ public class GetDescriptionsTask extends PageQueryTask<Void> {
             final JSONArray array = terms.optJSONArray("description");
             if (array != null && array.length() > 0) {
                 for (PageTitle title : titles) {
-                    if (title.getPrefixedText().equals(pageTitle.getPrefixedText())) {
+                    if (title.getPrefixedText().equals(pageTitle.getPrefixedText())
+                            || title.getDisplayText().equals(pageTitle.getDisplayText())) {
                         title.setDescription(Utils.capitalizeFirstChar(array.getString(0)));
                         break;
                     }

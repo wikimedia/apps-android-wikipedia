@@ -99,6 +99,7 @@ public class Site implements Parcelable {
      */
     public PageTitle titleForInternalLink(String internalLink) {
         // FIXME: Handle language variant links properly
+        // Strip the /wiki/ from the href
         return new PageTitle(internalLink.replaceFirst("/wiki/", ""), this);
     }
 
