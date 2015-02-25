@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Wikipedia</string>
     <string name="app_name_beta">Wikipedia Beta</string>
     <string name="app_name_alpha">Wikipedia Alpha</string>
@@ -12,7 +12,6 @@
     <string name="acra_report_dialog_comment">What were you doing when the crash happened?</string>
 
     <string name="search_hint">Search Wikipedia</string>
-    <string name="history_activity_title">History</string>
     <string name="nav_item_history">History</string>
     <string name="error_network_error">There is no network connection :(</string>
     <string name="search_network_error">Network error. Tap to try again.</string>
@@ -24,28 +23,23 @@
     <string name="nav_item_today">Today</string>
 
     <string name="dialog_title_clear_history">Clear browsing history?</string>
-    <string name="saved_pages_activity_title">Saved pages</string>
     <string name="nav_item_saved_pages">Saved pages</string>
     <string name="menu_update_all_saved_pages">Update saved pages</string>
     <string name="menu_update_selected_saved_pages">Update saved pages</string>
     <string name="dialog_prompt_refresh_all_saved_pages">Update all saved pages?</string>
-    <string name="toast_saved_page_refreshed">Saved pages updated</string>
     <string name="menu_save_page">Save page</string>
     <string name="menu_share_page">Share</string>
     <string name="share_via">Share via</string>
     <string name="dialog_title_clear_saved_pages">Clear all saved pages?</string>
-    <string name="dialog_message_clear_saved_pages">Are you sure you want to clear all saved pages?</string>
     <string name="toast_saving_page">Saving page...</string>
     <string name="toast_saved_page">Page saved successfully</string>
     <string name="toast_saved_page_missing_images">Could not save all images</string>
-    <string name="toast_save_page_failed">Saving page failed :(</string>
     <string name="toast_refresh_saved_page">Refreshing saved page...</string>
     <string name="delete_selected_saved_pages">Delete</string>
     <string name="toast_saved_page_deleted">Saved page(s) deleted</string>
     <string name="saved_pages_search_list_hint">Search</string>
     <string name="saved_pages_search_empty_message">No pages found matching your query.</string>
 
-    <string name="nearby_activity_title">Nearby</string>
     <string name="nav_item_nearby">Nearby</string>
     <string name="menu_update_nearby">Update nearby</string>
     <string name="nearby_empty_title">No nearby pages here!</string>
@@ -56,7 +50,6 @@
     <string name="nearby_distance_in_miles">%.2f mi</string>
     <string name="nearby_no_network">No network connection</string>
     <string name="nearby_server_error">Could not get list of nearby places.</string>
-    <string name="nearby_no_location">Not able to get location</string>
     <string name="nearby_dialog_goto_settings">Location updates are not enabled on your device. Would you like to go to your device\'s settings to enable Location updates?</string>
     <string name="nearby_set_metric">Show meters/km</string>
     <string name="nearby_set_imperial">Show feet/miles</string>
@@ -67,14 +60,12 @@
     <string name="edit_save_action_license_logged_in"><![CDATA[By saving, you agree to the <a href="https://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a>, and to irrevocably release your contributions under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> license.]]></string>
     <string name="edit_save_action_license_anon"><![CDATA[By saving, you agree to the <a href="https://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a>, and to irrevocably release your contributions under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> license. Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
     <string name="preference_title_language">Wikipedia language</string>
-    <string name="preference_summary_language">Content language</string>
     <string name="preference_languages_filter_hint">Search</string>
     <string name="langlinks_filter_hint">Search</string>
     <string name="menu_other_languages">Read in other languages</string>
     <string name="langlinks_error_retry">Retry</string>
     <string name="langlinks_empty">This page is not available in other languages.</string>
     <string name="langlinks_no_match">No languages found matching your query.</string>
-    <string name="settings_activity_title">Settings</string>
     <string name="langlinks_activity_title">Other languages</string>
     <string name="menu_save_changes">Save changes</string>
     <string name="edit_section_error_retry">Retry</string>
@@ -107,7 +98,6 @@
     <string name="login_error_throttled"><![CDATA[Too many login attempts. Wait for a few minutes and try again.]]></string>
     <string name="login_error_unknown">Login failed :(</string>
     <string name="login_error_no_network">No network connection</string>
-    <string name="nav_item_logout">Log out</string>
     <string name="preference_title_logout">Log out</string>
     <string name="preference_summary_logout">Log out of your Wikipedia account</string>
     <string name="preference_summary_notloggedin">Not logged in.</string>
@@ -122,11 +112,9 @@
     <string name="skip">Skip</string>
     <string name="create_account_username_hint">Username</string>
     <string name="create_account_password_hint">Password</string>
-    <string name="menu_create_account">Create account</string>
     <string name="login_create_account_link">Don\'t have an account? Join Wikipedia</string>
     <string name="create_account_login_link">Already have an account? Log in</string>
     <string name="create_account_activity_title">Create an account</string>
-    <string name="edit_section_activity_title">Edit section</string>
     <string name="dialog_create_account_checking_progress">Verifying</string>
     <string name="create_account_email_hint">Email (Optional)</string>
     <string name="create_account_password_repeat_hint">Repeat password</string>
@@ -161,24 +149,12 @@
     <string name="zero_learn_more">Data charges are waived for this Wikipedia app.</string>
     <string name="zero_learn_more_learn_more">Read more</string>
     <string name="zero_learn_more_dismiss">Dismiss</string>
-    <string name="zero_settings">Settings</string>
-    <string name="zero_settings_devmode">Zero Devmode</string>
-    <string name="zero_settings_devmode_summary">During development this enables code execution of Wikipedia Zero things.</string>
     <string name="edit_preview_fetching_dialog_message">Fetching preview...</string>
-    <string name="create_account_logging_in">Logging in...</string>
     <string name="send_feedback">Send app feedback</string>
-    <string name="edit_summary_guide_text">Tell us how you improved this page. This helps other editors review your edit quickly.</string>
-    <string name="edit_summary_hint">Edit summary</string>
     <string name="nav_item_random">Random</string>
-    <string name="random_progress">Fetching random page...</string>
     <string name="create_account_account_created_toast">Account created!</string>
     <string name="user_contribs_more_action">Load more</string>
     <string name="activity_my_contributions_title">My Contributions</string>
-    <string name="nav_item_my_contributions">My contributions</string>
-    <string name="edit_save_action_login">Log in and save</string>
-    <string name="edit_save_action_ip">Save anonymously</string>
-    <string name="edit_save_action_login_description">Your edits will be publicly attributed to your username and other editors can connect with you better</string>
-    <string name="edit_save_action_ip_description">Your edits will be publicly attributed to your IP address, which changes frequently</string>
     <string name="preference_title_eventlogging_opt_in">Send usage reports</string>
     <string name="preference_summary_eventlogging_opt_in">Allow Wikimedia to collect information about how you use the app to make the app better</string>
     <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
@@ -197,14 +173,12 @@
     <string name="terms_of_use_description">Terms of use</string>
     <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_Policy</string>
     <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
-    <string name="preference_title_version">Version</string>
     <string name="about_libraries_heading">libraries used</string>
     <string name="about_contributors_heading">contributors</string>
     <string name="about_translators_heading">translators</string>
     <string name="about_translators_translatewiki"><![CDATA[This app was translated by the volunteer translators at <a href="https://translatewiki.net">translatewiki.net</a>.]]></string>
     <string name="about_wmf"><![CDATA[A product of the <a href="http://wikimediafoundation.org/wiki/Home">Wikimedia Foundation</a>]]></string>
     <string name="about_activity_title">About</string>
-    <string name="edit_unchanged">The page has not been modified.</string>
     <string name="edit_abandon_confirm">The page has been modified. Are you sure you want to exit without saving your changes?</string>
     <string name="user_blocked_from_editing_title">Blocked</string>
     <string name="user_logged_in_blocked_from_editing" type="id">Your user account has been blocked from editing on this wiki.</string>
@@ -221,7 +195,6 @@
     <string name="find_in_page">Find in page</string>
     <string name="find_next">Find next</string>
     <string name="find_previous">Find previous</string>
-    <string name="find_close">Close find bar</string>
     <string name="error_network_error_try_again">Could not reach the network, please try again.</string>
     <string name="saved_pages_update_all_error_retry">Retry</string>
     <string name="saved_pages_update_all_error_message">Error updating saved pages</string>
@@ -241,12 +214,8 @@
     <string name="color_theme_light">Light</string>
     <string name="color_theme_dark">Dark</string>
     <string name="page_similar_titles">Similar pages</string>
-    <string name="search_within_pages">Search within pages…</string>
     <string name="search_no_results">No results found for \"%s\".</string>
     <string name="search_did_you_mean">Did you mean \"%s\"?</string>
-    <string name="search_results_title">Search results</string>
-    <string name="search_error_retry">Retry</string>
-    <string name="search_redirect_title">Redirect from \"%s\".</string>
     <string name="search_recent_header">Recent searches:</string>
     <string name="button_clear_all_recent_searches">Clear recent searches</string>
     <string name="clear_recent_searches_confirm">Are you sure you want to clear your search history?</string>
@@ -260,7 +229,7 @@
     <string name="widget_title_featured_page">Today\'s featured page:</string>
     <string name="widget_name_search">Wikipedia search</string>
 
-    <string name="app_store_description">Official Wikipedia App for Android. Wikipedia is the free encyclopedia containing more than 32 million articles in 280 languages, and is the most comprehensive and widely used reference work humans have ever compiled.
+    <string name="app_store_description" tools:ignore="PluralsCandidate,UnusedResources">Official Wikipedia App for Android. Wikipedia is the free encyclopedia containing more than 32 million articles in 280 languages, and is the most comprehensive and widely used reference work humans have ever compiled.
 
 Features:
 - Lead images: experience Wikipedia like never before with a prominent, contextually-relevant image and description at the top of articles

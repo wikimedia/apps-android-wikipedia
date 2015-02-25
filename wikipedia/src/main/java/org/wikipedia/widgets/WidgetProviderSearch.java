@@ -38,5 +38,4 @@ public class WidgetProviderSearch extends AppWidgetProvider {
             appWidgetManager.updateAppWidget(widgetId, remoteViews);
         }
     }
-
 }
