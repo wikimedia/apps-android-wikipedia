@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="border">#60888888</color>
     <color name="nav_background">#ff0C0C0C</color>
     <color name="nav_text">#ffffffff</color>
     <color name="nav_item_highlight">#ff404040</color>
@@ -18,14 +17,11 @@
     <color name="white_progressive_dark">#fff0f0f0</color>
     <color name="onboarding_background">#ffebebf1</color>
     <color name="onboarding_skip_gray">#ff696969</color>
-    <color name="reference_background">#0C0C0C</color>
     <color name="reference_text">#929497</color>
     <color name="issues_subtext">#555</color>
     <color name="gray_background">#ff606060</color>
     <color name="gray_disabled">#80606060</color>
     <color name="gray_highlight">#ff808080</color>
-    <color name="announcement_background">#0C0C0C</color>
-    <color name="announcement_text">#AAAAAA</color>
     <color name="page_info_heading">#555555</color>
 
     <color name="link_light">#ff347BFF</color>
@@ -60,7 +56,6 @@
 
     <color name="list_item_highlight">#a033b5e5</color>
     <color name="list_item_selected">#d033b5e5</color>
-    <color name="lead_text_background">#80000000</color>
     <color name="lead_text_color">#fff0f0f0</color>
     <color name="lead_text_shadow">#80000000</color>
     <color name="lead_disabled_text_light">#ff000000</color>
@@ -77,7 +72,5 @@
     <color name="widget_content_text">#ff303030</color>
 
     <!-- Copied for 2.3 -->
-    <color name="holo_green_light">#ff99cc00</color>
     <color name="holo_red_dark">#ffcc0000</color>
-    <color name="primary_text_holo_light">#ff000000</color>
 </resources>
