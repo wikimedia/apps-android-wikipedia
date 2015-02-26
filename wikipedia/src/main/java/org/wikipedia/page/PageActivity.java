@@ -815,17 +815,21 @@ public class PageActivity extends ThemedActionBarActivity {
         if (themeChooser != null && themeChooser.isShowing()) {
             themeChooser.dismiss();
         }
-        if (textSelectedShareAdapter != null) {
-            textSelectedShareAdapter.onStop();
-        }
-        noTextSelectedShareAdapter.onStop();
-
         app.getSessionFunnel().persistSession();
 
         super.onStop();
         bus.unregister(busMethods);
         bus = null;
         Log.d("Wikipedia", "Deregistering bus");
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (textSelectedShareAdapter != null) {
+            textSelectedShareAdapter.onDestroy();
+        }
+        noTextSelectedShareAdapter.onDestroy();
+        super.onDestroy();
     }
 
     /**

@@ -37,7 +37,7 @@ public class ShareHandler {
         this.activity = activity;
     }
 
-    public void onStop() {
+    public void onDestroy() {
         if (shareDialog != null) {
             shareDialog.dismiss();
             shareDialog = null;

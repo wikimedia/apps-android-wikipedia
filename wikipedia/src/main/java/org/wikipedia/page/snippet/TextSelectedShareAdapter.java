@@ -53,9 +53,9 @@ public class TextSelectedShareAdapter extends ShareHandler {
 
     @Override
     @TargetApi(11)
-    public void onStop() {
+    public void onDestroy() {
         clipboard.removePrimaryClipChangedListener(clipChangedListener);
-        super.onStop();
+        super.onDestroy();
     }
 
     /**
