@@ -59,15 +59,17 @@
             android:gravity="center_vertical">
             <ImageView
                 android:id="@+id/gallery_license_icon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:padding="5dp"
+                android:background="@drawable/selectable_item_background"
                 android:contentDescription="@null"/>
             <TextView
                 android:id="@+id/gallery_credit_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
                 android:textColor="@color/gallery_license_text"
                 android:textColorLink="@color/gallery_license_text"
                 android:ellipsize="end"
