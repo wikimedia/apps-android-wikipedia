@@ -27,10 +27,10 @@
   <string name="menu_share_page">Sebarkan</string>
   <string name="share_via">Sebarkan melalui</string>
   <string name="dialog_title_clear_saved_pages">Padamkan semua laman tersimpan?</string>
-  <string name="toast_saving_page">Menyimpan laman...</string>
+  <string name="toast_saving_page">Menyimpan laman…</string>
   <string name="toast_saved_page">Laman disimpan</string>
   <string name="toast_saved_page_missing_images">Semua gambar tidak dapat disimpan</string>
-  <string name="toast_refresh_saved_page">Memuat semula laman tersimpan...</string>
+  <string name="toast_refresh_saved_page">Memuat semula laman tersimpan…</string>
   <string name="delete_selected_saved_pages">Hapuskan</string>
   <string name="toast_saved_page_deleted">Laman tersimpan dihapuskan</string>
   <string name="saved_pages_search_list_hint">Cari</string>
@@ -62,7 +62,7 @@
   <string name="langlinks_activity_title">Bahasa lain:</string>
   <string name="menu_save_changes">Simpan perubahan</string>
   <string name="edit_section_error_retry">Cuba lagi</string>
-  <string name="dialog_saving_in_progress">Menyimpan...</string>
+  <string name="dialog_saving_in_progress">Menyimpan…</string>
   <string name="edit_saved_successfully">Suntingan disimpan!</string>
   <string name="dialog_message_edit_failed">Suntingan gagal disimpan!</string>
   <string name="dialog_message_edit_failed_retry">Cuba lagi</string>
@@ -83,7 +83,7 @@
   <string name="login_password_show_check">Paparkan kata laluan</string>
   <string name="menu_login">Log masuk</string>
   <string name="login_activity_title">Log masuk ke dalam Wikipedia</string>
-  <string name="login_in_progress_dialog_message">Sedang log masuk...</string>
+  <string name="login_in_progress_dialog_message">Sedang log masuk…</string>
   <string name="login_error_wrong_password">Kata laluan tidak betul</string>
   <string name="login_error_wrong_username">Nama pengguna tidak betul</string>
   <string name="login_success_toast">Berjaya Log Masuk!</string>
@@ -141,7 +141,7 @@
   <string name="zero_learn_more">Caj data akan dikecualikan bagi aplikasi Wikipedia ini.</string>
   <string name="zero_learn_more_learn_more">Baca lagi</string>
   <string name="zero_learn_more_dismiss">Singkir</string>
-  <string name="edit_preview_fetching_dialog_message">Mengolah pralihat...</string>
+  <string name="edit_preview_fetching_dialog_message">Mengolah pralihat…</string>
   <string name="send_feedback">Hantar maklum balas aplikasi</string>
   <string name="nav_item_random">Rawak</string>
   <string name="create_account_account_created_toast">Akaun dicipta!</string>

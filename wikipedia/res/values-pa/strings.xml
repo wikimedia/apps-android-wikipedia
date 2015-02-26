@@ -27,10 +27,10 @@
   <string name="menu_share_page">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="share_via">ਸਾਂਝੀਕਰਨ</string>
   <string name="dialog_title_clear_saved_pages">ਕੀ ਸੱਭ ਸੰਭਾਲੇ ਗਏ ਵਰਕੇ ਸਾਫ ਕਰਨੇ ਹਨ?</string>
-  <string name="toast_saving_page">... ਵਰਕਾ ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ</string>
+  <string name="toast_saving_page">… ਵਰਕਾ ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ</string>
   <string name="toast_saved_page">ਵਰਕਾ ਸਫਲਤਾਪੂਰਵਕ ਸੰਭਾਲਿਆ ਗਿਆ</string>
   <string name="toast_saved_page_missing_images">ਸਾਰੀਆਂ ਤਸਵੀਰਾਂ ਸੰਭਾਲੀਆਂ ਨਹੀਂ ਗਈਆਂ</string>
-  <string name="toast_refresh_saved_page">ਸਾਂਭਿਆ ਵਰਕਾ ਮੁੜ-ਤਾਜ਼ਾ ਹੋ ਰਿਹਾ ਹੈ...</string>
+  <string name="toast_refresh_saved_page">ਸਾਂਭਿਆ ਵਰਕਾ ਮੁੜ-ਤਾਜ਼ਾ ਹੋ ਰਿਹਾ ਹੈ…</string>
   <string name="delete_selected_saved_pages">ਮਿਟਾਉ</string>
   <string name="toast_saved_page_deleted">ਸਾਂਭਿਆ ਵਰਕਾ(ਕੇ) ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="saved_pages_search_list_hint">ਖੋਜ</string>
@@ -62,7 +62,7 @@
   <string name="langlinks_activity_title">ਹੋਰ ਬੋਲੀਆਂ</string>
   <string name="menu_save_changes">ਤਬਦੀਲੀਆਂ ਸਾਂਭੋ</string>
   <string name="edit_section_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
-  <string name="dialog_saving_in_progress">ਸਾਂਭਿਆ ਜਾ ਰਿਹਾ ਹੈ...</string>
+  <string name="dialog_saving_in_progress">ਸਾਂਭਿਆ ਜਾ ਰਿਹਾ ਹੈ…</string>
   <string name="edit_saved_successfully">ਸੋਧ ਸਾਂਭੀ ਗਈ!</string>
   <string name="dialog_message_edit_failed">ਸੋਧ ਅਸਫਲ ਹੋਈ!</string>
   <string name="dialog_message_edit_failed_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
@@ -80,7 +80,7 @@
   <string name="login_password_show_check">ਪਛਾਣ-ਸ਼ਬਦ ਵਿਖਾਉ</string>
   <string name="menu_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="login_activity_title">ਵਿਕੀਪੀਡੀਆ \'ਚ ਦਾਖ਼ਲ ਹੋਵੋ</string>
-  <string name="login_in_progress_dialog_message">ਦਾਖ਼ਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...</string>
+  <string name="login_in_progress_dialog_message">ਦਾਖ਼ਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…</string>
   <string name="login_error_wrong_password">ਗ਼ਲਤ ਪਛਾਣ-ਸ਼ਬਦ</string>
   <string name="login_error_wrong_username">ਗ਼ਲਤ ਵਰਤੋਂਕਾਰ-ਨਾਂ</string>
   <string name="login_success_toast">ਦਾਖ਼ਲਾ ਕਾਮਯਾਬ!</string>
@@ -137,7 +137,7 @@
   <string name="zero_learn_more">ਇਸ ਵਿਕੀਪੀਡੀਆ ਐਪ ਵਾਸਤੇ ਸਮੱਗਰੀ ਦਾ ਖ਼ਰਚਾ ਮਾਫ਼ ਹੈ।</string>
   <string name="zero_learn_more_learn_more">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="zero_learn_more_dismiss">ਖ਼ਾਰਜ ਕਰੋ</string>
-  <string name="edit_preview_fetching_dialog_message">ਝਾਤ ਲਿਆਈ ਜਾ ਰਹੀ ਹੈ...</string>
+  <string name="edit_preview_fetching_dialog_message">ਝਾਤ ਲਿਆਈ ਜਾ ਰਹੀ ਹੈ…</string>
   <string name="send_feedback">ਐਪ ਬਾਬਤ ਜਾਣਕਾਰੀ ਵਾਪਸ ਘੱਲੋ</string>
   <string name="nav_item_random">ਰਲ਼ਵਾਂ</string>
   <string name="create_account_account_created_toast">ਖਾਤਾ ਬਣਿਆ!</string>

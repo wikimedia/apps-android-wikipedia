@@ -30,10 +30,10 @@
     <string name="menu_share_page">Share</string>
     <string name="share_via">Share via</string>
     <string name="dialog_title_clear_saved_pages">Clear all saved pages?</string>
-    <string name="toast_saving_page">Saving page...</string>
+    <string name="toast_saving_page">Saving page…</string>
     <string name="toast_saved_page">Page saved successfully</string>
     <string name="toast_saved_page_missing_images">Could not save all images</string>
-    <string name="toast_refresh_saved_page">Refreshing saved page...</string>
+    <string name="toast_refresh_saved_page">Refreshing saved page…</string>
     <string name="delete_selected_saved_pages">Delete</string>
     <string name="toast_saved_page_deleted">Saved page(s) deleted</string>
     <string name="saved_pages_search_list_hint">Search</string>
@@ -68,7 +68,7 @@
     <string name="langlinks_activity_title">Other languages</string>
     <string name="menu_save_changes">Save changes</string>
     <string name="edit_section_error_retry">Retry</string>
-    <string name="dialog_saving_in_progress">Saving...</string>
+    <string name="dialog_saving_in_progress">Saving…</string>
     <string name="edit_saved_successfully">Edit saved!</string>
     <string name="dialog_message_edit_failed">Edit failed!</string>
     <string name="dialog_message_edit_failed_retry">Retry</string>
@@ -89,7 +89,7 @@
     <string name="login_password_show_check">Display password</string>
     <string name="menu_login">Log in</string>
     <string name="login_activity_title">Login to Wikipedia</string>
-    <string name="login_in_progress_dialog_message">Logging you in...</string>
+    <string name="login_in_progress_dialog_message">Logging you in…</string>
     <string name="login_error_wrong_password">Incorrect password</string>
     <string name="login_error_wrong_username">Incorrect username</string>
     <string name="login_success_toast">Login Success!</string>
@@ -148,7 +148,7 @@
     <string name="zero_learn_more">Data charges are waived for this Wikipedia app.</string>
     <string name="zero_learn_more_learn_more">Read more</string>
     <string name="zero_learn_more_dismiss">Dismiss</string>
-    <string name="edit_preview_fetching_dialog_message">Fetching preview...</string>
+    <string name="edit_preview_fetching_dialog_message">Fetching preview…</string>
     <string name="send_feedback">Send app feedback</string>
     <string name="nav_item_random">Random</string>
     <string name="create_account_account_created_toast">Account created!</string>

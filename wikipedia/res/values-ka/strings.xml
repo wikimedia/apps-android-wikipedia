@@ -25,10 +25,10 @@
   <string name="menu_share_page">გაზიარება</string>
   <string name="share_via">გაზიარების სახე</string>
   <string name="dialog_title_clear_saved_pages">გასუფთავდეს ყველა შენახული გვერდი?</string>
-  <string name="toast_saving_page">გვერდის შენახვა...</string>
+  <string name="toast_saving_page">გვერდის შენახვა…</string>
   <string name="toast_saved_page">გვერდის წარმატებით შეინახა</string>
   <string name="toast_saved_page_missing_images">შეუძლებელია ყველა სურათის შენახვა</string>
-  <string name="toast_refresh_saved_page">შენახული გვერდების გამოცოცხლება...</string>
+  <string name="toast_refresh_saved_page">შენახული გვერდების გამოცოცხლება…</string>
   <string name="delete_selected_saved_pages">წაშლა</string>
   <string name="toast_saved_page_deleted">შენახული გვერდ(ებ)ი წაიშალა</string>
   <string name="saved_pages_search_list_hint">ძებნა</string>
@@ -61,7 +61,7 @@
   <string name="langlinks_activity_title">სხვა ენები</string>
   <string name="menu_save_changes">ცვლილებების შენახვა</string>
   <string name="edit_section_error_retry">გამეორება</string>
-  <string name="dialog_saving_in_progress">შენახვა...</string>
+  <string name="dialog_saving_in_progress">შენახვა…</string>
   <string name="edit_saved_successfully">ცვლილება შენახულია!</string>
   <string name="dialog_message_edit_failed">ცვლილება ვერ მოხერხდა!</string>
   <string name="dialog_message_edit_failed_retry">გამეორება</string>
@@ -80,7 +80,7 @@
   <string name="login_password_show_check">აჩვენე პაროლი</string>
   <string name="menu_login">შესვლა</string>
   <string name="login_activity_title">ვიკიპედიაში შესვლა</string>
-  <string name="login_in_progress_dialog_message">შედიხართ სისტემაში...</string>
+  <string name="login_in_progress_dialog_message">შედიხართ სისტემაში…</string>
   <string name="login_error_wrong_password">არასწორი პაროლი</string>
   <string name="login_error_wrong_username">არასწორი მომხმარებლის სახელი</string>
   <string name="login_success_toast">შესვლა წარმატებით განხორციელდა!</string>

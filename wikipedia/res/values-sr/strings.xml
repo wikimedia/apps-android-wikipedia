@@ -19,7 +19,7 @@
   <string name="menu_share_page">Дели</string>
   <string name="share_via">Делите преко</string>
   <string name="dialog_title_clear_saved_pages" fuzzy="true">Очисти обележиваче</string>
-  <string name="toast_saving_page" fuzzy="true">Чување обележивача...</string>
+  <string name="toast_saving_page" fuzzy="true">Чување обележивача…</string>
   <string name="toast_saved_page" fuzzy="true">Страница обележена</string>
   <string name="delete_selected_saved_pages">Обриши</string>
   <string name="saved_pages_search_list_hint">Претражи</string>
@@ -37,7 +37,7 @@
   <string name="langlinks_activity_title">Други језици</string>
   <string name="menu_save_changes">Сачувај измене</string>
   <string name="edit_section_error_retry">Пробај опет</string>
-  <string name="dialog_saving_in_progress">Чување...</string>
+  <string name="dialog_saving_in_progress">Чување…</string>
   <string name="edit_saved_successfully">Измена сачувана!</string>
   <string name="dialog_message_edit_failed">Чување није успело!</string>
   <string name="dialog_message_edit_failed_retry">Пробај опет</string>
@@ -51,7 +51,7 @@
   <string name="login_password_show_check">Прикажи лозинку</string>
   <string name="menu_login">Пријави ме</string>
   <string name="login_activity_title">Пријављивање на Википедију</string>
-  <string name="login_in_progress_dialog_message">Пријављивање...</string>
+  <string name="login_in_progress_dialog_message">Пријављивање…</string>
   <string name="login_error_wrong_password">Неисправна лозинка</string>
   <string name="login_error_wrong_username">Корисничко име је погрешно</string>
   <string name="login_success_toast">Успешно сте пријављени!</string>

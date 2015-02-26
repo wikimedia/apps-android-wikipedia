@@ -27,7 +27,7 @@
   <string name="menu_share_page">مشاركة</string>
   <string name="share_via">مشاركة عبر</string>
   <string name="dialog_title_clear_saved_pages">مسح كل الصفحات المحفوظة؟</string>
-  <string name="toast_saving_page">جارٍ حفظ الصفحة...</string>
+  <string name="toast_saving_page">جارٍ حفظ الصفحة…</string>
   <string name="toast_saved_page">تم حفظ الصفحة بنجاح</string>
   <string name="toast_saved_page_missing_images">تعذّر حفظ جميع الصور</string>
   <string name="toast_refresh_saved_page">جارٍ تحديث الصفحة المحفوظة</string>
@@ -62,7 +62,7 @@
   <string name="langlinks_activity_title">لغات أخرى</string>
   <string name="menu_save_changes">حفظ التغييرات</string>
   <string name="edit_section_error_retry">إعادة المحاولة</string>
-  <string name="dialog_saving_in_progress">جارٍ الحفظ...</string>
+  <string name="dialog_saving_in_progress">جارٍ الحفظ…</string>
   <string name="edit_saved_successfully">تم حفظ التعديل!</string>
   <string name="dialog_message_edit_failed">فشل التعديل!</string>
   <string name="dialog_message_edit_failed_retry">إعادة المحاولة</string>
@@ -83,7 +83,7 @@
   <string name="login_password_show_check">عرض كلمة السر</string>
   <string name="menu_login">تسجيل الدخول</string>
   <string name="login_activity_title">الدخول إلى ويكيبيديا</string>
-  <string name="login_in_progress_dialog_message">جارٍ تسجيل دخولك...</string>
+  <string name="login_in_progress_dialog_message">جارٍ تسجيل دخولك…</string>
   <string name="login_error_wrong_password">كلمة السر غير صحيحة</string>
   <string name="login_error_wrong_username">اسم المستخدم غير صحيح</string>
   <string name="login_success_toast">تم تسجيل الدخول بنجاح!</string>
@@ -108,7 +108,7 @@
   <string name="login_create_account_link">ليس لديك حساب؟ انضم إلى ويكيبيديا</string>
   <string name="create_account_login_link">لديك حساب؟ سجل دخولك</string>
   <string name="create_account_activity_title">إنشاء حساب</string>
-  <string name="dialog_create_account_checking_progress">جارٍ التحقق...</string>
+  <string name="dialog_create_account_checking_progress">جارٍ التحقق…</string>
   <string name="create_account_email_hint">البريد الإلكتروني (اختياري)</string>
   <string name="create_account_password_repeat_hint">أعد كلمة السر</string>
   <string name="create_account_passwords_mismatch_error">كلمتا السر لا تتطابقان</string>
@@ -141,7 +141,7 @@
   <string name="zero_learn_more">تم التنازل عن رسوم البيانات لهذا التطبيق الخاص بويكيبيديا.</string>
   <string name="zero_learn_more_learn_more">اقرأ المزيد</string>
   <string name="zero_learn_more_dismiss">تجاهل</string>
-  <string name="edit_preview_fetching_dialog_message">جارٍ جلب المعاينة...</string>
+  <string name="edit_preview_fetching_dialog_message">جارٍ جلب المعاينة…</string>
   <string name="send_feedback">إرسال الملاحظات على التطبيق</string>
   <string name="nav_item_random">عشوائي</string>
   <string name="create_account_account_created_toast">تم إنشاء الحساب!</string>

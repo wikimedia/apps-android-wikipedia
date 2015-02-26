@@ -27,10 +27,10 @@
   <string name="menu_share_page">分享</string>
   <string name="share_via">透過……分享</string>
   <string name="dialog_title_clear_saved_pages">清除所有已儲存頁面？</string>
-  <string name="toast_saving_page">儲存頁面中...</string>
+  <string name="toast_saving_page">儲存頁面中…</string>
   <string name="toast_saved_page">已儲存頁面</string>
   <string name="toast_saved_page_missing_images">無法儲存所有圖像</string>
-  <string name="toast_refresh_saved_page">重新載入儲存的頁面...</string>
+  <string name="toast_refresh_saved_page">重新載入儲存的頁面…</string>
   <string name="delete_selected_saved_pages">刪除</string>
   <string name="toast_saved_page_deleted">已刪除儲存的頁面</string>
   <string name="saved_pages_search_list_hint">搜尋</string>
@@ -62,7 +62,7 @@
   <string name="langlinks_activity_title">其他語言</string>
   <string name="menu_save_changes">儲存修改</string>
   <string name="edit_section_error_retry">重試</string>
-  <string name="dialog_saving_in_progress">儲存中...</string>
+  <string name="dialog_saving_in_progress">儲存中…</string>
   <string name="edit_saved_successfully">已儲存編輯！</string>
   <string name="dialog_message_edit_failed">編輯失敗 ！</string>
   <string name="dialog_message_edit_failed_retry">重試</string>
@@ -83,7 +83,7 @@
   <string name="login_password_show_check">顯示密碼</string>
   <string name="menu_login">登入</string>
   <string name="login_activity_title">登入至維基百科</string>
-  <string name="login_in_progress_dialog_message">正在登入...</string>
+  <string name="login_in_progress_dialog_message">正在登入…</string>
   <string name="login_error_wrong_password">密碼錯誤。</string>
   <string name="login_error_wrong_username">使用者名稱錯誤</string>
   <string name="login_success_toast">登入成功！</string>
@@ -141,7 +141,7 @@
   <string name="zero_learn_more">此維基百科應用程式可免除資料費用。</string>
   <string name="zero_learn_more_learn_more">閱讀更多</string>
   <string name="zero_learn_more_dismiss">取消</string>
-  <string name="edit_preview_fetching_dialog_message">正在取得預覽...</string>
+  <string name="edit_preview_fetching_dialog_message">正在取得預覽…</string>
   <string name="send_feedback">傳送應用程式回饋</string>
   <string name="nav_item_random">隨機條目</string>
   <string name="create_account_account_created_toast">已建立帳號</string>

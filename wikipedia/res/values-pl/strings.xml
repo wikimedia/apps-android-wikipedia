@@ -27,10 +27,10 @@
   <string name="menu_share_page">Udostępnij</string>
   <string name="share_via">Udostępnij przez</string>
   <string name="dialog_title_clear_saved_pages">Wyczyścić zapisane strony?</string>
-  <string name="toast_saving_page">Zapisywanie strony...</string>
+  <string name="toast_saving_page">Zapisywanie strony…</string>
   <string name="toast_saved_page">Strona została zapisana</string>
   <string name="toast_saved_page_missing_images">Nie można zapisać wszystkich obrazów</string>
-  <string name="toast_refresh_saved_page">Odświeżanie zapisanych stron...</string>
+  <string name="toast_refresh_saved_page">Odświeżanie zapisanych stron…</string>
   <string name="delete_selected_saved_pages">Usuń</string>
   <string name="toast_saved_page_deleted">Usunięto zapisane strony</string>
   <string name="saved_pages_search_list_hint">Szukaj</string>
@@ -56,7 +56,7 @@
   <string name="langlinks_activity_title">Inne języki</string>
   <string name="menu_save_changes">Zapisz zmiany</string>
   <string name="edit_section_error_retry">Ponów próbę</string>
-  <string name="dialog_saving_in_progress">Zapisywanie...</string>
+  <string name="dialog_saving_in_progress">Zapisywanie…</string>
   <string name="edit_saved_successfully">Edycja została zapisana!</string>
   <string name="dialog_message_edit_failed">Edycja nie powiodła się!</string>
   <string name="dialog_message_edit_failed_retry">Ponów próbę</string>
@@ -77,7 +77,7 @@
   <string name="login_password_show_check">Wyświetl hasło</string>
   <string name="menu_login">Zaloguj się</string>
   <string name="login_activity_title">Logowanie do Wikipedii</string>
-  <string name="login_in_progress_dialog_message">Logowanie...</string>
+  <string name="login_in_progress_dialog_message">Logowanie…</string>
   <string name="login_error_wrong_password">Nieprawidłowe hasło</string>
   <string name="login_error_wrong_username">Nieprawidłowa nazwa użytkownika</string>
   <string name="login_success_toast">Zalogowano pomyślnie!</string>
@@ -135,7 +135,7 @@
   <string name="zero_learn_more">W ramach tej aplikacji Wikipedii nie są pobierane opłaty za transmisję danych.</string>
   <string name="zero_learn_more_learn_more">Czytaj więcej</string>
   <string name="zero_learn_more_dismiss">Odrzuć</string>
-  <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu...</string>
+  <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu…</string>
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
   <string name="nav_item_random">Losowa strona</string>
   <string name="create_account_account_created_toast">Konto zostało utworzone!</string>

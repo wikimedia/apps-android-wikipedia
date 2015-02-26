@@ -27,10 +27,10 @@
   <string name="menu_share_page">Deelen</string>
   <string name="share_via">Deelen iwwer</string>
   <string name="dialog_title_clear_saved_pages">All gespäichert Säite läschen?</string>
-  <string name="toast_saving_page">Säit späicheren...</string>
+  <string name="toast_saving_page">Säit späicheren…</string>
   <string name="toast_saved_page">Säit gespäichert</string>
   <string name="toast_saved_page_missing_images">Net all Biller konnte gespäichert ginn</string>
-  <string name="toast_refresh_saved_page">Gespäichert Säit gëtt aktualiséiert...</string>
+  <string name="toast_refresh_saved_page">Gespäichert Säit gëtt aktualiséiert…</string>
   <string name="delete_selected_saved_pages">Läschen</string>
   <string name="toast_saved_page_deleted">Gespäichert Säit(e) geläscht</string>
   <string name="saved_pages_search_list_hint">Sichen</string>
@@ -60,7 +60,7 @@
   <string name="langlinks_activity_title">Aner Sproochen</string>
   <string name="menu_save_changes">Ännerunge späicheren</string>
   <string name="edit_section_error_retry">Nach eng Kéier probéieren</string>
-  <string name="dialog_saving_in_progress">Späicheren...</string>
+  <string name="dialog_saving_in_progress">Späicheren…</string>
   <string name="edit_saved_successfully">Ännerung gespäichert!</string>
   <string name="dialog_message_edit_failed">Feeler beim Änneren!</string>
   <string name="dialog_message_edit_failed_retry">Nach eng Kéier probéieren</string>
@@ -81,7 +81,7 @@
   <string name="login_password_show_check">Passwuert weisen</string>
   <string name="menu_login">Aloggen</string>
   <string name="login_activity_title">Op Wikipedia aloggen</string>
-  <string name="login_in_progress_dialog_message">Dir gitt ageloggt...</string>
+  <string name="login_in_progress_dialog_message">Dir gitt ageloggt…</string>
   <string name="login_error_wrong_password">Falscht Passwuert</string>
   <string name="login_error_wrong_username">Falsche Benotzernumm</string>
   <string name="login_success_toast">Dir sidd elo ageloggt!</string>
@@ -138,7 +138,7 @@
   <string name="zero_learn_more">D\'Taxe fir d\'Iwwerdroe vun Donnéeë gi fir dës Wikipedia App net verrechent.</string>
   <string name="zero_learn_more_learn_more">Liest méi</string>
   <string name="zero_learn_more_dismiss">Verwerfen</string>
-  <string name="edit_preview_fetching_dialog_message">Kucken ouni ze späicheren...</string>
+  <string name="edit_preview_fetching_dialog_message">Kucken ouni ze späicheren…</string>
   <string name="send_feedback">Feedback vun der App schécken</string>
   <string name="nav_item_random">Zoufall</string>
   <string name="create_account_account_created_toast">Benotzerkont ugeluecht!</string>

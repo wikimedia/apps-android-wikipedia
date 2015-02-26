@@ -24,12 +24,12 @@
   <string name="dialog_prompt_refresh_all_saved_pages">បន្ទាន់សម័យទំព័រដែលបានរក្សាទុកទាំងអស់ឬ?</string>
   <string name="menu_save_page">រក្សា​ទុក​ទំព័រ</string>
   <string name="menu_share_page">ចែក​រំលែក</string>
-  <string name="share_via">ចែក​រំលែក​តាម...</string>
+  <string name="share_via">ចែក​រំលែក​តាម…</string>
   <string name="dialog_title_clear_saved_pages">សម្អាត​ទំព័រ​ដែល​បាន​រក្សា​ទុកទាំងអស់ឬ?</string>
-  <string name="toast_saving_page">កំពុង​រក្សា​ទុក​ទំព័រ...</string>
+  <string name="toast_saving_page">កំពុង​រក្សា​ទុក​ទំព័រ…</string>
   <string name="toast_saved_page">បាន​រក្សា​ទំព័របានសម្រេច</string>
   <string name="toast_saved_page_missing_images">មិនអាចរក្សាទុករូបភាពទាំងអស់</string>
-  <string name="toast_refresh_saved_page">កំពុងផ្ទុកទំព័រដែលបានរក្សាទុកជាថ្មី...</string>
+  <string name="toast_refresh_saved_page">កំពុងផ្ទុកទំព័រដែលបានរក្សាទុកជាថ្មី…</string>
   <string name="delete_selected_saved_pages">លុប</string>
   <string name="toast_saved_page_deleted">បាន​លុប​ទំព័រ​ដែល​បាន​រក្សា​ទុក</string>
   <string name="saved_pages_search_list_hint">ស្វែងរក</string>
@@ -59,7 +59,7 @@
   <string name="langlinks_activity_title">ភាសា​ដទៃ​ទៀត</string>
   <string name="menu_save_changes">រក្សាទុកបន្លាស់ប្ដូរ</string>
   <string name="edit_section_error_retry">ព្យាយាមម្ដងទៀត</string>
-  <string name="dialog_saving_in_progress">កំពុង​រក្សា​ទុក...</string>
+  <string name="dialog_saving_in_progress">កំពុង​រក្សា​ទុក…</string>
   <string name="edit_saved_successfully">បាន​រក្សា​ទុក​ការ​កែ​ប្រែ!</string>
   <string name="dialog_message_edit_failed">កែប្រែ​បាន​បរាជ័យ!</string>
   <string name="dialog_message_edit_failed_retry">ព្យាយាមម្ដងទៀត</string>
@@ -74,7 +74,7 @@
   <string name="login_password_show_check">បង្ហាញ​ពាក្យ​សម្ងាត់</string>
   <string name="menu_login">ចូល</string>
   <string name="login_activity_title">ចូល​ទៅ​វិគីភីឌា</string>
-  <string name="login_in_progress_dialog_message">កំពុង​នាំ​អ្នក​ចូល...</string>
+  <string name="login_in_progress_dialog_message">កំពុង​នាំ​អ្នក​ចូល…</string>
   <string name="login_error_wrong_password">ពាក្យ​សម្ងាត់​ខុស</string>
   <string name="login_error_wrong_username">ឈ្មោះ​អ្នក​ប្រើ​ខុស</string>
   <string name="login_success_toast">ចូល​បាន​សម្រេច!</string>

@@ -27,10 +27,10 @@
   <string name="menu_share_page">シェア</string>
   <string name="share_via">シェアする</string>
   <string name="dialog_title_clear_saved_pages">保存したページをすべて消去しますか?</string>
-  <string name="toast_saving_page">ページを保存中...</string>
+  <string name="toast_saving_page">ページを保存中…</string>
   <string name="toast_saved_page">ページを保存しました</string>
   <string name="toast_saved_page_missing_images">一部の画像を保存できませんでした</string>
-  <string name="toast_refresh_saved_page">保存したページを更新しています...</string>
+  <string name="toast_refresh_saved_page">保存したページを更新しています…</string>
   <string name="delete_selected_saved_pages">削除</string>
   <string name="toast_saved_page_deleted">保存したページを削除しました</string>
   <string name="saved_pages_search_list_hint">検索</string>
@@ -63,7 +63,7 @@
   <string name="langlinks_activity_title">他の言語</string>
   <string name="menu_save_changes">変更を保存</string>
   <string name="edit_section_error_retry">再試行</string>
-  <string name="dialog_saving_in_progress">保存中...</string>
+  <string name="dialog_saving_in_progress">保存中…</string>
   <string name="edit_saved_successfully">保存しました!</string>
   <string name="dialog_message_edit_failed">編集の保存に失敗しました!</string>
   <string name="dialog_message_edit_failed_retry">再試行</string>
@@ -84,7 +84,7 @@
   <string name="login_password_show_check">パスワードを表示</string>
   <string name="menu_login">ログイン</string>
   <string name="login_activity_title">ウィキペディアへのログイン</string>
-  <string name="login_in_progress_dialog_message">ログイン中...</string>
+  <string name="login_in_progress_dialog_message">ログイン中…</string>
   <string name="login_error_wrong_password">パスワードが違います</string>
   <string name="login_error_wrong_username">利用者名が正しくありません</string>
   <string name="login_success_toast">ログインしました!</string>
@@ -142,7 +142,7 @@
   <string name="zero_learn_more">このウィキペディアアプリではデータ料金が免除されます</string>
   <string name="zero_learn_more_learn_more">続きを読む</string>
   <string name="zero_learn_more_dismiss">非表示</string>
-  <string name="edit_preview_fetching_dialog_message">プレビューを取得中...</string>
+  <string name="edit_preview_fetching_dialog_message">プレビューを取得中…</string>
   <string name="send_feedback">フィードバックを送る</string>
   <string name="nav_item_random">おまかせ表示</string>
   <string name="create_account_account_created_toast">アカウントを作成しました</string>

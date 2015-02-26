@@ -27,10 +27,10 @@
   <string name="menu_share_page">শেয়ার</string>
   <string name="share_via">শেয়ার</string>
   <string name="dialog_title_clear_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার?</string>
-  <string name="toast_saving_page">পাতা সংরক্ষণ হচ্ছে...</string>
+  <string name="toast_saving_page">পাতা সংরক্ষণ হচ্ছে…</string>
   <string name="toast_saved_page">পাতা সফলভাবে সংরক্ষিত হয়েছে</string>
   <string name="toast_saved_page_missing_images">সকল চিত্র সংরক্ষণ সম্ভব হয়নি</string>
-  <string name="toast_refresh_saved_page">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে...</string>
+  <string name="toast_refresh_saved_page">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে…</string>
   <string name="delete_selected_saved_pages">অপসারণ</string>
   <string name="toast_saved_page_deleted">সংরক্ষিত পাতা(সমূহ) অপসারণ করা হয়েছে</string>
   <string name="saved_pages_search_list_hint">অনুসন্ধান</string>
@@ -63,7 +63,7 @@
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
   <string name="menu_save_changes">পরিবর্তন সংরক্ষণ</string>
   <string name="edit_section_error_retry">পুনঃচেষ্টা</string>
-  <string name="dialog_saving_in_progress">সংরক্ষণ করা হচ্ছে ...</string>
+  <string name="dialog_saving_in_progress">সংরক্ষণ করা হচ্ছে …</string>
   <string name="edit_saved_successfully">সম্পাদনা সংরক্ষিত হয়েছে!</string>
   <string name="dialog_message_edit_failed">সম্পাদনা সংরক্ষণ ব্যর্থ!</string>
   <string name="dialog_message_edit_failed_retry">পুনঃচেষ্টা করুন</string>
@@ -84,7 +84,7 @@
   <string name="login_password_show_check">পাসওয়ার্ড দেখাও</string>
   <string name="menu_login">প্রবেশ</string>
   <string name="login_activity_title">উইকিপিডিয়াতে প্রবেশ</string>
-  <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন...</string>
+  <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন…</string>
   <string name="login_error_wrong_password">ভুল পাসওয়ার্ড</string>
   <string name="login_error_wrong_username">ভুল ব্যবহারকারী নাম</string>
   <string name="login_success_toast">প্রবেশ সফল!</string>
@@ -141,7 +141,7 @@
   <string name="zero_learn_more">এই উইকিপিডিয়া অ্যাপের জন্য ডাটা চার্জ প্রযোজ্য নয়।</string>
   <string name="zero_learn_more_learn_more">আরও জানুন</string>
   <string name="zero_learn_more_dismiss">খারিজ</string>
-  <string name="edit_preview_fetching_dialog_message">প্রাকদর্শন আনা হচ্ছে...</string>
+  <string name="edit_preview_fetching_dialog_message">প্রাকদর্শন আনা হচ্ছে…</string>
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
   <string name="nav_item_random">অজানা পাতা</string>
   <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>

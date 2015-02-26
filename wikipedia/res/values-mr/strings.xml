@@ -23,10 +23,10 @@
   <string name="menu_share_page">वाटप करा</string>
   <string name="share_via">याद्वारे वाटप करा</string>
   <string name="dialog_title_clear_saved_pages">साठवलेलीली पाने काढून टाकायची का?</string>
-  <string name="toast_saving_page">पान जतन होत आहे...</string>
+  <string name="toast_saving_page">पान जतन होत आहे…</string>
   <string name="toast_saved_page">पान यशस्वीपणे जतन झाले</string>
   <string name="toast_saved_page_missing_images">सर्व चित्रे जतन होऊ शकले नाही</string>
-  <string name="toast_refresh_saved_page">साठवलेले पान अद्ययावत होत आहे...</string>
+  <string name="toast_refresh_saved_page">साठवलेले पान अद्ययावत होत आहे…</string>
   <string name="delete_selected_saved_pages">वगळा</string>
   <string name="toast_saved_page_deleted">साठवलेले पान(ने) वगळली</string>
   <string name="saved_pages_search_list_hint">शोध</string>
@@ -45,7 +45,7 @@
   <string name="langlinks_activity_title">इतर भाषा</string>
   <string name="menu_save_changes">बदल जतन करा</string>
   <string name="edit_section_error_retry">पुन्हा प्रयत्न करा</string>
-  <string name="dialog_saving_in_progress">जतन करीत आहे...</string>
+  <string name="dialog_saving_in_progress">जतन करीत आहे…</string>
   <string name="edit_saved_successfully">संपादन जतन झाले!</string>
   <string name="dialog_message_edit_failed">संपादन होऊ शकले नाही!</string>
   <string name="dialog_message_edit_failed_retry">पुन्हा प्रयत्न करा</string>
@@ -57,7 +57,7 @@
   <string name="login_password_show_check">पासवर्ड दाखवा</string>
   <string name="menu_login">सनोंद-प्रवेश करा</string>
   <string name="login_activity_title">विकिपीडिया मध्ये सनोंद-प्रवेश करा</string>
-  <string name="login_in_progress_dialog_message">तुमचा प्रवेश नोंदवत आहे...</string>
+  <string name="login_in_progress_dialog_message">तुमचा प्रवेश नोंदवत आहे…</string>
   <string name="login_error_wrong_password">चुकीचे पासवर्ड</string>
   <string name="login_error_wrong_username">चुकीचे सदस्यनाव</string>
   <string name="login_success_toast">सनोंद प्रवेश यशस्वी!</string>
@@ -96,7 +96,7 @@
   <string name="zero_interstitial_cancel">इथेच रहा</string>
   <string name="zero_learn_more_learn_more">अधिक वाचा</string>
   <string name="zero_learn_more_dismiss">रद्द करा</string>
-  <string name="edit_preview_fetching_dialog_message">झलक दाखवत आहे...</string>
+  <string name="edit_preview_fetching_dialog_message">झलक दाखवत आहे…</string>
   <string name="send_feedback">प्रतिक्रिया पाठवा</string>
   <string name="nav_item_random">अविशिष्ट</string>
   <string name="create_account_account_created_toast">खाते उघडले!</string>

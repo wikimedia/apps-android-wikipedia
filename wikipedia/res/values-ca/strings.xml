@@ -25,7 +25,7 @@
   <string name="dialog_prompt_refresh_all_saved_pages">¿Actualitzar totes les pàgines desades?</string>
   <string name="menu_save_page">Desa la pàgina</string>
   <string name="menu_share_page">Compartir</string>
-  <string name="share_via">Compartir mitjançant...</string>
+  <string name="share_via">Compartir mitjançant…</string>
   <string name="dialog_title_clear_saved_pages">Esborrar totes les pàgines desades?</string>
   <string name="toast_saving_page">S\'està desant la pàgina…</string>
   <string name="toast_saved_page">Pàgina desada correctament</string>
@@ -142,7 +142,7 @@
   <string name="zero_learn_more">No es cobra per l\'ús de dades per aquesta aplicació de la Viquipèdia.</string>
   <string name="zero_learn_more_learn_more">Més informació</string>
   <string name="zero_learn_more_dismiss">Descarta</string>
-  <string name="edit_preview_fetching_dialog_message">Obtenint de la previsualització...</string>
+  <string name="edit_preview_fetching_dialog_message">Obtenint de la previsualització…</string>
   <string name="send_feedback">Envia comentaris de l\'aplicació</string>
   <string name="nav_item_random">A l\'atzar</string>
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>

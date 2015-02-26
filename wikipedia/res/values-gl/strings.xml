@@ -25,12 +25,12 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Quere actualizar as páxinas gardadas?</string>
   <string name="menu_save_page">Gardar a páxina</string>
   <string name="menu_share_page">Compartir</string>
-  <string name="share_via">Compartir a través de...</string>
+  <string name="share_via">Compartir a través de…</string>
   <string name="dialog_title_clear_saved_pages">Quere limpar as páxinas gardadas?</string>
-  <string name="toast_saving_page">Gardando a páxina...</string>
+  <string name="toast_saving_page">Gardando a páxina…</string>
   <string name="toast_saved_page">Páxina gardada correctamente</string>
   <string name="toast_saved_page_missing_images">Non foi posible gardar todas as imaxes</string>
-  <string name="toast_refresh_saved_page">Recargando a páxina gardada...</string>
+  <string name="toast_refresh_saved_page">Recargando a páxina gardada…</string>
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="toast_saved_page_deleted">Páxina(s) gardada(s) eliminada(s)</string>
   <string name="saved_pages_search_list_hint">Procurar</string>
@@ -62,7 +62,7 @@
   <string name="langlinks_activity_title">Outras linguas</string>
   <string name="menu_save_changes">Gardar os cambios</string>
   <string name="edit_section_error_retry">Reintentar</string>
-  <string name="dialog_saving_in_progress">Gardando...</string>
+  <string name="dialog_saving_in_progress">Gardando…</string>
   <string name="edit_saved_successfully">Gardouse a edición!</string>
   <string name="dialog_message_edit_failed">Fallou a edición!</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>
@@ -83,7 +83,7 @@
   <string name="login_password_show_check">Mostrar o contrasinal</string>
   <string name="menu_login">Acceder ao sistema</string>
   <string name="login_activity_title">Acceder á Wikipedia</string>
-  <string name="login_in_progress_dialog_message">Accedendo ao sistema...</string>
+  <string name="login_in_progress_dialog_message">Accedendo ao sistema…</string>
   <string name="login_error_wrong_password">O contrasinal é incorrecto</string>
   <string name="login_error_wrong_username">O nome de usuario é incorrecto</string>
   <string name="login_success_toast">Accedeu correctamente!</string>
@@ -141,7 +141,7 @@
   <string name="zero_learn_more">Esta aplicación da Wikipedia está exenta de cargos por uso de datos.</string>
   <string name="zero_learn_more_learn_more">Máis información</string>
   <string name="zero_learn_more_dismiss">Agochar</string>
-  <string name="edit_preview_fetching_dialog_message">Procesando a vista previa...</string>
+  <string name="edit_preview_fetching_dialog_message">Procesando a vista previa…</string>
   <string name="send_feedback">Enviar comentarios sobre a aplicación</string>
   <string name="nav_item_random">Ao chou</string>
   <string name="create_account_account_created_toast">Conta creada!</string>

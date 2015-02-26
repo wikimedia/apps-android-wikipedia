@@ -25,10 +25,10 @@
   <string name="menu_share_page">Jaga</string>
   <string name="share_via">Vali jagamisviis:</string>
   <string name="dialog_title_clear_saved_pages">Tühjenda kõik salvestatud leheküljed?</string>
-  <string name="toast_saving_page">Lehe salvestamine...</string>
+  <string name="toast_saving_page">Lehe salvestamine…</string>
   <string name="toast_saved_page">Leht edukalt salvestatud!</string>
   <string name="toast_saved_page_missing_images">Kõiki pilte ei olnud võimalik salvestada!</string>
-  <string name="toast_refresh_saved_page">Salvestatud lehe uuendamine...</string>
+  <string name="toast_refresh_saved_page">Salvestatud lehe uuendamine…</string>
   <string name="delete_selected_saved_pages">Kustuta</string>
   <string name="toast_saved_page_deleted">Salvestatud leht/lehed kustutatud</string>
   <string name="last_updated_text">Viimati uuendatud %s</string>
@@ -42,7 +42,7 @@
   <string name="langlinks_activity_title">Teised keeled</string>
   <string name="menu_save_changes">Salvesta muudatused</string>
   <string name="edit_section_error_retry">Proovi uuesti</string>
-  <string name="dialog_saving_in_progress">Salvestamine...</string>
+  <string name="dialog_saving_in_progress">Salvestamine…</string>
   <string name="edit_saved_successfully">Muudatus(ed) salvestatud!</string>
   <string name="dialog_message_edit_failed">Muudatus ebaõnnestus!</string>
   <string name="dialog_message_edit_failed_retry">Proovi uuesti</string>
@@ -60,7 +60,7 @@
   <string name="login_password_show_check">Kuva parool</string>
   <string name="menu_login">Logi sisse</string>
   <string name="login_activity_title">Logi Vikipeediasse</string>
-  <string name="login_in_progress_dialog_message">Sisselogimine...</string>
+  <string name="login_in_progress_dialog_message">Sisselogimine…</string>
   <string name="login_error_wrong_password">Vale parool</string>
   <string name="login_error_wrong_username">Vale kasutajanimi</string>
   <string name="login_success_toast">Sisselogimine õnnestus</string>
@@ -106,7 +106,7 @@
   <string name="zero_learn_more">Sellele Vikipeedia rakendusele ei rakendu andmesidetasud.</string>
   <string name="zero_learn_more_learn_more">Loe edasi</string>
   <string name="zero_learn_more_dismiss">Hülga</string>
-  <string name="edit_preview_fetching_dialog_message">Eelvaate laadimine...</string>
+  <string name="edit_preview_fetching_dialog_message">Eelvaate laadimine…</string>
   <string name="send_feedback">Saada tagasisidet rakenduse kohta</string>
   <string name="nav_item_random">Juhuslik</string>
   <string name="create_account_account_created_toast">Konto loodud!</string>

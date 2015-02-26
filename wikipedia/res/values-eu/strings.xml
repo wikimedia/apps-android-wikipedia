@@ -23,7 +23,7 @@
   <string name="menu_save_page">Gorde orrialdea</string>
   <string name="menu_share_page">Partekatu</string>
   <string name="dialog_title_clear_saved_pages">Gordetako orrialde guztiak garbitu?</string>
-  <string name="toast_saving_page">Orrialdea gordetzen...</string>
+  <string name="toast_saving_page">Orrialdea gordetzen…</string>
   <string name="toast_saved_page_missing_images">Ezin izan dira irudi guztiak gorde</string>
   <string name="delete_selected_saved_pages">Ezabatu</string>
   <string name="toast_saved_page_deleted">Gordetako orrialdea(k) ezabatu d(ir)a</string>
@@ -44,7 +44,7 @@
   <string name="langlinks_activity_title">Beste hizkuntzak</string>
   <string name="menu_save_changes">Aldaketak gorde</string>
   <string name="edit_section_error_retry">Saiatu berriro</string>
-  <string name="dialog_saving_in_progress">Gordetzen...</string>
+  <string name="dialog_saving_in_progress">Gordetzen…</string>
   <string name="dialog_message_edit_failed_retry">Saiatu berriro</string>
   <string name="dialog_message_edit_failed_cancel">Utzi</string>
   <string name="dialog_message_leaving_edit_leave">Irten</string>

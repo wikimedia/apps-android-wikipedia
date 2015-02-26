@@ -27,10 +27,10 @@
   <string name="menu_share_page">പങ്ക് വെയ്ക്കുക</string>
   <string name="share_via">ഇതുവഴി പങ്ക് വെയ്ക്കുക</string>
   <string name="dialog_title_clear_saved_pages">സേവ് ചെയ്ത എല്ലാ താളുകളും ഒഴിവാക്കണോ?</string>
-  <string name="toast_saving_page">താൾ സേവ് ചെയ്യുന്നു...</string>
+  <string name="toast_saving_page">താൾ സേവ് ചെയ്യുന്നു…</string>
   <string name="toast_saved_page">താൾ സേവ് ചെയ്തു</string>
   <string name="toast_saved_page_missing_images">എല്ലാ ചിത്രങ്ങളും സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല</string>
-  <string name="toast_refresh_saved_page">സേവ് ചെയ്ത് താൾ പുതുക്കുന്നു...</string>
+  <string name="toast_refresh_saved_page">സേവ് ചെയ്ത് താൾ പുതുക്കുന്നു…</string>
   <string name="delete_selected_saved_pages">മായ്ക്കുക</string>
   <string name="toast_saved_page_deleted">സേവ് ചെയ്ത താൾ (താളുകൾ) മായ്ച്ചു</string>
   <string name="saved_pages_search_list_hint">തിരയുക</string>
@@ -46,7 +46,7 @@
   <string name="langlinks_activity_title">മറ്റു ഭാഷകൾ</string>
   <string name="menu_save_changes">മാറ്റങ്ങൾ സേവ് ചെയ്യുക</string>
   <string name="edit_section_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
-  <string name="dialog_saving_in_progress">സേവ് ചെയ്യുന്നു...</string>
+  <string name="dialog_saving_in_progress">സേവ് ചെയ്യുന്നു…</string>
   <string name="edit_saved_successfully">തിരുത്ത് സേവ് ചെയ്തിരിക്കുന്നു!</string>
   <string name="dialog_message_edit_failed">തിരുത്ത് പരാജയപ്പെട്ടു!</string>
   <string name="dialog_message_edit_failed_retry">വീണ്ടും ശ്രമിക്കുക</string>
@@ -64,7 +64,7 @@
   <string name="login_password_show_check">രഹസ്യവാക്ക് പ്രദർശിപ്പിക്കുക</string>
   <string name="menu_login">പ്രവേശിക്കുക</string>
   <string name="login_activity_title">വിക്കിപീഡിയയിൽ പ്രവേശിക്കുക</string>
-  <string name="login_in_progress_dialog_message">താങ്കളെ പ്രവേശിപ്പിക്കുന്നു...</string>
+  <string name="login_in_progress_dialog_message">താങ്കളെ പ്രവേശിപ്പിക്കുന്നു…</string>
   <string name="login_error_wrong_password">തെറ്റായ രഹസ്യവാക്ക്</string>
   <string name="login_error_wrong_username">തെറ്റായ ഉപയോക്തൃനാമം</string>
   <string name="login_success_toast">പ്രവേശനം വിജയകരം!</string>
@@ -110,7 +110,7 @@
   <string name="zero_learn_more">ഈ വിക്കിപീഡിയ ആപിൽ ഡേറ്റാ വിലകൾ നൽകേണ്ടതില്ല.</string>
   <string name="zero_learn_more_learn_more">കൂടുതൽ കാണുക</string>
   <string name="zero_learn_more_dismiss">ഒഴിവാക്കുക</string>
-  <string name="edit_preview_fetching_dialog_message">പ്രിവ്യൂ എടുക്കുന്നു...</string>
+  <string name="edit_preview_fetching_dialog_message">പ്രിവ്യൂ എടുക്കുന്നു…</string>
   <string name="send_feedback">ആപിനെക്കുറിച്ചുള്ള അഭിപ്രായം അറിയിക്കുക</string>
   <string name="nav_item_random">ക്രമരഹിതം</string>
   <string name="create_account_account_created_toast">അംഗത്വം സൃഷ്ടിച്ചിരിക്കുന്നു!</string>

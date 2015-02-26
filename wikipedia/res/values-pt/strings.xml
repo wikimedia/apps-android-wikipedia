@@ -27,10 +27,10 @@
   <string name="menu_share_page">Partilhar</string>
   <string name="share_via">Partilhar via</string>
   <string name="dialog_title_clear_saved_pages">Limpar todas as páginas guardadas?</string>
-  <string name="toast_saving_page">A guardar página...</string>
+  <string name="toast_saving_page">A guardar página…</string>
   <string name="toast_saved_page">Página guardada com êxito</string>
   <string name="toast_saved_page_missing_images">Não foi possível salvar todas as imagens</string>
-  <string name="toast_refresh_saved_page">A recarregar página guardada...</string>
+  <string name="toast_refresh_saved_page">A recarregar página guardada…</string>
   <string name="delete_selected_saved_pages">Eliminar</string>
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
   <string name="saved_pages_search_list_hint">Pesquisar</string>
@@ -63,7 +63,7 @@
   <string name="langlinks_activity_title">Outros idiomas</string>
   <string name="menu_save_changes">Gravar alterações</string>
   <string name="edit_section_error_retry">Tente novamente</string>
-  <string name="dialog_saving_in_progress">A gravar...</string>
+  <string name="dialog_saving_in_progress">A gravar…</string>
   <string name="edit_saved_successfully">Edição gravada!</string>
   <string name="dialog_message_edit_failed">A edição falhou!</string>
   <string name="dialog_message_edit_failed_retry">Tente novamente</string>
@@ -84,7 +84,7 @@
   <string name="login_password_show_check">Mostrar palavra-passe</string>
   <string name="menu_login">Entrar</string>
   <string name="login_activity_title">Iniciar sessão na Wikipédia</string>
-  <string name="login_in_progress_dialog_message">A iniciar sessão...</string>
+  <string name="login_in_progress_dialog_message">A iniciar sessão…</string>
   <string name="login_error_wrong_password">Palavra-passe incorreta</string>
   <string name="login_error_wrong_username">Nome de utilizador(a) incorreto</string>
   <string name="login_success_toast">Autenticação bem sucedida!</string>
@@ -142,7 +142,7 @@
   <string name="zero_learn_more">Não serão cobradas taxas de dados para esta aplicação da Wikipédia.</string>
   <string name="zero_learn_more_learn_more">Ler mais</string>
   <string name="zero_learn_more_dismiss">Ignorar</string>
-  <string name="edit_preview_fetching_dialog_message">A processar pré-visualização...</string>
+  <string name="edit_preview_fetching_dialog_message">A processar pré-visualização…</string>
   <string name="send_feedback">Enviar comentários sobre a aplicação</string>
   <string name="nav_item_random">Aleatório</string>
   <string name="create_account_account_created_toast">Conta criada!</string>

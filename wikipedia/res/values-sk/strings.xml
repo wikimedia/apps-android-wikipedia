@@ -27,10 +27,10 @@
   <string name="menu_share_page">Zdieľať</string>
   <string name="share_via">Zdieľať cez</string>
   <string name="dialog_title_clear_saved_pages">Vymazať všetky uložené stránky?</string>
-  <string name="toast_saving_page">Ukladanie stránky...</string>
+  <string name="toast_saving_page">Ukladanie stránky…</string>
   <string name="toast_saved_page">Stránka bola úspešne uložená</string>
   <string name="toast_saved_page_missing_images">Nepodarilo sa uložiť všetky obrázky</string>
-  <string name="toast_refresh_saved_page">Aktualizácia uloženej stránky ...</string>
+  <string name="toast_refresh_saved_page">Aktualizácia uloženej stránky …</string>
   <string name="delete_selected_saved_pages">Zmazať</string>
   <string name="toast_saved_page_deleted">Uložené stránky boli odstránené</string>
   <string name="saved_pages_search_list_hint">Hľadať</string>
@@ -62,7 +62,7 @@
   <string name="langlinks_activity_title">Iné jazyky</string>
   <string name="menu_save_changes">Uložiť zmeny</string>
   <string name="edit_section_error_retry">Obnoviť</string>
-  <string name="dialog_saving_in_progress">Ukladanie...</string>
+  <string name="dialog_saving_in_progress">Ukladanie…</string>
   <string name="edit_saved_successfully">Úprava uložená</string>
   <string name="dialog_message_edit_failed">Úprava zlyhala!</string>
   <string name="dialog_message_edit_failed_retry">Znova</string>
@@ -83,7 +83,7 @@
   <string name="login_password_show_check">Zobraziť heslo</string>
   <string name="menu_login">Prihlásiť sa</string>
   <string name="login_activity_title">Prihlásiť sa na Wikipédiu</string>
-  <string name="login_in_progress_dialog_message">Prihlasujem...</string>
+  <string name="login_in_progress_dialog_message">Prihlasujem…</string>
   <string name="login_error_wrong_password">Nesprávne heslo</string>
   <string name="login_error_wrong_username">Nesprávne používateľské meno</string>
   <string name="login_success_toast">Prihlásenie bolo úspešné!</string>
@@ -141,7 +141,7 @@
   <string name="zero_learn_more">Táto aplikácia je oslobodená od poplatkov za prenos dát.</string>
   <string name="zero_learn_more_learn_more">Ďalšie informácie</string>
   <string name="zero_learn_more_dismiss">Zrušiť</string>
-  <string name="edit_preview_fetching_dialog_message">Generujem náhľad...</string>
+  <string name="edit_preview_fetching_dialog_message">Generujem náhľad…</string>
   <string name="send_feedback">Odoslať spätnú väzbu</string>
   <string name="nav_item_random">Náhodný článok</string>
   <string name="create_account_account_created_toast">Účet bol vytvorený!</string>

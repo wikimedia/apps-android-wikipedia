@@ -27,10 +27,10 @@
   <string name="menu_share_page">Compartir</string>
   <string name="share_via">Compartir mediante</string>
   <string name="dialog_title_clear_saved_pages">¿Borrar todas las páginas guardadas?</string>
-  <string name="toast_saving_page">Guardando página...</string>
+  <string name="toast_saving_page">Guardando página…</string>
   <string name="toast_saved_page">Página guardada correctamente</string>
   <string name="toast_saved_page_missing_images">No se pueden guardar todas las imágenes</string>
-  <string name="toast_refresh_saved_page">Actualizando la página guardada...</string>
+  <string name="toast_refresh_saved_page">Actualizando la página guardada…</string>
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
   <string name="saved_pages_search_list_hint">Buscar</string>
@@ -63,7 +63,7 @@
   <string name="langlinks_activity_title">Otros idiomas</string>
   <string name="menu_save_changes">Guardar cambios</string>
   <string name="edit_section_error_retry">Reintentar</string>
-  <string name="dialog_saving_in_progress">Guardando...</string>
+  <string name="dialog_saving_in_progress">Guardando…</string>
   <string name="edit_saved_successfully">Se ha guardado la edición.</string>
   <string name="dialog_message_edit_failed">¡Error de edición!</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>

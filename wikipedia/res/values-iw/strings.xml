@@ -27,10 +27,10 @@
   <string name="menu_share_page">שיתוף</string>
   <string name="share_via">שיתוף דרך</string>
   <string name="dialog_title_clear_saved_pages">לנקות את כל הדפים השמורים?</string>
-  <string name="toast_saving_page">שמירת דף...</string>
+  <string name="toast_saving_page">שמירת דף…</string>
   <string name="toast_saved_page">הדף נשמר בהצלחה</string>
   <string name="toast_saved_page_missing_images">לא היה אפשר לשמור את כל התמונות</string>
-  <string name="toast_refresh_saved_page">רענון הדף השמור...</string>
+  <string name="toast_refresh_saved_page">רענון הדף השמור…</string>
   <string name="delete_selected_saved_pages">מחיקה</string>
   <string name="toast_saved_page_deleted">הדפים השמורים נמחקו</string>
   <string name="saved_pages_search_list_hint">חיפוש</string>
@@ -63,7 +63,7 @@
   <string name="langlinks_activity_title">שפות אחרות</string>
   <string name="menu_save_changes">שמירת השינויים</string>
   <string name="edit_section_error_retry">לנסות שוב</string>
-  <string name="dialog_saving_in_progress">שמירה...</string>
+  <string name="dialog_saving_in_progress">שמירה…</string>
   <string name="edit_saved_successfully">העריכה נשמרה!</string>
   <string name="dialog_message_edit_failed">העריכה נכשלה!</string>
   <string name="dialog_message_edit_failed_retry">לנסות שוב</string>
@@ -84,7 +84,7 @@
   <string name="login_password_show_check">להציג את הססמה</string>
   <string name="menu_login">כניסה לחשבון</string>
   <string name="login_activity_title">כניסה לוויקיפדיה</string>
-  <string name="login_in_progress_dialog_message">אנחנו מכניסים אותך לחשבון...</string>
+  <string name="login_in_progress_dialog_message">אנחנו מכניסים אותך לחשבון…</string>
   <string name="login_error_wrong_password">ססמה שגויה</string>
   <string name="login_error_wrong_username">שם משתמש שגוי</string>
   <string name="login_success_toast">הכניסה לחשבון הצליחה!</string>
@@ -142,7 +142,7 @@
   <string name="zero_learn_more">חיובים על נתונים מזוכים ביישום ויקיפדיה זה.</string>
   <string name="zero_learn_more_learn_more">מידע נוסף</string>
   <string name="zero_learn_more_dismiss">סגירה</string>
-  <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה...</string>
+  <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה…</string>
   <string name="send_feedback">שליחת משוב על היישום</string>
   <string name="nav_item_random">אקראי</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>

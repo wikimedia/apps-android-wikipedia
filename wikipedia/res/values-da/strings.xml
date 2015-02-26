@@ -27,10 +27,10 @@
   <string name="menu_share_page">Del</string>
   <string name="share_via">Del via</string>
   <string name="dialog_title_clear_saved_pages">Ryd alle gemte sider?</string>
-  <string name="toast_saving_page">Gemmer side...</string>
+  <string name="toast_saving_page">Gemmer side…</string>
   <string name="toast_saved_page">Siden er gemt</string>
   <string name="toast_saved_page_missing_images">Kunne ikke gemme alle billeder</string>
-  <string name="toast_refresh_saved_page">Opdaterer gemt side...</string>
+  <string name="toast_refresh_saved_page">Opdaterer gemt side…</string>
   <string name="delete_selected_saved_pages">Slet</string>
   <string name="toast_saved_page_deleted">Gemt(e) side(r) slettet</string>
   <string name="saved_pages_search_list_hint">Søg</string>
@@ -62,7 +62,7 @@
   <string name="langlinks_activity_title">Andre sprog</string>
   <string name="menu_save_changes">Gem ændringer</string>
   <string name="edit_section_error_retry">Prøv igen</string>
-  <string name="dialog_saving_in_progress">Gemmer...</string>
+  <string name="dialog_saving_in_progress">Gemmer…</string>
   <string name="edit_saved_successfully">Redigering gemt!</string>
   <string name="dialog_message_edit_failed">Redigering mislykkedes!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igen</string>
@@ -83,7 +83,7 @@
   <string name="login_password_show_check">Vis adgangskode</string>
   <string name="menu_login">Log på</string>
   <string name="login_activity_title">Log på Wikipedia</string>
-  <string name="login_in_progress_dialog_message">Logger dig på...</string>
+  <string name="login_in_progress_dialog_message">Logger dig på…</string>
   <string name="login_error_wrong_password">Forkert adgangskode.</string>
   <string name="login_error_wrong_username">Forkert brugernavn</string>
   <string name="login_success_toast">Du er nu logget på!</string>

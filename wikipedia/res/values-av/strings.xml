@@ -26,10 +26,10 @@
   <string name="menu_share_page">Рехсезе</string>
   <string name="share_via">Сундалъун рехселе?</string>
   <string name="dialog_title_clear_saved_pages">Киналго цӀунарал гьумерал рацӀцӀилищ?</string>
-  <string name="toast_saving_page">Гьумер цӀуни...</string>
+  <string name="toast_saving_page">Гьумер цӀуни…</string>
   <string name="toast_saved_page">Гьумер цӀунана</string>
   <string name="toast_saved_page_missing_images">Киналго суртал цӀунизе кӀвечӀо</string>
-  <string name="toast_refresh_saved_page">ЦӀунараб гьумер цӀигьаби...</string>
+  <string name="toast_refresh_saved_page">ЦӀунараб гьумер цӀигьаби…</string>
   <string name="delete_selected_saved_pages">БацIцIине</string>
   <string name="toast_saved_page_deleted">ЦӀунун рукӀарал гьумерал рацӀцӀана</string>
   <string name="saved_pages_search_list_hint">ЦIехезе</string>
@@ -44,7 +44,7 @@
   <string name="langlinks_activity_title">Цоги мацӀазда</string>
   <string name="menu_save_changes">Хиса-басиял цIунизе</string>
   <string name="edit_section_error_retry">Такрар гьабизе</string>
-  <string name="dialog_saving_in_progress">ЦӀунула буго...</string>
+  <string name="dialog_saving_in_progress">ЦӀунула буго…</string>
   <string name="edit_saved_successfully">Хиса-баси цӀунана!</string>
   <string name="dialog_message_edit_failed">ЦӀунизе данде ккечӀо!</string>
   <string name="dialog_message_edit_failed_retry">Такрар гьабизе</string>
@@ -58,7 +58,7 @@
   <string name="login_password_show_check">Пароль бихьизабизе</string>
   <string name="menu_login">Жаниве лъугьине</string>
   <string name="login_activity_title">Википедиялда жаниве лъугьине</string>
-  <string name="login_in_progress_dialog_message">Системалда жаниве лъугьи...</string>
+  <string name="login_in_progress_dialog_message">Системалда жаниве лъугьи…</string>
   <string name="login_error_wrong_password">Мекъаб пароль</string>
   <string name="login_error_wrong_username">Мекъаб цӀар</string>
   <string name="login_success_toast">Мун системалда лъана!</string>
@@ -89,7 +89,7 @@
   <string name="zero_interstitial_cancel">Гьанив чӀезе</string>
   <string name="zero_learn_more_learn_more">ЦӀцӀикӀун лъазе</string>
   <string name="zero_learn_more_dismiss">Къазе</string>
-  <string name="edit_preview_fetching_dialog_message">ЦӀуниялда цебе хал-кӀач гьаби...</string>
+  <string name="edit_preview_fetching_dialog_message">ЦӀуниялда цебе хал-кӀач гьаби…</string>
   <string name="send_feedback">Приложение хӀакъалъулъ дурго пикру битӀизе</string>
   <string name="nav_item_random">Цебе ккараб</string>
   <string name="create_account_account_created_toast">Аккаунт гьабуна!</string>

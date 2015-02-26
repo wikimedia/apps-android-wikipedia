@@ -27,10 +27,10 @@
   <string name="menu_share_page">Бөлүшүү</string>
   <string name="share_via">аркылуу бөлүшүү</string>
   <string name="dialog_title_clear_saved_pages">Бардык сакталган барактарды өчүрүү керекпи?</string>
-  <string name="toast_saving_page">Барак сакталууда...</string>
+  <string name="toast_saving_page">Барак сакталууда…</string>
   <string name="toast_saved_page">Барак ийгиликтүү сакталды</string>
   <string name="toast_saved_page_missing_images">Бардык сүрөттөрдү сактоого мүмкүнчүлүк болбоду</string>
-  <string name="toast_refresh_saved_page">Сакталган барак жаңыланууда...</string>
+  <string name="toast_refresh_saved_page">Сакталган барак жаңыланууда…</string>
   <string name="delete_selected_saved_pages">Өчүрүү</string>
   <string name="toast_saved_page_deleted">Сакталган барак(тар) өчүрүлдү</string>
   <string name="saved_pages_search_list_hint">Издөө</string>
@@ -61,7 +61,7 @@
   <string name="langlinks_activity_title">Башка тилдер</string>
   <string name="menu_save_changes">Өзгөртүүлөрдү сактоо</string>
   <string name="edit_section_error_retry">Кайра аракет кылуу</string>
-  <string name="dialog_saving_in_progress">Сакталууда...</string>
+  <string name="dialog_saving_in_progress">Сакталууда…</string>
   <string name="edit_saved_successfully">Оңдоо сакталды!</string>
   <string name="dialog_message_edit_failed">Оңдоо катасы!</string>
   <string name="dialog_message_edit_failed_retry">Кайра аракет кылуу</string>
@@ -79,7 +79,7 @@
   <string name="login_password_show_check">Сырсөздү көрсөтүү</string>
   <string name="menu_login">Кирүү</string>
   <string name="login_activity_title">Уикипедияга кирүү</string>
-  <string name="login_in_progress_dialog_message">Системге кирип жатасыз...</string>
+  <string name="login_in_progress_dialog_message">Системге кирип жатасыз…</string>
   <string name="login_error_wrong_password">Сырсөзүңүз туура эмес</string>
   <string name="login_error_wrong_username">Колдонуучу атыңыз туура эмес</string>
   <string name="login_success_toast">Сиз ийгиликтүү кирдиңиз!</string>
@@ -136,7 +136,7 @@
   <string name="zero_learn_more">Уикипедиянын бул тиркемеси үчүн маалыматтарды жиберүүгө акы алынбайт.</string>
   <string name="zero_learn_more_learn_more">Көбүрөөк окуу</string>
   <string name="zero_learn_more_dismiss">Жабуу</string>
-  <string name="edit_preview_fetching_dialog_message">Алдын ала көрсөтүү даярдалууда...</string>
+  <string name="edit_preview_fetching_dialog_message">Алдын ала көрсөтүү даярдалууда…</string>
   <string name="send_feedback">Тиркемеге өз бааңызды жөнөтүңүз</string>
   <string name="nav_item_random">Тушкелди</string>
   <string name="create_account_account_created_toast">Эсеп жазуусу түзүлдү!</string>
@@ -185,7 +185,7 @@
   <string name="error_network_error_try_again">Тармак жеткиликсиз, кайра аракет кылып көрүңүз.</string>
   <string name="saved_pages_update_all_error_retry">Кайра аракет кылуу</string>
   <string name="saved_pages_update_all_error_message">Сакталган барактарды жаңылоо катасы</string>
-  <string name="saved_pages_progress_title">Сакталган барактар жаңыланууда...</string>
+  <string name="saved_pages_progress_title">Сакталган барактар жаңыланууда…</string>
   <string name="saved_pages_refresh_pages_complete">Жаңылануу аяктады</string>
   <string name="menu_page_saved">Барак сакталды</string>
   <string name="menu_refresh_saved_page">Баракты жаңылоо</string>
