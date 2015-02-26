@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Отправить нам отчёт о сбоях</string>
   <string name="acra_report_dialog_comment">Что вы делали, когда произошёл сбой?</string>
   <string name="search_hint">Поиск по Википедии</string>
-  <string name="history_activity_title">История</string>
   <string name="nav_item_history">История</string>
   <string name="error_network_error">Нет сетевого соединения :(</string>
   <string name="search_network_error">Ошибка сети. Нажмите, чтобы повторить попытку.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Такой страницы не существует.</string>
   <string name="nav_item_today">Сегодня</string>
   <string name="dialog_title_clear_history">Очистить историю?</string>
-  <string name="saved_pages_activity_title">Сохранённые страницы</string>
   <string name="nav_item_saved_pages">Сохранённые страницы</string>
   <string name="menu_update_all_saved_pages">Обновить сохранённые страницы</string>
   <string name="menu_update_selected_saved_pages">Обновить сохранённые страницы</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Обновить все сохранённые страницы?</string>
-  <string name="toast_saved_page_refreshed">Сохранённые страницы обновлены</string>
   <string name="menu_save_page">Сохранить страницу</string>
   <string name="menu_share_page">Поделиться</string>
   <string name="share_via">Поделиться через</string>
   <string name="dialog_title_clear_saved_pages">Очистить все сохранённые страницы?</string>
-  <string name="dialog_message_clear_saved_pages">Вы уверены, что хотите очистить все сохранённые страницы?</string>
   <string name="toast_saving_page">Сохранение страницы…</string>
   <string name="toast_saved_page">Страница успешно сохранена</string>
   <string name="toast_saved_page_missing_images">Не удалось сохранить все изображения</string>
-  <string name="toast_save_page_failed">Не удалось сохранить страницу :(</string>
   <string name="toast_refresh_saved_page">Обновление сохранённой страницы…</string>
   <string name="delete_selected_saved_pages">Удалить</string>
   <string name="toast_saved_page_deleted">Сохранённые страницы удалены</string>
   <string name="saved_pages_search_list_hint">Поиск</string>
   <string name="saved_pages_search_empty_message">Страницы, соответствующие вашему запросу, не найдены.</string>
-  <string name="nearby_activity_title">Поблизости</string>
   <string name="nav_item_nearby">Поблизости</string>
   <string name="menu_update_nearby">Обновление мест поблизости</string>
   <string name="nearby_empty_title">Нет страниц об объектах поблизости!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f миль</string>
   <string name="nearby_no_network">Отсутствует сетевое подключение</string>
   <string name="nearby_server_error">Не удалось получить список мест поблизости.</string>
-  <string name="nearby_no_location">Не удалось определить месторасположение</string>
   <string name="nearby_dialog_goto_settings">Обновление местоположения не включено на вашем устройстве. Вы хотели бы перейти в настройки устройства для включения обновления местоположения?</string>
   <string name="nearby_set_metric">Показать м/км</string>
   <string name="nearby_set_imperial">Показать футы/мили</string>
@@ -61,14 +54,12 @@
   <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru условиями использования\" &gt;&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru условиями использования\"&gt; &lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуетесь&lt;/a&gt;, то сможете иметь более высокий уровень конфиденциальности.</string>
   <string name="preference_title_language">Язык Википедии</string>
-  <string name="preference_summary_language">Язык содержимого</string>
   <string name="preference_languages_filter_hint">Найти</string>
   <string name="langlinks_filter_hint">Поиск</string>
   <string name="menu_other_languages">Читать на других языках</string>
   <string name="langlinks_error_retry">Повторить</string>
   <string name="langlinks_empty">Эта страница недоступна на других языках</string>
   <string name="langlinks_no_match">Языки, соответствующие вашему запросу, не найдены.</string>
-  <string name="settings_activity_title">Настройки</string>
   <string name="langlinks_activity_title">Другие языки</string>
   <string name="menu_save_changes">Сохранить изменения</string>
   <string name="edit_section_error_retry">Повторить</string>
@@ -101,7 +92,6 @@
   <string name="login_error_throttled">Слишком много попыток входа. Подождите несколько минут и попробуйте ещё раз.</string>
   <string name="login_error_unknown">Не удалось войти :(</string>
   <string name="login_error_no_network">Отсутствует сетевое подключение</string>
-  <string name="nav_item_logout">Выйти</string>
   <string name="preference_title_logout">Завершение сеанса</string>
   <string name="preference_summary_logout">Выйти из вашей учётной записи в Википедии</string>
   <string name="preference_summary_notloggedin">Вход не выполнен.</string>
@@ -116,11 +106,9 @@
   <string name="skip">Пропустить</string>
   <string name="create_account_username_hint">Имя участника</string>
   <string name="create_account_password_hint">Пароль</string>
-  <string name="menu_create_account">Создать учётную запись</string>
   <string name="login_create_account_link">У вас нет учётной записи? Присоединитесь к Википедии</string>
   <string name="create_account_login_link">Вы уже зарегистрированы? Войдите</string>
   <string name="create_account_activity_title">Создать учётную запись</string>
-  <string name="edit_section_activity_title">Редактировать раздел</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Адрес электронной почты (необязательно)</string>
   <string name="create_account_password_repeat_hint">Повторите пароль</string>
@@ -154,24 +142,12 @@
   <string name="zero_learn_more">Плата за данные не взимается при использовании приложения Википедии.</string>
   <string name="zero_learn_more_learn_more">Узнать больше</string>
   <string name="zero_learn_more_dismiss">Закрыть</string>
-  <string name="zero_settings">Настройки</string>
-  <string name="zero_settings_devmode">Режим разработчика Zero</string>
-  <string name="zero_settings_devmode_summary">В процессе разработки это позволяет выполнять код, относящийся к Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Получение предварительного просмотра…</string>
-  <string name="create_account_logging_in">Вход в систему…</string>
   <string name="send_feedback">Отправить отзыв о приложении</string>
-  <string name="edit_summary_guide_text">Расскажите нам, как вы улучшили эту страницу. Это помогает другим редакторам быстро отпатрулировать вашу правку.</string>
-  <string name="edit_summary_hint">Описание изменений</string>
   <string name="nav_item_random">Случайная</string>
-  <string name="random_progress">Выбор случайной страницы…</string>
   <string name="create_account_account_created_toast">Учётная запись создана!</string>
   <string name="user_contribs_more_action">Загрузить ещё</string>
   <string name="activity_my_contributions_title">Мой Вклад</string>
-  <string name="nav_item_my_contributions">Мой вклад</string>
-  <string name="edit_save_action_login">Войти и сохранить</string>
-  <string name="edit_save_action_ip">Сохранить анонимно</string>
-  <string name="edit_save_action_login_description">Ваши правки будут публично связаны с вашим именем участника, и другим редакторам будет проще с вами связаться</string>
-  <string name="edit_save_action_ip_description">Ваши правки будут публично связаны с вашем IP-адресом, который может часто меняться</string>
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
@@ -190,14 +166,12 @@
   <string name="terms_of_use_description">Условия использования</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Политика_конфиденциальности</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Условия_использования</string>
-  <string name="preference_title_version">Версия</string>
   <string name="about_libraries_heading">использованые библиотеки</string>
   <string name="about_contributors_heading">авторы</string>
   <string name="about_translators_heading">переводчики</string>
   <string name="about_translators_translatewiki">Это приложение было переведено добровольцами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фонда Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">О приложении</string>
-  <string name="edit_unchanged">Страница не была изменена.</string>
   <string name="edit_abandon_confirm">Страница была изменена. Вы уверены, что хотите выйти без сохранения изменений?</string>
   <string name="user_blocked_from_editing_title">Заблокирован</string>
   <string name="user_logged_in_blocked_from_editing">Ваша учётная запись была заблокирована от редактирования в этом вики-проекте.</string>
@@ -214,7 +188,6 @@
   <string name="find_in_page">Найти на странице</string>
   <string name="find_next">Найти далее</string>
   <string name="find_previous">Найти ранее</string>
-  <string name="find_close">Закрыть панель поиска</string>
   <string name="error_network_error_try_again">Сеть недоступна, пожалуйста, попробуйте ещё раз.</string>
   <string name="saved_pages_update_all_error_retry">Повторить</string>
   <string name="saved_pages_update_all_error_message">Ошибка обновления сохранённых страниц</string>
@@ -234,12 +207,8 @@
   <string name="color_theme_light">Светлое</string>
   <string name="color_theme_dark">Тёмное</string>
   <string name="page_similar_titles">Похожие страницы</string>
-  <string name="search_within_pages">Искать на страницах…</string>
   <string name="search_no_results">Не найдено никаких результатов для «%s».</string>
   <string name="search_did_you_mean">Возможно, вы имели в виду «%s»?</string>
-  <string name="search_results_title">Результаты поиска</string>
-  <string name="search_error_retry">Повторить</string>
-  <string name="search_redirect_title">Перенаправление с «%s».</string>
   <string name="search_recent_header">Последние поиски:</string>
   <string name="button_clear_all_recent_searches">Очистить список последних поисковых запросов</string>
   <string name="clear_recent_searches_confirm">Вы уверены, что хотите стереть историю поисковых запросов?</string>
@@ -252,7 +221,7 @@
   <string name="widget_name_featured_page">Избранная страница Википедии</string>
   <string name="widget_title_featured_page">Избранная страница дня:</string>
   <string name="widget_name_search">Поиск по Википедии</string>
-  <string name="app_store_description">Официальное приложение «Википедия» под Android. Википедия — свободная энциклопедия, содержащая более 32 миллионов статей на 280 языках. Она является наиболее полным и широко используемым справочником, который люди когда-либо создавали. Приложение было переписано с нуля и стало лучше, чем когда-либо прежде.
+  <string name="app_store_description" fuzzy="true">Официальное приложение «Википедия» под Android. Википедия — свободная энциклопедия, содержащая более 32 миллионов статей на 280 языках. Она является наиболее полным и широко используемым справочником, который люди когда-либо создавали. Приложение было переписано с нуля и стало лучше, чем когда-либо прежде.
 
 Особенности:
 — Скорость: Наше новое официальное приложение позволяет вам просматривать и редактировать Википедию быстрее, чем когда бы то ни было.
@@ -274,8 +243,6 @@
   <string name="menu_gallery_visit_page">Перейти к странице файла</string>
   <string name="gallery_error_draw_failed">Не удалось вывести изображение.</string>
   <string name="license_title">Текст лицензии для библиотеки %s</string>
-  <string name="gallery_license_text">Лицензия — %s</string>
-  <string name="gallery_credit_text">Автор — %s</string>
   <string name="gallery_image_info">Сведения об изображении</string>
   <string name="gallery_menu_share">Поделиться</string>
   <string name="gallery_share_error">Не удалось поделиться изображением: %s</string>

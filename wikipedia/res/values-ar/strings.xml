@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">أرسل لنا تقرير العطل</string>
   <string name="acra_report_dialog_comment">ماذا كنت تفعل عندما حدث العطل؟</string>
   <string name="search_hint">البحث في ويكيبيديا</string>
-  <string name="history_activity_title">التاريخ</string>
   <string name="nav_item_history">التاريخ</string>
   <string name="error_network_error">لا يوجد اتصال بالشبكة :(</string>
   <string name="search_network_error">خطأ في الاتصال بالشبكة. اضغط لإعادة المحاولة.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">هذه الصفحة غير موجودة.</string>
   <string name="nav_item_today">اليوم</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح؟</string>
-  <string name="saved_pages_activity_title">الصفحات المحفوظة</string>
   <string name="nav_item_saved_pages">الصفحات المحفوظة</string>
   <string name="menu_update_all_saved_pages">تحديث الصفحات المحفوظة</string>
   <string name="menu_update_selected_saved_pages">تحديث الصفحات المحفوظة</string>
   <string name="dialog_prompt_refresh_all_saved_pages">تحديث كل الصفحات المحفوظة؟</string>
-  <string name="toast_saved_page_refreshed">تم تحديث الصفحات المحفوظة</string>
   <string name="menu_save_page">حفظ الصفحة</string>
   <string name="menu_share_page">مشاركة</string>
   <string name="share_via">مشاركة عبر</string>
   <string name="dialog_title_clear_saved_pages">مسح كل الصفحات المحفوظة؟</string>
-  <string name="dialog_message_clear_saved_pages">هل أنت متأكد من أنك تريد مسح كل الصفحات المحفوظة؟</string>
   <string name="toast_saving_page">جارٍ حفظ الصفحة...</string>
   <string name="toast_saved_page">تم حفظ الصفحة بنجاح</string>
   <string name="toast_saved_page_missing_images">تعذّر حفظ جميع الصور</string>
-  <string name="toast_save_page_failed">فشلت عملية حفظ الصفحة :(</string>
   <string name="toast_refresh_saved_page">جارٍ تحديث الصفحة المحفوظة</string>
   <string name="delete_selected_saved_pages">حذف</string>
   <string name="toast_saved_page_deleted">حُذفت الصفحة/الصفحات المحفوظة</string>
   <string name="saved_pages_search_list_hint">بحث</string>
   <string name="saved_pages_search_empty_message">لم يتم العثور على صفحات مطابقة لبحثك.</string>
-  <string name="nearby_activity_title">بالقرب من هنا</string>
   <string name="nav_item_nearby">بالقرب من هنا</string>
   <string name="menu_update_nearby">تحديث</string>
   <string name="nearby_empty_title">لا يوجد صفحات بالقرب من هنا!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f ميل</string>
   <string name="nearby_no_network">لا يوجد اتصال بالشبكة</string>
   <string name="nearby_server_error">تعذّر الحصول على قائمة بالأماكن القريبة.</string>
-  <string name="nearby_no_location">تعذّر الحصول على الموقع</string>
   <string name="nearby_dialog_goto_settings">تحديثات الأماكن ليست مفعلة في جهازك. هل تود الانتقال إلى إعدادات جهازك لتفعيلها؟</string>
   <string name="nearby_set_metric">إظهار متر/كيلو متر</string>
   <string name="nearby_set_imperial">إظهار قدم/ميل</string>
@@ -60,14 +53,12 @@
   <string name="edit_save_action_license_logged_in">بالحفظ، فإنك توافق على &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">بالحفظ، فإنك توافق على &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مُسجلًا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
   <string name="preference_title_language">لغة ويكيبيديا</string>
-  <string name="preference_summary_language">لغة المحتوى</string>
   <string name="preference_languages_filter_hint">بحث</string>
   <string name="langlinks_filter_hint">بحث</string>
   <string name="menu_other_languages">اقرأ بلغات أخرى</string>
   <string name="langlinks_error_retry">إعادة المحاولة</string>
   <string name="langlinks_empty">هذه الصفحة غير متوفرة بلغات أخرى</string>
   <string name="langlinks_no_match">لا تتوفر لغات مطابقة لبحثك.</string>
-  <string name="settings_activity_title">الإعدادات</string>
   <string name="langlinks_activity_title">لغات أخرى</string>
   <string name="menu_save_changes">حفظ التغييرات</string>
   <string name="edit_section_error_retry">إعادة المحاولة</string>
@@ -100,7 +91,6 @@
   <string name="login_error_throttled">لقد حاولت تسجيل الدخول مرات كثيرة. انتظر لبضع دقائق وحاول مرةً أخرى.</string>
   <string name="login_error_unknown">فشل تسجيل الدخول :(</string>
   <string name="login_error_no_network">لا يوجد اتصال بالشبكة</string>
-  <string name="nav_item_logout">تسجيل الخروج</string>
   <string name="preference_title_logout">تسجيل الخروج</string>
   <string name="preference_summary_logout">تسجيل الخروج من حسابك في ويكيبيديا</string>
   <string name="preference_summary_notloggedin">لم تقم بتسجيل الدخول.</string>
@@ -115,11 +105,9 @@
   <string name="skip">تجاوز</string>
   <string name="create_account_username_hint">اسم المستخدم</string>
   <string name="create_account_password_hint">كلمة السر</string>
-  <string name="menu_create_account">إنشاء الحساب</string>
   <string name="login_create_account_link">ليس لديك حساب؟ انضم إلى ويكيبيديا</string>
   <string name="create_account_login_link">لديك حساب؟ سجل دخولك</string>
   <string name="create_account_activity_title">إنشاء حساب</string>
-  <string name="edit_section_activity_title">تحرير القسم</string>
   <string name="dialog_create_account_checking_progress">جارٍ التحقق...</string>
   <string name="create_account_email_hint">البريد الإلكتروني (اختياري)</string>
   <string name="create_account_password_repeat_hint">أعد كلمة السر</string>
@@ -153,24 +141,12 @@
   <string name="zero_learn_more">تم التنازل عن رسوم البيانات لهذا التطبيق الخاص بويكيبيديا.</string>
   <string name="zero_learn_more_learn_more">اقرأ المزيد</string>
   <string name="zero_learn_more_dismiss">تجاهل</string>
-  <string name="zero_settings">الإعدادات</string>
-  <string name="zero_settings_devmode">زيرو في وضع التطوير البرمجي.</string>
-  <string name="zero_settings_devmode_summary">يمكن هذا أثناء التطوير من تنفيذ الشفرة المصدرية الخاصة بأشياء ويكيبيديا زيرو.</string>
   <string name="edit_preview_fetching_dialog_message">جارٍ جلب المعاينة...</string>
-  <string name="create_account_logging_in">جارٍ تسجيل دخولك...</string>
   <string name="send_feedback">إرسال الملاحظات على التطبيق</string>
-  <string name="edit_summary_guide_text">أخبرنا كيف قمت بتحسين هذه الصفحة. هذا الأمر سيساعد المحررين على مراجعة تعديلك بسرعة.</string>
-  <string name="edit_summary_hint">ملخص التعديل</string>
   <string name="nav_item_random">عشوائي</string>
-  <string name="random_progress">جارٍ جلب صفحة عشوائية...</string>
   <string name="create_account_account_created_toast">تم إنشاء الحساب!</string>
   <string name="user_contribs_more_action">تحميل المزيد</string>
   <string name="activity_my_contributions_title">مساهماتي</string>
-  <string name="nav_item_my_contributions">مساهماتي</string>
-  <string name="edit_save_action_login">سجل الدخول واحفظ</string>
-  <string name="edit_save_action_ip">احفظ كمستخدم مجهول</string>
-  <string name="edit_save_action_login_description">ستُنسب تعديلاتك لاسم المستخدم الخاص بك علانيةً وسيتمكن المحررون الآخرون من التواصل معك بطريقة أفضل.</string>
-  <string name="edit_save_action_ip_description">ستُنسب تعديلاتك إلى عنوان الآي بي الخاص بك، والذي يتغير بصورةٍ دوريةٍ</string>
   <string name="preference_title_eventlogging_opt_in">إرسال تقارير الاستخدام</string>
   <string name="preference_summary_eventlogging_opt_in">السماح لويكيميديا بجمع المعلومات حول كيفية استخدام التطبيق لتحسينه</string>
   <string name="editing_error_spamblacklist">تم اكتشاف روابط لنطاقات ممنوعة:  (%s). الرجاء إزالة هذه النطاقات والمحاولة مرةً أخرى.</string>
@@ -187,14 +163,12 @@
   <string name="about_description">حول تطبيق ويكيبيديا</string>
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
-  <string name="preference_title_version">الإصدار</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من منتجات &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">عن</string>
-  <string name="edit_unchanged">لم يتم تعديل الصفحة.</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
   <string name="user_blocked_from_editing_title">ممنوع</string>
   <string name="user_logged_in_blocked_from_editing">تم منع حسابك من تعديل هذه الويكي.</string>
@@ -211,7 +185,6 @@
   <string name="find_in_page">البحث في الصفحة</string>
   <string name="find_next">البحث عن التالي</string>
   <string name="find_previous">البحث عن السابق</string>
-  <string name="find_close">إغلاق شريط البحث</string>
   <string name="error_network_error_try_again">تعذر الوصول للشبكة، الرجاء المحاولة لاحقاً.</string>
   <string name="saved_pages_update_all_error_retry">إعادة المحاولة</string>
   <string name="saved_pages_update_all_error_message">حدث خطأ أثناء تحديث الصفحات المحفوظة</string>
@@ -231,12 +204,8 @@
   <string name="color_theme_light">فاتح</string>
   <string name="color_theme_dark">غامق</string>
   <string name="page_similar_titles">صفحات مشابهة</string>
-  <string name="search_within_pages">البحث داخل الصفحات...</string>
   <string name="search_no_results">لا نتائج متوفرة عن \"%s\".</string>
   <string name="search_did_you_mean">هل تقصد \"%s\"؟</string>
-  <string name="search_results_title">نتائج البحث</string>
-  <string name="search_error_retry">إعادة المحاولة</string>
-  <string name="search_redirect_title">بالتحويل من \"%s\".</string>
   <string name="search_recent_header">أحدث عمليات البحث:</string>
   <string name="button_clear_all_recent_searches">حذف أحدث عمليات البحث</string>
   <string name="clear_recent_searches_confirm">هل أنت متأكد من حذف سجل البحث؟</string>
@@ -246,7 +215,7 @@
   <string name="table_infobox">معلومات سريعة</string>
   <string name="table_other">المزيد من المعلومات</string>
   <string name="table_close">أغلق</string>
-  <string name="app_store_description">تطبيق ويكيبيديا الرسمي لأندرويد. ويكيبيديا هي موسوعة حرة تحتوي على أكثر من 32 مليون مقالة في 280 لغة. كما أنها الموسوعة الأشمل والأكثر استخداماً على نطاق واسع. وهي أكبر عمل موسوعي جمعته البشرية. تمت إعادة تطوير التطبيق من الصفر وأصبح أفضل من أي وقتٍ مضى.
+  <string name="app_store_description" fuzzy="true">تطبيق ويكيبيديا الرسمي لأندرويد. ويكيبيديا هي موسوعة حرة تحتوي على أكثر من 32 مليون مقالة في 280 لغة. كما أنها الموسوعة الأشمل والأكثر استخداماً على نطاق واسع. وهي أكبر عمل موسوعي جمعته البشرية. تمت إعادة تطوير التطبيق من الصفر وأصبح أفضل من أي وقتٍ مضى.
 
 المميزات:
 -السرعة: يمكنك تطبيقنا الأصلي الجديد من تصفح وتحرير ويكيبيديا بسرعة أكبر من ذي قبل.
@@ -269,8 +238,6 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="menu_gallery_visit_page">الذهاب إلى صفحة الملف</string>
   <string name="gallery_error_draw_failed">خطأ في إظهار الصورة.</string>
   <string name="license_title">نص الترخيص لمكتبة %s</string>
-  <string name="gallery_license_text">الترخيص – %s</string>
-  <string name="gallery_credit_text">المؤلف – %s</string>
   <string name="gallery_image_info">معلومات الصورة</string>
   <string name="gallery_menu_share">مشاركة</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>

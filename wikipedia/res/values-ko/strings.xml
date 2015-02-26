@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">우리에게 충돌 보고서 보내기</string>
   <string name="acra_report_dialog_comment">충돌이 일어났을 때 무엇을 하고 있었나요?</string>
   <string name="search_hint">위키백과 검색</string>
-  <string name="history_activity_title">방문 기록</string>
   <string name="nav_item_history">방문 기록</string>
   <string name="error_network_error">네트워크 연결이 없습니다 :(</string>
   <string name="search_network_error">네트워크 오류입니다. 다시 시도하려면 누르세요.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">이 문서가 존재하지 않습니다.</string>
   <string name="nav_item_today">오늘</string>
   <string name="dialog_title_clear_history">방문 기록을 지우겠습니까?</string>
-  <string name="saved_pages_activity_title">저장된 문서</string>
   <string name="nav_item_saved_pages">저장된 문서</string>
   <string name="menu_update_all_saved_pages">저장된 문서 업데이트</string>
   <string name="menu_update_selected_saved_pages">저장된 문서 업데이트</string>
   <string name="dialog_prompt_refresh_all_saved_pages">모든 저장된 문서를 업데이트할까요?</string>
-  <string name="toast_saved_page_refreshed">저장된 문서가 업데이트됨</string>
   <string name="menu_save_page">문서 저장</string>
   <string name="menu_share_page">공유</string>
   <string name="share_via">다음을 통해 공유</string>
   <string name="dialog_title_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
-  <string name="dialog_message_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
   <string name="toast_saving_page">문서를 저장하는 중...</string>
   <string name="toast_saved_page">문서를 성공적으로 저장했습니다</string>
   <string name="toast_saved_page_missing_images">모든 그림을 저장할 수 없습니다</string>
-  <string name="toast_save_page_failed">문서를 저장하는 데 실패함 :(</string>
   <string name="toast_refresh_saved_page">저장된 문서를 새로 고치는 중...</string>
   <string name="delete_selected_saved_pages">삭제</string>
   <string name="toast_saved_page_deleted">저장된 문서가 삭제되었습니다</string>
   <string name="saved_pages_search_list_hint">검색</string>
   <string name="saved_pages_search_empty_message">검색어와 일치하는 문서를 찾을 수 없습니다.</string>
-  <string name="nearby_activity_title">근처</string>
   <string name="nav_item_nearby">근처</string>
   <string name="menu_update_nearby">근처 업데이트</string>
   <string name="nearby_empty_title">여기 근처에 문서가 없습니다!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">네트워크 연결이 없습니다</string>
   <string name="nearby_server_error">가까운 장소의 목록을 가져올 수 없습니다.</string>
-  <string name="nearby_no_location">위치를 얻을 수 없습니다</string>
   <string name="nearby_dialog_goto_settings">위키 업데이트가 장치에서 활성화되어 있지 않습니다. 위치 업데이트를 활성화하기 위해 장치의 설정으로 가겠습니까?</string>
   <string name="nearby_set_metric">meters/km 보이기</string>
   <string name="nearby_set_imperial">feet/miles 보이기</string>
@@ -60,14 +53,12 @@
   <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다.</string>
   <string name="edit_save_action_license_anon">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다. 편집에 당신의 장치의 IP 주소가 들어갑니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
   <string name="preference_title_language">위키백과 언어</string>
-  <string name="preference_summary_language">내용 언어</string>
   <string name="preference_languages_filter_hint">검색</string>
   <string name="langlinks_filter_hint">검색</string>
   <string name="menu_other_languages">다른 언어로 읽기</string>
   <string name="langlinks_error_retry">다시 시도</string>
   <string name="langlinks_empty">이 문서는 다른 언어로 읽을 수 없습니다</string>
   <string name="langlinks_no_match">검색어와 일치하는 언어를 찾을 수 없습니다.</string>
-  <string name="settings_activity_title">설정</string>
   <string name="langlinks_activity_title">다른 언어</string>
   <string name="menu_save_changes">바뀜 저장</string>
   <string name="edit_section_error_retry">다시 시도</string>
@@ -100,7 +91,6 @@
   <string name="login_error_throttled">로그인 시도가 너무 많습니다. 잠시 기다리고 나서 다시 시도하세요.</string>
   <string name="login_error_unknown">로그인 실패 :(</string>
   <string name="login_error_no_network">네트워크 연결이 없습니다</string>
-  <string name="nav_item_logout">로그아웃</string>
   <string name="preference_title_logout">로그아웃</string>
   <string name="preference_summary_logout">위키백과 계정에서 로그아웃</string>
   <string name="preference_summary_notloggedin">로그인하고 있지 않습니다.</string>
@@ -115,11 +105,9 @@
   <string name="skip">건너뛰기</string>
   <string name="create_account_username_hint">사용자 이름</string>
   <string name="create_account_password_hint">비밀번호</string>
-  <string name="menu_create_account">계정 만들기</string>
   <string name="login_create_account_link">계정이 없나요? 위키백과에 가입하세요</string>
   <string name="create_account_login_link">계정이 이미 있습니까? 로그인하세요</string>
   <string name="create_account_activity_title">계정 만들기</string>
-  <string name="edit_section_activity_title">문단 편집</string>
   <string name="dialog_create_account_checking_progress">확인하기</string>
   <string name="create_account_email_hint">이메일 (선택 사항)</string>
   <string name="create_account_password_repeat_hint">비밀번호 다시 입력</string>
@@ -153,24 +141,12 @@
   <string name="zero_learn_more">데이터 요금은 이 위키백과 앱에 대해서 면제됩니다.</string>
   <string name="zero_learn_more_learn_more">더 읽어보기</string>
   <string name="zero_learn_more_dismiss">숨기기</string>
-  <string name="zero_settings">설정</string>
-  <string name="zero_settings_devmode">제로 개발모드</string>
-  <string name="zero_settings_devmode_summary">개발하는 동안 위키백과 제로 개발모드의 코드 실행을 허용합니다.</string>
   <string name="edit_preview_fetching_dialog_message">미리 보기를 가져오는 중...</string>
-  <string name="create_account_logging_in">로그인 중...</string>
   <string name="send_feedback">앱 피드백 보내기</string>
-  <string name="edit_summary_guide_text">이 문서를 어떻게 개선할지 알려주세요. 다른 편집자들이 당신의 편집을 빠르게 검토하는 것을 돕습니다.</string>
-  <string name="edit_summary_hint">편집 요약</string>
   <string name="nav_item_random">임의 문서</string>
-  <string name="random_progress">임의 문서를 가져오는 중...</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
   <string name="user_contribs_more_action">더 불러오기</string>
   <string name="activity_my_contributions_title">내 기여</string>
-  <string name="nav_item_my_contributions">내 기여</string>
-  <string name="edit_save_action_login">로그인하고 저장하기</string>
-  <string name="edit_save_action_ip">익명으로 저장하기</string>
-  <string name="edit_save_action_login_description">당신의 편집은 사용자 이름으로 공개적으로 들어가며 다른 편집자에게 당신이 더 낫게 하기 위해 연결할 수 있습니다</string>
-  <string name="edit_save_action_ip_description">당신의 편집은 자주 바뀌는 IP 주소로 공개적으로 보여집니다</string>
   <string name="preference_title_eventlogging_opt_in">사용 보고서 보내기</string>
   <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다</string>
   <string name="editing_error_spamblacklist">차단된 도메인 (%s)으로의 링크가 감지되었습니다. 그들을 제거하고 나서 다시 시도하세요.</string>
@@ -187,14 +163,12 @@
   <string name="about_description">위키백과 앱 정보</string>
   <string name="privacy_policy_description">개인 정보 정책</string>
   <string name="terms_of_use_description">이용 약관</string>
-  <string name="preference_title_version">버전</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
   <string name="about_contributors_heading">기여자</string>
   <string name="about_translators_heading">번역자</string>
   <string name="about_translators_translatewiki">이 앱은 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;의 자원 번역자가 번역했습니다.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;위키미디어 재단&lt;/a&gt;의 제품</string>
   <string name="about_activity_title">정보</string>
-  <string name="edit_unchanged">문서가 수정되지 않았습니다.</string>
   <string name="edit_abandon_confirm">문서가 수정되어 있습니다. 바뀜을 저장하지 않고 빠져나가겠습니까?</string>
   <string name="user_blocked_from_editing_title">차단됨</string>
   <string name="user_logged_in_blocked_from_editing">당신의 사용자 계정은 이 위키의 편집에서 차단되어 있습니다.</string>
@@ -211,7 +185,6 @@
   <string name="find_in_page">문서에서 찾기</string>
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
-  <string name="find_close">찾기 막대 닫기</string>
   <string name="error_network_error_try_again">네트워크에 도달할 수 없습니다, 다시 시도하세요.</string>
   <string name="saved_pages_update_all_error_retry">다시 시도</string>
   <string name="saved_pages_update_all_error_message">저징된 문서를 업데이트하는 동안 오류</string>
@@ -231,12 +204,8 @@
   <string name="color_theme_light">밝음</string>
   <string name="color_theme_dark">어두움</string>
   <string name="page_similar_titles">비슷한 문서</string>
-  <string name="search_within_pages">문서 안에서 검색…</string>
   <string name="search_no_results">\"%s\"에 대한 결과를 찾을 수 없습니다.</string>
   <string name="search_did_you_mean">\"%s\"을(를) 찾으셨나요?</string>
-  <string name="search_results_title">검색 결과</string>
-  <string name="search_error_retry">다시 시도</string>
-  <string name="search_redirect_title">\"%s\"에서 넘어옵니다.</string>
   <string name="search_recent_header">최근 검색:</string>
   <string name="button_clear_all_recent_searches">최근 검색 지우기</string>
   <string name="clear_recent_searches_confirm">검색 기록을 지우겠습니까?</string>
@@ -246,7 +215,7 @@
   <string name="table_infobox">빠른 사실</string>
   <string name="table_other">자세한 정보</string>
   <string name="table_close">닫기</string>
-  <string name="app_store_description">Android를 위한 공식 위키백과 앱입니다. 위키백과는 280개 언어의 3천2백만보다 많은 문서가 들어 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용합니다. 앱은 처음부터 다시 쓰여졌고 이전보다 더 나아졌습니다.
+  <string name="app_store_description" fuzzy="true">Android를 위한 공식 위키백과 앱입니다. 위키백과는 280개 언어의 3천2백만보다 많은 문서가 들어 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용합니다. 앱은 처음부터 다시 쓰여졌고 이전보다 더 나아졌습니다.
 
 기능:
    - 속도: 새로운 네이티브 앱으로 위키백과를 이전보다 빠르게 찾아보고 편집할 수 있습니다.
@@ -268,8 +237,6 @@
   <string name="menu_gallery_visit_page">파일 문서로 가기</string>
   <string name="gallery_error_draw_failed">그림을 그릴 수 없습니다.</string>
   <string name="license_title">%s 라이브러리의 라이선스 텍스트</string>
-  <string name="gallery_license_text">라이선스 – %s</string>
-  <string name="gallery_credit_text">저자 – %s</string>
   <string name="gallery_image_info">그림 정보</string>
   <string name="gallery_menu_share">공유</string>
   <string name="gallery_share_error">그림을 공유할 수 없습니다: %s</string>

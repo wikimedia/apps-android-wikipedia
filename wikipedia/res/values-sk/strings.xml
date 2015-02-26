@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Odoslať správu o zlyhaní</string>
   <string name="acra_report_dialog_comment">Čo ste robili keď došlo k zlyhaniu?</string>
   <string name="search_hint">Hľadať</string>
-  <string name="history_activity_title">História</string>
   <string name="nav_item_history">História</string>
   <string name="error_network_error">Nie ste pripojení na sieť :(</string>
   <string name="search_network_error">Problém so sieťou. Ťuknutím to skúsite znova.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Táto stránka neexistuje.</string>
   <string name="nav_item_today">Dnes</string>
   <string name="dialog_title_clear_history">Vymazať históriu prehliadania?</string>
-  <string name="saved_pages_activity_title">Uložené stránky</string>
   <string name="nav_item_saved_pages">Uložené stránky</string>
   <string name="menu_update_all_saved_pages">Aktualizovať uložené stránky</string>
   <string name="menu_update_selected_saved_pages">Aktualizovať uložené stránky</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Aktualizovať všetky uložené stránky?</string>
-  <string name="toast_saved_page_refreshed">Uložené stránky boli aktualizované</string>
   <string name="menu_save_page">Uložiť stránku</string>
   <string name="menu_share_page">Zdieľať</string>
   <string name="share_via">Zdieľať cez</string>
   <string name="dialog_title_clear_saved_pages">Vymazať všetky uložené stránky?</string>
-  <string name="dialog_message_clear_saved_pages">Naozaj chcete vymazať všetky uložené stránky?</string>
   <string name="toast_saving_page">Ukladanie stránky...</string>
   <string name="toast_saved_page">Stránka bola úspešne uložená</string>
   <string name="toast_saved_page_missing_images">Nepodarilo sa uložiť všetky obrázky</string>
-  <string name="toast_save_page_failed">Uloženie stránky zlyhalo :(</string>
   <string name="toast_refresh_saved_page">Aktualizácia uloženej stránky ...</string>
   <string name="delete_selected_saved_pages">Zmazať</string>
   <string name="toast_saved_page_deleted">Uložené stránky boli odstránené</string>
   <string name="saved_pages_search_list_hint">Hľadať</string>
   <string name="saved_pages_search_empty_message">Nenašli sa žiadne stránky zodpovedajúce týmto kritériám.</string>
-  <string name="nearby_activity_title">V okolí</string>
   <string name="nav_item_nearby">V okolí</string>
   <string name="menu_update_nearby">Aktualizovať okolie</string>
   <string name="nearby_empty_title">V okolí sa nenašli žiadne stránky!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Žiadne sieťové pripojenie</string>
   <string name="nearby_server_error">Nepodarilo sa nájsť zoznam miest v okolí.</string>
-  <string name="nearby_no_location">Nebolo možné získať polohu</string>
   <string name="nearby_dialog_goto_settings">Informácie o polohe nie sú vo vašom prístroji povolené. Chceli by ste prejsť do nastavení vášho zariadenia týkajúcich sa lokalizačných služieb?</string>
   <string name="nearby_set_metric">Zobraziť metre/km</string>
   <string name="nearby_set_imperial">Zobraziť stopy/míle</string>
@@ -60,14 +53,12 @@
   <string name="edit_save_action_license_logged_in">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budú spájané s IP adresou vášho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt; budete disponovať vyššou ochranou súkromia.</string>
   <string name="preference_title_language">Jazyk</string>
-  <string name="preference_summary_language">Jazyk obsahu</string>
   <string name="preference_languages_filter_hint">Hľadať</string>
   <string name="langlinks_filter_hint">Hľadať</string>
   <string name="menu_other_languages">V iných jazykoch</string>
   <string name="langlinks_error_retry">Obnoviť</string>
   <string name="langlinks_empty">Táto stránka nie je k dispozícii v iných jazykoch</string>
   <string name="langlinks_no_match">Zadaný výraz nezodpovedá žiadnemu jazyku.</string>
-  <string name="settings_activity_title">Nastavenia</string>
   <string name="langlinks_activity_title">Iné jazyky</string>
   <string name="menu_save_changes">Uložiť zmeny</string>
   <string name="edit_section_error_retry">Obnoviť</string>
@@ -100,7 +91,6 @@
   <string name="login_error_throttled">Príliš veľa pokusov o prihlásenie. Počkajte pár minút a skúste to znova.</string>
   <string name="login_error_unknown">Prihlásenie zlyhalo :(</string>
   <string name="login_error_no_network">Žiadne sieťové pripojenie</string>
-  <string name="nav_item_logout">Odhlásiť sa</string>
   <string name="preference_title_logout">Odhlásiť sa</string>
   <string name="preference_summary_logout">Odhlásiť sa z používateľského účtu Wikipédie</string>
   <string name="preference_summary_notloggedin">Nie ste prihlásený</string>
@@ -115,11 +105,9 @@
   <string name="skip">Preskočiť</string>
   <string name="create_account_username_hint">Používateľské meno</string>
   <string name="create_account_password_hint">Heslo</string>
-  <string name="menu_create_account">Vytvoriť účet</string>
   <string name="login_create_account_link">Ešte nemáte účet? Pripojte sa k Wikipédii.</string>
   <string name="create_account_login_link">Už máte účet? Prihlásiť sa.</string>
   <string name="create_account_activity_title">Vytvoriť nový účet</string>
-  <string name="edit_section_activity_title">Upraviť sekciu</string>
   <string name="dialog_create_account_checking_progress">Overujem</string>
   <string name="create_account_email_hint">E-mail (voliteľné)</string>
   <string name="create_account_password_repeat_hint">Zopakujte heslo</string>
@@ -153,24 +141,12 @@
   <string name="zero_learn_more">Táto aplikácia je oslobodená od poplatkov za prenos dát.</string>
   <string name="zero_learn_more_learn_more">Ďalšie informácie</string>
   <string name="zero_learn_more_dismiss">Zrušiť</string>
-  <string name="zero_settings">Nastavenia</string>
-  <string name="zero_settings_devmode">Vývojársky režim</string>
-  <string name="zero_settings_devmode_summary">Počas vývoja to umožňuje spustenie kódu týkajúceho sa Wikipédie Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Generujem náhľad...</string>
-  <string name="create_account_logging_in">Prihlasujem ...</string>
   <string name="send_feedback">Odoslať spätnú väzbu</string>
-  <string name="edit_summary_guide_text">Povedzte nám, ako ste túto stránku vylepšili. Toto pomôže ostatným redaktorom rýchlejšie skontrolovať vaše úpravy.</string>
-  <string name="edit_summary_hint">Zhrnutie úprav</string>
   <string name="nav_item_random">Náhodný článok</string>
-  <string name="random_progress">Generujem náhodnú stránku...</string>
   <string name="create_account_account_created_toast">Účet bol vytvorený!</string>
   <string name="user_contribs_more_action">Načítať viac</string>
   <string name="activity_my_contributions_title">Moje príspevky</string>
-  <string name="nav_item_my_contributions">Moje príspevky</string>
-  <string name="edit_save_action_login">Prihlásiť sa a uložiť</string>
-  <string name="edit_save_action_ip">Uložiť anonymne</string>
-  <string name="edit_save_action_login_description">Vaše úpravy budú spojené s vašim používateľským menom a ostatný redaktori sa s vami budú môcť lepšie spojiť.</string>
-  <string name="edit_save_action_ip_description">Vaše úpravy budú spojené s vašou IP adresou, ktorá sa pravidelne mení.</string>
   <string name="preference_title_eventlogging_opt_in">Odoslať správu o používaní</string>
   <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimédii zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
@@ -189,14 +165,12 @@
   <string name="terms_of_use_description">Podmienky používania</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy/sk</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/sk</string>
-  <string name="preference_title_version">Verzia</string>
   <string name="about_libraries_heading">Použité knižnice</string>
   <string name="about_contributors_heading">Prispievatelia</string>
   <string name="about_translators_heading">Prekladatelia</string>
   <string name="about_translators_translatewiki">Táto aplikácia bola preložená s pomocou dobrovoľných prekladateľov na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Nadácie WMF&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikácii</string>
-  <string name="edit_unchanged">Na stránke neboli vykonané úpravy.</string>
   <string name="edit_abandon_confirm">Na stránke boli vykonané úpravy. Naozaj chcete opustiť stránku bez uloženia úprav?</string>
   <string name="user_blocked_from_editing_title">Zablokované</string>
   <string name="user_logged_in_blocked_from_editing">Váš používateľský účet bol pre úpravy na tejto wiki zablokovaný.</string>
@@ -213,7 +187,6 @@
   <string name="find_in_page">Nájsť na stránke</string>
   <string name="find_next">Nájsť ďalšie</string>
   <string name="find_previous">Nájsť predchádzajúce</string>
-  <string name="find_close">Zavrieť vyhľadávaciu lištu</string>
   <string name="error_network_error_try_again">Nepodarilo sa pripojiť k sieti, prosím skúste znova.</string>
   <string name="saved_pages_update_all_error_retry">Znova</string>
   <string name="saved_pages_update_all_error_message">Chyba pri aktualizácii uložených stránok</string>
@@ -233,12 +206,8 @@
   <string name="color_theme_light">Svetlý</string>
   <string name="color_theme_dark">Tmavý</string>
   <string name="page_similar_titles">Podobné stránky</string>
-  <string name="search_within_pages">Vyhľadávanie v rámci stránok ...</string>
   <string name="search_no_results">Vyhľadávanie nenašlo žiadne výsledky pre \"%s\".</string>
   <string name="search_did_you_mean">Mali ste na mysli \"%s\"?</string>
-  <string name="search_results_title">Výsledky vyhľadávania</string>
-  <string name="search_error_retry">Znova</string>
-  <string name="search_redirect_title">Presmerované z \"%s\".</string>
   <string name="search_recent_header">Nedávno hľadané výrazy:</string>
   <string name="button_clear_all_recent_searches">Vymazať nedávno hľadané výrazy</string>
   <string name="clear_recent_searches_confirm">Naozaj chcete vymazať vašu históriu vyhľadávania?</string>
@@ -248,7 +217,7 @@
   <string name="table_infobox">Rýchle fakty</string>
   <string name="table_other">Viac informácií</string>
   <string name="table_close">Zatvoriť</string>
-  <string name="app_store_description">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.
+  <string name="app_store_description" fuzzy="true">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.
 
 Funkcie:
    - Rýchlosť: Naša nová aplikácia vám umožňuje čítať a upravovať Wikipédiu rýchlejšie ako kedykoľvek predtým.
@@ -270,8 +239,6 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="menu_gallery_visit_page">Prejdite na stránku súboru</string>
   <string name="gallery_error_draw_failed">Obrázok nebolo možné nakresliť.</string>
   <string name="license_title">Text licencie pre %s knižnicu</string>
-  <string name="gallery_license_text">Licencia - %s</string>
-  <string name="gallery_credit_text">Autor - %s</string>
   <string name="gallery_image_info">Informácie o obrázku</string>
   <string name="gallery_menu_share">Zdieľať</string>
   <string name="gallery_share_error">Obrázok nebolo možné zdielať: %s</string>

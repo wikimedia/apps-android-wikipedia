@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Stuur ons een crashrapport</string>
   <string name="acra_report_dialog_comment">Wat was u aan het doen toen de crash optrad?</string>
   <string name="search_hint">In Wikipedia zoeken</string>
-  <string name="history_activity_title">Geschiedenis</string>
   <string name="nav_item_history">Geschiedenis</string>
   <string name="error_network_error">Er is geen netwerkverbinding :(</string>
   <string name="search_network_error">Netwerkfout. Klik om het opnieuw te proberen.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Deze pagina bestaat niet.</string>
   <string name="nav_item_today">Vandaag</string>
   <string name="dialog_title_clear_history">Browsergeschiedenis wissen?</string>
-  <string name="saved_pages_activity_title">Opgeslagen pagina\'s</string>
   <string name="nav_item_saved_pages">Opgeslagen pagina\'s</string>
   <string name="menu_update_all_saved_pages">Opgeslagen pagina\'s bijwerken</string>
   <string name="menu_update_selected_saved_pages">Opgeslagen pagina\'s bijwerken</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Alle opgeslagen pagina\'s bijwerken?</string>
-  <string name="toast_saved_page_refreshed">Opgeslagen pagina\'s bijgewerkt</string>
   <string name="menu_save_page">Pagina opslaan</string>
   <string name="menu_share_page">Delen</string>
   <string name="share_via">Delen via</string>
   <string name="dialog_title_clear_saved_pages">Alle opgeslagen pagina\'s wissen?</string>
-  <string name="dialog_message_clear_saved_pages">Weet u zeker dat u alle opgeslagen pagina\'s wilt wissen?</string>
   <string name="toast_saving_page">Pagina aan het opslaan...</string>
   <string name="toast_saved_page">Pagina opgeslagen</string>
   <string name="toast_saved_page_missing_images">Kon niet alle afbeeldingen opslaan</string>
-  <string name="toast_save_page_failed">Het opslaan van de pagina is mislukt :(</string>
   <string name="toast_refresh_saved_page">Opgeslagen pagina vernieuwen...</string>
   <string name="delete_selected_saved_pages">Wissen</string>
   <string name="toast_saved_page_deleted">Opgeslagen pagina(\'s) verwijderd</string>
   <string name="saved_pages_search_list_hint">Zoeken</string>
   <string name="saved_pages_search_empty_message">Geen pagina\'s gevonden die overeenkomen met uw zoekopdracht.</string>
-  <string name="nearby_activity_title">In de buurt</string>
   <string name="nav_item_nearby">In de buurt</string>
   <string name="menu_update_nearby">In de buurt bijwerken</string>
   <string name="nearby_empty_title">Geen pagina\'s in de buurt.</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f mijl</string>
   <string name="nearby_no_network">Geen netwerkverbinding</string>
   <string name="nearby_server_error">Er kan geen lijst opgehaald worden van plaatsen in de buurt.</string>
-  <string name="nearby_no_location">Kan locatie niet vaststellen</string>
   <string name="nearby_dialog_goto_settings">Locatieupdates zijn niet ingeschakeld op uw apparaat. Wilt u in uw apparaatinstellingen locatieupdates inschakelen?</string>
   <string name="nearby_set_metric">Meter/km weergeven</string>
   <string name="nearby_set_imperial">Voeten/mijlen weergeven</string>
@@ -61,14 +54,12 @@
   <string name="edit_save_action_license_logged_in">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie.</string>
   <string name="edit_save_action_license_anon">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, heeft u meer privacy.</string>
   <string name="preference_title_language">Wikipediataal</string>
-  <string name="preference_summary_language">Taal inhoud</string>
   <string name="preference_languages_filter_hint">Zoeken</string>
   <string name="langlinks_filter_hint">Zoeken</string>
   <string name="menu_other_languages">In een andere taal lezen</string>
   <string name="langlinks_error_retry">Opnieuw proberen</string>
   <string name="langlinks_empty">Deze pagina is niet beschikbaar in andere talen</string>
   <string name="langlinks_no_match">Geen talen gevonden die overeenkomen met uw zoekopdracht.</string>
-  <string name="settings_activity_title">Instellingen</string>
   <string name="langlinks_activity_title">Andere talen</string>
   <string name="menu_save_changes">Wijzigingen opslaan</string>
   <string name="edit_section_error_retry">Opnieuw proberen</string>
@@ -101,7 +92,6 @@
   <string name="login_error_throttled">Te veel aanmeldpogingen. Wacht een paar minuten en probeer het daarna opnieuw.</string>
   <string name="login_error_unknown">Aanmelden mislukt :(</string>
   <string name="login_error_no_network">Geen netwerkverbinding</string>
-  <string name="nav_item_logout">Afmelden</string>
   <string name="preference_title_logout">Afmelden</string>
   <string name="preference_summary_logout">Afmelden bij Wikipedia</string>
   <string name="preference_summary_notloggedin">Niet aangemeld.</string>
@@ -116,11 +106,9 @@
   <string name="skip">Overslaan</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>
   <string name="create_account_password_hint">Wachtwoord</string>
-  <string name="menu_create_account">Registreren</string>
   <string name="login_create_account_link">Nog niet geregistreerd? Word lid van Wikipedia</string>
   <string name="create_account_login_link">Hebt u al een account? Meld u aan</string>
   <string name="create_account_activity_title">Gebruiker aanmaken</string>
-  <string name="edit_section_activity_title">Paragraaf bewerken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
   <string name="create_account_email_hint">E-mailadres (optioneel)</string>
   <string name="create_account_password_repeat_hint">Wachtwoord bevestigen</string>
@@ -154,24 +142,12 @@
   <string name="zero_learn_more">Er worden geen kosten in rekening gebracht voor het gegevensgebruik via deze Wikipedia-app.</string>
   <string name="zero_learn_more_learn_more">Meer lezen</string>
   <string name="zero_learn_more_dismiss">Sluiten</string>
-  <string name="zero_settings">Instellingen</string>
-  <string name="zero_settings_devmode">Zero-ontwikkelmodus</string>
-  <string name="zero_settings_devmode_summary">Deze instelling schakelt tijdens de ontwikkeling de uitvoering van code voor Wikipedia Zero in.</string>
   <string name="edit_preview_fetching_dialog_message">Ophalen van voorbeeld...</string>
-  <string name="create_account_logging_in">Aan het aanmelden...</string>
   <string name="send_feedback">Terugkoppeling over app geven</string>
-  <string name="edit_summary_guide_text">Geef aan hoe u de deze pagina hebt verbeterd. Dit helpt andere redacteuren uw bewerkingen sneller te controleren.</string>
-  <string name="edit_summary_hint">Bewerkingssamenvatting</string>
   <string name="nav_item_random">Willekeurig</string>
-  <string name="random_progress">Willekeurige pagina ophalen...</string>
   <string name="create_account_account_created_toast">Gebruiker aangemaakt</string>
   <string name="user_contribs_more_action">Meer laden</string>
   <string name="activity_my_contributions_title">Uw bijdragen</string>
-  <string name="nav_item_my_contributions">Uw bijdragen</string>
-  <string name="edit_save_action_login">Aanmelden en opslaan</string>
-  <string name="edit_save_action_ip">Als anoniem opslaan</string>
-  <string name="edit_save_action_login_description">Uw bewerkingen wordt openbaar toegeschreven aan uw gebruikersnaam en andere bewerkers kunnen dan eenvoudiger met u in contact treden</string>
-  <string name="edit_save_action_ip_description">Uw bewerkingen worden openbaar toegeschreven aan uw IP-adres, dat mogelijk vaak wijzigt</string>
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
   <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe u de app gebruikt om de app te kunnen verbeteren</string>
   <string name="editing_error_spamblacklist">Er zijn koppelingen naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
@@ -190,14 +166,12 @@
   <string name="terms_of_use_description">Gebruiksvoorwaarden</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">Versie</string>
   <string name="about_libraries_heading">gebruikte bibliotheken</string>
   <string name="about_contributors_heading">bijdragers</string>
   <string name="about_translators_heading">vertalers</string>
   <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Een product van de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
-  <string name="edit_unchanged">Deze pagina is niet bewerkt.</string>
   <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
   <string name="user_blocked_from_editing_title">Geblokkeerd</string>
   <string name="user_logged_in_blocked_from_editing">Uw gebruiker is geblokkeerd en kan deze wiki niet bewerken.</string>
@@ -214,7 +188,6 @@
   <string name="find_in_page">Zoeken op pagina</string>
   <string name="find_next">Volgende zoeken</string>
   <string name="find_previous">Vorige zoeken</string>
-  <string name="find_close">Zoekbalk sluiten</string>
   <string name="error_network_error_try_again">Kon het netwerk niet bereiken. Probeer het opnieuw.</string>
   <string name="saved_pages_update_all_error_retry">Opnieuw proberen</string>
   <string name="saved_pages_update_all_error_message">Er is een fout opgetreden tijdens het bijwerken van de opgeslagen pagina\'s</string>
@@ -234,12 +207,8 @@
   <string name="color_theme_light">Licht</string>
   <string name="color_theme_dark">Donker</string>
   <string name="page_similar_titles">Vergelijkbare pagina\'s</string>
-  <string name="search_within_pages">Zoeken binnen pagina\'s...</string>
   <string name="search_no_results">Geen resultaten gevonden voor \"%s\".</string>
   <string name="search_did_you_mean">Bedoelde u \"%s\"?</string>
-  <string name="search_results_title">Zoekresultaten</string>
-  <string name="search_error_retry">Opnieuw proberen</string>
-  <string name="search_redirect_title">Doorverwezen vanaf \"%s\".</string>
   <string name="search_recent_header">Recente zoekopdrachten:</string>
   <string name="button_clear_all_recent_searches">Recente zoekopdrachten wissen</string>
   <string name="clear_recent_searches_confirm">Weet u zeker dat u uw zoekgeschiedenis wilt wissen?</string>
@@ -252,7 +221,7 @@
   <string name="widget_name_featured_page">Uitgelichte pagina op Wikipedia</string>
   <string name="widget_title_featured_page">Vandaag uitgelicht:</string>
   <string name="widget_name_search">Zoeken op Wikipedia</string>
-  <string name="app_store_description">Officiële Wikipedia-app voor Android. Wikipedia is de vrije encylopedie met meer dan 31 miljoen artikelen in 280 talen, en de meest uitgebreide en meest gebruikte bron gemaakt door de mens. De app is vanaf de grond opnieuw opgebouwd en is beter dan ooit te voren.
+  <string name="app_store_description" fuzzy="true">Officiële Wikipedia-app voor Android. Wikipedia is de vrije encylopedie met meer dan 31 miljoen artikelen in 280 talen, en de meest uitgebreide en meest gebruikte bron gemaakt door de mens. De app is vanaf de grond opnieuw opgebouwd en is beter dan ooit te voren.
 
 Functies:
    - Snelheid: onze nieuwe native app zorgt voor een snellere app dan ooit te voren, waarmee u nog sneller kunt verkennen en bewerken.
@@ -273,8 +242,6 @@ De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK,
   <string name="menu_gallery_visit_page">Naar bestandspagina gaan</string>
   <string name="gallery_error_draw_failed">De afbeelding kon niet weergegeven worden.</string>
   <string name="license_title">Licentietekst voor de bibliotheek %s</string>
-  <string name="gallery_license_text">Licentie: %s</string>
-  <string name="gallery_credit_text">Auteur: %s</string>
   <string name="gallery_image_info">Bestandsgegevens</string>
   <string name="gallery_menu_share">Delen</string>
   <string name="gallery_share_error">Kon afbeelding niet delen: %s</string>
@@ -287,4 +254,5 @@ De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK,
   <string name="share_snippet_button">Als afbeelding delen</string>
   <string name="share_normal_button">Als tekst delen</string>
   <string name="snippet_share_preview_image_desc">Voorbeeldafbeelding</string>
+  <string name="captcha_image">Captcha afbeelding</string>
 </resources>

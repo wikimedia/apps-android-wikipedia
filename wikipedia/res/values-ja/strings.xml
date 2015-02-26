@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">クラッシュレポートを送信</string>
   <string name="acra_report_dialog_comment">クラッシュした際に何をしていましたか?</string>
   <string name="search_hint">ウィキペディアを検索</string>
-  <string name="history_activity_title">履歴</string>
   <string name="nav_item_history">履歴</string>
   <string name="error_network_error">ネットワークに接続していません :(</string>
   <string name="search_network_error">ネットワークエラーです。タップしてやり直してください。</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">このページは存在しません。</string>
   <string name="nav_item_today">今日のメインページ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去しますか?</string>
-  <string name="saved_pages_activity_title">保存したページ</string>
   <string name="nav_item_saved_pages">保存したページ</string>
   <string name="menu_update_all_saved_pages">保存したページを更新</string>
   <string name="menu_update_selected_saved_pages">保存したページを更新</string>
   <string name="dialog_prompt_refresh_all_saved_pages">保存したページをすべて更新しますか?</string>
-  <string name="toast_saved_page_refreshed">保存したページを更新しました</string>
   <string name="menu_save_page">ページを保存</string>
   <string name="menu_share_page">シェア</string>
   <string name="share_via">シェアする</string>
   <string name="dialog_title_clear_saved_pages">保存したページをすべて消去しますか?</string>
-  <string name="dialog_message_clear_saved_pages">本当に保存したページをすべて消去しますか?</string>
   <string name="toast_saving_page">ページを保存中...</string>
   <string name="toast_saved_page">ページを保存しました</string>
   <string name="toast_saved_page_missing_images">一部の画像を保存できませんでした</string>
-  <string name="toast_save_page_failed">ページを保存できませんでした :(</string>
   <string name="toast_refresh_saved_page">保存したページを更新しています...</string>
   <string name="delete_selected_saved_pages">削除</string>
   <string name="toast_saved_page_deleted">保存したページを削除しました</string>
   <string name="saved_pages_search_list_hint">検索</string>
   <string name="saved_pages_search_empty_message">検索語句に一致するページが見つかりません。</string>
-  <string name="nearby_activity_title">付近のスポット</string>
   <string name="nav_item_nearby">付近のスポット</string>
   <string name="menu_update_nearby">付近のスポットを更新</string>
   <string name="nearby_empty_title">付近のスポットについてのページはありません!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f マイル</string>
   <string name="nearby_no_network">ネットワーク接続がありません</string>
   <string name="nearby_server_error">付近のスポットの一覧を取得できませんでした。</string>
-  <string name="nearby_no_location">位置情報を取得できません</string>
   <string name="nearby_dialog_goto_settings">お使いのデバイスでは位置情報の更新が無効になっています。デバイスの [設定] に移動して位置情報の更新を有効にしますか?</string>
   <string name="nearby_set_metric">メートル/キロメートルで表示</string>
   <string name="nearby_set_imperial">フィート/マイルで表示</string>
@@ -61,14 +54,12 @@
   <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="edit_save_action_license_anon">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
   <string name="preference_title_language">ウィキペディアの言語</string>
-  <string name="preference_summary_language">コンテンツの言語</string>
   <string name="preference_languages_filter_hint">検索</string>
   <string name="langlinks_filter_hint">検索</string>
   <string name="menu_other_languages">他の言語で読む</string>
   <string name="langlinks_error_retry">再試行</string>
   <string name="langlinks_empty">このページの他の言語版はありません。</string>
   <string name="langlinks_no_match">検索語句に一致する言語が見つかりません。</string>
-  <string name="settings_activity_title">設定</string>
   <string name="langlinks_activity_title">他の言語</string>
   <string name="menu_save_changes">変更を保存</string>
   <string name="edit_section_error_retry">再試行</string>
@@ -101,7 +92,6 @@
   <string name="login_error_throttled">ログイン失敗が多すぎます。しばらくしてからもう一度やり直してください。</string>
   <string name="login_error_unknown">ログイン失敗</string>
   <string name="login_error_no_network">ネットワーク接続がありません</string>
-  <string name="nav_item_logout">ログアウト</string>
   <string name="preference_title_logout">ログアウト</string>
   <string name="preference_summary_logout">ウィキペディアのアカウントからログアウト</string>
   <string name="preference_summary_notloggedin">ログインしていません</string>
@@ -116,11 +106,9 @@
   <string name="skip">スキップする</string>
   <string name="create_account_username_hint">利用者名</string>
   <string name="create_account_password_hint">パスワード</string>
-  <string name="menu_create_account">アカウント作成</string>
   <string name="login_create_account_link">アカウントをお持ちではない場合は、こちらからウィキペディアに参加してください</string>
   <string name="create_account_login_link">アカウントを既にお持ちの場合は、こちらからログインしてください</string>
   <string name="create_account_activity_title">アカウント作成</string>
-  <string name="edit_section_activity_title">節の編集</string>
   <string name="dialog_create_account_checking_progress">検証中</string>
   <string name="create_account_email_hint">メール (省略可能)</string>
   <string name="create_account_password_repeat_hint">パスワード (再入力)</string>
@@ -154,24 +142,12 @@
   <string name="zero_learn_more">このウィキペディアアプリではデータ料金が免除されます</string>
   <string name="zero_learn_more_learn_more">続きを読む</string>
   <string name="zero_learn_more_dismiss">非表示</string>
-  <string name="zero_settings">設定</string>
-  <string name="zero_settings_devmode">ゼロ開発者モード</string>
-  <string name="zero_settings_devmode_summary">開発者モードではウィキペディアゼロのコード実行が有効になります</string>
   <string name="edit_preview_fetching_dialog_message">プレビューを取得中...</string>
-  <string name="create_account_logging_in">ログイン中...</string>
   <string name="send_feedback">フィードバックを送る</string>
-  <string name="edit_summary_guide_text">このページをどう改善したか教えてください。他の編集者があなたの編集を手早くレビューするのに役立ちます。</string>
-  <string name="edit_summary_hint">要約の編集</string>
   <string name="nav_item_random">おまかせ表示</string>
-  <string name="random_progress">おまかせページを取得中...</string>
   <string name="create_account_account_created_toast">アカウントを作成しました</string>
   <string name="user_contribs_more_action">続きを読み込む</string>
   <string name="activity_my_contributions_title">投稿記録</string>
-  <string name="nav_item_my_contributions">投稿記録</string>
-  <string name="edit_save_action_login">ログインして保存</string>
-  <string name="edit_save_action_ip">匿名で保存</string>
-  <string name="edit_save_action_login_description">編集内容はあなたの利用者名による編集として公開されます。これにより他の編集者があなたと連絡を取りやすくなります</string>
-  <string name="edit_save_action_ip_description">編集内容はあなたのIPアドレスからの編集として公開されます。IPアドレスは頻繁に変わります。</string>
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">このアプリの改善に役立てるため、ウィキメディアがアプリの使用情報を収集することを許可する</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
@@ -190,14 +166,12 @@
   <string name="terms_of_use_description">利用規約</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">バージョン</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
   <string name="about_translators_heading">翻訳者</string>
   <string name="about_translators_translatewiki">このアプリは&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;で、ボランティアの翻訳者によって翻訳されました。</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ウィキメディア財団&lt;/a&gt;の製品です</string>
   <string name="about_activity_title">このアプリについて</string>
-  <string name="edit_unchanged">ページは変更されていません</string>
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
   <string name="user_blocked_from_editing_title">ブロック済み</string>
   <string name="user_logged_in_blocked_from_editing">あなたの利用者アカウントはこのウィキで編集ブロックされています。</string>
@@ -214,7 +188,6 @@
   <string name="find_in_page">ページ内検索</string>
   <string name="find_next">次を検索</string>
   <string name="find_previous">前を検索</string>
-  <string name="find_close">検索バーを閉じる</string>
   <string name="error_network_error_try_again">ネットワークに接続できませんでした。やり直してください</string>
   <string name="saved_pages_update_all_error_retry">再試行</string>
   <string name="saved_pages_update_all_error_message">保存したページを更新する際にエラーが発生しました</string>
@@ -234,12 +207,8 @@
   <string name="color_theme_light">明るめ</string>
   <string name="color_theme_dark">暗め</string>
   <string name="page_similar_titles">類似したページ</string>
-  <string name="search_within_pages">ページ内を検索…</string>
   <string name="search_no_results">「%s」に対する検索結果はありません</string>
   <string name="search_did_you_mean">\"%s\"で良いですか?</string>
-  <string name="search_results_title">検索結果</string>
-  <string name="search_error_retry">再試行</string>
-  <string name="search_redirect_title">「%s」からの転送</string>
   <string name="search_recent_header">最近の検索：</string>
   <string name="button_clear_all_recent_searches">最近の検索を消去</string>
   <string name="clear_recent_searches_confirm">本当に検索履歴を消去しますか?</string>
@@ -251,7 +220,7 @@
   <string name="table_close">閉じる</string>
   <string name="widget_title_featured_page">今日の選り抜き記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
-  <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。このバージョンではゼロから書きなおされ、これまでで最良のものになりました。
+  <string name="app_store_description" fuzzy="true">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。このバージョンではゼロから書きなおされ、これまでで最良のものになりました。
 
 機能:
  - 高速: 新しいネイティブアプリではウィキペディアの閲覧と編集がかつてなく高速に行えます
@@ -274,8 +243,6 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="menu_gallery_visit_page">ファイルのページに移動</string>
   <string name="gallery_error_draw_failed">画像が描画できませんでした</string>
   <string name="license_title">%s ライブラリのライセンス文</string>
-  <string name="gallery_license_text">ライセンス – %s</string>
-  <string name="gallery_credit_text">作者 – %s</string>
   <string name="gallery_image_info">画像情報</string>
   <string name="gallery_menu_share">シェア</string>
   <string name="gallery_share_error">画像がシェアできませんでした: %s</string>

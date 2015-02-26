@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Bize kilitlenme raporu gönder</string>
   <string name="acra_report_dialog_comment">Kilitlenme olduğu zaman ne yapıyordunuz?</string>
   <string name="search_hint">Vikipedi\'de Ara</string>
-  <string name="history_activity_title">Geçmiş</string>
   <string name="nav_item_history">Geçmiş</string>
   <string name="error_network_error">Ağ bağlantısı yok :(</string>
   <string name="search_network_error">Ağ hatası. Tekrar denemek için dokunun.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Bu sayfa mevcut değil.</string>
   <string name="nav_item_today">Bugün</string>
   <string name="dialog_title_clear_history">Göz atma geçmişini temizle?</string>
-  <string name="saved_pages_activity_title">Kaydedilen sayfalar</string>
   <string name="nav_item_saved_pages">Kaydedilen sayfalar</string>
   <string name="menu_update_all_saved_pages">Kaydedilen sayfaları güncelle</string>
   <string name="menu_update_selected_saved_pages">Kaydedilen sayfaları güncelle</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Kaydedilen tüm sayfalar güncellensin mi?</string>
-  <string name="toast_saved_page_refreshed">Kaydedilen sayfalar güncellendi</string>
   <string name="menu_save_page">Sayfayı kaydet</string>
   <string name="menu_share_page">Paylaş</string>
   <string name="share_via">Şurada paylaş:</string>
   <string name="dialog_title_clear_saved_pages">Tüm kaydedilen sayfalar silinsin mi?</string>
-  <string name="dialog_message_clear_saved_pages">Bütün kaydedilen sayfaları silmek istediğinizden emin misiniz?</string>
   <string name="toast_saving_page">Sayfa kaydediliyor...</string>
   <string name="toast_saved_page">Sayfa başarıyla kaydedildi</string>
   <string name="toast_saved_page_missing_images">Görüntülerin tamamı kaydedilemedi</string>
-  <string name="toast_save_page_failed">Sayfa kaydetme başarısız oldu :(</string>
   <string name="toast_refresh_saved_page">Kaydedilmiş sayfa yenileniyor...</string>
   <string name="delete_selected_saved_pages">Sil</string>
   <string name="toast_saved_page_deleted">Kaydedilen sayfa(lar) silindi</string>
   <string name="saved_pages_search_list_hint">Ara</string>
   <string name="saved_pages_search_empty_message">Sorgunuzla eşleşen hiçbir sayfa bulunamadı.</string>
-  <string name="nearby_activity_title">Yakınındakiler</string>
   <string name="nav_item_nearby">Yakınındakiler</string>
   <string name="menu_update_nearby">Yakınındakileri güncelle</string>
   <string name="nearby_empty_title">Yakınında sayfa yok!</string>
@@ -51,23 +45,21 @@
   <string name="nearby_distance_in_miles">%.2f mil</string>
   <string name="nearby_no_network">Ağ bağlantısı yok</string>
   <string name="nearby_server_error">Yakındaki yerlerin listesi alınamadı.</string>
-  <string name="nearby_no_location">Konum bilgisi alınamıyor</string>
   <string name="nearby_dialog_goto_settings">Konum güncelleştirmeleri cihazınızda etkin değil. Konum güncelleştirmelerini etkinleştirmek için cihazınızın ayarlarına gitmek ister misiniz?</string>
   <string name="nearby_set_metric">Metre/km olarak göster</string>
   <string name="nearby_set_imperial">Fit/mil olarak göster</string>
+  <string name="nearby_view_on_map">Yeri harita üzerinde gör</string>
   <string name="last_updated_text">Son güncelleme %s</string>
   <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
   <string name="edit_save_action_license_logged_in">Kaydederek, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz.</string>
   <string name="edit_save_action_license_anon">Kaydederek, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
   <string name="preference_title_language">Vikipedi dili</string>
-  <string name="preference_summary_language">İçerik dili</string>
   <string name="preference_languages_filter_hint">Ara</string>
   <string name="langlinks_filter_hint">Ara</string>
   <string name="menu_other_languages">Başka dilde oku</string>
   <string name="langlinks_error_retry">Tekrar dene</string>
   <string name="langlinks_empty">Bu sayfa diğer dillerde bulunmamaktadır</string>
   <string name="langlinks_no_match">Sorgunuzla eşleşen bir dil bulunamadı.</string>
-  <string name="settings_activity_title">Ayarlar</string>
   <string name="langlinks_activity_title">Diğer diller</string>
   <string name="menu_save_changes">Değişiklikleri kaydet</string>
   <string name="edit_section_error_retry">Tekrar dene</string>
@@ -100,7 +92,6 @@
   <string name="login_error_throttled">Çok fazla deneme yaptınız. Birkaç dakika bekleyip tekrar deneyin.</string>
   <string name="login_error_unknown">Oturum açma başarısız :(</string>
   <string name="login_error_no_network">Ağ bağlantısı yok</string>
-  <string name="nav_item_logout">Oturumu kapat</string>
   <string name="preference_title_logout">Oturumu kapat</string>
   <string name="preference_summary_logout">Vikipedi hesabınızın oturumunu kapatır</string>
   <string name="preference_summary_notloggedin">Oturum açık değil.</string>
@@ -115,11 +106,9 @@
   <string name="skip">Atla</string>
   <string name="create_account_username_hint">Kullanıcı adı</string>
   <string name="create_account_password_hint">Şifre</string>
-  <string name="menu_create_account">Hesap oluştur</string>
   <string name="login_create_account_link">Hesabınız yok mu? Vikipedi\'ye katılın</string>
   <string name="create_account_login_link">Zaten bir hesabınız var mı? Oturum açın</string>
   <string name="create_account_activity_title">Bir hesap oluştur</string>
-  <string name="edit_section_activity_title">Bölüm düzenle</string>
   <string name="dialog_create_account_checking_progress">Doğrulanıyor</string>
   <string name="create_account_email_hint">E-posta (İsteğe bağlı)</string>
   <string name="create_account_password_repeat_hint">Parolayı tekrarla</string>
@@ -153,24 +142,12 @@
   <string name="zero_learn_more">Bu Vikipedi uygulaması için veri iletişim ücretleri alınmamaktadır.</string>
   <string name="zero_learn_more_learn_more">Daha fazla bilgi</string>
   <string name="zero_learn_more_dismiss">Kapat</string>
-  <string name="zero_settings">Ayarlar</string>
-  <string name="zero_settings_devmode">Zero geliştirme modu</string>
-  <string name="zero_settings_devmode_summary">Bu seçenek, geliştirme sürecinde Wikipedia Zero işlemlerinin kod çalıştırabilmesini sağlar.</string>
   <string name="edit_preview_fetching_dialog_message">Ön izleme getiriliyor...</string>
-  <string name="create_account_logging_in">Oturum açılıyor...</string>
   <string name="send_feedback">Uygulama geri bildirimi gönder</string>
-  <string name="edit_summary_guide_text">Bize sayfayı hangi yönden geliştirdiğinizi belirtin. Bu, devriyelerin değişikliğinizi hızla incelemesine yardımcı olur.</string>
-  <string name="edit_summary_hint">Değişiklik özeti</string>
   <string name="nav_item_random">Rastgele</string>
-  <string name="random_progress">Rastgele sayfa getiriliyor...</string>
   <string name="create_account_account_created_toast">Hesap yaratıldı!</string>
   <string name="user_contribs_more_action">Daha fazla yükle</string>
   <string name="activity_my_contributions_title">Katkılarım</string>
-  <string name="nav_item_my_contributions">Katkılarım</string>
-  <string name="edit_save_action_login">Oturum aç ve kaydet</string>
-  <string name="edit_save_action_ip">Anonim olarak kaydet</string>
-  <string name="edit_save_action_login_description">Değişiklikleriniz kullanıcı adınızla herkese açık şekilde kaydedilecek ve böylece diğer kullanıcılar sizinle daha rahat iletişime geçebilecek</string>
-  <string name="edit_save_action_ip_description">Değişiklikleriniz IP adresinizle herkese açık olarak yayınlanacak. IP adresiniz sık sık değişebilir.</string>
   <string name="preference_title_eventlogging_opt_in">Kullanım raporlarını gönder</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia\'nın, uygulamayı geliştirmek için, kullanım alışkanlıklarınız hakkında bilgi toplamasına izin verin</string>
   <string name="editing_error_spamblacklist">Engellenmiş alan adlarına (%s) bağlantılar tespit edildi. Lütfen bunların kaldırıp tekrar deneyin.</string>
@@ -189,14 +166,12 @@
   <string name="terms_of_use_description">Kullanım koşulları</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">Sürüm</string>
   <string name="about_libraries_heading">kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">katkıda bulunanlar</string>
   <string name="about_translators_heading">çevirmenler</string>
   <string name="about_translators_translatewiki">Bu uygulama &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'teki gönüllü çevirmenler tarafından tercüme edilmiştir.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Vakfı&lt;/a&gt;\'nın ürünüdür</string>
   <string name="about_activity_title">Hakkında</string>
-  <string name="edit_unchanged">Sayfada değişik yapılmadı.</string>
   <string name="edit_abandon_confirm">Sayfada değişiklikler yapıldı. Kaydetmeden çıkmak istediğinizden emin misiniz?</string>
   <string name="user_blocked_from_editing_title">Engellendi</string>
   <string name="user_logged_in_blocked_from_editing">Kullanıcı hesabınızın, bu viki üzerinde değişiklik yapması engellendi.</string>
@@ -213,7 +188,6 @@
   <string name="find_in_page">Bu sayfada bul</string>
   <string name="find_next">Sonrakini bul</string>
   <string name="find_previous">Öncekini bul</string>
-  <string name="find_close">Aramayı kapat</string>
   <string name="error_network_error_try_again">Ağa erişilemiyor; lütfen tekrar deneyin.</string>
   <string name="saved_pages_update_all_error_retry">Tekrar dene</string>
   <string name="saved_pages_update_all_error_message">Kaydedilen sayfalar güncelleştirilirken hata oluştu</string>
@@ -233,12 +207,8 @@
   <string name="color_theme_light">Açık</string>
   <string name="color_theme_dark">Koyu</string>
   <string name="page_similar_titles">Benzer sayfalar</string>
-  <string name="search_within_pages">Sayfalar içinde ara...</string>
   <string name="search_no_results">\"%s\" için hiçbir sonuç bulunamadı.</string>
   <string name="search_did_you_mean">Bunu mu demek istediniz: \"%s\"?</string>
-  <string name="search_results_title">Arama sonuçları</string>
-  <string name="search_error_retry">Tekrar dene</string>
-  <string name="search_redirect_title">\"%s\" sayfasından yönlendirme.</string>
   <string name="search_recent_header">Son aramalar:</string>
   <string name="button_clear_all_recent_searches">Son aramaları temizle</string>
   <string name="clear_recent_searches_confirm">Arama geçmişini temizlemek istediğinizden emin misiniz?</string>
@@ -248,7 +218,10 @@
   <string name="table_infobox">Pratik bilgiler</string>
   <string name="table_other">Daha fazla bilgi</string>
   <string name="table_close">Kapat</string>
-  <string name="app_store_description">Android için resmi Vikipedi Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır. Sıfırdan tekrar yazılan uygulama, şimdi her zamankinden daha iyi.
+  <string name="widget_name_featured_page">Vikipedi seçkin sayfalar</string>
+  <string name="widget_title_featured_page">Günün seçkin maddesi:</string>
+  <string name="widget_name_search">Vikipedi arama</string>
+  <string name="app_store_description" fuzzy="true">Android için resmi Vikipedi Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır. Sıfırdan tekrar yazılan uygulama, şimdi her zamankinden daha iyi.
 
 Özellikler:
    - Hız: Yeni, basit uygulamamız Vikipedi\'yi hiç olmadığı kadar hızlı taramanıza ve değiştirmenize imkan veriyor.
@@ -270,14 +243,17 @@ Uygulama kodları tamamen açık kaynaklıdır. Java ve Android SDK kullanıyors
   <string name="menu_gallery_visit_page">Dosya sayfasına git</string>
   <string name="gallery_error_draw_failed">Resim gösterilemedi.</string>
   <string name="license_title">%s kütüphanesi için lisans metni</string>
-  <string name="gallery_license_text">Lisans - %s</string>
-  <string name="gallery_credit_text">Üreten - %s</string>
   <string name="gallery_image_info">Dosya bilgisi</string>
   <string name="gallery_menu_share">Paylaş</string>
   <string name="gallery_share_error">Resim paylaşılamadı: %s</string>
   <string name="gallery_menu_save">Cihaza kaydet</string>
   <string name="gallery_save_error">Resim kaydedilemedi: %s</string>
+  <string name="gallery_save_error_mediastore">Görüntü medya koleksiyonuna alınamadı</string>
   <string name="gallery_save_success">Resim başarıyla kaydedildi.</string>
   <string name="err_cannot_save_file">Dosya kaydedilemiyor</string>
+  <string name="snippet_share_intro">\"%1$s\" @Wikipedia üzerinde: %2$s</string>
   <string name="expand_refs">Genişletmek için tıklayın</string>
+  <string name="share_snippet_button">Resim olarak paylaş</string>
+  <string name="share_normal_button">Metin olarak paylaş</string>
+  <string name="snippet_share_preview_image_desc">Resmi önizle</string>
 </resources>

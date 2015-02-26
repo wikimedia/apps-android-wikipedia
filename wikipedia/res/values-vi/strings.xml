@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Báo cáo sự cố cho chúng tôi</string>
   <string name="acra_report_dialog_comment">Bạn đang làm gì khi xảy ra sự cố?</string>
   <string name="search_hint">Tìm trong Wikipedia</string>
-  <string name="history_activity_title">Lịch sử</string>
   <string name="nav_item_history">Lịch sử</string>
   <string name="error_network_error">Không thể kết nối với mạng :(</string>
   <string name="search_network_error">Lỗi mạng. Chạm để thử lại.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
   <string name="nav_item_today">Hôm nay</string>
   <string name="dialog_title_clear_history">Bạn muốn xóa lịch sử duyệt trang?</string>
-  <string name="saved_pages_activity_title">Trang đã lưu</string>
   <string name="nav_item_saved_pages">Trang đã lưu</string>
   <string name="menu_update_all_saved_pages">Cập nhật các trang đã lưu</string>
   <string name="menu_update_selected_saved_pages">Cập nhật các trang đã lưu</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Bạn muốn cập nhật các trang đã lưu?</string>
-  <string name="toast_saved_page_refreshed">Đã cập nhật các trang đã lưu</string>
   <string name="menu_save_page">Lưu trang</string>
   <string name="menu_share_page">Chia sẻ</string>
   <string name="share_via">Chia sẻ qua</string>
   <string name="dialog_title_clear_saved_pages">Bạn có muốn xóa các trang đã lưu?</string>
-  <string name="dialog_message_clear_saved_pages">Bạn có chắc chắn muốn xóa tất cả các trang đã lưu?</string>
   <string name="toast_saving_page">Đang lưu trang…</string>
   <string name="toast_saved_page">Đã lưu trang thành công</string>
   <string name="toast_saved_page_missing_images">Không thể lưu tất cả các hình ảnh</string>
-  <string name="toast_save_page_failed">Thất bại khi lưu trang :(</string>
   <string name="toast_refresh_saved_page">Đang làm mới trang đã lưu…</string>
   <string name="delete_selected_saved_pages">Xóa</string>
   <string name="toast_saved_page_deleted">Đã xóa (các) trang đã lưu</string>
   <string name="saved_pages_search_list_hint">Tìm kiếm</string>
   <string name="saved_pages_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
-  <string name="nearby_activity_title">Lân cận</string>
   <string name="nav_item_nearby">Lân cận</string>
   <string name="menu_update_nearby">Cập nhật danh sách lân cận</string>
   <string name="nearby_empty_title">Không có trang nào gần đây!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f dặm</string>
   <string name="nearby_no_network">Không có kết nối mạng</string>
   <string name="nearby_server_error">Không thể lấy danh sách địa điểm lân cận.</string>
-  <string name="nearby_no_location">Không thể lấy vị trí</string>
   <string name="nearby_dialog_goto_settings">Các cập nhật vị trí không được kích hoạt trên thiết bị của bạn. Bạn có muốn mở cài đặt của thiết bị này để kích hoạt các cập nhật vị trí?</string>
   <string name="nearby_set_metric">Hiển thị mét/km</string>
   <string name="nearby_set_imperial">Hiển thị foot/dặm</string>
@@ -60,14 +53,12 @@
   <string name="edit_save_action_license_logged_in">Với việc lưu trang, bạn chấp nhận &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Với việc lưu trang, bạn chấp nhận &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt;. Các sửa đổi của  bạn sẽ ghi rõ địa chỉ IP của thiết bị của bạn. Bạn có thể &lt;a href=\"https://#login\"&gt;đăng nhập&lt;/a&gt; để bảo vệ quyền riêng tư của bạn một chút hơn.</string>
   <string name="preference_title_language">Ngôn ngữ Wikipedia</string>
-  <string name="preference_summary_language">Ngôn ngữ nội dung</string>
   <string name="preference_languages_filter_hint">Tìm kiếm</string>
   <string name="langlinks_filter_hint">Tìm kiếm</string>
   <string name="menu_other_languages">Đọc trong ngôn ngữ khác</string>
   <string name="langlinks_error_retry">Thử lại</string>
   <string name="langlinks_empty">Trang này không có sẵn trong ngôn ngữ khác</string>
   <string name="langlinks_no_match">Không tìm thấy ngôn ngữ trùng với truy vấn của bạn.</string>
-  <string name="settings_activity_title">Tùy chọn</string>
   <string name="langlinks_activity_title">Ngôn ngữ khác</string>
   <string name="menu_save_changes">Lưu các thay đổi</string>
   <string name="edit_section_error_retry">Thử lại</string>
@@ -100,7 +91,6 @@
   <string name="login_error_throttled">Đã thử đăng nhập quá nhiều lần. Hãy chờ vài phút rồi thử lại.</string>
   <string name="login_error_unknown">Thất bại khi đăng nhập :(</string>
   <string name="login_error_no_network">Không có kết nối mạng</string>
-  <string name="nav_item_logout">Đăng xuất</string>
   <string name="preference_title_logout">Đăng xuất</string>
   <string name="preference_summary_logout">Đăng xuất khỏi tài khoản Wikipedia của bạn</string>
   <string name="preference_summary_notloggedin">Chưa đăng nhập.</string>
@@ -115,11 +105,9 @@
   <string name="skip">Bỏ qua</string>
   <string name="create_account_username_hint">Tên người dùng</string>
   <string name="create_account_password_hint">Mật khẩu</string>
-  <string name="menu_create_account">Mở tài khoản</string>
   <string name="login_create_account_link">Chưa có tài khoản? Hãy tham gia Wikipedia</string>
   <string name="create_account_login_link">Đã có tài khoản? Đăng nhập</string>
   <string name="create_account_activity_title">Mở tài khoản</string>
-  <string name="edit_section_activity_title">Sửa đổi đề mục</string>
   <string name="dialog_create_account_checking_progress">Đang xác minh</string>
   <string name="create_account_email_hint">Thư điện tử (tùy chọn)</string>
   <string name="create_account_password_repeat_hint">Lặp lại mật khẩu</string>
@@ -153,24 +141,12 @@
   <string name="zero_learn_more">Không phải trả các chi phí dữ liệu khi sử dụng ứng dụng Wikipedia này.</string>
   <string name="zero_learn_more_learn_more">Đọc thêm</string>
   <string name="zero_learn_more_dismiss">Bỏ qua</string>
-  <string name="zero_settings">Tùy chọn</string>
-  <string name="zero_settings_devmode">Chế độ phát triển Miễn phí</string>
-  <string name="zero_settings_devmode_summary">Trong quá trình phát triển, hộp này cho phép thực thi mã phát hiện Wikipedia Miễn phí.</string>
   <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem thử…</string>
-  <string name="create_account_logging_in">Đang đăng nhập…</string>
   <string name="send_feedback">Gửi phản hồi về ứng dụng</string>
-  <string name="edit_summary_guide_text">Hãy cho biết bạn đã cải thiện trang này thế nào, để cho người khác có thể duyệt sửa đổi của bạn một cách nhanh chóng.</string>
-  <string name="edit_summary_hint">Tóm lược sửa đổi</string>
   <string name="nav_item_random">Ngẫu nhiên</string>
-  <string name="random_progress">Đang lấy trang ngẫu nhiên…</string>
   <string name="create_account_account_created_toast">Đã mở tài khoản thành công!</string>
   <string name="user_contribs_more_action">Tải thêm</string>
   <string name="activity_my_contributions_title">Đóng góp của Tôi</string>
-  <string name="nav_item_my_contributions">Đóng góp của tôi</string>
-  <string name="edit_save_action_login">Đăng nhập và lưu</string>
-  <string name="edit_save_action_ip">Lưu vô danh</string>
-  <string name="edit_save_action_login_description">Các sửa đổi của bạn sẽ được ghi công với tên người dùng của bạn một cách công khai để cho những người sửa đổi khác có thể liên hệ với bạn tốt hơn</string>
-  <string name="edit_save_action_ip_description">Các sửa đổi của bạn sẽ được ghi công với địa chỉ IP của bạn, địa chỉ này thay đổi thường xuyên</string>
   <string name="preference_title_eventlogging_opt_in">Gửi báo cáo sử dụng</string>
   <string name="preference_summary_eventlogging_opt_in">Cho phép Wikimedia thu thập thông tin về cách bạn sử dụng ứng dụng để giúp cải thiện ứng dụng</string>
   <string name="editing_error_spamblacklist">Đã tìm thấy các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
@@ -189,14 +165,12 @@
   <string name="terms_of_use_description">Điều khoản sử dụng</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Quy_định_quyền_riêng_tư?uselang=vi</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi</string>
-  <string name="preference_title_version">Phiên bản</string>
   <string name="about_libraries_heading">thư viện được sử dụng</string>
   <string name="about_contributors_heading">người đóng góp</string>
   <string name="about_translators_heading">biên dịch viên</string>
   <string name="about_translators_translatewiki">Ứng dụng này được biên dịch bởi những người tình nguyện tại &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Một sản phẩm của &lt;a href=\"http://wikimediafoundation.org/wiki/Trang_chủ?uselang=vi\"&gt;Quỹ Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Giới thiệu</string>
-  <string name="edit_unchanged">Trang chưa được sửa đổi.</string>
   <string name="edit_abandon_confirm">Trang đã được sửa đổi. Bạn có chắc chắn muốn thoát mà không lưu các thay đổi của bạn?</string>
   <string name="user_blocked_from_editing_title">Cấm</string>
   <string name="user_logged_in_blocked_from_editing">Tài khoản người dùng của bạn đã bị cấm không được sửa đổi wiki này.</string>
@@ -213,7 +187,6 @@
   <string name="find_in_page">Tìm trong trang</string>
   <string name="find_next">Tìm tiếp</string>
   <string name="find_previous">Tìm trước</string>
-  <string name="find_close">Đóng thanh tìm kiếm</string>
   <string name="error_network_error_try_again">Không thể kết nối mạng. Vui lòng thử lại.</string>
   <string name="saved_pages_update_all_error_retry">Thử lại</string>
   <string name="saved_pages_update_all_error_message">Có lỗi khi cập nhật các trang đã lưu</string>
@@ -233,12 +206,8 @@
   <string name="color_theme_light">Sáng</string>
   <string name="color_theme_dark">Tối</string>
   <string name="page_similar_titles">Trang tương tự</string>
-  <string name="search_within_pages">Tìm trong trang…</string>
   <string name="search_no_results">Không tìm thấy kết quả cho “%s”.</string>
   <string name="search_did_you_mean">Có phải bạn muốn tìm “%s”?</string>
-  <string name="search_results_title">Kết quả tìm kiếm</string>
-  <string name="search_error_retry">Thử lại</string>
-  <string name="search_redirect_title">Đổi hướng từ “%s”.</string>
   <string name="search_recent_header">Tìm kiếm gần đây:</string>
   <string name="button_clear_all_recent_searches">Xóa các tìm kiếm gần đây</string>
   <string name="clear_recent_searches_confirm">Bạn có chắc chắn muốn xóa lịch sử tìm kiếm của bạn?</string>
@@ -248,7 +217,7 @@
   <string name="table_infobox">Thông tin nhanh</string>
   <string name="table_other">Thêm thông tin</string>
   <string name="table_close">Đóng</string>
-  <string name="app_store_description">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở với hơn 32 triệu mục từ trong 280 ngôn ngữ, và là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên. Ứng dụng này đã được viết mới hoàn toàn và là bản tốt nhất từ trước tới nay.
+  <string name="app_store_description" fuzzy="true">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở với hơn 32 triệu mục từ trong 280 ngôn ngữ, và là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên. Ứng dụng này đã được viết mới hoàn toàn và là bản tốt nhất từ trước tới nay.
 
 Tính năng:
  - Tốc độ: Ứng dụng mới của chúng tôi cho phép bạn duyệt và sửa đổi Wikipedia nhanh nhất từ trước tới nay.
@@ -270,8 +239,6 @@ Mã nguồn là hoàn toàn mở. Nếu bạn có kinh nghiệm với Java và A
   <string name="menu_gallery_visit_page">Xem trang tập tin</string>
   <string name="gallery_error_draw_failed">Không thể hiển thị hình.</string>
   <string name="license_title">Văn bản giấy phép của thư viện %s</string>
-  <string name="gallery_license_text">Giấy phép – %s</string>
-  <string name="gallery_credit_text">Tác giả – %s</string>
   <string name="gallery_image_info">Thông tin hình ảnh</string>
   <string name="gallery_menu_share">Chia sẻ</string>
   <string name="gallery_share_error">Không thể chia sẻ hình: %s</string>

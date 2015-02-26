@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">ផ្ញើរបាយការណ៍ដល់យើងខ្ញុំអំពីការគាំងនេះ</string>
   <string name="acra_report_dialog_comment">តើអ្នកកំពុងធ្វើអ្វីនៅពេលដែលវាគាំង?</string>
   <string name="search_hint">ស្វែងរកនៅក្នុងវិគីភីឌា</string>
-  <string name="history_activity_title">ប្រវត្តិ</string>
   <string name="nav_item_history">ប្រវត្តិ</string>
   <string name="error_network_error">គ្មានបណ្ដាញតភ្ជាប់ទេ :(</string>
   <string name="search_network_error">បញ្ហាបណ្ដាញ។ សូមសាកល្បងចុចម្ដងទៀត។</string>
@@ -19,27 +18,22 @@
   <string name="page_does_not_exist_error">គ្មានទំព័រនេះទេ។</string>
   <string name="nav_item_today">ថ្ងៃនេះ</string>
   <string name="dialog_title_clear_history">សម្អាត​ប្រវត្តិរាវរកអ៊ីនធើណិត?</string>
-  <string name="saved_pages_activity_title">ទំព័រដែលបានរក្សាទុក</string>
   <string name="nav_item_saved_pages">ទំព័រដែលបានរក្សាទុក</string>
   <string name="menu_update_all_saved_pages">បន្ទាន់សម័យទំព័រដែលបានរក្សាទុក</string>
   <string name="menu_update_selected_saved_pages">បន្ទាន់សម័យទំព័រដែលបានរក្សាទុក</string>
   <string name="dialog_prompt_refresh_all_saved_pages">បន្ទាន់សម័យទំព័រដែលបានរក្សាទុកទាំងអស់ឬ?</string>
-  <string name="toast_saved_page_refreshed">បានបន្ទាន់សម័យទំព័រដែលបានរក្សាទុកហើយ</string>
   <string name="menu_save_page">រក្សា​ទុក​ទំព័រ</string>
   <string name="menu_share_page">ចែក​រំលែក</string>
   <string name="share_via">ចែក​រំលែក​តាម...</string>
   <string name="dialog_title_clear_saved_pages">សម្អាត​ទំព័រ​ដែល​បាន​រក្សា​ទុកទាំងអស់ឬ?</string>
-  <string name="dialog_message_clear_saved_pages">តើ​អ្នក​ពិត​ជា​ចង់​សម្អាត​ទំព័រ​ដែល​បាន​រក្សា​ទុក​ទាំង​អស់មែនទេ?</string>
   <string name="toast_saving_page">កំពុង​រក្សា​ទុក​ទំព័រ...</string>
   <string name="toast_saved_page">បាន​រក្សា​ទំព័របានសម្រេច</string>
   <string name="toast_saved_page_missing_images">មិនអាចរក្សាទុករូបភាពទាំងអស់</string>
-  <string name="toast_save_page_failed">រក្សា​ទុក​ទំព័រ​មិន​បាន​សម្រេច :(</string>
   <string name="toast_refresh_saved_page">កំពុងផ្ទុកទំព័រដែលបានរក្សាទុកជាថ្មី...</string>
   <string name="delete_selected_saved_pages">លុប</string>
   <string name="toast_saved_page_deleted">បាន​លុប​ទំព័រ​ដែល​បាន​រក្សា​ទុក</string>
   <string name="saved_pages_search_list_hint">ស្វែងរក</string>
   <string name="saved_pages_search_empty_message">រកមិនឃើញទំព័រត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
-  <string name="nearby_activity_title">ជិតខាង</string>
   <string name="nav_item_nearby">ជិតខាង</string>
   <string name="menu_update_nearby">បន្ទាន់សម័យទំព័រជិតខាង</string>
   <string name="nearby_empty_title">គ្មានទំព័រជិតខាងនៅទីនេះទេ!</string>
@@ -50,21 +44,18 @@
   <string name="nearby_distance_in_miles">%.2f ម៉ៃល៍</string>
   <string name="nearby_no_network">គ្មាន​បណ្ដាញតភ្ជាប់</string>
   <string name="nearby_server_error">មិនអាចទាញយកបញ្ជីទីកន្លែងនៅជិតខាងបានទេ។</string>
-  <string name="nearby_no_location">មិនអាចយកព័ត៌មានទីតាំងបានទេ</string>
   <string name="nearby_dialog_goto_settings">មិនអាចបន្ទាន់សម័យព័ត៌មានទីតាំងនៅលើឧបករណ៍របស់អ្នកទេ។ តើអ្នកចង់ទៅកាន់ទំព័រកំណត់របស់ឧបករណ៍របស់អ្នក ដើម្បីប្រើការបន្ទាន់សម័យព័ត៌មានទីតាំងទេ?</string>
   <string name="nearby_set_metric">បង្ហាញជា ម៉ែត្រ/គ.ម</string>
   <string name="nearby_set_imperial">បង្ហាញជា ហ្វីដ/ម៉ៃល៍</string>
   <string name="last_updated_text">បាន​ធ្វើ​បច្ចុប្បន្នភាព​ចុង​ក្រោយ​នៅ %1$s</string>
   <string name="content_license_html">ខ្លឹមសារអត្ថបទផ្ដល់ជូនក្រោមអាជ្ញាបណ្ឌ &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; លើកលែងតែមានបញ្ជាក់ផ្សេងពីនេះ</string>
   <string name="preference_title_language">ភាសាវិគីភីឌា</string>
-  <string name="preference_summary_language">ភាសា​មាតិកា</string>
   <string name="preference_languages_filter_hint">ស្វែងរក</string>
   <string name="langlinks_filter_hint">ស្វែងរក</string>
   <string name="menu_other_languages">អានជាភាសា​ដទៃ​ទៀត</string>
   <string name="langlinks_error_retry">ព្យាយាម​ម្ដង​ទៀត</string>
   <string name="langlinks_empty">ទំព័រ​នេះ​មិនអាចអានជា​ភាសាដទៃ​ទៀត​ទេ។</string>
   <string name="langlinks_no_match">រកមិនឃើញភាសាត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
-  <string name="settings_activity_title">ការ​កំណត់</string>
   <string name="langlinks_activity_title">ភាសា​ដទៃ​ទៀត</string>
   <string name="menu_save_changes">រក្សាទុកបន្លាស់ប្ដូរ</string>
   <string name="edit_section_error_retry">ព្យាយាមម្ដងទៀត</string>
@@ -90,7 +81,6 @@
   <string name="login_error_blocked">អ្នក​ប្រើ​ម្នាក់​នេះ​ត្រូវ​បាន​ទប់​ស្កាត់</string>
   <string name="login_error_unknown">ការ​ចូល​បាន​បរាជ័យ :(</string>
   <string name="login_error_no_network">មិន​មាន​ការ​តភ្ជាប់​បណ្ដាញ</string>
-  <string name="nav_item_logout">ចាក​ចេញ</string>
   <string name="preference_title_logout">កត់ឈ្មោះចេញ</string>
   <string name="preference_summary_logout">កត់ឈ្មោះចេញពីគណនីវិគីភីឌារបស់អ្នក</string>
   <string name="preference_summary_notloggedin">មិនទាន់កត់ឈ្មោះចូលទេ។</string>
@@ -105,11 +95,9 @@
   <string name="skip">រំលង</string>
   <string name="create_account_username_hint">ឈ្មោះ​អ្នក​ប្រើ</string>
   <string name="create_account_password_hint">ពាក្យ​សម្ងាត់</string>
-  <string name="menu_create_account">បង្កើតគណនី</string>
   <string name="login_create_account_link">តើអ្នកមិនទាន់មានគណនីទេឬ? ចូលរួមជាមួយវិគីភីឌា</string>
   <string name="create_account_login_link">តើអ្នកមានគណនីមួយរួចហើយឬ? សូមកត់ឈ្មោះចូល។</string>
   <string name="create_account_activity_title">បង្កើតគណនីមួយ</string>
-  <string name="edit_section_activity_title">កែប្រែ​ផ្នែក</string>
   <string name="dialog_create_account_checking_progress">កំពុ​ផ្ទៀង​ផ្ទាត់</string>
   <string name="create_account_email_hint">អ៊ីមែល (ស្រេច​ចិត្ត)</string>
   <string name="create_account_password_repeat_hint">ពាក្យ​សម្ងាត់​ម្ដង​ទៀត</string>
@@ -138,17 +126,11 @@
   <string name="zero_interstitial_cancel">មិនចាកចេញ</string>
   <string name="zero_learn_more_learn_more">អានបន្ថែម</string>
   <string name="zero_learn_more_dismiss">លាក់</string>
-  <string name="zero_settings">ការកំណត់​នានា</string>
-  <string name="create_account_logging_in">កំពុងកត់ឈ្មោះចូល...</string>
   <string name="send_feedback">ផ្ញើមតិយោបល់អំពីកម្មវិធីនេះ</string>
-  <string name="edit_summary_hint">កែប្រែចំណារពន្យល់</string>
   <string name="nav_item_random">ចៃដន្យ</string>
   <string name="create_account_account_created_toast">គណនីបានបង្កើតហើយ!</string>
   <string name="user_contribs_more_action">ផ្ទុកបន្ថែម</string>
   <string name="activity_my_contributions_title">ការរួមចំណែករបស់ខ្ញុំ</string>
-  <string name="nav_item_my_contributions">ការរួមចំណែករបស់ខ្ញុំ</string>
-  <string name="edit_save_action_login">កត់ឈ្មោះចូលរួចរក្សាទុក</string>
-  <string name="edit_save_action_ip">រក្សាទុកជាអនាមិក</string>
   <string name="preference_title_eventlogging_opt_in">ផ្ញើរបាយការណ៍ពីបម្រើបម្រាស់</string>
   <string name="preference_summary_eventlogging_opt_in">អនុញ្ញាតអោយវិគីមេឌាប្រមូលព័ត៌មានអំពីរបៀបប្រើប្រាស់កម្មវិធីរបស់អ្នក ដើម្បីជួយកែច្នៃកម្មវិធីនេះអោយកាន់តែប្រសើរ</string>
   <string name="history_search_list_hint">ស្វែងរក</string>
@@ -164,14 +146,12 @@
   <string name="about_description">អំពីកម្មវិធីវិគីភីឌា</string>
   <string name="privacy_policy_description">គោលការណ៍នៃ​ភាពឯកជន</string>
   <string name="terms_of_use_description">លក្ខខណ្ឌប្រើប្រាស់</string>
-  <string name="preference_title_version">វើសិន</string>
   <string name="about_libraries_heading">បណ្ណាល័យដែលបានប្រើ</string>
   <string name="about_contributors_heading">អ្នករួមចំណែក</string>
   <string name="about_translators_heading">អ្នកបកប្រែ</string>
   <string name="about_translators_translatewiki">កម្មវិធីនេះត្រូវបានបកប្រែដោយអ្នកស្ម័គ្រចិត្តបកប្រែនៅ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;។</string>
   <string name="about_wmf">ផលិតផលរបស់ &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;មូលនិធិវិគីភីឌា&lt;/a&gt;</string>
   <string name="about_activity_title">អំពី</string>
-  <string name="edit_unchanged">ទំព័រនេះមិនត្រូវបានកែប្រែទេ។</string>
   <string name="edit_abandon_confirm">ទំព័រនេះត្រូវបានកែប្រែ។ តើអ្នកប្រាកដជាចង់ចាកចេញដោយមិនរក្សាទុកកំណែប្រែរបស់អ្នកឬ?</string>
   <string name="user_blocked_from_editing_title">បានហាមឃាត់</string>
   <string name="user_logged_in_blocked_from_editing">គណនីរបស់អ្នកត្រូវបានហាមឃាត់មិនអោយធ្វើការកែប្រែនៅក្នុងវិគីនេះ។</string>
@@ -188,7 +168,6 @@
   <string name="find_in_page">ស្វែងរកក្នុងទំព័រ</string>
   <string name="find_next">ស្វែងរក​បន្ទាប់</string>
   <string name="find_previous">ស្វែងរក​មុន</string>
-  <string name="find_close">បិទរបារស្វែងរក</string>
   <string name="error_network_error_try_again">មិនអាចភ្ចាប់ទៅបណ្ដាញ។ សូមសាកល្បងម្ដងទៀត។</string>
   <string name="saved_pages_update_all_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="saved_pages_update_all_error_message">បញ្ហាក្នុងការបន្ទាន់សម័យទំព័រដែលបានរក្សាទុក</string>
@@ -204,12 +183,8 @@
   <string name="color_theme_light">ភ្លឺ</string>
   <string name="color_theme_dark">ងងឹត</string>
   <string name="page_similar_titles">ទំព័រស្រដៀង</string>
-  <string name="search_within_pages">ស្វែងរកនៅក្នុងទំព័រ...</string>
   <string name="search_no_results">គ្មានលទ្ធផលស្វែងរកសម្រាប់ \"%s\" ទេ។</string>
   <string name="search_did_you_mean">អ្នកប្រហែលជាចង់រក \"%s\" មែនទេ?</string>
-  <string name="search_results_title">លទ្ធផលស្វែងរក</string>
-  <string name="search_error_retry">ព្យាយាមម្ដងទៀត</string>
-  <string name="search_redirect_title">បញ្ជូនបន្តពី \"%s\"។</string>
   <string name="search_recent_header">ការស្វែងរកថ្មីៗនេះ៖</string>
   <string name="button_clear_all_recent_searches" fuzzy="true">សម្អាតការស្វែងរកថ្មីៗនេះ</string>
 </resources>

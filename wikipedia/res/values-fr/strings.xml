@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Nous envoyer un rapport de plantage</string>
   <string name="acra_report_dialog_comment">Que faisiez-vous lorsque le plantage s’est produit ?</string>
   <string name="search_hint">Rechercher dans Wikipédia</string>
-  <string name="history_activity_title">Historique</string>
   <string name="nav_item_history">Historique</string>
   <string name="error_network_error">Pas de connexion réseau :(</string>
   <string name="search_network_error">Erreur de réseau. Appuyez pour réessayer.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Cette page n’existe pas.</string>
   <string name="nav_item_today">Aujourd’hui</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation ?</string>
-  <string name="saved_pages_activity_title">Pages enregistrées</string>
   <string name="nav_item_saved_pages">Pages enregistrées</string>
   <string name="menu_update_all_saved_pages">Mettre à jour les pages enregistrées</string>
   <string name="menu_update_selected_saved_pages">Mettre à jour les pages enregistrées</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Mettre à jour toutes les pages enregistrées ?</string>
-  <string name="toast_saved_page_refreshed">Pages enregistrées mises à jour</string>
   <string name="menu_save_page">Enregistrer la page</string>
   <string name="menu_share_page">Partager</string>
   <string name="share_via">Partager via</string>
   <string name="dialog_title_clear_saved_pages">Effacer toutes les pages enregistrées ?</string>
-  <string name="dialog_message_clear_saved_pages">Êtes-vous sûr de vouloir effacer toutes les pages enregistrées ?</string>
   <string name="toast_saving_page">Enregistrement de la page…</string>
   <string name="toast_saved_page">Page bien enregistrée</string>
   <string name="toast_saved_page_missing_images">Impossible d’enregistrer toutes les images</string>
-  <string name="toast_save_page_failed">Échec de l’enregistrement de la page :(</string>
   <string name="toast_refresh_saved_page">Rafraîchissement de la page enregistrée…</string>
   <string name="delete_selected_saved_pages">Supprimer</string>
   <string name="toast_saved_page_deleted">Page(s) enregistrée(s) supprimée(s)</string>
   <string name="saved_pages_search_list_hint">Rechercher</string>
   <string name="saved_pages_search_empty_message">Aucune page trouvée correspondant à votre requête.</string>
-  <string name="nearby_activity_title">À proximité</string>
   <string name="nav_item_nearby">À proximité</string>
   <string name="menu_update_nearby">Mise à jour des éléments à proximité</string>
   <string name="nearby_empty_title">Aucune page à proximité ici !</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f miles</string>
   <string name="nearby_no_network">Aucune connexion au réseau</string>
   <string name="nearby_server_error">Impossible d’obtenir la liste des emplacements à proximité.</string>
-  <string name="nearby_no_location">Impossible d’obtenir l’emplacement</string>
   <string name="nearby_dialog_goto_settings">Les mises à jour d’emplacement ne sont pas activées sur votre terminal. Voulez-vous aller sur les paramètres de votre appareil pour activer les mises à jour d’emplacement ?</string>
   <string name="nearby_set_metric">Afficher en m/km</string>
   <string name="nearby_set_imperial">Afficher en pieds/miles</string>
@@ -61,14 +54,12 @@
   <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En enregistrant, vous acceptez les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Les modifications seront attribuées à l’adresse IP de votre appareil. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
   <string name="preference_title_language">Langue de Wikipédia</string>
-  <string name="preference_summary_language">Langue du contenu</string>
   <string name="preference_languages_filter_hint">Rechercher</string>
   <string name="langlinks_filter_hint">Rechercher</string>
   <string name="menu_other_languages">Lire dans d’autres langues</string>
   <string name="langlinks_error_retry">Réessayer</string>
   <string name="langlinks_empty">Cette page n’est pas disponible dans d’autres langues</string>
   <string name="langlinks_no_match">Aucune langue trouvée correspondant à votre requête.</string>
-  <string name="settings_activity_title">Paramètres</string>
   <string name="langlinks_activity_title">Autres langues</string>
   <string name="menu_save_changes">Enregistrer les modifications</string>
   <string name="edit_section_error_retry">Réessayer</string>
@@ -101,7 +92,6 @@
   <string name="login_error_throttled">Trop de tentatives de connexion. Attendez quelques minutes pour réessayer !</string>
   <string name="login_error_unknown">Échec de la connexion :(</string>
   <string name="login_error_no_network">Pas de connexion au réseau</string>
-  <string name="nav_item_logout">Déconnexion</string>
   <string name="preference_title_logout">Se déconnecter</string>
   <string name="preference_summary_logout">Vous déconnecter de votre compte Wikipédia</string>
   <string name="preference_summary_notloggedin">Non connecté.</string>
@@ -116,11 +106,9 @@
   <string name="skip">Passer</string>
   <string name="create_account_username_hint">Nom d’utilisateur</string>
   <string name="create_account_password_hint">Mot de passe</string>
-  <string name="menu_create_account">Créer un compte</string>
   <string name="login_create_account_link">Vous n’avez pas de compte ? Rejoignez Wikipédia</string>
   <string name="create_account_login_link">Vous avez déjà un compte ? Connectez-vous</string>
   <string name="create_account_activity_title">Créer un compte</string>
-  <string name="edit_section_activity_title">Modifier la section</string>
   <string name="dialog_create_account_checking_progress">Vérification en cours</string>
   <string name="create_account_email_hint">Adresse de courriel (facultatif)</string>
   <string name="create_account_password_repeat_hint">Répéter le mot de passe</string>
@@ -154,24 +142,12 @@
   <string name="zero_learn_more">Les frais de données ne s’appliquent pas pour cette application Wikipédia.</string>
   <string name="zero_learn_more_learn_more">Lire la suite</string>
   <string name="zero_learn_more_dismiss">Rejeter</string>
-  <string name="zero_settings">Paramètres</string>
-  <string name="zero_settings_devmode">Mode de développement Zéro</string>
-  <string name="zero_settings_devmode_summary">Lors du développement, cela permet l’exécution du code des éléments de Wikipédia Zéro.</string>
   <string name="edit_preview_fetching_dialog_message">Récupération de l’aperçu…</string>
-  <string name="create_account_logging_in">Connexion en cours…</string>
   <string name="send_feedback">Envoyer un avis sur l’application</string>
-  <string name="edit_summary_guide_text">Dites-nous comment vous avez amélioré cette page. Cela aide les autres éditeurs à relire plus rapidement votre modification.</string>
-  <string name="edit_summary_hint">Modifier le résumé</string>
   <string name="nav_item_random">Aléatoire</string>
-  <string name="random_progress">Récupération d’une page au hasard…</string>
   <string name="create_account_account_created_toast">Compte créé !</string>
   <string name="user_contribs_more_action">En savoir plus</string>
   <string name="activity_my_contributions_title">Mes contributions</string>
-  <string name="nav_item_my_contributions">Mes contributions</string>
-  <string name="edit_save_action_login">Se connecter et enregistrer</string>
-  <string name="edit_save_action_ip">Enregistrer anonymement</string>
-  <string name="edit_save_action_login_description">Vos modifications seront publiquement attribuées à votre nom d’utilisateur et d’autres contributeurs pourront mieux se mettre en contact avec vous</string>
-  <string name="edit_save_action_ip_description">Vos modifications seront attribuées publiquement à votre adresse IP, qui change régulièrement</string>
   <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
   <string name="editing_error_spamblacklist">Liens vers des domaines bloqués (%s) détectés. Veuillez les supprimer et réessayer.</string>
@@ -190,14 +166,12 @@
   <string name="terms_of_use_description">Conditions d’utilisation</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">Version</string>
   <string name="about_libraries_heading">bibliothèques utilisées</string>
   <string name="about_contributors_heading">contributeurs</string>
   <string name="about_translators_heading">traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs volontaires de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Un produit de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fondation Wikimédia&lt;/a&gt;</string>
   <string name="about_activity_title">À propos</string>
-  <string name="edit_unchanged">La page n’a pas été modifiée.</string>
   <string name="edit_abandon_confirm">La page a été modifiée. Êtes-vous sûr de vouloir la quitter sans enregistrer vos modifications ?</string>
   <string name="user_blocked_from_editing_title">Bloqué</string>
   <string name="user_logged_in_blocked_from_editing">Votre compte utilisateur a été bloqué en modification sur ce wiki.</string>
@@ -214,7 +188,6 @@
   <string name="find_in_page">Rechercher dans la page</string>
   <string name="find_next">Rechercher le suivant</string>
   <string name="find_previous">Rechercher le précédent</string>
-  <string name="find_close">Fermer la barre de recherche</string>
   <string name="error_network_error_try_again">Impossible d’atteindre le réseau, veuillez réessayer.</string>
   <string name="saved_pages_update_all_error_retry">Réessayer</string>
   <string name="saved_pages_update_all_error_message">Erreur à la mise à jour des pages enregistrées</string>
@@ -234,12 +207,8 @@
   <string name="color_theme_light">Clair</string>
   <string name="color_theme_dark">Sombre</string>
   <string name="page_similar_titles">Pages semblables</string>
-  <string name="search_within_pages">Rechercher dans les pages…</string>
   <string name="search_no_results">Aucun résultat trouvé pour « %s ».</string>
   <string name="search_did_you_mean">Voulez-vous dire « %s » ?</string>
-  <string name="search_results_title">Rechercher des résultats</string>
-  <string name="search_error_retry">Réessayer</string>
-  <string name="search_redirect_title">Redirigé depuis « %s ».</string>
   <string name="search_recent_header">Recherches récentes :</string>
   <string name="button_clear_all_recent_searches">Effacer les recherches récentes</string>
   <string name="clear_recent_searches_confirm">Êtes-vous sûr de vouloir effacer votre historique de recherche ?</string>
@@ -252,7 +221,7 @@
   <string name="widget_name_featured_page">Page mise en avant de Wikipédia</string>
   <string name="widget_title_featured_page">Page mise en avant aujourd’hui :</string>
   <string name="widget_name_search">Recherche Wikipédia</string>
-  <string name="app_store_description">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée. L’application a été réécrite de zéro et est meilleure que jamais.
+  <string name="app_store_description" fuzzy="true">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée. L’application a été réécrite de zéro et est meilleure que jamais.
 
 Fonctionnalités :
    - Vitesse : notre nouvelle application native vous permet de naviguer sur Wikipédia et de modifier plus vite que jamais.
@@ -274,8 +243,6 @@ Le code est entièrement ouvert. Si vous êtes expérimenté avec Java et le kit
   <string name="menu_gallery_visit_page">Aller à la page du fichier</string>
   <string name="gallery_error_draw_failed">Impossible d\'afficher l’image.</string>
   <string name="license_title">Texte de la licence pour la bibliothèque %s</string>
-  <string name="gallery_license_text">Licence — %s</string>
-  <string name="gallery_credit_text">Auteur — %s</string>
   <string name="gallery_image_info">Information sur l’image</string>
   <string name="gallery_menu_share">Partager</string>
   <string name="gallery_share_error">Impossible de partager l’image : %s</string>
@@ -289,4 +256,6 @@ Le code est entièrement ouvert. Si vous êtes expérimenté avec Java et le kit
   <string name="share_snippet_button">Partager comme image</string>
   <string name="share_normal_button">Partager comme texte</string>
   <string name="snippet_share_preview_image_desc">Aperçu de l’image</string>
+  <string name="cc_logo">Licence Creative Commons</string>
+  <string name="captcha_image">Image Captcha</string>
 </resources>

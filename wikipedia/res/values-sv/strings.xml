@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Skicka en kraschrapport till oss</string>
   <string name="acra_report_dialog_comment">Vad gjorde du när kraschen inträffade?</string>
   <string name="search_hint">Sök på Wikipedia</string>
-  <string name="history_activity_title">Historik</string>
   <string name="nav_item_history">Historik</string>
   <string name="error_network_error">Det finns ingen nätverksanslutning :(</string>
   <string name="search_network_error">Nätverksfel. Tryck för att försöka igen.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Denna sida finns inte!</string>
   <string name="nav_item_today">Idag</string>
   <string name="dialog_title_clear_history">Rensa webbhistorik?</string>
-  <string name="saved_pages_activity_title">Sparade sidor</string>
   <string name="nav_item_saved_pages">Sparade sidor</string>
   <string name="menu_update_all_saved_pages">Uppdatera sparade sidor</string>
   <string name="menu_update_selected_saved_pages">Uppdatera sparade sidor</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Uppdatera alla sparade sidor?</string>
-  <string name="toast_saved_page_refreshed">Sparade sidor uppdaterade</string>
   <string name="menu_save_page">Spara sidan</string>
   <string name="menu_share_page">Dela</string>
   <string name="share_via">Dela via</string>
   <string name="dialog_title_clear_saved_pages">Rensa alla sparade sidor?</string>
-  <string name="dialog_message_clear_saved_pages">Är du säker på att du vill rensa alla sparade sidor?</string>
   <string name="toast_saving_page">Sparar sida...</string>
   <string name="toast_saved_page">Sidan har sparats</string>
   <string name="toast_saved_page_missing_images">Kunde inte spara alla bilder</string>
-  <string name="toast_save_page_failed">Sidan kunde inte sparas :(</string>
   <string name="toast_refresh_saved_page">Uppdaterar sparad sida...</string>
   <string name="delete_selected_saved_pages">Radera</string>
   <string name="toast_saved_page_deleted">Sparad(e) sida/sidor raderas</string>
   <string name="saved_pages_search_list_hint">Sök</string>
   <string name="saved_pages_search_empty_message">Inga sidor som matchade din sökning hittades.</string>
-  <string name="nearby_activity_title">I närheten</string>
   <string name="nav_item_nearby">I närheten</string>
   <string name="menu_update_nearby">Uppdatera sidor i närheten</string>
   <string name="nearby_empty_title">Inga närliggande sidor här!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Ingen nätverksanslutning</string>
   <string name="nearby_server_error">Kunde inte hämta listan över platser i närheten.</string>
-  <string name="nearby_no_location">Kunde inte hämta platsen</string>
   <string name="nearby_dialog_goto_settings">Platsuppdateringar är inte aktiverat på din enhet. Vill du gå till din enhets inställningar för att aktivera platsuppdateringar?</string>
   <string name="nearby_set_metric">Visa meter/km</string>
   <string name="nearby_set_imperial">Visa fot/engelsk mil</string>
@@ -61,14 +54,12 @@
   <string name="edit_save_action_license_logged_in">Genom att spara godkänner du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Användarvillkoren&lt;/a&gt;, och att oåterkalleligen släppa ditt bidrag med licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Genom att spara samtycker till &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;användarvillkoren&lt;/a&gt; och att oåterkalleligt släppa dina bidrag under licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redigeringar kommer att tillskrivas till din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; kommer du få mer integritet.</string>
   <string name="preference_title_language">Wikipediaspråk</string>
-  <string name="preference_summary_language">Innehållsspråk</string>
   <string name="preference_languages_filter_hint">Sök</string>
   <string name="langlinks_filter_hint">Sök</string>
   <string name="menu_other_languages">Läs på andra språk</string>
   <string name="langlinks_error_retry">Försök igen</string>
   <string name="langlinks_empty">Denna sida är inte tillgänglig på andra språk</string>
   <string name="langlinks_no_match">Inga språk som matchade din sökning hittades.</string>
-  <string name="settings_activity_title">Inställningar</string>
   <string name="langlinks_activity_title">Andra språk</string>
   <string name="menu_save_changes">Spara ändringar</string>
   <string name="edit_section_error_retry">Försök igen</string>
@@ -101,7 +92,6 @@
   <string name="login_error_throttled">För många inloggningsförsök. Vänta några minuter och försök igen.</string>
   <string name="login_error_unknown">Inloggningen misslyckades :(</string>
   <string name="login_error_no_network">Ingen nätverksanslutning</string>
-  <string name="nav_item_logout">Logga ut</string>
   <string name="preference_title_logout">Logga ut</string>
   <string name="preference_summary_logout">Logga ut från ditt Wikipedia-konto</string>
   <string name="preference_summary_notloggedin">Inte inloggad.</string>
@@ -116,11 +106,9 @@
   <string name="skip">Hoppa över</string>
   <string name="create_account_username_hint">Användarnamn</string>
   <string name="create_account_password_hint">Lösenord</string>
-  <string name="menu_create_account">Skapa konto</string>
   <string name="login_create_account_link">Har du inget konto? Skapa ett</string>
   <string name="create_account_login_link">Har du redan ett konto? Logga in</string>
   <string name="create_account_activity_title">Skapa ett konto</string>
-  <string name="edit_section_activity_title">Redigera avsnitt</string>
   <string name="dialog_create_account_checking_progress">Verifierar</string>
   <string name="create_account_email_hint">E-post (valfritt)</string>
   <string name="create_account_password_repeat_hint">Upprepa lösenord</string>
@@ -154,24 +142,12 @@
   <string name="zero_learn_more">Vill du veta mer om Wikipedia Zero?</string>
   <string name="zero_learn_more_learn_more">Läs mer</string>
   <string name="zero_learn_more_dismiss">Stäng</string>
-  <string name="zero_settings">Inställningar</string>
-  <string name="zero_settings_devmode">Zero-utvecklarläge</string>
-  <string name="zero_settings_devmode_summary">Under utveckling aktiverar detta kodexekvering för Wikipedia Zero-relaterade saker.</string>
   <string name="edit_preview_fetching_dialog_message">Hämtar förhandsgranskning...</string>
-  <string name="create_account_logging_in">Loggar in...</string>
   <string name="send_feedback">Skicka feedback för appen</string>
-  <string name="edit_summary_guide_text">Berätta hur du förbättrade sidan. Detta hjälper andra redigerare att granska din redigering snabbt.</string>
-  <string name="edit_summary_hint">Redigeringssammanfattning</string>
   <string name="nav_item_random">Slumpartikel</string>
-  <string name="random_progress">Hämtar slumpartikel...</string>
   <string name="create_account_account_created_toast">Konto har skapats!</string>
   <string name="user_contribs_more_action">Läs in fler</string>
   <string name="activity_my_contributions_title">Mina bidrag</string>
-  <string name="nav_item_my_contributions">Mina bidrag</string>
-  <string name="edit_save_action_login">Logga in och spara</string>
-  <string name="edit_save_action_ip">Spara anonymt</string>
-  <string name="edit_save_action_login_description">Dina ändringar kommer att offentligt tillskrivas ditt användarnamn och andra bidragsgivare kan enklare få kontakt med dig</string>
-  <string name="edit_save_action_ip_description">Dina ändringar kommer att offentligt tillskrivas din IP-adress, som ändras regelbundet</string>
   <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
@@ -190,14 +166,12 @@
   <string name="terms_of_use_description">Användarvillkor</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">Version</string>
   <string name="about_libraries_heading">använda bibliotek</string>
   <string name="about_contributors_heading">Bidragsgivare</string>
   <string name="about_translators_heading">översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">En app utvecklad av &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;the Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
-  <string name="edit_unchanged">Sidan har inte ändrats.</string>
   <string name="edit_abandon_confirm">Ändringar har gjorts i sidan. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
   <string name="user_blocked_from_editing_title">Blockerad</string>
   <string name="user_logged_in_blocked_from_editing">Ditt konto har blockerats från redigering på denna wiki.</string>
@@ -214,7 +188,6 @@
   <string name="find_in_page">Sök på sidan</string>
   <string name="find_next">Sök nästa</string>
   <string name="find_previous">Sök föregående</string>
-  <string name="find_close">Stäng sökfältet</string>
   <string name="error_network_error_try_again">Kunde inte ansluta till nätverket. Försök igen.</string>
   <string name="saved_pages_update_all_error_retry">Försök igen</string>
   <string name="saved_pages_update_all_error_message">Fel vid uppdatering av sparade sidor</string>
@@ -234,12 +207,8 @@
   <string name="color_theme_light">Ljus</string>
   <string name="color_theme_dark">Mörk</string>
   <string name="page_similar_titles">Liknande sidor</string>
-  <string name="search_within_pages">Sök inom sidor...</string>
   <string name="search_no_results">Inga resultat hittade för \"%s\".</string>
   <string name="search_did_you_mean">Menade du \"%s\"?</string>
-  <string name="search_results_title">Sökresultat</string>
-  <string name="search_error_retry">Försök igen</string>
-  <string name="search_redirect_title">Omdirigera från \"%s\".</string>
   <string name="search_recent_header">Senaste sökningar:</string>
   <string name="button_clear_all_recent_searches">Rensa senaste sökningar</string>
   <string name="clear_recent_searches_confirm">Är du säker på att du vill rensa din sökhistorik?</string>
@@ -252,7 +221,7 @@
   <string name="widget_name_featured_page">Utmärkt Wikipedia-artikel</string>
   <string name="widget_title_featured_page">Dagens utmärkta artikel:</string>
   <string name="widget_name_search">Wikipedia-sök</string>
-  <string name="app_store_description">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt. Appen har skrivits om från grunden och är bättre än någonsin.
+  <string name="app_store_description" fuzzy="true">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt. Appen har skrivits om från grunden och är bättre än någonsin.
 
 Funktioner:
 
@@ -275,8 +244,6 @@ Koden har öppen källkod. Om du har erfarenhet av Java och Android SDK kan du h
   <string name="menu_gallery_visit_page">Gå till filsida</string>
   <string name="gallery_error_draw_failed">Kunde inte rita bilden.</string>
   <string name="license_title">Licenstext för biblioteket %s</string>
-  <string name="gallery_license_text">Licens – %s</string>
-  <string name="gallery_credit_text">Upphovsman – %s</string>
   <string name="gallery_image_info">Bildinformation</string>
   <string name="gallery_menu_share">Dela</string>
   <string name="gallery_share_error">Kunde inte dela bilden: %s</string>
@@ -290,4 +257,6 @@ Koden har öppen källkod. Om du har erfarenhet av Java och Android SDK kan du h
   <string name="share_snippet_button">Dela som bild</string>
   <string name="share_normal_button">Dela som text</string>
   <string name="snippet_share_preview_image_desc">Förhandsvisa bild</string>
+  <string name="cc_logo">Creative Commons-licensen</string>
+  <string name="captcha_image">Captcha-bild</string>
 </resources>

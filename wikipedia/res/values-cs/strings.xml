@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Pošlete nám zprávu o pádu</string>
   <string name="acra_report_dialog_comment">Co jste dělali, když došlo k pádu?</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
-  <string name="history_activity_title">Historie</string>
   <string name="nav_item_history">Historie</string>
   <string name="error_network_error">Není k dispozici připojení k Internetu :(</string>
   <string name="search_network_error">Chyba sítě. Klepnutím to zkusíte znovu.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Tato stránka neexistuje.</string>
   <string name="nav_item_today">Dnes</string>
   <string name="dialog_title_clear_history">Vymazat historii prohlížení?</string>
-  <string name="saved_pages_activity_title">Uložené stránky</string>
   <string name="nav_item_saved_pages">Uložené stránky</string>
   <string name="menu_update_all_saved_pages">Aktualizovat uložené stránky</string>
   <string name="menu_update_selected_saved_pages">Aktualizovat uložené stránky</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Aktualizovat všechny uložené stránky?</string>
-  <string name="toast_saved_page_refreshed">Uložené stránky aktualizovány</string>
   <string name="menu_save_page">Uložit stránku</string>
   <string name="menu_share_page">Sdílet</string>
   <string name="share_via">Sdílet přes</string>
   <string name="dialog_title_clear_saved_pages">Vymazat všechny uložené stránky?</string>
-  <string name="dialog_message_clear_saved_pages">Jste si jisti, že chcete vymazat všechny uložené stránky?</string>
   <string name="toast_saving_page">Ukládání stránky…</string>
   <string name="toast_saved_page">Stránka úspěšně uložena</string>
   <string name="toast_saved_page_missing_images">Nepodařilo se uložit všechny obrázky</string>
-  <string name="toast_save_page_failed">Uložení stránky se nezdařilo :(</string>
   <string name="toast_refresh_saved_page">Aktualizace uložené stránky…</string>
   <string name="delete_selected_saved_pages">Vymazat</string>
   <string name="toast_saved_page_deleted">Uložené stránky vymazány</string>
   <string name="saved_pages_search_list_hint">Hledat</string>
   <string name="saved_pages_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
-  <string name="nearby_activity_title">Poblíž</string>
   <string name="nav_item_nearby">Poblíž</string>
   <string name="menu_update_nearby">Aktualizovat „poblíž“</string>
   <string name="nearby_empty_title">Žádné stránky poblíž!</string>
@@ -51,19 +45,16 @@
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Bez připojení k síti</string>
   <string name="nearby_server_error">Nepodařilo se získat seznam blízkých míst.</string>
-  <string name="nearby_no_location">Nepovedlo se získat umístění</string>
   <string name="nearby_set_metric">Zobraz metry/km</string>
   <string name="nearby_set_imperial">Zobraz stopy/míle</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>
   <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
   <string name="preference_title_language">Jazyk Wikipedie</string>
-  <string name="preference_summary_language">Jazyk obsahu</string>
   <string name="preference_languages_filter_hint">Hledat</string>
   <string name="langlinks_filter_hint">Hledat</string>
   <string name="menu_other_languages">Číst v jiných jazycích</string>
   <string name="langlinks_error_retry">Zkusit znovu</string>
   <string name="langlinks_empty">Tato stránka není k dispozici v jiných jazycích</string>
-  <string name="settings_activity_title">Nastavení</string>
   <string name="langlinks_activity_title">Jiné jazyky</string>
   <string name="menu_save_changes">Uložit změny</string>
   <string name="edit_section_error_retry">Zkusit znovu</string>
@@ -96,7 +87,6 @@
   <string name="login_error_throttled">Příliš mnoho pokusů o přihlášení. Počkejte několik minut a zkuste to znovu?</string>
   <string name="login_error_unknown">Přihlášení se nezdařilo :(</string>
   <string name="login_error_no_network">Bez připojení k síti</string>
-  <string name="nav_item_logout">Odhlásit se</string>
   <string name="preference_title_logout">Odhlásit se</string>
   <string name="preference_summary_logout">Odhlásit se z uživatelského účtu na Wikipedii</string>
   <string name="preference_summary_notloggedin">Nepřihlášen(a).</string>
@@ -110,11 +100,9 @@
   <string name="skip">Přeskočit</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
   <string name="create_account_password_hint">Heslo</string>
-  <string name="menu_create_account">Vytvořit účet</string>
   <string name="login_create_account_link">Nemáte účet? Přidejte se k Wikipedii</string>
   <string name="create_account_login_link">Účet už máte? Přihlaste se</string>
   <string name="create_account_activity_title">Vytvoření účtu</string>
-  <string name="edit_section_activity_title">Editace sekce</string>
   <string name="dialog_create_account_checking_progress">Ověřování</string>
   <string name="create_account_email_hint">E-mail (nepovinný)</string>
   <string name="create_account_password_repeat_hint">Opakovat heslo</string>
@@ -147,24 +135,12 @@
   <string name="zero_learn_more">V této aplikaci Wikipedie nejsou účtovány poplatky za přenos dat.</string>
   <string name="zero_learn_more_learn_more">Více informací</string>
   <string name="zero_learn_more_dismiss">Zavřít</string>
-  <string name="zero_settings">Nastavení</string>
-  <string name="zero_settings_devmode">Vývojářský režim Zero</string>
-  <string name="zero_settings_devmode_summary">Toto během vývoje umožňuje provádění kódu věcí kolem Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Načítání náhledu…</string>
-  <string name="create_account_logging_in">Přihlašování…</string>
   <string name="send_feedback">Poslat názor na aplikaci</string>
-  <string name="edit_summary_guide_text">Řekněte nám, jak jste tuto stránku vylepšili. To pomůže ostatním editorům vaši editaci rychle zkontrolovat.</string>
-  <string name="edit_summary_hint">Shrnutí editace</string>
   <string name="nav_item_random">Náhodně</string>
-  <string name="random_progress">Načítá se náhodná stránka…</string>
   <string name="create_account_account_created_toast">Účet založen!</string>
   <string name="user_contribs_more_action">Načíst další</string>
   <string name="activity_my_contributions_title">Mé příspěvky</string>
-  <string name="nav_item_my_contributions">Mé příspěvky</string>
-  <string name="edit_save_action_login">Přihlásit se a uložit</string>
-  <string name="edit_save_action_ip">Uložit anonymně</string>
-  <string name="edit_save_action_login_description">Vaše editace bude veřejně připsána vašemu uživatelskému jménu a ostatní editoři se s vámi budou moci lépe spojit</string>
-  <string name="edit_save_action_ip_description">Vaše editace bude veřejně připsána vaší IP adrese, která se často mění</string>
   <string name="preference_title_eventlogging_opt_in">Odesílat zprávy o využití</string>
   <string name="preference_summary_eventlogging_opt_in">Umožnit nadaci Wikimedia sbírat informace o tom, jak aplikaci používáte, abychom ji mohli zlepšovat</string>
   <string name="editing_error_spamblacklist">Detekovány odkazy na zablokované domény (%s). Odstraňte je prosím a zkuste to znovu.</string>
@@ -183,14 +159,12 @@
   <string name="terms_of_use_description">Podmínky užití</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/cs</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/cs</string>
-  <string name="preference_title_version">Verze</string>
   <string name="about_libraries_heading">použité knihovny</string>
   <string name="about_contributors_heading">přispěvatelé</string>
   <string name="about_translators_heading">překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci</string>
-  <string name="edit_unchanged">Stránka nebyla změněna.</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
   <string name="user_blocked_from_editing_title">Zablokováno</string>
   <string name="user_logged_in_blocked_from_editing">Vašemu uživatelskému účtu byla na této wiki zablokována možnost editovat.</string>
@@ -207,7 +181,6 @@
   <string name="find_in_page">Najít na stránce</string>
   <string name="find_next">Najít další</string>
   <string name="find_previous">Najít předchozí</string>
-  <string name="find_close">Zavřít vyhledávací lištu</string>
   <string name="error_network_error_try_again">Nepodařilo se připojit k síti, zkuste to znovu.</string>
   <string name="saved_pages_update_all_error_retry">Zkusit znovu</string>
   <string name="saved_pages_update_all_error_message">Chyba aktualizace uložených stránek</string>
@@ -223,12 +196,8 @@
   <string name="color_theme_light">Světlý</string>
   <string name="color_theme_dark">Tmavý</string>
   <string name="page_similar_titles">Podobné stránky</string>
-  <string name="search_within_pages">Hledat v obsahu stránek</string>
   <string name="search_no_results">Nebyly nalezeny žádné výsledky pro „%s“.</string>
   <string name="search_did_you_mean">Měli jste na mysli „%s“?</string>
-  <string name="search_results_title">Výsledky vyhledávání</string>
-  <string name="search_error_retry">Zkusit znovu</string>
-  <string name="search_redirect_title">Přesměrování z „%s“.</string>
   <string name="search_recent_header">Nedávná hledání:</string>
   <string name="button_clear_all_recent_searches">Vymazat nedávná hledání</string>
   <string name="clear_recent_searches_confirm">Jste si jisti, že chcete vymazat historii hledání?</string>
@@ -237,7 +206,8 @@
   <string name="table_infobox">Stručné informace</string>
   <string name="table_other">Více informací</string>
   <string name="table_close">Zavřít</string>
-  <string name="app_store_description">Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.
+  <string name="widget_name_search">Vyhledávání na Wikipedii</string>
+  <string name="app_store_description" fuzzy="true">Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.
 
 Funkce:
    - Rychlost: Naše nová nativní aplikace vám umožňuje prohlížet si a editovat Wikipedii rychleji než kdy dřív.
@@ -253,16 +223,21 @@ Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu,
   <string name="alpha_update_notification_text">Klepnutím ji stáhnete</string>
   <string name="dialog_close_description">Zavřít</string>
   <string name="preference_title_show_images">Zobrazovat obrázky</string>
+  <string name="preference_summary_show_images">Povolit nebo zakázat nahrávání obrázků na jednotlivých stránkách. Máte-li pomalé připojení k internetu nebo omezený datový limit, odškrtněte toto nastavení.</string>
   <string name="read_more_section">Číst dál</string>
   <string name="gallery_menu_more_info">Více informací</string>
   <string name="menu_gallery_visit_page">Přejít na stránku souboru</string>
   <string name="gallery_error_draw_failed">Nepodařilo se vykreslit obrázek.</string>
-  <string name="gallery_license_text">Licence – %s</string>
-  <string name="gallery_credit_text">Autor – %s</string>
+  <string name="license_title">Text licence ke knihovně %s</string>
   <string name="gallery_image_info">Informace o obrázku</string>
   <string name="gallery_menu_share">Sdílet</string>
   <string name="gallery_share_error">Není možno sdílet obrázek: %s</string>
+  <string name="gallery_menu_save">Uložit na zařízení</string>
   <string name="gallery_save_error">Není možno uložit obrázek: %s</string>
+  <string name="gallery_save_error_mediastore">Nepodařilo se importovat obrázek do sbírky médií</string>
   <string name="gallery_save_success">Obrázek úspěšně uložen.</string>
   <string name="err_cannot_save_file">Není možno uložit soubor</string>
+  <string name="share_snippet_button">Sdílet jako obrázek</string>
+  <string name="share_normal_button">Sdílet jako text</string>
+  <string name="snippet_share_preview_image_desc">Náhled obrázku</string>
 </resources>

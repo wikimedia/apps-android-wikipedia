@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Send oss en kræsjrapport</string>
   <string name="acra_report_dialog_comment">Hva gjorde du da kræsjet skjedde?</string>
   <string name="search_hint">Søk i Wikipedia</string>
-  <string name="history_activity_title">Logg</string>
   <string name="nav_item_history">Logg</string>
   <string name="error_network_error">Det er ingen nettverksforbindelse :(</string>
   <string name="search_network_error">Nettverksfeil. Trykk for å prøve igjen.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Denne siden eksisterer ikke.</string>
   <string name="nav_item_today">I dag</string>
   <string name="dialog_title_clear_history">Tøm besøkslogg?</string>
-  <string name="saved_pages_activity_title">Lagrede sider</string>
   <string name="nav_item_saved_pages">Lagrede sider</string>
   <string name="menu_update_all_saved_pages">Oppdater lagrede sider</string>
   <string name="menu_update_selected_saved_pages">Oppdater lagrede sider</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Oppdater alle lagrede sider?</string>
-  <string name="toast_saved_page_refreshed">Lagrede sider ble oppdatert</string>
   <string name="menu_save_page">Lagre side</string>
   <string name="menu_share_page">Del</string>
   <string name="share_via">Del via</string>
   <string name="dialog_title_clear_saved_pages">Fjern alle lagrede sider?</string>
-  <string name="dialog_message_clear_saved_pages">Er du sikker på at du vil fjerne alle lagrede sider?</string>
   <string name="toast_saving_page">Lagrer side…</string>
   <string name="toast_saved_page">Siden ble lagret</string>
   <string name="toast_saved_page_missing_images">Kunne ikke lagre alle bilder</string>
-  <string name="toast_save_page_failed">Lagring av siden feilet :(</string>
   <string name="toast_refresh_saved_page">Gjenoppfrisker lagret side…</string>
   <string name="delete_selected_saved_pages">Fjern</string>
   <string name="toast_saved_page_deleted">Siden(e) ble fjernet</string>
   <string name="saved_pages_search_list_hint">Søk</string>
   <string name="saved_pages_search_empty_message">Fant ingen sider som matchet spørringen din.</string>
-  <string name="nearby_activity_title">I nærheten</string>
   <string name="nav_item_nearby">I nærheten</string>
   <string name="menu_update_nearby">Oppdater «i nærheten»</string>
   <string name="nearby_empty_title">Ingen sider i nærheten!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Ingen nettverksforbindelse</string>
   <string name="nearby_server_error">Kunne ikke hente liste over steder i nærheten.</string>
-  <string name="nearby_no_location">Kunne ikke posisjonere deg</string>
   <string name="nearby_dialog_goto_settings">Posisjonering er ikke skrudd på for denne enheten. Vil du gå til innstilllinger for enheten din for å skru på posisjonering?</string>
   <string name="nearby_set_metric">Vis meter/km</string>
   <string name="nearby_set_imperial">Vis fot/engelsk mil</string>
@@ -61,14 +54,12 @@
   <string name="edit_save_action_license_logged_in">Ved å lagre samtykker du til &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen.</string>
   <string name="edit_save_action_license_anon">Ved å lagre samtykker du til &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen. Redigeringer vil bli tilskrevet IP-adressen for enheten din. Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; vil du få bedre personvern.</string>
   <string name="preference_title_language">Wikipedia-språk</string>
-  <string name="preference_summary_language">Innholdsspråk</string>
   <string name="preference_languages_filter_hint">Søk</string>
   <string name="langlinks_filter_hint">Søk</string>
   <string name="menu_other_languages">Les på andre språk</string>
   <string name="langlinks_error_retry">Prøv igjen</string>
   <string name="langlinks_empty">Denne siden er ikke tilgjengelig på andre språk</string>
   <string name="langlinks_no_match">Ingen språk ble funnet som matchet søket ditt.</string>
-  <string name="settings_activity_title">Innstillinger</string>
   <string name="langlinks_activity_title">Andre språk</string>
   <string name="menu_save_changes">Lagre endringer</string>
   <string name="edit_section_error_retry">Prøv igjen</string>
@@ -101,7 +92,6 @@
   <string name="login_error_throttled">For mange innloggingsforsøk. Vent et par minutter og prøv igjen.</string>
   <string name="login_error_unknown">Innlogging feilet :(</string>
   <string name="login_error_no_network">Ingen nettverksforbindelse</string>
-  <string name="nav_item_logout">Logg ut</string>
   <string name="preference_title_logout">Logg ut</string>
   <string name="preference_summary_logout">Logg ut fra Wikipedia-kontoen din</string>
   <string name="preference_summary_notloggedin">Ikke innlogget.</string>
@@ -116,11 +106,9 @@
   <string name="skip">Hopp over</string>
   <string name="create_account_username_hint">Brukernavn</string>
   <string name="create_account_password_hint">Passord</string>
-  <string name="menu_create_account">Opprett konto</string>
   <string name="login_create_account_link">Har du ingen konto? Opprett en</string>
   <string name="create_account_login_link">Har du en konto allerede? Logg inn</string>
   <string name="create_account_activity_title">Opprett en konto</string>
-  <string name="edit_section_activity_title">Rediger avsnitt</string>
   <string name="dialog_create_account_checking_progress">Verifiserer</string>
   <string name="create_account_email_hint">Epost (valgfritt)</string>
   <string name="create_account_password_repeat_hint">Gjenta passord</string>
@@ -154,24 +142,12 @@
   <string name="zero_learn_more">Datakostnader påløper ikke for denne Wikipedia-appen.</string>
   <string name="zero_learn_more_learn_more">Lær mer</string>
   <string name="zero_learn_more_dismiss">Lukk</string>
-  <string name="zero_settings">Innstillinger</string>
-  <string name="zero_settings_devmode">Zero-utviklermodus</string>
-  <string name="zero_settings_devmode_summary">Under utvikling aktiverer dette kodeeksekvering av Wikipedia Zero-ting.</string>
   <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning…</string>
-  <string name="create_account_logging_in">Logger inn…</string>
   <string name="send_feedback">Gi oss tilbakemelding</string>
-  <string name="edit_summary_guide_text">Fortell hvordan du forbedret denne siden. Dette hjelper andre skribenter til å raskt gjennomgå redigeringen din.</string>
-  <string name="edit_summary_hint">Redigeringsforklaring</string>
   <string name="nav_item_random">Tilfeldig side</string>
-  <string name="random_progress">Henter tilfeldig side…</string>
   <string name="create_account_account_created_toast">Konto opprettet!</string>
   <string name="user_contribs_more_action">Last inn mer</string>
   <string name="activity_my_contributions_title">Mine bidrag</string>
-  <string name="nav_item_my_contributions">Mine bidrag</string>
-  <string name="edit_save_action_login">Logg inn og lagre</string>
-  <string name="edit_save_action_ip">Lagre anonymt</string>
-  <string name="edit_save_action_login_description">Redigeringene dine vil tillegges brukernavnet ditt, og andre skribenter kan enklere komme i kontakt med deg</string>
-  <string name="edit_save_action_ip_description">Redigeringene dine vil tillegges IP-adressen din, som forandrer seg ofte</string>
   <string name="preference_title_eventlogging_opt_in">Send bruksrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillatt Wikimedia å samle informasjon om hvordan du bruker appen for å forbedre den</string>
   <string name="editing_error_spamblacklist">Lenker til blokkerte domener (%s) ble funnet. Vennligst fjern dem og prøv igjen.</string>
@@ -190,14 +166,12 @@
   <string name="terms_of_use_description">Bruksvilkår</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">Versjon</string>
   <string name="about_libraries_heading">bibliotek brukt</string>
   <string name="about_contributors_heading">bidragsytere</string>
   <string name="about_translators_heading">oversettere</string>
   <string name="about_translators_translatewiki">Denne appen ble oversatt av frivillige oversettere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
-  <string name="edit_unchanged">Denne siden har ikke blitt endret.</string>
   <string name="edit_abandon_confirm">Denne siden har blitt endret. Er du sikker på at du ønsker å avslutte uten å lagre endringene dine?</string>
   <string name="user_blocked_from_editing_title">Blokkert</string>
   <string name="user_logged_in_blocked_from_editing">Brukerkontoen din har blitt blokkert fra å redigere på denne wikien.</string>
@@ -214,7 +188,6 @@
   <string name="find_in_page">Søk på siden</string>
   <string name="find_next">Finn neste</string>
   <string name="find_previous">Finn forrige</string>
-  <string name="find_close">Lukk søkefeltet</string>
   <string name="error_network_error_try_again">Kunne ikke nå nettverket, vennligst prøv igjen.</string>
   <string name="saved_pages_update_all_error_retry">Prøv igjen</string>
   <string name="saved_pages_update_all_error_message">Feil under gjenoppfrisking av lagrede sider</string>
@@ -234,12 +207,8 @@
   <string name="color_theme_light">Lys</string>
   <string name="color_theme_dark">Mørk</string>
   <string name="page_similar_titles">Lignende sider</string>
-  <string name="search_within_pages">Søk gjennom sider…</string>
   <string name="search_no_results">Ingen resultater funnet for «%s».</string>
   <string name="search_did_you_mean">Mente du «%s»?</string>
-  <string name="search_results_title">Søkeresultater</string>
-  <string name="search_error_retry">Prøv igjen</string>
-  <string name="search_redirect_title">Omdirigering fra «%s».</string>
   <string name="search_recent_header">Nylige søk:</string>
   <string name="button_clear_all_recent_searches">Tøm nylige søk</string>
   <string name="clear_recent_searches_confirm">Er du sikker på at du vil tømme din søkehistorikk?</string>
@@ -252,7 +221,7 @@
   <string name="widget_name_featured_page">Utvalgt WIkipedia-side</string>
   <string name="widget_title_featured_page">Dagens utvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søk</string>
-  <string name="app_store_description">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som har blitt sammenstilt noensinne. Denne appen har blitt skrevet om fra grunnen av og er bedre enn noensinne.
+  <string name="app_store_description" fuzzy="true">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som har blitt sammenstilt noensinne. Denne appen har blitt skrevet om fra grunnen av og er bedre enn noensinne.
 
 Funksjonalitet:
    - Hastighet: Vår nye app lar deg lese og redigere Wikipedia raskere enn noensinne.
@@ -274,8 +243,6 @@ Kildekoden er åpen. Hvis du har erfaring med Java og Android SDK er du velkomme
   <string name="menu_gallery_visit_page">Gå til filsiden</string>
   <string name="gallery_error_draw_failed">Kunne ikke tegne bildet.</string>
   <string name="license_title">Lisenstekst for biblioteket %s</string>
-  <string name="gallery_license_text">Lisens – %s</string>
-  <string name="gallery_credit_text">Opphavsperson – %s</string>
   <string name="gallery_image_info">Bildeinformasjon</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele bilde: %s</string>

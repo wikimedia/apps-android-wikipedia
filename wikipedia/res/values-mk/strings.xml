@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Испратете ни извештај за уривање</string>
   <string name="acra_report_dialog_comment">Што правевте кога се случи урнувањето?</string>
   <string name="search_hint">Пребарај ја Википедија</string>
-  <string name="history_activity_title">Историја</string>
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error">Не можам да се поврзам со мрежата :(</string>
   <string name="search_network_error">Мрежна грешка. Допрете за да се обиде повторно.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Страницата не постои.</string>
   <string name="nav_item_today">Денес</string>
   <string name="dialog_title_clear_history">Да ја исчистам историјата на прелистување?</string>
-  <string name="saved_pages_activity_title">Зачувани страници</string>
   <string name="nav_item_saved_pages">Зачувани страници</string>
   <string name="menu_update_all_saved_pages">Поднови зачувани страници</string>
   <string name="menu_update_selected_saved_pages">Поднови зачувани страници</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Да ги подновам сите зачувани страници?</string>
-  <string name="toast_saved_page_refreshed">Зачуваните страници се подновени</string>
   <string name="menu_save_page">Зачувај страница</string>
   <string name="menu_share_page">Сподели</string>
   <string name="share_via">Сподели преку</string>
   <string name="dialog_title_clear_saved_pages">Да ги исчистам сите зачувани страници?</string>
-  <string name="dialog_message_clear_saved_pages">Дали сте сигурни дека сакате да ги исчистите сите зачувани страници?</string>
   <string name="toast_saving_page">Ја зачувувам страницата...</string>
   <string name="toast_saved_page">Страницата е успешно зачувана</string>
   <string name="toast_saved_page_missing_images">Не можев да ги зачувам сите слики</string>
-  <string name="toast_save_page_failed">Зачувувањето на страницата не успеа :(</string>
   <string name="toast_refresh_saved_page">Ја превчитувам зачуваната страница...</string>
   <string name="delete_selected_saved_pages">Избриши</string>
   <string name="toast_saved_page_deleted">Зачуваните страници се избришани</string>
   <string name="saved_pages_search_list_hint">Пребарај</string>
   <string name="saved_pages_search_empty_message">Не пронајдов страници што одговараат на бараното.</string>
-  <string name="nearby_activity_title">Во близина</string>
   <string name="nav_item_nearby">Во близина</string>
   <string name="menu_update_nearby">Поднови „во близина“</string>
   <string name="nearby_empty_title">Тука нема страници во близина!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f милји</string>
   <string name="nearby_no_network">Немате врска со мрежата</string>
   <string name="nearby_server_error">Не можам да добијам список на места во близина</string>
-  <string name="nearby_no_location">Не можам да го најдам местото</string>
   <string name="nearby_dialog_goto_settings">Немате овозможено поднова на места. Дали би сакале да појдете во нагодувањата за да ја овозможите?</string>
   <string name="nearby_set_metric">Прикажувај метри/километри</string>
   <string name="nearby_set_imperial">Прикажувај стапки/милји</string>
@@ -61,14 +54,12 @@
   <string name="edit_save_action_license_logged_in">Зачувувајќи, се согласувате со &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">Зачувувајќи, се согласувате со &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
   <string name="preference_title_language">Јазик на Википедија</string>
-  <string name="preference_summary_language">Јазик на содржината</string>
   <string name="preference_languages_filter_hint">Пребарајте</string>
   <string name="langlinks_filter_hint">Пребарај</string>
   <string name="menu_other_languages">Прочитајте на други јазици</string>
   <string name="langlinks_error_retry">Повтори</string>
   <string name="langlinks_empty">Страницава не е достапна на други јазици</string>
   <string name="langlinks_no_match">Не пронајдов јазици што одговараат на бараното.</string>
-  <string name="settings_activity_title">Нагодувања</string>
   <string name="langlinks_activity_title">Други јазици</string>
   <string name="menu_save_changes">Зачувај промени</string>
   <string name="edit_section_error_retry">Повтори</string>
@@ -101,7 +92,6 @@
   <string name="login_error_throttled">Премногу обиди за најава. Почекајте неколку минути и обидете се повторно.</string>
   <string name="login_error_unknown">Најавата не успеа :(</string>
   <string name="login_error_no_network">Немате врска со мрежата</string>
-  <string name="nav_item_logout">Одјава</string>
   <string name="preference_title_logout">Одјава</string>
   <string name="preference_summary_logout">Одјавување од вашата сметка на Википедија</string>
   <string name="preference_summary_notloggedin">Не сте најавени.</string>
@@ -116,11 +106,9 @@
   <string name="skip">Прескокни</string>
   <string name="create_account_username_hint">Корисничко име</string>
   <string name="create_account_password_hint">Лозинка</string>
-  <string name="menu_create_account">Направи сметка</string>
   <string name="login_create_account_link">Немате сметка? Приклучете се на Википедија</string>
   <string name="create_account_login_link">Веќе имате сметка? Најавете се</string>
   <string name="create_account_activity_title">Направи кориничка сметка</string>
-  <string name="edit_section_activity_title">Уреди поднаслов</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Е-пошта (незадолжително)</string>
   <string name="create_account_password_repeat_hint">Повторете ја лозинката</string>
@@ -154,24 +142,12 @@
   <string name="zero_learn_more">За овој Википедиин извршник не се наплаќа податочниот промет.</string>
   <string name="zero_learn_more_learn_more">Прочитајте повеќе</string>
   <string name="zero_learn_more_dismiss">Тргни</string>
-  <string name="zero_settings">Нагодувања</string>
-  <string name="zero_settings_devmode">Развоен режим на Нулта</string>
-  <string name="zero_settings_devmode_summary">При развојот ова овозможува исполнување на кодот што се однесува на Википедија Нулта.</string>
   <string name="edit_preview_fetching_dialog_message">Испишувам преглед...</string>
-  <string name="create_account_logging_in">Ве најавувам...</string>
   <string name="send_feedback">Испрати мислење за извршникот</string>
-  <string name="edit_summary_guide_text">Кажете на кој начин ја подобривте страницава. Со тоа другите уредници ќе можат да ја проверат многу побргу.</string>
-  <string name="edit_summary_hint">Опис на уредувањето</string>
   <string name="nav_item_random">Случајна</string>
-  <string name="random_progress">Повикувам случајна страница...</string>
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
   <string name="user_contribs_more_action">Вчитај уште</string>
   <string name="activity_my_contributions_title">Мои придонеси</string>
-  <string name="nav_item_my_contributions">Мои придонеси</string>
-  <string name="edit_save_action_login">Најави ме и зачувај</string>
-  <string name="edit_save_action_ip">Зачувај анонимно</string>
-  <string name="edit_save_action_login_description">Вашите уредувања ќе му бидат јавно припишани на Вашето корисничко име, и така другите уредници ќе можат полесно да се поврзат со Вас</string>
-  <string name="edit_save_action_ip_description">Вашите уредувања ќе ѝ бидат јавно припишани на Вашата IP-адреса, која често се менува</string>
   <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите извршникот, за да може да го подобри</string>
   <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
@@ -190,14 +166,12 @@
   <string name="terms_of_use_description">Услови на употреба</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy/mk?uselang=mk</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk</string>
-  <string name="preference_title_version">Верзија</string>
   <string name="about_libraries_heading">користени библиотеки</string>
   <string name="about_contributors_heading">учесници</string>
   <string name="about_translators_heading">преведувачи</string>
   <string name="about_translators_translatewiki">Извршников го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За извршникот</string>
-  <string name="edit_unchanged">Страницава не е изменета.</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
   <string name="user_blocked_from_editing_title">Блокирано</string>
   <string name="user_logged_in_blocked_from_editing">Вашата корисничка сметка е блокирана и не може да уредува на ова вики.</string>
@@ -214,7 +188,6 @@
   <string name="find_in_page">Најди на страницата</string>
   <string name="find_next">Најди следно</string>
   <string name="find_previous">Најди претходно</string>
-  <string name="find_close">Затвори го барањето</string>
   <string name="error_network_error_try_again">Не можам да ја добијам мрежата. Обидете се повторно.</string>
   <string name="saved_pages_update_all_error_retry">Пробај пак</string>
   <string name="saved_pages_update_all_error_message">Грешка при подновувањето на зачуваните страници</string>
@@ -234,12 +207,8 @@
   <string name="color_theme_light">Светол</string>
   <string name="color_theme_dark">Темен</string>
   <string name="page_similar_titles">Слични страници</string>
-  <string name="search_within_pages">Пребарај по страниците...</string>
   <string name="search_no_results">Не пронајдов ништо за „%s“.</string>
   <string name="search_did_you_mean">Дали мислевте на „%s“?</string>
-  <string name="search_results_title">Резултати од пребарувањето</string>
-  <string name="search_error_retry">Пробај пак</string>
-  <string name="search_redirect_title">Пренасочување од „%s“.</string>
   <string name="search_recent_header">Скорешни пребарувања:</string>
   <string name="button_clear_all_recent_searches">Исчисти скорешни пребарувања</string>
   <string name="clear_recent_searches_confirm">Дали сте сигурни дека сакате да ја избришете историјата на пребарувања?</string>
@@ -252,7 +221,7 @@
   <string name="widget_name_featured_page">Избрана страница на Википедија</string>
   <string name="widget_title_featured_page">Избрана страница за денес:</string>
   <string name="widget_name_search">Пребарување по Википедија</string>
-  <string name="app_store_description">Официјален Википедиин извршник (апликација) за Android. Википедија е слободна енциклопедија со преку 32 милиони статии на 280 јазици, и претставува најопсежното и најкористеното прирачно дело во историјата на човештвото. Извршников е преработен од нула и затоа е подобар од било кога.
+  <string name="app_store_description" fuzzy="true">Официјален Википедиин извршник (апликација) за Android. Википедија е слободна енциклопедија со преку 32 милиони статии на 280 јазици, и претставува најопсежното и најкористеното прирачно дело во историјата на човештвото. Извршников е преработен од нула и затоа е подобар од било кога.
 
 Можности:
    - Брзина: Нашиот нов матичен извршник ви овозможува да ја прелистувате и уредувате Википедија побрзо од било кога.
@@ -274,8 +243,6 @@
   <string name="menu_gallery_visit_page">Оди на податотечната страница</string>
   <string name="gallery_error_draw_failed">Не можев да ја исцртам сликата.</string>
   <string name="license_title">Лиценцен текст за библиотеката %s</string>
-  <string name="gallery_license_text">Лиценца — %s</string>
-  <string name="gallery_credit_text">Автор — %s</string>
   <string name="gallery_image_info">Информации за сликата</string>
   <string name="gallery_menu_share">Сподели</string>
   <string name="gallery_share_error">Не можев да ја споделам сликата: %s</string>
@@ -289,4 +256,6 @@
   <string name="share_snippet_button">Сподели како слика</string>
   <string name="share_normal_button">Сподели како текст</string>
   <string name="snippet_share_preview_image_desc">Преглед на сликата</string>
+  <string name="cc_logo">Лиценца на Криејтив комонс</string>
+  <string name="captcha_image">Слика на Captcha</string>
 </resources>

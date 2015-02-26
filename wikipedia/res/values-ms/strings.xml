@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Laporkan crash</string>
   <string name="acra_report_dialog_comment">Apakah yang anda lakukan ketika Wikipedia runtuh?</string>
   <string name="search_hint">Cari dalam Wikipedia</string>
-  <string name="history_activity_title">Sejarah</string>
   <string name="nav_item_history">Sejarah</string>
   <string name="error_network_error">Tiada sambungan rangkaian :(</string>
   <string name="search_network_error">Ralat rangkaian. Ketik untuk cuba lagi.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Laman ini tidak wujud.</string>
   <string name="nav_item_today">Hari ini</string>
   <string name="dialog_title_clear_history">Padamkan sejarah?</string>
-  <string name="saved_pages_activity_title">Laman tersimpan</string>
   <string name="nav_item_saved_pages">Laman tersimpan</string>
   <string name="menu_update_all_saved_pages">Kemaskinikan laman tersimpan</string>
   <string name="menu_update_selected_saved_pages">Kemaskinikan laman tersimpan</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Kemaskinikan semua laman tersimpan?</string>
-  <string name="toast_saved_page_refreshed">Laman tersimpan dikemaskinikan</string>
   <string name="menu_save_page">Simpan laman</string>
   <string name="menu_share_page">Sebarkan</string>
   <string name="share_via">Sebarkan melalui</string>
   <string name="dialog_title_clear_saved_pages">Padamkan semua laman tersimpan?</string>
-  <string name="dialog_message_clear_saved_pages">Adakah anda betul-betul mahu memadamkan semua laman tersimpan?</string>
   <string name="toast_saving_page">Menyimpan laman...</string>
   <string name="toast_saved_page">Laman disimpan</string>
   <string name="toast_saved_page_missing_images">Semua gambar tidak dapat disimpan</string>
-  <string name="toast_save_page_failed">Laman gagal disimpan :(</string>
   <string name="toast_refresh_saved_page">Memuat semula laman tersimpan...</string>
   <string name="delete_selected_saved_pages">Hapuskan</string>
   <string name="toast_saved_page_deleted">Laman tersimpan dihapuskan</string>
   <string name="saved_pages_search_list_hint">Cari</string>
   <string name="saved_pages_search_empty_message">Tiada laman yang padan dengan pertanyaan anda.</string>
-  <string name="nearby_activity_title">Berdekatan</string>
   <string name="nav_item_nearby">Berdekatan</string>
   <string name="menu_update_nearby">Kemaskini laman berdekatan</string>
   <string name="nearby_empty_title">Tiada laman berdekatan di sini!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f batu</string>
   <string name="nearby_no_network">Tiada sambungan rangkaian</string>
   <string name="nearby_server_error">Senarai tempat berdekatan tidak dapat.</string>
-  <string name="nearby_no_location">Lokasi tidak dapat</string>
   <string name="nearby_dialog_goto_settings">Pengemaskinian lokasi tidak dibolehkan pada peranti anda. Adakah anda ingin membolehkan pengemaskinian lokasi pada tetapan peranti anda?</string>
   <string name="nearby_set_metric">Paparkan meter/km</string>
   <string name="nearby_set_imperial">Paparkan kaki/batu</string>
@@ -60,14 +53,12 @@
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, anda menyetujui &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Dengan menyimpan, anda menyetujui &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Suntingan akan diatribusikan kepada alamat IP peranti anda. Jika anda &lt;a href=\"https://#login\"&gt;log masuk&lt;/a&gt;, maka privasi anda bertambah baik.</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
-  <string name="preference_summary_language">Bahasa kandungan</string>
   <string name="preference_languages_filter_hint">Cari</string>
   <string name="langlinks_filter_hint">Cari</string>
   <string name="menu_other_languages">Baca dalam bahasa lain</string>
   <string name="langlinks_error_retry">Cuba lagi</string>
   <string name="langlinks_empty">Laman ini tidak terdapat dalam bahasa lain</string>
   <string name="langlinks_no_match">Tiada bahasa yang padan dengan pertanyaan anda.</string>
-  <string name="settings_activity_title">Tetapan</string>
   <string name="langlinks_activity_title">Bahasa lain:</string>
   <string name="menu_save_changes">Simpan perubahan</string>
   <string name="edit_section_error_retry">Cuba lagi</string>
@@ -100,7 +91,6 @@
   <string name="login_error_throttled">Terlalu banyak cubaab log masuk. Sila tunggu seketika, kemudian cuba lagi.</string>
   <string name="login_error_unknown">Log masuk gagal :(</string>
   <string name="login_error_no_network">Tiada sambungan rangkaian</string>
-  <string name="nav_item_logout">Log keluar</string>
   <string name="preference_title_logout">Log keluar</string>
   <string name="preference_summary_logout">Log keluar dari akaun Wikipedia</string>
   <string name="preference_summary_notloggedin">Tidak log masuk.</string>
@@ -115,11 +105,9 @@
   <string name="skip">Langkau</string>
   <string name="create_account_username_hint">Nama pengguna</string>
   <string name="create_account_password_hint">Kata laluan</string>
-  <string name="menu_create_account">Buka akaun</string>
   <string name="login_create_account_link">Tiada akaun? Sertai Wikipedia</string>
   <string name="create_account_login_link">Sudah ada akaun? Log masuk</string>
   <string name="create_account_activity_title">Buka akaun</string>
-  <string name="edit_section_activity_title">Sunting Bahagian</string>
   <string name="dialog_create_account_checking_progress">Pengesahan sedang dilakukan</string>
   <string name="create_account_email_hint">E-mel (tak wajib)</string>
   <string name="create_account_password_repeat_hint">Ulangi kata laluan</string>
@@ -153,24 +141,12 @@
   <string name="zero_learn_more">Caj data akan dikecualikan bagi aplikasi Wikipedia ini.</string>
   <string name="zero_learn_more_learn_more">Baca lagi</string>
   <string name="zero_learn_more_dismiss">Singkir</string>
-  <string name="zero_settings">Tetapan</string>
-  <string name="zero_settings_devmode">Zero Devmode</string>
-  <string name="zero_settings_devmode_summary">Sewaktu pembangunan, ini membolehkan pelaksanaan perkara-perkara Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">Mengolah pralihat...</string>
-  <string name="create_account_logging_in">Sedang log masuk...</string>
   <string name="send_feedback">Hantar maklum balas aplikasi</string>
-  <string name="edit_summary_guide_text">Ceritakan bagaimana anda menambah baik rencana ini supaya para penyunting lain senang menyemak suntingan anda dengan cepat.</string>
-  <string name="edit_summary_hint">Ringkasan suntingan</string>
   <string name="nav_item_random">Rawak</string>
-  <string name="random_progress">Mengambil halaman rawak...</string>
   <string name="create_account_account_created_toast">Akaun dicipta!</string>
   <string name="user_contribs_more_action">Muatkan yang selanjutnya</string>
   <string name="activity_my_contributions_title">Sumbangan Saya</string>
-  <string name="nav_item_my_contributions">Sumbangan saya</string>
-  <string name="edit_save_action_login">Log masuk dan simpan</string>
-  <string name="edit_save_action_ip">Simpan secara awanama</string>
-  <string name="edit_save_action_login_description">Suntingan anda akan diatribusikan secara umum kepada nama pengguna anda, supaya para penyunting lain boleh berhubung dengan anda dengan lebih lancar</string>
-  <string name="edit_save_action_ip_description">Suntingan anda akan diatribusikan secara umum kepada alamat IP anda yang sering berubah-ubah</string>
   <string name="preference_title_eventlogging_opt_in">Laporkan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>
   <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
@@ -189,14 +165,12 @@
   <string name="terms_of_use_description">Syarat-syarat penggunaan</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">Versi</string>
   <string name="about_libraries_heading">perpustakaan yang digunakan</string>
   <string name="about_contributors_heading">penyumbang</string>
   <string name="about_translators_heading">penterjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini diterjemah oleh para penterjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Keluaran &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Yayasan Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Perihal</string>
-  <string name="edit_unchanged">Laman ini belum disunting.</string>
   <string name="edit_abandon_confirm">Laman ini telah disunting. Adakah anda pasti ingin keluar tanpa menyimpan suntingan?</string>
   <string name="user_blocked_from_editing_title">Disekat</string>
   <string name="user_logged_in_blocked_from_editing">Akaun pengguna anda telah disekat daripada menyunting di wiki ini.</string>
@@ -213,7 +187,6 @@
   <string name="find_in_page">Cari dalam laman</string>
   <string name="find_next">Carian berikutnya</string>
   <string name="find_previous">Carian sebelumnya</string>
-  <string name="find_close">Tutup bar pencarian</string>
   <string name="error_network_error_try_again">Rancangan tidak tercapai, sila cuba lagi.</string>
   <string name="saved_pages_update_all_error_retry">Cuba lagi</string>
   <string name="saved_pages_update_all_error_message">Ralat kemaskini laman tersimpan</string>
@@ -233,12 +206,8 @@
   <string name="color_theme_light">Terang</string>
   <string name="color_theme_dark">Gelap</string>
   <string name="page_similar_titles">Laman-laman serupa</string>
-  <string name="search_within_pages">Cari dalam laman...</string>
   <string name="search_no_results">Tiada hasil ditemui untuk \" %s \".</string>
   <string name="search_did_you_mean">Adakah maksud anda, \"%s\"?</string>
-  <string name="search_results_title">Hasil carian</string>
-  <string name="search_error_retry">Cuba lagi</string>
-  <string name="search_redirect_title">Lencongan dari \"%s\".</string>
   <string name="search_recent_header">Carian terkini:</string>
   <string name="button_clear_all_recent_searches">Padamkan carian terkini</string>
   <string name="clear_recent_searches_confirm">Betulkah anda ingin memadamkan sejarah carian anda?</string>
@@ -248,7 +217,7 @@
   <string name="table_infobox">Fakta segera</string>
   <string name="table_other">Maklumat lanjut</string>
   <string name="table_close">Tutup</string>
-  <string name="app_store_description">Aplikasi rasmi Wikipedia untuk Android. Wikipedia merupakan ensiklopedia bebas yang mengandungi lebih daripada 32 juta rencana dalam 280 bahasa, bahkan merupakan bahan rujukan paling menyeluruh dan meluas digunakan yang pernah dihimpunkan oleh manusia. Aplikasi ini telah ditulis ganti dari pangkal dan oleh itu lebih baik daripada dahulu.
+  <string name="app_store_description" fuzzy="true">Aplikasi rasmi Wikipedia untuk Android. Wikipedia merupakan ensiklopedia bebas yang mengandungi lebih daripada 32 juta rencana dalam 280 bahasa, bahkan merupakan bahan rujukan paling menyeluruh dan meluas digunakan yang pernah dihimpunkan oleh manusia. Aplikasi ini telah ditulis ganti dari pangkal dan oleh itu lebih baik daripada dahulu.
 
 Ciri-ciri:
    - Kelajuan: Aplikasi asli baru kami membolehkan anda untuk melayari dan menyunting Wikipedia dengan lebih cepat daripada dahulu.
@@ -270,8 +239,6 @@ Kod ini adalah sumber terbuka sepenuhnya. Jika anda mempunyai pengalaman dengan 
   <string name="menu_gallery_visit_page">Pergi ke laman fail</string>
   <string name="gallery_error_draw_failed">Imej tidak dapat dilukis.</string>
   <string name="license_title">Teks lesen untuk perpustakaan %s</string>
-  <string name="gallery_license_text">Lesen – %s</string>
-  <string name="gallery_credit_text">Pengarang – %s</string>
   <string name="gallery_image_info">Maklumat imej</string>
   <string name="gallery_menu_share">Kongsi</string>
   <string name="gallery_share_error">Imej tidak dapat dikongsikan: %s</string>

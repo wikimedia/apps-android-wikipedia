@@ -5,39 +5,33 @@
   <string name="yes">ХӀаъ</string>
   <string name="no">ХӀахӀа</string>
   <string name="search_hint">Википедин чухула лахар</string>
-  <string name="history_activity_title">Истори</string>
   <string name="nav_item_history">Истори</string>
   <string name="error_network_error" fuzzy="true">ЗӀе цакарий :(</string>
   <string name="page_error_retry">ЮхагӀорта</string>
   <string name="menu_clear_all_history">ДӀацӀане истори?</string>
   <string name="nav_item_today">Тахана</string>
   <string name="dialog_title_clear_history" fuzzy="true">ДӀацӀане истори?</string>
-  <string name="saved_pages_activity_title">Ӏалашйина агӀонаш</string>
   <string name="nav_item_saved_pages">Ӏалашйина агӀонаш</string>
   <string name="menu_save_page" fuzzy="true">Ӏалашйе агӀо</string>
   <string name="menu_share_page">Екха</string>
   <string name="dialog_title_clear_saved_pages" fuzzy="true">ДӀацӀане Ӏалашйина агӀонаш?</string>
   <string name="toast_saving_page" fuzzy="true">АгӀо Ӏалашяр...</string>
   <string name="toast_saved_page" fuzzy="true">Ӏалашйина агӀонаш</string>
-  <string name="toast_save_page_failed">АгӀо Ӏалашъян цаелира :(</string>
   <string name="delete_selected_saved_pages">ДӀаяккха</string>
   <string name="toast_saved_page_deleted" fuzzy="true">Ӏалашйина агӀонаш дӀаяьхна</string>
   <string name="saved_pages_search_list_hint">Лахар</string>
   <string name="saved_pages_search_empty_message">Хьан дехарца агӀонаш цакарий</string>
-  <string name="nearby_activity_title">Уллехь</string>
   <string name="nav_item_nearby">Уллехь</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="last_updated_text">ТӀаьххьарлера карлаяккхар: %1$s</string>
   <string name="content_license_html">Чулацам тӀекхочуш бу &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; (кхиниг билгалйина яцахь)</string>
   <string name="preference_title_language" fuzzy="true">Мотт</string>
-  <string name="preference_summary_language">Чулацаман мотт</string>
   <string name="preference_languages_filter_hint">Лахар</string>
   <string name="langlinks_filter_hint">Лахар</string>
   <string name="menu_other_languages" fuzzy="true">Кхин меттанаш</string>
   <string name="langlinks_error_retry">ЮхагӀорта</string>
   <string name="langlinks_no_match">Хьан дехарца меттанаш цакарий</string>
-  <string name="settings_activity_title">Параметраш</string>
   <string name="langlinks_activity_title">Кхин меттанаш</string>
   <string name="edit_section_error_retry">ЮхагӀорта</string>
   <string name="dialog_saving_in_progress">Ӏалаш еш ю...</string>
@@ -60,7 +54,6 @@
   <string name="login_error_blocked">ХӀокху декъашхочун блоктоьхна ю</string>
   <string name="login_error_unknown">Чудаха цаделира :(</string>
   <string name="login_error_no_network">ЗӀе цахилар</string>
-  <string name="nav_item_logout">Болх дӀаберзор</string>
   <string name="preference_title_logout">Болх дӀаберзор</string>
   <string name="saved_pages_empty_title">Кхузахь яц Ӏалашйина агӀонаш.</string>
   <string name="saved_pages_empty_message" fuzzy="true">Ӏалашйина агӀонаш яц.</string>
@@ -74,7 +67,6 @@
   <string name="create_account_password_hint">Пароль</string>
   <string name="login_create_account_link">Кхолла декъашхочун дӀаяздар</string>
   <string name="create_account_activity_title">Кхолла декъашхочун дӀаяздар</string>
-  <string name="edit_section_activity_title">Таде дакъа</string>
   <string name="dialog_create_account_checking_progress">Хьажар</string>
   <string name="create_account_email_hint">Электронан почтан адрес (ца хилча бе яц)</string>
   <string name="create_account_password_repeat_hint">Юху а язъе пароль</string>
@@ -93,12 +85,7 @@
   <string name="zero_learn_more">Лаьий хьуна Wikipedia Zero лаьцна хаа?</string>
   <string name="zero_learn_more_learn_more">Цул совнаха хаа</string>
   <string name="zero_learn_more_dismiss">ДӀачӀагӀа</string>
-  <string name="zero_settings">Параметраш</string>
-  <string name="zero_settings_devmode">Zero кеч ечун раж</string>
   <string name="edit_preview_fetching_dialog_message">Хьалха хьажар гучудолуш ю...</string>
-  <string name="create_account_logging_in">Системан чудахар...</string>
-  <string name="edit_summary_hint">Хийцамах лаьцна</string>
-  <string name="random_progress">Цахууш нисъелла агӀо харжар...</string>
   <string name="user_contribs_more_action">Чуяха кхин</string>
   <string name="history_search_list_hint">Лахар</string>
   <string name="history_search_empty_message">Хьан дехарца агӀонаш цакарий</string>
@@ -108,7 +95,6 @@
   <string name="terms_of_use_description">Лелоран хьал</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Къайлаха_политика</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Лелоран_хьал</string>
-  <string name="preference_title_version">Верси</string>
   <string name="about_translators_heading">гочдархой</string>
   <string name="about_translators_translatewiki">ХӀара тӀетохар гочйина &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чура шен лаамернигаш.</string>
   <string name="edit_next">Кхин дӀа</string>
@@ -126,9 +112,6 @@
   <string name="color_theme_light">Сирла</string>
   <string name="color_theme_dark">Бодане</string>
   <string name="page_similar_titles">Тера агӀонаш</string>
-  <string name="search_within_pages">Лаха агӀонашкахь...</string>
-  <string name="search_results_title">Карийнарш</string>
-  <string name="search_error_retry">ЮхагӀорта</string>
   <string name="toc_know_it">Кхетий</string>
   <string name="table_close">ДӀачӀагӀа</string>
   <string name="dialog_close_description">ДӀачӀагӀа</string>
@@ -136,7 +119,5 @@
   <string name="menu_gallery_visit_page">Файлан агӀонг гӀо</string>
   <string name="gallery_error_draw_failed">Сурт гучудаккха цаделира</string>
   <string name="license_title">Лицензин йоза %s библиотекина</string>
-  <string name="gallery_license_text">Лицензи – %s</string>
-  <string name="gallery_credit_text">Автор – %s</string>
   <string name="gallery_image_info">Суьртах лаьцна</string>
 </resources>

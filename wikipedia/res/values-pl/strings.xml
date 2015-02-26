@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Prześlij nam raport błędu</string>
   <string name="acra_report_dialog_comment">Co robiłeś, gdy zdarzyła się awaria?</string>
   <string name="search_hint">Szukaj w Wikipedii</string>
-  <string name="history_activity_title">Historia</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Nie ma połączenia z siecią :(</string>
   <string name="search_network_error">Błąd sieci. Kliknij, aby spróbować ponownie.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Ta strona nie istnieje.</string>
   <string name="nav_item_today">Dzisiaj</string>
   <string name="dialog_title_clear_history">Wyczyścić historię przeglądania?</string>
-  <string name="saved_pages_activity_title">Zapisane strony</string>
   <string name="nav_item_saved_pages">Zapisane strony</string>
   <string name="menu_update_all_saved_pages">Odśwież zapisane strony</string>
   <string name="menu_update_selected_saved_pages">Odśwież zapisane strony</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Czy odświeżyć wszystkie zapisane strony?</string>
-  <string name="toast_saved_page_refreshed">Zaktualizowane zapisane strony</string>
   <string name="menu_save_page">Zapisz stronę</string>
   <string name="menu_share_page">Udostępnij</string>
   <string name="share_via">Udostępnij przez</string>
   <string name="dialog_title_clear_saved_pages">Wyczyścić zapisane strony?</string>
-  <string name="dialog_message_clear_saved_pages">Czy na pewno chcesz wyczyścić wszystkie zapisane strony?</string>
   <string name="toast_saving_page">Zapisywanie strony...</string>
   <string name="toast_saved_page">Strona została zapisana</string>
   <string name="toast_saved_page_missing_images">Nie można zapisać wszystkich obrazów</string>
-  <string name="toast_save_page_failed">Zapisywanie strony nie powiodło się :(</string>
   <string name="toast_refresh_saved_page">Odświeżanie zapisanych stron...</string>
   <string name="delete_selected_saved_pages">Usuń</string>
   <string name="toast_saved_page_deleted">Usunięto zapisane strony</string>
   <string name="saved_pages_search_list_hint">Szukaj</string>
   <string name="saved_pages_search_empty_message">Nie znaleziono stron pasujących do twojego zapytania.</string>
-  <string name="nearby_activity_title">W pobliżu</string>
   <string name="nav_item_nearby">W pobliżu</string>
   <string name="nearby_empty_message">Kiedy przenosisz się do nowej lokalizacji, spróbuj odświeżyć tę stronę, aby dowiedzieć się więcej o tym, co jest wokół Ciebie.</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -49,19 +43,16 @@
   <string name="nearby_distance_in_miles">%.2f mil</string>
   <string name="nearby_no_network">Brak połączenia z siecią</string>
   <string name="nearby_server_error">Nie można uzyskać listy miejsc w pobliżu.</string>
-  <string name="nearby_no_location">Nie udało się ustalić położenia</string>
   <string name="nearby_dialog_goto_settings">Aktualizacja położenia nie jest włączona na twoim urządzeniu. Czy chcesz przejść do ustawień urządzenia, aby ją włączyć?</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="preference_title_language">Język Wikipedii</string>
-  <string name="preference_summary_language">Język treści</string>
   <string name="preference_languages_filter_hint">Szukaj</string>
   <string name="langlinks_filter_hint">Szukaj</string>
   <string name="menu_other_languages">Czytaj w innych językach</string>
   <string name="langlinks_error_retry">Ponów próbę</string>
   <string name="langlinks_empty">Ten artykuł nie jest dostępny w innych językach</string>
   <string name="langlinks_no_match">Nie znaleziono języków pasujących do twojego zapytania.</string>
-  <string name="settings_activity_title">Ustawienia</string>
   <string name="langlinks_activity_title">Inne języki</string>
   <string name="menu_save_changes">Zapisz zmiany</string>
   <string name="edit_section_error_retry">Ponów próbę</string>
@@ -94,7 +85,6 @@
   <string name="login_error_throttled">Zbyt wiele prób logowania. Poczekaj kilka minut i spróbuj ponownie.</string>
   <string name="login_error_unknown">Logowanie nie powiodło się :(</string>
   <string name="login_error_no_network">Brak połączenia z siecią</string>
-  <string name="nav_item_logout">Wyloguj</string>
   <string name="preference_title_logout">Wyloguj</string>
   <string name="preference_summary_logout">Wyloguj się z konta w Wikipedii</string>
   <string name="preference_summary_notloggedin">Niezalogowany(-a)</string>
@@ -109,11 +99,9 @@
   <string name="skip">Pomiń</string>
   <string name="create_account_username_hint">Nazwa użytkownika</string>
   <string name="create_account_password_hint">Hasło</string>
-  <string name="menu_create_account">Utwórz konto</string>
   <string name="login_create_account_link">Nie masz jeszcze konta? Dołącz do Wikipedii</string>
   <string name="create_account_login_link">Masz już konto? Zaloguj się</string>
   <string name="create_account_activity_title">Utwórz konto</string>
-  <string name="edit_section_activity_title">Edytuj sekcję</string>
   <string name="dialog_create_account_checking_progress">Weryfikacja</string>
   <string name="create_account_email_hint">E-mail (opcjonalnie)</string>
   <string name="create_account_password_repeat_hint">Powtórz hasło</string>
@@ -147,24 +135,12 @@
   <string name="zero_learn_more">W ramach tej aplikacji Wikipedii nie są pobierane opłaty za transmisję danych.</string>
   <string name="zero_learn_more_learn_more">Czytaj więcej</string>
   <string name="zero_learn_more_dismiss">Odrzuć</string>
-  <string name="zero_settings">Ustawienia</string>
-  <string name="zero_settings_devmode">Zero Devmode</string>
-  <string name="zero_settings_devmode_summary">W trakcie prac rozwojowych to umozliwia wykonanie kodu związanego z Wikipedia Zero</string>
   <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu...</string>
-  <string name="create_account_logging_in">Logowanie...</string>
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
-  <string name="edit_summary_guide_text">Opisz, w jaki sposób zmodyfikowałaś/eś tę stronę. Ułatwi to innym edytorom szybkie przejrzenie twoich zmian.</string>
-  <string name="edit_summary_hint">Opis zmian</string>
   <string name="nav_item_random">Losowa strona</string>
-  <string name="random_progress">Ładowanie losowej strony...</string>
   <string name="create_account_account_created_toast">Konto zostało utworzone!</string>
   <string name="user_contribs_more_action">Czytaj całość</string>
   <string name="activity_my_contributions_title">Mój wkład</string>
-  <string name="nav_item_my_contributions">Mój wkład</string>
-  <string name="edit_save_action_login">Zaloguj się i zapisz</string>
-  <string name="edit_save_action_ip">Zapisz anonimowo</string>
-  <string name="edit_save_action_login_description">Twoje zmiany zostaną publicznie przypisane do twojej nazwy użytkownika, a inny edytorzy bedą mogli się z tobą skontaktować.</string>
-  <string name="edit_save_action_ip_description">Twoje zmiany zostaną publicznie przypisane do twojego adresu IP, który często się zmienia</string>
   <string name="preference_title_eventlogging_opt_in">Wysyłaj informacje o użytkowaniu</string>
   <string name="preference_summary_eventlogging_opt_in">Pozwala Wikimedii zbierać informacje o tym, w jaki sposób korzystasz z tej aplikacji, aby ją ulepszać</string>
   <string name="editing_error_spamblacklist">Wykryto linki do zablokowanych domen (%s). Usuń je i spróbuj ponownie.</string>
@@ -183,14 +159,12 @@
   <string name="terms_of_use_description">Warunki użytkowania</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/pl</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/pl</string>
-  <string name="preference_title_version">Wersja</string>
   <string name="about_libraries_heading">użyte biblioteki</string>
   <string name="about_contributors_heading">autorzy</string>
   <string name="about_translators_heading">tłumacze</string>
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy woontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundacji Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikacji</string>
-  <string name="edit_unchanged">Strona nie została zmieniona.</string>
   <string name="edit_abandon_confirm">Strona została zmodyfikowana. Czy na pewno chcesz zakończyć pracę bez zapisywania zmian?</string>
   <string name="user_blocked_from_editing_title">Zablokowany/-a</string>
   <string name="user_logged_in_blocked_from_editing">Edytowanie wiki z tego konta użytkownika zostało zablokowane.</string>
@@ -207,7 +181,6 @@
   <string name="find_in_page">Znajdź na stronie</string>
   <string name="find_next">Znajdź następny</string>
   <string name="find_previous">Znajdź poprzedni</string>
-  <string name="find_close">Zamknij pasek wyszukiwania</string>
   <string name="error_network_error_try_again">Nie można połączyć się z siecią, spróbuj ponownie.</string>
   <string name="saved_pages_update_all_error_retry">Ponów próbę</string>
   <string name="saved_pages_update_all_error_message">Błąd podczas aktualizowania zapisanych stron</string>
@@ -225,11 +198,7 @@
   <string name="color_theme_light">Jasna</string>
   <string name="color_theme_dark">Ciemna</string>
   <string name="page_similar_titles">Podobne strony</string>
-  <string name="search_within_pages">Szukaj na stronach...</string>
   <string name="search_no_results">Nie znaleziono żadnych wyników dla „%s”.</string>
-  <string name="search_results_title">Wyniki wyszukiwania</string>
-  <string name="search_error_retry">Ponów próbę</string>
-  <string name="search_redirect_title">Przekierowanie z „%s”.</string>
   <string name="search_recent_header">Ostatnie wyszukiwania:</string>
   <string name="button_clear_all_recent_searches">Wyczyść listę ostatnich wyszukiwań</string>
   <string name="clear_recent_searches_confirm">Czy jesteś pewien, że chcesz usunąć historię wyszukiwań?</string>
@@ -247,8 +216,6 @@
   <string name="menu_gallery_visit_page">Przejdź do strony pliku</string>
   <string name="gallery_error_draw_failed">Nie udało się wyświetlić obrazu.</string>
   <string name="license_title">Tekst licencji dla biblioteki %s</string>
-  <string name="gallery_license_text">Licencja - %s</string>
-  <string name="gallery_credit_text">Autor - %s</string>
   <string name="gallery_image_info">Informacje o obrazie</string>
   <string name="gallery_menu_share">Udostępnij</string>
   <string name="gallery_share_error">Nie można udostępnić obrazu: %s</string>
@@ -256,4 +223,6 @@
   <string name="gallery_save_error">Nie udało się zapisać obrazka: %s</string>
   <string name="gallery_save_success">Obraz pomyślnie zapisany.</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
+  <string name="cc_logo">Licencja Creative Commons</string>
+  <string name="captcha_image">Obrazek captcha</string>
 </resources>

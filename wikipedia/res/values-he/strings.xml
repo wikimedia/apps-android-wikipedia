@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">לשלוח לנו דיווח קריסה</string>
   <string name="acra_report_dialog_comment">מה עשית בזמן הקריסה?</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
-  <string name="history_activity_title">היסטוריה</string>
   <string name="nav_item_history">היסטוריה</string>
   <string name="error_network_error">אין גישה לרשת :(</string>
   <string name="search_network_error">שגיאת רשת. יש ללחוץ כדי לנסות שוב.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">הדף הזה אינו קיים.</string>
   <string name="nav_item_today">היום</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה?</string>
-  <string name="saved_pages_activity_title">דפים שמורים</string>
   <string name="nav_item_saved_pages">דפים שמורים</string>
   <string name="menu_update_all_saved_pages">עדכון הדפים השמורים</string>
   <string name="menu_update_selected_saved_pages">עדכון הדפים השמורים</string>
   <string name="dialog_prompt_refresh_all_saved_pages">לעדכן את כל הדפים השמורים?</string>
-  <string name="toast_saved_page_refreshed">הדפים השמורים עודכנו</string>
   <string name="menu_save_page">שמירת דף</string>
   <string name="menu_share_page">שיתוף</string>
   <string name="share_via">שיתוף דרך</string>
   <string name="dialog_title_clear_saved_pages">לנקות את כל הדפים השמורים?</string>
-  <string name="dialog_message_clear_saved_pages">האם באמת לנקות את כל הדפים השמורים?</string>
   <string name="toast_saving_page">שמירת דף...</string>
   <string name="toast_saved_page">הדף נשמר בהצלחה</string>
   <string name="toast_saved_page_missing_images">לא היה אפשר לשמור את כל התמונות</string>
-  <string name="toast_save_page_failed">שמירת הדף נכשלה :(</string>
   <string name="toast_refresh_saved_page">רענון הדף השמור...</string>
   <string name="delete_selected_saved_pages">מחיקה</string>
   <string name="toast_saved_page_deleted">הדפים השמורים נמחקו</string>
   <string name="saved_pages_search_list_hint">חיפוש</string>
   <string name="saved_pages_search_empty_message">לא נמצאו דפים התואמים לשאילתה שלך.</string>
-  <string name="nearby_activity_title">בסביבה</string>
   <string name="nav_item_nearby">בסביבה</string>
   <string name="menu_update_nearby">עדכון בסביבה</string>
   <string name="nearby_empty_title">אין דפים על דברים כאן בסביבה!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f מיל</string>
   <string name="nearby_no_network">אין חיבור לרשת</string>
   <string name="nearby_server_error">לא הייתה אפשרות לאתר רשימת מקומות בסביבה.</string>
-  <string name="nearby_no_location">אין אפשרות לאתר את המיקום</string>
   <string name="nearby_dialog_goto_settings">עדכוני מיקום לא הופעלו במכשיר שלך. האם לעבור להגדרות המכשיר שלך כדי להפעיל כדי להפעיל עדכוני מיקום?</string>
   <string name="nearby_set_metric">להציג מטר/ק\"מ</string>
   <string name="nearby_set_imperial">להציג רגל/מיל</string>
@@ -61,14 +54,12 @@
   <string name="edit_save_action_license_logged_in">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
   <string name="preference_title_language">שפת הוויקיפדיה</string>
-  <string name="preference_summary_language">שפת התוכן</string>
   <string name="preference_languages_filter_hint">חיפוש</string>
   <string name="langlinks_filter_hint">חיפוש</string>
   <string name="menu_other_languages">לקרוא בשפות אחרות</string>
   <string name="langlinks_error_retry">לנסות שוב</string>
   <string name="langlinks_empty">הדף הזה אינו זמין בשפות אחרות</string>
   <string name="langlinks_no_match">לא נמצאות שפות התואמות לשאילתה שלך.</string>
-  <string name="settings_activity_title">הגדרות</string>
   <string name="langlinks_activity_title">שפות אחרות</string>
   <string name="menu_save_changes">שמירת השינויים</string>
   <string name="edit_section_error_retry">לנסות שוב</string>
@@ -101,7 +92,6 @@
   <string name="login_error_throttled">יותר מדי ניסיונות כניסה. נא לחכות מספר דקות ולנסות שוב.</string>
   <string name="login_error_unknown">הכניסה נכשלה :(</string>
   <string name="login_error_no_network">אין חיבור רשת</string>
-  <string name="nav_item_logout">יציאה מהחשבון</string>
   <string name="preference_title_logout">יציאה</string>
   <string name="preference_summary_logout">יציאה מהחשבון שלך בוויקיפדיה</string>
   <string name="preference_summary_notloggedin">לא נכנסת לחשבון.</string>
@@ -116,11 +106,9 @@
   <string name="skip">לדלג</string>
   <string name="create_account_username_hint">שם משתמש</string>
   <string name="create_account_password_hint">ססמה</string>
-  <string name="menu_create_account">יצירת חשבון</string>
   <string name="login_create_account_link">אין לך חשבון? אנו מזמינים אותך להצטרף לוויקיפדיה</string>
   <string name="create_account_login_link">כבר יש לך חשבון? כניסה</string>
   <string name="create_account_activity_title">יצירת חשבון</string>
-  <string name="edit_section_activity_title">עריכת פסקה</string>
   <string name="dialog_create_account_checking_progress">אימות</string>
   <string name="create_account_email_hint">דואר אלקטרוני (לא חובה)</string>
   <string name="create_account_password_repeat_hint">חזרה על ססמה</string>
@@ -154,24 +142,12 @@
   <string name="zero_learn_more">חיובים על נתונים מזוכים ביישום ויקיפדיה זה.</string>
   <string name="zero_learn_more_learn_more">מידע נוסף</string>
   <string name="zero_learn_more_dismiss">סגירה</string>
-  <string name="zero_settings">הגדרות</string>
-  <string name="zero_settings_devmode">אפס – מצב מפתחים</string>
-  <string name="zero_settings_devmode_summary">בזמן הפיתוח זה מפעיל הרצה של דברים של ויקיפדיה אפס.</string>
   <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה...</string>
-  <string name="create_account_logging_in">כניסה לחשבון...</string>
   <string name="send_feedback">שליחת משוב על היישום</string>
-  <string name="edit_summary_guide_text">נא לספר איך שיפרת את הדף הזה. זה עוזר לעורכים אחרים לסקור את העריכה שלך מהר.</string>
-  <string name="edit_summary_hint">תקציר העריכה</string>
   <string name="nav_item_random">אקראי</string>
-  <string name="random_progress">אחזור דף אקראי...</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
   <string name="user_contribs_more_action">לטעון עוד</string>
   <string name="activity_my_contributions_title">התרומות שלי</string>
-  <string name="nav_item_my_contributions">התרומות שלי</string>
-  <string name="edit_save_action_login">כניסה לחשבון ושמירה</string>
-  <string name="edit_save_action_ip">שמירה אלמונית</string>
-  <string name="edit_save_action_login_description">העריכות שלך תיוחסנה לשם המשתמש שלך ועורכים אחרים יוכלו לתקשר אתך טוב יותר</string>
-  <string name="edit_save_action_ip_description">העריכות שלך תיוחסנה לכתובת ה־IP לך, שמשתנה לעתים קרובות</string>
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
   <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישום כדי לשפר את היישום</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
@@ -190,14 +166,12 @@
   <string name="terms_of_use_description">תנאי שימוש</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">גרסה</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
   <string name="about_translators_heading">מתרגמים</string>
   <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
-  <string name="edit_unchanged">הדף לא שוּנה.</string>
   <string name="edit_abandon_confirm">הדף שוּנה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
   <string name="user_blocked_from_editing_title">חסוּם</string>
   <string name="user_logged_in_blocked_from_editing">חשבון המשתמש שלך נחסם מעריכת הוויקי הזה.</string>
@@ -214,7 +188,6 @@
   <string name="find_in_page">חיפוש בדף</string>
   <string name="find_next">חיפוש הבא</string>
   <string name="find_previous">חיפוש הקודם</string>
-  <string name="find_close">סגירת סרגל חיפוש</string>
   <string name="error_network_error_try_again">לא הייתה גישה לרשת, נא לנסות שוב.</string>
   <string name="saved_pages_update_all_error_retry">לנסות שוב</string>
   <string name="saved_pages_update_all_error_message">שגיאה בעדכון הדפים השמורים</string>
@@ -234,12 +207,8 @@
   <string name="color_theme_light">בהיר</string>
   <string name="color_theme_dark">כהה</string>
   <string name="page_similar_titles">דפים דומים</string>
-  <string name="search_within_pages">חיפוש בדפים...</string>
   <string name="search_no_results">לא נמצאו תוצאות עבור \"%s\".</string>
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
-  <string name="search_results_title">תוצאות חיפוש</string>
-  <string name="search_error_retry">לנסות שוב</string>
-  <string name="search_redirect_title">הפניה מהדף \"%s\".</string>
   <string name="search_recent_header">חיפוש אחרונים:</string>
   <string name="button_clear_all_recent_searches">ניקוי החיפושים האחרונים</string>
   <string name="clear_recent_searches_confirm">האם באמת רצית לנקות את היסטוריית החיפוש שלך?</string>
@@ -252,7 +221,7 @@
   <string name="widget_name_featured_page">ערך מומלץ בוויקיפדיה</string>
   <string name="widget_title_featured_page">הערך המומלץ של היום:</string>
   <string name="widget_name_search">חיפוש בוויקיפדיה</string>
-  <string name="app_store_description">יישום ויקיפדיה הרשמי לאנדרואיד. ויקיפדיה היא האנציקלופדיה החופשית עם יותר מ־32 מיליון ערכים ב־280 שפות, וזאת אחת מיצירות העיון המקיפות והנפוצות ביותר שאנשים כתבו אי־פעם. היישום נכתב מחדש מאפס והוא טוב יותר מתמיד.
+  <string name="app_store_description" fuzzy="true">יישום ויקיפדיה הרשמי לאנדרואיד. ויקיפדיה היא האנציקלופדיה החופשית עם יותר מ־32 מיליון ערכים ב־280 שפות, וזאת אחת מיצירות העיון המקיפות והנפוצות ביותר שאנשים כתבו אי־פעם. היישום נכתב מחדש מאפס והוא טוב יותר מתמיד.
 
 תכונות:
  - מהירות: היישום החדש שלנו מתוכנת במיוחד לאנדרואיד והוא מאפשר לך לקרוא ולערוך את ויקיפדיה מהר יותר מתמיד.
@@ -273,8 +242,6 @@
   <string name="menu_gallery_visit_page">ללכת לדף הקובץ</string>
   <string name="gallery_error_draw_failed">לא היה אפשר לצייר את התמונה.</string>
   <string name="license_title">טקסט הרישיון עבור הספרייה %s</string>
-  <string name="gallery_license_text">רישיון – %s</string>
-  <string name="gallery_credit_text">מאת – %s</string>
   <string name="gallery_image_info">מידע על התמונה</string>
   <string name="gallery_menu_share">שיתוף</string>
   <string name="gallery_share_error">לא היה ניתן לשתף את התמונה: %s</string>
@@ -288,4 +255,6 @@
   <string name="share_snippet_button">שיתוף בתור תמונה</string>
   <string name="share_normal_button">שיתוף בתור טקסט</string>
   <string name="snippet_share_preview_image_desc">תצוגה מקדימה של תמונה</string>
+  <string name="cc_logo">רישיון קריאייטיב קומונז</string>
+  <string name="captcha_image">תמונת אישור</string>
 </resources>

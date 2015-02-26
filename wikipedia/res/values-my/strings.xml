@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">ပျက်စီးမှု အစီရင်ခံစာ ပေးပို့မည်</string>
   <string name="acra_report_dialog_comment">ပိတ်သွားသော အချိန်တွင် ဘာလုပ်နေခဲ့သလဲ?</string>
   <string name="search_hint">၀ီကီးပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
-  <string name="history_activity_title">မှတ်တမ်း</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
   <string name="error_network_error">လတ်တစ်လော အင်တာနက်ချိတ်ဆက်မှု မရှိ :(</string>
   <string name="search_network_error">ချိတ်ဆက်မှု ပြသာနာ ရှိသည်။ ပြန်ကြိုးစားကြည့်ပါ ။</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">ဤစာမျက်နှာ မရှိပါ</string>
   <string name="nav_item_today">ယနေ့</string>
   <string name="dialog_title_clear_history">သုံးဆွဲမှု မှတ်တမ်းအား ရှင်းမလား ?</string>
-  <string name="saved_pages_activity_title">သိမ်းထားသော စာမျက်နှာများ</string>
   <string name="nav_item_saved_pages">သိမ်းထားသော စာမျက်နှာများ</string>
   <string name="menu_update_all_saved_pages">သိမ်းထားသော စာမျက်နှာများအား ပြောင်းလဲမည်။</string>
   <string name="menu_update_selected_saved_pages">သိမ်းထားသော စာမျက်နှာများအား ပြောင်းလဲမည်။</string>
   <string name="dialog_prompt_refresh_all_saved_pages">သိမ်းထားသော စာမျက်နှာအားလုံး ပြောင်းလဲမလား?</string>
-  <string name="toast_saved_page_refreshed">သိမ်းထားသော စာမျက်နှာများအား ပြောင်းလဲပြီး</string>
   <string name="menu_save_page">စာမျက်နှာကိုသိမ်း</string>
   <string name="menu_share_page">မျှဝေ</string>
   <string name="share_via">မှမျှဝေ</string>
   <string name="dialog_title_clear_saved_pages">သိမ်းထားသော စာမျက်နှာများ အား ရှင်းမည်</string>
-  <string name="dialog_message_clear_saved_pages">သိမ်းထားသော စာမျက်နှာအားလုံးအား ရှင်းပစ်မှာ သေချာပြီလား ?</string>
   <string name="toast_saving_page">စာမျက်နှာအားသိမ်းနေသည်...</string>
   <string name="toast_saved_page">စာမျက်နှာအား အောင်မြင်စွာ သိမ်းပြီး</string>
   <string name="toast_saved_page_missing_images">ပုံများအားလုံးအား မသိမ်းနိုင်ပါ</string>
-  <string name="toast_save_page_failed">စာမျက်နှာသိမ်းဆည်းခြင်း မအောင်မြင် :(</string>
   <string name="toast_refresh_saved_page">သိမ်းထားသော စာမျက်နှာမှ အသစ်ဆွဲကြည့်နေသည်...</string>
   <string name="delete_selected_saved_pages">ဖျက်</string>
   <string name="toast_saved_page_deleted">သိမ်းဆည်း စာမျက်နှာ(များ) ဖျက်ပြီး</string>
   <string name="saved_pages_search_list_hint">ရှာဖွေ</string>
   <string name="saved_pages_search_empty_message">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှမတွေ့ရှိ</string>
-  <string name="nearby_activity_title">အနီးအနား</string>
   <string name="nav_item_nearby">အနီးအနား</string>
   <string name="menu_update_nearby">အနီးအနားအား အသစ်ရယူ</string>
   <string name="nearby_empty_title">အနီးအနားတွင် စာမျက်နှာများမရှိ!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">အင်တာနက် ချိတ်ဆက်မှု မရှိ</string>
   <string name="nearby_server_error">အနီးအနားတစ်ဝိုက် နေရာများအား မရယူနိုင်ပါ။</string>
-  <string name="nearby_no_location">တည်နေရာအား မသိနိုင်ပါ</string>
   <string name="nearby_dialog_goto_settings">တည်နေရာပြ စနစ်အား သင့် device တွင်ပိတ်ထားပါသည်။ device အပြင်အဆင်သို့ သွားပြီး တည်နေရာပြစနစ် အားဖွင့်မလား ?</string>
   <string name="nearby_set_metric">meters/km ဖြင့်ပြပါ</string>
   <string name="nearby_set_imperial">fee/miles ဖြင့်ပြပါ</string>
@@ -60,14 +53,12 @@
   <string name="edit_save_action_license_logged_in">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;သုံးဆွဲမှု သဘောတူညီချက်&lt;/a&gt; အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင် ဖြင့်ဖြန့်ချီမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။</string>
   <string name="edit_save_action_license_anon">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;သုံးဆွဲမှု သဘောတူညီချက်&lt;/a&gt; အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင် ဖြင့်ဖြန့်ချီမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။ တည်းဖြတ်မှုများအား သင်၏ IP လိပ်စာဖြင့်သိမ်းထားမည်ဖြစ်သည်။ သင် ဆိုဒ်သို့&lt;a href=\"https://#login\"&gt;ဝင်ရောက်ထားပါက&lt;/a&gt; လုံခြုံမှုပိုရှိမည်ဖြစ်သည်။</string>
   <string name="preference_title_language">ဝီကီပီဒီးယား ဘာသာစကား</string>
-  <string name="preference_summary_language">အဓိက ဘာသာစကား</string>
   <string name="preference_languages_filter_hint">ရှာ​ဖွေ​ရန်​</string>
   <string name="langlinks_filter_hint">ရှာ​ဖွေ​ရန်​</string>
   <string name="menu_other_languages">အခြားဘာသာစကားဖြင့် ဖတ်ရန်</string>
   <string name="langlinks_error_retry">ပြန်လုပ်</string>
   <string name="langlinks_empty">စာမျက်နှာအား အခြားဘာသာဖြင့်မရှိသေးပါ။</string>
   <string name="langlinks_no_match">ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်ဘာသာစကားမျှမတွေ့ရှိ</string>
-  <string name="settings_activity_title">အပြင်အဆင်များ</string>
   <string name="langlinks_activity_title">အခြားဘာသာစကားများ</string>
   <string name="menu_save_changes">အပြောင်းအလဲများ သိမ်းရန်</string>
   <string name="edit_section_error_retry">ပြန်လုပ်</string>
@@ -92,16 +83,13 @@
   <string name="login_success_toast">မှတ်တမ်းဖြင့် ဝင်​ခြင်း အောင်မြင်သည်။</string>
   <string name="login_error_blocked">အသုံးပြုသူကို တားမြစ်ထားသည်။</string>
   <string name="login_error_no_network">အင်တာနက် ချိတ်ဆက်မှု မရှိ</string>
-  <string name="nav_item_logout">မှတ်တမ်းဖြင့် ထွက်ရန်</string>
   <string name="preference_title_logout">မှတ်တမ်းဖြင့် ထွက်ရန်</string>
   <string name="delete_selected_history">ဖျက်​ပါ​</string>
   <string name="wp_tag_line">အခမဲ့ လွတ်လပ် စွယ်စုံကျမ်း</string>
   <string name="skip">ကျော်ရန်</string>
   <string name="create_account_username_hint">အသုံးပြုသူအမည်</string>
   <string name="create_account_password_hint">စကားဝှက်</string>
-  <string name="menu_create_account">အကောင့်လုပ်ရန်</string>
   <string name="create_account_activity_title">အကောင့်လုပ်ရန်</string>
-  <string name="edit_section_activity_title">ဤအပိုင်းကို တည်းဖြတ်ရန်</string>
   <string name="dialog_create_account_checking_progress">စိစစ်နေသည်။</string>
   <string name="create_account_email_hint">အီးမေးလ် (ရှိပါက)</string>
   <string name="create_account_password_repeat_hint">စကားဝှက် ထပ်ရိုက်ပါ။</string>
@@ -126,12 +114,9 @@
   <string name="create_account_account_created_toast">အကောင့်ဖန်တီးပြီးပါပြီ</string>
   <string name="user_contribs_more_action">ပို၍ ပြပါ</string>
   <string name="activity_my_contributions_title">ကျွန်ုပ်၏ ပံ့ပိုးထားမှုများ</string>
-  <string name="nav_item_my_contributions">ကျွန်ုပ်၏ ပံ့ပိုးထားမှုများ</string>
-  <string name="edit_save_action_ip">အမည်မဖော်ပဲ သိမ်းမည်</string>
   <string name="history_search_list_hint">ရှာ​ဖွေ​ရန်​</string>
   <string name="history_search_empty_message">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှမတွေ့ရှိပါ။</string>
   <string name="privacy_policy_description">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</string>
-  <string name="preference_title_version">ထုတ်ဝေမှု</string>
   <string name="about_contributors_heading">ပံ့ပိုးထားသူများ</string>
   <string name="about_translators_heading">ဘာသာပြန်သူများ</string>
   <string name="about_activity_title">အကြောင်း</string>
@@ -145,8 +130,6 @@
   <string name="text_size_select">စာလုံး အရွယ်အစား</string>
   <string name="color_theme_light">အလင်း</string>
   <string name="color_theme_dark">အမှောင်</string>
-  <string name="search_results_title">ရှာဖွေမှု ရလဒ်များ</string>
-  <string name="search_error_retry">ပြန်လုပ်</string>
   <string name="toc_know_it">ရပြီဟေ့</string>
   <string name="alpha_update_notification_title">စမ်းသပ်သုံးစွဲမှု အသစ်ရယူနိုင်ပါပြီ</string>
   <string name="alpha_update_notification_text">ထိနိုပ်ခြင်းဖြင့် ရယူပါ</string>

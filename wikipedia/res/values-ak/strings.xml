@@ -7,7 +7,6 @@
   <string name="acra_report_dialog_text">Ka nea asi kyerɛ yɛn</string>
   <string name="acra_report_dialog_comment">Dɛn na na woreyɛ ansa na ɛredum?</string>
   <string name="search_hint">Hwehwɛ Wikipedia mu</string>
-  <string name="history_activity_title">Nea atwam</string>
   <string name="nav_item_history">Nea atwam</string>
   <string name="error_network_error" fuzzy="true">Hwɛ sɛ wo network no yɛ adwuma a :(</string>
   <string name="search_network_error">Network no ate kɔ. Fa wo nsa ka so bio.</string>
@@ -17,34 +16,28 @@
   <string name="menu_clear_all_saved_pages">Popa nkrataa a woakora so</string>
   <string name="page_does_not_exist_error">Krataafa biara nni ha saa</string>
   <string name="dialog_title_clear_history">Popa browsing a atwam</string>
-  <string name="saved_pages_activity_title">Nkrataa a wode asie</string>
   <string name="nav_item_saved_pages">Nkrataa a wode asie</string>
   <string name="menu_update_all_saved_pages">Sesa nkrataa a wode asie</string>
   <string name="menu_update_selected_saved_pages">Sesa nkrataa a wode asie</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Sesa nkrataa nyinaa a wode asie</string>
-  <string name="toast_saved_page_refreshed">Nkrataa a wode asie no asesa</string>
   <string name="menu_save_page">Fa sie</string>
   <string name="menu_share_page">Kyekyɛ</string>
   <string name="share_via">Kyekyɛ denam</string>
   <string name="dialog_title_clear_saved_pages">Popa nea wode asie nyinaa</string>
-  <string name="dialog_message_clear_saved_pages">Wogye di sɛ wopɛ sɛ wopopa nea wode asie nyinaa?</string>
   <string name="toast_saving_page">Mede resie ama wo</string>
   <string name="toast_saved_page">Mede asie kama ama wo</string>
   <string name="toast_saved_page_missing_images">M\'antumi anfa mfonini no nyinaa ansie</string>
-  <string name="toast_save_page_failed">Krataa a mede resie no anyɛ yiye :(</string>
   <string name="toast_refresh_saved_page">Mereyɛ krataa no foforo</string>
   <string name="delete_selected_saved_pages">Popa</string>
   <string name="toast_saved_page_deleted">Nkrataa a wode asie no apopa</string>
   <string name="last_updated_text">Wo nkyerɛase %s</string>
   <string name="content_license_html">Saa nkrataa yi nyinaa hyɛ &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ase, ɛte saa a, wɔbɛka ade foforo</string>
   <string name="preference_title_language">Wikipedia kasa</string>
-  <string name="preference_summary_language">ɛmu nsɛm kasa</string>
   <string name="preference_languages_filter_hint">Hwehwɛ</string>
   <string name="langlinks_filter_hint">Hwehwɛ</string>
   <string name="menu_other_languages">Kan wɔ kasa ahorow mu</string>
   <string name="langlinks_error_retry">San yɛ bio</string>
   <string name="langlinks_empty">Saa krataa yi nni kasa a worehwehwɛ no mu</string>
-  <string name="settings_activity_title">Kyerɛ nea wopɛ</string>
   <string name="langlinks_activity_title">Kasa ahorow</string>
   <string name="menu_save_changes">Fa nsakrae no sie</string>
   <string name="edit_section_error_retry">San yɛ bio</string>
@@ -74,7 +67,6 @@
   <string name="login_error_throttled">Woapɛ sɛ wohyɛn mu mpɛn pii. Twɛn simma kakra na san yɛ bio</string>
   <string name="login_error_unknown">Dabi! Anyɛ yiye</string>
   <string name="login_error_no_network">Wonni internet</string>
-  <string name="nav_item_logout">Pue</string>
   <string name="preference_title_logout">Pue</string>
   <string name="preference_summary_logout">Pue fi wo Wikipedia account mu</string>
   <string name="preference_summary_notloggedin">Wo mmaa mu yɛ</string>
@@ -83,11 +75,9 @@
   <string name="history_empty_message" fuzzy="true">Wonni hwɛɛ wɔ wo nneɛma a atwam</string>
   <string name="create_account_username_hint">Username</string>
   <string name="create_account_password_hint">Password</string>
-  <string name="menu_create_account">Bue account</string>
   <string name="login_create_account_link">Wonni account? Bɛka Wikipedia ho</string>
   <string name="create_account_login_link">Wowɔ account deda? Kɔ mu</string>
   <string name="create_account_activity_title">Bue account</string>
-  <string name="edit_section_activity_title">Sesa ɔfa yi</string>
   <string name="dialog_create_account_checking_progress">Rekɔ mu bio</string>
   <string name="create_account_email_hint">Email(Optional)</string>
   <string name="create_account_password_repeat_hint">Bɔ wo password bio</string>
@@ -115,24 +105,12 @@
   <string name="zero_learn_more">Wontua hwee denam Wikipedia adwinade yi so</string>
   <string name="zero_learn_more_learn_more">Kan pii ka ho</string>
   <string name="zero_learn_more_dismiss">Gyae</string>
-  <string name="zero_settings">Kyerɛ nea wopɛ</string>
-  <string name="zero_settings_devmode">Zero Devmode</string>
-  <string name="zero_settings_devmode_summary">Sɛ woguso reyɛ adwinade yi adwuma a, eyi boa ma Wikipedia Zero nneɛma</string>
   <string name="edit_preview_fetching_dialog_message">Hwɛ sɛnea ɛte...</string>
-  <string name="create_account_logging_in">Rekɔ mu</string>
   <string name="send_feedback">Ma yɛn nyansahyɛ</string>
-  <string name="edit_summary_guide_text">Kyerɛ nsakrae a woyɛe wɔ krataa yi so. ɛboa atuhoamafo afoforo.</string>
-  <string name="edit_summary_hint">Bɔ nsakrae a woyɛe no mua</string>
   <string name="nav_item_random">Randɔm</string>
-  <string name="random_progress">Retwe krataa bi aba</string>
   <string name="create_account_account_created_toast">Woabue wo account!</string>
   <string name="user_contribs_more_action">Fa pii bra</string>
   <string name="activity_my_contributions_title">Mensakrae</string>
-  <string name="nav_item_my_contributions">Mensakrae</string>
-  <string name="edit_save_action_login">Kɔ mu na fa sie</string>
-  <string name="edit_save_action_ip">Fa sie. Mma wonhu me.</string>
-  <string name="edit_save_action_login_description">Wo nsakrae no bɛda adi ma obiara ahu wɔ wo username ase. Atuhoamafo afoforo betumi ne wo adi nkɔmmɔ</string>
-  <string name="edit_save_action_ip_description">Wo nsakrae no b3da adi ma obiara ahu w) wo IP address ase</string>
   <string name="preference_summary_eventlogging_opt_in">Ma Wikimedia kwan ma ɔnfa wo adwinade yi ho nsɛm nyɛ nhwehwɛmu sɛnea ebetu mpɔn</string>
   <string name="editing_error_spamblacklist" fuzzy="true">Yi links ahorow a yɛmpɛ no fi mu, na san yɛ bio (%s). Please remove them and try again.</string>
   <string name="history_search_list_hint">Hwehwɛ</string>
@@ -146,12 +124,10 @@
   <string name="more_item_preferences">Pii</string>
   <string name="more_activity_title">Pii</string>
   <string name="about_description">Efa Wikipedia adwinade yi</string>
-  <string name="preference_title_version">Version</string>
   <string name="about_libraries_heading">Libraries used</string>
   <string name="about_contributors_heading">aboafo</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; adwinade</string>
   <string name="about_activity_title">ɛho nsɛm</string>
-  <string name="edit_unchanged">Saa krataa yi asesa</string>
   <string name="edit_abandon_confirm">Saa krataa yi asesa. Wogyedi sɛ wopɛsɛ wofi a womfa wo nsakrae no nsie?</string>
   <string name="user_blocked_from_editing_title">ɛho nni kwan</string>
   <string name="user_logged_in_blocked_from_editing">Woabra wo account no wɔ ha</string>
@@ -173,7 +149,7 @@
   <string name="saved_pages_update_all_error_message">Antumi anfo nsakrae no ansie</string>
   <string name="saved_pages_progress_title">Mereyɛ krataa no foforo</string>
   <string name="saved_pages_refresh_pages_complete">Awie</string>
-  <string name="app_store_description">Wikipedia Android App. Wikipedia y3 beae a wɔde y3 nhwehw3mu a nkrataa b3boro ɔpepem 32 a 3wɔ kasa 280 mu na emu ns3m dɔɔso sen biara a aboafo na atu wɔn ho ama rey3 ho adwuma wɔ wiase nyinaa. Woasiesie app yi yiye, na edi mu paa.
+  <string name="app_store_description" fuzzy="true">Wikipedia Android App. Wikipedia y3 beae a wɔde y3 nhwehw3mu a nkrataa b3boro ɔpepem 32 a 3wɔ kasa 280 mu na emu ns3m dɔɔso sen biara a aboafo na atu wɔn ho ama rey3 ho adwuma wɔ wiase nyinaa. Woasiesie app yi yiye, na edi mu paa.
 
 Nne3ma a etumi y3:
   - Etu mmiraka: Woay3 adwinade yi ma wode rehwehw3 ns3m wɔ Wikipedia so a, 3kɔ nt3m paa.

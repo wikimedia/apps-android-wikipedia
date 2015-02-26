@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Бидэнд алдааны мэдээлэл явуулах</string>
   <string name="acra_report_dialog_comment">Эвдрэл илрэхэд та юу хийж байсан вэ?</string>
   <string name="search_hint">Википедиа -аас хайх</string>
-  <string name="history_activity_title">Түүх</string>
   <string name="nav_item_history">Түүх</string>
   <string name="error_network_error" fuzzy="true">Сүлжээнд холбогдож чадахгүй байна :(</string>
   <string name="search_network_error">Сүлжээний саатал. Дахин оруулна уу</string>
@@ -20,17 +19,14 @@
   <string name="page_does_not_exist_error">Ийм хуудас байхгүй</string>
   <string name="nav_item_today">Өнөөдөр</string>
   <string name="dialog_title_clear_history">Хөтчид хадгалагдсан түүхийг устгах</string>
-  <string name="saved_pages_activity_title">Хадгалсан хуудсууд</string>
   <string name="nav_item_saved_pages">Хадгалсан хуудсууд</string>
   <string name="menu_update_all_saved_pages">Хадгалсан хуудсуудыг шинэчлэх</string>
   <string name="menu_update_selected_saved_pages">Хадгалсан хуудсуудыг шинэчлэх</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Хадгалсан хуудсыг бүгдийг нь шинэчлэх үү?</string>
-  <string name="toast_saved_page_refreshed">Хадгалсан хуудсуудыг шинэчиллээ</string>
   <string name="menu_save_page">Хуудсыг хадгалах</string>
   <string name="menu_share_page">Хуваалцах</string>
   <string name="share_via">Хуваалцахдаа</string>
   <string name="dialog_title_clear_saved_pages">Хадгалсан хуудсыг бүгдийг нь арилгах уу?</string>
-  <string name="dialog_message_clear_saved_pages">Та хадгалсан хуудсуудаа устгахдаа итгэлтэй байна уу?</string>
   <string name="toast_saving_page">Хуудсыг хадгалж байна...</string>
   <string name="delete_selected_saved_pages">Устгах</string>
   <string name="saved_pages_search_list_hint">Хайлт</string>
@@ -38,7 +34,6 @@
   <string name="langlinks_filter_hint">Хайлт</string>
   <string name="menu_other_languages">Бусад хэл дээр унших</string>
   <string name="langlinks_error_retry">Дахин оролд</string>
-  <string name="settings_activity_title">Тохиргоо</string>
   <string name="langlinks_activity_title">Бусад хэл</string>
   <string name="menu_save_changes">Өөрчлөлтөө хадгалах</string>
   <string name="edit_section_error_retry">Дахин оролд</string>
@@ -66,7 +61,6 @@
   <string name="login_error_throttled">Хэтэрхий олон удаа хандах оролдлого хийсэн байна. Хэсэг хүлээзнээд дахин оролдоно уу.</string>
   <string name="login_error_unknown">Нэвтэрч чадсангүй!</string>
   <string name="login_error_no_network">Сүлжээ тасарсан байна</string>
-  <string name="nav_item_logout">Гарах</string>
   <string name="preference_title_logout">Гарах</string>
   <string name="preference_summary_notloggedin">Нэвтрээгүй байна</string>
   <string name="toast_logout_complete">Гарлаа</string>
@@ -74,7 +68,6 @@
   <string name="skip">Алгасах</string>
   <string name="create_account_username_hint">Хэрэглэгчийн нэр</string>
   <string name="create_account_password_hint">Нууц үг</string>
-  <string name="menu_create_account">Бүртгүүлэх</string>
   <string name="login_create_account_link">Бүртгүүлж амжаагүй юу? Википедиад нэгдээрэй</string>
   <string name="create_account_login_link">Бүртгэлтэй бол нэвтрээрэй.</string>
   <string name="create_account_activity_title">Бүртгүүлэх</string>
@@ -97,8 +90,6 @@
   <string name="zero_learn_more" fuzzy="true">Википедия зерогийн талаар сурмаар байна уу?</string>
   <string name="zero_learn_more_learn_more">Дэлгэрэнгүйг унших</string>
   <string name="zero_learn_more_dismiss">Болих</string>
-  <string name="zero_settings">Тохиргоо</string>
-  <string name="create_account_logging_in">Нэвтэрч байна...</string>
   <string name="button_page_issues">Хуудсан дахь хэлэлцүүлэгүүд</string>
   <string name="page_similar_titles" fuzzy="true">Бусад утга</string>
 </resources>

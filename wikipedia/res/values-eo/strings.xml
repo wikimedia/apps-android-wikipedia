@@ -8,41 +8,49 @@
   <string name="acra_report_dialog_text">Sendu al ni pri-kolapsan raporton</string>
   <string name="acra_report_dialog_comment">Kion vi faris kiam okazis la kolapso?</string>
   <string name="search_hint">Serĉu en Vikipedio</string>
-  <string name="history_activity_title">Historio</string>
   <string name="nav_item_history">Historio</string>
-  <string name="error_network_error" fuzzy="true">Ne eblis aliri al la reto :(</string>
+  <string name="error_network_error">Ne estas ret-aliro</string>
   <string name="search_network_error">Reta eraro. Tuŝu por reprovi.</string>
   <string name="page_error_retry">Reprovi</string>
   <string name="menu_clear_all_history">Malplenigi historion</string>
   <string name="menu_clear_all_saved_pages">Malplenigi ĉiujn konservitajn paĝojn</string>
   <string name="page_does_not_exist_error">Ĉi tiu paĝo ne ekzistas.</string>
-  <string name="saved_pages_activity_title">Konservitaj paĝoj</string>
+  <string name="nav_item_today">Hodiaŭ</string>
   <string name="nav_item_saved_pages">Konservitaj paĝoj</string>
   <string name="menu_update_all_saved_pages">Ĝisdatigi konservitajn paĝojn</string>
   <string name="menu_update_selected_saved_pages">Ĝisdatigi konservitajn paĝojn</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Ĉu ĝisdatigi ĉiujn konservitajn paĝojn?</string>
-  <string name="toast_saved_page_refreshed">Konservitaj paĝoj ĝisdatigitaj</string>
   <string name="menu_save_page">Konservi paĝon</string>
   <string name="menu_share_page">Kundividi</string>
   <string name="share_via">Kundividi per</string>
   <string name="dialog_title_clear_saved_pages">Ĉu Malplenigi ĉiujn konservitajn paĝojn?</string>
-  <string name="dialog_message_clear_saved_pages">Ĉu vi certas ke vi volas malplenigi ĉiujn konservitajn paĝojn?</string>
   <string name="toast_saving_page">Konservante paĝon...</string>
   <string name="toast_saved_page">Paĝo sukcese konservita</string>
   <string name="toast_saved_page_missing_images">Ne eblas konservi ĉiuj bildojn</string>
-  <string name="toast_save_page_failed">Eraro dum konservado de paĝo :(</string>
   <string name="delete_selected_saved_pages">Forigi</string>
   <string name="toast_saved_page_deleted">Konservita(j) paĝo(j) forigita(j)</string>
+  <string name="saved_pages_search_list_hint">Serĉi</string>
+  <string name="saved_pages_search_empty_message">Neniu paĝo kongruas kun via serĉo.</string>
+  <string name="nav_item_nearby">Ĉirkaŭe</string>
+  <string name="nearby_empty_title">Neniu paĝo ĉirkaŭ ĉi tie!</string>
+  <string name="nearby_empty_message">Kiam vi movu al nova loko, provu reŝarĝi ĉi tiun paĝon por lerni pli pri kio estas ĉirkaŭ vi.</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_no_network">Ne estas ret-aliro</string>
+  <string name="nearby_server_error">Ne eblis akiri liston pri ĉirkaŭaj lokoj</string>
+  <string name="nearby_set_metric">Montru metroj/km</string>
+  <string name="nearby_view_on_map">Vidu lokon sur mapo</string>
   <string name="last_updated_text">Lasta ĝisdatigo %s</string>
   <string name="content_license_html">La enhavo disponeblas laŭ la permesilo  &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; krom se alia permesilo estas indikita.</string>
+  <string name="edit_save_action_license_logged_in">Konservante, vi konsentas kun la  &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; permesilo.</string>
+  <string name="edit_save_action_license_anon">Konservante, vi konsentas kun la &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; permesilo. Modifoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutas&lt;/a&gt;, vi havos pli privatecon.</string>
   <string name="preference_title_language">Lingvo de Vikipedio</string>
-  <string name="preference_summary_language">Enhava lingvo</string>
   <string name="preference_languages_filter_hint">Serĉi</string>
   <string name="langlinks_filter_hint">Serĉi</string>
   <string name="menu_other_languages">Legi en alia lingvo</string>
   <string name="langlinks_error_retry">Reprovi</string>
   <string name="langlinks_empty">Ĉi tiu paĝo ne disponeblas en aliaj lingvoj</string>
-  <string name="settings_activity_title">Agordoj</string>
+  <string name="langlinks_no_match">Neniu lingvo kongruas kun via serĉo.</string>
   <string name="langlinks_activity_title">Aliaj lingvoj</string>
   <string name="menu_save_changes">Konservi ŝanĝojn</string>
   <string name="edit_section_error_retry">Reprovi</string>
@@ -51,11 +59,16 @@
   <string name="dialog_message_edit_failed">Redakto malsukcesis:</string>
   <string name="dialog_message_edit_failed_retry">Reprovi</string>
   <string name="dialog_message_edit_failed_cancel">Nuligi</string>
+  <string name="dialog_message_leaving_edit">Viaj modifoj ankoraŭ ne estas konservitaj. Ĉu ci certas ke vi volas foriri el ĉi tiu paĝo?</string>
+  <string name="dialog_message_leaving_edit_leave">Foriri</string>
+  <string name="dialog_message_leaving_edit_stay">Resti</string>
   <string name="menu_show_toc">Enhavtabelo</string>
   <string name="search_no_results_found">Neniu rezulto trovita</string>
   <string name="edit_section_captcha_message">Por helpi al la projekto kontraŭ spamado, bve skribu la vortojn kiuj aperas sube</string>
   <string name="edit_section_captcha_hint">Ripetu la suprajn vortojn</string>
+  <string name="title_captcha">Enigu CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tuŝu la CAPTCHA-n por reprovi</string>
+  <string name="edit_saved_page_refresh">Ĉi tiu konservita paĝo eble estas ne ĝisdatigita, kaj ĝisdatigendas por ebligi la modifadon. Ĉu vi volas ĝisdatigi ĝin nun?</string>
   <string name="nav_item_login">Ensaluti</string>
   <string name="login_username_hint">Uzantnomo</string>
   <string name="login_password_hint">Pasvorto</string>
@@ -67,63 +80,155 @@
   <string name="login_error_wrong_username">Neĝusta uzantnomo</string>
   <string name="login_success_toast">Ensalutado sukcesis</string>
   <string name="login_error_blocked">Ĉi tiu uzanto estis forbarita</string>
+  <string name="login_error_throttled">Tro multaj ensalutaj provoj. Atendu kelkaj minutoj kaj reprovu tiam.</string>
   <string name="login_error_unknown">Ensalutado malsukcesis</string>
   <string name="login_error_no_network">Ne estas reta aliro</string>
-  <string name="nav_item_logout">Elsaluti</string>
   <string name="preference_title_logout">Elsaluti</string>
   <string name="preference_summary_logout">Elsaluti el via Vikipedia konto</string>
   <string name="preference_summary_notloggedin">Ne ensalutinta</string>
   <string name="toast_logout_complete">Elsalutiĝinta</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Ne estas paĝoj konservitaj</string>
-  <string name="history_empty_message" fuzzy="true">Via historio estas malplena.</string>
+  <string name="saved_pages_empty_title">Neniu paĝo konservita ankoraŭ!</string>
+  <string name="saved_pages_empty_message">Konservitaj paĝoj mojosas. Pensu pri ili kiel markaĵoj kiujn vi povas legi eĉ kiam vi ne estas enreta.</string>
+  <string name="history_empty_message">Tre eble vi forigis ĉiujn. Venontfoje kiam vi vizitu paĝon, vi povas rehavigi ĝin el ĉi tie.</string>
+  <string name="delete_selected_history">Forigi</string>
+  <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDI&lt;big&gt;O&lt;/big&gt;</string>
+  <string name="wp_tag_line">La libera enciklopedio</string>
+  <string name="skip">Preterigi</string>
   <string name="create_account_username_hint">Uzantnomo</string>
   <string name="create_account_password_hint">Pasvorto</string>
-  <string name="menu_create_account">Krei konton</string>
   <string name="login_create_account_link">Ĉu vi ne havas konton? Aliĝu al Vikipedio</string>
   <string name="create_account_login_link">Ĉu vi jam havas konton? Ensalutu</string>
   <string name="create_account_activity_title">Krei konton</string>
-  <string name="edit_section_activity_title">Redakti sekcion</string>
   <string name="dialog_create_account_checking_progress">Kontrolante</string>
   <string name="create_account_email_hint">Retpoŝto (Malnepra)</string>
   <string name="create_account_password_repeat_hint">Ripetu la pasvorton</string>
   <string name="create_account_passwords_mismatch_error">Pasvortoj ne estas samaj</string>
   <string name="create_account_email_error">Nevalida retpoŝto</string>
+  <string name="create_account_username_exists_error">Uzantnomo jam uzata.</string>
   <string name="create_account_ip_throttle_error">Tro multaj kontoj kreitaj de ĉi tiu IP-Adreso. Reprovu poste.</string>
   <string name="create_account_open_proxy_error">Ĉi tiu IP-Adreso estis forbarita por krei kontojn.</string>
+  <string name="create_account_noname_error">La uzantnomo kiun vi uzis estas nevalida. Bonvole uzu alian uzantnomon.</string>
   <string name="create_account_invalid_email_error">La retadreso ke vi liveris estas malvalida.</string>
+  <string name="create_account_password_too_short_error">La pasvorto elektita estas tro mallonga.</string>
   <string name="create_account_blocked_anon_error">Vi ne povas krei konton ĉar via IP-adreso estas forbarita.</string>
   <string name="create_account_blocked_error">Vi ne povas krei konton ĉar via konto estas forbarita.</string>
+  <string name="create_account_password_name_match_error">Via uzantnomo kaj via pasvorto devas esti malsamaj.</string>
   <string name="create_account_generic_error">Ne eblis krei konton</string>
   <string name="create_account_no_network">Ne estas reta aliro</string>
   <string name="create_account_next">Sekva</string>
   <string name="create_account_button">Krei konton</string>
+  <string name="preferences_general_heading">Ĝenerala</string>
+  <string name="zero_charged_verbiage">Vikipedio Zezo estas malŝaltita</string>
+  <string name="zero_search_hint">Serĉi en Vikipedio Zero</string>
+  <string name="zero_warn_when_leaving">Avertu kiam forlasi Vikipedio Zero</string>
+  <string name="zero_wikipedia_zero_heading">Vikipedio Zero</string>
+  <string name="zero_interstitial_title">Forlasante Vikipedio Zero</string>
+  <string name="zero_interstitial_continue">Forlasi</string>
   <string name="zero_interstitial_cancel">Resti ĉi tie</string>
   <string name="zero_learn_more_learn_more">Legi plu</string>
-  <string name="zero_settings">Agordoj</string>
-  <string name="create_account_logging_in">Ensalutante...</string>
+  <string name="zero_learn_more_dismiss">Elimini</string>
   <string name="nav_item_random">Hazarda paĝo</string>
   <string name="create_account_account_created_toast">Konto kreita</string>
   <string name="user_contribs_more_action">Ŝarĝi pli</string>
   <string name="activity_my_contributions_title">Miaj kontribuoj</string>
-  <string name="nav_item_my_contributions">Miaj kontribuoj</string>
-  <string name="edit_save_action_login">Ensaluti kaj konservi</string>
   <string name="preference_title_eventlogging_opt_in">Sendi uzantan raporton</string>
   <string name="preference_summary_eventlogging_opt_in">Permesi al Vikipedio kolekti informon pri kiel vi uzas la aplikaĵon por helpi ĝin plibonigi</string>
+  <string name="editing_error_spamblacklist">Ligilo al blokitaj retadresoj detektitaj (%s). Bonvole forigu ilin kaj reprovu.</string>
   <string name="history_search_list_hint">Serĉi</string>
+  <string name="history_search_empty_message">Neniu paĝo kongruas kun via serĉo.</string>
+  <string name="error_can_not_process_link">Ne eblas montri ĉi tiun ligilon</string>
+  <string name="page_protected_autoconfirmed">Ĉi tiu paĝo estas duon-protektita.</string>
+  <string name="page_protected_sysop">Ĉi tiu paĝo estas tut-protektita.</string>
+  <string name="page_protected_other">Ĉi tiu paĝo estas protektita je la jenaj niveloj: %s</string>
   <string name="page_protected_can_not_edit">Vi ne havas la rajtojn por redakti ĉi tiun paĝon</string>
+  <string name="page_protected_can_not_edit_title">Ĉi tiu paĝo estas protektita</string>
   <string name="more_item_preferences">Pli</string>
   <string name="more_activity_title">Pli</string>
   <string name="about_description">Pri la Vikipedia aplikaĵo</string>
-  <string name="preference_title_version">Versio</string>
+  <string name="privacy_policy_description">Politiko pri privateco</string>
+  <string name="terms_of_use_description">Uzkondiĉoj</string>
+  <string name="about_libraries_heading">bibliotekoj uzataj</string>
   <string name="about_contributors_heading">Kontribuantoj</string>
+  <string name="about_translators_heading">tradukantoj</string>
+  <string name="about_translators_translatewiki">Ĉi tiu aplikaĵo estis tradukita de volontulaj tradukantoj ĉe &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Produktaĵo de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Vikimedia Fondaĵo&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
-  <string name="edit_unchanged">La paĝo ne estis ŝanĝita.</string>
+  <string name="edit_abandon_confirm">Ĉi tiu paĝo estis modifita. Ĉu vi certas ke vi volas eliri sen konservi viajn modifojn?</string>
+  <string name="user_logged_in_blocked_from_editing">Via uzanta konto estis forbarita pri redaktado en tiu ĉi vikio.</string>
+  <string name="user_anon_blocked_from_editing">Via IP-adreso estis forbarita pri redaktado.</string>
+  <string name="edit_how_page_improved">Kiel vi plibonigis ĉi tiun paĝon?</string>
   <string name="edit_next">Sekva</string>
   <string name="edit_done">Konservi</string>
   <string name="edit_preview">Antaŭrigardi</string>
+  <string name="edit_summary_tag_typo">Ĝustigis ortografion</string>
+  <string name="edit_summary_tag_grammar">Ĝustigis gramatikon</string>
+  <string name="edit_summary_tag_links">Aldonis ligilojn</string>
+  <string name="edit_summary_tag_other">Alia</string>
   <string name="edit_summary_tag_other_hint">Aliaj manieroj en kiuj vi plibonigis la paĝon</string>
+  <string name="find_in_page">Trovi en la paĝo</string>
+  <string name="find_next">Trovi sekvan</string>
+  <string name="find_previous">Trovi antaŭan</string>
+  <string name="error_network_error_try_again">Ne eblis konektiĝi al la reto, bonvole reprovu.</string>
   <string name="saved_pages_update_all_error_retry">Reprovi</string>
   <string name="saved_pages_update_all_error_message">Eraro dum ĝisdatigo de konservitaj paĝoj</string>
+  <string name="saved_pages_progress_title">Ĝisdatigante konservitajn paĝojn</string>
   <string name="saved_pages_refresh_pages_complete">Ĝisdatigo finita</string>
+  <string name="menu_page_saved">Paĝo konservita</string>
+  <string name="menu_refresh_saved_page">Ĝisdatigi paĝon</string>
+  <string name="abusefilter_title_disallow">Vi ne povas konservi ĉi tiun modifon. Bonvole iru reen kaj ŝanĝu ĝin.</string>
+  <string name="dialog_page_issues">Paĝaj problemoj</string>
+  <string name="button_page_issues">Paĝaj problemoj</string>
+  <string name="menu_themechooser">Fonto kaj etoso</string>
+  <string name="text_size_select">Tipara grandeco</string>
+  <string name="color_theme_select">Etoso</string>
+  <string name="color_theme_light">Hela</string>
+  <string name="color_theme_dark">Malhela</string>
+  <string name="page_similar_titles">Similaj paĝoj</string>
+  <string name="search_no_results">Neniu rezulto por \"%s\".</string>
+  <string name="search_did_you_mean">Ĉu vi celis \"%s\"?</string>
+  <string name="search_recent_header">Lastaj serĉoj:</string>
+  <string name="button_clear_all_recent_searches">Malplenigi lastaj serĉojn</string>
+  <string name="clear_recent_searches_confirm">Ĉu vi certas ke vi volas malplenigi vian serĉ-historion?</string>
+  <string name="toc_know_it">Komprenite</string>
+  <string name="error_browser_not_found">Ne eblis malfermi la retpaĝon (Neniu retumila aplikaĵo estis trovita)</string>
+  <string name="table_infobox">Rapidaj faktoj</string>
+  <string name="table_other">Pliaj informoj</string>
+  <string name="table_close">Fermi</string>
+  <string name="widget_name_featured_page">Vikipedia elstara paĝo</string>
+  <string name="widget_title_featured_page">Hodiaŭa elstara paĝo:</string>
+  <string name="widget_name_search">Serĉi en Vikipedio</string>
+  <string name="app_store_description" fuzzy="true">Oficiala Vikipedia aplikaĵo por Android. Vikipedio estas la libera enciklopedio kiu enhavas pli ol 32 milionojn da artikoloj en 280 lingvoj, kaj estas estas la plej kompleta kaj vaste uzata referenca verko kiun la homara kreis iam ajn. La aplikaĵo estis refarita el nenio kaj nun ĝi estas plej bona ol neniam antaŭe.
+
+Trajtoj:
+
+   - Rapideco: nia nova, nativa aplikaĵo permesas al vi navigi kaj modifi Vikipedion pli rapide ol antaŭe.
+   - Redakti: Vi povas modifi Vikipedion! Ensalutinta aŭ ne, ni dankas ĉiujn viajn kontribuojn.
+   - Lastaj paĝoj: Ni donas al vi vian legadan historion, do vi povas klaki sur kiom ajn ligilojn sen perdiĝi.
+   - Konservitaj paĝoj: Vi povas konservi selektitajn paĝojn por legi kaj navigi ilin kiam vi ne havu retaliron aŭ eĉ sen datuma konekto.
+   - Kundividu: Uzu viajn akzistantajn socian aplikaĵojn por kundividi la tuton de la homa saĝo.
+   - Lingva subteno: La aplikaĵo permesas al vi facile ŝanĝi la legadon al Vikipedio en ajna skribita lingvo.
+   -Vikipedio Zero: Datumaj pagoj evitataj danke al partneraj poŝtelefonaj entreprenoj.
+
+La kodo estas tute malferma. Se vi havas sperton kun Java kaj Android SDK, venu branĉigu nin! https://github.com/wikimedia/apps-android-wikipedia</string>
+  <string name="alpha_update_notification_text">Klaku por elŝuti</string>
+  <string name="dialog_close_description">Fermi</string>
+  <string name="preference_title_show_images">Montri bildojn</string>
+  <string name="preference_summary_show_images">Ŝaltigi aŭ malŝaltigi la ŝarĝadon de bildoj en paĝoj. Malŝaltu ĉi tiun agordon se via reta konekto estas malrapida, aŭ via poŝtelefonaj datumoj estas limigitaj.</string>
+  <string name="read_more_section">Legi plu</string>
+  <string name="gallery_menu_more_info">Pliaj informoj</string>
+  <string name="menu_gallery_visit_page">Iru al la dosiera paĝo</string>
+  <string name="license_title">Teksto de la biblioteka permesilo %s</string>
+  <string name="gallery_image_info">Bilda informo</string>
+  <string name="gallery_menu_share">Kundividi</string>
+  <string name="gallery_share_error">Ne eblis kundividi la bildon: %s</string>
+  <string name="gallery_menu_save">Konservi en la aparato</string>
+  <string name="gallery_save_error">Ne eblis konservi la bildon: %s</string>
+  <string name="gallery_save_error_mediastore">Ne eblis importi la bildon al la media kolekto</string>
+  <string name="gallery_save_success">Bildo sukcese konservita</string>
+  <string name="err_cannot_save_file">Ne eblis konservi la dosieron</string>
+  <string name="snippet_share_intro">\"%1$s\" ĉe @Wikipedia: %2$s</string>
+  <string name="expand_refs">klaku por pligrandigi</string>
+  <string name="share_snippet_button">Kundividi kiel bildo</string>
+  <string name="share_normal_button">Kundividi kiel teksto</string>
+  <string name="snippet_share_preview_image_desc">Antaŭrigardo de la bildo</string>
 </resources>

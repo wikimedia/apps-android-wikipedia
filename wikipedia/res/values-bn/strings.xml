@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">ত্রুটি সম্পর্কে আমাদের জানান</string>
   <string name="acra_report_dialog_comment">অ্যাপটি অকার্যকর হওয়ার সময় আপনি কি করছিলেন?</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
-  <string name="history_activity_title">ইতিহাস</string>
   <string name="nav_item_history">ইতিহাস</string>
   <string name="error_network_error">এখানে কোন নেটওয়ার্ক সংযোগ নেই :(</string>
   <string name="search_network_error">নেটওয়ার্ক ত্রুটি। পুনরায় চেষ্টা করুন।</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">এই শিরোনামে কোন পাতা নেই।</string>
   <string name="nav_item_today">আজ</string>
   <string name="dialog_title_clear_history">ব্রাউজিং ইতিহাস অপসারণ?</string>
-  <string name="saved_pages_activity_title">সংরক্ষিত পাতাসমূহ</string>
   <string name="nav_item_saved_pages">সংরক্ষিত পাতাসমূহ</string>
   <string name="menu_update_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
   <string name="menu_update_selected_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
   <string name="dialog_prompt_refresh_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করবেন?</string>
-  <string name="toast_saved_page_refreshed">সংরক্ষিত পাতাগুলো হালনাগাদ হয়েছে</string>
   <string name="menu_save_page">পাতা সংরক্ষণ করুন</string>
   <string name="menu_share_page">শেয়ার</string>
   <string name="share_via">শেয়ার</string>
   <string name="dialog_title_clear_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার?</string>
-  <string name="dialog_message_clear_saved_pages">আপনি নিশ্চিত যে আপনি সকল সংরক্ষিত পাতা পরিষ্কার করতে চান?</string>
   <string name="toast_saving_page">পাতা সংরক্ষণ হচ্ছে...</string>
   <string name="toast_saved_page">পাতা সফলভাবে সংরক্ষিত হয়েছে</string>
   <string name="toast_saved_page_missing_images">সকল চিত্র সংরক্ষণ সম্ভব হয়নি</string>
-  <string name="toast_save_page_failed">পাতা সংরক্ষণ ব্যর্থ হয়েছে :(</string>
   <string name="toast_refresh_saved_page">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে...</string>
   <string name="delete_selected_saved_pages">অপসারণ</string>
   <string name="toast_saved_page_deleted">সংরক্ষিত পাতা(সমূহ) অপসারণ করা হয়েছে</string>
   <string name="saved_pages_search_list_hint">অনুসন্ধান</string>
   <string name="saved_pages_search_empty_message">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো পাতা নেই।</string>
-  <string name="nearby_activity_title">কাছাকাছি</string>
   <string name="nav_item_nearby">কাছাকাছি</string>
   <string name="menu_update_nearby">কাছাকাছি হালনাগাদ করুন</string>
   <string name="nearby_empty_title">এখানে কাছাকাছি কোন পাতা নেই</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f মাইল</string>
   <string name="nearby_no_network">কোন নেটওয়ার্ক সংযোগ নেই</string>
   <string name="nearby_server_error">কাছাকাছি স্থানের তালিকা পাওয়া যায়নি।</string>
-  <string name="nearby_no_location">অবস্থান নির্ণয় করতে সক্ষম নয়</string>
   <string name="nearby_dialog_goto_settings">অবস্থান হালনাগাদ আপনার ডিভাইসে সক্রিয় করা নেই। আপনি কি অবস্থান হালনাগাদ সক্রিয় করতে আপনার ডিভাইসের সেটিংসে যেতে চান?</string>
   <string name="nearby_set_metric">মিটার/কিমি দেখাও</string>
   <string name="nearby_set_imperial">ফুট/মাইল দেখাও</string>
@@ -61,14 +54,12 @@
   <string name="edit_save_action_license_logged_in">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.bn\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন।</string>
   <string name="edit_save_action_license_anon">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.bn\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন। সম্পাদনাগুলি আপনার ডিভাইসের IP ঠিকানায় আরোপিত হবে। আপনি যদি &lt;a href=\"https://#login\"&gt;প্রবেশ&lt;/a&gt; করেন, আপনি আরো গোপনীয়তা পাবেন।</string>
   <string name="preference_title_language">উইকিপিডিয়া ভাষা</string>
-  <string name="preference_summary_language">বিষয়বস্তুর ভাষা</string>
   <string name="preference_languages_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_filter_hint">অনুসন্ধান</string>
   <string name="menu_other_languages">অন্য ভাষায় পড়ুন</string>
   <string name="langlinks_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়</string>
   <string name="langlinks_no_match">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো ভাষা নেই।</string>
-  <string name="settings_activity_title">সেটিং</string>
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
   <string name="menu_save_changes">পরিবর্তন সংরক্ষণ</string>
   <string name="edit_section_error_retry">পুনঃচেষ্টা</string>
@@ -101,7 +92,6 @@
   <string name="login_error_throttled">অনেকবার প্রবেশের চেষ্টা করা হয়েছে। কয়েক মিনিট অপেক্ষা করে আবার চেষ্টা করুন।</string>
   <string name="login_error_unknown">প্রবেশ ব্যর্থ :(</string>
   <string name="login_error_no_network">নেটওয়ার্ক সংযোগ নেই</string>
-  <string name="nav_item_logout">প্রস্থান</string>
   <string name="preference_title_logout">প্রস্থান</string>
   <string name="preference_summary_logout">আপনার উইকিপিডিয়া অ্যাকাউন্ট থেকে প্রস্থান করুন</string>
   <string name="preference_summary_notloggedin">প্রবেশ করা হয়নি।</string>
@@ -116,11 +106,9 @@
   <string name="skip">উপেক্ষা করো</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>
   <string name="create_account_password_hint">পাসওয়ার্ড</string>
-  <string name="menu_create_account">অ্যাকাউন্ট খুলুন</string>
   <string name="login_create_account_link">কোন অ্যাকাউন্ট নেই? উইকিপিডিয়ায় যোগ দিন</string>
   <string name="create_account_login_link">ইতিমধ্যে একটি অ্যাকাউন্ট আছে? প্রবেশ করুন</string>
   <string name="create_account_activity_title">একটি অ্যাকাউন্ট খুলুন</string>
-  <string name="edit_section_activity_title">অনুচ্ছেদ সম্পাদনা</string>
   <string name="dialog_create_account_checking_progress">যাচাই করা হচ্ছে</string>
   <string name="create_account_email_hint">ইমেইল (ঐচ্ছিক)</string>
   <string name="create_account_password_repeat_hint">পাসওয়ার্ডটি পুনরায় লিখুন</string>
@@ -153,24 +141,12 @@
   <string name="zero_learn_more">এই উইকিপিডিয়া অ্যাপের জন্য ডাটা চার্জ প্রযোজ্য নয়।</string>
   <string name="zero_learn_more_learn_more">আরও জানুন</string>
   <string name="zero_learn_more_dismiss">খারিজ</string>
-  <string name="zero_settings">সেটিং</string>
-  <string name="zero_settings_devmode">জিরো ডেভমোড</string>
-  <string name="zero_settings_devmode_summary">উন্নয়নের সময় উইকিপিডিয়া জিরোর জিনিসের এই কোড সঞ্চালনে সক্ষম।</string>
   <string name="edit_preview_fetching_dialog_message">প্রাকদর্শন আনা হচ্ছে...</string>
-  <string name="create_account_logging_in">আপনি প্রবেশ করছেন...</string>
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
-  <string name="edit_summary_guide_text">এই পাতায় কি ধরনের পরিবর্তন করেছেন তা আমাদের জানান। এর ফলে অন্য ব্যবহারকারীরা সহজে আপনার সম্পাদনাগুলো যাচাই করতে পারবেন।</string>
-  <string name="edit_summary_hint">সম্পাদনা সারাংশ</string>
   <string name="nav_item_random">অজানা পাতা</string>
-  <string name="random_progress">অজানা পাতা নিয়ে আসা হচ্ছে...</string>
   <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>
   <string name="user_contribs_more_action">আরও লোড করুন</string>
   <string name="activity_my_contributions_title">আমার অবদান</string>
-  <string name="nav_item_my_contributions">আমার অবদান</string>
-  <string name="edit_save_action_login">প্রবেশ করুন ও সংরক্ষণ করুন</string>
-  <string name="edit_save_action_ip">নামহীন অবস্থায় সংরক্ষণ করুন</string>
-  <string name="edit_save_action_login_description">আপনার সম্পাদনাগুলো আপনার ব্যবহারকারী নামের সাথে সকলের জন্য উন্মুক্তভাবে প্রদর্শিত হবে এবং অন্যান্য সম্পাদকগণ আপনার সাথে যোগাযোগ করতে পারেন</string>
-  <string name="edit_save_action_ip_description">আপনার সম্পাদনাগুলো আপনার আইপি ঠিকানার সাথে প্রদর্শিত হবে, এগুলো খুব দ্রুত পরিবর্তীত হবে</string>
   <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
   <string name="preference_summary_eventlogging_opt_in">অ্যাপ আরও ভালো করতে উইকিমিডিয়াকে আপনি কিভাবে অ্যাপ্লিকেশন ব্যবহার করছেন সেই সম্পর্কে তথ্য সংগ্রহ করার অনুমতি দিন</string>
   <string name="editing_error_spamblacklist">অবরুদ্ধ ডোমেইনের (%s) লিংক সনাক্ত হয়েছে। দয়া করে তাদের সরিয়ে নিন ও আবার চেষ্টা করুন।</string>
@@ -189,14 +165,12 @@
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/bn</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">সংস্করণ</string>
   <string name="about_libraries_heading">ব্যবহৃত লাইব্রেরীসমূহ</string>
   <string name="about_contributors_heading">অবদানকারনগণ</string>
   <string name="about_translators_heading">অনুবাদকগণ</string>
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;উইকিমিডিয়া ফাউন্ডেশনের&lt;/a&gt; একটি পণ্য</string>
   <string name="about_activity_title">পরিচিতি</string>
-  <string name="edit_unchanged">এই পাতাটি পরিবর্তিত হয়েছে।</string>
   <string name="edit_abandon_confirm">এই পাতাটি পরিবর্তিত হয়েছে। আপনি কী নিশ্চিত যে আপনার পরিবর্তন সংরক্ষণ না করেই প্রস্থান করবেন?</string>
   <string name="user_blocked_from_editing_title">বাধা দেওয়া হয়েছে</string>
   <string name="user_logged_in_blocked_from_editing">আপনার ব্যবহারকারী অ্যাকাউন্টটি এই উইকিতে সম্পাদনা করার জন্য বাধা দেয়া হয়েছে।</string>
@@ -213,7 +187,6 @@
   <string name="find_in_page">এই পাতায় অনুসন্ধান</string>
   <string name="find_next">পরবর্তী অনুসন্ধান</string>
   <string name="find_previous">পূর্বেরটি অনুসন্ধান</string>
-  <string name="find_close">অনুসন্ধান বার বন্ধ করুন</string>
   <string name="error_network_error_try_again">নেটওয়ার্ক ত্রুটি, পুনরায় চেষ্টা করুন।</string>
   <string name="saved_pages_update_all_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="saved_pages_update_all_error_message">ত্রুটি, পাতা হালনাগাদ করা যায়নি</string>
@@ -233,12 +206,8 @@
   <string name="color_theme_light">উজ্জ্বল</string>
   <string name="color_theme_dark">কালো</string>
   <string name="page_similar_titles">অনুরূপ পাতাগুলি</string>
-  <string name="search_within_pages">পাতাগুলির মধ্যে অনুসন্ধান করুন...</string>
   <string name="search_no_results">\"%s\"-এর জন্য কোন ফলাফল পাওয়া যায়নি।</string>
   <string name="search_did_you_mean">আপনার মানে কি \"%s\"?</string>
-  <string name="search_results_title">অনুসন্ধানের ফলাফল</string>
-  <string name="search_error_retry">পুনঃচেষ্টা করুন</string>
-  <string name="search_redirect_title">\"%s\" থেকে পুনর্নির্দেশ।</string>
   <string name="search_recent_header">সাম্প্রতিক অনুসন্ধান</string>
   <string name="button_clear_all_recent_searches">সাম্প্রতিক অনুসন্ধান গুলি মুছে ফেলুন</string>
   <string name="clear_recent_searches_confirm">আপনি কি নিশ্চিত যে আপনি আপনার অনুসান্ধান ইতিহাস মুছে ফেলতে ?</string>
@@ -256,8 +225,6 @@
   <string name="gallery_menu_more_info">আরও তথ্য</string>
   <string name="menu_gallery_visit_page">ফাইল এর পৃষ্ঠাতে যান</string>
   <string name="gallery_error_draw_failed">ছবি টে আঁকা সম্ভব হইতাছে না।</string>
-  <string name="gallery_license_text">লাইসেন্স: %s</string>
-  <string name="gallery_credit_text">কৃতিত্ব: %s</string>
   <string name="gallery_image_info">ছবির তথ্য</string>
   <string name="gallery_menu_share">শেয়ার</string>
   <string name="gallery_share_error">শেয়ার করা যাচ্ছে না: %s</string>

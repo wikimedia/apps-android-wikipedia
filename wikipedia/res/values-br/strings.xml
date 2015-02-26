@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Kas un danevell sac\'hañ dimp</string>
   <string name="acra_report_dialog_comment">Petra e oac\'h oc\'h ober pa oa chomet sac\'het ?</string>
   <string name="search_hint">Klask e Wikipedia</string>
-  <string name="history_activity_title">Istor</string>
   <string name="nav_item_history">Istor</string>
   <string name="error_network_error">N\'eus kevreadenn ebet ouzh ar rouedad :(</string>
   <string name="search_network_error">Fazi rouedad : pouezañ evit klask en-dro.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">N\'eus ket eus ar bajenn-se.</string>
   <string name="nav_item_today">Hiziv</string>
   <string name="dialog_title_clear_history">Diverkañ an istor ?</string>
-  <string name="saved_pages_activity_title">Pajennoù enrollet.</string>
   <string name="nav_item_saved_pages">Pajennoù enrollet.</string>
   <string name="menu_update_all_saved_pages">Hizivaat pajennoù enrollet</string>
   <string name="menu_update_selected_saved_pages">Hizivaat ar pajennoù enrollet</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Hizivaat an holl bajennoù enrollet ?</string>
-  <string name="toast_saved_page_refreshed">Hizivaet eo ar pajennoù enrollet</string>
   <string name="menu_save_page">Enrollañ ar bajenn</string>
   <string name="menu_share_page">Rannañ</string>
   <string name="share_via">Rannañ dre</string>
   <string name="dialog_title_clear_saved_pages">Diverkañ an holl bajennoù enrollet ?</string>
-  <string name="dialog_message_clear_saved_pages">Ha sur oc\'h e fell deoc\'h diverkañ an holl bajennoù enrollet ?</string>
   <string name="toast_saving_page">Oc\'h enrollañ ar bajenn...</string>
   <string name="toast_saved_page">Pajenn enrollet</string>
   <string name="toast_saved_page_missing_images">N\'eus ket bet gallet enrollañ an holl skeudennoù</string>
-  <string name="toast_save_page_failed">C\'hwitet eo enrolladur ar bajenn :(</string>
   <string name="toast_refresh_saved_page">O freskaat ar bajenn enrollet...</string>
   <string name="delete_selected_saved_pages">Dilemel</string>
   <string name="toast_saved_page_deleted">Pajenn(où) enrollet dilamet</string>
   <string name="saved_pages_search_list_hint">Klask</string>
   <string name="saved_pages_search_empty_message">N\'eus bet kavet pajenn ebet hag a glot gant ho reked.</string>
-  <string name="nearby_activity_title">Tostik</string>
   <string name="nav_item_nearby">Tostik</string>
   <string name="menu_update_nearby">Hizivaat an elfennoù nes</string>
   <string name="nearby_empty_title">Pajenn dost ebet amañ !</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Kevreadenn ebet ouzh ar rouedad</string>
   <string name="nearby_server_error">Ne c\'haller ket kaout listenn al lec\'hiadurioù tostik.</string>
-  <string name="nearby_no_location">Ne c\'haller ket kaout al lec\'hiadur</string>
   <string name="nearby_dialog_goto_settings">N\'eo ket gweredekaet hizivadennoù al lec\'hiadurioù war ho termenell. C\'hoant ho peus da vont war arventennoù ho termenell evit gweredekaat hizivadennoù al lec\'hiadurioù ?</string>
   <string name="nearby_set_metric">Diskwel e m/km</string>
   <string name="nearby_set_imperial">Diskwel e troatadoù/miltirioù</string>
@@ -60,14 +53,12 @@
   <string name="edit_save_action_license_logged_in">Pa\'z enrollit e tegemerit an &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; en ur doare didorradus.</string>
   <string name="edit_save_action_license_anon">Pa\'z enrollit e tegemerit an &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
   <string name="preference_title_language">Yezh Wikipedia</string>
-  <string name="preference_summary_language">Yezh an endalc\'had</string>
   <string name="preference_languages_filter_hint">Klask</string>
   <string name="langlinks_filter_hint">Klask</string>
   <string name="menu_other_languages">Lenn e yezhoù all</string>
   <string name="langlinks_error_retry">Klask en-dro</string>
   <string name="langlinks_empty">N\'haller ket kaout ar bajenn-mañ e yezhoù all</string>
   <string name="langlinks_no_match">N\'eus bet kavet yezh ebet a glot gant ho reked.</string>
-  <string name="settings_activity_title">Arventennoù</string>
   <string name="langlinks_activity_title">Yezhoù all</string>
   <string name="menu_save_changes">Enrollañ ar c\'hemmoù</string>
   <string name="edit_section_error_retry">Klask en-dro</string>
@@ -100,7 +91,6 @@
   <string name="login_error_throttled">Klasket re ho peus kevreañ. Gortozit ur pennadig ha klaskit en-dro !</string>
   <string name="login_error_unknown">C\'hwitet eo ar c\'hevreañ :(</string>
   <string name="login_error_no_network">Kevreadenn ebet ouzh ar rouedad</string>
-  <string name="nav_item_logout">Digevreañ</string>
   <string name="preference_title_logout">Digevreañ</string>
   <string name="preference_summary_logout">Digevreañ diouzh ho kont Wikipedia</string>
   <string name="preference_summary_notloggedin">Digevreet.</string>
@@ -115,11 +105,9 @@
   <string name="skip">Lezel a-gostez</string>
   <string name="create_account_username_hint">Anv implijer</string>
   <string name="create_account_password_hint">Ger-tremen</string>
-  <string name="menu_create_account">Krouiñ ur gont</string>
   <string name="login_create_account_link">N\'ho peus kont ebet ? Deuit da-gaout Wikipedia</string>
   <string name="create_account_login_link">Bet krouet ur gont c\'hoazh ? Kevreit</string>
   <string name="create_account_activity_title">Krouiñ ur gont</string>
-  <string name="edit_section_activity_title">Kemm rannskrid</string>
   <string name="dialog_create_account_checking_progress">O wiriañ</string>
   <string name="create_account_email_hint">Postel (diret)</string>
   <string name="create_account_password_repeat_hint">Adlakaat ar ger-tremen</string>
@@ -153,24 +141,12 @@
   <string name="zero_learn_more">N\'eus ket mizoù da baeañ evit ar roadennoù an arolad Wikipedia-mañ.</string>
   <string name="zero_learn_more_learn_more">Gouzout hiroc\'h</string>
   <string name="zero_learn_more_dismiss">Disteurel</string>
-  <string name="zero_settings">Arventennoù</string>
-  <string name="zero_settings_devmode">Mod diorren zero</string>
-  <string name="zero_settings_devmode_summary">E-pad an diorroadur e ro tro da seveniñ kod an traoù Wikipedia Zero.</string>
   <string name="edit_preview_fetching_dialog_message">O klask un alberz...</string>
-  <string name="create_account_logging_in">O kevreañ ouzh...</string>
   <string name="send_feedback">Kasit hoc\'h evezhiadennoù diwar-benn an arload</string>
-  <string name="edit_summary_guide_text">Lavarit dimp penaos ho peus gwellaet ar bajenn-mañ. Kement-se a sikour an aozerien all da adwelet buan hoc\'h aozadenn.</string>
-  <string name="edit_summary_hint">Kemmañ an diverradenn</string>
   <string name="nav_item_random">Dargouezhek</string>
-  <string name="random_progress">O tapout ur bajenn evel ma teu e teu...</string>
   <string name="create_account_account_created_toast">Kont krouet !</string>
   <string name="user_contribs_more_action">Lenn muioc\'h</string>
   <string name="activity_my_contributions_title">Ma degasadennoù</string>
-  <string name="nav_item_my_contributions">Ma degasadennoù</string>
-  <string name="edit_save_action_login">Kevreañ hag enrollañ</string>
-  <string name="edit_save_action_ip">Enrollañ ent dianav</string>
-  <string name="edit_save_action_login_description">Ho kemmoù a vo roet a-wel d\'an holl d\'hoc\'h anv-implijer ha  kenlabourerien all a c\'hallo mont e darempred ganeoc\'h.</string>
-  <string name="edit_save_action_ip_description">Ho kemmoù a vo roet a-wel d\'an holl d\'ho chomlec\'h IP, a cheñch ingal</string>
   <string name="preference_title_eventlogging_opt_in">Kas danevelloù implij</string>
   <string name="preference_summary_eventlogging_opt_in">Aotren Wikipedia da zastum titouroù diwar-benn an doare ma implijit an arload evit gwellaat anezhañ</string>
   <string name="editing_error_spamblacklist">Liammoù war-zu an domanioù stanket (%s). Lamit anezho ha klaskit en-dro, mar plij.</string>
@@ -189,14 +165,12 @@
   <string name="terms_of_use_description">Termenoù implijout</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">Stumm</string>
   <string name="about_libraries_heading">levraouegoù implijet</string>
   <string name="about_contributors_heading">kenlabourerien</string>
   <string name="about_translators_heading">troerien</string>
   <string name="about_translators_translatewiki">Troet eo bet an arload-mañ gant troerien a-youl vat e &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Ur produ gant &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Diazezadur Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Diwar-benn</string>
-  <string name="edit_unchanged">N\'eo ket bet kemmet ar bajenn.</string>
   <string name="edit_abandon_confirm">Kemmet eo bet ar bajenn. Ha sur oc\'h e fell deoc\'h mont kuit anez enrollañ ho kemmoù ?</string>
   <string name="user_blocked_from_editing_title">Stanket</string>
   <string name="user_logged_in_blocked_from_editing">Stanket eo bet ho kont implijer evit cheñch traoù er wiki-se.</string>
@@ -213,7 +187,6 @@
   <string name="find_in_page">Klask er bajenn</string>
   <string name="find_next">Kavout an hini da-heul</string>
   <string name="find_previous">Kavout an hini a-raok</string>
-  <string name="find_close">Serriñ ar varrenn glask</string>
   <string name="error_network_error_try_again">Ne c\'haller ket tizhout ar rouedad, klaskit en-dro, mar plij.</string>
   <string name="saved_pages_update_all_error_retry">Adklask</string>
   <string name="saved_pages_update_all_error_message">Fazi pa oad oc\'h hizivaat pajennoù enrollet</string>
@@ -233,12 +206,8 @@
   <string name="color_theme_light">Sklaer</string>
   <string name="color_theme_dark">Teñval</string>
   <string name="page_similar_titles">Pajennoù kar</string>
-  <string name="search_within_pages">Klask er pajennoù...</string>
   <string name="search_no_results">Disoc\'h ebet kavet evit \"%s\".</string>
   <string name="search_did_you_mean">\"%s\" emezit-c\'hwi ?</string>
-  <string name="search_results_title">Klask disoc\'hoù</string>
-  <string name="search_error_retry">Klask en-dro</string>
-  <string name="search_redirect_title">Adkaset war-zu \"%s\"</string>
   <string name="search_recent_header">Enklaskoù nevez :</string>
   <string name="button_clear_all_recent_searches">diverkañ an enklaskoù nevez</string>
   <string name="clear_recent_searches_confirm">Ha sur eo ho peus c\'hoant da ziverkañ roll-istor  hoc\'h enklaskoù ?</string>
@@ -248,7 +217,7 @@
   <string name="table_infobox">Graet buan</string>
   <string name="table_other">Muioc\'h a ditouroù</string>
   <string name="table_close">Serriñ</string>
-  <string name="app_store_description">Arload ofisiel Wikepedia evit Android. Un holloueziadur eo Wikipedia. Ennañ ez eus ouzhpenn 32 vilion a bennadoù e 280 yezh. An holloueziadur klokañ hag implijetañ a zo bet kempunet gant an dud evel n’eus ket bet morse.
+  <string name="app_store_description" fuzzy="true">Arload ofisiel Wikepedia evit Android. Un holloueziadur eo Wikipedia. Ennañ ez eus ouzhpenn 32 vilion a bennadoù e 280 yezh. An holloueziadur klokañ hag implijetañ a zo bet kempunet gant an dud evel n’eus ket bet morse.
 
 Arc\'hwelioù
 - Tizh : gant hon arload genidik nevez e c\'hallit merdeiñ e Wikipedia ka kemmañ muioc\'h eget biskoazh.
@@ -276,8 +245,6 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="menu_gallery_visit_page">Mont da bajenn ar restr</string>
   <string name="gallery_error_draw_failed">Ne c\'haller ket tresañ ar skeudenn.</string>
   <string name="license_title">Testenn aotre-imoplijout evit al levraoueg %s</string>
-  <string name="gallery_license_text">Aotre-implijout - %s</string>
-  <string name="gallery_credit_text">Aozer - %s</string>
   <string name="gallery_image_info">Titouroù war ar skeudenn</string>
   <string name="gallery_menu_share">Rannañ</string>
   <string name="gallery_share_error">Ne c\'haller ket rannañ ar skeudenn : %s</string>

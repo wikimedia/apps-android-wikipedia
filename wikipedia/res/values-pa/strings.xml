@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">ਸਾਨੂੰ ਇੱਕ ਕਰੈਸ਼ ਸੂਚਨਾ ਭੇਜੋ</string>
   <string name="acra_report_dialog_comment">ਜਦੋਂ ਕਰੈਸ਼ ਹੋਇਆ ਤਾਂ ਤੁਸੀਂ ਕੀ ਕਰ ਰਹੇ ਸੀ?</string>
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
-  <string name="history_activity_title">ਅਤੀਤ</string>
   <string name="nav_item_history">ਅਤੀਤ</string>
   <string name="error_network_error" fuzzy="true">ਨੈੱਟਵਰਕ ਤੱਕ ਨਹੀਂ ਪਹੁੰਚ ਸਕਿਆ :(</string>
   <string name="search_network_error">ਨੈੱਟਵਰਕ \'ਚ ਦੋਸ਼। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਵਾਸਤੇ ਟਕੋਰੋ।</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">ਇਹ ਵਰਕਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="nav_item_today">ਅੱਜ</string>
   <string name="dialog_title_clear_history">ਫਰੋਲਣ ਦਾ ਅਤੀਤ ਸਾਫ਼ ਕਰਨਾ ਹੈ?</string>
-  <string name="saved_pages_activity_title">ਸੰਭਾਲੇ ਹੋਏ ਵਰਕੇ</string>
   <string name="nav_item_saved_pages">ਸੰਭਾਲੇ ਹੋਏ ਵਰਕੇ</string>
   <string name="menu_update_all_saved_pages">ਸਾਂਭੇ ਹੋਏ ਵਰਕਿਆਂ ਨੂੰ ਅੱਡੇਟ ਕਰ ਦਿਉ</string>
   <string name="menu_update_selected_saved_pages">ਸਾਂਭੇ ਹੋਏ ਵਰਕਿਆਂ ਨੂੰ ਅੱਪਡੇਟ ਕਰ ਦਿਉ</string>
   <string name="dialog_prompt_refresh_all_saved_pages">ਕੀ ਸਭ ਸੰਭਾਲੇ ਵਰਕੇ ਅੱਪਡੇਟ ਕਰਨੇ ਹਨ?</string>
-  <string name="toast_saved_page_refreshed">ਸੰਭਾਲੇ ਗਏ ਵਰਕੇ ਅੱਪਡੇਟ ਕੀਤੇ ਗਏ</string>
   <string name="menu_save_page">ਵਰਕਾ ਸੰਭਾਲੋ</string>
   <string name="menu_share_page">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="share_via">ਸਾਂਝੀਕਰਨ</string>
   <string name="dialog_title_clear_saved_pages">ਕੀ ਸੱਭ ਸੰਭਾਲੇ ਗਏ ਵਰਕੇ ਸਾਫ ਕਰਨੇ ਹਨ?</string>
-  <string name="dialog_message_clear_saved_pages">ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਹੀ ਸਾਰੇ ਸੰਭਾਲੇ ਹੋਏ ਵਰਕੇ ਸਾਫ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="toast_saving_page">... ਵਰਕਾ ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ</string>
   <string name="toast_saved_page">ਵਰਕਾ ਸਫਲਤਾਪੂਰਵਕ ਸੰਭਾਲਿਆ ਗਿਆ</string>
   <string name="toast_saved_page_missing_images">ਸਾਰੀਆਂ ਤਸਵੀਰਾਂ ਸੰਭਾਲੀਆਂ ਨਹੀਂ ਗਈਆਂ</string>
-  <string name="toast_save_page_failed">ਵਰਕਾ ਸੰਭਾਲਣਾ ਅਸਫਲ ਹੋਇਆ :(</string>
   <string name="toast_refresh_saved_page">ਸਾਂਭਿਆ ਵਰਕਾ ਮੁੜ-ਤਾਜ਼ਾ ਹੋ ਰਿਹਾ ਹੈ...</string>
   <string name="delete_selected_saved_pages">ਮਿਟਾਉ</string>
   <string name="toast_saved_page_deleted">ਸਾਂਭਿਆ ਵਰਕਾ(ਕੇ) ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="saved_pages_search_list_hint">ਖੋਜ</string>
   <string name="saved_pages_search_empty_message">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮੇਲ ਖਾਂਦਾ ਕੋਈ ਵਰਕਾ ਨਹੀਂ ਲੱਭਿਆ।</string>
-  <string name="nearby_activity_title">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="nav_item_nearby">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="menu_update_nearby">ਨੇੜੇ-ਤੇੜੇ ਅੱਪਡੇਟ ਕਰੋ</string>
   <string name="nearby_empty_title">ਇੱਥੇ ਨੇੜੇ-ਤੇੜੇ ਦੇ ਕੋਈ ਸਫ਼ੇ ਨਹੀਂ!</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f ਮੀਲ</string>
   <string name="nearby_no_network">ਕੋਈ ਨੈੱਟਵਰਕ ਜੋੜ ਨਹੀਂ ਹੈ</string>
   <string name="nearby_server_error">ਨੇੜਲੀਆਂ ਥਾਂਵਾਂ ਦੀ ਸੂਚੀ ਨਾ ਮਿਲ ਸਕੀ।</string>
-  <string name="nearby_no_location">ਟਿਕਾਣਾ ਪਤਾ ਨਹੀਂ ਲੱਗ ਰਿਹਾ</string>
   <string name="nearby_dialog_goto_settings">ਤੁਹਾਡੇ ਜੰਤਰ ਉੱਤੇ ਟਿਕਾਣਿਆਂ ਦੇ ਨਵੀਨੀਕਰਨ ਚੱਲ ਨਹੀਂ ਰਹੇ। ਕੀ ਤੁਸੀਂ ਟਿਕਾਣਾ ਨਵੀਨੀਕਰਨਾਂ ਨੂੰ ਚਾਲੂ ਕਰਨ ਵਾਸਤੇ ਆਪਣੇ ਜੰਤਰ ਦੀਆਂ ਸੈਟਿੰਗਾਂ \'ਤੇ ਜਾਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="nearby_set_metric">ਮੀਟਰ/ਕਿ.ਮੀ. ਵਿਖਾਉ</string>
   <string name="nearby_set_imperial">ਫੁੱਟ/ਮੀਲ ਵਿਖਾਉ</string>
@@ -60,14 +53,12 @@
   <string name="edit_save_action_license_logged_in">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ।</string>
   <string name="edit_save_action_license_anon">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ. ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
   <string name="preference_title_language">ਵਿਕੀਪੀਡੀਆ ਬੋਲੀ</string>
-  <string name="preference_summary_language">ਅੰਦਰਲੀ ਸਮੱਗਰੀ ਦੀ ਬੋਲੀ</string>
   <string name="preference_languages_filter_hint">ਖੋਜ</string>
   <string name="langlinks_filter_hint">ਖੋਜੋ</string>
   <string name="menu_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="langlinks_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="langlinks_empty">ਇਹ ਵਰਕਾ ਹੋਰਨਾਂ ਬੋਲੀਆਂ ਵਿੱਚ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।</string>
   <string name="langlinks_no_match">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮਿਲਦੀਆਂ ਕੋਈ ਬੋਲੀਆਂ ਨਹੀਂ ਲੱਭੀਆਂ।</string>
-  <string name="settings_activity_title">ਸੈਟਿੰਗਾਂ</string>
   <string name="langlinks_activity_title">ਹੋਰ ਬੋਲੀਆਂ</string>
   <string name="menu_save_changes">ਤਬਦੀਲੀਆਂ ਸਾਂਭੋ</string>
   <string name="edit_section_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
@@ -97,7 +88,6 @@
   <string name="login_error_throttled">ਦਾਖ਼ਲ ਹੋਣ ਦੀਆਂ ਬਾਹਲੀਆਂ ਕੋਸ਼ਿਸ਼ਾਂ। ਕੁਝ ਮਿੰਟ ਉਡੀਕੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
   <string name="login_error_unknown">ਦਾਖ਼ਲਾ ਫੇਲ੍ਹ :(</string>
   <string name="login_error_no_network">ਕੋਈ ਨੈੱਟਵਰਕ ਜੋੜ ਨਹੀਂ</string>
-  <string name="nav_item_logout">ਵਿਦਾਈ ਲਉ</string>
   <string name="preference_title_logout">ਬਾਹਰ ਆਉ</string>
   <string name="preference_summary_logout">ਆਪਣੇ ਵਿਕੀਪੀਡੀਆ ਖਾਤੇ ਤੋਂ ਬਾਹਰ ਆਉ</string>
   <string name="preference_summary_notloggedin">ਦਾਖ਼ਲ ਨਹੀਂ ਹੋ।</string>
@@ -111,11 +101,9 @@
   <string name="skip">ਛੱਡੋ</string>
   <string name="create_account_username_hint">ਵਰਤੋਂਕਾਰ-ਨਾਂ</string>
   <string name="create_account_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
-  <string name="menu_create_account">ਖਾਤਾ ਬਣਾਉ</string>
   <string name="login_create_account_link">ਖਾਤਾ ਨਹੀਂ ਹੈ? ਵਿਕੀਪੀਡੀਆ \'ਚ ਭਰਤੀ ਹੋਵੋ</string>
   <string name="create_account_login_link">ਪਹਿਲੋਂ ਹੀ ਖਾਤਾ ਹੈ? ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="create_account_activity_title">ਕੋਈ ਖਾਤਾ ਬਣਾਉ</string>
-  <string name="edit_section_activity_title">ਹਿੱਸਾ ਸੋਧੋ</string>
   <string name="dialog_create_account_checking_progress">ਤਸਦੀਕੀ ਜਾਰੀ</string>
   <string name="create_account_email_hint">ਈਮੇਲ (ਚੋਣਵੀਂ)</string>
   <string name="create_account_password_repeat_hint">ਪਛਾਣ-ਸ਼ਬਦ ਦੁਹਰਾਉ</string>
@@ -149,24 +137,12 @@
   <string name="zero_learn_more">ਇਸ ਵਿਕੀਪੀਡੀਆ ਐਪ ਵਾਸਤੇ ਸਮੱਗਰੀ ਦਾ ਖ਼ਰਚਾ ਮਾਫ਼ ਹੈ।</string>
   <string name="zero_learn_more_learn_more">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="zero_learn_more_dismiss">ਖ਼ਾਰਜ ਕਰੋ</string>
-  <string name="zero_settings">ਸੈਟਿੰਗਾਂ</string>
-  <string name="zero_settings_devmode">ਜ਼ੀਰੋ ਵਿਕਾਸ ਤੌਰ</string>
-  <string name="zero_settings_devmode_summary">ਵਿਕਾਸ ਮੌਕੇ ਇਹ ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਦੀਆਂ ਚੀਜ਼ਾਂ ਦੇ ਕੋਡ ਦੀ ਤਾਮੀਲ ਨੂੰ ਚਾਲੂ ਕਰਦਾ ਹੈ।</string>
   <string name="edit_preview_fetching_dialog_message">ਝਾਤ ਲਿਆਈ ਜਾ ਰਹੀ ਹੈ...</string>
-  <string name="create_account_logging_in">ਦਾਖ਼ਲਾ ਹੋ ਰਿਹਾ ਹੈ...</string>
   <string name="send_feedback">ਐਪ ਬਾਬਤ ਜਾਣਕਾਰੀ ਵਾਪਸ ਘੱਲੋ</string>
-  <string name="edit_summary_guide_text">ਸਾਨੂੰ ਦੱਸੋ ਕਿ ਤੁਸੀਂ ਸਫ਼ਾ ਕਿਵੇਂ ਸੁਧਾਰਿਆ। ਅਜਿਹਾ ਕਰਨ ਨਾਲ਼ ਹੋਰ ਸੰਪਾਦਕਾਂ ਲਈ ਤੁਹਾਡੀਆਂ ਸੋਧਾਂ ਦੀ ਪੜਚੋਲ ਕਰਨੀ ਸੁਖਾਲ਼ੀ ਹੋ ਜਾਂਦੀ ਹੈ।</string>
-  <string name="edit_summary_hint">ਸੋਧ ਸਾਰ</string>
   <string name="nav_item_random">ਰਲ਼ਵਾਂ</string>
-  <string name="random_progress">ਰਲ਼ਵਾਂ ਸਫ਼ਾ ਲਿਆਇਆ ਜਾ ਰਿਹਾ ਹੈ...</string>
   <string name="create_account_account_created_toast">ਖਾਤਾ ਬਣਿਆ!</string>
   <string name="user_contribs_more_action">ਹੋਰ ਲਿਆਉ</string>
   <string name="activity_my_contributions_title">ਮੇਰੇ ਯੋਗਦਾਨ</string>
-  <string name="nav_item_my_contributions">ਮੇਰੇ ਯੋਗਦਾਨ</string>
-  <string name="edit_save_action_login">ਦਾਖ਼ਲ ਹੋਵੋ ਅਤੇ ਸਾਂਭੋ</string>
-  <string name="edit_save_action_ip">ਅਣਪਛਾਤੇ ਵਜੋਂ ਸਾਂਭੋ</string>
-  <string name="edit_save_action_login_description">ਤੁਹਾਡੀਆਂ ਸੋਧਾਂ ਦਾ ਸਿਹਰਾ ਜਨਤਕ ਤੌਰ \'ਤੇ ਤੁਹਾਡੇ ਵਰਤੋਂਕਾਰ-ਨਾਂ ਸਿਰ ਦਿੱਤਾ ਜਾਵੇਗਾ ਅਤੇ ਹੋਰ ਸੰਪਾਦਕ ਤੁਹਾਡੇ ਨਾਲ਼ ਚੰਗੇਰੀ ਤਰਾਂ ਰਾਬਤਾ ਬਣਾ ਸਕਦੇ ਹਨ</string>
-  <string name="edit_save_action_ip_description">ਤੁਹਾਡੀਆਂ ਸੋਧਾਂ ਦਾ ਸਿਹਰਾ ਤੁਹਾਡੇ ਆਈ.ਪੀ. ਪਤੇ ਸਿਰ ਦਿੱਤਾ ਜਾਵੇਗਾ ਜੋ ਵਾਰ-ਵਾਰ ਬਦਲਦਾ ਰਹਿੰਦਾ ਹੈ।</string>
   <string name="preference_title_eventlogging_opt_in">ਵਰਤੋਂ ਦੀਆਂ ਇਤਲਾਹਾਂ ਘੱਲੋ</string>
   <string name="preference_summary_eventlogging_opt_in">ਇਸ ਐਪ ਨੂੰ ਚੰਗੇਰੀ ਬਣਾਉਣ ਵਾਸਤੇ ਵਿਕੀਮੀਡੀਆ ਨੂੰ ਤੁਹਾਡੇ ਇਸ ਐਪ ਨੂੰ ਵਰਤਣ ਦੇ ਤਰੀਕੇ ਬਾਬਤ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਉ।</string>
   <string name="history_search_list_hint">ਭਾਲ਼ੋ</string>
@@ -184,14 +160,12 @@
   <string name="terms_of_use_description">ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">ਰੂਪ</string>
   <string name="about_libraries_heading">ਵਰਤੀਆਂ ਲਾਈਬਰੇਰੀਆਂ</string>
   <string name="about_contributors_heading">ਯੋਗਦਾਨੀ</string>
   <string name="about_translators_heading">ਤਰਜਮਾਕਾਰ</string>
   <string name="about_translators_translatewiki">ਇਸ ਐਪ ਦਾ ਤਰਜਮਾ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ਵਿਖੇ ਸਵੈਇੱਛਕ ਤਰਜਮਾਕਾਰਾਂ ਨੇ ਕੀਤਾ ਸੀ।</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ਵਿਕੀਮੀਡੀਆ ਸੰਸਥਾ&lt;/a&gt; ਦੀ ਇੱਕ ਉਪਜ</string>
   <string name="about_activity_title">ਬਾਬਤ</string>
-  <string name="edit_unchanged">ਇਹ ਸਫ਼ਾ ਬਦਲਿਆ ਨਹੀਂ ਗਿਆ ਹੈ।</string>
   <string name="edit_abandon_confirm">ਇਹ ਸਫ਼ਾ ਬਦਲਿਆ ਗਿਆ ਹੈ? ਕੀ ਤੁਸੀਂ ਸੱਚੀਂ ਤਬਦੀਲੀਆਂ ਬਿਨਾਂ ਸਾਂਭੇ ਕੂਚ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="user_blocked_from_editing_title">ਰੋਕ-ਲੱਗਿਆ</string>
   <string name="user_logged_in_blocked_from_editing">ਤੁਹਾਡੇ ਵਰਤੋਂਕਾਰ ਖਾਤੇ \'ਤੇ ਇਸ ਵਿਕੀ ਉੱਤੇ ਸੁਧਾਈ ਕਰਨ \'ਤੇ ਰੋਕ ਲਾ ਦਿੱਤੀ ਗਈ ਹੈ।</string>
@@ -208,7 +182,6 @@
   <string name="find_in_page">ਸਫ਼ੇ \'ਚ ਲੱਭੋ</string>
   <string name="find_next">ਅੱਗੇ ਲੱਭੋ</string>
   <string name="find_previous">ਪਿੱਛੇ ਲੱਭੋ</string>
-  <string name="find_close">ਲੱਭਣ ਵਾਲ਼ੀ ਪੱਟੀ ਬੰਦ ਕਰੋ</string>
   <string name="error_network_error_try_again">ਨੈੱਟਵਰਕ ਤੱਕ ਪਹੁੰਚ ਨਾ ਹੋ ਸਕੀ, ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
   <string name="saved_pages_update_all_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="saved_pages_update_all_error_message">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਨਵਿਆਉਣ ਵਿੱਚ ਦੋਸ਼</string>
@@ -226,14 +199,10 @@
   <string name="color_theme_light">ਹਲਕੀ</string>
   <string name="color_theme_dark">ਗੂੜ੍ਹੀ</string>
   <string name="page_similar_titles">ਮਿਲਦੇ-ਜੁਲਦੇ ਸਫ਼ੇ</string>
-  <string name="search_within_pages">ਸਫ਼ਿਆਂ ਅੰਦਰ ਭਾਲ਼...</string>
   <string name="search_no_results">\"%s\" ਵਾਸਤੇ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਲੱਭੇ।</string>
-  <string name="search_results_title">ਭਾਲ਼ ਦੇ ਨਤੀਜੇ</string>
-  <string name="search_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
-  <string name="search_redirect_title">\"%s\" ਤੋਂ ਮੋੜਿਆ।</string>
   <string name="toc_hint">ਹਿੱਸਿਆਂ ਵਾਸਤੇ ਖੱਬੇ ਧੂਹੋ ਜਾਂ ਸਿਖਰ ਸੱਜੇ ਦਿੱਤਾ ਮੀਨੂੰ ਬਟਨ ਵਰਤੋ।</string>
   <string name="toc_know_it">ਸਮਝ ਆ ਗਿਆ</string>
-  <string name="app_store_description">ਐਂਡਰਾਇਡ ਵਾਸਤੇ ਰਸਮੀ ਵਿਕੀਪੀਡੀਆ ਐਪ। ਵਿਕੀਪੀਡੀਆ ਮੁ਼ਫ਼ਤ ਗਿਆਨਕੋਸ਼ ਹੈ ਜਿਸ ਵਿੱਚ ੨੮੦ ਬੋਲੀਆਂ ਵਿੱਚ ੩.੨ ਕਰੋੜ ਤੋਂ ਵੱਧ ਲੇਖ ਮੌਜੂਦ ਹਨ, ਅਤੇ ਮਨੁੱਖਾਂ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਅੱਜ ਤੱਕ ਦਾ ਸਭ ਤੋਂ ਸਰਬੰਗੀ ਅਤੇ ਵਿਆਪਕ ਵਰਤੋਂ ਵਾਲ਼ਾ ਹਵਾਲਾ ਕਾਰਜ ਹੈ। ਇਹ ਐਪ ਮੁੜ ਨਵੇਂ ਸਿਰਿਓਂ ਲਿਖੀ ਗਈ ਹੈ ਅਤੇ ਹੁਣ ਤੱਕ ਦੇ ਸਭ ਤੋਂ ਚੰਗੇ ਤਰੀਕੇ ਨਾਲ਼।
+  <string name="app_store_description" fuzzy="true">ਐਂਡਰਾਇਡ ਵਾਸਤੇ ਰਸਮੀ ਵਿਕੀਪੀਡੀਆ ਐਪ। ਵਿਕੀਪੀਡੀਆ ਮੁ਼ਫ਼ਤ ਗਿਆਨਕੋਸ਼ ਹੈ ਜਿਸ ਵਿੱਚ ੨੮੦ ਬੋਲੀਆਂ ਵਿੱਚ ੩.੨ ਕਰੋੜ ਤੋਂ ਵੱਧ ਲੇਖ ਮੌਜੂਦ ਹਨ, ਅਤੇ ਮਨੁੱਖਾਂ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਅੱਜ ਤੱਕ ਦਾ ਸਭ ਤੋਂ ਸਰਬੰਗੀ ਅਤੇ ਵਿਆਪਕ ਵਰਤੋਂ ਵਾਲ਼ਾ ਹਵਾਲਾ ਕਾਰਜ ਹੈ। ਇਹ ਐਪ ਮੁੜ ਨਵੇਂ ਸਿਰਿਓਂ ਲਿਖੀ ਗਈ ਹੈ ਅਤੇ ਹੁਣ ਤੱਕ ਦੇ ਸਭ ਤੋਂ ਚੰਗੇ ਤਰੀਕੇ ਨਾਲ਼।
 
 ਗੁਣ:
    - ਰਫ਼ਤਾਰ: ਸਾਡੀ ਨਵੀਂ, ਮੂਲ ਐਪ ਤੁਹਾਨੂੰ ਅੱਜ ਤੱਕ ਦੇ ਸਭ ਤੋਂ ਤੇਜ਼ ਤਰੀਕੇ ਨਾਲ਼ ਵਿਕੀਪੀਡੀਆ ਫਰੋਲਣ ਅਤੇ ਸੋਧਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿੰਦੀ ਹੈ।

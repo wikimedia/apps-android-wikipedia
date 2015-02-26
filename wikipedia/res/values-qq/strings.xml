@@ -13,8 +13,6 @@
   <string name="acra_report_dialog_text">Text asking the user to send us a crash report</string>
   <string name="acra_report_dialog_comment">Label for text box asking user to tell us what they were doing when the app crashed</string>
   <string name="search_hint">Placeholder text for the search textbox</string>
-  <string name="history_activity_title">Title for the screen that shows history of articles you have read.
-{{Identical|History}}</string>
   <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.
 {{Identical|History}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
@@ -29,8 +27,6 @@
   <string name="nav_item_today">Text in navigation sidebar that when tapped leads to the Main Page.
 {{Identical|Today}}</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
-  <string name="saved_pages_activity_title">Title for screen that shows list of saved pages.
-{{Identical|Saved page}}</string>
   <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the saved pages.
 {{Identical|Saved page}}</string>
   <string name="menu_update_all_saved_pages">Menu item (icon) in saved pages screen to update all saved pages.
@@ -38,7 +34,6 @@
   <string name="menu_update_selected_saved_pages">Menu item (icon) in saved pages screen to update selected saved pages.
 {{Identical|Update saved page}}</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Prompt before updating all saved pages</string>
-  <string name="toast_saved_page_refreshed">Small toast (popup) message saying that all saved pages were updated</string>
   <string name="menu_save_page">Menu item text for saving the currently active page.
 {{Identical|Save page}}</string>
   <string name="menu_share_page">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.
@@ -49,7 +44,6 @@ The Share list contains the following menu items (localized):
 * Mail
 * Message</string>
   <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your saved pages</string>
-  <string name="dialog_message_clear_saved_pages">Message for dialog box asking if you want to clear all your saved pages</string>
   <string name="toast_saving_page">Small toast (popup) message saying that a page is being saved for offline reading</string>
   <string name="toast_saved_page">Small toast (popup) message saying that a page has been saved for offline reading.
 
@@ -59,7 +53,6 @@ See also:
 
 See also:
 * {{msg-wm|Wikipedia-android-strings-toast saved page}}</string>
-  <string name="toast_save_page_failed">Small toast (popup) message saying that a page has failed to be saved</string>
   <string name="toast_refresh_saved_page">Small toast (popup) message saying that a saved page is being refreshed</string>
   <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected saved pages
 {{Identical|Delete}}</string>
@@ -67,8 +60,6 @@ See also:
   <string name="saved_pages_search_list_hint">Hint for textbox that searches list of items in saved pages as user types.
       {{Identical|Search}}</string>
   <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query.</string>
-  <string name="nearby_activity_title">Title for Nearby activity (top of screen)
-{{Identical|Nearby}}</string>
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature
 {{Identical|Nearby}}</string>
   <string name="menu_update_nearby">Action bar item to refresh list of nearby pages</string>
@@ -80,7 +71,6 @@ See also:
   <string name="nearby_distance_in_miles">Distance to the place mentioned in the nearby page in miles. Please leave the %.2f as is. It represents a floating point number with 2 digits after the decimal point.</string>
   <string name="nearby_no_network">Error message when there was a network error while displaying nearby articles.</string>
   <string name="nearby_server_error">Error message when the app could not get list of nearby places from the server.</string>
-  <string name="nearby_no_location">Error message when the app could not get a location from any location provider (network or GPS).</string>
   <string name="nearby_dialog_goto_settings">Dialog text that tells the user that Location updates are not enabled on the device, and asks if the user wants to go to the Settings page on the device where they can enable Location updates.</string>
   <string name="nearby_set_metric">Menu item for displaying distances in metric units (meters and kilometers).</string>
   <string name="nearby_set_imperial">Menu item for displaying distances in imperial units (feet and miles).</string>
@@ -90,7 +80,6 @@ See also:
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>
   <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC license and a log link before saving edits, only when the user has not logged in. Please do not change the href=\'https://#login\' part of the message.</string>
   <string name="preference_title_language">Title for preference in settings screen for setting which language wikipedia to use.</string>
-  <string name="preference_summary_language">A label for a setting that chooses the language in which the content of Wikipedia will be shown.</string>
   <string name="preference_languages_filter_hint">Placeholder text for the textbox that when typed filters list of language wikipedias from which user can pick a language to use.
 {{Identical|Search}}</string>
   <string name="langlinks_filter_hint">{{Identical|Search}}</string>
@@ -100,8 +89,6 @@ See also:
 {{Identical|Retry}}</string>
   <string name="langlinks_empty">Message shown when the user requested a list of languages in which the current article is available, but the current article is not available in any other language</string>
   <string name="langlinks_no_match">Message shown when the user requested a list of languages in which the current article is available, and filtered that list using a search, but their search query does not match any of the other languages the article is available in.</string>
-  <string name="settings_activity_title">Title for settings screen.
-{{Identical|Settings}}</string>
   <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in.
 {{Identical|Otherlanguages}}</string>
   <string name="menu_save_changes">{{Identical|Save changes}}</string>
@@ -148,7 +135,6 @@ See also:
 {{Related|Wikipedia-android-strings-login error}}</string>
   <string name="login_error_no_network">Used as alert message.
 {{Related|Wikipedia-android-strings-login error}}</string>
-  <string name="nav_item_logout">{{Identical|Log out}}</string>
   <string name="preference_title_logout">{{Identical|Log out}}</string>
   <string name="preference_summary_logout">Summary of what logging out means.</string>
   <string name="preference_summary_notloggedin">{{Identical|Not logged in}}</string>
@@ -166,7 +152,6 @@ See also:
 {{Identical|Skip}}</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
   <string name="create_account_password_hint">{{Identical|Password}}</string>
-  <string name="menu_create_account">{{Identical|Create account}}</string>
   <string name="login_create_account_link">Link text on Login screen to go to Create Account screen.
 
 See also:
@@ -176,7 +161,6 @@ See also:
 See also:
 * {{msg-wm|Wikipedia-android-strings-login create account link}}</string>
   <string name="create_account_activity_title">{{Identical|Create account}}</string>
-  <string name="edit_section_activity_title">Title for screen where user is editing a single section.</string>
   <string name="dialog_create_account_checking_progress">Message shown to the user while a request is sent to the server to create an account and the app is awaiting the server response</string>
   <string name="create_account_email_hint">Label shown inside the email text box in the account creation form, to inform the user what they have to enter into that box.</string>
   <string name="create_account_password_repeat_hint">{{Identical|Repeat password}}</string>
@@ -223,37 +207,16 @@ See also:
   <string name="zero_learn_more_learn_more">Dialog button text for Wikipedia Zero user to learn more about Wikipedia Zero at the Wikipedia Zero FAQ for the app.
 {{Identical|Read more}}</string>
   <string name="zero_learn_more_dismiss">Dialog button text for Wikipedia Zero user to dismiss the prompt about visiting the Wikipedia Zero FAQ for the app</string>
-  <string name="zero_settings">Generic Settings heading for Wikipedia Zero.
-{{Identical|Settings}}</string>
-  <string name="zero_settings_devmode">Prerelease label text for enabling Wikipedia Zero Devmode to enable Wikipedia Zero support</string>
-  <string name="zero_settings_devmode_summary">Prerelease explanation text explaining that Wikipedia Zero Devmode on means that Wikipedia Zero detection will be turned on</string>
   <string name="edit_preview_fetching_dialog_message">Message shown to the user while the user is waiting for the preview of their edit to be shown</string>
-  <string name="create_account_logging_in">{{Identical|Logging in}}</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
-  <string name="edit_summary_guide_text">An imperative message, which appears after starting to save an edit.</string>
-  <string name="edit_summary_hint">{{Identical|Edit summary}}</string>
   <string name="nav_item_random">{{Identical|Random}}
 Shown in left navigation. Tapping it produces a random page.</string>
-  <string name="random_progress">Message shown in progress popup dialog while waiting for a random article to be fetched</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.
 * {{msg-mw|Accountcreatedtext|message}}</string>
   <string name="user_contribs_more_action">Text shown as a button at the end of lists that let the user load more items.
 {{Identical|Load more}}</string>
   <string name="activity_my_contributions_title">Title for screen showing list of edits by current user.
 {{Identical|Contribution}}</string>
-  <string name="nav_item_my_contributions">Text for item in nav menu that when tapped shows list of edits made by the user.
-{{Identical|Contribution}}</string>
-  <string name="edit_save_action_login">Title of action that takes user to login screen so they can login before saving an edit</string>
-  <string name="edit_save_action_ip">Title of action that lets the user save the current edit anonymously
-{{Identical|Save anonymously}}</string>
-  <string name="edit_save_action_login_description">Description for action that lets the user save the current edit anonymously.
-
-See also:
-* {{msg-wm|Wikipedia-android-strings-edit save action ip description}}</string>
-  <string name="edit_save_action_ip_description">Description for action that takes user to login screen so they can login before saving an edit.
-
-See also:
-* {{msg-wm|Wikipedia-android-strings-edit save action login description}}</string>
   <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
   <string name="editing_error_spamblacklist">An error message, which appears after trying to save a page with blacklisted links. The single string parameter %s for this message gets substituted with the blocked domain.</string>
@@ -285,8 +248,6 @@ See also:
 Please test the URL to make sure it works.</string>
   <string name="terms_of_use_url">URL leading to the Wikimedia Foundation terms of use. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://m.wikimediafoundation.org/wiki/Terms_of_Use/de
 Please test the URL to make sure it works</string>
-  <string name="preference_title_version">Text for the preference item that shows the app version number.
-{{Identical|Version}}</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.
 {{Identical|Contributor}}</string>
@@ -297,7 +258,6 @@ Please test the URL to make sure it works</string>
 {{doc-important|Please don\'t translate the link and the site title.}}</string>
   <string name="about_wmf">Text and link specifying that this app was developed by the Wikimedia Foundation</string>
   <string name="about_activity_title">{{Identical|About}}</string>
-  <string name="edit_unchanged">Message displayed when the user tries to save a page when no modifications were made.</string>
   <string name="edit_abandon_confirm">Prompt for the user to abandon any changes that were made during editing.</string>
   <string name="user_blocked_from_editing_title">{{Identical|Blocked}}</string>
   <string name="user_logged_in_blocked_from_editing">Message shown in dialog box to users who are blocked from editing when they attempt to save an edit</string>
@@ -319,7 +279,6 @@ Please test the URL to make sure it works</string>
   <string name="find_next">Text for button that finds the next occurrence of a search term.
 {{Identical|Find next}}</string>
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
-  <string name="find_close">Text for button that closes the find-in-page bar</string>
   <string name="error_network_error_try_again">Message shown when encountering network connection issues that may be corrected by simply retrying.</string>
   <string name="saved_pages_update_all_error_retry">Label for button shown in error dialog when updating saved pages fails that lets user try again.
 {{Identical|Retry}}</string>
@@ -347,14 +306,8 @@ Please test the URL to make sure it works</string>
   <string name="color_theme_dark">Button label for Dark color theme
 {{Identical|Dark}}</string>
   <string name="page_similar_titles">Button label for showing a list of similar titles (disambiguation) for the current page</string>
-  <string name="search_within_pages">Button label for full-text searching within pages for the current search term</string>
   <string name="search_no_results">Label that tells the user that no results were found. The \"%s\" symbol is replaced with the phrase that was searched.</string>
   <string name="search_did_you_mean">Label that gives the user a suggestion for a better search term, instead of the one that the user gave. The \"%s\" symbol is replaced with the suggestion.</string>
-  <string name="search_results_title">Title of the dialog box that contains search results.
-{{Identical|Search results}}</string>
-  <string name="search_error_retry">Button label for retrying the search after a network error.
-{{Identical|Retry}}</string>
-  <string name="search_redirect_title">Label that tells the user that the search result is actually a redirect from another page, specified by the \"%s\" symbol.</string>
   <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
   <string name="button_clear_all_recent_searches">Button hint for clearing search history;  visible when in search mode.</string>
   <string name="clear_recent_searches_confirm">Dialog message that asks if the user really wants to clear the search history.</string>

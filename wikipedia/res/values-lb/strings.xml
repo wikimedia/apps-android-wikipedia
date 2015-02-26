@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">Schéckt eis e Rapport iwwer de Crash</string>
   <string name="acra_report_dialog_comment">Wat hutt Dir gemaach wéi de Crash geschitt ass?</string>
   <string name="search_hint">Op Wikipedia sichen</string>
-  <string name="history_activity_title">Versiounen</string>
   <string name="nav_item_history">Versiounen</string>
   <string name="error_network_error">Et gëtt keng Verbindung mam Reseau :(</string>
   <string name="search_network_error">Feeler vum Reseau. Tippt fir nach eng Kéier ze probéieren.</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">Dës Säit gëtt et net.</string>
   <string name="nav_item_today">Haut</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen?</string>
-  <string name="saved_pages_activity_title">Gespäichert Säiten</string>
   <string name="nav_item_saved_pages">Gespäichert Säiten</string>
   <string name="menu_update_all_saved_pages">Gespäichert Säiten aktualiséieren</string>
   <string name="menu_update_selected_saved_pages">Gespäichert Säiten aktualiséieren</string>
   <string name="dialog_prompt_refresh_all_saved_pages">All gespäichert Säite aktualiséieren?</string>
-  <string name="toast_saved_page_refreshed">Gespäichert Säiten aktualiséiert</string>
   <string name="menu_save_page">Säit späicheren</string>
   <string name="menu_share_page">Deelen</string>
   <string name="share_via">Deelen iwwer</string>
   <string name="dialog_title_clear_saved_pages">All gespäichert Säite läschen?</string>
-  <string name="dialog_message_clear_saved_pages">Sidd Dir sécher datt Dir all gespäichert Säite läsche wëllt?</string>
   <string name="toast_saving_page">Säit späicheren...</string>
   <string name="toast_saved_page">Säit gespäichert</string>
   <string name="toast_saved_page_missing_images">Net all Biller konnte gespäichert ginn</string>
-  <string name="toast_save_page_failed">D\'Späichere vun der Säit huet net funktionéiert :(</string>
   <string name="toast_refresh_saved_page">Gespäichert Säit gëtt aktualiséiert...</string>
   <string name="delete_selected_saved_pages">Läschen</string>
   <string name="toast_saved_page_deleted">Gespäichert Säit(e) geläscht</string>
   <string name="saved_pages_search_list_hint">Sichen</string>
   <string name="saved_pages_search_empty_message">Keng Säite fonnt déi Ärer Ufro entspriechen.</string>
-  <string name="nearby_activity_title">Nobäi</string>
   <string name="nav_item_nearby">Nobäi</string>
   <string name="menu_update_nearby">Aktualisatioun vun \'nobäi\'</string>
   <string name="nearby_empty_title">Keng Säiten hei nobäi!</string>
@@ -50,7 +44,6 @@
   <string name="nearby_distance_in_miles">%.2f Meilen</string>
   <string name="nearby_no_network">Keng Verbindung mam Reseau</string>
   <string name="nearby_server_error">D\'Lëscht mat de Plazen nobäi konnt net ofgeruff ginn.</string>
-  <string name="nearby_no_location">Plaz konnt net festgestallt ginn</string>
   <string name="nearby_set_metric">A Meter/Kilometer weisen</string>
   <string name="nearby_set_imperial">A Fouss/Meilen weisen</string>
   <string name="nearby_view_on_map">Plaz op der Kaart weisen</string>
@@ -58,14 +51,12 @@
   <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
   <string name="edit_save_action_license_logged_in">Mam Späichere sidd Dir mat den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt;.</string>
   <string name="preference_title_language">Wikipedia-Sprooch</string>
-  <string name="preference_summary_language">Sprooch vum Inhalt</string>
   <string name="preference_languages_filter_hint">Sichen</string>
   <string name="langlinks_filter_hint">Sichen</string>
   <string name="menu_other_languages">An anere Sprooche liesen</string>
   <string name="langlinks_error_retry">Nach eng Kéier probéieren</string>
   <string name="langlinks_empty">Dës Säit ass net an anere Sproochen disponibel</string>
   <string name="langlinks_no_match">Keng Sprooche fonnt déi Ärer Ufro passen.</string>
-  <string name="settings_activity_title">Astellungen</string>
   <string name="langlinks_activity_title">Aner Sproochen</string>
   <string name="menu_save_changes">Ännerunge späicheren</string>
   <string name="edit_section_error_retry">Nach eng Kéier probéieren</string>
@@ -98,7 +89,6 @@
   <string name="login_error_throttled">Zedacks probéiert anzeloggen. Waart e puer Minutten a probéiert nach eng Kéier.</string>
   <string name="login_error_unknown">Aloggen huet net funktionéiert :(</string>
   <string name="login_error_no_network">Keng Verbindung mam Reseau</string>
-  <string name="nav_item_logout">Ausloggen</string>
   <string name="preference_title_logout">Ausloggen</string>
   <string name="preference_summary_logout">Aus Ärem Wikipedia-Benotzerkont ausloggen</string>
   <string name="preference_summary_notloggedin">Net ageloggt.</string>
@@ -113,11 +103,9 @@
   <string name="skip">Iwwersprangen</string>
   <string name="create_account_username_hint">Benotzernumm</string>
   <string name="create_account_password_hint">Passwuert</string>
-  <string name="menu_create_account">Benotzerkont opmaachen</string>
   <string name="login_create_account_link">Hutt Dir kee Benotzerkont? Da maacht mat bei Wikipedia</string>
   <string name="create_account_login_link">Hutt Dir schonn e Benotzerkont? Loggt Iech an</string>
   <string name="create_account_activity_title">E Benotzerkont opmaachen</string>
-  <string name="edit_section_activity_title">Abschnitt änneren</string>
   <string name="dialog_create_account_checking_progress">Nokucken</string>
   <string name="create_account_email_hint">E-Mail (Fakultativ)</string>
   <string name="create_account_password_repeat_hint">Passwuert widderhuelen</string>
@@ -150,23 +138,12 @@
   <string name="zero_learn_more">D\'Taxe fir d\'Iwwerdroe vun Donnéeë gi fir dës Wikipedia App net verrechent.</string>
   <string name="zero_learn_more_learn_more">Liest méi</string>
   <string name="zero_learn_more_dismiss">Verwerfen</string>
-  <string name="zero_settings">Astellungen</string>
-  <string name="zero_settings_devmode">Zero-Entwécklermodus</string>
   <string name="edit_preview_fetching_dialog_message">Kucken ouni ze späicheren...</string>
-  <string name="create_account_logging_in">Aloggen...</string>
   <string name="send_feedback">Feedback vun der App schécken</string>
-  <string name="edit_summary_guide_text">Sot eis wéi Dir dës Säit verbessert hutt. Dat hëlleft aneren Auteure fir Är Ännerung séier nozekucken.</string>
-  <string name="edit_summary_hint">Resumé vun der Ännerung</string>
   <string name="nav_item_random">Zoufall</string>
-  <string name="random_progress">Zoufälleg Säit froen...</string>
   <string name="create_account_account_created_toast">Benotzerkont ugeluecht!</string>
   <string name="user_contribs_more_action">Méi lueden</string>
   <string name="activity_my_contributions_title">Meng Kontributiounen</string>
-  <string name="nav_item_my_contributions">Meng Kontributiounen</string>
-  <string name="edit_save_action_login">Aloggen a späicheren</string>
-  <string name="edit_save_action_ip">Anonym späicheren</string>
-  <string name="edit_save_action_login_description">Är Ännerunge ginn ëffentlech mat Ärem Benotzernumm verbonn an aner Auteure kënne besser Kontakt mat Iech ophuelen</string>
-  <string name="edit_save_action_ip_description">Är Ännerunge ginn ëffentlech Ärer IP-Adress, déi dacks ännert, zougeuerdnet</string>
   <string name="preference_title_eventlogging_opt_in">Rapporten iwwer d\'Benotze schécken</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlaben Informatiounen iwwer d\'Benotze vun der App ze sammele fir se ze verbesseren.</string>
   <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se w.e.g. ewech a probéiert nach eng Kéier.</string>
@@ -185,13 +162,11 @@
   <string name="terms_of_use_description">Benotzungs-Bedingungen</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">Versioun</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_translators_heading">Iwwersetzer</string>
   <string name="about_translators_translatewiki">Dës App gouf vun de fräiwëllegen Iwwersetzer op &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; iwwersat.</string>
   <string name="about_wmf">E Produkt vun der &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Iwwer</string>
-  <string name="edit_unchanged">D\'Säit gouf net geännert.</string>
   <string name="edit_abandon_confirm">D\'Säit gouf geännert. Sidd dir sécher datt Dir erausgoe wëllt ouni Är Ännerungen ze späicheren?</string>
   <string name="user_blocked_from_editing_title">Gespaart</string>
   <string name="user_logged_in_blocked_from_editing">Äre Benotzerkont gouf fir Ännerungen op dëser Wiki gespaart.</string>
@@ -226,12 +201,8 @@
   <string name="color_theme_light">Hell</string>
   <string name="color_theme_dark">Déischter</string>
   <string name="page_similar_titles">Ähnlech Säiten</string>
-  <string name="search_within_pages">An de Säite sichen...</string>
   <string name="search_no_results">Näischt fonnt fir \"%s\".</string>
   <string name="search_did_you_mean">Mengt Dir \"%s\"?</string>
-  <string name="search_results_title">Resultat vum Sichen</string>
-  <string name="search_error_retry">Nach eng Kéier probéieren</string>
-  <string name="search_redirect_title">Viruleedung vu(n) \"%s\".</string>
   <string name="search_recent_header">Rezent gesicht:</string>
   <string name="button_clear_all_recent_searches">Rezent Ufroen, fir ze sichen, läschen</string>
   <string name="toc_know_it">Verstan</string>
@@ -240,6 +211,7 @@
   <string name="table_other">Méi Informatiounen</string>
   <string name="table_close">Zoumaachen</string>
   <string name="widget_name_featured_page">Liesenswäert Säit op Wikipedia</string>
+  <string name="widget_title_featured_page">Säit vum Dag:</string>
   <string name="alpha_update_notification_title">Nei alpha-Versioun disponibel</string>
   <string name="alpha_update_notification_text">Tippe fir erofzelueden</string>
   <string name="dialog_close_description">Zoumaachen</string>
@@ -249,8 +221,6 @@
   <string name="menu_gallery_visit_page">Op d\'Säit vum Fichier goen</string>
   <string name="gallery_error_draw_failed">D\'Bild konnt net gezeechent ginn.</string>
   <string name="license_title">Lizenztext fir d\'Bibliothek %s</string>
-  <string name="gallery_license_text">Lizenz - %s</string>
-  <string name="gallery_credit_text">Auteur - %s</string>
   <string name="gallery_image_info">Informatioun iwwert d\'Bild</string>
   <string name="gallery_menu_share">Deelen</string>
   <string name="gallery_menu_save">Um Apparat späicheren</string>
@@ -261,4 +231,5 @@
   <string name="share_snippet_button">Als Bild deelen</string>
   <string name="share_normal_button">Als Text deelen</string>
   <string name="snippet_share_preview_image_desc">Bild kucken ouni ze späicheren</string>
+  <string name="captcha_image">Captcha-Bild</string>
 </resources>

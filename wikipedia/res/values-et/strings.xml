@@ -8,7 +8,6 @@
   <string name="acra_report_dialog_text">Saada meile veateade!</string>
   <string name="acra_report_dialog_comment">Mida tegid kokkujooksmishetkel?</string>
   <string name="search_hint">Otsi Vikipeediast</string>
-  <string name="history_activity_title">Ajalugu</string>
   <string name="nav_item_history">Ajalugu</string>
   <string name="error_network_error" fuzzy="true">Ei õnnestunud pääseda võrku :(</string>
   <string name="search_network_error">Võrgu viga. Puuduta ekraani, et uuesti proovida!</string>
@@ -18,34 +17,28 @@
   <string name="menu_clear_all_saved_pages">Tühjenda kõik salvestatud leheküljed</string>
   <string name="page_does_not_exist_error">Seda lehekülge ei ole olemas!</string>
   <string name="dialog_title_clear_history">Kustuta sirvimise ajalugu?</string>
-  <string name="saved_pages_activity_title">Salvestatud leheküljed</string>
   <string name="nav_item_saved_pages">Salvestatud leheküljed</string>
   <string name="menu_update_all_saved_pages">Uuenda salvestatud leheküljed</string>
   <string name="menu_update_selected_saved_pages">Uuenda salvestatud leheküljed</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Uuenda kõik salvestatud leheküljed?</string>
-  <string name="toast_saved_page_refreshed">Salvestatud leheküljed uuendatud!</string>
   <string name="menu_save_page">Salvesta lehekülg</string>
   <string name="menu_share_page">Jaga</string>
   <string name="share_via">Vali jagamisviis:</string>
   <string name="dialog_title_clear_saved_pages">Tühjenda kõik salvestatud leheküljed?</string>
-  <string name="dialog_message_clear_saved_pages">Kas oled kindel, et tahad tühjendada kõik salvestatud leheküljed?</string>
   <string name="toast_saving_page">Lehe salvestamine...</string>
   <string name="toast_saved_page">Leht edukalt salvestatud!</string>
   <string name="toast_saved_page_missing_images">Kõiki pilte ei olnud võimalik salvestada!</string>
-  <string name="toast_save_page_failed">Lehe salvestamine ebaõnnestus :(</string>
   <string name="toast_refresh_saved_page">Salvestatud lehe uuendamine...</string>
   <string name="delete_selected_saved_pages">Kustuta</string>
   <string name="toast_saved_page_deleted">Salvestatud leht/lehed kustutatud</string>
   <string name="last_updated_text">Viimati uuendatud %s</string>
   <string name="content_license_html">Sisu on kasutatav vastavalt litsentsile &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, kui ei ole märgitud teisiti.</string>
   <string name="preference_title_language">Vikipeedia keel</string>
-  <string name="preference_summary_language">Sisu keel</string>
   <string name="preference_languages_filter_hint">Otsi</string>
   <string name="langlinks_filter_hint">Otsi</string>
   <string name="menu_other_languages">Loe teistes keeltes</string>
   <string name="langlinks_error_retry">Proovi uuesti</string>
   <string name="langlinks_empty">See lehekülg ei ole teistes keeltes saadaval</string>
-  <string name="settings_activity_title">Eelistused</string>
   <string name="langlinks_activity_title">Teised keeled</string>
   <string name="menu_save_changes">Salvesta muudatused</string>
   <string name="edit_section_error_retry">Proovi uuesti</string>
@@ -75,7 +68,6 @@
   <string name="login_error_throttled">Liiga palju sisselogimiskatseid. Oota mõni minut ja proovi uuesti.</string>
   <string name="login_error_unknown">Sisselogimine ebaõnnestus :(</string>
   <string name="login_error_no_network">Võrguühendus puudub</string>
-  <string name="nav_item_logout">Logi välja</string>
   <string name="preference_title_logout">Logi välja</string>
   <string name="preference_summary_logout">Logi oma Vikipeedia kontolt välja</string>
   <string name="preference_summary_notloggedin">Sisse logimata</string>
@@ -84,11 +76,9 @@
   <string name="history_empty_message" fuzzy="true">Sinu ajalugu on tühi.</string>
   <string name="create_account_username_hint">Kasutajanimi</string>
   <string name="create_account_password_hint">Parool</string>
-  <string name="menu_create_account">Loo konto</string>
   <string name="login_create_account_link">Kas sul pole veel kontot? Ühine Vikipeediaga</string>
   <string name="create_account_login_link">Kas sul on juba konto? Logi sisse</string>
   <string name="create_account_activity_title">Loo konto</string>
-  <string name="edit_section_activity_title">Alaosa muutmine</string>
   <string name="dialog_create_account_checking_progress">Kontrollimine</string>
   <string name="create_account_email_hint">E-posti aadress (vabatahtlik)</string>
   <string name="create_account_password_repeat_hint">Korda parooli</string>
@@ -116,24 +106,12 @@
   <string name="zero_learn_more">Sellele Vikipeedia rakendusele ei rakendu andmesidetasud.</string>
   <string name="zero_learn_more_learn_more">Loe edasi</string>
   <string name="zero_learn_more_dismiss">Hülga</string>
-  <string name="zero_settings">Eelistused</string>
-  <string name="zero_settings_devmode">Zero Devmode</string>
-  <string name="zero_settings_devmode_summary">See võimaldab Wikipedia Zero koodi käivitamise arenduse käigus.</string>
   <string name="edit_preview_fetching_dialog_message">Eelvaate laadimine...</string>
-  <string name="create_account_logging_in">Sisselogimine...</string>
   <string name="send_feedback">Saada tagasisidet rakenduse kohta</string>
-  <string name="edit_summary_guide_text">Ütle meile, mida leheküljel parandasid! See aitab teistel toimetajatel sinu muudatust kiiremini üle vaadata!</string>
-  <string name="edit_summary_hint">Resümee</string>
   <string name="nav_item_random">Juhuslik</string>
-  <string name="random_progress">Juhusliku lehe laadimine...</string>
   <string name="create_account_account_created_toast">Konto loodud!</string>
   <string name="user_contribs_more_action">Laadi veel</string>
   <string name="activity_my_contributions_title">Kaastööd</string>
-  <string name="nav_item_my_contributions">Kaastööd</string>
-  <string name="edit_save_action_login">Logi sisse ja salvesta</string>
-  <string name="edit_save_action_ip">Salvesta anonüümselt</string>
-  <string name="edit_save_action_login_description">Sinu muudatused omistatakse avalikult sinu kasutajanimele ja teised kasutajad saavad hõlpsamini seostada sinu kaastöö sinuga.</string>
-  <string name="edit_save_action_ip_description">Sinu muudatused omistatakse avalikult sinu IP-aadressile, mis muutub sageli.</string>
   <string name="preference_title_eventlogging_opt_in">Saada kasutusaruanded</string>
   <string name="preference_summary_eventlogging_opt_in">Luba Wikimedial koguda teavet selle kohta, kuidas rakendust kasutad, et seda paremaks muuta.</string>
   <string name="editing_error_spamblacklist">Lingid tõkestatud domeenidele (%s) tuvastatud. Palun eemalda need ja proovi uuesti.</string>
@@ -148,12 +126,10 @@
   <string name="more_item_preferences">Veel</string>
   <string name="more_activity_title">Veel</string>
   <string name="about_description">Teave Vikipeedia rakenduse kohta</string>
-  <string name="preference_title_version">Versioon</string>
   <string name="about_libraries_heading">kasutatud raamatukogud</string>
   <string name="about_contributors_heading">kaastöölised</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundationi&lt;/a&gt; toode</string>
   <string name="about_activity_title">Teave</string>
-  <string name="edit_unchanged">Lehte ei ole muudetud.</string>
   <string name="edit_abandon_confirm">Lehekülg on muudetud. Kas oled kindel, et soovid väljuda muudatusi salvestamata?</string>
   <string name="user_blocked_from_editing_title">Tõkestatud</string>
   <string name="user_logged_in_blocked_from_editing">Sinu kasutajakontolt on selles vikis muudatuste tegemine tõkestatud.</string>
@@ -170,13 +146,12 @@
   <string name="find_in_page">Otsi lehelt</string>
   <string name="find_next">Otsi järgmine</string>
   <string name="find_previous">Otsi eelmine</string>
-  <string name="find_close">Sulge otsinguriba</string>
   <string name="error_network_error_try_again">Ei õnnestunud võrku ühenduda, proovi uuesti.</string>
   <string name="saved_pages_update_all_error_retry">Proovi uuesti</string>
   <string name="saved_pages_update_all_error_message">Viga salvestatud lehekülgede ajakohastamisel</string>
   <string name="saved_pages_progress_title">Salvestatud lehekülgede värskendamine</string>
   <string name="saved_pages_refresh_pages_complete">Uuendamine valmis</string>
-  <string name="app_store_description">Ametlik Vikipeedia rakendus Androidile. Vikipeedia on vaba entsüklopeedia, mis sisaldab enam kui 32 miljonit artiklit 280 keeles ja seega on kõige ulatuslikum ning kõige laiemalt kasutatud teatmeteos, mida inimesed kunagi on koostanud. See rakendus on täiesti ümber tehtud ja on parem kui kunagi varem.
+  <string name="app_store_description" fuzzy="true">Ametlik Vikipeedia rakendus Androidile. Vikipeedia on vaba entsüklopeedia, mis sisaldab enam kui 32 miljonit artiklit 280 keeles ja seega on kõige ulatuslikum ning kõige laiemalt kasutatud teatmeteos, mida inimesed kunagi on koostanud. See rakendus on täiesti ümber tehtud ja on parem kui kunagi varem.
 
 Omadused:
    - Kiirus: Meie uus algupärane rakendus võimaldab sirvida ja toimetada Vikipeediat kiiremini kui kunagi varem.

@@ -9,7 +9,6 @@
   <string name="acra_report_dialog_text">傳送錯誤報告給我們</string>
   <string name="acra_report_dialog_comment">發生錯誤時你在做什麼？</string>
   <string name="search_hint">搜尋維基百科</string>
-  <string name="history_activity_title">歷史</string>
   <string name="nav_item_history">歷史</string>
   <string name="error_network_error">無網路連線 :(</string>
   <string name="search_network_error">網路錯誤。點選重試。</string>
@@ -20,27 +19,22 @@
   <string name="page_does_not_exist_error">該頁面不存在！</string>
   <string name="nav_item_today">今日首頁</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史？</string>
-  <string name="saved_pages_activity_title">已儲存頁面</string>
   <string name="nav_item_saved_pages">已儲存頁面</string>
   <string name="menu_update_all_saved_pages">更新已儲存頁面</string>
   <string name="menu_update_selected_saved_pages">更新已儲存頁面</string>
   <string name="dialog_prompt_refresh_all_saved_pages">更新所有已儲存頁面？</string>
-  <string name="toast_saved_page_refreshed">儲存頁面已更新</string>
   <string name="menu_save_page">儲存頁面</string>
   <string name="menu_share_page">分享</string>
   <string name="share_via">透過……分享</string>
   <string name="dialog_title_clear_saved_pages">清除所有已儲存頁面？</string>
-  <string name="dialog_message_clear_saved_pages">確定要清除全部已儲存的頁面？</string>
   <string name="toast_saving_page">儲存頁面中...</string>
   <string name="toast_saved_page">已儲存頁面</string>
   <string name="toast_saved_page_missing_images">無法儲存所有圖像</string>
-  <string name="toast_save_page_failed">未能儲存頁面:(</string>
   <string name="toast_refresh_saved_page">重新載入儲存的頁面...</string>
   <string name="delete_selected_saved_pages">刪除</string>
   <string name="toast_saved_page_deleted">已刪除儲存的頁面</string>
   <string name="saved_pages_search_list_hint">搜尋</string>
   <string name="saved_pages_search_empty_message">未找到匹配您查詢的頁面。</string>
-  <string name="nearby_activity_title">附近</string>
   <string name="nav_item_nearby">附近</string>
   <string name="menu_update_nearby">更新附近</string>
   <string name="nearby_empty_title">此處附近無頁面！</string>
@@ -51,7 +45,6 @@
   <string name="nearby_distance_in_miles">%.2f哩</string>
   <string name="nearby_no_network">無網路連線</string>
   <string name="nearby_server_error">無法取得附近地點的清單。</string>
-  <string name="nearby_no_location">無法取得位置</string>
   <string name="nearby_dialog_goto_settings">您的裝置未啟用位置更新。您想要前往您的裝置設定啟用位置更新嗎？</string>
   <string name="nearby_set_metric">顯示 米/千米</string>
   <string name="nearby_set_imperial">顯示 呎/哩</string>
@@ -60,14 +53,12 @@
   <string name="edit_save_action_license_logged_in">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。</string>
   <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href=“https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\"&gt;CC BY-SA3.0&lt;/A&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
   <string name="preference_title_language">維基百科語言</string>
-  <string name="preference_summary_language">內容語言</string>
   <string name="preference_languages_filter_hint">搜尋</string>
   <string name="langlinks_filter_hint">搜尋</string>
   <string name="menu_other_languages">閱讀其他語言</string>
   <string name="langlinks_error_retry">重試</string>
   <string name="langlinks_empty">此頁面沒有其他語言版本</string>
   <string name="langlinks_no_match">未找到匹配您的查詢的語言。</string>
-  <string name="settings_activity_title">設定</string>
   <string name="langlinks_activity_title">其他語言</string>
   <string name="menu_save_changes">儲存修改</string>
   <string name="edit_section_error_retry">重試</string>
@@ -100,7 +91,6 @@
   <string name="login_error_throttled">登入嘗試次數太多，請等待幾分鐘然後再試一次。</string>
   <string name="login_error_unknown">登入失敗 :(</string>
   <string name="login_error_no_network">無網路連線</string>
-  <string name="nav_item_logout">登出</string>
   <string name="preference_title_logout">登出</string>
   <string name="preference_summary_logout">登出您的維基百科帳號</string>
   <string name="preference_summary_notloggedin">未登入。</string>
@@ -115,11 +105,9 @@
   <string name="skip">略過</string>
   <string name="create_account_username_hint">使用者名稱</string>
   <string name="create_account_password_hint">密碼</string>
-  <string name="menu_create_account">建立帳號</string>
   <string name="login_create_account_link">沒有帳號嗎？加入到維基百科吧</string>
   <string name="create_account_login_link">已經擁有帳號？請登入</string>
   <string name="create_account_activity_title">建立一個帳號</string>
-  <string name="edit_section_activity_title">編輯章節</string>
   <string name="dialog_create_account_checking_progress">驗證中</string>
   <string name="create_account_email_hint">電子郵件（可選）</string>
   <string name="create_account_password_repeat_hint">重複輸入密碼</string>
@@ -153,24 +141,12 @@
   <string name="zero_learn_more">此維基百科應用程式可免除資料費用。</string>
   <string name="zero_learn_more_learn_more">閱讀更多</string>
   <string name="zero_learn_more_dismiss">取消</string>
-  <string name="zero_settings">設定</string>
-  <string name="zero_settings_devmode">Zero開發模式</string>
-  <string name="zero_settings_devmode_summary">在開發期間啟用Wikipedia Zero的代碼執行。</string>
   <string name="edit_preview_fetching_dialog_message">正在取得預覽...</string>
-  <string name="create_account_logging_in">登入中...</string>
   <string name="send_feedback">傳送應用程式回饋</string>
-  <string name="edit_summary_guide_text">告訴我們你如何改進此頁。這可以幫助其他編者快速審查您的編輯。</string>
-  <string name="edit_summary_hint">編輯摘要</string>
   <string name="nav_item_random">隨機條目</string>
-  <string name="random_progress">正在取得隨機頁面...</string>
   <string name="create_account_account_created_toast">已建立帳號</string>
   <string name="user_contribs_more_action">載入更多</string>
   <string name="activity_my_contributions_title">我的貢獻</string>
-  <string name="nav_item_my_contributions">我的貢獻</string>
-  <string name="edit_save_action_login">登入並儲存</string>
-  <string name="edit_save_action_ip">以匿名方式存儲</string>
-  <string name="edit_save_action_login_description">閣下所做的編輯的編輯者將會以閣下的使用者名稱顯示，而且其他編輯者可以更方便地與閣下聯絡。</string>
-  <string name="edit_save_action_ip_description">閣下所做的編輯的編輯者將會以閣下不斷變更的IP位址顯示</string>
   <string name="preference_title_eventlogging_opt_in">傳送使用情況報告</string>
   <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>
   <string name="editing_error_spamblacklist">檢測到來自被封禁網域（%s）的連結。請刪除它們並再試一次。</string>
@@ -189,14 +165,12 @@
   <string name="terms_of_use_description">使用條款</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="preference_title_version">版本</string>
   <string name="about_libraries_heading">使用庫</string>
   <string name="about_contributors_heading">貢獻者</string>
   <string name="about_translators_heading">翻譯人員</string>
   <string name="about_translators_translatewiki">此應用程式是由 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; 的志工翻譯的。</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
-  <string name="edit_unchanged">頁面未被修改。</string>
   <string name="edit_abandon_confirm">頁面已被修改。你確定你想要離開而不存儲您的更改？</string>
   <string name="user_blocked_from_editing_title">已封鎖</string>
   <string name="user_logged_in_blocked_from_editing">您的使用者帳號被封禁，不能編輯此 wiki。</string>
@@ -213,7 +187,6 @@
   <string name="find_in_page">頁中尋找</string>
   <string name="find_next">尋找下一個</string>
   <string name="find_previous">尋找上一個</string>
-  <string name="find_close">關閉尋找列</string>
   <string name="error_network_error_try_again">無網路連線，請再試一次。</string>
   <string name="saved_pages_update_all_error_retry">重試</string>
   <string name="saved_pages_update_all_error_message">更新存儲頁面時出錯</string>
@@ -233,12 +206,8 @@
   <string name="color_theme_light">日間模式</string>
   <string name="color_theme_dark">夜間模式</string>
   <string name="page_similar_titles">相似的頁面</string>
-  <string name="search_within_pages">於頁面內搜尋...</string>
   <string name="search_no_results">找不到「%s」的結果。</string>
   <string name="search_did_you_mean">您指的是不是「$1」？</string>
-  <string name="search_results_title">搜尋結果</string>
-  <string name="search_error_retry">重試</string>
-  <string name="search_redirect_title">重新導向自「%s」。</string>
   <string name="search_recent_header">最近搜尋：</string>
   <string name="button_clear_all_recent_searches">清除近期搜尋</string>
   <string name="clear_recent_searches_confirm">您確信您要清除您的搜尋歷史嗎？</string>
@@ -248,7 +217,7 @@
   <string name="table_infobox">事實速覽</string>
   <string name="table_other">更多資訊</string>
   <string name="table_close">關閉</string>
-  <string name="app_store_description">維基百科官方 Android 應用程式。維基百科是一部自由的百科全書，包含超過 3200 萬篇條目，以 280 種不同的語言撰寫，是人類建立過的最詳實、且大量被引用的資料來源。這個應用程式已經全面重新編寫，使其比以前來得還要更好。
+  <string name="app_store_description" fuzzy="true">維基百科官方 Android 應用程式。維基百科是一部自由的百科全書，包含超過 3200 萬篇條目，以 280 種不同的語言撰寫，是人類建立過的最詳實、且大量被引用的資料來源。這個應用程式已經全面重新編寫，使其比以前來得還要更好。
 
 特色功能：
    - 速度：我們的全新、原生應用程式讓你用比以前更快的速度瀏覽和編輯維基百科。
@@ -270,8 +239,6 @@
   <string name="menu_gallery_visit_page">前往檔案頁面</string>
   <string name="gallery_error_draw_failed">不能畫圖片。</string>
   <string name="license_title">%s 庫的授權文字</string>
-  <string name="gallery_license_text">許可 – %s</string>
-  <string name="gallery_credit_text">作者 – %s</string>
   <string name="gallery_image_info">圖片資訊</string>
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">無法分享圖片：  %s</string>

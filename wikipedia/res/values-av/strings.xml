@@ -8,7 +8,6 @@
   <string name="acra_report_dialog_text">Сбоязул отчётал нежехъе ритӀизе</string>
   <string name="acra_report_dialog_comment">Сбой лъугьараб мехалъ нуж щиб гьабула рукӀарал?</string>
   <string name="search_hint">Википедиялда цӀехесе</string>
-  <string name="history_activity_title">Тарих</string>
   <string name="nav_item_history">Тарих</string>
   <string name="error_network_error" fuzzy="true">Связь батизабизе кӀвечӀо :(</string>
   <string name="search_network_error">Связалъул гъалатӀ. Такрар гьабизе цӀуе.</string>
@@ -19,21 +18,17 @@
   <string name="page_does_not_exist_error">Гединаб гьумер гьечӀо.</string>
   <string name="nav_item_today">Жакъа</string>
   <string name="dialog_title_clear_history">Тарих бацӀцӀилищ?</string>
-  <string name="saved_pages_activity_title">ЦIунарал гьумерал</string>
   <string name="nav_item_saved_pages">ЦIунарал гьумерал</string>
   <string name="menu_update_all_saved_pages">ЦӀунарал гьумерал цӀигьаризе</string>
   <string name="menu_update_selected_saved_pages">ЦӀунарал гьумерал цӀигьаризе</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Киналго цӀунарал гьумерал цӀигьарилищ?</string>
-  <string name="toast_saved_page_refreshed">ЦӀунарал гьумерал цӀигьаруна</string>
   <string name="menu_save_page">Хъвай-хъвай цӀунизе</string>
   <string name="menu_share_page">Рехсезе</string>
   <string name="share_via">Сундалъун рехселе?</string>
   <string name="dialog_title_clear_saved_pages">Киналго цӀунарал гьумерал рацӀцӀилищ?</string>
-  <string name="dialog_message_clear_saved_pages">Унгоищ дуе цӀунарал гьумерал рацӀцӀине къваригӀараб?</string>
   <string name="toast_saving_page">Гьумер цӀуни...</string>
   <string name="toast_saved_page">Гьумер цӀунана</string>
   <string name="toast_saved_page_missing_images">Киналго суртал цӀунизе кӀвечӀо</string>
-  <string name="toast_save_page_failed">Гьумер цӀунизе кӀвечӀо :(</string>
   <string name="toast_refresh_saved_page">ЦӀунараб гьумер цӀигьаби...</string>
   <string name="delete_selected_saved_pages">БацIцIине</string>
   <string name="toast_saved_page_deleted">ЦӀунун рукӀарал гьумерал рацӀцӀана</string>
@@ -41,13 +36,11 @@
   <string name="last_updated_text">Ахирисеб цӀигьаби:%1$s</string>
   <string name="content_license_html">Жаниб бугеб жо &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; ихтияралда лъун бегьизе гьабуна (цоги жо хъван батӀичони)</string>
   <string name="preference_title_language">Википедиялъул мацӀал</string>
-  <string name="preference_summary_language">Жаниб бугеб жоялъул мацӀ</string>
   <string name="preference_languages_filter_hint">ЦIехезе</string>
   <string name="langlinks_filter_hint">ЦIехезе</string>
   <string name="menu_other_languages">Цоги мацӀалда цӀализе</string>
   <string name="langlinks_error_retry">Такрар гьабизе</string>
   <string name="langlinks_empty">Гьаб гьумер цоги мацӀалда гьечӀо</string>
-  <string name="settings_activity_title">Рекъезаби</string>
   <string name="langlinks_activity_title">Цоги мацӀазда</string>
   <string name="menu_save_changes">Хиса-басиял цIунизе</string>
   <string name="edit_section_error_retry">Такрар гьабизе</string>
@@ -71,7 +64,6 @@
   <string name="login_success_toast">Мун системалда лъана!</string>
   <string name="login_error_unknown">Жаниве лъугьине кӀвечӀо :(</string>
   <string name="login_error_no_network">Связь гьечӀо</string>
-  <string name="nav_item_logout">Къватlиве вачIизе</string>
   <string name="preference_title_logout">Къватlиве вачIизе</string>
   <string name="preference_summary_logout">Википедиялда бугеб дур аккаунталдасан къватӀиве лъугьине</string>
   <string name="preference_summary_notloggedin">Мун жаниве лъугьун гьечIо</string>
@@ -79,10 +71,8 @@
   <string name="skip">Гъоркьо биччантезе</string>
   <string name="create_account_username_hint">ХӀалтӀизабулчиясул цӀар</string>
   <string name="create_account_password_hint">Пароль</string>
-  <string name="menu_create_account">Аккаунт гьабизе</string>
   <string name="create_account_login_link">Аккаунт батани жаниве лъугье</string>
   <string name="create_account_activity_title">Аккаунт гьабизе</string>
-  <string name="edit_section_activity_title">БутӀа хисизабизе</string>
   <string name="dialog_create_account_checking_progress">Хал-кӀач гьаби</string>
   <string name="create_account_email_hint">Эллектронияб почалъул адрес (дуе бокьани хъвай)</string>
   <string name="create_account_password_repeat_hint">Пароль такрар гьабе</string>
@@ -99,18 +89,12 @@
   <string name="zero_interstitial_cancel">Гьанив чӀезе</string>
   <string name="zero_learn_more_learn_more">ЦӀцӀикӀун лъазе</string>
   <string name="zero_learn_more_dismiss">Къазе</string>
-  <string name="zero_settings">Рекъезаби</string>
   <string name="edit_preview_fetching_dialog_message">ЦӀуниялда цебе хал-кӀач гьаби...</string>
-  <string name="create_account_logging_in">Системалда жаниве лъугьула...</string>
   <string name="send_feedback">Приложение хӀакъалъулъ дурго пикру битӀизе</string>
-  <string name="edit_summary_hint">Хиса-басиял мухӀкан гьари</string>
   <string name="nav_item_random">Цебе ккараб</string>
-  <string name="random_progress">Цебе кколеб гьумер бищи...</string>
   <string name="create_account_account_created_toast">Аккаунт гьабуна!</string>
   <string name="user_contribs_more_action">ЦӀцӀикӀун цӀазе</string>
   <string name="activity_my_contributions_title">Дур хӀалтӀи</string>
-  <string name="nav_item_my_contributions">Дур хӀалтӀи</string>
-  <string name="edit_save_action_login">Жаниве лъугьине ва цӀунизе</string>
   <string name="history_search_list_hint">ЦIехезе</string>
   <string name="more_item_preferences">Жеги</string>
   <string name="about_translators_heading">таржамачагӀи</string>
