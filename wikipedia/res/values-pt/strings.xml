@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name">Wikipédia</string>
   <string name="app_name_beta">Wikipédia Beta</string>
   <string name="app_name_alpha">Wikipédia Alpha</string>
@@ -110,15 +110,15 @@
   <string name="create_account_login_link">Já possui uma conta? Inicie sessão</string>
   <string name="create_account_activity_title">Criar uma conta</string>
   <string name="dialog_create_account_checking_progress">A verificar</string>
-  <string name="create_account_email_hint">Endereço de correio eletrónico (Opcional)</string>
+  <string name="create_account_email_hint" tools:ignore="Typos">Endereço de correio eletrónico (Opcional)</string>
   <string name="create_account_password_repeat_hint">Repita a palavra-passe</string>
   <string name="create_account_passwords_mismatch_error">As palavras-passe não correspondem</string>
-  <string name="create_account_email_error">Endereço de correio eletrónico inválido</string>
+  <string name="create_account_email_error" tools:ignore="Typos">Endereço de correio eletrónico inválido</string>
   <string name="create_account_username_exists_error">Nome de utilizador(a) já em utilização</string>
   <string name="create_account_ip_throttle_error">Demasiadas contas criadas a partir deste endereço de IP. Tente novamente mais tarde.</string>
   <string name="create_account_open_proxy_error">Este endereço de IP está bloqueado de criar contas.</string>
   <string name="create_account_noname_error">O nome de utilizador(a) fornecido é inválido. Por favor, escolha outro.</string>
-  <string name="create_account_invalid_email_error">O endereço de correio eletrónico fornecido é inválido.</string>
+  <string name="create_account_invalid_email_error" tools:ignore="Typos">O endereço de correio eletrónico fornecido é inválido.</string>
   <string name="create_account_password_too_short_error">A palavra-passe fornecida é demasiado curta.</string>
   <string name="create_account_blocked_anon_error">Não pode criar uma conta porque o seu endereço IP está bloqueado.</string>
   <string name="create_account_blocked_error">Não pode criar uma conta porque a sua conta está bloqueada.</string>
@@ -221,7 +221,7 @@
   <string name="widget_name_featured_page">Artigo em destaque na Wikipédia</string>
   <string name="widget_title_featured_page">Artigo em destaque de hoje:</string>
   <string name="widget_name_search">Pesquisa Wikipédia</string>
-  <string name="app_store_description">Aplicação oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada por trabalho humano. A aplicação foi reescrita do zero e está melhor que nunca.
+  <string name="app_store_description" tools:ignore="PluralsCandidate,UnusedResources,StringFormatInvalid">Aplicação oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada por trabalho humano. A aplicação foi reescrita do zero e está melhor que nunca.
 
 Características:
    - Imagens principais: experiente a Wikipédia como nunca antes, com imagens contextualmente relevantes e descrições no topo dos artigos.

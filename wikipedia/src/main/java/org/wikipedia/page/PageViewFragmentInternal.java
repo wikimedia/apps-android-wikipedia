@@ -79,7 +79,7 @@ import java.util.Map;
  * impacting memory usage.
  */
 public class PageViewFragmentInternal implements BackPressedHandler {
-    private static final String TAG = "PageViewFragmentInternal";
+    private static final String TAG = "PageViewFragmentInt";
 
     public static final int STATE_NO_FETCH = 1;
     public static final int STATE_INITIAL_FETCH = 2;

@@ -13,13 +13,14 @@ import android.util.Log;
 import android.widget.RemoteViews;
 
 public class WidgetProviderSearch extends AppWidgetProvider {
+    private static final String TAG = "WidgetSearch";
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         ComponentName thisWidget = new ComponentName(context, WidgetProviderSearch.class);
         int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
         for (int widgetId : allWidgetIds) {
-            Log.d("WidgetProviderSearch", "updating widget...");
+            Log.d(TAG, "updating widget...");
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_search);
 
             // Create a PendingIntent to act as the onClickListener

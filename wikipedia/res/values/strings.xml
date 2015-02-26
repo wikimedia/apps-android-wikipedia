@@ -17,7 +17,6 @@
     <string name="search_network_error">Network error. Tap to try again.</string>
     <string name="page_error_retry">Retry</string>
     <string name="menu_clear_all_history">Clear history</string>
-    <string name="menu_clear_all_bookmarks">Clear bookmarks</string>
     <string name="menu_clear_all_saved_pages">Clear saved pages</string>
     <string name="page_does_not_exist_error">This page does not exist.</string>
     <string name="nav_item_today">Today</string>
@@ -214,7 +213,6 @@
     <string name="color_theme_light">Light</string>
     <string name="color_theme_dark">Dark</string>
     <string name="page_similar_titles">Similar pages</string>
-    <string name="search_no_results">No results found for \"%s\".</string>
     <string name="search_did_you_mean">Did you mean \"%s\"?</string>
     <string name="search_recent_header">Recent searches:</string>
     <string name="button_clear_all_recent_searches">Clear recent searches</string>
@@ -229,7 +227,7 @@
     <string name="widget_title_featured_page">Today\'s featured page:</string>
     <string name="widget_name_search">Wikipedia search</string>
 
-    <string name="app_store_description" tools:ignore="PluralsCandidate,UnusedResources">Official Wikipedia App for Android. Wikipedia is the free encyclopedia containing more than 32 million articles in 280 languages, and is the most comprehensive and widely used reference work humans have ever compiled.
+    <string name="app_store_description" tools:ignore="PluralsCandidate,UnusedResources,StringFormatInvalid">Official Wikipedia App for Android. Wikipedia is the free encyclopedia containing more than 32 million articles in 280 languages, and is the most comprehensive and widely used reference work humans have ever compiled.
 
 Features:
 - Lead images: experience Wikipedia like never before with a prominent, contextually-relevant image and description at the top of articles

@@ -29,13 +29,14 @@ import java.net.URLDecoder;
 import java.util.List;
 
 public class WidgetProviderFeaturedPage extends AppWidgetProvider {
+    private static final String TAG = "WidgetFeatured";
 
     @Override
     public void onUpdate(Context context, final AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         ComponentName thisWidget = new ComponentName(context, WidgetProviderFeaturedPage.class);
         int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
         for (final int widgetId : allWidgetIds) {
-            Log.d("WidgetProviderFeaturedPage", "updating widget...");
+            Log.d(TAG, "updating widget...");
             final RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_featured_page);
 
             (new FetchMainPageTask(context) {
@@ -75,7 +76,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
 
                 @Override
                 public void onCatch(Throwable caught) {
-                    Log.e("WidgetProviderFeaturedPage", "Error while updating widget", caught);
+                    Log.e(TAG, "Error while updating widget", caught);
                 }
             }).execute();
 
@@ -110,5 +111,4 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
             return builder;
         }
     }
-
 }
