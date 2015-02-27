@@ -14,7 +14,6 @@
   <string name="search_network_error">ネットワークエラーです。タップしてやり直してください。</string>
   <string name="page_error_retry">再試行</string>
   <string name="menu_clear_all_history">履歴を消去</string>
-  <string name="menu_clear_all_bookmarks">ブックマークを空にする</string>
   <string name="menu_clear_all_saved_pages">保存したページをすべて消去</string>
   <string name="page_does_not_exist_error">このページは存在しません。</string>
   <string name="nav_item_today">今日のメインページ</string>
@@ -207,7 +206,6 @@
   <string name="color_theme_light">明るめ</string>
   <string name="color_theme_dark">暗め</string>
   <string name="page_similar_titles">類似したページ</string>
-  <string name="search_no_results">「%s」に対する検索結果はありません</string>
   <string name="search_did_you_mean">\"%s\"で良いですか?</string>
   <string name="search_recent_header">最近の検索：</string>
   <string name="button_clear_all_recent_searches">最近の検索を消去</string>

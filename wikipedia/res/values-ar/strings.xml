@@ -14,7 +14,6 @@
   <string name="search_network_error">خطأ في الاتصال بالشبكة. اضغط لإعادة المحاولة.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
   <string name="menu_clear_all_history">مسح التاريخ</string>
-  <string name="menu_clear_all_bookmarks">إفراغ العلامات</string>
   <string name="menu_clear_all_saved_pages">إفراغ الصفحات المحفوظة</string>
   <string name="page_does_not_exist_error">هذه الصفحة غير موجودة.</string>
   <string name="nav_item_today">اليوم</string>
@@ -204,7 +203,6 @@
   <string name="color_theme_light">فاتح</string>
   <string name="color_theme_dark">غامق</string>
   <string name="page_similar_titles">صفحات مشابهة</string>
-  <string name="search_no_results">لا نتائج متوفرة عن \"%s\".</string>
   <string name="search_did_you_mean">هل تقصد \"%s\"؟</string>
   <string name="search_recent_header">أحدث عمليات البحث:</string>
   <string name="button_clear_all_recent_searches">حذف أحدث عمليات البحث</string>

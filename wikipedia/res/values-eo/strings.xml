@@ -184,7 +184,6 @@
   <string name="color_theme_light">Hela</string>
   <string name="color_theme_dark">Malhela</string>
   <string name="page_similar_titles">Similaj paĝoj</string>
-  <string name="search_no_results">Neniu rezulto por \"%s\".</string>
   <string name="search_did_you_mean">Ĉu vi celis \"%s\"?</string>
   <string name="search_recent_header">Lastaj serĉoj:</string>
   <string name="button_clear_all_recent_searches">Malplenigi lastaj serĉojn</string>

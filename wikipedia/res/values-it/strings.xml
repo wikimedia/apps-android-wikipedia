@@ -14,7 +14,6 @@
   <string name="search_network_error">Errore di rete. Toccare per provare di nuovo.</string>
   <string name="page_error_retry">Riprova</string>
   <string name="menu_clear_all_history">Cancella la cronologia</string>
-  <string name="menu_clear_all_bookmarks">Cancella segnalibri</string>
   <string name="menu_clear_all_saved_pages">Cancella pagine salvate</string>
   <string name="page_does_not_exist_error">Questa pagina non esiste.</string>
   <string name="nav_item_today">Oggi</string>
@@ -207,7 +206,6 @@
   <string name="color_theme_light">Chiaro</string>
   <string name="color_theme_dark">Scuro</string>
   <string name="page_similar_titles">Pagine simili</string>
-  <string name="search_no_results">Nessun risultato trovato per \"%s\".</string>
   <string name="search_did_you_mean">Forse cercavi: \"%s\"?</string>
   <string name="search_recent_header">Ricerche recenti:</string>
   <string name="button_clear_all_recent_searches">Pulisci le ricerche recenti</string>
@@ -221,20 +219,28 @@
   <string name="widget_name_featured_page">Pagina di Wikipedia in primo piano</string>
   <string name="widget_title_featured_page">Pagina di oggi in primo piano:</string>
   <string name="widget_name_search">Ricerca di Wikipedia</string>
-  <string name="app_store_description" fuzzy="true">App ufficiale di Wikipedia per Android.
-Wikipedia è l\'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l\'opera di consultazione più completa e più diffusa che l\'uomo abbia mai compilato. L\'app è stata completamente riscritta ed è di gran lunga migliore.
+  <string name="app_store_description">App ufficiale di Wikipedia per Android.
+Wikipedia è l\'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l\'opera di consultazione più completa e più diffusa che l\'uomo abbia mai compilato.
 
 Caratteristiche:
-   - Velocità: la nostra nuova app nativa ti permette di consultare e modificare Wikipedia più velocemente che in passato.
-   - Modifica: puoi modificare Wikipedia! Che tu sia registrato o no, ti ringraziamo per tutti i tuoi contributi.
-   - Pagine recenti: ti offriamo la cronologia delle tue letture, così che tu possa seguire tutti i collegamenti che vuoi senza mai perderti.
+   - Immagine d\'apertura: l\'esperienza con Wikipedia non è mai stata così prima, con un\'importante immagine contestualmente rilevante e una descrizione all\'inizio della voce
+   - Galleria immagini: tocca su un\'immagine per mostrarla a pieno schermo ed altra risoluzione, con la possibilità di scorrere a destra/sinistra per passare alle immagini precedenti o successive
+   - Descrizione da Wikidata: durante la ricerca, ogni risultato ora contiene una breve descrizione che ti aiuta a contestualizzare il risultato. Queste descrizioni sono mostrate anche in altre aree dell\'applicazione, ad esempio Nelle vicinanze
+   - Voci suggerite: scorri verso il fondo della voce per vedere suggerimenti su cosa potresti leggere dopo
    - Pagine salvate: puoi salvare le pagine che ti interessano per leggerle offline e consultarle anche in assenza di connessione dati.
-   - Condivisione: usa le tue app di social network preferite per condividere la somma di tutta la conoscenza umana.
+   - Nelle vicinanze: scopri di più su ciò che è intorno a te tramite collegamenti alle voci di cose che si trovano vicino alla tua attuale posizione
    - Supporto linguistico: l\'app ti permette di accedere senza soluzione di continuità alle Wikipedia scritte in altre lingue.
+   - Indice: scorri verso sinistra su qualsiasi voce per visualizzare la tabella dei contenuti, che ti permette di passare facilmente ad una sezione della voce
    - Wikipedia Zero: nessun costo di connessione con gli operatori mobili partecipanti.
 
-Il codice è interamente open source. Se hai esperienza con Java e l\'Android SDK, vieni a forkarci!
-https://github.com/wikimedia/apps-android-wikipedia</string>
+Inviaci il tuo feedback sull\'app! Nel menu, premi il tasto \"Altro\" e poi Su \"A proposito dell\'app Wikipedia\", quindi su \"Invia feedback applicazione\".
+
+Il codice è 100% open source. Se hai esperienza con Java e l\'Android SDK, allora stiamo aspettando i tuoi contributi!
+https://github.com/wikimedia/apps-android-wikipedia
+
+Politica sulla privacy: http://wikimediafoundation.org/wiki/Privacy_policy
+
+Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Nuovo aggiornamento alfa disponibile</string>
   <string name="alpha_update_notification_text">Tocca per scaricare</string>
   <string name="dialog_close_description">Chiudi</string>

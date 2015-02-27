@@ -14,7 +14,6 @@
   <string name="search_network_error">網路錯誤。點選重試。</string>
   <string name="page_error_retry">重試</string>
   <string name="menu_clear_all_history">清除歷史</string>
-  <string name="menu_clear_all_bookmarks">移除書簽</string>
   <string name="menu_clear_all_saved_pages">清除已儲存頁面</string>
   <string name="page_does_not_exist_error">該頁面不存在！</string>
   <string name="nav_item_today">今日首頁</string>
@@ -206,7 +205,6 @@
   <string name="color_theme_light">日間模式</string>
   <string name="color_theme_dark">夜間模式</string>
   <string name="page_similar_titles">相似的頁面</string>
-  <string name="search_no_results">找不到「%s」的結果。</string>
   <string name="search_did_you_mean">您指的是不是「$1」？</string>
   <string name="search_recent_header">最近搜尋：</string>
   <string name="button_clear_all_recent_searches">清除近期搜尋</string>
@@ -214,7 +212,7 @@
   <string name="toc_hint">向左滑動或使用右上角的選項單按鈕顯示章節。</string>
   <string name="toc_know_it">明白了</string>
   <string name="error_browser_not_found">無法開啟網頁（未找到瀏覽器應用程式）。</string>
-  <string name="table_infobox">事實速覽</string>
+  <string name="table_infobox">快速預覽</string>
   <string name="table_other">更多資訊</string>
   <string name="table_close">關閉</string>
   <string name="app_store_description" fuzzy="true">維基百科官方 Android 應用程式。維基百科是一部自由的百科全書，包含超過 3200 萬篇條目，以 280 種不同的語言撰寫，是人類建立過的最詳實、且大量被引用的資料來源。這個應用程式已經全面重新編寫，使其比以前來得還要更好。

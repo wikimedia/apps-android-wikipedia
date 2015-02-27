@@ -14,7 +14,6 @@
   <string name="search_network_error">Ağ hatası. Tekrar denemek için dokunun.</string>
   <string name="page_error_retry">Tekrar dene</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
-  <string name="menu_clear_all_bookmarks">Yer imlerini temizle</string>
   <string name="menu_clear_all_saved_pages">Tüm kaydedilen sayfaları temizle</string>
   <string name="page_does_not_exist_error">Bu sayfa mevcut değil.</string>
   <string name="nav_item_today">Bugün</string>
@@ -207,7 +206,6 @@
   <string name="color_theme_light">Açık</string>
   <string name="color_theme_dark">Koyu</string>
   <string name="page_similar_titles">Benzer sayfalar</string>
-  <string name="search_no_results">\"%s\" için hiçbir sonuç bulunamadı.</string>
   <string name="search_did_you_mean">Bunu mu demek istediniz: \"%s\"?</string>
   <string name="search_recent_header">Son aramalar:</string>
   <string name="button_clear_all_recent_searches">Son aramaları temizle</string>

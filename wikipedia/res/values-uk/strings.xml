@@ -14,7 +14,6 @@
   <string name="search_network_error">Помилка мережі. Натисніть, щоб спробувати знову.</string>
   <string name="page_error_retry">Повторити</string>
   <string name="menu_clear_all_history">Очистити журнал</string>
-  <string name="menu_clear_all_bookmarks">Очистити закладки</string>
   <string name="menu_clear_all_saved_pages">Очистити збережені сторінки</string>
   <string name="page_does_not_exist_error">Ця сторінка не існує.</string>
   <string name="nav_item_today">Сьогодні</string>
@@ -198,7 +197,6 @@
   <string name="color_theme_light">Світла</string>
   <string name="color_theme_dark">Темна</string>
   <string name="page_similar_titles">Подібні сторінки</string>
-  <string name="search_no_results">Нічого не знайдено для \"%s\".</string>
   <string name="toc_hint">Проведіть ліворуч для розділів, або використовуйте кнопку меню зверху праворуч.</string>
   <string name="toc_know_it">Зрозуміло</string>
   <string name="app_store_description" fuzzy="true">Офіційний застосунок Вікіпедії для Android. Вікіпедія — це вільна енциклопедія, у якій 32 мільйонів статей 280-ма мовами, і це найбільш доступна і використовувана реферативна робота, яку люди будь-коли писали. Застосунок ґрунтовно переписаний і працює краще, ніж будь-коли.

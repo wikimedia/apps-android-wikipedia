@@ -14,7 +14,6 @@
   <string name="search_network_error">Tarmoqdagi xatolik. Yana harakat qilish uchun ushbuni bosing.</string>
   <string name="page_error_retry">Qayta urinib koʻrish</string>
   <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalash</string>
-  <string name="menu_clear_all_bookmarks">Xatcho\'plarni tozalash</string>
   <string name="menu_clear_all_saved_pages">Saqlangan sahifalarni o\'chirish</string>
   <string name="page_does_not_exist_error">Bu sahifa mavjud emas.</string>
   <string name="nav_item_today">Bugun</string>
@@ -177,7 +176,6 @@
   <string name="color_theme_light">Och rang</string>
   <string name="color_theme_dark">To\'q</string>
   <string name="page_similar_titles">O‘xshash sahifalar</string>
-  <string name="search_no_results">\"%s\" bo‘yicha natijalar topilmadi.</string>
   <string name="search_recent_header">Oxirgi qidirishlar:</string>
   <string name="toc_know_it">Tushunarli</string>
   <string name="alpha_update_notification_title">Yangi alfa versiya mavjud</string>

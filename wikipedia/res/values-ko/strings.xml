@@ -14,7 +14,6 @@
   <string name="search_network_error">네트워크 오류입니다. 다시 시도하려면 누르세요.</string>
   <string name="page_error_retry">다시 시도</string>
   <string name="menu_clear_all_history">방문 기록 지우기</string>
-  <string name="menu_clear_all_bookmarks">책갈피 지우기</string>
   <string name="menu_clear_all_saved_pages">저장된 문서 지우기</string>
   <string name="page_does_not_exist_error">이 문서가 존재하지 않습니다.</string>
   <string name="nav_item_today">오늘</string>
@@ -204,7 +203,6 @@
   <string name="color_theme_light">밝음</string>
   <string name="color_theme_dark">어두움</string>
   <string name="page_similar_titles">비슷한 문서</string>
-  <string name="search_no_results">\"%s\"에 대한 결과를 찾을 수 없습니다.</string>
   <string name="search_did_you_mean">\"%s\"을(를) 찾으셨나요?</string>
   <string name="search_recent_header">최근 검색:</string>
   <string name="button_clear_all_recent_searches">최근 검색 지우기</string>

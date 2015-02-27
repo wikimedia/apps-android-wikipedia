@@ -14,7 +14,6 @@
   <string name="search_network_error">Netzwerkfehler. Tippen zum erneuten Versuchen.</string>
   <string name="page_error_retry">Erneut versuchen</string>
   <string name="menu_clear_all_history">Verlauf löschen</string>
-  <string name="menu_clear_all_bookmarks">Lesezeichen löschen</string>
   <string name="menu_clear_all_saved_pages">Gespeicherte Seiten löschen</string>
   <string name="page_does_not_exist_error">Diese Seite ist nicht vorhanden.</string>
   <string name="nav_item_today">Heute</string>
@@ -207,7 +206,6 @@
   <string name="color_theme_light">Hell</string>
   <string name="color_theme_dark">Dunkel</string>
   <string name="page_similar_titles">Ähnliche Seiten</string>
-  <string name="search_no_results">Keine Ergebnisse für „%s“ gefunden.</string>
   <string name="search_did_you_mean">Meintest du „%s“?</string>
   <string name="search_recent_header">Letzte Suchanfragen:</string>
   <string name="button_clear_all_recent_searches">Letzte Suchanfragen löschen</string>

@@ -14,7 +14,6 @@
   <string name="search_network_error">网络故障。点击可重试。</string>
   <string name="page_error_retry">重试</string>
   <string name="menu_clear_all_history">清除历史记录</string>
-  <string name="menu_clear_all_bookmarks">清空书签</string>
   <string name="menu_clear_all_saved_pages">清除已保存页面</string>
   <string name="page_does_not_exist_error">此页面不存在。</string>
   <string name="nav_item_today">今日首页</string>
@@ -207,7 +206,6 @@
   <string name="color_theme_light">浅</string>
   <string name="color_theme_dark">深</string>
   <string name="page_similar_titles">相似页面</string>
-  <string name="search_no_results">找不到“%s”的结果。</string>
   <string name="search_did_you_mean">您的意思是“%s”么？</string>
   <string name="search_recent_header">最近搜索：</string>
   <string name="button_clear_all_recent_searches">清除最近搜索</string>

@@ -14,7 +14,6 @@
   <string name="search_network_error">ਨੈੱਟਵਰਕ \'ਚ ਦੋਸ਼। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਵਾਸਤੇ ਟਕੋਰੋ।</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
-  <string name="menu_clear_all_bookmarks">ਕਿਤਾਬ-ਨਿਸ਼ਾਨੀਆਂ ਸਾਫ਼ ਕਰੋ</string>
   <string name="menu_clear_all_saved_pages">ਸੱਭ ਸੰਭਾਲੇ ਵਰਕੇ ਸਾਫ਼ ਕਰੋ</string>
   <string name="page_does_not_exist_error">ਇਹ ਵਰਕਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="nav_item_today">ਅੱਜ</string>
@@ -199,7 +198,6 @@
   <string name="color_theme_light">ਹਲਕੀ</string>
   <string name="color_theme_dark">ਗੂੜ੍ਹੀ</string>
   <string name="page_similar_titles">ਮਿਲਦੇ-ਜੁਲਦੇ ਸਫ਼ੇ</string>
-  <string name="search_no_results">\"%s\" ਵਾਸਤੇ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਲੱਭੇ।</string>
   <string name="toc_hint">ਹਿੱਸਿਆਂ ਵਾਸਤੇ ਖੱਬੇ ਧੂਹੋ ਜਾਂ ਸਿਖਰ ਸੱਜੇ ਦਿੱਤਾ ਮੀਨੂੰ ਬਟਨ ਵਰਤੋ।</string>
   <string name="toc_know_it">ਸਮਝ ਆ ਗਿਆ</string>
   <string name="app_store_description" fuzzy="true">ਐਂਡਰਾਇਡ ਵਾਸਤੇ ਰਸਮੀ ਵਿਕੀਪੀਡੀਆ ਐਪ। ਵਿਕੀਪੀਡੀਆ ਮੁ਼ਫ਼ਤ ਗਿਆਨਕੋਸ਼ ਹੈ ਜਿਸ ਵਿੱਚ ੨੮੦ ਬੋਲੀਆਂ ਵਿੱਚ ੩.੨ ਕਰੋੜ ਤੋਂ ਵੱਧ ਲੇਖ ਮੌਜੂਦ ਹਨ, ਅਤੇ ਮਨੁੱਖਾਂ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਅੱਜ ਤੱਕ ਦਾ ਸਭ ਤੋਂ ਸਰਬੰਗੀ ਅਤੇ ਵਿਆਪਕ ਵਰਤੋਂ ਵਾਲ਼ਾ ਹਵਾਲਾ ਕਾਰਜ ਹੈ। ਇਹ ਐਪ ਮੁੜ ਨਵੇਂ ਸਿਰਿਓਂ ਲਿਖੀ ਗਈ ਹੈ ਅਤੇ ਹੁਣ ਤੱਕ ਦੇ ਸਭ ਤੋਂ ਚੰਗੇ ਤਰੀਕੇ ਨਾਲ਼।

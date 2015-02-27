@@ -14,7 +14,6 @@
   <string name="search_network_error">שגיאת רשת. יש ללחוץ כדי לנסות שוב.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="menu_clear_all_history">ניקוי היסטוריה</string>
-  <string name="menu_clear_all_bookmarks">ניקוי סימניות</string>
   <string name="menu_clear_all_saved_pages">ניקוי כל הדפים השמורים</string>
   <string name="page_does_not_exist_error">הדף הזה אינו קיים.</string>
   <string name="nav_item_today">היום</string>
@@ -207,7 +206,6 @@
   <string name="color_theme_light">בהיר</string>
   <string name="color_theme_dark">כהה</string>
   <string name="page_similar_titles">דפים דומים</string>
-  <string name="search_no_results">לא נמצאו תוצאות עבור \"%s\".</string>
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
   <string name="search_recent_header">חיפוש אחרונים:</string>
   <string name="button_clear_all_recent_searches">ניקוי החיפושים האחרונים</string>

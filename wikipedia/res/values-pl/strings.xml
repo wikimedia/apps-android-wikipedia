@@ -14,7 +14,6 @@
   <string name="search_network_error">Błąd sieci. Kliknij, aby spróbować ponownie.</string>
   <string name="page_error_retry">Ponów próbę</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
-  <string name="menu_clear_all_bookmarks">Wyczyść zakładki</string>
   <string name="menu_clear_all_saved_pages">Wyczyść listę zapisanych stron</string>
   <string name="page_does_not_exist_error">Ta strona nie istnieje.</string>
   <string name="nav_item_today">Dzisiaj</string>
@@ -198,7 +197,6 @@
   <string name="color_theme_light">Jasna</string>
   <string name="color_theme_dark">Ciemna</string>
   <string name="page_similar_titles">Podobne strony</string>
-  <string name="search_no_results">Nie znaleziono żadnych wyników dla „%s”.</string>
   <string name="search_recent_header">Ostatnie wyszukiwania:</string>
   <string name="button_clear_all_recent_searches">Wyczyść listę ostatnich wyszukiwań</string>
   <string name="clear_recent_searches_confirm">Czy jesteś pewien, że chcesz usunąć historię wyszukiwań?</string>

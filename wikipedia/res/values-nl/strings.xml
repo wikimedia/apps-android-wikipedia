@@ -14,7 +14,6 @@
   <string name="search_network_error">Netwerkfout. Klik om het opnieuw te proberen.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
-  <string name="menu_clear_all_bookmarks">Bladwijzers wissen</string>
   <string name="menu_clear_all_saved_pages">Opgeslagen pagina\'s verwijderen</string>
   <string name="page_does_not_exist_error">Deze pagina bestaat niet.</string>
   <string name="nav_item_today">Vandaag</string>
@@ -207,7 +206,6 @@
   <string name="color_theme_light">Licht</string>
   <string name="color_theme_dark">Donker</string>
   <string name="page_similar_titles">Vergelijkbare pagina\'s</string>
-  <string name="search_no_results">Geen resultaten gevonden voor \"%s\".</string>
   <string name="search_did_you_mean">Bedoelde u \"%s\"?</string>
   <string name="search_recent_header">Recente zoekopdrachten:</string>
   <string name="button_clear_all_recent_searches">Recente zoekopdrachten wissen</string>

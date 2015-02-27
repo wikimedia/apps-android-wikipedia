@@ -14,7 +14,6 @@
   <string name="search_network_error">Gwall rosweyth. Assayewgh arta.</string>
   <string name="page_error_retry">Assaya arta</string>
   <string name="menu_clear_all_history">Klerhe an istori</string>
-  <string name="menu_clear_all_bookmarks">Klerhe lyververkys</string>
   <string name="menu_clear_all_saved_pages">Klerhe folennow gwithys</string>
   <string name="page_does_not_exist_error">Nyns eus folen henwys yndelma.</string>
   <string name="nav_item_today">Hedhyw</string>
@@ -199,7 +198,6 @@
   <string name="color_theme_light">Skav</string>
   <string name="color_theme_dark">Tew</string>
   <string name="page_similar_titles">Folennow haval</string>
-  <string name="search_no_results">Ny veu tra vyth kevys rag \"%s\".</string>
   <string name="search_did_you_mean">A vensowgh \"%s\"?</string>
   <string name="search_recent_header">Hwilansow a-dhiwedhes:</string>
   <string name="button_clear_all_recent_searches">Klerhe hwilansow a-dhiwedhes</string>

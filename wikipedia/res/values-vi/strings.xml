@@ -14,7 +14,6 @@
   <string name="search_network_error">Lỗi mạng. Chạm để thử lại.</string>
   <string name="page_error_retry">Thử lại</string>
   <string name="menu_clear_all_history">Xóa lịch sử</string>
-  <string name="menu_clear_all_bookmarks">Xóa tất cả dấu trang</string>
   <string name="menu_clear_all_saved_pages">Xóa các trang đã lưu</string>
   <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
   <string name="nav_item_today">Hôm nay</string>
@@ -206,7 +205,6 @@
   <string name="color_theme_light">Sáng</string>
   <string name="color_theme_dark">Tối</string>
   <string name="page_similar_titles">Trang tương tự</string>
-  <string name="search_no_results">Không tìm thấy kết quả cho “%s”.</string>
   <string name="search_did_you_mean">Có phải bạn muốn tìm “%s”?</string>
   <string name="search_recent_header">Tìm kiếm gần đây:</string>
   <string name="button_clear_all_recent_searches">Xóa các tìm kiếm gần đây</string>

@@ -183,7 +183,6 @@
   <string name="color_theme_light">ភ្លឺ</string>
   <string name="color_theme_dark">ងងឹត</string>
   <string name="page_similar_titles">ទំព័រស្រដៀង</string>
-  <string name="search_no_results">គ្មានលទ្ធផលស្វែងរកសម្រាប់ \"%s\" ទេ។</string>
   <string name="search_did_you_mean">អ្នកប្រហែលជាចង់រក \"%s\" មែនទេ?</string>
   <string name="search_recent_header">ការស្វែងរកថ្មីៗនេះ៖</string>
   <string name="button_clear_all_recent_searches" fuzzy="true">សម្អាតការស្វែងរកថ្មីៗនេះ</string>

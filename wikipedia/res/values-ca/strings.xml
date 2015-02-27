@@ -14,7 +14,6 @@
   <string name="search_network_error">Error de xarxa. Toqueu la pantalla per a tornar-ho a provar.</string>
   <string name="page_error_retry">Tornar a provar</string>
   <string name="menu_clear_all_history">Esborrar l\'historial</string>
-  <string name="menu_clear_all_bookmarks">Esborrar preferits</string>
   <string name="menu_clear_all_saved_pages">Esborrar les pàgines desades</string>
   <string name="page_does_not_exist_error">Aquesta pàgina no existeix</string>
   <string name="nav_item_today">Avui</string>
@@ -207,7 +206,6 @@
   <string name="color_theme_light">Clar</string>
   <string name="color_theme_dark">Fosc</string>
   <string name="page_similar_titles">Pàgines similars</string>
-  <string name="search_no_results">No s\'han trobat resultats de «%s».</string>
   <string name="search_did_you_mean">Voleu dir \"%s\"?</string>
   <string name="search_recent_header">Cerques recents:</string>
   <string name="button_clear_all_recent_searches">Esborrar les cerques recents</string>

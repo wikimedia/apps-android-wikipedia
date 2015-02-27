@@ -13,7 +13,6 @@
   <string name="search_network_error">Võrgu viga. Puuduta ekraani, et uuesti proovida!</string>
   <string name="page_error_retry">Proovi uuesti</string>
   <string name="menu_clear_all_history">Tühjenda ajalugu</string>
-  <string name="menu_clear_all_bookmarks">Eemalda järjehoidjad</string>
   <string name="menu_clear_all_saved_pages">Tühjenda kõik salvestatud leheküljed</string>
   <string name="page_does_not_exist_error">Seda lehekülge ei ole olemas!</string>
   <string name="dialog_title_clear_history">Kustuta sirvimise ajalugu?</string>

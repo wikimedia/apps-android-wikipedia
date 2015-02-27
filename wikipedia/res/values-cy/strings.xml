@@ -14,7 +14,6 @@
   <string name="search_network_error">Gwall yn y rhwydwaith. Ceisiwch eto.</string>
   <string name="page_error_retry">Ailgeisiwch</string>
   <string name="menu_clear_all_history">Clirio\'r hanes</string>
-  <string name="menu_clear_all_bookmarks">Clirio\'r nodau tudalen</string>
   <string name="menu_clear_all_saved_pages">Clirio\'r tudalennau a gadwyd</string>
   <string name="page_does_not_exist_error">Does dim tudalen o\'r enw hwn ar gael.</string>
   <string name="nav_item_today">Heddiw</string>

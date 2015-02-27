@@ -14,7 +14,6 @@
   <string name="search_network_error">Fazi rouedad : pouezañ evit klask en-dro.</string>
   <string name="page_error_retry">Klask en-dro</string>
   <string name="menu_clear_all_history">Diverkañ an istor</string>
-  <string name="menu_clear_all_bookmarks">Diverkañ ar sinedoù</string>
   <string name="menu_clear_all_saved_pages">Diverkañ ar pajennoù enrollet</string>
   <string name="page_does_not_exist_error">N\'eus ket eus ar bajenn-se.</string>
   <string name="nav_item_today">Hiziv</string>
@@ -206,7 +205,6 @@
   <string name="color_theme_light">Sklaer</string>
   <string name="color_theme_dark">Teñval</string>
   <string name="page_similar_titles">Pajennoù kar</string>
-  <string name="search_no_results">Disoc\'h ebet kavet evit \"%s\".</string>
   <string name="search_did_you_mean">\"%s\" emezit-c\'hwi ?</string>
   <string name="search_recent_header">Enklaskoù nevez :</string>
   <string name="button_clear_all_recent_searches">diverkañ an enklaskoù nevez</string>

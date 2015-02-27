@@ -11,7 +11,6 @@
   <string name="search_network_error">Network खराब आहे. पुन्हा प्रयत्न करण्यासाठी tap करा.</string>
   <string name="page_error_retry">पुन्हा प्रयत्न करा</string>
   <string name="menu_clear_all_history">इतिहास साफ करा</string>
-  <string name="menu_clear_all_bookmarks">Bookmarks साफ करा</string>
   <string name="menu_clear_all_saved_pages">साठवलेली पाने पुसून टाका.</string>
   <string name="page_does_not_exist_error">हे पान अस्तित्वात नाही.</string>
   <string name="nav_item_today">आज</string>
@@ -141,7 +140,6 @@
   <string name="color_theme_light">फिकट</string>
   <string name="color_theme_dark">गडद</string>
   <string name="page_similar_titles">सारखी पाने</string>
-  <string name="search_no_results">\"%s\" शी संबंधित काही सापडले नाही.</string>
   <string name="search_did_you_mean">तुम्हाला \"%s\" म्हणायचे आहे काय?</string>
   <string name="search_recent_header">अलीकडील शोध:</string>
   <string name="toc_know_it">मिळाले</string>

@@ -12,7 +12,6 @@
   <string name="search_network_error">ქსელის შეცდომა. სცადეთ ახლიდან.</string>
   <string name="page_error_retry">გამეორება</string>
   <string name="menu_clear_all_history">ისტორიის გასუფთავება</string>
-  <string name="menu_clear_all_bookmarks">გაასუბთავეთ სანიშნეები</string>
   <string name="menu_clear_all_saved_pages">გაასუფთავეთ შენახული გვერდები</string>
   <string name="page_does_not_exist_error">ეს გვერდი არ არსებობს.</string>
   <string name="nav_item_today">დღეს</string>
@@ -181,7 +180,6 @@
   <string name="color_theme_light">ნათელი</string>
   <string name="color_theme_dark">ბნელი</string>
   <string name="page_similar_titles">მსგავსი გვერდები</string>
-  <string name="search_no_results">„%s“-თვის არაფერი არ მოიძებნა.</string>
   <string name="search_did_you_mean">ხომ არ იგულისხმეთ „%s“?</string>
   <string name="search_recent_header">ბოლოს მოძიებულები</string>
   <string name="button_clear_all_recent_searches">ბოლოს მოძიებულების გასუფთავება</string>

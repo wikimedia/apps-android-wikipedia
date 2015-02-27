@@ -14,7 +14,6 @@
   <string name="search_network_error">Nätverksfel. Tryck för att försöka igen.</string>
   <string name="page_error_retry">Försök igen</string>
   <string name="menu_clear_all_history">Rensa historik</string>
-  <string name="menu_clear_all_bookmarks">Rensa bokmärken</string>
   <string name="menu_clear_all_saved_pages">Rensa sparade sidor</string>
   <string name="page_does_not_exist_error">Denna sida finns inte!</string>
   <string name="nav_item_today">Idag</string>
@@ -207,7 +206,6 @@
   <string name="color_theme_light">Ljus</string>
   <string name="color_theme_dark">Mörk</string>
   <string name="page_similar_titles">Liknande sidor</string>
-  <string name="search_no_results">Inga resultat hittade för \"%s\".</string>
   <string name="search_did_you_mean">Menade du \"%s\"?</string>
   <string name="search_recent_header">Senaste sökningar:</string>
   <string name="button_clear_all_recent_searches">Rensa senaste sökningar</string>

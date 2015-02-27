@@ -14,7 +14,6 @@
   <string name="search_network_error">Feeler vum Reseau. Tippt fir nach eng Kéier ze probéieren.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
   <string name="menu_clear_all_history">Historique läschen</string>
-  <string name="menu_clear_all_bookmarks">Lieszeeche läschen</string>
   <string name="menu_clear_all_saved_pages">Gespäichert Säite läschen</string>
   <string name="page_does_not_exist_error">Dës Säit gëtt et net.</string>
   <string name="nav_item_today">Haut</string>
@@ -201,7 +200,6 @@
   <string name="color_theme_light">Hell</string>
   <string name="color_theme_dark">Déischter</string>
   <string name="page_similar_titles">Ähnlech Säiten</string>
-  <string name="search_no_results">Näischt fonnt fir \"%s\".</string>
   <string name="search_did_you_mean">Mengt Dir \"%s\"?</string>
   <string name="search_recent_header">Rezent gesicht:</string>
   <string name="button_clear_all_recent_searches">Rezent Ufroen, fir ze sichen, läschen</string>

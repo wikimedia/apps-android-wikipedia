@@ -13,7 +13,6 @@
   <string name="search_network_error">Связалъул гъалатӀ. Такрар гьабизе цӀуе.</string>
   <string name="page_error_retry">Такрар гьабизе.</string>
   <string name="menu_clear_all_history">Тарих бацӀцӀине</string>
-  <string name="menu_clear_all_bookmarks">Закладкал рацӀцӀине</string>
   <string name="menu_clear_all_saved_pages">ЦӀунарал гьумерал рацӀцӀине</string>
   <string name="page_does_not_exist_error">Гединаб гьумер гьечӀо.</string>
   <string name="nav_item_today">Жакъа</string>

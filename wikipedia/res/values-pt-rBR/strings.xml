@@ -14,7 +14,6 @@
   <string name="search_network_error">Erro de conexão. Toque para tentar novamente.</string>
   <string name="page_error_retry">Repetir</string>
   <string name="menu_clear_all_history">Limpar histórico</string>
-  <string name="menu_clear_all_bookmarks">Limpar favoritos</string>
   <string name="menu_clear_all_saved_pages">Apagar todas as páginas salvas</string>
   <string name="page_does_not_exist_error">Esta página não existe</string>
   <string name="nav_item_today">Hoje</string>
@@ -207,32 +206,39 @@
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Escuro</string>
   <string name="page_similar_titles">Títulos semelhantes</string>
-  <string name="search_no_results">Nenhum resultado encontrado para \"%s\".</string>
   <string name="search_did_you_mean">Você quis dizer \"%s\"?</string>
   <string name="search_recent_header">Pesquisas recentes:</string>
   <string name="button_clear_all_recent_searches">Limpar pesquisas recentes</string>
   <string name="clear_recent_searches_confirm">Tem certeza de que deseja apagar o histórico de pesquisa?</string>
   <string name="toc_hint">Arraste para a esquerda para seções, ou use o botão de menu no canto superior direito.</string>
   <string name="toc_know_it">Entendi</string>
-  <string name="error_browser_not_found">Não foi possível abrir a pagina da web (nenhum navegador foi localizado).</string>
+  <string name="error_browser_not_found">Não foi possível abrir a página da web (nenhum navegador foi localizado).</string>
   <string name="table_infobox">Fatos rapidos</string>
   <string name="table_other">Mais informação</string>
   <string name="table_close">Fechar</string>
   <string name="widget_name_featured_page">Artigo destacado na Wikipédia</string>
   <string name="widget_title_featured_page">Artigo destacado de hoje:</string>
   <string name="widget_name_search">Pesquisa da Wikipédia</string>
-  <string name="app_store_description" fuzzy="true">Aplicativo oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada até hoje. O aplicativo foi re-criado do zero e está melhor que nunca.
+  <string name="app_store_description">Aplicativo oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre contendo mais 32 milhões de artigos em 280 idiomas e é o mais abrangente e amplamente usado trabalho humano de referência já compilado.
 
-Caraterísticas:
-   - Velocidade: O nosso novo aplicativo permite navegar e editar a Wikipédia de uma forma mais rápida do que nunca.
-   - Edição: Você pode editar a Wikipédia! Usando ou não uma conta de usuário, nós agradecemos todas as suas contribuições.
-   - Páginas recentes: Nós fornecemos o seu histórico de leitura, para que você possa clicar em quantos artigos quiser sem se perder.
-   - Páginas salvas: Pode salvas páginas para leitura \'\'offline\'\' e acessá-las mesmo sem conexão de rede.
-   - Compartilhar: Use os seus aplicativos sociais para compartilhar a soma de todo o conhecimento humano.
-   - Suporte de idioma: O aplicativo permite que, de forma fácil, você consiga ler a Wikipédia em qualquer idioma.
-   - Wikipédia Zero: Isenção de cobrança de dados para operadoras participantes.
+Características:
+- Imagens principais: desfrute a experência da Wikipédia como nunca antes com uma imagem proeminente e contextualmente relevante e descrições no topo dos artigos.
+- Galeria de imagens: tocar em uma imagem mostrará a você esta imagem com alta resolução em tela cheia, com opção para deslizar à esquerda ou à direita para procurar outras imagens.
+- Descrições do Wikidata: ao fazer pesquisas, cada pesquisa agora contém uma rápida descrição que ajuda a contextualizar o resultado. Estas descrições também são mostradas em outras áreas do aplicativo, como Nas redondezas.
+- Sugestões de artigos: role até o fim de um artigo para ver sugestões sobre o que poderá ler em seguida.
+- Páginas salvas: você pode salvar páginas selecionadas para leitura e navegação offline mesmo sem uma conexão de dados ativa
+- Nas redondezas: saiba mais sobre o que está à sua volta ao obter ligações para artigos sobre coisas próximas à sua localização.
+- Suporte de idioma: o aplicativo lhe permite mudar para a leitura da Wikipédia escrita em qualquer idioma.
+- Tabela de conteúdos: deslize para a esquerda em qualquer artigo para mostrar o índice, que lhe permitirá avançar facilmente nas seções do texto
+- Wikipédia Zero: cobranças por dados dispensadas para as operadoras móveis participantes.
 
-O código é totalmente aberto. Se você tem experiência com linguagens como Java e Android SDK, venha trabalhar connosco! https://github.com/wikimedia/apps-android-wikipedia</string>
+Envie-nos seus comentários sobre o aplicativo! No menu, clique em \"mais\", e em seguida \"Sobre o aplicativo Wikipédia\" e depois \"Enviar comentários sobre o aplicativo\".
+
+O código é 100% aberto. Se você tem experiência com as linguagens Java e Android SDK, procuramos contar com suas contribuições! https://github.com/wikimedia/apps-android-wikipedia
+
+Política de privacidade: http://wikimediafoundation.org/wiki/Privacy_policy
+
+Condições de uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Nova versão alfa disponível</string>
   <string name="alpha_update_notification_text">Toque para baixar</string>
   <string name="dialog_close_description">Fechar</string>

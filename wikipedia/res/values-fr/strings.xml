@@ -14,7 +14,6 @@
   <string name="search_network_error">Erreur de réseau. Appuyez pour réessayer.</string>
   <string name="page_error_retry">Réessayer</string>
   <string name="menu_clear_all_history">Effacer l’historique</string>
-  <string name="menu_clear_all_bookmarks">Effacer les signets</string>
   <string name="menu_clear_all_saved_pages">Effacer les pages enregistrées</string>
   <string name="page_does_not_exist_error">Cette page n’existe pas.</string>
   <string name="nav_item_today">Aujourd’hui</string>
@@ -32,7 +31,7 @@
   <string name="toast_saved_page_missing_images">Impossible d’enregistrer toutes les images</string>
   <string name="toast_refresh_saved_page">Rafraîchissement de la page enregistrée…</string>
   <string name="delete_selected_saved_pages">Supprimer</string>
-  <string name="toast_saved_page_deleted">Page(s) enregistrée(s) supprimée(s)</string>
+  <string name="toast_saved_page_deleted">Pages enregistrées supprimées</string>
   <string name="saved_pages_search_list_hint">Rechercher</string>
   <string name="saved_pages_search_empty_message">Aucune page trouvée correspondant à votre requête.</string>
   <string name="nav_item_nearby">À proximité</string>
@@ -207,7 +206,6 @@
   <string name="color_theme_light">Clair</string>
   <string name="color_theme_dark">Sombre</string>
   <string name="page_similar_titles">Pages semblables</string>
-  <string name="search_no_results">Aucun résultat trouvé pour « %s ».</string>
   <string name="search_did_you_mean">Voulez-vous dire « %s » ?</string>
   <string name="search_recent_header">Recherches récentes :</string>
   <string name="button_clear_all_recent_searches">Effacer les recherches récentes</string>
@@ -221,18 +219,26 @@
   <string name="widget_name_featured_page">Page mise en avant de Wikipédia</string>
   <string name="widget_title_featured_page">Page mise en avant aujourd’hui :</string>
   <string name="widget_name_search">Recherche Wikipédia</string>
-  <string name="app_store_description" fuzzy="true">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée. L’application a été réécrite de zéro et est meilleure que jamais.
+  <string name="app_store_description">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée.
 
 Fonctionnalités :
-   - Vitesse : notre nouvelle application native vous permet de naviguer sur Wikipédia et de modifier plus vite que jamais.
-   - Modification : vous pouvez modifier Wikipédia ! connecté ou non, nous vous remercions pour toutes vos contributions.
-   - Pages récentes : nous conservons votre historique de lecture, afin que vous puissiez suivre autant de liens que vous voulez sans jamais être perdu.
-   - Pages enregistrées : vous pouvez enregistrer des pages pour une lecture hors ligne et y naviguer même sans avoir de connexion.
-   - Partager : utilisez vos applications de réseau social existantes pour partager la somme de tout le savoir humain.
-   - Support linguistique : l’application vous permet de basculer de façon transparente pour lire Wikipédia dans n’importe quelle langue.
-   - Wikipédia Zéro : les frais de données sont annulés pour les opérateurs mobiles participants.
+- Images principales : faites l’expérience de Wikipédia comme jamais auparavant avec une image marquante dans le contexte et une description en haut des articles
+- Galerie d’images : appuyer sur une image affiche l’image en plein écran en haute résolution, avec des options pour faire glisser à droite ou à gauche pour parcourir les autres images
+- Descriptions de Wikidata : lors d’une recherche, chaque résultat de recherche contient désormais une courte description qui aide à saisir le contexte du résultat. Ces descriptions sont aussi affichées dans d’autres zones de l’application, comme « À proximité »
+- Suggestions d’article : allez en bas d’un article pour voir les suggestions sur ce que vous pouvez lire ensuite
+- Pages enregistrées : vous pouvez enregistrer des pages pour une lecture hors ligne et y naviguer même sans avoir de connexion
+- À proximité : En savoir plus sur ce qui est aux alentours en obtenant des liens vers des articles sur des choses qui sont proches de votre position actuelle
+- Support linguistique : l’application vous permet de changer sans efforts la langue du contenu de Wikipédia lu.
+- Table des matières : faites glisser sur n’importe quel article pour faire apparaître le sommaire, qui vous permet d’atteindre facilement les sections de l’article
+- Wikipédia Zéro : les frais de données sont annulés pour les opérateurs mobiles participants.
 
-Le code est entièrement ouvert. Si vous êtes expérimenté avec Java et le kit de développement Android, alors venez créer votre variante ! https://github.com/wikimedia/apps-android-wikipedia</string>
+Envoyez-nous votre avis sur l’application ! Dans le menu, appuyez sur « Plus », puis « À propos de l’application Wikipédia », puis « Envoyer un avis sur l’application ». 
+
+Le code est ouvert à 100%. Si vous êtes expérimenté avec Java et le kit de développement Android, alors nous attendons vos contributions ! https://github.com/wikimedia/apps-android-wikipedia
+
+Politique de confidentialité : http://wikimediafoundation.org/wiki/Privacy_policy
+
+Conditions d’utilisation : http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Nouvelle mise à jour alpha disponible</string>
   <string name="alpha_update_notification_text">Touchez pour télécharger</string>
   <string name="dialog_close_description">Fermer</string>

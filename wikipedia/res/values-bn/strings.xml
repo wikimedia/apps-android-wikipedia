@@ -14,7 +14,6 @@
   <string name="search_network_error">নেটওয়ার্ক ত্রুটি। পুনরায় চেষ্টা করুন।</string>
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
-  <string name="menu_clear_all_bookmarks">বুকমার্ক অপসারণ</string>
   <string name="menu_clear_all_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার কর</string>
   <string name="page_does_not_exist_error">এই শিরোনামে কোন পাতা নেই।</string>
   <string name="nav_item_today">আজ</string>
@@ -206,7 +205,6 @@
   <string name="color_theme_light">উজ্জ্বল</string>
   <string name="color_theme_dark">কালো</string>
   <string name="page_similar_titles">অনুরূপ পাতাগুলি</string>
-  <string name="search_no_results">\"%s\"-এর জন্য কোন ফলাফল পাওয়া যায়নি।</string>
   <string name="search_did_you_mean">আপনার মানে কি \"%s\"?</string>
   <string name="search_recent_header">সাম্প্রতিক অনুসন্ধান</string>
   <string name="button_clear_all_recent_searches">সাম্প্রতিক অনুসন্ধান গুলি মুছে ফেলুন</string>
@@ -235,4 +233,5 @@
   <string name="snippet_share_intro">\@Wikipedia তে \"%1$s\": %2$s</string>
   <string name="expand_refs">বিস্তারিত জানতে ক্লিক করুন</string>
   <string name="snippet_share_preview_image_desc">চিত্র প্রাকদর্শন</string>
+  <string name="cc_logo">ক্রিয়েটিভ কমন্স লাইসেন্স</string>
 </resources>

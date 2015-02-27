@@ -21,7 +21,6 @@
 {{Identical|Retry}}</string>
   <string name="menu_clear_all_history">Menu item text for clearing your reading history.
 {{Identical|Clear history}}</string>
-  <string name="menu_clear_all_bookmarks">Menu item text for clearing bookmarks</string>
   <string name="menu_clear_all_saved_pages">Clear is an imperative verb. This is an action that clears all saved pages.</string>
   <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
   <string name="nav_item_today">Text in navigation sidebar that when tapped leads to the Main Page.
@@ -306,7 +305,6 @@ Please test the URL to make sure it works</string>
   <string name="color_theme_dark">Button label for Dark color theme
 {{Identical|Dark}}</string>
   <string name="page_similar_titles">Button label for showing a list of similar titles (disambiguation) for the current page</string>
-  <string name="search_no_results">Label that tells the user that no results were found. The \"%s\" symbol is replaced with the phrase that was searched.</string>
   <string name="search_did_you_mean">Label that gives the user a suggestion for a better search term, instead of the one that the user gave. The \"%s\" symbol is replaced with the suggestion.</string>
   <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
   <string name="button_clear_all_recent_searches">Button hint for clearing search history;  visible when in search mode.</string>

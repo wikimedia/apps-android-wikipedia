@@ -12,7 +12,6 @@
   <string name="search_network_error">Tinklo klaida. Bakstelėkite bandyti dar kartą.</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
   <string name="menu_clear_all_history">Valyti istoriją</string>
-  <string name="menu_clear_all_bookmarks">Išvalyti žymeklius</string>
   <string name="menu_clear_all_saved_pages">Valyti įrašytus puslapius</string>
   <string name="page_does_not_exist_error">Šis puslapis neegzistuoja.</string>
   <string name="nav_item_today">Šiandien</string>

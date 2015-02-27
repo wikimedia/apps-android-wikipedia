@@ -14,7 +14,6 @@
   <string name="search_network_error">خطای شبکه. برای تلاش مجدد با انگشت بر روی صفحه بزنید.</string>
   <string name="page_error_retry">تلاش مجدد</string>
   <string name="menu_clear_all_history">پاک‌کردن تاریخچه</string>
-  <string name="menu_clear_all_bookmarks">پاک کردن بوک مارک</string>
   <string name="menu_clear_all_saved_pages">پاک کردن صفحه‌های ذخیره‌شده</string>
   <string name="page_does_not_exist_error">این صفحه وجود ندارد!</string>
   <string name="nav_item_today">امروز</string>
@@ -207,7 +206,6 @@
   <string name="color_theme_light">روشن</string>
   <string name="color_theme_dark">تیره</string>
   <string name="page_similar_titles">معانی مشابه</string>
-  <string name="search_no_results">هیچ نتیجه‌ای برای «%s» یافت نشد.</string>
   <string name="search_did_you_mean">منظورتان «%s» بود؟</string>
   <string name="search_recent_header">جستجوهای اخیر:</string>
   <string name="button_clear_all_recent_searches">پاک‌کردن جستجوهای اخیر</string>

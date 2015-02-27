@@ -14,7 +14,6 @@
   <string name="search_network_error">Erro na rede. Toque para intentalo de novo.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="menu_clear_all_history">Limpar o historial</string>
-  <string name="menu_clear_all_bookmarks">Limpar os marcadores</string>
   <string name="menu_clear_all_saved_pages">Limpar as páxinas gardadas</string>
   <string name="page_does_not_exist_error">Esta páxina non existe.</string>
   <string name="nav_item_today">Hoxe</string>
@@ -206,7 +205,6 @@
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Escuro</string>
   <string name="page_similar_titles">Páxinas semellantes</string>
-  <string name="search_no_results">Non se atopou ningún resultado para \"%s\".</string>
   <string name="search_did_you_mean">Quixo dicir \"%s\"?</string>
   <string name="search_recent_header">Buscas recentes:</string>
   <string name="button_clear_all_recent_searches">Limpar buscas recentes</string>

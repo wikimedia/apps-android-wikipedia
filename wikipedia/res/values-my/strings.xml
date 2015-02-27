@@ -14,7 +14,6 @@
   <string name="search_network_error">ချိတ်ဆက်မှု ပြသာနာ ရှိသည်။ ပြန်ကြိုးစားကြည့်ပါ ။</string>
   <string name="page_error_retry">ပြန်လုပ်</string>
   <string name="menu_clear_all_history">မှတ်တမ်းအားရှင်းမည်</string>
-  <string name="menu_clear_all_bookmarks">စာအမှတ်များအားရှင်းလင်းပါ</string>
   <string name="menu_clear_all_saved_pages">သိမ်းထားသော စာမျက်နှာများ အားရှင်းပါ</string>
   <string name="page_does_not_exist_error">ဤစာမျက်နှာ မရှိပါ</string>
   <string name="nav_item_today">ယနေ့</string>

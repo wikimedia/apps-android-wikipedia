@@ -12,7 +12,6 @@
   <string name="search_network_error">வலையத் தவறு. திரும்ப முயல தட்டவும்.</string>
   <string name="page_error_retry">மறு முயற்சி செய்</string>
   <string name="menu_clear_all_history">வரலாற்றை நீக்கவும்</string>
-  <string name="menu_clear_all_bookmarks">புத்தகக்குறிகளை நீக்குக</string>
   <string name="menu_clear_all_saved_pages">சேமித்தப் பக்கங்களை நீக்கு</string>
   <string name="page_does_not_exist_error">இந்தப் பக்கம் இல்லை!</string>
   <string name="nav_item_today">இன்று</string>

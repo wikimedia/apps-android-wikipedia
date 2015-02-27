@@ -14,7 +14,6 @@
   <string name="search_network_error">Σφάλμα δικτύου. Πατήστε για να προσπαθήσετε ξανά.</string>
   <string name="page_error_retry">Ξαναπροσπαθήστε</string>
   <string name="menu_clear_all_history">Εκκαθάριση ιστορικού</string>
-  <string name="menu_clear_all_bookmarks">Εκκαθάριση σελιδοδεικτών</string>
   <string name="menu_clear_all_saved_pages">Εκκαθάριση αποθηκευμένων σελίδων</string>
   <string name="page_does_not_exist_error">Αυτή η σελίδα δεν υπάρχει!</string>
   <string name="nav_item_today">Σήμερα</string>
@@ -199,7 +198,6 @@
   <string name="color_theme_light">Φωτεινό</string>
   <string name="color_theme_dark">Σκούρο</string>
   <string name="page_similar_titles">Παρόμοιες σελίδες</string>
-  <string name="search_no_results">Δεν βρέθηκαν αποτελέσματα για \"%s\".</string>
   <string name="search_did_you_mean">Μήπως εννοείτε \"%s\";</string>
   <string name="search_recent_header">Πρόσφατες αναζητήσεις:</string>
   <string name="button_clear_all_recent_searches">Εκκαθάριση πρόσφατων αναζητήσεων</string>

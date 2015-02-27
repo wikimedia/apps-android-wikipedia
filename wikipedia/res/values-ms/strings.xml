@@ -14,7 +14,6 @@
   <string name="search_network_error">Ralat rangkaian. Ketik untuk cuba lagi.</string>
   <string name="page_error_retry">Cuba lagi</string>
   <string name="menu_clear_all_history">Padamkan sejarah</string>
-  <string name="menu_clear_all_bookmarks">Padamkan bookmark</string>
   <string name="menu_clear_all_saved_pages">Padamkan semua laman tersimpan</string>
   <string name="page_does_not_exist_error">Laman ini tidak wujud.</string>
   <string name="nav_item_today">Hari ini</string>
@@ -206,7 +205,6 @@
   <string name="color_theme_light">Terang</string>
   <string name="color_theme_dark">Gelap</string>
   <string name="page_similar_titles">Laman-laman serupa</string>
-  <string name="search_no_results">Tiada hasil ditemui untuk \" %s \".</string>
   <string name="search_did_you_mean">Adakah maksud anda, \"%s\"?</string>
   <string name="search_recent_header">Carian terkini:</string>
   <string name="button_clear_all_recent_searches">Padamkan carian terkini</string>

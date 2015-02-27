@@ -14,7 +14,6 @@
   <string name="search_network_error">നെറ്റ്‌വർക്ക് പിഴവ്. വീണ്ടും ശ്രമിക്കാൻ ടാപ് ചെയ്യുക.</string>
   <string name="page_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="menu_clear_all_history">നാൾവഴി ശൂന്യമാക്കുക</string>
-  <string name="menu_clear_all_bookmarks">ബുക്മാർക്കുകൾ ഒഴിവാക്കുക</string>
   <string name="menu_clear_all_saved_pages">സേവ് ചെയ്ത താളുകൾ ഒഴിവാക്കുക</string>
   <string name="page_does_not_exist_error">ഈ താൾ നിലവിലില്ല.</string>
   <string name="nav_item_today">ഇന്ന്</string>

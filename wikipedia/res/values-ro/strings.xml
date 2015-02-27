@@ -14,7 +14,6 @@
   <string name="search_network_error">Eroare de rețea. Atingeți pentru a reîncerca.</string>
   <string name="page_error_retry">Reîncercare</string>
   <string name="menu_clear_all_history">Curăță istoricul</string>
-  <string name="menu_clear_all_bookmarks">Șterge semnele de carte</string>
   <string name="menu_clear_all_saved_pages">Șterge paginile salvate</string>
   <string name="page_does_not_exist_error">Această pagină nu există.</string>
   <string name="nav_item_today">Astăzi</string>
@@ -207,7 +206,6 @@
   <string name="color_theme_light">Deschisă</string>
   <string name="color_theme_dark">Închisă</string>
   <string name="page_similar_titles">Pagini similare</string>
-  <string name="search_no_results">Niciun rezultat găsit pentru „%s”.</string>
   <string name="search_did_you_mean">Vă refereați la „%s”?</string>
   <string name="search_recent_header">Căutări recente:</string>
   <string name="button_clear_all_recent_searches">Șterge căutările recente</string>

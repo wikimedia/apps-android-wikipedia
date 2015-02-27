@@ -14,7 +14,6 @@
   <string name="search_network_error">Тармак катасы. Кайра аракет кылуу үчүн дагы басыңыз.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="menu_clear_all_history">Тарыхты тазалоо</string>
-  <string name="menu_clear_all_bookmarks">Сакталмаларды өчүрүү</string>
   <string name="menu_clear_all_saved_pages">Бардык сакталган барактарды өчүрүү</string>
   <string name="page_does_not_exist_error">Мындай барак жок.</string>
   <string name="nav_item_today">Бүгүн</string>
@@ -199,7 +198,6 @@
   <string name="color_theme_light">Ачык</string>
   <string name="color_theme_dark">Караңгы</string>
   <string name="page_similar_titles">Окшош барактар</string>
-  <string name="search_no_results">\"%s\" үчүн эч бир жыйынтык табылбады.</string>
   <string name="search_did_you_mean">Издегениңиз «%s» болуп жүрбөсүн?</string>
   <string name="search_recent_header">Соңку издөөлөр:</string>
   <string name="button_clear_all_recent_searches" fuzzy="true">Соңку издөөлөр тизмесин өчүрүү</string>

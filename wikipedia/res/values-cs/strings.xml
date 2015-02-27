@@ -14,7 +14,6 @@
   <string name="search_network_error">Chyba sítě. Klepnutím to zkusíte znovu.</string>
   <string name="page_error_retry">Zkusit znovu</string>
   <string name="menu_clear_all_history">Vymazat historii</string>
-  <string name="menu_clear_all_bookmarks">Vymazat záložky</string>
   <string name="menu_clear_all_saved_pages">Vymazat uložené stránky</string>
   <string name="page_does_not_exist_error">Tato stránka neexistuje.</string>
   <string name="nav_item_today">Dnes</string>
@@ -196,7 +195,6 @@
   <string name="color_theme_light">Světlý</string>
   <string name="color_theme_dark">Tmavý</string>
   <string name="page_similar_titles">Podobné stránky</string>
-  <string name="search_no_results">Nebyly nalezeny žádné výsledky pro „%s“.</string>
   <string name="search_did_you_mean">Měli jste na mysli „%s“?</string>
   <string name="search_recent_header">Nedávná hledání:</string>
   <string name="button_clear_all_recent_searches">Vymazat nedávná hledání</string>
