@@ -14,11 +14,22 @@
     <LinearLayout android:layout_width="0dp"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
+                  android:paddingLeft="4dp"
+                  android:paddingRight="4dp"
+                  android:paddingBottom="16dp"
                   android:layout_weight="1"
                   android:id="@+id/nav_item_container"
                   android:background="@color/nav_background"
-                  android:paddingTop="48dp"
             >
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginBottom="34dp"
+            android:src="@drawable/nav_drawer_wordmark"/>
 
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
@@ -28,6 +39,7 @@
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
+                       android:padding="2dp"
                        android:layout_gravity="top"
                        android:src="@drawable/face_sleep_white"
                        android:contentDescription="@null"
@@ -47,6 +59,7 @@
                         />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
@@ -58,6 +71,7 @@
                       >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
+                       android:padding="2dp"
                        android:layout_gravity="top"
                        android:src="@drawable/face_smile_white"
                        android:contentDescription="@null"
@@ -78,13 +92,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@color/nav_border" />
-
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
@@ -93,6 +100,7 @@
                 >
             <ImageView android:layout_width="32dp" android:layout_height="32dp"
                        android:layout_margin="8dp"
+                       android:padding="2dp"
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/ic_today"
                        android:contentDescription="@null"
@@ -115,6 +123,7 @@
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
+                       android:padding="2dp"
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/clock_white"
                        android:contentDescription="@null"
@@ -137,6 +146,7 @@
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
+                       android:padding="2dp"
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/bookmark_white"
                        android:contentDescription="@null"
@@ -159,6 +169,7 @@
                 >
             <ImageView android:layout_width="32dp" android:layout_height="32dp"
                        android:layout_margin="8dp"
+                       android:padding="2dp"
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/ic_place_dark"
                        android:contentDescription="@null"
@@ -181,6 +192,7 @@
                 >
             <FrameLayout android:layout_width="24dp" android:layout_height="24dp"
                          android:layout_margin="12dp"
+                         android:padding="2dp"
                          android:layout_gravity="center_vertical">
                 <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
                            android:src="@drawable/dice_white"
@@ -215,8 +227,6 @@
         <!-- Separator view for providing gap between top items and bottom ones -->
         <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
 
-        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/nav_border" />
-
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
@@ -225,6 +235,7 @@
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
                        android:layout_margin="12dp"
+                       android:padding="2dp"
                        android:layout_gravity="center_vertical"
                        android:src="@drawable/gear_white"
                        android:contentDescription="@null"
