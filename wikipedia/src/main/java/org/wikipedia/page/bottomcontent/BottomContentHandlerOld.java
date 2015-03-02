@@ -1,28 +1,29 @@
 package org.wikipedia.page.bottomcontent;
 
-import android.graphics.Bitmap;
-import android.graphics.PointF;
-import android.os.Build;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import com.squareup.picasso.Target;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
-import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -33,14 +34,14 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.page.SuggestionsTask;
-import org.wikipedia.page.leadimages.ImageViewWithFace;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.views.ObservableWebView;
 
-public class BottomContentHandler implements BottomContentInterface,
-                                             ObservableWebView.OnScrollChangeListener,
-                                             ObservableWebView.OnContentHeightChangedListener,
-                                             ImageViewWithFace.OnImageLoadListener {
+import java.util.List;
+
+public class BottomContentHandlerOld implements BottomContentInterface,
+                                                ObservableWebView.OnScrollChangeListener,
+                                                ObservableWebView.OnContentHeightChangedListener {
     private static final String TAG = "BottomContentHandler";
     private final PageViewFragmentInternal parentFragment;
     private final CommunicationBridge bridge;
@@ -56,19 +57,16 @@ public class BottomContentHandler implements BottomContentInterface,
     private TextView pageLastUpdatedText;
     private TextView pageLicenseText;
     private View readMoreContainer;
-
-    private TextView readNextTitle;
-    private TextView readNextDescription;
-    private ImageView imagePlaceholder;
-    private ImageViewWithFace image1;
+    private ListView readMoreList;
 
     private SuggestedPagesFunnel funnel;
     private SearchResults readMoreItems;
 
-    public BottomContentHandler(PageViewFragmentInternal parent, CommunicationBridge bridge,
-                                ObservableWebView webview, LinkHandler linkHandler,
-                                ViewGroup hidingView, final PageTitle pageTitle) {
-        this.parentFragment = parent;
+    public BottomContentHandlerOld(PageViewFragmentInternal parentFragment,
+                                   CommunicationBridge bridge, ObservableWebView webview,
+                                   LinkHandler linkHandler, ViewGroup hidingView,
+                                   PageTitle pageTitle) {
+        this.parentFragment = parentFragment;
         this.bridge = bridge;
         this.webView = webview;
         this.linkHandler = linkHandler;
@@ -81,46 +79,69 @@ public class BottomContentHandler implements BottomContentInterface,
         webview.addOnScrollChangeListener(this);
         webview.addOnContentHeightChangedListener(this);
 
-        pageLastUpdatedText = (TextView) bottomContentContainer.findViewById(R.id.page_last_updated_text);
-        pageLicenseText = (TextView) bottomContentContainer.findViewById(R.id.page_license_text);
-        readMoreContainer = bottomContentContainer.findViewById(R.id.read_next_container);
-        readNextTitle = (TextView) bottomContentContainer.findViewById(R.id.read_next_title_text);
-        readNextDescription = (TextView) bottomContentContainer.findViewById(R.id.read_next_description_text);
-        imagePlaceholder = (ImageView) bottomContentContainer.findViewById(R.id.read_next_image_placeholder);
-        image1 = (ImageViewWithFace) bottomContentContainer.findViewById(R.id.read_next_image_1);
-        image1.setOnImageLoadListener(this);
+        pageLastUpdatedText = (TextView)bottomContentContainer.findViewById(R.id.page_last_updated_text);
+        pageLicenseText = (TextView)bottomContentContainer.findViewById(R.id.page_license_text);
+        readMoreContainer = bottomContentContainer.findViewById(R.id.read_more_container);
+        readMoreList = (ListView)bottomContentContainer.findViewById(R.id.read_more_list);
 
-        funnel = new SuggestedPagesFunnel(app, pageTitle.getSite());
-
-        webview.addOnClickListener(new ObservableWebView.OnClickListener() {
+        // set up pass-through scroll functionality for the ListView
+        readMoreList.setOnTouchListener(new View.OnTouchListener() {
+            private int touchSlop = ViewConfiguration.get(readMoreList.getContext())
+                                                     .getScaledTouchSlop();
+            private boolean slopReached;
+            private boolean doingSlopEvent;
+            private boolean isPressed = false;
+            private float startY;
+            private float amountScrolled;
             @Override
-            public void onClick(float x, float y) {
-                // if the click event is within the area of the lead image, then the user
-                // must have wanted to click on the lead image!
-                int[] pos = new int[2];
-                imagePlaceholder.getLocationOnScreen(pos);
-                if (y > pos[1] && y < (pos[1] + imagePlaceholder.getHeight())) {
-                    PageTitle title = (PageTitle) image1.getTag();
-                    HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-                    activity.displayNewPage(title, historyEntry);
-                    funnel.logSuggestionClicked(pageTitle, readMoreItems.getPageTitles(), 0);
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getActionMasked() & MotionEvent.ACTION_MASK;
+                switch (action) {
+                    case MotionEvent.ACTION_DOWN:
+                        isPressed = true;
+                        startY = event.getY();
+                        amountScrolled = 0;
+                        slopReached = false;
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        if (isPressed && !doingSlopEvent) {
+                            int contentHeight = (int)(webView.getContentHeight() * displayDensity);
+                            int maxScroll = contentHeight - webView.getScrollY()
+                                            - webView.getHeight();
+                            int scrollAmount = Math.min((int) (startY - event.getY()), maxScroll);
+                            // manually scroll the WebView that's underneath us...
+                            webView.scrollBy(0, scrollAmount);
+                            amountScrolled += scrollAmount;
+                            if (Math.abs(amountScrolled) > touchSlop && !slopReached) {
+                                slopReached = true;
+                                // send an artificial Move event that scrolls it by an amount
+                                // that's greater than the touch slop, so that the currently
+                                // highlighted item is unselected.
+                                MotionEvent moveEvent = MotionEvent.obtain(event);
+                                moveEvent.setLocation(event.getX(), event.getY() + touchSlop * 2);
+                                doingSlopEvent = true;
+                                readMoreList.dispatchTouchEvent(moveEvent);
+                                doingSlopEvent = false;
+                            }
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_CANCEL:
+                        isPressed = false;
+                        break;
+                    default:
+                        break;
                 }
+                return false;
             }
         });
+
+        funnel = new SuggestedPagesFunnel(app, pageTitle.getSite());
 
         // preload the display density, since it will be used in a lot of places
         displayDensity = activity.getResources().getDisplayMetrics().density;
         // hide ourselves by default
         hide();
-    }
-
-    public static boolean useNewBottomContent(WikipediaApp app) {
-        if (app.getReleaseType() == WikipediaApp.RELEASE_PROD) {
-            return false;
-        }
-        // decide what kind of bottom container this page will have, based on the app install ID.
-        final int hexBase = 16;
-        return Integer.parseInt(app.getAppInstallID().substring(app.getAppInstallID().length() - 1), hexBase) % 2 == 0;
     }
 
     @Override
@@ -149,14 +170,6 @@ public class BottomContentHandler implements BottomContentInterface,
             if (!firstTimeShown && readMoreItems != null) {
                 firstTimeShown = true;
                 funnel.logSuggestionsShown(pageTitle, readMoreItems.getPageTitles());
-                // and start fetching the lead image, if we have one
-                if (image1.getTag() != null && ((PageTitle)image1.getTag()).getThumbUrl() != null
-                        && app.showImages()) {
-                    Picasso.with(parentFragment.getActivity())
-                           .load(((PageTitle)image1.getTag()).getThumbUrl())
-                           .noFade()
-                           .into((Target)image1);
-                }
             }
         }
     }
@@ -181,7 +194,7 @@ public class BottomContentHandler implements BottomContentInterface,
     public void beginLayout() {
         setupAttribution();
         if (parentFragment.getPage().couldHaveReadMoreSection()) {
-            preRequestReadMoreItems();
+            preRequestReadMoreItems(activity.getLayoutInflater());
         } else {
             bottomContentContainer.findViewById(R.id.read_more_container).setVisibility(View.GONE);
             layoutContent();
@@ -205,6 +218,17 @@ public class BottomContentHandler implements BottomContentInterface,
             return;
         }
 
+        // calculate the height of the listview, based on the number of items inside it.
+        ListAdapter adapter = readMoreList.getAdapter();
+        if (adapter != null && adapter.getCount() > 0) {
+            ViewGroup.LayoutParams params = readMoreList.getLayoutParams();
+            final int itemHeight = (int)activity.getResources().getDimension(R.dimen.defaultListItemSize);
+            params.height = adapter.getCount() * itemHeight
+                            + (readMoreList.getDividerHeight() * (adapter.getCount() - 1));
+            readMoreList.setLayoutParams(params);
+        }
+
+        readMoreList.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         bottomContentContainer.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
 
         // pad the bottom of the webview, to make room for ourselves
@@ -238,12 +262,12 @@ public class BottomContentHandler implements BottomContentInterface,
         }
     }
 
-    private void preRequestReadMoreItems() {
+    private void preRequestReadMoreItems(final LayoutInflater layoutInflater) {
         if (parentFragment.getPage().isMainPage()) {
             new MainPageReadMoreTopicTask(activity) {
                 @Override
                 public void onFinish(PageTitle myTitle) {
-                    requestReadMoreItems(myTitle);
+                    requestReadMoreItems(layoutInflater, myTitle);
                 }
 
                 @Override
@@ -255,27 +279,27 @@ public class BottomContentHandler implements BottomContentInterface,
                 }
             }.execute();
         } else {
-            requestReadMoreItems(pageTitle);
+            requestReadMoreItems(layoutInflater, pageTitle);
         }
     }
 
-    private void requestReadMoreItems(final PageTitle myTitle) {
+    private void requestReadMoreItems(final LayoutInflater layoutInflater,
+                                      final PageTitle myTitle) {
         if (myTitle == null || TextUtils.isEmpty(myTitle.getPrefixedText())) {
             hideReadMore();
             layoutContent();
             return;
         }
-
-        final int numSuggestions = 10;
+        final int numSuggestions = 3;
         new SuggestionsTask(app.getAPIForSite(myTitle.getSite()), myTitle.getSite(),
                 myTitle.getPrefixedText(), (int)(parentFragment.getActivity().getResources().getDimension(R.dimen.leadImageWidth) / displayDensity),
-                numSuggestions, true) {
+                numSuggestions, false) {
             @Override
             public void onFinish(SearchResults results) {
                 readMoreItems = results;
                 if (!readMoreItems.getPageTitles().isEmpty()) {
                     // If there are results, set up section and make sure it's visible
-                    setupReadNextSection(readMoreItems);
+                    setupReadMoreSection(layoutInflater, readMoreItems);
                     showReadMore();
                 } else {
                     // If there's no results, just hide the section
@@ -310,98 +334,72 @@ public class BottomContentHandler implements BottomContentInterface,
         pageTitle = newTitle;
     }
 
-    private void setupReadNextSection(final SearchResults results) {
-        PageTitle title = results.getPageTitles().get(0);
-        readNextTitle.setText(title.getDisplayText());
-        readNextDescription.setVisibility(title.getDescription() == null ? View.GONE : View.VISIBLE);
-        final int bottomPaddingBase = 12;
-        int titleBottomPadding = bottomPaddingBase;
-        if (title.getDescription() != null) {
-            final int descriptionPadding = 18;
-            titleBottomPadding += descriptionPadding;
-            readNextDescription.setText(title.getDescription());
-        }
-        image1.setTag(title);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            // for API >10, decrease line spacing and boost bottom padding to account for it.
-            // (in API 10, decreased line spacing cuts off the bottom of the text)
-            final float lineSpacing = 0.8f;
-            final int lineSpacePadding = 12;
-            readNextTitle.setLineSpacing(0, lineSpacing);
-            // however, if it's Lollipop or greater, then don't boost the bottom padding of the
-            // title text, since it now correctly does it automatically.
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                titleBottomPadding += lineSpacePadding;
-            }
-        }
-        readNextTitle.setPadding(readNextTitle.getPaddingLeft(), readNextTitle.getPaddingTop(),
-                readNextTitle.getPaddingRight(), (int)(titleBottomPadding * displayDensity));
-    }
-
-    @Override
-    public void onImageLoaded(Bitmap bitmap, final PointF faceLocation) {
-        final int bmpHeight = bitmap.getHeight();
-        final float aspect = (float)bitmap.getHeight() / (float)bitmap.getWidth();
-        readMoreContainer.post(new Runnable() {
+    private void setupReadMoreSection(LayoutInflater layoutInflater, final SearchResults results) {
+        final ReadMoreAdapter adapter = new ReadMoreAdapter(layoutInflater, results.getPageTitles());
+        readMoreList.setAdapter(adapter);
+        readMoreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void run() {
-                if (!parentFragment.isAdded()) {
-                    return;
-                }
-                int newWidth = image1.getWidth();
-                int newHeight = (int)(newWidth * aspect);
-
-                // give our image an offset based on the location of the face,
-                // relative to the image container
-                int imageBaseYOffset = 0;
-                float scale = (float)newHeight / (float)bmpHeight;
-                if (faceLocation.y > 0.0f) {
-                    int faceY = (int)(faceLocation.y * scale);
-                    // if we have a face, then offset to the face location
-                    imageBaseYOffset = -(faceY - (imagePlaceholder.getHeight() / 2));
-                    // Adjust the face position by a slight amount.
-                    // The face recognizer gives the location of the *eyes*, whereas we actually
-                    // want to center on the *nose*...
-                    final int faceBoost = 24;
-                    imageBaseYOffset -= (faceBoost * displayDensity);
-                } else {
-                    // No face, so we'll just chop the top 25% off rather than centering
-                    final float oneQuarter = 0.25f;
-                    imageBaseYOffset = -(int)((newHeight - imagePlaceholder.getHeight()) * oneQuarter);
-                }
-                // is the offset too far to the top?
-                if (imageBaseYOffset > 0) {
-                    imageBaseYOffset = 0;
-                }
-                // is the offset too far to the bottom?
-                if (imageBaseYOffset < imagePlaceholder.getHeight() - newHeight) {
-                    imageBaseYOffset = imagePlaceholder.getHeight() - newHeight;
-                }
-
-                // resize our image to have the same proportions as the acquired bitmap,
-                // and offset it based on the face position
-                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) image1.getLayoutParams();
-                params.width = LinearLayout.LayoutParams.MATCH_PARENT;
-                if (newHeight < imagePlaceholder.getHeight()) {
-                    // if the height of the image is less than the container, then just
-                    // make it the same height as the placeholder.
-                    params.height = imagePlaceholder.getHeight();
-                    imageBaseYOffset = 0;
-                } else {
-                    params.height = newHeight;
-                }
-                params.topMargin = imageBaseYOffset;
-                image1.setLayoutParams(params);
-
-                // fade in the new image!
-                ViewAnimations.crossFade(imagePlaceholder, image1);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                PageTitle title = (PageTitle) adapter.getItem(position);
+                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+                activity.displayNewPage(title, historyEntry);
+                funnel.logSuggestionClicked(pageTitle, results.getPageTitles(), position);
             }
         });
+        adapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void onImageFailed() {
-        // just keep showing the placeholder image...
-    }
+    private final class ReadMoreAdapter extends BaseAdapter {
+        private final LayoutInflater inflater;
+        private final List<PageTitle> results;
 
+        private ReadMoreAdapter(LayoutInflater inflater, List<PageTitle> results) {
+            this.inflater = inflater;
+            this.results = results;
+        }
+
+        @Override
+        public int getCount() {
+            return results == null ? 0 : results.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return results.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                convertView = inflater.inflate(R.layout.item_search_result, parent, false);
+            }
+            TextView pageTitleText = (TextView) convertView.findViewById(R.id.result_title);
+            PageTitle result = (PageTitle) getItem(position);
+            pageTitleText.setText(result.getDisplayText());
+
+            TextView descriptionText = (TextView) convertView.findViewById(R.id.result_description);
+            descriptionText.setText(result.getDescription());
+
+            ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
+            String thumbnail = result.getThumbUrl();
+            if (!app.showImages() || thumbnail == null) {
+                Picasso.with(parent.getContext())
+                        .load(R.drawable.ic_pageimage_placeholder)
+                        .into(imageView);
+            } else {
+                Picasso.with(parent.getContext())
+                        .load(thumbnail)
+                        .placeholder(R.drawable.ic_pageimage_placeholder)
+                        .error(R.drawable.ic_pageimage_placeholder)
+                        .into(imageView);
+            }
+
+            return convertView;
+        }
+    }
 }

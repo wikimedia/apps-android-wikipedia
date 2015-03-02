@@ -12,17 +12,19 @@ import java.util.List;
 
 /**
  * Task for getting suggestions for further reading.
- * Take page title, run full text search with that query, get four results,
- * show top three that aren't the actual page title in question.
+ * Currently powered by full-text search based on the given page title.
  */
 public class SuggestionsTask extends FullSearchArticlesTask {
-    private static final int MAX_SIZE = 3;
-    private static final int MAX_REQUESTED = MAX_SIZE + 1;
     private final String title;
+    private final int numItems;
+    private final boolean requireThumbnail;
 
-    public SuggestionsTask(Api api, Site site, String title) {
-        super(api, site, title, MAX_REQUESTED, null);
+    public SuggestionsTask(Api api, Site site, String title, int thumbSize, int numItems,
+                           boolean requireThumbnail) {
+        super(api, site, title, numItems + 1, null, thumbSize);
         this.title = title;
+        this.numItems = numItems;
+        this.requireThumbnail = requireThumbnail;
     }
 
     @Override
@@ -31,17 +33,18 @@ public class SuggestionsTask extends FullSearchArticlesTask {
     }
 
     /**
-     * Keep only top three entries that aren't the actual page title in question.
+     * Filter the list of suggestions to make sure the original page title isn't one of them,
+     * as well as whether the suggestion contains a thumbnail.
      *
      * @param searchResults original results from server
      * @return filtered results
      */
     public SearchResults filterResults(SearchResults searchResults) {
-        List<PageTitle> filteredResults = new ArrayList<PageTitle>();
+        List<PageTitle> filteredResults = new ArrayList<>();
         List<PageTitle> results = searchResults.getPageTitles();
-        for (int i = 0, count = 0; i < results.size() && count < MAX_SIZE; i++) {
+        for (int i = 0, count = 0; i < results.size() && count < numItems; i++) {
             final PageTitle res = results.get(i);
-            if (!title.equalsIgnoreCase(res.getPrefixedText())) {
+            if (!title.equalsIgnoreCase(res.getPrefixedText()) && (!requireThumbnail || res.getThumbUrl() != null)) {
                 filteredResults.add(res);
                 count++;
             }

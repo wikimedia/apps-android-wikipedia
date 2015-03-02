@@ -18,6 +18,8 @@ import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.page.bottomcontent.BottomContentHandler;
+import org.wikipedia.page.bottomcontent.BottomContentHandlerOld;
+import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
@@ -109,7 +111,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
     private PageTitle titleOriginal;
     private ViewGroup imagesContainer;
     private LeadImagesHandler leadImagesHandler;
-    private BottomContentHandler bottomContentHandler;
+    private BottomContentInterface bottomContentHandler;
     private SearchBarHideHandler searchBarHideHandler;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
@@ -409,10 +411,17 @@ public class PageViewFragmentInternal implements BackPressedHandler {
         searchBarHideHandler = getActivity().getSearchBarHideHandler();
         searchBarHideHandler.setScrollView(webView);
 
-        bottomContentHandler = new BottomContentHandler(this, bridge,
-                webView, linkHandler,
-                (ViewGroup) parentFragment.getView().findViewById(R.id.bottom_content_container),
-                title);
+        // TODO: remove this A/B toggle when we know which one we want to keep.
+        // (and when ready to release to production)
+        if (BottomContentHandler.useNewBottomContent(app)) {
+            bottomContentHandler = new BottomContentHandler(this, bridge, webView, linkHandler,
+                                   (ViewGroup) parentFragment.getView()
+                                   .findViewById(R.id.bottom_content_container), title);
+        } else {
+            bottomContentHandler = new BottomContentHandlerOld(this, bridge, webView, linkHandler,
+                                   (ViewGroup) parentFragment.getView()
+                                   .findViewById(R.id.bottom_content_container), title);
+        }
 
         //is this page in cache??
         if (app.getPageCache().has(titleOriginal)) {
