@@ -845,7 +845,7 @@ public class PageActivity extends ThemedActionBarActivity {
         // If its tag is non-null, it means that the ActionMode is one of ours (History,
         // Saved Pages, or Find In Page). Otherwise, it must be the default WebView text-
         // highlighting ActionMode, in which case we'll invoke the Share adapter!
-        if (WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_ALPHA
+        if (WikipediaApp.getInstance().getReleaseType() != WikipediaApp.RELEASE_PROD
                 && currentActionMode == null
                 && mode.getTag() == null
                 && textSelectedShareAdapter != null) {
@@ -862,7 +862,7 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     public void share(PageTitle title) {
-        if (WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_ALPHA) {
+        if (WikipediaApp.getInstance().getReleaseType() != WikipediaApp.RELEASE_PROD) {
             noTextSelectedShareAdapter.share();
         } else {
             // TODO: remove once above block is promoted to production
