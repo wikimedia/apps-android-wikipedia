@@ -90,7 +90,7 @@ public class BottomContentHandler implements BottomContentInterface,
         image1 = (ImageViewWithFace) bottomContentContainer.findViewById(R.id.read_next_image_1);
         image1.setOnImageLoadListener(this);
 
-        funnel = new SuggestedPagesFunnel(app, pageTitle.getSite());
+        funnel = new SuggestedPagesFunnel(app, pageTitle.getSite(), 1);
 
         webview.addOnClickListener(new ObservableWebView.OnClickListener() {
             @Override

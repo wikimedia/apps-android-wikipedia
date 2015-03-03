@@ -136,7 +136,7 @@ public class BottomContentHandlerOld implements BottomContentInterface,
             }
         });
 
-        funnel = new SuggestedPagesFunnel(app, pageTitle.getSite());
+        funnel = new SuggestedPagesFunnel(app, pageTitle.getSite(), 0);
 
         // preload the display density, since it will be used in a lot of places
         displayDensity = activity.getResources().getDisplayMetrics().density;
