@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:orientation="horizontal"
-              android:background="@drawable/selectable_item_background"
-        >
+              android:background="@drawable/selectable_item_background">
     <View android:layout_width="0dp" android:layout_height="match_parent"
           android:id="@+id/page_toc_filler"
           />
@@ -21,6 +21,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             style="?android:textAppearanceMedium"
+            tools:text="Sample Table of Contents entry"
             />
 
 </LinearLayout>

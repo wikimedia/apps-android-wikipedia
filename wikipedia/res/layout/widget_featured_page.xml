@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widget_container"
     android:orientation="horizontal"
     android:layout_width="match_parent"
@@ -42,6 +43,7 @@
                 android:textColor="@color/widget_content_text"
                 android:maxLines="2"
                 android:ellipsize="end"
+                tools:text="Sample content"
                 />
         </LinearLayout>
     </FrameLayout>

@@ -37,8 +37,8 @@
             style="?android:textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
-            tools:ignore="HardcodedText" />
+            tools:text="Sample title"
+            />
 
         <TextView
             android:id="@+id/nearby_description"
@@ -48,7 +48,9 @@
             android:layout_marginBottom="2dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textColor="@color/reference_text" />
+            android:textColor="@color/reference_text"
+            tools:text="Sample description"
+            />
 
         <TextView
             android:id="@+id/nearby_distance"
@@ -61,8 +63,8 @@
             android:paddingRight="8dp"
             android:background="@drawable/button_shape_gray_highlight"
             android:textColor="@color/nav_text"
-            android:text="dist"
-            tools:ignore="HardcodedText"/>
+            tools:text="4.2 km"
+            />
     </LinearLayout>
 
     <ImageView

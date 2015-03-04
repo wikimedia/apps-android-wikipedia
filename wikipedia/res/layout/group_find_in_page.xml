@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:id="@+id/find_in_page_container"
-        android:layout_gravity="top"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+              android:layout_gravity="top"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
     <android.support.v7.widget.SearchView
             android:id="@+id/find_in_page_input"
             android:inputType="text"
@@ -20,10 +21,12 @@
     <TextView
             android:id="@+id/find_in_page_match"
             android:visibility="gone"
+            tools:visibility="visible"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:textColor="@android:color/white"
+            tools:text="99/99"
             style="?android:textAppearanceSmall"
             />
     <ImageButton

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/gallery_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -49,6 +50,7 @@
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical"
             android:fadeScrollbars="false"
+            tools:text="Sample image description text"
             android:textColor="@color/lead_text_color"
             android:textColorLink="@color/lead_text_color"/>
         <LinearLayout
@@ -63,6 +65,7 @@
                 android:layout_height="24dp"
                 android:padding="5dp"
                 android:background="@drawable/selectable_item_background"
+                tools:src="@drawable/ic_license_cc"
                 android:contentDescription="@null"/>
             <TextView
                 android:id="@+id/gallery_credit_text"
@@ -70,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
+                tools:text="Credits"
                 android:textColor="@color/gallery_license_text"
                 android:textColorLink="@color/gallery_license_text"
                 android:ellipsize="end"

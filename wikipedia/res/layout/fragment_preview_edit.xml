@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/edit_preview_container"
             android:visibility="gone"
+            tools:visibility="visible"
             android:background="?attr/window_background_color"
             >
 
@@ -62,6 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
+                    tools:text="Sample section license text"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/license_text_light"
                     android:textColorLink="?attr/link_color"/>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/defaultListItemSize"
     android:background="@drawable/selectable_item_background"
@@ -31,7 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="middle"
-            android:maxLines="2" />
+            android:maxLines="2"
+            tools:text="Sample result title"
+            />
 
         <TextView
             android:id="@+id/result_description"
@@ -40,7 +43,9 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textColor="@color/reference_text" />
+            android:textColor="@color/reference_text"
+            tools:text="Sample result description"
+            />
 
     </LinearLayout>
 

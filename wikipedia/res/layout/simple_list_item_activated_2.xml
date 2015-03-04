@@ -15,6 +15,7 @@
 -->
 
 <TwoLineListItem xmlns:android="http://schemas.android.com/apk/res/android"
+                 xmlns:tools="http://schemas.android.com/tools"
                  android:paddingTop="2dip"
                  android:paddingBottom="2dip"
                  android:paddingLeft="10dip"
@@ -33,6 +34,7 @@
               android:layout_marginStart="6dip"
               android:layout_marginTop="6dip"
               android:textAppearance="?android:attr/textAppearanceLarge"
+              tools:text="Sample text 1"
             />
 
     <TextView android:id="@android:id/text2"
@@ -42,6 +44,7 @@
               android:layout_alignLeft="@android:id/text1"
               android:layout_alignStart="@android:id/text1"
               android:textAppearance="?android:attr/textAppearanceSmall"
+              tools:text="Sample text 2"
             />
 
 </TwoLineListItem>

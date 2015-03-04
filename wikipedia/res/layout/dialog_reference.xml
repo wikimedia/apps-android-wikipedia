@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/nav_background"
@@ -17,6 +18,7 @@
         android:paddingBottom="24dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
+        tools:text="Reference text"
         android:textColor="@color/reference_text"
         android:textColorLink="@color/link_dark"
         android:textSize="18sp"
