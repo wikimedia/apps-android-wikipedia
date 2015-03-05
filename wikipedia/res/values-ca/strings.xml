@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">Pàgina destacada de la Viquipèdia</string>
   <string name="widget_title_featured_page">Pàgina destacada del dia:</string>
   <string name="widget_name_search">Cercar a la Viquipèdia</string>
-  <string name="app_store_description" fuzzy="true">Aplicació oficial de la Viquipèdia per a l\'Android. La Viquipèdia és una enciclopèdia lliure que conté més de 32 milions d\'articles en 280 llengües. Es tracta de l\'obra de referència més completa i usada que mai s\'hagi compilat. L\'aplicació ha estat reescrita de bell nou i és millor que mai.
+  <string name="app_store_description">Aplicació oficial de la Viquipèdia per a l\'Android. La Viquipèdia és una enciclopèdia lliure que conté més de 32 milions d\'articles en 280 llengües. Es tracta de l\'obra de referència més completa i usada que mai s\'hagi compilat. L\'aplicació ha estat reescrita de bell nou i és millor que mai.
 
 Característiques:
  - Rapidesa: com a aplicació nativa us permet navegar i editar la Viquipèdia més ràpid que abans.
@@ -230,7 +230,11 @@ Característiques:
  - Suport d\'idioma: l\'aplicació us permet consultar fàcilment les versions de la Viquipèdia en diferents idiomes.
  - Viquipèdia Zero: alguns operadors de telefonia mòbil accepten no cobrar per l\'ús de dades associat a l\'aplicació.
 
-El codi és totalment obert. Si teniu experiència en Java i en l\'SDK de l\'Android, afegiu la vostra aportació! https://github.com/wikimedia/apps-android-wikipedia</string>
+El codi és totalment obert. Si teniu experiència en Java i en l\'SDK de l\'Android, afegiu la vostra aportació! https://github.com/wikimedia/apps-android-wikipedia
+
+Política de privadesa: http://wikimediafoundation.org/wiki/Privacy_policy
+
+Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Hi ha disponible una nova versió alfa</string>
   <string name="alpha_update_notification_text">Tocar per descarregar</string>
   <string name="dialog_close_description">Tancar</string>
@@ -248,10 +252,13 @@ El codi és totalment obert. Si teniu experiència en Java i en l\'SDK de l\'And
   <string name="gallery_save_error">No s\'ha pogut desar la imatge: %s</string>
   <string name="gallery_save_error_mediastore">No s\'ha pogut importar la imatge a la col·lecció multimèdia</string>
   <string name="gallery_save_success">La imatge s\'ha desat correctament.</string>
+  <string name="gallery_error_video_failed">No s\'ha pogut reproduir el vídeo.</string>
   <string name="err_cannot_save_file">No es pot desar el fitxer</string>
   <string name="snippet_share_intro">«%1$s» a @Wikipedia: %2$s</string>
   <string name="expand_refs">Toqueu per ampliar</string>
   <string name="share_snippet_button">Compartir com a imatge</string>
   <string name="share_normal_button">Comparteix com a text</string>
   <string name="snippet_share_preview_image_desc">Previsualitza la imatge</string>
+  <string name="cc_logo">Llicència Creative Commons</string>
+  <string name="captcha_image">Imatge Captcha</string>
 </resources>

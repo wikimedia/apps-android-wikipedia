@@ -19,7 +19,7 @@
   <string name="menu_share_page">Дели</string>
   <string name="share_via">Делите преко</string>
   <string name="dialog_title_clear_saved_pages" fuzzy="true">Очисти обележиваче</string>
-  <string name="toast_saving_page" fuzzy="true">Чување обележивача…</string>
+  <string name="toast_saving_page">Чување странице…</string>
   <string name="toast_saved_page" fuzzy="true">Страница обележена</string>
   <string name="delete_selected_saved_pages">Обриши</string>
   <string name="saved_pages_search_list_hint">Претражи</string>

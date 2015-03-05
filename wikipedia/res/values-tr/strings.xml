@@ -219,18 +219,24 @@
   <string name="widget_name_featured_page">Vikipedi seçkin sayfalar</string>
   <string name="widget_title_featured_page">Günün seçkin maddesi:</string>
   <string name="widget_name_search">Vikipedi arama</string>
-  <string name="app_store_description" fuzzy="true">Android için resmi Vikipedi Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır. Sıfırdan tekrar yazılan uygulama, şimdi her zamankinden daha iyi.
-
+  <string name="app_store_description">Android için resmi Wikipedia Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır.
 Özellikler:
-   - Hız: Yeni, basit uygulamamız Vikipedi\'yi hiç olmadığı kadar hızlı taramanıza ve değiştirmenize imkan veriyor.
-   - Düzenleme: Vikipedi\'yi değiştirebilirsiniz! Kullanıcı adıyla veya anonim olarak, bütün katkılarınız için teşekkür ederiz.
-   - Geçmiş: Size okuduğunuz maddeleri listeliyoruz. Böylece sayfalar arasında kaybolmadan istediğiniz kadar bağlantıya tıklayabilirsiniz.
-   - Kaydedilen sayfalar: Çevrim dışı iken okumak için sayfaları kaydedebilir, veri erişiminiz olmasa da bu sayfaları ziyaret edebilirsiniz.
-   - Paylaş: İnsanlığın tüm bilgisi içinden paylaşmak için mevcut sosyal ağ uygulamalarınızı kullanın.
-   - Dil desteği: Uygulama sizi Vikipedi\'nin herhangi bir dil sürümüne sorunsuzca ulaştırır.
-   - Wikipedia Zero: Anlaşmalı mobil operatörlerde veri iletişim ücretleri alınmaz.
+- Başlık resimleri: Maddelerin en üstündeki, konuyla alakalı, öne çıkan bir resim ve tanımla, Vikipedi\'yi daha önce hiç görmediğiniz şekilde tecrübe edin.
+- Resim galerisi: Bir resme dokunarak yüksek çözünürlükte tam ekran olarak görüntüleyebilir, sağa/sola kaydırarak diğer resimleri görme seçeneğini kullanabilirsiniz.
+- Madde önerileri: Sayfaların en altına doğru kaydırıp, okumanız için önerilen maddeleri görebilirsiniz.
+- Kaydedilen sayfalar: Çevrim dışı iken okumak için sayfaları kaydedebilir, veri erişiminiz olmasa da bu sayfaları ziyaret edebilirsiniz.
+- Yakındakiler: Mevcut konumunuza yakın şeyler hakkındaki maddelerin bağlantılarını görün ve böylece etrafınızda neler olduğu hakkında daha fazla bilgi edinin.
+- Dil desteği: Uygulama sizi Vikipedi\'nin herhangi bir dil sürümüne sorunsuzca ulaştırır.
+- İçindekiler: Herhangi bir maddede içindekileri görmek için sola kaydırın; böylece istediğiniz alt başlığa kolayca geçebilirsiniz.
+- Wikipedia Zero: Anlaşmalı mobil operatörlerde veri iletişim ücretleri alınmaz.
 
-Uygulama kodları tamamen açık kaynaklıdır. Java ve Android SDK kullanıyorsanız, gelip bizle çalışın!  https://github.com/wikimedia/apps-android-wikipedia</string>
+Uygulama hakkındaki görüşlerinizi bize gönderin! Menüde \"Daha fazla\"ya tıklayın; sonrasında \"Wikipedia uygulaması hakkında\"ya ve ardından \"Uygulama geri bildirimi gönder\"e basın.
+
+Uygulama kodları %100 açık kaynaklıdır. Eğer Java ve Android SDK tecrübeniz varsa, katkılarınızı bekliyoruz! https://github.com/wikimedia/apps-android-wikipedia
+
+Gizlilik ilkesi: http://wikimediafoundation.org/wiki/Privacy_policy
+
+Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Yeni alfa güncellemesi var</string>
   <string name="alpha_update_notification_text">İndirmek için dokunun</string>
   <string name="dialog_close_description">Kapat</string>
@@ -248,10 +254,13 @@ Uygulama kodları tamamen açık kaynaklıdır. Java ve Android SDK kullanıyors
   <string name="gallery_save_error">Resim kaydedilemedi: %s</string>
   <string name="gallery_save_error_mediastore">Görüntü medya koleksiyonuna alınamadı</string>
   <string name="gallery_save_success">Resim başarıyla kaydedildi.</string>
+  <string name="gallery_error_video_failed">Video oynatılamadı.</string>
   <string name="err_cannot_save_file">Dosya kaydedilemiyor</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia üzerinde: %2$s</string>
   <string name="expand_refs">Genişletmek için tıklayın</string>
   <string name="share_snippet_button">Resim olarak paylaş</string>
   <string name="share_normal_button">Metin olarak paylaş</string>
   <string name="snippet_share_preview_image_desc">Resmi önizle</string>
+  <string name="cc_logo">Creative Commons lisansı</string>
+  <string name="captcha_image">Captcha resmi</string>
 </resources>

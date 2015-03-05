@@ -50,7 +50,7 @@
   <string name="last_updated_text">最後更新：%s</string>
   <string name="content_license_html">內容在&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/A&gt;之條款下提供，除非另有註明。</string>
   <string name="edit_save_action_license_logged_in">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。</string>
-  <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href=“https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\"&gt;CC BY-SA3.0&lt;/A&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
+  <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href=“https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="preference_languages_filter_hint">搜尋</string>
   <string name="langlinks_filter_hint">搜尋</string>
@@ -108,7 +108,7 @@
   <string name="create_account_login_link">已經擁有帳號？請登入</string>
   <string name="create_account_activity_title">建立一個帳號</string>
   <string name="dialog_create_account_checking_progress">驗證中</string>
-  <string name="create_account_email_hint">電子郵件（可選）</string>
+  <string name="create_account_email_hint">電子郵箱（可選）</string>
   <string name="create_account_password_repeat_hint">重複輸入密碼</string>
   <string name="create_account_passwords_mismatch_error">密碼不匹配</string>
   <string name="create_account_email_error">E-Mail 格式不正確</string>
@@ -116,7 +116,7 @@
   <string name="create_account_ip_throttle_error">從這個IP位址所建立的帳號太多，請稍後再嘗試。</string>
   <string name="create_account_open_proxy_error">此IP位址已被阻止建立帳號。</string>
   <string name="create_account_noname_error">您提供的使用者名稱無效，請提供另一個。</string>
-  <string name="create_account_invalid_email_error">您提供的電郵位址無效。</string>
+  <string name="create_account_invalid_email_error">您提供的電郵地址無效。</string>
   <string name="create_account_password_too_short_error">您提供的密碼太短。</string>
   <string name="create_account_blocked_anon_error">您不能建立賬號，因为您的 IP 位址已被封鎖。</string>
   <string name="create_account_blocked_error">您不能建立帳號，因为您的帳號已封鎖。</string>

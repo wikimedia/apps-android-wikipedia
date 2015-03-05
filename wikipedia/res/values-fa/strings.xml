@@ -247,6 +247,7 @@
   <string name="gallery_save_error">امکان به اشتراک‌گذاری تصویر نیست: %s</string>
   <string name="gallery_save_error_mediastore">خطا در درون‌ریزی پرونده در بخش جمع‌آوری رسانه</string>
   <string name="gallery_save_success">صفحه با موفقیت ذخیره‌شده‌است</string>
+  <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
   <string name="err_cannot_save_file">امکان ذخیره پرونده وجود ندارد</string>
   <string name="snippet_share_intro">\"%1$s\" در @ویکی‌پدیا: %2$s</string>
   <string name="expand_refs">برای بازشدن صفحه را لمس کنید</string>

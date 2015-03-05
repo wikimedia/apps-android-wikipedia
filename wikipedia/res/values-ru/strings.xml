@@ -256,6 +256,7 @@
   <string name="gallery_save_error">Не удалось сохранить изображение: %s</string>
   <string name="gallery_save_error_mediastore">Не удалось импортировать изображение в медиа-коллекцию</string>
   <string name="gallery_save_success">Изображение успешно сохранено.</string>
+  <string name="gallery_error_video_failed">Не удаётся воспроизвести видео.</string>
   <string name="err_cannot_save_file">Не удаётся сохранить файл</string>
   <string name="snippet_share_intro">«%1$s» на сайте @Wikipedia: %2$s</string>
   <string name="expand_refs">Нажмите, чтобы развернуть</string>

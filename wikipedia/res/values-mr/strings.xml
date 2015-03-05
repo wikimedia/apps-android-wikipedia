@@ -145,4 +145,5 @@
   <string name="toc_know_it">मिळाले</string>
   <string name="alpha_update_notification_title">नवीन अद्ययावत अल्फा उपलब्ध आहे</string>
   <string name="alpha_update_notification_text">उतरवण्यासाठी टिचकवा</string>
+  <string name="captcha_image">कॅप्चा चित्र</string>
 </resources>

@@ -47,6 +47,7 @@
   <string name="nearby_dialog_goto_settings">Informácie o polohe nie sú vo vašom prístroji povolené. Chceli by ste prejsť do nastavení vášho zariadenia týkajúcich sa lokalizačných služieb?</string>
   <string name="nearby_set_metric">Zobraziť metre/km</string>
   <string name="nearby_set_imperial">Zobraziť stopy/míle</string>
+  <string name="nearby_view_on_map">Zobraziť miesto na mape</string>
   <string name="last_updated_text">Posledná aktualizácia %s</string>
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -215,6 +216,7 @@
   <string name="table_infobox">Rýchle fakty</string>
   <string name="table_other">Viac informácií</string>
   <string name="table_close">Zatvoriť</string>
+  <string name="widget_title_featured_page">Odporúčaný článok:</string>
   <string name="app_store_description" fuzzy="true">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.
 
 Funkcie:
@@ -243,6 +245,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="gallery_menu_save">Uložiť v zariadení</string>
   <string name="gallery_save_error">Obrázok nebolo možné uložiť: %s</string>
   <string name="gallery_save_success">Obrázok bol úspešne uložený.</string>
+  <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
   <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>
   <string name="expand_refs">Ťuknutím rozšírite</string>
 </resources>

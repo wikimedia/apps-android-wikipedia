@@ -256,6 +256,7 @@ Nutzungsbedingungen: http://wikimediafoundation.org/wiki/Terms_of_Use/de</string
   <string name="gallery_save_error">Bild konnte nicht gespeichert werden: %s</string>
   <string name="gallery_save_error_mediastore">Bild konnte nicht in die Mediensammlung importiert werden</string>
   <string name="gallery_save_success">Bild erfolgreich gespeichert.</string>
+  <string name="gallery_error_video_failed">Das Video konnte nicht abgespielt werden.</string>
   <string name="err_cannot_save_file">Datei konnte nicht gespeichert werden</string>
   <string name="snippet_share_intro">Interessante Tatsache auf @Wikipedia %1$s: %2$s</string>
   <string name="expand_refs">Tippen zum Erweitern</string>

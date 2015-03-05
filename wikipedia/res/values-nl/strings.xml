@@ -252,5 +252,6 @@ De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK,
   <string name="share_snippet_button">Als afbeelding delen</string>
   <string name="share_normal_button">Als tekst delen</string>
   <string name="snippet_share_preview_image_desc">Voorbeeldafbeelding</string>
+  <string name="cc_logo">Creative Commons-licentie</string>
   <string name="captcha_image">Captcha afbeelding</string>
 </resources>

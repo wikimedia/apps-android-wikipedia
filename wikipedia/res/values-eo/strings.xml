@@ -16,6 +16,7 @@
   <string name="menu_clear_all_saved_pages">Malplenigi ĉiujn konservitajn paĝojn</string>
   <string name="page_does_not_exist_error">Ĉi tiu paĝo ne ekzistas.</string>
   <string name="nav_item_today">Hodiaŭ</string>
+  <string name="dialog_title_clear_history">Ĉu malplenigi la navigadan historion?</string>
   <string name="nav_item_saved_pages">Konservitaj paĝoj</string>
   <string name="menu_update_all_saved_pages">Ĝisdatigi konservitajn paĝojn</string>
   <string name="menu_update_selected_saved_pages">Ĝisdatigi konservitajn paĝojn</string>
@@ -27,18 +28,23 @@
   <string name="toast_saving_page">Konservante paĝon…</string>
   <string name="toast_saved_page">Paĝo sukcese konservita</string>
   <string name="toast_saved_page_missing_images">Ne eblas konservi ĉiuj bildojn</string>
+  <string name="toast_refresh_saved_page">Ĝisdatigante konservitajn paĝojn</string>
   <string name="delete_selected_saved_pages">Forigi</string>
   <string name="toast_saved_page_deleted">Konservita(j) paĝo(j) forigita(j)</string>
   <string name="saved_pages_search_list_hint">Serĉi</string>
   <string name="saved_pages_search_empty_message">Neniu paĝo kongruas kun via serĉo.</string>
   <string name="nav_item_nearby">Ĉirkaŭe</string>
+  <string name="menu_update_nearby">Ĝisdatigi ĉirkaŭaĵojn</string>
   <string name="nearby_empty_title">Neniu paĝo ĉirkaŭ ĉi tie!</string>
   <string name="nearby_empty_message">Kiam vi movu al nova loko, provu reŝarĝi ĉi tiun paĝon por lerni pli pri kio estas ĉirkaŭ vi.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d futoj</string>
+  <string name="nearby_distance_in_miles">%.2f mejloj</string>
   <string name="nearby_no_network">Ne estas ret-aliro</string>
   <string name="nearby_server_error">Ne eblis akiri liston pri ĉirkaŭaj lokoj</string>
   <string name="nearby_set_metric">Montru metroj/km</string>
+  <string name="nearby_set_imperial">Montru futojn/mejlojn</string>
   <string name="nearby_view_on_map">Vidu lokon sur mapo</string>
   <string name="last_updated_text">Lasta ĝisdatigo %s</string>
   <string name="content_license_html">La enhavo disponeblas laŭ la permesilo  &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; krom se alia permesilo estas indikita.</string>
@@ -127,6 +133,7 @@
   <string name="zero_interstitial_cancel">Resti ĉi tie</string>
   <string name="zero_learn_more_learn_more">Legi plu</string>
   <string name="zero_learn_more_dismiss">Elimini</string>
+  <string name="send_feedback">Sendu informon pri ĉi tiu aplikaĵo</string>
   <string name="nav_item_random">Hazarda paĝo</string>
   <string name="create_account_account_created_toast">Konto kreita</string>
   <string name="user_contribs_more_action">Ŝarĝi pli</string>
@@ -188,6 +195,7 @@
   <string name="search_recent_header">Lastaj serĉoj:</string>
   <string name="button_clear_all_recent_searches">Malplenigi lastaj serĉojn</string>
   <string name="clear_recent_searches_confirm">Ĉu vi certas ke vi volas malplenigi vian serĉ-historion?</string>
+  <string name="toc_hint">Ŝovu maldekstren por vidi la sekciojn, aŭ uzu la menuan butonon ĉe la supro-dekstro.</string>
   <string name="toc_know_it">Komprenite</string>
   <string name="error_browser_not_found">Ne eblis malfermi la retpaĝon (Neniu retumila aplikaĵo estis trovita)</string>
   <string name="table_infobox">Rapidaj faktoj</string>
@@ -196,19 +204,28 @@
   <string name="widget_name_featured_page">Vikipedia elstara paĝo</string>
   <string name="widget_title_featured_page">Hodiaŭa elstara paĝo:</string>
   <string name="widget_name_search">Serĉi en Vikipedio</string>
-  <string name="app_store_description" fuzzy="true">Oficiala Vikipedia aplikaĵo por Android. Vikipedio estas la libera enciklopedio kiu enhavas pli ol 32 milionojn da artikoloj en 280 lingvoj, kaj estas estas la plej kompleta kaj vaste uzata referenca verko kiun la homara kreis iam ajn. La aplikaĵo estis refarita el nenio kaj nun ĝi estas plej bona ol neniam antaŭe.
+  <string name="app_store_description">Oficiala Vikipedia aplikaĵo por Android. Vikipedio estas la libera enciklopedio kiu enhavas pli ol 32 milionojn da artikoloj en 280 lingvoj, kaj estas estas la plej kompleta kaj vaste uzata referenca verko kiun la homara kreis iam ajn.
 
 Trajtoj:
 
-   - Rapideco: nia nova, nativa aplikaĵo permesas al vi navigi kaj modifi Vikipedion pli rapide ol antaŭe.
-   - Redakti: Vi povas modifi Vikipedion! Ensalutinta aŭ ne, ni dankas ĉiujn viajn kontribuojn.
-   - Lastaj paĝoj: Ni donas al vi vian legadan historion, do vi povas klaki sur kiom ajn ligilojn sen perdiĝi.
-   - Konservitaj paĝoj: Vi povas konservi selektitajn paĝojn por legi kaj navigi ilin kiam vi ne havu retaliron aŭ eĉ sen datuma konekto.
-   - Kundividu: Uzu viajn akzistantajn socian aplikaĵojn por kundividi la tuton de la homa saĝo.
-   - Lingva subteno: La aplikaĵo permesas al vi facile ŝanĝi la legadon al Vikipedio en ajna skribita lingvo.
-   -Vikipedio Zero: Datumaj pagoj evitataj danke al partneraj poŝtelefonaj entreprenoj.
+- Elstara bildo: Spertu Vikipedion kiel neniam antaŭe per elstara bildo, rilata al la kunteksto, kaj sia priskribo en la supra parto de la artikoloj.
+- Bildaro: tuŝi sur bildo montros al vi la bildon tutekrane kaj altkvalite, eblos ankaŭ ŝovi dekstren aŭ maldekstren por vidi aliaj bildojn
+- Priskriboj el Vikidatumoj: Kiam vi serĉu, ĉiu serĉa rezulto nun havas rapidan priskribon kiu helpas rilatigi la rezulton. Tiuj priskriboj ankaŭ aperas en aliaj lokoj de la aplikaĵo, ekzemple en Ĉirkaŭaĵoj.
+- Sugestado de artikoloj: rulumu ĝi la malsupro de artikolo por vidi la sugestojn pri kion vi povus legi poste.
+- Konservitaj paĝoj: Vi povas konservi selektitajn paĝojn por legi kaj navigi ilin kiam vi ne havu retaliron aŭ eĉ sen datuma konekto.
+- Ĉirkaŭaĵoj: Lernu pli pri kio estas ĉirkaŭ vi trovante ligilojn al artikoloj pri aferoj kiuj estas proksime de via nuna situo.
+- Lingva subteno: La aplikaĵo permesas al vi facile ŝanĝi la legadon al Vikipedio en ajna skribita lingvo.
+ -Vikipedio Zero: Datumaj pagoj evitataj danke al partneraj poŝtelefonaj entreprenoj.
+- Enhava tabulo: Ŝovu maldekstren ĉe ajna artikolo por aperigi la enhavan tabulon, kiu permesos al vi salti al la artikolaj eroj  facile.
+-Vikipedio Zero: Datumaj pagoj evitataj danke al partneraj poŝtelefonaj entreprenoj.
 
-La kodo estas tute malferma. Se vi havas sperton kun Java kaj Android SDK, venu branĉigu nin! https://github.com/wikimedia/apps-android-wikipedia</string>
+Sendu al ni informon pri la uzado de ĉi tiu aplikaĵo! En la menuo, klaku sur \"Pli\", tiam klaku sur \"Pri la Vikipedia aplikaĵo\", kaj \"Sendu informon pri la aplikaĵo\"
+
+La kodo estas 100% malferma. Se vi havas sperton kun Java kaj Android SDK, ni bonvenas viajn kontribuojn! https://github.com/wikimedia/apps-android-wikipedia
+
+Politikoj pri privateco: http://wikimediafoundation.org/wiki/Privacy_policy
+
+Uzkondiĉoj: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Klaku por elŝuti</string>
   <string name="dialog_close_description">Fermi</string>
   <string name="preference_title_show_images">Montri bildojn</string>
@@ -224,10 +241,12 @@ La kodo estas tute malferma. Se vi havas sperton kun Java kaj Android SDK, venu 
   <string name="gallery_save_error">Ne eblis konservi la bildon: %s</string>
   <string name="gallery_save_error_mediastore">Ne eblis importi la bildon al la media kolekto</string>
   <string name="gallery_save_success">Bildo sukcese konservita</string>
+  <string name="gallery_error_video_failed">Ne eblis ludi la videon</string>
   <string name="err_cannot_save_file">Ne eblis konservi la dosieron</string>
   <string name="snippet_share_intro">\"%1$s\" ĉe @Wikipedia: %2$s</string>
   <string name="expand_refs">klaku por pligrandigi</string>
   <string name="share_snippet_button">Kundividi kiel bildo</string>
   <string name="share_normal_button">Kundividi kiel teksto</string>
   <string name="snippet_share_preview_image_desc">Antaŭrigardo de la bildo</string>
+  <string name="cc_logo">Krea komunaĵa permesilo</string>
 </resources>

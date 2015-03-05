@@ -248,9 +248,12 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="gallery_save_error">画像がシェアできませんでした: %s</string>
   <string name="gallery_save_error_mediastore">メディアコレクションへの画像のインポートに失敗しました</string>
   <string name="gallery_save_success">画像を保存しました</string>
+  <string name="gallery_error_video_failed">動画を再生できません</string>
   <string name="err_cannot_save_file">ファイルを保存できません。</string>
   <string name="expand_refs">タップして開く</string>
   <string name="share_snippet_button">画像をシェア</string>
   <string name="share_normal_button">テキストとしてシェア</string>
   <string name="snippet_share_preview_image_desc">画像をプレビュー</string>
+  <string name="cc_logo">クリエイティブ・コモンズ・ライセンス</string>
+  <string name="captcha_image">CAPTCHA画像</string>
 </resources>

@@ -109,7 +109,7 @@
   <string name="create_account_login_link">Sudah memiliki akun? Masuk.</string>
   <string name="create_account_activity_title">Buat akun baru</string>
   <string name="dialog_create_account_checking_progress">Memverifikasi</string>
-  <string name="create_account_email_hint">Alamat surel/e-mail (sebaiknya diisi)</string>
+  <string name="create_account_email_hint">Alamat surel (opsional)</string>
   <string name="create_account_password_repeat_hint">Ulangi kata sandi</string>
   <string name="create_account_passwords_mismatch_error">Kata sandi tidak cocok</string>
   <string name="create_account_email_error">Alamat surel tidak sah</string>

@@ -248,6 +248,7 @@ Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) c
   <string name="gallery_save_error">Nu s-a putut salva imaginea: %s</string>
   <string name="gallery_save_error_mediastore">Importarea imaginii în galeria multimedia a eșuat</string>
   <string name="gallery_save_success">Imagine salvată cu succes.</string>
+  <string name="gallery_error_video_failed">Filmul nu a putut fi redat.</string>
   <string name="err_cannot_save_file">Nu se poate salva fișierul</string>
   <string name="snippet_share_intro">O informație interesantă despre %1$s la @Wikipedia: %2$s</string>
   <string name="expand_refs">Atingeți pentru a extinde</string>

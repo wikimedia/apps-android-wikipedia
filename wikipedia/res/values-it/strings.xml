@@ -258,6 +258,7 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_save_error">Impossibile salvare l\'immagine: %s</string>
   <string name="gallery_save_error_mediastore">Errore durante l\'importazione dell\'immagine nella galleria di file multimediali</string>
   <string name="gallery_save_success">Immagine salvata con successo.</string>
+  <string name="gallery_error_video_failed">Impossibile riprodurre il video.</string>
   <string name="err_cannot_save_file">Impossibile salvare il file</string>
   <string name="snippet_share_intro">\"%1$s\" su @Wikipedia: %2$s</string>
   <string name="expand_refs">Tocca per espandere</string>

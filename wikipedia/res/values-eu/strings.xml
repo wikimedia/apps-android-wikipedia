@@ -28,13 +28,18 @@
   <string name="delete_selected_saved_pages">Ezabatu</string>
   <string name="toast_saved_page_deleted">Gordetako orrialdea(k) ezabatu d(ir)a</string>
   <string name="saved_pages_search_list_hint">Bilatu</string>
+  <string name="nav_item_nearby">Gertukoak</string>
+  <string name="menu_update_nearby">Gaurkotu gertukoak</string>
+  <string name="nearby_empty_title">Ez dauge gertuko orririk hemen!</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d oin</string>
   <string name="nearby_distance_in_miles">%.2f milia</string>
   <string name="nearby_set_metric">Erakutsi metroak/km</string>
   <string name="nearby_set_imperial">Erakutsi oinak/miliak</string>
+  <string name="nearby_view_on_map">Ikusi lekua mapan</string>
   <string name="last_updated_text">Azken eguneratzea %s</string>
+  <string name="content_license_html">Edukia eskuragarri &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean, besterik aipatu ezean</string>
   <string name="preference_title_language">Wikipediaren hizkuntza</string>
   <string name="preference_languages_filter_hint">Bilatu</string>
   <string name="langlinks_filter_hint">Bilatu</string>
@@ -45,17 +50,21 @@
   <string name="menu_save_changes">Aldaketak gorde</string>
   <string name="edit_section_error_retry">Saiatu berriro</string>
   <string name="dialog_saving_in_progress">Gordetzen…</string>
+  <string name="edit_saved_successfully">Aldaketa gordeta!</string>
   <string name="dialog_message_edit_failed_retry">Saiatu berriro</string>
   <string name="dialog_message_edit_failed_cancel">Utzi</string>
   <string name="dialog_message_leaving_edit_leave">Irten</string>
   <string name="menu_show_toc">Eduki-taula</string>
   <string name="search_no_results_found">Ez da emaitzarik aurkitu</string>
   <string name="title_captcha">Sartu CAPTCHA</string>
+  <string name="nav_item_login">Saioa hasi</string>
   <string name="login_username_hint">Erabiltzaile izena</string>
   <string name="login_password_hint">Pasahitza</string>
   <string name="login_password_show_check">Pasahitza erakutsi</string>
   <string name="menu_login">Saioa hasi</string>
   <string name="login_activity_title">Saioa hasi Wikipedian</string>
+  <string name="preference_title_logout">Saioa itxi</string>
+  <string name="preference_summary_logout">Irten zure Wikipedia kontutik</string>
   <string name="delete_selected_history">Ezabatu</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">Entziklopedia askea</string>
@@ -66,9 +75,11 @@
   <string name="create_account_passwords_mismatch_error">Pasahitzak ez datoz bat</string>
   <string name="create_account_next">Hurrengoa</string>
   <string name="create_account_button">Kontua sortu</string>
+  <string name="preferences_general_heading">Orokorra</string>
   <string name="zero_search_hint">Bilatu Wikipedia Zeron</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_learn_more_learn_more">Irakurri gehiago</string>
+  <string name="nav_item_random">Ausazkoa</string>
   <string name="user_contribs_more_action">Gehiago kargatu</string>
   <string name="activity_my_contributions_title">Nire Ekarpenak</string>
   <string name="history_search_list_hint">Bilatu</string>
@@ -80,6 +91,10 @@
   <string name="about_translators_heading">itzultzaileak</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Fundazioaren&lt;/a&gt; produktua</string>
   <string name="about_activity_title">Honi buruz</string>
+  <string name="user_blocked_from_editing_title">Blokeatua</string>
+  <string name="user_logged_in_blocked_from_editing">Zure erabiltzaile kontua blokeatua izan da wiki honetan editatzeko</string>
+  <string name="user_anon_blocked_from_editing">Zure IP helbidea editatzeko blokeatua izan da</string>
+  <string name="edit_how_page_improved">Nola hobetu duzu orria?</string>
   <string name="edit_next">Hurrengoa</string>
   <string name="edit_done">Gorde</string>
   <string name="edit_preview">Aurrebista</string>

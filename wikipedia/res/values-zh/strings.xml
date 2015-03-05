@@ -175,7 +175,7 @@
   <string name="user_blocked_from_editing_title">已封禁</string>
   <string name="user_logged_in_blocked_from_editing">您的用户账户被封禁，不能编辑此wiki。</string>
   <string name="user_anon_blocked_from_editing"> 您的IP地址被封禁编辑。</string>
-  <string name="edit_how_page_improved">您要如何改进此页面的？</string>
+  <string name="edit_how_page_improved">您是如何改进此页面的？</string>
   <string name="edit_next">下一页</string>
   <string name="edit_done">保存</string>
   <string name="edit_preview">预览</string>
@@ -256,6 +256,7 @@
   <string name="gallery_save_error">无法保存图片：%s</string>
   <string name="gallery_save_error_mediastore">导入图片至媒体收藏失败</string>
   <string name="gallery_save_success">图片保存成功。</string>
+  <string name="gallery_error_video_failed">不能播放视频。</string>
   <string name="err_cannot_save_file">无法保存文件</string>
   <string name="snippet_share_intro">“%1$s”在 @Wikipedia：%2$s</string>
   <string name="expand_refs">点按展开</string>

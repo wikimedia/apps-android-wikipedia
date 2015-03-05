@@ -224,10 +224,12 @@
   <string name="gallery_menu_save">Um Apparat späicheren</string>
   <string name="gallery_save_error">Bild konnt net gespspäichert ginn: %s</string>
   <string name="gallery_save_success">Bild gespäichert.</string>
+  <string name="gallery_error_video_failed">De Video konnt net gespillt ginn.</string>
   <string name="err_cannot_save_file">Fichier kann net gespäichert ginn</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
   <string name="share_snippet_button">Als Bild deelen</string>
   <string name="share_normal_button">Als Text deelen</string>
   <string name="snippet_share_preview_image_desc">Bild kucken ouni ze späicheren</string>
+  <string name="cc_logo">Creative-Commons-Lizenz</string>
   <string name="captcha_image">Captcha-Bild</string>
 </resources>
