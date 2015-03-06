@@ -66,12 +66,12 @@ public class TextSelectedShareAdapter extends ShareHandler {
 
         // Find the context menu item for copying text to the clipboard...
         // The most practical way to do this seems to be to get the resource name of the
-        // menu item, and see if it resembles "action_menu_copy", which appears to remain
+        // menu item, and see if it contains "copy", which appears to remain
         // consistent throughout the various APIs.
         for (int i = 0; i < menu.size(); i++) {
             String resourceName
                     = getActivity().getResources().getResourceName(menu.getItem(i).getItemId());
-            if (resourceName.contains("action_menu_copy")) {
+            if (resourceName.contains("copy")) {
                 copyMenuItem = menu.getItem(i);
                 break;
             }
@@ -79,15 +79,21 @@ public class TextSelectedShareAdapter extends ShareHandler {
 
         // Find the context menu item for sharing text...
         // The most practical way to do this seems to be to get the resource name of the
-        // menu item, and see if it resembles "action_menu_share", which appears to remain
+        // menu item, and see if it contains "share", which appears to remain
         // consistent throughout the various APIs.
         for (int i = 0; i < menu.size(); i++) {
             String resourceName
                     = getActivity().getResources().getResourceName(menu.getItem(i).getItemId());
-            if (resourceName.contains("action_menu_share")) {
+            if (resourceName.contains("share")) {
                 shareItem = menu.getItem(i);
                 break;
             }
+        }
+
+        // if we were unable to find the Copy or Share items, then we won't be able to offer
+        // our custom Share functionality, so just fall back to the WebView's default sharing.
+        if (copyMenuItem == null || shareItem == null) {
+            return;
         }
 
         // intercept share menu...
