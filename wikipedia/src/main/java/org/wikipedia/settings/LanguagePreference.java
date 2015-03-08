@@ -31,7 +31,7 @@ public class LanguagePreference extends DialogPreference {
         super(context, attrs);
         setPersistent(false);
         setDialogLayoutResource(R.layout.dialog_preference_languages);
-        languages = new ArrayList<String>();
+        languages = new ArrayList<>();
         languages.addAll(Arrays.asList(context.getResources().getStringArray(R.array.preference_language_keys)));
         app = (WikipediaApp) context.getApplicationContext();
 
@@ -111,7 +111,7 @@ public class LanguagePreference extends DialogPreference {
 
         private LanguagesAdapter(List<String> languages, WikipediaApp app) {
             this.originalLanguages = languages;
-            this.languages = new ArrayList<String>();
+            this.languages = new ArrayList<>();
             this.languages.addAll(languages);
             this.app = app;
         }

@@ -52,7 +52,7 @@ public class SavePageTask extends SaneAsyncTask<Boolean> {
      */
     private void parallelDownload(final ImageUrlMap imageUrlMap) throws InterruptedException {
         imagesDownloadedLatch = new CountDownLatch(imageUrlMap.size());
-        List<DownloadImageTask> tasks = new ArrayList<DownloadImageTask>();
+        List<DownloadImageTask> tasks = new ArrayList<>();
         // instantiate the tasks first, then execute them all at once.
         // (so that removing URLs in onCatch doesn't mess with the iterator)
         for (Map.Entry<String, String> entry : imageUrlMap.entrySet()) {

@@ -39,7 +39,7 @@ public class SyntaxHighlighter {
     public SyntaxHighlighter(final Activity parentActivity, final EditText textBox, OnSyntaxHighlightListener listener) {
         this.textBox = textBox;
         this.syntaxHighlightListener = listener;
-        syntaxRules = new ArrayList<SyntaxRule>();
+        syntaxRules = new ArrayList<>();
 
         // create our list of syntax rules for Wikipedia markup:
 
@@ -180,8 +180,8 @@ public class SyntaxHighlighter {
 
         @Override
         public List<SpanExtents> performTask() throws Throwable {
-            Stack<SpanExtents> spanStack = new Stack<SpanExtents>();
-            List<SpanExtents> spansToSet = new ArrayList<SpanExtents>();
+            Stack<SpanExtents> spanStack = new Stack<>();
+            List<SpanExtents> spansToSet = new ArrayList<>();
 
             /*
             The (naïve) algorithm:

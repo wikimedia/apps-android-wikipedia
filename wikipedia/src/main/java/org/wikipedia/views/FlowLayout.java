@@ -22,7 +22,7 @@ public class FlowLayout extends ViewGroup {
     private static final int VERTICAL_SPACING = 8;
 
     private Resources resources;
-    private List<Integer> lineHeights = new ArrayList<Integer>();
+    private List<Integer> lineHeights = new ArrayList<>();
 
     public FlowLayout(Context context) {
         super(context);

@@ -11,8 +11,8 @@ import java.util.Hashtable;
  */
 public class FunnelManager {
     private final WikipediaApp app;
-    private final Hashtable<PageTitle, EditFunnel> editFunnels = new Hashtable<PageTitle, EditFunnel>();
-    private final Hashtable<Site, SavedPagesFunnel> savedPageFunnels = new Hashtable<Site, SavedPagesFunnel>();
+    private final Hashtable<PageTitle, EditFunnel> editFunnels = new Hashtable<>();
+    private final Hashtable<Site, SavedPagesFunnel> savedPageFunnels = new Hashtable<>();
 
     public FunnelManager(WikipediaApp app) {
         this.app = app;

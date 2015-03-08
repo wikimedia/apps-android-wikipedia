@@ -82,7 +82,7 @@ public final class ImageUrlMap {
      */
     public static class Builder {
         private final String imgDir;
-        private final Map<String, String> urlMap = new LinkedHashMap<String, String>();
+        private final Map<String, String> urlMap = new LinkedHashMap<>();
 
         public Builder(String imgDir) {
             this.imgDir = fixImgDir(imgDir);

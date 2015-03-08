@@ -262,11 +262,11 @@ public class WikipediaApp extends Application {
         return acceptLanguage;
     }
 
-    private HashMap<String, Api> apis = new HashMap<String, Api>();
+    private HashMap<String, Api> apis = new HashMap<>();
     private MccMncStateHandler mccMncStateHandler = new MccMncStateHandler();
     public Api getAPIForSite(Site site) {
         // https://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
-        HashMap<String, String> customHeaders = new HashMap<String, String>();
+        HashMap<String, String> customHeaders = new HashMap<>();
         customHeaders.put("User-Agent", getUserAgent());
         // Add the app install ID to the header, but only if the user has not opted out of logging
         if (isEventLoggingEnabled()) {
@@ -354,7 +354,7 @@ public class WikipediaApp extends Application {
         return dbOpenHelper;
     }
 
-    private HashMap<String, ContentPersister> persisters = new HashMap<String, ContentPersister>();
+    private HashMap<String, ContentPersister> persisters = new HashMap<>();
     public ContentPersister getPersister(Class cls) {
         if (!persisters.containsKey(cls.getCanonicalName())) {
             ContentPersister persister;
@@ -588,7 +588,7 @@ public class WikipediaApp extends Application {
 
     public List<String> getLanguageMruList() {
         if (languageMruList == null) {
-            languageMruList = new ArrayList<String>();
+            languageMruList = new ArrayList<>();
             String mruString = prefs.getString(PrefKeys.getLanguageMru(), getPrimaryLanguage());
             languageMruList.addAll(Arrays.asList(mruString.split(",")));
         }

@@ -53,7 +53,7 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
         }
 
         JSONArray sectionsJSON = result.asObject().optJSONObject("mobileview").optJSONArray("sections");
-        ArrayList<Section> sections = new ArrayList<Section>();
+        ArrayList<Section> sections = new ArrayList<>();
 
         if (sectionsJSON == null) {
             throw new ApiException(new JSONException("FIXME: server returned 0 sections with no error."));

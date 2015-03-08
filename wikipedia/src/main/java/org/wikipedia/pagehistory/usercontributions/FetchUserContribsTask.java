@@ -53,7 +53,7 @@ public class FetchUserContribsTask extends ApiTask<FetchUserContribsTask.UserCon
         }
         JSONArray contribsJSON = result.asObject().optJSONObject("query").optJSONArray("usercontribs");
 
-        ArrayList<PageHistoryItem> contribs = new ArrayList<PageHistoryItem>(contribsJSON.length());
+        ArrayList<PageHistoryItem> contribs = new ArrayList<>(contribsJSON.length());
 
         for (int i = 0; i < contribsJSON.length(); i++) {
             JSONObject contribJSON = contribsJSON.optJSONObject(i);

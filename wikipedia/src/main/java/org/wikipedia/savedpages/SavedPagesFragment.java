@@ -357,7 +357,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
     private void refreshSelected() {
         SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
-        ArrayList<SavedPage> savedPages = new ArrayList<SavedPage>();
+        ArrayList<SavedPage> savedPages = new ArrayList<>();
         for (int i = 0; i < checkedItems.size(); i++) {
             if (checkedItems.valueAt(i)) {
                 SavedPage page = SavedPage.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
@@ -369,7 +369,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     }
 
     private void refreshAll() {
-        ArrayList<SavedPage> savedPages = new ArrayList<SavedPage>();
+        ArrayList<SavedPage> savedPages = new ArrayList<>();
         for (int i = 0; i < adapter.getCount(); i++) {
             SavedPage page = SavedPage.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(i));
             savedPages.add(page);

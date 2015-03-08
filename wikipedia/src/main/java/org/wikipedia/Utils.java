@@ -432,7 +432,7 @@ public final class Utils {
         intent.setData(uri);
         List<ResolveInfo> resInfo = context.getPackageManager().queryIntentActivities(intent, 0);
         if (!resInfo.isEmpty()) {
-            List<Intent> browserIntents = new ArrayList<Intent>();
+            List<Intent> browserIntents = new ArrayList<>();
             for (ResolveInfo resolveInfo : resInfo) {
                 String packageName = resolveInfo.activityInfo.packageName;
                 // remove our apps from the selection!

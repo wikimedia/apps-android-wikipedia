@@ -12,7 +12,7 @@ public final class FileAliasData {
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static void setupData() {
         final int size = 288;
-        DATA_MAP = new HashMap<String, String>(size, 1.0f);
+        DATA_MAP = new HashMap<>(size, 1.0f);
         DATA_MAP.put("en", "File");
         DATA_MAP.put("sv", "Fil");
         DATA_MAP.put("nl", "Bestand");

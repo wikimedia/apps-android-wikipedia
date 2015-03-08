@@ -19,7 +19,7 @@ public class ExecutorService {
     private final HashMap<Class, Executor> executors;
 
     public ExecutorService() {
-        executors = new HashMap<Class, Executor>();
+        executors = new HashMap<>();
     }
 
     public Executor getExecutor(Class cls, int threads) {
