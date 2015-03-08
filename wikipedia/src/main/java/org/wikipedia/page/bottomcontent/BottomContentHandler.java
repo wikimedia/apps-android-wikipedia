@@ -266,10 +266,11 @@ public class BottomContentHandler implements BottomContentInterface,
             return;
         }
 
-        final int numSuggestions = 10;
+        final int maxResultItems = 1;
+        final int numRequestItems = 10; // increase the chance of getting one with thumbnails
         new SuggestionsTask(app.getAPIForSite(myTitle.getSite()), myTitle.getSite(),
-                myTitle.getPrefixedText(), (int)(parentFragment.getActivity().getResources().getDimension(R.dimen.leadImageWidth) / displayDensity),
-                numSuggestions, true) {
+                myTitle.getPrefixedText(), numRequestItems, maxResultItems,
+                (int)(parentFragment.getActivity().getResources().getDimension(R.dimen.leadImageWidth) / displayDensity), true) {
             @Override
             public void onFinish(SearchResults results) {
                 readMoreItems = results;

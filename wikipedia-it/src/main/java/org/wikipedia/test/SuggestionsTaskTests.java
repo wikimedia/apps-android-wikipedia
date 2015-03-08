@@ -20,6 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 200000;
     private static final int BATCH_SIZE = 3;
+    private static final int THUMB_SIZE = 100;
     private static final Site SITE = new Site("test.wikipedia.org");
 
     private WikipediaApp app;
@@ -40,7 +41,8 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test") {
+                new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test",
+                        BATCH_SIZE + 1, BATCH_SIZE, THUMB_SIZE, false) {
                     @Override
                     public void onFinish(SearchResults results) {
                         assertNotNull(results);
@@ -88,7 +90,8 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
     }
 
     private void checkFilter(int expected, List<PageTitle> originalResults) {
-        SuggestionsTask task = new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test");
+        SuggestionsTask task = new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test",
+                BATCH_SIZE + 1, BATCH_SIZE, THUMB_SIZE, false);
         SearchResults searchResults = new SearchResults(originalResults, null, null);
         List<PageTitle> filteredList = task.filterResults(searchResults).getPageTitles();
         assertEquals(expected, filteredList.size());

@@ -16,14 +16,15 @@ import java.util.List;
  */
 public class SuggestionsTask extends FullSearchArticlesTask {
     private final String title;
-    private final int numItems;
+    private final int maxItems;
     private final boolean requireThumbnail;
 
-    public SuggestionsTask(Api api, Site site, String title, int thumbSize, int numItems,
-                           boolean requireThumbnail) {
-        super(api, site, title, numItems + 1, null, thumbSize);
+    public SuggestionsTask(Api api, Site site, String title,
+                           int numRequestItems, int maxResultItems,
+                           int thumbSize, boolean requireThumbnail) {
+        super(api, site, title, numRequestItems, null, thumbSize);
         this.title = title;
-        this.numItems = numItems;
+        this.maxItems = maxResultItems;
         this.requireThumbnail = requireThumbnail;
     }
 
@@ -42,7 +43,7 @@ public class SuggestionsTask extends FullSearchArticlesTask {
     public SearchResults filterResults(SearchResults searchResults) {
         List<PageTitle> filteredResults = new ArrayList<>();
         List<PageTitle> results = searchResults.getPageTitles();
-        for (int i = 0, count = 0; i < results.size() && count < numItems; i++) {
+        for (int i = 0, count = 0; i < results.size() && count < maxItems; i++) {
             final PageTitle res = results.get(i);
             if (!title.equalsIgnoreCase(res.getPrefixedText()) && (!requireThumbnail || res.getThumbUrl() != null)) {
                 filteredResults.add(res);

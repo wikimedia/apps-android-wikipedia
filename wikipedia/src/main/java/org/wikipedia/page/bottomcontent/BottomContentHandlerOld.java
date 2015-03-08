@@ -290,10 +290,11 @@ public class BottomContentHandlerOld implements BottomContentInterface,
             layoutContent();
             return;
         }
-        final int numSuggestions = 3;
+        final int maxResultItems = 3;
+        final int numRequestItems = 4;
         new SuggestionsTask(app.getAPIForSite(myTitle.getSite()), myTitle.getSite(),
-                myTitle.getPrefixedText(), (int)(parentFragment.getActivity().getResources().getDimension(R.dimen.leadImageWidth) / displayDensity),
-                numSuggestions, false) {
+                myTitle.getPrefixedText(), numRequestItems, maxResultItems,
+                (int)(parentFragment.getActivity().getResources().getDimension(R.dimen.leadImageWidth) / displayDensity), false) {
             @Override
             public void onFinish(SearchResults results) {
                 readMoreItems = results;
