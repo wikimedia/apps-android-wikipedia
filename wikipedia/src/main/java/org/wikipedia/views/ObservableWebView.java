@@ -1,6 +1,8 @@
 package org.wikipedia.views;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
@@ -80,6 +82,7 @@ public class ObservableWebView extends WebView {
         init();
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public ObservableWebView(Context context, AttributeSet attrs, int defStyle, boolean privateBrowsing) {
         super(context, attrs, defStyle, privateBrowsing);
         init();

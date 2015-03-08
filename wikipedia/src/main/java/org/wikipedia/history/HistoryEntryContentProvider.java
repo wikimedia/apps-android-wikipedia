@@ -34,8 +34,8 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
     }
 
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        if (projection != null) {
+    public Cursor query(Uri uri, String[] projectionIgnored, String selection, String[] selectionArgs, String sortOrder) {
+        if (projectionIgnored != null) {
             throw new UnsupportedOperationException("Projection is pre-set, must always be null");
         }
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
@@ -65,7 +65,7 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
                 cursor = queryBuilder.query(db, actualProjection, selection, selectionArgs, null, null, sortOrder);
                 break;
             default:
-                return super.query(uri, projection, selection, selectionArgs, sortOrder);
+                return super.query(uri, null, selection, selectionArgs, sortOrder);
         }
 
         cursor.setNotificationUri(getContext().getContentResolver(), uri);
