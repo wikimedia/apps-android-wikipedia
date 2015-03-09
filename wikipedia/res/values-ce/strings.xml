@@ -57,7 +57,7 @@
   <string name="preference_title_logout">Болх дӀаберзор</string>
   <string name="saved_pages_empty_title">Кхузахь яц Ӏалашйина агӀонаш.</string>
   <string name="saved_pages_empty_message" fuzzy="true">Ӏалашйина агӀонаш яц.</string>
-  <string name="history_empty_title">Кеста хьаьжна агӀонаш яц.</string>
+  <string name="history_empty_title">Кеста хьаьжжина агӀонаш яц.</string>
   <string name="history_empty_message" fuzzy="true">Хьа истори еса ю.</string>
   <string name="delete_selected_history">ДӀаяккха</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕД&lt;big&gt;И&lt;/big&gt;</string>
@@ -67,7 +67,7 @@
   <string name="create_account_password_hint">Пароль</string>
   <string name="login_create_account_link">Кхолла декъашхочун дӀаяздар</string>
   <string name="create_account_activity_title">Кхолла декъашхочун дӀаяздар</string>
-  <string name="dialog_create_account_checking_progress">Хьажар</string>
+  <string name="dialog_create_account_checking_progress">Таллар</string>
   <string name="create_account_email_hint">Электронан почтан адрес (ца хилча бе яц)</string>
   <string name="create_account_password_repeat_hint">Юху а язъе пароль</string>
   <string name="create_account_passwords_mismatch_error">Паролаш цхьана йогӀуш яц</string>
@@ -99,7 +99,7 @@
   <string name="about_translators_translatewiki">ХӀара тӀетохар гочйина &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чура шен лаамернигаш.</string>
   <string name="edit_next">Кхин дӀа</string>
   <string name="edit_done">Ӏалашдан</string>
-  <string name="edit_preview">Хьажар</string>
+  <string name="edit_preview">Хьалха хьажар</string>
   <string name="edit_summary_tag_other">Кхин</string>
   <string name="saved_pages_update_all_error_retry">ЮхагӀорта</string>
   <string name="menu_page_saved">АгӀо Ӏалашйина</string>

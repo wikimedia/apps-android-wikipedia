@@ -248,10 +248,13 @@ Kildekoden er åpen. Hvis du har erfaring med Java og Android SDK er du velkomme
   <string name="gallery_save_error">Kunne ikke lagre bilde: %s</string>
   <string name="gallery_save_error_mediastore">Importering av bilde til mediesamling feilet</string>
   <string name="gallery_save_success">Bildet ble lagret.</string>
+  <string name="gallery_error_video_failed">Kunne ikke spille av videoen.</string>
   <string name="err_cannot_save_file">Kunne ikke lagre filen</string>
   <string name="snippet_share_intro">«%1$s» på @Wikipedia: %2$s</string>
   <string name="expand_refs">Trykk for å utvide</string>
   <string name="share_snippet_button">Del som bilde</string>
   <string name="share_normal_button">Del som tekst</string>
   <string name="snippet_share_preview_image_desc">Forhåndsvis bilde</string>
+  <string name="cc_logo">Creative Commons-lisensen</string>
+  <string name="captcha_image">Captcha-bilde</string>
 </resources>

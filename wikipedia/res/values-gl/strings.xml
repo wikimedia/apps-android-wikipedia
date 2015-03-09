@@ -47,6 +47,7 @@
   <string name="nearby_dialog_goto_settings">As actualizacións de localización están desactivadas no seu dispositivo. ¿Quere ir ás preferencias do mesmo para habilitalas?</string>
   <string name="nearby_set_metric">Mostrar metros/km</string>
   <string name="nearby_set_imperial">Mostrar pes/millas</string>
+  <string name="nearby_view_on_map">Ver lugar no mapa</string>
   <string name="last_updated_text">Última actualización o %1$s</string>
   <string name="content_license_html">Todo o contido está dispoñible baixo a licenza &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.gl\"&gt;CC BY-SA 3.0&lt;/a&gt;, agás que se indique o contrario</string>
   <string name="edit_save_action_license_logged_in">Ao gardar, acepta os &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/gl\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.gl\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -215,6 +216,9 @@
   <string name="table_infobox">Datos rápidos</string>
   <string name="table_other">Máis información</string>
   <string name="table_close">Pechar</string>
+  <string name="widget_name_featured_page">Páxina destacada de Wikipedia</string>
+  <string name="widget_title_featured_page">Páxina destacada do día:</string>
+  <string name="widget_name_search">Busca en Wikipedia</string>
   <string name="app_store_description" fuzzy="true">Aplicación oficial da Wikipedia para Android. A Wikipedia é a enciclopedia libre que contén máis de 32 millóns de artigos en 280 idiomas e é o traballo de referencia recompilado polo ser humano máis completo e amplamente usado. A aplicación foi reescrita desde cero e está mellor que nunca.
 
 Características:
@@ -242,8 +246,15 @@ O código é completamente aberto. Se ten experiencia co Java e o SDK de Android
   <string name="gallery_share_error">Non pode compartir imaxe: %s</string>
   <string name="gallery_menu_save">Gardar en dispositivo</string>
   <string name="gallery_save_error">Non se pode gardar a imaxe: %s</string>
+  <string name="gallery_save_error_mediastore">Non se puido importar a imaxe á colección de medios</string>
   <string name="gallery_save_success">Imaxe gardada correctamente.</string>
+  <string name="gallery_error_video_failed">Non se puido reproducir o vídeo.</string>
   <string name="err_cannot_save_file">Non se pode gardar o ficheiro</string>
   <string name="snippet_share_intro">\"%1$s\" en @Wikipedia: %2$s</string>
   <string name="expand_refs">Toque para ampliar</string>
+  <string name="share_snippet_button">Compartir coma imaxe</string>
+  <string name="share_normal_button">Compartir coma texto</string>
+  <string name="snippet_share_preview_image_desc">Vista previa da imaxe</string>
+  <string name="cc_logo">Licenza de Creative Commons</string>
+  <string name="captcha_image">Código Captcha</string>
 </resources>

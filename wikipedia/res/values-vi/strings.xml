@@ -47,6 +47,7 @@
   <string name="nearby_dialog_goto_settings">Các cập nhật vị trí không được kích hoạt trên thiết bị của bạn. Bạn có muốn mở cài đặt của thiết bị này để kích hoạt các cập nhật vị trí?</string>
   <string name="nearby_set_metric">Hiển thị mét/km</string>
   <string name="nearby_set_imperial">Hiển thị foot/dặm</string>
+  <string name="nearby_view_on_map">Xem trên bản đồ</string>
   <string name="last_updated_text">Cập nhật lần cuối vào %1$s</string>
   <string name="content_license_html">Nội dung được phát hành theo &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt; nếu không ghi giấy phép khác</string>
   <string name="edit_save_action_license_logged_in">Với việc lưu trang, bạn chấp nhận &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -215,24 +216,36 @@
   <string name="table_infobox">Thông tin nhanh</string>
   <string name="table_other">Thêm thông tin</string>
   <string name="table_close">Đóng</string>
-  <string name="app_store_description" fuzzy="true">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở với hơn 32 triệu mục từ trong 280 ngôn ngữ, và là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên. Ứng dụng này đã được viết mới hoàn toàn và là bản tốt nhất từ trước tới nay.
+  <string name="widget_name_featured_page">Bài viết chọn lọc Wikipedia</string>
+  <string name="widget_title_featured_page">Bài viết chọn lọc hôm nay:</string>
+  <string name="widget_name_search">Tìm kiếm Wikipedia</string>
+  <string name="app_store_description">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở có hơn 32 triệu bài viết trong 280 ngôn ngữ. Nó là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên.
 
 Tính năng:
- - Tốc độ: Ứng dụng mới của chúng tôi cho phép bạn duyệt và sửa đổi Wikipedia nhanh nhất từ trước tới nay.
- - Sửa đổi: Bạn đã có thể sửa đổi Wikipedia! Dù đã đăng nhập hoặc đăng xuất, chúng tôi xin cảm ơn vì tất cả những đóng góp của bạn.
- - Các trang gần đây: Chúng tôi cung cấp lịch sử các trang đã đọc của bạn, bạn có thể nhấn vào bao nhiêu liên kết tùy thích mà không sợ bị lạc lối.
- - Các trang đã lưu: Bạn có thể lưu các trang mong muốn để duyệt và đọc khi thậm chí không có kết nối internet.
- - Chia sẻ: Sử dụng các ứng dụng mạng xã hội mà bạn có để chia sẻ khối kiến thức chung của nhân loại.
- - Hỗ trợ ngôn ngữ: Ứng dụng cho phép bạn dễ dàng chuyển đổi để đọc Wikipedia được viết bằng bất kỳ ngôn ngữ nào.
- - Wikipedia Miễn phí: Không bị tính phí dữ liệu đối với một số nhà mạng có tham gia chương trình.
+- Hình đầu: Trải nghiệm Wikipedia một cách hoàn toàn mới với bức hình nổi bật, phù hợp được trình bày và miêu tả ngay vào đầu trang.
+- Thư viện ảnh: Chạm vào bất cứ hình nào để xem bản độ phân giải cao toàn màn hình. Vuốt trái/phải để xem các hình ảnh khác.
+- Miêu tả từ Wikidata: Mỗi kết quả tìm kiếm hiện có lời miêu tả ngắn gọn cho biết ngữ cảnh. Các miêu tả này cũng xuất hiện ở khắp ứng dụng, chẳng hạn ở phần Lân cận.
+- Gợi ý bài: Cuộn đến cuối bài để nhận gợi ý về những bài nên đọc tiếp theo.
+- Lưu trang: Bạn có thể lưu các trang mong muốn để duyệt và đọc khi thậm chí không có kết nối dữ liệu.
+- Lân cận: Tìm hiểu về vùng chung quanh bạn. Dễ dàng duyệt các bài về đề tài gần vị trí hiện tại của bạn.
+- Hỗ trợ ngôn ngữ: Ứng dụng cho phép bạn dễ dàng chuyển đổi để đọc Wikipedia được viết bằng bất kỳ ngôn ngữ nào.
+- Bảng mục lục: Vuốt trái trên bất cứ bài nào để xem bảng mục lục và nhảy giữa các phần bài.
+- Wikipedia Miễn phí: Không bị tính phí dữ liệu đối với một số nhà mạng có tham gia chương trình.
 
-Mã nguồn là hoàn toàn mở. Nếu bạn có kinh nghiệm với Java và Android SDK, hãy tham gia dự án với chúng tôi! https://github.com/wikimedia/apps-android-wikipedia</string>
+Hãy gửi phản hồi về ứng dụng này! Bấm “Thêm” trong trình đơn, rồi “Giới thiệu về ứng dụng Wikipedia”, rồi “Gửi phản hồi về ứng dụng”.
+
+Mã nguồn là 100% mở. Nếu bạn có kinh nghiệm với Java và Android SDK, mời bạn đóng góp vào dự án! https://github.com/wikimedia/apps-android-wikipedia
+
+Quy định về quyền riêng tư: http://wikimediafoundation.org/wiki/Special:MyLanguage/Privacy_policy
+
+Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_Use/vi</string>
   <string name="alpha_update_notification_title">Có sẵn bản cập nhật alpha mới</string>
   <string name="alpha_update_notification_text">Chạm để tải về</string>
   <string name="dialog_close_description">Đóng</string>
   <string name="preference_title_show_images">Xem hình ảnh</string>
   <string name="preference_summary_show_images">Bật/tắt việc tải các hình ảnh trong trang. Tắt hình ảnh nếu có kết nối mạng chậm hoặc dữ liệu bị hạn chế.</string>
   <string name="read_more_section">Đọc tiếp</string>
+  <string name="read_next_section">Đọc tiếp theo</string>
   <string name="gallery_menu_more_info">Thêm thông tin</string>
   <string name="menu_gallery_visit_page">Xem trang tập tin</string>
   <string name="gallery_error_draw_failed">Không thể hiển thị hình.</string>
@@ -242,8 +255,15 @@ Mã nguồn là hoàn toàn mở. Nếu bạn có kinh nghiệm với Java và A
   <string name="gallery_share_error">Không thể chia sẻ hình: %s</string>
   <string name="gallery_menu_save">Lưu vào thiết bị</string>
   <string name="gallery_save_error">Không thể lưu hình: %s</string>
+  <string name="gallery_save_error_mediastore">Thất bại khi nhập hình vào tập hợp phương tiện</string>
   <string name="gallery_save_success">Đã lưu hình thành công.</string>
+  <string name="gallery_error_video_failed">Không thể phát video.</string>
   <string name="err_cannot_save_file">Không thể lưu tập tin</string>
   <string name="snippet_share_intro">“%1$s” trên @Wikipedia: %2$s</string>
   <string name="expand_refs">Chạm để mở rộng</string>
+  <string name="share_snippet_button">Chia sẻ hình ảnh</string>
+  <string name="share_normal_button">Chia sẻ văn bản</string>
+  <string name="snippet_share_preview_image_desc">Xem trước hình ảnh</string>
+  <string name="cc_logo">Giấy phép Creative Commons</string>
+  <string name="captcha_image">Hình CAPTCHA</string>
 </resources>

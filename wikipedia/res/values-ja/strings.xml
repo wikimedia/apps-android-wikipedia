@@ -216,6 +216,7 @@
   <string name="table_infobox">基本データ</string>
   <string name="table_other">さらに見る</string>
   <string name="table_close">閉じる</string>
+  <string name="widget_name_featured_page">選り抜き記事</string>
   <string name="widget_title_featured_page">今日の選り抜き記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
   <string name="app_store_description" fuzzy="true">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。このバージョンではゼロから書きなおされ、これまでで最良のものになりました。

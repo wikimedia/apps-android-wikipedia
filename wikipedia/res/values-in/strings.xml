@@ -187,7 +187,7 @@
   <string name="find_in_page">Cari di halaman</string>
   <string name="find_next">Cari berikutnya</string>
   <string name="find_previous">Cari sebelumnya</string>
-  <string name="error_network_error_try_again">Tidak dapat menemukan jaringan, silakan dicoba lagi.</string>
+  <string name="error_network_error_try_again">Tidak dapat mencapai jaringan, harap coba lagi.</string>
   <string name="saved_pages_update_all_error_retry">Coba lagi</string>
   <string name="saved_pages_update_all_error_message">Kesalahan memperbarui halaman yang disimpan</string>
   <string name="saved_pages_progress_title">Menyegarkan halaman yang disimpan</string>
@@ -216,18 +216,18 @@
   <string name="table_infobox">Fakta cepat</string>
   <string name="table_other">Informasi lebih lanjut</string>
   <string name="table_close">Tutup</string>
-  <string name="widget_name_featured_page">Wikipedia artikel pilihan</string>
-  <string name="widget_title_featured_page">Peristiwa terkini:</string>
+  <string name="widget_name_featured_page">Artikel pilihan Wikipedia</string>
+  <string name="widget_title_featured_page">Artikel pilihan hari ini:</string>
   <string name="widget_name_search">Pencarian Wikipedia</string>
   <string name="app_store_description">Aplikasi resmi Wikipedia untuk Android. Wikipedia adalah ensiklopedia bebas yang berisi lebih dari 32 juta artikel dalam 280 bahasa sekaligus karya referensi buatan manusia yang paling lengkap dan banyak digunakan sepanjang sejarah. Aplikasi ini telah ditulis ulang dari awal dan lebih baik dari sebelumnya.
 
 Fitur:
 - Gambar utama: rasakan pengalaman Ber-wiki tidak seperti sebelumnya, dengan lebih menonjol, gambar kontekstual yang relevan dan deskripsi di atas artikel
-- Galeri gambar: tap pada gambar akan membuka gambar dalam layar penuh dengan resolusi tinggi, berikut opsi untuk geser ke kiri/kanan untuk menelusuri gambar yang lain
+- Galeri gambar: ketuk pada gambar akan membuka gambar dalam layar penuh dengan resolusi tinggi, berikut opsi untuk geser ke kiri/kanan untuk menelusuri gambar yang lain
 - Deskripsi dari Wikidata: ketika mencari, setiap hasil pencarian sekarang berisi deskripsi singkat yang membantu untuk mengontekstualisasikan hasilnya. Deskripsi ini juga ditunjukkan di wilayah lain aplikasi, seperti fitur Sekitar
 - Saran artikel: gulir ke bagian bawah artikel untuk melihat saran tentang apa saja yang dapat Anda baca berikutnya
 - Halaman tersimpan: Anda dapat menyimpan halaman yang terpilih untuk dibaca secara luring dan menelusuri mereka bahkan ketika Anda tidak memiliki sambungan data.
-- Sekitar: Pelajari lebih lanjut tentang apa yang ada di sekitar Anda dengan mendapatkan link ke artikel tentang hal-hal yang di dekat lokasi Anda saat ini
+- Sekitar: Pelajari lebih lanjut tentang apa yang ada di sekitar Anda dengan mendapatkan pranala ke artikel tentang hal-hal yang di dekat lokasi Anda saat ini
 - Dukungan bahasa: Aplikasi ini memungkinkan Anda untuk dengan mulus beralih ke Wikipedia yang ditulis dalam bahasa lain
 - Daftar isi: Geser ke kiri pada setiap artikel untuk membuka daftar isi, yang memungkinkan Anda melompat ke bagian dari artikel dengan lebih mudah
 - Wikipedia Nol: Biaya data dibebaskan untuk operator selular yang berpartisipasi.
@@ -256,6 +256,7 @@ Ketentuan penggunaan http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_save_error">Tidak dapat menyimpan gambar: %s</string>
   <string name="gallery_save_error_mediastore">Gagal mengimpor berkas ke koleksi media</string>
   <string name="gallery_save_success">Penyimpanan gambar berhasil.</string>
+  <string name="gallery_error_video_failed">Tidak dapat memutar video.</string>
   <string name="err_cannot_save_file">Tidak dapat menyimpan berkas</string>
   <string name="snippet_share_intro">\"%1$s\" di @Wikipedia: %2$s</string>
   <string name="expand_refs">Ketuk untuk memperluas</string>

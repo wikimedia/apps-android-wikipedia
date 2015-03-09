@@ -245,6 +245,7 @@ Conditions d’utilisation : http://wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="preference_title_show_images">Voir les images</string>
   <string name="preference_summary_show_images">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à internet est lente, ou si votre volume de données est limité.</string>
   <string name="read_more_section">En savoir plus</string>
+  <string name="read_next_section">Lire le suivant</string>
   <string name="gallery_menu_more_info">Plus d’informations</string>
   <string name="menu_gallery_visit_page">Aller à la page du fichier</string>
   <string name="gallery_error_draw_failed">Impossible d\'afficher l’image.</string>

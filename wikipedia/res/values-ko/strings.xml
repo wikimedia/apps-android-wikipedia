@@ -47,6 +47,7 @@
   <string name="nearby_dialog_goto_settings">위키 업데이트가 장치에서 활성화되어 있지 않습니다. 위치 업데이트를 활성화하기 위해 장치의 설정으로 가겠습니까?</string>
   <string name="nearby_set_metric">meters/km 보이기</string>
   <string name="nearby_set_imperial">feet/miles 보이기</string>
+  <string name="nearby_view_on_map">지도에서 장소 보기</string>
   <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
   <string name="content_license_html">내용은 별도로 명시하지 않을 경우 &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
   <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다.</string>
@@ -213,18 +214,28 @@
   <string name="table_infobox">빠른 사실</string>
   <string name="table_other">자세한 정보</string>
   <string name="table_close">닫기</string>
-  <string name="app_store_description" fuzzy="true">Android를 위한 공식 위키백과 앱입니다. 위키백과는 280개 언어의 3천2백만보다 많은 문서가 들어 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용합니다. 앱은 처음부터 다시 쓰여졌고 이전보다 더 나아졌습니다.
+  <string name="widget_name_featured_page">위키백과 알찬 글</string>
+  <string name="widget_title_featured_page">오늘의 알찬 글:</string>
+  <string name="widget_name_search">위키백과 연구원</string>
+  <string name="app_store_description">Android를 위한 위키백과 공식 앱입니다. 위키백과는 280개 언어의 3,200만개 이상의 문서가 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용되고 있습니다.
 
 기능:
-   - 속도: 새로운 네이티브 앱으로 위키백과를 이전보다 빠르게 찾아보고 편집할 수 있습니다.
-   - 편집: 위키백과를 편집할 수 있습니다! 로그인하거나 로그아웃하거나, 우리는 모든 여러분의 기여에 고마워합니다.
-   - 최근 문서: 우리는 여러분이 읽은 것의 역사를 제공하며, 그래서 혹시 찾으려는 것을 잊지 않고 원하는 만큼 여러 링크를 누를 수 있습니다.
-   - 저장된 문서: 오프라인으로 읽고 데이터에 연결되어 있지 않을 때라도 찾아볼 수 있도록 문서를 선택하여 저장할 수 있습니다.
-   - 공유: 바깥 소셜 네트워크 앱에 모든 인류의 지식을 더하여 공유할 수 있습니다.
-   - 언어 지원: 어떠한 언어로도 쓰여져 있는 위키백과를 읽기 위해 원활하게 전환할 수 있습니다.
-   - 위키백과 제로: 이동 통신사가 참여한다면 데이터 요금이 면제됩니다.
+- 상단 이미지: 글 상단에 눈에 띄게 글에 관련된 사진 및 설명이 나오면서 전에는 느끼지 못한 새로운 위키백과를 사용할 수 있습니다.
+- 이미지 갤러리: 이미지를 탭하면 높은 해상도의 전체 사진을 볼 수 있습니다. 옵션에서 왼쪽/오른쪽으로 움직여 다른 이미지도 볼 수 있습니다.
+- 위키데이터 설명: 검색할 때 결과 맥락화에 도움을 주기 위해 각각 검색 결과에 따른 간단한 설명을 보여줍니다. 이 설명은 \"근처\"와 같은 앱의 다른 영역에 표시됩니다.
+- 글 제안: 문서 맨 하단으로 스크롤 하고 나서 다음에 읽을 글을 미리 설정해둘 수 있습니다.
+- 글 저장: 오프라인 상에서 읽기를 원한다면 페이지를 저장한 후 데이터 연결이 끊어진 후에도 글을 읽을 수 있습니다.
+- 근처: 현재 당신이 있는 위치 부근에 대한 글을 보여주면서 주변 위치에 대해 자세히 알 수 있습니다.
+- 언어 지원: 이 앱은 위키백과의 작성된 어떤 언어판으로도 쉽게 옮길 수 있습니다.
+- 목차: 글을 왼쪽으로 끌어서 문서의 목차를 통해 글의 특정 단락으로 쉽게 이동할 수 있습니다.
+- 위키백과 제로: 모바일 데이터 요금을 아낄 수 있는 설정입니다.
 
-코드는 완전한 오픈 소스입니다. 여러분이 Java와 Android SDK에 경험이 있다면, 우리에게 포크하러 오세요! https://github.com/wikimedia/apps-android-wikipedia</string>
+앱에 대한 피드백을 보내주세요! 메뉴에서 \"더 보기\"를 누르고 \"위키백과 앱 정보\"를 누르신 후 \"앱 피드백 보내기\"를 해주세요.
+
+이 앱의 코드는 100% 오픈소스입니다. 만약 당신이 자바 언어 및 안드로이드 SDK 코딩을 하실 주 아신다면 우리는 당신의 코딩 기여를 언제든지 환영합니다! https://github.com/wikimedia/apps-android-wikipedia
+
+개인정보 정책 : http://wikimediafoundation.org/wiki/Privacy_policy
+이용 약관 : http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">새 알파 업뎨이트를 사용할 수 있습니다</string>
   <string name="alpha_update_notification_text">다운로드하려면 탭하세요</string>
   <string name="dialog_close_description">닫기</string>
@@ -240,8 +251,15 @@
   <string name="gallery_share_error">그림을 공유할 수 없습니다: %s</string>
   <string name="gallery_menu_save">장치에 저장</string>
   <string name="gallery_save_error">그림을 저장할 수 없습니다: %s</string>
+  <string name="gallery_save_error_mediastore">미디어 컬렉션에서 그림을 가져오는 데 실패했습니다</string>
   <string name="gallery_save_success">그림을 성공적으로 저장했습니다.</string>
+  <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>
   <string name="err_cannot_save_file">파일을 저장할 수 없음</string>
   <string name="snippet_share_intro">\@Wikipedia 의 \"%1$s\": %2$s</string>
   <string name="expand_refs">펼치려면 탭</string>
+  <string name="share_snippet_button">그림 공유하기</string>
+  <string name="share_normal_button">텍스트 공유하기</string>
+  <string name="snippet_share_preview_image_desc">이미지 미리보기</string>
+  <string name="cc_logo">크리에이티브 커먼즈 라이선스</string>
+  <string name="captcha_image">캡차 이미지</string>
 </resources>

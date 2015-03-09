@@ -219,17 +219,17 @@
   <string name="widget_name_featured_page">维基百科特色内容页面</string>
   <string name="widget_title_featured_page">今天的特色内容页面：</string>
   <string name="widget_name_search">维基百科搜索</string>
-  <string name="app_store_description" fuzzy="true">这是维基百科的官方安卓应用程序。维基百科是拥有280种语言，超过3200万条目，并且是最全面最广泛使用以及最多用户编辑的百科全书。
+  <string name="app_store_description">这是维基百科的官方安卓应用程序。维基百科是拥有280种语言，超过3200万条目，并且是最全面最广泛使用以及最多用户编辑的百科全书。
 
 功能：
-- Lead images: experience Wikipedia like never before with a prominent, contextually-relevant image and description at the top of articles
+- 引文图片：亲身体验维基百科前所未有的突出，条目顶部与上下文密切相关的图片和描述
 - 图库：点按一个图片以向您全屏展示高分辨率图片，并可通过左右滑动屏幕以浏览额外图片
 - 来自维基数据的描述：现在在搜索时，每条搜索结果包含一个快速描述以帮助理解结果的上下文。这些描述也在应用程序其他地方显示，例如附近页面
-- 条目建议：scroll to the bottom of an article to see suggestions about what you could read next
+- 条目建议：滚动到条目顶部以查看有关您接下来可能会阅读的建议
 - 保存页面：您可保存选定页面用于离线阅读以及在您没有网络连接时浏览它们
 - 附近页面：通过获取您当前位置附近事物的相关条目链接，使您了解关于您周围的更多事物
 - 语言支持：应用程序允许您在任何语言无缝阅读维基百科
-- 目录：Swipe left on any article to bring up the table of contents, which lets you jump to article sections easily
+- 目录：在任何条目向左滑动以打开目录，这将让您更容易地跳转到条目章节
 - 维基百科零（Wikipedia Zero）：面向部分移动服务提供商减免数据流量费
 
 请向我们发送您有关应用程序的反馈！在菜单上，点击“更多”，然后点击“关于维基百科应用程序”，之后“发送应用程序反馈”
@@ -245,6 +245,7 @@
   <string name="preference_title_show_images">显示图片</string>
   <string name="preference_summary_show_images">在页面中启用或禁用图片加载。如果您的网络连接很慢，或如果您的数据流量计划受限制，则取消选择此设置。</string>
   <string name="read_more_section">阅读更多</string>
+  <string name="read_next_section">阅读下文</string>
   <string name="gallery_menu_more_info">更多信息</string>
   <string name="menu_gallery_visit_page">转到文件页面</string>
   <string name="gallery_error_draw_failed">不能画图片。</string>
