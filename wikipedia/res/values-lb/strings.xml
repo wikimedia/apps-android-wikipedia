@@ -216,7 +216,7 @@
   <string name="dialog_close_description">Zoumaachen</string>
   <string name="preference_title_show_images">Biller weisen</string>
   <string name="read_more_section">Liest méi</string>
-  <string name="read_next_section">Nächsten Abschnitt liesen</string>
+  <string name="read_next_section" fuzzy="true">Nächsten Abschnitt liesen</string>
   <string name="gallery_menu_more_info">Méi Informatiounen</string>
   <string name="menu_gallery_visit_page">Op d\'Säit vum Fichier goen</string>
   <string name="gallery_error_draw_failed">D\'Bild konnt net gezeechent ginn.</string>

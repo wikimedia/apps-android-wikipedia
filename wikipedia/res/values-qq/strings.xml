@@ -337,7 +337,7 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="preference_summary_show_images">Description of the preference for whether images are loaded, mentioning that this setting should be disabled if the user\'s internet connection is slow, or if their data plan is limited or restricted.</string>
   <string name="read_more_section">Title of the Read More section at the bottom of each page.
 {{Identical|Read more}}</string>
-  <string name="read_next_section">Title of the Read Next section at the bottom of each page.</string>
+  <string name="read_next_section">Title of the Read Next section at the bottom of each page to invite the user to read the next related article.</string>
   <string name="gallery_menu_more_info">Menu label for displaying additional information about the current image being shown in the gallery.
 {{Identical|More information}}</string>
   <string name="menu_gallery_visit_page">Menu label for navigating to the File page for the current image being shown in the gallery.</string>
