@@ -302,6 +302,10 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                 searchEditFrame.setLayoutParams(params);
                 // center the search text in it
                 searchEditText.setGravity(Gravity.CENTER_VERTICAL);
+                // remove focus line from search plate
+                View searchEditPlate = searchView
+                        .findViewById(android.support.v7.appcompat.R.id.search_plate);
+                searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
             }
 
             updateZeroChrome();

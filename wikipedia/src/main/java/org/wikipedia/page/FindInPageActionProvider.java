@@ -3,6 +3,7 @@ package org.wikipedia.page;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.view.ActionProvider;
 import android.support.v7.widget.SearchView;
@@ -68,6 +69,10 @@ public class FindInPageActionProvider extends ActionProvider {
         searchView.setInputType(EditorInfo.TYPE_CLASS_TEXT);
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
         searchView.setSubmitButtonEnabled(false);
+        // remove focus line from search plate
+        View searchEditPlate = searchView
+                .findViewById(android.support.v7.appcompat.R.id.search_plate);
+        searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
         return view;
     }
 
