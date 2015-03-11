@@ -274,4 +274,6 @@ Terms of Use: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="snippet_share_preview_image_desc">Preview image</string>
     <string name="cc_logo">Creative Commons license</string>
     <string name="captcha_image">Captcha image</string>
+    <string name="gallery_fair_use_license">Fair use</string>
+    <string name="gallery_uploader_unknown">Uploader unknown</string>
 </resources>

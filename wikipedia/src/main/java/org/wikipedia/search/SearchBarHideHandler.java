@@ -36,9 +36,7 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
         toolbarBackground = quickReturnView.findViewById(R.id.main_toolbar);
         toolbarShadow = quickReturnView.findViewById(R.id.main_toolbar_shadow);
         toolbarGradient = quickReturnView.findViewById(R.id.main_toolbar_gradient);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-            toolbarGradient.setVisibility(View.GONE);
-        }
+
         colorEvaluator = new ArgbEvaluator();
         toolbarColor = activity.getResources().getColor(R.color.actionbar_background);
     }
@@ -88,22 +86,20 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
 
     @Override
     public void onScrollChanged(int oldScrollY, int scrollY) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            // enable fading/translucent search bar only in API 11+
-            final int fadeHeight = 256;
-            int opacity = FULL_OPACITY;
-            if (fadeEnabled && !forceNoFade) {
-                opacity = scrollY * FULL_OPACITY / (int)(fadeHeight * displayDensity);
-            }
-            opacity = Math.max(0, opacity);
-            opacity = Math.min(FULL_OPACITY, opacity);
-            toolbarBackground.getBackground().setAlpha(opacity);
-            toolbarShadow.getBackground().setAlpha(opacity);
-            toolbarGradient.getBackground().setAlpha(FULL_OPACITY - opacity);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                parentActivity.getWindow().setStatusBarColor(
-                        (int) colorEvaluator.evaluate((float)opacity / FULL_OPACITY, Color.BLACK, toolbarColor));
-            }
+        final int fadeHeight = 256;
+        int opacity = FULL_OPACITY;
+        if (fadeEnabled && !forceNoFade) {
+            opacity = scrollY * FULL_OPACITY / (int) (fadeHeight * displayDensity);
+        }
+        opacity = Math.max(0, opacity);
+        opacity = Math.min(FULL_OPACITY, opacity);
+        toolbarBackground.getBackground().setAlpha(opacity);
+        toolbarShadow.getBackground().setAlpha(opacity);
+        toolbarGradient.getBackground().setAlpha(FULL_OPACITY - opacity);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            parentActivity.getWindow().setStatusBarColor(
+                    (int) colorEvaluator
+                            .evaluate((float) opacity / FULL_OPACITY, Color.BLACK, toolbarColor));
         }
         if (scrollY <= webview.getHeight()) {
             // For the first screenful, ensure it always exists.
@@ -119,7 +115,7 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
         } else {
             // scroll down!
             int scrollDelta = scrollY - oldScrollY;
-            if (scrollDelta > (int)(HUMAN_SCROLL_THRESHOLD * displayDensity)) {
+            if (scrollDelta > (int) (HUMAN_SCROLL_THRESHOLD * displayDensity)) {
                 // we've been scrolled programmatically, probably to go to
                 // a specific section, so keep the toolbar shown.
                 animMargin = 0;

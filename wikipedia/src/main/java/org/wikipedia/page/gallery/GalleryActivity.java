@@ -470,22 +470,24 @@ public class GalleryActivity extends ThemedActionBarActivity {
         // determine which icon to display...
         licenseIcon.setImageDrawable(getResources().getDrawable(getLicenseIcon(item)));
         // Set the icon's content description to the UsageTerms property.
-        // (will automatically be null if there are no UsageTerms)
-        licenseIcon.setContentDescription(item.getMetadata().get("UsageTerms"));
+        // (if UsageTerms is not present, then default to Fair Use)
+        String usageTerms = item.getMetadata().get("UsageTerms");
+        if (TextUtils.isEmpty(usageTerms)) {
+            usageTerms = getString(R.string.gallery_fair_use_license);
+        }
+        licenseIcon.setContentDescription(usageTerms);
         // Give the license URL to the icon, to be received by the click handler (may be null).
         licenseIcon.setTag(item.getLicenseUrl());
 
         String creditStr = "";
         if (item.getMetadata().containsKey("Artist")) {
-            creditStr = Html.fromHtml(item.getMetadata().get("Artist")).toString();
-        } else if (item.getMetadata().containsKey("LicenseShortName")) {
-            // if we don't have the author name, then display the license name
-            creditStr = item.getMetadata().get("LicenseShortName");
-        } else if (item.getMetadata().containsKey("UsageTerms")) {
-            // and if there's no license name, then at least show usage terms.
-            creditStr = item.getMetadata().get("UsageTerms");
+            creditStr = Html.fromHtml(item.getMetadata().get("Artist")).toString().trim();
         }
-        creditText.setText(creditStr.trim());
+        // if we couldn't find a attribution string, then default to unknown
+        if (TextUtils.isEmpty(creditStr)) {
+            creditStr = getString(R.string.gallery_uploader_unknown);
+        }
+        creditText.setText(creditStr);
 
         infoContainer.setVisibility(View.VISIBLE);
     }
