@@ -354,7 +354,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
                 // give our image an offset based on the location of the face,
                 // relative to the image container
-                int imageBaseYOffset = 0;
+                int imageBaseYOffset;
                 float scale = (float)newHeight / (float)bmpHeight;
                 if (faceLocation.y > 0.0f) {
                     int faceY = (int)(faceLocation.y * scale);
