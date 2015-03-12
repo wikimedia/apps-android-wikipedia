@@ -1,5 +1,3 @@
-See also https://git.wikimedia.org/summary/apps%2Fandroid%2Fjava-mwapi.git
-
 == Steps to Set Up a Development Environment ==
 
 These instructions should help you download the Wikipedia for Android source code and get the latest version running in an emulator or on a real Android device. Some of the steps assume you are using bash but should be easily translatable for other shells as well. We've written theses instructions initially for OS X but most should also work on Linux and Windows. But anyway, here we go for those who enjoy a fun side project for a good cause...
@@ -46,7 +44,7 @@ To do so see the Build Variants tab on the left hand side of Android Studio. If 
 Android Studio generates a run configuration automatically now. So, all you have to do to run the app is to click on the green play or debug button in the middle of the toolbar, next to the name of the run configuration.
 If you need more run configurations go to Run > Edit Configurations again, click the '+' symbol, choose Android Application, set the Module to 'wikipedia'.
 
-One of Android Studios's standout features it inherited from IntelliJ is debugging. If you want to do that, you just need to click the Debug (green bug) button. To set breakpoints in your code, as with other IDEs, click in the gutter to the left of the source code in the IDE and notice that a little red circle is added. For example, if you set a breakpoint in the first line of public CommunicationBridge(final WebView webView, final String baseURL) in CommunicationBridge.java -
+One of Android Studios' standout features it inherited from IntelliJ is debugging. If you want to do that, you just need to click the Debug (green bug) button. To set breakpoints in your code, as with other IDEs, click in the gutter to the left of the source code in the IDE and notice that a little red circle is added. For example, if you set a breakpoint in the first line of public CommunicationBridge(final WebView webView, final String baseURL) in CommunicationBridge.java -
 
  this.webView = webView;
 
@@ -120,6 +118,11 @@ Instead of "AlphaDebug" you can also use other build variants like "BetaDebug", 
 Note that to use the "Release" build type you need to have a keystore and a properties file set up, see the end of the wikipedia/build.gradle file for hints.
 
 More info: http://developer.android.com/sdk/installing/studio-build.html
+
+===MW API Library===
+
+The Wikipedia app uses the MediaWiki Java API, which is also maintained by the Android team.
+The Git repo is here: https://git.wikimedia.org/summary/apps%2Fandroid%2Fjava-mwapi.git
 
 
 == Help make it better! ==
