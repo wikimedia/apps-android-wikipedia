@@ -143,6 +143,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         toolbarContainer = findViewById(R.id.main_toolbar_container);
 

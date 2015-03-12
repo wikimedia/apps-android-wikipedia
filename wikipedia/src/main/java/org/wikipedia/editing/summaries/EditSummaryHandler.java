@@ -23,12 +23,13 @@ public class EditSummaryHandler {
     private final View container;
     private final AutoCompleteTextView summaryEdit;
 
-    public EditSummaryHandler(final Activity activity, final View parent, PageTitle title) {
+    public EditSummaryHandler(final Activity activity, View container,
+                              AutoCompleteTextView summaryEditText, PageTitle title) {
         this.activity = activity;
-        container = parent.findViewById(R.id.edit_summary_container);
-        summaryEdit = (AutoCompleteTextView) parent.findViewById(R.id.edit_summary_edit);
+        this.container = container;
+        this.summaryEdit = summaryEditText;
 
-        container.setOnClickListener(new View.OnClickListener() {
+        this.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 summaryEdit.requestFocus();
