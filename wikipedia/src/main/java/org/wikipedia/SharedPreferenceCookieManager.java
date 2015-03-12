@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class SharedPreferenceCookieManager extends CookieManager {
 
-    private final HashMap<String, HashMap<String, String>> cookieJar = new HashMap<String, HashMap<String, String>>();
+    private final HashMap<String, HashMap<String, String>> cookieJar = new HashMap<>();
     private final SharedPreferences prefs;
 
     public SharedPreferenceCookieManager(SharedPreferences prefs) {
@@ -38,8 +38,8 @@ public class SharedPreferenceCookieManager extends CookieManager {
             throw new IllegalArgumentException("Argument is null");
         }
 
-        Map<String, List<String>> cookieMap = new HashMap<String, List<String>>();
-        ArrayList<String> cookiesList = new ArrayList<String>();
+        Map<String, List<String>> cookieMap = new HashMap<>();
+        ArrayList<String> cookiesList = new ArrayList<>();
 
         String domain = uri.getAuthority();
 
@@ -64,7 +64,7 @@ public class SharedPreferenceCookieManager extends CookieManager {
             throw new IllegalArgumentException("Argument is null");
         }
 
-        HashSet<String> domainsModified = new HashSet<String>();
+        HashSet<String> domainsModified = new HashSet<>();
 
         for (String headerKey : responseHeaders.keySet()) {
             if (headerKey == null || !headerKey.equalsIgnoreCase("Set-Cookie")) {
@@ -119,7 +119,7 @@ public class SharedPreferenceCookieManager extends CookieManager {
     }
 
     private HashMap<String, String> makeCookieMap(List<String> cookies) {
-        HashMap<String, String> cookiesMap = new HashMap<String, String>();
+        HashMap<String, String> cookiesMap = new HashMap<>();
         for (String cookie : cookies) {
             if (!cookie.contains("=")) {
                 throw new RuntimeException("Cookie " + cookie + " is invalid!");
@@ -131,7 +131,7 @@ public class SharedPreferenceCookieManager extends CookieManager {
     }
 
     private List<String> makeCookieList(Map<String, String> cookies) {
-        ArrayList<String> cookiesList = new ArrayList<String>();
+        ArrayList<String> cookiesList = new ArrayList<>();
         for (Map.Entry<String, String> entry: cookies.entrySet()) {
             cookiesList.add(entry.getKey() + "=" + entry.getValue());
         }

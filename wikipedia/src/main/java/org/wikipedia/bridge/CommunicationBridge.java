@@ -29,7 +29,7 @@ public class CommunicationBridge {
     private final BridgeMarshaller marshaller;
 
     private boolean isDOMReady = false;
-    private final ArrayList<String> pendingJSMessages = new ArrayList<String>();
+    private final ArrayList<String> pendingJSMessages = new ArrayList<>();
 
     public interface JSEventListener {
         void onMessage(String messageType, JSONObject messagePayload);
@@ -47,7 +47,7 @@ public class CommunicationBridge {
 
         webView.loadUrl(baseURL);
 
-        eventListeners = new HashMap<String, ArrayList<JSEventListener>>();
+        eventListeners = new HashMap<>();
         this.addListener("DOMLoaded", new JSEventListener() {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
@@ -71,7 +71,7 @@ public class CommunicationBridge {
         if (eventListeners.containsKey(type)) {
             eventListeners.get(type).add(listener);
         } else {
-            ArrayList<JSEventListener> listeners = new ArrayList<JSEventListener>();
+            ArrayList<JSEventListener> listeners = new ArrayList<>();
             listeners.add(listener);
             eventListeners.put(type, listeners);
         }
@@ -143,7 +143,7 @@ public class CommunicationBridge {
     }
 
     private static class BridgeMarshaller {
-        private HashMap<String, String> queueItems = new HashMap<String, String>();
+        private HashMap<String, String> queueItems = new HashMap<>();
         private int counter = 0;
 
         /**

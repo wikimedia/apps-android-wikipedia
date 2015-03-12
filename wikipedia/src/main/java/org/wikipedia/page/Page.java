@@ -117,7 +117,7 @@ public class Page {
     public Page(JSONObject json) {
         title = new PageTitle(json.optJSONObject("title"));
         JSONArray sectionsJSON = json.optJSONArray("sections");
-        sections = new ArrayList<Section>(sectionsJSON.length());
+        sections = new ArrayList<>(sectionsJSON.length());
         for (int i = 0; i < sectionsJSON.length(); i++) {
             sections.add(new Section(sectionsJSON.optJSONObject(i)));
         }

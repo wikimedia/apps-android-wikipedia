@@ -12,7 +12,7 @@ public final class MainPageNameData {
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static void setupData() {
         final int size = 288;
-        DATA_MAP = new HashMap<String, String>(size, 1.0f);
+        DATA_MAP = new HashMap<>(size, 1.0f);
         DATA_MAP.put("en", "Main Page");
         DATA_MAP.put("sv", "Portal:Huvudsida");
         DATA_MAP.put("nl", "Hoofdpagina");

@@ -18,13 +18,13 @@ class NearbyResult implements Parcelable {
     /** empty result */
     public NearbyResult() {
         jsonObject = new JSONObject();
-        list = new ArrayList<NearbyPage>();
+        list = new ArrayList<>();
     }
 
     /** non-empty result */
     NearbyResult(JSONObject jsonObject) throws JSONException {
         this.jsonObject = jsonObject;
-        list = new ArrayList<NearbyPage>();
+        list = new ArrayList<>();
         JSONObject query = jsonObject.optJSONObject("query");
         if (query == null) {
             return;

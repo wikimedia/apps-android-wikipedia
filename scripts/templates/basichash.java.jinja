@@ -12,7 +12,7 @@ public final class {{class_name}} {
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static void setupData() {
         final int size = {{wikis|length + 1}};
-        DATA_MAP = new HashMap<String, String>(size, 1.0f);
+        DATA_MAP = new HashMap<>(size, 1.0f);
 
         {%- for wiki in wikis %}
         DATA_MAP.put("{{wiki.lang}}", "{{wiki.props[key]}}");

@@ -33,7 +33,7 @@ public class DataMigrator {
      * @return list of JSONObject dictionaries containing 'title' and 'lang' pairs
      */
     public List<JSONObject> extractSavedPages() {
-        ArrayList<JSONObject> arr = new ArrayList<JSONObject>();
+        ArrayList<JSONObject> arr = new ArrayList<>();
 
         for (String jsonString : fetchRawSavedPages()) {
             try {
@@ -74,7 +74,7 @@ public class DataMigrator {
                 null  /* limit */
         );
 
-        ArrayList<String> arr = new ArrayList<String>();
+        ArrayList<String> arr = new ArrayList<>();
         while (cursor.moveToNext()) {
             arr.add(cursor.getString(0));
         }

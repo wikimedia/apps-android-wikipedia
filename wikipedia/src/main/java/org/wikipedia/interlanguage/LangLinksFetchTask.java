@@ -34,7 +34,7 @@ public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
 
     @Override
     public ArrayList<PageTitle> processResult(ApiResult result) throws Throwable {
-        ArrayList<PageTitle> linkTitles = new ArrayList<PageTitle>();
+        ArrayList<PageTitle> linkTitles = new ArrayList<>();
         JSONObject pagesJSON = result.asObject()
                 .optJSONObject("query")
                 .optJSONObject("pages");

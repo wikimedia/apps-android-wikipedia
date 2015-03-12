@@ -25,7 +25,7 @@ import java.util.Map;
 class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     private static final int MAX_CACHE_SIZE_IMAGES = 24;
     private final ParcelableLruCache<String> pageImagesCache
-            = new ParcelableLruCache<String>(MAX_CACHE_SIZE_IMAGES, String.class);
+            = new ParcelableLruCache<>(MAX_CACHE_SIZE_IMAGES, String.class);
     private final Activity activity;
     private final DisambigResult[] items;
     private final WikipediaApp app;
@@ -47,7 +47,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     }
 
     private void requestPageImages() {
-        List<PageTitle> titleList = new ArrayList<PageTitle>();
+        List<PageTitle> titleList = new ArrayList<>();
         for (DisambigResult r : items) {
             if (pageImagesCache.get(r.getTitle().getPrefixedText()) == null) {
                 // not in our cache yet
@@ -87,7 +87,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
      * Start getting Wikidata descriptions (directly from the current Wikipedia site).
      */
     private void fetchDescriptions() {
-        List<PageTitle> titleList = new ArrayList<PageTitle>();
+        List<PageTitle> titleList = new ArrayList<>();
         for (DisambigResult r : items) {
             titleList.add(r.getTitle());
         }

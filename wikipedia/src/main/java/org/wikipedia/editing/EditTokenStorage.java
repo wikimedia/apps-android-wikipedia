@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class EditTokenStorage {
-    private final HashMap<String, String> tokenJar = new HashMap<String, String>();
+    private final HashMap<String, String> tokenJar = new HashMap<>();
     private final SharedPreferences prefs;
     private final Context context;
 

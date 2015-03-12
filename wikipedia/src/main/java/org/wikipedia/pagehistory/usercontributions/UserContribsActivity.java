@@ -24,7 +24,7 @@ public class UserContribsActivity extends ThemedActionBarActivity {
     private ProgressBar moreProgress;
 
     private String lastContinue = null;
-    private ArrayList<PageHistoryItem> contribs = new ArrayList<PageHistoryItem>();
+    private ArrayList<PageHistoryItem> contribs = new ArrayList<>();
 
     private UserContribsAdapter adapter;
 

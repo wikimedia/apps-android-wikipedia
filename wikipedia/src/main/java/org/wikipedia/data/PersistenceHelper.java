@@ -51,7 +51,7 @@ public abstract class PersistenceHelper<T> {
     }
 
     public ArrayList<Column> getElements(int fromVersion, int toVersion) {
-         ArrayList<Column> columns = new ArrayList<Column>();
+         ArrayList<Column> columns = new ArrayList<>();
          for (int i = fromVersion; i <= toVersion; i++) {
              columns.addAll(Arrays.asList(getColumnsAdded(i)));
          }
@@ -72,7 +72,7 @@ public abstract class PersistenceHelper<T> {
         if (columns.size() == 0) {
             return;
         }
-        ArrayList<String> columnCommands = new ArrayList<String>(columns.size());
+        ArrayList<String> columnCommands = new ArrayList<>(columns.size());
         for (Column column : columns) {
             columnCommands.add("ADD COLUMN " + column);
         }

@@ -190,7 +190,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
-        compassViews = new ArrayList<NearbyCompassView>();
+        compassViews = new ArrayList<>();
 
         if (!adapter.isEmpty()) {
             //we

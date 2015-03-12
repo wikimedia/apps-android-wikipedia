@@ -95,7 +95,7 @@ public class EditPreviewFragment extends Fragment {
                 R.string.edit_summary_tag_links
         };
 
-        summaryTags = new ArrayList<EditSummaryTag>();
+        summaryTags = new ArrayList<>();
         for (int i : summaryTagStrings) {
             final EditSummaryTag tag = new EditSummaryTag(getActivity());
             tag.setText(tempResources.getString(i));

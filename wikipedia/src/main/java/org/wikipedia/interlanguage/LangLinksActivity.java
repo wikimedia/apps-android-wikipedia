@@ -198,7 +198,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
 
         private LangLinksAdapter(ArrayList<PageTitle> langLinks, WikipediaApp app) {
             this.origLangLinks = langLinks;
-            this.langLinks = new ArrayList<PageTitle>(origLangLinks);
+            this.langLinks = new ArrayList<>(origLangLinks);
             this.app = app;
         }
 
