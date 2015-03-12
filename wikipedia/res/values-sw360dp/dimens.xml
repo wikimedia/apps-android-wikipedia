@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!--
          Customize dimensions originally defined in res/values/dimens.xml (such as
@@ -13,7 +13,7 @@
         The next two are text sizes but since they need to correspond
         to the logo image the dimensions are given in dp instead of sp.
     -->
-    <dimen name="onboarding_wp_logo_text">40dp</dimen>
-    <dimen name="onboarding_wp_logo_subtext">20dp</dimen>
+    <dimen name="onboarding_wp_logo_text" tools:ignore="SpUsage">40dp</dimen>
+    <dimen name="onboarding_wp_logo_subtext" tools:ignore="SpUsage">20dp</dimen>
 
 </resources>
