@@ -32,6 +32,7 @@ public final class SnippetImage {
     private static final int DESCRIPTION_WIDTH = 360;
     private static final float SPACING_MULTIPLIER = 1.0f;
     private static final Typeface SERIF = Typeface.create("serif", Typeface.NORMAL);
+    private static final int QUARTER = 4;
 
     private final Context context;
     private final Bitmap leadImageBitmap;
@@ -91,8 +92,8 @@ public final class SnippetImage {
     private void drawGradient(Canvas canvas) {
         // draw a dark gradient over the image, so that the white text
         // will stand out better against it.
-        final int gradientStartColor = 0x20000000;
-        final int gradientStopColor = 0x60000000;
+        final int gradientStartColor = 0x60000000;
+        final int gradientStopColor = 0xA0000000;
         Shader shader = new LinearGradient(0, 0, 0, canvas.getHeight(), gradientStartColor,
                 gradientStopColor, Shader.TileMode.CLAMP);
         Paint paint = new Paint();
@@ -101,17 +102,18 @@ public final class SnippetImage {
     }
 
     private Layout drawTextSnippet(Canvas canvas, CharSequence textSnippet) {
-        final int top = 16;
-        final int maxHeight = 200;
+        final int top = 8;
+        final int maxHeight = 225;
         final int maxLines = 5;
-        final float maxFontSize = 96.0f;
-        final float minFontSize = 32.0f;
+        final float maxFontSize = 195.0f;
+        final float minFontSize = 38.0f;
 
         TextPaint textPaint = new TextPaint();
         textPaint.setAntiAlias(true);
         textPaint.setColor(Color.WHITE);
         textPaint.setTextSize(maxFontSize);
         textPaint.setStyle(Paint.Style.FILL);
+        textPaint.setTypeface(Typeface.DEFAULT_BOLD);
         textPaint.setShadowLayer(1.0f, 1.0f, 1.0f, Color.GRAY);
 
         StaticLayout textLayout = optimizeTextSize(
@@ -119,7 +121,8 @@ public final class SnippetImage {
                 maxHeight, maxLines, maxFontSize, minFontSize);
 
         canvas.save();
-        canvas.translate(HORIZONTAL_PADDING, top);
+        int horizontalCenterOffset = top + (maxHeight - textLayout.getHeight()) / QUARTER;
+        canvas.translate(HORIZONTAL_PADDING, horizontalCenterOffset);
         textLayout.draw(canvas);
         canvas.restore();
 
