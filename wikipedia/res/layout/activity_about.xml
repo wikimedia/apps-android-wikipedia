@@ -2,9 +2,10 @@
 
 <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/about_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="?attr/window_background_color"
         >
     <LinearLayout
@@ -45,6 +46,7 @@
                 <TextView android:layout_width="wrap_content"
                           android:id="@+id/about_version_text"
                           android:layout_height="24dp"
+                          tools:text="2.x-sample-version"
                           style="?android:textAppearanceMedium"
                           android:gravity="bottom"
                         />
