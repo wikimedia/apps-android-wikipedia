@@ -3,10 +3,14 @@ package org.wikipedia.page.snippet;
 import android.annotation.TargetApi;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.v7.view.ActionMode;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 
 /**
@@ -64,29 +68,22 @@ public class TextSelectedShareAdapter extends ShareHandler {
         webViewActionMode = mode;
         Menu menu = mode.getMenu();
 
-        // Find the context menu item for copying text to the clipboard...
+        // Find the context menu items from the WebView's action mode.
         // The most practical way to do this seems to be to get the resource name of the
-        // menu item, and see if it contains "copy", which appears to remain
+        // menu item, and see if it contains "copy", "share", etc. which appears to remain
         // consistent throughout the various APIs.
         for (int i = 0; i < menu.size(); i++) {
-            String resourceName
-                    = getActivity().getResources().getResourceName(menu.getItem(i).getItemId());
+            MenuItem item = menu.getItem(i);
+            String resourceName = getActivity().getResources().getResourceName(item.getItemId());
             if (resourceName.contains("copy")) {
-                copyMenuItem = menu.getItem(i);
-                break;
+                copyMenuItem = item;
+            } else if (resourceName.contains("share")) {
+                shareItem = item;
             }
-        }
-
-        // Find the context menu item for sharing text...
-        // The most practical way to do this seems to be to get the resource name of the
-        // menu item, and see if it contains "share", which appears to remain
-        // consistent throughout the various APIs.
-        for (int i = 0; i < menu.size(); i++) {
-            String resourceName
-                    = getActivity().getResources().getResourceName(menu.getItem(i).getItemId());
-            if (resourceName.contains("share")) {
-                shareItem = menu.getItem(i);
-                break;
+            // In APIs lower than 21, some of the action mode icons may not respect the
+            // current theme, so we need to manually tint those icons.
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                fixMenuItemTheme(item);
             }
         }
 
@@ -119,5 +116,11 @@ public class TextSelectedShareAdapter extends ShareHandler {
 
         createFunnel();
         getFunnel().logHighlight();
+    }
+
+    private void fixMenuItemTheme(MenuItem item) {
+        if (item != null && item.getIcon() != null) {
+            WikipediaApp.getInstance().setDrawableTint(item.getIcon(), Color.WHITE);
+        }
     }
 }

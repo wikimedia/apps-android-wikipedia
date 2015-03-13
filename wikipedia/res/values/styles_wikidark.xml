@@ -4,6 +4,7 @@
         <item name="windowActionModeOverlay">true</item>
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowStyle</item>
         <item name="actionOverflowButtonStyle">@style/AppTheme.OverflowStyle</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
         <item name="actionBarTheme">@style/AppTheme.ToolbarTheme</item>
         <item name="actionBarStyle">@style/AppTheme.ToolbarStyle</item>
         <item name="actionModeStyle">@style/AppTheme.ActionModeStyle</item>
