@@ -219,25 +219,32 @@
   <string name="widget_name_featured_page">選り抜き記事</string>
   <string name="widget_title_featured_page">今日の選り抜き記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
-  <string name="app_store_description" fuzzy="true">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。このバージョンではゼロから書きなおされ、これまでで最良のものになりました。
+  <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。
 
 機能:
- - 高速: 新しいネイティブアプリではウィキペディアの閲覧と編集がかつてなく高速に行えます
- - 編集: 編集できるようになりました！　ログイン状態でもログアウト状態でも、寄稿をお待ちしています
- - 履歴: 閲覧履歴が見られます。迷子になることなくいくらでもリンクをたどれます
+ - リード画像: これまでにない、優れた、本文に関連した画像と説明でウィキペディアをお楽しみください。記事の先頭に出てきます
+ - 画像ギャラリー: 画像をタップすると高解像度で全画面で見られます。左右にスワイプして他の画像も見られます
+ - Wikidataからの説明: 検索した際に、検索結果の中に、その結果がどんなふうに出てくるか簡単に文脈が表示されるようになりました。この説明はアプリの別のところ、例えば付近のスポットにも出てきます。
  - 保存したページ: オフラインで読みたいページを選んで保存しておき、ネットワーク接続がないところでも閲覧できます
  - シェア: お持ちのSNSアプリで人類の知識をシェアしましょう
+ - 付近のスポット: 現在地の近くにある場所の記事で、周囲について学びましょう
  - 言語サポート: どの言語で書かれたページにもシームレスに切り替えできます
- - ウィキペディアゼロ: ウィキペディアゼロのプログラムに参加している携帯電話会社においては、データ通信料金がかかりません(現在のところ日本国内では利用できません)
+ - 目次: どの記事でも左にスワイプすれば目次が表示され、記事のどの部分にも簡単にアクセスできます
+ - ウィキペディアゼロ: ウィキペディアゼロのプログラムに参加している携帯電話会社においては、データ通信料金がかかりません
 
-コードは完全にオープンソースです。JavaとAndroid SDKの経験をお持ちであれば、ぜひフォークしましょう！
-https://github.com/wikimedia/apps-android-wikipedia</string>
+コードは100%オープンソースです。JavaとAndroid SDKの経験をお持ちであれば、ぜひフォークしましょう！
+https://github.com/wikimedia/apps-android-wikipedia
+
+プライバシーポリシー: http://wikimediafoundation.org/wiki/Privacy_policy
+
+利用規約: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">新しいアルファアップデートが利用可能です</string>
   <string name="alpha_update_notification_text">タップでダウンロード</string>
   <string name="dialog_close_description">閉じる</string>
   <string name="preference_title_show_images">イメージを見る</string>
   <string name="preference_summary_show_images">ページ内の画像読み込みを有効/無効にする インターネット接続が遅い時や、データ契約が限られているときには、このチェックを外してください</string>
   <string name="read_more_section">続きを読む</string>
+  <string name="read_next_section">次を読む</string>
   <string name="gallery_menu_more_info">詳細情報</string>
   <string name="menu_gallery_visit_page">ファイルのページに移動</string>
   <string name="gallery_error_draw_failed">画像が描画できませんでした</string>
@@ -251,10 +258,13 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="gallery_save_success">画像を保存しました</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>
   <string name="err_cannot_save_file">ファイルを保存できません。</string>
+  <string name="snippet_share_intro">\"%1$s\" の記事を @Wikipedia で読む: %2$s</string>
   <string name="expand_refs">タップして開く</string>
   <string name="share_snippet_button">画像をシェア</string>
   <string name="share_normal_button">テキストとしてシェア</string>
   <string name="snippet_share_preview_image_desc">画像をプレビュー</string>
   <string name="cc_logo">クリエイティブ・コモンズ・ライセンス</string>
   <string name="captcha_image">CAPTCHA画像</string>
+  <string name="gallery_fair_use_license">フェアユース</string>
+  <string name="gallery_uploader_unknown">不明なアップローダー</string>
 </resources>

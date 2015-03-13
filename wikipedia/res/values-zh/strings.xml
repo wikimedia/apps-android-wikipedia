@@ -266,4 +266,6 @@
   <string name="snippet_share_preview_image_desc">预览图片</string>
   <string name="cc_logo">知识共享许可协议</string>
   <string name="captcha_image">验证码图片</string>
+  <string name="gallery_fair_use_license">合理使用</string>
+  <string name="gallery_uploader_unknown">上传者未知</string>
 </resources>

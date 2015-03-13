@@ -362,6 +362,7 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="snippet_share_preview_image_desc">Content description for the share a fact preview image. This string is only used for screen readers.</string>
   <string name="cc_logo">Content description of Creative Commons license logo icon shown before an edit is submitted.</string>
   <string name="captcha_image">Content description of the actual captcha image the user has to recognize to proceed.</string>
-  <string name="gallery_fair_use_license">Short name of the Fair Use license when applied to media that do not have attribution information.</string>
+  <string name="gallery_fair_use_license">Short name of the Fair Use license when applied to media that do not have attribution information.
+{{Identical|Fair use}}</string>
   <string name="gallery_uploader_unknown">Text displayed when the uploader of a media item is not known.</string>
 </resources>

@@ -266,4 +266,6 @@ Conditions d’utilisation : http://wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="snippet_share_preview_image_desc">Aperçu de l’image</string>
   <string name="cc_logo">Licence Creative Commons</string>
   <string name="captcha_image">Image Captcha</string>
+  <string name="gallery_fair_use_license">Utilisation normale</string>
+  <string name="gallery_uploader_unknown">Téléchargeur inconnu</string>
 </resources>

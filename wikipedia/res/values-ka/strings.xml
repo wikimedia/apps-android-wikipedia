@@ -197,6 +197,7 @@
   <string name="dialog_close_description">დახურვა</string>
   <string name="preference_title_show_images">სურათების ჩვენება</string>
   <string name="read_more_section">წაიკითხე მეტი</string>
+  <string name="read_next_section">შემდეგის წაკითხვა</string>
   <string name="gallery_menu_more_info">მეტი ინფორმაცია</string>
   <string name="menu_gallery_visit_page">გადადით ფაილის გვერდზე</string>
   <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
@@ -205,10 +206,14 @@
   <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
   <string name="gallery_menu_save">მოწყობილობაში შენახვა</string>
   <string name="gallery_save_error">სურათის შენახვა შეუძლებელია: %s</string>
+  <string name="gallery_save_error_mediastore">სურათის ან მედია-კოლექციის იმპორტი წარუმატებლად დასრულდა</string>
   <string name="gallery_save_success">სურათი წარმატებით შეინახა.</string>
+  <string name="gallery_error_video_failed">ამ ვიდეოს გახსნა ვერ მოხერხდა.</string>
   <string name="err_cannot_save_file">ფაილი ვერ შეინახა</string>
   <string name="snippet_share_intro">„%1$s“ საიტზე @Wikipedia: %2$s</string>
+  <string name="expand_refs">გადიდებისათვის დააჭირეთ</string>
   <string name="share_snippet_button">სურათად გაზიარება</string>
   <string name="share_normal_button">ტექსტად გაზიარება</string>
   <string name="snippet_share_preview_image_desc">სურათის წინასწარ გადახედვა</string>
+  <string name="cc_logo">Creative Commons ლიცენზია</string>
 </resources>

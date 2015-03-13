@@ -70,7 +70,7 @@
   <string name="dialog_message_leaving_edit">Yaptığınız değişiklikler henüz kaydedilmedi. Bu sayfadan ayrılmak istediğinizden emin misiniz?</string>
   <string name="dialog_message_leaving_edit_leave">Ayrıl</string>
   <string name="dialog_message_leaving_edit_stay">Kal</string>
-  <string name="menu_show_toc">İçindekiler Tablosu</string>
+  <string name="menu_show_toc">İçindekiler</string>
   <string name="search_no_results_found">Hiçbir sonuç bulunamadı</string>
   <string name="edit_section_captcha_message">Otomatik spamlara karşı korunmaya yardımcı olmak için, aşağıda görünen kelimeleri yazınız.</string>
   <string name="edit_section_captcha_hint">Yukarıdaki kelimeleri tekrarlayın</string>
@@ -243,6 +243,7 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Resimleri göster</string>
   <string name="preference_summary_show_images">Sayfalardaki resimlerin yüklenmesini etkinleştirin veya devre dışı bırakın. İnternet bağlantınız yavaş ya da veri paketiniz sınırlı ise bu seçeneği işaretlemeyin.</string>
   <string name="read_more_section">Devamı</string>
+  <string name="read_next_section">Sonrakini oku</string>
   <string name="gallery_menu_more_info">Daha fazla bilgi</string>
   <string name="menu_gallery_visit_page">Dosya sayfasına git</string>
   <string name="gallery_error_draw_failed">Resim gösterilemedi.</string>
@@ -263,4 +264,6 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="snippet_share_preview_image_desc">Resmi önizle</string>
   <string name="cc_logo">Creative Commons lisansı</string>
   <string name="captcha_image">Captcha resmi</string>
+  <string name="gallery_fair_use_license">Adil kullanım</string>
+  <string name="gallery_uploader_unknown">Yükleyen bilinmiyor</string>
 </resources>

@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">ערך מומלץ בוויקיפדיה</string>
   <string name="widget_title_featured_page">הערך המומלץ של היום:</string>
   <string name="widget_name_search">חיפוש בוויקיפדיה</string>
-  <string name="app_store_description">יישום ויקיפדיה הרשמי לאנדרואיד. ויקיפדיה היא האנציקלופדיה החופשית עם יותר מ־32 מיליון ערכים ב־280 שפות, וזאת אחת מיצירות העיון המקיפות והנפוצות ביותר שאנשים כתבו אי־פעם.
+  <string name="app_store_description">יישום ויקיפדיה הרשמי לאנדרואיד. ויקיפדיה היא האנציקלופדיה החופשית עם יותר מ־32 מיליון ערכים ב־280 שפות, והיא יצירת העיון המקיפה והנפוצה ביותר שאנשים כתבו אי־פעם.
 
 תכונות:
 - תמונות בראש: התנסו בוויקיפדיה כמו שמעולם לא ראיתם אותה, עם תמונה בולטת ורלוונטית ותיאור בראש כל ערך
@@ -266,4 +266,6 @@
   <string name="snippet_share_preview_image_desc">תצוגה מקדימה של תמונה</string>
   <string name="cc_logo">רישיון קריאייטיב קומונז</string>
   <string name="captcha_image">תמונת אישור</string>
+  <string name="gallery_fair_use_license">שימוש הוגן</string>
+  <string name="gallery_uploader_unknown">המעלה אינו ידוע</string>
 </resources>

@@ -266,4 +266,6 @@
   <string name="snippet_share_preview_image_desc">Преглед на сликата</string>
   <string name="cc_logo">Лиценца на Криејтив комонс</string>
   <string name="captcha_image">Слика на Captcha</string>
+  <string name="gallery_fair_use_license">Праведна употреба</string>
+  <string name="gallery_uploader_unknown">непознат подигач</string>
 </resources>

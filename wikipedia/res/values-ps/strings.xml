@@ -39,6 +39,7 @@
   <string name="dialog_message_leaving_edit_stay">پاتې کېدل</string>
   <string name="menu_show_toc">نيوليک</string>
   <string name="search_no_results_found">کومې پايلې و نه موندل شوې</string>
+  <string name="title_captcha">کېپچا ورکړئ</string>
   <string name="nav_item_login">ننوتل</string>
   <string name="login_username_hint">کارن-نوم</string>
   <string name="login_password_hint">پټنوم</string>
@@ -51,6 +52,7 @@
   <string name="login_success_toast">غونډال کې بريالی ورننوتې!</string>
   <string name="login_error_blocked">په دې کارن بنديز لگېدلی</string>
   <string name="preference_title_logout">وتل</string>
+  <string name="toast_logout_complete">ووتلۍ</string>
   <string name="delete_selected_history">ړنگول</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="wp_tag_line">يو وړيا پوهنغونډ</string>
@@ -98,6 +100,8 @@
   <string name="find_next">بل موندل</string>
   <string name="find_previous">پخوانی موندل</string>
   <string name="saved_pages_update_all_error_retry">بياآزمويل</string>
+  <string name="dialog_page_issues">د مخ ستونزې</string>
+  <string name="button_page_issues">د مخ ستونزې</string>
   <string name="text_size_select">د ليکبڼې کچه</string>
   <string name="color_theme_light">رڼا</string>
   <string name="color_theme_dark">تياره</string>
@@ -106,7 +110,10 @@
   <string name="search_recent_header">وروستنۍ پلټنې:</string>
   <string name="button_clear_all_recent_searches">وروستنۍ پلټنې سپينول</string>
   <string name="toc_hint" fuzzy="true">Swipe right for sections, or use the menu button on the top right.</string>
+  <string name="toc_know_it">پوه شوم</string>
+  <string name="table_other">نور مالومات</string>
   <string name="table_close">تړل</string>
+  <string name="widget_name_featured_page">د ويکيپېډيا غوره مخ</string>
   <string name="widget_title_featured_page">د نن غوره شوی مخ:</string>
   <string name="widget_name_search">ويکيپېډيا پلټل</string>
   <string name="dialog_close_description">تړل</string>
@@ -116,7 +123,10 @@
   <string name="menu_gallery_visit_page">د دوتنې مخ ته ورځه</string>
   <string name="gallery_image_info">د انځور مالومات</string>
   <string name="gallery_menu_share">شريکول</string>
+  <string name="gallery_save_success">انځور برياليتوب سره خوندي شو.</string>
   <string name="gallery_error_video_failed">ويډيو و نه غږول شوه.</string>
+  <string name="err_cannot_save_file">دوتنه د خوندي کولو وړ نه ده</string>
+  <string name="snippet_share_intro">\"%1$s\" په @Wikipedia: %2$s</string>
   <string name="share_snippet_button">د انځور په توگه شريکول</string>
   <string name="share_normal_button">د متن په توگه شريکول</string>
   <string name="snippet_share_preview_image_desc">انځور مخليدنه</string>

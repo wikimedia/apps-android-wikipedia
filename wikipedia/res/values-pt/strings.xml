@@ -245,6 +245,7 @@ Condições de uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Mostrar imagens</string>
   <string name="preference_summary_show_images">Ativar ou desativar o carregamento de imagens em páginas. Desmarque esta opção se sua ligação à Internet está lenta ou se o seu plano de dados é limitado.</string>
   <string name="read_more_section">Ler mais</string>
+  <string name="read_next_section">Ler próximo</string>
   <string name="gallery_menu_more_info">Mais informação</string>
   <string name="menu_gallery_visit_page">Ir para a página do ficheiro</string>
   <string name="gallery_error_draw_failed">Não é possível mostrar a imagem.</string>
@@ -256,6 +257,7 @@ Condições de uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_save_error">Não é possível guardar a imagem: %s</string>
   <string name="gallery_save_error_mediastore">Falha ao importar a imagem para a coleção multimédia</string>
   <string name="gallery_save_success">Imagem guardada com êxito</string>
+  <string name="gallery_error_video_failed">Não é possível reproduzir o vídeo.</string>
   <string name="err_cannot_save_file">Não é possível gravar o ficheiro</string>
   <string name="snippet_share_intro">\"%1$s\" em @Wikipedia: %2$s</string>
   <string name="expand_refs">Toque para expandir</string>
