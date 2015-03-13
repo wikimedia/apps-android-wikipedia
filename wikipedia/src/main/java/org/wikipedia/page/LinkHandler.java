@@ -40,6 +40,9 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         try {
             String href = URLDecoder.decode(messagePayload.getString("href"), "UTF-8");
             onUrlClick(href);
+        } catch (IllegalArgumentException e) {
+            // The URL is malformed and URL decoder can't understand it. Just do nothing.
+            Log.d("Wikipedia", "A malformed URL was tapped.");
         } catch (UnsupportedEncodingException e) {
             // will not happen
             throw new RuntimeException(e);
