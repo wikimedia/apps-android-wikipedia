@@ -107,6 +107,9 @@ public class Page {
             }
             json.putOpt("sections", sectionsJSON);
             json.putOpt("properties", pageProperties.toJSON());
+            if (galleryCollection != null) {
+                json.put("gallery", galleryCollection.toJSON());
+            }
             return json;
         } catch (JSONException e) {
             // This will never happen. Java stinks.
@@ -122,5 +125,8 @@ public class Page {
             sections.add(new Section(sectionsJSON.optJSONObject(i)));
         }
         pageProperties = new PageProperties(json.optJSONObject("properties"));
+        if (json.has("gallery")) {
+            galleryCollection = new GalleryCollection(json.optJSONObject("gallery"));
+        }
     }
 }

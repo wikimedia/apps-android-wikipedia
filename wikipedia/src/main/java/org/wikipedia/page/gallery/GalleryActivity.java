@@ -12,11 +12,13 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageCache;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
@@ -41,6 +43,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GalleryActivity extends ThemedActionBarActivity {
+    private static final String TAG = "GalleryActivity";
     public static final int ACTIVITY_RESULT_FILEPAGE_SELECT = 1;
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
@@ -49,6 +52,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     private WikipediaApp app;
     private PageTitle pageTitle;
     private Page page;
+    private boolean cacheOnLoad;
 
     private GalleryFunnel funnel;
     public GalleryFunnel getFunnel() {
@@ -142,11 +146,6 @@ public class GalleryActivity extends ThemedActionBarActivity {
         pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
         initialImageTitle = getIntent().getParcelableExtra(EXTRA_IMAGETITLE);
 
-        // find our Page in the page cache...
-        if (app.getPageCache().has(pageTitle)) {
-            page = app.getPageCache().get(pageTitle);
-        }
-
         galleryCache = new HashMap<>();
         galleryPager = (ViewPager) findViewById(R.id.gallery_item_pager);
         galleryAdapter = new GalleryItemAdapter(this);
@@ -210,13 +209,30 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
         updateProgressBar(false, true, 0);
 
-        // if our page already has a prepopulated gallery collection, then use it!
-        if (page != null && page.getGalleryCollection() != null) {
-            applyGalleryCollection(page.getGalleryCollection());
-        } else {
-            // otherwise, fetch it!
-            fetchGalleryCollection();
-        }
+        // find our Page in the page cache...
+        app.getPageCache().get(pageTitle, new PageCache.CacheGetListener() {
+            @Override
+            public void onGetComplete(Page page) {
+                GalleryActivity.this.page = page;
+                if (page != null && page.getGalleryCollection() != null
+                    && page.getGalleryCollection().getItemList().size() > 0) {
+                    applyGalleryCollection(page.getGalleryCollection());
+                    cacheOnLoad = false;
+                } else {
+                    // fetch the gallery from the network...
+                    fetchGalleryCollection();
+                    cacheOnLoad = true;
+                }
+            }
+
+            @Override
+            public void onGetError(Throwable e) {
+                Log.e(TAG, "Failed to get page from cache.", e);
+                fetchGalleryCollection();
+                cacheOnLoad = true;
+            }
+        });
+
     }
 
     @Override
@@ -312,7 +328,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
                 // That's a protocol specific link! Make it https!
                 url = "https:" + url;
             }
-            Log.d("Wikipedia", "Link clicked was " + url);
+            Log.d(TAG, "Link clicked was " + url);
             Site site = app.getPrimarySite();
             if (url.startsWith("/wiki/")) {
                 PageTitle title = site.titleForInternalLink(url);
@@ -346,7 +362,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         Intent intent = new Intent();
         intent.setClass(GalleryActivity.this, PageActivity.class);
         intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-        intent.putExtra(PageActivity.EXTRA_PAGETITLE, resultTitle);
+        intent.putExtra(PageActivity.EXTRA_PAGETITLE, (Parcelable) resultTitle);
         intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, historyEntry);
         setResult(ACTIVITY_RESULT_FILEPAGE_SELECT, intent);
         finish();
@@ -365,14 +381,24 @@ public class GalleryActivity extends ThemedActionBarActivity {
             public void onGalleryResult(GalleryCollection result) {
                 updateProgressBar(false, true, 0);
                 // save it to our current page, for later use
-                if (page != null) {
+                if (cacheOnLoad && page != null) {
                     page.setGalleryCollection(result);
+                    app.getPageCache().put(pageTitle, page, new PageCache.CachePutListener() {
+                        @Override
+                        public void onPutComplete() {
+                        }
+
+                        @Override
+                        public void onPutError(Throwable e) {
+                            Log.e(TAG, "Failed to add page to cache.", e);
+                        }
+                    });
                 }
                 applyGalleryCollection(result);
             }
             @Override
             public void onCatch(Throwable caught) {
-                Log.e("Wikipedia", "caught " + caught.getMessage());
+                Log.e(TAG, "Failed to fetch gallery collection.", caught);
                 updateProgressBar(false, true, 0);
                 showError(getString(R.string.error_network_error));
             }

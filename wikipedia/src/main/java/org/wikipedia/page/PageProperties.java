@@ -213,7 +213,7 @@ public class PageProperties implements Parcelable {
             }
             if (leadImageName != null) {
                 JSONObject imageObject = new JSONObject();
-                imageObject.put("file", leadImageUrl);
+                imageObject.put("file", leadImageName);
                 json.put("image", imageObject);
             }
         } catch (JSONException e) {

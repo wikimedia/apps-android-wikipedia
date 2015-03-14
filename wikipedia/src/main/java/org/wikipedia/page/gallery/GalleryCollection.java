@@ -1,6 +1,9 @@
 package org.wikipedia.page.gallery;
 
 import org.wikipedia.PageTitle;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -12,6 +15,36 @@ public class GalleryCollection {
     private List<GalleryItem> itemList;
     public List<GalleryItem> getItemList() {
         return itemList;
+    }
+
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        try {
+            JSONArray itemsJSON = new JSONArray();
+            for (GalleryItem item : itemList) {
+                JSONObject itemJSON = item.toJSON();
+                if (itemJSON != null) {
+                    itemsJSON.put(itemJSON);
+                }
+            }
+            json.put("items", itemsJSON);
+            return json;
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public GalleryCollection(JSONObject json) {
+        itemList = new ArrayList<>();
+        try {
+            JSONArray itemsJSON = json.getJSONArray("items");
+            for (int i = 0; i < itemsJSON.length(); i++) {
+                JSONObject itemJSON = itemsJSON.getJSONObject(i);
+                itemList.add(new GalleryItem(itemJSON));
+            }
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public GalleryCollection(Map<PageTitle, GalleryItem> galleryMap) {

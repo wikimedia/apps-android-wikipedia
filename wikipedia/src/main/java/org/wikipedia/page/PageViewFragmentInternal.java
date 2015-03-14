@@ -105,6 +105,11 @@ public class PageViewFragmentInternal implements BackPressedHandler {
      */
     private boolean saveOnComplete = false;
 
+    /**
+     * Whether to write the page contents to cache as soon as it's loaded.
+     */
+    private boolean cacheOnComplete = true;
+
     private PageViewFragment parentFragment;
 
     private PageTitle title;
@@ -423,14 +428,6 @@ public class PageViewFragmentInternal implements BackPressedHandler {
                                    .findViewById(R.id.bottom_content_container), title);
         }
 
-        //is this page in cache??
-        if (app.getPageCache().has(titleOriginal)) {
-            Log.d(TAG, "Using page from cache: " + titleOriginal.getDisplayText());
-            page = app.getPageCache().get(titleOriginal);
-            title = page.getTitle();
-            state = STATE_COMPLETE_FETCH;
-        }
-
         if (tocHandler == null) {
             tocHandler = new ToCHandler(getActivity(),
                     tocDrawer,
@@ -439,8 +436,42 @@ public class PageViewFragmentInternal implements BackPressedHandler {
                     isFirstPage());
         }
 
-        setState(state);
-        performActionForState(state);
+        loadPageFromCache();
+    }
+
+    private void loadPageFromCache() {
+        getActivity().updateProgressBar(true, true, 0);
+        //is this page in cache??
+        app.getPageCache().get(titleOriginal, new PageCache.CacheGetListener() {
+            @Override
+            public void onGetComplete(Page page) {
+                if (page != null) {
+                    Log.d(TAG, "Using page from cache: " + titleOriginal.getDisplayText());
+                    PageViewFragmentInternal.this.page = page;
+                    title = page.getTitle();
+                    state = STATE_COMPLETE_FETCH;
+                    // don't re-cache the page after loading.
+                    cacheOnComplete = false;
+                } else {
+                    // page isn't in cache, so fetch it from the network...
+                    state = STATE_NO_FETCH;
+                    cacheOnComplete = true;
+                }
+                setState(state);
+                performActionForState(state);
+            }
+
+            @Override
+            public void onGetError(Throwable e) {
+                Log.e(TAG, "Failed to get page from cache.", e);
+                // something failed when loading it from cache, so fetch it from network...
+                state = STATE_NO_FETCH;
+                // and make sure to write it to cache when it's loaded.
+                cacheOnComplete = true;
+                setState(state);
+                performActionForState(state);
+            }
+        });
     }
 
     private boolean isFirstPage() {
@@ -630,10 +661,19 @@ public class PageViewFragmentInternal implements BackPressedHandler {
             tocHandler.setupToC(page);
 
             //add the page to cache!
-            app.getPageCache().put(titleOriginal, page);
-            if (!titleOriginal.equals(title)) {
-                app.getPageCache().put(title, page);
+            if (cacheOnComplete) {
+                app.getPageCache().put(titleOriginal, page, new PageCache.CachePutListener() {
+                    @Override
+                    public void onPutComplete() {
+                    }
+
+                    @Override
+                    public void onPutError(Throwable e) {
+                        Log.e(TAG, "Failed to add page to cache.", e);
+                    }
+                });
             }
+
         }
     }
 
@@ -780,7 +820,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
         Intent galleryIntent = new Intent();
         galleryIntent.setClass(getActivity(), GalleryActivity.class);
         galleryIntent.putExtra(GalleryActivity.EXTRA_IMAGETITLE, imageTitle);
-        galleryIntent.putExtra(GalleryActivity.EXTRA_PAGETITLE, title);
+        galleryIntent.putExtra(GalleryActivity.EXTRA_PAGETITLE, titleOriginal);
         getActivity().startActivityForResult(galleryIntent, PageActivity.ACTIVITY_REQUEST_GALLERY);
     }
 
@@ -1101,6 +1141,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
 
     public void refreshPage(boolean saveOnComplete) {
         this.saveOnComplete = saveOnComplete;
+        cacheOnComplete = true;
         if (saveOnComplete) {
             Toast.makeText(getActivity(), R.string.toast_refresh_saved_page, Toast.LENGTH_LONG).show();
         }

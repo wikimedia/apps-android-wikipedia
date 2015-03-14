@@ -9,6 +9,9 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class GalleryItem {
+    private final JSONObject json;
+    public JSONObject toJSON() { return json; }
+
     private final String name;
     public String getName() { return name; }
 
@@ -61,6 +64,7 @@ public class GalleryItem {
     }
 
     public GalleryItem(String name) {
+        this.json = null;
         this.name = name;
         this.url = null;
         this.mimeType = "*/*";
@@ -71,6 +75,7 @@ public class GalleryItem {
     }
 
     public GalleryItem(JSONObject json) throws JSONException {
+        this.json = json;
         this.name = json.getString("title");
         JSONObject objinfo;
         if (json.has("imageinfo")) {

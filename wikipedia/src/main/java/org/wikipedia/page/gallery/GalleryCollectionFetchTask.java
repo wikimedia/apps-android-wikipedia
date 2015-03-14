@@ -20,6 +20,7 @@ public abstract class GalleryCollectionFetchTask extends PageQueryTask<GalleryIt
         builder.param("prop", "imageinfo")
                .param("iiprop", "dimensions|mime")
                .param("generator", "images")
+               .param("redirects", "")
                .param("gimlimit", MAX_ITEM_COUNT);
     }
 

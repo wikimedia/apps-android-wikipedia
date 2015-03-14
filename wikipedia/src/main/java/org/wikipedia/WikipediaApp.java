@@ -186,7 +186,7 @@ public class WikipediaApp extends Application {
         Api.setConnectionFactory(new OkHttpConnectionFactory(this));
 
         zeroHandler = new WikipediaZeroHandler(this);
-        pageCache = new PageCache();
+        pageCache = new PageCache(this);
 
         new PerformMigrationsTask().execute();
     }

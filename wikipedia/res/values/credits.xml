@@ -9,6 +9,10 @@
         <!-- https://raw.githubusercontent.com/keyboardsurfer/Crouton/master/LICENSE -->
         (<a href="file:///android_asset/licenses/Crouton">license</a>),
 
+        <a href="https://github.com/JakeWharton/DiskLruCache">DiskLruCache</a>
+        <!-- https://github.com/JakeWharton/DiskLruCache/blob/master/LICENSE.txt -->
+        (<a href="file:///android_asset/licenses/DiskLruCache">license</a>),
+
         <a href="https://github.com/kevinsawicki/http-request">Http-Request</a>
         <!-- https://raw.githubusercontent.com/kevinsawicki/http-request/master/LICENSE.md -->
         (<a href="file:///android_asset/licenses/Http-Request">license</a>),

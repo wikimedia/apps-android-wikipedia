@@ -9,7 +9,6 @@ import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.Site;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageProperties;
-import org.wikipedia.page.Section;
 import org.wikipedia.pageimages.PageImage;
 
 public class ParcelableTest extends TestCase {
@@ -38,11 +37,6 @@ public class ParcelableTest extends TestCase {
     public void testSite() throws Exception {
         Site site = new Site("en.wikipedia.org");
         parcelAndTestObjects(site);
-    }
-
-    public void testSection() throws Exception {
-        Section parentSection = new Section(1, 1, null, null, "Hi there!");
-        parcelAndTestObjects(parentSection);
     }
 
     public void testPageProperties() throws Exception {

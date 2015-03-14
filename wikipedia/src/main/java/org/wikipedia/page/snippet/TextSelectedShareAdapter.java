@@ -9,7 +9,6 @@ import android.support.v7.view.ActionMode;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 
