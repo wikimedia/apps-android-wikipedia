@@ -236,41 +236,14 @@ public final class SnippetImage {
                 new TextLayoutParams(wikipedia, textPaint, maxWidth, 1.0f));
         final int wordMarkWidth = (int) wordmarkLayout.getLineWidth(0);
 
-        // (R) as part of wordmark -- add registered trademark symbol
-        final float rFontSize = 12.0f;
-        final int rMaxWidth = (int) rFontSize;
-        TextPaint rPaint = new TextPaint(textPaint);
-        rPaint.setTextSize(rFontSize);
-        StaticLayout rLayout = buildLayout(new TextLayoutParams("\u00AE", rPaint, rMaxWidth, 1.0f));
-        final int rWidth = (int) rLayout.getLineWidth(0);
-
-        int left = WIDTH - HORIZONTAL_PADDING - wordMarkWidth - rWidth;
+        int left = WIDTH - HORIZONTAL_PADDING - wordMarkWidth;
         if (isArticleRTL) {
             left = HORIZONTAL_PADDING;
         }
 
         canvas.save(); // --
-        // Combined wordmark and registered trademark drawing
-        // Note that internally, the directionality is based on the wordmark string
-        // and not the article language.
-        if (wordmarkLayout.getParagraphDirection(0) != Layout.DIR_RIGHT_TO_LEFT) {
-            // LTR for wordmark string resource
-            final int rYOffset = 4;
-            // draw wordmark
-            canvas.translate(left, top);
-            wordmarkLayout.draw(canvas);
-            // draw (R)
-            canvas.translate(wordMarkWidth, rYOffset);
-            rLayout.draw(canvas);
-        } else {
-            // RTL for wordmark string resource
-            // draw (R)
-            canvas.translate(left, top);
-            rLayout.draw(canvas);
-            // draw wordmark
-            canvas.translate(rWidth - maxWidth + wordMarkWidth, 0);
-            wordmarkLayout.draw(canvas);
-        }
+        canvas.translate(left, top);
+        wordmarkLayout.draw(canvas);
         canvas.restore(); // --
     }
 
