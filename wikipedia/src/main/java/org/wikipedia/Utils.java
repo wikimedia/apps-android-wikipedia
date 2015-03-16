@@ -18,6 +18,7 @@ import android.os.Looper;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
+import android.text.Html;
 import android.text.InputType;
 import android.text.format.DateUtils;
 import android.util.Base64;
@@ -29,6 +30,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -253,6 +255,21 @@ public final class Utils {
                 edit.setSelection(curPos);
             }
         });
+    }
+
+    /**
+     * Set message for error popup on a TextView.
+     * @param textView the TextView or EditText to pop the error message from
+     * @param error the error message. Use null message to clear.
+     * @see TextView#setError
+     * @see http://stackoverflow.com/questions/14413575/how-to-write-style-to-error-text-of-edittext-in-android
+     */
+    public static void setErrorPopup(TextView textView, String error) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            textView.setError(error);
+        } else {
+            textView.setError(Html.fromHtml("<font color='red'>" + error + "</font>"));
+        }
     }
 
     /**
