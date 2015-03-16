@@ -234,19 +234,19 @@ Features:
 - Image gallery: tapping on an image shows you the image full-screen in high resolution, with options to swipe left/right for browsing additional images
 - Descriptions from Wikidata: when searching, each search result now contains a quick description that helps to contextualize the result. These descriptions are also shown in other areas of the app, like Nearby
 - Article suggestions: scroll to the bottom of an article to see suggestions about what you could read next
-- Saved pages: You can save select pages for offline reading and browse them even when you don\'t have a data connection
-- Nearby: Learn more about what\'s around you by getting links to articles about things that are near your current location
-- Language support: The app allows you to seamlessly switch to reading Wikipedia written in any language
-- Table of contents: Swipe left on any article to bring up the table of contents, which lets you jump to article sections easily
-- Wikipedia Zero: Data charges waived for participating mobile operators
+- Saved pages: save select pages for offline reading and browse them even when you don\'t have a data connection
+- Nearby: learn more about what\'s around you by getting links to articles about things that are near your current location
+- Language support: seamlessly switch to reading Wikipedia written in any language
+- Table of contents: swipe left on any article to bring up the table of contents, which lets you jump to article sections easily
+- Wikipedia Zero: data charges waived for participating mobile operators
 
 Send us your feedback about the app! In the menu, press "More", then "About the Wikipedia app", then "Send app feedback".
 
 The code is 100\% open source. If you have experience with Java and the Android SDK, then we look forward to your contributions! https://github.com/wikimedia/apps-android-wikipedia
 
-Privacy policy: http://wikimediafoundation.org/wiki/Privacy_policy
+Privacy policy: https://m.wikimediafoundation.org/wiki/Privacy_policy
 
-Terms of Use: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
+Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="alpha_update_notification_title">New alpha update available</string>
     <string name="alpha_update_notification_text">Tap to download</string>
     <string name="dialog_close_description">Close</string>
