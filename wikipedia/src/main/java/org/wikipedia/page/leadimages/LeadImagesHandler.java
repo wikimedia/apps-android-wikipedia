@@ -109,7 +109,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     }
 
     public LeadImagesHandler(final Context context, final PageViewFragmentInternal parentFragment,
-                             CommunicationBridge bridge, final ObservableWebView webview,
+                             CommunicationBridge bridge, ObservableWebView webview,
                              ViewGroup hidingView) {
         this.context = context;
         this.parentFragment = parentFragment;
@@ -143,7 +143,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             public void onClick(float x, float y) {
                 // if the click event is within the area of the lead image, then the user
                 // must have wanted to click on the lead image!
-                if (leadImagesEnabled && y < imageContainer.getHeight() - webview.getScrollY()) {
+                if (leadImagesEnabled && y < imageContainer.getHeight() - webView.getScrollY()) {
                     String imageName = parentFragment.getPage().getPageProperties()
                                                      .getLeadImageName();
                     if (imageName != null) {
@@ -431,6 +431,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             titleContainerHeight = (int)(Utils.getActionBarSize(parentFragment.getActivity()) / displayDensity);
             // hide everything
             image1.setVisibility(View.GONE);
+            image1.setImageDrawable(null);
             imagePlaceholder.setVisibility(View.GONE);
             pageTitleText.setVisibility(View.GONE);
             pageDescriptionText.setVisibility(View.GONE);
@@ -444,19 +445,24 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                     (int) ((titleContainerHeight) * displayDensity)));
             // hide the lead image
             image1.setVisibility(View.GONE);
+            image1.setImageDrawable(null);
             imagePlaceholder.setVisibility(View.GONE);
+            pageTitleText.setVisibility(View.VISIBLE);
+            pageDescriptionText.setVisibility(View.INVISIBLE);
             // set the color of the title
             pageTitleText.setTextColor(context.getResources()
                     .getColor(Utils.getThemedAttributeId(parentFragment.getActivity(),
                                                          R.attr.lead_disabled_text_color)));
             // remove bottom padding from the description
             pageDescriptionText.setPadding(pageDescriptionText.getPaddingLeft(),
-                    pageDescriptionText.getPaddingTop(), pageDescriptionText.getPaddingRight(), 0);
+                                           pageDescriptionText.getPaddingTop(),
+                                           pageDescriptionText.getPaddingRight(), 0);
             // and give it no drop shadow
             pageTitleText.setShadowLayer(0, 0, 0, 0);
             // do the same for the description...
             pageDescriptionText.setTextColor(context.getResources()
-                    .getColor(Utils.getThemedAttributeId(parentFragment.getActivity(), R.attr.lead_disabled_text_color)));
+                    .getColor(Utils.getThemedAttributeId(parentFragment.getActivity(),
+                                                         R.attr.lead_disabled_text_color)));
             pageDescriptionText.setShadowLayer(0, 0, 0, 0);
             // remove any background from the title container
             pageTitleContainer.setBackgroundColor(Color.TRANSPARENT);
@@ -472,11 +478,17 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             // prepare the lead image to be populated
             image1.setVisibility(View.INVISIBLE);
             imagePlaceholder.setVisibility(View.VISIBLE);
-
+            pageTitleText.setVisibility(View.VISIBLE);
+            pageDescriptionText.setVisibility(View.INVISIBLE);
             // set the color of the title
             pageTitleText.setTextColor(context.getResources().getColor(R.color.lead_text_color));
             final int bottomPaddingNominal = 16;
             titleBottomPadding = (int)(bottomPaddingNominal * displayDensity);
+            // give default padding to the description
+            pageDescriptionText.setPadding(pageDescriptionText.getPaddingLeft(),
+                                           pageDescriptionText.getPaddingTop(),
+                                           pageDescriptionText.getPaddingRight(),
+                                           titleBottomPadding);
             // and give it a nice drop shadow!
             pageTitleText.setShadowLayer(2, 1, 1, context.getResources().getColor(R.color.lead_text_shadow));
             // do the same for the description...
@@ -499,6 +511,11 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 titleBottomPadding += lineSpacePadding;
             }
         }
+        // reset margins on the title text to default
+        FrameLayout.LayoutParams titleTextParams = (FrameLayout.LayoutParams) pageTitleText.getLayoutParams();
+        titleTextParams.bottomMargin = 0;
+        pageTitleText.setLayoutParams(titleTextParams);
+        // and set its padding to what we calculated above
         pageTitleText.setPadding(pageTitleText.getPaddingLeft(), pageTitleText.getPaddingTop(),
                 pageTitleText.getPaddingRight(), titleBottomPadding);
         // pad the webview contents, to account for the lead image view height that we've
@@ -527,7 +544,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
 
         if (!isMainPage) {
             // make everything visible!
-            imageContainer.setVisibility(View.VISIBLE);
+            ViewAnimations.fadeIn(imageContainer);
+            //imageContainer.setVisibility(View.VISIBLE);
 
             // kick off loading of the WikiData description, if we have one
             if (!TextUtils.isEmpty(parentFragment.getPage().getTitle().getDescription())) {
@@ -553,8 +571,10 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 }
                 // only show the description if it's two lines or less
                 if (pageDescriptionText.getLineCount() > 2) {
+                    pageDescriptionText.setVisibility(View.GONE);
                     return;
                 }
+                pageDescriptionText.setVisibility(View.INVISIBLE);
                 final int animDuration = 500;
                 // adjust the space between the title and the description...
                 // for >2.3 and <5.0, the space needs to be a little different, because it doesn't

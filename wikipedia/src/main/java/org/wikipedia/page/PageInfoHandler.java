@@ -14,11 +14,9 @@ import org.json.JSONObject;
  */
 abstract class PageInfoHandler implements CommunicationBridge.JSEventListener {
     private final PageActivity activity;
-    private final Site site;
 
-    PageInfoHandler(PageActivity activity, CommunicationBridge bridge, Site site) {
+    PageInfoHandler(PageActivity activity, CommunicationBridge bridge) {
         this.activity = activity;
-        this.site = site;
         bridge.addListener("disambigClicked", this);
         bridge.addListener("issuesClicked", this);
     }
@@ -48,10 +46,11 @@ abstract class PageInfoHandler implements CommunicationBridge.JSEventListener {
         DisambigResult[] stringArray = new DisambigResult[array.length()];
         for (int i = 0; i < array.length(); i++) {
             // Decode the href that we got into a PageTitle, and create a DisambigResult with it
-            stringArray[i] = new DisambigResult(site.titleForInternalLink(array.getString(i)));
+            stringArray[i] = new DisambigResult(getSite().titleForInternalLink(array.getString(i)));
         }
         return stringArray;
     }
 
+    abstract Site getSite();
     abstract int getDialogHeight();
 }

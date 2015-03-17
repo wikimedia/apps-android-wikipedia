@@ -121,8 +121,8 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     public PageViewFragmentInternal getCurPageFragment() {
         Fragment f = getTopFragment();
-        if (f instanceof PageViewFragment) {
-            return ((PageViewFragment)f).getFragment();
+        if (f instanceof PageViewFragmentInternal) {
+            return (PageViewFragmentInternal) f;
         } else {
             return null;
         }
@@ -445,6 +445,20 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     /**
+     * Reset our fragment structure to the default, which is simply one PageViewFragment
+     * on the fragment stack.
+     * @param allowStateLoss Whether to allow state loss.
+     */
+    private void resetFragments(boolean allowStateLoss) {
+        while (getTopFragment() != null && !(getTopFragment() instanceof PageViewFragmentInternal)) {
+            getSupportFragmentManager().popBackStackImmediate();
+        }
+        if (getTopFragment() == null) {
+            pushFragment(new PageViewFragmentInternal(), allowStateLoss);
+        }
+    }
+
+    /**
      * Add a new fragment to the top of the activity's backstack.
      * @param f New fragment to place on top.
      */
@@ -463,36 +477,20 @@ public class PageActivity extends ThemedActionBarActivity {
         searchBarHideHandler.setForceNoFade(false);
         searchBarHideHandler.setFadeEnabled(false);
         // if the new fragment is the same class as the current topmost fragment,
-        // then just keep the previous fragment there. (unless it's a PageViewFragment)
+        // then just keep the previous fragment there.
         // e.g. if the user selected History, and there's already a History fragment on top,
         // then there's no need to load a new History fragment.
-        if (getTopFragment() != null
-                && (getTopFragment().getClass() == f.getClass())
-                && !(f instanceof PageViewFragment)) {
+        if (getTopFragment() != null && (getTopFragment().getClass() == f.getClass())) {
             return;
         }
-
-        // if the fragment onto which the new fragment is being placed is not a PageViewFragment,
-        // then remove it from the backstack (to comply with Google navigation guidelines).
-        if (getTopFragment() != null && !(getTopFragment() instanceof PageViewFragment)) {
-            getSupportFragmentManager().popBackStackImmediate();
-        }
-
         int totalFragments = getSupportFragmentManager().getBackStackEntryCount();
+        if (totalFragments > 0) {
+            resetFragments(allowStateLoss);
+        }
         FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
 
         // do an animation on the new fragment, but only if there was a previous one before it.
-        if (getTopFragment() != null) {
-            if (f instanceof PageViewFragment) {
-                // animate page fragments by sliding them in/out
-                trans.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left,
-                                          R.anim.slide_in_left, R.anim.slide_out_right);
-            } else {
-                // animate other fragments (history/saved/etc) by fading them in/out
-                trans.setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out, 0, 0);
-            }
-        }
-
+        trans.setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out, 0, 0);
         trans.replace(R.id.content_fragment_container, f, "fragment_" + Integer.toString(totalFragments));
         trans.addToBackStack(null);
         if (allowStateLoss) {
@@ -537,7 +535,7 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param entry HistoryEntry associated with this page.
      * @param allowStateLoss Whether to allow state loss.
      */
-    public void displayNewPage(PageTitle title, HistoryEntry entry, boolean allowStateLoss) {
+    public void displayNewPage(final PageTitle title, final HistoryEntry entry, boolean allowStateLoss) {
         ACRA.getErrorReporter().putCustomData("api", title.getSite().getApiDomain());
         ACRA.getErrorReporter().putCustomData("title", title.toString());
 
@@ -548,23 +546,29 @@ public class PageActivity extends ThemedActionBarActivity {
             Utils.visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
             return;
         }
+        resetFragments(allowStateLoss);
 
-        //is the new title the same as what's already being displayed?
-        if (getTopFragment() instanceof PageViewFragment) {
-            PageViewFragmentInternal frag = getCurPageFragment();
-            if (frag.getTitle().equals(title)) {
-                //if we have a section to scroll to, then pass it to the fragment
-                if (!TextUtils.isEmpty(title.getFragment())) {
-                    frag.scrollToSection(title.getFragment());
+        fragmentContainerView.post(new Runnable() {
+            @Override
+            public void run() {
+                //is the new title the same as what's already being displayed?
+                PageViewFragmentInternal frag = getCurPageFragment();
+                if (frag.getTitle() != null && frag.getTitle().equals(title)) {
+                    //if we have a section to scroll to, then pass it to the fragment
+                    if (!TextUtils.isEmpty(title.getFragment())) {
+                        frag.scrollToSection(title.getFragment());
+                    }
+                    return;
                 }
-                return;
+                frag.closeFindInPage();
+                // Load the new page from cache (if possible) by default, unless it's the
+                // Main Page, in which case we'll always bypass the cache, because the Main
+                // Page is updated daily.
+                boolean loadFromCache = entry.getSource() != HistoryEntry.SOURCE_MAIN_PAGE;
+                frag.displayNewPage(title, entry, loadFromCache, true);
+                app.getSessionFunnel().pageViewed(entry);
             }
-            frag.closeFindInPage();
-        }
-
-        pushFragment(PageViewFragment.newInstance(title, entry), allowStateLoss);
-
-        app.getSessionFunnel().pageViewed(entry);
+        });
     }
 
     /**

@@ -116,20 +116,20 @@ public class PageCache {
     }
 
     public interface CacheGetListener {
-        void onGetComplete(Page page);
-        void onGetError(Throwable e);
+        void onGetComplete(Page page, int sequence);
+        void onGetError(Throwable e, int sequence);
     }
 
-    public void get(PageTitle title, final CacheGetListener listener) {
+    public void get(PageTitle title, final int sequence, final CacheGetListener listener) {
         new GetPageFromCacheTask(title) {
             @Override
             public void onFinish(Page page) {
-                listener.onGetComplete(page);
+                listener.onGetComplete(page, sequence);
             }
 
             @Override
             public void onCatch(Throwable caught) {
-                listener.onGetError(caught);
+                listener.onGetError(caught, sequence);
             }
         }.execute();
     }

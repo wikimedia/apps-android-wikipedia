@@ -18,6 +18,17 @@ bridge.registerListener( "setPaddingBottom", function( payload ) {
     document.getElementById( "content" ).style.paddingBottom = payload.paddingBottom + "px";
 });
 
+bridge.registerListener( "beginNewPage", function( payload ) {
+    clearContents();
+    // fire an event back to the app, but with a slight timeout, which should
+    // have the effect of "waiting" until the page contents have cleared before sending the
+    // event, allowing synchronization of sorts between the WebView and the app.
+    // (If we find a better way to synchronize the two, it can be done here, as well)
+    setTimeout( function() {
+        bridge.sendMessage( "onBeginNewPage", payload );
+    }, 10);
+});
+
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!
     clearContents();
@@ -138,7 +149,7 @@ bridge.registerListener( "displaySection", function ( payload ) {
             scrolledOnLoad = true;
         }
         document.getElementById( "loading_sections").className = "";
-        bridge.sendMessage( "pageLoadComplete", { } );
+        bridge.sendMessage( "pageLoadComplete", { "sequence": payload.sequence } );
     } else {
         var contentWrapper = document.getElementById( "content" );
         elementsForSection(payload.section).forEach(function (element) {
@@ -153,7 +164,7 @@ bridge.registerListener( "displaySection", function ( payload ) {
         if ( typeof payload.fragment === "string" && payload.fragment.length > 0 && payload.section.anchor === payload.fragment) {
             scrollToSection( payload.fragment );
         }
-        bridge.sendMessage( "requestSection", { "index": payload.section.id + 1 });
+        bridge.sendMessage( "requestSection", { "sequence": payload.sequence, "index": payload.section.id + 1 });
     }
 });
 

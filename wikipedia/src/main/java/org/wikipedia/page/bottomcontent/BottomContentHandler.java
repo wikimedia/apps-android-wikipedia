@@ -46,7 +46,6 @@ public class BottomContentHandler implements BottomContentInterface,
     private final CommunicationBridge bridge;
     private final WebView webView;
     private final LinkHandler linkHandler;
-    private PageTitle pageTitle;
     private final PageActivity activity;
     private final WikipediaApp app;
     private float displayDensity;
@@ -62,18 +61,18 @@ public class BottomContentHandler implements BottomContentInterface,
     private ImageView imagePlaceholder;
     private ImageViewWithFace image1;
 
+    private PageTitle pageTitle;
     private SuggestedPagesFunnel funnel;
     private SearchResults readMoreItems;
 
     public BottomContentHandler(PageViewFragmentInternal parent, CommunicationBridge bridge,
                                 ObservableWebView webview, LinkHandler linkHandler,
-                                ViewGroup hidingView, final PageTitle pageTitle) {
+                                ViewGroup hidingView) {
         this.parentFragment = parent;
         this.bridge = bridge;
         this.webView = webview;
         this.linkHandler = linkHandler;
-        this.pageTitle = pageTitle;
-        activity = parentFragment.getActivity();
+        activity = ((PageActivity) parentFragment.getActivity());
         app = (WikipediaApp) activity.getApplicationContext();
         displayDensity = activity.getResources().getDisplayMetrics().density;
 
@@ -89,8 +88,6 @@ public class BottomContentHandler implements BottomContentInterface,
         imagePlaceholder = (ImageView) bottomContentContainer.findViewById(R.id.read_next_image_placeholder);
         image1 = (ImageViewWithFace) bottomContentContainer.findViewById(R.id.read_next_image_1);
         image1.setOnImageLoadListener(this);
-
-        funnel = new SuggestedPagesFunnel(app, pageTitle.getSite(), 1);
 
         webview.addOnClickListener(new ObservableWebView.OnClickListener() {
             @Override
@@ -309,6 +306,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
     public void setTitle(PageTitle newTitle) {
         pageTitle = newTitle;
+        funnel = new SuggestedPagesFunnel(app, pageTitle.getSite(), 1);
     }
 
     private void setupReadNextSection(final SearchResults results) {

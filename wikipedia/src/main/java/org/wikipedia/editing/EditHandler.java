@@ -12,17 +12,17 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageViewFragment;
+import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.page.Section;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {
     public static final int RESULT_REFRESH_PAGE = 1;
 
-    private final PageViewFragment fragment;
+    private final PageViewFragmentInternal fragment;
     private ProtectedEditAttemptFunnel funnel;
     private Page currentPage;
 
-    public EditHandler(PageViewFragment fragment, CommunicationBridge bridge) {
+    public EditHandler(PageViewFragmentInternal fragment, CommunicationBridge bridge) {
         this.fragment = fragment;
         bridge.addListener("editSectionClicked", this);
     }
@@ -59,7 +59,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         }
         if (messageType.equals("editSectionClicked")) {
             final SavedPagesFunnel savedPagesFunnel = WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(currentPage.getTitle().getSite());
-            if (fragment.getFragment().getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+            if (fragment.getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
                 savedPagesFunnel.logEditAttempt();
                 new AlertDialog.Builder(fragment.getActivity())
                         .setCancelable(false)
@@ -67,7 +67,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                fragment.getFragment().refreshPage(true);
+                                fragment.refreshPage(true);
                                 savedPagesFunnel.logEditRefresh();
                                 wasRefreshed = true;
                             }

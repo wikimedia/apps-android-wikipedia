@@ -210,9 +210,9 @@ public class GalleryActivity extends ThemedActionBarActivity {
         updateProgressBar(false, true, 0);
 
         // find our Page in the page cache...
-        app.getPageCache().get(pageTitle, new PageCache.CacheGetListener() {
+        app.getPageCache().get(pageTitle, 0, new PageCache.CacheGetListener() {
             @Override
-            public void onGetComplete(Page page) {
+            public void onGetComplete(Page page, int sequence) {
                 GalleryActivity.this.page = page;
                 if (page != null && page.getGalleryCollection() != null
                     && page.getGalleryCollection().getItemList().size() > 0) {
@@ -226,7 +226,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             }
 
             @Override
-            public void onGetError(Throwable e) {
+            public void onGetError(Throwable e, int sequence) {
                 Log.e(TAG, "Failed to get page from cache.", e);
                 fetchGalleryCollection();
                 cacheOnLoad = true;

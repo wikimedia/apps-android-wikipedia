@@ -64,14 +64,13 @@ public class BottomContentHandlerOld implements BottomContentInterface,
 
     public BottomContentHandlerOld(PageViewFragmentInternal parentFragment,
                                    CommunicationBridge bridge, ObservableWebView webview,
-                                   LinkHandler linkHandler, ViewGroup hidingView,
-                                   PageTitle pageTitle) {
+                                   LinkHandler linkHandler, ViewGroup hidingView) {
         this.parentFragment = parentFragment;
         this.bridge = bridge;
         this.webView = webview;
         this.linkHandler = linkHandler;
         this.pageTitle = pageTitle;
-        activity = parentFragment.getActivity();
+        activity = (PageActivity) parentFragment.getActivity();
         app = (WikipediaApp) activity.getApplicationContext();
         displayDensity = activity.getResources().getDisplayMetrics().density;
 
@@ -135,8 +134,6 @@ public class BottomContentHandlerOld implements BottomContentInterface,
                 return false;
             }
         });
-
-        funnel = new SuggestedPagesFunnel(app, pageTitle.getSite(), 0);
 
         // preload the display density, since it will be used in a lot of places
         displayDensity = activity.getResources().getDisplayMetrics().density;
@@ -333,6 +330,7 @@ public class BottomContentHandlerOld implements BottomContentInterface,
 
     public void setTitle(PageTitle newTitle) {
         pageTitle = newTitle;
+        funnel = new SuggestedPagesFunnel(app, pageTitle.getSite(), 0);
     }
 
     private void setupReadMoreSection(LayoutInflater layoutInflater, final SearchResults results) {

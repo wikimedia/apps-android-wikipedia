@@ -39,12 +39,13 @@ public class SuggestedPagesFunnel extends Funnel {
         return eventData;
     }
 
-    protected void log(Object... params) {
+    protected void log(Site site, Object... params) {
         super.log(site, params);
     }
 
     public void logSuggestionsShown(PageTitle currentPageTitle, List<PageTitle> suggestedTitles) {
         log(
+                currentPageTitle.getSite(),
                 "action", "shown",
                 "pageTitle", currentPageTitle.getDisplayText(),
                 "readMoreList", TextUtils.join("|", suggestedTitles)
@@ -54,6 +55,7 @@ public class SuggestedPagesFunnel extends Funnel {
     public void logSuggestionClicked(PageTitle currentPageTitle, List<PageTitle> suggestedTitles,
                                      int clickedIndex) {
         log(
+                currentPageTitle.getSite(),
                 "action", "clicked",
                 "pageTitle", currentPageTitle.getDisplayText(),
                 "readMoreList", TextUtils.join("|", suggestedTitles),

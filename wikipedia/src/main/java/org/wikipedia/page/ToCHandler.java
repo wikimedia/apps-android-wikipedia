@@ -39,14 +39,9 @@ public class ToCHandler {
     private final CommunicationBridge bridge;
     private final DisableableDrawerLayout slidingPane;
     private final TextView headerView;
-    private final ToCInteractionFunnel funnel;
     private final ActionBarActivity parentActivity;
+    private ToCInteractionFunnel funnel;
 
-    /**
-     * We don't want to open the ToC drawer on the first page loaded automatically
-     * so the back button sends users back to the previous activity.
-     */
-    private final boolean firstPage;
     /**
      * Flag to track if the drawer is closing because a link was clicked.
      * Used to make sure that we don't track closes that are caused by
@@ -56,13 +51,10 @@ public class ToCHandler {
     private boolean openedViaSwipe = true;
 
     public ToCHandler(final ActionBarActivity activity, final DisableableDrawerLayout slidingPane,
-                      final CommunicationBridge bridge, final Site site, boolean firstPage) {
+                      final CommunicationBridge bridge) {
         this.parentActivity = activity;
         this.bridge = bridge;
         this.slidingPane = slidingPane;
-        this.firstPage = firstPage;
-
-        funnel = new ToCInteractionFunnel((WikipediaApp)slidingPane.getContext().getApplicationContext(), site);
 
         this.tocList = (ListView) slidingPane.findViewById(R.id.page_toc_list);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
@@ -193,7 +185,9 @@ public class ToCHandler {
         }
     }
 
-    public void setupToC(final Page page) {
+    public void setupToC(final Page page, Site site, boolean firstPage) {
+        funnel = new ToCInteractionFunnel((WikipediaApp)slidingPane.getContext().getApplicationContext(), site);
+
         tocProgress.setVisibility(View.GONE);
         tocList.setVisibility(View.VISIBLE);
 
