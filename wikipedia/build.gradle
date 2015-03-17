@@ -98,10 +98,10 @@ dependencies {
     compile('org.mediawiki.api:json:1.3.0') {
         exclude group: 'org.json', module: 'json'
     }
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.1.0'
-    compile 'com.squareup.okhttp:okhttp:2.1.0'
-    compile 'com.squareup:otto:1.3.5'
-    compile 'com.squareup.picasso:picasso:2.4.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.3.0'
+    compile 'com.squareup.okhttp:okhttp:2.3.0'
+    compile 'com.squareup:otto:1.3.6'
+    compile 'com.squareup.picasso:picasso:2.5.0'
     compile 'com.mobsandgeeks:android-saripaar:1.0.3'
     compile 'com.nineoldandroids:library:2.4.0'
     compile('ch.acra:acra:4.5.0') {

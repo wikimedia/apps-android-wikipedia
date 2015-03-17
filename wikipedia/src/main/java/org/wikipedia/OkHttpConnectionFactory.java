@@ -19,13 +19,7 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
     public OkHttpConnectionFactory(Context context) {
         client = new OkHttpClient();
         client.setCookieHandler(((WikipediaApp)context.getApplicationContext()).getCookieManager());
-
-        try {
-            client.setCache(new Cache(context.getCacheDir(), HTTP_CACHE_SIZE));
-        } catch (IOException e) {
-            // Shouldn't happen...
-            throw new RuntimeException(e);
-        }
+        client.setCache(new Cache(context.getCacheDir(), HTTP_CACHE_SIZE));
     }
 
     public HttpURLConnection create(URL url) throws IOException {
