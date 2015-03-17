@@ -102,7 +102,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                 if (view instanceof EditText) {
                     //Request focus on the EditText before setting error, so that error is visible
                     view.requestFocus();
-                    ((EditText) view).setError(rule.getFailureMessage());
+                    Utils.setErrorPopup((EditText) view, rule.getFailureMessage());
                 } else {
                     throw new RuntimeException("This should not be happening");
                 }
@@ -216,7 +216,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             case "userexists":
                 //Request focus before displaying error message, so that it pops up on its own
                 usernameEdit.requestFocus();
-                usernameEdit.setError(getString(R.string.create_account_username_exists_error));
+                Utils.setErrorPopup(usernameEdit, getString(R.string.create_account_username_exists_error));
                 break;
             case "noname":
                 Crouton.makeText(this, R.string.create_account_noname_error, Style.ALERT).show();

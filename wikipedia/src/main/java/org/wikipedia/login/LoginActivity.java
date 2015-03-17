@@ -201,11 +201,11 @@ public class LoginActivity extends ThemedActionBarActivity {
         switch (result) {
             case "WrongPass":
                 passwordText.requestFocus();
-                passwordText.setError(getString(R.string.login_error_wrong_password));
+                Utils.setErrorPopup(passwordText, getString(R.string.login_error_wrong_password));
                 break;
             case "NotExists":
                 usernameText.requestFocus();
-                usernameText.setError(getString(R.string.login_error_wrong_username));
+                Utils.setErrorPopup(usernameText, getString(R.string.login_error_wrong_username));
                 break;
             case "Blocked":
                 Crouton.makeText(this, R.string.login_error_blocked, Style.ALERT).show();
