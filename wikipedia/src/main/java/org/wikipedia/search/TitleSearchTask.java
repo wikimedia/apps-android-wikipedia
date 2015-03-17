@@ -33,6 +33,7 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
     public RequestBuilder buildRequest(Api api) {
         return api.action("query")
                 .param("generator", "prefixsearch")
+                .param("redirects", "true")
                 .param("gpssearch", prefix)
                 .param("gpsnamespace", "0")
                 .param("gpslimit", NUM_RESULTS_PER_QUERY)
@@ -88,13 +89,48 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
             return new SearchResults(pageTitles, null, suggestion);
         }
 
+        // Collect a list of redirect targets, if available.
+        // This provides us with the order in which the redirects are listed in the results,
+        // since the redirected results don't come with an "index" property.
+        ArrayList<String> redirectTargetList = new ArrayList<>();
+        if (queryResult.has("redirects")) {
+            JSONArray redirs = queryResult.getJSONArray("redirects");
+            for (int i = 0; i < redirs.length(); i++) {
+                redirectTargetList.add(((JSONObject) redirs.get(i)).getString("to"));
+            }
+        }
+
+        // Create a list of indices, which will be claimed by results that have an "index".
+        // Results that are redirects will not have an "index", so we will manually place them
+        // into any indices that are left over.
+        ArrayList<Integer> pageIndices = new ArrayList<>();
+        for (int i = 0; i < pages.length(); i++) {
+            pageIndices.add(i + 1);
+        }
+
         // First, put all the page objects into an array
         JSONObject[] pageArray = new JSONObject[pages.length()];
         int pageIndex = 0;
         Iterator<String> pageIter = pages.keys();
         while (pageIter.hasNext()) {
-            pageArray[pageIndex++] = (JSONObject)pages.get(pageIter.next());
+            JSONObject page = (JSONObject)pages.get(pageIter.next());
+            pageArray[pageIndex++] = page;
+            if (page.has("index")) {
+                pageIndices.remove((Integer) page.getInt("index"));
+            }
         }
+        // add an index to any results that didn't have one, in the order that they appear
+        // in the redirect map.
+        for (String redirTo : redirectTargetList) {
+            for (JSONObject page : pageArray) {
+                if (page.getString("title").equals(redirTo)
+                    && !page.has("index") && pageIndices.size() > 0) {
+                    page.put("index", pageIndices.get(0));
+                    pageIndices.remove(0);
+                }
+            }
+        }
+
         // now sort the array based on the "index" property
         Arrays.sort(pageArray, new Comparator<JSONObject>() {
             @Override
