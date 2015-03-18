@@ -286,6 +286,15 @@ public class PageTitle implements Parcelable {
         return namespace().special();
     }
 
+    /**
+     * Check if the Title represents a talk page
+     *
+     * @return true if it is a talk page, false if not
+     */
+    public boolean isTalkPage() {
+        return namespace().talk();
+    }
+
     @Override
     public int describeContents() {
         return 0;

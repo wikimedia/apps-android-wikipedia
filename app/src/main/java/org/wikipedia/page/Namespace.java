@@ -95,6 +95,14 @@ public enum Namespace implements EnumCode {
             return Namespace.SPECIAL;
         }
 
+        // This works for the links provided by the app itself since they always have the English
+        // version of the namespace.
+        // TODO: It would be nice to add a mapping table, as is done for File and Special,
+        // so we can also handle links passed to the app.
+        if (name != null && name.contains("Talk")) {
+            return Namespace.TALK;
+        }
+
         return Namespace.MAIN;
     }
 

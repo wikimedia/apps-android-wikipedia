@@ -272,11 +272,16 @@ public class BottomContentHandler implements BottomContentInterface,
         if (page.isMainPage() || page.isFilePage()) {
             pageLastUpdatedText.setVisibility(View.GONE);
         } else {
-            String lastUpdatedHtml = "<a href=\"" + page.getTitle().getUriForAction("history")
+            PageTitle title = page.getTitle();
+            String lastUpdatedHtml = "<a href=\"" + title.getUriForAction("history")
                     + "\">" + activity.getString(R.string.last_updated_text,
                     formatDateRelative(page.getPageProperties().getLastModified())
                             + "</a>");
-            pageLastUpdatedText.setText(Html.fromHtml(lastUpdatedHtml));
+            // TODO: Hide the Talk link if already on a talk page
+            PageTitle talkPageTitle = new PageTitle("Talk", title.getPrefixedText(), title.getSite());
+            String discussionHtml = "<a href=\"" + talkPageTitle.getCanonicalUri() + "\">"
+                    + activity.getString(R.string.talk_page_link_text) + "</a>";
+            pageLastUpdatedText.setText(Html.fromHtml(lastUpdatedHtml + " &mdash; " + discussionHtml));
             pageLastUpdatedText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
             pageLastUpdatedText.setVisibility(View.VISIBLE);
         }

@@ -376,10 +376,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!isResumed()) {
             return;
         }
-        // if it's a Special page, launch it in an external browser, since mobileview
+        // If it's a Special page, launch it in an external browser, since mobileview
         // doesn't support the Special namespace.
         // TODO: remove when Special pages are properly returned by the server
-        if (title.isSpecial()) {
+        // If this is a Talk page also show in external browser since we don't handle those pages
+        // in the app very well at this time.
+        if (title.isSpecial() || title.isTalkPage()) {
             visitInExternalBrowser(getActivity(), Uri.parse(title.getMobileUri()));
             return;
         }
