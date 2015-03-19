@@ -66,6 +66,7 @@
                             android:id="@+id/page_title_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textIsSelectable="true"
                             android:fontFamily="serif"
                             android:paddingTop="16dp"
                             android:paddingBottom="16dp"
@@ -77,6 +78,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:visibility="invisible"
+                            android:textIsSelectable="true"
                             android:fontFamily="serif"
                             android:textSize="@dimen/descriptionTextSize"
                             android:paddingBottom="16dp"
@@ -140,6 +142,7 @@
                         android:paddingLeft="@dimen/activity_horizontal_margin"
                         android:paddingRight="@dimen/activity_horizontal_margin"
                         style="?android:textAppearanceSmall"
+                        android:textIsSelectable="true"
                         android:textColorLink="?attr/link_color"/>
                     <TextView
                         android:id="@+id/page_license_text"
@@ -148,6 +151,7 @@
                         android:paddingLeft="@dimen/activity_horizontal_margin"
                         android:paddingRight="@dimen/activity_horizontal_margin"
                         style="?android:textAppearanceSmall"
+                        android:textIsSelectable="true"
                         android:textColorLink="?attr/link_color"
                         android:gravity="center"/>
                 </LinearLayout>
