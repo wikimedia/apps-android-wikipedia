@@ -209,6 +209,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
             leadSectionPayload.put("string_table_close", getString(R.string.table_close));
             leadSectionPayload.put("string_expand_refs", getString(R.string.expand_refs));
             leadSectionPayload.put("isBeta", app.getReleaseType() != WikipediaApp.RELEASE_PROD);
+            leadSectionPayload.put("siteLanguage", title.getSite().getLanguage());
             leadSectionPayload.put("isMainPage", page.getPageProperties().isMainPage());
             leadSectionPayload.put("apiLevel", Build.VERSION.SDK_INT);
             bridge.sendMessage("displayLeadSection", leadSectionPayload);

@@ -52,6 +52,8 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     window.string_expand_refs = payload.string_expand_refs;
     window.pageTitle = payload.title;
     window.isMainPage = payload.isMainPage;
+    window.isBeta = payload.isBeta;
+    window.siteLanguage = payload.siteLanguage;
 
     // append the content to the DOM now, so that we can obtain
     // dimension measurements for items.
