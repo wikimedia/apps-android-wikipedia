@@ -13,6 +13,7 @@ import android.graphics.PointF;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.Transformation;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
@@ -287,6 +288,14 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
 
                 // fade in the new image!
                 ViewAnimations.crossFade(imagePlaceholder, image1);
+
+                if (WikipediaApp.getInstance().getReleaseType() != WikipediaApp.RELEASE_PROD) {
+                    // and perform a subtle Ken Burns animation...
+                    Animation anim = AnimationUtils.loadAnimation(parentFragment.getActivity(),
+                                                                  R.anim.lead_image_zoom);
+                    anim.setFillAfter(true);
+                    image1.startAnimation(anim);
+                }
             }
         });
     }
