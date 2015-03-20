@@ -2,6 +2,7 @@ package org.wikipedia.settings;
 
 import android.content.Context;
 import android.preference.DialogPreference;
+import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -51,7 +52,7 @@ public class LanguagePreference extends DialogPreference {
     }
 
     @Override
-    protected void onBindView(View view) {
+    protected void onBindView(@NonNull View view) {
         super.onBindView(view);
         TextView textView = (TextView) view.findViewById(android.R.id.title);
         if (textView != null) {
@@ -60,7 +61,7 @@ public class LanguagePreference extends DialogPreference {
     }
 
     @Override
-    protected void onBindDialogView(View view) {
+    protected void onBindDialogView(@NonNull View view) {
         super.onBindDialogView(view);
         languagesList = (ListView) view.findViewById(R.id.preference_languages_list);
         EditText languagesFilter = (EditText) view.findViewById(R.id.preference_languages_filter);
