@@ -748,7 +748,7 @@ public class PageViewFragmentInternal implements BackPressedHandler {
                 }
                 return true;
             case R.id.menu_share_page:
-                getActivity().share(title);
+                getActivity().share();
                 return true;
             case R.id.menu_other_languages:
                 Intent langIntent = new Intent();
