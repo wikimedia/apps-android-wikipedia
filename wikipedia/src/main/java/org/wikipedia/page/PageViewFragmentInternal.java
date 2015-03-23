@@ -436,7 +436,17 @@ public class PageViewFragmentInternal implements BackPressedHandler {
                     isFirstPage());
         }
 
-        loadPageFromCache();
+        if (savedInstanceState == null && curEntry.getSource() == HistoryEntry.SOURCE_MAIN_PAGE) {
+            // if we're asked to load the main page, and we're not coming back from a screen
+            // rotation or recreated activity (savedInstanceState), then do NOT load it from
+            // cache.
+            state = STATE_NO_FETCH;
+            cacheOnComplete = true;
+            setState(state);
+            performActionForState(state);
+        } else {
+            loadPageFromCache();
+        }
     }
 
     private void loadPageFromCache() {
