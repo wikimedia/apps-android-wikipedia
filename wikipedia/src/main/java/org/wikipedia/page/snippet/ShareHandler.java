@@ -66,7 +66,10 @@ public class ShareHandler {
         if (selectedText.length() >= minTextSnippetLength) {
             String introText = activity.getString(R.string.snippet_share_intro,
                     title.getDisplayText(),
-                    title.getCanonicalUri() + "?source=app");
+                    title.getCanonicalUri() + "?wprov=sfia1");
+            // For wprov=sfia1: see https://www.mediawiki.org/wiki/Provenance;
+            // introText is only used for image share
+
             Bitmap resultBitmap = new SnippetImage(activity,
                     curPageFragment.getLeadImageBitmap(),
                     curPageFragment.getLeadImageFocusY(),
