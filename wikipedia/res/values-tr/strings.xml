@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">Vikipedi seçkin sayfalar</string>
   <string name="widget_title_featured_page">Günün seçkin maddesi:</string>
   <string name="widget_name_search">Vikipedi arama</string>
-  <string name="app_store_description">Android için resmi Wikipedia Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır.
+  <string name="app_store_description" fuzzy="true">Android için resmi Wikipedia Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır.
 Özellikler:
 - Başlık resimleri: Maddelerin en üstündeki, konuyla alakalı, öne çıkan bir resim ve tanımla, Vikipedi\'yi daha önce hiç görmediğiniz şekilde tecrübe edin.
 - Resim galerisi: Bir resme dokunarak yüksek çözünürlükte tam ekran olarak görüntüleyebilir, sağa/sola kaydırarak diğer resimleri görme seçeneğini kullanabilirsiniz.

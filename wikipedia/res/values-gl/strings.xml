@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">Páxina destacada de Wikipedia</string>
   <string name="widget_title_featured_page">Páxina destacada do día:</string>
   <string name="widget_name_search">Busca en Wikipedia</string>
-  <string name="app_store_description">Aplicación oficial da Wikipedia para Android. A Wikipedia é a enciclopedia libre que contén máis de 32 millóns de artigos en 280 idiomas e é o traballo de referencia recompilado polo ser humano máis completo e amplamente usado. 
+  <string name="app_store_description" fuzzy="true">Aplicación oficial da Wikipedia para Android. A Wikipedia é a enciclopedia libre que contén máis de 32 millóns de artigos en 280 idiomas e é o traballo de referencia recompilado polo ser humano máis completo e amplamente usado. 
 
 Características:
    - Imaxes principais: experimente a Wikipedia como nunca antes, con imaxes contextualmente relevantes e descricións na cabeceira dos artigos.

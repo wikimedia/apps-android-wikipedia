@@ -169,7 +169,7 @@
   <string name="about_contributors_heading">kontributor</string>
   <string name="about_translators_heading">penerjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini telah diterjemahkan oleh penerjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf">Sebuah produk dari &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Yayasan Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Sebuah produk dari &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Tentang</string>
   <string name="edit_abandon_confirm">Halaman ini telah diubah. Apakah Anda yakin ingin keluar tanpa menyimpan perubahan?</string>
   <string name="user_blocked_from_editing_title">Diblokir</string>
@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">Artikel pilihan Wikipedia</string>
   <string name="widget_title_featured_page">Artikel pilihan hari ini:</string>
   <string name="widget_name_search">Pencarian Wikipedia</string>
-  <string name="app_store_description">Aplikasi resmi Wikipedia untuk Android. Wikipedia adalah ensiklopedia bebas yang berisi lebih dari 32 juta artikel dalam 280 bahasa sekaligus karya referensi buatan manusia yang paling lengkap dan banyak digunakan sepanjang sejarah. Aplikasi ini telah ditulis ulang dari awal dan lebih baik dari sebelumnya.
+  <string name="app_store_description" fuzzy="true">Aplikasi resmi Wikipedia untuk Android. Wikipedia adalah ensiklopedia bebas yang berisi lebih dari 32 juta artikel dalam 280 bahasa sekaligus karya referensi buatan manusia yang paling lengkap dan banyak digunakan sepanjang sejarah. Aplikasi ini telah ditulis ulang dari awal dan lebih baik dari sebelumnya.
 
 Fitur:
 - Gambar utama: rasakan pengalaman Ber-wiki tidak seperti sebelumnya, dengan lebih menonjol, gambar kontekstual yang relevan dan deskripsi di atas artikel

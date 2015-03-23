@@ -62,7 +62,7 @@
   <string name="langlinks_activity_title">其他语言</string>
   <string name="menu_save_changes">保存更改</string>
   <string name="edit_section_error_retry">重试</string>
-  <string name="dialog_saving_in_progress">正在保存…</string>
+  <string name="dialog_saving_in_progress">正在保存……</string>
   <string name="edit_saved_successfully">编辑已保存！</string>
   <string name="dialog_message_edit_failed">编辑失败！</string>
   <string name="dialog_message_edit_failed_retry">重试</string>
@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">维基百科特色内容页面</string>
   <string name="widget_title_featured_page">今天的特色内容页面：</string>
   <string name="widget_name_search">维基百科搜索</string>
-  <string name="app_store_description">这是维基百科的官方安卓应用程序。维基百科是拥有280种语言，超过3200万条目，并且是最全面最广泛使用以及最多用户编辑的百科全书。
+  <string name="app_store_description" fuzzy="true">这是维基百科的官方安卓应用程序。维基百科是拥有280种语言，超过3200万条目，并且是最全面最广泛使用以及最多用户编辑的百科全书。
 
 功能：
 - 引文图片：亲身体验维基百科前所未有的突出，条目顶部与上下文密切相关的图片和描述

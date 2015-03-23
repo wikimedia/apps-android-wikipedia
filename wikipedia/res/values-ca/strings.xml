@@ -13,8 +13,8 @@
   <string name="error_network_error">No hi ha connexió a la xarxa :(</string>
   <string name="search_network_error">Error de xarxa. Toqueu la pantalla per a tornar-ho a provar.</string>
   <string name="page_error_retry">Tornar a provar</string>
-  <string name="menu_clear_all_history">Esborrar l\'historial</string>
-  <string name="menu_clear_all_saved_pages">Esborrar les pàgines desades</string>
+  <string name="menu_clear_all_history">Esborra l\'historial</string>
+  <string name="menu_clear_all_saved_pages">Esborra les pàgines desades</string>
   <string name="page_does_not_exist_error">Aquesta pàgina no existeix</string>
   <string name="nav_item_today">Avui</string>
   <string name="dialog_title_clear_history">Esborrar l\'historial?</string>
@@ -23,14 +23,14 @@
   <string name="menu_update_selected_saved_pages">Actualitza les pàgines desades</string>
   <string name="dialog_prompt_refresh_all_saved_pages">¿Actualitzar totes les pàgines desades?</string>
   <string name="menu_save_page">Desa la pàgina</string>
-  <string name="menu_share_page">Compartir</string>
-  <string name="share_via">Compartir mitjançant…</string>
+  <string name="menu_share_page">Comparteix</string>
+  <string name="share_via">Comparteix mitjançant…</string>
   <string name="dialog_title_clear_saved_pages">Esborrar totes les pàgines desades?</string>
   <string name="toast_saving_page">S\'està desant la pàgina…</string>
   <string name="toast_saved_page">Pàgina desada correctament</string>
   <string name="toast_saved_page_missing_images">No s\'han pogut desar totes les imatges</string>
   <string name="toast_refresh_saved_page">S\'està actualitzant la pàgina desada…</string>
-  <string name="delete_selected_saved_pages">Esborrar</string>
+  <string name="delete_selected_saved_pages">Esborra</string>
   <string name="toast_saved_page_deleted">S\'han esborrat les pàgines desades</string>
   <string name="saved_pages_search_list_hint">Cercar</string>
   <string name="saved_pages_search_empty_message">No s\'ha trobat cap pàgina que coincidís amb la vostra consulta.</string>
@@ -107,8 +107,8 @@
   <string name="create_account_password_hint">Contrasenya</string>
   <string name="login_create_account_link">No teniu un compte? Uniu-vos a la Viquipèdia</string>
   <string name="create_account_login_link">Ja teniu un compte? Inicia una sessió</string>
-  <string name="create_account_activity_title">Crear un compte</string>
-  <string name="dialog_create_account_checking_progress">Verificant</string>
+  <string name="create_account_activity_title">Crea un compte</string>
+  <string name="dialog_create_account_checking_progress">S\'està verificant</string>
   <string name="create_account_email_hint">Adreça electrònica (opcional)</string>
   <string name="create_account_password_repeat_hint">Repetiu la contrasenya</string>
   <string name="create_account_passwords_mismatch_error">Les contrasenyes no coincideixen</string>
@@ -177,7 +177,7 @@
   <string name="user_anon_blocked_from_editing">S\'ha bloquejat l\'edició des de la vostra IP.</string>
   <string name="edit_how_page_improved">Com heu millorat la pàgina?</string>
   <string name="edit_next">Següent</string>
-  <string name="edit_done">Desar</string>
+  <string name="edit_done">Desa</string>
   <string name="edit_preview">Vista prèvia</string>
   <string name="edit_summary_tag_typo">Errada corregida</string>
   <string name="edit_summary_tag_grammar">Errada gramatical corregida</string>
@@ -218,8 +218,8 @@
   <string name="table_close">Tancar</string>
   <string name="widget_name_featured_page">Pàgina destacada de la Viquipèdia</string>
   <string name="widget_title_featured_page">Pàgina destacada del dia:</string>
-  <string name="widget_name_search">Cercar a la Viquipèdia</string>
-  <string name="app_store_description">Aplicació oficial de la Viquipèdia per a l\'Android. La Viquipèdia és una enciclopèdia lliure que conté més de 32 milions d\'articles en 280 llengües. Es tracta de l\'obra de referència més completa i usada que mai s\'hagi compilat. L\'aplicació ha estat reescrita de bell nou i és millor que mai.
+  <string name="widget_name_search">Cerca a la Viquipèdia</string>
+  <string name="app_store_description" fuzzy="true">Aplicació oficial de la Viquipèdia per a l\'Android. La Viquipèdia és una enciclopèdia lliure que conté més de 32 milions d\'articles en 280 llengües. Es tracta de l\'obra de referència més completa i usada que mai s\'hagi compilat. L\'aplicació ha estat reescrita de bell nou i és millor que mai.
 
 Característiques:
  - Rapidesa: com a aplicació nativa us permet navegar i editar la Viquipèdia més ràpid que abans.
@@ -241,12 +241,13 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Mostrar imatges</string>
   <string name="preference_summary_show_images">Activar o desactivar la càrrega d\'imatges a les pàgines. Desactiveu aquest paràmetre si teniu una connexió a Internet lenta o unes dades limitades.</string>
   <string name="read_more_section">Llegir més</string>
+  <string name="read_next_section">Llegeix el següent</string>
   <string name="gallery_menu_more_info">Més informació</string>
   <string name="menu_gallery_visit_page">Anar a la pàgina del fitxer</string>
   <string name="gallery_error_draw_failed">No s\'ha pogut carregar la imatge.</string>
   <string name="license_title">Text de la llicència per la biblioteca %s</string>
   <string name="gallery_image_info">Informació de la imatge</string>
-  <string name="gallery_menu_share">Compartir</string>
+  <string name="gallery_menu_share">Comparteix</string>
   <string name="gallery_share_error">No s\'ha pogut compartir la imatge: %s</string>
   <string name="gallery_menu_save">Desar al dispositiu</string>
   <string name="gallery_save_error">No s\'ha pogut desar la imatge: %s</string>
@@ -261,4 +262,6 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="snippet_share_preview_image_desc">Previsualitza la imatge</string>
   <string name="cc_logo">Llicència Creative Commons</string>
   <string name="captcha_image">Imatge Captcha</string>
+  <string name="gallery_fair_use_license">Fair use (ús raonable)</string>
+  <string name="gallery_uploader_unknown">Carregador no conegut</string>
 </resources>

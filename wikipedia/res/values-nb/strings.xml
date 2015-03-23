@@ -109,7 +109,7 @@
   <string name="create_account_login_link">Har du en konto allerede? Logg inn</string>
   <string name="create_account_activity_title">Opprett en konto</string>
   <string name="dialog_create_account_checking_progress">Verifiserer</string>
-  <string name="create_account_email_hint">Epost (valgfritt)</string>
+  <string name="create_account_email_hint">E-post (valgfritt)</string>
   <string name="create_account_password_repeat_hint">Gjenta passord</string>
   <string name="create_account_passwords_mismatch_error">Passordene stemmer ikke overens</string>
   <string name="create_account_email_error">Ugyldig epostadresse</string>
@@ -160,7 +160,7 @@
   <string name="page_protected_can_not_edit_title">Denne siden er beskyttet</string>
   <string name="more_item_preferences">Mer</string>
   <string name="more_activity_title">Mer</string>
-  <string name="about_description">Om denne Wikipedia-appen</string>
+  <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Personvernpolitikk</string>
   <string name="terms_of_use_description">Bruksvilkår</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
@@ -168,7 +168,7 @@
   <string name="about_libraries_heading">bibliotek brukt</string>
   <string name="about_contributors_heading">bidragsytere</string>
   <string name="about_translators_heading">oversettere</string>
-  <string name="about_translators_translatewiki">Denne appen ble oversatt av frivillige oversettere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">Appen ble oversatt av frivillige oversettere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Denne siden har blitt endret. Er du sikker på at du ønsker å avslutte uten å lagre endringene dine?</string>
@@ -219,24 +219,33 @@
   <string name="widget_name_featured_page">Utvalgt WIkipedia-side</string>
   <string name="widget_title_featured_page">Dagens utvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søk</string>
-  <string name="app_store_description" fuzzy="true">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som har blitt sammenstilt noensinne. Denne appen har blitt skrevet om fra grunnen av og er bedre enn noensinne.
+  <string name="app_store_description" fuzzy="true">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som har blitt sammenstilt noensinne.
 
 Funksjonalitet:
-   - Hastighet: Vår nye app lar deg lese og redigere Wikipedia raskere enn noensinne.
-   - Redigering: Du kan redigere Wikipedia! Innlogget eller ei, vi er takknemlige for alle bidrag.
-   - Logg: Vi gir deg en lett tilgjengelig leselogg, så du kan trykke i vei på lenker uten å gå deg vill.
-   - Lagrede sider: Du kan lagre utvalgte sider for å kunne lese dem offline når du ikke har dataforbindelse.
-   - Deling: Bruk eksisterende sosiale apper for å dele artikler
-   - Språkstøtte: Appen lar deg sømløst bytte mellom artikler på ulike språk.
-   - Wikipedia Zero: Datakostnader dekkes av enkelte mobiloperatører.
+- Ingressbilder: opplev Wikipedia som aldri før med et fremtredende, innholdsrelevant bilde øverst på artiklene
+- Bildegalleri: trykk på et bilde for å vise bilde i fullskjerm i høy oppløsning, med muligheter for å sveipe til høyre/venstre for å vise flere bilder.
+- Beskrivelser fra Wikidata: når du søker, viser hvert søkeresultat nå en kort beskrivelse som hjelper til med å betydningsavklare resultatet
+- Artikkelforslag: Rull ned på bunnen av en artikkel for å vise forslag til hva du kan lese videre.
+- Lagrede sider: Du kan lagre utvalgte sider for å kunne lese dem offline når du ikke har dataforbindelse.
+- I nærheten: Lær mer om hva som finnes rundt deg fra en liste over artikler om ting som befinner seg nær din gjeldende posisjon.
+- Språkstøtte: Appen lar deg sømløst bytte mellom artikler på ulike språk.
+- Innholdsfortegnelse: Sveip til venstre for å vise innholdsfortegnelsen.
+- Wikipedia Zero: Datakostnader dekkes av enkelte mobiloperatører.
 
-Kildekoden er åpen. Hvis du har erfaring med Java og Android SDK er du velkommen til å bli med å lage appen bedre! https://github.com/wikimedia/apps-android-wikipedia</string>
+Gi oss gjerne tilbakemelding på appen! I menyen, velg \"Mer\", deretter \"Om Wikipedia-appen\" og til slutt \"Gi oss tilbakemelding\".
+
+Kildekoden er 100% åpen. Hvis du har erfaring med Java og Android SDK er du velkommen til å bli med å lage appen bedre! https://github.com/wikimedia/apps-android-wikipedia
+
+Personvernpolitikk: http://wikimediafoundation.org/wiki/Privacy_policy
+
+Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Ny alphaoppdatering tilgjengelig</string>
   <string name="alpha_update_notification_text">Trykk for å laste ned</string>
   <string name="dialog_close_description">Lukk</string>
   <string name="preference_title_show_images">Vis bilder</string>
   <string name="preference_summary_show_images">Slå av eller på lasting av bilder på sidene. Fjern merkingen her om du har en treg internettforbindelse, eller ikke vil bruke så mye data.</string>
   <string name="read_more_section">Les mer</string>
+  <string name="read_next_section">Les neste</string>
   <string name="gallery_menu_more_info">Mer informasjon</string>
   <string name="menu_gallery_visit_page">Gå til filsiden</string>
   <string name="gallery_error_draw_failed">Kunne ikke tegne bildet.</string>
@@ -255,6 +264,8 @@ Kildekoden er åpen. Hvis du har erfaring med Java og Android SDK er du velkomme
   <string name="share_snippet_button">Del som bilde</string>
   <string name="share_normal_button">Del som tekst</string>
   <string name="snippet_share_preview_image_desc">Forhåndsvis bilde</string>
-  <string name="cc_logo">Creative Commons-lisensen</string>
+  <string name="cc_logo">Creative Commons-lisens</string>
   <string name="captcha_image">Captcha-bilde</string>
+  <string name="gallery_fair_use_license">Fair use</string>
+  <string name="gallery_uploader_unknown">Ukjent opplaster</string>
 </resources>

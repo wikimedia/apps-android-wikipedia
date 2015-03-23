@@ -33,11 +33,11 @@
   <string name="delete_selected_saved_pages">削除</string>
   <string name="toast_saved_page_deleted">保存したページを削除しました</string>
   <string name="saved_pages_search_list_hint">検索</string>
-  <string name="saved_pages_search_empty_message">検索語句に一致するページが見つかりません。</string>
+  <string name="saved_pages_search_empty_message">キーワードに一致するページが見つかりません。</string>
   <string name="nav_item_nearby">付近のスポット</string>
   <string name="menu_update_nearby">付近のスポットを更新</string>
-  <string name="nearby_empty_title">付近のスポットについてのページはありません!</string>
-  <string name="nearby_empty_message">新しい場所に移動して、このページを更新し、周囲に何があるか探してみましょう。</string>
+  <string name="nearby_empty_title">付近のスポットについてのページがありません!</string>
+  <string name="nearby_empty_message">新しい場所に移動してからこのページを更新し、周囲に何があるか探してみましょう。</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d フィート</string>
@@ -58,8 +58,8 @@
   <string name="menu_other_languages">他の言語で読む</string>
   <string name="langlinks_error_retry">再試行</string>
   <string name="langlinks_empty">このページの他の言語版はありません。</string>
-  <string name="langlinks_no_match">検索語句に一致する言語が見つかりません。</string>
-  <string name="langlinks_activity_title">他の言語</string>
+  <string name="langlinks_no_match">入力したキーワードに一致する言語が見つかりません。</string>
+  <string name="langlinks_activity_title">他の言語で読む</string>
   <string name="menu_save_changes">変更を保存</string>
   <string name="edit_section_error_retry">再試行</string>
   <string name="dialog_saving_in_progress">保存中…</string>
@@ -67,7 +67,7 @@
   <string name="dialog_message_edit_failed">編集の保存に失敗しました!</string>
   <string name="dialog_message_edit_failed_retry">再試行</string>
   <string name="dialog_message_edit_failed_cancel">キャンセル</string>
-  <string name="dialog_message_leaving_edit">あなたの変更は、まだ保存されていません。このページを離れますか？</string>
+  <string name="dialog_message_leaving_edit">あなたの変更はまだ保存されていません。このページを離れますか？</string>
   <string name="dialog_message_leaving_edit_leave">離れる</string>
   <string name="dialog_message_leaving_edit_stay">留まる</string>
   <string name="menu_show_toc">目次</string>
@@ -96,8 +96,8 @@
   <string name="preference_summary_notloggedin">ログインしていません</string>
   <string name="toast_logout_complete">ログアウトしました</string>
   <string name="saved_pages_empty_title">保存したページはありません。</string>
-  <string name="saved_pages_empty_message">保存したページはすごい機能です! オフライン時にも読める、ブックマークのようなものだとお考えください。</string>
-  <string name="history_empty_title">履歴はまだありません。</string>
+  <string name="saved_pages_empty_message">保存したページは素晴らしい機能です!　オフライン時にも読める、ブックマークのようなものだとお考えください。</string>
+  <string name="history_empty_title">履歴はまだありません！</string>
   <string name="history_empty_message">すべて削除したのかもしれません。他のページに行った後にここへ戻ってみてください。</string>
   <string name="delete_selected_history">削除</string>
   <string name="wp_stylized">&lt;big&gt;ウィ&lt;/big&gt;キペディ&lt;big&gt;ア&lt;/big&gt;</string>
@@ -151,7 +151,7 @@
   <string name="preference_summary_eventlogging_opt_in">このアプリの改善に役立てるため、ウィキメディアがアプリの使用情報を収集することを許可する</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
   <string name="history_search_list_hint">検索</string>
-  <string name="history_search_empty_message">検索語句に一致するページが見つかりません。</string>
+  <string name="history_search_empty_message">キーワードに一致するページが見つかりません。</string>
   <string name="error_can_not_process_link">このリンクを表示できませんでした。</string>
   <string name="page_protected_autoconfirmed">このページは半保護されています。</string>
   <string name="page_protected_sysop">このページは全保護されています。</string>
@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">選り抜き記事</string>
   <string name="widget_title_featured_page">今日の選り抜き記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
-  <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。
+  <string name="app_store_description" fuzzy="true">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。
 
 機能:
  - リード画像: これまでにない、優れた、本文に関連した画像と説明でウィキペディアをお楽しみください。記事の先頭に出てきます
@@ -232,7 +232,9 @@
  - 目次: どの記事でも左にスワイプすれば目次が表示され、記事のどの部分にも簡単にアクセスできます
  - ウィキペディアゼロ: ウィキペディアゼロのプログラムに参加している携帯電話会社においては、データ通信料金がかかりません
 
-コードは100%オープンソースです。JavaとAndroid SDKの経験をお持ちであれば、ぜひフォークしましょう！
+このアプリについてのフィードバックをお寄せください！　アプリのメニューで「その他」を押し、「ウィキペディアアプリについて」を選択し、「フィードバックを送る」から送ることができます。
+
+コードは100%オープンソースです。JavaとAndroid SDKの経験をお持ちでしたら、あなたの貢献をお待ちしています！
 https://github.com/wikimedia/apps-android-wikipedia
 
 プライバシーポリシー: http://wikimediafoundation.org/wiki/Privacy_policy
@@ -241,8 +243,9 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="alpha_update_notification_title">新しいアルファアップデートが利用可能です</string>
   <string name="alpha_update_notification_text">タップでダウンロード</string>
   <string name="dialog_close_description">閉じる</string>
-  <string name="preference_title_show_images">イメージを見る</string>
-  <string name="preference_summary_show_images">ページ内の画像読み込みを有効/無効にする インターネット接続が遅い時や、データ契約が限られているときには、このチェックを外してください</string>
+  <string name="preference_title_show_images">画像を表示</string>
+  <string name="preference_summary_show_images">ページ内の画像読み込みを有効/無効にします。&lt;br /&gt;
+インターネット接続が遅い時や、データ契約に限度があるときには、このチェックを外してください。</string>
   <string name="read_more_section">続きを読む</string>
   <string name="read_next_section">次を読む</string>
   <string name="gallery_menu_more_info">詳細情報</string>

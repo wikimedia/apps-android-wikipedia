@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">Pagina di Wikipedia in primo piano</string>
   <string name="widget_title_featured_page">Pagina di oggi in primo piano:</string>
   <string name="widget_name_search">Ricerca di Wikipedia</string>
-  <string name="app_store_description">App ufficiale di Wikipedia per Android.
+  <string name="app_store_description" fuzzy="true">App ufficiale di Wikipedia per Android.
 Wikipedia è l\'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l\'opera di consultazione più completa e più diffusa che l\'uomo abbia mai compilato.
 
 Caratteristiche:
@@ -268,4 +268,6 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="snippet_share_preview_image_desc">Anteprima immagine</string>
   <string name="cc_logo">Licenza Creative Commons</string>
   <string name="captcha_image">Immagine captcha</string>
+  <string name="gallery_fair_use_license">Utilizzo onesto</string>
+  <string name="gallery_uploader_unknown">Uploader sconosciuto</string>
 </resources>

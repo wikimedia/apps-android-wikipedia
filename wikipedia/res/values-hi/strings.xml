@@ -82,7 +82,7 @@
   <string name="login_password_show_check">पासवर्ड को प्रदर्शित करें।</string>
   <string name="menu_login">लॉग-इन</string>
   <string name="login_activity_title">विकिपीडिया मैन भर्ती होइए</string>
-  <string name="login_in_progress_dialog_message">आप्को प्ररवेश कर रहे है</string>
+  <string name="login_in_progress_dialog_message">आप्को प्रवेश कर रहे है</string>
   <string name="login_error_wrong_password">कुटशब्द गलत है</string>
   <string name="login_error_wrong_username">गलत उपयोगकर्ता नाम</string>
   <string name="login_success_toast">भर्ती सफल्</string>
@@ -137,7 +137,7 @@
   <string name="zero_learn_more_dismiss">हटायें</string>
   <string name="nav_item_random">यादृच्छिक</string>
   <string name="create_account_account_created_toast">खाता निर्मित!</string>
-  <string name="activity_my_contributions_title">मेरे योगदान</string>
+  <string name="activity_my_contributions_title">मेरा योगदान</string>
   <string name="history_search_list_hint">खोजें</string>
   <string name="history_search_empty_message">खोज परिणाम में कोई पृष्ठ नहीं मिले।</string>
   <string name="error_can_not_process_link">यह लिंक दिखाया नहीं जा सका</string>

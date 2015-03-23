@@ -204,7 +204,7 @@
   <string name="widget_name_featured_page">Vikipedia elstara paĝo</string>
   <string name="widget_title_featured_page">Hodiaŭa elstara paĝo:</string>
   <string name="widget_name_search">Serĉi en Vikipedio</string>
-  <string name="app_store_description">Oficiala Vikipedia aplikaĵo por Android. Vikipedio estas la libera enciklopedio kiu enhavas pli ol 32 milionojn da artikoloj en 280 lingvoj, kaj estas estas la plej kompleta kaj vaste uzata referenca verko kiun la homara kreis iam ajn.
+  <string name="app_store_description" fuzzy="true">Oficiala Vikipedia aplikaĵo por Android. Vikipedio estas la libera enciklopedio kiu enhavas pli ol 32 milionojn da artikoloj en 280 lingvoj, kaj estas estas la plej kompleta kaj vaste uzata referenca verko kiun la homara kreis iam ajn.
 
 Trajtoj:
 

@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">Utmärkt Wikipedia-artikel</string>
   <string name="widget_title_featured_page">Dagens utmärkta artikel:</string>
   <string name="widget_name_search">Wikipedia-sök</string>
-  <string name="app_store_description">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt.
+  <string name="app_store_description" fuzzy="true">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt.
 
 Funktioner:
 - Inledande bilder: Upplev Wikipedia som aldrig tidigare med en framträdande innehållsrelevant bild och beskrivning längst upp på artiklar
@@ -266,4 +266,6 @@ Villkor för användning: http://wikimediafoundation.org/wiki/Terms_of_Use</stri
   <string name="snippet_share_preview_image_desc">Förhandsvisa bild</string>
   <string name="cc_logo">Creative Commons-licensen</string>
   <string name="captcha_image">Captcha-bild</string>
+  <string name="gallery_fair_use_license">Fair use</string>
+  <string name="gallery_uploader_unknown">Okänd uppladdare</string>
 </resources>

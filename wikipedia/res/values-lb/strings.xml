@@ -211,6 +211,7 @@
   <string name="table_close">Zoumaachen</string>
   <string name="widget_name_featured_page">Liesenswäert Säit op Wikipedia</string>
   <string name="widget_title_featured_page">Säit vum Dag:</string>
+  <string name="widget_name_search">Op Wikipedia sichen</string>
   <string name="alpha_update_notification_title">Nei alpha-Versioun disponibel</string>
   <string name="alpha_update_notification_text">Tippe fir erofzelueden</string>
   <string name="dialog_close_description">Zoumaachen</string>
@@ -234,4 +235,6 @@
   <string name="snippet_share_preview_image_desc">Bild kucken ouni ze späicheren</string>
   <string name="cc_logo">Creative-Commons-Lizenz</string>
   <string name="captcha_image">Captcha-Bild</string>
+  <string name="gallery_fair_use_license">Fair Use</string>
+  <string name="gallery_uploader_unknown">Eroplueder onbekannt</string>
 </resources>

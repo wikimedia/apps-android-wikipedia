@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">صفحهٔ برگزیدهٔ ویکی‌پدیا</string>
   <string name="widget_title_featured_page">مطلب برگزیدهٔ امروز:</string>
   <string name="widget_name_search">جستجوی ویکی‌پدیا</string>
-  <string name="app_store_description">نرم افزار رسمی ویکی‌پدیا برای استفاده در اندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و گسترده‌ترین مرجع کار انسان تا کنون است.
+  <string name="app_store_description" fuzzy="true">نرم افزار رسمی ویکی‌پدیا برای استفاده در اندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و گسترده‌ترین مرجع کار انسان تا کنون است.
 
 ویژگی‌ها:
 - تصویر اصلی: ویکی‌پدیای جدیدی را با تصویر برجسته و مرتبط به همراه توضیح در بالای هر مقاهل تجربه کنید
@@ -266,4 +266,6 @@
   <string name="snippet_share_preview_image_desc">پیش‌نمایش پرونده</string>
   <string name="cc_logo">مجوز کریتیوکامنز</string>
   <string name="captcha_image">تصویر کپچا</string>
+  <string name="gallery_fair_use_license">استفادهٔ منصفانه</string>
+  <string name="gallery_uploader_unknown">بارگذار ناشناس</string>
 </resources>

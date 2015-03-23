@@ -156,4 +156,6 @@
   <string name="table_close">Uždaryti</string>
   <string name="alpha_update_notification_text">Spustelėkite norėdami parsisiųsti</string>
   <string name="dialog_close_description">Uždaryti</string>
+  <string name="read_next_section">Skaityti sekantį</string>
+  <string name="gallery_uploader_unknown">Talpintojas nežinomas</string>
 </resources>

@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">Wikipedian suositeltu sivu</string>
   <string name="widget_title_featured_page">Päivän suositeltu sivu:</string>
   <string name="widget_name_search">Wikipedia-haku</string>
-  <string name="app_store_description">Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 32 miljoonaa artikkelia 280 eri kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut.
+  <string name="app_store_description" fuzzy="true">Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 32 miljoonaa artikkelia 280 eri kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut.
 
 Ominaisuudet:
    - Johdantokuvat: koe Wikipedia aivan uudella tavalla, sillä nyt artikkelit sisältävät asiayhteyteen liittyvän kuvan ja kuvauksen artikkelin yläosassa
@@ -244,6 +244,7 @@ Käyttöehdot: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Näytä kuvat</string>
   <string name="preference_summary_show_images">Ota käyttöön tai poista käytöstä kuvien lataaminen sivuilla. Ota tämä asetus pois käytöstä, jos Internet-yhteytesi on hidas tai jos datayhteytesi on rajoitettu.</string>
   <string name="read_more_section">Lue lisää</string>
+  <string name="read_next_section">Lue seuraava</string>
   <string name="gallery_menu_more_info">Lisätietoja</string>
   <string name="menu_gallery_visit_page">Mene tiedostosivulle</string>
   <string name="gallery_error_draw_failed">Kuvaa ei voitu piirtää.</string>

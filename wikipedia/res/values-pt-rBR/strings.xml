@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">Artigo destacado na Wikipédia</string>
   <string name="widget_title_featured_page">Artigo destacado de hoje:</string>
   <string name="widget_name_search">Pesquisa da Wikipédia</string>
-  <string name="app_store_description">Aplicativo oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre contendo mais 32 milhões de artigos em 280 idiomas e é o mais abrangente e amplamente usado trabalho humano de referência já compilado.
+  <string name="app_store_description" fuzzy="true">Aplicativo oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre contendo mais 32 milhões de artigos em 280 idiomas e é o mais abrangente e amplamente usado trabalho humano de referência já compilado.
 
 Características:
 - Imagens principais: desfrute a experência da Wikipédia como nunca antes com uma imagem proeminente e contextualmente relevante e descrições no topo dos artigos.
