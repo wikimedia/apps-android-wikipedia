@@ -62,7 +62,7 @@ public class DoEditTask extends ApiTask<EditingResult> {
                         edit.optJSONObject("captcha").optString("id")
                 );
             }
-            if (edit.has("code") && edit.optString("code").startsWith("abusefilter-")) {
+            if (edit.has("code")) {
                 return new AbuseFilterEditResult(edit);
             }
             if (edit.has("spamblacklist")) {
