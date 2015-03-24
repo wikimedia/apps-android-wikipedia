@@ -345,7 +345,7 @@ transformer.register( "section", function( content ) {
 		// since we don't need it.
 		var aTags = mediaDiv.querySelectorAll( 'a' );
 		if (aTags.length > 0) {
-		    aTags[i].parentNode.removeChild(aTags[i]);
+		    aTags[0].parentNode.removeChild(aTags[0]);
 		}
 		var containerLink = document.createElement( 'a' );
         containerLink.setAttribute( 'href', imgTags[0].getAttribute( 'alt' ) );
