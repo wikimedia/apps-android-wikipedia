@@ -48,7 +48,7 @@ public class ObservableWebView extends WebView {
     }
 
     public interface OnClickListener {
-        void onClick(float x, float y);
+        boolean onClick(float x, float y);
     }
 
     public interface OnScrollChangeListener {
@@ -119,7 +119,9 @@ public class ObservableWebView extends WebView {
                 if (Math.abs(event.getX() - touchStartX) <= touchSlop
                     && Math.abs(event.getY() - touchStartY) <= touchSlop) {
                     for (OnClickListener listener : onClickListeners) {
-                        listener.onClick(event.getX(), event.getY());
+                        if (listener.onClick(event.getX(), event.getY())) {
+                            return true;
+                        }
                     }
                 }
             case MotionEvent.ACTION_CANCEL:

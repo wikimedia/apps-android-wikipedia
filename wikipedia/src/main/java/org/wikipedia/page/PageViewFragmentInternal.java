@@ -485,10 +485,9 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             return;
         }
         PageBackStackItem item = backStack.get(backStack.size() - 1);
-        // display the page based on the backstack item...
-        displayNewPage(item.getTitle(), item.getHistoryEntry(), true, false);
-        // and stage the scrollY position based on the backstack item.
-        stagedScrollY = item.getScrollY();
+        // display the page based on the backstack item, stage the scrollY position based on
+        // the backstack item.
+        displayNewPage(item.getTitle(), item.getHistoryEntry(), true, false, item.getScrollY());
     }
 
     /**
@@ -504,6 +503,22 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
      */
     public void displayNewPage(PageTitle title, HistoryEntry entry, boolean tryFromCache,
                                boolean pushBackStack) {
+        displayNewPage(title, entry, tryFromCache, pushBackStack, 0);
+    }
+
+    /**
+     * Load a new page into the WebView in this fragment.
+     * This shall be the single point of entry for loading content into the WebView, whether it's
+     * loading an entirely new page, refreshing the current page, retrying a failed network
+     * request, etc.
+     * @param title Title of the new page to load.
+     * @param entry HistoryEntry associated with the new page.
+     * @param tryFromCache Whether to try loading the page from cache (otherwise load directly
+     *                     from network).
+     * @param pushBackStack Whether to push the new page onto the backstack.
+     */
+    public void displayNewPage(PageTitle title, HistoryEntry entry, boolean tryFromCache,
+                               boolean pushBackStack, int stagedScrollY) {
         if (pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateBackStackItem();
@@ -538,6 +553,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             // whatever we pass to this event will be passed back to us by the WebView!
             wrapper.put("sequence", pageSequenceNum);
             wrapper.put("tryFromCache", tryFromCache);
+            wrapper.put("stagedScrollY", stagedScrollY);
             bridge.sendMessage("beginNewPage", wrapper);
         } catch (JSONException e) {
             //nope
@@ -545,9 +561,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     }
 
     private void loadPageOnWebViewReady(boolean tryFromCache) {
-        // reset staged scroll position to the top.
-        stagedScrollY = 0;
-
         // stage any section-specific link target from the title, since the title may be
         // replaced (normalized)
         sectionTargetFromTitle = title.getFragment();
@@ -647,6 +660,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                     if (messagePayload.getInt("sequence") != pageSequenceNum) {
                         return;
                     }
+                    stagedScrollY = messagePayload.getInt("stagedScrollY");
                     loadPageOnWebViewReady(messagePayload.getBoolean("tryFromCache"));
                 } catch (JSONException e) {
                     //nope

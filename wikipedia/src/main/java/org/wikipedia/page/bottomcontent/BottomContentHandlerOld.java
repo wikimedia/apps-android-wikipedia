@@ -189,6 +189,7 @@ public class BottomContentHandlerOld implements BottomContentInterface,
     }
 
     public void beginLayout() {
+        firstTimeShown = false;
         setupAttribution();
         if (parentFragment.getPage().couldHaveReadMoreSection()) {
             preRequestReadMoreItems(activity.getLayoutInflater());

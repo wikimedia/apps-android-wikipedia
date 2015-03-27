@@ -140,7 +140,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
 
         webview.addOnClickListener(new ObservableWebView.OnClickListener() {
             @Override
-            public void onClick(float x, float y) {
+            public boolean onClick(float x, float y) {
                 // if the click event is within the area of the lead image, then the user
                 // must have wanted to click on the lead image!
                 if (leadImagesEnabled && y < imageContainer.getHeight() - webView.getScrollY()) {
@@ -152,7 +152,9 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                                                                            .getSite());
                         parentFragment.showImageGallery(imageTitle);
                     }
+                    return true;
                 }
+                return false;
             }
         });
 

@@ -91,7 +91,10 @@ public class BottomContentHandler implements BottomContentInterface,
 
         webview.addOnClickListener(new ObservableWebView.OnClickListener() {
             @Override
-            public void onClick(float x, float y) {
+            public boolean onClick(float x, float y) {
+                if (bottomContentContainer.getVisibility() != View.VISIBLE) {
+                    return false;
+                }
                 // if the click event is within the area of the lead image, then the user
                 // must have wanted to click on the lead image!
                 int[] pos = new int[2];
@@ -102,6 +105,7 @@ public class BottomContentHandler implements BottomContentInterface,
                     activity.displayNewPage(title, historyEntry);
                     funnel.logSuggestionClicked(pageTitle, readMoreItems.getPageTitles(), 0);
                 }
+                return true;
             }
         });
 
@@ -176,6 +180,10 @@ public class BottomContentHandler implements BottomContentInterface,
     }
 
     public void beginLayout() {
+        firstTimeShown = false;
+        image1.setImageDrawable(null);
+        image1.setVisibility(View.INVISIBLE);
+        imagePlaceholder.setVisibility(View.VISIBLE);
         setupAttribution();
         if (parentFragment.getPage().couldHaveReadMoreSection()) {
             preRequestReadMoreItems();
