@@ -3,6 +3,7 @@ package org.wikipedia.page.snippet;
 import android.annotation.TargetApi;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.view.ActionMode;
@@ -73,11 +74,16 @@ public class TextSelectedShareAdapter extends ShareHandler {
         // consistent throughout the various APIs.
         for (int i = 0; i < menu.size(); i++) {
             MenuItem item = menu.getItem(i);
-            String resourceName = getActivity().getResources().getResourceName(item.getItemId());
-            if (resourceName.contains("copy")) {
-                copyMenuItem = item;
-            } else if (resourceName.contains("share")) {
-                shareItem = item;
+            try {
+                String resourceName = getActivity().getResources().getResourceName(item.getItemId());
+                if (resourceName.contains("copy")) {
+                    copyMenuItem = item;
+                } else if (resourceName.contains("share")) {
+                    shareItem = item;
+                }
+            } catch (Resources.NotFoundException e) {
+                // Looks like some devices don't have "names" for these menu items,
+                // in which case, there's nothing we can do...
             }
             // In APIs lower than 21, some of the action mode icons may not respect the
             // current theme, so we need to manually tint those icons.
