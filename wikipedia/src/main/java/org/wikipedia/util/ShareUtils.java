@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.wikipedia.R;
@@ -107,13 +108,21 @@ public final class ShareUtils {
             return null;
         }
 
-        File dir = new File(context.getExternalCacheDir(), "img");
-        if (dir.isDirectory()) {
-            for (String file : dir.list()) {
-                new File(dir, file).delete();
+        try {
+            File dir = new File(context.getExternalCacheDir(), "img");
+            if (dir.isDirectory()) {
+                for (String file : dir.list()) {
+                    new File(dir, file).delete();
+                }
             }
+            return dir;
+        } catch (Exception e) {
+            // There have been a few reports of exceptions coming from the getExternalCacheDir()
+            // function, even though we check that external storage is mounted properly.
+            // Until we can reproduce it, at least we won't crash.
+            Log.d("clearFolder", "Failed to clear shared image folder.", e);
         }
-        return dir;
+        return null;
     }
 
     private static boolean isExternalStorageWritable() {
