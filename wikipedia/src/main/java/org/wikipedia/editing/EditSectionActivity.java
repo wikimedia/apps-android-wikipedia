@@ -249,7 +249,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                 String summaryText = TextUtils.isEmpty(sectionHeading) ? "" : ("/* " + sectionHeading + " */ ");
                 summaryText += editPreviewFragment.getSummary();
 
-                new DoEditTask(EditSectionActivity.this, title, sectionText.getText().toString(), sectionID, token, summaryText) {
+                new DoEditTask(EditSectionActivity.this, title, sectionText.getText().toString(),
+                        sectionID, token, summaryText, app.getUserInfoStorage().isLoggedIn()) {
                     @Override
                     public void onBeforeExecute() {
                         if (!isFinishing()) {
@@ -362,7 +363,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     }
 
     private void handleEditingException(EditingException ee) {
-        if (app.getUserInfoStorage().isLoggedIn() && ee.getCode().equals("badtoken")) {
+        if (app.getUserInfoStorage().isLoggedIn() && (ee.getCode().equals("badtoken")
+                || ee.getCode().equals("assertuserfailed"))) {
             // looks like our session expired.
             app.getEditTokenStorage().clearAllTokens();
             app.getCookieManager().clearAllCookies();
@@ -415,6 +417,10 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                 });
             }
             builder.show();
+        } else {
+            // an unknown error occurred, so just dismiss the progress dialog and show a message.
+            progressDialog.dismiss();
+            Crouton.makeText(this, String.format(getString(R.string.edit_save_unknown_error), ee.getCode()), Style.ALERT).show();
         }
     }
 

@@ -16,8 +16,10 @@ public class DoEditTask extends ApiTask<EditingResult> {
     private final int sectionID;
     private final String summary;
     private final String editToken;
+    private final boolean loggedIn;
 
-    public DoEditTask(Context context, PageTitle title, String sectionWikitext, int sectionID, String editToken, String summary) {
+    public DoEditTask(Context context, PageTitle title, String sectionWikitext, int sectionID,
+                      String editToken, String summary, boolean loggedIn) {
         super(
                 SINGLE_THREAD,
                 ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
@@ -27,16 +29,24 @@ public class DoEditTask extends ApiTask<EditingResult> {
         this.sectionID = sectionID;
         this.editToken = editToken;
         this.summary = summary;
+        this.loggedIn = loggedIn;
     }
 
     @Override
     public RequestBuilder buildRequest(Api api) {
-        return api.action("edit")
+        RequestBuilder req = api.action("edit")
                 .param("title", title.getPrefixedText())
                 .param("section", String.valueOf(sectionID))
                 .param("text", sectionWikitext)
                 .param("token", editToken)
                 .param("summary", summary);
+        if (loggedIn) {
+            // if the app believes that the user is logged in, then make sure to send an "assert"
+            // parameter to the API, so that it will notify us if the user was actually logged
+            // out on another device, and we'll need to log back in behind the scenes.
+            req = req.param("assert", "user");
+        }
+        return req;
     }
 
     @Override

@@ -277,4 +277,5 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="captcha_image">Captcha image</string>
     <string name="gallery_fair_use_license">Fair use</string>
     <string name="gallery_uploader_unknown">Uploader unknown</string>
+    <string name="edit_save_unknown_error">Could not save your edit: %s</string>
 </resources>

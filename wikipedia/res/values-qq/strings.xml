@@ -366,4 +366,5 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="gallery_fair_use_license">Short name of the Fair Use license when applied to media that do not have attribution information.
 {{Identical|Fair use}}</string>
   <string name="gallery_uploader_unknown">Text displayed when the uploader of a media item is not known.</string>
+  <string name="edit_save_unknown_error">Error message shown when there was an unknown error while saving the edit made by the user. The \"%s\" symbol is replaced with the error code returned by the server.</string>
 </resources>
