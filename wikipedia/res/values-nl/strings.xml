@@ -236,6 +236,7 @@ De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK,
   <string name="preference_title_show_images">Afbeeldingen weergeven</string>
   <string name="preference_summary_show_images">Laden van afbeeldingen in pagina\'s in- of uitschakelen. Schakel deze instelling uit als uw internetverbinding langzaam is, of als u een beperkte hoeveelheid data kunt gebruiken.</string>
   <string name="read_more_section">Meer lezen</string>
+  <string name="read_next_section">Lees verder</string>
   <string name="gallery_menu_more_info">Meer informatie</string>
   <string name="menu_gallery_visit_page">Naar bestandspagina gaan</string>
   <string name="gallery_error_draw_failed">De afbeelding kon niet weergegeven worden.</string>
@@ -245,7 +246,9 @@ De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK,
   <string name="gallery_share_error">Kon afbeelding niet delen: %s</string>
   <string name="gallery_menu_save">Opslaan op apparaat</string>
   <string name="gallery_save_error">Kon afbeelding niet opslaan: %s</string>
+  <string name="gallery_save_error_mediastore">Mislukt om de afbeelding te importeren naar media collectie</string>
   <string name="gallery_save_success">Afbeelding opgeslagen.</string>
+  <string name="gallery_error_video_failed">Kan de video niet afspelen.</string>
   <string name="err_cannot_save_file">Het bestand kan niet opgeslagen worden</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
   <string name="expand_refs">Aantikken om te vergroten</string>
@@ -254,4 +257,5 @@ De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK,
   <string name="snippet_share_preview_image_desc">Voorbeeldafbeelding</string>
   <string name="cc_logo">Creative Commons-licentie</string>
   <string name="captcha_image">Captcha afbeelding</string>
+  <string name="gallery_uploader_unknown">Uploader onbekend</string>
 </resources>

@@ -112,12 +112,12 @@
   <string name="create_account_email_hint">ایمیل (اختیاری)</string>
   <string name="create_account_password_repeat_hint">تنظیم مجدد گذرواژه</string>
   <string name="create_account_passwords_mismatch_error">گذرواژه‌ها مطابقت ندارند</string>
-  <string name="create_account_email_error">نشانی رایانامه‌ای غیرمعتبر</string>
+  <string name="create_account_email_error">آدرس ایمیل غیر معتبر</string>
   <string name="create_account_username_exists_error">نام کاربری در حال استفاده است</string>
   <string name="create_account_ip_throttle_error">حساب کاربری زیادی با این نشانی آی‌پی ساخته شده‌اند بعدا تلاش کنید.</string>
   <string name="create_account_open_proxy_error">این نشانی آی‌پی برای ایجاد حساب مسدود شده است.</string>
   <string name="create_account_noname_error">نام کاربری‌ای که انتخاب کرده‌اید نامعتبر است. نام کاربری دیگری را انتخاب کنید</string>
-  <string name="create_account_invalid_email_error">رایانامه‌ای که وارد کردید نامعتبر است.</string>
+  <string name="create_account_invalid_email_error">ایمیلی که وارد کردید نامعتبر است.</string>
   <string name="create_account_password_too_short_error">گذرواژه خیلی کوتاه است.</string>
   <string name="create_account_blocked_anon_error">امکان ساخت حساب کاربری به دلیل بسته بودن آی‌پی شما نیست.</string>
   <string name="create_account_blocked_error">امکان ساخت حساب کاربری به دلیل بسته بودن حساب کاربریتان نیست.</string>

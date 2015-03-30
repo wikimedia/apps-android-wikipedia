@@ -194,7 +194,7 @@
   <string name="saved_pages_refresh_pages_complete">更新完成</string>
   <string name="menu_page_saved">頁面已儲存</string>
   <string name="menu_refresh_saved_page">重新整理頁面</string>
-  <string name="abusefilter_title_warn">這可能是沒有建設性的編輯。你確定你想要存儲它？</string>
+  <string name="abusefilter_title_warn">這可能是沒有建設性的編輯。你確定你想要儲存它？</string>
   <string name="abusefilter_title_disallow">您不能儲存此編輯。請返回並修改它。</string>
   <string name="abusefilter_text_warn">您的編輯觸發了自動過濾器，並被認為可能是一個缺乏建設性的編輯。這可能是由於編輯中包含以下之一：&lt;br /&gt;&lt;br /&gt;· 全部使用大寫字母&lt;br /&gt;· 清空條目或加入廣告&lt;br /&gt;· 加入無關的外部連結或圖片&lt;br /&gt;· 重複的文字</string>
   <string name="abusefilter_text_disallow">自動過濾器已識別此編輯為潛在非建設性或潛在性破壞。&lt;br/&gt;&lt;br/&gt;維基百科是一本僅擁有中立與值得注意內容的百科全書。</string>

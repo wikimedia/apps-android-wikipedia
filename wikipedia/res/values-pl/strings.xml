@@ -210,6 +210,7 @@
   <string name="dialog_close_description">Zamknij</string>
   <string name="preference_title_show_images">Pokaż obrazki</string>
   <string name="read_more_section">Czytaj więcej</string>
+  <string name="read_next_section">Czytaj dalej</string>
   <string name="gallery_menu_more_info">Więcej informacji</string>
   <string name="menu_gallery_visit_page">Przejdź do strony pliku</string>
   <string name="gallery_error_draw_failed">Nie udało się wyświetlić obrazu.</string>
@@ -223,4 +224,5 @@
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
   <string name="cc_logo">Licencja Creative Commons</string>
   <string name="captcha_image">Obrazek captcha</string>
+  <string name="gallery_fair_use_license">Fair use</string>
 </resources>

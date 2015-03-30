@@ -92,6 +92,7 @@
   <string name="about_contributors_heading">ونډه وال</string>
   <string name="about_translators_heading">ژباړنان</string>
   <string name="about_activity_title">په اړه</string>
+  <string name="edit_next">راتلونکی</string>
   <string name="edit_done">خوندي کول</string>
   <string name="edit_preview">مخليدنه</string>
   <string name="edit_summary_tag_links">تړنې ورگډې کړې</string>
@@ -119,6 +120,7 @@
   <string name="dialog_close_description">تړل</string>
   <string name="preference_title_show_images">انځورونه ښکاره کول</string>
   <string name="read_more_section">نور لوستل</string>
+  <string name="read_next_section">بل لوستل</string>
   <string name="gallery_menu_more_info">نور مالومات</string>
   <string name="menu_gallery_visit_page">د دوتنې مخ ته ورځه</string>
   <string name="gallery_image_info">د انځور مالومات</string>

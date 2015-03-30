@@ -219,16 +219,16 @@
   <string name="widget_name_featured_page">Lesenswerte Wikipedia-Seite</string>
   <string name="widget_title_featured_page">Seite des Tages:</string>
   <string name="widget_name_search">Wikipedia-Suche</string>
-  <string name="app_store_description" fuzzy="true">Offizielle Wikipedia-App für Android. Wikipedia ist die freie Enzyklopädie mit mehr als 32 Millionen Artikeln in 280 Sprachen und ist das umfangreichste und am meisten genutzte Nachschlagewerk, das von Menschen zusammengestellt wurde.
+  <string name="app_store_description">Offizielle Wikipedia-App für Android. Wikipedia ist die freie Enzyklopädie mit mehr als 32 Millionen Artikeln in 280 Sprachen und ist das umfangreichste und am meisten genutzte Nachschlagewerk, das von Menschen zusammengestellt wurde.
 
 Funktionen:
 - Einleitungsbilder: Erlebe Wikipedia wie nie zuvor mit einem prominenten, kontextrelevanten Bild und einer Beschreibung am Artikelanfang
 - Bildergalerie: Das Tippen auf ein Bild zeigt es dir in hoher Auflösung, mit Optionen zum Wischen nach links oder rechts für das Durchsuchen weiterer Bilder
 - Beschreibungen von Wikidata: Beim Suchen enthält jetzt jedes Suchergebnis eine schnelle Beschreibung, die hilft, das Ergebnis einzuordnen. Diese Beschreibungen werden auch in anderen Bereichen der App angezeigt, wie „In der Nähe“
 - Artikelvorschläge: Scrolle an das Artikelende, um Vorschläge zu erhalten, was du als nächstes lesen könntest
-- Gespeicherte Seiten: Du kannst Seiten zum Offline-Lesen auswählen und sie durchsuchen, auch wenn du keine Datenverbindung hast
+- Gespeicherte Seiten: Speichere ausgewählte Seiten zum Offline-Lesen und durchsuche sie, auch wenn du keine Datenverbindung hast
 - In der Nähe: Erfahre mehr über deine Umgebung durch das Abrufen von Links auf Artikel über Dinge, die in der Nähe deines aktuellen Standorts sind
-- Sprachenunterstützung: Die App ermöglicht dir das nahtlose Lesen von Wikipedia in anderen Sprachen
+- Sprachenunterstützung: Wechsle nahtlos zu anderssprachige Wikipedias
 - Inhaltsverzeichnis: Wische bei einem beliebigen Artikel nach links, um das Inhaltsverzeichnis zu zeigen, das dich leicht zu Artikelabschnitten springen lässt
 - Wikipedia Zero: Teilnehmende Mobilfunknetzbetreiber verzichten auf Datenübertragungsgebühren
 
@@ -236,9 +236,9 @@ Sende uns deine Rückmeldungen über die App! Drücke im Menü auf „Mehr“, d
 
 Der Code ist 100% quelloffen. Falls du Erfahrungen mit Java und dem Android SDK hast, freuen wir uns auf deine Beiträge! https://github.com/wikimedia/apps-android-wikipedia
 
-Datenschutzrichtlinie: http://meta.wikimedia.org/wiki/Privacy_policy/de
+Datenschutzrichtlinie: https://meta.m.wikimedia.org/wiki/Privacy_policy/de
 
-Nutzungsbedingungen: http://wikimediafoundation.org/wiki/Terms_of_Use/de</string>
+Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use/de</string>
   <string name="alpha_update_notification_title">Neue Alpha-Aktualisierung verfügbar</string>
   <string name="alpha_update_notification_text">Zum Herunterladen tippen</string>
   <string name="dialog_close_description">Schließen</string>

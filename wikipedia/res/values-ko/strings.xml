@@ -217,7 +217,7 @@
   <string name="widget_name_featured_page">위키백과 알찬 글</string>
   <string name="widget_title_featured_page">오늘의 알찬 글:</string>
   <string name="widget_name_search">위키백과 연구원</string>
-  <string name="app_store_description" fuzzy="true">Android를 위한 위키백과 공식 앱입니다. 위키백과는 280개 언어의 3,200만개 이상의 문서가 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용되고 있습니다.
+  <string name="app_store_description">안드로이드를 위한 위키백과 공식 앱입니다. 위키백과는 280개 언어의 3,200만개 이상의 문서가 있는 우리 모두의 백과사전이며, 가장 포괄적이고 인류가 작업하는 데 참조하는 데 넓게 사용되고 있습니다.
 
 기능:
 - 상단 이미지: 글 상단에 눈에 띄게 글에 관련된 사진 및 설명이 나오면서 전에는 느끼지 못한 새로운 위키백과를 사용할 수 있습니다.
@@ -230,12 +230,12 @@
 - 목차: 글을 왼쪽으로 끌어서 문서의 목차를 통해 글의 특정 단락으로 쉽게 이동할 수 있습니다.
 - 위키백과 제로: 모바일 데이터 요금을 아낄 수 있는 설정입니다.
 
-앱에 대한 피드백을 보내주세요! 메뉴에서 \"더 보기\"를 누르고 \"위키백과 앱 정보\"를 누르신 후 \"앱 피드백 보내기\"를 해주세요.
+이 앱에 대한 피드백을 보내주세요! 메뉴에서 \"더 보기\"를 누르고 \"위키백과 앱 정보\"를 누르신 후 \"앱 피드백 보내기\"를 해주세요.
 
 이 앱의 코드는 100% 오픈소스입니다. 만약 당신이 자바 언어 및 안드로이드 SDK 코딩을 하실 주 아신다면 우리는 당신의 코딩 기여를 언제든지 환영합니다! https://github.com/wikimedia/apps-android-wikipedia
 
-개인정보 정책 : http://wikimediafoundation.org/wiki/Privacy_policy
-이용 약관 : http://wikimediafoundation.org/wiki/Terms_of_Use</string>
+개인정보 정책 : https://m.wikimediafoundation.org/wiki/Privacy_policy
+이용 약관 : https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">새 알파 업뎨이트를 사용할 수 있습니다</string>
   <string name="alpha_update_notification_text">다운로드하려면 탭하세요</string>
   <string name="dialog_close_description">닫기</string>

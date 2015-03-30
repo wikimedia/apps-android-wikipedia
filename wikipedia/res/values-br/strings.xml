@@ -47,6 +47,7 @@
   <string name="nearby_dialog_goto_settings">N\'eo ket gweredekaet hizivadennoù al lec\'hiadurioù war ho termenell. C\'hoant ho peus da vont war arventennoù ho termenell evit gweredekaat hizivadennoù al lec\'hiadurioù ?</string>
   <string name="nearby_set_metric">Diskwel e m/km</string>
   <string name="nearby_set_imperial">Diskwel e troatadoù/miltirioù</string>
+  <string name="nearby_view_on_map">Diskwel al lec\'h war ar gartenn</string>
   <string name="last_updated_text">Hizivadenn ziwezhañ %1$s</string>
   <string name="content_license_html">An endalc\'had a c\'haller kaout e &lt;a  href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
   <string name="edit_save_action_license_logged_in">Pa\'z enrollit e tegemerit an &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; en ur doare didorradus.</string>
@@ -215,6 +216,9 @@
   <string name="table_infobox">Graet buan</string>
   <string name="table_other">Muioc\'h a ditouroù</string>
   <string name="table_close">Serriñ</string>
+  <string name="widget_name_featured_page">Pajenn a-zoare Wikipedia</string>
+  <string name="widget_title_featured_page">Pajennoù a-zoare hiziv :</string>
+  <string name="widget_name_search">Klask Wikipedia</string>
   <string name="app_store_description" fuzzy="true">Arload ofisiel Wikepedia evit Android. Un holloueziadur eo Wikipedia. Ennañ ez eus ouzhpenn 32 vilion a bennadoù e 280 yezh. An holloueziadur klokañ hag implijetañ a zo bet kempunet gant an dud evel n’eus ket bet morse.
 
 Arc\'hwelioù
@@ -239,6 +243,7 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="preference_title_show_images">Diskouez ar skeudennoù</string>
   <string name="preference_summary_show_images">Gweredekaat evit diweredekaat pellgargadur ar skeudennoù er pajennoù. Diaskit an arventenn-mañ m\'eo gorrek ho kevreadur Internet, pe m\'eo bevennet hoc\'h ampled roadennoù.</string>
   <string name="read_more_section">Lenn muioc\'h</string>
+  <string name="read_next_section">Lenn an hini war-lerc\'h</string>
   <string name="gallery_menu_more_info">Muioc\'h a ditouroù</string>
   <string name="menu_gallery_visit_page">Mont da bajenn ar restr</string>
   <string name="gallery_error_draw_failed">Ne c\'haller ket tresañ ar skeudenn.</string>
@@ -248,8 +253,17 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="gallery_share_error">Ne c\'haller ket rannañ ar skeudenn : %s</string>
   <string name="gallery_menu_save">Enrollañ en ardivink</string>
   <string name="gallery_save_error">Ne c\'haller ket saveteiñ ar skeudenn : %s</string>
-  <string name="gallery_save_success">Pajenn enrollet mat</string>
+  <string name="gallery_save_error_mediastore">C\'hwitet eo bet enporzhiadur ar skeudenn en dastumad mediaoù</string>
+  <string name="gallery_save_success">Pajenn enrollet mat.</string>
+  <string name="gallery_error_video_failed">Ne c\'haller ket lenn ar video.</string>
   <string name="err_cannot_save_file">Ne c\'haller ket enrollañ ar restr</string>
   <string name="snippet_share_intro">Fed dedennus e @Wikipedia %1$s : %2$s</string>
   <string name="expand_refs">Pouezañ war ur stokell evit diorren</string>
+  <string name="share_snippet_button">Rannañ evel ur skeudenn</string>
+  <string name="share_normal_button">Rannañ evel un destenn</string>
+  <string name="snippet_share_preview_image_desc">Alberz ar skeudenn</string>
+  <string name="cc_logo">Aotre-implijout Creative Commons</string>
+  <string name="captcha_image">Skeudenn captcha</string>
+  <string name="gallery_fair_use_license">Implij reizh</string>
+  <string name="gallery_uploader_unknown">Pellgarger dianav</string>
 </resources>

@@ -219,25 +219,26 @@
   <string name="widget_name_featured_page">Página destacada de Wikipedia</string>
   <string name="widget_title_featured_page">Página destacada del día:</string>
   <string name="widget_name_search">Búsqueda en Wikipedia</string>
-  <string name="app_store_description" fuzzy="true">Aplicación oficial de Wikipedia para Android. Wikipedia es la enciclopedia libre que contiene más de 32 millones de artículos en 280 idiomas y es el trabajo de referencia más completo y ampliamente usado que los humanos hayan recopilado. 
+  <string name="app_store_description">Aplicación oficial de Wikipedia para Android. Wikipedia es la enciclopedia libre que contiene más de 32 millones de artículos en 280 idiomas y es el trabajo de referencia más completo y ampliamente usado que los humanos hayan recopilado. 
 
 Características:
-- Imágen principal: experimenta Wikipedia como nunca antes con una imagen destacada y contextualmente relevante y su descripción en la parte superior de los artículos.
-- Galería de imágenes: al tocar una imágen se muestra en pantalla completa y alta resolución, también se puede deslizar la pantalla a la izquiera o derecha y explorar otras imágenes.
-- Edición: ¡puedes editar Wikipedia! Conectado o desconectado, te agradecemos por todas tus contribuciones.
-- Páginas recientes: te proporcionamos tu historial de lectura, así puedes teclear tantos enlaces como gustes sin perderte en ningún momento.
-- Páginas guardadas: puedes guardar páginas seleccionadas para leerlas sin conexión y navegarlas incluso cuando no tienes una conexión de datos.
-- Comparte: usa tus aplicaciones de redes sociales existentes para compartir en la suma de todo el conocimiento humano.
-- Soporte de idiomas: la aplicación permite cambiar perfectamente a la lectura de Wikipedia escrita en cualquier idioma.
-- Wikipedia Zero: cargos de datos omitidos para operadores móviles participantes.
+- Imágen principal: experimenta Wikipedia como nunca antes con una imagen destacada y contextualmente relevante y su descripción en la parte superior de los artículos
+- Galería de imágenes: al tocar una imágen se muestra en pantalla completa y alta resolución, también se puede deslizar la pantalla a izquiera o derecha y explorar otras imágenes
+- Descripciones de Wikidata: al buscar, cada resultado contiene una descripción breve que ayuda a contextualizar el resulto. Estas descripciones también se muestran en otras áreas de la aplicación, como Cercanos
+- Sugerencias de artículos: dirígete hacia el final de un artículo para ver sugerencias sobre qué leer a continuación
+- Páginas guardadas: guarda páginas seleccionadas para leerlas sin conexión y navegarlas incluso cuando no tienes una conexión de datos
+- Cercanos: aprende más sobre las cosas que te rodean obteniendo enlaces a artículos sobre cosas que están cercanas a tu ubicación actual
+- Soporte de idiomas: cambia inmediatamente a la Wikipedia escrita en cualquier idioma
+- Tabla de contenidos: desliza a la izquierda en cualquier artículo para mostrar la tabla de contenidos, que te permite ir directo a secciones del artículo
+- Wikipedia Zero: cargos de datos omitidos para operadores móviles participantes
 
 ¡Envíanos comentarios sobre la aplicación! En el menú, pulsa \"Más\", luego \"Acerca de la aplicación de Wikipedia\", luego \"Enviar comentarios sobre la aplicación\".
 
 El código es completamente abierto. Si tienes experiencia con Java y el SDK de Android, esperamos tus contribuciones! https://github.com/wikimedia/apps-android-wikipedia
 
-Política de privacidad: http://wikimediafoundation.org/wiki/Privacy_policy/es
+Política de privacidad: https://m.wikimediafoundation.org/wiki/Privacy_policy/es
 
-Términos de uso: http://wikimediafoundation.org/wiki/Terms_of_Use/es</string>
+Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string>
   <string name="alpha_update_notification_title">Hay una actualización alfa disponible</string>
   <string name="alpha_update_notification_text">Toca para descargar</string>
   <string name="dialog_close_description">Cerrar</string>
