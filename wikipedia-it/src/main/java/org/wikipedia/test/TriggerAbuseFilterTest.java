@@ -13,14 +13,21 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 public class TriggerAbuseFilterTest extends ActivityUnitTestCase<TestDummyActivity> {
-    // TODO: Document the tests in this class.
-    // TODO: Add links to filters that are triggered so you can check for changes if the test fails.
     private static final int TASK_COMPLETION_TIMEOUT = 20000;
 
     public TriggerAbuseFilterTest() {
         super(TestDummyActivity.class);
     }
 
+    /**
+     * Test handling of abuse filter warnings which warn users about making edits of a certain kind.
+     *
+     * Type:   warn
+     * Action: editing any userspace page while logged out
+     * Filter: https://test.wikipedia.org/wiki/Special:AbuseFilter/94
+     *
+     * @throws Throwable
+     */
     public void testAbuseFilterTriggerWarn() throws Throwable {
         startActivity(new Intent(), null, null);
         final PageTitle title = new PageTitle(null, "User:Yuvipandaaaaaaaa", new Site("test.wikipedia.org"));
@@ -46,6 +53,15 @@ public class TriggerAbuseFilterTest extends ActivityUnitTestCase<TestDummyActivi
         assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
     }
 
+    /**
+     * Test handling of abuse filter errors which completely disallow edits of a certain kind.
+     *
+     * Type:   disallow
+     * Action: adding string "poop" to page text
+     * Filter: https://test.wikipedia.org/wiki/Special:AbuseFilter/2
+     *
+     * @throws Throwable
+     */
     public void testAbuseFilterTriggerStop() throws Throwable {
         startActivity(new Intent(), null, null);
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/AbuseFilter", new Site("test.wikipedia.org"));
@@ -72,8 +88,12 @@ public class TriggerAbuseFilterTest extends ActivityUnitTestCase<TestDummyActivi
     }
 
     /**
-     * Test this filter: https://test.wikipedia.org/wiki/Special:AbuseFilter/152
-     * TODO: Improve this documentation so that it doesn't just make sense to the method's author.
+     * Test the app's handling of the abuse filter emitting arbitrary error codes.
+     *
+     * Type:   warn
+     * Action: adding string "appcrashtest" to page text
+     * Filter: https://test.wikipedia.org/wiki/Special:AbuseFilter/152
+     *
      * @throws Throwable
      */
     public void testAbuseFilterTriggerStopOnArbitraryErrorCode() throws Throwable {
@@ -92,6 +112,7 @@ public class TriggerAbuseFilterTest extends ActivityUnitTestCase<TestDummyActivi
                     public void onFinish(EditingResult result) {
                         assertNotNull(result);
                         assertTrue(result instanceof AbuseFilterEditResult);
+                        // For now we handle arbitrary error codes as TYPE_ERROR. This may change.
                         assertEquals(((AbuseFilterEditResult) result).getType(), AbuseFilterEditResult.TYPE_ERROR);
                         completionLatch.countDown();
                     }
