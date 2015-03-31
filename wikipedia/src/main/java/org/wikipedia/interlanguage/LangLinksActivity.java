@@ -238,7 +238,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             }
 
             TextView langNameText = (TextView) convertView.findViewById(R.id.language_list_language_name);
-            TextView langLocalNameText = (TextView) convertView.findViewById(R.id.language_list_language_local_name);
+            TextView langArticleLocalNameText = (TextView) convertView.findViewById(R.id.language_list_language_article_local_name);
 
             PageTitle langLink = (PageTitle) getItem(position);
 
@@ -247,7 +247,9 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             int langIndex = app.findWikiIndex(wikiCode);
 
             langNameText.setText(app.canonicalNameFor(langIndex));
-            langLocalNameText.setText(app.localNameFor(langIndex));
+            langArticleLocalNameText.setText(String.format("%1$s | %2$s",
+                                                           app.localNameFor(langIndex),
+                                                           langLink.getText()));
 
             return convertView;
         }
