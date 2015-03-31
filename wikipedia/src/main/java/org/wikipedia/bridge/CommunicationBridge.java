@@ -45,7 +45,7 @@ public class CommunicationBridge {
         webView.setWebChromeClient(new CommunicatingChrome());
         webView.addJavascriptInterface(marshaller, "marshaller");
 
-        webView.loadUrl(baseURL);
+        webView.loadUrl(baseURL); // TODO: remove once we finish the page load experiment
 
         eventListeners = new HashMap<>();
         this.addListener("DOMLoaded", new JSEventListener() {

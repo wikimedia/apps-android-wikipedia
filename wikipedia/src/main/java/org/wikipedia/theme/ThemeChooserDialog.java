@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import com.squareup.otto.Subscribe;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppearanceChangeFunnel;
@@ -91,6 +92,10 @@ public class ThemeChooserDialog extends BottomDialog {
         fontChangeProgressBar = (ProgressBar) getDialogLayout().findViewById(R.id.font_change_progress_bar);
 
         updateButtonState();
+
+        if (app.getReleaseType() == WikipediaApp.RELEASE_ALPHA) {
+            ExperimentalPageLoadChooser.initExperimentalPageLoadChooser(context, getDialogLayout());
+        }
     }
 
     @Subscribe

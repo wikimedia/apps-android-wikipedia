@@ -20,4 +20,5 @@
     <string name="preference_language_mru">languageMru</string>
     <string name="preference_know_toc_drawer">knowToC</string>
     <string name="preference_show_images">showImages</string>
+    <string name="preference_exp_page_load">expPageLoad</string>
 </resources>

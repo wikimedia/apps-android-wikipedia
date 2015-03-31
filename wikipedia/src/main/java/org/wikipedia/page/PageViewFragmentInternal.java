@@ -12,42 +12,34 @@ import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.SavedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleBundle;
-import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.editing.EditHandler;
-import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
-import org.wikipedia.page.bottomcontent.BottomContentHandler;
-import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.linkpreview.LinkPreviewVersion;
 import org.wikipedia.page.snippet.NoTextSelectedShareAdapter;
 import org.wikipedia.page.snippet.TextSelectedShareAdapter;
-import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.ImageUrlMap;
-import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.search.SearchBarHideHandler;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ApiUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.NetworkUtils;
-import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
-import org.mediawiki.api.json.Api;
+import org.wikipedia.views.WikiDrawerLayout;
+
 import org.mediawiki.api.json.ApiException;
-import org.mediawiki.api.json.ApiResult;
-import org.mediawiki.api.json.RequestBuilder;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -66,36 +58,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import javax.net.ssl.SSLException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.net.ssl.SSLException;
 
 
 public class PageViewFragmentInternal extends Fragment implements BackPressedHandler {
     private static final String TAG = "PageViewFragment";
 
-    public static final int STATE_NO_FETCH = 1;
-    public static final int STATE_INITIAL_FETCH = 2;
-    public static final int STATE_COMPLETE_FETCH = 3;
-
     public static final int SUBSTATE_NONE = 0;
     public static final int SUBSTATE_PAGE_SAVED = 1;
     public static final int SUBSTATE_SAVED_PAGE_LOADED = 2;
 
-    private int state = STATE_NO_FETCH;
-    private int subState = SUBSTATE_NONE;
-
-    /**
-     * List of lightweight history items to serve as the backstack for this fragment.
-     * Since the list consists of Parcelable objects, it can be saved and restored from the
-     * savedInstanceState of the fragment.
-     */
-    private ArrayList<PageBackStackItem> backStack;
+    private PageLoadStrategy pageLoadStrategy = null;
+    private PageViewModel model;
 
     /**
      * Whether to save the full page content as soon as it's loaded.
@@ -109,22 +90,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
      */
     private boolean saveOnComplete = false;
 
-    /**
-     * Whether to write the page contents to cache as soon as it's loaded.
-     */
-    private boolean cacheOnComplete = true;
-
-    /**
-     * Sequence number to maintain synchronization when loading page content asynchronously
-     * between the Java and Javascript layers, as well as between async tasks and the UI thread.
-     */
-    private int pageSequenceNum;
-
-    private PageTitle title;
-    private PageTitle titleOriginal;
     private ViewGroup imagesContainer;
     private LeadImagesHandler leadImagesHandler;
-    private BottomContentInterface bottomContentHandler;
     private SearchBarHideHandler searchBarHideHandler;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
@@ -132,11 +99,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private View retryButton;
     private View pageDoesNotExistError;
     private WikiDrawerLayout tocDrawer;
-    private Page page;
-    private HistoryEntry curEntry;
-
-    private int sectionTargetFromIntent;
-    private String sectionTargetFromTitle;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -145,12 +107,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private ActionMode findInPageActionMode;
 
     private WikipediaApp app;
-
-    /**
-     * The y-offset position to which the page will be scrolled once it's fully loaded
-     * (or loaded to the point where it can be scrolled to the correct position).
-     */
-    private int stagedScrollY;
 
     private SavedPagesFunnel savedPagesFunnel;
     private ConnectionIssueFunnel connectionIssueFunnel;
@@ -163,102 +119,18 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     }
 
     public PageTitle getTitle() {
-        return title;
+        return model.getTitle();
     }
 
     public Page getPage() {
-        return page;
+        return model.getPage();
     }
 
     public HistoryEntry getHistoryEntry() {
-        return curEntry;
+        return model.getCurEntry();
     }
 
     public PageViewFragmentInternal() {
-        backStack = new ArrayList<>();
-    }
-
-    private void displayLeadSection() {
-        try {
-            JSONObject marginPayload = new JSONObject();
-            int margin = DimenUtil.roundedPxToDp(getResources().getDimension(R.dimen.content_margin));
-            marginPayload.put("marginLeft", margin);
-            marginPayload.put("marginRight", margin);
-            bridge.sendMessage("setMargins", marginPayload);
-
-            JSONObject leadSectionPayload = new JSONObject();
-            leadSectionPayload.put("sequence", pageSequenceNum);
-            leadSectionPayload.put("title", page.getDisplayTitle());
-            leadSectionPayload.put("section", page.getSections().get(0).toJSON());
-            leadSectionPayload
-                    .put("string_page_similar_titles", getString(R.string.page_similar_titles));
-            leadSectionPayload.put("string_page_issues", getString(R.string.button_page_issues));
-            leadSectionPayload.put("string_table_infobox", getString(R.string.table_infobox));
-            leadSectionPayload.put("string_table_other", getString(R.string.table_other));
-            leadSectionPayload.put("string_table_close", getString(R.string.table_close));
-            leadSectionPayload.put("string_expand_refs", getString(R.string.expand_refs));
-            leadSectionPayload.put("isBeta", app.getReleaseType() != WikipediaApp.RELEASE_PROD);
-            leadSectionPayload.put("siteLanguage", title.getSite().getLanguage());
-            leadSectionPayload.put("isMainPage", page.getPageProperties().isMainPage());
-            leadSectionPayload.put("apiLevel", Build.VERSION.SDK_INT);
-            bridge.sendMessage("displayLeadSection", leadSectionPayload);
-
-            Utils.setupDirectionality(title.getSite().getLanguage(),
-                                      Locale.getDefault().getLanguage(), bridge);
-
-            // Hide edit pencils if anon editing is disabled by remote killswitch or if this is a file page
-            JSONObject miscPayload = new JSONObject();
-            boolean isAnonEditingDisabled = app.getRemoteConfig().getConfig()
-                                               .optBoolean("disableAnonEditing", false)
-                                            && !app.getUserInfoStorage().isLoggedIn();
-            miscPayload.put("noedit", (isAnonEditingDisabled
-                                       || title.isFilePage()
-                                       || page.getPageProperties().isMainPage()));
-            miscPayload.put("protect", !page.getPageProperties().canEdit());
-            bridge.sendMessage("setPageProtected", miscPayload);
-        } catch (JSONException e) {
-            // This should never happen
-            throw new RuntimeException(e);
-        }
-
-        if (webView.getVisibility() != View.VISIBLE) {
-            webView.setVisibility(View.VISIBLE);
-        }
-
-        refreshView.setRefreshing(false);
-        ((PageActivity) getActivity()).updateProgressBar(true, true, 0);
-    }
-
-    private void displayNonLeadSection(int index) {
-        ((PageActivity) getActivity()).updateProgressBar(true, false,
-                                                         PageActivity.PROGRESS_BAR_MAX_VALUE / page
-                                                                 .getSections().size() * index);
-
-        try {
-            JSONObject wrapper = new JSONObject();
-            wrapper.put("sequence", pageSequenceNum);
-            if (index < page.getSections().size()) {
-                wrapper.put("section", page.getSections().get(index).toJSON());
-                wrapper.put("index", index);
-                if (sectionTargetFromIntent > 0 && sectionTargetFromIntent < page.getSections()
-                                                                                 .size()) {
-                    //if we have a section to scroll to (from our Intent):
-                    wrapper.put("fragment",
-                                page.getSections().get(sectionTargetFromIntent).getAnchor());
-                } else if (sectionTargetFromTitle != null) {
-                    //if we have a section to scroll to (from our PageTitle):
-                    wrapper.put("fragment", sectionTargetFromTitle);
-                }
-            } else {
-                wrapper.put("noMore", true);
-            }
-            //give it our expected scroll position, in case we need the page to be pre-scrolled upon loading.
-            wrapper.put("scrollY",
-                        (int) (stagedScrollY / getResources().getDisplayMetrics().density));
-            bridge.sendMessage("displaySection", wrapper);
-        } catch (JSONException e) {
-            //nope
-        }
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -283,11 +155,11 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             @Override
             public void onRefresh() {
                 // don't refresh if it's still loading...
-                if (state != STATE_COMPLETE_FETCH) {
+                if (pageLoadStrategy.isLoading()) {
                     refreshView.setRefreshing(false);
                     return;
                 }
-                if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+                if (model.getCurEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
                     // if it's a saved page, then refresh it and re-save!
                     refreshPage(true);
                 } else {
@@ -315,10 +187,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         setHasOptionsMenu(true);
         app = (WikipediaApp) getActivity().getApplicationContext();
         connectionIssueFunnel = new ConnectionIssueFunnel(app);
-
-        if (savedInstanceState != null) {
-            backStack = savedInstanceState.getParcelableArrayList("backStack");
-        }
 
         updateFontSize();
 
@@ -353,7 +221,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
             @Override
             public Site getSite() {
-                return title.getSite();
+                return model.getTitle().getSite();
             }
         };
 
@@ -377,7 +245,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         new PageInfoHandler(((PageActivity) getActivity()), bridge) {
             @Override
             Site getSite() {
-                return title.getSite();
+                return model.getTitle().getSite();
             }
 
             @Override
@@ -387,9 +255,16 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             }
         };
 
-        bridge.injectStyleBundle(
-                StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PAGEVIEW));
+        model = new PageViewModel();
 
+        if (Prefs.isUsingExperimentalPageLoad(app)) {
+            pageLoadStrategy = new HtmlPageLoadStrategy();
+        } else {
+            pageLoadStrategy = new JsonPageLoadStrategy();
+            bridge.injectStyleBundle(StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PAGEVIEW));
+        }
+
+        // make sure styles get injected before the NightModeHandler and other handlers
         if (app.getCurrentTheme() == WikipediaApp.THEME_DARK) {
             new NightModeHandler(bridge).turnOn(true);
         }
@@ -401,7 +276,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 ViewAnimations.fadeOut(networkError, new Runnable() {
                     @Override
                     public void run() {
-                        displayNewPage(titleOriginal, curEntry, true, false);
+                        displayNewPage(model.getTitleOriginal(), model.getCurEntry(), true, false);
                         retryButton.setEnabled(true);
                     }
                 });
@@ -417,22 +292,14 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         searchBarHideHandler = ((PageActivity) getActivity()).getSearchBarHideHandler();
         searchBarHideHandler.setScrollView(webView);
 
-        bottomContentHandler = new BottomContentHandler(this, bridge, webView, linkHandler,
-                (ViewGroup) getView().findViewById(R.id.bottom_content_container));
-
         if (ApiUtil.hasHoneyComb()) {
             textSelectedShareAdapter = new TextSelectedShareAdapter((PageActivity) getActivity(), bridge);
         }
         noTextSelectedShareAdapter = new NoTextSelectedShareAdapter((PageActivity) getActivity(), this);
 
-        pageSequenceNum = 0;
-
-        // if we already have pages in the backstack (whether it's from savedInstanceState, or
-        // from being stored in the activity's fragment backstack), then load the topmost page
-        // on the backstack.
-        if (backStack.size() > 0) {
-            loadPageFromBackStack();
-        }
+        pageLoadStrategy.setup(model, this, refreshView, webView, bridge, searchBarHideHandler,
+                leadImagesHandler);
+        pageLoadStrategy.onActivityCreated(savedInstanceState);
     }
 
     private void handleInternalLink(PageTitle title) {
@@ -458,57 +325,13 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        // update the topmost entry in the backstack
-        updateBackStackItem();
-        outState.putParcelableArrayList("backStack", backStack);
+        pageLoadStrategy.onSaveInstanceState(outState);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         ((ActionBarActivity) getActivity()).getSupportActionBar().setTitle("");
-    }
-
-    /**
-     * Pop the topmost entry from the backstack.
-     * Does NOT automatically load the next topmost page on the backstack.
-     */
-    private void popBackStack() {
-        if (backStack.size() == 0) {
-            return;
-        }
-        backStack.remove(backStack.size() - 1);
-    }
-
-    /**
-     * Push the current page title onto the backstack.
-     */
-    private void pushBackStack() {
-        PageBackStackItem item = new PageBackStackItem(titleOriginal, curEntry);
-        backStack.add(item);
-    }
-
-    /**
-     * Update the current topmost backstack item, based on the currently displayed page.
-     * (Things like the last y-offset position should be updated here)
-     * Should be done right before loading a new page.
-     */
-    private void updateBackStackItem() {
-        if (backStack.size() == 0) {
-            return;
-        }
-        PageBackStackItem item = backStack.get(backStack.size() - 1);
-        item.setScrollY(webView.getScrollY());
-    }
-
-    private void loadPageFromBackStack() {
-        if (backStack.size() == 0) {
-            return;
-        }
-        PageBackStackItem item = backStack.get(backStack.size() - 1);
-        // display the page based on the backstack item, stage the scrollY position based on
-        // the backstack item.
-        displayNewPage(item.getTitle(), item.getHistoryEntry(), true, false, item.getScrollY());
     }
 
     /**
@@ -540,117 +363,19 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
      */
     public void displayNewPage(PageTitle title, HistoryEntry entry, boolean tryFromCache,
                                boolean pushBackStack, int stagedScrollY) {
-        if (pushBackStack) {
-            // update the topmost entry in the backstack, before we start overwriting things.
-            updateBackStackItem();
-        }
-
         // disable sliding of the ToC while sections are loading
         tocHandler.setEnabled(false);
 
         networkError.setVisibility(View.GONE);
 
-        state = STATE_NO_FETCH;
-        subState = SUBSTATE_NONE;
-
-        this.title = title;
-        this.curEntry = entry;
-        titleOriginal = title;
+        model.setTitle(title);
+        model.setTitleOriginal(title);
+        model.setCurEntry(entry);
         savedPagesFunnel = app.getFunnelManager().getSavedPagesFunnel(title.getSite());
 
-        if (pushBackStack) {
-            pushBackStack();
-        }
-
-        // increment our sequence number, so that any async tasks that depend on the sequence
-        // will invalidate themselves upon completion.
-        pageSequenceNum++;
-
-        // kick off an event to the WebView that will cause it to clear its contents,
-        // and then report back to us when the clearing is complete, so that we can synchronize
-        // the transitions of our native components to the new page content.
-        // The callback event from the WebView will then call the loadPageOnWebViewReady()
-        // function, which will continue the loading process.
         ((PageActivity) getActivity()).updateProgressBar(true, true, 0);
-        try {
-            JSONObject wrapper = new JSONObject();
-            // whatever we pass to this event will be passed back to us by the WebView!
-            wrapper.put("sequence", pageSequenceNum);
-            wrapper.put("tryFromCache", tryFromCache);
-            wrapper.put("stagedScrollY", stagedScrollY);
-            bridge.sendMessage("beginNewPage", wrapper);
-        } catch (JSONException e) {
-            //nope
-        }
-    }
 
-    private void loadPageOnWebViewReady(boolean tryFromCache) {
-        // stage any section-specific link target from the title, since the title may be
-        // replaced (normalized)
-        sectionTargetFromTitle = title.getFragment();
-
-        Utils.setupDirectionality(title.getSite().getLanguage(), Locale.getDefault().getLanguage(),
-                                  bridge);
-
-        // hide the native top and bottom components...
-        leadImagesHandler.hide();
-        bottomContentHandler.hide();
-        bottomContentHandler.setTitle(title);
-
-        if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
-            state = STATE_NO_FETCH;
-            loadSavedPage();
-        } else if (tryFromCache) {
-            //is this page in cache??
-            app.getPageCache()
-               .get(titleOriginal, pageSequenceNum, new PageCache.CacheGetListener() {
-                   @Override
-                   public void onGetComplete(Page page, int sequence) {
-                       if (sequence != pageSequenceNum) {
-                           return;
-                       }
-                       if (page != null) {
-                           Log.d(TAG, "Using page from cache: " + titleOriginal.getDisplayText());
-                           PageViewFragmentInternal.this.page = page;
-                           PageViewFragmentInternal.this.title = page.getTitle();
-                           // Save history entry...
-                           new SaveHistoryTask(curEntry).execute();
-                           // don't re-cache the page after loading.
-                           cacheOnComplete = false;
-                           state = STATE_COMPLETE_FETCH;
-                           setState(state);
-                           performActionForState(state);
-                       } else {
-                           // page isn't in cache, so fetch it from the network...
-                           loadPageFromNetwork();
-                       }
-                   }
-
-                   @Override
-                   public void onGetError(Throwable e, int sequence) {
-                       Log.e(TAG, "Failed to get page from cache.", e);
-                       if (sequence != pageSequenceNum) {
-                           return;
-                       }
-                       // something failed when loading it from cache, so fetch it from network...
-                       loadPageFromNetwork();
-                   }
-               });
-        } else {
-            loadPageFromNetwork();
-        }
-    }
-
-    private void loadPageFromNetwork() {
-        state = STATE_NO_FETCH;
-        // and make sure to write it to cache when it's loaded.
-        cacheOnComplete = true;
-        setState(state);
-        performActionForState(state);
-    }
-
-    private boolean isFirstPage() {
-        return backStack.size() <= 1 && !webView.canGoBack();
+        pageLoadStrategy.onDisplayNewPage(pushBackStack, tryFromCache, stagedScrollY);
     }
 
     public Bitmap getLeadImageBitmap() {
@@ -675,39 +400,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     }
 
     private void setupMessageHandlers() {
-        bridge.addListener("onBeginNewPage", new CommunicationBridge.JSEventListener() {
-            @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
-                if (!isAdded()) {
-                    return;
-                }
-                try {
-                    if (messagePayload.getInt("sequence") != pageSequenceNum) {
-                        return;
-                    }
-                    stagedScrollY = messagePayload.getInt("stagedScrollY");
-                    loadPageOnWebViewReady(messagePayload.getBoolean("tryFromCache"));
-                } catch (JSONException e) {
-                    //nope
-                }
-            }
-        });
-        bridge.addListener("requestSection", new CommunicationBridge.JSEventListener() {
-            @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
-                if (!isAdded()) {
-                    return;
-                }
-                try {
-                    if (messagePayload.getInt("sequence") != pageSequenceNum) {
-                        return;
-                    }
-                    displayNonLeadSection(messagePayload.getInt("index"));
-                } catch (JSONException e) {
-                    //nope
-                }
-            }
-        });
         bridge.addListener("ipaSpan", new CommunicationBridge.JSEventListener() {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
@@ -726,39 +418,13 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 }
             }
         });
-        bridge.addListener("pageLoadComplete", new CommunicationBridge.JSEventListener() {
-            @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
-                if (!isAdded()) {
-                    return;
-                }
-                try {
-                    if (messagePayload.getInt("sequence") != pageSequenceNum) {
-                        return;
-                    }
-                } catch (JSONException e) {
-                    // nope
-                }
-                // Do any other stuff that should happen upon page load completion...
-                ((PageActivity) getActivity()).updateProgressBar(false, true, 0);
-
-                // trigger layout of the bottom content
-                // Check to see if the page title has changed (e.g. due to following a redirect),
-                // because if it has then the handler needs the new title to make sure it doesn't
-                // accidentally display the current article as a "read more" suggestion
-                if (!bottomContentHandler.getTitle().equals(title)) {
-                    bottomContentHandler.setTitle(title);
-                }
-                bottomContentHandler.beginLayout();
-            }
-        });
         bridge.addListener("imageClicked", new CommunicationBridge.JSEventListener() {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
                     String href = Utils.decodeURL(messagePayload.getString("href"));
                     if (href.startsWith("/wiki/")) {
-                        PageTitle imageTitle = title.getSite().titleForInternalLink(href);
+                        PageTitle imageTitle = model.getTitle().getSite().titleForInternalLink(href);
                         showImageGallery(imageTitle);
                     } else {
                         linkHandler.onUrlClick(href);
@@ -773,7 +439,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
                     String href = Utils.decodeURL(messagePayload.getString("href"));
-                    showImageGallery(new PageTitle(href, title.getSite()));
+                    showImageGallery(new PageTitle(href, model.getTitle().getSite()));
                 } catch (JSONException e) {
                     //nope
                 }
@@ -792,84 +458,10 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PageActivity.ACTIVITY_REQUEST_EDIT_SECTION
             && resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            //Retrieve section ID from intent, and find correct section, so where know where to scroll to
-            sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
-            //reset our scroll offset, since we have a section scroll target
-            stagedScrollY = 0;
+            pageLoadStrategy.backFromEditing(data);
 
             // and reload the page...
-            displayNewPage(titleOriginal, curEntry, false, false);
-        }
-    }
-
-    private void performActionForState(int forState) {
-        if (!isAdded()) {
-            return;
-        }
-        switch (forState) {
-            case STATE_NO_FETCH:
-                ((PageActivity) getActivity()).updateProgressBar(true, true, 0);
-                // hide the lead image...
-                leadImagesHandler.hide();
-                bottomContentHandler.hide();
-                new LeadSectionFetchTask(pageSequenceNum).execute();
-                break;
-            case STATE_INITIAL_FETCH:
-                new RestSectionsFetchTask(pageSequenceNum).execute();
-                break;
-            case STATE_COMPLETE_FETCH:
-                editHandler.setPage(page);
-                // kick off the lead image layout
-                leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
-                    @Override
-                    public void onLayoutComplete() {
-                        if (!isAdded()) {
-                            return;
-                        }
-                        searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-                        // when the lead image layout is complete, load the lead section and
-                        // the other sections into the webview.
-                        displayLeadSection();
-                        displayNonLeadSection(1);
-                    }
-                });
-                break;
-            default:
-                // This should never happen
-                throw new RuntimeException("Unknown state encountered " + state);
-        }
-    }
-
-    private void setState(int state) {
-        setState(state, SUBSTATE_NONE);
-    }
-
-    private void setState(int state, int subState) {
-        if (!isAdded()) {
-            return;
-        }
-        this.state = state;
-        this.subState = subState;
-        getActivity().supportInvalidateOptionsMenu();
-
-        // FIXME: Move this out into a PageComplete event of sorts
-        if (state == STATE_COMPLETE_FETCH) {
-            tocHandler.setupToC(page, title.getSite(), isFirstPage());
-            tocHandler.setEnabled(true);
-
-            //add the page to cache!
-            if (cacheOnComplete) {
-                app.getPageCache().put(titleOriginal, page, new PageCache.CachePutListener() {
-                    @Override
-                    public void onPutComplete() {
-                    }
-
-                    @Override
-                    public void onPutError(Throwable e) {
-                        Log.e(TAG, "Failed to add page to cache.", e);
-                    }
-                });
-            }
+            displayNewPage(model.getTitleOriginal(), model.getCurEntry(), false, false);
         }
     }
 
@@ -895,35 +487,29 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         MenuItem findInPageMenu = menu.findItem(R.id.menu_find_in_page);
         MenuItem themeChooserMenu = menu.findItem(R.id.menu_themechooser);
 
-        switch (state) {
-            case STATE_NO_FETCH:
-            case STATE_INITIAL_FETCH:
+        if (pageLoadStrategy.isLoading()) {
+            savePageMenu.setEnabled(false);
+            shareMenu.setEnabled(false);
+            otherLangMenu.setEnabled(false);
+            findInPageMenu.setEnabled(false);
+            themeChooserMenu.setEnabled(false);
+        } else {
+            savePageMenu.setEnabled(true);
+            shareMenu.setEnabled(true);
+            // Only display "Read in other languages" if the article is in other languages
+            otherLangMenu.setVisible(model.getPage() != null && model.getPage().getPageProperties().getLanguageCount() != 0);
+            otherLangMenu.setEnabled(true);
+            findInPageMenu.setEnabled(true);
+            themeChooserMenu.setEnabled(true);
+            int subState = pageLoadStrategy.getSubState();
+            if (subState == SUBSTATE_PAGE_SAVED) {
                 savePageMenu.setEnabled(false);
-                shareMenu.setEnabled(false);
-                otherLangMenu.setEnabled(false);
-                findInPageMenu.setEnabled(false);
-                themeChooserMenu.setEnabled(false);
-                break;
-            case STATE_COMPLETE_FETCH:
-                savePageMenu.setEnabled(true);
-                shareMenu.setEnabled(true);
-                // Only display "Read in other languages" if the article is in other languages
-                otherLangMenu.setVisible(page.getPageProperties().getLanguageCount() != 0);
-                otherLangMenu.setEnabled(true);
-                findInPageMenu.setEnabled(true);
-                themeChooserMenu.setEnabled(true);
-                if (subState == SUBSTATE_PAGE_SAVED) {
-                    savePageMenu.setEnabled(false);
-                    savePageMenu.setTitle(WikipediaApp.getInstance().getString(R.string.menu_page_saved));
-                } else if (subState == SUBSTATE_SAVED_PAGE_LOADED) {
-                    savePageMenu.setTitle(WikipediaApp.getInstance().getString(R.string.menu_refresh_saved_page));
-                } else {
-                    savePageMenu.setTitle(WikipediaApp.getInstance().getString(R.string.menu_save_page));
-                }
-                break;
-            default:
-                // How can this happen?!
-                throw new RuntimeException("This can't happen");
+                savePageMenu.setTitle(WikipediaApp.getInstance().getString(R.string.menu_page_saved));
+            } else if (subState == SUBSTATE_SAVED_PAGE_LOADED) {
+                savePageMenu.setTitle(WikipediaApp.getInstance().getString(R.string.menu_refresh_saved_page));
+            } else {
+                savePageMenu.setTitle(WikipediaApp.getInstance().getString(R.string.menu_save_page));
+            }
         }
     }
 
@@ -938,8 +524,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 return true;
             case R.id.menu_save_page:
                 // This means the user explicitly chose to save a new saved page
-                app.getFunnelManager().getSavedPagesFunnel(title.getSite()).logSaveNew();
-                if (curEntry.getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+                app.getFunnelManager().getSavedPagesFunnel(model.getTitle().getSite()).logSaveNew();
+                if (model.getCurEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
                     // refreshing a saved page...
                     refreshPage(true);
                 } else {
@@ -953,7 +539,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 Intent langIntent = new Intent();
                 langIntent.setClass(getActivity(), LangLinksActivity.class);
                 langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
-                langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, title);
+                langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, model.getTitle());
                 getActivity().startActivityForResult(langIntent, PageActivity.ACTIVITY_REQUEST_LANGLINKS);
                 return true;
             case R.id.menu_find_in_page:
@@ -1029,169 +615,38 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         Intent galleryIntent = new Intent();
         galleryIntent.setClass(getActivity(), GalleryActivity.class);
         galleryIntent.putExtra(GalleryActivity.EXTRA_IMAGETITLE, imageTitle);
-        galleryIntent.putExtra(GalleryActivity.EXTRA_PAGETITLE, titleOriginal);
+        galleryIntent.putExtra(GalleryActivity.EXTRA_PAGETITLE, model.getTitleOriginal());
         getActivity().startActivityForResult(galleryIntent, PageActivity.ACTIVITY_REQUEST_GALLERY);
     }
 
-    /**
-     * Save the history entry for the specified page.
-     */
-    private class SaveHistoryTask extends SaneAsyncTask<Void> {
-        private final HistoryEntry entry;
-        public SaveHistoryTask(HistoryEntry entry) {
-            super(SINGLE_THREAD);
-            this.entry = entry;
-        }
-
-        @Override
-        public Void performTask() throws Throwable {
-            // Instead of "upserting" the history entry, we'll delete and re-persist it.
-            // This is because upserting will update all previous instances of the history entry,
-            // and won't collapse them into a single entry at the top. Deleting it will ensure
-            // that all previous instances will be deleted, and then only the most recent instance
-            // will be placed at the top.
-            app.getPersister(HistoryEntry.class).delete(entry);
-            app.getPersister(HistoryEntry.class).persist(entry);
-            return null;
-        }
-
-        @Override
-        public void onCatch(Throwable caught) {
-            Log.w("SaveHistoryTask", "Caught " + caught.getMessage(), caught);
+    public void onPageLoadComplete() {
+        editHandler.setPage(model.getPage());
+        if (saveOnComplete) {
+            saveOnComplete = false;
+            savedPagesFunnel.logUpdate();
+            savePage();
         }
     }
 
-    private class LeadSectionFetchTask extends SectionsFetchTask {
-        public LeadSectionFetchTask(int sequenceNum) {
-            super(getActivity(), title, "0");
-            this.sequenceNum = sequenceNum;
+    public PageTitle adjustPageTitleFromMobileview(PageTitle title, JSONObject mobileView)
+            throws JSONException {
+        if (mobileView.has("redirected")) {
+            // Handle redirects properly.
+            title = new PageTitle(mobileView.optString("redirected"), title.getSite(),
+                    title.getThumbUrl());
+        } else if (mobileView.has("normalizedtitle")) {
+            // We care about the normalized title only if we were not redirected
+            title = new PageTitle(mobileView.optString("normalizedtitle"), title.getSite(),
+                    title.getThumbUrl());
         }
-
-        @Override
-        public RequestBuilder buildRequest(Api api) {
-            RequestBuilder builder =  super.buildRequest(api);
-            builder.param("prop", builder.getParams().get("prop") + "|thumb|image|id|revision|description|"
-                    + Page.API_REQUEST_PROPS);
-            builder.param("thumbsize", Integer.toString((int)(getResources().getDimension(R.dimen.leadImageWidth)
-                    / getResources().getDisplayMetrics().density)));
-            return builder;
+        if (mobileView.has("description")) {
+            title.setDescription(Utils.capitalizeFirstChar(mobileView.getString("description")));
         }
-
-        private final int sequenceNum;
-        private PageProperties pageProperties;
-
-        @Override
-        public List<Section> processResult(ApiResult result) throws Throwable {
-            if (sequenceNum != pageSequenceNum) {
-                return super.processResult(result);
-            }
-            JSONObject mobileView = result.asObject().optJSONObject("mobileview");
-            if (mobileView != null) {
-                pageProperties = new PageProperties(mobileView);
-                if (mobileView.has("redirected")) {
-                    // Handle redirects properly.
-                    title = new PageTitle(mobileView.optString("redirected"), title.getSite(), title.getThumbUrl());
-                } else if (mobileView.has("normalizedtitle")) {
-                    // We care about the normalized title only if we were not redirected
-                    title = new PageTitle(mobileView.optString("normalizedtitle"), title.getSite(), title.getThumbUrl());
-                }
-                if (mobileView.has("description")) {
-                    title.setDescription(Utils.capitalizeFirstChar(mobileView.getString("description")));
-                }
-            }
-            return super.processResult(result);
-        }
-
-        @Override
-        public void onFinish(List<Section> result) {
-            if (!isAdded() || sequenceNum != pageSequenceNum) {
-                return;
-            }
-
-            page = new Page(title, (ArrayList<Section>) result, pageProperties);
-            editHandler.setPage(page);
-
-            // kick off the lead image layout
-            leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
-                @Override
-                public void onLayoutComplete() {
-                    searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-                    // when the lead image is laid out, display the lead section in the webview,
-                    // and start loading the rest of the sections.
-                    displayLeadSection();
-                    setState(STATE_INITIAL_FETCH);
-                    performActionForState(state);
-                }
-            });
-
-            // Update our history entry, in case the Title was changed (i.e. normalized)
-            curEntry = new HistoryEntry(title, curEntry.getTimestamp(), curEntry.getSource());
-
-            // Save history entry and page image url
-            new SaveHistoryTask(curEntry).execute();
-
-            // Fetch larger thumbnail URL for the page, to be shown in History and Saved Pages
-            (new PageImagesTask(app.getAPIForSite(title.getSite()), title.getSite(),
-                                Arrays.asList(new PageTitle[] {title}), WikipediaApp.PREFERRED_THUMB_SIZE) {
-                @Override
-                public void onFinish(Map<PageTitle, String> result) {
-                    if (result.containsKey(title)) {
-                        title.setThumbUrl(result.get(title));
-                        PageImage pi = new PageImage(title, result.get(title));
-                        app.getPersister(PageImage.class).upsert(pi);
-                    }
-                }
-
-                @Override
-                public void onCatch(Throwable caught) {
-                    // Thumbnails are expendable
-                    Log.w("SaveThumbnailTask", "Caught " + caught.getMessage(), caught);
-                }
-            }).execute();
-
-        }
-
-        @Override
-        public void onCatch(Throwable caught) {
-            commonSectionFetchOnCatch(caught, sequenceNum);
-        }
+        return title;
     }
 
-    private class RestSectionsFetchTask extends SectionsFetchTask {
-        private final int sequenceNum;
-
-        public RestSectionsFetchTask(int sequenceNum) {
-            super(getActivity(), title, "1-");
-            this.sequenceNum = sequenceNum;
-        }
-
-        @Override
-        public void onFinish(List<Section> result) {
-            if (!isAdded() || sequenceNum != pageSequenceNum) {
-                return;
-            }
-            ArrayList<Section> newSections = (ArrayList<Section>) page.getSections().clone();
-            newSections.addAll(result);
-            page = new Page(page.getTitle(), newSections, page.getPageProperties());
-            editHandler.setPage(page);
-            displayNonLeadSection(1);
-            setState(STATE_COMPLETE_FETCH);
-
-            if (saveOnComplete) {
-                saveOnComplete = false;
-                savedPagesFunnel.logUpdate();
-                savePage();
-            }
-        }
-
-        @Override
-        public void onCatch(Throwable caught) {
-            commonSectionFetchOnCatch(caught, sequenceNum);
-        }
-    }
-
-    private void commonSectionFetchOnCatch(Throwable caught, int sequenceNum) {
-        if (!isAdded() || sequenceNum != pageSequenceNum) {
+    public void commonSectionFetchOnCatch(Throwable caught) {
+        if (!isAdded()) {
             return;
         }
         // in any case, make sure the TOC drawer is closed
@@ -1247,7 +702,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private void hidePageContent() {
         leadImagesHandler.hide();
         searchBarHideHandler.setFadeEnabled(false);
-        bottomContentHandler.hide();
+        pageLoadStrategy.onHidePageContent();
         webView.setVisibility(View.INVISIBLE);
     }
 
@@ -1282,12 +737,12 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     }
 
     public void savePage() {
-        if (page == null) {
+        if (model.getPage() == null) {
             return;
         }
 
         Toast.makeText(getActivity(), R.string.toast_saving_page, Toast.LENGTH_SHORT).show();
-        new SavePageTask(getActivity(), title, page) {
+        new SavePageTask(getActivity(), model.getTitle(), model.getPage()) {
             @Override
             public void onFinish(Boolean success) {
                 if (!isAdded()) {
@@ -1295,7 +750,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                     return;
                 }
 
-                setState(state, SUBSTATE_PAGE_SAVED);
+                pageLoadStrategy.setSubState(SUBSTATE_PAGE_SAVED);
 
                 if (success) {
                     Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
@@ -1306,61 +761,11 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         }.execute();
     }
 
-    public void loadSavedPage() {
-        new LoadSavedPageTask(title) {
-            @Override
-            public void onFinish(Page result) {
-                // have we been unwittingly detached from our Activity?
-                if (!isAdded()) {
-                    Log.d("PageViewFragment", "Detached from activity, so stopping update.");
-                    return;
-                }
-
-                // Save history entry and page image url
-                new SaveHistoryTask(curEntry).execute();
-
-                page = result;
-                editHandler.setPage(page);
-
-                // kick off the lead image layout
-                leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
-                    @Override
-                    public void onLayoutComplete() {
-                        if (!isAdded()) {
-                            return;
-                        }
-                        searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-                        // when the lead image is laid out, load the lead section and the rest
-                        // of the sections into the webview.
-                        displayLeadSection();
-                        displayNonLeadSection(1);
-                        setState(STATE_COMPLETE_FETCH, SUBSTATE_SAVED_PAGE_LOADED);
-                        // rewrite the image URLs in the webview, so that they're loaded from
-                        // local storage.
-                        readUrlMappings();
-                    }
-                });
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-
-                /*
-                If anything bad happens during loading of a saved page, then simply bounce it
-                back to the online version of the page, and re-save the page contents locally when it's done.
-                 */
-
-                Log.d("LoadSavedPageTask", "Error loading saved page: " + caught.getMessage());
-                caught.printStackTrace();
-
-                refreshPage(true);
-            }
-        }.execute();
-    }
-
-    /** Read URL mappings from the saved page specific file */
-    private void readUrlMappings() {
-        new LoadSavedPageUrlMapTask(title) {
+    /**
+     * Read URL mappings from the saved page specific file
+     */
+    public void readUrlMappings() {
+        new LoadSavedPageUrlMapTask(model.getTitle()) {
             @Override
             public void onFinish(JSONObject result) {
                 // have we been unwittingly detached from our Activity?
@@ -1393,8 +798,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         if (saveOnComplete) {
             Toast.makeText(getActivity(), R.string.toast_refresh_saved_page, Toast.LENGTH_LONG).show();
         }
-        curEntry = new HistoryEntry(title, HistoryEntry.SOURCE_HISTORY);
-        displayNewPage(title, curEntry, false, false);
+        model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
+        displayNewPage(model.getTitle(), model.getCurEntry(), false, false);
     }
 
     public static final int TOC_ACTION_SHOW = 0;
@@ -1426,6 +831,11 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         }
     }
 
+    public void setupToC(PageViewModel model, boolean isFirstPage) {
+        tocHandler.setupToC(model.getPage(), model.getTitle().getSite(), isFirstPage);
+        tocHandler.setEnabled(true);
+    }
+
     public boolean onBackPressed() {
         if (tocHandler != null && tocHandler.isVisible()) {
             tocHandler.hide();
@@ -1434,11 +844,10 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         if (closeFindInPage()) {
             return true;
         }
-        if (backStack.size() > 1) {
-            popBackStack();
-            loadPageFromBackStack();
-            return true;
-        }
-        return false;
+        return pageLoadStrategy.onBackPressed();
+    }
+
+    public LinkHandler getLinkHandler() {
+        return linkHandler;
     }
 }

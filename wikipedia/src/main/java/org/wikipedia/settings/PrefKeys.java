@@ -22,6 +22,7 @@ public final class PrefKeys {
     private static String PREFERENCE_LANGUAGE_MRU;
     private static String PREFERENCE_KNOW_TOC_DRAWER;
     private static String PREFERENCE_SHOW_IMAGES;
+    private static String PREFERENCE_EXP_PAGE_LOAD;
 
     private PrefKeys() { }
 
@@ -44,6 +45,7 @@ public final class PrefKeys {
         PREFERENCE_LANGUAGE_MRU = resources.getString(R.string.preference_language_mru);
         PREFERENCE_KNOW_TOC_DRAWER = resources.getString(R.string.preference_know_toc_drawer);
         PREFERENCE_SHOW_IMAGES = resources.getString(R.string.preference_show_images);
+        PREFERENCE_EXP_PAGE_LOAD = resources.getString(R.string.preference_exp_page_load);
     }
 
     public static String getContentLanguageKey() {
@@ -112,5 +114,9 @@ public final class PrefKeys {
 
     public static String getShowImages() {
         return PREFERENCE_SHOW_IMAGES;
+    }
+
+    public static String getExperimentalPageLoad() {
+        return PREFERENCE_EXP_PAGE_LOAD;
     }
 }
