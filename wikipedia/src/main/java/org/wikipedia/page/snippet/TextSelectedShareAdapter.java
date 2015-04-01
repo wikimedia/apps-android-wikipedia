@@ -81,14 +81,14 @@ public class TextSelectedShareAdapter extends ShareHandler {
                 } else if (resourceName.contains("share")) {
                     shareItem = item;
                 }
+                // In APIs lower than 21, some of the action mode icons may not respect the
+                // current theme, so we need to manually tint those icons.
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                    fixMenuItemTheme(item);
+                }
             } catch (Resources.NotFoundException e) {
-                // Looks like some devices don't have "names" for these menu items,
-                // in which case, there's nothing we can do...
-            }
-            // In APIs lower than 21, some of the action mode icons may not respect the
-            // current theme, so we need to manually tint those icons.
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                fixMenuItemTheme(item);
+                // Looks like some devices don't provide access to these menu items through
+                // the context of the app, in which case, there's nothing we can do...
             }
         }
 
