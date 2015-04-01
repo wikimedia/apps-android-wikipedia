@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="contributors_list">Adam Baso, Amir E. Aharoni, Anirudh S, Bernd Sitzmann, Brion Vibber, Dan Garry, Dmitry Brant, Kenan Wang, Maryana Pinchuk, Max Semenik, Moiz Syed, Monte Hurd, Mun May Tee, Nicole Borrelli, Niklas Laxström, Thomas PT, Tomasz Finc, Vibha Bamba, Yuvi Panda</string>
+    <string name="contributors_list">Adam Baso, Amir E. Aharoni, Anirudh S, Bernd Sitzmann, Brion Vibber, Dan Garry, Dmitry Brant, Elena Tonkovidova, Kenan Wang, Maryana Pinchuk, Max Semenik, Michael Holloway, Moiz Syed, Monte Hurd, Mun May Tee, Nicole Borrelli, Niklas Laxström, Rummana Yasmeen, Thomas PT, Tomasz Finc, Vibha Bamba, Yuvi Panda</string>
     <string name="libraries_list"><a href="http://acra.ch">ACRA</a>
         <!--  https://raw.githubusercontent.com/ACRA/acra/master/LICENSE -->
         (<a title="acra-title" name="acra-name" href="file:///android_asset/licenses/ACRA">license</a>),
