@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.media.FaceDetector;
 import android.util.AttributeSet;
@@ -19,6 +20,13 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 
 public class ImageViewWithFace extends ImageView implements Target {
     private static final String TAG = "ImageViewWithFace";
+
+    // Width to which to reduce image copy on which face detection is performed in onBitMapLoaded()
+    // (with height reduced proportionally there).  Performing face detection on a scaled-down
+    // image copy improves speed and memory use.
+    //
+    // Also, note that the face detector requires that the image width be even.
+    private static final int BITMAP_COPY_WIDTH = 200;
 
     public ImageViewWithFace(Context context) {
         super(context);
@@ -51,13 +59,15 @@ public class ImageViewWithFace extends ImageView implements Target {
                 long millis = System.currentTimeMillis();
                 // create a new bitmap onto which we'll draw the original bitmap,
                 // because the FaceDetector requires it to be a 565 bitmap, and it
-                // must also be even width.
-                Bitmap tempbmp = Bitmap.createBitmap(bitmap.getWidth() - (bitmap.getWidth() % 2),
-                        bitmap.getHeight(), Bitmap.Config.RGB_565);
+                // must also be even width. Reduce size of copy for performance.
+                Bitmap tempbmp = Bitmap.createBitmap(BITMAP_COPY_WIDTH,
+                        ((bitmap.getHeight() * BITMAP_COPY_WIDTH) / bitmap.getWidth()), Bitmap.Config.RGB_565);
                 Canvas canvas = new Canvas(tempbmp);
+                Rect srcRect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                Rect destRect = new Rect(0, 0, BITMAP_COPY_WIDTH, tempbmp.getHeight());
                 Paint paint = new Paint();
                 paint.setColor(Color.BLACK);
-                canvas.drawBitmap(bitmap, 0, 0, paint);
+                canvas.drawBitmap(bitmap, srcRect, destRect, paint);
 
                 // initialize the face detector, and look for only one face...
                 FaceDetector fd = new FaceDetector(tempbmp.getWidth(), tempbmp.getHeight(), 1);
@@ -67,7 +77,10 @@ public class ImageViewWithFace extends ImageView implements Target {
 
                 if (numFound > 0) {
                     faces[0].getMidPoint(facePos);
-                    android.util.Log.d(TAG, "Found face at " + facePos.x + ", " + facePos.y);
+                    // scale back to proportions of original image
+                    facePos.x = (facePos.x * bitmap.getWidth() / BITMAP_COPY_WIDTH);
+                    facePos.y = (facePos.y * bitmap.getHeight() / tempbmp.getHeight());
+                    Log.d(TAG, "Found face at " + facePos.x + ", " + facePos.y);
                 }
                 // free our temporary bitmap
                 tempbmp.recycle();
