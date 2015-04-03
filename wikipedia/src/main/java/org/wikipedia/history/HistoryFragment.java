@@ -50,6 +50,8 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
     private ActionMode actionMode;
 
+    private boolean firstRun = true;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,6 +148,9 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                                     );
                                 }
                             }
+                            if (checkedItems.size() == historyEntryList.getAdapter().getCount()) {
+                                entryFilter.setVisibility(View.GONE);
+                            }
                             actionMode.finish();
                             return true;
                         } else {
@@ -213,16 +218,23 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> cursorLoaderLoader, Cursor cursorLoader) {
+    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
         if (!isAdded()) {
             return;
         }
-        adapter.swapCursor(cursorLoader);
+
+        // Hide search bar if history is empty, but not when a search turns up no results
+        if (firstRun && cursor.getCount() == 0) {
+            entryFilter.setVisibility(View.GONE);
+        }
+        firstRun = false;
+
+        adapter.swapCursor(cursor);
         getActivity().supportInvalidateOptionsMenu();
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> cursorLoaderLoader) {
+    public void onLoaderReset(Loader<Cursor> cursorLoader) {
         adapter.changeCursor(null);
     }
 
@@ -337,6 +349,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                     public void onClick(DialogInterface dialog, int which) {
                         // Clear history!
                         app.getPersister(HistoryEntry.class).deleteAll();
+                        entryFilter.setVisibility(View.GONE);
                     }
                 });
 

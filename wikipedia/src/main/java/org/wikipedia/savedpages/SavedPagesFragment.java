@@ -46,6 +46,8 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
     private ActionMode actionMode;
 
+    private boolean firstRun = true;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,7 +113,6 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                         }
                     }
 
-
                     private void deleteSelected() {
                         SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
                         for (int i = 0; i < checkedItems.size(); i++) {
@@ -124,6 +125,9 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                                     }
                                 }.execute();
                             }
+                        }
+                        if (checkedItems.size() == savedPagesList.getAdapter().getCount()) {
+                            entryFilter.setVisibility(View.GONE);
                         }
                     }
 
@@ -228,16 +232,23 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> cursorLoaderLoader, Cursor cursorLoader) {
+    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
         if (!isAdded()) {
             return;
         }
-        adapter.swapCursor(cursorLoader);
+
+        // Hide search bar if no saved pages exist, but not when a search turns up no results
+        if (firstRun && cursor.getCount() == 0) {
+            entryFilter.setVisibility(View.GONE);
+        }
+        firstRun = false;
+
+        adapter.swapCursor(cursor);
         getActivity().supportInvalidateOptionsMenu();
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> cursorLoaderLoader) {
+    public void onLoaderReset(Loader<Cursor> cursorLoader) {
         adapter.changeCursor(null);
     }
 
@@ -346,6 +357,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                 new DeleteAllSavedPagesTask(getActivity()) {
                     @Override
                     public void onFinish(Void v) {
+                        entryFilter.setVisibility(View.GONE);
                         Toast.makeText(getActivity(), R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
                     }
                 }.execute();
