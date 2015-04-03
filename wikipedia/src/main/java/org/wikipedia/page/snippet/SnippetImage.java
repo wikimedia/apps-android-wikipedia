@@ -19,6 +19,8 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.L10nUtils;
 
 /**
  * Creator and holder of a Bitmap which is comprised of an optional lead image, a title,
@@ -27,6 +29,7 @@ import org.wikipedia.R;
 public final class SnippetImage {
     private static final int WIDTH = 640;
     private static final int HEIGHT = 360;
+    private static final int BOTTOM_PADDING = 25;
     private static final int HORIZONTAL_PADDING = 30;
     private static final int TEXT_WIDTH = WIDTH - 2 * HORIZONTAL_PADDING;
     private static final int DESCRIPTION_WIDTH = 360;
@@ -71,7 +74,11 @@ public final class SnippetImage {
         int top = drawLicenseIcons(canvas, context);
         top = drawDescription(canvas, description, top);
         drawTitle(canvas, title, top);
-        drawWordmark(canvas, context);
+        if (L10nUtils.canLangUseImageForWikipediaWordmark(context)) {
+            drawWordmarkFromStaticImage(canvas, context);
+        } else {
+            drawWordmarkFromText(canvas, context);
+        }
 
         return resultBitmap;
     }
@@ -203,8 +210,8 @@ public final class SnippetImage {
     private int drawLicenseIcons(Canvas canvas, Context context) {
         final int iconsWidth = 52;
         final int iconsHeight = 16;
-        final int top = 319;
-        final int bottom = top + iconsHeight;
+        final int bottom = HEIGHT - BOTTOM_PADDING;
+        final int top = bottom - iconsHeight;
 
         int left = HORIZONTAL_PADDING;
         int right = left + iconsWidth;
@@ -220,23 +227,48 @@ public final class SnippetImage {
         return top;
     }
 
-    private void drawWordmark(Canvas canvas, Context context) {
-        final int top = 293;
-        final float fontSize = 24.0f;
+    private void drawWordmarkFromStaticImage(Canvas canvas, Context context) {
+        // scaling it a bit down from original 317x54px size
+        final int width = 130;
+        final int height = 22;
+        final int bottom = HEIGHT - BOTTOM_PADDING;
+        final int top = bottom - height;
+
+        Drawable d = context.getResources().getDrawable(R.drawable.wp_wordmark);
+        WikipediaApp.getInstance().setDrawableTint(d, Color.LTGRAY);
+
+        int left = WIDTH - HORIZONTAL_PADDING - width;
+        if (isArticleRTL) {
+            left = HORIZONTAL_PADDING;
+        }
+        int right = left + width;
+
+        d.setBounds(left, top, right, bottom);
+        d.draw(canvas);
+    }
+
+    private void drawWordmarkFromText(Canvas canvas, Context context) {
         final int maxWidth = WIDTH - DESCRIPTION_WIDTH - 2 * HORIZONTAL_PADDING;
+        final float fontSize = 20.0f;
+        final float scaleX = 1.06f;
 
         TextPaint textPaint = new TextPaint();
         textPaint.setAntiAlias(true);
         textPaint.setColor(Color.LTGRAY);
         textPaint.setTextSize(fontSize);
         textPaint.setTypeface(SERIF);
+        textPaint.setTextScaleX(scaleX);
 
         Spanned wikipedia = Html.fromHtml(context.getString(R.string.wp_stylized));
         StaticLayout wordmarkLayout = buildLayout(
                 new TextLayoutParams(wikipedia, textPaint, maxWidth, 1.0f));
-        final int wordMarkWidth = (int) wordmarkLayout.getLineWidth(0);
+        final int width = (int) wordmarkLayout.getLineWidth(0);
+        final int height = wordmarkLayout.getHeight();
 
-        int left = WIDTH - HORIZONTAL_PADDING - wordMarkWidth;
+        final int bottom = HEIGHT - BOTTOM_PADDING;
+        final int top = bottom - height;
+
+        int left = WIDTH - HORIZONTAL_PADDING - width;
         if (isArticleRTL) {
             left = HORIZONTAL_PADDING;
         }

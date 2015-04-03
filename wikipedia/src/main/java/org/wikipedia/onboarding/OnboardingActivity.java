@@ -16,6 +16,7 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.analytics.OnboardingFunnel;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.util.L10nUtils;
 
 import java.util.Locale;
 
@@ -46,7 +47,7 @@ public class OnboardingActivity extends Activity {
         View loginButton = findViewById(R.id.onboarding_login_button);
         View skipLink = findViewById(R.id.onboarding_skip_link);
 
-        if ("<big>W</big>IKIPEDI<big>A</big>".equals(getString(R.string.wp_stylized))) {
+        if (L10nUtils.canLangUseImageForWikipediaWordmark(this)) {
             wikipediaWordMarkText.setVisibility(View.GONE);
         } else {
             wikipediaWordMarkImage.setVisibility(View.GONE);
