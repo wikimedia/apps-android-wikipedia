@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">Page mise en avant de Wikipédia</string>
   <string name="widget_title_featured_page">Page mise en avant aujourd’hui :</string>
   <string name="widget_name_search">Recherche Wikipédia</string>
-  <string name="app_store_description" fuzzy="true">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée.
+  <string name="app_store_description">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée.
 
 Fonctionnalités :
 - Images principales : faites l’expérience de Wikipédia comme jamais auparavant avec une image marquante dans le contexte et une description en haut des articles
@@ -227,7 +227,7 @@ Fonctionnalités :
 - Descriptions de Wikidata : lors d’une recherche, chaque résultat de recherche contient désormais une courte description qui aide à saisir le contexte du résultat. Ces descriptions sont aussi affichées dans d’autres zones de l’application, comme « À proximité »
 - Suggestions d’article : allez en bas d’un article pour voir les suggestions sur ce que vous pouvez lire ensuite
 - Pages enregistrées : vous pouvez enregistrer des pages pour une lecture hors ligne et y naviguer même sans avoir de connexion
-- À proximité : En savoir plus sur ce qui est aux alentours en obtenant des liens vers des articles sur des choses qui sont proches de votre position actuelle
+- À proximité : en savoir plus sur ce qui est aux alentours en obtenant des liens vers des articles sur des choses qui sont proches de votre position actuelle
 - Support linguistique : l’application vous permet de changer sans efforts la langue du contenu de Wikipédia lu.
 - Table des matières : faites glisser sur n’importe quel article pour faire apparaître le sommaire, qui vous permet d’atteindre facilement les sections de l’article
 - Wikipédia Zéro : les frais de données sont annulés pour les opérateurs mobiles participants.
@@ -236,9 +236,9 @@ Envoyez-nous votre avis sur l’application ! Dans le menu, appuyez sur « P
 
 Le code est ouvert à 100%. Si vous êtes expérimenté avec Java et le kit de développement Android, alors nous attendons vos contributions ! https://github.com/wikimedia/apps-android-wikipedia
 
-Politique de confidentialité : http://wikimediafoundation.org/wiki/Privacy_policy
+Politique de confidentialité : https://m.wikimediafoundation.org/wiki/Privacy_policy 
 
-Conditions d’utilisation : http://wikimediafoundation.org/wiki/Terms_of_Use</string>
+Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Nouvelle mise à jour alpha disponible</string>
   <string name="alpha_update_notification_text">Touchez pour télécharger</string>
   <string name="dialog_close_description">Fermer</string>

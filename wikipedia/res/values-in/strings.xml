@@ -219,32 +219,33 @@
   <string name="widget_name_featured_page">Artikel pilihan Wikipedia</string>
   <string name="widget_title_featured_page">Artikel pilihan hari ini:</string>
   <string name="widget_name_search">Pencarian Wikipedia</string>
-  <string name="app_store_description" fuzzy="true">Aplikasi resmi Wikipedia untuk Android. Wikipedia adalah ensiklopedia bebas yang berisi lebih dari 32 juta artikel dalam 280 bahasa sekaligus karya referensi buatan manusia yang paling lengkap dan banyak digunakan sepanjang sejarah. Aplikasi ini telah ditulis ulang dari awal dan lebih baik dari sebelumnya.
+  <string name="app_store_description">Aplikasi resmi Wikipedia untuk Android. Wikipedia adalah ensiklopedia bebas yang berisi lebih dari 32 juta artikel dalam 280 bahasa sekaligus karya referensi buatan manusia yang paling lengkap dan banyak digunakan sepanjang sejarah. Aplikasi ini telah ditulis ulang dari awal dan lebih baik dari sebelumnya.
 
 Fitur:
 - Gambar utama: rasakan pengalaman Ber-wiki tidak seperti sebelumnya, dengan lebih menonjol, gambar kontekstual yang relevan dan deskripsi di atas artikel
 - Galeri gambar: ketuk pada gambar akan membuka gambar dalam layar penuh dengan resolusi tinggi, berikut opsi untuk geser ke kiri/kanan untuk menelusuri gambar yang lain
 - Deskripsi dari Wikidata: ketika mencari, setiap hasil pencarian sekarang berisi deskripsi singkat yang membantu untuk mengontekstualisasikan hasilnya. Deskripsi ini juga ditunjukkan di wilayah lain aplikasi, seperti fitur Sekitar
 - Saran artikel: gulir ke bagian bawah artikel untuk melihat saran tentang apa saja yang dapat Anda baca berikutnya
-- Halaman tersimpan: Anda dapat menyimpan halaman yang terpilih untuk dibaca secara luring dan menelusuri mereka bahkan ketika Anda tidak memiliki sambungan data.
-- Sekitar: Pelajari lebih lanjut tentang apa yang ada di sekitar Anda dengan mendapatkan pranala ke artikel tentang hal-hal yang di dekat lokasi Anda saat ini
-- Dukungan bahasa: Aplikasi ini memungkinkan Anda untuk dengan mulus beralih ke Wikipedia yang ditulis dalam bahasa lain
-- Daftar isi: Geser ke kiri pada setiap artikel untuk membuka daftar isi, yang memungkinkan Anda melompat ke bagian dari artikel dengan lebih mudah
-- Wikipedia Nol: Biaya data dibebaskan untuk operator selular yang berpartisipasi.
+- Halaman tersimpan: simpan halaman yang terpilih untuk dibaca secara luring dan menelusuri mereka bahkan ketika Anda tidak memiliki sambungan data.
+- Sekitar: pelajari lebih lanjut tentang apa yang ada di sekitar Anda dengan mendapatkan pranala ke artikel tentang hal-hal yang di dekat lokasi Anda saat ini
+- Dukungan bahasa: mulus beralih ke Wikipedia yang ditulis dalam bahasa lain
+- Daftar isi: geser ke kiri pada setiap artikel untuk membuka daftar isi, yang memungkinkan Anda melompat ke bagian dari artikel dengan lebih mudah
+- Wikipedia Nol: biaya data dibebaskan untuk operator selular yang berpartisipasi.
 
 Kirimkan pendapat Anda tentang aplikasi ini! Pada menu, tekan \"Lebih\", kemudian \"Tentang aplikasi Wikipedia\", kemudian \"Kirim umpan balik\".
 
 Kode sepenuhnya bersifat sumber terbuka. Jika Anda memiliki pengalaman dengan Java dan Android SDK, silakan bantu kami! https://github.com/wikimedia/apps-android-wikipedia
 
-Kebijakan privasi: http://wikimediafoundation.org/wiki/Privacy_policy
+Kebijakan privasi: https://m.wikimediafoundation.org/wiki/Privacy_policy
 
-Ketentuan penggunaan http://wikimediafoundation.org/wiki/Terms_of_Use</string>
+Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Pemutakhiran alpha baru telah tersedia</string>
   <string name="alpha_update_notification_text">Sentuh untuk mengunduh</string>
   <string name="dialog_close_description">Tutup</string>
   <string name="preference_title_show_images">Tampilkan gambar</string>
   <string name="preference_summary_show_images">Mengaktifkan atau menonaktifkan pemuatan gambar dalam halaman. Hapus centang pengaturan jika koneksi internet anda lambat, atau jika plan data anda terbatas.</string>
   <string name="read_more_section">Baca lebih lanjut</string>
+  <string name="read_next_section">Baca selanjutnya</string>
   <string name="gallery_menu_more_info">Informasi lebih lanjut</string>
   <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>
   <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
@@ -265,4 +266,6 @@ Ketentuan penggunaan http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="snippet_share_preview_image_desc">Pratayang berkas</string>
   <string name="cc_logo">Lisensi Creative Commons</string>
   <string name="captcha_image">Gambar Captcha</string>
+  <string name="gallery_fair_use_license">Penggunaan wajar</string>
+  <string name="gallery_uploader_unknown">Pengunggah tidak diketahui</string>
 </resources>

@@ -99,7 +99,7 @@
   <string name="history_empty_title">لا صفحات مفتوحة مؤخرًا هنا!</string>
   <string name="history_empty_message">تاريخ تصفحك فارغ، يبدو بأنك قد حذفت جميع مدخلات التاريخ. في المرة القادمة التي تزور فيها إحدى الصفحات بإمكانك العودة إليها مباشرةً من هنا.</string>
   <string name="delete_selected_history">حذف</string>
-  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_stylized" fuzzy="true">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="wp_tag_line">الموسوعة الحرة</string>
   <string name="skip">تجاوز</string>
   <string name="create_account_username_hint">اسم المستخدم</string>

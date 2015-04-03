@@ -231,6 +231,7 @@ Uzkondiĉoj: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Montri bildojn</string>
   <string name="preference_summary_show_images">Ŝaltigi aŭ malŝaltigi la ŝarĝadon de bildoj en paĝoj. Malŝaltu ĉi tiun agordon se via reta konekto estas malrapida, aŭ via poŝtelefonaj datumoj estas limigitaj.</string>
   <string name="read_more_section">Legi plu</string>
+  <string name="read_next_section">Legu sekve</string>
   <string name="gallery_menu_more_info">Pliaj informoj</string>
   <string name="menu_gallery_visit_page">Iru al la dosiera paĝo</string>
   <string name="license_title">Teksto de la biblioteka permesilo %s</string>
@@ -249,4 +250,6 @@ Uzkondiĉoj: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="share_normal_button">Kundividi kiel teksto</string>
   <string name="snippet_share_preview_image_desc">Antaŭrigardo de la bildo</string>
   <string name="cc_logo">Krea komunaĵa permesilo</string>
+  <string name="gallery_fair_use_license">Justa uzo</string>
+  <string name="gallery_uploader_unknown">Alŝutanto nekonata</string>
 </resources>
