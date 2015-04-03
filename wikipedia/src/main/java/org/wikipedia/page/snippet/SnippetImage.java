@@ -22,6 +22,9 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.L10nUtils;
 
+import static android.text.Layout.Alignment.ALIGN_NORMAL;
+import static android.text.Layout.Alignment.ALIGN_OPPOSITE;
+
 /**
  * Creator and holder of a Bitmap which is comprised of an optional lead image, a title,
  * optional description, text, the Wikipedia wordmark, and some license icons.
@@ -260,8 +263,9 @@ public final class SnippetImage {
         textPaint.setTextScaleX(scaleX);
 
         Spanned wikipedia = Html.fromHtml(context.getString(R.string.wp_stylized));
+        Layout.Alignment align = L10nUtils.isDeviceRTL() ? ALIGN_OPPOSITE : ALIGN_NORMAL;
         StaticLayout wordmarkLayout = buildLayout(
-                new TextLayoutParams(wikipedia, textPaint, maxWidth, 1.0f));
+                new TextLayoutParams(wikipedia, textPaint, maxWidth, 1.0f, align));
         final int width = (int) wordmarkLayout.getLineWidth(0);
         final int height = wordmarkLayout.getHeight();
 
@@ -344,7 +348,7 @@ public final class SnippetImage {
                 params.text,
                 params.textPaint,
                 params.lineWidth,
-                Layout.Alignment.ALIGN_NORMAL,
+                params.align,
                 params.spacingMultiplier,
                 0.0f,
                 false);
@@ -403,20 +407,29 @@ public final class SnippetImage {
         private final TextPaint textPaint;
         private final int lineWidth;
         private final float spacingMultiplier;
+        private final Layout.Alignment align;
 
         private TextLayoutParams(CharSequence text, TextPaint textPaint, int lineWidth,
-                                 float spacingMultiplier) {
+                                 float spacingMultiplier, Layout.Alignment align) {
             this.text = text;
             this.textPaint = textPaint;
             this.lineWidth = lineWidth;
             this.spacingMultiplier = spacingMultiplier;
+            this.align = align;
         }
 
+        private TextLayoutParams(CharSequence text, TextPaint textPaint, int lineWidth,
+                                 float spacingMultiplier) {
+            this(text, textPaint, lineWidth, spacingMultiplier, ALIGN_NORMAL);
+        }
+
+        /** Copy constructor with updated text */
         public TextLayoutParams(TextLayoutParams other, CharSequence text) {
             this.text = text;
             this.textPaint = other.textPaint;
             this.lineWidth = other.lineWidth;
             this.spacingMultiplier = other.spacingMultiplier;
+            this.align = other.align;
         }
     }
 }
