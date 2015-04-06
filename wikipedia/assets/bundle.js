@@ -700,7 +700,7 @@ transformer.register( "leadSection", function( leadContent ) {
         // Trick for quickly determining element height:
         // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement.offsetHeight
         // http://stackoverflow.com/a/1343350/135557
-        var minHeight = 40;
+        var minHeight = 24;
         if (p.offsetHeight < minHeight){
             continue;
         }
