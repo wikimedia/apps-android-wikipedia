@@ -21,6 +21,7 @@ import org.wikipedia.page.bottomcontent.BottomContentHandlerOld;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
+import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.ImageUrlMap;
@@ -336,15 +337,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
             @Override
             public void onInternalLinkClicked(PageTitle title) {
-                if (!isAdded()) {
-                    return;
-                }
-                if (referenceDialog != null && referenceDialog.isShowing()) {
-                    referenceDialog.dismiss();
-                }
-                HistoryEntry historyEntry = new HistoryEntry(title,
-                                                             HistoryEntry.SOURCE_INTERNAL_LINK);
-                ((PageActivity) getActivity()).displayNewPage(title, historyEntry);
+                handleInternalLink(title);
             }
 
             @Override
@@ -423,6 +416,38 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         // on the backstack.
         if (backStack.size() > 0) {
             loadPageFromBackStack();
+        }
+    }
+
+    private void handleInternalLink(PageTitle title) {
+        if (!isAdded()) {
+            return;
+        }
+        if (referenceDialog != null && referenceDialog.isShowing()) {
+            referenceDialog.dismiss();
+        }
+        // TODO: remove toggle when ready for production.
+        // Let's toggle between three possible behaviors:
+        // A) not show a link preview, and go directly to the target article (weight: 50%)
+        // B) show link preview prototype 1 (weight: 25%)
+        // C) show link preview prototype 2 (weight: 25%)
+        final int linkPreviewToggleWeight = 4;
+        // take the app install id modulo 4 to get our toggle value
+        // (hard-code the value for building one-off APKs for testing specific prototypes)
+        int linkPreviewToggle = app.getAppInstallIDInt() % linkPreviewToggleWeight;
+        if (linkPreviewToggle > 1 || app.getReleaseType() == WikipediaApp.RELEASE_PROD) {
+            // For values 2 and 3 (or for the production version of the app), just
+            // go to the target article
+            HistoryEntry historyEntry = new HistoryEntry(title,
+                    HistoryEntry.SOURCE_INTERNAL_LINK);
+            ((PageActivity) getActivity()).displayNewPage(title, historyEntry);
+        } else if (linkPreviewToggle == 1) {
+            // prototype 1 of link previews
+            LinkPreviewDialog dialog = LinkPreviewDialog.newInstance(title);
+            dialog.show(getActivity().getSupportFragmentManager(), "link_preview_dialog");
+        } else if (linkPreviewToggle == 0) {
+            // prototype 2 of link previews
+            // TODO: add me in the next patch.
         }
     }
 

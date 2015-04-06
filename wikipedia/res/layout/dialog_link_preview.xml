@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="256dp"
+    android:orientation="horizontal"
+    android:background="?attr/window_background_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/link_preview_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="18dp"
+                android:paddingBottom="12dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textSize="18sp"
+                android:fontFamily="serif"
+                android:lineSpacingMultiplier="0.8"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="?attr/link_color"
+                tools:text="Lorem ipsum"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/link_preview_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:text="Lorem ipsum"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/list_separator_light"/>
+
+        <LinearLayout
+            android:id="@+id/link_preview_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:padding="6dp"
+            android:background="?attr/window_background_color">
+
+            <TextView
+                android:id="@+id/link_preview_extract"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:paddingStart="6dp"
+                android:paddingLeft="6dp"
+                android:paddingEnd="6dp"
+                android:paddingRight="6dp"
+                android:textSize="16sp"
+                tools:text="Lorem ipsum"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4">
+                <ImageView
+                    android:id="@+id/link_preview_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="?attr/lead_image_drawable"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"/>
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/link_preview_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+</FrameLayout>

@@ -471,8 +471,26 @@ public class WikipediaApp extends Application {
         return styleLoader;
     }
 
+    /**
+     * Get this app's unique install ID, which is a UUID that should be unique for each install
+     * of the app. Useful for anonymous analytics.
+     * @return Unique install ID for this app.
+     */
     public String getAppInstallID() {
         return getAppInstallIDForFeature(PrefKeys.getAppInstallId());
+    }
+
+    /**
+     * Get an integer-valued install ID for this app (based on the last four hex digits of the
+     * actual install ID of the app). Note that this value will *not* be unique for every install
+     * of the app. Instead, this value should be used for feature-flagging and A/B testing of
+     * new features.
+     * @return Integer-valued install ID for this app, which can range from 0 to 65535.
+     */
+    public int getAppInstallIDInt() {
+        final int hexBase = 16;
+        final int uuidSubstrLen = 4;
+        return Integer.parseInt(getAppInstallID().substring(getAppInstallID().length() - uuidSubstrLen), hexBase);
     }
 
     /**
