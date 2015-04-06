@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnKeyListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -25,7 +27,6 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.*;
 import org.wikipedia.analytics.CreateAccountFunnel;
 import org.wikipedia.editing.CaptchaHandler;
-
 
 public class CreateAccountActivity extends ThemedActionBarActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;
@@ -163,6 +164,17 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                         }
                     });
                 }
+            }
+        });
+
+        // Add listener so that when the user taps enter, it submits the captcha
+        captchaText.setOnKeyListener(new OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_UP) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    validator.validate();
+                    return true;
+                }
+                return false;
             }
         });
 
