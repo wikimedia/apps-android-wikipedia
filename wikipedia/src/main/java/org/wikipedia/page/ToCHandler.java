@@ -34,6 +34,7 @@ public class ToCHandler {
     private static final int MAX_LEVELS = 3;
     private static final int INDENTATION_WIDTH_DP = 16;
     private static final int READ_MORE_SECTION_ID = -1;
+    private final View knowToCContainer;
     private final ListView tocList;
     private final ProgressBar tocProgress;
     private final CommunicationBridge bridge;
@@ -58,7 +59,7 @@ public class ToCHandler {
 
         this.tocList = (ListView) slidingPane.findViewById(R.id.page_toc_list);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
-        final View knowToCContainer = slidingPane.findViewById(R.id.know_toc_intro_container);
+        knowToCContainer = slidingPane.findViewById(R.id.know_toc_intro_container);
 
         bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {
             @Override
@@ -102,7 +103,7 @@ public class ToCHandler {
                 final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(parentActivity);
                 final boolean knowsToC = prefs.getBoolean(PrefKeys.getKnowTocDrawer(), false);
                 if (!knowsToC) {
-                    showToCIntro(prefs, slidingPane, knowToCContainer);
+                    showToCIntro(prefs, slidingPane);
                 }
             }
 
@@ -133,9 +134,9 @@ public class ToCHandler {
         });
     }
 
-    private void showToCIntro(final SharedPreferences prefs, DisableableDrawerLayout slidingPane, final View knowToCContainer) {
+    private void showToCIntro(final SharedPreferences prefs, DisableableDrawerLayout slidingPane) {
         if (openedViaSwipe) {
-            knowSwipe(prefs, slidingPane.findViewById(R.id.know_toc_intro_container));
+            knowSwipe(prefs);
         } else {
             final View gotItButton = slidingPane.findViewById(R.id.know_toc_drawer_button);
             if (!knowToCContainer.isShown()) {
@@ -149,13 +150,13 @@ public class ToCHandler {
             gotItButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    knowSwipe(prefs, knowToCContainer);
+                    knowSwipe(prefs);
                 }
             });
         }
     }
 
-    private void knowSwipe(SharedPreferences prefs, View knowToCContainer) {
+    private void knowSwipe(SharedPreferences prefs) {
         prefs.edit().putBoolean(PrefKeys.getKnowTocDrawer(), true).apply();
         if (knowToCContainer.isShown()) {
             ViewAnimations.crossFade(knowToCContainer, tocList);
@@ -220,6 +221,7 @@ public class ToCHandler {
             if (!knowsToC) {
                 openedViaSwipe = false;
                 slidingPane.openDrawer(Gravity.END);
+                showToCIntro(prefs, slidingPane);
             }
         }
     }
