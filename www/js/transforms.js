@@ -10,7 +10,7 @@ function removeParensFromText( string ) {
     var newString = '';
     var level = 0;
     var i = 0;
-    for( ; i < string.length - 1; i++ ) {
+    for( ; i < string.length; i++ ) {
         ch = string.charAt( i );
         if ( ch === ')' && level === 0  ) {
             // abort if we have an imbalance of parentheses
@@ -25,7 +25,7 @@ function removeParensFromText( string ) {
         }
         if ( level === 0 ) {
             // Remove leading spaces before parentheses
-            if ( ch === ' ' && string.charAt( i + 1 ) === '(' ) {
+            if ( ch === ' ' && (i < string.length - 1) && string.charAt( i + 1 ) === '(' ) {
                 continue;
             }
             newString += ch;
