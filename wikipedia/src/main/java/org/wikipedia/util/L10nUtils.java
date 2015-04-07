@@ -7,7 +7,7 @@ import org.wikipedia.R;
 /**
  * A collection of localization `related methods.
  */
-public class L10nUtils {
+public final class L10nUtils {
     private L10nUtils() {
     }
 
