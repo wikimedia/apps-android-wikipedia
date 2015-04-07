@@ -28,18 +28,18 @@
                 android:layout_marginTop="8dp"
                 android:layout_gravity="center_horizontal">
             <Button
+                    android:id="@+id/buttonDecreaseTextSize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonDecreaseTextSize"
                     style="@style/button_gray"
                     android:layout_margin="0dp"
                     android:text="−"
                     android:textSize="26sp"
                     tools:ignore="HardcodedText"/>
             <Button
+                    android:id="@+id/buttonDefaultTextSize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonDefaultTextSize"
                     style="@style/button_gray"
                     android:layout_marginLeft="12dp"
                     android:layout_marginRight="12dp"
@@ -49,9 +49,9 @@
                     android:textSize="26sp"
                     tools:ignore="HardcodedText"/>
             <Button
+                    android:id="@+id/buttonIncreaseTextSize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonIncreaseTextSize"
                     style="@style/button_gray"
                     android:layout_margin="0dp"
                     android:text="+"
@@ -82,9 +82,9 @@
                 android:layout_marginBottom="26dp"
                 android:layout_gravity="center_horizontal">
             <Button
+                    android:id="@+id/buttonColorsLight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonColorsLight"
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="6dp"
                     android:paddingTop="8dp"
@@ -96,9 +96,9 @@
                     android:text="@string/color_theme_light"
                     />
             <Button
+                    android:id="@+id/buttonColorsDark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonColorsDark"
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="6dp"
                     android:paddingTop="8dp"

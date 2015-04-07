@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/recent_searches_container"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:id="@+id/recent_searches_container">
+              android:layout_height="match_parent">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -30,7 +30,11 @@
             android:background="@drawable/selectable_item_background"/>
     </FrameLayout>
 
-    <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="?attr/list_separator_color" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="?attr/list_separator_color"
+        />
 
     <ListView
         android:id="@+id/recent_searches_list"

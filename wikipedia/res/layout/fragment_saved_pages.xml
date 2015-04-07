@@ -44,9 +44,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <org.wikipedia.views.PlainPasteEditText
+                android:id="@+id/saved_pages_search_list"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:id="@+id/saved_pages_search_list"
                 android:hint="@string/saved_pages_search_list_hint"
                 android:imeOptions="actionDone"
                 android:singleLine="true"

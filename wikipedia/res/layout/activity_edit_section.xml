@@ -77,9 +77,9 @@
 
     <include layout="@layout/group_captcha" />
 
-    <ScrollView android:layout_width="match_parent"
+    <ScrollView android:id="@+id/edit_section_abusefilter_container"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/edit_section_abusefilter_container"
                 android:visibility="gone"
                 tools:visibility="visible"
                 android:background="?attr/window_background_color"

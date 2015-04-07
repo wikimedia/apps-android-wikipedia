@@ -12,9 +12,9 @@
             android:layout_height="wrap_content"
             android:indeterminate="true"
             />
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+    <TextView android:id="@+id/langlinks_empty"
+              android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:id="@+id/langlinks_empty"
               android:text="@string/langlinks_empty"
               android:textAlignment="center"
               style="?android:textAppearanceLarge"
@@ -22,9 +22,10 @@
               android:layout_marginRight="16dp"
               android:visibility="gone"
         />
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+    <TextView android:id="@+id/langlinks_no_match"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:id="@+id/langlinks_no_match"
               android:text="@string/langlinks_no_match"
               android:textAlignment="center"
               style="?android:textAppearanceLarge"
@@ -65,16 +66,19 @@
             tools:visibility="visible"
             >
         <org.wikipedia.views.PlainPasteEditText
+                android:id="@+id/langlinks_filter"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:id="@+id/langlinks_filter"
                 android:hint="@string/langlinks_filter_hint"
                 android:singleLine="true"
                 android:imeOptions="actionDone"
                 />
-        <ListView android:layout_width="fill_parent" android:layout_height="fill_parent"
-                  android:id="@+id/langlinks_list" />
+        <ListView android:id="@+id/langlinks_list"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                />
+
     </LinearLayout>
 </FrameLayout>

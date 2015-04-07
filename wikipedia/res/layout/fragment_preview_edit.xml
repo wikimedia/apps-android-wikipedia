@@ -2,10 +2,10 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/edit_preview_container"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/edit_preview_container"
             android:visibility="gone"
             tools:visibility="visible"
             android:background="?attr/window_background_color"
@@ -24,13 +24,13 @@
                 android:layout_margin="16dp"
                 >
 
-
             <TextView
+                    android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/edit_how_page_improved"
-                    android:id="@+id/textView"/>
+                    />
 
             <org.wikipedia.views.FlowLayout
                     android:id="@+id/edit_summary_tags_container"
@@ -86,11 +86,11 @@
                 android:gravity="center_vertical"/>
 
         <org.wikipedia.views.ObservableWebView
+                android:id="@+id/edit_preview_webview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                android:id="@+id/edit_preview_webview"
                 />
 
     </LinearLayout>

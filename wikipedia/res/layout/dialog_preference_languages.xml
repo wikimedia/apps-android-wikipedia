@@ -6,16 +6,18 @@
               android:layout_height="match_parent"
               android:background="?attr/window_background_color">
     <org.wikipedia.views.PlainPasteEditText
+            android:id="@+id/preference_languages_filter"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:id="@+id/preference_languages_filter"
             android:hint="@string/preference_languages_filter_hint"
             android:imeOptions="actionDone"
             android:singleLine="true"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             />
-    <ListView android:layout_width="fill_parent" android:layout_height="fill_parent"
+    <ListView android:id="@+id/preference_languages_list"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
               android:choiceMode="singleChoice"
-              android:id="@+id/preference_languages_list" />
+               />
 </LinearLayout>

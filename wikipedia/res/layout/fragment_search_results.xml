@@ -2,9 +2,9 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/search_results_display"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:id="@+id/search_results_display">
+             android:layout_height="match_parent">
     <Button
         android:id="@+id/search_network_error"
         android:layout_width="match_parent"

@@ -16,8 +16,9 @@
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_search_results" />
 
-    <fragment android:layout_width="match_parent" android:layout_height="match_parent"
-        android:id="@+id/search_panel_recent"
+    <fragment android:id="@+id/search_panel_recent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:name="org.wikipedia.search.RecentSearchesFragment"
         tools:layout="@layout/fragment_search_recent"/>
 

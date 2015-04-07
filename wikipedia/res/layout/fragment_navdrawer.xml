@@ -11,14 +11,14 @@
                   android:orientation="horizontal"
             >
 
-    <LinearLayout android:layout_width="0dp"
+    <LinearLayout android:id="@+id/nav_item_container"
+                  android:layout_width="0dp"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:paddingLeft="4dp"
                   android:paddingRight="4dp"
                   android:paddingBottom="16dp"
                   android:layout_weight="1"
-                  android:id="@+id/nav_item_container"
                   android:background="@color/nav_background"
             >
 
@@ -31,10 +31,10 @@
             android:layout_marginBottom="34dp"
             android:src="@drawable/nav_drawer_wordmark"/>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/nav_item_login"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
-                      android:id="@+id/nav_item_login"
                       android:background="@drawable/nav_item_background"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
@@ -60,10 +60,10 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/nav_item_username"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
-                      android:id="@+id/nav_item_username"
                       android:paddingTop="8dp"
                       android:paddingBottom="8dp"
                       android:visibility="gone"
@@ -81,10 +81,10 @@
                           android:orientation="vertical"
                     >
                 <TextView
+                        android:id="@+id/nav_item_username_primary_text"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:gravity="center_vertical"
-                        android:id="@+id/nav_item_username_primary_text"
                         android:textColor="@color/nav_text"
                         tools:text="Sample user name"
                         style="?android:textAppearanceMedium"
@@ -92,10 +92,10 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/nav_item_today"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
-                      android:id="@+id/nav_item_today"
                       android:background="@drawable/nav_item_background"
                 >
             <ImageView android:layout_width="32dp" android:layout_height="32dp"
@@ -115,10 +115,10 @@
                     />
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/nav_item_history"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
-                      android:id="@+id/nav_item_history"
                       android:background="@drawable/nav_item_background"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
@@ -138,10 +138,10 @@
                     />
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/nav_item_saved_pages"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
-                      android:id="@+id/nav_item_saved_pages"
                       android:background="@drawable/nav_item_background"
                 >
             <ImageView android:layout_width="24dp" android:layout_height="24dp"
@@ -161,10 +161,10 @@
                     />
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/nav_item_nearby"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
-                      android:id="@+id/nav_item_nearby"
                       android:background="@drawable/nav_item_background"
                 >
             <ImageView android:layout_width="32dp" android:layout_height="32dp"
@@ -184,22 +184,24 @@
                     />
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/nav_item_random"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
-                      android:id="@+id/nav_item_random"
                       android:background="@drawable/nav_item_background"
                 >
             <FrameLayout android:layout_width="24dp" android:layout_height="24dp"
                          android:layout_margin="12dp"
                          android:padding="2dp"
                          android:layout_gravity="center_vertical">
-                <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
+                <ImageView android:id="@+id/nav_item_random_icon"
+                           android:layout_width="match_parent"
+                           android:layout_height="match_parent"
                            android:src="@drawable/dice_white"
-                           android:id="@+id/nav_item_random_icon"
                            android:contentDescription="@null" />
-                <ProgressBar android:layout_width="match_parent" android:layout_height="match_parent"
-                           android:id="@+id/nav_item_random_progressbar"
+                <ProgressBar android:id="@+id/nav_item_random_progressbar"
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent"
                         />
             </FrameLayout>
             <TextView
@@ -227,13 +229,14 @@
         <!-- Separator view for providing gap between top items and bottom ones -->
         <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/nav_item_more"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
-                      android:id="@+id/nav_item_more"
                       android:background="@drawable/nav_item_background"
                 >
-            <ImageView android:layout_width="24dp" android:layout_height="24dp"
+            <ImageView android:layout_width="24dp"
+                       android:layout_height="24dp"
                        android:layout_margin="12dp"
                        android:padding="2dp"
                        android:layout_gravity="center_vertical"
