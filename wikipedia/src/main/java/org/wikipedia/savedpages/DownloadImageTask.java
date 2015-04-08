@@ -5,6 +5,7 @@ import com.github.kevinsawicki.http.HttpRequest;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.util.NetworkUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -22,7 +23,7 @@ public class DownloadImageTask extends SaneAsyncTask<Boolean> {
     public DownloadImageTask(WikipediaApp app, String imageUrl, File file) {
         super(HIGH_CONCURRENCY);
         this.app = app;
-        this.imageUrl = Utils.resolveProtocolRelativeUrl(imageUrl);
+        this.imageUrl = NetworkUtils.resolveProtocolRelativeUrl(imageUrl);
         this.file = file;
     }
 

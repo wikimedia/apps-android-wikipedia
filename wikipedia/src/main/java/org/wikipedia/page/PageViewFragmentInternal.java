@@ -29,6 +29,7 @@ import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.search.SearchBarHideHandler;
+import org.wikipedia.util.NetworkUtils;
 import org.wikipedia.views.DisableableDrawerLayout;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
@@ -122,7 +123,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private SearchBarHideHandler searchBarHideHandler;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
-    private View networkError;
+    private View networkError; // TODO: change this later to pageError when not under active development
     private View retryButton;
     private View pageDoesNotExistError;
     private DisableableDrawerLayout tocDrawer;
@@ -1210,7 +1211,16 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     }
 
     private void showNetworkError() {
-        // Check for the source of the error and have different things turn up
+        // TODO: Check for the source of the error and have different things turn up
+        // TODO: Change the name of this function to showPageError when the file is not under active development
+        TextView errorMessage = (TextView) networkError.findViewById(R.id.page_error_message);
+
+        if (!NetworkUtils.isNetworkConnectionPresent(app)) {
+            errorMessage.setText(R.string.error_network_error);
+        } else {
+            errorMessage.setText(R.string.generic_page_error);
+        }
+
         hidePageContent();
         ViewAnimations.fadeIn(networkError);
     }

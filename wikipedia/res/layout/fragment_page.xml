@@ -220,12 +220,15 @@
             android:orientation="vertical"
             android:visibility="gone"
             >
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center"
-                  android:text="@string/error_network_error"
-                  style="?android:textAppearanceLarge"
-                />
+
+        <TextView
+                android:id="@+id/page_error_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_margin="24dp"
+                android:text="@string/generic_page_error"
+                style="?android:textAppearanceLarge" />
 
         <Button
                 android:id="@+id/page_error_retry"

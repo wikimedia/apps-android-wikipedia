@@ -15,6 +15,7 @@
     <string name="nav_item_history">History</string>
     <string name="error_network_error">There is no network connection :(</string>
     <string name="search_network_error">Network error. Tap to try again.</string>
+    <string name="generic_page_error">There was a problem handling your request.</string>
     <string name="page_error_retry">Retry</string>
     <string name="menu_clear_all_history">Clear history</string>
     <string name="menu_clear_all_saved_pages">Clear saved pages</string>

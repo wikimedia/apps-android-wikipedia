@@ -10,14 +10,11 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.TypedArray;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Looper;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
-import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.text.InputType;
 import android.text.format.DateUtils;
@@ -59,7 +56,6 @@ import java.util.*;
  */
 public final class Utils {
 
-    private static final int MCC_LENGTH = 3;
     private static final int KB16 = 16 * 1024;
 
     /**
@@ -269,50 +265,6 @@ public final class Utils {
             textView.setError(error);
         } else {
             textView.setError(Html.fromHtml("<font color='red'>" + error + "</font>"));
-        }
-    }
-
-    /**
-     * Read the MCC-MNC (mobile operator code) if available and the cellular data connection is the active one.
-     * http://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
-     * @param ctx Application context.
-     * @return The MCC-MNC, typically as ###-##, or null if unable to ascertain (e.g., no actively used cellular)
-     */
-    public static String getMccMnc(Context ctx) {
-        String mccMncNetwork;
-        String mccMncSim;
-        try {
-            ConnectivityManager conn = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo = conn.getActiveNetworkInfo();
-            if (networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED
-                    && (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE || networkInfo.getType() == ConnectivityManager.TYPE_WIMAX))
-            {
-                TelephonyManager t = (TelephonyManager)ctx.getSystemService(WikipediaApp.TELEPHONY_SERVICE);
-                if (t != null && t.getPhoneType() >= 0) {
-                    mccMncNetwork = t.getNetworkOperator();
-                    if (mccMncNetwork != null) {
-                        mccMncNetwork = mccMncNetwork.substring(0, MCC_LENGTH) + "-" + mccMncNetwork.substring(MCC_LENGTH);
-                    } else {
-                        mccMncNetwork = "000-00";
-                    }
-
-                    // TelephonyManager documentation refers to MCC-MNC unreliability on CDMA,
-                    // and we actually see that network and SIM MCC-MNC don't always agree,
-                    // so let's check the SIM, too. Let's not worry if it's CDMA, as the def of CDMA is complex.
-                    mccMncSim = t.getSimOperator();
-                    if (mccMncSim != null) {
-                        mccMncSim = mccMncSim.substring(0, MCC_LENGTH) + "-" + mccMncSim.substring(MCC_LENGTH);
-                    } else {
-                        mccMncSim = "000-00";
-                    }
-
-                    return mccMncNetwork + "," + mccMncSim;
-                }
-            }
-            return null;
-        } catch (Throwable t) {
-            // Because, despite best efforts, things can go wrong and we don't want to crash the app:
-            return null;
         }
     }
 
@@ -624,30 +576,6 @@ public final class Utils {
             stringArray[i] = array.optString(i);
         }
         return stringArray;
-    }
-
-    /**
-     * Resolves a potentially protocol relative URL to a 'full' URL
-     *
-     * @param url Url to check for (and fix) protocol relativeness
-     * @return A fully qualified, protocol specified URL
-     */
-    public static String resolveProtocolRelativeUrl(String url) {
-        String fullUrl;
-        if (url.startsWith("//")) {
-            // That's a protocol specific link! Make it https!
-            fullUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + url;
-        } else {
-            fullUrl = url;
-        }
-        return fullUrl;
-    }
-
-    /**
-     * Ask user to try connecting again upon (hopefully) recoverable network failure.
-     */
-    public static void toastFail() {
-        Toast.makeText(WikipediaApp.getInstance(), R.string.error_network_error_try_again, Toast.LENGTH_LONG).show();
     }
 
     /**

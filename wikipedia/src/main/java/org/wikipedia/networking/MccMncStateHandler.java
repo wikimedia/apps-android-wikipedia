@@ -3,8 +3,8 @@ package org.wikipedia.networking;
 import android.content.Context;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.NetworkUtils;
 
 import java.util.HashMap;
 
@@ -32,7 +32,7 @@ public class MccMncStateHandler {
             || !(site.getApiDomain().contains(".m.wikipedia.org"))) {
             return null;
         }
-        String mccMnc = Utils.getMccMnc(ctx);
+        String mccMnc = NetworkUtils.getMccMnc(ctx);
         if (mccMnc != null) {
             customHeaders.put("X-MCCMNC", mccMnc);
             this.mccMncSent = true;

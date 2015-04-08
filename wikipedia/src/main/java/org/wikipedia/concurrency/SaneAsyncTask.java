@@ -1,9 +1,6 @@
 package org.wikipedia.concurrency;
 
 import java.util.concurrent.Executor;
-import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
-import javax.net.ssl.SSLException;
 
 public abstract class SaneAsyncTask<T> {
     public static final int SINGLE_THREAD = 1;
@@ -19,7 +16,7 @@ public abstract class SaneAsyncTask<T> {
      */
     public SaneAsyncTask(Executor executor) {
         this.executor = executor;
-        underlyingTask =  new BackingAsyncTask();
+        this.underlyingTask = new BackingAsyncTask();
     }
 
     /**
@@ -52,27 +49,9 @@ public abstract class SaneAsyncTask<T> {
 
     }
 
-    /**
-     * Called when an exception is thrown in the background process.
-     * <p/>
-     * Called on the UI Thread.
-     *
-     * Default implementation just throws it as a RuntimeException, so exceptions are never swallowed.
-     * Unless specific exceptions are handled.
-     *
-     * @param caught The exception that was thrown.
-     */
     public void onCatch(Throwable caught) {
-        if (Utils.throwableContainsSpecificType(caught, SSLException.class)
-                && WikipediaApp.getInstance().incSslFailCount() < 2) {
-            WikipediaApp.getInstance().setSslFallback(true);
-            Utils.toastFail();
-            cancel();
-            return;
-        }
-        throw new RuntimeException(caught);
-    }
 
+    }
 
     /**
      * Called to perform the actual work in the background.
