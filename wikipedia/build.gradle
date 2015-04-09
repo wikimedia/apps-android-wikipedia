@@ -2,7 +2,15 @@ apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.application'
 apply from: '../config/quality.gradle'
 
-def versionStart = '2.0'
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyy-MM-dd')
+    return formattedDate
+}
+
+def computeVersionName(label) {
+    return "2.0.${android.defaultConfig.versionCode}-${label}-${date}"
+}
 
 android {
     compileSdkVersion 22
@@ -26,27 +34,27 @@ android {
     }
     productFlavors {
         dev {
-            versionName "${versionStart}-dev-${date}"
+            versionName computeVersionName("dev")
         }
         prod {
-            versionName "${versionStart}-r-${date}"
+            versionName computeVersionName("r")
         }
         releasesprod {
-            versionName "${versionStart}-releasesprod-${date}"
+            versionName computeVersionName("releasesprod")
         }
         alpha {
-            versionName "${versionStart}-alpha-${date}"
+            versionName computeVersionName("alpha")
             applicationId 'org.wikipedia.alpha'
         }
         beta {
-            versionName "${versionStart}-beta-${date}"
+            versionName computeVersionName("beta")
             applicationId 'org.wikipedia.beta'
         }
         amazon {
-            versionName "${versionStart}-amazon-${date}"
+            versionName computeVersionName("amazon")
         }
         custom {
-            versionName "${versionStart}-${customChannel}-${date}"
+            versionName computeVersionName(customChannel)
             applicationId getProperty('customApplicationId')
             // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
@@ -81,12 +89,6 @@ android {
         disable 'MissingTranslation'
         warning 'NewApi' // until https://code.google.com/p/android/issues/detail?id=137195 is released
     }
-}
-
-def getDate() {
-    def date = new Date()
-    def formattedDate = date.format('yyyy-MM-dd')
-    return formattedDate
 }
 
 dependencies {
