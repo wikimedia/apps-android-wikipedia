@@ -12,19 +12,19 @@
               android:background="@drawable/selectable_item_background"
               >
     <TextView
-            android:id="@+id/language_list_language_article_local_name"
-            android:layout_width="wrap_content"
+            android:id="@+id/language_local_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:gravity="center_vertical"
-            tools:text="Sample language local name | Sample article local name"
+            tools:text="Sample language local name"
             />
     <TextView
-            android:id="@+id/language_list_language_name"
-            android:layout_width="wrap_content"
+            android:id="@+id/article_local_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:gravity="center_vertical"
-            tools:text="Sample language English name"
+            tools:text="Sample article local name"
             />
 </LinearLayout>

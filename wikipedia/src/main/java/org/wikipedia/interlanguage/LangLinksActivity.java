@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import org.wikipedia.*;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
@@ -237,19 +238,16 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                 convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_language_list_entry, parent, false);
             }
 
-            TextView langNameText = (TextView) convertView.findViewById(R.id.language_list_language_name);
-            TextView langArticleLocalNameText = (TextView) convertView.findViewById(R.id.language_list_language_article_local_name);
-
             PageTitle langLink = (PageTitle) getItem(position);
-
             String wikiCode = langLink.getSite().getLanguage();
-
             int langIndex = app.findWikiIndex(wikiCode);
+            String localName = app.localNameFor(langIndex);
 
-            langNameText.setText(app.canonicalNameFor(langIndex));
-            langArticleLocalNameText.setText(String.format("%1$s | %2$s",
-                                                           app.localNameFor(langIndex),
-                                                           langLink.getText()));
+            TextView langLocalNameText = (TextView) convertView.findViewById(R.id.language_local_name);
+            TextView articleLocalNameText = (TextView) convertView.findViewById(R.id.article_local_name);
+
+            langLocalNameText.setText(localName);
+            articleLocalNameText.setText(langLink.getText());
 
             return convertView;
         }
