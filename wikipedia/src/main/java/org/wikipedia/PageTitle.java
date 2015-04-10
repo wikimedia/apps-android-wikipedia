@@ -97,7 +97,9 @@ public class PageTitle implements Parcelable {
         return text;
     }
 
-    public String getFragment() { return fragment; }
+    public String getFragment() {
+        return fragment;
+    }
 
     public String getThumbUrl() {
         return thumbUrl;

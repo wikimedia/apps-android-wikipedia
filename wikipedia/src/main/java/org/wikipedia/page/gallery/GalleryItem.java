@@ -10,28 +10,44 @@ import java.util.Map;
 
 public class GalleryItem {
     private final JSONObject json;
-    public JSONObject toJSON() { return json; }
+    public JSONObject toJSON() {
+        return json;
+    }
 
     private final String name;
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
     private String url;
-    public String getUrl() { return url; }
+    public String getUrl() {
+        return url;
+    }
 
     private final String mimeType;
-    public String getMimeType() { return mimeType; }
+    public String getMimeType() {
+        return mimeType;
+    }
 
     private final HashMap<String, String> metadata;
-    public Map<String, String> getMetadata() { return metadata; }
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
 
     private final String thumbUrl;
-    public String getThumbUrl() { return thumbUrl; }
+    public String getThumbUrl() {
+        return thumbUrl;
+    }
 
     private final int width;
-    public int getWidth() { return width; }
+    public int getWidth() {
+        return width;
+    }
 
     private final int height;
-    public int getHeight() { return height; }
+    public int getHeight() {
+        return height;
+    }
 
     private String licenseName;
     private String licenseUrl;

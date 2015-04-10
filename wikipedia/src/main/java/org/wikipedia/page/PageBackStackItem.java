@@ -7,14 +7,22 @@ import android.os.Parcelable;
 
 public class PageBackStackItem implements Parcelable {
     private final PageTitle title;
-    public PageTitle getTitle() { return title; }
+    public PageTitle getTitle() {
+        return title;
+    }
 
     private final HistoryEntry historyEntry;
-    public HistoryEntry getHistoryEntry() { return historyEntry; }
+    public HistoryEntry getHistoryEntry() {
+        return historyEntry;
+    }
 
     private int scrollY;
-    public int getScrollY() { return scrollY; }
-    public void setScrollY(int scrollY) { this.scrollY = scrollY; }
+    public int getScrollY() {
+        return scrollY;
+    }
+    public void setScrollY(int scrollY) {
+        this.scrollY = scrollY;
+    }
 
     public PageBackStackItem(PageTitle title, HistoryEntry historyEntry) {
         this.title = title;
