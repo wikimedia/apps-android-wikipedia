@@ -44,6 +44,9 @@ public class LinkPreviewDialog extends DialogFragment {
     private static final String TAG = "LinkPreviewDialog";
     private static final int DIALOG_HEIGHT = 196;
 
+    // TODO: remove when we finalize the layout to be used.
+    private int layoutToggle;
+
     private View previewContainer;
     private ProgressBar progressBar;
     private TextView titleText;
@@ -56,17 +59,19 @@ public class LinkPreviewDialog extends DialogFragment {
 
     private GestureDetectorCompat gestureDetector;
 
-    public static LinkPreviewDialog newInstance(PageTitle title) {
+    public static LinkPreviewDialog newInstance(PageTitle title, int layoutToggle) {
         LinkPreviewDialog dialog = new LinkPreviewDialog();
         Bundle args = new Bundle();
         args.putParcelable("title", title);
+        args.putInt("layoutToggle", layoutToggle);
         dialog.setArguments(args);
         return dialog;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.dialog_link_preview, container);
+        layoutToggle = getArguments().getInt("layoutToggle");
+        View rootView = inflater.inflate(layoutToggle == 0 ? R.layout.dialog_link_preview : R.layout.dialog_link_preview_2, container);
         previewContainer = rootView.findViewById(R.id.link_preview_container);
         progressBar = (ProgressBar) rootView.findViewById(R.id.link_preview_progress);
         titleText = (TextView) rootView.findViewById(R.id.link_preview_title);
@@ -230,8 +235,7 @@ public class LinkPreviewDialog extends DialogFragment {
         if (!TextUtils.isEmpty(contents.getTitle().getThumbUrl()) && app.showImages()) {
             Picasso.with(getActivity())
                    .load(contents.getTitle().getThumbUrl())
-                   .placeholder(
-                           Utils.getThemedAttributeId(getActivity(), R.attr.lead_image_drawable))
+                   .placeholder(layoutToggle == 0 ? Utils.getThemedAttributeId(getActivity(), R.attr.lead_image_drawable) : R.drawable.link_preview_gradient)
                    .error(Utils.getThemedAttributeId(getActivity(), R.attr.lead_image_drawable))
                     .into(previewImage, new Callback() {
                         @Override

@@ -441,13 +441,11 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             HistoryEntry historyEntry = new HistoryEntry(title,
                     HistoryEntry.SOURCE_INTERNAL_LINK);
             ((PageActivity) getActivity()).displayNewPage(title, historyEntry);
-        } else if (linkPreviewToggle == 1) {
-            // prototype 1 of link previews
-            LinkPreviewDialog dialog = LinkPreviewDialog.newInstance(title);
+        } else {
+            // For values 0 and 1, pass the value to the LinkPreviewDialog, which will use
+            // the value to adjust its prototype layout.
+            LinkPreviewDialog dialog = LinkPreviewDialog.newInstance(title, linkPreviewToggle);
             dialog.show(getActivity().getSupportFragmentManager(), "link_preview_dialog");
-        } else if (linkPreviewToggle == 0) {
-            // prototype 2 of link previews
-            // TODO: add me in the next patch.
         }
     }
 
