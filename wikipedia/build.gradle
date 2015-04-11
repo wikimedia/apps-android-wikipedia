@@ -11,7 +11,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 10
         targetSdkVersion 22
-        versionCode 99
+        versionCode 100
         testApplicationId "org.wikipedia.test"
     }
     signingConfigs {
