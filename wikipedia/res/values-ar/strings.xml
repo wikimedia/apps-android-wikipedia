@@ -47,6 +47,7 @@
   <string name="nearby_dialog_goto_settings">تحديثات الأماكن ليست مفعلة في جهازك. هل تود الانتقال إلى إعدادات جهازك لتفعيلها؟</string>
   <string name="nearby_set_metric">إظهار متر/كيلو متر</string>
   <string name="nearby_set_imperial">إظهار قدم/ميل</string>
+  <string name="nearby_view_on_map">عرض المكان على الخريطة</string>
   <string name="last_updated_text">آخر تحديث %s</string>
   <string name="content_license_html">المحتوى متوفر تحت رخصة  &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; إلا إذا ذُكر غير ذلك.</string>
   <string name="edit_save_action_license_logged_in">بالحفظ، فإنك توافق على &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -232,6 +233,7 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="preference_title_show_images">إظهار الصور</string>
   <string name="preference_summary_show_images">تفعيل أو إلغاء تفعيل تحميل الصور في الصفحات. أزل اختيار هذا الإعداد إذا كان اتصالك بالإنترنت بطيئًا، أو إذا كانت خطة بياناتك محدودة.</string>
   <string name="read_more_section">اقرأ المزيد</string>
+  <string name="read_next_section">قراءة التالي</string>
   <string name="gallery_menu_more_info">معلومات أخرى</string>
   <string name="menu_gallery_visit_page">الذهاب إلى صفحة الملف</string>
   <string name="gallery_error_draw_failed">خطأ في إظهار الصورة.</string>

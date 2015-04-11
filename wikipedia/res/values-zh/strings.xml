@@ -51,7 +51,7 @@
   <string name="last_updated_text">最后更新：%s</string>
   <string name="content_license_html">除非另有说明，内容依据&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;协议发布。</string>
   <string name="edit_save_action_license_logged_in">一旦保存，表示您同意&lt;a href=\"https://wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并不可撤销地在&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;许可下提交您的贡献。</string>
-  <string name="edit_save_action_license_anon">一旦保存，表示您同意&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并义无反顾地根据&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;协议发布您的贡献。编辑历史将显示您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;，您的隐私会被保护。</string>
+  <string name="edit_save_action_license_anon">一旦保存，即表示您同意遵守&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并根据&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;协议不可撤回地发布您的贡献。编辑历史将显示您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录账户&lt;/a&gt;，您将能更好地保护隐私。</string>
   <string name="preference_title_language">维基百科语言</string>
   <string name="preference_languages_filter_hint">搜索</string>
   <string name="langlinks_filter_hint">搜索</string>

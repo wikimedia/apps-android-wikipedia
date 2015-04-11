@@ -219,7 +219,7 @@
   <string name="widget_name_featured_page">صفحهٔ برگزیدهٔ ویکی‌پدیا</string>
   <string name="widget_title_featured_page">مطلب برگزیدهٔ امروز:</string>
   <string name="widget_name_search">جستجوی ویکی‌پدیا</string>
-  <string name="app_store_description" fuzzy="true">نرم افزار رسمی ویکی‌پدیا برای استفاده در اندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و گسترده‌ترین مرجع کار انسان تا کنون است.
+  <string name="app_store_description">نرم افزار رسمی ویکی‌پدیا برای استفاده در اندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و گسترده‌ترین مرجع کار انسان تا کنون است.
 
 ویژگی‌ها:
 - تصویر اصلی: ویکی‌پدیای جدیدی را با تصویر برجسته و مرتبط به همراه توضیح در بالای هر مقاهل تجربه کنید
@@ -236,9 +236,9 @@
 
 کد کاملاً منبع باز است. اگر شما تجربه با جاوا و آندروید SDK دارید از https://github.com/wikimedia/apps-android-wikipedia برای فورک کردن استفاده کنید.
 
-سیاست حریم شخصی: http://wikimediafoundation.org/wiki/Privacy_policy
+سیاست حریم شخصی: https://m.wikimediafoundation.org/wiki/Privacy_policy
 
-شرایط استفاده : http://wikimediafoundation.org/wiki/Terms_of_Use</string>
+شرایط استفاده : https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">به‌روزرسانی نسخه  آلفا جدید موجود است</string>
   <string name="alpha_update_notification_text">تپ برای دانلود</string>
   <string name="dialog_close_description">بستن</string>

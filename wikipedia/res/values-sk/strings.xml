@@ -216,7 +216,9 @@
   <string name="table_infobox">Rýchle fakty</string>
   <string name="table_other">Viac informácií</string>
   <string name="table_close">Zatvoriť</string>
+  <string name="widget_name_featured_page">Odporúčaný článok na Wikipédii</string>
   <string name="widget_title_featured_page">Odporúčaný článok:</string>
+  <string name="widget_name_search">Hľadať vo Wikipédii</string>
   <string name="app_store_description" fuzzy="true">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.
 
 Funkcie:

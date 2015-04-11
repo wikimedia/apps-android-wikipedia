@@ -6,6 +6,7 @@
   <string name="yes">დიახ</string>
   <string name="no">არა</string>
   <string name="acra_report_dialog_title">ვიკიპედიის შეცდომა :(</string>
+  <string name="acra_report_dialog_comment">რას აკეთებდით, როდესაც შეცდომა დაფიქსირდა?</string>
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="nav_item_history">ისტორია</string>
   <string name="error_network_error">ქსელთან კავშირი არ არის :(</string>

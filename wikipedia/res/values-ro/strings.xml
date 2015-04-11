@@ -259,5 +259,5 @@ Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) c
   <string name="cc_logo">Licență Creative Commons</string>
   <string name="captcha_image">Imagine Captcha</string>
   <string name="gallery_fair_use_license">Utilizare cinstită</string>
-  <string name="gallery_uploader_unknown">Încărcare de la o persoană necunoscută</string>
+  <string name="gallery_uploader_unknown">Încărcată de o persoană necunoscută</string>
 </resources>
