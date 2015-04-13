@@ -16,35 +16,39 @@
 
 <TwoLineListItem xmlns:android="http://schemas.android.com/apk/res/android"
                  xmlns:tools="http://schemas.android.com/tools"
-                 android:paddingTop="2dip"
-                 android:paddingBottom="2dip"
-                 android:paddingLeft="10dip"
-                 android:paddingRight="10dip"
+                 android:paddingTop="2dp"
+                 android:paddingBottom="2dp"
+                 android:paddingLeft="10dp"
+                 android:paddingRight="10dp"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:background="@drawable/selectable_item_background"
                  android:minHeight="?android:attr/listPreferredItemHeight"
                  android:mode="twoLine"
-        >
+                 >
 
     <TextView android:id="@android:id/text1"
-              android:layout_width="wrap_content"
+              android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:layout_marginLeft="6dip"
-              android:layout_marginStart="6dip"
-              android:layout_marginTop="6dip"
+              android:layout_marginLeft="6dp"
+              android:layout_marginRight="6dp"
+              android:layout_marginStart="6dp"
+              android:layout_marginEnd="6dp"
+              android:layout_marginTop="6dp"
               android:textAppearance="?android:attr/textAppearanceLarge"
               tools:text="Sample text 1"
-            />
+              />
 
     <TextView android:id="@android:id/text2"
-              android:layout_width="wrap_content"
+              android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_below="@android:id/text1"
               android:layout_alignLeft="@android:id/text1"
+              android:layout_alignRight="@android:id/text1"
               android:layout_alignStart="@android:id/text1"
+              android:layout_alignEnd="@android:id/text1"
               android:textAppearance="?android:attr/textAppearanceSmall"
               tools:text="Sample text 2"
-            />
+              />
 
 </TwoLineListItem>

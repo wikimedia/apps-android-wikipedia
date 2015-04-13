@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 
+import java.text.Bidi;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -163,6 +165,15 @@ public class LanguagePreference extends DialogPreference {
 
             localNameText.setText(app.localNameFor(langIndex));
             nameText.setText(app.canonicalNameFor(langIndex));
+
+            // Right-align English-language subheadings for right-to-left languages
+            Bidi bidi = new Bidi(app.localNameFor(langIndex), Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT);
+            if (bidi.getBaseLevel() == Bidi.DIRECTION_LEFT_TO_RIGHT) {
+                nameText.setGravity(Gravity.START);
+            } else {
+                nameText.setGravity(Gravity.END);
+            }
+
             return convertView;
         }
     }
