@@ -18,6 +18,7 @@
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="search_network_error">Error message shown when network cannot be reached when searching. Tapping the message retries the search.</string>
   <string name="generic_page_error">Generic error message shown when page cannot be loaded for some reason.</string>
+  <string name="status_code_unavailable">Message shown when the server does not return a numeric status code.</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.
 {{Identical|Retry}}</string>
   <string name="menu_clear_all_history">Menu item text for clearing your reading history.

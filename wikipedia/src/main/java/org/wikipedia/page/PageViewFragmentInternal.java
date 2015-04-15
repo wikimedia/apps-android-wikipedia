@@ -69,6 +69,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class PageViewFragmentInternal extends Fragment implements BackPressedHandler {
@@ -123,7 +125,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private SearchBarHideHandler searchBarHideHandler;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
-    private View networkError; // TODO: change this later to pageError when not under active development
+    private View networkError;
     private View retryButton;
     private View pageDoesNotExistError;
     private DisableableDrawerLayout tocDrawer;
@@ -1178,22 +1180,35 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         } else if (Utils.throwableContainsSpecificType(caught, SSLException.class)) {
             if (WikipediaApp.getInstance().incSslFailCount() < 2) {
                 WikipediaApp.getInstance().setSslFallback(true);
-                showNetworkError();
+                showNetworkError(null);
                 try {
                     connectionIssueFunnel.logConnectionIssue("mdot", "commonSectionFetchOnCatch");
                 } catch (Exception e) {
                     // meh
                 }
             } else {
-                showNetworkError();
+                showNetworkError(null);
                 try {
                     connectionIssueFunnel.logConnectionIssue("desktop", "commonSectionFetchOnCatch");
                 } catch (Exception e) {
                     // again, meh
                 }
             }
+        } else if (Utils.throwableContainsSpecificType(caught, JSONException.class)) {
+            // If the server returns an numeric response code rather than an API response, it will
+            // come as an integer rather than a JSON object or array, triggering a JSONException.
+            Log.d(TAG, "Caught JSONException. Message: " + caught.getMessage());
+            Pattern p = Pattern.compile(" \\d{3} ");
+            Matcher m = p.matcher(caught.getMessage());
+            if (m.find()) {
+                String statusCode = m.group(0).trim();
+                Log.d(TAG, "Found probable server response code " + statusCode);
+                showNetworkError(statusCode);
+            } else {
+                showNetworkError(null);
+            }
         } else if (caught instanceof ApiException) {
-            showNetworkError();
+            showNetworkError(null);
         } else {
             throw new RuntimeException(caught);
         }
@@ -1209,15 +1224,30 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         webView.setVisibility(View.INVISIBLE);
     }
 
-    private void showNetworkError() {
-        // TODO: Check for the source of the error and have different things turn up
-        // TODO: Change the name of this function to showPageError when the file is not under active development
+    private void showNetworkError(String statusCode) {
         TextView errorMessage = (TextView) networkError.findViewById(R.id.page_error_message);
+        TextView statusCodeView = (TextView) networkError.findViewById(R.id.network_status_code);
+        TextView statusMessageView = (TextView) networkError.findViewById(R.id.network_status_message);
 
         if (!NetworkUtils.isNetworkConnectionPresent(app)) {
-            errorMessage.setText(R.string.error_network_error);
+            statusCodeView.setVisibility(View.GONE);
+            statusMessageView.setVisibility(View.GONE);
+            errorMessage.setText(R.string.error_network_error_try_again);
         } else {
             errorMessage.setText(R.string.generic_page_error);
+            statusCodeView.setVisibility(View.VISIBLE);
+            statusMessageView.setVisibility(View.VISIBLE);
+            List<String> allStatusCodes = new ArrayList<>();
+            allStatusCodes.addAll(Arrays.asList(app.getResources().getStringArray(R.array.status_codes)));
+            // check probable returned code against list of status codes and display code/message if valid
+            if (statusCode != null && allStatusCodes.contains(statusCode)) {
+                statusCodeView.setText(statusCode);
+                List<String> allStatusMessages = new ArrayList<>();
+                allStatusMessages.addAll(Arrays.asList(app.getResources().getStringArray(R.array.status_messages)));
+                statusMessageView.setText(allStatusMessages.get(allStatusCodes.indexOf(statusCode)));
+            } else {
+                statusMessageView.setText(R.string.status_code_unavailable);
+            }
         }
 
         hidePageContent();
