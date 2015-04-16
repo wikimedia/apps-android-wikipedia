@@ -785,7 +785,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 // hide the lead image...
                 leadImagesHandler.hide();
                 bottomContentHandler.hide();
-                ((PageActivity) getActivity()).getSearchBarHideHandler().setFadeEnabled(false);
                 new LeadSectionFetchTask(pageSequenceNum).execute();
                 break;
             case STATE_INITIAL_FETCH:
