@@ -34,6 +34,7 @@ public final class SnippetImage {
     private static final int HEIGHT = 360;
     private static final int BOTTOM_PADDING = 25;
     private static final int HORIZONTAL_PADDING = 30;
+    private static final int TOP_PADDING = 22;
     private static final int TEXT_WIDTH = WIDTH - 2 * HORIZONTAL_PADDING;
     private static final int DESCRIPTION_WIDTH = 360;
     private static final float SPACING_MULTIPLIER = 1.0f;
@@ -112,11 +113,11 @@ public final class SnippetImage {
     }
 
     private Layout drawTextSnippet(Canvas canvas, CharSequence textSnippet) {
-        final int top = 8;
+        final int top = TOP_PADDING;
         final int maxHeight = 225;
         final int maxLines = 5;
         final float maxFontSize = 195.0f;
-        final float minFontSize = 38.0f;
+        final float minFontSize = 32.0f;
 
         TextPaint textPaint = new TextPaint();
         textPaint.setAntiAlias(true);
