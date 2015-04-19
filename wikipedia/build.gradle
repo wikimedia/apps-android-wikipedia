@@ -12,7 +12,7 @@ android {
         minSdkVersion 10
         targetSdkVersion 22
         versionCode 100
-        testApplicationId "org.wikipedia.test"
+        testApplicationId 'org.wikipedia.test'
     }
     signingConfigs {
         release
@@ -116,7 +116,7 @@ dependencies {
 // To make release builds work:
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
 def Properties props = new Properties()
-def propFile = new File(System.getProperty("user.home"), '.sign/signing.properties')
+def propFile = new File(System.getProperty('user.home'), '.sign/signing.properties')
 if (propFile.canRead()) {
     props.load(new FileInputStream(propFile))
 
@@ -127,10 +127,10 @@ if (propFile.canRead()) {
         android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
         android.signingConfigs.release.keyPassword = props['KEY_PASSWORD']
     } else {
-        System.err.println 'signing.properties found but some entries are missing'
+        System.err.println propFile.toString() + ' found but some entries are missing'
         android.buildTypes.release.signingConfig = null
     }
 } else {
-    System.err.println 'signing.properties not found'
+    System.err.println propFile.toString() + ' not found'
     android.buildTypes.release.signingConfig = null
 }

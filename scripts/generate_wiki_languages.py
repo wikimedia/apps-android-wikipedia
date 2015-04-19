@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from urllib2 import urlopen
 import unicodecsv as csv
 import json
