@@ -553,6 +553,9 @@ public class PageActivity extends ThemedActionBarActivity {
             public void run() {
                 //is the new title the same as what's already being displayed?
                 PageViewFragmentInternal frag = getCurPageFragment();
+                if (frag == null) {
+                    return;
+                }
                 if (frag.getTitle() != null && frag.getTitle().equals(title)) {
                     //if we have a section to scroll to, then pass it to the fragment
                     if (!TextUtils.isEmpty(title.getFragment())) {
