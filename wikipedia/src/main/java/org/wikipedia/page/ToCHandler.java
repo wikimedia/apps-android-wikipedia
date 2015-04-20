@@ -132,6 +132,7 @@ public class ToCHandler {
                 }
             }
         });
+        slidingPane.setSlidingEnabled(false);
     }
 
     private void showToCIntro(final SharedPreferences prefs, DisableableDrawerLayout slidingPane) {
@@ -188,6 +189,7 @@ public class ToCHandler {
 
     public void setupToC(final Page page, Site site, boolean firstPage) {
         funnel = new ToCInteractionFunnel((WikipediaApp)slidingPane.getContext().getApplicationContext(), site);
+        slidingPane.setSlidingEnabled(true);
 
         tocProgress.setVisibility(View.GONE);
         tocList.setVisibility(View.VISIBLE);
