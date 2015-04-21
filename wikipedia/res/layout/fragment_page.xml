@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="?attr/page_background_color"
     tools:context=".page.PageActivity">
-    <org.wikipedia.views.DisableableDrawerLayout
+    <org.wikipedia.views.WikiDrawerLayout
             android:id="@+id/page_toc_drawer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -211,7 +211,7 @@
             </LinearLayout>
 
         </FrameLayout>
-    </org.wikipedia.views.DisableableDrawerLayout>
+    </org.wikipedia.views.WikiDrawerLayout>
     <LinearLayout
         android:id="@+id/page_error"
         android:layout_width="match_parent"

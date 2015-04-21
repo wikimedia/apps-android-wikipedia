@@ -11,9 +11,28 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+
 import java.lang.reflect.Field;
 
-public class DisableableDrawerLayout extends FixedDrawerLayout {
+/**
+ * A thin wrapper around {@link FixedDrawerLayout} with additional functionality:
+ * <ul>
+ *   <li>Expose enable state.</li>
+ *   <li>Expose drag margin width state.</li>
+ * </ul>
+ */
+public class WikiDrawerLayout extends FixedDrawerLayout {
+    public WikiDrawerLayout(Context context) {
+        this(context, null);
+    }
+
+    public WikiDrawerLayout(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public WikiDrawerLayout(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
 
     public boolean getSlidingEnabled(int gravity) {
         return getDrawerLockMode(gravity) == DrawerLayout.LOCK_MODE_UNLOCKED;
@@ -27,27 +46,11 @@ public class DisableableDrawerLayout extends FixedDrawerLayout {
         }
     }
 
-    public DisableableDrawerLayout(Context context) {
-        super(context);
-        setDragEdgeWidth();
-    }
-
-    public DisableableDrawerLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        setDragEdgeWidth();
-    }
-
-    public DisableableDrawerLayout(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        setDragEdgeWidth();
-    }
-
     /**
-     * The logical width (in dp) of the drag edge from which the user can drag out the drawer.
+     * Set the drag margin width.
+     * @param width Width in pixels.
      */
-    private static final int DRAG_EDGE_WIDTH = 32;
-
-    private void setDragEdgeWidth() {
+    public void setDragEdgeWidth(final int width) {
         this.post(new Runnable() {
             @Override
             public void run() {
@@ -61,18 +64,17 @@ public class DisableableDrawerLayout extends FixedDrawerLayout {
                     // Determine whether to modify the left or right dragger, based on RTL/LTR orientation
                     @SuppressLint("RtlHardcoded")
                     Field mDragger = (absGravity & Gravity.HORIZONTAL_GRAVITY_MASK) == Gravity.LEFT
-                            ? DisableableDrawerLayout.this.getClass().getSuperclass().getSuperclass().getDeclaredField("mLeftDragger")
-                            : DisableableDrawerLayout.this.getClass().getSuperclass().getSuperclass().getDeclaredField("mRightDragger");
+                            ? WikiDrawerLayout.this.getClass().getSuperclass().getSuperclass().getDeclaredField("mLeftDragger")
+                            : WikiDrawerLayout.this.getClass().getSuperclass().getSuperclass().getDeclaredField("mRightDragger");
                     mDragger.setAccessible(true);
-                    ViewDragHelper dragHelper = (ViewDragHelper) mDragger.get(DisableableDrawerLayout.this);
+                    ViewDragHelper dragHelper = (ViewDragHelper) mDragger.get(WikiDrawerLayout.this);
                     Field edgeWidth = dragHelper.getClass().getDeclaredField("mEdgeSize");
                     edgeWidth.setAccessible(true);
-                    edgeWidth.setInt(dragHelper, (int)(DRAG_EDGE_WIDTH * getResources().getDisplayMetrics().density));
+                    edgeWidth.setInt(dragHelper, width);
                 } catch (Exception e) {
-                    Log.e("DisableableDrawerLayout", "Setting the draggable zone for the drawer failed!", e);
+                    Log.e("WikiDrawerLayout", "Setting the draggable zone for the drawer failed!", e);
                 }
             }
         });
     }
-
 }

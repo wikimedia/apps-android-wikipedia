@@ -4,11 +4,11 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.BuildConfig;
+import org.wikipedia.util.DimenUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,12 +61,12 @@ public class FlowLayout extends ViewGroup {
             View child = getChildAt(i);
             if (child.getVisibility() != GONE) {
                 child.measure(MeasureSpec.makeMeasureSpec(width, MeasureSpec.AT_MOST), childHeightMeasureSpec);
-                int childWidth = child.getMeasuredWidth() + getDp(HORIZONTAL_SPACING);
+                int childWidth = child.getMeasuredWidth() + (int) DimenUtil.dpToPx(HORIZONTAL_SPACING);
                 lineHeight = Math.max(lineHeight, child.getMeasuredHeight());
 
                 if (xpos + childWidth > width) {
                     xpos = getPaddingLeft();
-                    lineHeight += getDp(VERTICAL_SPACING);
+                    lineHeight += (int) DimenUtil.dpToPx(VERTICAL_SPACING);
                     lineHeights.add(lineHeight);
                     ypos += lineHeight;
                     lineHeight = 0;
@@ -80,7 +80,7 @@ public class FlowLayout extends ViewGroup {
                 lineHeights.add(lineHeight);
             } else {
                 if (getChildCount() > 0) {
-                    lineHeights.add(getChildAt(getChildCount() - 1).getMeasuredHeight() + getDp(VERTICAL_SPACING));
+                    lineHeights.add(getChildAt(getChildCount() - 1).getMeasuredHeight() + (int) DimenUtil.dpToPx(VERTICAL_SPACING));
                 }
             }
         } else {
@@ -137,7 +137,7 @@ public class FlowLayout extends ViewGroup {
                     }
                     child.layout(xpos - getChildAt(i).getMeasuredWidth(), ypos,
                             xpos - getChildAt(i).getMeasuredWidth() + childw, ypos + childh);
-                    xpos -= childw + getDp(HORIZONTAL_SPACING);
+                    xpos -= childw + (int) DimenUtil.dpToPx(HORIZONTAL_SPACING);
                 } else {
                     if (xpos + childw > width) {
                         xpos = getPaddingLeft();
@@ -146,17 +146,9 @@ public class FlowLayout extends ViewGroup {
                         }
                     }
                     child.layout(xpos, ypos, xpos + childw, ypos + childh);
-                    xpos += childw + getDp(HORIZONTAL_SPACING);
+                    xpos += childw + (int) DimenUtil.dpToPx(HORIZONTAL_SPACING);
                 }
             }
         }
-    }
-
-    private int getDp(int dp) {
-        return (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                dp,
-                resources.getDisplayMetrics()
-        );
     }
 }

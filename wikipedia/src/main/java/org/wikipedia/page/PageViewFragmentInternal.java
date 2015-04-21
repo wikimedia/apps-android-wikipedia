@@ -29,8 +29,9 @@ import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.search.SearchBarHideHandler;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.NetworkUtils;
-import org.wikipedia.views.DisableableDrawerLayout;
+import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.mediawiki.api.json.Api;
@@ -126,7 +127,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private View networkError;
     private View retryButton;
     private View pageDoesNotExistError;
-    private DisableableDrawerLayout tocDrawer;
+    private WikiDrawerLayout tocDrawer;
     private Page page;
     private HistoryEntry curEntry;
 
@@ -173,8 +174,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private void displayLeadSection() {
         try {
             JSONObject marginPayload = new JSONObject();
-            int margin = (int) (getResources().getDimension(R.dimen.activity_horizontal_margin)
-                                / getResources().getDisplayMetrics().density);
+            int margin = DimenUtil.roundedPxToDp(getResources().getDimension(R.dimen.content_margin));
             marginPayload.put("marginLeft", margin);
             marginPayload.put("marginRight", margin);
             bridge.sendMessage("setMargins", marginPayload);
@@ -261,7 +261,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         networkError = rootView.findViewById(R.id.page_error);
         retryButton = rootView.findViewById(R.id.page_error_retry);
         pageDoesNotExistError = rootView.findViewById(R.id.page_does_not_exist);
-        tocDrawer = (DisableableDrawerLayout) rootView.findViewById(R.id.page_toc_drawer);
+        tocDrawer = (WikiDrawerLayout) rootView.findViewById(R.id.page_toc_drawer);
+        tocDrawer.setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
 
         refreshView = (SwipeRefreshLayoutWithScroll) rootView
                 .findViewById(R.id.page_refresh_container);

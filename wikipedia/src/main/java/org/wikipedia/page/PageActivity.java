@@ -26,6 +26,7 @@ import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
+import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.zero.ZeroMessage;
 
 import com.squareup.otto.Bus;
@@ -78,7 +79,7 @@ public class PageActivity extends ThemedActionBarActivity {
     private WikipediaApp app;
 
     private View fragmentContainerView;
-    private DrawerLayout drawerLayout;
+    private WikiDrawerLayout drawerLayout;
     private NavDrawerFragment fragmentNavdrawer;
     private SearchArticlesFragment searchFragment;
     private TextView searchHintText;
@@ -151,7 +152,7 @@ public class PageActivity extends ThemedActionBarActivity {
         busMethods = new EventBusMethods();
         bus.register(busMethods);
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout = (WikiDrawerLayout) findViewById(R.id.drawer_layout);
         fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navdrawer);
         searchFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
         searchHintText = (TextView) findViewById(R.id.main_search_bar_text);
@@ -177,6 +178,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
         // Set the drawer toggle as the DrawerListener
         drawerLayout.setDrawerListener(mDrawerToggle);
+        drawerLayout.setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
         getSupportActionBar().setTitle("");
 
         searchBarHideHandler = new SearchBarHideHandler(this, toolbarContainer);

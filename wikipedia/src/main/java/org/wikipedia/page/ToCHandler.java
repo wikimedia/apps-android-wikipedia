@@ -9,7 +9,7 @@ import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.settings.PrefKeys;
-import org.wikipedia.views.DisableableDrawerLayout;
+import org.wikipedia.views.WikiDrawerLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.content.SharedPreferences;
@@ -38,7 +38,7 @@ public class ToCHandler {
     private final ListView tocList;
     private final ProgressBar tocProgress;
     private final CommunicationBridge bridge;
-    private final DisableableDrawerLayout slidingPane;
+    private final WikiDrawerLayout slidingPane;
     private final TextView headerView;
     private final ActionBarActivity parentActivity;
     private ToCInteractionFunnel funnel;
@@ -51,7 +51,7 @@ public class ToCHandler {
     private boolean wasClicked = false;
     private boolean openedViaSwipe = true;
 
-    public ToCHandler(final ActionBarActivity activity, final DisableableDrawerLayout slidingPane,
+    public ToCHandler(final ActionBarActivity activity, final WikiDrawerLayout slidingPane,
                       final CommunicationBridge bridge) {
         this.parentActivity = activity;
         this.bridge = bridge;
@@ -135,7 +135,7 @@ public class ToCHandler {
         slidingPane.setSlidingEnabled(false);
     }
 
-    private void showToCIntro(final SharedPreferences prefs, DisableableDrawerLayout slidingPane) {
+    private void showToCIntro(final SharedPreferences prefs, WikiDrawerLayout slidingPane) {
         if (openedViaSwipe) {
             knowSwipe(prefs);
         } else {

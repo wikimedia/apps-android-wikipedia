@@ -3,11 +3,11 @@ package org.wikipedia.editing.summaries;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
 
 public class EditSummaryTag extends TextView {
     public static final int MARGIN = 4;
@@ -39,8 +39,8 @@ public class EditSummaryTag extends TextView {
                 LayoutParams.WRAP_CONTENT
         );
 
-        int margin = getDp(MARGIN);
-        int padding = getDp(PADDING);
+        int margin = (int) DimenUtil.dpToPx(MARGIN);
+        int padding = (int) DimenUtil.dpToPx(PADDING);
         params.setMargins(margin, margin, margin, margin);
         setLayoutParams(params);
 
@@ -74,9 +74,5 @@ public class EditSummaryTag extends TextView {
     private void updateState() {
         setBackgroundResource(selected ? R.drawable.editpage_improve_tag_selected : R.drawable.editpage_improve_tag_unselected);
         setTextColor(resources.getColor(selected ? android.R.color.white : R.color.blue_progressive));
-    }
-
-    private int getDp(int dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
     }
 }
