@@ -18,6 +18,9 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 public class EventLoggingEvent {
     private static final String EVENTLOG_URL = "https://bits.wikimedia.org/event.gif";
 
+    /* Use for testing: */
+//    private static final String EVENTLOG_URL = "http://bits.beta.wmflabs.org/event.gif";
+
     private final JSONObject data;
     private final String userAgent;
 
