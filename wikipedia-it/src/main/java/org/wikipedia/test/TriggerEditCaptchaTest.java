@@ -32,7 +32,7 @@ public class TriggerEditCaptchaTest extends ActivityUnitTestCase<TestDummyActivi
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new DoEditTask(getInstrumentation().getTargetContext(), title, wikitext, 0, "+\\", "") {
+                new DoEditTask(getInstrumentation().getTargetContext(), title, wikitext, 0, "+\\", "", false) {
                     @Override
                     public void onFinish(EditingResult result) {
                         assertNotNull(result);
