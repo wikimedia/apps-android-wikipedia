@@ -24,6 +24,24 @@ import java.util.Arrays;
  * of a PageTitle to remain constant for the lifetime of the object.
  */
 public class PageTitle implements Parcelable {
+    /**
+     * The localised namespace of the page as a string, or null if the page is in mainspace.
+     *
+     * This field contains the prefix of the page's title, as opposed to the namespace ID used by
+     * MediaWiki. Therefore, mainspace pages always have a null namespace, as they have no prefix,
+     * and the namespace of a page will depend on the language of the wiki the user is currently
+     * looking at.
+     *
+     * Examples:
+     * * [[Manchester]] on enwiki will have a namespace of null
+     * * [[Deutschland]] on dewiki will have a namespace of null
+     * * [[User:Deskana]] on enwiki will have a namespace of "User"
+     * * [[Utilisateur:Deskana]] on frwiki will have a namespace of "Utilisateur", even if you got
+     *   to the page by going to [[User:Deskana]] and having MediaWiki automatically redirect you.
+     *
+     * Some classes which construct PageTitles (e.g. HistoryEntryPersistenceHelper) inappropriately
+     * set the namespace of all PageTitles they construct to null. That needs to be fixed.
+     */
     private final String namespace;
     private final String text;
     private final String fragment;
