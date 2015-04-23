@@ -219,26 +219,26 @@
   <string name="widget_name_featured_page">Páxina destacada de Wikipedia</string>
   <string name="widget_title_featured_page">Páxina destacada do día:</string>
   <string name="widget_name_search">Busca en Wikipedia</string>
-  <string name="app_store_description" fuzzy="true">Aplicación oficial da Wikipedia para Android. A Wikipedia é a enciclopedia libre que contén máis de 32 millóns de artigos en 280 idiomas e é o traballo de referencia recompilado polo ser humano máis completo e amplamente usado. 
+  <string name="app_store_description">Aplicación oficial da Wikipedia para Android. A Wikipedia é a enciclopedia libre que contén máis de 32 millóns de artigos en 280 idiomas e é o traballo de referencia recompilado polo ser humano máis completo e amplamente usado. 
 
 Características:
    - Imaxes principais: experimente a Wikipedia como nunca antes, con imaxes contextualmente relevantes e descricións na cabeceira dos artigos.
-   - Galería de imaxes: Prema nunha imaxe para visualizala a tamaño completo e gran resolución, con opcións dispoñibles para navegar a outras imaxes.
-   - Descricións de Wikidata: Ó facer unha consulta, cada resultado agora contén unha pequena descrición que axuda a contextualizala. Estas descricións móstranse tamén noutras áreas da aplicación, como nas \"Cercanas\".
-   - Suxestión de artigos: Baixe ata a parte final dun artigo para atopar suxestións sobre o que pode ler a continuación.
-   - Páxinas gardadas: Pode gardar as páxinas para lelas sen conexión e navegar por elas incluso cando non ten unha conexión de datos.
-   - Cercanas: Saiba máis sobre o que o rodea obtendo ligazóns a artigos sobre cousas que están preto da súa localización actual.
-   - Soporte de linguas: A aplicación permite ler a Wikipedia en calquera lingua de forma doada.
-   - Táboa de contidos: Deslice á esquerda en calquera artigo para visualizar o índice, que lle permite navegar facilmente ás súas seccións.
-   - Wikipedia Zero: Non hai cargos de datos para as operadoras móbiles participantes.
+   - Galería de imaxes: prema nunha imaxe para visualizala a tamaño completo e gran resolución, con opcións dispoñibles para navegar a outras imaxes.
+   - Descricións de Wikidata: ó facer unha consulta, cada resultado agora contén unha pequena descrición que axuda a contextualizala. Estas descricións móstranse tamén noutras áreas da aplicación, como nas \"Cercanas\".
+   - Suxestión de artigos: baixe ata a parte final dun artigo para atopar suxestións sobre o que pode ler a continuación.
+   - Páxinas gardadas: pode gardar as páxinas para lelas sen conexión e navegar por elas incluso cando non ten unha conexión de datos.
+   - Cercanas: saiba máis sobre o que o rodea obtendo ligazóns a artigos sobre cousas que están preto da súa localización actual.
+   - Soporte de linguas: a aplicación permite ler a Wikipedia en calquera lingua de forma doada.
+   - Táboa de contidos: deslice á esquerda en calquera artigo para visualizar o índice, que lle permite navegar facilmente ás súas seccións.
+   - Wikipedia Zero: non hai cargos de datos para as operadoras móbiles participantes.
 
 Envíenos os seus comentarios sobre a aplicación! No menú, prema en \"Máis\", seguido de \"Sobre a aplicación Wikipedia\", e finalmente en \"Enviar comentarios sobre a aplicación\".
 
 O código é 100% aberto. Se ten experiencia con Java e o SDK de Android, , buscamos as súas contribucións! https://github.com/wikimedia/apps-android-wikipedia
 
-Política de privacidade: https://meta.wikimedia.org/wiki/Privacy_policy/gl
+Política de privacidade: https://m.wikimediafoundation.org/wiki/Privacy_policy
 
-Termos de uso: http://wikimediafoundation.org/wiki/Terms_of_Use/gl</string>
+Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Hai unha actualización alfa dispoñible</string>
   <string name="alpha_update_notification_text">Toque para descargar</string>
   <string name="dialog_close_description">Pechar</string>

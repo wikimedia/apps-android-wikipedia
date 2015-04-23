@@ -46,6 +46,7 @@
   <string name="nearby_server_error">దగ్గరలో ఉన్న ప్రదేశాల జాబితా పొందలేము.</string>
   <string name="nearby_set_metric">మీటర్లు/కిలోమీటర్లుగా చూపించు</string>
   <string name="nearby_set_imperial">అడుగులు/మైళ్ళుగా చూపించు</string>
+  <string name="nearby_view_on_map">పటంలో స్థానం చూడండి</string>
   <string name="last_updated_text">%s కి ఆఖరుగా తాజాపరచబడింది</string>
   <string name="content_license_html">విడిగా చెప్పందే పాఠ్యం &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కు అనుగుణంగా లభ్యం</string>
   <string name="edit_save_action_license_logged_in">భద్రపర్చడం ద్వారా &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;వాడుక షరతుల&lt;/a&gt;కు అనుగుణంగా ఉంటాననీ, నా రచనలన్నిటినీ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కింద విడుదల చేస్తున్నాననీ అంగీకరిస్తున్నాను.</string>
@@ -55,6 +56,9 @@
   <string name="menu_other_languages">ఇతర భాషలలో చదవండి</string>
   <string name="langlinks_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="langlinks_empty">ఈ పేజీ వేరే భాషలలో అందుబాటులో లేదు</string>
+  <string name="langlinks_no_match">ఏ భాషలోనూ మీ ప్రశ్నకు సరిపోలిక దొరకలేదు.
+
+.</string>
   <string name="langlinks_activity_title">ఇతర భాషలు</string>
   <string name="menu_save_changes">మార్పులను భద్రపరచు</string>
   <string name="edit_section_error_retry">మళ్ళీ ప్రయత్నించు</string>
@@ -63,36 +67,109 @@
   <string name="dialog_message_edit_failed">మార్పు భద్రం కాలేదు!</string>
   <string name="dialog_message_edit_failed_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="dialog_message_edit_failed_cancel">రద్దుచేయి</string>
+  <string name="dialog_message_leaving_edit">మీ మార్పులు ఇంకా భద్రపరచబడ లేదు.  మీరు ఈ పుటను ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా ?</string>
+  <string name="dialog_message_leaving_edit_leave">వదిలివేయండి</string>
+  <string name="dialog_message_leaving_edit_stay">ఉండండి</string>
   <string name="menu_show_toc">విషయ సూచిక</string>
   <string name="search_no_results_found">ఫలితాలేమీ దొరకలేదు</string>
+  <string name="edit_section_captcha_message">స్వయంచాలక స్పామ్ నకు వ్యతిరేకంగా రక్షించడానికి, దయచేసి ఈ క్రింద కనిపించే పదాలు నమోదు దయచేయండి</string>
+  <string name="edit_section_captcha_hint">పైన నుండి పదాలు పునరావృతం చేయండి</string>
+  <string name="title_captcha">కాప్త్చను ఎంటర్ చెయ్యండి</string>
+  <string name="edit_section_captcha_reload">మళ్లీ లోడ్ చేయడానికి కాప్త్చను నొక్కండి</string>
+  <string name="edit_saved_page_refresh">ఈ భద్రపరచిన పుట గడువు ముగిసి ఉండవచ్చు, మరియు సవరణ ప్రారంభం చెయ్యడానికి రిఫ్రెష్ చేయాలి. మీరు పేజీ రిఫ్రెష్ చేయాలని అనుకుంటున్నారా ?</string>
   <string name="nav_item_login">లాగినవండి</string>
   <string name="login_username_hint">వాడుకరి పేరు</string>
   <string name="login_password_hint">సంకేతపదం</string>
   <string name="login_password_show_check">సంకేతపదాన్ని చూపించు</string>
   <string name="menu_login">లాగినవండి</string>
   <string name="login_activity_title">వికీపీడియాలోకి లాగినవండి</string>
+  <string name="login_in_progress_dialog_message">మీరు లాగింగ్ ...</string>
   <string name="login_error_wrong_password">సంకేతపదం తప్పు</string>
   <string name="login_error_wrong_username">వాడుకరి పేరు తప్పు</string>
   <string name="login_success_toast">లాగిన్ విజయవంతం!</string>
   <string name="login_error_blocked">ఈ వాడుకరిని నిరోధించారు</string>
-  <string name="history_empty_message" fuzzy="true">మీ చరిత్ర ఖాళీగా ఉంది.</string>
+  <string name="login_error_throttled">చాలా లాగిన్ ప్రయత్నాలు. కొన్ని నిమిషాలు వేచి మరియు మళ్ళీ ప్రయత్నించండి.</string>
+  <string name="login_error_unknown">లాగిన్ విఫలమైంది :(</string>
+  <string name="login_error_no_network">అంతర్జాల అనుసంధానం లేదు</string>
+  <string name="preference_title_logout">బయటకు వస్తారు</string>
+  <string name="preference_summary_logout">మీ వికీపీడియా ఖాతా నుండి బయటకు రండి</string>
+  <string name="preference_summary_notloggedin">లోనికి వచ్చేందుకు ప్రయత్నం చేయలేదు.</string>
+  <string name="toast_logout_complete">బయటకు వచ్చేసారు</string>
+  <string name="saved_pages_empty_title">భద్రపరచబడిన పుటలు ఏమీ ఇక్కడ లేవు !</string>
+  <string name="saved_pages_empty_message">భద్రపరచిన పేజీలు అందంగా అద్భుతంగా ఉన్నాయి.
+మీరు వాటిలోనివి బుక్‌మార్క్లుగా ఆలోచించి, ఆఫ్‌లైన్లో ఉన్నప్పుడు కూడా చదువుకోవచ్చు.</string>
+  <string name="history_empty_title">కొత్త పుటలు ఇక్కడ ఏమీ లేవు !</string>
+  <string name="history_empty_message">మీరు బహుశా వాటిని అన్ని తొలగించి ఉంటారు. తదుపరి సమయం
+మీరు ఒక పేజీకి వెళ్ళండి మీరు ఇక్కడ నుండి తిరిగి పొందవచ్చు.</string>
+  <string name="delete_selected_history">తొలగించు</string>
+  <string name="wp_stylized">&lt;big&gt;వి&lt;/big&gt;కీపీడి&lt;big&gt;యా&lt;/big&gt;</string>
+  <string name="wp_tag_line">ఉచిత సర్వశాస్త్ర విద్యావిజ్ఞాన గ్రంధము</string>
+  <string name="skip">దాటండి</string>
   <string name="create_account_username_hint">వాడుకరి పేరు</string>
   <string name="create_account_password_hint">సంకేతపదం</string>
-  <string name="login_create_account_link" fuzzy="true">ఖాతా సృష్టించుకోండి</string>
+  <string name="login_create_account_link">మీకు ఖాతా లేదా ? వికీపీడియాలో చేరండి</string>
+  <string name="create_account_login_link">మీకు ఖాతా ఉందా ? లోపలకు రండి</string>
   <string name="create_account_activity_title">ఖాతా సృష్టించుకోండి</string>
+  <string name="dialog_create_account_checking_progress">ధృవీకరిస్తోంది</string>
   <string name="create_account_email_hint">ఈమెయిలు (ఐచ్చికం)</string>
+  <string name="create_account_password_repeat_hint">భద్రతపదం పునరావృతం చేయండి</string>
+  <string name="create_account_passwords_mismatch_error">భద్రతపదాలు సరిపోలుట లేదు</string>
   <string name="create_account_email_error">చెల్లని ఈమెయిలు చిరునామా</string>
   <string name="create_account_username_exists_error">వాడుకరి పేరు ఇప్పటికే వాడుకలో ఉంది</string>
   <string name="create_account_ip_throttle_error">ఈ ఐపీ నుండి చాలా ఖాతాలు సృష్టించారు. కాసేపాగి మళ్ళీ ప్రయత్నించండి.</string>
   <string name="create_account_open_proxy_error">ఖాతాలు సృష్టించకుండా ఈ ఐపీని నిరోధించారు.</string>
+  <string name="create_account_noname_error">మీరు అందించిన వాడుకరి పేరు చెల్లనిది. మరొక పేరును అందించండి.</string>
+  <string name="create_account_invalid_email_error">మీరు అందించిన ఈమెయిల్ చిరునామా చెల్లనిది</string>
+  <string name="create_account_password_too_short_error">మీరు అందించిన భద్రతపదం చాలా చిన్నది</string>
+  <string name="create_account_blocked_anon_error">మీ ఐపి చిరునామా నిరోధించబడింది కావున మీరు ఒక ఖాతాను సృష్టించడానికి వీలు కాదు</string>
+  <string name="create_account_blocked_error">మీ ఖాతా నిరోధించబడింది కనుక ఒక ఖాతాను సృష్టించడానికి వీలు కాదు.</string>
+  <string name="create_account_password_name_match_error">మీ వాడుకరి పేరు మరియు మీ భద్రతపదం రెండూ భిన్నంగా ఉన్నాయి.</string>
   <string name="create_account_generic_error">ఖాతాను సృష్టించలేకపోయాం</string>
+  <string name="create_account_no_network">అంతర్జాల అనుసంధానం లేదు</string>
+  <string name="create_account_next">తదుపరి</string>
+  <string name="create_account_button">ఖాతా సృష్టించండి</string>
   <string name="preferences_general_heading">సాధారణం</string>
+  <string name="zero_charged_verbiage">వికీపీడియా ఆఫ్ ఉంది</string>
+  <string name="zero_charged_verbiage_extended">ఇతర వ్యాసాలు డేటా లోడ్ వల్ల ఛార్జీలు బాధ ఉండవచ్చు.</string>
+  <string name="zero_search_hint">వికీపీడియాలో వెతకండి</string>
+  <string name="zero_warn_when_leaving">వికీపీడియాను వదలి వేస్తుంటే హెచ్చరించు</string>
   <string name="zero_interstitial_continue" fuzzy="true">కొనసాగించు</string>
   <string name="zero_interstitial_cancel" fuzzy="true">రద్దుచేయి</string>
   <string name="zero_learn_more_learn_more" fuzzy="true">మరింత తెలుసుకోండి</string>
   <string name="zero_learn_more_dismiss">రద్దు</string>
   <string name="create_account_account_created_toast">ఖాతా సృష్టించబడింది!</string>
   <string name="user_contribs_more_action">మరిన్ని చూపించు</string>
+  <string name="about_activity_title">గురించి</string>
+  <string name="edit_next">తదుపరి</string>
+  <string name="edit_done">భద్రపరచు</string>
+  <string name="edit_preview">మునుజూపు</string>
+  <string name="edit_summary_tag_typo">అక్షర దోషం స్థిరం</string>
+  <string name="edit_summary_tag_grammar">వ్యాకరణం స్థిరం</string>
+  <string name="edit_summary_tag_links">లింకులు చేర్చబడ్డాయి</string>
+  <string name="edit_summary_tag_other">ఇతరము</string>
+  <string name="edit_summary_tag_other_hint">ఇతర మార్గాలుతో మీరు పేజీ అభివృద్ధి చేశారు</string>
+  <string name="find_in_page">పుటలో వెతకండి</string>
+  <string name="find_next">తదుపరి కనుగొను</string>
+  <string name="find_previous">మునుపటిది కనుగొను</string>
+  <string name="error_network_error_try_again">అంతర్జాలం చేరుకోలేదు, దయచేసి మళ్ళీ ప్రయత్నించండి.</string>
+  <string name="saved_pages_update_all_error_retry">పునఃప్రయత్నించండి</string>
+  <string name="saved_pages_update_all_error_message">లోపం నవీకరించడానికి పేజీలు భద్రపరచండి</string>
+  <string name="saved_pages_progress_title">భద్రపరచబడిన పుటలను ఉపశాంతి నిచ్చేట్లు చేస్తుంది.</string>
+  <string name="saved_pages_refresh_pages_complete">పూర్తి నవీకరణం</string>
+  <string name="menu_page_saved">పుట భద్రపరచ బడింది</string>
+  <string name="menu_refresh_saved_page">రిఫ్రెష్ పేజీ</string>
+  <string name="button_page_issues">పుట విషయాలు</string>
+  <string name="text_size_select">ఖతి పరిమాణం</string>
+  <string name="color_theme_select">నేపథ్యం</string>
+  <string name="color_theme_light">తేలికైన</string>
+  <string name="color_theme_dark">చీకటి</string>
+  <string name="table_close">మూయు</string>
+  <string name="dialog_close_description">మూయు</string>
+  <string name="preference_title_show_images">బొమ్మలు చూపించు</string>
+  <string name="read_more_section">మరింత చదువు</string>
+  <string name="read_next_section">తదుపరి చదవండి</string>
+  <string name="gallery_menu_more_info">మరింత సమాచారం</string>
+  <string name="gallery_menu_share">పంచుకోండి</string>
   <string name="err_cannot_save_file">ద్దస్త్రాన్ని భద్రపరచలేము</string>
   <string name="snippet_share_intro">\@Wikipedia పై \"%1$s\" : %2$s</string>
   <string name="expand_refs">పెద్దది చేసేందుకు ట్యాప్ చెయ్యి</string>

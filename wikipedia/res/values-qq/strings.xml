@@ -207,7 +207,8 @@ See also:
   <string name="zero_learn_more">Message of a dialog shown the first time Wikipedia Zero mode is On.</string>
   <string name="zero_learn_more_learn_more">Dialog button text for Wikipedia Zero user to learn more about Wikipedia Zero at the Wikipedia Zero FAQ for the app.
 {{Identical|Read more}}</string>
-  <string name="zero_learn_more_dismiss">Dialog button text for Wikipedia Zero user to dismiss the prompt about visiting the Wikipedia Zero FAQ for the app</string>
+  <string name="zero_learn_more_dismiss">Dialog button text for Wikipedia Zero user to dismiss the prompt about visiting the Wikipedia Zero FAQ for the app
+{{Identical|Dismiss}}</string>
   <string name="edit_preview_fetching_dialog_message">Message shown to the user while the user is waiting for the preview of their edit to be shown</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
   <string name="nav_item_random">{{Identical|Random}}

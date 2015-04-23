@@ -10,6 +10,8 @@
   <string name="nav_item_history">வரலாறு</string>
   <string name="error_network_error">வலைய இணைப்பு இல்லை :(</string>
   <string name="search_network_error">வலையத் தவறு. திரும்ப முயல தட்டவும்.</string>
+  <string name="generic_page_error">தங்களின் வேண்டுகோளைக் கையாளுவதில் ஒரு சிக்கல் இருந்தது.</string>
+  <string name="status_code_unavailable">வழங்கியின் நிலை குறியீடு கிடைக்கவில்லை</string>
   <string name="page_error_retry">மறு முயற்சி செய்</string>
   <string name="menu_clear_all_history">வரலாற்றை நீக்கவும்</string>
   <string name="menu_clear_all_saved_pages">சேமித்தப் பக்கங்களை நீக்கு</string>
@@ -147,4 +149,5 @@
   <string name="text_size_select">எழுத்துரு அளவு</string>
   <string name="color_theme_dark">இருட்டான</string>
   <string name="search_did_you_mean">தாங்கள் குறிப்பது \"%s\"?</string>
+  <string name="edit_save_unknown_error">தங்களது தொகுப்புத் திருத்தத்தை சேமிக்க முடியவில்லை: %s</string>
 </resources>

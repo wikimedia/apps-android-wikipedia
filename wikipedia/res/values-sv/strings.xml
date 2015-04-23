@@ -219,16 +219,16 @@
   <string name="widget_name_featured_page">Utmärkt Wikipedia-artikel</string>
   <string name="widget_title_featured_page">Dagens utmärkta artikel:</string>
   <string name="widget_name_search">Wikipedia-sök</string>
-  <string name="app_store_description" fuzzy="true">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt.
+  <string name="app_store_description">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt.
 
 Funktioner:
 - Inledande bilder: Upplev Wikipedia som aldrig tidigare med en framträdande innehållsrelevant bild och beskrivning längst upp på artiklar
 - Bildgallerier: Tryck på en bild för att se den i helskärm och svep till vänster/höger för att bläddra mellan flera bilder
 - Beskrivningar från Wikidata: När du söker kommer varje sökresultat nu innehålla en kort beskrivning som knyter resultatet till ett sammanhang. Dessa beskrivningar visas även på andra ställen i appen, som I närheten
 - Artikelförslag: Rulla längst ned till en artikel för att se förslag på vad du kan läsa sedan
-- Sparade sidor: Du kan spara valda sidor för att läsa offline och bläddra bland dem även när du inte har en dataanslutning.
+- Sparade sidor: Spara valda sidor för att läsa offline och bläddra bland dem även när du inte har en dataanslutning.
 - I närheten: Läs mer om vad som finns runtomkring dig genom att få länkar till artiklar om saker som finns nära din aktuella plats
-- Språkstöd: Appen låter dig enkelt växla mellan att läsa Wikipedia på olika språk
+- Språkstöd: Växla enkelt mellan olika språk att läsa Wikipedia på
 - Innehållsförteckning: Svep till vänster på en artikel för att få en innehållsförteckning, som låter dig enkelt hoppa till artikelns olika avsnitt
 - Wikipedia Zero: Inga dataavgifter från deltagande mobiloperatörer för att använda appen
 
@@ -236,9 +236,9 @@ Skicka din återkoppling om appen! Gå till menyn, tryck på \"Mer\", sedan \"Om
 
 Koden består till 100 % av öppen källkod. Om du har erfarenhet av Java och Android SDK ser vi fram emot din hjälp! https://github.com/Wikimedia/apps-Android-wikipedia
 
-Integritetspolicy: http://wikimediafoundation.org/wiki/Privacy_policy
+Integritetspolicy: https://m.wikimediafoundation.org/wiki/Privacy_policy
 
-Villkor för användning: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
+Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Ny alpha-uppdatering tillgänglig</string>
   <string name="alpha_update_notification_text">Tryck för att ladda ner</string>
   <string name="dialog_close_description">Stäng</string>

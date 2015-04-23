@@ -25,6 +25,7 @@
   <string name="dialog_title_clear_saved_pages">אפראמען אלע אויפגעהיטענע בלעטער?</string>
   <string name="toast_saving_page">שפייכלערן בלאט…</string>
   <string name="toast_saved_page">בלאט דערפאלגרייך געשפייכלערט</string>
+  <string name="toast_saved_page_missing_images">נישט געווען מעגלעך איינצושפייכלערן אלע בילדער</string>
   <string name="delete_selected_saved_pages">אויסמעקן</string>
   <string name="toast_saved_page_deleted">געשפייכלערטע בלעטער אויסגעמעקט</string>
   <string name="saved_pages_search_list_hint">זוכן</string>
@@ -44,6 +45,7 @@
   <string name="langlinks_filter_hint">זוכן</string>
   <string name="menu_other_languages">לייענען אין אנדערע שפראכן</string>
   <string name="langlinks_error_retry">פרובירן ווידער</string>
+  <string name="langlinks_empty">דער בלאט איז נישט פאראן אין אנדערע שפראכן.</string>
   <string name="langlinks_no_match">קיין שפראכן נישט געטראפן וואס זענען צוגעפאסט צו אײַער פראגע.</string>
   <string name="langlinks_activity_title">אַנדערע שפראַכן</string>
   <string name="menu_save_changes">אויפהיטן ענדערונגען</string>

@@ -12,6 +12,8 @@
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error">Не можам да се поврзам со мрежата :(</string>
   <string name="search_network_error">Мрежна грешка. Допрете за да се обиде повторно.</string>
+  <string name="generic_page_error">Се јави проблем при работа со вашето барање.</string>
+  <string name="status_code_unavailable">Кодот за статусот на опслужувачот е недостапен.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="menu_clear_all_history">Исчисти историја</string>
   <string name="menu_clear_all_saved_pages">Исчисти ги сите зачувани страници</string>
@@ -268,4 +270,5 @@
   <string name="captcha_image">Слика на Captcha</string>
   <string name="gallery_fair_use_license">Праведна употреба</string>
   <string name="gallery_uploader_unknown">непознат подигач</string>
+  <string name="edit_save_unknown_error">Не можев да го зачувам уредувањето: %s</string>
 </resources>

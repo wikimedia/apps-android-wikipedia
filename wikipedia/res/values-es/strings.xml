@@ -240,7 +240,7 @@ Política de privacidad: https://m.wikimediafoundation.org/wiki/Privacy_policy/e
 
 Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string>
   <string name="alpha_update_notification_title">Hay una actualización alfa disponible</string>
-  <string name="alpha_update_notification_text">Toca para descargar</string>
+  <string name="alpha_update_notification_text">Pulsa para descargar</string>
   <string name="dialog_close_description">Cerrar</string>
   <string name="preference_title_show_images">Mostrar imágenes</string>
   <string name="preference_summary_show_images">Activar o desactivar la carga de imágenes en las páginas. Desmarca esta opción si tu conexión de internet es lenta, o si tu plan de datos es limitado.</string>

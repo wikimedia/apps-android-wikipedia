@@ -219,24 +219,24 @@
   <string name="widget_name_featured_page">Utvalgt WIkipedia-side</string>
   <string name="widget_title_featured_page">Dagens utvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søk</string>
-  <string name="app_store_description" fuzzy="true">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som har blitt sammenstilt noensinne.
+  <string name="app_store_description">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som har blitt sammenstilt noensinne.
 
 Funksjonalitet:
-- Ingressbilder: opplev Wikipedia som aldri før med et fremtredende, innholdsrelevant bilde øverst på artiklene
-- Bildegalleri: trykk på et bilde for å vise bilde i fullskjerm i høy oppløsning, med muligheter for å sveipe til høyre/venstre for å vise flere bilder.
-- Beskrivelser fra Wikidata: når du søker, viser hvert søkeresultat nå en kort beskrivelse som hjelper til med å betydningsavklare resultatet
-- Artikkelforslag: Rull ned på bunnen av en artikkel for å vise forslag til hva du kan lese videre.
-- Lagrede sider: Du kan lagre utvalgte sider for å kunne lese dem offline når du ikke har dataforbindelse.
+- Ingressbilder: opplev Wikipedia som aldri før, med et fremtredende innholdsrelevant bilde øverst i artiklene
+- Bildegalleri: trykk på et bilde for fullskjermsvisning i høy oppløsning, med muligheter for å sveipe til høyre/venstre for å vise flere bilder.
+- Beskrivelser fra Wikidata: når du søker, viser hvert søkeresultat nå en kort beskrivelse som hjelper til med å betydningsavklare resultatet. Disse beskrivelsene vises også i andre deler av programmet, som i \"I nærheten\"-funksjonen.
+- Artikkelforslag: Rull ned til bunnen av en artikkel for å vise forslag til hva du kan lese videre.
+- Lagrede sider: Du kan lagre utvalgte sider for så å lese dem i frakoblet modus.
 - I nærheten: Lær mer om hva som finnes rundt deg fra en liste over artikler om ting som befinner seg nær din gjeldende posisjon.
-- Språkstøtte: Appen lar deg sømløst bytte mellom artikler på ulike språk.
+- Språkstøtte: Programmet lar deg sømløst bytte mellom artikler på ulike språk.
 - Innholdsfortegnelse: Sveip til venstre for å vise innholdsfortegnelsen.
 - Wikipedia Zero: Datakostnader dekkes av enkelte mobiloperatører.
 
-Gi oss gjerne tilbakemelding på appen! I menyen, velg \"Mer\", deretter \"Om Wikipedia-appen\" og til slutt \"Gi oss tilbakemelding\".
+Gi oss gjerne tilbakemelding på programmet! I menyen, velg \"Mer\", deretter \"Om Wikipedia-appen\" og til slutt \"Gi oss tilbakemelding\".
 
-Kildekoden er 100% åpen. Hvis du har erfaring med Java og Android SDK er du velkommen til å bli med å lage appen bedre! https://github.com/wikimedia/apps-android-wikipedia
+Kildekoden er 100% åpen. Friprog. Hvis du har erfaring med Java og Android-SDK-et er du velkommen til å gjøre forbedringer! https://github.com/wikimedia/apps-android-wikipedia
 
-Personvernpolitikk: http://wikimediafoundation.org/wiki/Privacy_policy
+Personvernspolitikk: http://wikimediafoundation.org/wiki/Privacy_policy
 
 Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Ny alphaoppdatering tilgjengelig</string>
