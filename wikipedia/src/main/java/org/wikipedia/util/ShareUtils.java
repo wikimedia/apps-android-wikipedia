@@ -126,11 +126,7 @@ public final class ShareUtils {
     }
 
     private static boolean isExternalStorageWritable() {
-        String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            return true;
-        }
-        return false;
+        return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
     }
 
     private static String cleanFileName(String fileName) {

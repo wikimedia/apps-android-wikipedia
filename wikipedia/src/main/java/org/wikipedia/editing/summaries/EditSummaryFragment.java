@@ -63,11 +63,6 @@ public class EditSummaryFragment extends Fragment {
                                                     summaryText, title);
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
-
     /**
      * Shows (fades in) the custom edit summary fragment.
      * When fade-in completes, the keyboard is shown automatically, and the state

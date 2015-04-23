@@ -15,7 +15,6 @@ public class SuggestedPagesFunnel extends Funnel {
     private static final int REV_ID = 11448426;
 
     private final String appInstallID;
-    private final Site site;
     private final int version;
 
     public SuggestedPagesFunnel(WikipediaApp app, Site site, int version) {
@@ -24,7 +23,6 @@ public class SuggestedPagesFunnel extends Funnel {
         //Retrieve this app installation's unique ID, used to record unique users of features
         appInstallID = app.getAppInstallID();
 
-        this.site = site;
         this.version = version;
     }
 

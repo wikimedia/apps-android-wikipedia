@@ -236,11 +236,6 @@ public class GalleryActivity extends ThemedActionBarActivity {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
         Crouton.cancelAllCroutons();
