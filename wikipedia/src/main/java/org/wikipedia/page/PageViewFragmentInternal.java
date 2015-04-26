@@ -876,6 +876,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             case STATE_COMPLETE_FETCH:
                 savePageMenu.setEnabled(true);
                 shareMenu.setEnabled(true);
+                // Only display "Read in other languages" if the article is in other languages
+                otherLangMenu.setVisible(page.getPageProperties().getLanguageCount() != 0);
                 otherLangMenu.setEnabled(true);
                 findInPageMenu.setEnabled(true);
                 themeChooserMenu.setEnabled(true);

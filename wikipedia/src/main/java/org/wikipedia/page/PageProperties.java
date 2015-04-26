@@ -23,6 +23,7 @@ public class PageProperties implements Parcelable {
     private final Date lastModified;
     private final String displayTitleText;
     private final String editProtectionStatus;
+    private final int languageCount;
     private final boolean isMainPage;
     private final String leadImageUrl;
     private final String leadImageName;
@@ -51,6 +52,7 @@ public class PageProperties implements Parcelable {
         } else {
             editProtectionStatus = null;
         }
+        languageCount = json.optInt("languagecount");
         JSONObject thumb = json.optJSONObject("thumb");
         leadImageUrl = thumb != null ? thumb.optString("url") : null;
         JSONObject image = json.optJSONObject("image");
@@ -94,6 +96,10 @@ public class PageProperties implements Parcelable {
         return editProtectionStatus;
     }
 
+    public int getLanguageCount() {
+        return languageCount;
+    }
+
     public boolean canEdit() {
         return canEdit;
     }
@@ -122,6 +128,7 @@ public class PageProperties implements Parcelable {
         parcel.writeLong(lastModified.getTime());
         parcel.writeString(displayTitleText);
         parcel.writeString(editProtectionStatus);
+        parcel.writeInt(languageCount);
         parcel.writeInt(canEdit ? 1 : 0);
         parcel.writeInt(isMainPage ? 1 : 0);
         parcel.writeString(leadImageUrl);
@@ -135,6 +142,7 @@ public class PageProperties implements Parcelable {
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
         editProtectionStatus = in.readString();
+        languageCount = in.readInt();
         canEdit = in.readInt() == 1;
         isMainPage = in.readInt() == 1;
         leadImageUrl = in.readString();
@@ -167,6 +175,7 @@ public class PageProperties implements Parcelable {
                 && revisionId == that.revisionId
                 && lastModified.equals(that.lastModified)
                 && displayTitleText.equals(that.displayTitleText)
+                && languageCount == that.languageCount
                 && canEdit == that.canEdit
                 && isMainPage == that.isMainPage
                 && TextUtils.equals(editProtectionStatus, that.editProtectionStatus)
@@ -179,6 +188,7 @@ public class PageProperties implements Parcelable {
         int result = lastModified.hashCode();
         result = 31 * result + displayTitleText.hashCode();
         result = 31 * result + (editProtectionStatus != null ? editProtectionStatus.hashCode() : 0);
+        result = 31 * result + languageCount;
         result = 31 * result + (isMainPage ? 1 : 0);
         result = 31 * result + (leadImageUrl != null ? leadImageUrl.hashCode() : 0);
         result = 31 * result + (leadImageName != null ? leadImageName.hashCode() : 0);
@@ -209,6 +219,7 @@ public class PageProperties implements Parcelable {
                 protectionStatusObject.put("edit", editProtectionStatusArray);
                 json.put("protection", protectionStatusObject);
             }
+            json.put("languagecount", languageCount);
             json.put("editable", canEdit);
             if (isMainPage) {
                 json.put("mainpage", "");

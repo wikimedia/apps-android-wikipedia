@@ -34,7 +34,7 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
     public RequestBuilder buildRequest(Api api) {
         RequestBuilder builder = api.action("mobileview")
                 .param("page", title.getPrefixedText())
-                .param("prop", "text|sections")
+                .param("prop", "text|sections|languagecount")
                 .param("onlyrequestedsections", "1") // Stupid mediawiki & stupid backwardscompat
                 .param("sections", sectionsRequested)
                 .param("sectionprop", "toclevel|line|anchor")
