@@ -62,8 +62,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import javax.net.ssl.SSLException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -734,7 +732,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
-                    String href = URLDecoder.decode(messagePayload.getString("href"), "UTF-8");
+                    String href = Utils.decodeURL(messagePayload.getString("href"));
                     if (href.startsWith("/wiki/")) {
                         PageTitle imageTitle = title.getSite().titleForInternalLink(href);
                         showImageGallery(imageTitle);
@@ -743,8 +741,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                     }
                 } catch (JSONException e) {
                     //nope
-                } catch (UnsupportedEncodingException e) {
-                    //nope
                 }
             }
         });
@@ -752,11 +748,9 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
-                    String href = URLDecoder.decode(messagePayload.getString("href"), "UTF-8");
+                    String href = Utils.decodeURL(messagePayload.getString("href"));
                     showImageGallery(new PageTitle(href, title.getSite()));
                 } catch (JSONException e) {
-                    //nope
-                } catch (UnsupportedEncodingException e) {
                     //nope
                 }
             }

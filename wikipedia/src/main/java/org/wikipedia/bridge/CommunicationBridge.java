@@ -12,9 +12,8 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.Utils;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -122,13 +121,11 @@ public class CommunicationBridge {
                 // still receiving some final messages from the WebView, so we'll just ignore them.
                 // But we should still return true and "confirm" the JsPromptResult down below.
                 if (incomingMessageHandler != null) {
-                    JSONObject messagePack = new JSONObject(URLDecoder.decode(message, "utf-8"));
+                    JSONObject messagePack = new JSONObject(Utils.decodeURL(message));
                     Message msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS, messagePack);
                     incomingMessageHandler.sendMessage(msg);
                 }
             } catch (JSONException e) {
-                throw new RuntimeException(e);
-            } catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);
             }
             result.confirm();

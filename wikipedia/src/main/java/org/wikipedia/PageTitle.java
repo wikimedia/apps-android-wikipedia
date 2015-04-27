@@ -10,7 +10,6 @@ import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.staticdata.SpecialAliasData;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.Arrays;
 
@@ -76,12 +75,7 @@ public class PageTitle implements Parcelable {
         String[] fragParts = text.split("#", -1);
         text = fragParts[0];
         if (fragParts.length > 1) {
-            try {
-                this.fragment = URLDecoder.decode(fragParts[1], "utf-8");
-            } catch (UnsupportedEncodingException e) {
-                // STUPID STUPID JAVA
-                throw new RuntimeException(e);
-            }
+            this.fragment = Utils.decodeURL(fragParts[1]);
         } else {
             this.fragment = null;
         }

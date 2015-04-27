@@ -4,6 +4,7 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
+import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
@@ -24,8 +25,6 @@ import android.text.style.URLSpan;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.List;
 
 public class WidgetProviderFeaturedPage extends AppWidgetProvider {
@@ -57,15 +56,11 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                             || (text.getSpanEnd(span) - text.getSpanStart(span) <= 1)) {
                             continue;
                         }
-                        try {
-                            PageTitle title = WikipediaApp.getInstance().getPrimarySite()
-                                .titleForInternalLink(URLDecoder.decode(span.getURL(), "utf-8"));
-                            if (!title.isFilePage() && !title.isSpecial()) {
-                                titleText = title.getDisplayText();
-                                break;
-                            }
-                        } catch (UnsupportedEncodingException e) {
-                            // no.
+                        PageTitle title = WikipediaApp.getInstance().getPrimarySite()
+                            .titleForInternalLink(Utils.decodeURL(span.getURL()));
+                        if (!title.isFilePage() && !title.isSpecial()) {
+                            titleText = title.getDisplayText();
+                            break;
                         }
                     }
                     if (!TextUtils.isEmpty(titleText)) {

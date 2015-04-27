@@ -11,9 +11,6 @@ import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-
 /**
  * Handles any html links coming from a {@link org.wikipedia.page.PageViewFragment}
  */
@@ -38,14 +35,11 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
-            String href = URLDecoder.decode(messagePayload.getString("href"), "UTF-8");
+            String href = Utils.decodeURL(messagePayload.getString("href"));
             onUrlClick(href);
         } catch (IllegalArgumentException e) {
             // The URL is malformed and URL decoder can't understand it. Just do nothing.
             Log.d("Wikipedia", "A malformed URL was tapped.");
-        } catch (UnsupportedEncodingException e) {
-            // will not happen
-            throw new RuntimeException(e);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

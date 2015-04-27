@@ -20,6 +20,7 @@ import android.text.InputType;
 import android.text.format.DateUtils;
 import android.util.Base64;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
@@ -45,6 +46,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
@@ -158,6 +160,21 @@ public final class Utils {
             throw new RuntimeException(e);
         }
         return hexStr.toString();
+    }
+
+    /**
+     * Decodes a URL-encoded string into its UTF-8 equivalent.
+     * @param url The URL-encoded string that you wish to decode.
+     * @return The decoded string, or the input string if the decoding failed.
+     */
+    public static String decodeURL(String url) {
+        try {
+            return URLDecoder.decode(url, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            // Inexplicable decoding problem. This shouldn't happen. Return the input.
+            Log.d("Wikipedia", "URL decoding failed. String was: " + url);
+            return url;
+        }
     }
 
     /**
