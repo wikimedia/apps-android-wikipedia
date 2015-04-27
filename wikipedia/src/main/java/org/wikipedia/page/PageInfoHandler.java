@@ -6,6 +6,8 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.net.URLDecoder;
+import java.io.UnsupportedEncodingException;
 
 /**
  * A handler for both disambiguation and page issues information.
@@ -45,8 +47,13 @@ abstract class PageInfoHandler implements CommunicationBridge.JSEventListener {
         }
         DisambigResult[] stringArray = new DisambigResult[array.length()];
         for (int i = 0; i < array.length(); i++) {
-            // Decode the href that we got into a PageTitle, and create a DisambigResult with it
-            stringArray[i] = new DisambigResult(getSite().titleForInternalLink(array.getString(i)));
+            try {
+                // Decode the href that we got into a PageTitle, and create a DisambigResult with it
+                stringArray[i] = new DisambigResult(getSite().titleForInternalLink(URLDecoder.decode(array.getString(i), "UTF-8")));
+            } catch (UnsupportedEncodingException e) {
+                // Inexplicable decoding problem. Display raw string to user. Better than nothing.
+                stringArray[i] = new DisambigResult(getSite().titleForInternalLink(array.getString(i)));
+            }
         }
         return stringArray;
     }
