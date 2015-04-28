@@ -63,7 +63,14 @@ public class PageProperties implements Parcelable {
         } catch (ParseException e) {
             Log.d("PageProperties", "Failed to parse date: " + lastModifiedText);
         }
-        canEdit = json.optBoolean("editable");
+        // There's something really screwy going on with the "editable" key in the API response.
+        // It's not always returning a boolean, sadly.
+        // If the key is the empty string, or true, then the page is editable.
+        // If the key is not in the response, or is false, then the page is not editable.
+        // This solution, while stupid, will work even if the API starts returning a boolean.
+        canEdit = (json.has("editable") && json.optString("editable").equals(""))
+                || json.optString("editable").equals("true");
+
         isMainPage = json.has("mainpage");
     }
 
