@@ -127,6 +127,7 @@ See also:
 {{Related|Wikipedia-android-strings-login error}}</string>
   <string name="login_error_wrong_username">Used as error message if the specified user does not exist.
 {{Related|Wikipedia-android-strings-login error}}</string>
+  <string name="login_error_illegal">Used as an error message if the user tries to log in using a username which is invalid.</string>
   <string name="login_success_toast">A bubble that appears after logging in.</string>
   <string name="login_error_blocked">Used as alert message.
 {{Related|Wikipedia-android-strings-login error}}</string>

@@ -200,12 +200,22 @@ public class LoginActivity extends ThemedActionBarActivity {
     private void handleError(String result) {
         switch (result) {
             case "WrongPass":
+            case "WrongPluginPass":
+                // Authentication extensions, like CentralAuth, return "WrongPluginPass" if there
+                // is no local account with the specified username, but there is a global account
+                // with that name and the user didn't specify the correct password. To a user with
+                // a global account (i.e. almost every single user), there is no difference between
+                // WrongPass and WrongPluginPass, so we treat them the same here.
                 passwordText.requestFocus();
                 Utils.setErrorPopup(passwordText, getString(R.string.login_error_wrong_password));
                 break;
             case "NotExists":
                 usernameText.requestFocus();
                 Utils.setErrorPopup(usernameText, getString(R.string.login_error_wrong_username));
+                break;
+            case "Illegal":
+                usernameText.requestFocus();
+                Utils.setErrorPopup(usernameText, getString(R.string.login_error_illegal));
                 break;
             case "Blocked":
                 Crouton.makeText(this, R.string.login_error_blocked, Style.ALERT).show();
