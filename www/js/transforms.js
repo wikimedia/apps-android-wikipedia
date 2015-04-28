@@ -142,11 +142,15 @@ function tableCollapseClickHandler() {
     var divCollapsed = container.children[0];
     var tableFull = container.children[1];
     var divBottom = container.children[2];
+    var caption = divCollapsed.querySelector('.app_table_collapsed_caption');
     if (tableFull.style.display !== 'none') {
         tableFull.style.display = 'none';
         divCollapsed.classList.remove('app_table_collapse_close');
         divCollapsed.classList.remove('app_table_collapse_icon');
         divCollapsed.classList.add('app_table_collapsed_open');
+        if (caption !== null) {
+            caption.style.display = 'block';
+        }
         divBottom.style.display = 'none';
         //if they clicked the bottom div, then scroll back up to the top of the table.
         if (this === divBottom) {
@@ -157,6 +161,9 @@ function tableCollapseClickHandler() {
         divCollapsed.classList.remove('app_table_collapsed_open');
         divCollapsed.classList.add('app_table_collapse_close');
         divCollapsed.classList.add('app_table_collapse_icon');
+        if (caption !== null) {
+            caption.style.display = 'none';
+        }
         divBottom.style.display = 'block';
     }
 }
@@ -231,7 +238,7 @@ transformer.register( "hideTables", function( content ) {
 transformer.register( "hideRefs", function( content ) {
     var refLists = content.querySelectorAll( "div.reflist" );
     for (var i = 0; i < refLists.length; i++) {
-        var caption = "<strong>" + window.string_expand_refs + "</strong>";
+        var caption = "<strong class='app_table_collapsed_caption'>" + window.string_expand_refs + "</strong>";
 
         //create the container div that will contain both the original table
         //and the collapsed version.
