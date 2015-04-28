@@ -51,6 +51,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         app = WikipediaApp.getInstance();
     }
 

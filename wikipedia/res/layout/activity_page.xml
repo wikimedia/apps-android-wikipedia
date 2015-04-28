@@ -1,6 +1,7 @@
 <org.wikipedia.views.WikiDrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:saveEnabled="false"
@@ -87,7 +88,7 @@
                                     android:shadowRadius="2"
                                     android:layout_gravity="center_vertical"/>
                             </LinearLayout>
-                            <android.support.v7.widget.SearchView
+                            <org.wikipedia.views.CabSearchView
                                 android:id="@+id/main_search_view"
                                 android:layout_width="match_parent"
                                 android:layout_height="36dp"
@@ -98,8 +99,9 @@
                                 android:visibility="gone"
                                 android:focusable="true"
                                 android:inputType="text"
-                                android:imeOptions="actionGo"
+                                android:imeOptions="actionGo|flagNoExtractUi"
                                 style="@style/AppTheme.SearchViewStyle"
+                                app:cabEnabled="false"
                                 />
                         </FrameLayout>
                     </android.support.v7.widget.Toolbar>

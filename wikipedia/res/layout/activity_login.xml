@@ -20,6 +20,7 @@
                 android:hint="@string/login_username_hint"
                 android:inputType="textVisiblePassword|textNoSuggestions"
                 android:singleLine="true"
+                android:imeOptions="flagNoExtractUi"
                 />
         <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/login_password_text"
@@ -28,7 +29,7 @@
                 android:inputType="textPassword"
                 style="?android:textAppearanceMedium"
                 android:hint="@string/login_password_hint"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionDone|flagNoExtractUi"
                 />
 
         <Button

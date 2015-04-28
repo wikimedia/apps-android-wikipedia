@@ -55,6 +55,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         app = WikipediaApp.getInstance();
     }
 
@@ -183,6 +184,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
         super.onDestroyView();
     }
 
+    @Override
     public boolean onBackPressed() {
         if (actionMode != null) {
             actionMode.finish();

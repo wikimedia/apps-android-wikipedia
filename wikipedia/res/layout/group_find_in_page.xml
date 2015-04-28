@@ -2,12 +2,13 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:id="@+id/find_in_page_container"
               android:layout_gravity="top"
               android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
-    <android.support.v7.widget.SearchView
+    <org.wikipedia.views.CabSearchView
             android:id="@+id/find_in_page_input"
             android:inputType="text"
             android:layout_width="0dp"
@@ -16,7 +17,9 @@
             android:hint="@string/find_in_page"
             android:layout_gravity="center_vertical"
             android:singleLine="true"
+            android:imeOptions="actionDone|flagNoExtractUi"
             style="@style/AppTheme.SearchViewStyle"
+            app:cabEnabled="false"
             />
     <TextView
             android:id="@+id/find_in_page_match"

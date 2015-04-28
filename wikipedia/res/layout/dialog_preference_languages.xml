@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:hint="@string/preference_languages_filter_hint"
-            android:imeOptions="actionDone"
+            android:imeOptions="actionDone|flagNoExtractUi"
             android:singleLine="true"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
