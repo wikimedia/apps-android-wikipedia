@@ -40,6 +40,7 @@ public class NearbyFetchTask extends ApiTask<NearbyResult> {
         return api.action("query")
                 .param("prop", "coordinates|pageimages|pageterms")
                 .param("colimit", LIMIT)
+                .param("piprop", "thumbnail") // so response doesn't contain unused "pageimage" prop
                 .param("pithumbsize", THUMBNAIL_WIDTH)
                 .param("pilimit", LIMIT)
                 .param("wbptterms", "description")
