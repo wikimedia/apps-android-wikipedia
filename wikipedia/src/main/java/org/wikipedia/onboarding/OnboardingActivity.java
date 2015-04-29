@@ -72,7 +72,7 @@ public class OnboardingActivity extends Activity {
             @Override
             public void onClick(View view) {
                 funnel.logLogin();
-                startLoginActivity(false);
+                startLoginActivity(false); // just take the user the login form
             }
         });
 
@@ -80,11 +80,15 @@ public class OnboardingActivity extends Activity {
             @Override
             public void onClick(View view) {
                 funnel.logSkip();
-                done();
+                done(); // take the user directly out of the funnel
             }
         });
     }
 
+    /**
+     * Starts LoginActivity.
+     * @param createAccount true if the account creation form should be shown first, false otherwise
+     */
     private void startLoginActivity(boolean createAccount) {
         Intent intent = new Intent(this, LoginActivity.class);
         intent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_ONBOARDING);
@@ -93,11 +97,17 @@ public class OnboardingActivity extends Activity {
         done();
     }
 
+    /**
+     * Prepares the activity for finishing and ensuring onboarding is not shown again.
+     */
     private void done() {
         markAllAboard();
         finish();
     }
 
+    /**
+     * Adds a key to the SharedPreferences of the app to ensure that onboarding never shows again.
+     */
     private void markAllAboard() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.edit().putBoolean(PrefKeys.getOnboard(), true).apply();
@@ -106,6 +116,8 @@ public class OnboardingActivity extends Activity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        // Put item in bundle so start events are not fired purely because of activity recreation
+        // This makes the event logging data more closely match user intent and behaviour
         outState.putBoolean("onboardingShowing", true);
     }
 }
