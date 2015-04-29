@@ -97,7 +97,6 @@
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <!-- Old "read more" section, to be removed when the time is right. -->
                 <LinearLayout
                     android:id="@+id/read_more_container"
                     android:layout_width="match_parent"
@@ -119,8 +118,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"/>
                 </LinearLayout>
-                <!-- New "read next" section, to supersede the one above. -->
-                <include layout="@layout/group_bottom_content" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
