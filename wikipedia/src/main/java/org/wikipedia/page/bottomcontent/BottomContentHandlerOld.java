@@ -69,7 +69,6 @@ public class BottomContentHandlerOld implements BottomContentInterface,
         this.bridge = bridge;
         this.webView = webview;
         this.linkHandler = linkHandler;
-        this.pageTitle = pageTitle;
         activity = (PageActivity) parentFragment.getActivity();
         app = (WikipediaApp) activity.getApplicationContext();
         displayDensity = activity.getResources().getDisplayMetrics().density;

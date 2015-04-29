@@ -17,7 +17,6 @@ import org.wikipedia.editing.EditHandler;
 import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
-import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentHandlerOld;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.gallery.GalleryActivity;
@@ -414,17 +413,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         searchBarHideHandler = ((PageActivity) getActivity()).getSearchBarHideHandler();
         searchBarHideHandler.setScrollView(webView);
 
-        // TODO: remove this A/B toggle when we know which one we want to keep.
-        // (and when ready to release to production)
-        if (BottomContentHandler.useNewBottomContent(app)) {
-            bottomContentHandler = new BottomContentHandler(this, bridge, webView, linkHandler,
-                                                            (ViewGroup) getView().findViewById(
-                                                                    R.id.bottom_content_container));
-        } else {
-            bottomContentHandler = new BottomContentHandlerOld(this, bridge, webView, linkHandler,
-                                                               (ViewGroup) getView().findViewById(
-                                                                       R.id.bottom_content_container));
-        }
+        bottomContentHandler = new BottomContentHandlerOld(this, bridge, webView, linkHandler,
+                (ViewGroup) getView().findViewById(R.id.bottom_content_container));
 
         pageSequenceNum = 0;
 

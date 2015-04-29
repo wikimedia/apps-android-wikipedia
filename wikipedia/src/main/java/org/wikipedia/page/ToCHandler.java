@@ -7,7 +7,6 @@ import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.json.JSONException;
@@ -256,7 +255,7 @@ public class ToCHandler {
             if (page.couldHaveReadMoreSection()) {
                 // add a fake section at the end to represent the "read more" contents at the bottom:
                 sections.add(new Section(READ_MORE_SECTION_ID, 0,
-                        parentActivity.getString(BottomContentHandler.useNewBottomContent(WikipediaApp.getInstance()) ? R.string.read_next_section : R.string.read_more_section), "", ""));
+                        parentActivity.getString(R.string.read_more_section), "", ""));
             }
         }
 
