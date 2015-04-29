@@ -3,6 +3,8 @@ package org.wikipedia.nearby;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.Utils;
+
 import android.location.Location;
 
 /**
@@ -62,7 +64,7 @@ class NearbyPage {
             if (terms != null) {
                 final JSONArray descArray = terms.optJSONArray("description");
                 if (descArray != null) {
-                    description = descArray.optString(0);
+                    description = Utils.capitalizeFirstChar(descArray.optString(0));
                 }
             }
         } catch (JSONException e) {
