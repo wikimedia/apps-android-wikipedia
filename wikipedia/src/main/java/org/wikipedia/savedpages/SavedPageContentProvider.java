@@ -58,6 +58,7 @@ public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {
                         "savedpages._id",
                         "savedpages.site",
                         "savedpages.title",
+                        "savedpages.namespace",
                         "savedpages.timestamp",
                         "pageimages.imageName"
                 };

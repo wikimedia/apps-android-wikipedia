@@ -37,9 +37,6 @@ public class PageTitle implements Parcelable {
      * * [[User:Deskana]] on enwiki will have a namespace of "User"
      * * [[Utilisateur:Deskana]] on frwiki will have a namespace of "Utilisateur", even if you got
      *   to the page by going to [[User:Deskana]] and having MediaWiki automatically redirect you.
-     *
-     * Some classes which construct PageTitles (e.g. HistoryEntryPersistenceHelper) inappropriately
-     * set the namespace of all PageTitles they construct to null. That needs to be fixed.
      */
     private final String namespace;
     private final String text;

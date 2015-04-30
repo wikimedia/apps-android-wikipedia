@@ -12,7 +12,7 @@ import org.wikipedia.search.RecentSearch;
 public class DBOpenHelper  extends SQLiteOpenHelper{
 
     private static final String DATABASE_NAME = "wikipedia.db";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     public DBOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

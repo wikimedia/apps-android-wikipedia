@@ -13,7 +13,7 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
     private static final int MATCH_WITH_PAGEIMAGES =  64;
 
     /** column index of pageimages.imageName in the MATCH_WITH_PAGEIMAGES case */
-    public static final int COL_INDEX_IMAGE = 5;
+    public static final int COL_INDEX_IMAGE = 6;
 
     public HistoryEntryContentProvider() {
         super(HistoryEntry.PERSISTENCE_HELPER);
@@ -58,6 +58,7 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
                         "history._id",
                         "history.site",
                         "history.title",
+                        "history.namespace",
                         "history.timestamp",
                         "history.source",
                         "pageimages.imageName"
