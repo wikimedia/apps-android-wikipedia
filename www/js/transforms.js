@@ -1,6 +1,7 @@
 var transformer = require("./transformer");
 var night = require("./night");
-var bridge = require( "./bridge" );
+var bridge = require("./bridge");
+var widenImages = require("./widenImages");
 
 // Takes a block of text, and removes any text within parentheses, but only
 // until the end of the first sentence.
@@ -408,7 +409,17 @@ transformer.register( "section", function( content ) {
         containerLink.classList.add( 'app_media' );
         mediaDiv.parentNode.insertBefore(containerLink, mediaDiv);
         mediaDiv.parentNode.removeChild(mediaDiv);
-        containerLink.appendChild(mediaDiv);
+        containerLink.appendChild(imgTags[0]);
 	}
 	return content;
+} );
+
+transformer.register( "widenImages", function( content ) {
+    var images = content.querySelectorAll( 'img' );
+    for ( var i = 0; i < images.length; i++ ) {
+        // Load event used so images w/o style or inline width/height
+        // attributes can still have their size determined reliably.
+        images[i].addEventListener('load', widenImages.maybeWidenImage, false);
+    }
+    return content;
 } );

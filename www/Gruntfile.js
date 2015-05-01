@@ -10,6 +10,8 @@ module.exports = function ( grunt ) {
         "js/disambig.js",
         "js/sections.js",
         "js/rtlsupport.js",
+        "js/util.js",
+        "js/widenImages.js",
         "lib/js/classList.js",
         "tests/*.js"
     ];
@@ -41,7 +43,8 @@ module.exports = function ( grunt ) {
                         "js/disambig.js",
                         "js/sections.js",
                         "js/rtlsupport.js",
-                        "js/util.js"
+                        "js/util.js",
+                        "js/widenImages.js"
                     ].concat( oldDroidPolyfills ),
                     "bundle-test.js": [
                         "js/loader.js",

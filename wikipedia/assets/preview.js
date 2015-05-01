@@ -310,9 +310,48 @@ function ancestorContainsClass( element, className ) {
     return contains;
 }
 
+function getDictionaryFromSrcset(srcset) {
+    /*
+    Returns dictionary with density (without "x") as keys and urls as values.
+    Parameter 'srcset' string:
+        '//image1.jpg 1.5x, //image2.jpg 2x, //image3.jpg 3x'
+    Returns dictionary:
+        {1.5: '//image1.jpg', 2: '//image2.jpg', 3: '//image3.jpg'}
+    */
+    var sets = srcset.split(',').map(function(set) {
+        return set.trim().split(' ');
+    });
+    var output = {};
+    sets.forEach(function(set) {
+        output[set[1].replace('x', '')] = set[0];
+    });
+    return output;
+}
+
+function firstDivAncestor (el) {
+    while ((el = el.parentElement)){
+        if(el.tagName === 'DIV'){
+            return el;
+        }
+    }
+    return null;
+}
+
+function isNestedInTable(el) {
+    while ((el = el.parentElement)){
+        if(el.tagName === 'TD'){
+            return true;
+        }
+    }
+    return false;
+}
+
 module.exports = {
     hasAncestor: hasAncestor,
-    ancestorContainsClass: ancestorContainsClass
+    ancestorContainsClass: ancestorContainsClass,
+    getDictionaryFromSrcset: getDictionaryFromSrcset,
+    firstDivAncestor: firstDivAncestor,
+    isNestedInTable: isNestedInTable
 };
 
 },{}],8:[function(require,module,exports){

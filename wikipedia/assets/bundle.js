@@ -367,7 +367,7 @@ module.exports = {
 	invertElement: invertElement
 };
 
-},{"../lib/js/css-color-parser":15,"./bridge":2,"./loader":6,"./util":13}],9:[function(require,module,exports){
+},{"../lib/js/css-color-parser":16,"./bridge":2,"./loader":6,"./util":13}],9:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -473,6 +473,9 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content = transformer.transform( "section", content );
     content = transformer.transform( "hideTables", content );
     content = transformer.transform( "hideIPA", content );
+    if (!window.isMainPage) {
+        content = transformer.transform( "widenImages", content );
+    }
 
     // insert the edit pencil
     content.insertBefore( editButton, content.firstChild );
@@ -533,6 +536,9 @@ function elementsForSection( section ) {
     content = transformer.transform( "hideTables", content );
     content = transformer.transform( "hideIPA", content );
     content = transformer.transform( "hideRefs", content );
+    if (!window.isMainPage) {
+        content = transformer.transform( "widenImages", content );
+    }
 
     return [ heading, content ];
 }
@@ -642,7 +648,8 @@ module.exports = new Transformer();
 },{}],12:[function(require,module,exports){
 var transformer = require("./transformer");
 var night = require("./night");
-var bridge = require( "./bridge" );
+var bridge = require("./bridge");
+var widenImages = require("./widenImages");
 
 // Takes a block of text, and removes any text within parentheses, but only
 // until the end of the first sentence.
@@ -1050,12 +1057,22 @@ transformer.register( "section", function( content ) {
         containerLink.classList.add( 'app_media' );
         mediaDiv.parentNode.insertBefore(containerLink, mediaDiv);
         mediaDiv.parentNode.removeChild(mediaDiv);
-        containerLink.appendChild(mediaDiv);
+        containerLink.appendChild(imgTags[0]);
 	}
 	return content;
 } );
 
-},{"./bridge":2,"./night":8,"./transformer":11}],13:[function(require,module,exports){
+transformer.register( "widenImages", function( content ) {
+    var images = content.querySelectorAll( 'img' );
+    for ( var i = 0; i < images.length; i++ ) {
+        // Load event used so images w/o style or inline width/height
+        // attributes can still have their size determined reliably.
+        images[i].addEventListener('load', widenImages.maybeWidenImage, false);
+    }
+    return content;
+} );
+
+},{"./bridge":2,"./night":8,"./transformer":11,"./widenImages":14}],13:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
     if ( el !== null && el.tagName === tagName) {
@@ -1084,12 +1101,154 @@ function ancestorContainsClass( element, className ) {
     return contains;
 }
 
+function getDictionaryFromSrcset(srcset) {
+    /*
+    Returns dictionary with density (without "x") as keys and urls as values.
+    Parameter 'srcset' string:
+        '//image1.jpg 1.5x, //image2.jpg 2x, //image3.jpg 3x'
+    Returns dictionary:
+        {1.5: '//image1.jpg', 2: '//image2.jpg', 3: '//image3.jpg'}
+    */
+    var sets = srcset.split(',').map(function(set) {
+        return set.trim().split(' ');
+    });
+    var output = {};
+    sets.forEach(function(set) {
+        output[set[1].replace('x', '')] = set[0];
+    });
+    return output;
+}
+
+function firstDivAncestor (el) {
+    while ((el = el.parentElement)){
+        if(el.tagName === 'DIV'){
+            return el;
+        }
+    }
+    return null;
+}
+
+function isNestedInTable(el) {
+    while ((el = el.parentElement)){
+        if(el.tagName === 'TD'){
+            return true;
+        }
+    }
+    return false;
+}
+
 module.exports = {
     hasAncestor: hasAncestor,
-    ancestorContainsClass: ancestorContainsClass
+    ancestorContainsClass: ancestorContainsClass,
+    getDictionaryFromSrcset: getDictionaryFromSrcset,
+    firstDivAncestor: firstDivAncestor,
+    isNestedInTable: isNestedInTable
 };
 
 },{}],14:[function(require,module,exports){
+var util = require("./util");
+
+var maxStretchRatioAllowedBeforeRequestingHigherResolution = 1.3;
+
+// If enabled, widened images will have thin red dashed border and
+// and widened images for which a higher resolution version was
+// requested will have thick red dashed border.
+var enableDebugBorders = false;
+
+function widenAncestors (el) {
+    while ((el = el.parentElement) && !el.classList.contains('content_block')){
+        // Only widen if there was a width setting. Keeps changes minimal.
+        if(el.style.width){
+            el.style.width = '100%';
+        }
+        if(el.style.maxWidth){
+            el.style.maxWidth = '100%';
+        }
+        if(el.style.float){
+            el.style.float = 'none';
+        }
+    }
+}
+
+function shouldWidenImage(image) {
+    if (
+        image.width >= 64 &&
+        image.hasAttribute('srcset') &&
+        !image.hasAttribute('hasOverflowXContainer') &&
+        image.parentNode.className === "image" &&
+        !util.isNestedInTable(image)
+        ) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function makeRoomForImageWidening(image) {
+    // Expand containment so css wideImageOverride width percentages can take effect.
+    widenAncestors (image);
+
+    // Remove width and height attributes so wideImageOverride width percentages can take effect.
+    image.removeAttribute("width");
+    image.removeAttribute("height");
+}
+
+function getStretchRatio(image) {
+    var widthControllingDiv = util.firstDivAncestor(image);
+    if (widthControllingDiv) {
+        return (widthControllingDiv.offsetWidth / image.naturalWidth);
+    }
+    return 1.0;
+}
+
+function useHigherResolutionImageSrcFromSrcsetIfNecessary(image) {
+    if (image.getAttribute('srcset')) {
+        var stretchRatio = getStretchRatio(image);
+        if (stretchRatio > maxStretchRatioAllowedBeforeRequestingHigherResolution) {
+            var srcsetDict = util.getDictionaryFromSrcset(image.getAttribute('srcset'));
+            /*
+            Grab the highest res url from srcset - avoids the complexity of parsing urls
+            to retrieve variants - which can get tricky - canonicals have different paths
+            than size variants
+            */
+            var largestSrcsetDictKey = Object.keys(srcsetDict).reduce(function(a, b) {
+              return a > b ? a : b;
+            });
+
+            image.src = srcsetDict[largestSrcsetDictKey];
+
+            if(enableDebugBorders){
+                image.style.borderWidth = '10px';
+            }
+        }
+    }
+}
+
+function widenImage(image) {
+    makeRoomForImageWidening (image);
+    image.classList.add("wideImageOverride");
+
+    if (enableDebugBorders) {
+        image.style.borderStyle = 'dashed';
+        image.style.borderWidth = '1px';
+        image.style.borderColor = '#f00';
+    }
+
+    useHigherResolutionImageSrcFromSrcsetIfNecessary(image);
+}
+
+function maybeWidenImage() {
+    var image = this;
+    if (shouldWidenImage(image)) {
+        widenImage(image);
+    }
+}
+
+module.exports = {
+    maybeWidenImage: maybeWidenImage
+};
+
+},{"./util":13}],15:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills
@@ -1166,7 +1325,7 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 // (c) Dean McNamee <dean@gmail.com>, 2012.
 //
 // https://github.com/deanm/css-color-parser-js
@@ -1368,4 +1527,4 @@ function parseCSSColor(css_str) {
 
 try { module.exports = parseCSSColor } catch(e) { }
 
-},{}]},{},[6,15,7,8,11,12,2,1,4,5,3,10,9,13,14])
+},{}]},{},[6,16,7,8,11,12,2,1,4,5,3,10,9,13,14,15])

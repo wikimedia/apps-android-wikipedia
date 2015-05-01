@@ -93,6 +93,9 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content = transformer.transform( "section", content );
     content = transformer.transform( "hideTables", content );
     content = transformer.transform( "hideIPA", content );
+    if (!window.isMainPage) {
+        content = transformer.transform( "widenImages", content );
+    }
 
     // insert the edit pencil
     content.insertBefore( editButton, content.firstChild );
@@ -153,6 +156,9 @@ function elementsForSection( section ) {
     content = transformer.transform( "hideTables", content );
     content = transformer.transform( "hideIPA", content );
     content = transformer.transform( "hideRefs", content );
+    if (!window.isMainPage) {
+        content = transformer.transform( "widenImages", content );
+    }
 
     return [ heading, content ];
 }
