@@ -149,7 +149,7 @@ function tableCollapseClickHandler() {
         divCollapsed.classList.remove('app_table_collapse_icon');
         divCollapsed.classList.add('app_table_collapsed_open');
         if (caption !== null) {
-            caption.style.display = 'block';
+            caption.style.visibility = 'visible';
         }
         divBottom.style.display = 'none';
         //if they clicked the bottom div, then scroll back up to the top of the table.
@@ -162,7 +162,7 @@ function tableCollapseClickHandler() {
         divCollapsed.classList.add('app_table_collapse_close');
         divCollapsed.classList.add('app_table_collapse_icon');
         if (caption !== null) {
-            caption.style.display = 'none';
+            caption.style.visibility = 'hidden';
         }
         divBottom.style.display = 'block';
     }
