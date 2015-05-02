@@ -29,7 +29,7 @@ public class Site implements Parcelable {
     }
 
     public String getResourceLoaderPath() {
-        return "https://bits.wikimedia.org/" + language + ".wikipedia.org/load.php";
+        return getScriptPath("load.php");
     }
 
     public String getApiDomain() {
