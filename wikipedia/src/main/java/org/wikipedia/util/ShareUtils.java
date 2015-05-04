@@ -45,7 +45,7 @@ public final class ShareUtils {
      * it's overwritten every time an image is shared from the app, so that it takes up a
      * constant amount of space.
      */
-    public static void shareImage(final Activity activity, final Bitmap bmp, final String mimeType,
+    public static void shareImage(final Activity activity, final Bitmap bmp,
                                   final String imageFileName, final String subject,
                                   final String text, final boolean recycleBmp) {
         final int jpegQuality = 85;
@@ -85,7 +85,7 @@ public final class ShareUtils {
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
                 shareIntent.putExtra(Intent.EXTRA_TEXT, text);
                 shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + result));
-                shareIntent.setType(mimeType);
+                shareIntent.setType("image/jpeg");
                 Intent chooser = Intent.createChooser(shareIntent,
                         activity.getResources().getString(R.string.share_via));
                 activity.startActivity(chooser);

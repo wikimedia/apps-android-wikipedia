@@ -411,7 +411,6 @@ public class GalleryItemFragment extends Fragment {
         parentActivity.getFunnel().logGalleryShare(pageTitle, galleryItem.getName());
         ShareUtils.shareImage(parentActivity,
                 ((BitmapDrawable) imageView.getDrawable()).getBitmap(),
-                "image/jpeg",
                 new java.io.File(galleryItem.getUrl()).getName(),
                 pageTitle.getDisplayText(),
                 "",

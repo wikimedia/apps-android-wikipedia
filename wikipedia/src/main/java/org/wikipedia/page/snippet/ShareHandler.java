@@ -114,8 +114,7 @@ class PreviewDialog extends BottomDialog {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ShareUtils.shareImage(activity, resultBitmap, "*/*",
-                                title, title, introText, false);
+                        ShareUtils.shareImage(activity, resultBitmap, title, title, introText, false);
                         funnel.logShareIntent(selectedText, ShareMode.image);
                         completed = true;
                     }
