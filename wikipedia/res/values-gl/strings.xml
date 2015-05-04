@@ -88,6 +88,7 @@
   <string name="login_in_progress_dialog_message">Accedendo ao sistema…</string>
   <string name="login_error_wrong_password">O contrasinal é incorrecto</string>
   <string name="login_error_wrong_username">O nome de usuario é incorrecto</string>
+  <string name="login_error_illegal">Nome de usuario non válido</string>
   <string name="login_success_toast">Accedeu correctamente!</string>
   <string name="login_error_blocked">Este usuario está bloqueado</string>
   <string name="login_error_throttled">Demasiados intentos de inicio de sesión. Espere uns minutos e volva intentalo.</string>

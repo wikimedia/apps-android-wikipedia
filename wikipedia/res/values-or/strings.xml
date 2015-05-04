@@ -36,7 +36,7 @@
   <string name="saved_pages_search_empty_message">ଆପଣ ଖୋଜୁଥିବା ପୃଷ୍ଠା ମିଳିଲା ନାହିଁ ।</string>
   <string name="nav_item_nearby">ପାଖାପାଖି</string>
   <string name="menu_update_nearby">ପାଖାପାଖିଗୁଡିକୁ ଅପଡେଟ କରିବେ</string>
-  <string name="nearby_distance_in_meters">% ମି</string>
+  <string name="nearby_distance_in_meters">%d ମି</string>
   <string name="nearby_distance_in_kilometers">%.2f କିମି</string>
   <string name="nearby_distance_in_feet">%d ଫୁଟ</string>
   <string name="nearby_distance_in_miles">%.2f ମି</string>
