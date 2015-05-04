@@ -131,7 +131,6 @@ public class ToCHandler {
                 }
             }
         });
-        slidingPane.setSlidingEnabled(false);
     }
 
     private void showToCIntro(final SharedPreferences prefs, WikiDrawerLayout slidingPane) {
@@ -188,7 +187,6 @@ public class ToCHandler {
 
     public void setupToC(final Page page, Site site, boolean firstPage) {
         funnel = new ToCInteractionFunnel((WikipediaApp)slidingPane.getContext().getApplicationContext(), site);
-        slidingPane.setSlidingEnabled(true);
 
         tocProgress.setVisibility(View.GONE);
         tocList.setVisibility(View.VISIBLE);
@@ -240,6 +238,10 @@ public class ToCHandler {
 
     public boolean isVisible() {
         return slidingPane.isDrawerOpen(Gravity.END);
+    }
+
+    public void setEnabled(boolean enabled) {
+        slidingPane.setSlidingEnabled(enabled);
     }
 
     private final class ToCAdapter extends BaseAdapter {

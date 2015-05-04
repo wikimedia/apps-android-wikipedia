@@ -539,6 +539,9 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             updateBackStackItem();
         }
 
+        // disable sliding of the ToC while sections are loading
+        tocHandler.setEnabled(false);
+
         networkError.setVisibility(View.GONE);
 
         state = STATE_NO_FETCH;
@@ -838,6 +841,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         // FIXME: Move this out into a PageComplete event of sorts
         if (state == STATE_COMPLETE_FETCH) {
             tocHandler.setupToC(page, title.getSite(), isFirstPage());
+            tocHandler.setEnabled(true);
 
             //add the page to cache!
             if (cacheOnComplete) {
