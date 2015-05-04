@@ -12,6 +12,8 @@
   <string name="nav_item_history">היסטוריה</string>
   <string name="error_network_error">אין גישה לרשת :(</string>
   <string name="search_network_error">שגיאת רשת. יש ללחוץ כדי לנסות שוב.</string>
+  <string name="generic_page_error">הייתה בעיה בטיפול בבקשה שלך.</string>
+  <string name="status_code_unavailable">קוד המצב מהשרת אינו זמין.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="menu_clear_all_history">ניקוי היסטוריה</string>
   <string name="menu_clear_all_saved_pages">ניקוי כל הדפים השמורים</string>
@@ -86,6 +88,7 @@
   <string name="login_in_progress_dialog_message">אנחנו מכניסים אותך לחשבון…</string>
   <string name="login_error_wrong_password">ססמה שגויה</string>
   <string name="login_error_wrong_username">שם משתמש שגוי</string>
+  <string name="login_error_illegal">שם משתמש בלתי־תקין</string>
   <string name="login_success_toast">הכניסה לחשבון הצליחה!</string>
   <string name="login_error_blocked">המשתמש הזה נחסם</string>
   <string name="login_error_throttled">יותר מדי ניסיונות כניסה. נא לחכות מספר דקות ולנסות שוב.</string>
@@ -268,4 +271,5 @@
   <string name="captcha_image">תמונת אישור</string>
   <string name="gallery_fair_use_license">שימוש הוגן</string>
   <string name="gallery_uploader_unknown">המעלה אינו ידוע</string>
+  <string name="edit_save_unknown_error">לא היה אפשר לשמור את העריכה שלך: %s</string>
 </resources>

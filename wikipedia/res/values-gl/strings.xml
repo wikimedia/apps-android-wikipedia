@@ -12,6 +12,8 @@
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">Non hai ningunha rede :(</string>
   <string name="search_network_error">Erro na rede. Toque para intentalo de novo.</string>
+  <string name="generic_page_error">Houbo un problema xestionando a súa petición.</string>
+  <string name="status_code_unavailable">Código de estado de servidor non dispoñible.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="menu_clear_all_history">Limpar o historial</string>
   <string name="menu_clear_all_saved_pages">Limpar as páxinas gardadas</string>
@@ -268,4 +270,5 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Código Captcha</string>
   <string name="gallery_fair_use_license">Uso lexítimo</string>
   <string name="gallery_uploader_unknown">Autor descoñecido</string>
+  <string name="edit_save_unknown_error">Non se puido gardar a súa edición: %s</string>
 </resources>

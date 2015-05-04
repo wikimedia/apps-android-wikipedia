@@ -12,6 +12,8 @@
   <string name="nav_item_history">История</string>
   <string name="error_network_error">Нет сетевого соединения :(</string>
   <string name="search_network_error">Ошибка сети. Нажмите, чтобы повторить попытку.</string>
+  <string name="generic_page_error">При обработке вашего запроса возникла проблема.</string>
+  <string name="status_code_unavailable">Код статуса сервера недоступен.</string>
   <string name="page_error_retry">Повторить</string>
   <string name="menu_clear_all_history">Очистить историю</string>
   <string name="menu_clear_all_saved_pages">Очистить сохранённые страницы</string>
@@ -86,6 +88,7 @@
   <string name="login_in_progress_dialog_message">Вход в систему…</string>
   <string name="login_error_wrong_password">Неверный пароль</string>
   <string name="login_error_wrong_username">Неверное имя пользователя</string>
+  <string name="login_error_illegal">Неправильное имя участника</string>
   <string name="login_success_toast">Опознание прошло успешно!</string>
   <string name="login_error_blocked">Этот участник был заблокирован</string>
   <string name="login_error_throttled">Слишком много попыток входа. Подождите несколько минут и попробуйте ещё раз.</string>
@@ -269,4 +272,5 @@
   <string name="captcha_image">Капча-изображение</string>
   <string name="gallery_fair_use_license">Добросовестное использование</string>
   <string name="gallery_uploader_unknown">Загрузивший неизвестен</string>
+  <string name="edit_save_unknown_error">Не удалось сохранить вашу правку: %s</string>
 </resources>

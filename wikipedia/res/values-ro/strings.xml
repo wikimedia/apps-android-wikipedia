@@ -12,6 +12,8 @@
   <string name="nav_item_history">Istoric</string>
   <string name="error_network_error">Nu există nicio conexiune la rețea :(</string>
   <string name="search_network_error">Eroare de rețea. Atingeți pentru a reîncerca.</string>
+  <string name="generic_page_error">A apărut o problemă la procesarea cererii dumneavoastră.</string>
+  <string name="status_code_unavailable">Codul stării serverului nu este disponibil.</string>
   <string name="page_error_retry">Reîncercare</string>
   <string name="menu_clear_all_history">Curăță istoricul</string>
   <string name="menu_clear_all_saved_pages">Șterge paginile salvate</string>
@@ -86,6 +88,7 @@
   <string name="login_in_progress_dialog_message">Autentificare în curs…</string>
   <string name="login_error_wrong_password">Parolă incorectă</string>
   <string name="login_error_wrong_username">Nume de utilizator incorect</string>
+  <string name="login_error_illegal">Nume de utilizator incorect</string>
   <string name="login_success_toast">Autentificare reușită!</string>
   <string name="login_error_blocked">Acest utilizator a fost blocat</string>
   <string name="login_error_throttled">Prea multe tentative de autentificare. Așteptați câteva minute și încercați din nou?</string>
@@ -260,4 +263,5 @@ Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) c
   <string name="captcha_image">Imagine Captcha</string>
   <string name="gallery_fair_use_license">Utilizare cinstită</string>
   <string name="gallery_uploader_unknown">Încărcată de o persoană necunoscută</string>
+  <string name="edit_save_unknown_error">Modificarea dumnevoastră nu poate fi salvată: %s</string>
 </resources>

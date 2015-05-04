@@ -12,6 +12,8 @@
   <string name="nav_item_history">Historique</string>
   <string name="error_network_error">Pas de connexion réseau :(</string>
   <string name="search_network_error">Erreur de réseau. Appuyez pour réessayer.</string>
+  <string name="generic_page_error">Il y a eu un problème lors du traitement de votre demande.</string>
+  <string name="status_code_unavailable">Code d’état du serveur non disponible.</string>
   <string name="page_error_retry">Réessayer</string>
   <string name="menu_clear_all_history">Effacer l’historique</string>
   <string name="menu_clear_all_saved_pages">Effacer les pages enregistrées</string>
@@ -268,4 +270,5 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="captcha_image">Image Captcha</string>
   <string name="gallery_fair_use_license">Utilisation normale</string>
   <string name="gallery_uploader_unknown">Téléchargeur inconnu</string>
+  <string name="edit_save_unknown_error">Impossible d’enregistrer votre modification : %s</string>
 </resources>

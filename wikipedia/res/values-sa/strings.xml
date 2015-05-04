@@ -12,6 +12,8 @@
   <string name="nav_item_history">इतिहासः</string>
   <string name="error_network_error">अन्तर्जालसम्पर्कः नास्ति :(</string>
   <string name="search_network_error">अन्तर्जालदोषः । पुनः नुद्यताम् ।</string>
+  <string name="generic_page_error">भवतः/भवत्याः निवेदनस्य नियमनकाले समस्या उद्भूता ।</string>
+  <string name="status_code_unavailable">वितरकस्य स्थितिविध्यादेशः (code) अप्राप्तः ।</string>
   <string name="page_error_retry">पुनःप्रयासः</string>
   <string name="menu_clear_all_history">इतिहासः मार्ज्यताम्</string>
   <string name="menu_clear_all_saved_pages">सर्वाणि रक्षितानि पृष्ठानि अपाक्रियन्ताम्</string>
@@ -49,14 +51,14 @@
   <string name="nearby_set_imperial">फिट्/माइल्स् दर्श्यताम्</string>
   <string name="nearby_view_on_map">भूपटे स्थलं दृष्यताम्</string>
   <string name="last_updated_text">%s अन्तिमम् अद्यतनम् अभवत्</string>
-  <string name="content_license_html">सामग्री &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; इत्यत्र उपलब्धा अस्ति अन्यथा लिखतु</string>
+  <string name="content_license_html">अन्तर्विषयः &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; इत्यत्र उपलब्धः अस्ति, अन्यथा लिखतु</string>
   <string name="edit_save_action_license_logged_in">रक्षणेन सह, भवान्/भवती &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।</string>
   <string name="edit_save_action_license_anon">रक्षणेन सह भवान्/भवती &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।
 सम्पादनस्य कृते भवतां यन्त्रस्य सार्वसङ्केतः आधारत्वेन परिगण्यते । यदि भवान्/भवती &lt;a href=\"https://#login\"&gt;प्रविशति&lt;/a&gt;, तर्हि अधिकगोपनीयतां प्राप्नोति ।</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">अन्विष्यताम्</string>
   <string name="langlinks_filter_hint">अन्विष्यताम्</string>
-  <string name="menu_other_languages">अन्यभाषासु पठ्यताम्</string>
+  <string name="menu_other_languages">अन्यभाषाभिः पठ्यताम्</string>
   <string name="langlinks_error_retry">पुनःप्रयासः</string>
   <string name="langlinks_empty">अन्यभाषासु पृष्ठमिदं न विद्यते ।</string>
   <string name="langlinks_no_match">भवता इष्टितं पृष्ठं न प्राप्तम् ।</string>
@@ -150,6 +152,7 @@
   <string name="activity_my_contributions_title">योगदानानि</string>
   <string name="preference_title_eventlogging_opt_in">उपयोगस्य वृत्तान्तं प्रेषयतु</string>
   <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगे आवश्यकपरिवर्तनं कर्तुं भवान्/भवती विकिपीडिया-अनुप्रयोगस्य कथम् उपयोगं करोति इत्यस्य सूचनैकत्रितं कर्तुं विकिपीडिया-जालाय अनुमतिं ददातु ।</string>
+  <string name="editing_error_spamblacklist">(%s) इत्येतानि स्थगितानि जालस्थानि प्राप्तानि । कृपया तानि अपाकृत्य पुनः प्रयत्यताम् ।</string>
   <string name="history_search_list_hint">अन्विष्यताम्</string>
   <string name="history_search_empty_message">भवता इष्टितं पृष्ठं न प्राप्तम् ।</string>
   <string name="error_can_not_process_link">एषा परिसन्धिः दर्शयितुं न शक्यते</string>
@@ -243,6 +246,8 @@
   <string name="share_normal_button">पाठरूपेण वितरतु</string>
   <string name="snippet_share_preview_image_desc">चित्रस्य प्राग्दृश्यम्</string>
   <string name="cc_logo">क्रिएटिव् कॉमन्स्-अधिकारः</string>
+  <string name="captcha_image">संभेपूस्वसाट्यूप चित्रम्</string>
   <string name="gallery_fair_use_license">उचितोपयोगः</string>
   <string name="gallery_uploader_unknown">अज्ञातः उपारोहकः</string>
+  <string name="edit_save_unknown_error">%s इति कारणत्वात् भवतः/भवत्याः सम्पादनस्य रक्षणं नाभवत् ।</string>
 </resources>

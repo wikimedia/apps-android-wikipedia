@@ -12,6 +12,8 @@
   <string name="nav_item_history">Riwayat</string>
   <string name="error_network_error">Tidak ada sambungan jaringan :(</string>
   <string name="search_network_error">Kesalahan jaringan. Ketuk untuk mencoba lagi.</string>
+  <string name="generic_page_error">Terjadi masalah saat menangani permintaan Anda.</string>
+  <string name="status_code_unavailable">Kode status peladen tidak tersedia.</string>
   <string name="page_error_retry">Coba lagi</string>
   <string name="menu_clear_all_history">Hapus riwayat</string>
   <string name="menu_clear_all_saved_pages">Hapus semua halaman tersimpan</string>
@@ -86,6 +88,7 @@
   <string name="login_in_progress_dialog_message">Sedang masuk log…</string>
   <string name="login_error_wrong_password">Kata sandi salah</string>
   <string name="login_error_wrong_username">Nama pengguna salah</string>
+  <string name="login_error_illegal">Nama pengguna tidak berlaku</string>
   <string name="login_success_toast">Berhasil masuk log!</string>
   <string name="login_error_blocked">Pengguna ini telah diblokir</string>
   <string name="login_error_throttled">Terlalu banyak upaya masuk log. Tunggu beberapa menit dan coba lagi.</string>
@@ -268,4 +271,5 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="captcha_image">Gambar Captcha</string>
   <string name="gallery_fair_use_license">Penggunaan wajar</string>
   <string name="gallery_uploader_unknown">Pengunggah tidak diketahui</string>
+  <string name="edit_save_unknown_error">Tidak dapat menyimpan suntingan Anda: %s</string>
 </resources>

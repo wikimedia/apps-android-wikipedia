@@ -12,6 +12,8 @@
   <string name="nav_item_history">Geçmiş</string>
   <string name="error_network_error">Ağ bağlantısı yok :(</string>
   <string name="search_network_error">Ağ hatası. Tekrar denemek için dokunun.</string>
+  <string name="generic_page_error">Talebiniz gerçekleştirilirken bir sorun çıktı.</string>
+  <string name="status_code_unavailable">Sunucu durum kodu kullanılamıyor.</string>
   <string name="page_error_retry">Tekrar dene</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
   <string name="menu_clear_all_saved_pages">Tüm kaydedilen sayfaları temizle</string>
@@ -266,4 +268,5 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Captcha resmi</string>
   <string name="gallery_fair_use_license">Adil kullanım</string>
   <string name="gallery_uploader_unknown">Yükleyen bilinmiyor</string>
+  <string name="edit_save_unknown_error">Değişikliğiniz kaydedilemedi: %s</string>
 </resources>

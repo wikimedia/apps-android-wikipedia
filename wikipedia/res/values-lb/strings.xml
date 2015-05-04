@@ -84,6 +84,7 @@
   <string name="login_in_progress_dialog_message">Dir gitt ageloggt…</string>
   <string name="login_error_wrong_password">Falscht Passwuert</string>
   <string name="login_error_wrong_username">Falsche Benotzernumm</string>
+  <string name="login_error_illegal">Ongëltege Benotzernumm</string>
   <string name="login_success_toast">Dir sidd elo ageloggt!</string>
   <string name="login_error_blocked">Dëse Benotzer gouf gespaart</string>
   <string name="login_error_throttled">Zedacks probéiert anzeloggen. Waart e puer Minutten a probéiert nach eng Kéier.</string>
@@ -237,4 +238,5 @@
   <string name="captcha_image">Captcha-Bild</string>
   <string name="gallery_fair_use_license">Fair Use</string>
   <string name="gallery_uploader_unknown">Eroplueder onbekannt</string>
+  <string name="edit_save_unknown_error">Är Ännerung konnt net gespäichert ginn: %s</string>
 </resources>

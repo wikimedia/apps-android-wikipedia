@@ -22,8 +22,10 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Gordetako orrialde guztiak eguneratu?</string>
   <string name="menu_save_page">Gorde orrialdea</string>
   <string name="menu_share_page">Partekatu</string>
+  <string name="share_via">Partekatu honela</string>
   <string name="dialog_title_clear_saved_pages">Gordetako orrialde guztiak garbitu?</string>
   <string name="toast_saving_page">Orrialdea gordetzen…</string>
+  <string name="toast_saved_page">Orria ondo gordea</string>
   <string name="toast_saved_page_missing_images">Ezin izan dira irudi guztiak gorde</string>
   <string name="delete_selected_saved_pages">Ezabatu</string>
   <string name="toast_saved_page_deleted">Gordetako orrialdea(k) ezabatu d(ir)a</string>

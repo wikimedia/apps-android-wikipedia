@@ -86,6 +86,7 @@
   <string name="login_in_progress_dialog_message">Iniciando sesión…</string>
   <string name="login_error_wrong_password">Contraseña incorrecta</string>
   <string name="login_error_wrong_username">Nombre de usuario incorrecto</string>
+  <string name="login_error_illegal">Nombre de usuario no válido</string>
   <string name="login_success_toast">Se inició la sesión correctamente</string>
   <string name="login_error_blocked">Este usuario ha sido bloqueado</string>
   <string name="login_error_throttled">Demasiados intentos de inicio de sesión. Espera unos minutos y vuelve a intentarlo</string>

@@ -147,7 +147,7 @@
   <string name="edit_summary_tag_grammar">వ్యాకరణం స్థిరం</string>
   <string name="edit_summary_tag_links">లింకులు చేర్చబడ్డాయి</string>
   <string name="edit_summary_tag_other">ఇతరము</string>
-  <string name="edit_summary_tag_other_hint">ఇతర మార్గాలుతో మీరు పేజీ అభివృద్ధి చేశారు</string>
+  <string name="edit_summary_tag_other_hint">మీరు పేజీని ఇతర మార్గాలతో అభివృద్ధి చేశారు</string>
   <string name="find_in_page">పుటలో వెతకండి</string>
   <string name="find_next">తదుపరి కనుగొను</string>
   <string name="find_previous">మునుపటిది కనుగొను</string>

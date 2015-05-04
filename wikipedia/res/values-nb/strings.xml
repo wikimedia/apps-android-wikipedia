@@ -12,6 +12,8 @@
   <string name="nav_item_history">Logg</string>
   <string name="error_network_error">Det er ingen nettverksforbindelse :(</string>
   <string name="search_network_error">Nettverksfeil. Trykk for å prøve igjen.</string>
+  <string name="generic_page_error">Et problem oppstod under behandlingen av din forespørsel.</string>
+  <string name="status_code_unavailable">Tjenerens statuskode er utilgjengelig.</string>
   <string name="page_error_retry">Prøv igjen</string>
   <string name="menu_clear_all_history">Tøm logg</string>
   <string name="menu_clear_all_saved_pages">Fjern alle lagrede sider</string>
@@ -86,6 +88,7 @@
   <string name="login_in_progress_dialog_message">Logger deg inn…</string>
   <string name="login_error_wrong_password">Feil passord</string>
   <string name="login_error_wrong_username">Feil brukernavn</string>
+  <string name="login_error_illegal">Ugyldig brukernavn</string>
   <string name="login_success_toast">Innlogging vellykket!</string>
   <string name="login_error_blocked">Brukeren har blitt blokkert</string>
   <string name="login_error_throttled">For mange innloggingsforsøk. Vent et par minutter og prøv igjen.</string>
@@ -268,4 +271,5 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Captcha-bilde</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Ukjent opplaster</string>
+  <string name="edit_save_unknown_error">Kunne ikke lagre din redigering: %s</string>
 </resources>

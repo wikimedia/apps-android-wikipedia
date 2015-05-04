@@ -12,6 +12,8 @@
   <string name="nav_item_history">Historik</string>
   <string name="error_network_error">Det finns ingen nätverksanslutning :(</string>
   <string name="search_network_error">Nätverksfel. Tryck för att försöka igen.</string>
+  <string name="generic_page_error">Ett problem uppstod när din begäran skulle behandlas.</string>
+  <string name="status_code_unavailable">Serverns statuskod är otillgänglig.</string>
   <string name="page_error_retry">Försök igen</string>
   <string name="menu_clear_all_history">Rensa historik</string>
   <string name="menu_clear_all_saved_pages">Rensa sparade sidor</string>
@@ -86,6 +88,7 @@
   <string name="login_in_progress_dialog_message">Loggar in dig…</string>
   <string name="login_error_wrong_password">Felaktigt lösenord</string>
   <string name="login_error_wrong_username">Felaktigt användarnamn</string>
+  <string name="login_error_illegal">Ogiltigt användarnamn</string>
   <string name="login_success_toast">Inloggningen lyckades!</string>
   <string name="login_error_blocked">Denna användare har blockerats</string>
   <string name="login_error_throttled">För många inloggningsförsök. Vänta några minuter och försök igen.</string>
@@ -268,4 +271,5 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="captcha_image">Captcha-bild</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Okänd uppladdare</string>
+  <string name="edit_save_unknown_error">Kunde inte spara din redigering: %s</string>
 </resources>

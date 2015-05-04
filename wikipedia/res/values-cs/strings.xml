@@ -12,6 +12,8 @@
   <string name="nav_item_history">Historie</string>
   <string name="error_network_error">Není k dispozici připojení k Internetu :(</string>
   <string name="search_network_error">Chyba sítě. Klepnutím to zkusíte znovu.</string>
+  <string name="generic_page_error">Při vyřizování Vaší žádosti se vyskytl problém.</string>
+  <string name="status_code_unavailable">Kód pro status serveru není k dispozici.</string>
   <string name="page_error_retry">Zkusit znovu</string>
   <string name="menu_clear_all_history">Vymazat historii</string>
   <string name="menu_clear_all_saved_pages">Vymazat uložené stránky</string>
@@ -81,6 +83,7 @@
   <string name="login_in_progress_dialog_message">Přihlašování…</string>
   <string name="login_error_wrong_password">Nesprávné heslo</string>
   <string name="login_error_wrong_username">Nesprávné uživatelské jméno</string>
+  <string name="login_error_illegal">Neplatné uživatelské jméno</string>
   <string name="login_success_toast">Přihlášení uspělo!</string>
   <string name="login_error_blocked">Tento uživatel byl zablokován</string>
   <string name="login_error_throttled">Příliš mnoho pokusů o přihlášení. Počkejte několik minut a zkuste to znovu?</string>
@@ -238,4 +241,5 @@ Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu,
   <string name="share_snippet_button">Sdílet jako obrázek</string>
   <string name="share_normal_button">Sdílet jako text</string>
   <string name="snippet_share_preview_image_desc">Náhled obrázku</string>
+  <string name="edit_save_unknown_error">Nelze uložit vaše úpravy: %s</string>
 </resources>

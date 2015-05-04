@@ -86,6 +86,7 @@
   <string name="login_in_progress_dialog_message">Prihlasujem…</string>
   <string name="login_error_wrong_password">Nesprávne heslo</string>
   <string name="login_error_wrong_username">Nesprávne používateľské meno</string>
+  <string name="login_error_illegal">Neplatné používateľské meno</string>
   <string name="login_success_toast">Prihlásenie bolo úspešné!</string>
   <string name="login_error_blocked">Tento používateľ bol zablokovaný</string>
   <string name="login_error_throttled">Príliš veľa pokusov o prihlásenie. Počkajte pár minút a skúste to znova.</string>

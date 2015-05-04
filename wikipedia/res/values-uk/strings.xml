@@ -78,6 +78,7 @@
   <string name="login_in_progress_dialog_message">Входимо до системи…</string>
   <string name="login_error_wrong_password">Невірний пароль.</string>
   <string name="login_error_wrong_username">Неправильне ім\'я користувача</string>
+  <string name="login_error_illegal">Неправильне ім\'я користувача</string>
   <string name="login_success_toast">Ви успішно увійшли!</string>
   <string name="login_error_blocked">Цей користувач був заблокований</string>
   <string name="login_error_throttled">Забагато спроб входу. Зачекайте кілька хвилин і спробуйте ще раз?</string>

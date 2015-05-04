@@ -12,6 +12,7 @@
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Nie ma połączenia z siecią :(</string>
   <string name="search_network_error">Błąd sieci. Kliknij, aby spróbować ponownie.</string>
+  <string name="status_code_unavailable">Kod statusu serwera nie jest dostępny.</string>
   <string name="page_error_retry">Ponów próbę</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
   <string name="menu_clear_all_saved_pages">Wyczyść listę zapisanych stron</string>
@@ -79,6 +80,7 @@
   <string name="login_in_progress_dialog_message">Logowanie…</string>
   <string name="login_error_wrong_password">Nieprawidłowe hasło</string>
   <string name="login_error_wrong_username">Nieprawidłowa nazwa użytkownika</string>
+  <string name="login_error_illegal">Niepoprawna nazwa użytkownika</string>
   <string name="login_success_toast">Zalogowano pomyślnie!</string>
   <string name="login_error_blocked">Ten użytkownik został zablokowany</string>
   <string name="login_error_throttled">Zbyt wiele prób logowania. Poczekaj kilka minut i spróbuj ponownie.</string>
@@ -225,4 +227,5 @@
   <string name="cc_logo">Licencja Creative Commons</string>
   <string name="captcha_image">Obrazek captcha</string>
   <string name="gallery_fair_use_license">Fair use</string>
+  <string name="edit_save_unknown_error">Nie udało się zapisać twojej edycji: %s</string>
 </resources>

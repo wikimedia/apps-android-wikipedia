@@ -88,6 +88,7 @@
   <string name="login_in_progress_dialog_message">Ве најавувам…</string>
   <string name="login_error_wrong_password">Погрешна лозинка</string>
   <string name="login_error_wrong_username">Погрешнно корисничко име</string>
+  <string name="login_error_illegal">Неправилно корисничко име</string>
   <string name="login_success_toast">Најавата успеа!</string>
   <string name="login_error_blocked">Овој корисник е блокиран</string>
   <string name="login_error_throttled">Премногу обиди за најава. Почекајте неколку минути и обидете се повторно.</string>

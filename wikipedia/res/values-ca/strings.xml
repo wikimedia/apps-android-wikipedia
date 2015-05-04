@@ -12,6 +12,8 @@
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">No hi ha connexió a la xarxa :(</string>
   <string name="search_network_error">Error de xarxa. Toqueu la pantalla per a tornar-ho a provar.</string>
+  <string name="generic_page_error">S\'ha produït un problema gestionant la sol·licitud.</string>
+  <string name="status_code_unavailable">El codi d\'estat del servidor no és disponible</string>
   <string name="page_error_retry">Tornar a provar</string>
   <string name="menu_clear_all_history">Esborra l\'historial</string>
   <string name="menu_clear_all_saved_pages">Esborra les pàgines desades</string>
@@ -264,4 +266,5 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Imatge Captcha</string>
   <string name="gallery_fair_use_license">Fair use (ús raonable)</string>
   <string name="gallery_uploader_unknown">Carregador no conegut</string>
+  <string name="edit_save_unknown_error">No s\'ha pogut desar l\'edició: %s</string>
 </resources>
