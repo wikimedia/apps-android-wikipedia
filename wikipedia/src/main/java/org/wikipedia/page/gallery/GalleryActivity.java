@@ -13,10 +13,10 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageCache;
+import org.wikipedia.util.ApiUtil;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
@@ -438,7 +438,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             // if we have a target image index to jump to, then do it!
             galleryPager.setCurrentItem(initialImageIndex, false);
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (ApiUtil.hasHoneyComb()) {
             // Sorry 2.3, you won't get custom transforms between pages.
             galleryPager.setPageTransformer(false, new GalleryPagerTransformer());
         }

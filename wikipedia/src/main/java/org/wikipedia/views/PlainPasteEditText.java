@@ -4,9 +4,10 @@ import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.Context;
 import android.content.ClipboardManager;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.EditText;
+
+import org.wikipedia.util.ApiUtil;
 
 public class PlainPasteEditText extends EditText {
     private Context context;
@@ -32,7 +33,7 @@ public class PlainPasteEditText extends EditText {
             case android.R.id.cut:
                 break;
             case android.R.id.paste:
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                if (ApiUtil.hasHoneyComb()) {
                     // Do not allow pasting of formatted text!
                     // We do this by intercepting the clipboard and temporarily replacing its
                     // contents with plain text.

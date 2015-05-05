@@ -1,9 +1,10 @@
 package org.wikipedia.page;
 
 import org.wikipedia.R;
+import org.wikipedia.util.ApiUtil;
+
 import android.app.Dialog;
 import android.content.Context;
-import android.os.Build;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,7 @@ public class BottomDialog extends Dialog {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         dialogLayout = inflater.inflate(dialogLayoutResId, null);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+        if (ApiUtil.hasIceCreamSandwich()) {
             getWindow().setDimAmount(0.0f);
         }
         requestWindowFeature(Window.FEATURE_NO_TITLE);

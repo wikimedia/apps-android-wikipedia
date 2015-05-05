@@ -1,7 +1,6 @@
 package org.wikipedia.theme;
 
 import android.content.Context;
-import android.os.Build;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -11,6 +10,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppearanceChangeFunnel;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import org.wikipedia.page.BottomDialog;
+import org.wikipedia.util.ApiUtil;
 
 public class ThemeChooserDialog extends BottomDialog {
     private WikipediaApp app;
@@ -131,7 +131,7 @@ public class ThemeChooserDialog extends BottomDialog {
             }
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (ApiUtil.hasHoneyComb()) {
             buttonThemeLight.setActivated(app.getCurrentTheme() == WikipediaApp.THEME_LIGHT);
             buttonThemeDark.setActivated(app.getCurrentTheme() == WikipediaApp.THEME_DARK);
         }

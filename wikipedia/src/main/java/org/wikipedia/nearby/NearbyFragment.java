@@ -8,6 +8,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.mediawiki.api.json.ApiException;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.util.ApiUtil;
 
 import com.squareup.picasso.Picasso;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
@@ -27,7 +28,6 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
@@ -430,7 +430,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     }
 
     private void addResultsToAdapter(List<NearbyPage> result) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (ApiUtil.hasHoneyComb()) {
             adapter.addAll(result);
         } else {
             for (NearbyPage page : result) {

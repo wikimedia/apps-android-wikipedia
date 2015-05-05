@@ -10,7 +10,6 @@ import android.graphics.Rect;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spanned;
@@ -20,6 +19,7 @@ import android.text.TextUtils;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.L10nUtils;
 
 import static android.text.Layout.Alignment.ALIGN_NORMAL;
@@ -197,7 +197,7 @@ public final class SnippetImage {
             left = WIDTH - HORIZONTAL_PADDING - textLayout.getWidth();
         }
         int marginBottomTotal = marginBottom;
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+        if (!ApiUtil.hasLollipop()) {
             // versions < 5.0 don't compensate for bottom margin correctly when line
             // spacing is less than 1.0, so we'll compensate ourselves
             final int marginBoost = 10;

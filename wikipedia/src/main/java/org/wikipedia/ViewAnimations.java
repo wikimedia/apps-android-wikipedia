@@ -1,11 +1,12 @@
 package org.wikipedia;
 
 import android.content.res.Resources;
-import android.os.Build;
 import android.view.View;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.view.ViewHelper;
+
+import org.wikipedia.util.ApiUtil;
 
 import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 
@@ -58,7 +59,7 @@ public final class ViewAnimations {
      * @param runOnComplete Optional Runnable to be run when the animation is complete (may be null).
      */
     public static void fadeIn(final View view, final Runnable runOnComplete) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (ApiUtil.hasHoneyComb()) {
             ViewHelper.setAlpha(view, 0f);
             view.setVisibility(View.VISIBLE);
             animate(view)
@@ -104,7 +105,7 @@ public final class ViewAnimations {
      * @param runOnComplete Optional Runnable to be run when the animation is complete (may be null).
      */
     public static void fadeOut(final View view, final Runnable runOnComplete) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (ApiUtil.hasHoneyComb()) {
             animate(view)
                     .alpha(0f)
                     .setDuration(MEDIUM_ANIMATION_DURATION)

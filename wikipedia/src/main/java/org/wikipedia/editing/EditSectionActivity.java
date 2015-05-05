@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
@@ -46,6 +45,7 @@ import org.wikipedia.login.LoginTask;
 import org.wikipedia.login.User;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
+import org.wikipedia.util.ApiUtil;
 
 public class EditSectionActivity extends ThemedActionBarActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";
@@ -527,7 +527,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             item.setEnabled(sectionTextModified);
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (ApiUtil.hasHoneyComb()) {
             View v = getLayoutInflater().inflate(R.layout.item_edit_actionbar_button, null);
             item.setActionView(v);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
