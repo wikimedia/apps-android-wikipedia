@@ -6,12 +6,13 @@ import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.util.ApiUtil;
+
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GestureDetectorCompat;
@@ -78,7 +79,7 @@ public class LinkPreviewDialog extends DialogFragment {
         previewImage = (ImageView) rootView.findViewById(R.id.link_preview_image);
 
         descriptionText = (TextView) rootView.findViewById(R.id.link_preview_description);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+        if (!ApiUtil.hasLollipop()) {
             LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) descriptionText.getLayoutParams();
             final float marginScale = 0.7f;
             params.topMargin = (int) (params.topMargin * marginScale);

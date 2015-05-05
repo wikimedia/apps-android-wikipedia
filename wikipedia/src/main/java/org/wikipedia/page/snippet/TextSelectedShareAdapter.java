@@ -5,13 +5,13 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.os.Build;
 import android.support.v7.view.ActionMode;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.util.ApiUtil;
 
 /**
  * Allows sharing selected text in the WebView.
@@ -83,7 +83,7 @@ public class TextSelectedShareAdapter extends ShareHandler {
                 }
                 // In APIs lower than 21, some of the action mode icons may not respect the
                 // current theme, so we need to manually tint those icons.
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                if (!ApiUtil.hasLollipop()) {
                     fixMenuItemTheme(item);
                 }
             } catch (Resources.NotFoundException e) {

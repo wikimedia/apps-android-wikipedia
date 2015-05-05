@@ -11,7 +11,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.TypedArray;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Looper;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
@@ -35,6 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.util.ApiUtil;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -278,7 +278,7 @@ public final class Utils {
      * @see http://stackoverflow.com/questions/14413575/how-to-write-style-to-error-text-of-edittext-in-android
      */
     public static void setErrorPopup(TextView textView, String error) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (ApiUtil.hasHoneyComb()) {
             textView.setError(error);
         } else {
             textView.setError(Html.fromHtml("<font color='red'>" + error + "</font>"));
@@ -361,7 +361,7 @@ public final class Utils {
      * @param lang Wiki code for the language based on which to set direction
      */
     public static void setTextDirection(View view, String lang) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        if (ApiUtil.hasJellyBeanMr1()) {
             view.setTextDirection(Utils.isLangRTL(lang) ? View.TEXT_DIRECTION_RTL : View.TEXT_DIRECTION_LTR);
         }
     }

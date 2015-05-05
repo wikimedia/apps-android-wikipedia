@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
-import android.os.Build;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -33,6 +32,7 @@ import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageViewFragmentInternal;
+import org.wikipedia.util.ApiUtil;
 import org.wikipedia.views.ObservableWebView;
 
 public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListener, ImageViewWithFace.OnImageLoadListener {
@@ -129,7 +129,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         displayDensity = context.getResources().getDisplayMetrics().density;
 
         // get the screen height, using correct methods for different API versions
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+        if (ApiUtil.hasHoneyCombMr2()) {
             Point size = new Point();
             parentFragment.getActivity().getWindowManager().getDefaultDisplay().getSize(size);
             displayHeight = (int)(size.y / displayDensity);
@@ -501,7 +501,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             // set the correct padding on the container
             pageTitleContainer.setPadding(0, (int) (TITLE_GRADIENT_HEIGHT_DP * displayDensity), 0, 0);
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (ApiUtil.hasHoneyComb()) {
             // for API >10, decrease line spacing and boost bottom padding to account for it.
             // (in API 10, decreased line spacing cuts off the bottom of the text)
             final float lineSpacing = 0.8f;
@@ -509,7 +509,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             pageTitleText.setLineSpacing(0, lineSpacing);
             // however, if it's Lollipop or greater, then don't boost the bottom padding of the
             // title text, since it now correctly does it automatically.
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            if (!ApiUtil.hasLollipop()) {
                 titleBottomPadding += lineSpacePadding;
             }
         }
@@ -584,8 +584,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 final int marginSpL = 16;
                 final int marginSpH = 20;
                 int marginSp = marginSpL;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB
-                    && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                if (ApiUtil.hasHoneyComb() && !ApiUtil.hasLollipop()) {
                     marginSp = marginSpH;
                 }
                 final int newMargin = pageDescriptionText.getHeight()
@@ -596,7 +595,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 Animation anim = new Animation() {
                     @Override
                     protected void applyTransformation(float interpolatedTime, Transformation t) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                        if (ApiUtil.hasHoneyComb()) {
                             FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) pageTitleText.getLayoutParams();
                             params.bottomMargin = (int) (newMargin * interpolatedTime);
                             pageTitleText.setLayoutParams(params);

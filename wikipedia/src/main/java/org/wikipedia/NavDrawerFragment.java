@@ -3,7 +3,6 @@ package org.wikipedia;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -25,6 +24,7 @@ import org.wikipedia.random.RandomHandler;
 import org.wikipedia.savedpages.SavedPagesFragment;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.SettingsActivityGB;
+import org.wikipedia.util.ApiUtil;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 
 public class NavDrawerFragment extends Fragment implements View.OnClickListener {
@@ -187,7 +187,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 ((PageActivity)getActivity()).pushFragment(new NearbyFragment());
                 break;
             case R.id.nav_item_more:
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                if (ApiUtil.hasHoneyComb()) {
                     intent.setClass(this.getActivity(), SettingsActivity.class);
                 } else {
                     intent.setClass(this.getActivity(), SettingsActivityGB.class);

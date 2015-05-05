@@ -39,6 +39,7 @@ import org.wikipedia.savedpages.SavedPagePersister;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.search.RecentSearchPersister;
 import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.util.ApiUtil;
 import org.wikipedia.zero.WikipediaZeroHandler;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -179,7 +180,7 @@ public class WikipediaApp extends Application {
         sessionFunnel = new SessionFunnel(this);
 
         // Enable debugging on the webview
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (ApiUtil.hasKitKat()) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
 

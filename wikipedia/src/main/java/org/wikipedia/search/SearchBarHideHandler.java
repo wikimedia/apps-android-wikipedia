@@ -2,7 +2,6 @@ package org.wikipedia.search;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.os.Build;
 import android.view.View;
 
 import com.nineoldandroids.animation.ArgbEvaluator;
@@ -10,6 +9,7 @@ import com.nineoldandroids.view.ViewHelper;
 
 import org.wikipedia.R;
 import org.wikipedia.ViewAnimations;
+import org.wikipedia.util.ApiUtil;
 import org.wikipedia.views.ObservableWebView;
 
 public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeListener, ObservableWebView.OnUpOrCancelMotionEventListener, ObservableWebView.OnDownMotionEventListener {
@@ -96,7 +96,7 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
         toolbarBackground.getBackground().setAlpha(opacity);
         toolbarShadow.getBackground().setAlpha(opacity);
         toolbarGradient.getBackground().setAlpha(FULL_OPACITY - opacity);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (ApiUtil.hasLollipop()) {
             parentActivity.getWindow().setStatusBarColor(
                     (int) colorEvaluator
                             .evaluate((float) opacity / FULL_OPACITY, Color.BLACK, toolbarColor));

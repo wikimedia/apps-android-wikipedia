@@ -26,6 +26,7 @@ import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
+import org.wikipedia.util.ApiUtil;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.zero.ZeroMessage;
 
@@ -42,7 +43,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.BadParcelableException;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -185,7 +185,7 @@ public class PageActivity extends ThemedActionBarActivity {
         searchBarHideHandler = new SearchBarHideHandler(this, toolbarContainer);
 
         noTextSelectedShareAdapter = new NoTextSelectedShareAdapter(this);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (ApiUtil.hasHoneyComb()) {
             textSelectedShareAdapter = new TextSelectedShareAdapter(this);
         }
 
@@ -644,7 +644,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
         @Subscribe
         public void onChangeTheme(ThemeChangeEvent event) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            if (ApiUtil.hasHoneyComb()) {
 
                 // this is all that's necessary!
                 // ALL of the other code relating to changing themes is only for API 10 support!

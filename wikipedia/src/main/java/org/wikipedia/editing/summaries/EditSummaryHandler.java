@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.ContentProviderClient;
 import android.content.Context;
 import android.database.Cursor;
-import android.os.Build;
 import android.os.RemoteException;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +14,7 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.ApiUtil;
 
 import java.util.Date;
 
@@ -36,7 +36,7 @@ public class EditSummaryHandler {
             }
         });
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB
+        if (!ApiUtil.hasHoneyComb()
             && WikipediaApp.getInstance().getCurrentTheme() == WikipediaApp.THEME_DARK) {
             // explicitly set text hint color
             summaryEdit.setHintTextColor(activity.getResources()
@@ -95,7 +95,7 @@ public class EditSummaryHandler {
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup parent) {
             View rootView = activity.getLayoutInflater().inflate(android.R.layout.simple_list_item_1, parent, false);
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+            if (!ApiUtil.hasHoneyComb()) {
                 // explicitly set background color of the list item
                 rootView.setBackgroundColor(activity.getResources().getColor(
                         Utils.getThemedAttributeId(activity, R.attr.window_background_color)));

@@ -2,9 +2,9 @@ package org.wikipedia.page;
 
 import org.wikipedia.R;
 import org.wikipedia.Utils;
+import org.wikipedia.util.ApiUtil;
 
 import android.graphics.Color;
-import android.os.Build;
 import android.support.v4.view.ActionProvider;
 import android.support.v7.widget.SearchView;
 import android.view.View;
@@ -123,7 +123,7 @@ public class FindInPageActionProvider extends ActionProvider {
 
     public void findInPage(String s) {
         // to make it stop complaining
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        if (ApiUtil.hasJellyBean()) {
             parentActivity.getCurPageFragment().getWebView().setFindListener(new FindListener() {
                 @Override
                 public void onFindResultReceived(int activeMatchOrdinal, int numberOfMatches, boolean isDoneCounting) {
