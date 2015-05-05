@@ -48,7 +48,7 @@
         <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/history_search_list"
                 android:hint="@string/history_search_list_hint"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionDone|flagNoExtractUi"
                 android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"

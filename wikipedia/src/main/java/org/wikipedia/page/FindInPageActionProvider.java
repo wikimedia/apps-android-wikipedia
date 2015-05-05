@@ -66,8 +66,9 @@ public class FindInPageActionProvider extends ActionProvider {
         searchView.setOnQueryTextListener(searchQueryListener);
         searchView.setOnCloseListener(searchCloseListener);
         searchView.setIconified(false);
+        searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setInputType(EditorInfo.TYPE_CLASS_TEXT);
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
         searchView.setSubmitButtonEnabled(false);
         // remove focus line from search plate
         View searchEditPlate = searchView

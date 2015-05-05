@@ -16,6 +16,7 @@ import org.wikipedia.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Two way communications bridge between JS in a WebView and Java.
@@ -23,7 +24,7 @@ import java.util.HashMap;
 public class CommunicationBridge {
     private final WebView webView;
 
-    private final HashMap<String, ArrayList<JSEventListener>> eventListeners;
+    private final Map<String, ArrayList<JSEventListener>> eventListeners;
 
     private final BridgeMarshaller marshaller;
 
@@ -140,7 +141,7 @@ public class CommunicationBridge {
     }
 
     private static class BridgeMarshaller {
-        private HashMap<String, String> queueItems = new HashMap<>();
+        private Map<String, String> queueItems = new HashMap<>();
         private int counter = 0;
 
         /**

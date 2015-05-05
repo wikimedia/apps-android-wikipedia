@@ -73,7 +73,7 @@
                 android:layout_marginRight="8dp"
                 android:hint="@string/langlinks_filter_hint"
                 android:singleLine="true"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionDone|flagNoExtractUi"
                 />
         <ListView android:id="@+id/langlinks_list"
                   android:layout_width="fill_parent"

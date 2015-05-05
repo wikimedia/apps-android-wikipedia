@@ -15,4 +15,8 @@
     <attr name="syntax_highlight_template_color" format="reference"/>
     <attr name="subtle_gray_color" format="reference"/>
     <attr name="nearby_marker_drawable" format="reference"/>
+
+    <declare-styleable name="CabSearchView">
+        <attr name="cabEnabled" format="boolean" />
+    </declare-styleable>
 </resources>

@@ -52,6 +52,7 @@
             android:layout_gravity="center_horizontal"
             android:hint="@string/edit_section_captcha_hint"
             android:singleLine="true"
+            android:imeOptions="actionDone|flagNoExtractUi"
             android:inputType="textVisiblePassword|textNoSuggestions"
             />
     <Button

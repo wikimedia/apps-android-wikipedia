@@ -33,6 +33,7 @@ import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+
 import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.DialogInterface;
@@ -140,7 +141,7 @@ public class PageActivity extends ThemedActionBarActivity {
         app = (WikipediaApp) getApplicationContext();
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_page);
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
@@ -849,16 +850,15 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
-        // Check what kind of ActionMode this is...
-        // If its tag is non-null, it means that the ActionMode is one of ours (History,
-        // Saved Pages, or Find In Page). Otherwise, it must be the default WebView text-
-        // highlighting ActionMode, in which case we'll invoke the Share adapter!
-        if (currentActionMode == null && mode.getTag() == null
-                && textSelectedShareAdapter != null) {
+        if (currentActionMode == null && textSelectedShareAdapter != null
+                && !isAppInitiatedActionMode(mode)) {
+            // Initiated by the system, likely in response to highlighting text in the WebView.
             textSelectedShareAdapter.onTextSelected(mode);
         }
+
         currentActionMode = mode;
         searchBarHideHandler.setForceNoFade(true);
+
         super.onSupportActionModeStarted(mode);
     }
 
@@ -871,5 +871,11 @@ public class PageActivity extends ThemedActionBarActivity {
 
     public void share() {
         noTextSelectedShareAdapter.share();
+    }
+
+    private boolean isAppInitiatedActionMode(ActionMode mode) {
+        // ActionMode in non-WebView components (History, Saved Pages, or Find In Page) must call
+        // setTag().
+        return mode.getTag() != null;
     }
 }
