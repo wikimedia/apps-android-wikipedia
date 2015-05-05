@@ -26,18 +26,22 @@ Note: the apk file locations are printed to stdout
     git log --pretty=format:"%h | %cr | %s" --abbrev-commit --no-merges `git tag -l r/*|tail -1`..
 9) Upload prod apk to store, releasesprod apk to releases.mediawiki.org
 
-Requires the python module 'sh' to run. Ensure you have a clean working
-directory before running as well.
+Requires the python module 'sh' and the environment variable ANDROID_HOME to run.
+Ensure you have a clean working directory before running as well.
+
+See also https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Release_process
 """
+import argparse
+import glob
+import os
+import re
 import sh
 import subprocess
-import os
-import time
-import argparse
 import sys
 
 PATH_PREFIX = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 GRADLEW = './gradlew'
+VERSION_START = '2.0'
 
 
 def p(*path_fragments):
@@ -48,34 +52,25 @@ def p(*path_fragments):
     return os.path.join(PATH_PREFIX, *path_fragments)
 
 
-def get_release_name(target):
-    """
-    Returns name release, based on target (in release name) and current date.
-    This should be kept in sync with the versionNames of the various flavors
-    in build.gradle.
-    """
-    return '2.0-%s-%s' % (target, time.strftime('%Y-%m-%d'))
-
-
-def get_git_tag_name(target):
+def get_git_tag_name(target, version_name):
     """
     Returns name used for creating the tag
     """
-    return target + '/' + get_release_name(target)
+    return target + '/' + version_name
 
 
-def git_tag(target):
+def git_tag(target, version_name):
     """
     Creates an annotated git tag for this release
     """
-    sh.git.tag('-a', get_git_tag_name(target), '-m', target)
+    sh.git.tag('-a', get_git_tag_name(target, version_name), '-m', target)
 
 
-def push_to_gerrit(target):
+def push_to_gerrit(target, version_name):
     """
     Pushes the git tag to gerrit
     """
-    tag_name = get_git_tag_name(target)
+    tag_name = get_git_tag_name(target, version_name)
     print('pushing tag ' + tag_name)
     sh.git.push('gerrit', tag_name)
 
@@ -93,28 +88,83 @@ def make_release(flavors, custom_channel, custom_app):
     subprocess.call(args)
 
 
-def copy_artifacts(flavor, target):
+def copy_artifacts(flavor):
     folder_path = 'releases'
     sh.mkdir("-p", folder_path)
-    copy_apk(flavor, target)
-    copy_proguard_mapping(flavor, target)
+    version_name = get_version_name_from_apk(get_original_apk_file_name(flavor))
+    copy_apk(flavor, version_name)
+    copy_proguard_mapping(flavor, version_name)
 
 
-def copy_apk(flavor, target):
+def get_original_apk_file_name(flavor):
+    return 'wikipedia/build/outputs/apk/wikipedia-%s-release.apk' % flavor
+
+
+def get_android_home():
+    android_home = os.environ['ANDROID_HOME']
+    if android_home:
+        return android_home
+    else:
+        sys.exit('$ANDROID_HOME not set')
+
+
+def grep_from_build_file(property_name, regex):
+    build_gradle_file_name = 'wikipedia/build.gradle'
+    with open(build_gradle_file_name, "r") as build_file:
+        for line in build_file:
+            found = re.search(regex, line)
+            if found:
+                res = found.groups()[0]
+                return res
+    sys.exit("Could not find %s in %s" % (property_name, build_gradle_file_name))
+
+
+def get_build_tools_version_from_build_file():
+    return grep_from_build_file('buildToolsVersion', r'buildToolsVersion\s+\'(\S+)\'')
+
+
+def get_version_code_from_build_file():
+    return grep_from_build_file('versionCode', r'versionCode\s+(\S+)')
+
+
+def get_version_name_from_apk(apk_file):
+    aapt = '%s/build-tools/%s/aapt' % (get_android_home(), get_build_tools_version_from_build_file())
+    process = subprocess.check_output([aapt, 'dump', 'badging', apk_file])
+    found = re.search(r'versionName=\'(\S+)\'', process)
+    if found:
+        apk_version_name = found.groups()[0]
+        return apk_version_name
+    else:
+        sys.exit("Could not get version name from apk " + apk_file)
+
+
+def copy_apk(flavor, version_name):
     folder_path = 'releases'
     sh.mkdir("-p", folder_path)
-    output_file = '%s/wikipedia-%s.apk' % (folder_path, get_release_name(target))
-    sh.cp('wikipedia/build/outputs/apk/wikipedia-%s-release.apk' % flavor, output_file)
+    output_file = '%s/wikipedia-%s.apk' % (folder_path, version_name)
+    sh.cp(get_original_apk_file_name(flavor), output_file)
     print ' apk: %s' % output_file
 
 
-def copy_proguard_mapping(flavor, target):
+def copy_proguard_mapping(flavor, version_name):
     folder_path = 'releases'
     sh.mkdir("-p", folder_path)
-    output_file = '%s/wikipedia-%s.mapping.tar.gz' % (folder_path, get_release_name(target))
+    output_file = '%s/wikipedia-%s.mapping.tar.gz' % (folder_path, version_name)
     input_file = 'wikipedia/build/outputs/mapping/%s/release/mapping.txt' % flavor
     sh.tar('czf', output_file, input_file)
     print ' proguard mapping: %s' % output_file
+
+
+def find_output_apk_for(label, version_code):
+    folder_path = 'releases'
+    file_pattern = '%s/wikipedia-%s.%s-%s-*.apk' % (folder_path, VERSION_START, version_code, label)
+    apk_files = glob.glob(file_pattern)
+    if len(apk_files) == 1:
+        return apk_files[0]
+    elif len(apk_files) == 0:
+        sys.exit("Did not find apk files for %s" % file_pattern)
+    else:
+        sys.exit("Found too many(%d) files for %s" % (len(apk_files), file_pattern))
 
 
 def main():
@@ -123,9 +173,6 @@ def main():
     group.add_argument('--beta',
                        help='Step 1: Google Play Beta. git checkout BUMPTAG first!',
                        action='store_true')
-    # group.add_argument('--alpha',
-    #                    help='Do not use manually, only for the automated build script',
-    #                    action='store_true')
     group.add_argument('--prod',
                        help='Step 1: Google Play stable.',
                        action='store_true')
@@ -165,14 +212,20 @@ def main():
         sys.exit(-1)
 
     if args.push:
+        if custom_channel is 'ignore':
+            label = flavors[0]
+        else:
+            label = custom_channel
+        apk_file = find_output_apk_for(label, get_version_code_from_build_file())
+        version_name = get_version_name_from_apk(apk_file)
         for target in targets:
-            git_tag(target)
-            push_to_gerrit(target)
+            git_tag(target, version_name)
+            push_to_gerrit(target, version_name)
     else:
         make_release(flavors, custom_channel, custom_app)
-        copy_artifacts(flavors[0], targets[0])
+        copy_artifacts(flavors[0])
         if flavors[0] == 'prod':
-            copy_artifacts(flavors[1], flavors[1])
+            copy_artifacts(flavors[1])
         print('Please test the APK. After that, run w/ --push flag, and release the tested APK.')
         print('A useful command for collecting the release notes:')
         print('git log --pretty=format:"%h | %cr | %s" --abbrev-commit --no-merges ' +
