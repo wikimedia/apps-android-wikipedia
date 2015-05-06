@@ -22,6 +22,8 @@ import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
+import org.wikipedia.page.snippet.NoTextSelectedShareAdapter;
+import org.wikipedia.page.snippet.TextSelectedShareAdapter;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.ImageUrlMap;
@@ -29,6 +31,7 @@ import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.search.SearchBarHideHandler;
+import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.NetworkUtils;
 import org.wikipedia.views.WikiDrawerLayout;
@@ -150,6 +153,9 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
     private SavedPagesFunnel savedPagesFunnel;
     private ConnectionIssueFunnel connectionIssueFunnel;
+
+    private TextSelectedShareAdapter textSelectedShareAdapter;
+    private NoTextSelectedShareAdapter noTextSelectedShareAdapter;
 
     public ObservableWebView getWebView() {
         return webView;
@@ -296,6 +302,10 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     public void onDestroyView() {
         //uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup();
+        if (textSelectedShareAdapter != null) {
+            textSelectedShareAdapter.onDestroy();
+        }
+        noTextSelectedShareAdapter.onDestroy();
         super.onDestroyView();
     }
 
@@ -408,6 +418,11 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
         bottomContentHandler = new BottomContentHandlerOld(this, bridge, webView, linkHandler,
                 (ViewGroup) getView().findViewById(R.id.bottom_content_container));
+
+        if (ApiUtil.hasHoneyComb()) {
+            textSelectedShareAdapter = new TextSelectedShareAdapter((PageActivity) getActivity(), bridge);
+        }
+        noTextSelectedShareAdapter = new NoTextSelectedShareAdapter((PageActivity) getActivity(), this);
 
         pageSequenceNum = 0;
 
@@ -661,7 +676,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     }
 
     /**
-     * Update the WebView's base font size, based on the specified font size from the app preferences.
+     * Update the WebView's base font size, based on the specified font size from the app
+     * preferences.
      */
     public void updateFontSize() {
         webView.getSettings().setDefaultFontSize((int) app.getFontSize(getActivity().getWindow()));
@@ -773,6 +789,13 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             }
         });
     }
+
+    public void onActionModeShown(ActionMode mode) {
+        if (textSelectedShareAdapter != null) {
+            textSelectedShareAdapter.onTextSelected(mode);
+        }
+    }
+
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -933,7 +956,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 }
                 return true;
             case R.id.menu_share_page:
-                ((PageActivity) getActivity()).share();
+                noTextSelectedShareAdapter.share();
                 return true;
             case R.id.menu_other_languages:
                 Intent langIntent = new Intent();

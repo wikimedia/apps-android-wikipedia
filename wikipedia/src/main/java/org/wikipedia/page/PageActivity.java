@@ -18,8 +18,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.onboarding.OnboardingActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
-import org.wikipedia.page.snippet.NoTextSelectedShareAdapter;
-import org.wikipedia.page.snippet.TextSelectedShareAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.search.SearchBarHideHandler;
@@ -89,8 +87,6 @@ public class PageActivity extends ThemedActionBarActivity {
     private ProgressBar progressBar;
 
     private View toolbarContainer;
-    private TextSelectedShareAdapter textSelectedShareAdapter;
-    private NoTextSelectedShareAdapter noTextSelectedShareAdapter;
     private ActionMode currentActionMode;
 
     private ActionBarDrawerToggle mDrawerToggle;
@@ -183,11 +179,6 @@ public class PageActivity extends ThemedActionBarActivity {
         getSupportActionBar().setTitle("");
 
         searchBarHideHandler = new SearchBarHideHandler(this, toolbarContainer);
-
-        noTextSelectedShareAdapter = new NoTextSelectedShareAdapter(this);
-        if (ApiUtil.hasHoneyComb()) {
-            textSelectedShareAdapter = new TextSelectedShareAdapter(this);
-        }
 
         // TODO: remove this when we drop support for API 10
         boolean themeChanged = false;
@@ -832,15 +823,6 @@ public class PageActivity extends ThemedActionBarActivity {
         Log.d("Wikipedia", "Deregistering bus");
     }
 
-    @Override
-    protected void onDestroy() {
-        if (textSelectedShareAdapter != null) {
-            textSelectedShareAdapter.onDestroy();
-        }
-        noTextSelectedShareAdapter.onDestroy();
-        super.onDestroy();
-    }
-
     /**
      * ActionMode that is invoked when the user long-presses inside the WebView.
      * Since API <11 doesn't provide a long-press context for the WebView anyway, and we're
@@ -850,10 +832,10 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
-        if (currentActionMode == null && textSelectedShareAdapter != null
-                && !isAppInitiatedActionMode(mode)) {
+        if (currentActionMode == null && !isAppInitiatedActionMode(mode)
+            && getCurPageFragment() != null) {
             // Initiated by the system, likely in response to highlighting text in the WebView.
-            textSelectedShareAdapter.onTextSelected(mode);
+            getCurPageFragment().onActionModeShown(mode);
         }
 
         currentActionMode = mode;
@@ -867,10 +849,6 @@ public class PageActivity extends ThemedActionBarActivity {
         currentActionMode = null;
         searchBarHideHandler.setForceNoFade(false);
         super.onSupportActionModeFinished(mode);
-    }
-
-    public void share() {
-        noTextSelectedShareAdapter.share();
     }
 
     private boolean isAppInitiatedActionMode(ActionMode mode) {

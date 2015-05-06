@@ -13,21 +13,18 @@ import java.util.regex.Pattern;
  * Share the first paragraph text since no text was selected.
  */
 public class NoTextSelectedShareAdapter extends ShareHandler {
+    private PageViewFragmentInternal fragment;
 
-    public NoTextSelectedShareAdapter(PageActivity activity) {
+    public NoTextSelectedShareAdapter(PageActivity activity, PageViewFragmentInternal fragment) {
         super(activity);
+        this.fragment = fragment;
     }
 
     public void share() {
-        final PageViewFragmentInternal curPageFragment = getActivity().getCurPageFragment();
-        if (curPageFragment == null) {
-            return;
-        }
-
         createFunnel();
         getFunnel().logShareTap(null);
 
-        shareSnippet(getFirstParagraphText(curPageFragment), true);
+        shareSnippet(getFirstParagraphText(fragment), true);
     }
 
     private CharSequence getFirstParagraphText(final PageViewFragmentInternal curPageFragment) {

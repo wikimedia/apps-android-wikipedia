@@ -29,6 +29,10 @@ bridge.registerListener( "beginNewPage", function( payload ) {
     }, 10);
 });
 
+bridge.registerListener( "getTextSelection", function( payload ) {
+    bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : window.getSelection().toString() } );
+});
+
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!
     clearContents();

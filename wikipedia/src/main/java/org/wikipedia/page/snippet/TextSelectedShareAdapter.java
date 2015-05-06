@@ -1,70 +1,52 @@
 package org.wikipedia.page.snippet;
 
-import android.annotation.TargetApi;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.view.ActionMode;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.ApiUtil;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Allows sharing selected text in the WebView.
  */
 public class TextSelectedShareAdapter extends ShareHandler {
     private ActionMode webViewActionMode;
-    private ClipboardManager clipboard;
-    private ClipboardManager.OnPrimaryClipChangedListener clipChangedListener;
-    private MenuItem copyMenuItem;
-    private MenuItem shareItem;
-    private boolean expectClipChange = false;
+    private CommunicationBridge bridge;
 
-    @TargetApi(11)
-    public TextSelectedShareAdapter(PageActivity parentActivity) {
+    public TextSelectedShareAdapter(PageActivity parentActivity, CommunicationBridge bridge) {
         super(parentActivity);
-        clipboard = (ClipboardManager) parentActivity.getSystemService(Context.CLIPBOARD_SERVICE);
-        // add our clipboard listener, so that we'll get an event when the text
-        // is copied onto it...
-        clipChangedListener = new ClipboardManager.OnPrimaryClipChangedListener() {
+        this.bridge = bridge;
+
+        bridge.addListener("onGetTextSelection", new CommunicationBridge.JSEventListener() {
             @Override
-            public void onPrimaryClipChanged() {
-                // get the text from the clipboard!
-                if (expectClipChange && clipboard.hasPrimaryClip()
-                    && clipboard.getPrimaryClip().getItemCount() > 0) {
-
-                    expectClipChange = false;
-                    CharSequence selectedText = clipboard.getPrimaryClip().getItemAt(0)
-                                                         .coerceToText(getActivity());
-                    Log.d("Share", ">>> Clipboard text: " + selectedText);
-
-                    // Share the clipboard text!
-                    shareSnippet(selectedText, false);
-                    getFunnel().logShareTap(selectedText.toString());
+            public void onMessage(String messageType, JSONObject messagePayload) {
+                try {
+                    String purpose = messagePayload.getString("purpose");
+                    String text = messagePayload.getString("text");
+                    if (purpose.equals("share")) {
+                        shareSnippet(text, false);
+                        getFunnel().logShareTap(text);
+                    }
+                } catch (JSONException e) {
+                    //nope
                 }
             }
-        };
-        clipboard.addPrimaryClipChangedListener(clipChangedListener);
-    }
-
-    @Override
-    @TargetApi(11)
-    public void onDestroy() {
-        clipboard.removePrimaryClipChangedListener(clipChangedListener);
-        super.onDestroy();
+        });
     }
 
     /**
-     * Since API <11 doesn't provide a long-press context for the WebView anyway, and we're
-     * using clipboard features that are only supported in API 11+, we'll mark this whole
-     * method as TargetApi(11), so that the IDE doesn't get upset.
      * @param mode ActionMode under which this context is starting.
      */
-    public void onTextSelected(final ActionMode mode) {
+    public void onTextSelected(ActionMode mode) {
+        MenuItem shareItem = null;
         webViewActionMode = mode;
         Menu menu = mode.getMenu();
 
@@ -76,9 +58,7 @@ public class TextSelectedShareAdapter extends ShareHandler {
             MenuItem item = menu.getItem(i);
             try {
                 String resourceName = getActivity().getResources().getResourceName(item.getItemId());
-                if (resourceName.contains("copy")) {
-                    copyMenuItem = item;
-                } else if (resourceName.contains("share")) {
+                if (resourceName.contains("share")) {
                     shareItem = item;
                 }
                 // In APIs lower than 21, some of the action mode icons may not respect the
@@ -92,24 +72,29 @@ public class TextSelectedShareAdapter extends ShareHandler {
             }
         }
 
-        // if we were unable to find the Copy or Share items, then we won't be able to offer
-        // our custom Share functionality, so just fall back to the WebView's default sharing.
-        if (copyMenuItem == null || shareItem == null) {
-            return;
+        // if we were unable to find the Share button, then inject our own!
+        if (shareItem == null) {
+            shareItem = mode.getMenu().add(Menu.NONE, Menu.NONE, Menu.NONE,
+                                           getActivity().getString(R.string.menu_share_page));
+            shareItem.setIcon(R.drawable.ic_share_dark);
+            MenuItemCompat.setShowAsAction(shareItem, MenuItemCompat.SHOW_AS_ACTION_ALWAYS
+                                                      | MenuItemCompat.SHOW_AS_ACTION_WITH_TEXT);
         }
 
-        // intercept share menu...
+        // provide our own listener for the Share button...
         shareItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if (copyMenuItem != null) {
-                    // programmatically invoke the copy-to-clipboard action...
-                    expectClipChange = true;
-                    webViewActionMode.getMenu()
-                            .performIdentifierAction(copyMenuItem.getItemId(), 0);
-                    // this will trigger a state-change event in the Clipboard, which we'll
-                    // catch with our listener above.
+                // send an event to the WebView that will make it return the
+                // selected text back to us...
+                try {
+                    JSONObject payload = new JSONObject();
+                    payload.put("purpose", "share");
+                    bridge.sendMessage("getTextSelection", payload);
+                } catch (JSONException e) {
+                    //nope
                 }
+
                 // leave context mode...
                 if (webViewActionMode != null) {
                     webViewActionMode.finish();
