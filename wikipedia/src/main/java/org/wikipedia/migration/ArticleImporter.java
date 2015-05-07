@@ -31,6 +31,6 @@ public class ArticleImporter {
     }
 
     private PageTitle titleForItem(JSONObject item) {
-        return new PageTitle(null, item.optString("title"), Site.forLang(item.optString("lang")));
+        return new PageTitle(null, item.optString("title"), Site.forLanguage(item.optString("lang")));
     }
 }

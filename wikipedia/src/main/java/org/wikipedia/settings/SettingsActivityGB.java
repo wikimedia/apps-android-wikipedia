@@ -88,7 +88,7 @@ public class SettingsActivityGB extends PreferenceActivity implements SharedPref
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(PrefKeys.getContentLanguageKey())) {
             LanguagePreference pref = (LanguagePreference) findPreference(PrefKeys.getContentLanguageKey());
-            pref.setSummary(pref.getCurrentLanguageDisplayString());
+            pref.setSummary(WikipediaApp.getInstance().getDisplayLanguage());
             setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED);
         }
     }

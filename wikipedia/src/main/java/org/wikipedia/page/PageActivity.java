@@ -64,6 +64,7 @@ public class PageActivity extends ThemedActionBarActivity {
     public static final String EXTRA_SEARCH_FROM_WIDGET = "searchFromWidget";
     public static final String EXTRA_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
     private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
+    private static final String LANGUAGE_BUNDLE_KEY = "language";
 
     private static final String KEY_LAST_FRAGMENT = "lastFragment";
     private static final String KEY_LAST_FRAGMENT_ARGS = "lastFragmentArgs";
@@ -193,6 +194,7 @@ public class PageActivity extends ThemedActionBarActivity {
             Log.w("PageActivity", "Received an unknown parcelable in intent:", e);
         }
 
+        boolean languageChanged = false;
         if (savedInstanceState != null) {
             pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
             pausedMessageOfZero = savedInstanceState.getParcelable("pausedMessageOfZero");
@@ -204,6 +206,8 @@ public class PageActivity extends ThemedActionBarActivity {
             if (savedInstanceState.getBoolean("isSearching")) {
                 searchFragment.openSearch();
             }
+            String language = savedInstanceState.getString(LANGUAGE_BUNDLE_KEY);
+            languageChanged = !emptyIfNull(language).equals(emptyIfNull(app.getLanguage()));
         } else if (themeChanged) {
             // we've changed themes!
             pausedStateOfZero = getIntent().getExtras().getBoolean("pausedStateOfZero");
@@ -218,6 +222,11 @@ public class PageActivity extends ThemedActionBarActivity {
             }
         }
         searchHintText.setText(getString(pausedStateOfZero ? R.string.zero_search_hint : R.string.search_hint));
+
+        if (languageChanged) {
+            app.resetSite();
+            displayMainPage();
+        }
 
         // If we're coming back from a Theme change, we'll need to "restore" our state based on
         // what's given in our Intent (since there's no way to relaunch the Activity in a way that
@@ -580,7 +589,7 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param allowStateLoss Whether to allow state loss.
      */
     public void displayMainPage(boolean allowStateLoss) {
-        PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getPrimaryLanguage()), app.getPrimarySite());
+        PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getLanguage()), app.getPrimarySite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         displayNewPage(title, historyEntry, allowStateLoss);
     }
@@ -755,6 +764,7 @@ public class PageActivity extends ThemedActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        app.resetSite();
         boolean latestWikipediaZeroDisposition = app.getWikipediaZeroHandler().isZeroEnabled();
         if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
             bus.post(new WikipediaZeroStateChangeEvent());
@@ -781,6 +791,7 @@ public class PageActivity extends ThemedActionBarActivity {
             outState.putBoolean("themeChooserShowing", themeChooser.isShowing());
         }
         outState.putBoolean("isSearching", isSearching());
+        outState.putString(LANGUAGE_BUNDLE_KEY, app.getLanguage());
     }
 
     @Override
@@ -854,5 +865,9 @@ public class PageActivity extends ThemedActionBarActivity {
         // ActionMode in non-WebView components (History, Saved Pages, or Find In Page) must call
         // setTag().
         return mode.getTag() != null;
+    }
+
+    private String emptyIfNull(String value) {
+        return value == null ? "" : value;
     }
 }

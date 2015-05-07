@@ -72,7 +72,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(PrefKeys.getContentLanguageKey())) {
             LanguagePreference pref = (LanguagePreference) findPreference(PrefKeys.getContentLanguageKey());
-            pref.setSummary(pref.getCurrentLanguageDisplayString());
+            pref.setSummary(WikipediaApp.getInstance().getDisplayLanguage());
             getActivity().setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED);
         }
     }

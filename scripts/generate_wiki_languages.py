@@ -34,7 +34,9 @@ lang_local_names.append('Test')
 lang_eng_names.append('Test')
 
 # Generate the XML, for Android
-x = lb.E
+NAMESPACE = 'http://schemas.android.com/tools'
+TOOLS = '{%s}' % NAMESPACE
+x = lb.ElementMaker(nsmap={'tools': NAMESPACE})
 
 keys = [x.item(k) for k in lang_keys]
 local_names = [x.item(k) for k in lang_local_names]
@@ -45,10 +47,10 @@ resources = x.resources(
     getattr(x, 'string-array')(*local_names, name="preference_language_local_names"),
     getattr(x, 'string-array')(*eng_names, name="preference_language_canonical_names")
 )
-
+resources.set(TOOLS + 'ignore', 'MissingTranslation')
 
 open("languages_list.xml", "w").write(
-    etree.tostring(resources, pretty_print=True)
+    etree.tostring(resources, pretty_print=True, xml_declaration=True, encoding='utf-8')
 )
 
 # Generate the JSON, for iOS

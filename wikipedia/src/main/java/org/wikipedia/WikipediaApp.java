@@ -8,6 +8,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.Window;
 import android.webkit.WebView;
@@ -42,6 +43,7 @@ import org.wikipedia.util.ApiUtil;
 import org.wikipedia.zero.WikipediaZeroHandler;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -55,7 +57,7 @@ import java.util.UUID;
         resDialogCommentPrompt = R.string.acra_report_dialog_comment,
         mailTo = "mobile-android-wikipedia-crashes@wikimedia.org")
 public class WikipediaApp extends Application {
-    private static final String FALLBACK_WIKI_LANG_CODE = "en"; // Must exist in preference_language_keys.
+    private static final String FALLBACK_LANGUAGE = "en"; // Must exist in preference_language_keys.
     private static final String HTTPS_PROTOCOL = "https";
 
     private float screenDensity;
@@ -108,9 +110,26 @@ public class WikipediaApp extends Application {
         return releaseType;
     }
 
-    private List<String> wikiCodes;
+    // Language codes for all supported languages in fixed order.
+    @Nullable
+    private List<String> supportedLanguages;
 
-    private List<String> languageMruList;
+    // English names for all supported languages in fixed order.
+    @Nullable
+    private String[] supportedLanguageCanonicalNames;
+
+    // Native names for all supported languages in fixed order.
+    @Nullable
+    private String[] supportedLanguageLocalNames;
+
+    // Language codes that have been explicitly chosen by the user in most recently used order.
+    @Nullable
+    private List<String> mruLanguages;
+
+    // The primary language code used by the app when the page language is unspecified. Null is a
+    // special value that indicates the system language should used.
+    @Nullable
+    private String language;
 
     private SessionFunnel sessionFunnel;
     public SessionFunnel getSessionFunnel() {
@@ -199,7 +218,6 @@ public class WikipediaApp extends Application {
         return bus;
     }
 
-
     private String userAgent;
     public String getUserAgent() {
         if (userAgent == null) {
@@ -220,7 +238,7 @@ public class WikipediaApp extends Application {
      */
     public String getAcceptLanguage() {
         // https://lists.wikimedia.org/pipermail/mobile-l/2014-July/007514.html
-        String primaryAppLanguage = getPrimaryLanguage();
+        String primaryAppLanguage = getLanguage();
         String acceptLanguage = primaryAppLanguage;
         Locale defaultLocale = Locale.getDefault();
         String wikiLanguage = Utils.langCodeToWikiLang(defaultLocale.getLanguage());
@@ -284,7 +302,7 @@ public class WikipediaApp extends Application {
         // that with *this* platform, which does not do this for some reason (possibly on side effect free
         // method invocation theory. But given that up until now we haven't been adding the Accept-Language
         // header manually on this platform, we don't want to just arbitrarily start doing so for *all* requests.
-        if (!acceptLanguage.equals(getPrimaryLanguage())) {
+        if (!acceptLanguage.equals(getLanguage())) {
             customHeaders.put("Accept-Language", acceptLanguage);
         }
 
@@ -316,7 +334,7 @@ public class WikipediaApp extends Application {
      */
     public Site getPrimarySite() {
         if (primarySite == null) {
-            primarySite = Site.forLang(getPrimaryLanguage());
+            primarySite = Site.forLanguage(getLanguage());
         }
 
         return primarySite;
@@ -331,28 +349,41 @@ public class WikipediaApp extends Application {
         return getAPIForSite(getPrimarySite());
     }
 
-    private String primaryLanguage;
-    public String getPrimaryLanguage() {
-        if (primaryLanguage == null) {
-            primaryLanguage = prefs.getString(PrefKeys.getContentLanguageKey(), null);
-            if (primaryLanguage == null) {
-                // No preference set!
-                String wikiCode = Utils.langCodeToWikiLang(Locale.getDefault().getLanguage());
-                if (!isWikiLanguage(wikiCode)) {
-                    wikiCode = FALLBACK_WIKI_LANG_CODE; // fallback, see comments in #findWikiIndex
-                }
-                return wikiCode;
-            }
+    public Locale getLocale() {
+        return new Locale(getLanguage());
+    }
+
+    public String getDisplayLanguage() {
+        return isSystemLanguageEnabled()
+                ? getString(R.string.preference_system_language_summary)
+                : getLocalNameForSupportedLanguage(findSupportedLanguageIndex());
+    }
+
+    /** In general, this value should not be cached as it may change outside the app. */
+    public String getLanguage() {
+        return isSystemLanguageEnabled() ? getSystemOrFallbackLanguage() : language;
+    }
+
+    public String getLanguageKey() {
+        if (language == null) {
+            language = prefs.getString(PrefKeys.getContentLanguageKey(), null);
         }
-        return primaryLanguage;
+        return language;
     }
 
-    public void setPrimaryLanguage(String language) {
-        primaryLanguage = language;
+    public void setSystemLanguage() {
+        setLanguage(null);
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
         prefs.edit().putString(PrefKeys.getContentLanguageKey(), language).apply();
-        primarySite = null;
+        resetSite();
     }
 
+    public boolean isSystemLanguageEnabled() {
+        return getLanguageKey() == null;
+    }
 
     private DBOpenHelper dbOpenHelper;
     public DBOpenHelper getDbOpenHelper() {
@@ -384,25 +415,30 @@ public class WikipediaApp extends Application {
         return persisters.get(cls.getCanonicalName());
     }
 
-    public int findWikiIndex(String wikiCode) {
-        int index = getWikiCodes().indexOf(wikiCode);
+    public int findSupportedLanguageIndex() {
+        return findSupportedLanguageIndex(getLanguageKey());
+    }
+
+    public int findSupportedLanguageIndex(String language) {
+        int index = getSupportedLanguages().indexOf(language);
         if (index == -1) {
             // FIXME: Instrument this with EL to find out what is happening on places where there is a lang we can't find
             // In the meantime, just fall back to en. See https://bugzilla.wikimedia.org/show_bug.cgi?id=66140
-            return findWikiIndex(FALLBACK_WIKI_LANG_CODE);
+            return findSupportedLanguageIndex(FALLBACK_LANGUAGE);
         }
         return index;
     }
 
-    private boolean isWikiLanguage(String lang) {
-        return getWikiCodes().contains(lang);
+    private boolean isSupportedLanguage(String language) {
+       return getSupportedLanguages().contains(language);
     }
 
-    private List<String> getWikiCodes() {
-        if (wikiCodes == null) {
-            wikiCodes = Arrays.asList(getResources().getStringArray(R.array.preference_language_keys));
+    /** @return Immutable list. */
+    public List<String> getSupportedLanguages() {
+        if (supportedLanguages == null) {
+            supportedLanguages = Arrays.asList(getResources().getStringArray(R.array.preference_language_keys));
         }
-        return wikiCodes;
+        return supportedLanguages;
     }
 
     private RemoteConfig remoteConfig;
@@ -413,20 +449,18 @@ public class WikipediaApp extends Application {
         return remoteConfig;
     }
 
-    private String[] canonicalNames;
-    public String canonicalNameFor(int index) {
-        if (canonicalNames == null) {
-            canonicalNames = getResources().getStringArray(R.array.preference_language_canonical_names);
+    public String getCanonicalNameForSupportedLanguage(int index) {
+        if (supportedLanguageCanonicalNames == null) {
+            supportedLanguageCanonicalNames = getResources().getStringArray(R.array.preference_language_canonical_names);
         }
-        return canonicalNames[index];
+        return supportedLanguageCanonicalNames[index];
     }
 
-    private String[] localNames;
-    public String localNameFor(int index) {
-        if (localNames == null) {
-            localNames = getResources().getStringArray(R.array.preference_language_local_names);
+    public String getLocalNameForSupportedLanguage(int index) {
+        if (supportedLanguageLocalNames == null) {
+            supportedLanguageLocalNames = getResources().getStringArray(R.array.preference_language_local_names);
         }
-        return localNames[index];
+        return supportedLanguageLocalNames[index];
     }
 
     private EditTokenStorage editTokenStorage;
@@ -595,31 +629,71 @@ public class WikipediaApp extends Application {
         return prefs.getBoolean(PrefKeys.getEventLoggingEnabled(), true);
     }
 
-    public List<String> getLanguageMruList() {
-        lazyInitLanguageMruList();
-        return languageMruList;
+    /** @return All support languages in MRU order. */
+    public List<String> getAllMruLanguages() {
+        List<String> languages = new ArrayList<>(getSupportedLanguages());
+        int addIndex = 0;
+        for (String langCode : getMruLanguages()) {
+            if (languages.contains(langCode)) {
+                languages.remove(langCode);
+                languages.add(addIndex++, langCode);
+            }
+        }
+        return languages;
     }
 
-    public void addLanguageToMruList(String langCode) {
-        lazyInitLanguageMruList();
-        languageMruList.remove(langCode);
-        languageMruList.add(0, langCode);
-        prefs.edit().putString(PrefKeys.getLanguageMru(), TextUtils.join(",", languageMruList)).apply();
+    public List<String> getMruLanguages() {
+        if (mruLanguages == null) {
+            mruLanguages = unmarshalMruLanguages();
+        }
+        return mruLanguages;
+    }
+
+    public void setMruLanguage(String language) {
+        List<String> languages = getMruLanguages();
+        languages.remove(language);
+        languages.add(0, language);
+        prefs.edit().putString(PrefKeys.getLanguageMru(), listToCsv(languages)).apply();
     }
 
     public boolean showImages() {
         return prefs.getBoolean(PrefKeys.getShowImages(), true);
     }
 
-    private void lazyInitLanguageMruList() {
-        if (languageMruList == null) {
-            languageMruList = new ArrayList<>();
-            String mruString = prefs.getString(PrefKeys.getLanguageMru(), getPrimaryLanguage());
-            languageMruList.addAll(csvToList(mruString));
-        }
+    private List<String> unmarshalMruLanguages() {
+        String nullString = String.valueOf((Object) null);
+        String csv = prefs.getString(PrefKeys.getLanguageMru(), nullString);
+
+        List<String> list = new ArrayList<>(csvToList(csv));
+
+        // Null value is used to indicate that system language should be used.
+        Collections.replaceAll(list, nullString, null);
+
+        return list;
     }
 
-    private List<String> csvToList(String commaDelimitedString) {
-        return Arrays.asList(commaDelimitedString.split(","));
+    private String listToCsv(List<String> list) {
+        return TextUtils.join(",", list);
+    }
+
+    /** @return Immutable list. */
+    private List<String> csvToList(String csv) {
+        return Arrays.asList(csv.split(","));
+    }
+
+    public void resetSite() {
+        primarySite = null;
+    }
+
+    private String getSystemOrFallbackLanguage() {
+        String lang = Utils.langCodeToWikiLang(getSystemLanguage());
+        if (!isSupportedLanguage(lang)) {
+            lang = FALLBACK_LANGUAGE; // See comments in #findSupportedLanguageIndex().
+        }
+        return lang;
+    }
+
+    private String getSystemLanguage() {
+        return Locale.getDefault().getLanguage();
     }
 }

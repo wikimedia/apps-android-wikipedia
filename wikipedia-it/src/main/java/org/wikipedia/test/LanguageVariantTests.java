@@ -38,7 +38,7 @@ public class LanguageVariantTests extends ActivityUnitTestCase<TestDummyActivity
             }
 
             private void cover(String expected, String primaryLanguage, Locale locale) {
-                app.setPrimaryLanguage(primaryLanguage);
+                app.setLanguage(primaryLanguage);
                 Locale.setDefault(locale);
                 assertEquals(expected, app.getAcceptLanguage());
             }

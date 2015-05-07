@@ -12,18 +12,26 @@ import org.wikipedia.page.PageTitle;
  */
 public class Site implements Parcelable {
     private final String domain;
+
     private final String language;
 
     public Site(String domain) {
-        this(domain, domain.split("\\.")[0]);
+        this(domain, urlToLanguage(domain));
     }
+
     public Site(String domain, String language) {
-        this.domain = domain.replaceFirst("\\.m\\.", ".");
+        this.domain = urlToDesktopSite(domain);
         this.language = language;
     }
 
     public Site(Parcel in) {
-        this(in.readString());
+        this(in.readString(), in.readString());
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(domain);
+        dest.writeString(language);
     }
 
     public String getScriptPath(String script) {
@@ -35,7 +43,7 @@ public class Site implements Parcelable {
     }
 
     public String getApiDomain() {
-        return WikipediaApp.getInstance().getSslFallback() ? domain : domain.replaceFirst("\\.", ".m.");
+        return WikipediaApp.getInstance().getSslFallback() ? domain : urlToMobileSite(domain);
     }
 
     public boolean getUseSecure() {
@@ -51,11 +59,6 @@ public class Site implements Parcelable {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(domain);
-    }
-
     public static final Parcelable.Creator<Site> CREATOR
             = new Parcelable.Creator<Site>() {
         public Site createFromParcel(Parcel in) {
@@ -67,24 +70,39 @@ public class Site implements Parcelable {
         }
     };
 
+    // Auto-generated
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Site)) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return ((Site)o).getDomain().equals(domain);
+        Site site = (Site) o;
+
+        if (domain != null ? !domain.equals(site.domain) : site.domain != null) {
+            return false;
+        }
+        return !(language != null ? !language.equals(site.language) : site.language != null);
+
     }
 
+    // Auto-generated
     @Override
     public int hashCode() {
-        return domain.hashCode();
+        int result = domain != null ? domain.hashCode() : 0;
+        result = 31 * result + (language != null ? language.hashCode() : 0);
+        return result;
     }
 
+    // Auto-generated
     @Override
     public String toString() {
         return "Site{"
                 + "domain='" + domain + '\''
+                + ", language='" + language + '\''
                 + '}';
     }
 
@@ -122,8 +140,8 @@ public class Site implements Parcelable {
         return language;
     }
 
-    public static Site forLang(String lang) {
-        return new Site(lang + ".wikipedia.org", lang);
+    public static Site forLanguage(String language) {
+        return new Site(languageToWikiSubdomain(language) + ".wikipedia.org", language);
     }
 
     /**
@@ -133,5 +151,27 @@ public class Site implements Parcelable {
      */
     public static boolean isSupportedSite(String domain) {
         return domain.matches("[a-z\\-]+\\.(m\\.)?wikipedia\\.org");
+    }
+
+    private static String urlToLanguage(String url) {
+        return url.split("\\.")[0];
+    }
+
+    private String urlToDesktopSite(String url) {
+        return url.replaceFirst("\\.m\\.", ".");
+    }
+
+    private String urlToMobileSite(String url) {
+        return url.replaceFirst("\\.", ".m.");
+    }
+
+    private static String languageToWikiSubdomain(String language) {
+        switch (language) {
+            case "zh-hans":
+            case "zh-hant":
+                return "zh";
+            default:
+                return language;
+        }
     }
 }

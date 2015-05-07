@@ -81,7 +81,7 @@ public class EditPreviewFragment extends Fragment {
         AssetManager assets = oldResources.getAssets();
         DisplayMetrics metrics = oldResources.getDisplayMetrics();
         Locale oldLocale = oldResources.getConfiguration().locale;
-        Locale newLocale = new Locale(WikipediaApp.getInstance().getPrimaryLanguage());
+        Locale newLocale = WikipediaApp.getInstance().getLocale();
         Configuration config = new Configuration(oldResources.getConfiguration());
         Resources tempResources = getResources();
         if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {

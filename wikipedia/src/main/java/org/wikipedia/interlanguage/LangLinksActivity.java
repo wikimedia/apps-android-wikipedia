@@ -21,7 +21,6 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class LangLinksActivity extends ThemedActionBarActivity {
     public static final int ACTIVITY_RESULT_LANGLINK_SELECT = 1;
@@ -80,7 +79,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle langLink = (PageTitle) parent.getAdapter().getItem(position);
-                app.addLanguageToMruList(langLink.getSite().getLanguage());
+                app.setMruLanguage(langLink.getSite().getLanguage());
                 HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
                 Intent intent = new Intent();
                 intent.setClass(LangLinksActivity.this, PageActivity.class);
@@ -156,12 +155,11 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                 public void onFinish(ArrayList<PageTitle> result) {
                     langLinks = result;
 
-                    List<String> mru = app.getLanguageMruList();
                     // Rearrange language list based on the mru list
                     int addIndex = 0;
-                    for (String langCode : mru) {
+                    for (String language : app.getMruLanguages()) {
                         for (int i = 0; i < result.size(); i++) {
-                            if (langLinks.get(i).getSite().getLanguage().equals(langCode)) {
+                            if (langLinks.get(i).getSite().getLanguage().equals(language)) {
                                 PageTitle preferredLink = langLinks.remove(i);
                                 langLinks.add(addIndex++, preferredLink);
                                 break;
@@ -208,9 +206,9 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             this.langLinks.clear();
             filter = filter.toLowerCase();
             for (PageTitle l: origLangLinks) {
-                int langIndex = app.findWikiIndex(l.getSite().getLanguage());
-                String canonicalLang = app.canonicalNameFor(langIndex);
-                String localLang = app.localNameFor(langIndex);
+                int langIndex = app.findSupportedLanguageIndex(l.getSite().getLanguage());
+                String canonicalLang = app.getCanonicalNameForSupportedLanguage(langIndex);
+                String localLang = app.getLocalNameForSupportedLanguage(langIndex);
                 if (canonicalLang.toLowerCase().contains(filter)
                         || localLang.toLowerCase().contains(filter)) {
                     this.langLinks.add(l);
@@ -240,9 +238,9 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             }
 
             PageTitle langLink = (PageTitle) getItem(position);
-            String wikiCode = langLink.getSite().getLanguage();
-            int langIndex = app.findWikiIndex(wikiCode);
-            String localName = app.localNameFor(langIndex);
+            String language = langLink.getSite().getLanguage();
+            int langIndex = app.findSupportedLanguageIndex(language);
+            String localName = app.getLocalNameForSupportedLanguage(langIndex);
 
             TextView langLocalNameText = (TextView) convertView.findViewById(R.id.language_local_name);
             TextView articleLocalNameText = (TextView) convertView.findViewById(R.id.article_local_name);
