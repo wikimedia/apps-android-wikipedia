@@ -4,6 +4,7 @@ import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.ApiUtil;
@@ -11,6 +12,7 @@ import org.wikipedia.util.ApiUtil;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -41,12 +43,14 @@ import java.util.Map;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
-public class LinkPreviewDialog extends DialogFragment {
+public class LinkPreviewDialog extends DialogFragment implements DialogInterface.OnDismissListener {
     private static final String TAG = "LinkPreviewDialog";
     private static final int DIALOG_HEIGHT = 196;
 
     // TODO: remove when we finalize the layout to be used.
     private int layoutToggle;
+
+    private boolean navigateSuccess = false;
 
     private View previewContainer;
     private ProgressBar progressBar;
@@ -57,6 +61,8 @@ public class LinkPreviewDialog extends DialogFragment {
 
     private WikipediaApp app;
     private PageTitle pageTitle;
+
+    private LinkPreviewFunnel funnel;
 
     private GestureDetectorCompat gestureDetector;
 
@@ -72,7 +78,7 @@ public class LinkPreviewDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         layoutToggle = getArguments().getInt("layoutToggle");
-        View rootView = inflater.inflate(layoutToggle == 0 ? R.layout.dialog_link_preview : R.layout.dialog_link_preview_2, container);
+        View rootView = inflater.inflate(layoutToggle == 1 ? R.layout.dialog_link_preview : R.layout.dialog_link_preview_2, container);
         previewContainer = rootView.findViewById(R.id.link_preview_container);
         progressBar = (ProgressBar) rootView.findViewById(R.id.link_preview_progress);
         titleText = (TextView) rootView.findViewById(R.id.link_preview_title);
@@ -154,13 +160,25 @@ public class LinkPreviewDialog extends DialogFragment {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(inflater.getContext().getResources().getDisplayMetrics().widthPixels, (int)(inflater.getContext().getResources().getDisplayMetrics().density * DIALOG_HEIGHT));
         previewContainer.setLayoutParams(lp);
 
+        funnel = new LinkPreviewFunnel(app, pageTitle);
+        funnel.logLinkClick();
+
         return rootView;
     }
 
     public void goToLinkedPage() {
         HistoryEntry historyEntry = new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK);
+        navigateSuccess = true;
+        funnel.logNavigate();
         getDialog().dismiss();
         ((PageActivity) getActivity()).displayNewPage(pageTitle, historyEntry);
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialogInterface) {
+        if (!navigateSuccess) {
+            funnel.logCancel();
+        }
     }
 
     @Override
@@ -236,7 +254,7 @@ public class LinkPreviewDialog extends DialogFragment {
         if (!TextUtils.isEmpty(contents.getTitle().getThumbUrl()) && app.showImages()) {
             Picasso.with(getActivity())
                    .load(contents.getTitle().getThumbUrl())
-                   .placeholder(layoutToggle == 0 ? Utils.getThemedAttributeId(getActivity(), R.attr.lead_image_drawable) : R.drawable.link_preview_gradient)
+                   .placeholder(layoutToggle == 1 ? Utils.getThemedAttributeId(getActivity(), R.attr.lead_image_drawable) : R.drawable.link_preview_gradient)
                    .error(Utils.getThemedAttributeId(getActivity(), R.attr.lead_image_drawable))
                     .into(previewImage, new Callback() {
                         @Override

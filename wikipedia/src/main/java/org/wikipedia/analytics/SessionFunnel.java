@@ -12,6 +12,7 @@ import java.util.Date;
 public class SessionFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppSessions";
     private static final int REVISION = 10375481;
+    private static final int DEFAULT_SAMPLE_RATE = 0;
     private WikipediaApp app;
 
     /**
@@ -81,20 +82,9 @@ public class SessionFunnel extends Funnel {
     }
 
     protected void log(Object... params) {
-        final int defaultSampleRate = 0;
-
-        //get our sampling rate from remote config
-        int sampleRate = app.getRemoteConfig().getConfig().optInt("eventLogSampleRate", defaultSampleRate);
-
-        if (sampleRate != 0) {
-            //take the app install id, modulo the sampling coefficient.
-            //if the result is 0, then we're one of the Chosen.
-            boolean chosen = app.getAppInstallIDInt() % sampleRate == 0;
-
-            if (chosen) {
-                super.log(getApp().getPrimarySite(), params);
-            }
-        }
+        // get our sampling rate from remote config
+        int sampleRate = WikipediaApp.getInstance().getRemoteConfig().getConfig().optInt("eventLogSampleRate", DEFAULT_SAMPLE_RATE);
+        super.log(app.getPrimarySite(), sampleRate, params);
     }
 
     @Override
@@ -132,7 +122,7 @@ public class SessionFunnel extends Funnel {
                     "pagesViewedFromHistory", pagesFromHistory,
                     "pagesViewedFromSaved", pagesFromSaved,
                     "totalPagesViewed", pagesFromSearch + pagesFromRandom + pagesFromLanglink + pagesFromInternal
-                                        + pagesFromExternal + pagesFromHistory + pagesFromSaved,
+                            + pagesFromExternal + pagesFromHistory + pagesFromSaved,
                     "backPressed", pagesFromBack
             );
 

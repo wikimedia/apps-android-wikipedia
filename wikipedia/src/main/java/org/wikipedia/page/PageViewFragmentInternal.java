@@ -9,6 +9,7 @@ import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
+import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.SavedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleBundle;
@@ -22,6 +23,7 @@ import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
+import org.wikipedia.page.linkpreview.LinkPreviewVersion;
 import org.wikipedia.page.snippet.NoTextSelectedShareAdapter;
 import org.wikipedia.page.snippet.TextSelectedShareAdapter;
 import org.wikipedia.pageimages.PageImage;
@@ -441,25 +443,15 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         if (referenceDialog != null && referenceDialog.isShowing()) {
             referenceDialog.dismiss();
         }
-        // TODO: remove toggle when ready for production.
-        // Let's toggle between three possible behaviors:
-        // A) not show a link preview, and go directly to the target article (weight: 50%)
-        // B) show link preview prototype 1 (weight: 25%)
-        // C) show link preview prototype 2 (weight: 25%)
-        final int linkPreviewToggleWeight = 4;
-        // take the app install id modulo 4 to get our toggle value
-        // (hard-code the value for building one-off APKs for testing specific prototypes)
-        int linkPreviewToggle = app.getAppInstallIDInt() % linkPreviewToggleWeight;
-        if (linkPreviewToggle > 1 || app.getReleaseType() == WikipediaApp.RELEASE_PROD) {
-            // For values 2 and 3 (or for the production version of the app), just
-            // go to the target article
+        if (app.getReleaseType() == WikipediaApp.RELEASE_PROD || LinkPreviewVersion.getVersion(app) == 0) {
             HistoryEntry historyEntry = new HistoryEntry(title,
                     HistoryEntry.SOURCE_INTERNAL_LINK);
             ((PageActivity) getActivity()).displayNewPage(title, historyEntry);
+            new LinkPreviewFunnel(app, title).logNavigate();
         } else {
-            // For values 0 and 1, pass the value to the LinkPreviewDialog, which will use
+            // For version values 1 or 2, pass the value to the LinkPreviewDialog, which will use
             // the value to adjust its prototype layout.
-            LinkPreviewDialog dialog = LinkPreviewDialog.newInstance(title, linkPreviewToggle);
+            LinkPreviewDialog dialog = LinkPreviewDialog.newInstance(title, LinkPreviewVersion.getVersion(app));
             dialog.show(getActivity().getSupportFragmentManager(), "link_preview_dialog");
         }
     }

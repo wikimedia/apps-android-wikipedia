@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ShareAFactFunnel;
 import org.wikipedia.page.BottomDialog;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
@@ -16,7 +17,7 @@ import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.util.ShareUtils;
 
-import static org.wikipedia.page.snippet.ShareAFactFunnel.ShareMode;
+import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
 
 /**
  * Let user choose between sharing as text or as image.

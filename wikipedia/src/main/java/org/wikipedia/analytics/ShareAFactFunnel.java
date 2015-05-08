@@ -1,11 +1,10 @@
-package org.wikipedia.page.snippet;
+package org.wikipedia.analytics;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.Funnel;
 
 import java.util.UUID;
 
