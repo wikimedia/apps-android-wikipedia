@@ -45,7 +45,7 @@ document.onclick = function() {
     // If an element was clicked, check if it or any of its parents are <a>
     // This handles cases like <a>foo</a>, <a><strong>foo</strong></a>, etc.
     while (curNode) {
-        if (curNode.tagName === "A") {
+        if (curNode.tagName === "A" || curNode.tagName === "AREA") {
             sourceNode = curNode;
             break;
         }
