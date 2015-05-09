@@ -16,6 +16,7 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.analytics.OnboardingFunnel;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.util.ActivityUtil;
 import org.wikipedia.util.L10nUtils;
 
 import java.util.Locale;
@@ -32,6 +33,9 @@ public class OnboardingActivity extends Activity {
         setTheme(WikipediaApp.getInstance().getCurrentTheme());
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+
+        ActivityUtil.requestFullUserOrientation(this);
+
         setContentView(R.layout.activity_onboarding);
 
         final OnboardingFunnel funnel = new OnboardingFunnel((WikipediaApp) getApplicationContext());

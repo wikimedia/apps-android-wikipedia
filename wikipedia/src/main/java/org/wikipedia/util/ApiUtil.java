@@ -13,6 +13,11 @@ public final class ApiUtil {
         return has(Build.VERSION_CODES.KITKAT);
     }
 
+    /** @return True if SDK API level is greater than or equal to 18. */
+    public static boolean hasJellyBeanMr2() {
+        return has(Build.VERSION_CODES.JELLY_BEAN_MR2);
+    }
+
     /** @return True if SDK API level is greater than or equal to 17. */
     public static boolean hasJellyBeanMr1() {
         return has(Build.VERSION_CODES.JELLY_BEAN_MR1);

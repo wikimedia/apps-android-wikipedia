@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
+
+import org.wikipedia.util.ActivityUtil;
+
 import java.lang.reflect.Field;
 
 public abstract class ThemedActionBarActivity extends ActionBarActivity {
@@ -13,6 +16,7 @@ public abstract class ThemedActionBarActivity extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActivityUtil.requestFullUserOrientation(this);
         setTheme(WikipediaApp.getInstance().getCurrentTheme());
 
         if (getSupportActionBar() != null) {
