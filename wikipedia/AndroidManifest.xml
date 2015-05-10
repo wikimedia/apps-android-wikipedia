@@ -24,8 +24,8 @@
         Don't let Google Play filter out devices that just have fake touch
         (e.g. mouse and keyboard instead of a real touchscreen).
     -->
-    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
-    <uses-feature android:name="android.hardware.faketouch" android:required="true"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.hardware.faketouch" android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -122,7 +122,7 @@
                   android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
                 <data android:pathPrefix="/android_asset/licenses/" android:scheme="file" />
             </intent-filter>
         </activity>
