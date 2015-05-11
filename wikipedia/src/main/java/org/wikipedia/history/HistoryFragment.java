@@ -11,7 +11,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -124,7 +124,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                     return false;
                 }
                 historyEntryList.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
-                actionMode = ((ActionBarActivity)getActivity()).startSupportActionMode(new ActionMode.Callback() {
+                actionMode = ((AppCompatActivity)getActivity()).startSupportActionMode(new ActionMode.Callback() {
                     private final String actionModeTag = "actionModeHistory";
                     @Override
                     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
@@ -364,7 +364,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                 builder.create().show();
                 return true;
             default:
-                throw new RuntimeException("Unknown menu item clicked!");
+                throw new RuntimeException("Unknown menu item clicked! item=" + item);
         }
     }
 }

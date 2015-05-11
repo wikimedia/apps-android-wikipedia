@@ -14,7 +14,7 @@ import org.json.JSONObject;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
@@ -39,7 +39,7 @@ public class ToCHandler {
     private final CommunicationBridge bridge;
     private final WikiDrawerLayout slidingPane;
     private final TextView headerView;
-    private final ActionBarActivity parentActivity;
+    private final AppCompatActivity parentActivity;
     private ToCInteractionFunnel funnel;
 
     /**
@@ -50,7 +50,7 @@ public class ToCHandler {
     private boolean wasClicked = false;
     private boolean openedViaSwipe = true;
 
-    public ToCHandler(final ActionBarActivity activity, final WikiDrawerLayout slidingPane,
+    public ToCHandler(final AppCompatActivity activity, final WikiDrawerLayout slidingPane,
                       final CommunicationBridge bridge) {
         this.parentActivity = activity;
         this.bridge = bridge;

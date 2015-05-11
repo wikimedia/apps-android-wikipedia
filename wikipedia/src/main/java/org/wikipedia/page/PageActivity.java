@@ -24,6 +24,7 @@ import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.zero.ZeroMessage;
 
@@ -145,12 +146,12 @@ public class PageActivity extends ThemedActionBarActivity {
 
         toolbarContainer = findViewById(R.id.main_toolbar_container);
 
-        bus = app.getBus();
         busMethods = new EventBusMethods();
-        bus.register(busMethods);
+        registerBus();
 
         drawerLayout = (WikiDrawerLayout) findViewById(R.id.drawer_layout);
-        fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navdrawer);
+        fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(
+                R.id.navdrawer);
         searchFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
         searchHintText = (TextView) findViewById(R.id.main_search_bar_text);
 
@@ -175,7 +176,8 @@ public class PageActivity extends ThemedActionBarActivity {
 
         // Set the drawer toggle as the DrawerListener
         drawerLayout.setDrawerListener(mDrawerToggle);
-        drawerLayout.setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
+        drawerLayout.setDragEdgeWidth(
+                getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
         getSupportActionBar().setTitle("");
 
         searchBarHideHandler = new SearchBarHideHandler(this, toolbarContainer);
@@ -755,9 +757,7 @@ public class PageActivity extends ThemedActionBarActivity {
     protected void onStart() {
         super.onStart();
         if (bus == null) {
-            bus = app.getBus();
-            bus.register(busMethods);
-            Log.d("Wikipedia", "Registering bus");
+            registerBus();
         }
     }
 
@@ -797,9 +797,7 @@ public class PageActivity extends ThemedActionBarActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         if (bus == null) {
-            bus = app.getBus();
-            bus.register(busMethods);
-            Log.d("Wikipedia", "Registering bus");
+            registerBus();
         }
         if ((requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT)) {
             fragmentContainerView.post(new Runnable() {
@@ -828,9 +826,7 @@ public class PageActivity extends ThemedActionBarActivity {
         app.getSessionFunnel().persistSession();
 
         super.onStop();
-        bus.unregister(busMethods);
-        bus = null;
-        Log.d("Wikipedia", "Deregistering bus");
+        unregisterBus();
     }
 
     /**
@@ -869,5 +865,17 @@ public class PageActivity extends ThemedActionBarActivity {
 
     private String emptyIfNull(String value) {
         return value == null ? "" : value;
+    }
+
+    private void registerBus() {
+        bus = app.getBus();
+        bus.register(busMethods);
+        L.d("Registered bus.");
+    }
+
+    private void unregisterBus() {
+        bus.unregister(busMethods);
+        bus = null;
+        L.d("Unregistered bus.");
     }
 }

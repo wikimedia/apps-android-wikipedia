@@ -43,8 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <android.support.v7.widget.Toolbar
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        app:theme="@style/AppTheme.ToolbarTheme"
+                        android:theme="@style/AppTheme.ToolbarTheme"
                         android:id="@+id/main_toolbar"
                         android:background="@color/main_toolbar_background"
                         android:layout_width="match_parent"

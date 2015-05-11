@@ -44,7 +44,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.text.Html;
 import android.util.Log;
@@ -339,7 +339,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     @Override
     public void onResume() {
         super.onResume();
-        ((ActionBarActivity) getActivity()).getSupportActionBar().setTitle("");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("");
     }
 
     /**

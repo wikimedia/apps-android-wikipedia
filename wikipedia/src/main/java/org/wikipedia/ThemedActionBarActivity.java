@@ -3,7 +3,7 @@ package org.wikipedia;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 
@@ -11,8 +11,7 @@ import org.wikipedia.util.ActivityUtil;
 
 import java.lang.reflect.Field;
 
-public abstract class ThemedActionBarActivity extends ActionBarActivity {
-
+public abstract class ThemedActionBarActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

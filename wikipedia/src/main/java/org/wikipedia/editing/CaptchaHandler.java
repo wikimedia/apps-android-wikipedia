@@ -5,7 +5,7 @@ import android.app.ProgressDialog;
 import android.graphics.ColorMatrixColorFilter;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -108,7 +108,7 @@ public class CaptchaHandler {
                 .into(captchaImage, new Callback() {
                     @Override
                     public void onSuccess() {
-                        ((ActionBarActivity)activity).getSupportActionBar().setTitle(R.string.title_captcha);
+                        ((AppCompatActivity)activity).getSupportActionBar().setTitle(R.string.title_captcha);
                         if (progressDialog.isShowing()) {
                             progressDialog.hide();
                         }
@@ -143,7 +143,7 @@ public class CaptchaHandler {
     }
 
     public void hideCaptcha() {
-        ((ActionBarActivity)activity).getSupportActionBar().setTitle(prevTitle);
+        ((AppCompatActivity)activity).getSupportActionBar().setTitle(prevTitle);
         ViewAnimations.crossFade(captchaContainer, primaryView);
     }
 
