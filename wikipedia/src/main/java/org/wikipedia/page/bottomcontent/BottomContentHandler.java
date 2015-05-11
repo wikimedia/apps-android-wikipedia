@@ -39,7 +39,7 @@ import org.wikipedia.views.ObservableWebView;
 
 import java.util.List;
 
-public class BottomContentHandlerOld implements BottomContentInterface,
+public class BottomContentHandler implements BottomContentInterface,
                                                 ObservableWebView.OnScrollChangeListener,
                                                 ObservableWebView.OnContentHeightChangedListener {
     private static final String TAG = "BottomContentHandler";
@@ -62,9 +62,9 @@ public class BottomContentHandlerOld implements BottomContentInterface,
     private SuggestedPagesFunnel funnel;
     private SearchResults readMoreItems;
 
-    public BottomContentHandlerOld(PageViewFragmentInternal parentFragment,
-                                   CommunicationBridge bridge, ObservableWebView webview,
-                                   LinkHandler linkHandler, ViewGroup hidingView) {
+    public BottomContentHandler(PageViewFragmentInternal parentFragment,
+                                CommunicationBridge bridge, ObservableWebView webview,
+                                LinkHandler linkHandler, ViewGroup hidingView) {
         this.parentFragment = parentFragment;
         this.bridge = bridge;
         this.webView = webview;
@@ -288,7 +288,7 @@ public class BottomContentHandlerOld implements BottomContentInterface,
             return;
         }
         final int maxResultItems = 3;
-        final int numRequestItems = 4;
+        final int numRequestItems = 5;
         new SuggestionsTask(app.getAPIForSite(myTitle.getSite()), myTitle.getSite(),
                 myTitle.getPrefixedText(), numRequestItems, maxResultItems,
                 (int)(parentFragment.getActivity().getResources().getDimension(R.dimen.leadImageWidth) / displayDensity), false) {
@@ -297,7 +297,7 @@ public class BottomContentHandlerOld implements BottomContentInterface,
                 readMoreItems = results;
                 if (!readMoreItems.getPageTitles().isEmpty()) {
                     // If there are results, set up section and make sure it's visible
-                    setupReadMoreSection(layoutInflater, readMoreItems);
+                    setUpReadMoreSection(layoutInflater, readMoreItems);
                     showReadMore();
                 } else {
                     // If there's no results, just hide the section
@@ -333,7 +333,7 @@ public class BottomContentHandlerOld implements BottomContentInterface,
         funnel = new SuggestedPagesFunnel(app, pageTitle.getSite(), 0);
     }
 
-    private void setupReadMoreSection(LayoutInflater layoutInflater, final SearchResults results) {
+    private void setUpReadMoreSection(LayoutInflater layoutInflater, final SearchResults results) {
         final ReadMoreAdapter adapter = new ReadMoreAdapter(layoutInflater, results.getPageTitles());
         readMoreList.setAdapter(adapter);
         readMoreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

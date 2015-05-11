@@ -25,6 +25,7 @@ public class PageProperties implements Parcelable {
     private final String editProtectionStatus;
     private final int languageCount;
     private final boolean isMainPage;
+    private final boolean isDisambiguationPage;
     private final String leadImageUrl;
     private final String leadImageName;
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
@@ -74,6 +75,7 @@ public class PageProperties implements Parcelable {
                 || json.optString("editable").equals("true");
 
         isMainPage = json.has("mainpage");
+        isDisambiguationPage = json.has("disambiguation");
     }
 
     public int getPageId() {
@@ -108,6 +110,10 @@ public class PageProperties implements Parcelable {
         return isMainPage;
     }
 
+    public boolean isDisambiguationPage() {
+        return isDisambiguationPage;
+    }
+
     public String getLeadImageUrl() {
         return leadImageUrl;
     }
@@ -131,6 +137,7 @@ public class PageProperties implements Parcelable {
         parcel.writeInt(languageCount);
         parcel.writeInt(canEdit ? 1 : 0);
         parcel.writeInt(isMainPage ? 1 : 0);
+        parcel.writeInt(isDisambiguationPage ? 1 : 0);
         parcel.writeString(leadImageUrl);
         parcel.writeString(leadImageName);
     }
@@ -145,6 +152,7 @@ public class PageProperties implements Parcelable {
         languageCount = in.readInt();
         canEdit = in.readInt() == 1;
         isMainPage = in.readInt() == 1;
+        isDisambiguationPage = in.readInt() == 1;
         leadImageUrl = in.readString();
         leadImageName = in.readString();
     }
@@ -178,6 +186,7 @@ public class PageProperties implements Parcelable {
                 && languageCount == that.languageCount
                 && canEdit == that.canEdit
                 && isMainPage == that.isMainPage
+                && isDisambiguationPage == that.isDisambiguationPage
                 && TextUtils.equals(editProtectionStatus, that.editProtectionStatus)
                 && TextUtils.equals(leadImageUrl, that.leadImageUrl)
                 && TextUtils.equals(leadImageName, that.leadImageName);
@@ -190,6 +199,7 @@ public class PageProperties implements Parcelable {
         result = 31 * result + (editProtectionStatus != null ? editProtectionStatus.hashCode() : 0);
         result = 31 * result + languageCount;
         result = 31 * result + (isMainPage ? 1 : 0);
+        result = 31 * result + (isDisambiguationPage ? 1 : 0);
         result = 31 * result + (leadImageUrl != null ? leadImageUrl.hashCode() : 0);
         result = 31 * result + (leadImageName != null ? leadImageName.hashCode() : 0);
         result = 31 * result + (canEdit ? 1 : 0);
@@ -223,6 +233,9 @@ public class PageProperties implements Parcelable {
             json.put("editable", canEdit);
             if (isMainPage) {
                 json.put("mainpage", "");
+            }
+            if (isDisambiguationPage) {
+                json.put("disambiguation", "");
             }
             if (leadImageUrl != null) {
                 JSONObject thumbObject = new JSONObject();

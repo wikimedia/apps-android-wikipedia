@@ -47,13 +47,20 @@ public class PageTitle implements Parcelable {
     private String thumbUrl;
     private final Site site;
     private String description = null;
+    private PageProperties properties = null;
 
     public PageTitle(final String namespace, final String text, final String fragment, final String thumbUrl, final Site site) {
         this.namespace = namespace;
         this.text = text;
         this.fragment = fragment;
-        this.thumbUrl = thumbUrl;
         this.site = site;
+        this.thumbUrl = thumbUrl;
+    }
+
+    public PageTitle(final String text, final Site site, final String thumbUrl, final String description, final PageProperties properties) {
+        this(text, site, thumbUrl);
+        this.properties = properties;
+        this.description = description;
     }
 
     public PageTitle(final String text, final Site site, final String thumbUrl, final String description) {
@@ -133,6 +140,22 @@ public class PageTitle implements Parcelable {
         return getPrefixedText().replace("_", " ");
     }
 
+    public boolean hasProperties() {
+        return properties != null;
+    }
+
+    public PageProperties getProperties() {
+        return properties;
+    }
+
+    public boolean isMainPage() {
+        return hasProperties() && properties.isMainPage();
+    }
+
+    public boolean isDisambiguationPage() {
+        return hasProperties() && properties.isDisambiguationPage();
+    }
+
     /** Please keep the ID stable. */
     public String getIdentifier() {
         return Utils.md5string(toIdentifierJSON().toString());
@@ -142,10 +165,10 @@ public class PageTitle implements Parcelable {
     private JSONObject toIdentifierJSON() {
         try {
             JSONObject json = new JSONObject();
-            json.put("site", site.getDomain());
             json.put("namespace", getNamespace());
             json.put("text", getText());
             json.put("fragment", getFragment());
+            json.put("site", site.getDomain());
             return json;
         } catch (JSONException e) {
             // This will also never happen
@@ -156,6 +179,9 @@ public class PageTitle implements Parcelable {
     public JSONObject toJSON() {
         try {
             JSONObject json = toIdentifierJSON();
+            if (hasProperties()) {
+                json.put("properties", getProperties().toJSON());
+            }
             json.put("thumbUrl", getThumbUrl());
             json.put("description", getDescription());
             return json;
@@ -166,10 +192,11 @@ public class PageTitle implements Parcelable {
     }
 
     public PageTitle(JSONObject json) {
-        this.site = new Site(json.optString("site"));
         this.namespace = json.optString("namespace", null);
-        this.fragment = json.optString("fragment", null);
         this.text = json.optString("text", null);
+        this.fragment = json.optString("fragment", null);
+        this.site = json.has("site") ? new Site(json.optString("site")) : null;
+        this.properties = json.has("properties") ? new PageProperties(json.optJSONObject("properties")) : null;
         this.thumbUrl = json.optString("thumbUrl", null);
         this.description = json.optString("description", null);
     }
@@ -272,6 +299,7 @@ public class PageTitle implements Parcelable {
         text = in.readString();
         fragment = in.readString();
         site = in.readParcelable(Site.class.getClassLoader());
+        properties = in.readParcelable(PageProperties.class.getClassLoader());
         thumbUrl = in.readString();
         description = in.readString();
     }
@@ -282,6 +310,7 @@ public class PageTitle implements Parcelable {
         parcel.writeString(text);
         parcel.writeString(fragment);
         parcel.writeParcelable(site, flags);
+        parcel.writeParcelable(properties, flags);
         parcel.writeString(thumbUrl);
         parcel.writeString(description);
     }

@@ -44,7 +44,9 @@ public class SuggestionsTask extends FullSearchArticlesTask {
         List<PageTitle> results = searchResults.getPageTitles();
         for (int i = 0, count = 0; i < results.size() && count < maxItems; i++) {
             final PageTitle res = results.get(i);
-            if (!title.equalsIgnoreCase(res.getPrefixedText()) && (!requireThumbnail || res.getThumbUrl() != null)) {
+            if (!title.equalsIgnoreCase(res.getPrefixedText())
+                    && (!requireThumbnail || res.getThumbUrl() != null)
+                    && !(res.isMainPage() || res.isDisambiguationPage())) {
                 filteredResults.add(res);
                 count++;
             }

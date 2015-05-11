@@ -17,7 +17,7 @@ import org.wikipedia.editing.EditHandler;
 import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
-import org.wikipedia.page.bottomcontent.BottomContentHandlerOld;
+import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
@@ -417,7 +417,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         searchBarHideHandler = ((PageActivity) getActivity()).getSearchBarHideHandler();
         searchBarHideHandler.setScrollView(webView);
 
-        bottomContentHandler = new BottomContentHandlerOld(this, bridge, webView, linkHandler,
+        bottomContentHandler = new BottomContentHandler(this, bridge, webView, linkHandler,
                 (ViewGroup) getView().findViewById(R.id.bottom_content_container));
 
         if (ApiUtil.hasHoneyComb()) {

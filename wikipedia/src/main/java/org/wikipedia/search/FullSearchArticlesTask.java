@@ -12,6 +12,8 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.page.PageProperties;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -43,7 +45,8 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
     public RequestBuilder buildRequest(Api api) {
         final String maxResultsString = Integer.toString(maxResults);
         final RequestBuilder req = api.action("query")
-                .param("prop", "pageterms|pageimages")
+                .param("prop", "pageterms|pageimages|pageprops")
+                .param("ppprop", "mainpage|disambiguation")
                 .param("wbptterms", "description") // only interested in Wikidata description
                 .param("generator", "search")
                 .param("gsrsearch", searchTerm)
@@ -134,7 +137,11 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
                     description = Utils.capitalizeFirstChar(arr.getString(0));
                 }
             }
-            pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl, description));
+            PageProperties properties = null;
+            if (item.has("pageprops")) {
+                properties = new PageProperties(item.getJSONObject("pageprops"));
+            }
+            pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl, description, properties));
         }
         return new SearchResults(pageTitles, nextContinueOffset, null);
     }
