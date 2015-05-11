@@ -8,7 +8,11 @@ import org.json.JSONObject;
  * Represents a bundle of CSS files that can be loaded into a
  * webview via a CommunicationBridge
  */
-public abstract class StyleBundle {
+public class StyleBundle {
+    public static final String BUNDLE_PAGEVIEW = "styles.css";
+    public static final String BUNDLE_PREVIEW = "preview.css";
+    public static final String BUNDLE_NIGHT_MODE = "night.css";
+
     /**
      * Array containing full path of the CSS files in this
      * bundle.
@@ -16,17 +20,23 @@ public abstract class StyleBundle {
     private final String[] stylePaths;
 
     /**
+     * Returns a bundle of styles of a specific type.
+     * @return Requested style bundle.
+     */
+    public static StyleBundle getAvailableBundle(String type) {
+        return new StyleBundle(type);
+    }
+
+    /**
      * Creates a new StyleBundle with a styles from a common prefix.
      *
-     * @param prefix Prefix (with trailing slash) to use for all CSS files
- *                   in this bundle.
      * @param styles Array of CSS File names that are available together in
      *               the prefix.
      */
-    public StyleBundle(String prefix, String... styles) {
+    public StyleBundle(String... styles) {
         stylePaths = new String[styles.length];
         for (int i = 0; i < styles.length; i++) {
-            stylePaths[i] = prefix + styles[i];
+            stylePaths[i] = "file:///android_asset/" + styles[i];
         }
     }
 

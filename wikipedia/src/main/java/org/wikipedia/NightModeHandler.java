@@ -3,7 +3,7 @@ package org.wikipedia;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.bridge.StyleLoader;
+import org.wikipedia.bridge.StyleBundle;
 
 public class NightModeHandler {
     private final CommunicationBridge bridge;
@@ -30,7 +30,7 @@ public class NightModeHandler {
         try {
             payload.put("hasPageLoaded", hasPageLoaded);
             payload.put("nightStyleBundle",
-                    app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_NIGHT_MODE).toJSON());
+                    StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_NIGHT_MODE).toJSON());
         } catch (JSONException e) {
             // This shouldn't happen
             throw new RuntimeException(e);

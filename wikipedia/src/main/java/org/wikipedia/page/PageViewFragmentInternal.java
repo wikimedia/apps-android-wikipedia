@@ -11,7 +11,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
 import org.wikipedia.analytics.SavedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.bridge.StyleLoader;
+import org.wikipedia.bridge.StyleBundle;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.editing.EditHandler;
 import org.wikipedia.editing.EditSectionActivity;
@@ -387,7 +387,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         };
 
         bridge.injectStyleBundle(
-                app.getStyleLoader().getAvailableBundle(StyleLoader.BUNDLE_PAGEVIEW));
+                StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PAGEVIEW));
 
         if (app.getCurrentTheme() == WikipediaApp.THEME_DARK) {
             new NightModeHandler(bridge).turnOn(true);

@@ -18,7 +18,6 @@ import org.acra.annotation.ReportsCrashes;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
-import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.data.ContentPersister;
 import org.wikipedia.data.DBOpenHelper;
 import org.wikipedia.editing.EditTokenStorage;
@@ -457,14 +456,6 @@ public class WikipediaApp extends Application {
         }
 
         return funnelManager;
-    }
-
-    private StyleLoader styleLoader;
-    public StyleLoader getStyleLoader() {
-        if (styleLoader == null) {
-            styleLoader = new StyleLoader(this);
-        }
-        return styleLoader;
     }
 
     /**

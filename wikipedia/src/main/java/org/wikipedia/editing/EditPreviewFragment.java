@@ -20,9 +20,9 @@ import org.json.JSONObject;
 import org.mediawiki.api.json.ApiException;
 import org.wikipedia.*;
 import org.wikipedia.analytics.EditFunnel;
+import org.wikipedia.bridge.StyleBundle;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.bridge.StyleLoader;
 import org.wikipedia.editing.summaries.EditSummaryTag;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkHandler;
@@ -169,8 +169,7 @@ public class EditPreviewFragment extends Fragment {
     private void displayPreview(final String html) {
         if (!isWebViewSetup) {
             isWebViewSetup = true;
-            StyleLoader styleLoader = ((WikipediaApp) getActivity().getApplicationContext()).getStyleLoader();
-            bridge.injectStyleBundle(styleLoader.getAvailableBundle(StyleLoader.BUNDLE_PREVIEW));
+            bridge.injectStyleBundle(StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PREVIEW));
             Utils.setupDirectionality(parentActivity.getPageTitle().getSite().getLanguage(), Locale.getDefault().getLanguage(), bridge);
             if (WikipediaApp.getInstance().getCurrentTheme() == WikipediaApp.THEME_DARK) {
                 new NightModeHandler(bridge).turnOn(false);

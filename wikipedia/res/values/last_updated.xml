@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <!-- timestamp of when the bundled styles were last updated in ISO 8601-->
-    <string name="bundled_styles_updated" tools:ignore="TypographyDashes">2019-06-17T00:00:00Z</string>
-</resources>

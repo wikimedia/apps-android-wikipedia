@@ -4,7 +4,6 @@ import android.content.Context;
 import org.wikipedia.RemoteConfigRefreshTask;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.alphaupdater.AlphaUpdateChecker;
-import org.wikipedia.bridge.StyleFetcherTask;
 import org.wikipedia.concurrency.ExecutorService;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.page.snippet.SharedImageCleanupTask;
@@ -26,7 +25,6 @@ public class RecurringTasksExecutor {
                 RecurringTask[] allTasks = new RecurringTask[] {
                         // Has list of all rotating tasks that need to be run
                         new RemoteConfigRefreshTask(context),
-                        new StyleFetcherTask(context),
                         new SharedImageCleanupTask(context),
                 };
                 for (RecurringTask task: allTasks) {
