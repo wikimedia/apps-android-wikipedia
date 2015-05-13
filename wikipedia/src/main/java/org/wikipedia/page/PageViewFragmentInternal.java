@@ -1075,7 +1075,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                     + Page.API_REQUEST_PROPS);
             builder.param("thumbsize", Integer.toString((int)(getResources().getDimension(R.dimen.leadImageWidth)
                     / getResources().getDisplayMetrics().density)));
-            builder.param("appInstallID", app.getAppInstallID());
             return builder;
         }
 

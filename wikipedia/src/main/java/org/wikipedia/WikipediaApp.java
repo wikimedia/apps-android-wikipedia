@@ -293,11 +293,15 @@ public class WikipediaApp extends Application {
         // Accept-Language header from above, when applicable.
         Api api = mccMncStateHandler.makeApiWithMccMncHeaderEnrichment(this, site, customHeaders);
         if (api == null) {
-            String domainAndApiAndVariantKey = site.getDomain() + "-" + site.getApiDomain() + "-" + acceptLanguage;
-            if (!apis.containsKey(domainAndApiAndVariantKey)) {
-                apis.put(domainAndApiAndVariantKey, new Api(site.getApiDomain(), site.getUseSecure(), site.getScriptPath("api.php"), customHeaders));
+            String domainAndApiAndVariantKey = site.getDomain() + "-" + site.getApiDomain()
+                    + "-" + acceptLanguage + "-" + isEventLoggingEnabled();
+            if (apis.containsKey(domainAndApiAndVariantKey)) {
+                api = apis.get(domainAndApiAndVariantKey);
+            } else {
+                api = new Api(site.getApiDomain(), site.getUseSecure(),
+                        site.getScriptPath("api.php"), customHeaders);
+                apis.put(domainAndApiAndVariantKey, api);
             }
-            api = apis.get(domainAndApiAndVariantKey);
         }
 
         api.setHeaderCheckListener(zeroHandler);
