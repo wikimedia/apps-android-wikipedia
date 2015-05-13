@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;

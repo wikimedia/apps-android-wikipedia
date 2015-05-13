@@ -2,7 +2,7 @@ package org.wikipedia.search;
 
 import org.json.JSONArray;
 import org.wikipedia.ApiTask;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;

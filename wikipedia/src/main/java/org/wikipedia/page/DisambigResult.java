@@ -1,7 +1,5 @@
 package org.wikipedia.page;
 
-import org.wikipedia.PageTitle;
-
 public class DisambigResult {
     private final PageTitle title;
 

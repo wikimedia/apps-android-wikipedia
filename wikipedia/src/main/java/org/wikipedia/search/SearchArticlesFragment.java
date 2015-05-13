@@ -1,7 +1,7 @@
 package org.wikipedia.search;
 
 import org.wikipedia.BackPressedHandler;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;

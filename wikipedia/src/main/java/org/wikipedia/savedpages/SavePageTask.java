@@ -1,7 +1,7 @@
 package org.wikipedia.savedpages;
 
 import android.content.Context;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.page.Page;

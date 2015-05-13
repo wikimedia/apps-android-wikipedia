@@ -1,10 +1,12 @@
-package org.wikipedia;
+package org.wikipedia.page;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.ApiTask;
+import org.wikipedia.Site;
 
 import java.util.ArrayList;
 import java.util.HashMap;

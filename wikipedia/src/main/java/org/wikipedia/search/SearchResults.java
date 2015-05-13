@@ -1,6 +1,6 @@
 package org.wikipedia.search;
 
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 
 import java.util.ArrayList;
 import java.util.List;

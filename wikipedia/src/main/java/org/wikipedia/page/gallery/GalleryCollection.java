@@ -1,6 +1,6 @@
 package org.wikipedia.page.gallery;
 
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

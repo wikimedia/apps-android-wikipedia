@@ -18,6 +18,7 @@ import android.widget.TextView;
 import org.wikipedia.*;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageTitle;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,8 +3,8 @@ package org.wikipedia.pageimages;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.PageQueryTask;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageQueryTask;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package org.wikipedia.page.bottomcontent;
 
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 
 public interface BottomContentInterface {
 

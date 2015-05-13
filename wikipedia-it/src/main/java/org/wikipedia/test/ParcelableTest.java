@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import junit.framework.TestCase;
 import org.json.JSONObject;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.Site;
 import org.wikipedia.history.HistoryEntry;

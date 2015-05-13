@@ -3,7 +3,6 @@ package org.wikipedia.page;
 import org.acra.ACRA;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.NavDrawerFragment;
-import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.ThemedActionBarActivity;

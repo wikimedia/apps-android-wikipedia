@@ -2,7 +2,7 @@ package org.wikipedia.pagehistory;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 
 import java.util.Date;
 

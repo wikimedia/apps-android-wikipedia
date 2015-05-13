@@ -1,6 +1,6 @@
 package org.wikipedia.savedpages;
 
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.page.Page;
 

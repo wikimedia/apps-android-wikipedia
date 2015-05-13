@@ -2,7 +2,7 @@ package org.wikipedia.test;
 
 import junit.framework.TestCase;
 import org.json.JSONObject;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;

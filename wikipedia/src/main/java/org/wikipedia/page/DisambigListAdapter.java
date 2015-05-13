@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import org.wikipedia.PageTitle;
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
 import org.wikipedia.Site;

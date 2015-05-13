@@ -2,7 +2,7 @@ package org.wikipedia.page.linkpreview;
 
 import android.text.TextUtils;
 
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.json.JSONException;
 import org.json.JSONObject;

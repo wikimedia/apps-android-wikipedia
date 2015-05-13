@@ -2,7 +2,6 @@ package org.wikipedia.page;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.NightModeHandler;
-import org.wikipedia.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;

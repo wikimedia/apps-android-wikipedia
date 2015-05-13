@@ -3,7 +3,7 @@ package org.wikipedia.test;
 import android.content.Context;
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.page.Section;
 import org.wikipedia.page.SectionsFetchTask;

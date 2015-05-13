@@ -1,6 +1,6 @@
 package org.wikipedia.test;
 
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.SuggestionsTask;

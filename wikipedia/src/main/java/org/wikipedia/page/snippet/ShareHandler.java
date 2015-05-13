@@ -6,7 +6,7 @@ import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ImageView;
 
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ShareAFactFunnel;

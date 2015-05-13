@@ -19,6 +19,7 @@ import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.savedpages.SavedPagesFragment;

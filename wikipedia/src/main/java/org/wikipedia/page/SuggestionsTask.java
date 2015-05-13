@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import org.wikipedia.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.search.FullSearchArticlesTask;
 import org.mediawiki.api.json.Api;

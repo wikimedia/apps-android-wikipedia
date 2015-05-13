@@ -25,7 +25,7 @@ import com.squareup.picasso.Target;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;

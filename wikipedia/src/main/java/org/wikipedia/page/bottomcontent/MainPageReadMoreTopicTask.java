@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.RemoteException;
 
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.history.HistoryEntry;
 

@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import org.wikipedia.PageTitle;
 import org.wikipedia.history.HistoryEntry;
 import android.os.Parcel;
 import android.os.Parcelable;

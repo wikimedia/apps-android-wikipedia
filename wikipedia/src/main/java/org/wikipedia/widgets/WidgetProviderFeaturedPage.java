@@ -2,7 +2,7 @@ package org.wikipedia.widgets;
 
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
