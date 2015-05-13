@@ -176,6 +176,7 @@ public class LinkPreviewDialog extends DialogFragment implements DialogInterface
 
     @Override
     public void onDismiss(DialogInterface dialogInterface) {
+        super.onDismiss(dialogInterface);
         if (!navigateSuccess) {
             funnel.logCancel();
         }
