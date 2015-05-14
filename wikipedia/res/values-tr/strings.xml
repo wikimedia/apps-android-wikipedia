@@ -26,7 +26,7 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Kaydedilen tüm sayfalar güncellensin mi?</string>
   <string name="menu_save_page">Sayfayı kaydet</string>
   <string name="menu_share_page">Paylaş</string>
-  <string name="share_via">Şurada paylaş:</string>
+  <string name="share_via">Şununla paylaş:</string>
   <string name="dialog_title_clear_saved_pages">Tüm kaydedilen sayfalar silinsin mi?</string>
   <string name="toast_saving_page">Sayfa kaydediliyor…</string>
   <string name="toast_saved_page">Sayfa başarıyla kaydedildi</string>
@@ -88,6 +88,7 @@
   <string name="login_in_progress_dialog_message">Oturum açılıyor…</string>
   <string name="login_error_wrong_password">Yanlış parola</string>
   <string name="login_error_wrong_username">Yanlış kullanıcı adı</string>
+  <string name="login_error_illegal">Geçersiz kullanıcı adı</string>
   <string name="login_success_toast">Oturum açma başarılı!</string>
   <string name="login_error_blocked">Bu kullanıcı engellendi</string>
   <string name="login_error_throttled">Çok fazla deneme yaptınız. Birkaç dakika bekleyip tekrar deneyin.</string>

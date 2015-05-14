@@ -12,6 +12,8 @@
   <string name="nav_item_history">تاریخچه</string>
   <string name="error_network_error">شبکه‌ای در دسترس نیست :(</string>
   <string name="search_network_error">خطای شبکه. برای تلاش مجدد با انگشت بر روی صفحه بزنید.</string>
+  <string name="generic_page_error">مشکلی برای اجرای درخواستتان وجود دارد.</string>
+  <string name="status_code_unavailable">کد وضعیت سرور در دسترس نیست.</string>
   <string name="page_error_retry">تلاش مجدد</string>
   <string name="menu_clear_all_history">پاک‌کردن تاریخچه</string>
   <string name="menu_clear_all_saved_pages">پاک کردن صفحه‌های ذخیره‌شده</string>
@@ -86,6 +88,7 @@
   <string name="login_in_progress_dialog_message">در حال وارد شدن به سامانه …</string>
   <string name="login_error_wrong_password">گذرواژهٔ نادرست</string>
   <string name="login_error_wrong_username">نام کاربری نادرست</string>
+  <string name="login_error_illegal">نام کاربری نادرست</string>
   <string name="login_success_toast">ورود موفق!</string>
   <string name="login_error_blocked">این کاربر مسدود شده است</string>
   <string name="login_error_throttled">تلاش برای ورود به سامانه بیش از حد بوده‌است برای چند دقیقه صبر می‌کنید؟</string>
@@ -268,4 +271,5 @@
   <string name="captcha_image">تصویر کپچا</string>
   <string name="gallery_fair_use_license">استفادهٔ منصفانه</string>
   <string name="gallery_uploader_unknown">بارگذار ناشناس</string>
+  <string name="edit_save_unknown_error">امکان دخیرهٔ ویرایش شما وجود ندارد: %s</string>
 </resources>

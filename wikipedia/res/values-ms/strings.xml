@@ -12,6 +12,8 @@
   <string name="nav_item_history">Sejarah</string>
   <string name="error_network_error">Tiada sambungan rangkaian :(</string>
   <string name="search_network_error">Ralat rangkaian. Ketik untuk cuba lagi.</string>
+  <string name="generic_page_error">Terjadi masalah ketika mengendalikan permintaan anda.</string>
+  <string name="status_code_unavailable">Kod status pelayan tidak terdapat.</string>
   <string name="page_error_retry">Cuba lagi</string>
   <string name="menu_clear_all_history">Padamkan sejarah</string>
   <string name="menu_clear_all_saved_pages">Padamkan semua laman tersimpan</string>
@@ -47,6 +49,7 @@
   <string name="nearby_dialog_goto_settings">Pengemaskinian lokasi tidak dibolehkan pada peranti anda. Adakah anda ingin membolehkan pengemaskinian lokasi pada tetapan peranti anda?</string>
   <string name="nearby_set_metric">Paparkan meter/km</string>
   <string name="nearby_set_imperial">Paparkan kaki/batu</string>
+  <string name="nearby_view_on_map">Lihat di peta</string>
   <string name="last_updated_text">Mutakhir: %1$s</string>
   <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, anda menyetujui &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -85,6 +88,7 @@
   <string name="login_in_progress_dialog_message">Sedang log masuk…</string>
   <string name="login_error_wrong_password">Kata laluan tidak betul</string>
   <string name="login_error_wrong_username">Nama pengguna tidak betul</string>
+  <string name="login_error_illegal">Nama pengguna tidak sah</string>
   <string name="login_success_toast">Berjaya Log Masuk!</string>
   <string name="login_error_blocked">Pengguna ini telah disekat</string>
   <string name="login_error_throttled">Terlalu banyak cubaab log masuk. Sila tunggu seketika, kemudian cuba lagi.</string>
@@ -215,24 +219,34 @@
   <string name="table_infobox">Fakta segera</string>
   <string name="table_other">Maklumat lanjut</string>
   <string name="table_close">Tutup</string>
-  <string name="app_store_description" fuzzy="true">Aplikasi rasmi Wikipedia untuk Android. Wikipedia merupakan ensiklopedia bebas yang mengandungi lebih daripada 32 juta rencana dalam 280 bahasa, bahkan merupakan bahan rujukan paling menyeluruh dan meluas digunakan yang pernah dihimpunkan oleh manusia. Aplikasi ini telah ditulis ganti dari pangkal dan oleh itu lebih baik daripada dahulu.
+  <string name="widget_name_featured_page">Laman pilihan Wikipedia</string>
+  <string name="widget_title_featured_page">Laman pilihan hari ini:</string>
+  <string name="widget_name_search">Pencarian Wikipedia</string>
+  <string name="app_store_description">Aplikasi rasmi Wikipedia untuk Android. Wikipedia merupakan ensiklopedia bebas yang mengandungi lebih daripada 32 juta rencana dalam 280 bahasa, bahkan merupakan bahan rujukan paling menyeluruh dan meluas digunakan yang pernah dihimpunkan oleh manusia. Aplikasi ini telah ditulis ganti dari pangkal dan oleh itu lebih baik daripada dahulu. Aplikasi ini telah dibina semula dari kosong dan kini lebih baik daripada dahulu.
 
 Ciri-ciri:
-   - Kelajuan: Aplikasi asli baru kami membolehkan anda untuk melayari dan menyunting Wikipedia dengan lebih cepat daripada dahulu.
-   - Penyuntingan: Anda boleh menyunting Wikipedia! Tak kira yang log masuk mahupun keluar, kami amat menghargai sumbangan anda.
-   - Laman terbaru: Kami menyediakan sejarah pembacaan supaya anda boleh mengetik sebanyak mana pautan yang anda mahu tanpa sesekali tersesat jalan.
-   - Laman simpanan: Anda boleh menyimpan laman-laman terpilih untuk dibaca secara offline dan juga dilayari walaupun tiada sambungan data.
-   - Perkongsian: Gunakan aplikasi media sosial sedia anda untuk menyebarkan seluruh ilmu pengetahuan insan.
-   - Sokongan bahasa: Aplikasi ini membolehkan anda untuk menukar bahasa bacaan Wikipedia dengan lancar.
-   - Wikipedia Zero: Caj data dikecualikan untuk pengendali khidmat telekom selular yang mengambil bahagian.
+- Gambar utama: alami Wikipedia serba baharu dengan gambar yang menonjol dan tepat dengan konteks di atas-atas rencana
+- Galeri imej: sentuh gambar untuk dapatkan paparan resolusi tinggi dengan kebolehan geser ke kiri/kanan untuk menelusuri gambar lain
+- Keterangan dari Wikidata: setiap hasil carian kini ada huraian ringkas untuk memperhalusi hasil menerusi konteks. Keterangan ini juga dipaparkan di ciri-ciri lain aplikasi ini seperti Berdekatan
+- Cadangan rencana: skrol ke bawah rencana untuk melihat cadangan rencana bacaan seterusnya
+- Simpan laman: simpan laman-laman terpilih untuk dibaca di luar talian dan ditelusuri walaupun tiada sambungan data
+- Berdekatan: ketahui lebih lanjut mengenai sekitar anda dengan mendapatkan pautan ke rencana mengenai perihal yang berdekatan dengan lokasi semasa anda
+- Sokongan bahasa: menukar paparan Wikipedia dengan lancar ke pelbagai bahasa
+- Jadual isi kandungan: geser ke kiri pada sebarang rencana untuk dapatkan jadual kandungan untuk cepat beralih sesama bahagian rencana
+- Wikipedia Zero: caj data dikecualikan untuk pengendali talian selular terpilih
 
-Kod ini adalah sumber terbuka sepenuhnya. Jika anda mempunyai pengalaman dengan Java dan Android SDK, bantuan anda kami alu-alukan! https://github.com/wikimedia/apps-android-wikipedia</string>
+Kod ini adalah 100% sumber terbuka. Jika anda mempunyai pengalaman dengan Java dan Android SDK, bantuan anda kami alu-alukan! https://github.com/wikimedia/apps-android-wikipedia
+
+Dasar privasi: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Syarat penggunaan: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Terdapat kemaskinian alfa baru</string>
   <string name="alpha_update_notification_text">Ketik untuk muat turun</string>
   <string name="dialog_close_description">Tutup</string>
   <string name="preference_title_show_images">Paparkan imej</string>
   <string name="preference_summary_show_images">Hidupkan atau matikan ciri-ciri memuatkan gambar dalam laman. Anda disaran supaya mematikan ciri-ciri ini jika sambungan internet anda perlahan ataupun pelan data anda terhad.</string>
   <string name="read_more_section">Selanjutnya</string>
+  <string name="read_next_section">Baca seterusnya</string>
   <string name="gallery_menu_more_info">Maklumat lanjut</string>
   <string name="menu_gallery_visit_page">Pergi ke laman fail</string>
   <string name="gallery_error_draw_failed">Imej tidak dapat dilukis.</string>
@@ -242,8 +256,18 @@ Kod ini adalah sumber terbuka sepenuhnya. Jika anda mempunyai pengalaman dengan 
   <string name="gallery_share_error">Imej tidak dapat dikongsikan: %s</string>
   <string name="gallery_menu_save">Simpan ke dalam peranti</string>
   <string name="gallery_save_error">Imej tidak dapat disimpan: %s</string>
+  <string name="gallery_save_error_mediastore">Imej gagal diimport ke koleksi media</string>
   <string name="gallery_save_success">Imej berjaya disimpan.</string>
+  <string name="gallery_error_video_failed">Video tidak dapat ditayangkan.</string>
   <string name="err_cannot_save_file">Fail tidak dapat disimpan</string>
   <string name="snippet_share_intro">Fakta menarik di @Wikipedia %1$s: %2$s</string>
   <string name="expand_refs">Ketik untuk kembangkan</string>
+  <string name="share_snippet_button">Sebarkan dalam bentuk imej</string>
+  <string name="share_normal_button">Sebarkan dalam bentuk teks</string>
+  <string name="snippet_share_preview_image_desc">Pratayang imej</string>
+  <string name="cc_logo">Lesen Creative Commons</string>
+  <string name="captcha_image">Imej Captcha</string>
+  <string name="gallery_fair_use_license">Kegunaan wajar</string>
+  <string name="gallery_uploader_unknown">Pemuat naik tidak dikenali</string>
+  <string name="edit_save_unknown_error">Suntingan tidak dapat disimpan: %s</string>
 </resources>

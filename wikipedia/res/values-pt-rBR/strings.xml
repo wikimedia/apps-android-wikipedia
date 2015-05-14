@@ -252,7 +252,7 @@ Condições de uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_image_info">Informação de imagem</string>
   <string name="gallery_menu_share">Compartilhar</string>
   <string name="gallery_share_error">Não podê-se compartilhar a imagem: %s</string>
-  <string name="gallery_menu_save">Sauvar no dispositivo</string>
+  <string name="gallery_menu_save">Salvar no dispositivo</string>
   <string name="gallery_save_error">Não podê-se salvar a imagem: %s</string>
   <string name="gallery_save_error_mediastore">Falha ao importar a imagem para a coleção multimídia</string>
   <string name="gallery_save_success">Imagem salva com sucesso.</string>

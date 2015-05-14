@@ -10,6 +10,7 @@
   <string name="acra_report_dialog_comment">کله چې تخنيکي ټکر رامېنځ ته شو، تاسې څه کول؟</string>
   <string name="search_hint">ويکيپېډيا پلټل</string>
   <string name="nav_item_history">پېښليک</string>
+  <string name="error_network_error">د گورت کومه اړيکتيا نشته :(</string>
   <string name="page_error_retry">بياآزمويل</string>
   <string name="menu_clear_all_history">پېښليک پاکول</string>
   <string name="nav_item_today">نن</string>

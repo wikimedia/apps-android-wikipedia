@@ -317,7 +317,7 @@ Please test the URL to make sure it works</string>
   <string name="toc_hint">Instructions how to open the Table of Contents drawer. In left-to-right languages (most) this means to swipe left from the right edge. In right-to-left languages (Hebrew, Arabic, etc.) this means to swipe right from the left edge. \'\'\'In RTL languages\'\'\' please adjust the text to say right swipe instead of left swipe.</string>
   <string name="toc_know_it">Button text to acknowledge instructions for opening Table of Contents drawer.</string>
   <string name="error_browser_not_found">Toast message shown when we try to open an external browser but none seems to be installed.</string>
-  <string name="table_infobox">Text shown on the panel which, when tapped, displays the full infobox to the user.</string>
+  <string name="table_infobox">Text shown on the panel which, when tapped, displays the full infobox to the user, therefore exposing a set of information usually composed of factual and short statements.</string>
   <string name="table_other">{{Identical|More information}}</string>
   <string name="table_close">{{Identical|Close}}</string>
   <string name="widget_name_featured_page">Name of the Widget (as seen in the Android widget picker) that displays today\'s featured page.</string>

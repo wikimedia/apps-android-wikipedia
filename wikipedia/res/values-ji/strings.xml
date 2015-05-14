@@ -9,6 +9,8 @@
   <string name="nav_item_history">היסטאריע</string>
   <string name="error_network_error">נישט פאראן קיין נעצווערק פארבינדונג :(</string>
   <string name="search_network_error">נעצווערק פֿעלער. קלאַפט אן צו פרובירן נאכאַמאָל.</string>
+  <string name="generic_page_error">ס\'איז געווען א פראבלעם מיט באהאנדלען אײַער בקשה.</string>
+  <string name="status_code_unavailable">נישט פאראן סארווערס סטאטוס־קאד</string>
   <string name="page_error_retry">פרובירן ווידער</string>
   <string name="menu_clear_all_history">אפראמען היסטאריע</string>
   <string name="menu_clear_all_saved_pages">אפראמען געשפייכלערטע בלעטער</string>
@@ -70,7 +72,9 @@
   <string name="login_in_progress_dialog_message">לאגירט אײַך אריין…</string>
   <string name="login_error_wrong_password">פאלש פאסווארט</string>
   <string name="login_error_wrong_username">פאלשער באניצער־נאמען</string>
+  <string name="login_error_illegal">אומגילטיקער באַניצער נאָמען</string>
   <string name="login_success_toast">אריינלאגירט מיט הצלחה!</string>
+  <string name="login_error_blocked">דער באניצער איז געווארן בלאקירט</string>
   <string name="login_error_unknown">ארײַנלאגירן אדורכגעפאלן :(</string>
   <string name="login_error_no_network">קיין נעצווערק פארבינדונג</string>
   <string name="preference_title_logout">אַרויסלאָגירן</string>
@@ -93,6 +97,7 @@
   <string name="create_account_passwords_mismatch_error">פאסווערטער שטימען נישט</string>
   <string name="create_account_email_error">אומגילטיקער ע־פאסט אדרעס</string>
   <string name="create_account_username_exists_error">באניצער־נאמען שוין אין באניץ</string>
+  <string name="create_account_password_too_short_error">דאס פאסווארט איר האט אײַנגעגעבן איז תו קורץ.</string>
   <string name="create_account_generic_error">מען קען נישט באשאפֿן קאנטע</string>
   <string name="create_account_no_network">קיין נעצווערק פארבינדונג</string>
   <string name="create_account_next">נעקסט</string>
@@ -104,6 +109,9 @@
   <string name="zero_interstitial_continue">פֿארלאזן</string>
   <string name="zero_interstitial_cancel">בלײַבן דא</string>
   <string name="zero_learn_more_learn_more">לייענט ווײַטער</string>
+  <string name="zero_learn_more_dismiss">צומאַכן</string>
+  <string name="edit_preview_fetching_dialog_message">ברע ג\'ין פארויסקוק…</string>
+  <string name="send_feedback">שיקן אפ־פידבעק</string>
   <string name="nav_item_random">צופֿעליג</string>
   <string name="create_account_account_created_toast">קאָנטע באַשאַפֿן!</string>
   <string name="activity_my_contributions_title">מײַנע בײַשטײַערונגען</string>

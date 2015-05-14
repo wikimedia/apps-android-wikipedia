@@ -12,6 +12,8 @@
   <string name="nav_item_history">Cronologia</string>
   <string name="error_network_error">Non c\'è alcuna connessione di rete :(</string>
   <string name="search_network_error">Errore di rete. Toccare per provare di nuovo.</string>
+  <string name="generic_page_error">C\'è stato un problema nella gestione della tua richiesta.</string>
+  <string name="status_code_unavailable">Codice di stato del server non disponibile.</string>
   <string name="page_error_retry">Riprova</string>
   <string name="menu_clear_all_history">Cancella la cronologia</string>
   <string name="menu_clear_all_saved_pages">Cancella pagine salvate</string>
@@ -271,4 +273,5 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Immagine captcha</string>
   <string name="gallery_fair_use_license">Utilizzo onesto</string>
   <string name="gallery_uploader_unknown">Uploader sconosciuto</string>
+  <string name="edit_save_unknown_error">Non è possibile salvare la modifica: %s</string>
 </resources>
