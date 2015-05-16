@@ -425,7 +425,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         if (!parentFragment.isAdded()) {
             return;
         }
-        boolean isMainPage = parentFragment.getPage().getPageProperties().isMainPage();
+        boolean isMainPage = parentFragment.getPage().isMainPage();
         int titleContainerHeight;
         int titleBottomPadding = 0;
 

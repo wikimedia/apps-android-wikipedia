@@ -75,7 +75,7 @@ public class ShareHandler {
                     curPageFragment.getLeadImageBitmap(),
                     curPageFragment.getLeadImageFocusY(),
                     title.getDisplayText(),
-                    curPageFragment.getPage().getPageProperties().isMainPage() ? "" : title.getDescription(),
+                    curPageFragment.getPage().isMainPage() ? "" : title.getDescription(),
                     selectedText).createImage();
             if (shareDialog != null) {
                 shareDialog.dismiss();

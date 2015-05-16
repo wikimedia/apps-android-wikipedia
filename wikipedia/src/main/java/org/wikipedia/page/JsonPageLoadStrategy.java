@@ -525,7 +525,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             leadSectionPayload.put("string_expand_refs", activity.getString(R.string.expand_refs));
             leadSectionPayload.put("isBeta", app.getReleaseType() != WikipediaApp.RELEASE_PROD);
             leadSectionPayload.put("siteLanguage", model.getTitle().getSite().getLanguage());
-            leadSectionPayload.put("isMainPage", pageProperties.isMainPage());
+            leadSectionPayload.put("isMainPage", page.isMainPage());
             leadSectionPayload.put("apiLevel", Build.VERSION.SDK_INT);
             bridge.sendMessage("displayLeadSection", leadSectionPayload);
 
@@ -538,8 +538,8 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     .optBoolean("disableAnonEditing", false)
                     && !app.getUserInfoStorage().isLoggedIn();
             miscPayload.put("noedit", (isAnonEditingDisabled
-                    || model.getTitle().isFilePage()
-                    || pageProperties.isMainPage()));
+                    || page.isFilePage()
+                    || page.isMainPage()));
             miscPayload.put("protect", !pageProperties.canEdit());
             bridge.sendMessage("setPageProtected", miscPayload);
         } catch (JSONException e) {

@@ -213,7 +213,7 @@ public class ToCHandler {
             }
         });
 
-        if (!page.getPageProperties().isMainPage() && !firstPage) {
+        if (!page.isMainPage() && !firstPage) {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(parentActivity);
             final boolean knowsToC = prefs.getBoolean(PrefKeys.getKnowTocDrawer(), false);
             if (!knowsToC) {

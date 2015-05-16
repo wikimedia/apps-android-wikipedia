@@ -56,7 +56,7 @@ public class Page {
     }
 
     public boolean couldHaveReadMoreSection() {
-        return (!getTitle().isFilePage() && !getTitle().isSpecial() && getTitle().getNamespace() == null);
+        return (!isFilePage() && !getTitle().isSpecial() && getTitle().getNamespace() == null);
     }
 
     @Override
