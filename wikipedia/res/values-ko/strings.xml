@@ -6,12 +6,14 @@
   <string name="yes">예</string>
   <string name="no">아니오</string>
   <string name="acra_report_dialog_title">위키백과가 충돌했습니다 :(</string>
-  <string name="acra_report_dialog_text">우리에게 충돌 보고서 보내기</string>
+  <string name="acra_report_dialog_text">충돌 보고서 보내기</string>
   <string name="acra_report_dialog_comment">충돌이 일어났을 때 무엇을 하고 있었나요?</string>
   <string name="search_hint">위키백과 검색</string>
   <string name="nav_item_history">방문 기록</string>
   <string name="error_network_error">네트워크 연결이 없습니다 :(</string>
   <string name="search_network_error">네트워크 오류입니다. 다시 시도하려면 누르세요.</string>
+  <string name="generic_page_error">요청을 처리하는 동안 오류가 생겼습니다.</string>
+  <string name="status_code_unavailable">서버 상태 코드를 사용할 수 없습니다.</string>
   <string name="page_error_retry">다시 시도</string>
   <string name="menu_clear_all_history">방문 기록 지우기</string>
   <string name="menu_clear_all_saved_pages">저장된 문서 지우기</string>
@@ -86,6 +88,7 @@
   <string name="login_in_progress_dialog_message">로그인 중…</string>
   <string name="login_error_wrong_password">비밀번호가 잘못되었습니다</string>
   <string name="login_error_wrong_username">사용자 이름이 잘못되었습니다</string>
+  <string name="login_error_illegal">잘못된 사용자 이름</string>
   <string name="login_success_toast">로그인 성공!</string>
   <string name="login_error_blocked">이 사용자는 차단되었습니다</string>
   <string name="login_error_throttled">로그인 시도가 너무 많습니다. 잠시 기다리고 나서 다시 시도하세요.</string>
@@ -242,6 +245,7 @@
   <string name="preference_title_show_images">그림 보이기</string>
   <string name="preference_summary_show_images">문서에서 그림을 불러오는 것을 활성화하거나 비활성화합니다. 인터넷 연결이 느리거나, 데이터 요금제가 제한되어 있다면 이 설정을 선택 해제하세요.</string>
   <string name="read_more_section">더 읽어보기</string>
+  <string name="read_next_section">다음 읽기</string>
   <string name="gallery_menu_more_info">자세한 정보</string>
   <string name="menu_gallery_visit_page">파일 문서로 가기</string>
   <string name="gallery_error_draw_failed">그림을 그릴 수 없습니다.</string>
@@ -262,4 +266,7 @@
   <string name="snippet_share_preview_image_desc">이미지 미리보기</string>
   <string name="cc_logo">크리에이티브 커먼즈 라이선스</string>
   <string name="captcha_image">캡차 이미지</string>
+  <string name="gallery_fair_use_license">공정 이용</string>
+  <string name="gallery_uploader_unknown">업로더 모름</string>
+  <string name="edit_save_unknown_error">%s 오류로 인해 편집을 저장하지 못했습니다</string>
 </resources>

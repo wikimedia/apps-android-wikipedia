@@ -134,7 +134,7 @@
   <string name="zero_charged_verbiage_extended">Cargar otros artículos puede incurrir en cargos por datos.</string>
   <string name="zero_search_hint">Buscar en Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avisar al salir de Wikipedia Zero</string>
-  <string name="zero_warn_when_leaving_summary">Si tu operador de telefonía móvil renuncia a cargos de acceso de datos para la aplicación de Wikipedia a través de una asociación de Wikipedia Zero, dejando este valor comprobado te ayuda a saber cuando vas a salir de la aplicación de Wikipedia y podría ser cobrado.</string>
+  <string name="zero_warn_when_leaving_summary">Si tu operadora de telefonía móvil ha decidido no cobrar el acceso de datos desde la aplicación de Wikipedia mediante un acuerdo con Wikipedia Zero, deja esta opción activada para que te notifiquemos al salir de la aplicación de Wikipedia y evitar cobros no deseados.</string>
   <string name="zero_webpage_title">Preguntas frecuentes de Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Dejando Wikipedia Zero</string>

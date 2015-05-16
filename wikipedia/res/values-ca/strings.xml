@@ -133,7 +133,7 @@
   <string name="zero_charged_verbiage_extended">Carregar altres articles pot implicar despeses per dades.</string>
   <string name="zero_search_hint">Cercar a Viquipèdia Zero</string>
   <string name="zero_warn_when_leaving">Avisar si es deixa Viquipèdia Zero</string>
-  <string name="zero_warn_when_leaving_summary">Si el vostre operador de telefonia mòbil ha renunciat a cobrar per l\'accés de dades des de l\'aplicació de la Viquipèdia gràcies a un acord amb Viquipèdia Zero, deixant aquest paràmetre marcat se us avisarà quan sortiu de l\'aplicació de la Viquipèdia, moment en què us poden tornar a cobrar.</string>
+  <string name="zero_warn_when_leaving_summary">Si el vostre operador de telefonia mòbil ha renunciat a cobrar per l\'accés de dades des de l\'aplicació de la Viquipèdia gràcies a un acord amb Viquipèdia Zero, en deixar aquest paràmetre habilitat se us avisarà quan sortiu de l\'aplicació de la Viquipèdia, moment en què us poden tornar a cobrar.</string>
   <string name="zero_webpage_title">Preguntes i respostes sobre Viquipèdia Zero</string>
   <string name="zero_wikipedia_zero_heading">Viquipèdia Zero</string>
   <string name="zero_interstitial_title">Sortint de Wikipedia Zero</string>
