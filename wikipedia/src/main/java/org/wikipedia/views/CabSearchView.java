@@ -23,9 +23,6 @@ public class CabSearchView extends SearchView {
     }
 
     @NonNull
-    private final SearchView.SearchAutoComplete mSearchSrcTextView;
-
-    @NonNull
     private ActionMode.Callback mCallback = DEFAULT_CALLBACK;
 
     private boolean mCabEnabled;
@@ -42,9 +39,9 @@ public class CabSearchView extends SearchView {
     public CabSearchView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        mSearchSrcTextView = (SearchAutoComplete) findViewById(R.id.search_src_text);
+        SearchView.SearchAutoComplete searchSrcTextView = (SearchAutoComplete) findViewById(R.id.search_src_text);
         if (ApiUtil.hasHoneyComb()) {
-            mSearchSrcTextView.setCustomSelectionActionModeCallback(new CallbackWrapper());
+            searchSrcTextView.setCustomSelectionActionModeCallback(new CallbackWrapper());
         }
 
         initLayoutAttributes(attrs, defStyleAttr);
