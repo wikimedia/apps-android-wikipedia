@@ -7,14 +7,12 @@ import org.wikipedia.bridge.StyleBundle;
 
 public class NightModeHandler {
     private final CommunicationBridge bridge;
-    private final WikipediaApp app;
 
     /**
      * @param bridge The bridge used to communicate with the WebView
      */
     public NightModeHandler(CommunicationBridge bridge) {
         this.bridge = bridge;
-        this.app = WikipediaApp.getInstance();
     }
 
     /**
