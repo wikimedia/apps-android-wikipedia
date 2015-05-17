@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Википеди</string>
+  <string name="app_name_prod">Википеди</string>
   <string name="app_name_alpha">Википеди Альфа</string>
   <string name="yes">ХӀаъ</string>
   <string name="no">ХӀахӀа</string>

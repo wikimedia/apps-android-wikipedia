@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Viquipèdia</string>
+  <string name="app_name_prod">Viquipèdia</string>
   <string name="app_name_beta">Viquipèdia Beta</string>
   <string name="app_name_alpha">Viquipèdia Alfa</string>
   <string name="yes">Sí</string>

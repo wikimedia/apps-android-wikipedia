@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Vikipedio</string>
+  <string name="app_name_prod">Vikipedio</string>
   <string name="app_name_beta">Vikipedia Beta-versio</string>
   <string name="app_name_alpha">Vikipedio Alfo</string>
   <string name="yes">Jes</string>

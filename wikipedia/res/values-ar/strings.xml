@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">ويكيبيديا</string>
+  <string name="app_name_prod">ويكيبيديا</string>
   <string name="app_name_beta">ويكيبيديا بيتا</string>
   <string name="app_name_alpha">ويكيبيديا ألفا</string>
   <string name="yes">نعم</string>

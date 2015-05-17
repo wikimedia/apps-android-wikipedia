@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Википедија</string>
+  <string name="app_name_prod">Википедија</string>
   <string name="yes">Да</string>
   <string name="no">Не</string>
   <string name="acra_report_dialog_title">Википедија је пала :(</string>

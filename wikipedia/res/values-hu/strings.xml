@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Wikipédia</string>
+  <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia béta</string>
   <string name="app_name_alpha">Wikipédia alpha</string>
   <string name="yes">Igen</string>

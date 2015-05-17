@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">ویکیپیڈیا</string>
+  <string name="app_name_prod">ویکیپیڈیا</string>
   <string name="app_name_beta">ویکیپیڈیا آزمائشی</string>
   <string name="app_name_alpha">ویکیپیڈیا الفا</string>
   <string name="yes">جی ہاں</string>

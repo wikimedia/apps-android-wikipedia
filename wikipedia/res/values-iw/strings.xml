@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">ויקיפדיה</string>
+  <string name="app_name_prod">ויקיפדיה</string>
   <string name="app_name_beta">ויקיפדיה בטא</string>
   <string name="app_name_alpha">ויקיפדיה אלפא</string>
   <string name="yes">כן</string>

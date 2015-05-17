@@ -8,9 +8,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.FixedDrawerLayout;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+
+import org.wikipedia.util.log.L;
 
 import java.lang.reflect.Field;
 
@@ -72,7 +73,7 @@ public class WikiDrawerLayout extends FixedDrawerLayout {
                     edgeWidth.setAccessible(true);
                     edgeWidth.setInt(dragHelper, width);
                 } catch (Exception e) {
-                    Log.e("WikiDrawerLayout", "Setting the draggable zone for the drawer failed!", e);
+                    L.e("Setting the draggable zone for the drawer failed!", e);
                 }
             }
         });

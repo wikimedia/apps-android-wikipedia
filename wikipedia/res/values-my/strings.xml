@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">ဝီကီပီးဒီးယား</string>
+  <string name="app_name_prod">ဝီကီပီးဒီးယား</string>
   <string name="app_name_beta">ဝီကီပီးဒီးယား ဘီတာ</string>
   <string name="app_name_alpha">၀ီကီပီးဒီးယား အယ်လ်ဖာ</string>
   <string name="yes">လုပ်မည်</string>

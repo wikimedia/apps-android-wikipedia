@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">維基百科</string>
+  <string name="app_name_prod">維基百科</string>
   <string name="app_name_beta">維基百科公測版</string>
   <string name="app_name_alpha">維基百科封測版</string>
   <string name="yes">是</string>

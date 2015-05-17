@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Name of the application.
+  <string name="app_name_prod">Name of the application.
 {{Identical|Wikipedia}}</string>
   <string name="app_name_beta">Name of the beta version of the application.
 {{Identical|Wikipedia Beta}}</string>

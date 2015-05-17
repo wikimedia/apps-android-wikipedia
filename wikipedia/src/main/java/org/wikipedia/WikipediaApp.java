@@ -104,6 +104,7 @@ public class WikipediaApp extends Application {
     public static final int RELEASE_PROD = 0;
     public static final int RELEASE_BETA = 1;
     public static final int RELEASE_ALPHA = 2;
+    public static final int RELEASE_DEV = 3;
     private int releaseType = RELEASE_PROD;
 
     public static final int PREFERRED_THUMB_SIZE = 96;
@@ -195,6 +196,8 @@ public class WikipediaApp extends Application {
             releaseType = RELEASE_BETA;
         } else if (BuildConfig.APPLICATION_ID.contains("alpha")) {
             releaseType = RELEASE_ALPHA;
+        } else if (BuildConfig.APPLICATION_ID.contains("dev")) {
+            releaseType = RELEASE_DEV;
         }
 
         bus = new Bus();

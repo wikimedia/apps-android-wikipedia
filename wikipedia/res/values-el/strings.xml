@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Βικιπαίδεια</string>
+  <string name="app_name_prod">Βικιπαίδεια</string>
   <string name="app_name_beta">Βικιπαίδεια Beta</string>
   <string name="app_name_alpha">Βικιπαίδεια Alpha</string>
   <string name="yes">Ναι</string>

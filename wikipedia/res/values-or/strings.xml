@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">ଉଇକିପିଡ଼ିଆ</string>
+  <string name="app_name_prod">ଉଇକିପିଡ଼ିଆ</string>
   <string name="app_name_beta">ଉଇକିପିଡିଆ ବିଟା</string>
   <string name="app_name_alpha">ଉଇକିପିଡିଆ ଅଲ୍ଫା</string>
   <string name="yes">ହଁ</string>

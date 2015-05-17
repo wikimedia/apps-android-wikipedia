@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">විකිපීඩියා</string>
+  <string name="app_name_prod">විකිපීඩියා</string>
   <string name="app_name_beta">විකිපීඩියා බීටා</string>
   <string name="app_name_alpha">විකිපීඩිය ඇල්ෆා</string>
   <string name="yes">ඔව්</string>

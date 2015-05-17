@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Wîkîpediya</string>
+  <string name="app_name_prod">Wîkîpediya</string>
   <string name="app_name_beta">Wîkîpediya Beta</string>
   <string name="app_name_alpha">Wîkîpediya Alfa</string>
   <string name="yes">Erê</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Wicipedia</string>
+  <string name="app_name_prod">Wicipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wicipedia Alffa</string>
   <string name="yes">Ydw/Ie/Iawn</string>

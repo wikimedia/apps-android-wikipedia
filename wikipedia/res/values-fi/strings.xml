@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Wikipedia</string>
+  <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="yes">Kyllä</string>

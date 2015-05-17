@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">วิกิพีเดีย</string>
+  <string name="app_name_prod">วิกิพีเดีย</string>
   <string name="app_name_beta">วิกิพีเดีย (รุ่น Beta)</string>
   <string name="app_name_alpha">วิกิพีเดีย (รุ่น Alpha)</string>
   <string name="yes">ใช่</string>

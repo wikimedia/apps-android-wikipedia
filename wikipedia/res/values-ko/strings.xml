@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">위키백과</string>
+  <string name="app_name_prod">위키백과</string>
   <string name="app_name_beta">위키백과 베타</string>
   <string name="app_name_alpha">위키백과 알파</string>
   <string name="yes">예</string>

@@ -36,6 +36,7 @@ android {
     productFlavors {
         dev {
             versionName computeVersionName("dev")
+            applicationId 'org.wikipedia.dev'
         }
         prod {
             versionName computeVersionName("r")

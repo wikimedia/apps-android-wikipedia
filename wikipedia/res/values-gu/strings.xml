@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">વિકિપીડિયા</string>
+  <string name="app_name_prod">વિકિપીડિયા</string>
   <string name="app_name_beta">વિકિપીડિયા બીટા</string>
   <string name="app_name_alpha">વિકિપીડિયા આલ્ફા</string>
   <string name="yes">હા</string>

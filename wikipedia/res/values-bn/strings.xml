@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">উইকিপিডিয়া</string>
+  <string name="app_name_prod">উইকিপিডিয়া</string>
   <string name="app_name_beta">উইকিপিডিয়া বেটা</string>
   <string name="app_name_alpha">উইকিপিডিয়া আলফা</string>
   <string name="yes">হ্যাঁ</string>
