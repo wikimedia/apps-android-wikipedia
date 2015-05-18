@@ -1,6 +1,9 @@
 #!/usr/bin/env python
+# coding=utf-8
+
 from urllib2 import urlopen
 import unicodecsv as csv
+from itertools import islice
 import json
 import lxml.builder as lb
 from lxml import etree
@@ -14,24 +17,28 @@ lang_keys = []
 lang_local_names = []
 lang_eng_names = []
 
-is_first = True
-for row in data:
-    if is_first:
-        is_first = False
-        continue  # skip headers!
+
+def add_lang(key, local_name, eng_name):
+    lang_keys.append(key)
+    lang_local_names.append(local_name)
+    lang_eng_names.append(eng_name)
+
+for row in islice(data, 1, None):
     if row[2] == 'got':
         # 'got' is Gothic Runes, which lie outside the Basic Multilingual Plane
         # < https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane >
         # Android segfaults on these. So let's ignore those.
         # What's good for Android is also good for iOS :P
-        continue
-    lang_keys.append(row[2].replace("'", "\\'"))
-    lang_local_names.append(row[10].replace("'", "\\'"))
-    lang_eng_names.append(row[1].replace("'", "\\'"))
+        pass
+    elif row[2] == 'zh':
+        add_lang(key='zh-hans', local_name=u'简体', eng_name='Simplified Chinese')
+        add_lang(key='zh-hant', local_name=u'繁體', eng_name='Traditional Chinese')
+    else:
+        add_lang(key=row[2].replace("'", "\\'"),
+                 local_name=row[10].replace("'", "\\'"),
+                 eng_name=row[1].replace("'", "\\'"))
 
-lang_keys.append('test')
-lang_local_names.append('Test')
-lang_eng_names.append('Test')
+add_lang(key='test', local_name='Test', eng_name='Test')
 
 # Generate the XML, for Android
 NAMESPACE = 'http://schemas.android.com/tools'

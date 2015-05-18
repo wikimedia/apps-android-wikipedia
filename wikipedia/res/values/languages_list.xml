@@ -15,7 +15,8 @@
     <item>pl</item>
     <item>ja</item>
     <item>pt</item>
-    <item>zh</item>
+    <item>zh-hans</item>
+    <item>zh-hant</item>
     <item>uk</item>
     <item>ca</item>
     <item>fa</item>
@@ -304,7 +305,8 @@
     <item>Polski</item>
     <item>日本語</item>
     <item>Português</item>
-    <item>中文</item>
+    <item>简体</item>
+    <item>繁體</item>
     <item>Українська</item>
     <item>Català</item>
     <item>فارسی</item>
@@ -593,7 +595,8 @@
     <item>Polish</item>
     <item>Japanese</item>
     <item>Portuguese</item>
-    <item>Chinese</item>
+    <item>Simplified Chinese</item>
+    <item>Traditional Chinese</item>
     <item>Ukrainian</item>
     <item>Catalan</item>
     <item>Persian</item>

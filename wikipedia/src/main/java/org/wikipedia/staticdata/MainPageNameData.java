@@ -28,6 +28,8 @@ public final class MainPageNameData {
         DATA_MAP.put("ja", "メインページ");
         DATA_MAP.put("pt", "Wikipedia:Página principal");
         DATA_MAP.put("zh", "Wikipedia:首页");
+        DATA_MAP.put("zh-hans", "Wikipedia:首页");
+        DATA_MAP.put("zh-hant", "Wikipedia:首頁");
         DATA_MAP.put("uk", "Головна сторінка");
         DATA_MAP.put("ca", "Portada");
         DATA_MAP.put("fa", "صفحهٔ اصلی");

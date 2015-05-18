@@ -286,7 +286,7 @@ public final class Utils {
     }
 
     /**
-     * Takes a language code (as returned by Android) and returns a wiki code, as used by wikipedia.
+     * Takes a ISO language code (as returned by Android) and returns a wiki code, as used by wikipedia.
      *
      * @param langCode Language code (as returned by Android)
      * @return Wiki code, as used by wikipedia.

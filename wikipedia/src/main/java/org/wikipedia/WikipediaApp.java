@@ -8,6 +8,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.Window;
@@ -57,8 +58,14 @@ import java.util.UUID;
         resDialogCommentPrompt = R.string.acra_report_dialog_comment,
         mailTo = "mobile-android-wikipedia-crashes@wikimedia.org")
 public class WikipediaApp extends Application {
-    private static final String FALLBACK_LANGUAGE = "en"; // Must exist in preference_language_keys.
     private static final String HTTPS_PROTOCOL = "https";
+    private static final String FALLBACK_LANGUAGE = "en"; // Must exist in preference_language_keys.
+    private static final String HONG_KONG_COUNTRY_CODE = "HK";
+    private static final String MACAU_COUNTRY_CODE = "MO";
+    private static final String SIMPLIFIED_CHINESE_LANGUAGE = "zh-hans";
+    private static final String TRADITIONAL_CHINESE_LANGUAGE = "zh-hant";
+    private static final List<String> TRADITIONAL_CHINESE_COUNTRY_CODES = Arrays.asList(
+            Locale.TAIWAN.getCountry(), HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE);
 
     private float screenDensity;
     public float getScreenDensity() {
@@ -237,50 +244,12 @@ public class WikipediaApp extends Application {
      * @return the value that should go in the Accept-Language header.
      */
     public String getAcceptLanguage() {
-        // https://lists.wikimedia.org/pipermail/mobile-l/2014-July/007514.html
-        String primaryAppLanguage = getLanguage();
-        String acceptLanguage = primaryAppLanguage;
-        Locale defaultLocale = Locale.getDefault();
-        String wikiLanguage = Utils.langCodeToWikiLang(defaultLocale.getLanguage());
+        String acceptLanguage = getLanguage();
 
-        // For now, let's only modify Accept-Language for Chinese languages.
-        // Chinese language users have been reporting that the wrong language
-        // is being displayed. In case the app setting is not Chinese (e.g.,
-        // it's English), yet the user navigates to a page in Chinese, or a
-        // page containing Chinese dialect templates, we want to show the
-        // correct dialect there, too.
-        if (primaryAppLanguage.equals("zh") || wikiLanguage.equals("zh")) {
-            // The next two lines are inside the if() guard just for speed. In the future when we remove the if
-            // guard, they will always get called.
-            String country = defaultLocale.getCountry();
-            String langWithCountryCode = TextUtils.isEmpty(country)
-                    ? wikiLanguage
-                    : wikiLanguage + "-" + country.toLowerCase(Locale.ROOT);
-            if (primaryAppLanguage.equals(langWithCountryCode)) {
-                // The app setting agrees with the system locale, so:
-                // -If the system locale was overly simplistic (just the language, no country), use the app setting
-                // -If the system locale (and app setting) was specific, use the specific value followed by the general
-                // This should help to ensure that the correct dialect is displayed on pages that have templating.
-                acceptLanguage = langWithCountryCode.equals(wikiLanguage)
-                        ? primaryAppLanguage
-                        : primaryAppLanguage + "," + wikiLanguage + ";q=0.9";
-            } else if (primaryAppLanguage.equals(wikiLanguage)) {
-                // The app setting does not agree with the system locale, but the base language (e.g., zh) matches, so
-                // use the specific value followed by the general. This way the user will get the more specific
-                // dialect displayed on pages that have templating.
-                acceptLanguage = langWithCountryCode + "," + primaryAppLanguage + ";q=0.9";
-            } else {
-                // In the case that the app setting doesn't map up at all to the system locale, express to the server
-                // that the first preference is the app setting's language, followed by the specific system locale
-                // followed by the general system locale. In principle, this should result in correct templating in
-                // the case that the article is in the non-system locale, yet contains templated glyphs in the
-                // system locale.
-                acceptLanguage = primaryAppLanguage + "," + langWithCountryCode + ";q=0.9";
-                if (!langWithCountryCode.equals(wikiLanguage)) {
-                    acceptLanguage = acceptLanguage + "," + wikiLanguage + ";q=0.8";
-                }
-            }
+        if (getSystemLanguage() != null && !getLanguage().equals(getSystemLanguage())) {
+            acceptLanguage += "," + getSystemLanguage() + ";q=0.9";
         }
+
         return acceptLanguage;
     }
 
@@ -296,15 +265,7 @@ public class WikipediaApp extends Application {
         }
         String acceptLanguage = getAcceptLanguage();
 
-        // TODO: once we're not constraining this to just Chinese, add the header unconditionally.
-        // Note: the Accept-Language header is unconditionally added based on device locale with a
-        // a single value (e.g., en-us or zh-cn) *by the platform* on the other app platform. Contrast
-        // that with *this* platform, which does not do this for some reason (possibly on side effect free
-        // method invocation theory. But given that up until now we haven't been adding the Accept-Language
-        // header manually on this platform, we don't want to just arbitrarily start doing so for *all* requests.
-        if (!acceptLanguage.equals(getLanguage())) {
-            customHeaders.put("Accept-Language", acceptLanguage);
-        }
+        customHeaders.put("Accept-Language", acceptLanguage);
 
         // Because the mccMnc enrichment is a one-time thing, we don't need to have a complex hash key
         // for the apis HashMap<String, Api> like we do below. It naturally gets the correct
@@ -361,7 +322,7 @@ public class WikipediaApp extends Application {
 
     /** In general, this value should not be cached as it may change outside the app. */
     public String getLanguage() {
-        return isSystemLanguageEnabled() ? getSystemOrFallbackLanguage() : language;
+        return isSystemLanguageEnabled() ? getSystemLanguage() : language;
     }
 
     public String getLanguageKey() {
@@ -685,15 +646,22 @@ public class WikipediaApp extends Application {
         primarySite = null;
     }
 
-    private String getSystemOrFallbackLanguage() {
-        String lang = Utils.langCodeToWikiLang(getSystemLanguage());
-        if (!isSupportedLanguage(lang)) {
-            lang = FALLBACK_LANGUAGE; // See comments in #findSupportedLanguageIndex().
-        }
-        return lang;
+    @NonNull
+    public String getSystemLanguage() {
+        String lang = Utils.langCodeToWikiLang(Locale.getDefault().getLanguage());
+        return isSupportedLanguage(lang) ? lang : convertSystemLanguage(lang);
     }
 
-    private String getSystemLanguage() {
-        return Locale.getDefault().getLanguage();
+    @NonNull
+    private String convertSystemLanguage(String language) {
+        if (Locale.CHINA.getLanguage().equals(language)) {
+            return isTraditionalChinesePredominantInCountry(Locale.getDefault().getCountry())
+                    ? TRADITIONAL_CHINESE_LANGUAGE : SIMPLIFIED_CHINESE_LANGUAGE;
+        }
+        return FALLBACK_LANGUAGE;
+    }
+
+    private boolean isTraditionalChinesePredominantInCountry(String country) {
+        return TRADITIONAL_CHINESE_COUNTRY_CODES.contains(country);
     }
 }
