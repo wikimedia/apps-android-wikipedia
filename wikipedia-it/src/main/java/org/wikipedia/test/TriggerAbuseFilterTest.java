@@ -2,7 +2,7 @@ package org.wikipedia.test;
 
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.editing.AbuseFilterEditResult;

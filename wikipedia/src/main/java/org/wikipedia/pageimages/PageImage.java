@@ -2,7 +2,7 @@ package org.wikipedia.pageimages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 
 public class PageImage implements Parcelable {
     public static final PageImagePersistenceHelper PERSISTENCE_HELPER = new PageImagePersistenceHelper();

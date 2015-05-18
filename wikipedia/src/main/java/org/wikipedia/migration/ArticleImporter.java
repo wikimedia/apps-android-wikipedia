@@ -2,7 +2,7 @@ package org.wikipedia.migration;
 
 import android.content.Context;
 import org.json.JSONObject;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SavedPagesFunnel;

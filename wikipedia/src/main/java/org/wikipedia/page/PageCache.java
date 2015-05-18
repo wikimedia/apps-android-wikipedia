@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import org.wikipedia.PageTitle;
 import org.wikipedia.Utils;
 import org.wikipedia.concurrency.SaneAsyncTask;
 

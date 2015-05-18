@@ -21,6 +21,7 @@ import org.mediawiki.api.json.ApiException;
 import org.wikipedia.*;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.StyleBundle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.editing.summaries.EditSummaryTag;

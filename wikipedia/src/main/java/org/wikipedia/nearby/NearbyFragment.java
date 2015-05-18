@@ -1,6 +1,6 @@
 package org.wikipedia.nearby;
 
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;

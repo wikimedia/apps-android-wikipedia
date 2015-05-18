@@ -1,7 +1,7 @@
 package org.wikipedia.savedpages;
 
 import org.json.JSONObject;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.concurrency.SaneAsyncTask;
 
 /** To load the file with the image source URL mappings in the background. */

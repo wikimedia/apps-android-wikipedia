@@ -2,7 +2,7 @@ package org.wikipedia.pageimages;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.data.PersistenceHelper;
 

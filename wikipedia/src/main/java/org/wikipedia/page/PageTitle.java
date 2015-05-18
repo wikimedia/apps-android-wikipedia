@@ -1,10 +1,13 @@
-package org.wikipedia;
+package org.wikipedia.page;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.Site;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.staticdata.FileAliasData;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.staticdata.SpecialAliasData;

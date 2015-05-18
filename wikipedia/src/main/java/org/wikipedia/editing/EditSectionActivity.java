@@ -29,7 +29,7 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.ThemedActionBarActivity;
 import org.wikipedia.Utils;

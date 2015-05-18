@@ -5,6 +5,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
+import org.wikipedia.page.PageTitle;
+
 /**
  * Represents a particular wiki.
  */

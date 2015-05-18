@@ -3,7 +3,6 @@ package org.wikipedia.page;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.PageTitle;
 import org.wikipedia.page.gallery.GalleryCollection;
 
 import java.util.ArrayList;

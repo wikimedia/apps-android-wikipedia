@@ -1,6 +1,6 @@
 package org.wikipedia.search;
 
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;

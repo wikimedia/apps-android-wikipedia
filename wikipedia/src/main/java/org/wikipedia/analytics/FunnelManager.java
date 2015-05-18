@@ -1,6 +1,6 @@
 package org.wikipedia.analytics;
 
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 

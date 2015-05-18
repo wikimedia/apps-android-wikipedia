@@ -4,7 +4,7 @@ import android.os.SystemClock;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.linkpreview.LinkPreviewVersion;
 

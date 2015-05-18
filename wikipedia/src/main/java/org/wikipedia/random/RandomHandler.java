@@ -5,7 +5,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-import org.wikipedia.PageTitle;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 
