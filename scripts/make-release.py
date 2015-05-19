@@ -213,7 +213,7 @@ def main():
 
     if args.push:
         if custom_channel is 'ignore':
-            label = flavors[0]
+            label = targets[0]
         else:
             label = custom_channel
         apk_file = find_output_apk_for(label, get_version_code_from_build_file())
