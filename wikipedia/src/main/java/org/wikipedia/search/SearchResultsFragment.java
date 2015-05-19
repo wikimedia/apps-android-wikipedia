@@ -31,6 +31,10 @@ public class SearchResultsFragment extends Fragment {
     private static final int MESSAGE_SEARCH = 1;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
     private static final String ARG_RESULTS_CACHE = "searchResultsCache";
+    /**
+     * Constant to ease in the conversion of timestamps from nanoseconds to milliseconds.
+     */
+    private static final int NANO_TO_MILLI = 1000000;
 
     private SearchArticlesFragment searchFragment;
     private View searchResultsDisplay;
@@ -195,7 +199,8 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void doTitlePrefixSearch(final String searchTerm) {
-        final long startMillis = System.currentTimeMillis();
+        // Use nanoTime to measure the time the search was started.
+        final long startTime = System.nanoTime();
         TitleSearchTask searchTask = new TitleSearchTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm) {
             @Override
             public void onBeforeExecute() {
@@ -211,8 +216,9 @@ public class SearchResultsFragment extends Fragment {
                 // To ease data analysis and better make the funnel track with user behaviour,
                 // only transmit search results events if there are a nonzero number of results
                 if (!pageTitles.isEmpty()) {
-                    searchFragment.getFunnel().searchResults(false, pageTitles.size(),
-                            (int) (System.currentTimeMillis() - startMillis));
+                    // Calculate total time taken to display results, in milliseconds
+                    final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
+                    searchFragment.getFunnel().searchResults(false, pageTitles.size(), timeToDisplay);
                 }
 
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
@@ -252,8 +258,9 @@ public class SearchResultsFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
-                searchFragment.getFunnel().searchError(false,
-                        (int)(System.currentTimeMillis() - startMillis));
+                // Calculate total time taken to display results, in milliseconds
+                final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
+                searchFragment.getFunnel().searchError(false, timeToDisplay);
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
                 searchNetworkError.setVisibility(View.VISIBLE);
                 searchResultsContainer.setVisibility(View.GONE);
@@ -273,7 +280,8 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void doFullTextSearch(final String searchTerm, final SearchResults.ContinueOffset continueOffset) {
-        final long startMillis = System.currentTimeMillis();
+        // Use nanoTime to measure the time the search was started.
+        final long startTime = System.nanoTime();
         new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, BATCH_SIZE, continueOffset) {
             @Override
             public void onBeforeExecute() {
@@ -289,8 +297,9 @@ public class SearchResultsFragment extends Fragment {
                 // only transmit search results events if there are a nonzero number of results
                 final List<PageTitle> pageTitles = results.getPageTitles();
                 if (!pageTitles.isEmpty()) {
-                    searchFragment.getFunnel().searchResults(true, pageTitles.size(),
-                            (int) (System.currentTimeMillis() - startMillis));
+                    // Calculate total time taken to display results, in milliseconds
+                    final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
+                    searchFragment.getFunnel().searchResults(true, pageTitles.size(), timeToDisplay);
                 }
 
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
@@ -306,8 +315,9 @@ public class SearchResultsFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
-                searchFragment.getFunnel().searchError(true,
-                        (int)(System.currentTimeMillis() - startMillis));
+                // Calculate total time taken to display results, in milliseconds
+                final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
+                searchFragment.getFunnel().searchError(true, timeToDisplay);
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
 
                 // since this is a follow-up search just toast
