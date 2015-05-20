@@ -4,11 +4,12 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              style="@style/RtlAwareTextView"
+              android:textAppearance="?android:attr/textAppearanceLarge"
               android:fontFamily="serif"
               android:padding="16dp"
               android:textStyle="bold"
               tools:text="Sample title"
-              style="?android:textAppearanceLarge"
               android:background="@drawable/selectable_item_background"
         />
 

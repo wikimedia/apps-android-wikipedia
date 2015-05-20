@@ -395,9 +395,9 @@ public class SearchResultsFragment extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = inflater.inflate(R.layout.item_search_result, parent, false);
+                convertView = inflater.inflate(R.layout.item_page_list_entry, parent, false);
             }
-            TextView pageTitleText = (TextView) convertView.findViewById(R.id.result_title);
+            TextView pageTitleText = (TextView) convertView.findViewById(R.id.page_list_item_title);
             PageTitle title = (PageTitle) getItem(position);
 
             // highlight search term within the text
@@ -415,10 +415,10 @@ public class SearchResultsFragment extends Fragment {
                 pageTitleText.setText(displayText);
             }
 
-            TextView descriptionText = (TextView) convertView.findViewById(R.id.result_description);
+            TextView descriptionText = (TextView) convertView.findViewById(R.id.page_list_item_description);
             descriptionText.setText(title.getDescription());
 
-            ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
+            ImageView imageView = (ImageView) convertView.findViewById(R.id.page_list_item_image);
 
             String thumbnail = title.getThumbUrl();
             if (app.showImages() && thumbnail != null) {

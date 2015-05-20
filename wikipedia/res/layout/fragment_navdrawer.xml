@@ -218,12 +218,13 @@
                 android:id="@+id/nav_item_zero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/RtlAwareTextView"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="11dp"
                 android:text=""
                 tools:text="W0 sample carrier message"
                 android:textColor="@color/nav_text"
-                style="?android:textAppearanceSmall"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 />
 
         <!-- Separator view for providing gap between top items and bottom ones -->

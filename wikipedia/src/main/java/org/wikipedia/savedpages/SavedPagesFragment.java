@@ -260,13 +260,13 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-            return getActivity().getLayoutInflater().inflate(R.layout.item_saved_page_entry, viewGroup, false);
+            return getActivity().getLayoutInflater().inflate(R.layout.item_page_list_entry, viewGroup, false);
         }
 
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
-            TextView title = (TextView) view.findViewById(R.id.saved_page_title);
-            ImageView thumbnail = (ImageView) view.findViewById(R.id.saved_page_thumbnail);
+            TextView title = (TextView) view.findViewById(R.id.page_list_item_title);
+            ImageView thumbnail = (ImageView) view.findViewById(R.id.page_list_item_image);
             SavedPage entry = SavedPage.PERSISTENCE_HELPER.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
@@ -281,23 +281,6 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                 Picasso.with(getActivity())
                        .load(R.drawable.ic_pageimage_placeholder)
                        .into(thumbnail);
-            }
-
-            // If this page title's first letter is different from the previous title's
-            // first letter, then display the heading.
-            String curLetter, prevLetter = "";
-            if (cursor.getPosition() != 0) {
-                Cursor prevCursor = (Cursor) getItem(cursor.getPosition() - 1);
-                SavedPage prevEntry = SavedPage.PERSISTENCE_HELPER.fromCursor(prevCursor);
-                prevLetter = prevEntry.getTitle().getDisplayText().substring(0, 1);
-            }
-            curLetter = entry.getTitle().getDisplayText().substring(0, 1);
-            TextView sectionHeader = (TextView) view.findViewById(R.id.saved_page_section_header_text);
-            if (!curLetter.equals(prevLetter)) {
-                sectionHeader.setText(curLetter);
-                sectionHeader.setVisibility(View.VISIBLE);
-            } else {
-                sectionHeader.setVisibility(View.GONE);
             }
         }
     }

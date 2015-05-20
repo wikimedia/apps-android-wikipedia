@@ -65,9 +65,11 @@
                 android:textColor="#888"
                 />
         <TextView
-                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/RtlAwareTextView"
                 android:text="@string/contributors_list"
-                style="?android:textAppearanceSmall"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textIsSelectable="true"
                 android:lineSpacingMultiplier="1.2"
                 android:textColor="#555"
@@ -86,9 +88,11 @@
                 />
         <TextView
                 android:id="@+id/about_translators"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/RtlAwareTextView"
                 android:text="@string/about_translators_translatewiki"
-                style="?android:textAppearanceSmall"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textIsSelectable="true"
                 android:lineSpacingMultiplier="1.2"
                 android:textColor="#555"
@@ -107,9 +111,11 @@
                 android:layout_marginBottom="8dp"
                 />
         <TextView
-                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/RtlAwareTextView"
                 android:text="@string/libraries_list"
-                style="?android:textAppearanceSmall"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textIsSelectable="true"
                 android:lineSpacingMultiplier="1.2"
                 android:textColor="#555"

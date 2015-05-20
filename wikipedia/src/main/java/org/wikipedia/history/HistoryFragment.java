@@ -247,46 +247,19 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-            return getActivity().getLayoutInflater().inflate(R.layout.item_history_entry, viewGroup, false);
+            return getActivity().getLayoutInflater().inflate(R.layout.item_page_list_entry, viewGroup, false);
         }
 
         private String getDateString(Date date) {
             return DateFormat.getDateInstance().format(date);
         }
 
-        private int getImageForSource(int source) {
-            switch (source) {
-                case HistoryEntry.SOURCE_INTERNAL_LINK:
-                    return R.drawable.link;
-                case HistoryEntry.SOURCE_EXTERNAL_LINK:
-                    return R.drawable.external;
-                case HistoryEntry.SOURCE_HISTORY:
-                    return R.drawable.external;
-                case HistoryEntry.SOURCE_SEARCH:
-                    return R.drawable.hist_search;
-                case HistoryEntry.SOURCE_SAVED_PAGE:
-                    return R.drawable.external;
-                case HistoryEntry.SOURCE_LANGUAGE_LINK:
-                    return R.drawable.link;
-                case HistoryEntry.SOURCE_RANDOM:
-                    return R.drawable.random;
-                case HistoryEntry.SOURCE_MAIN_PAGE:
-                    return R.drawable.link;
-                case HistoryEntry.SOURCE_NEARBY:
-                    return R.drawable.ic_place;
-                default:
-                    throw new RuntimeException("Unknown source id encountered");
-            }
-        }
-
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
-            TextView title = (TextView) view.findViewById(R.id.history_title);
-            ImageView source = (ImageView) view.findViewById(R.id.history_source);
-            ImageView thumbnail = (ImageView) view.findViewById(R.id.history_thumbnail);
+            TextView title = (TextView) view.findViewById(R.id.page_list_item_title);
+            ImageView thumbnail = (ImageView) view.findViewById(R.id.page_list_item_image);
             HistoryEntry entry = HistoryEntry.PERSISTENCE_HELPER.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
-            source.setImageResource(getImageForSource(entry.getSource()));
             view.setTag(entry);
 
             if (app.showImages()) {
@@ -311,7 +284,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                 prevTime = getDateString(prevEntry.getTimestamp());
             }
             curTime = getDateString(entry.getTimestamp());
-            TextView sectionHeader = (TextView) view.findViewById(R.id.history_section_header_text);
+            TextView sectionHeader = (TextView) view.findViewById(R.id.page_list_header_text);
             if (!curTime.equals(prevTime)) {
                 sectionHeader.setText(curTime);
                 sectionHeader.setVisibility(View.VISIBLE);

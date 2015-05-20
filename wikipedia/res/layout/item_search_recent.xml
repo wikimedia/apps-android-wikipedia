@@ -6,10 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        style="?android:textAppearanceMedium"
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/RtlAwareTextView"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:paddingLeft="16dp"

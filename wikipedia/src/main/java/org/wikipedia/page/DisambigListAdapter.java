@@ -116,11 +116,11 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         LayoutInflater inflater = activity.getLayoutInflater();
         ViewHolder holder;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.item_disambig, null);
+            convertView = inflater.inflate(R.layout.item_page_list_entry, null);
             holder = new ViewHolder();
-            holder.icon = (ImageView) convertView.findViewById(R.id.disambig_icon);
-            holder.title = (TextView) convertView.findViewById(R.id.disambig_title);
-            holder.description = (TextView) convertView.findViewById(R.id.disambig_description);
+            holder.icon = (ImageView) convertView.findViewById(R.id.page_list_item_image);
+            holder.title = (TextView) convertView.findViewById(R.id.page_list_item_title);
+            holder.description = (TextView) convertView.findViewById(R.id.page_list_item_description);
             convertView.setTag(holder);
         } else {
             // view already defined, retrieve view holder

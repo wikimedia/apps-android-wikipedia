@@ -375,16 +375,16 @@ public class BottomContentHandler implements BottomContentInterface,
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = inflater.inflate(R.layout.item_search_result, parent, false);
+                convertView = inflater.inflate(R.layout.item_page_list_entry, parent, false);
             }
-            TextView pageTitleText = (TextView) convertView.findViewById(R.id.result_title);
+            TextView pageTitleText = (TextView) convertView.findViewById(R.id.page_list_item_title);
             PageTitle result = (PageTitle) getItem(position);
             pageTitleText.setText(result.getDisplayText());
 
-            TextView descriptionText = (TextView) convertView.findViewById(R.id.result_description);
+            TextView descriptionText = (TextView) convertView.findViewById(R.id.page_list_item_description);
             descriptionText.setText(result.getDescription());
 
-            ImageView imageView = (ImageView) convertView.findViewById(R.id.result_image);
+            ImageView imageView = (ImageView) convertView.findViewById(R.id.page_list_item_image);
             String thumbnail = result.getThumbUrl();
             if (!app.showImages() || thumbnail == null) {
                 Picasso.with(parent.getContext())
