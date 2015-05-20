@@ -234,11 +234,9 @@ Kildekoden er fuldt ud open source. Hvis du har erfaring med Java og Android SDK
   <string name="preference_title_show_images">Vis billeder</string>
   <string name="preference_summary_show_images">Aktivere eller deaktivere indlæsning af billeder på sider. Fravælg denne indstilling, hvis din internetforbindelse er langsom, eller hvis dine dataplan er begrænset.</string>
   <string name="read_more_section">Læs mere</string>
-  <string name="gallery_menu_more_info">Flere oplysninger</string>
   <string name="menu_gallery_visit_page">Gå til filside</string>
   <string name="gallery_error_draw_failed">Kunne ikke tegne billede.</string>
   <string name="license_title">Licenstekst for biblioteket %s</string>
-  <string name="gallery_image_info">Billedeoplysninger</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
   <string name="gallery_menu_save">Gem til enhed</string>

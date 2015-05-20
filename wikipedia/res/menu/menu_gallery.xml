@@ -7,9 +7,6 @@
         android:title="@string/gallery_menu_share"
         android:icon="@drawable/ic_share_dark"
         app:showAsAction="ifRoom"/>
-    <item android:id="@+id/menu_gallery_more_info"
-          android:title="@string/gallery_menu_more_info"
-          app:showAsAction="never"/>
     <item android:id="@+id/menu_gallery_save"
         android:title="@string/gallery_menu_save"
         app:showAsAction="never"/>

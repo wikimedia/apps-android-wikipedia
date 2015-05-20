@@ -252,11 +252,9 @@
   <string name="preference_summary_show_images">הפעלה או כיבוי של טעינת תמונות בדפים. אפשר לכבות את ההגדרה הזאת אם חיבור האינטרנט שלך אטי או אם ספק התקשורת מגביל את צריכת הנתונים בקו שלך.</string>
   <string name="read_more_section">מידע נוסף</string>
   <string name="read_next_section">לקרוא את הבא</string>
-  <string name="gallery_menu_more_info">מידע נוסף</string>
   <string name="menu_gallery_visit_page">ללכת לדף הקובץ</string>
   <string name="gallery_error_draw_failed">לא היה אפשר לצייר את התמונה.</string>
   <string name="license_title">טקסט הרישיון עבור הספרייה %s</string>
-  <string name="gallery_image_info">מידע על התמונה</string>
   <string name="gallery_menu_share">שיתוף</string>
   <string name="gallery_share_error">לא היה ניתן לשתף את התמונה: %s</string>
   <string name="gallery_menu_save">שמירה למכשיר</string>

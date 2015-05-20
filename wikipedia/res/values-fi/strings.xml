@@ -250,11 +250,9 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_summary_show_images">Ota käyttöön tai poista käytöstä kuvien lataaminen sivuilla. Ota tämä asetus pois käytöstä, jos Internet-yhteytesi on hidas tai jos datayhteytesi on rajoitettu.</string>
   <string name="read_more_section">Lue lisää</string>
   <string name="read_next_section">Lue seuraava</string>
-  <string name="gallery_menu_more_info">Lisätietoja</string>
   <string name="menu_gallery_visit_page">Mene tiedostosivulle</string>
   <string name="gallery_error_draw_failed">Kuvaa ei voitu piirtää.</string>
   <string name="license_title">Kirjaston %s lisenssiteksti</string>
-  <string name="gallery_image_info">Kuvan tiedot</string>
   <string name="gallery_menu_share">Jaa</string>
   <string name="gallery_share_error">Kuvaa ei voitu jakaa: %s</string>
   <string name="gallery_menu_save">Tallenna laitteeseen</string>

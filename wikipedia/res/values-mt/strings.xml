@@ -159,10 +159,8 @@
   <string name="preference_title_show_images">Uri l-istampi</string>
   <string name="read_more_section">Aqra aktar</string>
   <string name="read_next_section">Kompli aqra</string>
-  <string name="gallery_menu_more_info">Aktar informazzjoni</string>
   <string name="menu_gallery_visit_page">Mur fil-paġna tal-fajl</string>
   <string name="gallery_error_draw_failed">L-istampa ma setgħetx tiġi ġġenerata.</string>
-  <string name="gallery_image_info">Informazzjoni fuq l-istampa</string>
   <string name="gallery_menu_share">Aqsam</string>
   <string name="gallery_share_error">L-istampa ma setgħetx tiġi mxerrda: %s</string>
   <string name="expand_refs">Agħfas biex tkabbar</string>

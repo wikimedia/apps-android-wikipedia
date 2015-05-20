@@ -156,8 +156,6 @@
   <string name="preference_title_show_images">Onyesha picha</string>
   <string name="read_more_section">Soma zaidi</string>
   <string name="read_next_section">soma inayofuata</string>
-  <string name="gallery_menu_more_info">Maelezo zaidi</string>
-  <string name="gallery_image_info">Maelezo ya picha</string>
   <string name="gallery_menu_share">Gawa</string>
   <string name="gallery_share_error">Haingeshiriki picha: %s</string>
   <string name="gallery_menu_save">Hifadhi kwa kifaa</string>

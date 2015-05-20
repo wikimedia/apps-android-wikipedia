@@ -251,11 +251,9 @@ https://github.com/wikimedia/apps-android-wikipedia
 インターネット接続が遅い時や、データ契約に限度があるときには、このチェックを外してください。</string>
   <string name="read_more_section">続きを読む</string>
   <string name="read_next_section">次を読む</string>
-  <string name="gallery_menu_more_info">詳細情報</string>
   <string name="menu_gallery_visit_page">ファイルのページに移動</string>
   <string name="gallery_error_draw_failed">画像が描画できませんでした</string>
   <string name="license_title">%s ライブラリのライセンス文</string>
-  <string name="gallery_image_info">画像情報</string>
   <string name="gallery_menu_share">シェア</string>
   <string name="gallery_share_error">画像がシェアできませんでした: %s</string>
   <string name="gallery_menu_save">デバイスに保存</string>

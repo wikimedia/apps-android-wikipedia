@@ -246,11 +246,9 @@ Uzkondiĉoj: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_summary_show_images">Ŝaltigi aŭ malŝaltigi la ŝarĝadon de bildoj en paĝoj. Malŝaltu ĉi tiun agordon se via reta konekto estas malrapida, aŭ via poŝtelefonaj datumoj estas limigitaj.</string>
   <string name="read_more_section">Legi plu</string>
   <string name="read_next_section">Legu sekve</string>
-  <string name="gallery_menu_more_info">Pliaj informoj</string>
   <string name="menu_gallery_visit_page">Iru al la dosiera paĝo</string>
   <string name="gallery_error_draw_failed">Ne eblis montri la bildon.</string>
   <string name="license_title">Teksto de la biblioteka permesilo %s</string>
-  <string name="gallery_image_info">Bilda informo</string>
   <string name="gallery_menu_share">Kundividi</string>
   <string name="gallery_share_error">Ne eblis kundividi la bildon: %s</string>
   <string name="gallery_menu_save">Konservi en la aparato</string>

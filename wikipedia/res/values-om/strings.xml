@@ -111,8 +111,6 @@
   <string name="preference_title_show_images">Suura agarsiisi</string>
   <string name="read_more_section">Dabalata dubbisi</string>
   <string name="read_next_section">Kan itti aanu dubbisi</string>
-  <string name="gallery_menu_more_info">Odeeffannoo dabalataa</string>
-  <string name="gallery_image_info">Odeeffannoo suuraa</string>
   <string name="gallery_menu_share">Hiri</string>
   <string name="err_cannot_save_file">Faayilii olkaawuu hindandeenye</string>
   <string name="snippet_share_preview_image_desc">Suura durargi.</string>

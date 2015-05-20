@@ -243,11 +243,9 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="preference_summary_show_images">Zapni alebo vypni načítavanie obrázkov na stránkach. Odškrtni toto nastavenie, ak je internetové pripojenie pomalé alebo máš obmedzený dátový transfer.</string>
   <string name="read_more_section">Prečítajte si viac</string>
   <string name="read_next_section">Čítať ďalej</string>
-  <string name="gallery_menu_more_info">Viac informácií</string>
   <string name="menu_gallery_visit_page">Prejdite na stránku súboru</string>
   <string name="gallery_error_draw_failed">Obrázok nebolo možné nakresliť.</string>
   <string name="license_title">Text licencie pre %s knižnicu</string>
-  <string name="gallery_image_info">Informácie o obrázku</string>
   <string name="gallery_menu_share">Zdieľať</string>
   <string name="gallery_share_error">Obrázok nebolo možné zdielať: %s</string>
   <string name="gallery_menu_save">Uložiť v zariadení</string>

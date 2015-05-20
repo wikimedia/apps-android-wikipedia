@@ -249,11 +249,9 @@ Syarat penggunaan: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_summary_show_images">Hidupkan atau matikan ciri-ciri memuatkan gambar dalam laman. Anda disaran supaya mematikan ciri-ciri ini jika sambungan internet anda perlahan ataupun pelan data anda terhad.</string>
   <string name="read_more_section">Selanjutnya</string>
   <string name="read_next_section">Baca seterusnya</string>
-  <string name="gallery_menu_more_info">Maklumat lanjut</string>
   <string name="menu_gallery_visit_page">Pergi ke laman fail</string>
   <string name="gallery_error_draw_failed">Imej tidak dapat dilukis.</string>
   <string name="license_title">Teks lesen untuk perpustakaan %s</string>
-  <string name="gallery_image_info">Maklumat imej</string>
   <string name="gallery_menu_share">Kongsi</string>
   <string name="gallery_share_error">Imej tidak dapat dikongsikan: %s</string>
   <string name="gallery_menu_save">Simpan ke dalam peranti</string>

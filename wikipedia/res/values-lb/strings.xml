@@ -224,11 +224,9 @@
   <string name="preference_title_show_images">Biller weisen</string>
   <string name="read_more_section">Liest méi</string>
   <string name="read_next_section">Nächste liesen</string>
-  <string name="gallery_menu_more_info">Méi Informatiounen</string>
   <string name="menu_gallery_visit_page">Op d\'Säit vum Fichier goen</string>
   <string name="gallery_error_draw_failed">D\'Bild konnt net gezeechent ginn.</string>
   <string name="license_title">Lizenztext fir d\'Bibliothek %s</string>
-  <string name="gallery_image_info">Informatioun iwwert d\'Bild</string>
   <string name="gallery_menu_share">Deelen</string>
   <string name="gallery_share_error">Bild konnt net gedeelt ginn: %s</string>
   <string name="gallery_menu_save">Um Apparat späicheren</string>

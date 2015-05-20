@@ -279,16 +279,6 @@ public class GalleryActivity extends ThemedActionBarActivity {
     }
 
     /**
-     * Show a "details" dialog that displays miscellaneous information about a
-     * specific gallery item
-     * @param item GalleryItem for which to show detailed information.
-     */
-    public void showDetailsDialog(GalleryItem item) {
-        new DetailsDialog(this, item, linkMovementMethod,
-                          getWindow().getDecorView().getHeight() / 2).show();
-    }
-
-    /**
      * Show or hide all the UI controls in this activity (slide them out or in).
      * @param showing Whether to show or hide the controls.
      */

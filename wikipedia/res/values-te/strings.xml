@@ -185,8 +185,6 @@
   <string name="preference_title_show_images">బొమ్మలు చూపించు</string>
   <string name="read_more_section">మరింత చదువు</string>
   <string name="read_next_section">తదుపరి చదవండి</string>
-  <string name="gallery_menu_more_info">మరింత సమాచారం</string>
-  <string name="gallery_image_info">బొమ్మ సమాచారం</string>
   <string name="gallery_menu_share">పంచుకోండి</string>
   <string name="err_cannot_save_file">ద్దస్త్రాన్ని భద్రపరచలేము</string>
   <string name="snippet_share_intro">\@Wikipedia పై \"%1$s\" : %2$s</string>

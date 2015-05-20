@@ -119,7 +119,6 @@
   <string name="dialog_close_description">Itxi</string>
   <string name="preference_title_show_images">Irudiak erakutsi</string>
   <string name="read_more_section">Irakurri gehiago</string>
-  <string name="gallery_menu_more_info">Informazio gehiago</string>
   <string name="gallery_menu_save">Gailuan gorde</string>
   <string name="gallery_save_error">Ezin izan da irudia gorde: %s</string>
   <string name="err_cannot_save_file">Ezin da fitxategia gorde</string>
