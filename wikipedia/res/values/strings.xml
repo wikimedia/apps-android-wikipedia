@@ -31,6 +31,7 @@
     <string name="menu_save_page">Save page</string>
     <string name="menu_share_page">Share</string>
     <string name="share_via">Share via</string>
+    <string name="intent_share_search_label">@string/search_hint</string>
     <string name="dialog_title_clear_saved_pages">Clear all saved pages?</string>
     <string name="toast_saving_page">Saving page…</string>
     <string name="toast_saved_page">Page saved successfully</string>

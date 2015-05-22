@@ -43,6 +43,7 @@ import android.net.Uri;
 import android.os.BadParcelableException;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -66,6 +67,7 @@ public class PageActivity extends ThemedActionBarActivity {
     public static final String EXTRA_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
     private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
     private static final String LANGUAGE_BUNDLE_KEY = "language";
+    private static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
 
     private static final String KEY_LAST_FRAGMENT = "lastFragment";
     private static final String KEY_LAST_FRAGMENT_ARGS = "lastFragmentArgs";
@@ -393,33 +395,48 @@ public class PageActivity extends ThemedActionBarActivity {
             PageTitle title = new PageTitle(query, app.getPrimarySite());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
             displayNewPage(title, historyEntry);
+        } else if (Intent.ACTION_SEND.equals(intent.getAction())
+                && PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
+            // Share menu.
+            handleShareIntent(intent);
+        } else if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
+            // Log that the user tapped on the search widget
+            // Instantiate the funnel anonymously to save on memory overhead
+            new WidgetsFunnel(app, app.getPrimarySite()).logSearchWidgetTap();
+            openSearch();
+        } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
+            displayMainPage();
+
+            // Log that the user tapped on the featured article widget
+            // Instantiate the funnel anonymously to save on memory overhead
+            new WidgetsFunnel(app, app.getPrimarySite()).logFeaturedArticleWidgetTap();
         } else {
             // Unrecognized Intent was handled, or the user opened the app by tapping on the icon.
             // Let us load the main page!
             displayMainPage();
         }
+    }
 
-        //Check to see if user tapped on an app widget to open the app, and take appropriate action
-        if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
-            // Log that the user tapped on the search widget
-            // Instantiate the funnel anonymously to save on memory overhead
-            new WidgetsFunnel(app, app.getPrimarySite()).logSearchWidgetTap();
+    private void handleShareIntent(Intent intent) {
+        String text = intent.getStringExtra(Intent.EXTRA_TEXT);
+        openSearch(text == null ? null : text.trim());
+    }
 
-            // we were sent here from the Search widget, so go straight to the search fragment!
-            fragmentContainerView.post(new Runnable() {
-                @Override
-                public void run() {
-                    searchFragment.setLaunchedFromWidget(true);
-                    searchFragment.openSearch();
+    private void openSearch() {
+        openSearch(null);
+    }
+
+    private void openSearch(@Nullable final CharSequence query) {
+        fragmentContainerView.post(new Runnable() {
+            @Override
+            public void run() {
+                searchFragment.setLaunchedFromWidget(true);
+                searchFragment.openSearch();
+                if (query != null) {
+                    searchFragment.setSearchText(query);
                 }
-            });
-        } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
-            // Log that the user tapped on the featured article widget
-            // Instantiate the funnel anonymously to save on memory overhead
-            new WidgetsFunnel(app, app.getPrimarySite()).logFeaturedArticleWidgetTap();
-
-            // We don't need to do anything else, because the main page is already being displayed
-        }
+            }
+        });
     }
 
     /**
@@ -863,6 +880,7 @@ public class PageActivity extends ThemedActionBarActivity {
         return mode.getTag() != null;
     }
 
+    // TODO: Replace with Apache Commons Lang StringUtils.defaultString().
     private String emptyIfNull(String value) {
         return value == null ? "" : value;
     }

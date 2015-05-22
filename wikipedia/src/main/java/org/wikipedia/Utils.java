@@ -12,12 +12,10 @@ import android.content.pm.ResolveInfo;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Looper;
-import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.InputType;
 import android.text.format.DateUtils;
-import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -28,13 +26,13 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.ShareUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -111,28 +109,6 @@ public final class Utils {
             return str.subSequence(start, end + 1);
         }
         return "";
-    }
-
-    /**
-     * Creates an MD5 hash of the provided string & returns its base64 representation
-     * @param s String to hash
-     * @return Base64'd MD5 representation of the string passed in
-     */
-    public static String md5base64(final String s) {
-        try {
-            // Create MD5 Hash
-            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-            digest.update(s.getBytes("utf-8"));
-            byte[] messageDigest = digest.digest();
-
-            return Base64.encodeToString(messageDigest, Base64.URL_SAFE | Base64.NO_WRAP);
-        } catch (NoSuchAlgorithmException e) {
-            // This will never happen, yes.
-            throw new RuntimeException(e);
-        } catch (UnsupportedEncodingException e) {
-            // This will never happen, yes.
-            throw new RuntimeException(e);
-        }
     }
 
     /**
@@ -239,21 +215,6 @@ public final class Utils {
         keyboard.showSoftInput(view, InputMethodManager.SHOW_FORCED);
     }
 
-    /**
-     * Same as showSoftKeyboard(), but posted to the message queue of the current thread, so that it's executed
-     * after the current block of code is finished.
-     * @param activity The current activity
-     * @param view The currently focused view that will receive the keyboard input
-     */
-    public static void showSoftKeyboardAsync(final Activity activity, final View view) {
-        view.post(new Runnable() {
-            @Override
-            public void run() {
-                Utils.showSoftKeyboard(activity, view);
-            }
-        });
-    }
-
     public static void setupShowPasswordCheck(final CheckBox check, final EditText edit) {
         check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -275,7 +236,7 @@ public final class Utils {
      * @param textView the TextView or EditText to pop the error message from
      * @param error the error message. Use null message to clear.
      * @see TextView#setError
-     * @see http://stackoverflow.com/questions/14413575/how-to-write-style-to-error-text-of-edittext-in-android
+     * @see <a href='http://stackoverflow.com/questions/14413575/how-to-write-style-to-error-text-of-edittext-in-android'>StackOverflow: How to write style to error text of EditText in Android?</a>
      */
     public static void setErrorPopup(TextView textView, String error) {
         if (ApiUtil.hasHoneyComb()) {
@@ -416,34 +377,15 @@ public final class Utils {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.setData(uri);
-        List<ResolveInfo> resInfo = context.getPackageManager().queryIntentActivities(intent, 0);
-        if (!resInfo.isEmpty()) {
-            List<Intent> browserIntents = new ArrayList<>();
-            for (ResolveInfo resolveInfo : resInfo) {
-                String packageName = resolveInfo.activityInfo.packageName;
-                // remove our apps from the selection!
-                // This ensures that all the variants of the Wiki app (Alpha, Beta, Stable) are never shown
-                if (packageName.startsWith("org.wikipedia")) {
-                    continue;
-                }
-                Intent newIntent = new Intent(Intent.ACTION_VIEW);
-                newIntent.setData(uri);
-                newIntent.setPackage(packageName);
-                browserIntents.add(newIntent);
-            }
-            if (browserIntents.size() > 0) {
-                // initialize the chooser intent with one of the browserIntents, and remove that
-                // intent from the list, since the chooser already has it, and we don't need to
-                // add it again in putExtra. (initialize with the last item in the list, to preserve order)
-                Intent chooserIntent = Intent.createChooser(browserIntents.remove(browserIntents.size() - 1), null);
-                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, browserIntents.toArray(new Parcelable[browserIntents.size()]));
-                context.startActivity(chooserIntent);
-                return;
-            }
+
+        Intent chooserIntent = ShareUtils.createChooserIntent(intent, null, context);
+        if (chooserIntent == null) {
+            // This means that there was no way to handle this link.
+            // We will just show a toast now. FIXME: Make this more visible?
+            ShareUtils.showUnresolvableIntentMessage(context);
+        } else {
+            context.startActivity(chooserIntent);
         }
-        // This means that there was no way to handle this link.
-        // We will just show a toast now. FIXME: Make this more visible?
-        Toast.makeText(context, R.string.error_can_not_process_link, Toast.LENGTH_LONG).show();
     }
 
     /**

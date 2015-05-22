@@ -1,11 +1,14 @@
 package org.wikipedia.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.LabeledIntent;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
+import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -15,11 +18,12 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- */
 public final class ShareUtils {
+    public static final String APP_PACKAGE_REGEX = "org\\.wikipedia.*";
+
     /** Private constructor, so nobody can construct ShareUtils. */
     private ShareUtils() { }
 
@@ -27,14 +31,18 @@ public final class ShareUtils {
      * Share some text and subject (title) as plain text using an activity chooser,
      * so that the user can choose the app with which to share the content.
      */
-    public static void shareText(final Activity activity, final String subject, final String text) {
+    public static void shareText(final Context context, final String subject, final String text) {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
         shareIntent.putExtra(Intent.EXTRA_TEXT, text);
         shareIntent.setType("text/plain");
-        Intent chooser = Intent.createChooser(shareIntent,
-                activity.getResources().getString(R.string.share_via));
-        activity.startActivity(chooser);
+        Intent chooserIntent = createChooserIntent(shareIntent,
+                context.getString(R.string.share_via), context);
+        if (chooserIntent == null) {
+            showUnresolvableIntentMessage(context);
+        } else {
+            context.startActivity(chooserIntent);
+        }
     }
 
     /**
@@ -45,14 +53,14 @@ public final class ShareUtils {
      * it's overwritten every time an image is shared from the app, so that it takes up a
      * constant amount of space.
      */
-    public static void shareImage(final Activity activity, final Bitmap bmp,
+    public static void shareImage(final Context context, final Bitmap bmp,
                                   final String imageFileName, final String subject,
                                   final String text, final boolean recycleBmp) {
         final int jpegQuality = 85;
         new SaneAsyncTask<String>(SaneAsyncTask.SINGLE_THREAD) {
             @Override
             public String performTask() throws Throwable {
-                File dir = clearFolder(activity);
+                File dir = clearFolder(context);
                 if (dir == null) {
                     return null;
                 }
@@ -74,9 +82,9 @@ public final class ShareUtils {
             @Override
             public void onFinish(String result) {
                 if (result == null) {
-                    Toast.makeText(activity,
-                            String.format(activity.getString(R.string.gallery_share_error),
-                                    activity.getString(R.string.err_cannot_save_file)),
+                    Toast.makeText(context,
+                            String.format(context.getString(R.string.gallery_share_error),
+                                    context.getString(R.string.err_cannot_save_file)),
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -86,18 +94,22 @@ public final class ShareUtils {
                 shareIntent.putExtra(Intent.EXTRA_TEXT, text);
                 shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + result));
                 shareIntent.setType("image/jpeg");
-                Intent chooser = Intent.createChooser(shareIntent,
-                        activity.getResources().getString(R.string.share_via));
-                activity.startActivity(chooser);
+                Intent chooserIntent = Intent.createChooser(shareIntent,
+                        context.getResources().getString(R.string.share_via));
+                context.startActivity(chooserIntent);
             }
 
             @Override
             public void onCatch(Throwable caught) {
-                Toast.makeText(activity,
-                        String.format(activity.getString(R.string.gallery_share_error),
+                Toast.makeText(context,
+                        String.format(context.getString(R.string.gallery_share_error),
                                 caught.getLocalizedMessage()), Toast.LENGTH_SHORT).show();
             }
         }.execute();
+    }
+
+    public static void showUnresolvableIntentMessage(Context context) {
+        Toast.makeText(context, R.string.error_can_not_process_link, Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -139,5 +151,66 @@ public final class ShareUtils {
             fileName = fileName + ".jpg";
         }
         return fileName;
+    }
+
+    @Nullable
+    public static Intent createChooserIntent(Intent targetIntent,
+                                             CharSequence chooserTitle,
+                                             Context context) {
+        return createChooserIntent(targetIntent, chooserTitle, context, APP_PACKAGE_REGEX);
+    }
+
+    @Nullable
+    public static Intent createChooserIntent(Intent targetIntent,
+                                             CharSequence chooserTitle,
+                                             Context context,
+                                             String packageNameBlacklistRegex) {
+        List<LabeledIntent> intents = queryIntents(context, targetIntent, packageNameBlacklistRegex);
+
+        if (intents.isEmpty()) {
+            return null;
+        }
+
+        Intent bestIntent = intents.remove(0);
+        return Intent.createChooser(bestIntent, chooserTitle)
+                .putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toArray(new Parcelable[0]));
+    }
+
+    public static List<LabeledIntent> queryIntents(Context context,
+                                                   Intent targetIntent,
+                                                   String packageNameBlacklistRegex) {
+        List<LabeledIntent> intents = new ArrayList<>();
+        for (ResolveInfo intentActivity : queryIntentActivities(targetIntent, context)) {
+            if (!isIntentActivityBlacklisted(intentActivity, packageNameBlacklistRegex)) {
+                intents.add(buildLabeledIntent(targetIntent, intentActivity));
+            }
+        }
+        return intents;
+    }
+
+    public static List<ResolveInfo> queryIntentActivities(Intent intent, Context context) {
+        return context.getPackageManager().queryIntentActivities(intent, 0);
+    }
+
+    private static boolean isIntentActivityBlacklisted(ResolveInfo intentActivity,
+                                                       String packageNameBlacklistRegex) {
+        return intentActivity != null
+                && getPackageName(intentActivity).matches(emptyIfNull(packageNameBlacklistRegex));
+    }
+
+    private static LabeledIntent buildLabeledIntent(Intent intent, ResolveInfo intentActivity) {
+        LabeledIntent labeledIntent = new LabeledIntent(intent, getPackageName(intentActivity),
+                intentActivity.labelRes, intentActivity.getIconResource());
+        labeledIntent.setClassName(getPackageName(intentActivity), intentActivity.activityInfo.name);
+        return labeledIntent;
+    }
+
+    private static String getPackageName(ResolveInfo intentActivity) {
+        return intentActivity.activityInfo.packageName;
+    }
+
+    // TODO: Replace with Apache Commons Lang StringUtils.defaultString().
+    private static String emptyIfNull(String value) {
+        return value == null ? "" : value;
     }
 }

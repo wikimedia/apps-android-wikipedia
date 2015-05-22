@@ -156,7 +156,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
      * Changes the search text box to contain a different string.
      * @param text The text you want to make the search box display.
      */
-    public void setSearchText(String text) {
+    public void setSearchText(CharSequence text) {
         searchView.setQuery(text, false);
     }
 
