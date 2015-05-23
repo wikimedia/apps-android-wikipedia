@@ -34,7 +34,9 @@ class NearbyResult implements Parcelable {
         Iterator iterator = pagesMap.keys();
         while (iterator.hasNext()) {
             NearbyPage newPage = new NearbyPage(pagesMap.getJSONObject((String) iterator.next()));
-            list.add(newPage);
+            if (newPage.getLocation() != null) {
+                list.add(newPage);
+            }
         }
     }
 

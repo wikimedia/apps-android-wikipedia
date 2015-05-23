@@ -3,10 +3,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
         >
-    <item android:id="@+id/menu_refresh_nearby"
-          android:icon="@drawable/ic_refresh"
-          android:title="@string/menu_update_nearby"
-          app:showAsAction="ifRoom" />
     <item android:id="@+id/menu_metric_imperial"
           android:title="@string/nearby_set_imperial"
           app:showAsAction="never"/>

@@ -11,46 +11,28 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.log.L;
 
-import com.mapbox.mapboxsdk.events.MapListener;
-import com.mapbox.mapboxsdk.events.RotateEvent;
-import com.mapbox.mapboxsdk.events.ScrollEvent;
-import com.mapbox.mapboxsdk.events.ZoomEvent;
-import com.mapbox.mapboxsdk.geometry.LatLng;
-import com.mapbox.mapboxsdk.overlay.Icon;
-import com.mapbox.mapboxsdk.overlay.Marker;
-import com.mapbox.mapboxsdk.overlay.UserLocationOverlay;
-import com.mapbox.mapboxsdk.tileprovider.tilesource.WebSourceTileLayer;
-import com.mapbox.mapboxsdk.views.MapView;
 import com.squareup.picasso.Picasso;
-
-import android.annotation.TargetApi;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.hardware.GeomagneticField;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
-import android.os.Build;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
@@ -79,26 +61,31 @@ import java.util.MissingResourceException;
 /**
  * Displays a list of nearby pages.
  */
-public class NearbyFragment extends Fragment implements SensorEventListener {
+public class NearbyFragmentOld extends Fragment implements SensorEventListener {
     private static final String PREF_KEY_UNITS = "nearbyUnits";
     private static final String NEARBY_LAST_RESULT = "lastRes";
-    private static final String NEARBY_CURRENT_LOCATION = "currentLoc";
+    private static final String NEARBY_LAST_LOCATION = "lastLoc";
+    private static final String NEARBY_NEXT_LOCATION = "curLoc";
+    private static final int MIN_TIME_MILLIS = 5000;
+    private static final int MIN_DISTANCE_METERS = 2;
     private static final int ONE_THOUSAND = 1000;
+    private static final double ONE_THOUSAND_D = 1000.0d;
     private static final double METER_TO_FEET = 3.280839895;
     private static final int ONE_MILE = 5280;
 
-    private final List<Marker> mMarkerList = new ArrayList<>();
-    private View nearbyListContainer;
     private ListView nearbyList;
-    private MapView mapView;
+    private View nearbyEmptyContainer;
     private NearbyAdapter adapter;
-    private Icon mMarkerIconPassive;
-    private Icon mMarkerIconActive;
+    private SwipeRefreshLayout refreshView;
 
     private WikipediaApp app;
     private Site site;
+    private LocationManager locationManager;
+    private LocationListener locationListener;
+    private boolean refreshing;
+    private Location lastLocation;
+    private Location nextLocation;
     private NearbyResult lastResult;
-    @Nullable private Location currentLocation;
 
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
@@ -134,21 +121,20 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_nearby, container, false);
-        rootView.setPadding(0, Utils.getContentTopOffsetPx(getActivity()), 0, 0);
-
-        nearbyListContainer = rootView.findViewById(R.id.nearby_list_container);
-        nearbyListContainer.setVisibility(View.GONE);
+        View rootView = inflater.inflate(R.layout.fragment_nearby_old, container, false);
 
         nearbyList = (ListView) rootView.findViewById(R.id.nearby_list);
-        mapView = (MapView) rootView.findViewById(R.id.mapview);
-        rootView.findViewById(R.id.user_location_button).setOnClickListener(new View.OnClickListener() {
+        nearbyEmptyContainer = rootView.findViewById(R.id.nearby_empty_container);
+        nearbyEmptyContainer.setVisibility(View.GONE);
+        refreshView = (SwipeRefreshLayout) rootView.findViewById(R.id.nearby_refresh_container);
+        // if we want to give it a custom color:
+        //refreshView.setProgressBackgroundColor(R.color.swipe_refresh_circle);
+        refreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onClick(View v) {
-                // don't change zoom level: https://github.com/mapbox/mapbox-android-sdk/issues/453
-                mapView.setUserLocationRequiredZoom(mapView.getZoomLevel());
-
-                mapView.goToUserLocation(true);
+            public void onRefresh() {
+                setRefreshingState(true);
+                requestLocationUpdates();
+                refreshView.setRefreshing(false);
             }
         });
 
@@ -175,6 +161,32 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         new PageLongPressHandler(getActivity(), nearbyList, HistoryEntry.SOURCE_NEARBY,
                 contextMenuListener);
 
+        // Acquire a reference to the system Location Manager
+        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+
+        // Define a listener that responds to location updates
+        locationListener = new LocationListener() {
+            public void onLocationChanged(Location location) {
+                // Called when a new location is found by the network location provider.
+                if (!isAdded()) {
+                    return;
+                }
+                makeUseOfNewLocation(location);
+            }
+
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+                Log.d("Wikipedia", "onStatusChanged " + provider);
+            }
+
+            public void onProviderEnabled(String provider) {
+                Log.d("Wikipedia", "onProviderEnabled " + provider);
+            }
+
+            public void onProviderDisabled(String provider) {
+                Log.d("Wikipedia", "onProviderDisabled " + provider);
+            }
+        };
+
         mSensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
@@ -182,15 +194,21 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         compassViews = new ArrayList<>();
 
         if (!adapter.isEmpty()) {
+            //we
             setupGeomagneticField();
             showNearbyPages(lastResult);
         } else if (savedInstanceState != null) {
-            currentLocation = savedInstanceState.getParcelable(NEARBY_CURRENT_LOCATION);
-            if (currentLocation != null) {
+            nextLocation = savedInstanceState.getParcelable(NEARBY_NEXT_LOCATION);
+            if (nextLocation != null) {
+                lastLocation = savedInstanceState.getParcelable(NEARBY_LAST_LOCATION);
                 lastResult = savedInstanceState.getParcelable(NEARBY_LAST_RESULT);
                 setupGeomagneticField();
                 showNearbyPages(lastResult);
+            } else {
+                setRefreshingState(true);
             }
+        } else {
+            setRefreshingState(true);
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -208,18 +226,14 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 // Just ignore it.
             }
         }
-
-        mMarkerIconPassive = makeMarkerIcon(false);
-        mMarkerIconActive = makeMarkerIcon(true);
-        setRefreshingState(true);
-        initializeMap();
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if (lastResult != null) {
-            outState.putParcelable(NEARBY_CURRENT_LOCATION, currentLocation);
+            outState.putParcelable(NEARBY_LAST_LOCATION, lastLocation);
+            outState.putParcelable(NEARBY_NEXT_LOCATION, nextLocation);
             outState.putParcelable(NEARBY_LAST_RESULT, lastResult);
         }
     }
@@ -227,110 +241,53 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     @Override
     public void onResume() {
         super.onResume();
-        mapView.setUserLocationEnabled(true);
         mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
         mSensorManager.registerListener(this, mMagnetometer, SensorManager.SENSOR_DELAY_UI);
+        requestLocationUpdates();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        mapView.setUserLocationEnabled(false);
+        stopLocationUpdates();
         mSensorManager.unregisterListener(this);
         compassViews.clear();
     }
 
-    private void initializeMap() {
-        WebSourceTileLayer tileSource = new WebSourceTileLayer(
-                "openstreetmap",
-                getString(R.string.map_tile_source_url),
-                true
-        );
-
-        mapView.setBubbleEnabled(false);
-        mapView.setDiskCacheEnabled(true);
-        mapView.setTileSource(tileSource);
-        mapView.setZoom(getResources().getInteger(R.integer.map_default_zoom));
-        mapView.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
-        mapView.getUserLocationOverlay().runOnFirstFix(new Runnable() {
-            @Override
-            public void run() {
-                if (!isResumed()) {
-                    return;
-                }
-                currentLocation = mapView.getUserLocationOverlay().getLastFix();
-                makeUseOfNewLocation(currentLocation);
-                fetchNearbyPages();
-            }
-        });
-
-        mapView.setMapViewListener(new DefaultMapViewListener() {
-            @Override
-            public void onTapMarker(MapView mapView, Marker marker) {
-                highlightMarker(marker);
-                int index = adapter.getPosition((NearbyPage) marker.getRelatedObject());
-                if (index == -1) {
-                    return;
-                }
-                nearbyList.setSelection(index);
-            }
-        });
-
-        mapView.addListener(new MapListener() {
-            @Override
-            public void onScroll(ScrollEvent scrollEvent) {
-                fetchNearbyPages();
-            }
-
-            @Override
-            public void onZoom(ZoomEvent zoomEvent) {
-                fetchNearbyPages();
-            }
-
-            @Override
-            public void onRotate(RotateEvent rotateEvent) {
-            }
-        });
+    private void stopLocationUpdates() {
+        setRefreshingState(false);
+        locationManager.removeUpdates(locationListener);
     }
 
-    private Icon makeMarkerIcon(boolean isActive) {
-        int iconSize = (int) getResources().getDimension(R.dimen.map_marker_icon_size);
-        Bitmap bmp = Bitmap.createBitmap(iconSize, iconSize, Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bmp);
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        Drawable d;
-        if (isActive) {
-            paint.setColor(getResources().getColor(R.color.blue_liberal));
-            int circleSize = bmp.getWidth() / 2;
-            canvas.drawCircle(circleSize, circleSize, circleSize, paint);
-
-            Drawable drawable = ContextCompat.getDrawable(getActivity(), R.drawable.ic_place_dark);
-            Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-            d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap,
-                    iconSize, iconSize, true));
-            d = DrawableCompat.wrap(d).mutate();
-            DrawableCompat.setTint(d, getResources().getColor(R.color.blue_liberal));
-
-        } else {
-            paint.setColor(getResources().getColor(R.color.green_progressive));
-            int circleSize = bmp.getWidth() / 2;
-            canvas.drawCircle(circleSize, circleSize, circleSize / 2, paint);
-            d = new BitmapDrawable(getResources(), bmp);
-        }
-        return new Icon(d);
-    }
-
-    private void highlightMarker(Marker marker) {
-        for (Marker m : mMarkerList) {
-            if (m.equals(marker)) {
-                m.setIcon(mMarkerIconActive);
-                m.setHotspot(Marker.HotspotPlace.BOTTOM_CENTER);
-            } else {
-                m.setIcon(mMarkerIconPassive);
-                m.setHotspot(Marker.HotspotPlace.BOTTOM_CENTER);
+    private void requestLocationUpdates() {
+        boolean atLeastOneEnabled = false;
+        if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+            try {
+                requestLocation(LocationManager.NETWORK_PROVIDER);
+                atLeastOneEnabled = true;
+            } catch (SecurityException e) {
+                Log.e("Wikipedia", "Could not request location from "
+                        + LocationManager.NETWORK_PROVIDER, e);
             }
         }
+        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            try {
+                requestLocation(LocationManager.GPS_PROVIDER);
+                atLeastOneEnabled = true;
+            } catch (SecurityException e) {
+                Log.e("Wikipedia", "Could not request location from "
+                        + LocationManager.GPS_PROVIDER, e);
+            }
+        }
+        // if neither of the location providers are enabled, then give the user the option
+        // to go to Settings, so that they enable Location in the actual OS.
+        if (!atLeastOneEnabled) {
+            showDialogForSettings();
+        }
+    }
+
+    private void requestLocation(String provider) {
+        locationManager.requestLocationUpdates(provider, MIN_TIME_MILLIS, MIN_DISTANCE_METERS, locationListener);
     }
 
     private void showDialogForSettings() {
@@ -358,64 +315,40 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     }
 
     private void makeUseOfNewLocation(Location location) {
-        if (!isBetterLocation(location, currentLocation)) {
+        if (!isBetterLocation(location, lastLocation)) {
             return;
         }
-        currentLocation = location;
+        nextLocation = location;
         setupGeomagneticField();
-        updateDistances();
-    }
+        if (lastLocation == null || (refreshing && getDistance(lastLocation) >= MIN_DISTANCE_METERS)) {
 
-    private void fetchNearbyPages() {
-        final int fetchTaskDelayMillis = 500;
-        mapView.removeCallbacks(fetchTaskRunnable);
-        mapView.postDelayed(fetchTaskRunnable, fetchTaskDelayMillis);
-    }
-
-    private Runnable fetchTaskRunnable = new Runnable() {
-        @Override
-        public void run() {
-            if (!isResumed()) {
-                return;
-            }
-            LatLng latLng = mapView.getCenter();
-            setRefreshingState(true);
-            new NearbyFetchTask(getActivity(), site, latLng.getLatitude(), latLng.getLongitude(), getMapRadius()) {
+            new NearbyFetchTask(getActivity(), site, location.getLatitude(), location.getLongitude(), NearbyFetchTask.MAX_RADIUS) {
                 @Override
                 public void onFinish(NearbyResult result) {
-                    if (!isResumed()) {
+                    if (!isAdded()) {
                         return;
                     }
                     lastResult = result;
                     showNearbyPages(result);
-                    setRefreshingState(false);
                 }
 
                 @Override
                 public void onCatch(Throwable caught) {
-                    if (!isResumed()) {
+                    if (!isAdded()) {
                         return;
                     }
-                    L.e(caught);
                     FeedbackUtil.showError(getActivity(), caught);
                     setRefreshingState(false);
                 }
             }.execute();
+        } else {
+            updateDistances();
         }
-    };
-
-    private double getMapRadius() {
-        LatLng leftTop = new LatLng(mapView.getBoundingBox().getLatNorth(), mapView.getBoundingBox().getLonWest());
-        LatLng rightTop = new LatLng(mapView.getBoundingBox().getLatNorth(), mapView.getBoundingBox().getLonEast());
-        LatLng leftBottom = new LatLng(mapView.getBoundingBox().getLatSouth(), mapView.getBoundingBox().getLonWest());
-        double width = leftTop.distanceTo(rightTop);
-        double height = leftTop.distanceTo(leftBottom);
-        return Math.min(width, height) / 2;
     }
 
     /** Updates geomagnetic field data, to give us our precise declination from true north. */
     private void setupGeomagneticField() {
-        geomagneticField = new GeomagneticField((float)currentLocation.getLatitude(), (float)currentLocation.getLongitude(), 0, (new Date()).getTime());
+        geomagneticField = new GeomagneticField((float)nextLocation.getLatitude(), (float)nextLocation.getLongitude(), 0, (new Date()).getTime());
     }
 
     /** Determines whether one Location reading is better than the current Location fix.
@@ -476,30 +409,16 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     }
 
     private void showNearbyPages(NearbyResult result) {
-        getActivity().invalidateOptionsMenu();
-        if (currentLocation != null) {
-            sortByDistance(result.getList());
-        }
+        nearbyList.setEmptyView(nearbyEmptyContainer);
+        lastLocation = nextLocation;
+        sortByDistance(result.getList());
         adapter.clear();
         addResultsToAdapter(result.getList());
         compassViews.clear();
-        mMarkerList.clear();
-        mapView.clear();
-        nearbyListContainer.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
-        for (int i = 0; i < adapter.getCount(); i++) {
-            NearbyPage item = adapter.getItem(i);
-            Location location = item.getLocation();
-            Marker marker = new Marker(mapView, item.getTitle(), item.getDescription(),
-                    new LatLng(location.getLatitude(), location.getLongitude()));
-            marker.setIcon(mMarkerIconPassive);
-            marker.setRelatedObject(item);
-            marker.setHotspot(Marker.HotspotPlace.BOTTOM_CENTER);
-            mMarkerList.add(marker);
-        }
-        mapView.addMarkers(mMarkerList);
+
+        setRefreshingState(false);
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void addResultsToAdapter(List<NearbyPage> result) {
         if (ApiUtil.hasHoneyComb()) {
             adapter.addAll(result);
@@ -510,8 +429,13 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         }
     }
 
-    private void setRefreshingState(boolean isRefreshing) {
-        ((PageActivity)getActivity()).updateProgressBar(isRefreshing, true, 0);
+    private void setRefreshingState(boolean newState) {
+        refreshing = newState;
+        if (refreshing) {
+            ((PageActivity)getActivity()).updateProgressBar(true, true, 0);
+        } else {
+            ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
+        }
     }
 
     private void sortByDistance(List<NearbyPage> nearbyPages) {
@@ -538,7 +462,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         if (otherLocation == null) {
             return Integer.MAX_VALUE;
         } else {
-            return (int) currentLocation.distanceTo(otherLocation);
+            return (int) nextLocation.distanceTo(otherLocation);
         }
     }
 
@@ -555,7 +479,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             if (meters < ONE_THOUSAND) {
                 return getString(R.string.nearby_distance_in_meters, meters);
             } else {
-                return getString(R.string.nearby_distance_in_kilometers, meters / (double)ONE_THOUSAND);
+                return getString(R.string.nearby_distance_in_kilometers, meters / ONE_THOUSAND_D);
             }
         }
     }
@@ -609,24 +533,25 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     private View.OnClickListener markerClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Marker marker = findPageMarker((NearbyPage) v.getTag());
-            if (marker != null) {
-                highlightMarker(marker);
+            NearbyPage nearbyPage = (NearbyPage)v.getTag();
+            PageTitle title = new PageTitle(nearbyPage.getTitle(), site, nearbyPage.getThumblUrl());
+            String geoUri = String.format(Locale.ENGLISH,
+                                          "geo:0,0?q=%s,%s(%s)",
+                                          nearbyPage.getLocation().getLatitude(),
+                                          nearbyPage.getLocation().getLongitude(),
+                                          title.getDisplayText()
+            );
+            Intent geoIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
+            try {
+                startActivity(geoIntent);
+            } catch (ActivityNotFoundException e) {
+                // Means no map application was installed to handle geo://
+                // I think this case is rare enough for us to just ignore
+                // This would mean clicking the secondary action won't do anything,
+                // which is fine, I think
             }
         }
     };
-
-    @Nullable
-    private Marker findPageMarker(NearbyPage nearbyPage) {
-        Marker result = null;
-        for (Marker marker : mMarkerList) {
-            if (marker.getRelatedObject().equals(nearbyPage)) {
-                result = marker;
-                break;
-            }
-        }
-        return result;
-    }
 
     private View.OnLongClickListener markerLongClickListener = new View.OnLongClickListener() {
         @Override
@@ -674,24 +599,28 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 viewHolder.description.setVisibility(View.VISIBLE);
             }
 
-            viewHolder.markerButton.setTag(nearbyPage);
-            viewHolder.markerButton.setOnClickListener(markerClickListener);
-            viewHolder.markerButton.setOnLongClickListener(markerLongClickListener);
-
-            viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.page_background_color)));
-            if (currentLocation == null) {
-                viewHolder.distance.setVisibility(View.INVISIBLE);
-                viewHolder.thumbnail.setEnabled(false);
-            } else {
+            if (nearbyPage.getLocation() != null) {
                 // set the calculated angle as the base angle for our compass view
                 viewHolder.thumbnail.setAngle((float) calculateAngle(nearbyPage.getLocation()));
+                viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.page_background_color)));
                 viewHolder.thumbnail.setTickColor(getResources().getColor(R.color.button_light));
-                viewHolder.thumbnail.setEnabled(true);
                 if (!compassViews.contains(viewHolder.thumbnail)) {
                     compassViews.add(viewHolder.thumbnail);
                 }
+
                 viewHolder.distance.setText(getDistanceLabel(nearbyPage.getLocation()));
                 viewHolder.distance.setVisibility(View.VISIBLE);
+                viewHolder.markerButton.setTag(nearbyPage);
+                viewHolder.markerButton.setOnClickListener(markerClickListener);
+                viewHolder.markerButton.setOnLongClickListener(markerLongClickListener);
+                viewHolder.markerButton.setVisibility(View.VISIBLE);
+                viewHolder.thumbnail.setEnabled(true);
+            } else {
+                // Strangely, we don't know the full coordinates of this nearby place.
+                // Something in the DB must have gotten out of sync; may happen intermittently.
+                viewHolder.distance.setVisibility(View.INVISIBLE); // don't affect the layout measurements
+                viewHolder.thumbnail.setEnabled(false);
+                viewHolder.markerButton.setVisibility(View.INVISIBLE);
             }
 
             if (app.isImageDownloadEnabled()) {
@@ -712,8 +641,8 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             // simplified angle between two vectors...
             // vector pointing towards north from our location = [0, 1]
             // vector pointing towards destination from our location = [a1, a2]
-            double a1 = otherLocation.getLongitude() - currentLocation.getLongitude();
-            double a2 = otherLocation.getLatitude() - currentLocation.getLatitude();
+            double a1 = otherLocation.getLongitude() - nextLocation.getLongitude();
+            double a2 = otherLocation.getLatitude() - nextLocation.getLatitude();
             // cos θ = (v1*a1 + v2*a2) / (√(v1²+v2²) * √(a1²+a2²))
             double angle = Math.toDegrees(Math.acos(a2 / Math.sqrt(a1 * a1 + a2 * a2)));
             // since the acos function only goes between 0 to 180 degrees, we'll manually

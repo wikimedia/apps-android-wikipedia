@@ -63,4 +63,9 @@
     <item name="lead_title_leading_scalar" format="float" type="dimen">.9</item>
     <item name="lead_subtitle_leading_scalar" format="float" type="dimen">1.35</item>
     <item name="lead_subtitle_paragraph_scalar" format="float" type="dimen">1.15</item>
+
+    <!-- Maps -->
+    <integer name="map_default_zoom">2</integer>
+    <dimen name="map_marker_icon_size">32dp</dimen>
+
 </resources>

@@ -13,6 +13,10 @@
         <!-- https://raw.githubusercontent.com/kevinsawicki/http-request/master/LICENSE.md -->
         (<a href="file:///android_asset/licenses/Http-Request">license</a>),
 
+        <a href="https://github.com/mapbox/mapbox-android-sdk">Mapbox Android SDK</a>
+        <!-- end of https://github.com/mapbox/mapbox-android-sdk/blob/mb-pages/LICENSE.md -->
+        (<a href="file:///android_asset/licenses/Mapbox">license</a>),
+
         <a href="http://nineoldandroids.com/">NineOldAndroids</a>
         <!-- end of https://github.com/JakeWharton/NineOldAndroids/ -->
         (<a href="file:///android_asset/licenses/NineOldAndroids">license</a>),

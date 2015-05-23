@@ -109,3 +109,6 @@
 -keep class org.mediawiki.api.json.** {*;}
 -keep enum org.wikipedia.api.json.** { <init>(...); *; }
 
+# Mapbox
+# TODO: use official rules when https://github.com/mapbox/mapbox-android-sdk/issues/363 is resolved.
+-dontwarn java.awt.**

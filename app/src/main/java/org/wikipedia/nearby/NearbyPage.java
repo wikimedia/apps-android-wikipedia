@@ -6,6 +6,8 @@ import org.json.JSONObject;
 import org.wikipedia.Utils;
 
 import android.location.Location;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 /**
  * Data object holding information about a nearby page.
@@ -72,18 +74,22 @@ class NearbyPage {
         }
     }
 
+    @NonNull
     public String getTitle() {
         return title;
     }
 
+    @Nullable
     public String getThumblUrl() {
         return thumblUrl;
     }
 
+    @Nullable
     public String getDescription() {
         return description;
     }
 
+    @Nullable
     public Location getLocation() {
         return location;
     }

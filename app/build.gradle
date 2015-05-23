@@ -162,6 +162,9 @@ dependencies {
     compile 'com.github.chrisbanes.photoview:library:1.2.3'
     compile 'com.github.ryanjohn1:onboarding:1.0.3'
     compile 'com.jakewharton:disklrucache:2.0.2'
+    compile('com.mapbox.mapboxsdk:mapbox-android-sdk:0.7.4@aar') {
+        transitive = true
+    }
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.9.5'

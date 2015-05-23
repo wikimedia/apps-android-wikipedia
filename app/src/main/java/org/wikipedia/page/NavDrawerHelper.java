@@ -20,6 +20,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.nearby.NearbyFragment;
+import org.wikipedia.nearby.NearbyFragmentOld;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.savedpages.SavedPagesFragment;
 import org.wikipedia.settings.SettingsActivity;
@@ -81,7 +82,7 @@ public class NavDrawerHelper {
                         funnel.logSavedPages();
                         break;
                     case R.id.nav_item_nearby:
-                        activity.pushFragment(new NearbyFragment());
+                        activity.pushFragment(app.isProdRelease() ? new NearbyFragmentOld() : new NearbyFragment());
                         funnel.logNearby();
                         break;
                     case R.id.nav_item_more:
@@ -180,7 +181,7 @@ public class NavDrawerHelper {
             return R.id.nav_item_history;
         } else if (fragment instanceof SavedPagesFragment) {
             return R.id.nav_item_saved_pages;
-        } else if (fragment instanceof NearbyFragment) {
+        } else if (fragment instanceof NearbyFragment || fragment instanceof NearbyFragmentOld) {
             return R.id.nav_item_nearby;
         }
         return null;

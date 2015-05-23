@@ -1,7 +1,6 @@
 package org.wikipedia.nearby;
 
 import android.content.Context;
-import android.location.Location;
 
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
@@ -18,20 +17,21 @@ import java.util.Locale;
  * Actual work to search for nearby pages.
  */
 public class NearbyFetchTask extends ApiTask<NearbyResult> {
-    /** search radius in meters. 10 km is the maximum the API allows. */
-    private static final String RADIUS = "10000";
+    public static final int MAX_RADIUS = 10000;
     /** max number of results */
-    private static final String LIMIT = "50";
-    /** requested thumbnail size in pixel */
-    private static final String THUMBNAIL_WIDTH = "144";
-    private final Location location;
+    private static final String LIMIT = "100";
+    private final double latitude;
+    private final double longitude;
+    private final double radius;
 
-    public NearbyFetchTask(Context context, Site site, Location location) {
+    public NearbyFetchTask(Context context, Site site, double latitude, double longitude, double radius) {
         super(
                 SINGLE_THREAD,
                 ((WikipediaApp) context.getApplicationContext()).getAPIForSite(site)
         );
-        this.location = location;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.radius = radius < MAX_RADIUS ? radius : MAX_RADIUS;
     }
 
     @Override
@@ -40,19 +40,15 @@ public class NearbyFetchTask extends ApiTask<NearbyResult> {
                 .param("prop", "coordinates|pageimages|pageterms")
                 .param("colimit", LIMIT)
                 .param("piprop", "thumbnail") // so response doesn't contain unused "pageimage" prop
-                .param("pithumbsize", THUMBNAIL_WIDTH)
+                .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
                 .param("pilimit", LIMIT)
                 .param("wbptterms", "description")
                 .param("generator", "geosearch")
-                .param("ggscoord", locationParam(location))
-                .param("ggsradius", RADIUS)
+                .param("ggscoord", String.format(Locale.ROOT, "%f|%f", latitude, longitude))
+                .param("ggsradius", Double.toString(radius))
                 .param("ggslimit", LIMIT)
                 .param("format", "json")
                 .param("continue", ""); // to avoid warning about new continuation syntax
-    }
-
-    private String locationParam(Location location) {
-        return String.format(Locale.ROOT, "%f|%f", location.getLatitude(), location.getLongitude());
     }
 
     /*

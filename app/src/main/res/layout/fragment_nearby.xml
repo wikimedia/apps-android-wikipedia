@@ -1,59 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="?attr/page_background_color">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/page_background_color">
 
-    <LinearLayout
-        android:id="@+id/nearby_empty_container"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/nearby_empty_image"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <com.mapbox.mapboxsdk.views.MapView
+            android:id="@+id/mapview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/user_location_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/empty_nearby"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="@null" />
+            style="@style/FloatingActionButton"
+            android:layout_gravity="bottom|end"
+            android:src="@drawable/ic_gps_fixed_white_24dp"
+            android:contentDescription="@string/menu_show_toc"
+            app:elevation="4dp"
+            app:borderWidth="0dp"
+            app:backgroundTint="@color/blue_progressive"
+            app:layout_anchorGravity="bottom|right|end" />
+    </FrameLayout>
 
-        <TextView
-            android:id="@+id/nearby_empty_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp"
-            android:gravity="center"
-            android:text="@string/nearby_empty_title"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            />
-
-        <TextView
-            android:id="@+id/nearby_empty_message"
-            android:layout_width="256dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="@string/nearby_empty_message"
-            />
-    </LinearLayout>
-
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/nearby_refresh_container"
+    <FrameLayout
+        android:id="@+id/nearby_list_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="180dp">
         <ListView
             android:id="@+id/nearby_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:dividerHeight="0dp"
+            android:divider="@null"
             />
-    </android.support.v4.widget.SwipeRefreshLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="@drawable/toolbar_bottom_shadow"/>
+    </FrameLayout>
 
-</FrameLayout>
+</LinearLayout>
