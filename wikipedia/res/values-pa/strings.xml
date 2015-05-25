@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">ਜਦੋਂ ਕਰੈਸ਼ ਹੋਇਆ ਤਾਂ ਤੁਸੀਂ ਕੀ ਕਰ ਰਹੇ ਸੀ?</string>
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
   <string name="nav_item_history">ਅਤੀਤ</string>
-  <string name="error_network_error" fuzzy="true">ਨੈੱਟਵਰਕ ਤੱਕ ਨਹੀਂ ਪਹੁੰਚ ਸਕਿਆ :(</string>
+  <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ :(</string>
   <string name="search_network_error">ਨੈੱਟਵਰਕ \'ਚ ਦੋਸ਼। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਵਾਸਤੇ ਟਕੋਰੋ।</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
@@ -95,6 +95,7 @@
   <string name="saved_pages_empty_message">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਡਾਢੇ ਵਧੀਆ ਹੁੰਦੇ ਹਨ। ਉਹਨਾਂ ਨੂੰ ਅਜਿਹੇ ਨਿਸ਼ਾਨੀਆ ਕਾਗਜ਼ ਸਮਝੋ ਜਿਹਨਾਂ ਨੂੰ ਤੁਸੀਂ ਲੀਹੋਂ ਲਹਿ ਕੇ ਵੀ ਪੜ੍ਹ ਸਕਦੇ ਹੋ।</string>
   <string name="history_empty_title">ਇੱਥੇ ਕੋਈ ਹਾਲੀਆ ਵਰਕੇ ਨਹੀਂ!</string>
   <string name="history_empty_message">ਤੁਸੀਂ ਸ਼ਾਇਦ ਇਹ ਸਾਰੇ ਮਿਟਾ ਦਿੱਤੇ ਹਨ। ਅਗਲੀ ਵਾਰ ਜਦ ਤੁਸੀਂ ਕਿਸੇ ਸਫ਼ੇ \'ਤੇ ਜਾਉਂ ਤਾਂ ਤੁਸੀਂ ਇੱਥੋਂ ਉਹਦੇ ਤੱਕ ਪਰਤ ਸਕਦੇ ਹੋ।</string>
+  <string name="delete_selected_history">ਮਿਟਾਓ</string>
   <string name="wp_stylized">&lt;big&gt;ਵਿ&lt;/big&gt;ਕੀਪੀਡੀ&lt;big&gt;ਆ&lt;/big&gt;</string>
   <string name="wp_tag_line">ਮੁਫ਼ਤ ਗਿਆਨਕੋਸ਼</string>
   <string name="skip">ਛੱਡੋ</string>
@@ -214,4 +215,11 @@
 ਇਹਦਾ ਕੋਡ ਪੂਰੀ ਤਰ੍ਹਾਂ ਖੁੱਲ੍ਹੇ ਸਰੋਤ ਵਾਲ਼ਾ ਹੈ। ਜੇਕਰ ਤੁਹਾਡੇ ਕੋਲ਼ ਜਾਵਾ ਅਤੇ ਐਂਡਰਾਇਡ ਐੱਸ.ਡੀ.ਕੇ. ਦਾ ਤਜਰਬਾ ਹੈ ਤਾਂ ਆ ਕੇ ਸਾਡੇ ਨਾਲ਼ ਕੰਮ ਕਰੋ! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">ਨਵਾਂ ਐਲਫ਼ਾ ਨਵੀਨੀਕਰਨ ਮੌਜੂਦ ਹੈ</string>
   <string name="alpha_update_notification_text">ਉਤਾਰਨ ਵਾਸਤੇ ਟਕੋਰੋ</string>
+  <string name="dialog_close_description">ਬੰਦ ਕਰੋ</string>
+  <string name="preference_title_show_images">ਤਸਵੀਰਾਂ ਵੇਖੋ</string>
+  <string name="read_more_section">ਹੋਰ ਪੜ੍ਹੋ</string>
+  <string name="read_next_section">ਅੱਗੇ ਪੜ੍ਹੋ</string>
+  <string name="gallery_menu_more_info">ਹੋਰ ਜਾਣਕਾਰੀ</string>
+  <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>
+  <string name="gallery_share_error">ਤਸਵੀਰ ਸਾਂਝੀ ਨਹੀਂ ਹੋ ਸਕੀ: %s</string>
 </resources>

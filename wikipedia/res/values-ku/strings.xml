@@ -34,8 +34,11 @@
   <string name="nearby_distance_in_feet">%d fît</string>
   <string name="nearby_distance_in_miles">%.2f mîl</string>
   <string name="nearby_no_network">Xeta înternetê tune ye</string>
+  <string name="nearby_set_metric">Metreyan/km nîşan bide</string>
   <string name="preference_title_language">Zimanê Wîkîpediyayê</string>
   <string name="preference_languages_filter_hint">Lêgerîn</string>
+  <string name="preference_system_language_toggle">Zimanê sîstemê bi kar bîne</string>
+  <string name="preference_system_language_summary">Zimanê sîstemê</string>
   <string name="langlinks_filter_hint">Lêgerîn</string>
   <string name="menu_other_languages">Di zimanên din de bixwîne</string>
   <string name="langlinks_error_retry">Dîsa hewl bide</string>
@@ -49,6 +52,7 @@
   <string name="dialog_message_edit_failed_cancel">Betal bike</string>
   <string name="dialog_message_leaving_edit">Guhertinên te hê nihatine tomarkirin. Tu dixwazî ji vê rûpelê derkevî?</string>
   <string name="dialog_message_leaving_edit_leave">Jê derkeve</string>
+  <string name="dialog_message_leaving_edit_stay">Bimîne</string>
   <string name="menu_show_toc">Tabloya naverokê</string>
   <string name="search_no_results_found">Tu encam nehatin dîtin</string>
   <string name="title_captcha">CAPTCHAyê binivîse</string>
@@ -64,6 +68,7 @@
   <string name="preference_title_logout">Derkeve</string>
   <string name="preference_summary_logout">Ji hesabê xwe yê Wîkîpediyayê derkeve</string>
   <string name="saved_pages_empty_title">Li vir ti rûpelên tomarkirî tune ne!</string>
+  <string name="history_empty_title">Li vir rûpelên dawî tune ne!</string>
   <string name="delete_selected_history">Jê bibe</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;ÎKÎPEDI&lt;big&gt;YA&lt;/big&gt;</string>
   <string name="wp_tag_line">Ensîklopediya azad</string>
@@ -73,6 +78,10 @@
   <string name="create_account_password_repeat_hint">Şîfreyê dîsa binivîse</string>
   <string name="create_account_passwords_mismatch_error">Şîfre li hev nayên</string>
   <string name="create_account_username_exists_error">Navê bikarhêner niha tê bikaranîn</string>
+  <string name="create_account_open_proxy_error">Navnîşana te bo çêkirina hesaban hatiye astengkirin.</string>
+  <string name="create_account_blocked_anon_error">Tu nikarî hesabekî çêkî, ji ber ku navnîşana te ya IP hatiye astengkirin.</string>
+  <string name="create_account_blocked_error">Tu nikarî hesabekî çêkî, ji ber ku hesabê te hatiye astengkirin.</string>
+  <string name="create_account_password_name_match_error">Navê te yê bikarhêneriyê û şîfreya te divê ji hev cuda bin.</string>
   <string name="create_account_generic_error">Hesab nikarîbû were çêkirin</string>
   <string name="create_account_no_network">Xeta înternetê tune ye</string>
   <string name="create_account_next">Pêşve</string>
@@ -95,8 +104,11 @@
   <string name="privacy_policy_description">Siyaseta taybetîtiyê</string>
   <string name="terms_of_use_description">Mercên bikaranînê</string>
   <string name="about_translators_heading">wergêr</string>
+  <string name="about_activity_title">Derbarê</string>
   <string name="edit_done">Tomar bike</string>
   <string name="edit_preview">Pêşdîtin</string>
+  <string name="edit_summary_tag_links">Girêdan lê hatin zêdekirin</string>
+  <string name="edit_summary_tag_other">Yên din</string>
   <string name="saved_pages_update_all_error_retry">Dîsa hewl bide</string>
   <string name="saved_pages_refresh_pages_complete">Rojanekirin bi dawî bû</string>
   <string name="menu_page_saved">Rûpel hate tomarkirin</string>
@@ -104,6 +116,7 @@
   <string name="dialog_page_issues">Pirsgirêkên rûpelê</string>
   <string name="button_page_issues">Pirsgirêkên rûpelê</string>
   <string name="text_size_select">Mezinahiya tîpan</string>
+  <string name="color_theme_dark">Tarî</string>
   <string name="search_did_you_mean">Mebesta te \"%s\" bû?</string>
   <string name="table_other">Zêdetir agahî</string>
   <string name="table_close">Bigre</string>
@@ -114,6 +127,7 @@
   <string name="gallery_menu_more_info">Zêdetir agahî</string>
   <string name="gallery_image_info">Agahiyên wêneyê</string>
   <string name="gallery_menu_share">Parve bike</string>
+  <string name="gallery_save_success">Wêne bi awayekî serkeftî hate tomarkirin.</string>
   <string name="share_snippet_button">Wek wêne parve bike</string>
   <string name="share_normal_button">Wek nivîs parve bike</string>
   <string name="cc_logo">Lîsansa Creative Commonsê</string>

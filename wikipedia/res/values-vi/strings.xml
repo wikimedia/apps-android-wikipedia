@@ -86,6 +86,7 @@
   <string name="login_in_progress_dialog_message">Đang đăng nhập bạn vào…</string>
   <string name="login_error_wrong_password">Sai mật khẩu</string>
   <string name="login_error_wrong_username">Sai tên người dùng</string>
+  <string name="login_error_illegal">Tên người dùng không hợp lệ</string>
   <string name="login_success_toast">Đã đăng nhập thành công!</string>
   <string name="login_error_blocked">Người dùng này đã bị cấm</string>
   <string name="login_error_throttled">Đã thử đăng nhập quá nhiều lần. Hãy chờ vài phút rồi thử lại.</string>

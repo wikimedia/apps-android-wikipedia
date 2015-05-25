@@ -56,6 +56,8 @@
   <string name="edit_save_action_license_anon">Salvando, accetti le nostre &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/it\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt;. Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt; avrai maggiore privacy.</string>
   <string name="preference_title_language">Lingua di Wikipedia</string>
   <string name="preference_languages_filter_hint">Ricerca</string>
+  <string name="preference_system_language_toggle">Usa lingua del sistema</string>
+  <string name="preference_system_language_summary">Lingua di sistema</string>
   <string name="langlinks_filter_hint">Cerca</string>
   <string name="menu_other_languages">Leggi in altre lingue</string>
   <string name="langlinks_error_retry">Riprova</string>
@@ -222,7 +224,7 @@
   <string name="widget_name_featured_page">Pagina di Wikipedia in primo piano</string>
   <string name="widget_title_featured_page">Pagina di oggi in primo piano:</string>
   <string name="widget_name_search">Ricerca di Wikipedia</string>
-  <string name="app_store_description" fuzzy="true">App ufficiale di Wikipedia per Android.
+  <string name="app_store_description">App ufficiale di Wikipedia per Android.
 Wikipedia è l\'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l\'opera di consultazione più completa e più diffusa che l\'uomo abbia mai compilato.
 
 Caratteristiche:

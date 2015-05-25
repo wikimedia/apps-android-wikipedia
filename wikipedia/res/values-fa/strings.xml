@@ -56,6 +56,8 @@
   <string name="edit_save_action_license_anon">با ذخیره‌کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید. ویرایش‌ها به نشانی آی‌پی دستگاه‌تان نسبت داده خواهد شد. اگر &lt;a href=\"https://#login\"&gt;وارد شوید&lt;/a&gt;، حریم خصوصی بیشتری دارید.</string>
   <string name="preference_title_language">زبان</string>
   <string name="preference_languages_filter_hint">جستجو</string>
+  <string name="preference_system_language_toggle">از زبان سامانه</string>
+  <string name="preference_system_language_summary">زبان سامانه</string>
   <string name="langlinks_filter_hint">جستجو</string>
   <string name="menu_other_languages">به زبان‌های دیگر مطالعه کنید.</string>
   <string name="langlinks_error_retry">سعی مجدد</string>

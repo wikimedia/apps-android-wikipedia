@@ -56,6 +56,8 @@
   <string name="edit_save_action_license_anon">Al guardar, aceptas los &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Las ediciones se atribuirán a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt;, tendrás más privacidad.</string>
   <string name="preference_title_language">Idioma de Wikipedia</string>
   <string name="preference_languages_filter_hint">Buscar</string>
+  <string name="preference_system_language_toggle">Usar el idioma del sistema</string>
+  <string name="preference_system_language_summary">Idioma del sistema</string>
   <string name="langlinks_filter_hint">Buscar</string>
   <string name="menu_other_languages">Leer en otros idiomas</string>
   <string name="langlinks_error_retry">Reintentar</string>
@@ -92,7 +94,7 @@
   <string name="login_success_toast">Se inició la sesión correctamente</string>
   <string name="login_error_blocked">Este usuario ha sido bloqueado</string>
   <string name="login_error_throttled">Demasiados intentos de inicio de sesión. Espera unos minutos y vuelve a intentarlo</string>
-  <string name="login_error_unknown">¡Inicio de sesión fallido!</string>
+  <string name="login_error_unknown">Falló el acceso :(</string>
   <string name="login_error_no_network">No hay conexión de red</string>
   <string name="preference_title_logout">Salir</string>
   <string name="preference_summary_logout">Cerrar sesión de tu cuenta de Wikipedia</string>
@@ -137,12 +139,12 @@
   <string name="zero_warn_when_leaving_summary">Si tu operadora de telefonía móvil ha decidido no cobrar el acceso de datos desde la aplicación de Wikipedia mediante un acuerdo con Wikipedia Zero, deja esta opción activada para que te notifiquemos al salir de la aplicación de Wikipedia y evitar cobros no deseados.</string>
   <string name="zero_webpage_title">Preguntas frecuentes de Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">Dejando Wikipedia Zero</string>
+  <string name="zero_interstitial_title">A punto de salir de Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Pueden aplicarse cargos por datos. ¿Continuar a sitio externo?</string>
   <string name="zero_interstitial_continue">Salir</string>
   <string name="zero_interstitial_cancel">Permanecer aquí</string>
   <string name="zero_learn_more">Esta aplicación de Wikipedia está exenta de cargos por uso de datos.</string>
-  <string name="zero_learn_more_learn_more">Leer más</string>
+  <string name="zero_learn_more_learn_more">Más información</string>
   <string name="zero_learn_more_dismiss">Descartar</string>
   <string name="edit_preview_fetching_dialog_message">Procesando la previsualización…</string>
   <string name="send_feedback">Enviar comentarios sobre la aplicación</string>
@@ -261,8 +263,8 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="gallery_save_error_mediastore">No se pudo importar la imagen a la colección de medios</string>
   <string name="gallery_save_success">Imagen guardada correctamente.</string>
   <string name="gallery_error_video_failed">No se pudo reproducir el vídeo.</string>
-  <string name="err_cannot_save_file">No puede guardar el archivo</string>
-  <string name="snippet_share_intro">\"%1$s\" en @Wikipedia: %2$s</string>
+  <string name="err_cannot_save_file">No se puede guardar el archivo</string>
+  <string name="snippet_share_intro">«%1$s» en @Wikipedia: %2$s</string>
   <string name="expand_refs">Pulsa para ampliar</string>
   <string name="share_snippet_button">Compartir como imagen</string>
   <string name="share_normal_button">Compartir como texto</string>

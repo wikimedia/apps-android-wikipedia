@@ -56,6 +56,8 @@
   <string name="edit_save_action_license_anon">Kaydederek, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
   <string name="preference_title_language">Vikipedi dili</string>
   <string name="preference_languages_filter_hint">Ara</string>
+  <string name="preference_system_language_toggle">Sistem dilini kullan</string>
+  <string name="preference_system_language_summary">Sistem dili</string>
   <string name="langlinks_filter_hint">Ara</string>
   <string name="menu_other_languages">Başka dilde oku</string>
   <string name="langlinks_error_retry">Tekrar dene</string>

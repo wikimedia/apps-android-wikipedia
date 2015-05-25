@@ -10,8 +10,9 @@
   <string name="acra_report_dialog_comment">പ്രശ്നമുണ്ടായപ്പോൾ താങ്കൾ എന്തുചെയ്യുകയായിരുന്നു?</string>
   <string name="search_hint">വിക്കിപീഡിയയിൽ തിരയുക</string>
   <string name="nav_item_history">നാൾവഴി</string>
-  <string name="error_network_error" fuzzy="true">നെറ്റ്‌വർക്ക് എടുക്കാൻ കഴിയുന്നില്ല :(</string>
+  <string name="error_network_error">നെറ്റ്‌വർക്ക് ബന്ധം ഇല്ല :(</string>
   <string name="search_network_error">നെറ്റ്‌വർക്ക് പിഴവ്. വീണ്ടും ശ്രമിക്കാൻ ടാപ് ചെയ്യുക.</string>
+  <string name="status_code_unavailable">സെർവറിന്റെ സ്ഥിതിയുടെ കോഡ് ലഭ്യമല്ല.</string>
   <string name="page_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="menu_clear_all_history">നാൾവഴി ശൂന്യമാക്കുക</string>
   <string name="menu_clear_all_saved_pages">സേവ് ചെയ്ത താളുകൾ ഒഴിവാക്കുക</string>
@@ -33,11 +34,26 @@
   <string name="delete_selected_saved_pages">മായ്ക്കുക</string>
   <string name="toast_saved_page_deleted">സേവ് ചെയ്ത താൾ (താളുകൾ) മായ്ച്ചു</string>
   <string name="saved_pages_search_list_hint">തിരയുക</string>
-  <string name="saved_pages_search_empty_message" fuzzy="true">\"%s\" എന്നതിനോടു യോജിക്കുന്ന താളുകളൊന്നും കണ്ടെത്താനായില്ല</string>
+  <string name="saved_pages_search_empty_message">താങ്കൾ തിരഞ്ഞതിനോടു യോജിക്കുന്ന താളുകളൊന്നും കണ്ടെത്താനായില്ല</string>
+  <string name="nav_item_nearby">സമീപസ്ഥം</string>
+  <string name="menu_update_nearby">സമീപസ്ഥമുള്ളവ പുതുക്കുക</string>
+  <string name="nearby_empty_title">സമീപസ്ഥ കാര്യങ്ങളെക്കുറിച്ച് താളുകളൊന്നുമില്ല!</string>
+  <string name="nearby_empty_message">പുതിയ സ്ഥലത്തേക്ക് താങ്കൾ പോവുകയാണെങ്കിൽ, താങ്കളുടെ അടുത്തുള്ള കാര്യങ്ങൾ എന്തൊക്കെയാണെന്ന് പഠിക്കാൻ താൾ പുതുക്കുക.</string>
+  <string name="nearby_distance_in_meters">%d മീ</string>
+  <string name="nearby_distance_in_kilometers">%.2f കി.മീ.</string>
+  <string name="nearby_distance_in_feet">%d അടി</string>
+  <string name="nearby_distance_in_miles">%.2f മൈൽ</string>
+  <string name="nearby_no_network">നെറ്റ്‌വർക്ക് ബന്ധം ഇല്ല</string>
+  <string name="nearby_server_error">അടുത്തുള്ള സ്ഥലങ്ങളുടെ പട്ടിക എടുക്കാൻ കഴിഞ്ഞില്ല.</string>
+  <string name="nearby_set_metric">മീറ്ററുകൾ/കി.മീ. പ്രദർശിപ്പിക്കുക</string>
+  <string name="nearby_set_imperial">അടി/മൈൽസ് പ്രദർശിപ്പിക്കുക</string>
+  <string name="nearby_view_on_map">ഭൂപടത്തിൽ സ്ഥലങ്ങൾ കാണുക</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %1$s</string>
   <string name="content_license_html">മറ്റുവിധത്തിൽ കുറിച്ചിട്ടില്ലെങ്കിൽ ഉള്ളടക്കം &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം</string>
   <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷ</string>
   <string name="preference_languages_filter_hint">തിരയുക</string>
+  <string name="preference_system_language_toggle">സിസ്റ്റം ഭാഷ ഉപയോഗിക്കുക</string>
+  <string name="preference_system_language_summary">സിസ്റ്റം ഭാഷ</string>
   <string name="langlinks_filter_hint">തിരയുക</string>
   <string name="menu_other_languages">മറ്റു ഭാഷകളിൽ വായിക്കുക</string>
   <string name="langlinks_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
@@ -50,6 +66,7 @@
   <string name="dialog_message_edit_failed">തിരുത്ത് പരാജയപ്പെട്ടു!</string>
   <string name="dialog_message_edit_failed_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="dialog_message_edit_failed_cancel">റദ്ദാക്കുക</string>
+  <string name="dialog_message_leaving_edit_leave">പോവുക</string>
   <string name="menu_show_toc">ഉള്ളടക്കപ്പട്ടിക</string>
   <string name="search_no_results_found">ഫലങ്ങളൊന്നും കണ്ടെത്താനായില്ല</string>
   <string name="edit_section_captcha_message">സ്വയം പ്രവർത്തിക്കുന്ന പാഴെഴുത്ത് സംവിധാനങ്ങളിൽ നിന്നുമുള്ള സംരക്ഷണത്തിനായി, താഴെ പ്രത്യക്ഷപ്പെടുന്ന വാക്കുകൾ എഴുതി നൽകുക</string>
@@ -66,6 +83,7 @@
   <string name="login_in_progress_dialog_message">താങ്കളെ പ്രവേശിപ്പിക്കുന്നു…</string>
   <string name="login_error_wrong_password">തെറ്റായ രഹസ്യവാക്ക്</string>
   <string name="login_error_wrong_username">തെറ്റായ ഉപയോക്തൃനാമം</string>
+  <string name="login_error_illegal">അസാധുവായ ഉപയോക്തൃനാമം</string>
   <string name="login_success_toast">പ്രവേശനം വിജയകരം!</string>
   <string name="login_error_blocked">ഈ ഉപയോക്താവ് തടയപ്പെട്ടിരിക്കുന്നു</string>
   <string name="login_error_throttled">പ്രവേശിക്കാനായി നിരവധി ശ്രമങ്ങൾ നടത്തിയിരിക്കുന്നു. ഏതാനം മിനിറ്റുകൾ കാത്തിരുന്ന ശേഷം വീണ്ടും ശ്രമിക്കുക.</string>
@@ -77,6 +95,9 @@
   <string name="toast_logout_complete">പുറത്തുകടന്നു</string>
   <string name="saved_pages_empty_message" fuzzy="true">താളുകളൊന്നും സേവ് ചെയ്തിട്ടില്ല.</string>
   <string name="history_empty_message" fuzzy="true">താങ്കളുടെ ഉപയോഗത്തിന്റെ നാൾവഴി ശൂന്യമാണ്.</string>
+  <string name="delete_selected_history">മായ്ക്കുക</string>
+  <string name="wp_tag_line">സ്വതന്ത്ര വിജ്ഞാനകോശം</string>
+  <string name="skip">കടക്കുക</string>
   <string name="create_account_username_hint">ഉപയോക്തൃനാമം</string>
   <string name="create_account_password_hint">രഹസ്യവാക്ക്</string>
   <string name="login_create_account_link">അംഗത്വമില്ലേ? വിക്കിപീഡിയയിൽ ചേരുക</string>
@@ -129,8 +150,11 @@
   <string name="more_item_preferences">കൂടുതൽ</string>
   <string name="more_activity_title">കൂടുതൽ</string>
   <string name="about_description">വിക്കിപീഡിയ ആപിന്റെ വിവരണം</string>
+  <string name="privacy_policy_description">സ്വകാര്യതാനയം</string>
+  <string name="terms_of_use_description">ഉപയോഗനിബന്ധനകൾ</string>
   <string name="about_libraries_heading">ഉപയോഗിച്ചിട്ടുള്ള ലൈബ്രറികൾ</string>
   <string name="about_contributors_heading">സംഭാവകർ</string>
+  <string name="about_translators_heading">പരിഭാഷകർ</string>
   <string name="about_wmf">ഒരു &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;വിക്കിമീഡിയ ഫൗണ്ടേഷൻ&lt;/a&gt; ഉത്പന്നം</string>
   <string name="about_activity_title">വിവരണം</string>
   <string name="edit_abandon_confirm">താളിൽ മാറ്റങ്ങളുണ്ട്. താങ്കൾ വരുത്തിയ മാറ്റങ്ങൾ സേവ് ചെയ്യാതെ പുറത്ത് പോകണം എന്നുറപ്പാണോ?</string>

@@ -49,6 +49,7 @@
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="preference_title_language">Język Wikipedii</string>
   <string name="preference_languages_filter_hint">Szukaj</string>
+  <string name="preference_system_language_summary">Język systemowy</string>
   <string name="langlinks_filter_hint">Szukaj</string>
   <string name="menu_other_languages">Czytaj w innych językach</string>
   <string name="langlinks_error_retry">Ponów próbę</string>

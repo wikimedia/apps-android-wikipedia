@@ -12,6 +12,7 @@
   <string name="nav_item_history">Versiounen</string>
   <string name="error_network_error">Et gëtt keng Verbindung mam Reseau :(</string>
   <string name="search_network_error">Feeler vum Reseau. Tippt fir nach eng Kéier ze probéieren.</string>
+  <string name="generic_page_error">Et gouf e Problem beim Verschaffe vun Ärer Ufro.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
   <string name="menu_clear_all_history">Historique läschen</string>
   <string name="menu_clear_all_saved_pages">Gespäichert Säite läschen</string>
@@ -52,6 +53,8 @@
   <string name="edit_save_action_license_logged_in">Mam Späichere sidd Dir mat den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt;.</string>
   <string name="preference_title_language">Wikipedia-Sprooch</string>
   <string name="preference_languages_filter_hint">Sichen</string>
+  <string name="preference_system_language_toggle">Benotzt d\'Systemsprooch</string>
+  <string name="preference_system_language_summary">Systemsprooch</string>
   <string name="langlinks_filter_hint">Sichen</string>
   <string name="menu_other_languages">An anere Sprooche liesen</string>
   <string name="langlinks_error_retry">Nach eng Kéier probéieren</string>
@@ -164,6 +167,7 @@
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
+  <string name="about_contributors_heading">Auteuren</string>
   <string name="about_translators_heading">Iwwersetzer</string>
   <string name="about_translators_translatewiki">Dës App gouf vun de fräiwëllegen Iwwersetzer op &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; iwwersat.</string>
   <string name="about_wmf">E Produkt vun der &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
@@ -225,6 +229,7 @@
   <string name="license_title">Lizenztext fir d\'Bibliothek %s</string>
   <string name="gallery_image_info">Informatioun iwwert d\'Bild</string>
   <string name="gallery_menu_share">Deelen</string>
+  <string name="gallery_share_error">Bild konnt net gedeelt ginn: %s</string>
   <string name="gallery_menu_save">Um Apparat späicheren</string>
   <string name="gallery_save_error">Bild konnt net gespspäichert ginn: %s</string>
   <string name="gallery_save_success">Bild gespäichert.</string>

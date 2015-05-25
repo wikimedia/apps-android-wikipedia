@@ -11,7 +11,9 @@
   <string name="search_hint">Hľadať</string>
   <string name="nav_item_history">História</string>
   <string name="error_network_error">Nie ste pripojení na sieť :(</string>
-  <string name="search_network_error">Problém so sieťou. Ťuknutím to skúsite znova.</string>
+  <string name="search_network_error">Problém so sieťou. Ťuknutím to skúste znova.</string>
+  <string name="generic_page_error">Pri spracovaní vašej žiadosti sa vyskytol problém.</string>
+  <string name="status_code_unavailable">Status kód servera je nedostupný.</string>
   <string name="page_error_retry">Obnoviť</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
   <string name="menu_clear_all_saved_pages">Vymazať uložené stránky</string>
@@ -26,10 +28,10 @@
   <string name="menu_share_page">Zdieľať</string>
   <string name="share_via">Zdieľať cez</string>
   <string name="dialog_title_clear_saved_pages">Vymazať všetky uložené stránky?</string>
-  <string name="toast_saving_page">Ukladanie stránky…</string>
+  <string name="toast_saving_page">Ukladám stránku…</string>
   <string name="toast_saved_page">Stránka bola úspešne uložená</string>
   <string name="toast_saved_page_missing_images">Nepodarilo sa uložiť všetky obrázky</string>
-  <string name="toast_refresh_saved_page">Aktualizácia uloženej stránky …</string>
+  <string name="toast_refresh_saved_page">Aktualizujem uloženú stránku…</string>
   <string name="delete_selected_saved_pages">Zmazať</string>
   <string name="toast_saved_page_deleted">Uložené stránky boli odstránené</string>
   <string name="saved_pages_search_list_hint">Hľadať</string>
@@ -63,13 +65,13 @@
   <string name="menu_save_changes">Uložiť zmeny</string>
   <string name="edit_section_error_retry">Obnoviť</string>
   <string name="dialog_saving_in_progress">Ukladanie…</string>
-  <string name="edit_saved_successfully">Úprava uložená</string>
+  <string name="edit_saved_successfully">Úprava uložená!</string>
   <string name="dialog_message_edit_failed">Úprava zlyhala!</string>
   <string name="dialog_message_edit_failed_retry">Znova</string>
   <string name="dialog_message_edit_failed_cancel">Zrušiť</string>
   <string name="dialog_message_leaving_edit">Vaše úpravy ešte neboli uložené. Prajete si opustiť túto stránku bez uloženia úprav?</string>
   <string name="dialog_message_leaving_edit_leave">Opustiť</string>
-  <string name="dialog_message_leaving_edit_stay">Zostať na stránke</string>
+  <string name="dialog_message_leaving_edit_stay">Zostať</string>
   <string name="menu_show_toc">Obsah</string>
   <string name="search_no_results_found">Neboli nájdené žiadne výsledky</string>
   <string name="edit_section_captcha_message">Kvôli ochrane pred automatizovaným spamom, prosím zadajte slová ktoré sa objavujú nižšie.</string>
@@ -238,6 +240,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="preference_title_show_images">Zobraziť obrázky</string>
   <string name="preference_summary_show_images">Zapni alebo vypni načítavanie obrázkov na stránkach. Odškrtni toto nastavenie, ak je internetové pripojenie pomalé alebo máš obmedzený dátový transfer.</string>
   <string name="read_more_section">Prečítajte si viac</string>
+  <string name="read_next_section">Čítať ďalej</string>
   <string name="gallery_menu_more_info">Viac informácií</string>
   <string name="menu_gallery_visit_page">Prejdite na stránku súboru</string>
   <string name="gallery_error_draw_failed">Obrázok nebolo možné nakresliť.</string>
@@ -247,8 +250,18 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="gallery_share_error">Obrázok nebolo možné zdielať: %s</string>
   <string name="gallery_menu_save">Uložiť v zariadení</string>
   <string name="gallery_save_error">Obrázok nebolo možné uložiť: %s</string>
+  <string name="gallery_save_error_mediastore">Nepodarilo sa importovať obrázok do kolekcie médií</string>
   <string name="gallery_save_success">Obrázok bol úspešne uložený.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
   <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>
+  <string name="snippet_share_intro">\"%1$s\" na @Wikipédia: %2$s</string>
   <string name="expand_refs">Ťuknutím rozšírite</string>
+  <string name="share_snippet_button">Zdieľať ako obrázok</string>
+  <string name="share_normal_button">Zdieľať ako text</string>
+  <string name="snippet_share_preview_image_desc">Náhľad obrázka</string>
+  <string name="cc_logo">Licencia Creative Commons</string>
+  <string name="captcha_image">Captcha obrázok</string>
+  <string name="gallery_fair_use_license">Férové použitie</string>
+  <string name="gallery_uploader_unknown">Uploader neznámy</string>
+  <string name="edit_save_unknown_error">Nedá sa uložiť vaša úprava: %s</string>
 </resources>

@@ -12,8 +12,8 @@
   <string name="nav_item_history">歷史</string>
   <string name="error_network_error">無網路連線 :(</string>
   <string name="search_network_error">網路錯誤。點選重試。</string>
-  <string name="generic_page_error">處理您的請求時出錯</string>
-  <string name="status_code_unavailable">無法使用伺服器狀態代碼</string>
+  <string name="generic_page_error">在處理您的請求時出現問題。</string>
+  <string name="status_code_unavailable">無法使用伺服器狀態碼</string>
   <string name="page_error_retry">重試</string>
   <string name="menu_clear_all_history">清除歷史</string>
   <string name="menu_clear_all_saved_pages">清除已儲存的頁面</string>
@@ -56,6 +56,8 @@
   <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href= \"https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="preference_languages_filter_hint">搜尋</string>
+  <string name="preference_system_language_toggle">使用系統語言</string>
+  <string name="preference_system_language_summary">系統語言</string>
   <string name="langlinks_filter_hint">搜尋</string>
   <string name="menu_other_languages">閱讀其他語言</string>
   <string name="langlinks_error_retry">重試</string>

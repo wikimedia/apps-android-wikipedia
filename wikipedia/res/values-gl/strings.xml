@@ -56,6 +56,8 @@
   <string name="edit_save_action_license_anon">Ao gardar, acepta os &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/gl\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.gl\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edicións atribuiránselle ao enderezo IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;accede ao sistema&lt;/a&gt; terá un maior anonimato.</string>
   <string name="preference_title_language">Lingua da Wikipedia</string>
   <string name="preference_languages_filter_hint">Procurar</string>
+  <string name="preference_system_language_toggle">Usar o idioma do sistema</string>
+  <string name="preference_system_language_summary">Lingua do sistema</string>
   <string name="langlinks_filter_hint">Procurar</string>
   <string name="menu_other_languages">Ler noutras linguas</string>
   <string name="langlinks_error_retry">Reintentar</string>

@@ -12,6 +12,8 @@
   <string name="nav_item_history">ইতিহাস</string>
   <string name="error_network_error">এখানে কোন নেটওয়ার্ক সংযোগ নেই :(</string>
   <string name="search_network_error">নেটওয়ার্ক ত্রুটি। পুনরায় চেষ্টা করুন।</string>
+  <string name="generic_page_error">আপনার অনুরোধ পরিচালনার সময় একটি ত্রুটি ঘটেছে।</string>
+  <string name="status_code_unavailable">সার্ভারের অবস্থা কোড অনুপলব্ধ।</string>
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
   <string name="menu_clear_all_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার কর</string>
@@ -86,6 +88,7 @@
   <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন…</string>
   <string name="login_error_wrong_password">ভুল পাসওয়ার্ড</string>
   <string name="login_error_wrong_username">ভুল ব্যবহারকারী নাম</string>
+  <string name="login_error_illegal">অগ্রহণযোগ্য ব্যবহারকারী নাম</string>
   <string name="login_success_toast">প্রবেশ সফল!</string>
   <string name="login_error_blocked">এই ব্যবহারকারীকে ব্লক করা হয়েছে</string>
   <string name="login_error_throttled">অনেকবার প্রবেশের চেষ্টা করা হয়েছে। কয়েক মিনিট অপেক্ষা করে আবার চেষ্টা করুন।</string>

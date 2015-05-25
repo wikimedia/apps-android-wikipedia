@@ -12,7 +12,9 @@
   <string name="nav_item_history">Histórico</string>
   <string name="error_network_error">Não existem redes disponíveis :(</string>
   <string name="search_network_error">Erro de rede. Toque para tentar de novo.</string>
-  <string name="page_error_retry">Tente novamente</string>
+  <string name="generic_page_error">Ocorreu um problema ao tratar do seu pedido.</string>
+  <string name="status_code_unavailable">Código de estado de servidor indisponível.</string>
+  <string name="page_error_retry">Tentar novamente</string>
   <string name="menu_clear_all_history">Limpar histórico</string>
   <string name="menu_clear_all_saved_pages">Apagar páginas guardadas</string>
   <string name="page_does_not_exist_error">Esta página não existe.</string>
@@ -54,6 +56,8 @@
   <string name="edit_save_action_license_anon">Ao gravar, concorda com as &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. O seu endereço de IP estará visível nas edições do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar sessão&lt;/a&gt;, terá mais privacidade.</string>
   <string name="preference_title_language">Idioma da Wikipédia</string>
   <string name="preference_languages_filter_hint">Pesquisar</string>
+  <string name="preference_system_language_toggle">Usar idioma do sistema</string>
+  <string name="preference_system_language_summary">Idioma do sistema</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
   <string name="menu_other_languages">Ler noutros idiomas</string>
   <string name="langlinks_error_retry">Tentar novamente</string>

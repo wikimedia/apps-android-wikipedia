@@ -191,6 +191,7 @@
   <string name="table_infobox">სწრაფი ფაქტები</string>
   <string name="table_other">მეტი ინფორმაცია</string>
   <string name="table_close">დახურვა</string>
+  <string name="widget_name_featured_page">ვიკიპედიის რჩეული გვერდი</string>
   <string name="widget_title_featured_page">დღის რჩეული გვერდი:</string>
   <string name="widget_name_search">ვიკიპედიაში ძიება</string>
   <string name="alpha_update_notification_title">ახალი ალფა განახლება ხელმისაწვდომია</string>
@@ -217,4 +218,8 @@
   <string name="share_normal_button">ტექსტად გაზიარება</string>
   <string name="snippet_share_preview_image_desc">სურათის წინასწარ გადახედვა</string>
   <string name="cc_logo">Creative Commons ლიცენზია</string>
+  <string name="captcha_image">Captcha-ს სურათი</string>
+  <string name="gallery_fair_use_license">კეთილსინდისიერი გამოყენება</string>
+  <string name="gallery_uploader_unknown">ამტვირთველი უცნობია</string>
+  <string name="edit_save_unknown_error">თქვენი რედაქტირების შენახვა ვერ მოხერხდა: %s</string>
 </resources>

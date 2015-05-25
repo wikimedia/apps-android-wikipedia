@@ -12,6 +12,8 @@
   <string name="nav_item_history">Geschiedenis</string>
   <string name="error_network_error">Er is geen netwerkverbinding :(</string>
   <string name="search_network_error">Netwerkfout. Klik om het opnieuw te proberen.</string>
+  <string name="generic_page_error">Er is een probleem opgetreden tijdens het afhandelen van uw verzoek.</string>
+  <string name="status_code_unavailable">Serverstatuscode niet beschikbaar.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
   <string name="menu_clear_all_saved_pages">Opgeslagen pagina\'s verwijderen</string>
@@ -54,6 +56,8 @@
   <string name="edit_save_action_license_anon">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, heeft u meer privacy.</string>
   <string name="preference_title_language">Wikipediataal</string>
   <string name="preference_languages_filter_hint">Zoeken</string>
+  <string name="preference_system_language_toggle">Systeemtaal gebruiken</string>
+  <string name="preference_system_language_summary">Systeemtaal</string>
   <string name="langlinks_filter_hint">Zoeken</string>
   <string name="menu_other_languages">In een andere taal lezen</string>
   <string name="langlinks_error_retry">Opnieuw proberen</string>
@@ -220,17 +224,26 @@
   <string name="widget_name_featured_page">Uitgelichte pagina op Wikipedia</string>
   <string name="widget_title_featured_page">Vandaag uitgelicht:</string>
   <string name="widget_name_search">Zoeken op Wikipedia</string>
-  <string name="app_store_description" fuzzy="true">Officiële Wikipedia-app voor Android. Wikipedia is de vrije encylopedie met meer dan 31 miljoen artikelen in 280 talen, en de meest uitgebreide en meest gebruikte bron gemaakt door de mens. De app is vanaf de grond opnieuw opgebouwd en is beter dan ooit te voren.
+  <string name="app_store_description">De officiële app voor Wikipedia voor Android. Wikipedia is de vrij encyclopedie die meer dan 32 miljoen pagina\'s in 280 talen bevat, en het is de meest uitgebreide en het meest gebruikte referentiewerk dat mensen ooit gemaakt hebben.
 
-Functies:
-   - Snelheid: onze nieuwe native app zorgt voor een snellere app dan ooit te voren, waarmee u nog sneller kunt verkennen en bewerken.
-   - Bewerken: U kan Wikipedia bewerken! Met of zonder gebruiker, we zijn blij met al uw bijdragen!
-   - Recente pagina\'s: we bieden een overzicht van recent gelezen pagina\'s aan, waardoor u zoveel mogelijk kunt doorklikken zonder de weg kwijt te raken.
-   - Delen: gebruik uw bestaande apps voor sociale media om de menselijke kennis te delen.
-   - Meertalig: de app biedt makkelijke toegang tot Wikipedia in elke taal.
-   - Wikipedia Zero: Wikipedia bezoeken zonder kosten bij geselecteerde mobiele provides.
+Mogelijkheden:
+- Beginafbeeldingen: ervaar Wikipedia als nooit tevoren met een prominente, contextrelevante afbeelding en beschrijving bovenaan pagina\'s
+- Afbeeldingengalerij: door te klikken op een afbeelding wordt deze in hoge resolutie op het volledige scherm weergegeven, met de mogelijkheid om naar links en rechts te vegen voor extra afbeeldingen
+- Beschrijvingen van Wikidata: tijdens het zoeken, bevat ieder resultaat nu een snelle beschrijving die help bij het begrijpen van het resultaat. Deze beschrijvingen worden ook weergegeven in andere delen van de app, zoals bij In de buurt
+- Paginasuggesties: ga naar het einde van een pagina om suggesties te zien over wat u daarna kunt lezen
+- Opgeslagen pagina\'s: sla geselecteerde pagina\'s op om deze later offline te lezen en bekijk ze zelfs als u geen dataverbinding hebt
+- In de buurt: leer meer over wat er bij u in de buurt is door tips te krijgen over pagina\'s over dingen die dichtbij uw huidige locatie zijn
+- Taalondersteuning: naadloos overschakelen naar een Wikipedia in een andere taal
+- Inhoudsopgave: veeg in een pagina naar links om de inhoudsopgave weer te geven, van waar u eenvoudig naar alle delen van een pagina kunt springen
+- Wikipedia Zero: geen kosten voor data voor providers die aan dit programma deelnemen
 
-De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK, fork ons dan! https://github.com/wikimedia/apps-android-wikipedia</string>
+Stuur ons uw terugkoppeling over de app! Klik in het menu op \"Meer\" en daarna op \"Over de Wikipedia app\", daarna op \"Terugkoppeling over app geven\".
+
+De programmacode is 100% open source. Als u ervaring hebt met Java en de Android SDK, dan zien we graag uw bijdragen tegemoet! https://github.com/wikimedia/apps-android-wikipedia
+
+Privacybeleid: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Nieuwe alpha-update beschikbaar</string>
   <string name="alpha_update_notification_text">Tik om te downloaden</string>
   <string name="dialog_close_description">Sluiten</string>
@@ -260,4 +273,5 @@ De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK,
   <string name="captcha_image">Captcha afbeelding</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Uploader onbekend</string>
+  <string name="edit_save_unknown_error">Uw bewerking kon niet opgeslagen worden: %s</string>
 </resources>

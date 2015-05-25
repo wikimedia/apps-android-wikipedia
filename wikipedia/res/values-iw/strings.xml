@@ -56,6 +56,8 @@
   <string name="edit_save_action_license_anon">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
   <string name="preference_title_language">שפת הוויקיפדיה</string>
   <string name="preference_languages_filter_hint">חיפוש</string>
+  <string name="preference_system_language_toggle">להשתמש בשפת המערכת</string>
+  <string name="preference_system_language_summary">שפת המערכת</string>
   <string name="langlinks_filter_hint">חיפוש</string>
   <string name="menu_other_languages">לקרוא בשפות אחרות</string>
   <string name="langlinks_error_retry">לנסות שוב</string>

@@ -56,6 +56,8 @@
   <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru условиями использования\"&gt; &lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуетесь&lt;/a&gt;, то сможете иметь более высокий уровень конфиденциальности.</string>
   <string name="preference_title_language">Язык Википедии</string>
   <string name="preference_languages_filter_hint">Найти</string>
+  <string name="preference_system_language_toggle">Использовать системный язык</string>
+  <string name="preference_system_language_summary">Системный язык</string>
   <string name="langlinks_filter_hint">Поиск</string>
   <string name="menu_other_languages">Читать на других языках</string>
   <string name="langlinks_error_retry">Повторить</string>

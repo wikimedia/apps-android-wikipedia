@@ -84,7 +84,7 @@ See also:
   <string name="preference_languages_filter_hint">Placeholder text for the textbox that when typed filters list of language wikipedias from which user can pick a language to use.
 {{Identical|Search}}</string>
   <string name="preference_system_language_toggle">Indicates that the app will match the language used by the Android device.</string>
-  <string name="preference_system_language_summary">The localized name for "system language." This text is used to indicate that the app language will match whatever language the Android device is using.</string>
+  <string name="preference_system_language_summary">The localized name for \"system language.\" This text is used to indicate that the app language will match whatever language the Android device is using.</string>
   <string name="langlinks_filter_hint">{{Identical|Search}}</string>
   <string name="menu_other_languages">Menu item for showing list of languages in which this article is available.
 {{Identical|Otherlanguages}}</string>

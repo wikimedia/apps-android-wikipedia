@@ -56,6 +56,8 @@
   <string name="edit_save_action_license_anon">Genom att spara samtycker till &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;användarvillkoren&lt;/a&gt; och att oåterkalleligt släppa dina bidrag under licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redigeringar kommer att tillskrivas till din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; kommer du få mer integritet.</string>
   <string name="preference_title_language">Wikipediaspråk</string>
   <string name="preference_languages_filter_hint">Sök</string>
+  <string name="preference_system_language_toggle">Använd systemspråket</string>
+  <string name="preference_system_language_summary">Systemspråk</string>
   <string name="langlinks_filter_hint">Sök</string>
   <string name="menu_other_languages">Läs på andra språk</string>
   <string name="langlinks_error_retry">Försök igen</string>
@@ -246,7 +248,7 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="alpha_update_notification_text">Tryck för att ladda ner</string>
   <string name="dialog_close_description">Stäng</string>
   <string name="preference_title_show_images">Visa bilder</string>
-  <string name="preference_summary_show_images">Aktivera eller inaktivera inläsning av bilder på sidor. Avmarkera denna inställning om din Internetanslutning är långsam eller om din dataanslutning är begränsad.</string>
+  <string name="preference_summary_show_images">Aktivera eller inaktivera inläsning av bilder på sidor. Avmarkera denna inställning om din Internetanslutning är långsam eller om ditt dataabonnemang är begränsat.</string>
   <string name="read_more_section">Läs mer</string>
   <string name="read_next_section">Läs nästa</string>
   <string name="gallery_menu_more_info">Mer information</string>
@@ -262,12 +264,12 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="gallery_save_success">Bilden har sparats.</string>
   <string name="gallery_error_video_failed">Kan inte spela upp video.</string>
   <string name="err_cannot_save_file">Kan inte spara filen</string>
-  <string name="snippet_share_intro">Intressant fakta på @Wikipedia %1$s: %2$s</string>
+  <string name="snippet_share_intro">\"%1$s\" på @Wikipedia: %2$s</string>
   <string name="expand_refs">Tryck för att expandera</string>
   <string name="share_snippet_button">Dela som bild</string>
   <string name="share_normal_button">Dela som text</string>
   <string name="snippet_share_preview_image_desc">Förhandsvisa bild</string>
-  <string name="cc_logo">Creative Commons-licensen</string>
+  <string name="cc_logo">Creative Commons-licens</string>
   <string name="captcha_image">Captcha-bild</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Okänd uppladdare</string>

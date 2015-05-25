@@ -57,6 +57,8 @@
 सम्पादनस्य कृते भवतां यन्त्रस्य सार्वसङ्केतः आधारत्वेन परिगण्यते । यदि भवान्/भवती &lt;a href=\"https://#login\"&gt;प्रविशति&lt;/a&gt;, तर्हि अधिकगोपनीयतां प्राप्नोति ।</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">अन्विष्यताम्</string>
+  <string name="preference_system_language_toggle">संविधाभाषा उपयुज्यताम्</string>
+  <string name="preference_system_language_summary">संविधाभाषा</string>
   <string name="langlinks_filter_hint">अन्विष्यताम्</string>
   <string name="menu_other_languages">अन्यभाषाभिः पठ्यताम्</string>
   <string name="langlinks_error_retry">पुनःप्रयासः</string>
@@ -89,6 +91,7 @@
   <string name="login_in_progress_dialog_message">प्रविशति...</string>
   <string name="login_error_wrong_password">मिथ्या कूटशब्दः</string>
   <string name="login_error_wrong_username">मिथ्या योजकनाम</string>
+  <string name="login_error_illegal">अमान्यं योजकनाम</string>
   <string name="login_success_toast">स्वागतं ! प्रवेशः सिद्धः ।</string>
   <string name="login_error_blocked">एषः योजकः अवरुद्धः</string>
   <string name="login_error_throttled">प्रेवेशं कर्तुम् अधिकतमप्रयासाः अभूवन् । कृपया केचन निमेषाः यावत् प्रतीक्ष्य पुनः प्रयासं करोतु ।</string>
@@ -112,15 +115,15 @@
   <string name="create_account_login_link">पूर्वस्मादेव लेखा अस्ति किं ? प्रविश्यताम्</string>
   <string name="create_account_activity_title">सदस्यता प्राप्यताम्</string>
   <string name="dialog_create_account_checking_progress">सत्यापयति</string>
-  <string name="create_account_email_hint">ई-पत्रम् (ऐच्छिकं)</string>
+  <string name="create_account_email_hint">वि-पत्रम् (ऐच्छिकं)</string>
   <string name="create_account_password_repeat_hint">कूटशब्दः पुनः लिख्यताम्</string>
   <string name="create_account_passwords_mismatch_error">कूटशब्दयोः समानता नास्ति</string>
-  <string name="create_account_email_error">अमान्यः ई-पत्रसङ्केतः</string>
+  <string name="create_account_email_error">अमान्यः वि-पत्रसङ्केतः</string>
   <string name="create_account_username_exists_error">प्रयोक्तृनाम पूर्वस्मादेव वर्तते</string>
   <string name="create_account_ip_throttle_error">एतेन सार्वसङ्केतेन अधिकतमाः लेखाः रचिताः । कृपया पुनः प्रयासं करोतु ।</string>
   <string name="create_account_open_proxy_error">नूतनलेखायाः निर्माणाय एतत् सार्वसङ्केतं स्थगितम् अस्ति ।</string>
   <string name="create_account_noname_error">भवता/भवत्या प्रदत्तं योजकनाम अमान्यम् अस्ति । कृपया अन्यं प्रयोक्तृनाम लिखतु ।</string>
-  <string name="create_account_invalid_email_error">भवता/भवत्या दत्तः ई-पत्रसङ्केतः अमान्यः अस्ति ।</string>
+  <string name="create_account_invalid_email_error">भवता/भवत्या दत्तः वि-पत्रसङ्केतः अमान्यः अस्ति ।</string>
   <string name="create_account_password_too_short_error">भवता/भवत्या लिखितः कूटशब्दः अति लघुः अस्ति ।</string>
   <string name="create_account_blocked_anon_error">भवान्/भवती लेखां निर्मातुं न शक्नोति, यतः भवतः/भवत्याः सार्वसङ्केतः प्रतिबन्धितः अस्ति ।</string>
   <string name="create_account_blocked_error">भवान्/भवती लेखां निर्मातुं न शक्नोति, यतः भवतः/भवत्याः लेखा प्रतिबन्धिता अस्ति ।</string>
@@ -142,7 +145,7 @@
   <string name="zero_interstitial_continue">त्यजतु</string>
   <string name="zero_interstitial_cancel">अत्र स्थीयताम्</string>
   <string name="zero_learn_more">एतस्मै विकिपीडिया-अनुप्रयोगाय सूचनायाः परिवर्तनानि अवगण्यन्ते ।</string>
-  <string name="zero_learn_more_learn_more">अधिकं पठतु</string>
+  <string name="zero_learn_more_learn_more">अधिकं पठ्यताम्</string>
   <string name="zero_learn_more_dismiss">अपनीयताम्</string>
   <string name="edit_preview_fetching_dialog_message">प्राग्दृश्यम् आवहति...</string>
   <string name="send_feedback">अनुप्रयोगप्रतिक्रियां प्रेषयतु</string>
@@ -225,7 +228,7 @@
   <string name="dialog_close_description">पिदधातु</string>
   <string name="preference_title_show_images">चित्राणि दृश्यन्ताम्</string>
   <string name="preference_summary_show_images">पृष्ठे विद्यमानानां चित्राणाम् अवारोपणं सक्रियम् उत निष्क्रियं क्रियताम् । भवतां/भवत्याः अन्तर्जालसम्पर्कः शिथिलः अस्ति उत डेटा-योजना मर्यादिता अस्ति चेत्, अभिविन्यासे एतत् विकल्पम् अङ्क्यताम् ।</string>
-  <string name="read_more_section">अधिकं पठतु</string>
+  <string name="read_more_section">अधिकं पठ्यताम्</string>
   <string name="read_next_section">अग्रिमं पठतु</string>
   <string name="gallery_menu_more_info">अधिकसूचना</string>
   <string name="menu_gallery_visit_page">सञ्चिकां पश्यतु</string>

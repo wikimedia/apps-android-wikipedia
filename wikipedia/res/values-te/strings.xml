@@ -52,6 +52,8 @@
   <string name="edit_save_action_license_logged_in">భద్రపర్చడం ద్వారా &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;వాడుక షరతుల&lt;/a&gt;కు అనుగుణంగా ఉంటాననీ, నా రచనలన్నిటినీ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కింద విడుదల చేస్తున్నాననీ అంగీకరిస్తున్నాను.</string>
   <string name="preference_title_language">వికీపీడియా భాష</string>
   <string name="preference_languages_filter_hint">వెతుకు</string>
+  <string name="preference_system_language_toggle">వ్యవస్థ భాషను వాడు</string>
+  <string name="preference_system_language_summary">వ్యవస్థ భాష</string>
   <string name="langlinks_filter_hint">వెతుకు</string>
   <string name="menu_other_languages">ఇతర భాషలలో చదవండి</string>
   <string name="langlinks_error_retry">మళ్ళీ ప్రయత్నించు</string>
@@ -86,6 +88,7 @@
   <string name="login_in_progress_dialog_message">మీరు లాగింగ్ ...</string>
   <string name="login_error_wrong_password">సంకేతపదం తప్పు</string>
   <string name="login_error_wrong_username">వాడుకరి పేరు తప్పు</string>
+  <string name="login_error_illegal">చెల్లని వాడుకరి పేరు</string>
   <string name="login_success_toast">లాగిన్ విజయవంతం!</string>
   <string name="login_error_blocked">ఈ వాడుకరిని నిరోధించారు</string>
   <string name="login_error_throttled">చాలా లాగిన్ ప్రయత్నాలు. కొన్ని నిమిషాలు వేచి మరియు మళ్ళీ ప్రయత్నించండి.</string>
@@ -133,13 +136,25 @@
   <string name="zero_charged_verbiage_extended">ఇతర వ్యాసాలు డేటా లోడ్ వల్ల ఛార్జీలు బాధ ఉండవచ్చు.</string>
   <string name="zero_search_hint">వికీపీడియాలో వెతకండి</string>
   <string name="zero_warn_when_leaving">వికీపీడియాను వదలి వేస్తుంటే హెచ్చరించు</string>
-  <string name="zero_interstitial_continue" fuzzy="true">కొనసాగించు</string>
-  <string name="zero_interstitial_cancel" fuzzy="true">రద్దుచేయి</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">మరింత తెలుసుకోండి</string>
+  <string name="zero_interstitial_continue">వదలివెళ్ళు</string>
+  <string name="zero_interstitial_cancel">ఇక్కడే ఉండు</string>
+  <string name="zero_learn_more_learn_more">ఇంకా చదవండి</string>
   <string name="zero_learn_more_dismiss">రద్దు</string>
+  <string name="nav_item_random">యాదృచ్చికం</string>
   <string name="create_account_account_created_toast">ఖాతా సృష్టించబడింది!</string>
   <string name="user_contribs_more_action">మరిన్ని చూపించు</string>
+  <string name="activity_my_contributions_title">నా మార్పులూచేర్పులు</string>
+  <string name="history_search_list_hint">వెతుకు</string>
+  <string name="page_protected_can_not_edit">ఈ పేజీని సవరించడానికి మీకు హక్కు లేదు</string>
+  <string name="page_protected_can_not_edit_title">ఈ పేజీ సంరక్షించబడింది</string>
+  <string name="more_item_preferences">మరిన్ని</string>
+  <string name="more_activity_title">మరిన్ని</string>
+  <string name="privacy_policy_description">గోప్యతా విధానం</string>
+  <string name="terms_of_use_description">వాడుక నియమాలు</string>
+  <string name="about_contributors_heading">సహాయకులు</string>
+  <string name="about_translators_heading">అనువాదకులు</string>
   <string name="about_activity_title">గురించి</string>
+  <string name="edit_how_page_improved">మీరు పేజీని ఎలా మెరుగుపరచారు?</string>
   <string name="edit_next">తదుపరి</string>
   <string name="edit_done">భద్రపరచు</string>
   <string name="edit_preview">మునుజూపు</string>
@@ -163,12 +178,15 @@
   <string name="color_theme_select">నేపథ్యం</string>
   <string name="color_theme_light">తేలికైన</string>
   <string name="color_theme_dark">చీకటి</string>
+  <string name="search_recent_header">ఇటీవల వెతికినవి:</string>
+  <string name="table_other">మరింత సమాచారం</string>
   <string name="table_close">మూయు</string>
   <string name="dialog_close_description">మూయు</string>
   <string name="preference_title_show_images">బొమ్మలు చూపించు</string>
   <string name="read_more_section">మరింత చదువు</string>
   <string name="read_next_section">తదుపరి చదవండి</string>
   <string name="gallery_menu_more_info">మరింత సమాచారం</string>
+  <string name="gallery_image_info">బొమ్మ సమాచారం</string>
   <string name="gallery_menu_share">పంచుకోండి</string>
   <string name="err_cannot_save_file">ద్దస్త్రాన్ని భద్రపరచలేము</string>
   <string name="snippet_share_intro">\@Wikipedia పై \"%1$s\" : %2$s</string>
