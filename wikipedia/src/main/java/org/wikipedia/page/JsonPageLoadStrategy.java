@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import org.acra.ACRA;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
@@ -151,7 +152,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     stagedScrollY = messagePayload.getInt("stagedScrollY");
                     loadPageOnWebViewReady(messagePayload.getBoolean("tryFromCache"));
                 } catch (JSONException e) {
-                    //nope
+                    ACRA.getErrorReporter().handleException(e);
                 }
             }
         });
@@ -167,7 +168,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     }
                     displayNonLeadSection(messagePayload.getInt("index"));
                 } catch (JSONException e) {
-                    //nope
+                    ACRA.getErrorReporter().handleException(e);
                 }
             }
         });
@@ -182,7 +183,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                         return;
                     }
                 } catch (JSONException e) {
-                    // nope
+                    ACRA.getErrorReporter().handleException(e);
                 }
                 // Do any other stuff that should happen upon page load completion...
                 activity.updateProgressBar(false, true, 0);
@@ -246,7 +247,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             wrapper.put("stagedScrollY", stagedScrollY);
             bridge.sendMessage("beginNewPage", wrapper);
         } catch (JSONException e) {
-            //nope
+            ACRA.getErrorReporter().handleException(e);
         }
     }
 
@@ -500,6 +501,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         // the backstack item.
         fragment.displayNewPage(item.getTitle(), item.getHistoryEntry(), true, false,
                 item.getScrollY());
+        Log.d(TAG, "Loaded page " + item.getTitle().getDisplayText() + " from backstack");
     }
 
     private void displayLeadSection() {
@@ -528,6 +530,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             leadSectionPayload.put("isMainPage", page.isMainPage());
             leadSectionPayload.put("apiLevel", Build.VERSION.SDK_INT);
             bridge.sendMessage("displayLeadSection", leadSectionPayload);
+            Log.d(TAG, "Sent message 'displayLeadSection' for page: " + page.getDisplayTitle());
 
             Utils.setupDirectionality(model.getTitle().getSite().getLanguage(),
                     Locale.getDefault().getLanguage(), bridge);
@@ -565,7 +568,8 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             JSONObject wrapper = new JSONObject();
             wrapper.put("sequence", pageSequenceNum);
             if (index < page.getSections().size()) {
-                wrapper.put("section", page.getSections().get(index).toJSON());
+                JSONObject section = page.getSections().get(index).toJSON();
+                wrapper.put("section", section);
                 wrapper.put("index", index);
                 if (sectionTargetFromIntent > 0 && sectionTargetFromIntent < page.getSections().size()) {
                     //if we have a section to scroll to (from our Intent):
@@ -575,6 +579,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     //if we have a section to scroll to (from our PageTitle):
                     wrapper.put("fragment", sectionTargetFromTitle);
                 }
+                Log.d(TAG, "Added request for section " + section.getString("line"));
             } else {
                 wrapper.put("noMore", true);
             }
@@ -583,7 +588,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     (int) (stagedScrollY / activity.getResources().getDisplayMetrics().density));
             bridge.sendMessage("displaySection", wrapper);
         } catch (JSONException e) {
-            //nope
+            ACRA.getErrorReporter().handleException(e);
         }
     }
 

@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import org.acra.ACRA;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.R;
@@ -67,6 +68,7 @@ import java.util.regex.Pattern;
 
 import javax.net.ssl.SSLException;
 
+// TODO: USE ACRA.getErrorReporter().handleSilentException() if we move to automated crash reporting?
 
 public class PageViewFragmentInternal extends Fragment implements BackPressedHandler {
     private static final String TAG = "PageViewFragment";
@@ -422,7 +424,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                     builder.setView(textView);
                     builder.show();
                 } catch (JSONException e) {
-                    //nope
+                    ACRA.getErrorReporter().handleException(e);
                 }
             }
         });
@@ -438,7 +440,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                         linkHandler.onUrlClick(href);
                     }
                 } catch (JSONException e) {
-                    //nope
+                    ACRA.getErrorReporter().handleException(e);
                 }
             }
         });
@@ -449,7 +451,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                     String href = Utils.decodeURL(messagePayload.getString("href"));
                     showImageGallery(new PageTitle(href, model.getTitle().getSite()));
                 } catch (JSONException e) {
-                    //nope
+                    ACRA.getErrorReporter().handleException(e);
                 }
             }
         });
