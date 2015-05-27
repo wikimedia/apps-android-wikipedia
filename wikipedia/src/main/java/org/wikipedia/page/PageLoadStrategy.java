@@ -9,6 +9,7 @@ import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
 import android.content.Intent;
 import android.os.Bundle;
+import java.util.ArrayList;
 
 /**
  * Defines interaction between PageViewFragmentInternal and an implementation that loads a page
@@ -39,4 +40,10 @@ public interface PageLoadStrategy {
     boolean onBackPressed();
 
     void setEditHandler(EditHandler editHandler);
+
+    void setBackStack(ArrayList<PageBackStackItem> backStack);
+
+    void updateCurrentBackStackItem();
+
+    void loadPageFromBackStack();
 }

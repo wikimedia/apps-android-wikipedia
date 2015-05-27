@@ -67,7 +67,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
      * Since the list consists of Parcelable objects, it can be saved and restored from the
      * savedInstanceState of the fragment.
      */
-    private ArrayList<PageBackStackItem> backStack = new ArrayList<>();
+    private ArrayList<PageBackStackItem> backStack;
 
     /**
      * Sequence number to maintain synchronization when loading page content asynchronously
@@ -101,6 +101,11 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     private EditHandler editHandler;
 
     private BottomContentInterface bottomContentHandler;
+
+    @Override
+    public void setBackStack(ArrayList<PageBackStackItem> backStack) {
+        this.backStack = backStack;
+    }
 
     @Override
     public void setup(PageViewModel model, PageViewFragmentInternal fragment,
@@ -207,7 +212,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         // update the topmost entry in the backstack
-        updateBackStackItem();
+        updateCurrentBackStackItem();
         outState.putParcelableArrayList("backStack", backStack);
     }
 
@@ -223,7 +228,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     public void onDisplayNewPage(boolean pushBackStack, boolean tryFromCache, int stagedScrollY) {
         if (pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
-            updateBackStackItem();
+            updateCurrentBackStackItem();
             pushBackStack();
         }
 
@@ -367,6 +372,8 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                                 Log.d(TAG, "Using page from cache: " + model.getTitleOriginal().getDisplayText());
                                 model.setPage(page);
                                 model.setTitle(page.getTitle());
+                                // load the current title's thumbnail from sqlite
+                                updateThumbnail(PageImage.PERSISTENCE_HELPER.getImageUrlForTitle(app, model.getTitle()));
                                 // Save history entry...
                                 new SaveHistoryTask(model.getCurEntry(), app).execute();
                                 // don't re-cache the page after loading.
@@ -456,6 +463,12 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         }.execute();
     }
 
+    private void updateThumbnail(String thumbUrl) {
+        model.getTitle().setThumbUrl(thumbUrl);
+        model.getTitleOriginal().setThumbUrl(thumbUrl);
+        fragment.invalidateTabs();
+    }
+
     private boolean isFirstPage() {
         return backStack.size() <= 1 && !webView.canGoBack();
     }
@@ -484,7 +497,8 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
      * (Things like the last y-offset position should be updated here)
      * Should be done right before loading a new page.
      */
-    private void updateBackStackItem() {
+    @Override
+    public void updateCurrentBackStackItem() {
         if (backStack.isEmpty()) {
             return;
         }
@@ -492,7 +506,8 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         item.setScrollY(webView.getScrollY());
     }
 
-    private void loadPageFromBackStack() {
+    @Override
+    public void loadPageFromBackStack() {
         if (backStack.isEmpty()) {
             return;
         }
@@ -653,20 +668,21 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
             // Update our history entry, in case the Title was changed (i.e. normalized)
             final HistoryEntry curEntry = model.getCurEntry();
-            model.setCurEntry(new HistoryEntry(title, curEntry.getTimestamp(), curEntry.getSource()));
+            model.setCurEntry(
+                    new HistoryEntry(title, curEntry.getTimestamp(), curEntry.getSource()));
 
             // Save history entry and page image url
             new SaveHistoryTask(curEntry, app).execute();
 
-            // Fetch larger thumbnail URL for the page, to be shown in History and Saved Pages
-            (new PageImagesTask(app.getAPIForSite(title.getSite()), title.getSite(),
-                    Arrays.asList(new PageTitle[]{title}), WikipediaApp.PREFERRED_THUMB_SIZE) {
+            // Fetch larger thumbnail URL from the network, and save it to our DB.
+            (new PageImagesTask(app.getAPIForSite(model.getTitle().getSite()), model.getTitle().getSite(),
+                                Arrays.asList(new PageTitle[]{model.getTitle()}), WikipediaApp.PREFERRED_THUMB_SIZE) {
                 @Override
                 public void onFinish(Map<PageTitle, String> result) {
-                    if (result.containsKey(title)) {
-                        title.setThumbUrl(result.get(title));
-                        PageImage pi = new PageImage(title, result.get(title));
+                    if (result.containsKey(model.getTitle())) {
+                        PageImage pi = new PageImage(model.getTitle(), result.get(model.getTitle()));
                         app.getPersister(PageImage.class).upsert(pi);
+                        updateThumbnail(result.get(model.getTitle()));
                     }
                 }
 
@@ -676,7 +692,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     Log.w("SaveThumbnailTask", "Caught " + caught.getMessage(), caught);
                 }
             }).execute();
-
         }
 
         @Override

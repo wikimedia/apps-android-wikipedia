@@ -282,4 +282,10 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="gallery_fair_use_license">Fair use</string>
     <string name="gallery_uploader_unknown">Uploader unknown</string>
     <string name="edit_save_unknown_error">Could not save your edit: %s</string>
+    <string name="menu_show_tabs">Show tabs</string>
+    <string name="menu_new_tab">New tab</string>
+    <string name="button_close_tab">Close tab</string>
+    <string name="menu_open_link">Open link</string>
+    <string name="menu_open_in_new_tab">Open in new tab</string>
+    <string name="menu_save_page_popup">Save for later</string>
 </resources>

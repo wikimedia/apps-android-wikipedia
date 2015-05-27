@@ -374,4 +374,10 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
 {{Identical|Fair use}}</string>
   <string name="gallery_uploader_unknown">Text displayed when the uploader of a media item is not known.</string>
   <string name="edit_save_unknown_error">Error message shown when there was an unknown error while saving the edit made by the user. The \"%s\" symbol is replaced with the error code returned by the server.</string>
+  <string name="menu_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
+  <string name="menu_new_tab">Text hint for the menu button used for creating a new tab.</string>
+  <string name="button_close_tab">Text hint for the button used for closing a tab.</string>
+  <string name="menu_open_link">Menu item for opening a link in the current tab.</string>
+  <string name="menu_open_in_new_tab">Menu item for opening a link in a new tab.</string>
+  <string name="menu_save_page_popup">Menu item for saving a page for later reading.</string>
 </resources>

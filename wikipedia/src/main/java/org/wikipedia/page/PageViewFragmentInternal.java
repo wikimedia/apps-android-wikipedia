@@ -21,11 +21,14 @@ import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.linkpreview.LinkPreviewVersion;
 import org.wikipedia.page.snippet.ShareHandler;
+import org.wikipedia.page.tabs.Tab;
+import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.savedpages.ImageUrlMap;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.util.NetworkUtils;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
@@ -70,6 +73,7 @@ import javax.net.ssl.SSLException;
 
 public class PageViewFragmentInternal extends Fragment implements BackPressedHandler {
     private static final String TAG = "PageViewFragment";
+    private static final String TAB_LIST_KEY = "tabList";
 
     public static final int SUBSTATE_NONE = 0;
     public static final int SUBSTATE_PAGE_SAVED = 1;
@@ -77,6 +81,13 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
     private PageLoadStrategy pageLoadStrategy = null;
     private PageViewModel model;
+
+    /**
+     * List of tabs, each of which contains a backstack of page titles.
+     * Since the list consists of Parcelable objects, it can be saved and restored from the
+     * savedInstanceState of the fragment.
+     */
+    private ArrayList<Tab> tabList;
 
     /**
      * Whether to save the full page content as soon as it's loaded.
@@ -105,6 +116,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private ReferenceDialog referenceDialog;
     private EditHandler editHandler;
     private ActionMode findInPageActionMode;
+    private PageLongPressHandler longPressHandler;
 
     private WikipediaApp app;
 
@@ -112,6 +124,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private ConnectionIssueFunnel connectionIssueFunnel;
 
     private ShareHandler shareHandler;
+
+    private TabsProvider tabsProvider;
 
     public ObservableWebView getWebView() {
         return webView;
@@ -137,6 +151,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getActivity().getApplicationContext();
         model = new PageViewModel();
+        tabList = new ArrayList<>();
         if (Prefs.isUsingExperimentalPageLoad(app)) {
             pageLoadStrategy = new HtmlPageLoadStrategy();
         } else {
@@ -194,6 +209,13 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
         connectionIssueFunnel = new ConnectionIssueFunnel(app);
+
+        if (savedInstanceState != null) {
+            tabList = savedInstanceState.getParcelableArrayList(TAB_LIST_KEY);
+        } else if (tabList.size() == 0) {
+            // fresh launch, so initialize with a single tab
+            tabList.add(new Tab());
+        }
 
         updateFontSize();
 
@@ -298,8 +320,27 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
         shareHandler = new ShareHandler((PageActivity) getActivity(), bridge);
 
+        tabsProvider = new TabsProvider((PageActivity) getActivity(), tabList);
+        tabsProvider.setTabsProviderListener(tabsProviderListener);
+        longPressHandler = new PageLongPressHandler(this, (ViewGroup) ((PageActivity) getActivity()).getContentView());
+        if (!app.isProdRelease()) {
+            // TODO: enable when ready for production!
+            webView.addOnLongPressListener(new ObservableWebView.OnLongPressListener() {
+                @Override
+                public boolean onLongPress(float x, float y, final String linkTitle) {
+                    PageTitle newTitle = model.getTitleOriginal().getSite().titleForInternalLink(
+                            linkTitle);
+                    HistoryEntry newEntry = new HistoryEntry(newTitle,
+                                                             HistoryEntry.SOURCE_INTERNAL_LINK);
+                    longPressHandler.onLongPress((int) x, (int) y, newTitle, newEntry);
+                    return true;
+                }
+            });
+        }
+
         pageLoadStrategy.setup(model, this, refreshView, webView, bridge, searchBarHideHandler,
-                leadImagesHandler);
+                               leadImagesHandler);
+        pageLoadStrategy.setBackStack(getCurrentTab().getBackStack());
         pageLoadStrategy.onActivityCreated(savedInstanceState);
     }
 
@@ -323,16 +364,86 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         }
     }
 
+    private TabsProvider.TabsProviderListener tabsProviderListener = new TabsProvider.TabsProviderListener() {
+        @Override
+        public void onCancelTabView() {
+            tabsProvider.exitTabMode();
+        }
+
+        @Override
+        public void onTabSelected(int position) {
+            // move the selected tab to the bottom of the list, and navigate to it!
+            // (but only if it's a different tab than the one currently in view!
+            if (position != tabList.size() - 1) {
+                Tab tab = tabList.remove(position);
+                tabList.add(tab);
+                pageLoadStrategy.updateCurrentBackStackItem();
+                pageLoadStrategy.setBackStack(tab.getBackStack());
+                pageLoadStrategy.loadPageFromBackStack();
+            }
+            tabsProvider.exitTabMode();
+        }
+
+        @Override
+        public void onNewTabRequested() {
+            // just load the main page into a new tab...
+            PageTitle newTitle = new PageTitle(MainPageNameData.valueFor(app.getAppLanguageCode()), app.getPrimarySite());
+            HistoryEntry newEntry = new HistoryEntry(newTitle, HistoryEntry.SOURCE_INTERNAL_LINK);
+            openInNewTab(newTitle, newEntry);
+        }
+
+        @Override
+        public void onCloseTabRequested(int position) {
+            tabList.remove(position);
+            if (position < tabList.size()) {
+                // if it's not the topmost tab, then just delete it and update the tab list...
+                tabsProvider.invalidate();
+            } else if (tabList.size() > 0) {
+                tabsProvider.invalidate();
+                // but if it's the topmost tab, then load the topmost page in the next tab.
+                pageLoadStrategy.setBackStack(getCurrentTab().getBackStack());
+                pageLoadStrategy.loadPageFromBackStack();
+            } else {
+                // and if the last tab was closed, then finish the activity!
+                getActivity().finish();
+            }
+        }
+    };
+
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         pageLoadStrategy.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(TAB_LIST_KEY, tabList);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("");
+    }
+
+    public Tab getCurrentTab() {
+        return tabList.get(tabList.size() - 1);
+    }
+
+    public void invalidateTabs() {
+        tabsProvider.invalidate();
+    }
+
+    public void openInNewTab(PageTitle title, HistoryEntry entry) {
+        // create a new tab
+        Tab tab = new Tab();
+        // make this tab current
+        tabList.add(tab);
+        pageLoadStrategy.setBackStack(tab.getBackStack());
+        // clear out our current title
+        model.setTitleOriginal(null);
+        model.setTitle(null);
+        model.setCurEntry(null);
+        // and... that should be it.
+        ((PageActivity) getActivity()).displayNewPage(title, entry);
+        tabsProvider.showAndHideTabs();
     }
 
     /**
@@ -485,6 +596,13 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         MenuItem otherLangMenu = menu.findItem(R.id.menu_other_languages);
         MenuItem findInPageMenu = menu.findItem(R.id.menu_find_in_page);
         MenuItem themeChooserMenu = menu.findItem(R.id.menu_themechooser);
+        MenuItem tabsMenu = menu.findItem(R.id.menu_show_tabs);
+
+        //TODO: enable when ready for production!
+        if (app.isProdRelease()) {
+            // remove the tabs button in production, for now.
+            menu.removeItem(tabsMenu.getItemId());
+        }
 
         if (pageLoadStrategy.isLoading()) {
             savePageMenu.setEnabled(false);
@@ -539,13 +657,17 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 langIntent.setClass(getActivity(), LangLinksActivity.class);
                 langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
                 langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, model.getTitle());
-                getActivity().startActivityForResult(langIntent, PageActivity.ACTIVITY_REQUEST_LANGLINKS);
+                getActivity().startActivityForResult(langIntent,
+                                                     PageActivity.ACTIVITY_REQUEST_LANGLINKS);
                 return true;
             case R.id.menu_find_in_page:
                 showFindInPage();
                 return true;
             case R.id.menu_themechooser:
                 ((PageActivity) getActivity()).showThemeChooser();
+                return true;
+            case R.id.menu_show_tabs:
+                tabsProvider.enterTabMode();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -558,6 +680,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
         pageActivity.startSupportActionMode(new ActionMode.Callback() {
             private final String actionModeTag = "actionModeFindInPage";
+
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 findInPageActionMode = mode;
@@ -843,7 +966,19 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         if (closeFindInPage()) {
             return true;
         }
-        return pageLoadStrategy.onBackPressed();
+        if (pageLoadStrategy.onBackPressed()) {
+            return true;
+        }
+        if (tabList.size() > 1) {
+            // if we're at the end of the current tab's backstack, and we have additional
+            // tabs available, then pop the current tab, and load the topmost page in that tab.
+            tabList.remove(tabList.size() - 1);
+            pageLoadStrategy.setBackStack(getCurrentTab().getBackStack());
+            pageLoadStrategy.loadPageFromBackStack();
+            tabsProvider.enterTabMode();
+            return true;
+        }
+        return tabsProvider.onBackPressed();
     }
 
     public LinkHandler getLinkHandler() {

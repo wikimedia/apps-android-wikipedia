@@ -30,6 +30,7 @@
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_light</item>
         <item name="subtle_gray_color">@color/subtle_gray_light</item>
         <item name="nearby_marker_drawable">@drawable/ic_place</item>
+        <item name="tab_item_selector">@drawable/tab_item_selector_light</item>
     </style>
 
     <style name="DropDownListView.WikiLight" parent="@style/Widget.AppCompat.Light.ListView.DropDown">

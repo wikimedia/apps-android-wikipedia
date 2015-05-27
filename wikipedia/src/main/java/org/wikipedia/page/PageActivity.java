@@ -81,6 +81,15 @@ public class PageActivity extends ThemedActionBarActivity {
     private WikipediaApp app;
 
     private View fragmentContainerView;
+    public View getContentView() {
+        return fragmentContainerView;
+    }
+
+    private View tabsContainerView;
+    public View getTabsContainerView() {
+        return tabsContainerView;
+    }
+
     private WikiDrawerLayout drawerLayout;
     private NavDrawerFragment fragmentNavdrawer;
     private SearchArticlesFragment searchFragment;
@@ -142,8 +151,7 @@ public class PageActivity extends ThemedActionBarActivity {
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         setContentView(R.layout.activity_page);
 
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar((Toolbar) findViewById(R.id.main_toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         toolbarContainer = findViewById(R.id.main_toolbar_container);
@@ -158,6 +166,7 @@ public class PageActivity extends ThemedActionBarActivity {
         searchHintText = (TextView) findViewById(R.id.main_search_bar_text);
 
         fragmentContainerView = findViewById(R.id.content_fragment_container);
+        tabsContainerView = findViewById(R.id.tabs_container);
         progressBar = (ProgressBar)findViewById(R.id.main_progressbar);
         progressBar.setMax(PROGRESS_BAR_MAX_VALUE);
         updateProgressBar(false, true, 0);

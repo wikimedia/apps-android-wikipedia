@@ -2,6 +2,9 @@ package org.wikipedia.pageimages;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
+import android.support.annotation.Nullable;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.data.PersistenceHelper;
@@ -29,6 +32,29 @@ public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
         contentValues.put("title", obj.getTitle().getPrefixedText());
         contentValues.put("imageName", obj.getImageName());
         return contentValues;
+    }
+
+    @Nullable
+    public String getImageUrlForTitle(WikipediaApp app, PageTitle title) {
+        Cursor c = null;
+        String thumbnail = null;
+        try {
+            String searchStr = title.getPrefixedText().replace("'", "''");
+            String selection = getTableName() + ".title='" + searchStr + "'";
+            c = app.getPersister(PageImage.class).select(
+                    selection, new String[] {}, "");
+            if (c.getCount() > 0) {
+                c.moveToFirst();
+                thumbnail = c.getString(c.getColumnIndex("imageName"));
+            }
+        } catch (SQLiteException e) {
+            // page title doesn't exist in database... no problem if it fails.
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+        }
+        return thumbnail;
     }
 
     @Override

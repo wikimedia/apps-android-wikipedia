@@ -264,4 +264,17 @@ public class HtmlPageLoadStrategy implements PageLoadStrategy {
     public void setEditHandler(EditHandler editHandler) {
         // TODO: use editHandler in this class
     }
+
+    @Override
+    public void setBackStack(ArrayList<PageBackStackItem> backStack) {
+        // TODO: implement switching of backstacks from multiple tabs.
+    }
+
+    @Override
+    public void updateCurrentBackStackItem() {
+    }
+
+    @Override
+    public void loadPageFromBackStack() {
+    }
 }

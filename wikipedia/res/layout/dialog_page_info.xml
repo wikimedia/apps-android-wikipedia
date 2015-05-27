@@ -69,7 +69,7 @@
             android:padding="8dp"
             android:layout_gravity="center_vertical"
             android:gravity="center"
-            android:src="@drawable/close"
+            android:src="@drawable/ic_close_gray"
             android:background="@drawable/button_selector_transparent"
             android:contentDescription="@string/dialog_close_description" />
     </LinearLayout>

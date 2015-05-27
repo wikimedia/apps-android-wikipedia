@@ -1,6 +1,7 @@
 package org.wikipedia.data;
 
 import android.content.ContentProviderClient;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.RemoteException;
 
@@ -21,6 +22,18 @@ public abstract class ContentPersister<T> {
             // This shouldn't happen
             throw new RuntimeException(e);
         }
+    }
+
+    public Cursor select(String selection, String[] selectionArgs, String sortOrder) {
+        Uri uri = persistenceHelper.getBaseContentURI();
+        Cursor c;
+        try {
+            c = client.query(uri, null, selection, selectionArgs, sortOrder);
+        } catch (RemoteException e) {
+            // This shouldn't happen
+            throw new RuntimeException(e);
+        }
+        return c;
     }
 
     public void deleteAll() {
