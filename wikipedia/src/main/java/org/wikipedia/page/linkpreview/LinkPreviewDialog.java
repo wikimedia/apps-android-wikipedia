@@ -254,9 +254,9 @@ public class LinkPreviewDialog extends DialogFragment implements DialogInterface
         }
         if (!TextUtils.isEmpty(contents.getTitle().getThumbUrl()) && app.showImages()) {
             Picasso.with(getActivity())
-                   .load(contents.getTitle().getThumbUrl())
-                   .placeholder(layoutToggle == 1 ? Utils.getThemedAttributeId(getActivity(), R.attr.lead_image_drawable) : R.drawable.link_preview_gradient)
-                   .error(Utils.getThemedAttributeId(getActivity(), R.attr.lead_image_drawable))
+                    .load(contents.getTitle().getThumbUrl())
+                    .placeholder(layoutToggle == 1 ? Utils.getThemedAttributeId(getActivity(), R.attr.lead_image_drawable) : R.drawable.link_preview_gradient)
+                    .error(Utils.getThemedAttributeId(getActivity(), R.attr.lead_image_drawable))
                     .into(previewImage, new Callback() {
                         @Override
                         public void onSuccess() {
