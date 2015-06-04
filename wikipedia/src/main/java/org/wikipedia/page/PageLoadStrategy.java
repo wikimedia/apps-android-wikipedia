@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.editing.EditHandler;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.views.ObservableWebView;
@@ -36,4 +37,6 @@ public interface PageLoadStrategy {
     void onHidePageContent();
 
     boolean onBackPressed();
+
+    void setEditHandler(EditHandler editHandler);
 }

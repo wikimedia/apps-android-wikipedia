@@ -4,6 +4,7 @@ import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.editing.EditHandler;
 import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.bottomcontent.BottomContentHandler;
@@ -96,6 +97,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     private WikipediaApp app;
     private LeadImagesHandler leadImagesHandler;
     private SearchBarHideHandler searchBarHideHandler;
+    private EditHandler editHandler;
 
     private BottomContentInterface bottomContentHandler;
 
@@ -265,7 +267,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 new RestSectionsFetchTask(pageSequenceNum).execute();
                 break;
             case STATE_COMPLETE_FETCH:
-//                editHandler.setPage(model.getPage());
+                editHandler.setPage(model.getPage());
                 // kick off the lead image layout
                 leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
                     @Override
@@ -414,7 +416,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 new SaveHistoryTask(model.getCurEntry(), app).execute();
 
                 model.setPage(result);
-//                editHandler.setPage(model.getPage());
+                editHandler.setPage(model.getPage());
                 // kick off the lead image layout
                 leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
                     @Override
@@ -629,7 +631,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
             final PageTitle title = model.getTitle();
             model.setPage(new Page(title, (ArrayList<Section>) result, pageProperties));
-//            editHandler.setPage(model.getPage());
+            editHandler.setPage(model.getPage());
 
             // kick off the lead image layout
             leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
@@ -730,5 +732,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void setEditHandler(EditHandler editHandler) {
+        this.editHandler = editHandler;
     }
 }

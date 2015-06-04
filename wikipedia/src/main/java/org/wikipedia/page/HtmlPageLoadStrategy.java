@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.editing.EditHandler;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.views.ObservableWebView;
@@ -257,5 +258,10 @@ public class HtmlPageLoadStrategy implements PageLoadStrategy {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public void setEditHandler(EditHandler editHandler) {
+        // TODO: use editHandler in this class
     }
 }

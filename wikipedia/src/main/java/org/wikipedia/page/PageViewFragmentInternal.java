@@ -133,6 +133,18 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     public PageViewFragmentInternal() {
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        app = (WikipediaApp) getActivity().getApplicationContext();
+        model = new PageViewModel();
+        if (Prefs.isUsingExperimentalPageLoad(app)) {
+            pageLoadStrategy = new HtmlPageLoadStrategy();
+        } else {
+            pageLoadStrategy = new JsonPageLoadStrategy();
+        }
+    }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
@@ -185,7 +197,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
-        app = (WikipediaApp) getActivity().getApplicationContext();
         connectionIssueFunnel = new ConnectionIssueFunnel(app);
 
         updateFontSize();
@@ -255,12 +266,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             }
         };
 
-        model = new PageViewModel();
-
-        if (Prefs.isUsingExperimentalPageLoad(app)) {
-            pageLoadStrategy = new HtmlPageLoadStrategy();
-        } else {
-            pageLoadStrategy = new JsonPageLoadStrategy();
+        if (!Prefs.isUsingExperimentalPageLoad(app)) {
             bridge.injectStyleBundle(StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PAGEVIEW));
         }
 
@@ -284,6 +290,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         });
 
         editHandler = new EditHandler(this, bridge);
+        pageLoadStrategy.setEditHandler(editHandler);
+
         tocHandler = new ToCHandler(((PageActivity) getActivity()), tocDrawer, bridge);
 
         imagesContainer = (ViewGroup) getView().findViewById(R.id.page_images_container);
