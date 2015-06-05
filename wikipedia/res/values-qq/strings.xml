@@ -194,6 +194,7 @@ See also:
 {{Identical|Create account}}</string>
   <string name="preferences_general_heading">Preferences general heading.
 {{Identical|General}}</string>
+  <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.</string>
   <string name="zero_charged_verbiage">Text for toast connoting that Wikipedia Zero status went to OFF</string>
   <string name="zero_charged_verbiage_extended">Extended text describing that further usage of the app may in fact incur data charges because Wikipedia Zero is off.</string>
   <string name="zero_search_hint">Searchbar hint incorporting notion that user is searching via Wikipedia Zero so it is free</string>
