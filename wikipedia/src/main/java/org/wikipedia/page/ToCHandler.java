@@ -90,6 +90,9 @@ public class ToCHandler {
         headerView = (TextView) LayoutInflater.from(tocList.getContext()).inflate(R.layout.header_toc_list, null, false);
         tocList.addHeaderView(headerView);
 
+        // create a dummy funnel, in case the drawer is pulled out before a page is loaded.
+        funnel = new ToCInteractionFunnel((WikipediaApp)slidingPane.getContext().getApplicationContext(), WikipediaApp.getInstance().getPrimarySite());
+
         slidingPane.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             private boolean sectionRequested = false;
 
