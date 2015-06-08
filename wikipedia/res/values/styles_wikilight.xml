@@ -10,6 +10,7 @@
         <item name="actionModeStyle">@style/AppTheme.ActionModeStyle</item>
         <item name="android:actionModeStyle">@style/AppTheme.ActionModeStyle</item>
         <item name="android:autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
+        <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.WikiLight</item>
         <item name="android:windowBackground">@color/window_background_light</item>
         <item name="window_background_color">@color/window_background_light</item>
