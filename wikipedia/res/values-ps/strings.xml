@@ -123,9 +123,7 @@
   <string name="preference_title_show_images">انځورونه ښکاره کول</string>
   <string name="read_more_section">نور لوستل</string>
   <string name="read_next_section">بل لوستل</string>
-  <string name="gallery_menu_more_info">نور مالومات</string>
   <string name="menu_gallery_visit_page">د دوتنې مخ ته ورځه</string>
-  <string name="gallery_image_info">د انځور مالومات</string>
   <string name="gallery_menu_share">شريکول</string>
   <string name="gallery_save_success">انځور برياليتوب سره خوندي شو.</string>
   <string name="gallery_error_video_failed">ويډيو و نه غږول شوه.</string>

@@ -220,7 +220,6 @@
   <string name="preference_title_show_images">ਤਸਵੀਰਾਂ ਵੇਖੋ</string>
   <string name="read_more_section">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="read_next_section">ਅੱਗੇ ਪੜ੍ਹੋ</string>
-  <string name="gallery_menu_more_info">ਹੋਰ ਜਾਣਕਾਰੀ</string>
   <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="gallery_share_error">ਤਸਵੀਰ ਸਾਂਝੀ ਨਹੀਂ ਹੋ ਸਕੀ: %s</string>
 </resources>

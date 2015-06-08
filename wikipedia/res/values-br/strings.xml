@@ -244,11 +244,9 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="preference_summary_show_images">Gweredekaat evit diweredekaat pellgargadur ar skeudennoù er pajennoù. Diaskit an arventenn-mañ m\'eo gorrek ho kevreadur Internet, pe m\'eo bevennet hoc\'h ampled roadennoù.</string>
   <string name="read_more_section">Lenn muioc\'h</string>
   <string name="read_next_section">Lenn an hini war-lerc\'h</string>
-  <string name="gallery_menu_more_info">Muioc\'h a ditouroù</string>
   <string name="menu_gallery_visit_page">Mont da bajenn ar restr</string>
   <string name="gallery_error_draw_failed">Ne c\'haller ket tresañ ar skeudenn.</string>
   <string name="license_title">Testenn aotre-imoplijout evit al levraoueg %s</string>
-  <string name="gallery_image_info">Titouroù war ar skeudenn</string>
   <string name="gallery_menu_share">Rannañ</string>
   <string name="gallery_share_error">Ne c\'haller ket rannañ ar skeudenn : %s</string>
   <string name="gallery_menu_save">Enrollañ en ardivink</string>

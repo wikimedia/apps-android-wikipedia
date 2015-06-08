@@ -243,11 +243,9 @@
   <string name="preference_summary_show_images">在頁面中開啟或停用圖片載入。如果您的網路連線很慢，或如果您的資料流量計劃受限制，則取消選擇本設定。</string>
   <string name="read_more_section">閱讀更多</string>
   <string name="read_next_section">閱讀下一篇</string>
-  <string name="gallery_menu_more_info">更多資訊</string>
   <string name="menu_gallery_visit_page">前往檔案頁面</string>
   <string name="gallery_error_draw_failed">無法產生圖片。</string>
   <string name="license_title">%s 函式庫的授權條款</string>
-  <string name="gallery_image_info">圖片資訊</string>
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">無法分享圖片：%s</string>
   <string name="gallery_menu_save">儲存至裝置</string>

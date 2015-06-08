@@ -149,7 +149,6 @@ public class GalleryItemFragment extends Fragment {
         if (!isAdded()) {
             return;
         }
-        menu.findItem(R.id.menu_gallery_more_info).setEnabled(galleryItem != null);
         menu.findItem(R.id.menu_gallery_visit_page).setEnabled(galleryItem != null);
         menu.findItem(R.id.menu_gallery_share).setEnabled(galleryItem != null
                                                           && imageView.getDrawable() != null);
@@ -160,11 +159,6 @@ public class GalleryItemFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_gallery_more_info:
-                if (galleryItem != null) {
-                    parentActivity.showDetailsDialog(galleryItem);
-                }
-                return true;
             case R.id.menu_gallery_visit_page:
                 if (galleryItem != null) {
                     parentActivity.finishWithPageResult(imageTitle);

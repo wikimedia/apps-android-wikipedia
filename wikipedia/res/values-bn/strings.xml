@@ -223,10 +223,8 @@
   <string name="dialog_close_description">বন্ধ</string>
   <string name="preference_title_show_images">ছবি প্রদর্শন</string>
   <string name="read_more_section">আরও জানুন</string>
-  <string name="gallery_menu_more_info">আরও তথ্য</string>
   <string name="menu_gallery_visit_page">ফাইল এর পৃষ্ঠাতে যান</string>
   <string name="gallery_error_draw_failed">ছবি টে আঁকা সম্ভব হইতাছে না।</string>
-  <string name="gallery_image_info">ছবির তথ্য</string>
   <string name="gallery_menu_share">শেয়ার</string>
   <string name="gallery_share_error">শেয়ার করা যাচ্ছে না: %s</string>
   <string name="gallery_menu_save">সংরক্ষন করুন</string>

@@ -248,11 +248,9 @@
   <string name="preference_summary_show_images">문서에서 그림을 불러오는 것을 활성화하거나 비활성화합니다. 인터넷 연결이 느리거나, 데이터 요금제가 제한되어 있다면 이 설정을 선택 해제하세요.</string>
   <string name="read_more_section">더 읽어보기</string>
   <string name="read_next_section">다음 읽기</string>
-  <string name="gallery_menu_more_info">자세한 정보</string>
   <string name="menu_gallery_visit_page">파일 문서로 가기</string>
   <string name="gallery_error_draw_failed">그림을 그릴 수 없습니다.</string>
   <string name="license_title">%s 라이브러리의 라이선스 텍스트</string>
-  <string name="gallery_image_info">그림 정보</string>
   <string name="gallery_menu_share">공유</string>
   <string name="gallery_share_error">그림을 공유할 수 없습니다: %s</string>
   <string name="gallery_menu_save">장치에 저장</string>

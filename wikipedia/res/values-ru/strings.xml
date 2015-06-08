@@ -252,11 +252,9 @@
   <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
   <string name="read_more_section">Читать подробнее</string>
   <string name="read_next_section">Читать далее</string>
-  <string name="gallery_menu_more_info">Дополнительная информация</string>
   <string name="menu_gallery_visit_page">Перейти к странице файла</string>
   <string name="gallery_error_draw_failed">Не удалось вывести изображение.</string>
   <string name="license_title">Текст лицензии для библиотеки %s</string>
-  <string name="gallery_image_info">Сведения об изображении</string>
   <string name="gallery_menu_share">Поделиться</string>
   <string name="gallery_share_error">Не удалось поделиться изображением: %s</string>
   <string name="gallery_menu_save">Сохранить на устройство</string>

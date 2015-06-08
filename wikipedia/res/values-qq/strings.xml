@@ -346,12 +346,9 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="read_more_section">Title of the Read More section at the bottom of each page.
 {{Identical|Read more}}</string>
   <string name="read_next_section">Title of the Read Next section at the bottom of each page to invite the user to read the next related article.</string>
-  <string name="gallery_menu_more_info">Menu label for displaying additional information about the current image being shown in the gallery.
-{{Identical|More information}}</string>
   <string name="menu_gallery_visit_page">Menu label for navigating to the File page for the current image being shown in the gallery.</string>
   <string name="gallery_error_draw_failed">Error message shown when the current image could not be displayed.</string>
   <string name="license_title">Activity title of license text for the libraries we use</string>
-  <string name="gallery_image_info">Label for a dialog that shows detailed information about the current image shown in the gallery.</string>
   <string name="gallery_menu_share">Label for menu item to share the current image.
 {{Identical|Share}}</string>
   <string name="gallery_share_error">Error message shown when there was a problem with sharing the image. The \"%s\" symbol is replaced with the actual error message from the system.</string>

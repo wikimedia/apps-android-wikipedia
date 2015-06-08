@@ -237,11 +237,9 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="preference_summary_show_images">تفعيل أو إلغاء تفعيل تحميل الصور في الصفحات. أزل اختيار هذا الإعداد إذا كان اتصالك بالإنترنت بطيئًا، أو إذا كانت خطة بياناتك محدودة.</string>
   <string name="read_more_section">اقرأ المزيد</string>
   <string name="read_next_section">قراءة التالي</string>
-  <string name="gallery_menu_more_info">معلومات أخرى</string>
   <string name="menu_gallery_visit_page">الذهاب إلى صفحة الملف</string>
   <string name="gallery_error_draw_failed">خطأ في إظهار الصورة.</string>
   <string name="license_title">نص الترخيص لمكتبة %s</string>
-  <string name="gallery_image_info">معلومات الصورة</string>
   <string name="gallery_menu_share">مشاركة</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>
   <string name="gallery_menu_save">الحفظ في الجهاز</string>

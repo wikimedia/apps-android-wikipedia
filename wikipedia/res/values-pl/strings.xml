@@ -215,11 +215,9 @@
   <string name="preference_title_show_images">Pokaż obrazki</string>
   <string name="read_more_section">Czytaj więcej</string>
   <string name="read_next_section">Czytaj dalej</string>
-  <string name="gallery_menu_more_info">Więcej informacji</string>
   <string name="menu_gallery_visit_page">Przejdź do strony pliku</string>
   <string name="gallery_error_draw_failed">Nie udało się wyświetlić obrazu.</string>
   <string name="license_title">Tekst licencji dla biblioteki %s</string>
-  <string name="gallery_image_info">Informacje o obrazie</string>
   <string name="gallery_menu_share">Udostępnij</string>
   <string name="gallery_share_error">Nie można udostępnić obrazu: %s</string>
   <string name="gallery_menu_save">Zapisz na urządzeniu</string>

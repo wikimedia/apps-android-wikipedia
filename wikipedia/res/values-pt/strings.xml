@@ -252,11 +252,9 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_summary_show_images">Ativar ou desativar o carregamento de imagens em páginas. Desmarque esta opção se sua ligação à Internet está lenta ou se o seu plano de dados é limitado.</string>
   <string name="read_more_section">Ler mais</string>
   <string name="read_next_section">Ler próximo</string>
-  <string name="gallery_menu_more_info">Mais informação</string>
   <string name="menu_gallery_visit_page">Ir para a página do ficheiro</string>
   <string name="gallery_error_draw_failed">Não é possível mostrar a imagem.</string>
   <string name="license_title">Texto da licença para %s biblioteca</string>
-  <string name="gallery_image_info">Informação da imagem</string>
   <string name="gallery_menu_share">Partilhar</string>
   <string name="gallery_share_error">Não é possível partilhar a imagem: %s</string>
   <string name="gallery_menu_save">Guardar no dispositivo</string>

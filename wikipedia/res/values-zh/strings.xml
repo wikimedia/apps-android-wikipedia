@@ -252,11 +252,9 @@
   <string name="preference_summary_show_images">启用或停用页面中图像的加载功能。当您的网络连接过慢，或数据流量有限时，请不要选择该设置。</string>
   <string name="read_more_section">阅读更多</string>
   <string name="read_next_section">阅读下篇</string>
-  <string name="gallery_menu_more_info">更多信息</string>
   <string name="menu_gallery_visit_page">前往文件页面</string>
   <string name="gallery_error_draw_failed">无法显示图像。</string>
   <string name="license_title">%s库许可协议文本</string>
-  <string name="gallery_image_info">图像信息</string>
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">无法分享图像：%s</string>
   <string name="gallery_menu_save">保存至设备</string>

@@ -251,11 +251,9 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="preference_summary_show_images">Aktivera eller inaktivera inläsning av bilder på sidor. Avmarkera denna inställning om din Internetanslutning är långsam eller om ditt dataabonnemang är begränsat.</string>
   <string name="read_more_section">Läs mer</string>
   <string name="read_next_section">Läs nästa</string>
-  <string name="gallery_menu_more_info">Mer information</string>
   <string name="menu_gallery_visit_page">Gå till filsida</string>
   <string name="gallery_error_draw_failed">Kunde inte rita bilden.</string>
   <string name="license_title">Licenstext för biblioteket %s</string>
-  <string name="gallery_image_info">Bildinformation</string>
   <string name="gallery_menu_share">Dela</string>
   <string name="gallery_share_error">Kunde inte dela bilden: %s</string>
   <string name="gallery_menu_save">Spara till enheten</string>

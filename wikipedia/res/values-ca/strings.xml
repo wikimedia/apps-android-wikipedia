@@ -247,11 +247,9 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_summary_show_images">Activar o desactivar la càrrega d\'imatges a les pàgines. Desactiveu aquest paràmetre si teniu una connexió a Internet lenta o unes dades limitades.</string>
   <string name="read_more_section">Llegir més</string>
   <string name="read_next_section">Llegeix el següent</string>
-  <string name="gallery_menu_more_info">Més informació</string>
   <string name="menu_gallery_visit_page">Anar a la pàgina del fitxer</string>
   <string name="gallery_error_draw_failed">No s\'ha pogut carregar la imatge.</string>
   <string name="license_title">Text de la llicència per la biblioteca %s</string>
-  <string name="gallery_image_info">Informació de la imatge</string>
   <string name="gallery_menu_share">Comparteix</string>
   <string name="gallery_share_error">No s\'ha pogut compartir la imatge: %s</string>
   <string name="gallery_menu_save">Desar al dispositiu</string>

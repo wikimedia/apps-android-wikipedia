@@ -222,10 +222,8 @@
   <string name="dialog_close_description">Κλείσιμο</string>
   <string name="preference_title_show_images">Προβολή εικόνων</string>
   <string name="read_more_section">Διαβάστε περισσότερα</string>
-  <string name="gallery_menu_more_info">Περισσότερες πληροφορίες</string>
   <string name="menu_gallery_visit_page">Μεταβείτε στη σελίδα αρχείου</string>
   <string name="license_title">Κείμενο της άδειας χρήσης για τη βιβλιοθήκη %s</string>
-  <string name="gallery_image_info">Πληροφορίες εικόνας</string>
   <string name="gallery_menu_share">Κοινοποίηση</string>
   <string name="gallery_menu_save">Αποθήκευση στη συσκευή</string>
   <string name="gallery_save_success">Η εικόνα αποθηκεύτηκε επιτυχώς</string>

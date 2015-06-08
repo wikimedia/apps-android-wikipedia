@@ -248,11 +248,9 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="preference_summary_show_images">Bật/tắt việc tải các hình ảnh trong trang. Tắt hình ảnh nếu có kết nối mạng chậm hoặc dữ liệu bị hạn chế.</string>
   <string name="read_more_section">Đọc tiếp</string>
   <string name="read_next_section">Đọc tiếp theo</string>
-  <string name="gallery_menu_more_info">Thêm thông tin</string>
   <string name="menu_gallery_visit_page">Xem trang tập tin</string>
   <string name="gallery_error_draw_failed">Không thể hiển thị hình.</string>
   <string name="license_title">Văn bản giấy phép của thư viện %s</string>
-  <string name="gallery_image_info">Thông tin hình ảnh</string>
   <string name="gallery_menu_share">Chia sẻ</string>
   <string name="gallery_share_error">Không thể chia sẻ hình: %s</string>
   <string name="gallery_menu_save">Lưu vào thiết bị</string>

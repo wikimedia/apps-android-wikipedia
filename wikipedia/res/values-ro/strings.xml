@@ -244,11 +244,9 @@ Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) c
   <string name="preference_summary_show_images">Activează sau dezactivează încărcarea imaginilor în pagini. Debifați această opțiune dacă aveți o conexiune la internet slabă sau dacă abonamentul dumneavoastră de date este limitat.</string>
   <string name="read_more_section">Citiți mai multe</string>
   <string name="read_next_section">Următoarea lectură</string>
-  <string name="gallery_menu_more_info">Mai multe informații</string>
   <string name="menu_gallery_visit_page">Du-te la pagina fișierului</string>
   <string name="gallery_error_draw_failed">Imposibil de afișat imaginea.</string>
   <string name="license_title">Textul licenței pentru biblioteca %s</string>
-  <string name="gallery_image_info">Informații despre imagine</string>
   <string name="gallery_menu_share">Distribuie</string>
   <string name="gallery_share_error">Nu s-a putut distribui imaginea: %s</string>
   <string name="gallery_menu_save">Salvează în dispozitiv</string>

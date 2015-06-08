@@ -251,11 +251,9 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="preference_summary_show_images">Mengaktifkan atau menonaktifkan pemuatan gambar dalam halaman. Hapus centang pengaturan jika koneksi internet anda lambat, atau jika plan data anda terbatas.</string>
   <string name="read_more_section">Baca lebih lanjut</string>
   <string name="read_next_section">Baca selanjutnya</string>
-  <string name="gallery_menu_more_info">Informasi lebih lanjut</string>
   <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>
   <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
   <string name="license_title">Teks lisensi untuk pustaka %s</string>
-  <string name="gallery_image_info">Informasi gambar</string>
   <string name="gallery_menu_share">Bagikan</string>
   <string name="gallery_share_error">Tidak dapat membagi gambar: %s</string>
   <string name="gallery_menu_save">Simpan ke dalam perangkat</string>

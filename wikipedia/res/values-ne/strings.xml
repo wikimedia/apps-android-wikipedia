@@ -164,9 +164,7 @@
   <string name="preference_title_show_images">चित्रहरू देखाउने</string>
   <string name="read_more_section">थप पढ्ने</string>
   <string name="read_next_section">अर्को पढ्ने</string>
-  <string name="gallery_menu_more_info">थप जानकारी</string>
   <string name="menu_gallery_visit_page">फाइल पृष्ठमा जानुहोस्</string>
-  <string name="gallery_image_info">चित्र जानकारी</string>
   <string name="gallery_menu_share">बाड्ने</string>
   <string name="gallery_menu_save">डिभाइसमा संग्रह गर्ने</string>
   <string name="gallery_save_error">चित्र संग्रह गर्न सकिएनः %s</string>

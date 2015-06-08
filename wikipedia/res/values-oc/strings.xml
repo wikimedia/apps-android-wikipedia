@@ -179,11 +179,9 @@
   <string name="preference_title_show_images">Veire los imatges</string>
   <string name="read_more_section">Ne saber mai</string>
   <string name="read_next_section">Legir lo seguent</string>
-  <string name="gallery_menu_more_info">Mai d’informacions</string>
   <string name="menu_gallery_visit_page">Anar a la pagina del fichièr</string>
   <string name="gallery_error_draw_failed">Impossible de dessenhar l’imatge.</string>
   <string name="license_title">Tèxte de la licéncia per la bibliotèca %s</string>
-  <string name="gallery_image_info">Informacion sus l’imatge</string>
   <string name="gallery_menu_share">Partejar</string>
   <string name="gallery_share_error">Impossible de partejar l’imatge : %s</string>
   <string name="gallery_menu_save">Enregistrar sus l’aparelh</string>

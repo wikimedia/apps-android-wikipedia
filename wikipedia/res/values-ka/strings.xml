@@ -200,10 +200,8 @@
   <string name="preference_title_show_images">სურათების ჩვენება</string>
   <string name="read_more_section">წაიკითხე მეტი</string>
   <string name="read_next_section">შემდეგის წაკითხვა</string>
-  <string name="gallery_menu_more_info">მეტი ინფორმაცია</string>
   <string name="menu_gallery_visit_page">გადადით ფაილის გვერდზე</string>
   <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
-  <string name="gallery_image_info">სურათის ინფორმაცია</string>
   <string name="gallery_menu_share">გაზიარება</string>
   <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
   <string name="gallery_menu_save">მოწყობილობაში შენახვა</string>

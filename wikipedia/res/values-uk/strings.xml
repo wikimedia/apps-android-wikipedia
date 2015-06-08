@@ -262,11 +262,9 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_summary_show_images">Включити або відключити завантаження зображень в сторінках. Вимкніть цю опцію, якщо ваше інтернет з\'єднання повільне, або якщо ваш тарифний план обмежений.</string>
   <string name="read_more_section">Читати більше</string>
   <string name="read_next_section">Читати далі</string>
-  <string name="gallery_menu_more_info">Додаткова інформація</string>
   <string name="menu_gallery_visit_page">Перейти на сторінку файлу</string>
   <string name="gallery_error_draw_failed">Не вдалось відтворити зображення.</string>
   <string name="license_title">Текст ліцензії для бібліотеки %s</string>
-  <string name="gallery_image_info">Інформація про зображення</string>
   <string name="gallery_menu_share">Поділитися</string>
   <string name="gallery_share_error">Не вдалось поділитися зображенням: %s</string>
   <string name="gallery_menu_save">Зберегти на пристрій</string>
