@@ -132,6 +132,7 @@
   <string name="create_account_next">Seguinte</string>
   <string name="create_account_button">Criar conta</string>
   <string name="preferences_general_heading">Geral</string>
+  <string name="wikipedia_app_faq">Perguntas frequentes</string>
   <string name="zero_charged_verbiage">Wikipédia Zero está desligada</string>
   <string name="zero_charged_verbiage_extended">O carregamento de outros artigos podem incorrer em custos de dados.</string>
   <string name="zero_search_hint">Procurar na Wikipédia Zero</string>
@@ -273,4 +274,5 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Imagem Captcha</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Carregador desconhecido</string>
+  <string name="edit_save_unknown_error">Não foi possível gravar a sua edição: %s</string>
 </resources>

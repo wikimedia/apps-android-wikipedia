@@ -10,8 +10,10 @@
   <string name="acra_report_dialog_comment">Що ви робили, коли трапився збій?</string>
   <string name="search_hint">Пошук по Вікіпедії</string>
   <string name="nav_item_history">Історія</string>
-  <string name="error_network_error" fuzzy="true">Не вдалося знайти мережу :(</string>
+  <string name="error_network_error">Відсутнє підключення до мережі :(</string>
   <string name="search_network_error">Помилка мережі. Натисніть, щоб спробувати знову.</string>
+  <string name="generic_page_error">Виникла проблема обробки Вашого запиту.</string>
+  <string name="status_code_unavailable">Код статусу сервера  недоступний.</string>
   <string name="page_error_retry">Повторити</string>
   <string name="menu_clear_all_history">Очистити журнал</string>
   <string name="menu_clear_all_saved_pages">Очистити збережені сторінки</string>
@@ -36,19 +38,26 @@
   <string name="saved_pages_search_empty_message">Нема сторінок, що відповідають вашому запиту.</string>
   <string name="nav_item_nearby">Неподалік</string>
   <string name="menu_update_nearby">Оновлення неподалік</string>
-  <string name="nearby_empty_title" fuzzy="true">Немає сторінок неподалік</string>
-  <string name="nearby_empty_message" fuzzy="true">Ви можете оновити цю сторінку під час переміщення до нового розташування.</string>
+  <string name="nearby_empty_title">Тут немає суміжних сторінок!</string>
+  <string name="nearby_empty_message">Коли ви переміститесь на нове місце, спробуйте оновити цю сторінку щоб взнати що навколо вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
+  <string name="nearby_distance_in_feet">%d футів</string>
+  <string name="nearby_distance_in_miles">%.2f миль</string>
   <string name="nearby_no_network">Немає з\'єднання з мережею</string>
   <string name="nearby_server_error">Не вдалося отримати список місць неподалік.</string>
   <string name="nearby_dialog_goto_settings">Оновлення розташування не увімкнено на вашому пристрої. Ви хотіли б перейти в налаштування пристрою для увімкнення оновлення місця знаходження?</string>
+  <string name="nearby_set_metric">Показувати в метрах/кілометрах</string>
+  <string name="nearby_set_imperial">Показувати в футах/милях</string>
+  <string name="nearby_view_on_map">Переглянути місце на карті</string>
   <string name="last_updated_text">Останнє оновлення %1$s</string>
   <string name="content_license_html">Вміст доступний згідно з &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.uk\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
   <string name="edit_save_action_license_logged_in">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Умовами користування&lt;/a&gt;, та безповоротно публікуєте свій внесок під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Умовами користування&lt;/a&gt;, та беззастережно публікуєте свій внесок під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою Вашого пристрою. Якщо Ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="preference_title_language">Мова Вікіпедії</string>
   <string name="preference_languages_filter_hint">Пошук</string>
+  <string name="preference_system_language_toggle">Використовувати системну мову</string>
+  <string name="preference_system_language_summary">Системна мова</string>
   <string name="langlinks_filter_hint">Пошук</string>
   <string name="menu_other_languages">Читати іншими мовами</string>
   <string name="langlinks_error_retry">Повторити</string>
@@ -62,6 +71,9 @@
   <string name="dialog_message_edit_failed">Невдале редагування!</string>
   <string name="dialog_message_edit_failed_retry">Повторити</string>
   <string name="dialog_message_edit_failed_cancel">Скасувати</string>
+  <string name="dialog_message_leaving_edit">Ваші зміни ще не було збережено. Ви дійсно хочете покинути цю сторінку?</string>
+  <string name="dialog_message_leaving_edit_leave">Покинути</string>
+  <string name="dialog_message_leaving_edit_stay">Залишитись</string>
   <string name="menu_show_toc">Зміст</string>
   <string name="search_no_results_found">Нічого не знайдено</string>
   <string name="edit_section_captcha_message">Щоб якнайкраще захиститися від спаму, будь ласка, введіть слова, які з\'являються нижче</string>
@@ -92,6 +104,7 @@
   <string name="saved_pages_empty_message">Збережені сторінки — це круто! Користуйтесь ними як закладками, які можна читати навіть, коли Ви офлайн.</string>
   <string name="history_empty_title">Немає нещодавніх сторінок.</string>
   <string name="history_empty_message">Вірогідно, Ви їх усі видалили. Наступного разу, коли відвідаєте сторінку, Ви зможете повернутися до неї звідси.</string>
+  <string name="delete_selected_history">Видалити</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЕДІ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="wp_tag_line">Вільна енциклопедія</string>
   <string name="skip">Пропустити</string>
@@ -119,6 +132,7 @@
   <string name="create_account_next">Далі</string>
   <string name="create_account_button">Створити обліковий запис</string>
   <string name="preferences_general_heading">Загальні</string>
+  <string name="wikipedia_app_faq">Часті питання по додатку</string>
   <string name="zero_charged_verbiage">Вікіпедія Zero вимкнена</string>
   <string name="zero_charged_verbiage_extended">При завантаженні інших статей може стягуватися плата за передачу даних.</string>
   <string name="zero_search_hint">Пошук по Вікіпедії Zero</string>
@@ -198,20 +212,77 @@
   <string name="color_theme_light">Світла</string>
   <string name="color_theme_dark">Темна</string>
   <string name="page_similar_titles">Подібні сторінки</string>
+  <string name="search_did_you_mean">Ви мали на увазі \"%s\"?</string>
+  <string name="search_recent_header">Недавні пошукові запити:</string>
+  <string name="button_clear_all_recent_searches">Очистити історію пошуку</string>
+  <string name="clear_recent_searches_confirm">Ви впевнені, що хочете стерти історію пошукових запитів?</string>
   <string name="toc_hint">Проведіть ліворуч для розділів, або використовуйте кнопку меню зверху праворуч.</string>
   <string name="toc_know_it">Зрозуміло</string>
-  <string name="app_store_description" fuzzy="true">Офіційний застосунок Вікіпедії для Android. Вікіпедія — це вільна енциклопедія, у якій 32 мільйонів статей 280-ма мовами, і це найбільш доступна і використовувана реферативна робота, яку люди будь-коли писали. Застосунок ґрунтовно переписаний і працює краще, ніж будь-коли.
+  <string name="error_browser_not_found">Не вдалося відкрити веб-сторінку (веб-браузер не знайдено).</string>
+  <string name="table_infobox">Швидкі факти</string>
+  <string name="table_other">Більше інформації</string>
+  <string name="table_close">Закрити</string>
+  <string name="widget_name_featured_page">Вікіпедія - вибрані сторінки</string>
+  <string name="widget_title_featured_page">Сьогоднішня вибрана сторінка:</string>
+  <string name="widget_name_search">Пошук в Вікіпедії</string>
+  <string name="app_store_description">Офіційний додаток Вікіпедії для Андроїд. Вікіпедія — це вільна енциклопедія, з понад 32 мільйонами статей на 280-ти мовах. Наразі це найбільш доступна і використовувана реферативна робота, яку люди будь-коли писали.
 
 Характеристики:
-   - Швидкість: Наш новий, рідний застосунок дозволяє Вам відвідувати і редагувати Вікіпедію швидше, ніж будь-коли до цього.
-   - Редагування: Ви можете редагувати Вікіпедію, увійшовши в систему, або анонімно, ми дякуємо Вам за весь Ваш внесок.
-   - Нещодавні сторінки: Ми забезпечуємо Вас історією Вашого читання, щоб Ви не загубилися, за скількома б посиланнями не переходили.
-   - Збережені сторінки: Ви можете зберегти вибрані сторінки для читання офлайн і гортати їх, навіть не маючи з\'єднання.
-   - Поширення: Користуйтеся своїми наявними застосунками соціальних мереж, щоб ділитися усіма знаннями людства.
-   - Мовна підтримка: Застосунок дозволяє Вам легко перемикатися на Вікіпедію будь-якою мовою.
-   - Вікіпедія Zero: Мобільні оператори, що беруть участь, скасовують плату за передачу даних.
 
-Джерельний код повністю відкритий. Якщо Ви маєте досвід із Java та Android SDK, тоді приєднуйтеся до нас! https://github.com/wikimedia/apps-android-wikipedia</string>
+ - Ведучі зображення: Відчуйте Вікіпедію як ніколи раніше з головним по контексту зображенням та описом на початку сторінки. 
+
+ - Галерея зображень: Дотиком відкрийте зображення на весь екран та з легкістю пролистуйте їх в межах галереї до статті.
+
+ - Опис з Вікідата: Під час пошуку отримуйте коротку анотацію кожного результату щоб не загубитись між синонімами та схожими термінами.
+
+ - Що читати далі: Перейдіть вниз статті для перегляду пропонованих сторінок для подальшого читання.
+
+ - Збереження сторінок: Зберігайте сторінки щоб прочитати пізніше коли в вас не буде під рукою підключення до мережі.
+
+ - Біля вас: Дізнайтесь більше що навколо вас використовуючи геопозиціонування.
+
+ - Мовна підтримка: Швидко переходьте між Вікіпедіями на ріхних мовах.
+
+ - Вікіпедія Zero: Мобільні оператори, що беруть участь, скасовують плату за передачу даних.
+
+ - Вихідний код 100% відкритий. Якщо Ви маєте досвід із Java та Android SDK — ми чекаємо вашого внеску на Github! 
+
+Проект на Github:
+https://github.com/wikimedia/apps-android-wikipedia
+
+Політика приватності:
+https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Умови використання:
+https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Доступне оновлення альфа-версії</string>
   <string name="alpha_update_notification_text">Натисніть, щоб завантажити</string>
+  <string name="dialog_close_description">Закрити</string>
+  <string name="preference_title_show_images">Показати зображення</string>
+  <string name="preference_summary_show_images">Включити або відключити завантаження зображень в сторінках. Вимкніть цю опцію, якщо ваше інтернет з\'єднання повільне, або якщо ваш тарифний план обмежений.</string>
+  <string name="read_more_section">Читати більше</string>
+  <string name="read_next_section">Читати далі</string>
+  <string name="gallery_menu_more_info">Додаткова інформація</string>
+  <string name="menu_gallery_visit_page">Перейти на сторінку файлу</string>
+  <string name="gallery_error_draw_failed">Не вдалось відтворити зображення.</string>
+  <string name="license_title">Текст ліцензії для бібліотеки %s</string>
+  <string name="gallery_image_info">Інформація про зображення</string>
+  <string name="gallery_menu_share">Поділитися</string>
+  <string name="gallery_share_error">Не вдалось поділитися зображенням: %s</string>
+  <string name="gallery_menu_save">Зберегти на пристрій</string>
+  <string name="gallery_save_error">Не вдалось зберегти зображення: %s</string>
+  <string name="gallery_save_error_mediastore">Не вдалося імпортувати зображення до медіа-колекції</string>
+  <string name="gallery_save_success">Зображення успішно збережено!</string>
+  <string name="gallery_error_video_failed">Не вдалось відтворити відео.</string>
+  <string name="err_cannot_save_file">Не вдається зберегти файл</string>
+  <string name="snippet_share_intro">\"%1$s\" на сайті @Wikipedia: %2$s</string>
+  <string name="expand_refs">Торкніться, щоб розкрити</string>
+  <string name="share_snippet_button">Поділитися як зображенням</string>
+  <string name="share_normal_button">Поділитися як текстом</string>
+  <string name="snippet_share_preview_image_desc">Попередній перегляд зображення</string>
+  <string name="cc_logo">Ліцензія Creative Commons</string>
+  <string name="captcha_image">Зображення captcha</string>
+  <string name="gallery_fair_use_license">Добросовісне використання</string>
+  <string name="gallery_uploader_unknown">Завантаживший невідомий</string>
+  <string name="edit_save_unknown_error">Не вдалося зберегти ваше редагування: %s</string>
 </resources>

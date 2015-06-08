@@ -80,6 +80,7 @@
   <string name="preferences_general_heading">Orokorra</string>
   <string name="zero_search_hint">Bilatu Wikipedia Zeron</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+  <string name="zero_interstitial_continue">Irten</string>
   <string name="zero_learn_more_learn_more">Irakurri gehiago</string>
   <string name="nav_item_random">Ausazkoa</string>
   <string name="user_contribs_more_action">Gehiago kargatu</string>

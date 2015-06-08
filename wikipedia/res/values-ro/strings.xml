@@ -132,6 +132,7 @@
   <string name="create_account_next">Înainte</string>
   <string name="create_account_button">Creare cont</string>
   <string name="preferences_general_heading">General</string>
+  <string name="wikipedia_app_faq">Într. frecv. aplicația Wikipedia</string>
   <string name="zero_charged_verbiage">Wikipedia Zero este dezactivată</string>
   <string name="zero_charged_verbiage_extended">Încărcarea altor articole poate declanșa costuri pentru trafic de date.</string>
   <string name="zero_search_hint">Căutare în Wikipedia Zero</string>

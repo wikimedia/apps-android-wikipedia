@@ -132,6 +132,7 @@
   <string name="create_account_next">Volgende</string>
   <string name="create_account_button">Registreren</string>
   <string name="preferences_general_heading">Algemeen</string>
+  <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Wikipedia Zero is uitgeschakeld</string>
   <string name="zero_charged_verbiage_extended">Het laden van andere pagina\'s kan datakosten met zich meebrengen.</string>
   <string name="zero_search_hint">In Wikipedia Zero zoeken</string>

@@ -54,6 +54,8 @@
   <string name="edit_save_action_license_anon">بالحفظ، فإنك توافق على &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مُسجلًا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
   <string name="preference_title_language">لغة ويكيبيديا</string>
   <string name="preference_languages_filter_hint">بحث</string>
+  <string name="preference_system_language_toggle">استخدم لغة النظام</string>
+  <string name="preference_system_language_summary">لغة النظام</string>
   <string name="langlinks_filter_hint">بحث</string>
   <string name="menu_other_languages">اقرأ بلغات أخرى</string>
   <string name="langlinks_error_retry">إعادة المحاولة</string>
@@ -86,6 +88,7 @@
   <string name="login_in_progress_dialog_message">جارٍ تسجيل دخولك…</string>
   <string name="login_error_wrong_password">كلمة السر غير صحيحة</string>
   <string name="login_error_wrong_username">اسم المستخدم غير صحيح</string>
+  <string name="login_error_illegal">اسم المستخدم غير صالح</string>
   <string name="login_success_toast">تم تسجيل الدخول بنجاح!</string>
   <string name="login_error_blocked">تم منع هذا المستخدم</string>
   <string name="login_error_throttled">لقد حاولت تسجيل الدخول مرات كثيرة. انتظر لبضع دقائق وحاول مرةً أخرى.</string>
@@ -247,4 +250,8 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="err_cannot_save_file">تعذّر حفظ الملف</string>
   <string name="snippet_share_intro">\"%1$s\" في @Wikipedia: %2$s</string>
   <string name="expand_refs">اضغط للتوسيع</string>
+  <string name="snippet_share_preview_image_desc">معاينة الصورة</string>
+  <string name="cc_logo">رخصة المشاع الإبداعي</string>
+  <string name="gallery_fair_use_license">استخدام عادل</string>
+  <string name="gallery_uploader_unknown">الرافع غير معروف</string>
 </resources>

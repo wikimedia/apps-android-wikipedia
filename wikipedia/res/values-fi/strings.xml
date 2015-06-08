@@ -12,6 +12,8 @@
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Verkkoyhteyttä ei ole :(</string>
   <string name="search_network_error">Verkkovirhe. Yritä uudelleen.</string>
+  <string name="generic_page_error">Pyyntöäsi käsiteltäessä ilmeni ongelma.</string>
+  <string name="status_code_unavailable">Palvelimen tilakoodi ei ole saatavilla.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
   <string name="menu_clear_all_history">Tyhjennä historia</string>
   <string name="menu_clear_all_saved_pages">Tyhjennä tallennetut sivut</string>
@@ -54,6 +56,8 @@
   <string name="edit_save_action_license_anon">Tallentamalla hyväksyt &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
   <string name="preference_title_language">Wikipedian kieli</string>
   <string name="preference_languages_filter_hint">Haku</string>
+  <string name="preference_system_language_toggle">Käytä järjestelmän kieltä</string>
+  <string name="preference_system_language_summary">Järjestelmän kieli</string>
   <string name="langlinks_filter_hint">Haku</string>
   <string name="menu_other_languages">Muilla kielillä</string>
   <string name="langlinks_error_retry">Yritä uudelleen</string>
@@ -86,6 +90,7 @@
   <string name="login_in_progress_dialog_message">Kirjaudutaan…</string>
   <string name="login_error_wrong_password">Virheellinen salasana</string>
   <string name="login_error_wrong_username">Virheellinen käyttäjätunnus</string>
+  <string name="login_error_illegal">Virheellinen käyttäjätunnus</string>
   <string name="login_success_toast">Kirjautuminen onnistui!</string>
   <string name="login_error_blocked">Tämä käyttäjä on estetty</string>
   <string name="login_error_throttled">Liian monta kirjautusmisyritystä. Odota muutama minuutti ja yritä uudelleen.</string>
@@ -219,25 +224,25 @@
   <string name="widget_name_featured_page">Wikipedian suositeltu sivu</string>
   <string name="widget_title_featured_page">Päivän suositeltu sivu:</string>
   <string name="widget_name_search">Wikipedia-haku</string>
-  <string name="app_store_description" fuzzy="true">Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 32 miljoonaa artikkelia 280 eri kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut.
+  <string name="app_store_description">Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 32 miljoonaa artikkelia 280 eri kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut.
 
 Ominaisuudet:
    - Johdantokuvat: koe Wikipedia aivan uudella tavalla, sillä nyt artikkelit sisältävät asiayhteyteen liittyvän kuvan ja kuvauksen artikkelin yläosassa
    - Kuvaukset Wikidatasta: hakiessasi tietoa jokainen hakutulos sisältää nyt lyhyen kuvauksen, joka auttaa tuloksen asiayhteyden ymmärtämisessä. Nämä kuvaukset näkyvät myös sovelluksen muissa osissa, kuten Lähistöllä-ominaisuudessa
    - Artikkeliehdotukset: vieritä artikkelin loppuosaan saadaksesi ehdotuksia siitä, mitä voisit seuraavaksi lukea
-   - Tallennetut sivut: Voit tallentaa valittuja sivuja luettavaksi offline-tilassa ja selata niitä jopa silloin, kun sinulla ei ole datayhteyttä
-   - Lähistöllä: Opi lisää lähiympäristöstäsi saamalla linkkejä artikkeleihin asioista, jotka ovat lähellä nykyistä sijaintiasi 
-   - Kielituki: Sovellus mahdollistaa Wikipedian vaivattoman lukemisen millä tahansa kielellä
-   - Sisällysluettelo: Pyyhkäise vasemmalle missä tahansa artikkelissa tuodaksesi esiin sisällysluettelon, minkä avulla voit nopeasti siirtyä artikkelin osioiden välillä
-   - Wikipedia Zero: Tiedonsiirtomaksut poistettu osallistuvien matkapuhelinoperaattoreiden toimesta
+   - Tallennetut sivut: tallenna valittuja sivuja luettavaksi offline-tilassa ja selaa niitä jopa silloin, kun sinulla ei ole datayhteyttä
+   - Lähistöllä: opi lisää lähiympäristöstäsi saamalla linkkejä artikkeleihin asioista, jotka ovat lähellä nykyistä sijaintiasi 
+   - Kielituki: lue Wikipediaa vaivattomasti millä tahansa kielellä
+   - Sisällysluettelo: pyyhkäise vasemmalle missä tahansa artikkelissa tuodaksesi esiin sisällysluettelon, minkä avulla voit nopeasti siirtyä artikkelin osioiden välillä
+   - Wikipedia Zero: tiedonsiirtomaksut poistettu osallistuvien matkapuhelinoperaattoreiden toimesta
 
 Lähetä meille palautetta sovelluksesta! Valitse valikosta \"Lisää\", sitten \"Tietoja Wikipedia-sovelluksesta\", sitten \"Lähetä palautetta sovelluksesta\".
 
 Lähdekoodi on täysin avointa. Jos sinulla on kokemusta Javan ja Android SDK:n parissa työskentelystä, odotamme innolla parannuksiasi! https://github.com/wikimedia/apps-android-wikipedia
 
-Yksityisyydensuoja: http://wikimediafoundation.org/wiki/Privacy_policy
+Yksityisyydensuoja: https://m.wikimediafoundation.org/wiki/Privacy_policy
 
-Käyttöehdot: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
+Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Uusi alfaversio saatavilla</string>
   <string name="alpha_update_notification_text">Napauta ladataksesi</string>
   <string name="dialog_close_description">Sulje</string>
@@ -265,4 +270,6 @@ Käyttöehdot: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="snippet_share_preview_image_desc">Esikatsele kuvaa</string>
   <string name="cc_logo">Creative Commons -lisenssi</string>
   <string name="captcha_image">CAPTCHA-kuva</string>
+  <string name="gallery_uploader_unknown">Tuntematon tallentaja</string>
+  <string name="edit_save_unknown_error">Muokkaustasi ei voitu tallentaa: %s</string>
 </resources>

@@ -56,6 +56,8 @@
   <string name="edit_save_action_license_anon">En desar accepteu les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
   <string name="preference_title_language">Idioma de la Viquipèdia</string>
   <string name="preference_languages_filter_hint">Cercar</string>
+  <string name="preference_system_language_toggle">Utilitza la llengua del sistema</string>
+  <string name="preference_system_language_summary">Llengua del sistema</string>
   <string name="langlinks_filter_hint">Cercar</string>
   <string name="menu_other_languages">Llegir-ho en altres idiomes</string>
   <string name="langlinks_error_retry">Tornar-ho a provar</string>
@@ -88,6 +90,7 @@
   <string name="login_in_progress_dialog_message">S’està iniciant la sessió…</string>
   <string name="login_error_wrong_password">Contrasenya incorrecta</string>
   <string name="login_error_wrong_username">Nom d\'usuari incorrecte</string>
+  <string name="login_error_illegal">Nom d\'usuari no vàlid</string>
   <string name="login_success_toast">S\'ha iniciat sessió correctament!</string>
   <string name="login_error_blocked">Aquest usuari ha estat bloquejat</string>
   <string name="login_error_throttled">Massa intents. Espereu uns minuts i torneu-ho a intentar.</string>

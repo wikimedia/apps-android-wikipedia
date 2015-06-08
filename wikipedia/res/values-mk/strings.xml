@@ -132,6 +132,7 @@
   <string name="create_account_next">Следно</string>
   <string name="create_account_button">Направи сметка</string>
   <string name="preferences_general_heading">Општи</string>
+  <string name="wikipedia_app_faq">ЧПП за Википедииниот извршник</string>
   <string name="zero_charged_verbiage">Википедија Нулта е исклучена</string>
   <string name="zero_charged_verbiage_extended">За вчитување на други статии може да се наплаќа податочниот промет</string>
   <string name="zero_search_hint">Пребарај ја Википедија Нулта</string>

@@ -132,6 +132,7 @@
   <string name="create_account_next">הבא</string>
   <string name="create_account_button">יצירת חשבון</string>
   <string name="preferences_general_heading">כללי</string>
+  <string name="wikipedia_app_faq">שו\"ת יישום ויקיפדיה</string>
   <string name="zero_charged_verbiage">מצב ויקיפדיה אפס כבוי</string>
   <string name="zero_charged_verbiage_extended">טעינת ערכים אחרים יכול לגרור חיובים על נתונים.</string>
   <string name="zero_search_hint">חיפוש בוויקיפדיה אפס</string>

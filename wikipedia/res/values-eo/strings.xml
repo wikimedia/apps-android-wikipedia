@@ -2,6 +2,7 @@
 <resources>
   <string name="app_name">Vikipedio</string>
   <string name="app_name_beta">Vikipedia Beta-versio</string>
+  <string name="app_name_alpha">Vikipedio Alfo</string>
   <string name="yes">Jes</string>
   <string name="no">Ne</string>
   <string name="acra_report_dialog_title">Vikipedio kolapsis</string>
@@ -11,6 +12,8 @@
   <string name="nav_item_history">Historio</string>
   <string name="error_network_error">Ne estas ret-aliro</string>
   <string name="search_network_error">Reta eraro. Tuŝu por reprovi.</string>
+  <string name="generic_page_error">Dum traktado de via peto okazis eraro.</string>
+  <string name="status_code_unavailable">Kodo de servila stato estas nedisponebla.</string>
   <string name="page_error_retry">Reprovi</string>
   <string name="menu_clear_all_history">Malplenigi historion</string>
   <string name="menu_clear_all_saved_pages">Malplenigi ĉiujn konservitajn paĝojn</string>
@@ -43,6 +46,7 @@
   <string name="nearby_distance_in_miles">%.2f mejloj</string>
   <string name="nearby_no_network">Ne estas ret-aliro</string>
   <string name="nearby_server_error">Ne eblis akiri liston pri ĉirkaŭaj lokoj</string>
+  <string name="nearby_dialog_goto_settings">Lokinformoj ne estas ŝaltitaj en via aparato. Ĉu vi volas iri al agordoj de via aparato por ŝalti lokinformojn?</string>
   <string name="nearby_set_metric">Montru metroj/km</string>
   <string name="nearby_set_imperial">Montru futojn/mejlojn</string>
   <string name="nearby_view_on_map">Vidu lokon sur mapo</string>
@@ -52,6 +56,8 @@
   <string name="edit_save_action_license_anon">Konservante, vi konsentas kun la &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; permesilo. Modifoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutas&lt;/a&gt;, vi havos pli privatecon.</string>
   <string name="preference_title_language">Lingvo de Vikipedio</string>
   <string name="preference_languages_filter_hint">Serĉi</string>
+  <string name="preference_system_language_toggle">Uzi sisteman lingvon</string>
+  <string name="preference_system_language_summary">Sistema lingvo</string>
   <string name="langlinks_filter_hint">Serĉi</string>
   <string name="menu_other_languages">Legi en alia lingvo</string>
   <string name="langlinks_error_retry">Reprovi</string>
@@ -84,6 +90,7 @@
   <string name="login_in_progress_dialog_message">Ensalutante…</string>
   <string name="login_error_wrong_password">Neĝusta pasvorto</string>
   <string name="login_error_wrong_username">Neĝusta uzantnomo</string>
+  <string name="login_error_illegal">Nevalida uzantonomo</string>
   <string name="login_success_toast">Ensalutado sukcesis</string>
   <string name="login_error_blocked">Ĉi tiu uzanto estis forbarita</string>
   <string name="login_error_throttled">Tro multaj ensalutaj provoj. Atendu kelkaj minutoj kaj reprovu tiam.</string>
@@ -95,6 +102,7 @@
   <string name="toast_logout_complete">Elsalutiĝinta</string>
   <string name="saved_pages_empty_title">Neniu paĝo konservita ankoraŭ!</string>
   <string name="saved_pages_empty_message">Konservitaj paĝoj mojosas. Pensu pri ili kiel markaĵoj kiujn vi povas legi eĉ kiam vi ne estas enreta.</string>
+  <string name="history_empty_title">Neniuj lastaj paĝoj ĉi tie!</string>
   <string name="history_empty_message">Tre eble vi forigis ĉiujn. Venontfoje kiam vi vizitu paĝon, vi povas rehavigi ĝin el ĉi tie.</string>
   <string name="delete_selected_history">Forigi</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDI&lt;big&gt;O&lt;/big&gt;</string>
@@ -124,15 +132,18 @@
   <string name="create_account_next">Sekva</string>
   <string name="create_account_button">Krei konton</string>
   <string name="preferences_general_heading">Ĝenerala</string>
-  <string name="zero_charged_verbiage">Vikipedio Zezo estas malŝaltita</string>
+  <string name="zero_charged_verbiage">Vikipedio Nulo estas malŝaltita</string>
+  <string name="zero_charged_verbiage_extended">Pro ŝutado de pliaj artikoloj vi eble devos pagi la datumŝutadon.</string>
   <string name="zero_search_hint">Serĉi en Vikipedio Zero</string>
   <string name="zero_warn_when_leaving">Avertu kiam forlasi Vikipedio Zero</string>
+  <string name="zero_webpage_title">Oftaj demandoj pri Vikipedio Nulo</string>
   <string name="zero_wikipedia_zero_heading">Vikipedio Zero</string>
   <string name="zero_interstitial_title">Forlasante Vikipedio Zero</string>
   <string name="zero_interstitial_continue">Forlasi</string>
   <string name="zero_interstitial_cancel">Resti ĉi tie</string>
   <string name="zero_learn_more_learn_more">Legi plu</string>
   <string name="zero_learn_more_dismiss">Elimini</string>
+  <string name="edit_preview_fetching_dialog_message">Generado de antaŭvido...</string>
   <string name="send_feedback">Sendu informon pri ĉi tiu aplikaĵo</string>
   <string name="nav_item_random">Hazarda paĝo</string>
   <string name="create_account_account_created_toast">Konto kreita</string>
@@ -161,6 +172,7 @@
   <string name="about_wmf">Produktaĵo de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Vikimedia Fondaĵo&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ĉi tiu paĝo estis modifita. Ĉu vi certas ke vi volas eliri sen konservi viajn modifojn?</string>
+  <string name="user_blocked_from_editing_title">Forbarita</string>
   <string name="user_logged_in_blocked_from_editing">Via uzanta konto estis forbarita pri redaktado en tiu ĉi vikio.</string>
   <string name="user_anon_blocked_from_editing">Via IP-adreso estis forbarita pri redaktado.</string>
   <string name="edit_how_page_improved">Kiel vi plibonigis ĉi tiun paĝon?</string>
@@ -182,6 +194,7 @@
   <string name="saved_pages_refresh_pages_complete">Ĝisdatigo finita</string>
   <string name="menu_page_saved">Paĝo konservita</string>
   <string name="menu_refresh_saved_page">Ĝisdatigi paĝon</string>
+  <string name="abusefilter_title_warn">Tio ĉi eble estas nekonstruiga redakto. Ĉu vi certas, ke vi volas konservi ĝin?</string>
   <string name="abusefilter_title_disallow">Vi ne povas konservi ĉi tiun modifon. Bonvole iru reen kaj ŝanĝu ĝin.</string>
   <string name="dialog_page_issues">Paĝaj problemoj</string>
   <string name="button_page_issues">Paĝaj problemoj</string>
@@ -226,6 +239,7 @@ La kodo estas 100% malferma. Se vi havas sperton kun Java kaj Android SDK, ni bo
 Politikoj pri privateco: http://wikimediafoundation.org/wiki/Privacy_policy
 
 Uzkondiĉoj: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
+  <string name="alpha_update_notification_title">Disponeblas nova alfa ĝisdatigo</string>
   <string name="alpha_update_notification_text">Klaku por elŝuti</string>
   <string name="dialog_close_description">Fermi</string>
   <string name="preference_title_show_images">Montri bildojn</string>
@@ -234,6 +248,7 @@ Uzkondiĉoj: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="read_next_section">Legu sekve</string>
   <string name="gallery_menu_more_info">Pliaj informoj</string>
   <string name="menu_gallery_visit_page">Iru al la dosiera paĝo</string>
+  <string name="gallery_error_draw_failed">Ne eblis montri la bildon.</string>
   <string name="license_title">Teksto de la biblioteka permesilo %s</string>
   <string name="gallery_image_info">Bilda informo</string>
   <string name="gallery_menu_share">Kundividi</string>
@@ -250,6 +265,8 @@ Uzkondiĉoj: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="share_normal_button">Kundividi kiel teksto</string>
   <string name="snippet_share_preview_image_desc">Antaŭrigardo de la bildo</string>
   <string name="cc_logo">Krea komunaĵa permesilo</string>
+  <string name="captcha_image">Captcha-bildo</string>
   <string name="gallery_fair_use_license">Justa uzo</string>
   <string name="gallery_uploader_unknown">Alŝutanto nekonata</string>
+  <string name="edit_save_unknown_error">Ne eblas konservi viajn redaktojn: %s</string>
 </resources>

@@ -56,6 +56,8 @@
   <string name="edit_save_action_license_anon">En enregistrant, vous acceptez les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Les modifications seront attribuées à l’adresse IP de votre appareil. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
   <string name="preference_title_language">Langue de Wikipédia</string>
   <string name="preference_languages_filter_hint">Rechercher</string>
+  <string name="preference_system_language_toggle">Utiliser la langue du système</string>
+  <string name="preference_system_language_summary">Langue du système</string>
   <string name="langlinks_filter_hint">Rechercher</string>
   <string name="menu_other_languages">Lire dans d’autres langues</string>
   <string name="langlinks_error_retry">Réessayer</string>
@@ -130,6 +132,7 @@
   <string name="create_account_next">Suivant</string>
   <string name="create_account_button">Créer un compte</string>
   <string name="preferences_general_heading">Général</string>
+  <string name="wikipedia_app_faq">FAQ des applis Wikipedia</string>
   <string name="zero_charged_verbiage">Wikipédia Zéro est désactivé</string>
   <string name="zero_charged_verbiage_extended">Charger d’autres articles peut entraîner des frais de données.</string>
   <string name="zero_search_hint">Rechercher dans Wikipédia Zéro</string>

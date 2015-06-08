@@ -31,6 +31,10 @@
   <string name="saved_pages_search_list_hint">खोज्ने</string>
   <string name="nav_item_nearby">नजिकै</string>
   <string name="menu_update_nearby">नजिकै अद्यावधिक भएको</string>
+  <string name="nearby_distance_in_meters">%d मीटर</string>
+  <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
+  <string name="nearby_distance_in_feet">%d फिट</string>
+  <string name="nearby_distance_in_miles">%.2f माइल</string>
   <string name="nearby_no_network">नेटबर्क क्नेकसन नभएको</string>
   <string name="nearby_view_on_map">नक्शामा ठाँउ देखाउनु होस्</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>

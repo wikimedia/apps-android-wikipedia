@@ -136,7 +136,7 @@
   <string name="zero_charged_verbiage_extended">讀取其他文章可能產生資料流量的費用。</string>
   <string name="zero_search_hint">搜尋 Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">離開 Wikipedia Zero 時提示</string>
-  <string name="zero_warn_when_leaving_summary">如果閣下的行動業者/流動營辦商透過 Wikipedia Zero 的夥伴關係免除存取維基百科時的資料收費，閣下可以透過勾選此設定以在離開維基百科的程式時通知閣下，以免閣下被收費。</string>
+  <string name="zero_warn_when_leaving_summary">如果您的行動網路業者與 Wikipedia Zero 有合作夥伴關係，並且免除存取維基百科應用程式時的資料費用，請勾選此設定以幫助您知道您正在離開維基百科並可能被收取費用。</string>
   <string name="zero_webpage_title">Wikipedia Zero 常見問題</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">離開 Wikipedia Zero</string>

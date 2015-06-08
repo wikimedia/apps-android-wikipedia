@@ -5,6 +5,8 @@
   <string name="app_name_alpha">ویکیپیڈیا الفا</string>
   <string name="yes">جی ہاں</string>
   <string name="no">نہیں</string>
+  <string name="acra_report_dialog_title">ویکیپیڈیا بند ہوگیا :(</string>
+  <string name="acra_report_dialog_text">ہمیں بند ہونے کی رپورٹ کریں</string>
   <string name="acra_report_dialog_comment">آپ کیا کررہے تھے جب ویکیپیڈیا کام کرنا رک گیا؟</string>
   <string name="search_hint">ویکیپیڈیا میں تلاش</string>
   <string name="nav_item_history">تاریخچہ</string>
@@ -44,8 +46,18 @@
   <string name="nearby_distance_in_miles">%.2f میل</string>
   <string name="nearby_no_network">کوئی نیٹورک کنکشن نہیں ہے</string>
   <string name="nearby_server_error">قریبی جگہوں کی فہرست نہیں حاصل ہوسکی.</string>
+  <string name="nearby_dialog_goto_settings">آپ کی ڈیوائس میں لوکیشن اپڈیٹس چالو نہیں ہیں. آپ ترتیبات  (سیٹنگز) میں جاکر اسے چالو کریں گے؟</string>
+  <string name="nearby_set_metric">میٹر/کلومیٹر دکھائیں</string>
+  <string name="nearby_set_imperial">فٹ/میل دکھائیں</string>
+  <string name="nearby_view_on_map">یہ مقام نقشے پر دیکھیں</string>
+  <string name="last_updated_text">آخری تجدید %s</string>
+  <string name="content_license_html">تمام مواد لائسنس &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; کے تحت دستیاب ہے جب تک کوئی دوسری شرط عائد نہ ہو</string>
+  <string name="edit_save_action_license_logged_in">محفوظ کرنے پر آپ کو &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق سمجھا جائے گا اور ترامیم کو&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس کے تحت آزاد سمجھا جائے گا</string>
+  <string name="edit_save_action_license_anon">محفوظ کرنے پر آپ کو &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق سمجھا جائے گا اور ترامیم کو&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس کے تحت آزاد سمجھا جائے گا. ترامیم کو آپکے آئی پی ایڈریس سے منسلک کیا جائے گا. اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی ایڈریس ظاہر نہیں ہوگا</string>
   <string name="preference_title_language">ویکیپیڈیا زبان منتخب کریں</string>
   <string name="preference_languages_filter_hint">تلاش</string>
+  <string name="preference_system_language_toggle">سسٹم کی زبان استعمال کریں</string>
+  <string name="preference_system_language_summary">سسٹم کی زبان</string>
   <string name="langlinks_filter_hint">تلاش</string>
   <string name="menu_other_languages">دوسری زبان میں مطالعہ کریں</string>
   <string name="langlinks_error_retry">دوبارہ کوشش کریں</string>
@@ -124,7 +136,12 @@
   <string name="zero_charged_verbiage_extended">دیگر مضامین کھولنے پر ڈیٹا چارجز لاگو ہوسکتے ہیں</string>
   <string name="zero_search_hint">زیرو ویکیپیڈیا میں تلاش</string>
   <string name="zero_warn_when_leaving">زیرو ویکیپیڈیا چھوڑنے پر انتباہ کریں</string>
+  <string name="zero_warn_when_leaving_summary">اگر آپ اپنے نیٹ ورک پر ویکیپیڈیا زیرو استعمال کررہے ہیں، تو آپ اس سیٹنگ پر ٹک لگی رہنے دیں یہ آپ کو ویکیپیڈیاسے باہر جانے پر (جس کے چارجز لاگو ہوسکتے ہیں پر) انتباہ کرے گا</string>
+  <string name="zero_webpage_title">ویکیپیڈیا زیرو FAQ</string>
   <string name="zero_wikipedia_zero_heading">زیرو ویکیپیڈیا</string>
+  <string name="zero_interstitial_title">زیرو ویکیپیڈیا کو چھوڑ رہے ہیں</string>
+  <string name="zero_interstitial_continue">چھوڑیں</string>
+  <string name="zero_interstitial_cancel">یہیں رہیں</string>
   <string name="toc_hint" fuzzy="true">Swipe right for sections, or use the menu button on the top right.</string>
   <string name="err_cannot_save_file">ملف کو محفوظ نہیں کرسکتے</string>
 </resources>

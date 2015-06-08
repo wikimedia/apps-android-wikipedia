@@ -34,6 +34,10 @@
   <string name="menu_update_nearby">जवळपास अद्ययावत</string>
   <string name="nearby_empty_title">जवळपासची पाने नाहीत!</string>
   <string name="nearby_empty_message">जेव्हा तुम्ही नवीन ठिकाणी जाल, तेव्हा हे परत अद्ययावत करुन तुमच्या जवळपास काय आहे ते शोधा.</string>
+  <string name="nearby_distance_in_meters">%d मीटर</string>
+  <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
+  <string name="nearby_distance_in_feet">%d फिट</string>
+  <string name="nearby_distance_in_miles">%.2f माइल</string>
   <string name="nearby_no_network">नेटवर्क जोडलेले नाही</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">शोधा</string>
@@ -49,6 +53,7 @@
   <string name="dialog_message_edit_failed">संपादन होऊ शकले नाही!</string>
   <string name="dialog_message_edit_failed_retry">पुन्हा प्रयत्न करा</string>
   <string name="dialog_message_edit_failed_cancel">रद्द करा</string>
+  <string name="dialog_message_leaving_edit_leave">सोडा</string>
   <string name="search_no_results_found">परिणाम सापडले नाही</string>
   <string name="nav_item_login">सनोंद-प्रवेश करा</string>
   <string name="login_username_hint">सदस्यनाव</string>
@@ -68,6 +73,7 @@
   <string name="saved_pages_empty_title">येथे साठवलेली पाने नाहीत!</string>
   <string name="history_empty_title">अलीकडील पाने येथे नाहीत!</string>
   <string name="history_empty_message" fuzzy="true">आपला इतिहास साफ आहे</string>
+  <string name="delete_selected_history">वगळा</string>
   <string name="wp_tag_line">मुक्त ज्ञानकोश</string>
   <string name="skip">पुढे जा</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
@@ -143,7 +149,10 @@
   <string name="search_did_you_mean">तुम्हाला \"%s\" म्हणायचे आहे काय?</string>
   <string name="search_recent_header">अलीकडील शोध:</string>
   <string name="toc_know_it">मिळाले</string>
+  <string name="table_close">बंद करा</string>
   <string name="alpha_update_notification_title">नवीन अद्ययावत अल्फा उपलब्ध आहे</string>
   <string name="alpha_update_notification_text">उतरवण्यासाठी टिचकवा</string>
+  <string name="dialog_close_description">बंद करा</string>
+  <string name="gallery_menu_share">सहभाग करा</string>
   <string name="captcha_image">कॅप्चा चित्र</string>
 </resources>

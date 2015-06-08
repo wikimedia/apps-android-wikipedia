@@ -174,6 +174,13 @@
   <string name="button_clear_all_recent_searches">हालिया खोजों को मिटाएँ</string>
   <string name="toc_hint">अनुभागों के लिए बायीं ओर जायें अथवा दायीं ओर शीर्ष पर स्थित तालिका बटन का प्रयोग करें।</string>
   <string name="toc_know_it">समझ में आया</string>
+  <string name="table_close">बंध करें</string>
   <string name="alpha_update_notification_title">नवीन आरम्भिक अपडेट उपलब्ध</string>
   <string name="alpha_update_notification_text">डाउनलोड करने के लिए दबाये रखें</string>
+  <string name="dialog_close_description">बंध करें</string>
+  <string name="read_more_section">और पढ़ें</string>
+  <string name="gallery_menu_more_info">अधिक जानकारी</string>
+  <string name="gallery_image_info">चित्र की जानकारी</string>
+  <string name="gallery_menu_share">साझा करें</string>
+  <string name="snippet_share_intro">\@Wikipedia पर \"%1$s\": %2$s</string>
 </resources>

@@ -132,6 +132,7 @@
   <string name="create_account_next">下一步</string>
   <string name="create_account_button">创建账户</string>
   <string name="preferences_general_heading">常规</string>
+  <string name="wikipedia_app_faq">维基百科应用程序常见问题</string>
   <string name="zero_charged_verbiage">维基百科免费计划已关闭</string>
   <string name="zero_charged_verbiage_extended">载入其他条目可能产生数据费用。</string>
   <string name="zero_search_hint">搜索维基百科免费计划</string>

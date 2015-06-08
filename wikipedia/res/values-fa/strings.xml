@@ -92,7 +92,7 @@
   <string name="login_error_wrong_username">نام کاربری نادرست</string>
   <string name="login_error_illegal">نام کاربری نادرست</string>
   <string name="login_success_toast">ورود موفق!</string>
-  <string name="login_error_blocked">این کاربر مسدود شده است</string>
+  <string name="login_error_blocked">این کاربر بسته شده‌است</string>
   <string name="login_error_throttled">تلاش برای ورود به سامانه بیش از حد بوده‌است برای چند دقیقه صبر می‌کنید؟</string>
   <string name="login_error_unknown">ورود ناموفق :(</string>
   <string name="login_error_no_network">هیچ اتصال شبکه</string>
@@ -120,7 +120,7 @@
   <string name="create_account_email_error">آدرس ایمیل غیر معتبر</string>
   <string name="create_account_username_exists_error">نام کاربری در حال استفاده است</string>
   <string name="create_account_ip_throttle_error">حساب کاربری زیادی با این نشانی آی‌پی ساخته شده‌اند بعدا تلاش کنید.</string>
-  <string name="create_account_open_proxy_error">این نشانی آی‌پی برای ایجاد حساب مسدود شده است.</string>
+  <string name="create_account_open_proxy_error">این نشانی آی‌پی از ساختن حساب محروم شده است.</string>
   <string name="create_account_noname_error">نام کاربری‌ای که انتخاب کرده‌اید نامعتبر است. نام کاربری دیگری را انتخاب کنید</string>
   <string name="create_account_invalid_email_error">ایمیلی که وارد کردید نامعتبر است.</string>
   <string name="create_account_password_too_short_error">گذرواژه خیلی کوتاه است.</string>
@@ -154,7 +154,7 @@
   <string name="activity_my_contributions_title">مشارکت‌های من</string>
   <string name="preference_title_eventlogging_opt_in">فرستادن گزارش‌های رفتارهای کاربری</string>
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
-  <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه مسدود شده ( %s ) را شناسایی کرده است. لطفا آنها را حذف کنید و دوباره امتحان کنید.</string>
+  <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه‌ای مسدودشده (%s) شناسایی شد. لطفاً آنها را حذف کنید و دوباره تلاش کنید.</string>
   <string name="history_search_list_hint">جستجو</string>
   <string name="history_search_empty_message">هیچ صفحه‌ای برای درخواست شما یافت نشد</string>
   <string name="error_can_not_process_link">نمی‌توان این پیوند را نمایش داد</string>
@@ -178,7 +178,7 @@
   <string name="about_activity_title">درباره</string>
   <string name="edit_abandon_confirm">صفحه ویرایش شده است. آیا مطمئنید که می‌خواهید بدون ذخیره تغییرات خارج شوید؟</string>
   <string name="user_blocked_from_editing_title">بسته شده</string>
-  <string name="user_logged_in_blocked_from_editing">حساب کاربر از ویرایش در این ویکی مسدود شده است.</string>
+  <string name="user_logged_in_blocked_from_editing">دسترسی ویرایشی حساب کاربر در این ویکی بسته شده‌است.</string>
   <string name="user_anon_blocked_from_editing">نشانی آی‌پی شما در برابر ویرایش، مسدود شده‌است.</string>
   <string name="edit_how_page_improved">چگونه مقاله را بهبود دادید؟</string>
   <string name="edit_next">بعدی</string>
