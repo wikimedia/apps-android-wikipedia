@@ -51,7 +51,7 @@ public class LinkPreviewFunnel extends Funnel {
     protected void log(Object... params) {
         // get our sampling rate from remote config
         int sampleRate = WikipediaApp.getInstance().getRemoteConfig().getConfig()
-                .optInt("linkPreviewLogSampleRate", DEFAULT_SAMPLE_RATE);
+                .optInt("linkPreviewLogSampleRate", WikipediaApp.getInstance().isProdRelease() ? DEFAULT_SAMPLE_RATE : 1);
         super.log(title.getSite(), sampleRate, params);
     }
 

@@ -119,6 +119,10 @@ public class WikipediaApp extends Application {
         return releaseType;
     }
 
+    public boolean isProdRelease() {
+        return releaseType == RELEASE_PROD;
+    }
+
     // Language codes for all supported languages in fixed order.
     @Nullable
     private List<String> supportedLanguages;
