@@ -48,6 +48,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 import java.util.UUID;
 
 @ReportsCrashes(
@@ -466,20 +467,36 @@ public class WikipediaApp extends Application {
      * @return Unique install ID for this app.
      */
     public String getAppInstallID() {
-        return getAppInstallIDForFeature(PrefKeys.getAppInstallId());
+        return getAppInstallIDForFeature(PrefKeys.getAppInstallID());
     }
 
     /**
-     * Get an integer-valued install ID for this app (based on the last four hex digits of the
-     * actual install ID of the app). Note that this value will *not* be unique for every install
-     * of the app. Instead, this value should be used for feature-flagging and A/B testing of
-     * new features.
-     * @return Integer-valued install ID for this app, which can range from 0 to 65535.
+     * Get an integer-valued random ID for A/B testing of new features. This value will persist
+     * for the install lifetime of the app.
+     * @return Integer ID for A/B testing.
      */
-    public int getAppInstallIDInt() {
-        final int hexBase = 16;
-        final int uuidSubstrLen = 4;
-        return Integer.parseInt(getAppInstallID().substring(getAppInstallID().length() - uuidSubstrLen), hexBase);
+    public int getABTestingID() {
+        return getFeatureFlagID();
+    }
+
+    /**
+     * Get an integer-valued random ID for event log sampling. This value will persist for the
+     * install lifetime of the app.
+     * @return Integer ID for event log sampling.
+     */
+    public int getEventLogSamplingID() {
+        return getFeatureFlagID();
+    }
+
+    private int getFeatureFlagID() {
+        int featureFlagID;
+        if (prefs.contains(PrefKeys.getFeatureFlagID())) {
+            featureFlagID = prefs.getInt(PrefKeys.getFeatureFlagID(), 0);
+        } else {
+            featureFlagID = new Random().nextInt();
+            prefs.edit().putInt(PrefKeys.getFeatureFlagID(), featureFlagID).apply();
+        }
+        return featureFlagID;
     }
 
     /**

@@ -15,6 +15,7 @@ public final class PrefKeys {
     private static String PREFERENCE_EVENTLOGGING_ENABLED;
     private static String PREFERENCE_STYLES_LAST_UPDATED;
     private static String PREFERENCE_APP_INSTALL_ID;
+    private static String PREFERENCE_FEATURE_FLAG_ID;
     private static String PREFERENCE_ONBOARD;
     private static String PREFERENCE_TEXT_SIZE_MULTIPLIER;
     private static String PREFERENCE_COLOR_THEME;
@@ -38,6 +39,7 @@ public final class PrefKeys {
         PREFERENCE_STYLES_LAST_UPDATED = resources.getString(R.string.preference_key_styles_last_updated);
         // The app install ID uses readingAppInstallID for backwards compatibility with analytics
         PREFERENCE_APP_INSTALL_ID = resources.getString(R.string.preference_reading_app_install_id);
+        PREFERENCE_FEATURE_FLAG_ID = resources.getString(R.string.preference_feature_flag_id);
         PREFERENCE_ONBOARD = resources.getString(R.string.preference_onboard);
         PREFERENCE_TEXT_SIZE_MULTIPLIER = resources.getString(R.string.preference_text_size_multiplier);
         PREFERENCE_COLOR_THEME = resources.getString(R.string.preference_color_theme);
@@ -84,8 +86,12 @@ public final class PrefKeys {
         return PREFERENCE_STYLES_LAST_UPDATED;
     }
 
-    public static String getAppInstallId() {
+    public static String getAppInstallID() {
         return PREFERENCE_APP_INSTALL_ID;
+    }
+
+    public static String getFeatureFlagID() {
+        return PREFERENCE_FEATURE_FLAG_ID;
     }
 
     public static String getOnboard() {

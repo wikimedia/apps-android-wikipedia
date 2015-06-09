@@ -19,7 +19,7 @@ public final class LinkPreviewVersion {
     // Return results 0, 1, or 2.  For result of 3, also return 0 (no preview).
     // (For building one-off APKs for testing specific prototypes, hard-code version to 1 or 2.)
     public static int getVersion(WikipediaApp app) {
-        return ((app.getAppInstallIDInt() % LINK_PREVIEW_TOGGLE_WEIGHT) > 2) ? 0 : (app.getAppInstallIDInt() % LINK_PREVIEW_TOGGLE_WEIGHT);
+        return ((app.getABTestingID() % LINK_PREVIEW_TOGGLE_WEIGHT) > 2) ? 0 : (app.getABTestingID() % LINK_PREVIEW_TOGGLE_WEIGHT);
     }
 
     private LinkPreviewVersion() {

@@ -78,7 +78,7 @@ public abstract class Funnel {
         }
 
         if (rate != 0) {
-            boolean chosen = app.getAppInstallIDInt() % rate == 0;
+            boolean chosen = app.getEventLogSamplingID() % rate == 0;
 
             if (chosen) {
                 JSONObject eventData = new JSONObject();
