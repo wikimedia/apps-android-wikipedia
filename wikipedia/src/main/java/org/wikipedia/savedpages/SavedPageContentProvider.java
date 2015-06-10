@@ -13,7 +13,7 @@ public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {
     private static final int MATCH_WITH_PAGEIMAGES =  64;
 
     /** column index of pageimages.imageName in the MATCH_WITH_PAGEIMAGES case */
-    public static final int COL_INDEX_IMAGE = 4;
+    public static final int COL_INDEX_IMAGE = 5;
 
     public SavedPageContentProvider() {
         super(SavedPage.PERSISTENCE_HELPER);
