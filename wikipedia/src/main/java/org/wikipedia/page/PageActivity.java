@@ -585,11 +585,7 @@ public class PageActivity extends ThemedActionBarActivity {
                     return;
                 }
                 frag.closeFindInPage();
-                // Load the new page from cache (if possible) by default, unless it's the
-                // Main Page, in which case we'll always bypass the cache, because the Main
-                // Page is updated daily.
-                boolean loadFromCache = entry.getSource() != HistoryEntry.SOURCE_MAIN_PAGE;
-                frag.displayNewPage(title, entry, loadFromCache, true);
+                frag.displayNewPage(title, entry, false, true);
                 app.getSessionFunnel().pageViewed(entry);
             }
         });
