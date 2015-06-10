@@ -7,11 +7,14 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.view.ActionMode;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import org.wikipedia.page.ImageLicense;
+import org.wikipedia.page.ImageLicenseFetchTask;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
@@ -28,12 +31,16 @@ import org.wikipedia.util.ShareUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+
 import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
 
 /**
  * Let user choose between sharing as text or as image.
  */
 public class ShareHandler {
+    public static final String TAG = "ShareHandler";
+
     private final PageActivity activity;
     private final CommunicationBridge bridge;
     private ActionMode webViewActionMode;
@@ -90,34 +97,56 @@ public class ShareHandler {
     }
 
     /** Call #setFunnel before #shareSnippet. */
-    private void shareSnippet(CharSequence input, boolean preferUrl) {
+    private void shareSnippet(CharSequence input, final boolean preferUrl) {
         final PageViewFragmentInternal curPageFragment = activity.getCurPageFragment();
         if (curPageFragment == null) {
             return;
         }
 
-        String selectedText = sanitizeText(input.toString());
+        final String selectedText = sanitizeText(input.toString());
         final int minTextSnippetLength = 2;
         final PageTitle title = curPageFragment.getTitle();
         if (selectedText.length() >= minTextSnippetLength) {
-            String introText = activity.getString(R.string.snippet_share_intro,
+            final String introText = activity.getString(R.string.snippet_share_intro,
                     title.getDisplayText(),
                     title.getCanonicalUri() + "?wprov=sfia1");
             // For wprov=sfia1: see https://www.mediawiki.org/wiki/Provenance;
             // introText is only used for image share
 
-            Bitmap resultBitmap = new SnippetImage(activity,
-                    curPageFragment.getLeadImageBitmap(),
-                    curPageFragment.getLeadImageFocusY(),
-                    title.getDisplayText(),
-                    curPageFragment.getPage().isMainPage() ? "" : title.getDescription(),
-                    selectedText).createImage();
-            if (shareDialog != null) {
-                shareDialog.dismiss();
-            }
-            shareDialog = new PreviewDialog(activity, resultBitmap, title.getDisplayText(), introText,
-                    selectedText, preferUrl ? title.getCanonicalUri() : selectedText, funnel);
-            shareDialog.show();
+            (new ImageLicenseFetchTask(WikipediaApp.getInstance().getAPIForSite(title.getSite()),
+                    title.getSite(),
+                    new PageTitle("File:" + curPageFragment.getPage().getPageProperties().getLeadImageName(), title.getSite())) {
+                @Override
+                public void onFinish(Map<PageTitle, ImageLicense> result) {
+                    if (result.size() > 0) {
+                        ImageLicense leadImageLicense = new ImageLicense("", "", "");
+                        if (result.values().toArray()[0] != null) {
+                            leadImageLicense = (ImageLicense) result.values().toArray()[0];
+                        }
+
+                        final SnippetImage snippetImage = new SnippetImage(activity,
+                                curPageFragment.getLeadImageBitmap(),
+                                curPageFragment.getLeadImageFocusY(),
+                                title.getDisplayText(),
+                                curPageFragment.getPage().isMainPage() ? "" : title.getDescription(),
+                                selectedText,
+                                leadImageLicense);
+
+                        final Bitmap snippetBitmap = snippetImage.drawBitmap();
+                        if (shareDialog != null) {
+                            shareDialog.dismiss();
+                        }
+                        shareDialog = new PreviewDialog(activity, snippetBitmap, title.getDisplayText(), introText,
+                                selectedText, preferUrl ? title.getCanonicalUri() : selectedText, funnel);
+                        shareDialog.show();
+                    }
+                }
+
+                @Override
+                public void onCatch(Throwable caught) {
+                    Log.d(TAG, "Error fetching image license info for " + title.getDisplayText() + ": " + caught.getMessage(), caught);
+                }
+            }).execute();
         } else {
             // only share the URL
             ShareUtils.shareText(activity, title.getDisplayText(), title.getCanonicalUri());
@@ -205,7 +234,6 @@ public class ShareHandler {
         }
     }
 }
-
 
 /**
  * A dialog to be displayed before sharing with two action buttons:

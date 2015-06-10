@@ -3,6 +3,8 @@ package org.wikipedia.page.gallery;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.page.ImageLicense;
+
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -47,6 +49,11 @@ public class GalleryItem {
     private final int height;
     public int getHeight() {
         return height;
+    }
+
+    private ImageLicense license;
+    public ImageLicense getLicense() {
+        return license;
     }
 
     private String licenseName;

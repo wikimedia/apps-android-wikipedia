@@ -17,6 +17,7 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 
+import org.wikipedia.page.ImageLicense;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.ApiUtil;
@@ -28,6 +29,8 @@ import static android.text.Layout.Alignment.ALIGN_OPPOSITE;
 /**
  * Creator and holder of a Bitmap which is comprised of an optional lead image, a title,
  * optional description, text, the Wikipedia wordmark, and some license icons.
+ *
+ * Creates a device-independent bitmap object; all dimension values are in px, not dp.
  */
 public final class SnippetImage {
     private static final int WIDTH = 640;
@@ -37,6 +40,8 @@ public final class SnippetImage {
     private static final int TOP_PADDING = 22;
     private static final int TEXT_WIDTH = WIDTH - 2 * HORIZONTAL_PADDING;
     private static final int DESCRIPTION_WIDTH = 360;
+    private static final int ICONS_WIDTH = 16;
+    private static final int ICONS_HEIGHT = 16;
     private static final float SPACING_MULTIPLIER = 1.0f;
     private static final Typeface SERIF = Typeface.create("serif", Typeface.NORMAL);
     private static final int QUARTER = 4;
@@ -48,16 +53,18 @@ public final class SnippetImage {
     private final String description;
     private final CharSequence textSnippet;
     private boolean isArticleRTL;
+    private ImageLicense license;
 
     public SnippetImage(Context context, Bitmap leadImageBitmap,
                         float leadImageFocusY, String title, String description,
-                        CharSequence textSnippet) {
+                        CharSequence textSnippet, ImageLicense license) {
         this.context = context;
         this.leadImageBitmap = leadImageBitmap;
         this.leadImageFocusY = leadImageFocusY;
         this.title = title;
         this.description = description;
         this.textSnippet = textSnippet;
+        this.license = license;
     }
 
     /**
@@ -65,7 +72,7 @@ public final class SnippetImage {
      * If we have a leadImageBitmap the use that as the background. If not then
      * just use a black background.
      */
-    public Bitmap createImage() {
+    public Bitmap drawBitmap() {
         Bitmap resultBitmap = drawBackground(leadImageBitmap, leadImageFocusY);
         Canvas canvas = new Canvas(resultBitmap);
         if (leadImageBitmap != null) {
@@ -75,8 +82,8 @@ public final class SnippetImage {
         Layout textLayout = drawTextSnippet(canvas, textSnippet);
         isArticleRTL = textLayout.getParagraphDirection(0) == Layout.DIR_RIGHT_TO_LEFT;
 
-        int top = drawLicenseIcons(canvas, context);
-        top = drawDescription(canvas, description, top);
+        drawLicenseIcons(license, canvas, context);
+        int top = drawDescription(canvas, description, HEIGHT - BOTTOM_PADDING - ICONS_HEIGHT);
         drawTitle(canvas, title, top);
         if (L10nUtils.canLangUseImageForWikipediaWordmark(context)) {
             drawWordmarkFromStaticImage(canvas, context);
@@ -211,24 +218,20 @@ public final class SnippetImage {
         canvas.restore();
     }
 
-    private int drawLicenseIcons(Canvas canvas, Context context) {
-        final int iconsWidth = 52;
-        final int iconsHeight = 16;
-        final int bottom = HEIGHT - BOTTOM_PADDING;
-        final int top = bottom - iconsHeight;
+    public void drawLicenseIcons(ImageLicense license, Canvas canvas, Context context) {
+        final int bottom = SnippetImage.HEIGHT - SnippetImage.BOTTOM_PADDING;
+        final int top = bottom - SnippetImage.ICONS_HEIGHT;
+        int left = SnippetImage.HORIZONTAL_PADDING;
+        int right = left + SnippetImage.ICONS_WIDTH;
 
-        int left = HORIZONTAL_PADDING;
-        int right = left + iconsWidth;
         if (isArticleRTL) {
-            right = WIDTH - HORIZONTAL_PADDING;
-            left = right - iconsWidth;
+            right = SnippetImage.WIDTH - SnippetImage.HORIZONTAL_PADDING;
+            left = right - SnippetImage.ICONS_WIDTH;
         }
 
-        Drawable d = context.getResources().getDrawable(R.drawable.cc_by_sa_white);
+        Drawable d = context.getResources().getDrawable(leadImageBitmap == null ? R.drawable.ic_license_cc : license.getLicenseIcon());
         d.setBounds(left, top, right, bottom);
         d.draw(canvas);
-
-        return top;
     }
 
     private void drawWordmarkFromStaticImage(Canvas canvas, Context context) {
