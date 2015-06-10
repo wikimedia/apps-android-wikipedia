@@ -23,6 +23,8 @@ import org.wikipedia.views.ViewUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.wikipedia.util.StringUtil.emptyIfNull;
+
 public class LanguagePreference extends DialogPreference {
     private static final float LIST_DISABLED_ALPHA = .5f;
     private static final float LIST_ENABLED_ALPHA = 1;
@@ -31,16 +33,20 @@ public class LanguagePreference extends DialogPreference {
     private EditText languagesFilter;
     private ListView languagesList;
 
-    private final List<String> languages;
+    @NonNull
+    private final List<String> languageCodes;
+
+    @NonNull
     private final WikipediaApp app;
 
     public LanguagePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setPersistent(false);
         setDialogLayoutResource(R.layout.dialog_preference_languages);
-        app = (WikipediaApp) context.getApplicationContext();
 
-        languages = app.getAllMruLanguages();
+        app = WikipediaApp.getInstance();
+
+        languageCodes = app.getAppMruLanguageCodes();
 
         updateSummary();
 
@@ -79,17 +85,17 @@ public class LanguagePreference extends DialogPreference {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String lang = (String) languagesList.getAdapter().getItem(i);
-                app.setLanguage(lang);
-                app.setMruLanguage(lang);
+                app.setAppLanguageCode(lang);
+                app.setMruLanguageCode(lang);
                 updateSummary();
                 closeDialog();
             }
         });
 
-        languagesList.setAdapter(new LanguagesAdapter(languages, app));
+        languagesList.setAdapter(new LanguagesAdapter(languageCodes, app));
 
         if (!app.isSystemLanguageEnabled()) {
-            int selectedLanguageIndex = languages.indexOf(app.getLanguageKey());
+            int selectedLanguageIndex = languageCodes.indexOf(app.getAppLanguageCode());
             languagesList.setItemChecked(selectedLanguageIndex, true);
         }
 
@@ -110,7 +116,7 @@ public class LanguagePreference extends DialogPreference {
     }
 
     private void updateSummary() {
-        setSummary(app.getDisplayLanguage());
+        setSummary(app.getAppLanguageLocalizedName());
     }
 
     private void setSystemLanguageEnabled(boolean enabled) {
@@ -121,7 +127,7 @@ public class LanguagePreference extends DialogPreference {
 
         if (enabled) {
             languagesList.clearChoices();
-            app.setSystemLanguage();
+            app.setSystemLanguageEnabled();
         }
     }
 
@@ -135,27 +141,30 @@ public class LanguagePreference extends DialogPreference {
     }
 
     private static final class LanguagesAdapter extends BaseAdapter {
-        private final List<String> originalLanguages;
-        private final List<String> languages;
+        @NonNull
+        private final List<String> originalLanguageCodes;
+        @NonNull
+        private final List<String> languageCodes;
+
+        @NonNull
         private final WikipediaApp app;
 
-        private LanguagesAdapter(List<String> languages, WikipediaApp app) {
-            this.originalLanguages = languages;
-            this.languages = new ArrayList<>(languages);
+        private LanguagesAdapter(@NonNull List<String> languageCodes, @NonNull WikipediaApp app) {
+            originalLanguageCodes = languageCodes;
+            this.languageCodes = new ArrayList<>(originalLanguageCodes);
             this.app = app;
         }
 
         public void setFilterText(String filter) {
-            this.languages.clear();
+            this.languageCodes.clear();
             filter = filter.toLowerCase();
-            for (String language: originalLanguages) {
-                int index = app.findSupportedLanguageIndex(language);
-                String canonicalLang = app.getCanonicalNameForSupportedLanguage(index);
-                String localLang = app.getLocalNameForSupportedLanguage(index);
-                if (language != null && language.contains(filter)
-                        || canonicalLang.toLowerCase().contains(filter)
-                        || localLang.toLowerCase().contains(filter)) {
-                    this.languages.add(language);
+            for (String code : originalLanguageCodes) {
+                String localizedName = emptyIfNull(app.getAppLanguageLocalizedName(code));
+                String canonicalName = emptyIfNull(app.getAppLanguageCanonicalName(code));
+                if (code != null && code.contains(filter)
+                        || localizedName.toLowerCase().contains(filter)
+                        || canonicalName.toLowerCase().contains(filter)) {
+                    this.languageCodes.add(code);
                 }
             }
             notifyDataSetInvalidated();
@@ -163,12 +172,12 @@ public class LanguagePreference extends DialogPreference {
 
         @Override
         public int getCount() {
-            return languages.size();
+            return languageCodes.size();
         }
 
         @Override
-        public Object getItem(int position) {
-            return languages.get(position);
+        public String getItem(int position) {
+            return languageCodes.get(position);
         }
 
         @Override
@@ -182,15 +191,13 @@ public class LanguagePreference extends DialogPreference {
                 convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_list_item_activated_2, parent, false);
             }
 
-            TextView localNameText = (TextView) convertView.findViewById(android.R.id.text1);
-            TextView nameText = (TextView) convertView.findViewById(android.R.id.text2);
+            TextView localizedNameTextView = (TextView) convertView.findViewById(android.R.id.text1);
+            TextView canonicalNameTextView = (TextView) convertView.findViewById(android.R.id.text2);
 
-            String wikiCode = (String) getItem(position);
+            String languageCode = getItem(position);
 
-            int langIndex = app.findSupportedLanguageIndex(wikiCode);
-
-            localNameText.setText(app.getLocalNameForSupportedLanguage(langIndex));
-            nameText.setText(app.getCanonicalNameForSupportedLanguage(langIndex));
+            localizedNameTextView.setText(app.getAppLanguageLocalizedName(languageCode));
+            canonicalNameTextView.setText(app.getAppLanguageCanonicalName(languageCode));
 
             return convertView;
         }

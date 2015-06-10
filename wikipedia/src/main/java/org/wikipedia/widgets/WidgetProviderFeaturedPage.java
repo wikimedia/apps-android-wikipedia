@@ -94,7 +94,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
 
     private class FetchMainPageTask extends SectionsFetchTask {
         public FetchMainPageTask(Context context) {
-            super(context, new PageTitle(MainPageNameData.valueFor(WikipediaApp.getInstance().getLanguage()),
+            super(context, new PageTitle(MainPageNameData.valueFor(WikipediaApp.getInstance().getAppOrSystemLanguageCode()),
                     WikipediaApp.getInstance().getPrimarySite()), "all");
         }
 

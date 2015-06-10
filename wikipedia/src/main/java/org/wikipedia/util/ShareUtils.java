@@ -21,6 +21,8 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.wikipedia.util.StringUtil.emptyIfNull;
+
 public final class ShareUtils {
     public static final String APP_PACKAGE_REGEX = "org\\.wikipedia.*";
 
@@ -207,10 +209,5 @@ public final class ShareUtils {
 
     private static String getPackageName(ResolveInfo intentActivity) {
         return intentActivity.activityInfo.packageName;
-    }
-
-    // TODO: Replace with Apache Commons Lang StringUtils.defaultString().
-    private static String emptyIfNull(String value) {
-        return value == null ? "" : value;
     }
 }

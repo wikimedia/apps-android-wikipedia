@@ -21,6 +21,12 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Locale;
+
+import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public class LangLinksActivity extends ThemedActionBarActivity {
     public static final int ACTIVITY_RESULT_LANGLINK_SELECT = 1;
@@ -28,7 +34,11 @@ public class LangLinksActivity extends ThemedActionBarActivity {
     public static final String ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
 
-    private ArrayList<PageTitle> langLinks;
+    private static final String LANGUAGE_ENTRIES_BUNDLE_KEY = "languageEntries";
+
+    private static final String GOTHIC_LANGUAGE_CODE = "got";
+
+    private ArrayList<PageTitle> languageEntries;
     private PageTitle title;
 
     private WikipediaApp app;
@@ -42,7 +52,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        app = (WikipediaApp)getApplicationContext();
+        app = WikipediaApp.getInstance();
 
         setContentView(R.layout.activity_langlinks);
 
@@ -61,8 +71,8 @@ public class LangLinksActivity extends ThemedActionBarActivity {
 
         title = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
 
-        if (savedInstanceState != null && savedInstanceState.containsKey("langlinks")) {
-            langLinks = savedInstanceState.getParcelableArrayList("langlinks");
+        if (savedInstanceState != null && savedInstanceState.containsKey(LANGUAGE_ENTRIES_BUNDLE_KEY)) {
+            languageEntries = savedInstanceState.getParcelableArrayList(LANGUAGE_ENTRIES_BUNDLE_KEY);
         }
 
         fetchLangLinks();
@@ -79,13 +89,13 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle langLink = (PageTitle) parent.getAdapter().getItem(position);
-                app.setMruLanguage(langLink.getSite().getLanguage());
+                app.setMruLanguageCode(langLink.getSite().getLanguageCode());
                 HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
-                Intent intent = new Intent();
-                intent.setClass(LangLinksActivity.this, PageActivity.class);
-                intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-                intent.putExtra(PageActivity.EXTRA_PAGETITLE, langLink);
-                intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, historyEntry);
+                Intent intent = new Intent()
+                        .setClass(LangLinksActivity.this, PageActivity.class)
+                        .setAction(PageActivity.ACTION_PAGE_FOR_TITLE)
+                        .putExtra(PageActivity.EXTRA_PAGETITLE, langLink)
+                        .putExtra(PageActivity.EXTRA_HISTORYENTRY, historyEntry);
                 setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
                 Utils.hideSoftKeyboard(LangLinksActivity.this);
                 finish();
@@ -127,53 +137,38 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                 finish();
                 return true;
             default:
-                throw new RuntimeException("WAT");
+                throw new RuntimeException("item=" + item);
         }
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (langLinks != null) {
-           outState.putParcelableArrayList("langlinks", langLinks);
+        if (languageEntries != null) {
+           outState.putParcelableArrayList(LANGUAGE_ENTRIES_BUNDLE_KEY, languageEntries);
         }
     }
 
     private void displayLangLinks() {
-        if (langLinks.size() == 0) {
+        if (languageEntries.size() == 0) {
             ViewAnimations.crossFade(langLinksProgress, langLinksEmpty);
         } else {
-            langLinksList.setAdapter(new LangLinksAdapter(langLinks, app));
+            langLinksList.setAdapter(new LangLinksAdapter(languageEntries, app));
             ViewAnimations.crossFade(langLinksProgress, langLinksContainer);
         }
     }
 
+
     private void fetchLangLinks() {
-        if (langLinks == null) {
+        if (languageEntries == null) {
             new LangLinksFetchTask(this, title) {
                 @Override
                 public void onFinish(ArrayList<PageTitle> result) {
-                    langLinks = result;
+                    languageEntries = result;
 
-                    // Rearrange language list based on the mru list
-                    int addIndex = 0;
-                    for (String language : app.getMruLanguages()) {
-                        for (int i = 0; i < result.size(); i++) {
-                            if (langLinks.get(i).getSite().getLanguage().equals(language)) {
-                                PageTitle preferredLink = langLinks.remove(i);
-                                langLinks.add(addIndex++, preferredLink);
-                                break;
-                            }
-                        }
-                    }
+                    updateLanguageEntriesSupported(languageEntries);
+                    sortLanguageEntriesByMru(languageEntries);
 
-                    // Also get rid of goddamn 'got', since that just segfaults android everywhere
-                    for (int i = 0; i < result.size(); i++) {
-                        if (langLinks.get(i).getSite().getLanguage().equals("got")) {
-                            langLinks.remove(i);
-                            break;
-                        }
-                    }
                     displayLangLinks();
                 }
 
@@ -185,6 +180,38 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                     // Also happens in {@link PageViewFragment}
                     langLinksError.setVisibility(View.VISIBLE);
                 }
+
+                private void updateLanguageEntriesSupported(List<PageTitle> languageEntries) {
+                    for (ListIterator<PageTitle> it = languageEntries.listIterator(); it.hasNext();) {
+                        PageTitle link = it.next();
+                        String languageCode = link.getSite().getLanguageCode();
+
+                        if (GOTHIC_LANGUAGE_CODE.equals(languageCode)) {
+                            // Remove Gothic since it causes Android to segfault.
+                            it.remove();
+                        } else if (Locale.CHINESE.getLanguage().equals(languageCode)) {
+                            // Replace Chinese with Simplified and Traditional dialects.
+                            it.remove();
+                            for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
+                                    AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
+                                it.add(new PageTitle(link.getText(), Site.forLanguage(dialect)));
+                            }
+                        }
+                    }
+                }
+
+                private void sortLanguageEntriesByMru(List<PageTitle> entries) {
+                    int addIndex = 0;
+                    for (String language : app.getMruLanguageCodes()) {
+                        for (int i = 0; i < entries.size(); i++) {
+                            if (entries.get(i).getSite().getLanguageCode().equals(language)) {
+                                PageTitle entry = entries.remove(i);
+                                entries.add(addIndex++, entry);
+                                break;
+                            }
+                        }
+                    }
+                }
             }.execute();
         } else {
             displayLangLinks();
@@ -192,38 +219,39 @@ public class LangLinksActivity extends ThemedActionBarActivity {
     }
 
     private static final class LangLinksAdapter extends BaseAdapter {
-        private final ArrayList<PageTitle> origLangLinks;
-        private final ArrayList<PageTitle> langLinks;
+        private final List<PageTitle> originalLanguageEntries;
+        private final List<PageTitle> languageEntries;
         private final WikipediaApp app;
 
-        private LangLinksAdapter(ArrayList<PageTitle> langLinks, WikipediaApp app) {
-            this.origLangLinks = langLinks;
-            this.langLinks = new ArrayList<>(origLangLinks);
+        private LangLinksAdapter(List<PageTitle> languageEntries, WikipediaApp app) {
+            this.originalLanguageEntries = languageEntries;
+            this.languageEntries = new ArrayList<>(originalLanguageEntries);
             this.app = app;
         }
 
         public void setFilterText(String filter) {
-            this.langLinks.clear();
+            languageEntries.clear();
             filter = filter.toLowerCase();
-            for (PageTitle l: origLangLinks) {
-                int langIndex = app.findSupportedLanguageIndex(l.getSite().getLanguage());
-                String canonicalLang = app.getCanonicalNameForSupportedLanguage(langIndex);
-                String localLang = app.getLocalNameForSupportedLanguage(langIndex);
-                if (canonicalLang.toLowerCase().contains(filter)
-                        || localLang.toLowerCase().contains(filter)) {
-                    this.langLinks.add(l);
+            for (PageTitle entry : originalLanguageEntries) {
+                String languageCode = entry.getSite().getLanguageCode();
+                String canonicalName = emptyIfNull(app.getAppLanguageCanonicalName(languageCode));
+                String localizedName = emptyIfNull(app.getAppLanguageLocalizedName(languageCode));
+                if (canonicalName.toLowerCase().contains(filter)
+                        || localizedName.toLowerCase().contains(filter)) {
+                    languageEntries.add(entry);
                 }
             }
             notifyDataSetInvalidated();
         }
+
         @Override
         public int getCount() {
-            return langLinks.size();
+            return languageEntries.size();
         }
 
         @Override
-        public Object getItem(int position) {
-            return langLinks.get(position);
+        public PageTitle getItem(int position) {
+            return languageEntries.get(position);
         }
 
         @Override
@@ -237,16 +265,18 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                 convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_language_list_entry, parent, false);
             }
 
-            PageTitle langLink = (PageTitle) getItem(position);
-            String language = langLink.getSite().getLanguage();
-            int langIndex = app.findSupportedLanguageIndex(language);
-            String localName = app.getLocalNameForSupportedLanguage(langIndex);
+            PageTitle item = getItem(position);
+            String languageCode = item.getSite().getLanguageCode();
+            String localizedLanguageName = app.getAppLanguageLocalizedName(languageCode);
+            if (localizedLanguageName == null && languageCode.equals(Locale.CHINA.getLanguage())) {
+                localizedLanguageName = Locale.CHINA.getDisplayName(Locale.CHINA);
+            }
 
-            TextView langLocalNameText = (TextView) convertView.findViewById(R.id.language_local_name);
-            TextView articleLocalNameText = (TextView) convertView.findViewById(R.id.article_local_name);
+            TextView localizedLanguageNameTextView = (TextView) convertView.findViewById(R.id.localized_language_name);
+            TextView articleTitleTextView = (TextView) convertView.findViewById(R.id.article_title);
 
-            langLocalNameText.setText(localName);
-            articleLocalNameText.setText(langLink.getText());
+            localizedLanguageNameTextView.setText(localizedLanguageName);
+            articleTitleTextView.setText(item.getText());
 
             return convertView;
         }

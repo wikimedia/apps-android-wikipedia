@@ -66,7 +66,7 @@ public class PageActivity extends ThemedActionBarActivity {
     public static final String EXTRA_SEARCH_FROM_WIDGET = "searchFromWidget";
     public static final String EXTRA_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
     private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
-    private static final String LANGUAGE_BUNDLE_KEY = "language";
+    private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
     private static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
 
     private static final String KEY_LAST_FRAGMENT = "lastFragment";
@@ -210,8 +210,8 @@ public class PageActivity extends ThemedActionBarActivity {
             if (savedInstanceState.getBoolean("isSearching")) {
                 searchFragment.openSearch();
             }
-            String language = savedInstanceState.getString(LANGUAGE_BUNDLE_KEY);
-            languageChanged = !emptyIfNull(language).equals(emptyIfNull(app.getLanguage()));
+            String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
+            languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
         } else if (themeChanged) {
             // we've changed themes!
             pausedStateOfZero = getIntent().getExtras().getBoolean("pausedStateOfZero");
@@ -604,7 +604,7 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param allowStateLoss Whether to allow state loss.
      */
     public void displayMainPage(boolean allowStateLoss) {
-        PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getLanguage()), app.getPrimarySite());
+        PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()), app.getPrimarySite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         displayNewPage(title, historyEntry, allowStateLoss);
     }
@@ -804,7 +804,7 @@ public class PageActivity extends ThemedActionBarActivity {
             outState.putBoolean("themeChooserShowing", themeChooser.isShowing());
         }
         outState.putBoolean("isSearching", isSearching());
-        outState.putString(LANGUAGE_BUNDLE_KEY, app.getLanguage());
+        outState.putString(LANGUAGE_CODE_BUNDLE_KEY, app.getAppLanguageCode());
     }
 
     @Override
@@ -874,11 +874,6 @@ public class PageActivity extends ThemedActionBarActivity {
         // ActionMode in non-WebView components (History, Saved Pages, or Find In Page) must call
         // setTag().
         return mode.getTag() != null;
-    }
-
-    // TODO: Replace with Apache Commons Lang StringUtils.defaultString().
-    private String emptyIfNull(String value) {
-        return value == null ? "" : value;
     }
 
     private void registerBus() {

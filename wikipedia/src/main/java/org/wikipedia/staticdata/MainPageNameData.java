@@ -3,6 +3,8 @@
    TO HAVE YOUR CHANGES OVERWRITTEN */
 package org.wikipedia.staticdata;
 
+import org.wikipedia.interlanguage.AppLanguageLookUpTable;
+
 import java.util.*;
 
 public final class MainPageNameData {
@@ -28,8 +30,8 @@ public final class MainPageNameData {
         DATA_MAP.put("ja", "メインページ");
         DATA_MAP.put("pt", "Wikipedia:Página principal");
         DATA_MAP.put("zh", "Wikipedia:首页");
-        DATA_MAP.put("zh-hans", "Wikipedia:首页");
-        DATA_MAP.put("zh-hant", "Wikipedia:首頁");
+        DATA_MAP.put(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE, "Wikipedia:首页");
+        DATA_MAP.put(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE, "Wikipedia:首頁");
         DATA_MAP.put("uk", "Головна сторінка");
         DATA_MAP.put("ca", "Portada");
         DATA_MAP.put("fa", "صفحهٔ اصلی");
@@ -312,7 +314,7 @@ public final class MainPageNameData {
         if (DATA_MAP.containsKey(key)) {
             return DATA_MAP.get(key);
         }
-        return DATA_MAP.get("en");
+        return DATA_MAP.get(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE);
     }
 
     private MainPageNameData() {

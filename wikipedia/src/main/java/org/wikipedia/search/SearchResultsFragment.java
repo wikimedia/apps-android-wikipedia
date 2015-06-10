@@ -167,7 +167,7 @@ public class SearchResultsFragment extends Fragment {
             return;
         }
 
-        List<PageTitle> cacheResult = searchResultsCache.get(app.getLanguage() + "-" + term);
+        List<PageTitle> cacheResult = searchResultsCache.get(app.getAppOrSystemLanguageCode() + "-" + term);
         if (cacheResult != null) {
             displayResults(cacheResult);
             return;
@@ -226,7 +226,7 @@ public class SearchResultsFragment extends Fragment {
                 displayResults(pageTitles);
 
                 // title search special:
-                searchResultsCache.put(app.getLanguage() + "-" + searchTerm, pageTitles);
+                searchResultsCache.put(app.getAppOrSystemLanguageCode() + "-" + searchTerm, pageTitles);
                 curSearchTask = null;
 
                 final String suggestion = results.getSuggestion();

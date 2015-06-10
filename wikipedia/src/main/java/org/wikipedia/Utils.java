@@ -336,7 +336,7 @@ public final class Utils {
      * @return dbname for given site object
      */
     public static String getDBNameForSite(Site site) {
-        return site.getLanguage() + "wiki";
+        return site.getLanguageCode() + "wiki";
     }
 
     public static void handleExternalLink(final Context context, final Uri uri) {

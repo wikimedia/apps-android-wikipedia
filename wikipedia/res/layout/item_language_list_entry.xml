@@ -12,7 +12,7 @@
               android:background="@drawable/selectable_item_background"
               >
     <TextView
-            android:id="@+id/language_local_name"
+            android:id="@+id/localized_language_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -20,7 +20,7 @@
             tools:text="Sample language local name"
             />
     <TextView
-            android:id="@+id/article_local_name"
+            android:id="@+id/article_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"

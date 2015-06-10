@@ -343,7 +343,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         // replaced (normalized)
         sectionTargetFromTitle = model.getTitle().getFragment();
 
-        Utils.setupDirectionality(model.getTitle().getSite().getLanguage(), Locale.getDefault().getLanguage(),
+        Utils.setupDirectionality(model.getTitle().getSite().getLanguageCode(), Locale.getDefault().getLanguage(),
                 bridge);
 
         // hide the native top and bottom components...
@@ -526,13 +526,13 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             leadSectionPayload.put("string_table_close", activity.getString(R.string.table_close));
             leadSectionPayload.put("string_expand_refs", activity.getString(R.string.expand_refs));
             leadSectionPayload.put("isBeta", app.getReleaseType() != WikipediaApp.RELEASE_PROD);
-            leadSectionPayload.put("siteLanguage", model.getTitle().getSite().getLanguage());
+            leadSectionPayload.put("siteLanguage", model.getTitle().getSite().getLanguageCode());
             leadSectionPayload.put("isMainPage", page.isMainPage());
             leadSectionPayload.put("apiLevel", Build.VERSION.SDK_INT);
             bridge.sendMessage("displayLeadSection", leadSectionPayload);
             Log.d(TAG, "Sent message 'displayLeadSection' for page: " + page.getDisplayTitle());
 
-            Utils.setupDirectionality(model.getTitle().getSite().getLanguage(),
+            Utils.setupDirectionality(model.getTitle().getSite().getLanguageCode(),
                     Locale.getDefault().getLanguage(), bridge);
 
             // Hide edit pencils if anon editing is disabled by remote killswitch or if this is a file page

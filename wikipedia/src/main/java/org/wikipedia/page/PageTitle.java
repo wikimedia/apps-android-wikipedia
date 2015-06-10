@@ -76,7 +76,7 @@ public class PageTitle implements Parcelable {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
         if (TextUtils.isEmpty(text)) {
             // If empty, this refers to the main page.
-            text = MainPageNameData.valueFor(site.getLanguage());
+            text = MainPageNameData.valueFor(site.getLanguageCode());
         }
 
         String[] fragParts = text.split("#", -1);
@@ -252,7 +252,7 @@ public class PageTitle implements Parcelable {
      */
     public boolean isFilePage() {
         if (isFilePage == null) {
-            String filePageAlias = FileAliasData.valueFor(getSite().getLanguage());
+            String filePageAlias = FileAliasData.valueFor(getSite().getLanguageCode());
             isFilePage = getNamespace() != null
                     && filePageAlias != null // If langcode, for some reason, isn't in FileAlias
                     && filePageAlias.equals(getNamespace());
@@ -269,7 +269,7 @@ public class PageTitle implements Parcelable {
      */
     public boolean isSpecial() {
         if (isSpecial == null) {
-            String specialPageAlias = SpecialAliasData.valueFor(getSite().getLanguage());
+            String specialPageAlias = SpecialAliasData.valueFor(getSite().getLanguageCode());
             isSpecial = getNamespace() != null
                     && specialPageAlias != null // If langcode, for some reason, isn't in SpecialPageAlias
                     && specialPageAlias.equals(getNamespace());

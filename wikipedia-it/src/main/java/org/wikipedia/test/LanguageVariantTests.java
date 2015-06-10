@@ -1,47 +1,78 @@
 package org.wikipedia.test;
 
-import android.content.Intent;
-import android.test.ActivityUnitTestCase;
+import android.test.InstrumentationTestCase;
+import android.test.UiThreadTest;
+
+import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.interlanguage.AppLanguageLookUpTable;
 
 import java.util.Locale;
 
-public class LanguageVariantTests extends ActivityUnitTestCase<TestDummyActivity> {
+public class LanguageVariantTests extends InstrumentationTestCase {
+    private Locale defaultLocale;
+    private String appLanguage;
 
-    private WikipediaApp app;
+    /** Ensure that the more specific dialect is first in the list. */
+    @UiThreadTest
+    public void testDefaultLocaleAndAcceptLanguageAgree() throws Throwable {
+        preserveAppState();
 
-    public LanguageVariantTests() {
-        super(TestDummyActivity.class);
+        testDefaultLocaleAndAcceptLanguageAgree("zh,zh-hant;q=0.8", "zh",
+                Locale.TRADITIONAL_CHINESE);
+        testDefaultLocaleAndAcceptLanguageAgree("zh,zh-hans;q=0.8", "zh",
+                Locale.SIMPLIFIED_CHINESE);
+        testDefaultLocaleAndAcceptLanguageAgree("zh,en;q=0.8", "zh", Locale.US);
+        testDefaultLocaleAndAcceptLanguageAgree("zh,en;q=0.8", "zh", Locale.ENGLISH);
+        testDefaultLocaleAndAcceptLanguageAgree("en,zh-hans;q=0.8", "en",
+                Locale.SIMPLIFIED_CHINESE);
+        testDefaultLocaleAndAcceptLanguageAgree("test,zh-hans;q=0.8", "test",
+                Locale.SIMPLIFIED_CHINESE);
+        testDefaultLocaleAndAcceptLanguageAgree("es,zh-hans;q=0.9,zh-hant;q=0.8",
+                AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
+                Locale.TRADITIONAL_CHINESE, Site.forLanguage("es"));
+        testDefaultLocaleAndAcceptLanguageAgree("zh-hant",
+                AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE,
+                Locale.TRADITIONAL_CHINESE);
+
+        restoreAppState();
     }
 
-    /**
-     * Ensure that the more specific dialect is first in the list
-     * TODO: once Chinese is updated, update tests for more languages
-     */
-    public void testDefaultLocaleAndAcceptLanguageAgree() throws Throwable {
-        startActivity(new Intent(), null, null);
+    private void testDefaultLocaleAndAcceptLanguageAgree(String expected, String appLanguage,
+            Locale systemLocale) {
+        testDefaultLocaleAndAcceptLanguageAgree(expected, appLanguage, systemLocale, null);
+    }
 
-        runTestOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
-                Locale originalLocale = Locale.getDefault();
+    private void testDefaultLocaleAndAcceptLanguageAgree(String expected,
+             String appLanguage, Locale systemLocale, Site site) {
+        WikipediaApp.getInstance().setAppLanguageCode(appLanguage);
+        Locale.setDefault(systemLocale);
+        assertEquals(expected, WikipediaApp.getInstance().getAcceptLanguage(site));
+    }
 
-                cover("zh-tw,zh;q=0.9", "zh", Locale.TRADITIONAL_CHINESE);
-                cover("zh-cn,zh;q=0.9", "zh", Locale.SIMPLIFIED_CHINESE);
-                cover("zh,en-us;q=0.9,en;q=0.8", "zh", Locale.US);
-                cover("zh,en;q=0.9", "zh", Locale.ENGLISH);
-                cover("en,zh-cn;q=0.9,zh;q=0.8", "en", Locale.SIMPLIFIED_CHINESE);
-                cover("test,zh-cn;q=0.9,zh;q=0.8", "test", Locale.SIMPLIFIED_CHINESE);
+    private void preserveAppState() {
+        preserveDefaultLocale();
+        preserveAppLanguage();
+    }
 
-                Locale.setDefault(originalLocale);
-            }
+    private void restoreAppState() {
+        restoreAppLanguage();
+        restoreDefaultLocale();
+    }
 
-            private void cover(String expected, String primaryLanguage, Locale locale) {
-                app.setLanguage(primaryLanguage);
-                Locale.setDefault(locale);
-                assertEquals(expected, app.getAcceptLanguage());
-            }
-        });
+    private void preserveAppLanguage() {
+        appLanguage = WikipediaApp.getInstance().getAppLanguageCode();
+    }
+
+    private void restoreAppLanguage() {
+        WikipediaApp.getInstance().setAppLanguageCode(appLanguage);
+    }
+
+    private void preserveDefaultLocale() {
+        defaultLocale = Locale.getDefault();
+    }
+
+    private void restoreDefaultLocale() {
+        Locale.setDefault(defaultLocale);
     }
 }

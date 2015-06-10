@@ -18,7 +18,6 @@ import org.wikipedia.util.ApiUtil;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
@@ -347,7 +346,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         Intent intent = new Intent();
         intent.setClass(GalleryActivity.this, PageActivity.class);
         intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-        intent.putExtra(PageActivity.EXTRA_PAGETITLE, (Parcelable) resultTitle);
+        intent.putExtra(PageActivity.EXTRA_PAGETITLE, resultTitle);
         intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, historyEntry);
         setResult(ACTIVITY_RESULT_FILEPAGE_SELECT, intent);
         finish();

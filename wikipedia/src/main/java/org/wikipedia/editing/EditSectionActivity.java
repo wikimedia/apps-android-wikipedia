@@ -167,7 +167,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         });
 
 
-        Utils.setTextDirection(sectionText, title.getSite().getLanguage());
+        Utils.setTextDirection(sectionText, title.getSite().getLanguageCode());
 
         fetchSectionText();
 

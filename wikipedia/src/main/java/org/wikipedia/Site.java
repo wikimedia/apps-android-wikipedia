@@ -5,7 +5,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
+import org.wikipedia.interlanguage.AppLanguageLookUpTable;
 import org.wikipedia.page.PageTitle;
+
+import java.util.Locale;
 
 /**
  * Represents a particular wiki.
@@ -13,15 +16,15 @@ import org.wikipedia.page.PageTitle;
 public class Site implements Parcelable {
     private final String domain;
 
-    private final String language;
+    private final String languageCode;
 
     public Site(String domain) {
         this(domain, urlToLanguage(domain));
     }
 
-    public Site(String domain, String language) {
+    public Site(String domain, String languageCode) {
         this.domain = urlToDesktopSite(domain);
-        this.language = language;
+        this.languageCode = languageCode;
     }
 
     public Site(Parcel in) {
@@ -31,7 +34,7 @@ public class Site implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(domain);
-        dest.writeString(language);
+        dest.writeString(languageCode);
     }
 
     public String getScriptPath(String script) {
@@ -85,7 +88,7 @@ public class Site implements Parcelable {
         if (domain != null ? !domain.equals(site.domain) : site.domain != null) {
             return false;
         }
-        return !(language != null ? !language.equals(site.language) : site.language != null);
+        return !(languageCode != null ? !languageCode.equals(site.languageCode) : site.languageCode != null);
 
     }
 
@@ -93,7 +96,7 @@ public class Site implements Parcelable {
     @Override
     public int hashCode() {
         int result = domain != null ? domain.hashCode() : 0;
-        result = 31 * result + (language != null ? language.hashCode() : 0);
+        result = 31 * result + (languageCode != null ? languageCode.hashCode() : 0);
         return result;
     }
 
@@ -102,7 +105,7 @@ public class Site implements Parcelable {
     public String toString() {
         return "Site{"
                 + "domain='" + domain + '\''
-                + ", language='" + language + '\''
+                + ", languageCode='" + languageCode + '\''
                 + '}';
     }
 
@@ -136,8 +139,8 @@ public class Site implements Parcelable {
         return titleForInternalLink(path);
     }
 
-    public String getLanguage() {
-        return language;
+    public String getLanguageCode() {
+        return languageCode;
     }
 
     public static Site forLanguage(String language) {
@@ -167,9 +170,9 @@ public class Site implements Parcelable {
 
     private static String languageToWikiSubdomain(String language) {
         switch (language) {
-            case "zh-hans":
-            case "zh-hant":
-                return "zh";
+            case AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE:
+            case AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE:
+                return Locale.CHINA.getLanguage();
             default:
                 return language;
         }

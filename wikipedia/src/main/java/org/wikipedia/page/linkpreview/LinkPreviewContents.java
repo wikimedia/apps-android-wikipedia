@@ -86,7 +86,7 @@ public class LinkPreviewContents {
      */
     public static List<String> getSentences(String text, Site site) {
         List<String> sentenceList = new ArrayList<>();
-        BreakIterator iterator = BreakIterator.getSentenceInstance(new Locale(site.getLanguage()));
+        BreakIterator iterator = BreakIterator.getSentenceInstance(new Locale(site.getLanguageCode()));
         // feed the text into the iterator, with line breaks removed:
         text = text.replaceAll("(\r|\n)", "");
         iterator.setText(text);

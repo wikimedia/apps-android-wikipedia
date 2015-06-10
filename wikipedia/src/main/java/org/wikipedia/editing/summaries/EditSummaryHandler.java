@@ -66,7 +66,7 @@ public class EditSummaryHandler {
             }
         });
 
-        Utils.setTextDirection(summaryEdit, title.getSite().getLanguage());
+        Utils.setTextDirection(summaryEdit, title.getSite().getLanguageCode());
     }
 
     public void show() {
