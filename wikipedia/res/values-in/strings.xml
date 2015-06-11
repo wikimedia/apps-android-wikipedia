@@ -132,6 +132,7 @@
   <string name="create_account_next">Selanjutnya</string>
   <string name="create_account_button">Buat akun baru</string>
   <string name="preferences_general_heading">Umum</string>
+  <string name="wikipedia_app_faq">Tanya jawab aplikasi Wikipedia</string>
   <string name="zero_charged_verbiage">Wikipedia Nol dimatikan</string>
   <string name="zero_charged_verbiage_extended">Pemuatan artikel lain mungkin dikenakan biaya data.</string>
   <string name="zero_search_hint">Telusuri Wikipedia Nol</string>

@@ -217,6 +217,9 @@
   <string name="table_infobox">معلومات سريعة</string>
   <string name="table_other">المزيد من المعلومات</string>
   <string name="table_close">أغلق</string>
+  <string name="widget_name_featured_page">صفحة ويكيبيديا المختارة</string>
+  <string name="widget_title_featured_page">صفحة اليوم المختارة:</string>
+  <string name="widget_name_search">بحث ويكيبيديا</string>
   <string name="app_store_description" fuzzy="true">تطبيق ويكيبيديا الرسمي لأندرويد. ويكيبيديا هي موسوعة حرة تحتوي على أكثر من 32 مليون مقالة في 280 لغة. كما أنها الموسوعة الأشمل والأكثر استخداماً على نطاق واسع. وهي أكبر عمل موسوعي جمعته البشرية. تمت إعادة تطوير التطبيق من الصفر وأصبح أفضل من أي وقتٍ مضى.
 
 المميزات:
@@ -250,6 +253,7 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="expand_refs">اضغط للتوسيع</string>
   <string name="snippet_share_preview_image_desc">معاينة الصورة</string>
   <string name="cc_logo">رخصة المشاع الإبداعي</string>
+  <string name="captcha_image">صورة الكابتشا</string>
   <string name="gallery_fair_use_license">استخدام عادل</string>
   <string name="gallery_uploader_unknown">الرافع غير معروف</string>
 </resources>

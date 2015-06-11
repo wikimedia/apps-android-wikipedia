@@ -54,6 +54,7 @@
   <string name="login_success_toast">غونډال کې بريالی ورننوتې!</string>
   <string name="login_error_blocked">په دې کارن بنديز لگېدلی</string>
   <string name="preference_title_logout">وتل</string>
+  <string name="preference_summary_notloggedin">نه ياست ننوتي.</string>
   <string name="toast_logout_complete">ووتلۍ</string>
   <string name="delete_selected_history">ړنگول</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
@@ -72,6 +73,7 @@
   <string name="create_account_next">راتلونکی</string>
   <string name="create_account_button">گڼون جوړول</string>
   <string name="preferences_general_heading">ټولگړی</string>
+  <string name="wikipedia_app_faq">ويکيپېډيا کاريال ډ.ځ.پ</string>
   <string name="zero_charged_verbiage">ويكيپېډيا زيرو گول دی</string>
   <string name="zero_wikipedia_zero_heading">ويکيپېډيا زيرو</string>
   <string name="zero_interstitial_title">ويکيپېډيا زيرو پرېښودل</string>

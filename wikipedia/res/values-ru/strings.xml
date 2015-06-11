@@ -132,6 +132,7 @@
   <string name="create_account_next">Далее</string>
   <string name="create_account_button">Создать учётную запись</string>
   <string name="preferences_general_heading">Общие</string>
+  <string name="wikipedia_app_faq">Частые вопросы по приложению Википедии</string>
   <string name="zero_charged_verbiage">Wikipedia Zero выключена</string>
   <string name="zero_charged_verbiage_extended">При загрузке других статьей может взиматься плата за передачу данных.</string>
   <string name="zero_search_hint">Поиск по Wikipedia Zero</string>

@@ -132,12 +132,13 @@
   <string name="create_account_next">Seguinte</string>
   <string name="create_account_button">Crear unha conta</string>
   <string name="preferences_general_heading">Xeral</string>
+  <string name="wikipedia_app_faq">Preguntas frecuentes sobre a aplicación de Wikipedia</string>
   <string name="zero_charged_verbiage">Wikipedia Zero está desactivada</string>
   <string name="zero_charged_verbiage_extended">Cargar outros artigos pode provocar que se aplique a súa tarifa de datos.</string>
   <string name="zero_search_hint">Procurar na Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avisádeme ao saír da Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Se o seu operador de telefonía móbil renuncia ás tarifas de datos por acceso á aplicación da Wikipedia a través dun consorcio coa Wikipedia Zero, ao deixar marcada esta opción saberá cando deixa a aplicación da Wikipedia e poden aplicarse tarifas de datos.</string>
-  <string name="zero_webpage_title">Preguntas frequentes sobre a Wikipedia Zero</string>
+  <string name="zero_webpage_title">Preguntas frecuentes sobre a Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Deixando a Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Poden aplicarse cargos por datos. Quere continuar a un sitio externo?</string>

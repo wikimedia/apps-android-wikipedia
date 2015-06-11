@@ -44,7 +44,9 @@
 The Share list contains the following menu items (localized):
 * Mail
 * Message</string>
-  <string name="intent_share_search_label">System share menu entry title for searching text with Wikipedia from any other app. For example, a user may highlight text in their browser, press share, and be given the option to compose a message with Gmail, post the text to Facebook, or search with Wikipedia.</string>
+  <string name="intent_share_search_label">{{Ignored}}
+
+System share menu entry title for searching text with Wikipedia from any other app. For example, a user may highlight text in their browser, press share, and be given the option to compose a message with Gmail, post the text to Facebook, or search with Wikipedia.</string>
   <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your saved pages</string>
   <string name="toast_saving_page">Small toast (popup) message saying that a page is being saved for offline reading</string>
   <string name="toast_saved_page">Small toast (popup) message saying that a page has been saved for offline reading.

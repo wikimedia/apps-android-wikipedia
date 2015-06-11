@@ -132,6 +132,7 @@
   <string name="create_account_next">İleri</string>
   <string name="create_account_button">Hesap oluştur</string>
   <string name="preferences_general_heading">Genel</string>
+  <string name="wikipedia_app_faq">Vikipedi Uygulaması SSS</string>
   <string name="zero_charged_verbiage">Wikipedia Zero kapalı</string>
   <string name="zero_charged_verbiage_extended">Diğer makaleleri yüklemek veri iletişim ücretleri doğurabilir.</string>
   <string name="zero_search_hint">Wikipedia Zero\'da Ara</string>

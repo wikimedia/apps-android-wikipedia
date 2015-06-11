@@ -27,7 +27,7 @@
   <string name="nearby_empty_title">Нема ништа у близини!</string>
   <string name="nearby_no_network">Нема мрежне везе</string>
   <string name="nearby_server_error">Нема списка места у близини.</string>
-  <string name="content_license_html" fuzzy="true">Садржај је доступан под лиценцом &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; осим ако је другачије наведено</string>
+  <string name="content_license_html">Садржај је доступан под лиценцом &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; осим ако је другачије наведено</string>
   <string name="preference_title_language">Језик Википедије</string>
   <string name="preference_languages_filter_hint">Претрага</string>
   <string name="langlinks_filter_hint">Претрага</string>
@@ -91,22 +91,26 @@
   <string name="create_account_next">Следеће</string>
   <string name="create_account_button">Отварање налога</string>
   <string name="preferences_general_heading">Опште</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero OFF (интернет саобраћај се наплаћује)</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero искључена</string>
   <string name="zero_search_hint">Претражи Wikipedia Zero</string>
   <string name="zero_interstitial_continue" fuzzy="true">Настави</string>
   <string name="zero_interstitial_cancel" fuzzy="true">Откажи</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Сазнајте више</string>
+  <string name="zero_learn_more_learn_more">Прочитај више</string>
   <string name="zero_learn_more_dismiss">Одбаци</string>
   <string name="nav_item_random">Насумице</string>
   <string name="create_account_account_created_toast">Ваш налог је отворен!</string>
   <string name="user_contribs_more_action">Учитај још</string>
   <string name="activity_my_contributions_title">Моји доприноси</string>
   <string name="history_search_list_hint">Претражи</string>
+  <string name="page_protected_can_not_edit_title">Ова страница је заштићена</string>
+  <string name="more_item_preferences">Више</string>
+  <string name="more_activity_title">Више</string>
   <string name="privacy_policy_description">Политика приватности</string>
   <string name="terms_of_use_description">Услови коришћења</string>
   <string name="about_contributors_heading">Доприносиоци</string>
   <string name="about_translators_heading">преводиоци</string>
   <string name="about_translators_translatewiki">Ову апликацију су превели волонтери сајта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_wmf">Производ &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Задужбине Викимедије&lt;/a&gt;</string>
   <string name="about_activity_title">О апликацији</string>
   <string name="user_blocked_from_editing_title">Блокиран</string>
   <string name="user_logged_in_blocked_from_editing">Ваш налог је блокиран на овом викију.</string>
@@ -124,6 +128,7 @@
   <string name="saved_pages_update_all_error_message">Дошло је до грешке код ажурирања сачуваних страница</string>
   <string name="saved_pages_refresh_pages_complete">Ажурирање завршено</string>
   <string name="menu_page_saved">Страница сачувана</string>
+  <string name="menu_refresh_saved_page">Освежи страницу</string>
   <string name="text_size_select">Величина фонта</string>
   <string name="color_theme_select">Тема</string>
   <string name="color_theme_light">Светло</string>
@@ -140,4 +145,5 @@
   <string name="menu_gallery_visit_page">Иди на страницу датотеке</string>
   <string name="gallery_menu_share">Дели</string>
   <string name="gallery_save_success">Слика успешно сачувана.</string>
+  <string name="gallery_fair_use_license">Поштена употреба</string>
 </resources>
