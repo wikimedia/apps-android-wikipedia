@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# coding=utf-8
+
+import copy
 import os
 import json
 import unicodecsv as csv
@@ -6,6 +9,10 @@ import codecs
 from urllib2 import urlopen
 from jinja2 import Environment, FileSystemLoader
 
+
+CHINESE_WIKI_LANG = "zh"
+SIMPLIFIED_CHINESE_LANG = "zh-hans"
+TRADITIONAL_CHINESE_LANG = "zh-hant"
 
 # Wikis that cause problems and hence we pretend
 # do not exist.
@@ -33,19 +40,24 @@ class WikiList(object):
             os.path.join(os.path.dirname(os.path.realpath(__file__)), u"templates")
             ))
 
-    def get_filtered_wiki_list(self):
-        return [wiki for wiki in self.wikis if wiki.lang not in OSTRITCH_WIKIS]
-
     def render(self, template, class_name, **kwargs):
         data = {
             u"class_name": class_name,
-            u"wikis": self.get_filtered_wiki_list()
+            u"wikis": self.wikis
         }
         data.update(kwargs)
         rendered = self.template_env.get_template(template).render(**data)
         out = codecs.open(class_name + u".java", u"w", u"utf-8")
         out.write(rendered)
         out.close()
+
+
+def build_wiki(lang, english_name, local_name, total_pages=0):
+    wiki = Wiki(lang)
+    wiki.props["english_name"] = english_name
+    wiki.props["local_name"] = local_name
+    wiki.props["total_pages"] = total_pages
+    return wiki
 
 
 def list_from_wikistats():
@@ -60,20 +72,46 @@ def list_from_wikistats():
         if is_first:
             is_first = False
             continue  # skip headers
-        wiki = Wiki(row[2])
-        wiki.props[u"english_name"] = row[1]
-        wiki.props[u"local_name"] = row[10]
-        wiki.props[u"total_pages"] = row[3]
+        wiki = build_wiki(lang=row[2], english_name=row[1], local_name=row[10],
+                          total_pages=row[3])
         wikis.append(wiki)
 
-    # Manually add TestWiki to this list
-    testWiki = Wiki(u"test")
-    testWiki.props[u"english_name"] = "Test"
-    testWiki.props[u"local_name"] = "Test"
-    testWiki.props[u"total_pages"] = 0
-    wikis.append(testWiki)
+    return wikis
 
-    return WikiList(wikis)
+
+# Remove unsupported wikis.
+def filter_supported_wikis(wikis):
+    return [wiki for wiki in wikis if wiki.lang not in OSTRITCH_WIKIS]
+
+
+# Apply manual tweaks to the list of wikis before they're populated.
+def preprocess_wikis(wikis):
+    # Add TestWiki.
+    wikis.append(build_wiki(lang="test", english_name="Test", local_name="Test",
+                 total_pages=0))
+
+    return wikis
+
+
+# Apply manual tweaks to the list of wikis after they're populated.
+def postprocess_wikis(wiki_list):
+    # Add Simplified and Traditional Chinese dialects.
+    chineseWiki = next((wiki for wiki in wiki_list.wikis if wiki.lang == CHINESE_WIKI_LANG), None)
+    chineseWikiIndex = wiki_list.wikis.index(chineseWiki)
+
+    simplifiedWiki = copy.deepcopy(chineseWiki)
+    simplifiedWiki.lang = SIMPLIFIED_CHINESE_LANG
+    simplifiedWiki.props["english_name"] = "Simplified Chinese"
+    simplifiedWiki.props["local_name"] = "简体"
+    wiki_list.wikis.insert(chineseWikiIndex + 1, simplifiedWiki)
+
+    traditionalWiki = copy.deepcopy(chineseWiki)
+    traditionalWiki.lang = TRADITIONAL_CHINESE_LANG
+    traditionalWiki.props["english_name"] = "Traditional Chinese"
+    traditionalWiki.props["local_name"] = "繁體"
+    wiki_list.wikis.insert(chineseWikiIndex + 2, traditionalWiki)
+
+    return wiki_list
 
 
 # Populate the aliases for "Special:" and "File:" in all wikis
@@ -132,12 +170,16 @@ def chain(*funcs):
 
 chain(
     list_from_wikistats,
+    filter_supported_wikis,
+    preprocess_wikis,
+    WikiList,
     populate_aliases,
+    populate_main_pages,
+    postprocess_wikis,
     render_template(u"basichash.java.jinja", u"SpecialAliasData", key=u"special_alias"),
     render_template(u"basichash.java.jinja", u"FileAliasData", key=u"file_alias"),
     render_simple_json(u"special_alias", u"specialalias.json"),
     render_simple_json(u"file_alias", u"filealias.json"),
-    populate_main_pages,
     render_template(u"basichash.java.jinja", u"MainPageNameData", key=u"main_page_name"),
     render_simple_json(u"main_page_name", u"mainpages.json")
 )
