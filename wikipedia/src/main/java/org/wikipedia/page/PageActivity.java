@@ -804,7 +804,7 @@ public class PageActivity extends ThemedActionBarActivity {
             outState.putBoolean("themeChooserShowing", themeChooser.isShowing());
         }
         outState.putBoolean("isSearching", isSearching());
-        outState.putString(LANGUAGE_CODE_BUNDLE_KEY, app.getAppLanguageCode());
+        outState.putString(LANGUAGE_CODE_BUNDLE_KEY, app.getAppOrSystemLanguageCode());
     }
 
     @Override
