@@ -8,6 +8,7 @@ import org.wikipedia.WikipediaApp;
 public class ToCInteractionFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppToCInteraction";
     private static final int REV_ID = 11014396;
+    private static final int DEFAULT_SAMPLE_RATE = 100;
 
     private final String appInstallID;
     private final Site site;
@@ -32,23 +33,11 @@ public class ToCInteractionFunnel extends Funnel {
     }
 
     protected void log(Object... params) {
-        final int defaultSampleRate = 100;
-
         //get our sampling rate from remote config
         int sampleRate = WikipediaApp.getInstance().getRemoteConfig().getConfig()
-                .optInt("tocLogSampleRate", defaultSampleRate);
+                                                   .optInt("tocLogSampleRate", DEFAULT_SAMPLE_RATE);
+        super.log(site, sampleRate, params);
 
-        if (sampleRate != 0) {
-            //take the last 4 hex digits of the uuid, modulo the sampling coefficient.
-            //if the result is 0, then we're one of the Chosen.
-            final int uuidSubstrLen = 4;
-            final int hexBase = 16;
-            boolean chosen = Integer.parseInt(appInstallID.substring(appInstallID.length() - uuidSubstrLen), hexBase) % sampleRate == 0;
-
-            if (chosen) {
-                super.log(site, params);
-            }
-        }
     }
 
     public void logOpen() {
