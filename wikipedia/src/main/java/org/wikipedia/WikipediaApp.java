@@ -8,6 +8,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.Window;
@@ -461,15 +462,19 @@ public class WikipediaApp extends Application {
         return getFeatureFlagID();
     }
 
+    @IntRange(from = 0)
     private int getFeatureFlagID() {
         int featureFlagID;
         if (prefs.contains(PrefKeys.getFeatureFlagID())) {
             featureFlagID = prefs.getInt(PrefKeys.getFeatureFlagID(), 0);
         } else {
-            featureFlagID = new Random().nextInt();
+            // generate a random number in the range [0, max-int)
+            featureFlagID = new Random().nextInt(Integer.MAX_VALUE);
             prefs.edit().putInt(PrefKeys.getFeatureFlagID(), featureFlagID).apply();
         }
-        return featureFlagID;
+        // make sure the number is positive by taking away the sign bit
+        // (will only apply to previously-generated values that happened to be negative)
+        return featureFlagID & Integer.MAX_VALUE;
     }
 
     /**
