@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.settings.PreferenceUtil;
 
 import java.util.ArrayList;
@@ -22,10 +21,6 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
  * and application languages. */
 public class AppLanguageState {
     public static final String SYSTEM_LANGUAGE_CODE = null;
-    private static final String HONG_KONG_COUNTRY_CODE = "HK";
-    private static final String MACAU_COUNTRY_CODE = "MO";
-    private static final List<String> TRADITIONAL_CHINESE_COUNTRY_CODES = Arrays.asList(
-            Locale.TAIWAN.getCountry(), HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE);
 
     @NonNull
     private final Context context;
@@ -76,8 +71,10 @@ public class AppLanguageState {
 
     @NonNull
     public String getSystemLanguageCode() {
-        String lang = Utils.langCodeToWikiLang(Locale.getDefault().getLanguage());
-        return appLanguageLookUpTable.isSupportedCode(lang) ? lang : convertSystemLanguageCode(lang);
+        String code = LanguageUtil.languageCodeToWikiLanguageCode(Locale.getDefault().getLanguage());
+        return appLanguageLookUpTable.isSupportedCode(code)
+                ? code
+                : AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE;
     }
 
     public Locale getAppLocale() {
@@ -135,24 +132,6 @@ public class AppLanguageState {
     @Nullable
     public String getAppLanguageLocalizedName(String code) {
         return appLanguageLookUpTable.getLocalizedName(code);
-    }
-
-    @NonNull
-    private String convertSystemLanguageCode(@NonNull String code) {
-        // If the user configures Android for Chinese (zh) we have no way to know the intended
-        // dialect. We guess based on country. If the guess is incorrect, the user must explicitly
-        // choose the dialect in the app settings.
-        if (Locale.CHINA.getLanguage().equals(code)) {
-            return isTraditionalChinesePredominantInCountry(Locale.getDefault().getCountry())
-                    ? AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE
-                    : AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
-        }
-
-        return AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE;
-    }
-
-    private boolean isTraditionalChinesePredominantInCountry(@Nullable String country) {
-        return TRADITIONAL_CHINESE_COUNTRY_CODES.contains(country);
     }
 
     @NonNull

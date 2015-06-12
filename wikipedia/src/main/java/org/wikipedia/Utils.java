@@ -30,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.interlanguage.LanguageUtil;
 import org.wikipedia.settings.PrefKeys;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.ShareUtils;
@@ -247,27 +248,6 @@ public final class Utils {
     }
 
     /**
-     * Takes a ISO language code (as returned by Android) and returns a wiki code, as used by wikipedia.
-     *
-     * @param langCode Language code (as returned by Android)
-     * @return Wiki code, as used by wikipedia.
-     */
-    public static String langCodeToWikiLang(String langCode) {
-        // Convert deprecated language codes to modern ones.
-        // See https://developer.android.com/reference/java/util/Locale.html
-        switch (langCode) {
-            case "iw":
-                return "he"; // Hebrew
-            case "in":
-                return "id"; // Indonesian
-            case "ji":
-                return "yi"; // Yiddish
-            default:
-                return langCode;
-        }
-    }
-
-    /**
      * List of wiki language codes for which the content is primarily RTL.
      *
      * Ensure that this is always sorted alphabetically.
@@ -302,7 +282,7 @@ public final class Utils {
             } else {
                 payload.put("contentDirection", "ltr");
             }
-            if (isLangRTL(langCodeToWikiLang(uiLang))) {
+            if (isLangRTL(LanguageUtil.languageCodeToWikiLanguageCode(uiLang))) {
                 payload.put("uiDirection", "rtl");
             } else {
                 payload.put("uiDirection", "ltr");
