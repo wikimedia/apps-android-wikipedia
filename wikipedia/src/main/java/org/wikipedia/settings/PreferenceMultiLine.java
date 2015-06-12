@@ -3,6 +3,7 @@ package org.wikipedia.settings;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.preference.Preference;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
@@ -25,7 +26,7 @@ public class PreferenceMultiLine extends Preference {
     }
 
     @Override
-    protected void onBindView(View view) {
+    protected void onBindView(@NonNull View view) {
         super.onBindView(view);
         TextView textView = (TextView) view.findViewById(android.R.id.title);
         if (textView != null) {

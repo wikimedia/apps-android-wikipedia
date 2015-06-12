@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.view.MenuItem;
 
 /**
@@ -44,7 +45,7 @@ public class SettingsActivityGB extends PreferenceActivity implements SharedPref
         }
     }
 
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    public boolean onMenuItemSelected(int featureId, @NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();

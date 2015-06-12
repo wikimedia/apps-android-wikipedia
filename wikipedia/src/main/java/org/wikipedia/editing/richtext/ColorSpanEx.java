@@ -1,5 +1,6 @@
 package org.wikipedia.editing.richtext;
 
+import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.text.style.ForegroundColorSpan;
 
@@ -18,7 +19,7 @@ public class ColorSpanEx extends ForegroundColorSpan implements SpanExtents {
     private int backColor;
 
     @Override
-    public void updateDrawState(TextPaint tp) {
+    public void updateDrawState(@NonNull TextPaint tp) {
         tp.bgColor = backColor;
         super.updateDrawState(tp);
     }

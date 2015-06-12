@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 
 import org.wikipedia.BuildConfig;
 
@@ -113,7 +114,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
     }
 
     @Override
-    public int bulkInsert(Uri uri, ContentValues[] values) {
+    public int bulkInsert(Uri uri, @NonNull ContentValues[] values) {
         int uriType = uriMatcher.match(uri);
         SQLiteDatabase sqlDB = getDbOpenHelper().getWritableDatabase();
         sqlDB.beginTransaction();

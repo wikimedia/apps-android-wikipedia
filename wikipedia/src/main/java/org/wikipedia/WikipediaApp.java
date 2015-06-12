@@ -31,6 +31,7 @@ import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryEntryPersister;
+import org.wikipedia.interlanguage.AcceptLanguageUtil;
 import org.wikipedia.interlanguage.AppLanguageState;
 import org.wikipedia.login.UserInfoStorage;
 import org.wikipedia.migration.PerformMigrationsTask;
@@ -52,6 +53,8 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.UUID;
 
+import static org.wikipedia.util.StringUtil.emptyIfNull;
+
 @ReportsCrashes(
         formKey = "",
         mode = ReportingInteractionMode.DIALOG,
@@ -68,9 +71,8 @@ public class WikipediaApp extends Application {
     }
 
     // Reload in onCreate to override
-    private String networkProtocol = HTTPS_PROTOCOL;
     public String getNetworkProtocol() {
-        return networkProtocol;
+        return HTTPS_PROTOCOL;
     }
 
     private boolean sslFallback = false;
@@ -196,7 +198,7 @@ public class WikipediaApp extends Application {
 
         // Enable debugging on the webview
         if (ApiUtil.hasKitKat()) {
-            WebView.setWebContentsDebuggingEnabled(true);
+            WebView.setWebContentsDebuggingEnabled(BuildConfig.DEBUG);
         }
 
         Api.setConnectionFactory(new OkHttpConnectionFactory(this));
@@ -226,42 +228,21 @@ public class WikipediaApp extends Application {
         return userAgent;
     }
 
-    @NonNull
-    public String getAcceptLanguage() {
-        return getAcceptLanguage(null);
-    }
-
     /**
      * @return the value that should go in the Accept-Language header.
      */
     @NonNull
     public String getAcceptLanguage(@Nullable Site site) {
-        /*Nonnull*/ String siteLanguageCode = site == null ? "" : site.getLanguageCode();
-        /*Nonnull*/ String appLanguageCode = isSystemLanguageEnabled() ? "" : getAppLanguageCode();
-        /*Nonnull*/ String systemLanguageCode = getSystemLanguageCode();
-        final float appLanguageQuality = .9f;
-        final float systemLanguageQuality = .8f;
-
-        String acceptLanguage = siteLanguageCode;
-        acceptLanguage = appendToAcceptLanguage(acceptLanguage, appLanguageCode, appLanguageQuality);
-        acceptLanguage = appendToAcceptLanguage(acceptLanguage, systemLanguageCode, systemLanguageQuality);
-
-        return acceptLanguage;
+        return AcceptLanguageUtil.getAcceptLanguage(
+                site == null ? "" : emptyIfNull(site.getLanguageCode()),
+                emptyIfNull(getAppLanguageCode()), appLanguageState.getSystemLanguageCode());
     }
 
     private HashMap<String, Api> apis = new HashMap<>();
     private MccMncStateHandler mccMncStateHandler = new MccMncStateHandler();
     public Api getAPIForSite(Site site) {
-        // https://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
-        HashMap<String, String> customHeaders = new HashMap<>();
-        customHeaders.put("User-Agent", getUserAgent());
-        // Add the app install ID to the header, but only if the user has not opted out of logging
-        if (isEventLoggingEnabled()) {
-            customHeaders.put("X-WMF-UUID", getAppInstallID());
-        }
         String acceptLanguage = getAcceptLanguage(site);
-
-        customHeaders.put("Accept-Language", acceptLanguage);
+        HashMap<String, String> customHeaders = buildCustomHeaders(acceptLanguage);
 
         // Because the mccMnc enrichment is a one-time thing, we don't need to have a complex hash key
         // for the apis HashMap<String, Api> like we do below. It naturally gets the correct
@@ -306,19 +287,17 @@ public class WikipediaApp extends Application {
         return getAPIForSite(getPrimarySite());
     }
 
+    @Nullable
     public String getAppLanguageCode() {
         return appLanguageState.getAppLanguageCode();
     }
 
-    public String getSystemLanguageCode() {
-        return appLanguageState.getSystemLanguageCode();
-    }
-
+    @NonNull
     public String getAppOrSystemLanguageCode() {
         return appLanguageState.getAppOrSystemLanguageCode();
     }
 
-    public void setAppLanguageCode(String code) {
+    public void setAppLanguageCode(@Nullable String code) {
         appLanguageState.setAppLanguageCode(code);
         resetSite();
     }
@@ -331,10 +310,12 @@ public class WikipediaApp extends Application {
         appLanguageState.setSystemLanguageEnabled();
     }
 
+    @Nullable
     public String getAppLanguageLocalizedName() {
         return appLanguageState.getAppLanguageLocalizedName();
     }
 
+    @NonNull
     public Locale getAppLocale() {
         return appLanguageState.getAppLocale();
     }
@@ -512,7 +493,6 @@ public class WikipediaApp extends Application {
     /**
      * Sets the theme of the app. If the new theme is the same as the current theme, nothing happens.
      * Otherwise, an event is sent to notify of the theme change.
-     * @param newTheme
      */
     public void setCurrentTheme(int newTheme) {
         if (newTheme == currentTheme) {
@@ -596,19 +576,19 @@ public class WikipediaApp extends Application {
         primarySite = null;
     }
 
-    @NonNull private String appendToAcceptLanguage(@NonNull String acceptLanguage,
-            @NonNull String languageCode, float quality) {
-        // If accept-language already contains the language, just return accept-language.
-        if (acceptLanguage.contains(languageCode)) {
-            return acceptLanguage;
+    private HashMap<String, String> buildCustomHeaders(String acceptLanguage) {
+        // https://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
+        HashMap<String, String> headers = new HashMap<>();
+
+        headers.put("User-Agent", getUserAgent());
+
+        // Add the app install ID to the header, but only if the user has not opted out of logging
+        if (isEventLoggingEnabled()) {
+            headers.put("X-WMF-UUID", getAppInstallID());
         }
 
-        // If accept-language is empty, don't append. Just return the language.
-        if (acceptLanguage.isEmpty()) {
-            return languageCode;
-        }
+        headers.put("Accept-Language", acceptLanguage);
 
-        // Accept-language is nonempty, append the language.
-        return String.format("%s,%s;q=%.1f", acceptLanguage, languageCode, quality);
+        return headers;
     }
 }

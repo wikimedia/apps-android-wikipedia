@@ -16,6 +16,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GestureDetectorCompat;
 import android.text.Spannable;
@@ -99,7 +100,7 @@ public class LinkPreviewDialog extends DialogFragment implements DialogInterface
             private float touchSlop = ViewConfiguration.get(getDialog().getContext()).getScaledTouchSlop();
 
             @Override
-            public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
+            public boolean onTouchEvent(@NonNull TextView widget, @NonNull Spannable buffer, @NonNull MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         startX = event.getX();
@@ -182,6 +183,7 @@ public class LinkPreviewDialog extends DialogFragment implements DialogInterface
         }
     }
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);

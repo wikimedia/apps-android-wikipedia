@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
@@ -134,7 +135,7 @@ public class CommunicationBridge {
         }
 
         @Override
-        public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        public boolean onConsoleMessage(@NonNull ConsoleMessage consoleMessage) {
             Log.d("WikipediaWeb", consoleMessage.sourceId() + ":" + consoleMessage.lineNumber() + " - " + consoleMessage.message());
             return true;
         }

@@ -3,6 +3,7 @@ package org.wikipedia;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
@@ -57,7 +58,7 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
+    public boolean onKeyUp(int keyCode, @NonNull KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_MENU && "LGE".equalsIgnoreCase(Build.BRAND)) {
             openOptionsMenu();
             return true;

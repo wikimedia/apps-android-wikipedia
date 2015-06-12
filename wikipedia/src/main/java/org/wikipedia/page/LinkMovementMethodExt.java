@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import android.support.annotation.NonNull;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
@@ -20,7 +21,7 @@ public class LinkMovementMethodExt extends LinkMovementMethod {
     }
 
     @Override
-    public boolean onTouchEvent(final TextView widget, final Spannable buffer, final MotionEvent event) {
+    public boolean onTouchEvent(@NonNull final TextView widget, @NonNull final Spannable buffer, @NonNull final MotionEvent event) {
         final int action = event.getAction();
         if (action == MotionEvent.ACTION_UP) {
             final int x = (int) event.getX() - widget.getTotalPaddingLeft() + widget.getScrollX();

@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
@@ -123,7 +124,7 @@ public class NearbyCompassView extends ImageView {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         //draw the original image...
         super.onDraw(canvas);
 

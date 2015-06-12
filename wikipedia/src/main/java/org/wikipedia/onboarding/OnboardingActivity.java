@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.text.Html;
 import android.view.View;
 import android.view.Window;
@@ -118,7 +119,7 @@ public class OnboardingActivity extends Activity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         // Put item in bundle so start events are not fired purely because of activity recreation
         // This makes the event logging data more closely match user intent and behaviour
