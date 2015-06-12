@@ -20,14 +20,12 @@ import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.linkpreview.LinkPreviewVersion;
-import org.wikipedia.page.snippet.NoTextSelectedShareAdapter;
-import org.wikipedia.page.snippet.TextSelectedShareAdapter;
+import org.wikipedia.page.snippet.ShareHandler;
 import org.wikipedia.savedpages.ImageUrlMap;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.NetworkUtils;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
@@ -113,8 +111,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private SavedPagesFunnel savedPagesFunnel;
     private ConnectionIssueFunnel connectionIssueFunnel;
 
-    private TextSelectedShareAdapter textSelectedShareAdapter;
-    private NoTextSelectedShareAdapter noTextSelectedShareAdapter;
+    private ShareHandler shareHandler;
 
     public ObservableWebView getWebView() {
         return webView;
@@ -189,10 +186,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     public void onDestroyView() {
         //uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup();
-        if (textSelectedShareAdapter != null) {
-            textSelectedShareAdapter.onDestroy();
-        }
-        noTextSelectedShareAdapter.onDestroy();
+        shareHandler.onDestroy();
         super.onDestroyView();
     }
 
@@ -302,10 +296,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         searchBarHideHandler = ((PageActivity) getActivity()).getSearchBarHideHandler();
         searchBarHideHandler.setScrollView(webView);
 
-        if (ApiUtil.hasHoneyComb()) {
-            textSelectedShareAdapter = new TextSelectedShareAdapter((PageActivity) getActivity(), bridge);
-        }
-        noTextSelectedShareAdapter = new NoTextSelectedShareAdapter((PageActivity) getActivity(), this);
+        shareHandler = new ShareHandler((PageActivity) getActivity(), bridge);
 
         pageLoadStrategy.setup(model, this, refreshView, webView, bridge, searchBarHideHandler,
                 leadImagesHandler);
@@ -458,9 +449,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     }
 
     public void onActionModeShown(ActionMode mode) {
-        if (textSelectedShareAdapter != null) {
-            textSelectedShareAdapter.onTextSelected(mode);
-        }
+        shareHandler.onTextSelected(mode);
     }
 
 
@@ -543,7 +532,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 }
                 return true;
             case R.id.menu_share_page:
-                noTextSelectedShareAdapter.share();
+                shareHandler.shareWithoutSelection();
                 return true;
             case R.id.menu_other_languages:
                 Intent langIntent = new Intent();

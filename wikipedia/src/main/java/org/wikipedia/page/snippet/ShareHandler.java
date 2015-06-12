@@ -2,10 +2,17 @@ package org.wikipedia.page.snippet;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -15,7 +22,11 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageViewFragmentInternal;
+import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.ShareUtils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
 
@@ -24,27 +35,51 @@ import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
  */
 public class ShareHandler {
     private final PageActivity activity;
+    private final CommunicationBridge bridge;
+    private ActionMode webViewActionMode;
     private Dialog shareDialog;
     private ShareAFactFunnel funnel;
 
-    protected PageActivity getActivity() {
-        return activity;
-    }
-
-    protected ShareAFactFunnel getFunnel() {
-        return funnel;
-    }
-
-    protected void createFunnel() {
-        WikipediaApp app = (WikipediaApp) getActivity().getApplicationContext();
-        final Page page = getActivity().getCurPageFragment().getPage();
+    private void createFunnel() {
+        WikipediaApp app = (WikipediaApp) activity.getApplicationContext();
+        final Page page = activity.getCurPageFragment().getPage();
         final PageProperties pageProperties = page.getPageProperties();
         funnel = new ShareAFactFunnel(app, page.getTitle(), pageProperties.getPageId(),
                 pageProperties.getRevisionId());
     }
 
-    public ShareHandler(PageActivity activity) {
+    public ShareHandler(PageActivity activity, CommunicationBridge bridge) {
         this.activity = activity;
+        this.bridge = bridge;
+
+        bridge.addListener("onGetTextSelection", new CommunicationBridge.JSEventListener() {
+            @Override
+            public void onMessage(String messageType, JSONObject messagePayload) {
+                String purpose = messagePayload.optString("purpose", "");
+                String text = messagePayload.optString("text", "");
+                if (purpose.equals("share")) {
+                    createFunnel();
+                    shareSnippet(text, false);
+                    funnel.logShareTap(text);
+                }
+            }
+        });
+    }
+
+    private void requestTextSelection() {
+        // send an event to the WebView that will make it return the
+        // selected text (or first paragraph) back to us...
+        try {
+            JSONObject payload = new JSONObject();
+            payload.put("purpose", "share");
+            bridge.sendMessage("getTextSelection", payload);
+        } catch (JSONException e) {
+            //nope
+        }
+    }
+
+    public void shareWithoutSelection() {
+        requestTextSelection();
     }
 
     public void onDestroy() {
@@ -55,7 +90,7 @@ public class ShareHandler {
     }
 
     /** Call #setFunnel before #shareSnippet. */
-    public void shareSnippet(CharSequence input, boolean preferUrl) {
+    private void shareSnippet(CharSequence input, boolean preferUrl) {
         final PageViewFragmentInternal curPageFragment = activity.getCurPageFragment();
         if (curPageFragment == null) {
             return;
@@ -94,6 +129,80 @@ public class ShareHandler {
                 .replaceAll("\\(\\s*;\\s*", "\\(") // (; -> (    hacky way for IPA remnants
                 .replaceAll("\\s{2,}", " ")
                 .trim();
+    }
+
+    /**
+     * @param mode ActionMode under which this context is starting.
+     */
+    public void onTextSelected(ActionMode mode) {
+        webViewActionMode = mode;
+        Menu menu = mode.getMenu();
+
+        // Find the "share" context menu item from the WebView's action mode.
+        MenuItem shareItem = getSystemMenuItemByName(menu, "share");
+
+        // if we were unable to find the Share button, then inject our own!
+        if (shareItem == null) {
+            shareItem = mode.getMenu().add(Menu.NONE, Menu.NONE, Menu.NONE,
+                                           activity.getString(R.string.menu_share_page));
+            shareItem.setIcon(R.drawable.ic_share_dark);
+            MenuItemCompat.setShowAsAction(shareItem, MenuItemCompat.SHOW_AS_ACTION_ALWAYS
+                                                      | MenuItemCompat.SHOW_AS_ACTION_WITH_TEXT);
+        }
+
+        // provide our own listener for the Share button...
+        shareItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                requestTextSelection();
+
+                // leave context mode...
+                if (webViewActionMode != null) {
+                    webViewActionMode.finish();
+                    webViewActionMode = null;
+                }
+                return true;
+            }
+        });
+
+        createFunnel();
+        funnel.logHighlight();
+    }
+
+    /**
+     * Retrieve a specific menu item from a context menu that is controlled by the system
+     * by searching for the item by its actual resource name.
+     * @param menu Menu to search.
+     * @param nameSubstring Portion of the resource name to match.
+     * @return The requested menu item, or null if it wasn't found.
+     */
+    private MenuItem getSystemMenuItemByName(Menu menu, String nameSubstring) {
+        MenuItem foundItem = null;
+        for (int i = 0; i < menu.size(); i++) {
+            MenuItem item = menu.getItem(i);
+            String resourceName = null;
+            try {
+                resourceName = activity.getResources().getResourceName(item.getItemId());
+            } catch (Resources.NotFoundException e) {
+                // Looks like some devices don't provide access to these menu items through
+                // the context of the app, in which case, there's nothing we can do...
+            }
+            if (resourceName != null && resourceName.contains(nameSubstring)) {
+                foundItem = item;
+            }
+            // In APIs lower than 21, some of the action mode icons may not respect the
+            // current theme, so we need to manually tint those icons.
+            if (!ApiUtil.hasLollipop()) {
+                fixMenuItemTheme(item);
+            }
+        }
+        return foundItem;
+    }
+
+    private void fixMenuItemTheme(MenuItem item) {
+        if (item != null && item.getIcon() != null) {
+            WikipediaApp.getInstance().setDrawableTint(item.getIcon(), Color.WHITE);
+        }
     }
 }
 

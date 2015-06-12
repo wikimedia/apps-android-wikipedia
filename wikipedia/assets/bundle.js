@@ -409,8 +409,23 @@ bridge.registerListener( "beginNewPage", function( payload ) {
     }, 10);
 });
 
+function getLeadParagraph() {
+    var text = "";
+    var plist = document.getElementsByTagName( "p" );
+    if (plist.length > 0) {
+        text = plist[0].innerText;
+    }
+    return text;
+}
+
+// Returns any currently-highlighted text.
+// If no text is highlighted, returns the text of the first paragraph.
 bridge.registerListener( "getTextSelection", function( payload ) {
-    bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : window.getSelection().toString() } );
+    var text = window.getSelection().toString().trim();
+    if (text.length < 2) {
+        text = getLeadParagraph();
+    }
+    bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : text } );
 });
 
 bridge.registerListener( "displayLeadSection", function( payload ) {
