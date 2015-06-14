@@ -122,20 +122,10 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         pageTitleContainer = imageContainer.findViewById(R.id.page_title_container);
         pageTitleText = (TextView)imageContainer.findViewById(R.id.page_title_text);
         pageDescriptionText = (TextView)imageContainer.findViewById(R.id.page_description_text);
+
         webview.addOnScrollChangeListener(this);
 
-        // preload the display density, since it will be used in a lot of places
-        displayDensity = context.getResources().getDisplayMetrics().density;
-
-        // get the screen height, using correct methods for different API versions
-        if (ApiUtil.hasHoneyCombMr2()) {
-            Point size = new Point();
-            parentFragment.getActivity().getWindowManager().getDefaultDisplay().getSize(size);
-            displayHeight = (int)(size.y / displayDensity);
-        } else {
-            displayHeight = (int)(parentFragment.getActivity()
-                    .getWindowManager().getDefaultDisplay().getHeight() / displayDensity);
-        }
+        setDisplayHeight();
 
         webview.addOnClickListener(new ObservableWebView.OnClickListener() {
             @Override
@@ -626,6 +616,24 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 pageTitleText.startAnimation(anim);
             }
         });
+    }
+
+    /**
+     * Determines and sets display height for the lead images layout, based on display density.
+     */
+    private void setDisplayHeight() {
+        // preload the display density, since it will be used in a lot of places
+        displayDensity = context.getResources().getDisplayMetrics().density;
+
+        // get the screen height, using correct methods for different API versions
+        if (ApiUtil.hasHoneyCombMr2()) {
+            Point size = new Point();
+            parentFragment.getActivity().getWindowManager().getDefaultDisplay().getSize(size);
+            displayHeight = (int)(size.y / displayDensity);
+        } else {
+            displayHeight = (int)(parentFragment.getActivity()
+                    .getWindowManager().getDefaultDisplay().getHeight() / displayDensity);
+        }
     }
 
 }
