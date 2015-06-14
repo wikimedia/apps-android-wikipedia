@@ -116,7 +116,6 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         this.imageContainer = hidingView;
         this.bridge = bridge;
         this.webView = webview;
-        displayDensity = context.getResources().getDisplayMetrics().density;
 
         imagePlaceholder = (ImageView)imageContainer.findViewById(R.id.page_image_placeholder);
         image1 = (ImageViewWithFace)imageContainer.findViewById(R.id.page_image_1);
