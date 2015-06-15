@@ -67,7 +67,8 @@ public class EditPreviewFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         parentActivity = (EditSectionActivity)getActivity();
-        funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(parentActivity.getPageTitle());
+        PageTitle pageTitle = parentActivity.getPageTitle();
+        funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 
         /*
         Use a Resources object with a different Locale, so that the text of the canned summary
@@ -81,7 +82,7 @@ public class EditPreviewFragment extends Fragment {
         AssetManager assets = oldResources.getAssets();
         DisplayMetrics metrics = oldResources.getDisplayMetrics();
         Locale oldLocale = oldResources.getConfiguration().locale;
-        Locale newLocale = WikipediaApp.getInstance().getAppLocale();
+        Locale newLocale = new Locale(pageTitle.getSite().getLanguageCode());
         Configuration config = new Configuration(oldResources.getConfiguration());
         Resources tempResources = getResources();
         if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {
