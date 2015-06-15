@@ -1,13 +1,14 @@
 package org.wikipedia.interlanguage;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 
+import java.lang.ref.SoftReference;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /** Immutable look up table for all app supported languages. All article languages may not be
@@ -17,38 +18,62 @@ public class AppLanguageLookUpTable {
     public static final String TRADITIONAL_CHINESE_LANGUAGE_CODE = "zh-hant";
     public static final String FALLBACK_LANGUAGE_CODE = "en"; // Must exist in preference_language_keys.
 
-    // Immutable language codes for all app supported languages in fixed order.
     @NonNull
-    private final List<String> codes;
+    private final Resources resources;
 
-    // Immutable English names for all app supported languages in fixed order.
+    // Language codes for all app supported languages in fixed order.
     @NonNull
-    private final List<String> canonicalNames;
+    private SoftReference<List<String>> codesRef = new SoftReference<>(null);
 
-    // Immutable native names for all app supported languages in fixed order.
+    // English names for all app supported languages in fixed order.
     @NonNull
-    private final List<String> localizedNames;
+    private SoftReference<List<String>> canonicalNamesRef = new SoftReference<>(null);
 
-    public AppLanguageLookUpTable(@NonNull Context context) {
-        codes = getStringList(context, R.array.preference_language_keys); // The codes are the keys.
-        canonicalNames = getStringList(context, R.array.preference_language_canonical_names);
-        localizedNames = getStringList(context, R.array.preference_language_local_names);
+    // Native names for all app supported languages in fixed order.
+    @NonNull
+    private SoftReference<List<String>> localizedNamesRef = new SoftReference<>(null);
+
+    public AppLanguageLookUpTable(Context context) {
+        resources = context.getResources();
     }
 
     /** @return Nonnull immutable list. */
     @NonNull
     public List<String> getCodes() {
+        List<String> codes = codesRef.get();
+        if (codes == null) {
+            codes = getStringList(resources, R.array.preference_language_keys);
+            codesRef = new SoftReference<>(codes);
+        }
         return codes;
     }
 
     @Nullable
     public String getCanonicalName(String code) {
-        return defaultIndex(canonicalNames, indexOfCode(code), null);
+        return defaultIndex(getCanonicalNames(), indexOfCode(code), null);
     }
 
     @Nullable
     public String getLocalizedName(String code) {
-        return defaultIndex(localizedNames, indexOfCode(code), null);
+        return defaultIndex(getLocalizedNames(), indexOfCode(code), null);
+    }
+
+    private List<String> getCanonicalNames() {
+        List<String> names = canonicalNamesRef.get();
+        if (names == null) {
+            names = getStringList(resources, R.array.preference_language_canonical_names);
+            canonicalNamesRef = new SoftReference<>(names);
+        }
+        return names;
+    }
+
+    private List<String> getLocalizedNames() {
+        List<String> names = localizedNamesRef.get();
+        if (names == null) {
+            names = getStringList(resources, R.array.preference_language_local_names);
+            localizedNamesRef = new SoftReference<>(names);
+        }
+        return names;
     }
 
     public boolean isSupportedCode(String code) {
@@ -72,9 +97,8 @@ public class AppLanguageLookUpTable {
 
     /** @return Nonnull immutable list. */
     @NonNull
-    private List<String> getStringList(Context context, int id) {
-        String[] array = context.getResources().getStringArray(id);
-        return array == null ? Collections.<String>emptyList() : Arrays.asList(array);
+    private List<String> getStringList(Resources resources, int id) {
+        return Arrays.asList(resources.getStringArray(id));
     }
 
     private boolean inBounds(List<?> list, int index) {
