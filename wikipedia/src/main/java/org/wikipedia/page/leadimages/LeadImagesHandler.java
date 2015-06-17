@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -33,6 +32,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ObservableWebView;
 
 public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListener, ImageViewWithFace.OnImageLoadListener {
@@ -99,7 +99,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     private TextView pageTitleText;
     private TextView pageDescriptionText;
 
-    private int displayHeight;
+    private int displayHeightDp;
     private int imageBaseYOffset = 0;
     private float faceYOffsetNormalized = 0f;
     private float displayDensity;
@@ -123,9 +123,9 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         pageTitleText = (TextView)imageContainer.findViewById(R.id.page_title_text);
         pageDescriptionText = (TextView)imageContainer.findViewById(R.id.page_description_text);
 
-        webview.addOnScrollChangeListener(this);
+        initDisplayDimensions();
 
-        setDisplayHeight();
+        webview.addOnScrollChangeListener(this);
 
         webview.addOnClickListener(new ObservableWebView.OnClickListener() {
             @Override
@@ -323,7 +323,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     public void beginLayout(OnLeadImageLayoutListener listener) {
         String thumbUrl = parentFragment.getPage().getPageProperties().getLeadImageUrl();
 
-        if (!WikipediaApp.getInstance().showImages() || displayHeight < MIN_SCREEN_HEIGHT_DP) {
+        if (!WikipediaApp.getInstance().showImages() || displayHeightDp < MIN_SCREEN_HEIGHT_DP) {
             // disable the lead image completely
             leadImagesEnabled = false;
         } else {
@@ -463,7 +463,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             // we're going to show the lead image, so make some adjustments to the
             // layout, in case we were previously not showing it:
             // make the WebView padding be a proportion of the total screen height
-            titleContainerHeight = (int) (displayHeight * IMAGES_CONTAINER_RATIO);
+            titleContainerHeight = (int) (displayHeightDp * IMAGES_CONTAINER_RATIO);
             imageContainer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                     (int) (titleContainerHeight * displayDensity)));
             // prepare the lead image to be populated
@@ -619,21 +619,15 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     }
 
     /**
-     * Determines and sets display height for the lead images layout, based on display density.
+     * Determines and sets displayDensity and displayHeightDp for the lead images layout.
      */
-    private void setDisplayHeight() {
+    private void initDisplayDimensions() {
         // preload the display density, since it will be used in a lot of places
-        displayDensity = context.getResources().getDisplayMetrics().density;
+        displayDensity = DimenUtil.getDensityScalar();
 
-        // get the screen height, using correct methods for different API versions
-        if (ApiUtil.hasHoneyCombMr2()) {
-            Point size = new Point();
-            parentFragment.getActivity().getWindowManager().getDefaultDisplay().getSize(size);
-            displayHeight = (int)(size.y / displayDensity);
-        } else {
-            displayHeight = (int)(parentFragment.getActivity()
-                    .getWindowManager().getDefaultDisplay().getHeight() / displayDensity);
-        }
+        int displayHeightPx = DimenUtil.getDisplayHeight(
+                parentFragment.getActivity().getWindowManager().getDefaultDisplay());
+
+        displayHeightDp = (int) (displayHeightPx / displayDensity);
     }
-
 }
