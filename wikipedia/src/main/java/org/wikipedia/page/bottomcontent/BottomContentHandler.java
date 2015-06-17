@@ -34,6 +34,7 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.page.SuggestionsTask;
+import org.wikipedia.search.FullSearchArticlesTask;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.views.ObservableWebView;
 
@@ -330,7 +331,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
     public void setTitle(PageTitle newTitle) {
         pageTitle = newTitle;
-        funnel = new SuggestedPagesFunnel(app, pageTitle.getSite(), 0);
+        funnel = new SuggestedPagesFunnel(app, FullSearchArticlesTask.isMoreLikeEnabled());
     }
 
     private void setUpReadMoreSection(LayoutInflater layoutInflater, final SearchResults results) {

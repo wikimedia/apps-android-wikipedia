@@ -13,6 +13,7 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.page.PageProperties;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,7 +50,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
                 .param("ppprop", "mainpage|disambiguation")
                 .param("wbptterms", "description") // only interested in Wikidata description
                 .param("generator", "search")
-                .param("gsrsearch", searchTerm)
+                .param("gsrsearch", isMoreLikeEnabled() ? ("morelike:" + searchTerm) : searchTerm)
                 .param("gsrnamespace", "0")
                 .param("gsrwhat", "text")
                 .param("gsrinfo", "")
@@ -66,6 +67,10 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
         } else {
             req.param("continue", ""); // add empty continue to avoid the API warning
         }
+
+        // TODO: remove once A/B testing is finished.
+        L.d("morelike=" + isMoreLikeEnabled());
+
         return req;
     }
 
@@ -146,6 +151,10 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
         return new SearchResults(pageTitles, nextContinueOffset, null);
     }
 
+    // TODO: remove once A/B testing is finished.
+    public static boolean isMoreLikeEnabled() {
+        return (WikipediaApp.getInstance().getABTestingID() & 1) == 1;
+    }
 
     public final class FTContinueOffset extends SearchResults.ContinueOffset {
         private String cont;

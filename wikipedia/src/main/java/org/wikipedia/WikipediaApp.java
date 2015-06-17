@@ -100,7 +100,7 @@ public class WikipediaApp extends Application {
     public static final int RELEASE_BETA = 1;
     public static final int RELEASE_ALPHA = 2;
     public static final int RELEASE_DEV = 3;
-    private int releaseType = RELEASE_PROD;
+    private final int releaseType;
 
     public static final int PREFERRED_THUMB_SIZE = 96;
 
@@ -119,6 +119,9 @@ public class WikipediaApp extends Application {
         return releaseType == RELEASE_PROD;
     }
 
+    public boolean isDevRelease() {
+        return releaseType == RELEASE_DEV;
+    }
 
     private SessionFunnel sessionFunnel;
     public SessionFunnel getSessionFunnel() {
@@ -151,6 +154,8 @@ public class WikipediaApp extends Application {
 
     public WikipediaApp() {
         INSTANCE = this;
+
+        releaseType = calculateReleaseType();
     }
 
     /**
@@ -167,13 +172,6 @@ public class WikipediaApp extends Application {
         super.onCreate();
         ACRA.init(this);
 
-        if (BuildConfig.APPLICATION_ID.contains("beta")) {
-            releaseType = RELEASE_BETA;
-        } else if (BuildConfig.APPLICATION_ID.contains("alpha")) {
-            releaseType = RELEASE_ALPHA;
-        } else if (BuildConfig.APPLICATION_ID.contains("dev")) {
-            releaseType = RELEASE_DEV;
-        }
 
         bus = new Bus();
 
@@ -568,5 +566,18 @@ public class WikipediaApp extends Application {
         headers.put("Accept-Language", acceptLanguage);
 
         return headers;
+    }
+
+    private int calculateReleaseType() {
+        if (BuildConfig.APPLICATION_ID.contains("beta")) {
+            return RELEASE_BETA;
+        }
+        if (BuildConfig.APPLICATION_ID.contains("alpha")) {
+            return RELEASE_ALPHA;
+        }
+        if (BuildConfig.APPLICATION_ID.contains("dev")) {
+            return RELEASE_DEV;
+        }
+        return RELEASE_PROD;
     }
 }
