@@ -31,6 +31,8 @@
         <item name="subtle_gray_color">@color/subtle_gray_light</item>
         <item name="nearby_marker_drawable">@drawable/ic_place</item>
         <item name="tab_item_selector">@drawable/tab_item_selector_light</item>
+        <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
+        <item name="tab_shadow_color">@color/tab_shadow_light</item>
     </style>
 
     <style name="DropDownListView.WikiLight" parent="@style/Widget.AppCompat.Light.ListView.DropDown">

@@ -194,7 +194,9 @@ public class TabsProvider {
         final float proportionVert = 0.4f;
         final int heightOffset = 16;
         int toolbarHeight = Utils.getActionBarSize(parentActivity);
-        int maxHeight = (int) (pageContentView.getHeight() * proportionVert + pageContentView.getHeight() * proportionHorz - toolbarHeight - heightOffset * displayDensity);
+        int maxHeight = (int) (pageContentView.getHeight() * proportionVert
+                               + pageContentView.getHeight() * proportionHorz
+                               - toolbarHeight - heightOffset * displayDensity);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, maxHeight);
         float margin = pageContentView.getWidth() * proportionHorz / 2f;
         if (ApiUtil.hasHoneyComb()) {
@@ -350,6 +352,14 @@ public class TabsProvider {
             // hide the shadow if this is the topmost tab
             viewHolder.gradient.setVisibility(
                     position == tabList.size() - 1 ? View.GONE : View.VISIBLE);
+
+            // dynamically set the background color that will show through the rounded corners.
+            // if it's the first last item in the tab list, we want the background to be the same
+            // as the activity background, otherwise it should match the tab shadow color.
+            convertView.setBackgroundColor(parentActivity.getResources().getColor(
+                    position == 0
+                            ? R.color.gallery_background
+                            : Utils.getThemedAttributeId(parentActivity, R.attr.tab_shadow_color)));
 
             List<PageBackStackItem> backstack = tabList.get(position).getBackStack();
             if (backstack.size() > 0) {

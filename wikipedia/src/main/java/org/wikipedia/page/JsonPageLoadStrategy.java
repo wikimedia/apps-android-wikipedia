@@ -672,7 +672,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     new HistoryEntry(title, curEntry.getTimestamp(), curEntry.getSource()));
 
             // Save history entry and page image url
-            new SaveHistoryTask(curEntry, app).execute();
+            new SaveHistoryTask(model.getCurEntry(), app).execute();
 
             // Fetch larger thumbnail URL from the network, and save it to our DB.
             (new PageImagesTask(app.getAPIForSite(model.getTitle().getSite()), model.getTitle().getSite(),

@@ -5,12 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:descendantFocusability="blocksDescendants"
-    android:background="?attr/tab_item_selector">
+    android:descendantFocusability="blocksDescendants">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="?attr/tab_item_selector"
         >
         <ImageView
             android:id="@+id/tab_item_thumbnail"
@@ -52,7 +52,7 @@
     <View
         android:id="@+id/tab_item_bottom_gradient"
         android:layout_width="match_parent"
-        android:layout_height="4dp"
+        android:layout_height="3dp"
         android:layout_gravity="bottom"
-        android:background="@drawable/tab_item_bottom_gradient"/>
+        android:background="?attr/tab_shadow_drawable"/>
 </FrameLayout>
