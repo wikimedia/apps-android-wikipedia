@@ -5,14 +5,12 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Looper;
-import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.InputType;
 import android.text.format.DateUtils;
@@ -31,7 +29,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.interlanguage.LanguageUtil;
-import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.ShareUtils;
 
@@ -50,7 +48,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?
@@ -321,8 +323,7 @@ public final class Utils {
 
     public static void handleExternalLink(final Context context, final Uri uri) {
         if (WikipediaApp.getInstance().getWikipediaZeroHandler().isZeroEnabled()) {
-            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-            if (sharedPref.getBoolean(PrefKeys.getZeroInterstitial(), true)) {
+            if (Prefs.isShowZeroInterstitialEnabled()) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(context);
                 alert.setTitle(context.getString(R.string.zero_interstitial_title));
                 alert.setMessage(context.getString(R.string.zero_interstitial_leave_app));
@@ -580,9 +581,9 @@ public final class Utils {
      */
     private static String getChannelDescriptor(Context ctx) {
         try {
-            ApplicationInfo a = ctx.getPackageManager()
+            ApplicationInfo info = ctx.getPackageManager()
                     .getApplicationInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_META_DATA);
-            String channel = a.metaData.getString(PrefKeys.getChannel());
+            String channel = info.metaData.getString(Prefs.getAppChannelKey());
             return channel != null ? channel : "";
         } catch (Throwable t) {
             // oops
@@ -593,20 +594,18 @@ public final class Utils {
     /**
      * Sets the distribution channel for the app into SharedPreferences
      */
-    private static void setChannel(Context ctx, String channel) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
-        prefs.edit().putString(PrefKeys.getChannel(), channel).apply();
+    private static void setChannel(String channel) {
+        Prefs.setAppChannel(channel);
     }
 
     /**
      * Gets the distribution channel for the app from SharedPreferences
      */
     public static String getChannel(Context ctx) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
-        String channel = prefs.getString(PrefKeys.getChannel(), null);
+        String channel = Prefs.getAppChannel();
         if (channel == null) {
             channel = getChannelDescriptor(ctx);
-            setChannel(ctx, channel);
+            setChannel(channel);
         }
         return channel;
     }

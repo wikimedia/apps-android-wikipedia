@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="preference_key_language">content_language</string>
-    <string name="preference_cookie_domains">cookie_domains</string>
-    <string name="preference_cookies_for_domain">cookies_for_domain_%1$s</string>
-    <string name="preference_edittoken_wikis">edittoken_wikis</string>
-    <string name="preference_edittoken_for_wiki">edittoken_for_wiki_%1$s</string>
+    <string name="preference_key_cookie_domains">cookie_domains</string>
+    <string name="preference_key_cookies_for_domain_format">cookies_for_domain_%1$s</string>
+    <string name="preference_key_edittoken_wikis">edittoken_wikis</string>
+    <string name="preference_key_edittoken_for_wiki_format">edittoken_for_wiki_%1$s</string>
     <string name="preference_key_zero_interstitial">zero_warn_when_leaving</string>
     <string name="preference_key_remote_config">remote_config</string>
     <string name="preference_key_eventlogging_opt_in">eventlogging_opt_in</string>
-    <string name="preference_key_styles_last_updated">styles_last_updated</string>
     <string name="preference_key_version">app_version</string>
     <string name="preference_key_feedback">send_feedback</string>
     <string name="preference_key_logout">log_out</string>
-    <string name="preference_reading_app_install_id">readingAppInstallID</string>
-    <string name="preference_feature_flag_id">featureFlagID</string>
-    <string name="preference_onboard">onboard</string>
-    <string name="preference_text_size_multiplier">textSizeMultiplier</string>
-    <string name="preference_color_theme">colorTheme</string>
-    <string name="preference_channel">channel</string>
-    <string name="preference_language_mru">languageMru</string>
-    <string name="preference_know_toc_drawer">knowToC</string>
-    <string name="preference_show_images">showImages</string>
-    <string name="preference_exp_page_load">expPageLoad</string>
+    <string name="preference_key_reading_app_install_id">readingAppInstallID</string>
+    <string name="preference_key_feature_flag_id">featureFlagID</string>
+    <string name="preference_key_onboard">onboard</string>
+    <string name="preference_key_text_size_multiplier">textSizeMultiplier</string>
+    <string name="preference_key_color_theme">colorTheme</string>
+    <string name="preference_key_app_channel">channel</string>
+    <string name="preference_key_language_mru">languageMru</string>
+    <string name="preference_key_know_toc_drawer">knowToC</string>
+    <string name="preference_key_show_images">showImages</string>
+    <string name="preference_key_exp_page_load">expPageLoad</string>
+    <string name="preference_key_login_username">username</string>
+    <string name="preference_key_login_password">password</string>
+    <string name="preference_key_login_user_id">userID</string>
 </resources>

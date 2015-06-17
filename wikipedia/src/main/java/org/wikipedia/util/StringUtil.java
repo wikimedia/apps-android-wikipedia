@@ -2,9 +2,15 @@ package org.wikipedia.util;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
+
+import java.util.Arrays;
+import java.util.List;
 
 // TODO: Replace with Apache Commons Lang StringUtils.
 public final class StringUtil {
+    private static final String CSV_DELIMITER = ",";
+
     @NonNull
     public static String emptyIfNull(@Nullable String value) {
         return defaultIfNull(value, "");
@@ -24,6 +30,30 @@ public final class StringUtil {
     public static CharSequence defaultIfNull(@Nullable CharSequence value,
             @Nullable CharSequence defaultValue) {
         return value == null ? defaultValue : value;
+    }
+
+    @NonNull
+    public static String listToCsv(@NonNull List<String> list) {
+        return listToDelimitedString(list, CSV_DELIMITER);
+    }
+
+    @NonNull
+    public static String listToDelimitedString(@NonNull Iterable<String> list,
+                                               @NonNull String delimiter) {
+        return TextUtils.join(delimiter, list);
+    }
+
+    /** @return Nonnull immutable list. */
+    @NonNull
+    public static List<String> csvToList(@NonNull String csv) {
+        return delimiterStringToList(csv, CSV_DELIMITER);
+    }
+
+    /** @return Nonnull immutable list. */
+    @NonNull
+    public static List<String> delimiterStringToList(@NonNull String delimitedString,
+                                                     @NonNull String delimiter) {
+        return Arrays.asList(TextUtils.split(delimitedString, delimiter));
     }
 
     private StringUtil() { }

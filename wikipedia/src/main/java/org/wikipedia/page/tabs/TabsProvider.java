@@ -366,7 +366,7 @@ public class TabsProvider {
                 PageTitle title = backstack.get(backstack.size() - 1).getTitle();
                 viewHolder.title.setText(title.getDisplayText());
                 String thumbnail = title.getThumbUrl();
-                if (WikipediaApp.getInstance().showImages() && thumbnail != null) {
+                if (WikipediaApp.getInstance().isImageDownloadEnabled() && thumbnail != null) {
                     Picasso.with(parentActivity)
                            .load(thumbnail)
                            .placeholder(R.drawable.ic_pageimage_placeholder)

@@ -16,8 +16,20 @@ import android.support.v7.view.ActionMode;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.SparseBooleanArray;
-import android.view.*;
-import android.widget.*;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.squareup.picasso.Picasso;
 
 import org.wikipedia.BackPressedHandler;
@@ -271,7 +283,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
 
-            if (app.showImages()) {
+            if (app.isImageDownloadEnabled()) {
                 Picasso.with(getActivity())
                        .load(cursor.getString(SavedPageContentProvider.COL_INDEX_IMAGE))
                        .placeholder(R.drawable.ic_pageimage_placeholder)

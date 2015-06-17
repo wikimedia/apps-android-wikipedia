@@ -18,11 +18,11 @@ public final class ExperimentalPageLoadChooser {
     public static void initExperimentalPageLoadChooser(final Context context, View root) {
         LinearLayout layout = (LinearLayout) root.findViewById(R.id.experimental_page_load);
         CheckBox expPageLoadCB = (CheckBox) layout.findViewById(R.id.use_exp_page_load_cb);
-        expPageLoadCB.setChecked(Prefs.isUsingExperimentalPageLoad(context));
+        expPageLoadCB.setChecked(Prefs.isExperimentalPageLoadEnabled());
         expPageLoadCB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Prefs.setUsingExperimentalPageLoad(context, isChecked);
+                Prefs.setExperimentalPageLoadEnabled(isChecked);
                 WikipediaApp.getInstance().getBus().post(new ThemeChangeEvent());
                 // Not ideal since it doesn't automatically reload the page
                 // but good enough for experimental switching.

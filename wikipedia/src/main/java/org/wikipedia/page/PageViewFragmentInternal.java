@@ -153,7 +153,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         app = (WikipediaApp) getActivity().getApplicationContext();
         model = new PageViewModel();
         tabList = new ArrayList<>();
-        if (Prefs.isUsingExperimentalPageLoad(app)) {
+        if (Prefs.isExperimentalPageLoadEnabled()) {
             pageLoadStrategy = new HtmlPageLoadStrategy();
         } else {
             pageLoadStrategy = new JsonPageLoadStrategy();
@@ -285,7 +285,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             }
         };
 
-        if (!Prefs.isUsingExperimentalPageLoad(app)) {
+        if (!Prefs.isExperimentalPageLoadEnabled()) {
             bridge.injectStyleBundle(StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PAGEVIEW));
         }
 

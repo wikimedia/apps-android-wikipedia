@@ -13,7 +13,7 @@
             android:summary="@string/preference_summary_eventlogging_opt_in"
             />
         <org.wikipedia.settings.CheckBoxPreferenceMultiLine
-            android:key="@string/preference_show_images"
+            android:key="@string/preference_key_show_images"
             android:defaultValue="true"
             android:title="@string/preference_title_show_images"
             android:summary="@string/preference_summary_show_images"

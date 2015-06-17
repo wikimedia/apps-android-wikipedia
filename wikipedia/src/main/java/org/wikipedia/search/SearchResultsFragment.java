@@ -5,6 +5,7 @@ import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
+
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import android.os.Handler;
@@ -421,7 +422,7 @@ public class SearchResultsFragment extends Fragment {
             ImageView imageView = (ImageView) convertView.findViewById(R.id.page_list_item_image);
 
             String thumbnail = title.getThumbUrl();
-            if (app.showImages() && thumbnail != null) {
+            if (app.isImageDownloadEnabled() && thumbnail != null) {
                 Picasso.with(parent.getContext())
                         .load(thumbnail)
                         .placeholder(R.drawable.ic_pageimage_placeholder)

@@ -1,28 +1,18 @@
 package org.wikipedia;
 
-import android.content.SharedPreferences;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.settings.Prefs;
 
 /**
  * Store for config values that are retreived from a server,
  * and refreshed periodically.
  */
 public class RemoteConfig {
-
-    private final SharedPreferences prefs;
-
     private JSONObject curConfig;
 
-    public RemoteConfig(SharedPreferences prefs) {
-        this.prefs = prefs;
-    }
-
     public void updateConfig(JSONObject newConfig) {
-        prefs.edit()
-                .putString(PrefKeys.getRemoteConfig(), newConfig.toString())
-                .apply();
+        Prefs.setRemoteConfigJson(newConfig.toString());
         curConfig = newConfig;
     }
 
@@ -30,7 +20,7 @@ public class RemoteConfig {
         if (curConfig == null) {
             try {
                 // If there's no pref set, just give back the empty JSON Object
-                curConfig = new JSONObject(prefs.getString(PrefKeys.getRemoteConfig(), "{}"));
+                curConfig = new JSONObject(Prefs.getRemoteConfigJson());
             } catch (JSONException e) {
                 // This shouldn't be happening, and if it does I'd like a crash report
                 throw new RuntimeException(e);

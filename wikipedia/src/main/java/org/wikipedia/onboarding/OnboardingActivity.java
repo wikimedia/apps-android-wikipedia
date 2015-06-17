@@ -2,9 +2,7 @@ package org.wikipedia.onboarding;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.text.Html;
 import android.view.View;
@@ -16,7 +14,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.analytics.OnboardingFunnel;
 import org.wikipedia.login.LoginActivity;
-import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ActivityUtil;
 import org.wikipedia.util.L10nUtils;
 
@@ -106,16 +104,8 @@ public class OnboardingActivity extends Activity {
      * Prepares the activity for finishing and ensuring onboarding is not shown again.
      */
     private void done() {
-        markAllAboard();
+        Prefs.setLoginOnboardingEnabled(false);
         finish();
-    }
-
-    /**
-     * Adds a key to the SharedPreferences of the app to ensure that onboarding never shows again.
-     */
-    private void markAllAboard() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.edit().putBoolean(PrefKeys.getOnboard(), true).apply();
     }
 
     @Override

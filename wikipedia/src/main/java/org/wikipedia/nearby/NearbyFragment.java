@@ -639,7 +639,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 viewHolder.markerButton.setVisibility(View.INVISIBLE);
             }
 
-            if (app.showImages()) {
+            if (app.isImageDownloadEnabled()) {
                 Picasso.with(getActivity())
                        .load(nearbyPage.getThumblUrl())
                        .placeholder(R.drawable.ic_pageimage_placeholder)

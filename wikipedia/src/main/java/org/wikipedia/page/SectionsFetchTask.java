@@ -38,7 +38,7 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
                 .param("sections", sectionsRequested)
                 .param("sectionprop", "toclevel|line|anchor")
                 .param("noheadings", "true");
-        if (!app.showImages()) {
+        if (!app.isImageDownloadEnabled()) {
             builder.param("noimages", "true");
         }
         return builder;

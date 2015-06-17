@@ -11,6 +11,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppearanceChangeFunnel;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import org.wikipedia.page.BottomDialog;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ApiUtil;
 
 public class ThemeChooserDialog extends BottomDialog {
@@ -35,7 +36,7 @@ public class ThemeChooserDialog extends BottomDialog {
             public void onClick(View view) {
                 updatingFont = true;
                 float currentSize = app.getFontSize(getWindow());
-                app.setFontSizeMultiplier(app.getFontSizeMultiplier() - 1);
+                app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() - 1);
                 updateButtonState();
                 funnel.logFontSizeChange(currentSize, app.getFontSize(getWindow()));
             }
@@ -59,7 +60,7 @@ public class ThemeChooserDialog extends BottomDialog {
             public void onClick(View view) {
                 updatingFont = true;
                 float currentSize = app.getFontSize(getWindow());
-                app.setFontSizeMultiplier(app.getFontSizeMultiplier() + 1);
+                app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() + 1);
                 updateButtonState();
                 funnel.logFontSizeChange(currentSize, app.getFontSize(getWindow()));
             }
@@ -117,7 +118,7 @@ public class ThemeChooserDialog extends BottomDialog {
     }
 
     private void updateButtonState() {
-        int mult = app.getFontSizeMultiplier();
+        int mult = Prefs.getTextSizeMultiplier();
         if (updatingFont) {
             fontChangeProgressBar.setVisibility(View.VISIBLE);
             buttonDefaultTextSize.setEnabled(false);

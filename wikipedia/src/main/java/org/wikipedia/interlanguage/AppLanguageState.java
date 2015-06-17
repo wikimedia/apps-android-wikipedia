@@ -3,13 +3,12 @@ package org.wikipedia.interlanguage;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 
 import org.wikipedia.R;
-import org.wikipedia.settings.PreferenceUtil;
+import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -42,7 +41,7 @@ public class AppLanguageState {
     public AppLanguageState(@NonNull Context context) {
         this.context = context;
         appLanguageLookUpTable = new AppLanguageLookUpTable(context);
-        appLanguageCode = PreferenceUtil.getAppLanguageCode();
+        appLanguageCode = Prefs.getAppLanguageCode();
         mruLanguageCodes = unmarshalMruLanguageCodes();
     }
 
@@ -58,7 +57,7 @@ public class AppLanguageState {
 
     public void setAppLanguageCode(@Nullable String code) {
         appLanguageCode = code;
-        PreferenceUtil.setAppLanguageCode(code);
+        Prefs.setAppLanguageCode(code);
     }
 
     public boolean isSystemLanguageEnabled() {
@@ -91,7 +90,7 @@ public class AppLanguageState {
         List<String> codes = getMruLanguageCodes();
         codes.remove(code);
         codes.add(0, code);
-        PreferenceUtil.setMruLanguageCodes(listToCsv(codes));
+        Prefs.setMruLanguageCodeCsv(StringUtil.listToCsv(codes));
     }
 
     /** @return All app supported languages in MRU order. */
@@ -139,24 +138,13 @@ public class AppLanguageState {
         // Null value is used to indicate that system language should be used.
         String systemLanguageCodeString = String.valueOf(SYSTEM_LANGUAGE_CODE);
 
-        String csv = defaultIfNull(PreferenceUtil.getMruLanguageCodes(), systemLanguageCodeString);
+        String csv = defaultIfNull(Prefs.getMruLanguageCodeCsv(), systemLanguageCodeString);
 
-        List<String> list = new ArrayList<>(csvToList(csv));
+        List<String> list = new ArrayList<>(StringUtil.csvToList(csv));
 
         Collections.replaceAll(list, systemLanguageCodeString, SYSTEM_LANGUAGE_CODE);
 
         return list;
-    }
-
-    @NonNull
-    private String listToCsv(@NonNull List<String> list) {
-        return TextUtils.join(",", list);
-    }
-
-    /** @return Nonnull immutable list. */
-    @NonNull
-    private List<String> csvToList(@NonNull String csv) {
-        return Arrays.asList(csv.split(","));
     }
 
     @Nullable

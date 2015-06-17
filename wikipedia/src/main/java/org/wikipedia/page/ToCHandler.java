@@ -7,12 +7,11 @@ import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
@@ -102,10 +101,8 @@ public class ToCHandler {
                 parentActivity.supportInvalidateOptionsMenu();
                 funnel.logOpen();
                 wasClicked = false;
-                final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(parentActivity);
-                final boolean knowsToC = prefs.getBoolean(PrefKeys.getKnowTocDrawer(), false);
-                if (!knowsToC) {
-                    showToCIntro(prefs, slidingPane);
+                if (Prefs.isTocTutorialEnabled()) {
+                    showToCIntro(slidingPane);
                 }
             }
 
@@ -135,9 +132,9 @@ public class ToCHandler {
         });
     }
 
-    private void showToCIntro(final SharedPreferences prefs, WikiDrawerLayout slidingPane) {
+    private void showToCIntro(WikiDrawerLayout slidingPane) {
         if (openedViaSwipe) {
-            knowSwipe(prefs);
+            knowSwipe();
         } else {
             final View gotItButton = slidingPane.findViewById(R.id.know_toc_drawer_button);
             if (!knowToCContainer.isShown()) {
@@ -151,14 +148,14 @@ public class ToCHandler {
             gotItButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    knowSwipe(prefs);
+                    knowSwipe();
                 }
             });
         }
     }
 
-    private void knowSwipe(SharedPreferences prefs) {
-        prefs.edit().putBoolean(PrefKeys.getKnowTocDrawer(), true).apply();
+    private void knowSwipe() {
+        Prefs.setTocTutorialEnabled(false);
         if (knowToCContainer.isShown()) {
             ViewAnimations.crossFade(knowToCContainer, tocList);
         }
@@ -217,12 +214,10 @@ public class ToCHandler {
         });
 
         if (!page.isMainPage() && !firstPage) {
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(parentActivity);
-            final boolean knowsToC = prefs.getBoolean(PrefKeys.getKnowTocDrawer(), false);
-            if (!knowsToC) {
+            if (Prefs.isTocTutorialEnabled()) {
                 openedViaSwipe = false;
-                slidingPane.openDrawer(Gravity.END);
-                showToCIntro(prefs, slidingPane);
+                slidingPane.openDrawer(GravityCompat.END);
+                showToCIntro(slidingPane);
             }
         }
     }
@@ -230,16 +225,16 @@ public class ToCHandler {
     public void show() {
         if (slidingPane.getSlidingEnabled(Gravity.END)) {
             openedViaSwipe = false;
-            slidingPane.openDrawer(Gravity.END);
+            slidingPane.openDrawer(GravityCompat.END);
         }
     }
 
     public void hide() {
-        slidingPane.closeDrawer(Gravity.END);
+        slidingPane.closeDrawer(GravityCompat.END);
     }
 
     public boolean isVisible() {
-        return slidingPane.isDrawerOpen(Gravity.END);
+        return slidingPane.isDrawerOpen(GravityCompat.END);
     }
 
     public void setEnabled(boolean enabled) {

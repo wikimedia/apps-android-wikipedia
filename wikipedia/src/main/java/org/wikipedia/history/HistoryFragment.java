@@ -262,7 +262,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
 
-            if (app.showImages()) {
+            if (app.isImageDownloadEnabled()) {
                 Picasso.with(getActivity())
                        .load(cursor.getString(HistoryEntryContentProvider.COL_INDEX_IMAGE))
                        .placeholder(R.drawable.ic_pageimage_placeholder)

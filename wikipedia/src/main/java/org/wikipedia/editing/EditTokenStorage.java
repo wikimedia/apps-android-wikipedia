@@ -1,20 +1,19 @@
 package org.wikipedia.editing;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
+
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
-import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.StringUtil;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 public class EditTokenStorage {
+    private static final String DELIMITER = ";";
+
     private final HashMap<String, String> tokenJar = new HashMap<>();
-    private final SharedPreferences prefs;
     private final Context context;
 
     public interface TokenRetrievedCallback {
@@ -24,11 +23,9 @@ public class EditTokenStorage {
 
     public EditTokenStorage(Context context) {
         this.context = context;
-        this.prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        List<String> wikis = makeList(prefs.getString(PrefKeys.getEditTokenWikis(), ""));
+        List<String> wikis = makeList(Prefs.getEditTokenWikis());
         for (String wiki: wikis) {
-            String key = String.format(PrefKeys.getEditTokenForWiki(), wiki);
-            tokenJar.put(wiki, prefs.getString(key, null));
+            tokenJar.put(wiki, Prefs.getEditTokenForWiki(wiki));
         }
     }
 
@@ -57,31 +54,25 @@ public class EditTokenStorage {
     }
 
     public void clearAllTokens() {
-        SharedPreferences.Editor editor = prefs.edit();
-        for (String domain: tokenJar.keySet()) {
-            String key = String.format(PrefKeys.getEditTokenForWiki(), domain);
-            editor.remove(key);
+        for (String wiki : tokenJar.keySet()) {
+            Prefs.removeEditTokenForWiki(wiki);
         }
-        editor.remove(PrefKeys.getEditTokenWikis());
-        editor.apply();
+        Prefs.setEditTokenWikis(null);
         tokenJar.clear();
     }
 
     private void updatePrefs(String wiki, String token) {
         tokenJar.put(wiki, token);
         String wikisList = makeString(tokenJar.keySet());
-        String wikiKey = String.format(PrefKeys.getEditTokenForWiki(), wiki);
-        prefs.edit()
-                .putString(PrefKeys.getEditTokenWikis(), wikisList)
-                .putString(wikiKey, token)
-                .apply();
+        Prefs.setEditTokenWikis(wikisList);
+        Prefs.setEditTokenForWiki(wiki, token);
     }
 
     private String makeString(Iterable<String> list) {
-        return TextUtils.join(";", list);
+        return StringUtil.listToDelimitedString(list, DELIMITER);
     }
 
     private List<String> makeList(String str) {
-        return Arrays.asList(TextUtils.split(str, ";"));
+        return StringUtil.delimiterStringToList(str, DELIMITER);
     }
 }

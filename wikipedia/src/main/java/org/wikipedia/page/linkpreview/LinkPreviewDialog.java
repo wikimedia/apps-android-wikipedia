@@ -254,7 +254,7 @@ public class LinkPreviewDialog extends DialogFragment implements DialogInterface
                 }
             });
         }
-        if (!TextUtils.isEmpty(contents.getTitle().getThumbUrl()) && app.showImages()) {
+        if (!TextUtils.isEmpty(contents.getTitle().getThumbUrl()) && app.isImageDownloadEnabled()) {
             Picasso.with(getActivity())
                     .load(contents.getTitle().getThumbUrl())
                     .placeholder(layoutToggle == 1 ? Utils.getThemedAttributeId(getActivity(), R.attr.lead_image_drawable) : R.drawable.link_preview_gradient)

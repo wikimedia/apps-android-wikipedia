@@ -1,8 +1,7 @@
 package org.wikipedia;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.StringUtil;
 
 import java.io.IOException;
 import java.net.CookieManager;
@@ -10,7 +9,6 @@ import java.net.CookieStore;
 import java.net.HttpCookie;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -18,16 +16,14 @@ import java.util.List;
 import java.util.Map;
 
 public class SharedPreferenceCookieManager extends CookieManager {
+    private static final String DELIMITER = ";";
 
     private final HashMap<String, HashMap<String, String>> cookieJar = new HashMap<>();
-    private final SharedPreferences prefs;
 
-    public SharedPreferenceCookieManager(SharedPreferences prefs) {
-        this.prefs = prefs;
-        List<String> domains = makeList(prefs.getString(PrefKeys.getCookieDomainsKey(), ""));
+    public SharedPreferenceCookieManager() {
+        List<String> domains = makeList(Prefs.getCookieDomains());
         for (String domain: domains) {
-            String key = String.format(PrefKeys.getCookiesForDomain(), domain);
-            String cookies = prefs.getString(key, "");
+            String cookies = Prefs.getCookiesForDomain(domain);
             cookieJar.put(domain, makeCookieMap(makeList(cookies)));
         }
     }
@@ -90,15 +86,11 @@ public class SharedPreferenceCookieManager extends CookieManager {
             }
         }
 
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(PrefKeys.getCookieDomainsKey(), makeString(cookieJar.keySet()));
+        Prefs.setCookieDomains(makeString(cookieJar.keySet()));
 
         for (String domain : domainsModified) {
-            String prefKey = String.format(PrefKeys.getCookiesForDomain(), domain);
-            editor.putString(prefKey, makeString(makeCookieList(cookieJar.get(domain))));
-
+            Prefs.setCookiesForDomain(domain, makeString(makeCookieList(cookieJar.get(domain))));
         }
-        editor.apply();
     }
 
     @Override
@@ -108,13 +100,10 @@ public class SharedPreferenceCookieManager extends CookieManager {
     }
 
     public void clearAllCookies() {
-        SharedPreferences.Editor editor = prefs.edit();
         for (String domain: cookieJar.keySet()) {
-            String key = String.format(PrefKeys.getCookiesForDomain(), domain);
-            editor.remove(key);
+            Prefs.removeCookiesForDomain(domain);
         }
-        editor.remove(PrefKeys.getCookieDomainsKey());
-        editor.apply();
+        Prefs.setCookieDomains(null);
         cookieJar.clear();
     }
 
@@ -139,10 +128,10 @@ public class SharedPreferenceCookieManager extends CookieManager {
     }
 
     private String makeString(Iterable<String> list) {
-        return TextUtils.join(";", list);
+        return StringUtil.listToDelimitedString(list, DELIMITER);
     }
 
     private List<String> makeList(String str) {
-        return Arrays.asList(TextUtils.split(str, ";"));
+        return StringUtil.delimiterStringToList(str, DELIMITER);
     }
 }

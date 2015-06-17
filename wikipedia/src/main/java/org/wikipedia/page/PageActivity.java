@@ -20,7 +20,7 @@ import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.search.SearchBarHideHandler;
-import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ApiUtil;
@@ -46,6 +46,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -385,7 +386,7 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     private boolean showOnboarding() {
         return (getIntent() == null || Intent.ACTION_MAIN.equals(getIntent().getAction()))
-                && !PreferenceManager.getDefaultSharedPreferences(this).getBoolean(PrefKeys.getOnboard(), false)
+                && Prefs.isLoginOnboardingEnabled()
                 && !app.getUserInfoStorage().isLoggedIn();
     }
 
@@ -503,7 +504,7 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param allowStateLoss Whether to allow state loss.
      */
     public void pushFragment(Fragment f, boolean allowStateLoss) {
-        drawerLayout.closeDrawer(Gravity.START);
+        drawerLayout.closeDrawer(GravityCompat.START);
         searchBarHideHandler.setForceNoFade(false);
         searchBarHideHandler.setFadeEnabled(false);
         // if the new fragment is the same class as the current topmost fragment,
@@ -569,8 +570,8 @@ public class PageActivity extends ThemedActionBarActivity {
         ACRA.getErrorReporter().putCustomData("api", title.getSite().getApiDomain());
         ACRA.getErrorReporter().putCustomData("title", title.toString());
 
-        if (drawerLayout.isDrawerOpen(Gravity.START)) {
-            drawerLayout.closeDrawer(Gravity.START);
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
         }
         if (title.isSpecial()) {
             Utils.visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
@@ -632,8 +633,8 @@ public class PageActivity extends ThemedActionBarActivity {
             currentActionMode.finish();
             return;
         }
-        if (drawerLayout.isDrawerOpen(Gravity.START)) {
-            drawerLayout.closeDrawer(Gravity.START);
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
             return;
         }
         if (searchFragment.onBackPressed()) {

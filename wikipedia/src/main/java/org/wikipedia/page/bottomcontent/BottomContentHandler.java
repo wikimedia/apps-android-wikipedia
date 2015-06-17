@@ -386,7 +386,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
             ImageView imageView = (ImageView) convertView.findViewById(R.id.page_list_item_image);
             String thumbnail = result.getThumbUrl();
-            if (!app.showImages() || thumbnail == null) {
+            if (!app.isImageDownloadEnabled() || thumbnail == null) {
                 Picasso.with(parent.getContext())
                         .load(R.drawable.ic_pageimage_placeholder)
                         .into(imageView);

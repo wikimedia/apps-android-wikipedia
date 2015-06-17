@@ -1,13 +1,11 @@
 package org.wikipedia;
 
 import android.app.Application;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.preference.PreferenceManager;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -43,7 +41,7 @@ import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.savedpages.SavedPagePersister;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.search.RecentSearchPersister;
-import org.wikipedia.settings.PrefKeys;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
@@ -151,12 +149,6 @@ public class WikipediaApp extends Application {
         return pageCache;
     }
 
-    /**
-     * Preference manager for storing things like the app's install IDs for EventLogging, theme,
-     * font size, etc.
-     */
-    private SharedPreferences prefs;
-
     public WikipediaApp() {
         INSTANCE = this;
     }
@@ -188,9 +180,6 @@ public class WikipediaApp extends Application {
         final Resources resources = getResources();
         ViewAnimations.init(resources);
         screenDensity = resources.getDisplayMetrics().density;
-
-        this.prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        PrefKeys.initPreferenceKeys(resources);
 
         appLanguageState = new AppLanguageState(this);
 
@@ -378,7 +367,7 @@ public class WikipediaApp extends Application {
     private RemoteConfig remoteConfig;
     public RemoteConfig getRemoteConfig() {
         if (remoteConfig == null) {
-            remoteConfig = new RemoteConfig(prefs);
+            remoteConfig = new RemoteConfig();
         }
         return remoteConfig;
     }
@@ -394,7 +383,7 @@ public class WikipediaApp extends Application {
     private SharedPreferenceCookieManager cookieManager;
     public SharedPreferenceCookieManager getCookieManager() {
         if (cookieManager == null) {
-            cookieManager = new SharedPreferenceCookieManager(prefs);
+            cookieManager = new SharedPreferenceCookieManager();
         }
         return cookieManager;
     }
@@ -402,7 +391,7 @@ public class WikipediaApp extends Application {
     private UserInfoStorage userInfoStorage;
     public UserInfoStorage getUserInfoStorage() {
         if (userInfoStorage == null) {
-            userInfoStorage = new UserInfoStorage(prefs);
+            userInfoStorage = new UserInfoStorage();
         }
         return userInfoStorage;
     }
@@ -422,7 +411,12 @@ public class WikipediaApp extends Application {
      * @return Unique install ID for this app.
      */
     public String getAppInstallID() {
-        return getAppInstallIDForFeature(PrefKeys.getAppInstallID());
+        String id = Prefs.getAppInstallId();
+        if (id == null) {
+            id = UUID.randomUUID().toString();
+            Prefs.setAppInstallId(id);
+        }
+        return id;
     }
 
     /**
@@ -446,33 +440,16 @@ public class WikipediaApp extends Application {
     @IntRange(from = 0)
     private int getFeatureFlagID() {
         int featureFlagID;
-        if (prefs.contains(PrefKeys.getFeatureFlagID())) {
-            featureFlagID = prefs.getInt(PrefKeys.getFeatureFlagID(), 0);
+        if (Prefs.hasFeatureFlagId()) {
+            featureFlagID = Prefs.getFeatureFlagId();
         } else {
             // generate a random number in the range [0, max-int)
             featureFlagID = new Random().nextInt(Integer.MAX_VALUE);
-            prefs.edit().putInt(PrefKeys.getFeatureFlagID(), featureFlagID).apply();
+            Prefs.setFeatureFlagId(featureFlagID);
         }
         // make sure the number is positive by taking away the sign bit
         // (will only apply to previously-generated values that happened to be negative)
         return featureFlagID & Integer.MAX_VALUE;
-    }
-
-    /**
-     * Returns the unique app install ID for a feature. The app install ID is used to track unique
-     * users of each feature for the purpose of improving the app's user experience.
-     * @param  prefKey a key from PrefKeys for a feature with a unique app install ID
-     * @return         the unique app install ID of the specified feature
-     */
-    private String getAppInstallIDForFeature(String prefKey) {
-        String installID;
-        if (prefs.contains(prefKey)) {
-            installID = prefs.getString(prefKey, null);
-        } else {
-            installID = UUID.randomUUID().toString();
-            prefs.edit().putString(prefKey, installID).apply();
-        }
-        return installID;
     }
 
     /**
@@ -482,8 +459,9 @@ public class WikipediaApp extends Application {
      */
     public int getCurrentTheme() {
         if (currentTheme == 0) {
-            currentTheme = prefs.getInt(PrefKeys.getColorTheme(), THEME_LIGHT);
+            currentTheme = Prefs.getColorThemeResourceId();
             if (currentTheme != THEME_LIGHT && currentTheme != THEME_DARK) {
+                // TODO: store something we can deserialize more reliably.
                 currentTheme = THEME_LIGHT;
             }
         }
@@ -499,7 +477,7 @@ public class WikipediaApp extends Application {
             return;
         }
         currentTheme = newTheme;
-        prefs.edit().putInt(PrefKeys.getColorTheme(), currentTheme).apply();
+        Prefs.setColorThemeResourceId(currentTheme);
         bus.post(new ThemeChangeEvent());
     }
 
@@ -535,7 +513,7 @@ public class WikipediaApp extends Application {
     }
 
     public int getFontSizeMultiplier() {
-        return prefs.getInt(PrefKeys.getTextSizeMultiplier(), 0);
+        return Prefs.getTextSizeMultiplier();
     }
 
     public void setFontSizeMultiplier(int multiplier) {
@@ -544,7 +522,7 @@ public class WikipediaApp extends Application {
         } else if (multiplier > FONT_SIZE_MULTIPLIER_MAX) {
             multiplier = FONT_SIZE_MULTIPLIER_MAX;
         }
-        prefs.edit().putInt(PrefKeys.getTextSizeMultiplier(), multiplier).apply();
+        Prefs.setTextSizeMultiplier(multiplier);
         bus.post(new ChangeTextSizeEvent());
     }
 
@@ -555,8 +533,8 @@ public class WikipediaApp extends Application {
      * @return Actual current size of the font.
      */
     public float getFontSize(Window window) {
-        int multiplier = prefs.getInt(PrefKeys.getTextSizeMultiplier(), 0);
-        return Utils.getFontSizeFromSp(window, getResources().getDimension(R.dimen.textSize)) * (1.0f + multiplier * FONT_SIZE_FACTOR);
+        return Utils.getFontSizeFromSp(window,
+                getResources().getDimension(R.dimen.textSize)) * (1.0f + getFontSizeMultiplier() * FONT_SIZE_FACTOR);
     }
 
     /**
@@ -565,11 +543,11 @@ public class WikipediaApp extends Application {
      * @return A boolean that is true if EventLogging is enabled, and false if it is not.
      */
     public boolean isEventLoggingEnabled() {
-        return prefs.getBoolean(PrefKeys.getEventLoggingEnabled(), true);
+        return Prefs.isEventLoggingEnabled();
     }
 
-    public boolean showImages() {
-        return prefs.getBoolean(PrefKeys.getShowImages(), true);
+    public boolean isImageDownloadEnabled() {
+        return Prefs.isImageDownloadEnabled();
     }
 
     public void resetSite() {
