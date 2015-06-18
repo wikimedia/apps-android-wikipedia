@@ -72,11 +72,6 @@ android {
             assets.srcDirs = ['assets']
         }
 
-        androidTest {
-            java.srcDirs = ['../wikipedia-it/src/main/java']
-            res.srcDirs = ['../wikipedia-it/res']
-        }
-
         // Move the build types to build-types/<type>
         // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
         // This moves them out of them default location under src/<type>/... which would
