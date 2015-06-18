@@ -437,10 +437,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         // make this tab current
         tabList.add(tab);
         pageLoadStrategy.setBackStack(tab.getBackStack());
-        // clear out our current title
-        model.setTitleOriginal(null);
-        model.setTitle(null);
-        model.setCurEntry(null);
         // and... that should be it.
         ((PageActivity) getActivity()).displayNewPage(title, entry);
         tabsProvider.showAndHideTabs();
