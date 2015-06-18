@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
@@ -224,7 +224,7 @@
   <string name="widget_name_featured_page">Laman pilihan Wikipedia</string>
   <string name="widget_title_featured_page">Laman pilihan hari ini:</string>
   <string name="widget_name_search">Pencarian Wikipedia</string>
-  <string name="app_store_description">Aplikasi rasmi Wikipedia untuk Android. Wikipedia merupakan ensiklopedia bebas yang mengandungi lebih daripada 32 juta rencana dalam 280 bahasa, bahkan merupakan bahan rujukan paling menyeluruh dan meluas digunakan yang pernah dihimpunkan oleh manusia. Aplikasi ini telah ditulis ganti dari pangkal dan oleh itu lebih baik daripada dahulu. Aplikasi ini telah dibina semula dari kosong dan kini lebih baik daripada dahulu.
+  <string name="app_store_description" tools:ignore="PluralsCandidate,UnusedResources,StringFormatInvalid">Aplikasi rasmi Wikipedia untuk Android. Wikipedia merupakan ensiklopedia bebas yang mengandungi lebih daripada 32 juta rencana dalam 280 bahasa, bahkan merupakan bahan rujukan paling menyeluruh dan meluas digunakan yang pernah dihimpunkan oleh manusia. Aplikasi ini telah ditulis ganti dari pangkal dan oleh itu lebih baik daripada dahulu. Aplikasi ini telah dibina semula dari kosong dan kini lebih baik daripada dahulu.
 
 Ciri-ciri:
 - Gambar utama: alami Wikipedia serba baharu dengan gambar yang menonjol dan tepat dengan konteks di atas-atas rencana
