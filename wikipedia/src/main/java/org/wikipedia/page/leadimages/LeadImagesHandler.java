@@ -103,6 +103,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     private int imageBaseYOffset = 0;
     private float faceYOffsetNormalized = 0f;
     private float displayDensity;
+    private Animation pageTitleAnimation;
 
     public interface OnLeadImageLayoutListener {
         void onLayoutComplete();
@@ -343,14 +344,19 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             }
         }
 
+        // cancel any pending animations...
+        if (pageTitleAnimation != null) {
+            pageTitleAnimation.cancel();
+        }
+
         // set the page title text, and honor any HTML formatting in the title
         pageTitleText.setText(Html.fromHtml(parentFragment.getPage().getDisplayTitle()));
         // hide the description text...
         pageDescriptionText.setVisibility(View.INVISIBLE);
 
         // kick off the (asynchronous) laying out of the page title text
-        layoutPageTitle((int)(context.getResources().getDimension(R.dimen.titleTextSize)
-                / displayDensity), listener);
+        layoutPageTitle((int) (context.getResources().getDimension(R.dimen.titleTextSize)
+                               / displayDensity), listener);
     }
 
     /**
@@ -539,8 +545,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             //imageContainer.setVisibility(View.VISIBLE);
 
             // kick off loading of the WikiData description, if we have one
-            if (!TextUtils.isEmpty(parentFragment.getPage().getTitle().getDescription())) {
-                layoutWikiDataDescription(parentFragment.getPage().getTitle().getDescription());
+            if (!TextUtils.isEmpty(parentFragment.getTitle().getDescription())) {
+                layoutWikiDataDescription(parentFragment.getTitle().getDescription());
             }
         }
     }
@@ -581,42 +587,54 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 final int origPadding = pageTitleText.getPaddingBottom();
                 // create an animation that will grow the bottom margin of the Title text,
                 // pushing it upward, and creating sufficient space for the Description.
-                Animation anim = new Animation() {
-                    @Override
-                    protected void applyTransformation(float interpolatedTime, Transformation t) {
-                        if (ApiUtil.hasHoneyComb()) {
-                            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) pageTitleText.getLayoutParams();
-                            params.bottomMargin = (int) (newMargin * interpolatedTime);
-                            pageTitleText.setLayoutParams(params);
-                        } else {
-                            // for API 10, setting bottom margin doesn't work, so use padding
-                            // instead. (For API >10, setting padding works too, but looks a little
-                            // choppy)
-                            pageTitleText.setPadding(pageTitleText.getPaddingLeft(),
-                                    pageTitleText.getPaddingTop(),
-                                    pageTitleText.getPaddingRight(),
-                                    origPadding + (int)(newMargin * interpolatedTime));
-                        }
-                    }
-                };
-                anim.setDuration(animDuration);
-                anim.setAnimationListener(new Animation.AnimationListener() {
+                pageTitleAnimation = new PageTitleAnimation(newMargin, origPadding);
+                pageTitleAnimation.setDuration(animDuration);
+                pageTitleAnimation.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
                     }
+
                     @Override
                     public void onAnimationRepeat(Animation animation) {
                     }
+
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         // when the animation finishes, fade in the description!
                         ViewAnimations.fadeIn(pageDescriptionText);
                     }
                 });
-                pageTitleText.startAnimation(anim);
+                pageTitleText.startAnimation(pageTitleAnimation);
             }
         });
     }
+
+    private class PageTitleAnimation extends Animation {
+        private final int newMargin;
+        private final int origPadding;
+
+        public PageTitleAnimation(int newMargin, int origPadding) {
+            this.newMargin = newMargin;
+            this.origPadding = origPadding;
+        }
+
+        @Override
+        protected void applyTransformation(float interpolatedTime, Transformation t) {
+            if (ApiUtil.hasHoneyComb()) {
+                FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) pageTitleText.getLayoutParams();
+                params.bottomMargin = (int) (newMargin * interpolatedTime);
+                pageTitleText.setLayoutParams(params);
+            } else {
+                // for API 10, setting bottom margin doesn't work, so use padding
+                // instead. (For API >10, setting padding works too, but looks a little
+                // choppy)
+                pageTitleText.setPadding(pageTitleText.getPaddingLeft(),
+                                         pageTitleText.getPaddingTop(),
+                                         pageTitleText.getPaddingRight(),
+                                         origPadding + (int)(newMargin * interpolatedTime));
+            }
+        }
+    };
 
     /**
      * Determines and sets displayDensity and displayHeightDp for the lead images layout.
