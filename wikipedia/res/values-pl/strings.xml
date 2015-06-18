@@ -33,7 +33,7 @@
   <string name="toast_refresh_saved_page">Odświeżanie zapisanych stron…</string>
   <string name="delete_selected_saved_pages">Usuń</string>
   <string name="toast_saved_page_deleted">Usunięto zapisane strony</string>
-  <string name="saved_pages_search_list_hint">Szukaj</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Szukaj</string>
   <string name="saved_pages_search_empty_message">Nie znaleziono stron pasujących do twojego zapytania.</string>
   <string name="nav_item_nearby">W pobliżu</string>
   <string name="nearby_empty_message">Kiedy przenosisz się do nowej lokalizacji, spróbuj odświeżyć tę stronę, aby dowiedzieć się więcej o tym, co jest wokół Ciebie.</string>
@@ -147,7 +147,7 @@
   <string name="preference_title_eventlogging_opt_in">Wysyłaj informacje o użytkowaniu</string>
   <string name="preference_summary_eventlogging_opt_in">Pozwala Wikimedii zbierać informacje o tym, w jaki sposób korzystasz z tej aplikacji, aby ją ulepszać</string>
   <string name="editing_error_spamblacklist">Wykryto linki do zablokowanych domen (%s). Usuń je i spróbuj ponownie.</string>
-  <string name="history_search_list_hint">Szukaj</string>
+  <string name="history_search_list_hint" fuzzy="true">Szukaj</string>
   <string name="history_search_empty_message">Nie znaleziono stron pasujących do twojego zapytania.</string>
   <string name="error_can_not_process_link">Nie można wyświetlić linku</string>
   <string name="page_protected_autoconfirmed">Ta strona jest częściowo zabezpieczona.</string>

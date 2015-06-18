@@ -31,7 +31,7 @@
   <string name="toast_saved_page_missing_images">Haingehifadhi picha zote</string>
   <string name="delete_selected_saved_pages">Futa</string>
   <string name="toast_saved_page_deleted">Ukurasa uliohifadhiwa umefutwa</string>
-  <string name="saved_pages_search_list_hint">Tafuta</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Tafuta</string>
   <string name="nav_item_nearby">Karibu</string>
   <string name="menu_update_nearby">Sasisha hapa karibu</string>
   <string name="nearby_empty_title">Hakuna kurasa za hapa karibu hapa!</string>
@@ -116,7 +116,7 @@
   <string name="user_contribs_more_action">Pakia zaidi</string>
   <string name="activity_my_contributions_title">Michango Yangu</string>
   <string name="preference_title_eventlogging_opt_in">Tuma ripoti za matumizi</string>
-  <string name="history_search_list_hint">Tafuta</string>
+  <string name="history_search_list_hint" fuzzy="true">Tafuta</string>
   <string name="error_can_not_process_link">Haingeonyesha kiungo hiki</string>
   <string name="page_protected_autoconfirmed">Ukurasa huu umezuiwa kiasi</string>
   <string name="page_protected_sysop">Ukurasa huu umezuiwa kabisa.</string>

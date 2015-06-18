@@ -28,7 +28,7 @@
   <string name="toast_refresh_saved_page">Rûpelên tomarkirî tên nûkirin...</string>
   <string name="delete_selected_saved_pages">Jê bibe</string>
   <string name="toast_saved_page_deleted">Rûpela(ên) hate(in) jêbirin</string>
-  <string name="saved_pages_search_list_hint">Lêgerîn</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Lêgerîn</string>
   <string name="nearby_distance_in_meters">%d metre</string>
   <string name="nearby_distance_in_kilometers">%.2f kîlometre</string>
   <string name="nearby_distance_in_feet">%d fît</string>
@@ -95,7 +95,7 @@
   <string name="create_account_account_created_toast">Hesab hate çêkirin!</string>
   <string name="user_contribs_more_action">Zêdetir bar bike</string>
   <string name="activity_my_contributions_title">Beşdariyên min</string>
-  <string name="history_search_list_hint">Lêgerîn</string>
+  <string name="history_search_list_hint" fuzzy="true">Lêgerîn</string>
   <string name="page_protected_can_not_edit">Mafê te bo guherandina vê rûpelê tune ye</string>
   <string name="page_protected_can_not_edit_title">Ev rûpel hatiye parastin</string>
   <string name="more_item_preferences">Bêhtir</string>

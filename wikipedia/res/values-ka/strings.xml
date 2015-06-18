@@ -31,7 +31,7 @@
   <string name="toast_refresh_saved_page">შენახული გვერდების გამოცოცხლება…</string>
   <string name="delete_selected_saved_pages">წაშლა</string>
   <string name="toast_saved_page_deleted">შენახული გვერდ(ებ)ი წაიშალა</string>
-  <string name="saved_pages_search_list_hint">ძებნა</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">ძებნა</string>
   <string name="saved_pages_search_empty_message">თქვენს მოთხოვნას არცერთი გვერდი არ დაემთხვა.</string>
   <string name="nav_item_nearby">სიახლოვეს</string>
   <string name="menu_update_nearby">განაახლე ახლომდებარე</string>
@@ -139,7 +139,7 @@
   <string name="activity_my_contributions_title">ჩემი წვლილი</string>
   <string name="preference_title_eventlogging_opt_in">გამოყენების ანგარიშის გაგზავნა</string>
   <string name="preference_summary_eventlogging_opt_in">ნება მიეცი ვიკიმედიას მოაგროვოს ინფორმაცია თუ როგორ იყენებ ამ აპლიკაციას, რათა ის უკეთესი გახადოს</string>
-  <string name="history_search_list_hint">ძიება</string>
+  <string name="history_search_list_hint" fuzzy="true">ძიება</string>
   <string name="history_search_empty_message">თქვენს მოთხოვნაზე არც ერთი გვერდი არ მოიძებნა.</string>
   <string name="error_can_not_process_link">ბმულის ჩვენება ვერ მოხერხდა</string>
   <string name="page_protected_autoconfirmed">ეს გვერდი ნახევრად დაცულია.</string>

@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">正在更新保存的页面…</string>
   <string name="delete_selected_saved_pages">删除</string>
   <string name="toast_saved_page_deleted">保存的页面已删除</string>
-  <string name="saved_pages_search_list_hint">搜索</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">搜索</string>
   <string name="saved_pages_search_empty_message">未找到匹配您的查询的页面。</string>
   <string name="nav_item_nearby">附近</string>
   <string name="menu_update_nearby">更新附近</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">发送使用情况报告</string>
   <string name="preference_summary_eventlogging_opt_in">允许维基媒体基金会收集关于您使用该应用的信息，以改进该应用</string>
   <string name="editing_error_spamblacklist">检测到受封禁域名（%s）的链接。请移除它们并重试。</string>
-  <string name="history_search_list_hint">搜索</string>
+  <string name="history_search_list_hint" fuzzy="true">搜索</string>
   <string name="history_search_empty_message">未找到匹配您的查询的页面。</string>
   <string name="error_can_not_process_link">无法显示该链接</string>
   <string name="page_protected_autoconfirmed">该页面受到半保护。</string>

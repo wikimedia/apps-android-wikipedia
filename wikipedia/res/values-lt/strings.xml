@@ -30,7 +30,7 @@
   <string name="toast_refresh_saved_page">Atnaujinamas įrašytas puslapis…</string>
   <string name="delete_selected_saved_pages">Naikinti</string>
   <string name="toast_saved_page_deleted">Įrašyti puslapiai panaikinti</string>
-  <string name="saved_pages_search_list_hint">Paieška</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Paieška</string>
   <string name="saved_pages_search_empty_message">Nerasta puslapių, atitinkančių Jūsų užklausą.</string>
   <string name="nav_item_nearby">Šalia</string>
   <string name="menu_update_nearby">Atnaujinti tai, kas šalia</string>
@@ -120,7 +120,7 @@
   <string name="create_account_account_created_toast">Paskyra sukurta!</string>
   <string name="user_contribs_more_action">Įkelti daugiau</string>
   <string name="preference_title_eventlogging_opt_in">Siųsti naudojimo ataskaitas</string>
-  <string name="history_search_list_hint">Paieška</string>
+  <string name="history_search_list_hint" fuzzy="true">Paieška</string>
   <string name="more_item_preferences">Daugiau</string>
   <string name="more_activity_title">Daugiau</string>
   <string name="privacy_policy_description">Privatumo politika</string>

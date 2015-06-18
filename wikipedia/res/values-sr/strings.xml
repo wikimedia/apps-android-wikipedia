@@ -22,7 +22,7 @@
   <string name="toast_saving_page">Чување странице…</string>
   <string name="toast_saved_page" fuzzy="true">Страница обележена</string>
   <string name="delete_selected_saved_pages">Обриши</string>
-  <string name="saved_pages_search_list_hint">Претражи</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Претражи</string>
   <string name="nav_item_nearby">У близини</string>
   <string name="nearby_empty_title">Нема ништа у близини!</string>
   <string name="nearby_no_network">Нема мрежне везе</string>
@@ -101,7 +101,7 @@
   <string name="create_account_account_created_toast">Ваш налог је отворен!</string>
   <string name="user_contribs_more_action">Учитај још</string>
   <string name="activity_my_contributions_title">Моји доприноси</string>
-  <string name="history_search_list_hint">Претражи</string>
+  <string name="history_search_list_hint" fuzzy="true">Претражи</string>
   <string name="page_protected_can_not_edit_title">Ова страница је заштићена</string>
   <string name="more_item_preferences">Више</string>
   <string name="more_activity_title">Више</string>

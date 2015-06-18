@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">저장된 문서를 새로 고치는 중…</string>
   <string name="delete_selected_saved_pages">삭제</string>
   <string name="toast_saved_page_deleted">저장된 문서가 삭제되었습니다</string>
-  <string name="saved_pages_search_list_hint">검색</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">검색</string>
   <string name="saved_pages_search_empty_message">검색어와 일치하는 문서를 찾을 수 없습니다.</string>
   <string name="nav_item_nearby">근처</string>
   <string name="menu_update_nearby">근처 업데이트</string>
@@ -132,6 +132,7 @@
   <string name="create_account_next">다음</string>
   <string name="create_account_button">계정 만들기</string>
   <string name="preferences_general_heading">일반</string>
+  <string name="wikipedia_app_faq">위키백과 앱 FAQ</string>
   <string name="zero_charged_verbiage">위키백과 제로가 꺼져 있습니다</string>
   <string name="zero_charged_verbiage_extended">다른 문서를 불러오면 데이터 요금이 부과될 수 있습니다.</string>
   <string name="zero_search_hint">위키백과 제로 검색</string>
@@ -155,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">사용 보고서 보내기</string>
   <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다</string>
   <string name="editing_error_spamblacklist">차단된 도메인 (%s)으로의 링크가 감지되었습니다. 그들을 제거하고 나서 다시 시도하세요.</string>
-  <string name="history_search_list_hint">검색</string>
+  <string name="history_search_list_hint" fuzzy="true">검색</string>
   <string name="history_search_empty_message">검색어와 일치하는 문서를 찾을 수 없습니다.</string>
   <string name="error_can_not_process_link">이 링크를 보여줄 수 없습니다</string>
   <string name="page_protected_autoconfirmed">이 문서는 준보호되어 있습니다.</string>

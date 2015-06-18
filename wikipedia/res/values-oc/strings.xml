@@ -32,7 +32,7 @@
   <string name="toast_refresh_saved_page">Refrescament de la pagina enregistrada…</string>
   <string name="delete_selected_saved_pages">Suprimir</string>
   <string name="toast_saved_page_deleted">Pagina(s) enregistrada(s) suprimida(s)</string>
-  <string name="saved_pages_search_list_hint">Recercar</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Recercar</string>
   <string name="saved_pages_search_empty_message">Cap de pagina pas trobada que corresponda a vòstra requèsta.</string>
   <string name="nav_item_nearby">A proximitat</string>
   <string name="menu_update_nearby">Metre a jorn los elements a proximitat</string>
@@ -125,7 +125,7 @@
   <string name="user_contribs_more_action">Ne saber mai</string>
   <string name="activity_my_contributions_title">Mas contribucions</string>
   <string name="preference_title_eventlogging_opt_in">Mandar los rapòrts d’utilizacion</string>
-  <string name="history_search_list_hint">Recercar</string>
+  <string name="history_search_list_hint" fuzzy="true">Recercar</string>
   <string name="error_can_not_process_link">Impossible d’afichar aqueste ligam</string>
   <string name="page_protected_autoconfirmed">Aquesta pagina es estada semiprotegida.</string>
   <string name="page_protected_sysop">Aquesta pagina es estada entièrament protegida.</string>

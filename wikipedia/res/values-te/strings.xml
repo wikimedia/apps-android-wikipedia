@@ -32,7 +32,7 @@
   <string name="toast_refresh_saved_page">భద్రపరచబడిన పేజీని రిఫ్రెష్ చేస్తుంది...</string>
   <string name="delete_selected_saved_pages">తొలగించు</string>
   <string name="toast_saved_page_deleted">భద్రపరచబడిన పేజీ(లు) తొలిగించబడ్డాయి</string>
-  <string name="saved_pages_search_list_hint">వెతుకు</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">వెతుకు</string>
   <string name="saved_pages_search_empty_message">మీరడిగిన పోలికలు సరిపోయే పేజీ లేదు.</string>
   <string name="nav_item_nearby">దగ్గరలో</string>
   <string name="menu_update_nearby">\"దగ్గరలో\" సమాచారం తాజాపరచు</string>
@@ -144,7 +144,7 @@
   <string name="create_account_account_created_toast">ఖాతా సృష్టించబడింది!</string>
   <string name="user_contribs_more_action">మరిన్ని చూపించు</string>
   <string name="activity_my_contributions_title">నా మార్పులూచేర్పులు</string>
-  <string name="history_search_list_hint">వెతుకు</string>
+  <string name="history_search_list_hint" fuzzy="true">వెతుకు</string>
   <string name="page_protected_can_not_edit">ఈ పేజీని సవరించడానికి మీకు హక్కు లేదు</string>
   <string name="page_protected_can_not_edit_title">ఈ పేజీ సంరక్షించబడింది</string>
   <string name="more_item_preferences">మరిన్ని</string>

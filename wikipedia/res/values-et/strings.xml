@@ -114,7 +114,7 @@
   <string name="preference_title_eventlogging_opt_in">Saada kasutusaruanded</string>
   <string name="preference_summary_eventlogging_opt_in">Luba Wikimedial koguda teavet selle kohta, kuidas rakendust kasutad, et seda paremaks muuta.</string>
   <string name="editing_error_spamblacklist">Lingid tõkestatud domeenidele (%s) tuvastatud. Palun eemalda need ja proovi uuesti.</string>
-  <string name="history_search_list_hint">Otsi</string>
+  <string name="history_search_list_hint" fuzzy="true">Otsi</string>
   <string name="history_search_empty_message" fuzzy="true">Otsisõnale \'%s\' vastavaid lehekülgi ei leitud</string>
   <string name="error_can_not_process_link">Seda linki ei saa kuvada</string>
   <string name="page_protected_autoconfirmed">See lehekülg on poolkaitstud.</string>
@@ -150,6 +150,7 @@
   <string name="saved_pages_update_all_error_message">Viga salvestatud lehekülgede ajakohastamisel</string>
   <string name="saved_pages_progress_title">Salvestatud lehekülgede värskendamine</string>
   <string name="saved_pages_refresh_pages_complete">Uuendamine valmis</string>
+  <string name="table_close">Sulge</string>
   <string name="app_store_description" fuzzy="true">Ametlik Vikipeedia rakendus Androidile. Vikipeedia on vaba entsüklopeedia, mis sisaldab enam kui 32 miljonit artiklit 280 keeles ja seega on kõige ulatuslikum ning kõige laiemalt kasutatud teatmeteos, mida inimesed kunagi on koostanud. See rakendus on täiesti ümber tehtud ja on parem kui kunagi varem.
 
 Omadused:

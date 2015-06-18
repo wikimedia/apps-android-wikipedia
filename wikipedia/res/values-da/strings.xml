@@ -32,7 +32,7 @@
   <string name="toast_refresh_saved_page">Opdaterer gemt side…</string>
   <string name="delete_selected_saved_pages">Slet</string>
   <string name="toast_saved_page_deleted">Gemt(e) side(r) slettet</string>
-  <string name="saved_pages_search_list_hint">Søg</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Søg</string>
   <string name="saved_pages_search_empty_message">Ingen sider fundet der matcher din forespørgsel.</string>
   <string name="nav_item_nearby">I nærheden</string>
   <string name="menu_update_nearby">Opdater \"i nærheden\"</string>
@@ -150,7 +150,7 @@
   <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre app\'en bedre.</string>
   <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
-  <string name="history_search_list_hint">Søg</string>
+  <string name="history_search_list_hint" fuzzy="true">Søg</string>
   <string name="history_search_empty_message">Ingen sider fundet der matcher din forespørgsel.</string>
   <string name="error_can_not_process_link">Kunne ikke vise dette link</string>
   <string name="page_protected_autoconfirmed">Denne side er delvis beskyttet.</string>

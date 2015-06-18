@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">S\'està actualitzant la pàgina desada…</string>
   <string name="delete_selected_saved_pages">Esborra</string>
   <string name="toast_saved_page_deleted">S\'han esborrat les pàgines desades</string>
-  <string name="saved_pages_search_list_hint">Cercar</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Cercar</string>
   <string name="saved_pages_search_empty_message">No s\'ha trobat cap pàgina que coincidís amb la vostra consulta.</string>
   <string name="nav_item_nearby">A prop</string>
   <string name="menu_update_nearby">Actualitzar els elements que són a prop</string>
@@ -155,7 +155,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
   <string name="editing_error_spamblacklist">Enllaços a dominis bloquejats (%s) detectats. Esborreu-los i torneu-ho a provar.</string>
-  <string name="history_search_list_hint">Cercar</string>
+  <string name="history_search_list_hint" fuzzy="true">Cercar</string>
   <string name="history_search_empty_message">No s’ha trobat cap pàgina que coincideixi amb la consulta.</string>
   <string name="error_can_not_process_link">No s\'ha pogut mostrar l\'enllaç</string>
   <string name="page_protected_autoconfirmed">La pàgina està semiprotegida.</string>

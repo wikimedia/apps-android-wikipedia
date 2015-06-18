@@ -32,7 +32,7 @@
   <string name="toast_refresh_saved_page">सहेजे गये पृष्ठ को पुनः ताज़ा कर रहे हैं…</string>
   <string name="delete_selected_saved_pages">मिटाएँ</string>
   <string name="toast_saved_page_deleted">सहेजे गया (गये) पृष्ठ हटाये</string>
-  <string name="saved_pages_search_list_hint">खोज</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">खोज</string>
   <string name="saved_pages_search_empty_message">आपकी आवश्यकता से मिलता कोई पृष्ठ नहीं पाया गया।</string>
   <string name="nav_item_nearby">निकट</string>
   <string name="menu_update_nearby">\"निकट\" रिफ़्रेश करें</string>
@@ -139,7 +139,7 @@
   <string name="nav_item_random">यादृच्छिक</string>
   <string name="create_account_account_created_toast">खाता निर्मित!</string>
   <string name="activity_my_contributions_title">मेरा योगदान</string>
-  <string name="history_search_list_hint">खोजें</string>
+  <string name="history_search_list_hint" fuzzy="true">खोजें</string>
   <string name="history_search_empty_message">खोज परिणाम में कोई पृष्ठ नहीं मिले।</string>
   <string name="error_can_not_process_link">यह लिंक दिखाया नहीं जा सका</string>
   <string name="page_protected_autoconfirmed">यह पृष्ठ अर्ध-सुरक्षित है।</string>

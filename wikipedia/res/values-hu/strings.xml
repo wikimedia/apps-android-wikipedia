@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Mentett lapok frissítése…</string>
   <string name="delete_selected_saved_pages">Törlés</string>
   <string name="toast_saved_page_deleted">Mentett oldal(ak) törölve</string>
-  <string name="saved_pages_search_list_hint">Keresés</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Keresés</string>
   <string name="saved_pages_search_empty_message">Nem található a kérésnek megfelelő lap.</string>
   <string name="nav_item_nearby">Közeli</string>
   <string name="menu_update_nearby">Közeliek frissítése</string>
@@ -142,7 +142,7 @@
   <string name="user_contribs_more_action">További betöltése</string>
   <string name="activity_my_contributions_title">Közreműködéseim</string>
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
-  <string name="history_search_list_hint">Keresés</string>
+  <string name="history_search_list_hint" fuzzy="true">Keresés</string>
   <string name="history_search_empty_message">Nem található a kérésnek megfelelő lap.</string>
   <string name="error_can_not_process_link">Nem lehet megjeleníteni ezt a hivatkozást</string>
   <string name="page_protected_autoconfirmed">Ez az oldal félig védett.</string>

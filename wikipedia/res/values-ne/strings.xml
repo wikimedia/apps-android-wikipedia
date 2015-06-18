@@ -28,7 +28,7 @@
   <string name="toast_saved_page">पृष्ठलाई स्वतः रक्षण गर्ने</string>
   <string name="delete_selected_saved_pages">मेट्ने</string>
   <string name="toast_saved_page_deleted">संग्रह भएका पृष्ठहरू मेटाइयो</string>
-  <string name="saved_pages_search_list_hint">खोज्ने</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">खोज्ने</string>
   <string name="nav_item_nearby">नजिकै</string>
   <string name="menu_update_nearby">नजिकै अद्यावधिक भएको</string>
   <string name="nearby_distance_in_meters">%d मीटर</string>
@@ -44,7 +44,7 @@
   <string name="menu_other_languages">अन्य भाषाहरूमा पढ्ने</string>
   <string name="langlinks_error_retry">पुन: प्रयास गर्नुहोस्</string>
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>
-  <string name="menu_save_changes">परिवर्तनहरु संग्रह गर्ने</string>
+  <string name="menu_save_changes">परिवर्तनहरू सङ्ग्रह गर्ने</string>
   <string name="edit_section_error_retry">पुन: प्रयास गर्नुहोस्</string>
   <string name="dialog_saving_in_progress">रक्षण हुदै</string>
   <string name="edit_saved_successfully">संग्रह भएकोलाई सम्पादन गर्ने</string>
@@ -113,7 +113,7 @@
   <string name="user_contribs_more_action">थप चालु गर्ने</string>
   <string name="activity_my_contributions_title">मेरा योगदानहरू</string>
   <string name="preference_title_eventlogging_opt_in">उपयोग प्रतिवेदन पठाउनुहोस् ।</string>
-  <string name="history_search_list_hint">खोज्ने</string>
+  <string name="history_search_list_hint" fuzzy="true">खोज्ने</string>
   <string name="page_protected_autoconfirmed">यो पृष्ठ अर्ध सुरक्षित गरिएको छ</string>
   <string name="page_protected_sysop">यो पृष्ठ पूर्ण सुरक्षित गरिएको छ ।</string>
   <string name="page_protected_other">यो पृष्ठ निम्नानुसारको स्तरहरूको लागी सुरक्षित गरिएको छः %s</string>

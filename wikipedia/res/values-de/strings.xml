@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Aktualisiere gespeicherte Seite …</string>
   <string name="delete_selected_saved_pages">Löschen</string>
   <string name="toast_saved_page_deleted">Gespeicherte Seite(n) gelöscht</string>
-  <string name="saved_pages_search_list_hint">Suchen</string>
+  <string name="saved_pages_search_list_hint">Gespeicherte Seiten suchen</string>
   <string name="saved_pages_search_empty_message">Keine Seiten mit deiner Suchanfrage gefunden.</string>
   <string name="nav_item_nearby">In der Nähe</string>
   <string name="menu_update_nearby">„In der Nähe“ aktualisieren</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">Nutzungsberichte senden</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlauben, Informationen über die Verwendung der App zu sammeln, um sie zu verbessern.</string>
   <string name="editing_error_spamblacklist">Es wurden Links zu gesperrten Domains (%s) entdeckt. Bitte entferne sie und versuche es erneut.</string>
-  <string name="history_search_list_hint">Suche</string>
+  <string name="history_search_list_hint">Verlauf durchsuchen</string>
   <string name="history_search_empty_message">Es wurden keine Seiten mit deiner Suchanfrage gefunden.</string>
   <string name="error_can_not_process_link">Dieser Link konnte nicht angezeigt werden</string>
   <string name="page_protected_autoconfirmed">Diese Seite wurde halbgesperrt.</string>
@@ -273,4 +273,10 @@ Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use/de</str
   <string name="gallery_fair_use_license">Fair Use</string>
   <string name="gallery_uploader_unknown">Hochlader unbekannt</string>
   <string name="edit_save_unknown_error">Deine Bearbeitung konnte nicht gespeichert werden: %s</string>
+  <string name="menu_show_tabs">Registerkarten anzeigen</string>
+  <string name="menu_new_tab">Neue Registerkarte</string>
+  <string name="button_close_tab">Registerkarte schließen</string>
+  <string name="menu_open_link">Link öffnen</string>
+  <string name="menu_open_in_new_tab">In neuer Registerkarte öffnen</string>
+  <string name="menu_save_page_popup">Für später speichern</string>
 </resources>

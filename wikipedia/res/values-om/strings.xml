@@ -18,7 +18,7 @@
   <string name="toast_saving_page">Fuulaa olkaawaa jira...</string>
   <string name="toast_saved_page_missing_images">Suura hunda olkaawuu hindandeenye</string>
   <string name="delete_selected_saved_pages">Haqi</string>
-  <string name="saved_pages_search_list_hint">Barbaadi</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Barbaadi</string>
   <string name="nav_item_nearby">Dhihoo</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -81,7 +81,7 @@
   <string name="create_account_account_created_toast">Eenyummeessi uummame!</string>
   <string name="activity_my_contributions_title">Gumaacha kiyya</string>
   <string name="preference_title_eventlogging_opt_in">Gabaasa fayyadamaa ergi</string>
-  <string name="history_search_list_hint">Barbaadi</string>
+  <string name="history_search_list_hint" fuzzy="true">Barbaadi</string>
   <string name="error_can_not_process_link">Geessituu kana agarsiisuu hindandeenye</string>
   <string name="more_item_preferences">Dabalata</string>
   <string name="more_activity_title">Dabalata</string>

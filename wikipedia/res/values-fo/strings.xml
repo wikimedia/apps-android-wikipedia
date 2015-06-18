@@ -31,7 +31,7 @@
   <string name="toast_refresh_saved_page">Uppfrískar goymdar síður…</string>
   <string name="delete_selected_saved_pages">Sletta</string>
   <string name="toast_saved_page_deleted">Goymd(ar) síða(ur) slettað(ar)</string>
-  <string name="saved_pages_search_list_hint">Leita</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Leita</string>
   <string name="saved_pages_search_empty_message">Fann ongar síður ið svaraðu til tín fyrispurning.</string>
   <string name="nav_item_nearby">Nærindis</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -123,7 +123,7 @@
   <string name="preference_title_eventlogging_opt_in">Send frágreiðingar um brúkara</string>
   <string name="preference_summary_eventlogging_opt_in">Loyv Wikimedia at savna kunning um hvussu tú nýtir appina, fyri at appin kann gerast betri</string>
   <string name="editing_error_spamblacklist">Leinki til sperraði økisnøvn (domains) (%s) vóru funnin. Vinarliga tak tey burtur og royn aftur.</string>
-  <string name="history_search_list_hint">Leita</string>
+  <string name="history_search_list_hint" fuzzy="true">Leita</string>
   <string name="history_search_empty_message" fuzzy="true">Ongar síður funnar ið passaðu saman við \'%s\'</string>
   <string name="error_can_not_process_link">Kundi ikki vísa hesa leinkjuna</string>
   <string name="page_protected_autoconfirmed">Henda síðan er blivin hálv-vard.</string>

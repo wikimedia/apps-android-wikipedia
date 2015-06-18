@@ -32,7 +32,7 @@
   <string name="toast_refresh_saved_page">Сакталган барак жаңыланууда…</string>
   <string name="delete_selected_saved_pages">Өчүрүү</string>
   <string name="toast_saved_page_deleted">Сакталган барак(тар) өчүрүлдү</string>
-  <string name="saved_pages_search_list_hint">Издөө</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Издөө</string>
   <string name="saved_pages_search_empty_message">Сиздин издегениңизге төп барактар табылган жок</string>
   <string name="nav_item_nearby">Жакынкы</string>
   <string name="menu_update_nearby">Жакынкы жерлерди жаңылоо</string>
@@ -144,7 +144,7 @@
   <string name="preference_title_eventlogging_opt_in">Колдонуу тууралуу маалыматтарды жөнөтүү</string>
   <string name="preference_summary_eventlogging_opt_in">Уикимедиага сиз бул тиркемени кантип колдонуп жаткандыгыңыз тууралуу маалыматтарды чогултууга уруксат бериңиз. Бул, аны жакшыртууга мүмкүндүк берет.</string>
   <string name="editing_error_spamblacklist">Бөгөттөлгөн домендерге (%s) шилтемелер табылды. Сураныч, аларды өчүрүп, кайра аракет кылып көрүңүз.</string>
-  <string name="history_search_list_hint">Издөө</string>
+  <string name="history_search_list_hint" fuzzy="true">Издөө</string>
   <string name="history_search_empty_message">Сурооңузга төп эч бир барак табылбады.</string>
   <string name="error_can_not_process_link">Бул шилтемени көрсөтүүгө мүмкүнчүлүк болбоду.</string>
   <string name="page_protected_autoconfirmed">Бул барак жарым-жартылай корголгон.</string>

@@ -32,7 +32,7 @@
   <string name="toast_refresh_saved_page">Ow daskarga an folen withys…</string>
   <string name="delete_selected_saved_pages">Dilea</string>
   <string name="toast_saved_page_deleted">Diles re beu an folen(now) gwithys</string>
-  <string name="saved_pages_search_list_hint">Hwilas</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Hwilas</string>
   <string name="saved_pages_search_empty_message">Ny veu kevys folen vyth.</string>
   <string name="nav_item_nearby">Yn ogas</string>
   <string name="menu_update_nearby">Nowedhi an re ogas</string>
@@ -148,7 +148,7 @@
   <string name="preference_title_eventlogging_opt_in">Danvon derivadow devnydh</string>
   <string name="preference_summary_eventlogging_opt_in">Alowa Wikimedia dhe guntel kedhlow a-dro dhe\'n fordh may tevnydhyowgh an app rag y wellhe</string>
   <string name="editing_error_spamblacklist">Kevrennow dhe drigvaow lettyes (%s) helerghys. Gwrewgh aga dilea hag assaya arta.</string>
-  <string name="history_search_list_hint">Hwilas</string>
+  <string name="history_search_list_hint" fuzzy="true">Hwilas</string>
   <string name="history_search_empty_message">Ny veu kevys folen vyth.</string>
   <string name="error_can_not_process_link">Ny ylles diskwedhes an gevren ma</string>
   <string name="page_protected_autoconfirmed">Hanter-difresys re beu an folen ma.</string>

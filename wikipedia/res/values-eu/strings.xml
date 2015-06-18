@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Gordetako orria eguneratzen...</string>
   <string name="delete_selected_saved_pages">Ezabatu</string>
   <string name="toast_saved_page_deleted">Gordetako orrialdea(k) ezabatu d(ir)a</string>
-  <string name="saved_pages_search_list_hint">Bilatu</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Bilatu</string>
   <string name="saved_pages_search_empty_message">Zure kontsultarekin bat egiten duen orririk ez da aurkitu.</string>
   <string name="nav_item_nearby">Gertukoak</string>
   <string name="menu_update_nearby">Gaurkotu gertukoak</string>
@@ -128,7 +128,7 @@
   <string name="user_contribs_more_action">Gehiago kargatu</string>
   <string name="activity_my_contributions_title">Nire Ekarpenak</string>
   <string name="preference_title_eventlogging_opt_in">Erabilera txostenak bidali</string>
-  <string name="history_search_list_hint">Bilatu</string>
+  <string name="history_search_list_hint" fuzzy="true">Bilatu</string>
   <string name="history_search_empty_message">Zure kontsultarekin bat egiten duen orririk ez da aurkitu.</string>
   <string name="error_can_not_process_link">Ezin izan da esteka erakutsi</string>
   <string name="page_protected_can_not_edit_title">Orrialde hau babestuta dago</string>

@@ -33,7 +33,7 @@
   <string name="toast_refresh_saved_page">Đang làm mới trang đã lưu…</string>
   <string name="delete_selected_saved_pages">Xóa</string>
   <string name="toast_saved_page_deleted">Đã xóa (các) trang đã lưu</string>
-  <string name="saved_pages_search_list_hint">Tìm kiếm</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Tìm kiếm</string>
   <string name="saved_pages_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
   <string name="nav_item_nearby">Lân cận</string>
   <string name="menu_update_nearby">Cập nhật danh sách lân cận</string>
@@ -152,7 +152,7 @@
   <string name="preference_title_eventlogging_opt_in">Gửi báo cáo sử dụng</string>
   <string name="preference_summary_eventlogging_opt_in">Cho phép Wikimedia thu thập thông tin về cách bạn sử dụng ứng dụng để giúp cải thiện ứng dụng</string>
   <string name="editing_error_spamblacklist">Đã tìm thấy các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
-  <string name="history_search_list_hint">Tìm kiếm</string>
+  <string name="history_search_list_hint" fuzzy="true">Tìm kiếm</string>
   <string name="history_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
   <string name="error_can_not_process_link">Không thể hiển thị liên kết này</string>
   <string name="page_protected_autoconfirmed">Trang này đã bị bán khóa.</string>

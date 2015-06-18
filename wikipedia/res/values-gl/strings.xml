@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Recargando a páxina gardada…</string>
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="toast_saved_page_deleted">Páxina(s) gardada(s) eliminada(s)</string>
-  <string name="saved_pages_search_list_hint">Procurar</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Procurar</string>
   <string name="saved_pages_search_empty_message">Non se atopou ningunha páxina que coincida coa túa consulta.</string>
   <string name="nav_item_nearby">Preto</string>
   <string name="menu_update_nearby">Actualizar preto</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recompile información acerca de como utiliza a aplicación para facela mellor</string>
   <string name="editing_error_spamblacklist">Detectáronse ligazóns a dominios bloqueados (%s). Elimíneas e inténteo de novo.</string>
-  <string name="history_search_list_hint">Procurar</string>
+  <string name="history_search_list_hint" fuzzy="true">Procurar</string>
   <string name="history_search_empty_message">Non se atopou ningunha páxina que coincida coa súa consulta.</string>
   <string name="error_can_not_process_link">Non foi posible mostrar esta ligazón</string>
   <string name="page_protected_autoconfirmed">Esta páxina está semiprotexida.</string>
@@ -225,7 +225,7 @@
   <string name="widget_name_featured_page">Páxina destacada de Wikipedia</string>
   <string name="widget_title_featured_page">Páxina destacada do día:</string>
   <string name="widget_name_search">Busca en Wikipedia</string>
-  <string name="app_store_description" tools:ignore="PluralsCandidate,UnusedResources,StringFormatInvalid">Aplicación oficial da Wikipedia para Android. A Wikipedia é a enciclopedia libre que contén máis de 32 millóns de artigos en 280 idiomas e é o traballo de referencia recompilado polo ser humano máis completo e amplamente usado.
+  <string name="app_store_description">Aplicación oficial da Wikipedia para Android. A Wikipedia é a enciclopedia libre que contén máis de 32 millóns de artigos en 280 idiomas e é o traballo de referencia recompilado polo ser humano máis completo e amplamente usado.
 
 Características:
    - Imaxes principais: experimente a Wikipedia como nunca antes, con imaxes contextualmente relevantes e descricións na cabeceira dos artigos.

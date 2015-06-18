@@ -32,7 +32,7 @@
   <string name="toast_refresh_saved_page">Ajornamento del pagina salvate...</string>
   <string name="delete_selected_saved_pages">Deler</string>
   <string name="toast_saved_page_deleted">Pagina(s) salveguardate delite</string>
-  <string name="saved_pages_search_list_hint">Cercar</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Cercar</string>
   <string name="saved_pages_search_empty_message">Necun pagina trovate que corresponde a tu recerca</string>
   <string name="nav_item_nearby">A proximitate</string>
   <string name="menu_update_nearby">Actualisar a proximitate</string>
@@ -129,7 +129,7 @@
   <string name="create_account_account_created_toast">Conto create!</string>
   <string name="user_contribs_more_action">Cargar plus</string>
   <string name="activity_my_contributions_title">Mi contributiones</string>
-  <string name="history_search_list_hint">Cercar</string>
+  <string name="history_search_list_hint" fuzzy="true">Cercar</string>
   <string name="history_search_empty_message">Necun pagina trovate que corresponde a tu recerca.</string>
   <string name="page_protected_can_not_edit_title">Iste pagina es protegite</string>
   <string name="more_item_preferences">Plus</string>

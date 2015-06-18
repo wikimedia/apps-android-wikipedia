@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Opgeslagen pagina vernieuwen…</string>
   <string name="delete_selected_saved_pages">Wissen</string>
   <string name="toast_saved_page_deleted">Opgeslagen pagina(\'s) verwijderd</string>
-  <string name="saved_pages_search_list_hint">Zoeken</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Zoeken</string>
   <string name="saved_pages_search_empty_message">Geen pagina\'s gevonden die overeenkomen met uw zoekopdracht.</string>
   <string name="nav_item_nearby">In de buurt</string>
   <string name="menu_update_nearby">In de buurt bijwerken</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
   <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe u de app gebruikt om de app te kunnen verbeteren</string>
   <string name="editing_error_spamblacklist">Er zijn koppelingen naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
-  <string name="history_search_list_hint">Zoeken</string>
+  <string name="history_search_list_hint" fuzzy="true">Zoeken</string>
   <string name="history_search_empty_message">Geen pagina\'s gevonden die overeenkomen met uw zoekopdracht.</string>
   <string name="error_can_not_process_link">Kon de koppeling niet weergeven</string>
   <string name="page_protected_autoconfirmed">Deze pagina is semibeveiligd.</string>

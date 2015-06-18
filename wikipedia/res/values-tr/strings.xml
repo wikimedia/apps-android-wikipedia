@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Kaydedilmiş sayfa yenileniyor…</string>
   <string name="delete_selected_saved_pages">Sil</string>
   <string name="toast_saved_page_deleted">Kaydedilen sayfa(lar) silindi</string>
-  <string name="saved_pages_search_list_hint">Ara</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Ara</string>
   <string name="saved_pages_search_empty_message">Sorgunuzla eşleşen hiçbir sayfa bulunamadı.</string>
   <string name="nav_item_nearby">Yakınındakiler</string>
   <string name="menu_update_nearby">Yakınındakileri güncelle</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">Kullanım raporlarını gönder</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia\'nın, uygulamayı geliştirmek için, kullanım alışkanlıklarınız hakkında bilgi toplamasına izin verin</string>
   <string name="editing_error_spamblacklist">Engellenmiş alan adlarına (%s) bağlantılar tespit edildi. Lütfen bunların kaldırıp tekrar deneyin.</string>
-  <string name="history_search_list_hint">Ara</string>
+  <string name="history_search_list_hint" fuzzy="true">Ara</string>
   <string name="history_search_empty_message">Sorgunuzla eşleşen hiçbir sayfa bulunamadı.</string>
   <string name="error_can_not_process_link">Bu bağlantı görüntülenemedi</string>
   <string name="page_protected_autoconfirmed">Bu sayfa yarı korumalıdır.</string>
@@ -175,7 +175,7 @@
   <string name="about_contributors_heading">katkıda bulunanlar</string>
   <string name="about_translators_heading">çevirmenler</string>
   <string name="about_translators_translatewiki">Bu uygulama &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'teki gönüllü çevirmenler tarafından tercüme edilmiştir.</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Vakfı&lt;/a&gt;\'nın ürünüdür</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Vakfı&lt;/a&gt; ürünüdür</string>
   <string name="about_activity_title">Hakkında</string>
   <string name="edit_abandon_confirm">Sayfada değişiklikler yapıldı. Kaydetmeden çıkmak istediğinizden emin misiniz?</string>
   <string name="user_blocked_from_editing_title">Engellendi</string>
@@ -223,7 +223,7 @@
   <string name="table_other">Daha fazla bilgi</string>
   <string name="table_close">Kapat</string>
   <string name="widget_name_featured_page">Vikipedi seçkin sayfalar</string>
-  <string name="widget_title_featured_page">Günün seçkin maddesi:</string>
+  <string name="widget_title_featured_page">Haftanın seçkin maddesi:</string>
   <string name="widget_name_search">Vikipedi arama</string>
   <string name="app_store_description">Android için resmi Wikipedia Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır.
 Özellikler:

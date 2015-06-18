@@ -11,7 +11,7 @@
   <string name="search_hint">在維基百科內搜尋</string>
   <string name="nav_item_history">歷史</string>
   <string name="error_network_error">無網路連線 :(</string>
-  <string name="search_network_error">網路錯誤。點選重試。</string>
+  <string name="search_network_error">網路錯誤。輕觸重試。</string>
   <string name="generic_page_error">在處理您的請求時出現問題。</string>
   <string name="status_code_unavailable">無法使用伺服器狀態碼</string>
   <string name="page_error_retry">重試</string>
@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">重新整理已儲存的頁面…</string>
   <string name="delete_selected_saved_pages">刪除</string>
   <string name="toast_saved_page_deleted">已刪除儲存的頁面</string>
-  <string name="saved_pages_search_list_hint">搜尋</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">搜尋</string>
   <string name="saved_pages_search_empty_message">未找到符合您查詢的頁面。</string>
   <string name="nav_item_nearby">附近</string>
   <string name="menu_update_nearby">更新附近</string>
@@ -79,7 +79,7 @@
   <string name="edit_section_captcha_message">為了防止自動化的垃圾訊息，請輸入下方顯示的文字</string>
   <string name="edit_section_captcha_hint">請重複輸入上面的文字</string>
   <string name="title_captcha">輸入驗證碼</string>
-  <string name="edit_section_captcha_reload">點選驗証碼以重新整理</string>
+  <string name="edit_section_captcha_reload">輕觸驗証碼以重新整理</string>
   <string name="edit_saved_page_refresh">此儲存的頁面可能是過時的，必須進行重新整理以開啟編輯。您想重新整理頁面嗎？</string>
   <string name="nav_item_login">登入</string>
   <string name="login_username_hint">使用者名稱</string>
@@ -132,6 +132,7 @@
   <string name="create_account_next">下一步</string>
   <string name="create_account_button">建立帳號</string>
   <string name="preferences_general_heading">一般</string>
+  <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
   <string name="zero_charged_verbiage">Wikipedia Zero 已被關掉 (可能要付標準資料費用)</string>
   <string name="zero_charged_verbiage_extended">讀取其他文章可能產生資料流量的費用。</string>
   <string name="zero_search_hint">搜尋 Wikipedia Zero</string>
@@ -155,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">傳送使用情況報告</string>
   <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>
   <string name="editing_error_spamblacklist">檢測到來自被封鎖網域 (%s) 的連結。請刪除它們並再試一次。</string>
-  <string name="history_search_list_hint">搜尋</string>
+  <string name="history_search_list_hint" fuzzy="true">搜尋</string>
   <string name="history_search_empty_message">未找到符合您的查詢的頁面。</string>
   <string name="error_can_not_process_link">無法顯示此連結</string>
   <string name="page_protected_autoconfirmed">此頁面已受半保護。</string>
@@ -211,7 +212,7 @@
   <string name="color_theme_light">日間模式</string>
   <string name="color_theme_dark">夜間模式</string>
   <string name="page_similar_titles">相似的頁面</string>
-  <string name="search_did_you_mean">您指的是不是 \"$1\"？</string>
+  <string name="search_did_you_mean">您指的是不是 \"$s\"？</string>
   <string name="search_recent_header">近期搜尋：</string>
   <string name="button_clear_all_recent_searches">清除近期搜尋</string>
   <string name="clear_recent_searches_confirm">您確定要清除您的搜尋歷史嗎？</string>
@@ -237,7 +238,7 @@
 
 本程式的原始碼完全開源。若您在 Java 和 Android SDK 方面有相關經驗，歡迎加入我們！https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">有新的封測版更新可用</string>
-  <string name="alpha_update_notification_text">點選下載</string>
+  <string name="alpha_update_notification_text">輕觸下載</string>
   <string name="dialog_close_description">關閉</string>
   <string name="preference_title_show_images">顯示圖片</string>
   <string name="preference_summary_show_images">在頁面中開啟或停用圖片載入。如果您的網路連線很慢，或如果您的資料流量計劃受限制，則取消選擇本設定。</string>
@@ -255,7 +256,7 @@
   <string name="gallery_error_video_failed">無法播放影片</string>
   <string name="err_cannot_save_file">無法儲存檔案</string>
   <string name="snippet_share_intro">\"%1$s\" 於 @Wikipedia：%2$s</string>
-  <string name="expand_refs">點選展開</string>
+  <string name="expand_refs">輕觸展開</string>
   <string name="share_snippet_button">以圖片分享</string>
   <string name="share_normal_button">以文字分享</string>
   <string name="snippet_share_preview_image_desc">預覽圖片</string>

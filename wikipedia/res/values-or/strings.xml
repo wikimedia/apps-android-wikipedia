@@ -32,7 +32,7 @@
   <string name="toast_refresh_saved_page">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକ ଅଦ୍ଯତନ କରାଯାଊଛି ।</string>
   <string name="delete_selected_saved_pages">ଲିଭାନ୍ତୁ</string>
   <string name="toast_saved_page_deleted">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକ ଲିଭାଗଲା</string>
-  <string name="saved_pages_search_list_hint">ଖୋଜିବେ</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">ଖୋଜିବେ</string>
   <string name="saved_pages_search_empty_message">ଆପଣ ଖୋଜୁଥିବା ପୃଷ୍ଠା ମିଳିଲା ନାହିଁ ।</string>
   <string name="nav_item_nearby">ପାଖାପାଖି</string>
   <string name="menu_update_nearby">ପାଖାପାଖିଗୁଡିକୁ ଅପଡେଟ କରିବେ</string>
@@ -126,7 +126,7 @@
   <string name="preference_title_eventlogging_opt_in">ବ୍ୟବହାର ବିବରଣୀ ପଠାନ୍ତୁ</string>
   <string name="preference_summary_eventlogging_opt_in">ଏହି ଆପ୍ଲିକେସନଟିକୁ ଆହୁରି ଉନ୍ନତ କରିବା ପାଇଁ ଉଇକିମିଡ଼ିଆକୁ ସହଯୋଗ କରନ୍ତୁ</string>
   <string name="editing_error_spamblacklist" fuzzy="true">ଆପଣ ଅଟକାଯାଇଥିବା ଡୋମେନମାନଙ୍କରୁ (%s) ଲିଙ୍କ ଦେଇଛନ୍ତି । ଦୟାକରି ତାହା କାଢ଼ି ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>
-  <string name="history_search_list_hint">ଖୋଜିବେ</string>
+  <string name="history_search_list_hint" fuzzy="true">ଖୋଜିବେ</string>
   <string name="history_search_empty_message">ଆପଣ ଖୋଜୁଥିବା ପୃଷ୍ଠା ମିଳିଲା ନାହିଁ ।</string>
   <string name="more_item_preferences">ଅଧିକ</string>
   <string name="more_activity_title">ଅଧିକ</string>

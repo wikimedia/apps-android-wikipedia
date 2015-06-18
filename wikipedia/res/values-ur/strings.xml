@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">محفوظ صفحہ تازہ کررہا ہے...</string>
   <string name="delete_selected_saved_pages">حذف کریں</string>
   <string name="toast_saved_page_deleted">محفوظ صفحہ/صفحات حذف ہوگیا/ہوگئے</string>
-  <string name="saved_pages_search_list_hint">تلاش</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">تلاش</string>
   <string name="saved_pages_search_empty_message">مطلوبہ تلاش کے نتائج نہیں ملے.</string>
   <string name="nav_item_nearby">قریبی</string>
   <string name="menu_update_nearby">تجدید قریبی</string>

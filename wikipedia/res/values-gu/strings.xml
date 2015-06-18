@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">સચવાયેલું પાનું તાજું થાય છે...</string>
   <string name="delete_selected_saved_pages">દૂર કરો</string>
   <string name="toast_saved_page_deleted">સચવાયેલું પાનું (પાના) હટાવાયું</string>
-  <string name="saved_pages_search_list_hint">શોધો</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">શોધો</string>
   <string name="saved_pages_search_empty_message">તમારી પૂછપરછ સાથે બંધબેસતું કોઈ પાનું મળ્યું નથી.</string>
   <string name="nav_item_nearby">નજીકના</string>
   <string name="nearby_empty_title">અહીં કોઈ નજીકના પાના નથી !</string>
@@ -114,7 +114,7 @@
   <string name="nav_item_random">ગમે તે</string>
   <string name="create_account_account_created_toast">ખાતું ખોલવામાં આવ્યું!</string>
   <string name="activity_my_contributions_title">મારું યોગદાન</string>
-  <string name="history_search_list_hint">શોધો</string>
+  <string name="history_search_list_hint" fuzzy="true">શોધો</string>
   <string name="history_search_empty_message">તમારી પૂછપરછ સાથે બંધબેસતું કોઈ પાનું મળ્યું નથી.</string>
   <string name="more_item_preferences">વધુ</string>
   <string name="more_activity_title">વધુ</string>

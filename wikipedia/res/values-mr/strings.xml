@@ -28,7 +28,7 @@
   <string name="toast_refresh_saved_page">साठवलेले पान अद्ययावत होत आहे…</string>
   <string name="delete_selected_saved_pages">वगळा</string>
   <string name="toast_saved_page_deleted">साठवलेले पान(ने) वगळली</string>
-  <string name="saved_pages_search_list_hint">शोध</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">शोध</string>
   <string name="saved_pages_search_empty_message">याच्याशी जुळणारे पान सापडत नाही.</string>
   <string name="nav_item_nearby">जवळपास</string>
   <string name="menu_update_nearby">जवळपास अद्ययावत</string>
@@ -107,7 +107,7 @@
   <string name="create_account_account_created_toast">खाते उघडले!</string>
   <string name="user_contribs_more_action">अधिक प्रभारण करा</string>
   <string name="activity_my_contributions_title">माझे योगदान</string>
-  <string name="history_search_list_hint">शोधा</string>
+  <string name="history_search_list_hint" fuzzy="true">शोधा</string>
   <string name="error_can_not_process_link">ही दुवा दाखवु शकत नाही</string>
   <string name="page_protected_can_not_edit">तुम्हाला हे पान संपादन करण्याची परवानगी नाही</string>
   <string name="page_protected_can_not_edit_title">पान संरक्षित आहे</string>

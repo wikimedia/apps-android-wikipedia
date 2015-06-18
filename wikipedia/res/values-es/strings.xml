@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Actualizando la página guardada…</string>
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
-  <string name="saved_pages_search_list_hint">Buscar</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Buscar</string>
   <string name="saved_pages_search_empty_message">No se encontraron páginas que coincidan con tu consulta.</string>
   <string name="nav_item_nearby">Cercanos</string>
   <string name="menu_update_nearby">Actualizar cercanos</string>
@@ -155,7 +155,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
   <string name="editing_error_spamblacklist">Enlaces a dominios bloqueados (%s) detectados. Por favor elimínelos y vuelva a intentarlo.</string>
-  <string name="history_search_list_hint">Buscar</string>
+  <string name="history_search_list_hint" fuzzy="true">Buscar</string>
   <string name="history_search_empty_message">No se encontraron páginas que coincidan con tu consulta.</string>
   <string name="error_can_not_process_link">No se puede mostrar este enlace</string>
   <string name="page_protected_autoconfirmed">Esta página está semiprotegida.</string>
@@ -227,8 +227,8 @@
   <string name="app_store_description">Aplicación oficial de Wikipedia para Android. Wikipedia es la enciclopedia libre que contiene más de 32 millones de artículos en 280 idiomas y es el trabajo de referencia más completo y ampliamente usado que los humanos hayan recopilado. 
 
 Características:
-- Imágen principal: experimenta Wikipedia como nunca antes con una imagen destacada y contextualmente relevante y su descripción en la parte superior de los artículos
-- Galería de imágenes: al tocar una imágen se muestra en pantalla completa y alta resolución, también se puede deslizar la pantalla a izquiera o derecha y explorar otras imágenes
+- Imagen principal: experimenta Wikipedia como nunca antes con una imagen destacada y contextualmente relevante y su descripción en la parte superior de los artículos
+- Galería de imágenes: al tocar una imagen se muestra en pantalla completa y alta resolución, también se puede deslizar la pantalla a izquiera o derecha y explorar otras imágenes
 - Descripciones de Wikidata: al buscar, cada resultado contiene una descripción breve que ayuda a contextualizar el resulto. Estas descripciones también se muestran en otras áreas de la aplicación, como Cercanos
 - Sugerencias de artículos: dirígete hacia el final de un artículo para ver sugerencias sobre qué leer a continuación
 - Páginas guardadas: guarda páginas seleccionadas para leerlas sin conexión y navegarlas incluso cuando no tienes una conexión de datos

@@ -32,7 +32,7 @@
   <string name="toast_refresh_saved_page">Wrthi\'n adnewyddu\'r dudalen a arbedwyd</string>
   <string name="delete_selected_saved_pages">Dileu</string>
   <string name="toast_saved_page_deleted">Diddymwyd y dudalen/au a ddilewyd</string>
-  <string name="saved_pages_search_list_hint">Chwilio</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Chwilio</string>
   <string name="saved_pages_search_empty_message">Ni chafwyd hyn i\'r dudalen y chwiliwch amdani</string>
   <string name="nav_item_nearby">Gerllaw</string>
   <string name="menu_update_nearby">Diweddarwch y tudalenau sydd gerllaw</string>

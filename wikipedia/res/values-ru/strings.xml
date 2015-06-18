@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Обновление сохранённой страницы…</string>
   <string name="delete_selected_saved_pages">Удалить</string>
   <string name="toast_saved_page_deleted">Сохранённые страницы удалены</string>
-  <string name="saved_pages_search_list_hint">Поиск</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Поиск</string>
   <string name="saved_pages_search_empty_message">Страницы, соответствующие вашему запросу, не найдены.</string>
   <string name="nav_item_nearby">Поблизости</string>
   <string name="menu_update_nearby">Обновление мест поблизости</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
-  <string name="history_search_list_hint">Поиск</string>
+  <string name="history_search_list_hint" fuzzy="true">Поиск</string>
   <string name="history_search_empty_message">Страницы, соответствующие вашему запросу, не найдены.</string>
   <string name="error_can_not_process_link">Не удалось отобразить эту ссылку</string>
   <string name="page_protected_autoconfirmed">Эта страница была частично защищена.</string>

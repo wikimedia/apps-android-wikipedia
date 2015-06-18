@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Se reîncarcă pagina salvată…</string>
   <string name="delete_selected_saved_pages">Șterge</string>
   <string name="toast_saved_page_deleted">Pagină(i) salvată(e) eliminată(e)</string>
-  <string name="saved_pages_search_list_hint">Căutare</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">Căutare</string>
   <string name="saved_pages_search_empty_message">Nicio pagină nu corespunde interogării dumneavoastră.</string>
   <string name="nav_item_nearby">În apropiere</string>
   <string name="menu_update_nearby">Actualizează „În apropiere”</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">Trimite rapoarte de utilizare</string>
   <string name="preference_summary_eventlogging_opt_in">Permiteți Wikimediei să adune informații despre modul în care utilizați aplicația pentru a putea îmbunătăți aplicația</string>
   <string name="editing_error_spamblacklist">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>
-  <string name="history_search_list_hint">Căutare</string>
+  <string name="history_search_list_hint" fuzzy="true">Căutare</string>
   <string name="history_search_empty_message">Nicio pagină nu corespunde interogării dumneavoastră.</string>
   <string name="error_can_not_process_link">Nu se poate afișa această legătură</string>
   <string name="page_protected_autoconfirmed">Această pagină a fost semiprotejată.</string>

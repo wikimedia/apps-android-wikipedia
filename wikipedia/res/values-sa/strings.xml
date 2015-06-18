@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">रक्षितपृष्ठानां प्रत्यवस्थापनम्...</string>
   <string name="delete_selected_saved_pages">अपाक्रियताम्</string>
   <string name="toast_saved_page_deleted">रक्षितपृष्ठानि अपाकृतानि</string>
-  <string name="saved_pages_search_list_hint">अन्विष्यताम्</string>
+  <string name="saved_pages_search_list_hint" fuzzy="true">अन्विष्यताम्</string>
   <string name="saved_pages_search_empty_message">भवता/भवत्या इष्टं पृष्ठं न प्राप्तम् ।</string>
   <string name="nav_item_nearby">निकटे</string>
   <string name="menu_update_nearby">निकटवर्ति नवीक्रियताम्</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">उपयोगस्य वृत्तान्तं प्रेषयतु</string>
   <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगे आवश्यकपरिवर्तनं कर्तुं भवान्/भवती विकिपीडिया-अनुप्रयोगस्य कथम् उपयोगं करोति इत्यस्य सूचनां क्रोडीकर्तुं विकिपीडिया-जालाय अनुमतिं ददातु ।</string>
   <string name="editing_error_spamblacklist">(%s) इत्येतानि स्थगितानि जालस्थानि प्राप्तानि । कृपया तानि अपाकृत्य पुनः प्रयत्यताम् ।</string>
-  <string name="history_search_list_hint">अन्विष्यताम्</string>
+  <string name="history_search_list_hint" fuzzy="true">अन्विष्यताम्</string>
   <string name="history_search_empty_message">भवता/भवत्या इष्टं पृष्ठं न प्राप्तम् ।</string>
   <string name="error_can_not_process_link">एषः परिसन्धिः दर्शयितुं न शक्यते</string>
   <string name="page_protected_autoconfirmed">एतत् पृष्ठम् अर्धसंरक्षितम् अस्ति ।</string>
