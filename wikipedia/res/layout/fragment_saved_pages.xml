@@ -50,6 +50,8 @@
                 android:hint="@string/saved_pages_search_list_hint"
                 android:imeOptions="actionDone|flagNoExtractUi"
                 android:singleLine="true"
+                android:layout_margin="12dp"
+                android:textSize="@dimen/searchTextSize"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 />

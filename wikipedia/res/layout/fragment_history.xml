@@ -50,6 +50,8 @@
                 android:hint="@string/history_search_list_hint"
                 android:imeOptions="actionDone|flagNoExtractUi"
                 android:singleLine="true"
+                android:layout_margin="12dp"
+                android:textSize="@dimen/searchTextSize"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginLeft="8dp"
