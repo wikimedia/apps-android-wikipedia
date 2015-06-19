@@ -509,14 +509,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
      * @return Resource ID of the icon to display.
      */
     private static int getLicenseIcon(GalleryItem item) {
-        if (item.isLicenseFree()) {
-            if (item.isLicensePD()) {
-                return R.drawable.ic_license_pd;
-            } else if (item.isLicenseCC()) {
-                return R.drawable.ic_license_cc;
-            }
-        }
-        return R.drawable.ic_license_cite;
+        return item.getLicense().getLicenseIcon();
     }
 
     /**

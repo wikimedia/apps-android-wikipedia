@@ -4,13 +4,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.page.ImageLicense;
+import org.wikipedia.page.ImageLicenseFetchTask;
 
 import android.text.TextUtils;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 public class GalleryItem {
+    private static final String TAG = "GalleryItem";
+
     private final JSONObject json;
     public JSONObject toJSON() {
         return json;
@@ -56,34 +60,8 @@ public class GalleryItem {
         return license;
     }
 
-    private String licenseName;
-    private String licenseUrl;
-    private boolean licenseFree = true;
-
     public String getLicenseUrl() {
-        return licenseUrl;
-    }
-
-    public boolean isLicenseCC() {
-        if (!TextUtils.isEmpty(licenseName)) {
-            if (licenseName.startsWith("cc")) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean isLicensePD() {
-        if (!TextUtils.isEmpty(licenseName)) {
-            if (licenseName.startsWith("pd")) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean isLicenseFree() {
-        return licenseFree;
+        return license.getLicenseUrl();
     }
 
     public GalleryItem(String name) {
@@ -127,7 +105,8 @@ public class GalleryItem {
         this.thumbUrl = objinfo.optString("thumburl", "");
         this.width = objinfo.getInt("width");
         this.height = objinfo.getInt("height");
-        metadata = new HashMap<>();
+        this.metadata = new HashMap<>();
+        this.license = new ImageLicense("", "", "");
         JSONObject extmetadata = objinfo.optJSONObject("extmetadata");
         if (extmetadata != null) {
             Iterator<String> keys = extmetadata.keys();
@@ -135,20 +114,8 @@ public class GalleryItem {
                 String key = keys.next();
                 String value = extmetadata.getJSONObject(key).getString("value");
                 metadata.put(key, value);
-                switch (key) {
-                    case "License":
-                        licenseName = value;
-                        break;
-                    case "LicenseUrl":
-                        licenseUrl = value;
-                        break;
-                    case "NonFree":
-                        licenseFree = !value.equals("true");
-                        break;
-                    default:
-                        break;
-                }
             }
+            ImageLicenseFetchTask.parseImageLicenseMetadata(license, extmetadata);
         }
     }
 }

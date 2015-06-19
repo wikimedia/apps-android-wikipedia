@@ -34,13 +34,13 @@ public class ImageLicenseFetchTask extends PageQueryTask<ImageLicense> {
         return license;
     }
 
-    private void parseImageLicenseMetadata(ImageLicense imageLicense, JSONObject extmetadata) {
+    public static void parseImageLicenseMetadata(ImageLicense imageLicense, JSONObject extmetadata) {
         imageLicense.setLicense(getValueForOptionalKey(extmetadata, "License"));
         imageLicense.setLicenseShortName(getValueForOptionalKey(extmetadata, "LicenseShortName"));
         imageLicense.setLicenseUrl(getValueForOptionalKey(extmetadata, "LicenseUrl"));
     }
 
-    private String getValueForOptionalKey(JSONObject object, String key) {
+    private static String getValueForOptionalKey(JSONObject object, String key) {
         return object.has(key) ? object.optJSONObject(key).optString("value") : "";
     }
 }
