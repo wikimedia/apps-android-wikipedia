@@ -479,6 +479,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         tocHandler.setEnabled(false);
 
         networkError.setVisibility(View.GONE);
+        pageDoesNotExistError.setVisibility(View.GONE);
 
         model.setTitle(title);
         model.setTitleOriginal(title);
