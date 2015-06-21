@@ -8,15 +8,15 @@ var maxStretchRatioAllowedBeforeRequestingHigherResolution = 1.3;
 var enableDebugBorders = false;
 
 function widenAncestors (el) {
-    while ((el = el.parentElement) && !el.classList.contains('content_block')){
+    while ((el = el.parentElement) && !el.classList.contains('content_block')) {
         // Only widen if there was a width setting. Keeps changes minimal.
-        if(el.style.width){
+        if (el.style.width) {
             el.style.width = '100%';
         }
-        if(el.style.maxWidth){
+        if (el.style.maxWidth) {
             el.style.maxWidth = '100%';
         }
-        if(el.style.float){
+        if (el.style.float) {
             el.style.float = 'none';
         }
     }
@@ -26,7 +26,8 @@ function shouldWidenImage(image) {
     if (
         image.width >= 64 &&
         image.hasAttribute('srcset') &&
-        !util.ancestorContainsClass('overflow-x') &&
+        !image.hasAttribute('hasOverflowXContainer') &&
+        image.parentNode.className === "image" &&
         !util.isNestedInTable(image)
         ) {
         return true;

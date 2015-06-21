@@ -284,7 +284,7 @@ bridge.registerListener( "setDirectionality", function( payload ) {
 },{"./bridge":2}],7:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
-    if ( el !== null && el.tagName === tagName) {
+    if (el !== null && el.tagName === tagName) {
         return true;
     } else {
         if ( el.parentNode !== null && el.parentNode.tagName !== 'BODY' ) {
@@ -329,21 +329,52 @@ function getDictionaryFromSrcset(srcset) {
 }
 
 function firstDivAncestor (el) {
-    while ((el = el.parentElement)){
-        if(el.tagName === 'DIV'){
+    while ((el = el.parentElement)) {
+        if (el.tagName === 'DIV') {
             return el;
         }
     }
     return null;
 }
 
+function firstAncestorWithMultipleChildren (el) {
+    while ((el = el.parentElement) && (el.childElementCount === 1)){}
+    return el;
+}
+
 function isNestedInTable(el) {
-    while ((el = el.parentElement)){
-        if(el.tagName === 'TD'){
+    while ((el = el.parentElement)) {
+        if (el.tagName === 'TD') {
             return true;
         }
     }
     return false;
+}
+
+function shouldAddImageOverflowXContainer(image) {
+    if ((image.width > document.getElementById('content').offsetWidth) && !isNestedInTable(image)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function addImageOverflowXContainer(image, ancestor) {
+    image.setAttribute('hasOverflowXContainer', 'true'); // So "widenImages" transform knows instantly not to widen this one.
+    var div = document.createElement( 'div' );
+    div.className = 'image_overflow_x_container';
+    ancestor.parentElement.insertBefore( div, ancestor );
+    div.appendChild(ancestor);
+}
+
+function maybeAddImageOverflowXContainer() {
+    var image = this;
+    if (shouldAddImageOverflowXContainer(image)) {
+        var ancestor = firstAncestorWithMultipleChildren(image);
+        if (ancestor) {
+            addImageOverflowXContainer(image, ancestor);
+        }
+    }
 }
 
 module.exports = {
@@ -351,7 +382,8 @@ module.exports = {
     ancestorContainsClass: ancestorContainsClass,
     getDictionaryFromSrcset: getDictionaryFromSrcset,
     firstDivAncestor: firstDivAncestor,
-    isNestedInTable: isNestedInTable
+    isNestedInTable: isNestedInTable,
+    maybeAddImageOverflowXContainer: maybeAddImageOverflowXContainer
 };
 
 },{}],8:[function(require,module,exports){

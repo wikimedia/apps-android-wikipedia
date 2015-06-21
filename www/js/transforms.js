@@ -2,6 +2,7 @@ var transformer = require("./transformer");
 var night = require("./night");
 var bridge = require("./bridge");
 var widenImages = require("./widenImages");
+var util = require("./util");
 
 // Takes a block of text, and removes any text within parentheses, but only
 // until the end of the first sentence.
@@ -420,6 +421,18 @@ transformer.register( "widenImages", function( content ) {
         // Load event used so images w/o style or inline width/height
         // attributes can still have their size determined reliably.
         images[i].addEventListener('load', widenImages.maybeWidenImage, false);
+    }
+    return content;
+} );
+
+transformer.register( "addImageOverflowXContainers", function( content ) {
+    // Wrap wide images in a <div style="overflow-x:auto">...</div> so they can scroll
+    // side to side if needed without causing the entire section to scroll side to side.
+    var images = content.getElementsByTagName('img');
+    for (var i = 0; i < images.length; ++i) {
+        // Load event used so images w/o style or inline width/height
+        // attributes can still have their size determined reliably.
+        images[i].addEventListener('load', util.maybeAddImageOverflowXContainer, false);
     }
     return content;
 } );

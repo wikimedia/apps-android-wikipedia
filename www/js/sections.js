@@ -94,6 +94,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content = transformer.transform( "hideTables", content );
     content = transformer.transform( "hideIPA", content );
     if (!window.isMainPage) {
+        content = transformer.transform( "addImageOverflowXContainers", content );
         content = transformer.transform( "widenImages", content );
     }
 
@@ -157,6 +158,7 @@ function elementsForSection( section ) {
     content = transformer.transform( "hideIPA", content );
     content = transformer.transform( "hideRefs", content );
     if (!window.isMainPage) {
+        content = transformer.transform( "addImageOverflowXContainers", content );
         content = transformer.transform( "widenImages", content );
     }
 
