@@ -76,9 +76,9 @@
                 />
         <!-- Settings activity specifically for API 10 (remove when we drop support for API 10) -->
         <activity android:name=".settings.SettingsActivityGB"
-                android:label="@string/more_activity_title"
-                android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                android:exported="false"
+                  android:label="@string/more_activity_title"
+                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+                  android:exported="false"
                 />
         <activity android:name=".settings.AboutActivity"
                   android:label="@string/about_activity_title"
@@ -133,9 +133,9 @@
         </activity>
 
         <provider
-            android:authorities="${applicationId}.history"
-            android:name=".history.HistoryEntryContentProvider"
-            />
+                android:authorities="${applicationId}.history"
+                android:name=".history.HistoryEntryContentProvider"
+                />
 
         <provider
                 android:authorities="${applicationId}.editsummaries"
