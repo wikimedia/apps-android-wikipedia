@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Aggiornamento pagina salvata…</string>
   <string name="delete_selected_saved_pages">Cancella</string>
   <string name="toast_saved_page_deleted">Pagine salvate cancellate</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Cerca</string>
+  <string name="saved_pages_search_list_hint">Cerca pagine salvate</string>
   <string name="saved_pages_search_empty_message">Nessuna pagina trovata che corrisponda alla richiesta.</string>
   <string name="nav_item_nearby">Nelle vicinanze</string>
   <string name="menu_update_nearby">Aggiorna nelle vicinanze</string>
@@ -132,6 +132,7 @@
   <string name="create_account_next">Successivo</string>
   <string name="create_account_button">Crea un\'utenza</string>
   <string name="preferences_general_heading">Generale</string>
+  <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Wikipedia Zero è spento</string>
   <string name="zero_charged_verbiage_extended">Caricare altre voci può comportare un addebito spese.</string>
   <string name="zero_search_hint">Cerca su Wikipedia Zero</string>
@@ -155,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">Invia rapporti sull\'utilizzo</string>
   <string name="preference_summary_eventlogging_opt_in">Consenti a Wikimedia di raccogliere informazioni su come usi l\'applicazione per renderla migliore</string>
   <string name="editing_error_spamblacklist">È stato rilevato un collegamento ad un dominio bloccato (%s). Rimuovilo e prova ancora.</string>
-  <string name="history_search_list_hint" fuzzy="true">Cerca</string>
+  <string name="history_search_list_hint">Cerca</string>
   <string name="history_search_empty_message">Nessuna pagina trovata che corrisponda alla richiesta.</string>
   <string name="error_can_not_process_link">Impossibile visualizzare questo collegamento</string>
   <string name="page_protected_autoconfirmed">Questa pagina è stata semi-protetta.</string>
@@ -274,4 +275,10 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Utilizzo onesto</string>
   <string name="gallery_uploader_unknown">Uploader sconosciuto</string>
   <string name="edit_save_unknown_error">Non è possibile salvare la modifica: %s</string>
+  <string name="menu_show_tabs">Mostra schede</string>
+  <string name="menu_new_tab">Nuova scheda</string>
+  <string name="button_close_tab">Chiudi scheda</string>
+  <string name="menu_open_link">Apri il link</string>
+  <string name="menu_open_in_new_tab">Apri un una nuova scheda</string>
+  <string name="menu_save_page_popup">Salva dopo</string>
 </resources>

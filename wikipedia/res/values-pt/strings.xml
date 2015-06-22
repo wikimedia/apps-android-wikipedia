@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">A recarregar página guardada…</string>
   <string name="delete_selected_saved_pages">Eliminar</string>
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Pesquisar</string>
+  <string name="saved_pages_search_list_hint">Pesquisar nas páginas guardadas</string>
   <string name="saved_pages_search_empty_message">Nenhuma página correspondente com a sua pesquisa.</string>
   <string name="nav_item_nearby">Nas redondezas</string>
   <string name="menu_update_nearby">Atualizar páginas nas redondezas</string>
@@ -114,15 +114,15 @@
   <string name="create_account_login_link">Já possui uma conta? Inicie sessão</string>
   <string name="create_account_activity_title">Criar uma conta</string>
   <string name="dialog_create_account_checking_progress">A verificar</string>
-  <string name="create_account_email_hint">Endereço de correio electrónico (Opcional)</string>
+  <string name="create_account_email_hint">Endereço de correio eletrónico (Opcional)</string>
   <string name="create_account_password_repeat_hint">Repita a palavra-passe</string>
   <string name="create_account_passwords_mismatch_error">As palavras-passe não correspondem</string>
-  <string name="create_account_email_error">Endereço de correio electrónico inválido</string>
+  <string name="create_account_email_error">Endereço de correio eletrónico inválido</string>
   <string name="create_account_username_exists_error">Nome de utilizador(a) já em utilização</string>
   <string name="create_account_ip_throttle_error">Demasiadas contas criadas a partir deste endereço de IP. Tente novamente mais tarde.</string>
   <string name="create_account_open_proxy_error">Este endereço de IP está bloqueado de criar contas.</string>
   <string name="create_account_noname_error">O nome de utilizador(a) fornecido é inválido. Por favor, escolha outro.</string>
-  <string name="create_account_invalid_email_error">O endereço de correio electrónico fornecido é inválido.</string>
+  <string name="create_account_invalid_email_error">O endereço de correio eletrónico fornecido é inválido.</string>
   <string name="create_account_password_too_short_error">A palavra-passe fornecida é demasiado curta.</string>
   <string name="create_account_blocked_anon_error">Não pode criar uma conta porque o seu endereço IP está bloqueado.</string>
   <string name="create_account_blocked_error">Não pode criar uma conta porque a sua conta está bloqueada.</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar relatórios de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recolha informações sobre o uso da aplicação para elaborar melhorias</string>
   <string name="editing_error_spamblacklist">Ligações a sítios bloqueados (%s) detectados. Por favor, remova-os e tente novamente.</string>
-  <string name="history_search_list_hint" fuzzy="true">Pesquisar</string>
+  <string name="history_search_list_hint">Histórico de pesquisa</string>
   <string name="history_search_empty_message">Nenhuma página correspondente com a sua pesquisa.</string>
   <string name="error_can_not_process_link">Não foi possível exibir esta ligação</string>
   <string name="page_protected_autoconfirmed">Esta página foi semi-protegida.</string>
@@ -273,4 +273,10 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Carregador desconhecido</string>
   <string name="edit_save_unknown_error">Não foi possível gravar a sua edição: %s</string>
+  <string name="menu_show_tabs">Mostrar separadores</string>
+  <string name="menu_new_tab">Novo separador</string>
+  <string name="button_close_tab">Fechar separador</string>
+  <string name="menu_open_link">Abrir ligação</string>
+  <string name="menu_open_in_new_tab">Abrir num novo separador</string>
+  <string name="menu_save_page_popup">Guardar para mais tarde</string>
 </resources>

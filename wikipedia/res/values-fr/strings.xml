@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Rafraîchissement de la page enregistrée…</string>
   <string name="delete_selected_saved_pages">Supprimer</string>
   <string name="toast_saved_page_deleted">Pages enregistrées supprimées</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Rechercher</string>
+  <string name="saved_pages_search_list_hint">Rechercher les pages enregistrées</string>
   <string name="saved_pages_search_empty_message">Aucune page trouvée correspondant à votre requête.</string>
   <string name="nav_item_nearby">À proximité</string>
   <string name="menu_update_nearby">Mise à jour des éléments à proximité</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
   <string name="editing_error_spamblacklist">Liens vers des domaines bloqués (%s) détectés. Veuillez les supprimer et réessayer.</string>
-  <string name="history_search_list_hint" fuzzy="true">Rechercher</string>
+  <string name="history_search_list_hint">Rechercher dans l’historique</string>
   <string name="history_search_empty_message">Aucune page trouvée correspondant à votre requête.</string>
   <string name="error_can_not_process_link">Impossible d’afficher ce lien</string>
   <string name="page_protected_autoconfirmed">Cette page a été semi-protégée.</string>
@@ -273,4 +273,10 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="gallery_fair_use_license">Utilisation normale</string>
   <string name="gallery_uploader_unknown">Téléchargeur inconnu</string>
   <string name="edit_save_unknown_error">Impossible d’enregistrer votre modification : %s</string>
+  <string name="menu_show_tabs">Afficher les onglets</string>
+  <string name="menu_new_tab">Nouvel onglet</string>
+  <string name="button_close_tab">Fermer l’onglet</string>
+  <string name="menu_open_link">Ouvrir le lien</string>
+  <string name="menu_open_in_new_tab">Ouvrir dans un nouvel onglet</string>
+  <string name="menu_save_page_popup">Enregistrer pour plus tard</string>
 </resources>

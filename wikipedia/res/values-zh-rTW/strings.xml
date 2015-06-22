@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">重新整理已儲存的頁面…</string>
   <string name="delete_selected_saved_pages">刪除</string>
   <string name="toast_saved_page_deleted">已刪除儲存的頁面</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">搜尋</string>
+  <string name="saved_pages_search_list_hint">搜尋已儲存的頁面</string>
   <string name="saved_pages_search_empty_message">未找到符合您查詢的頁面。</string>
   <string name="nav_item_nearby">附近</string>
   <string name="menu_update_nearby">更新附近</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">傳送使用情況報告</string>
   <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>
   <string name="editing_error_spamblacklist">檢測到來自被封鎖網域 (%s) 的連結。請刪除它們並再試一次。</string>
-  <string name="history_search_list_hint" fuzzy="true">搜尋</string>
+  <string name="history_search_list_hint">搜尋歷史</string>
   <string name="history_search_empty_message">未找到符合您的查詢的頁面。</string>
   <string name="error_can_not_process_link">無法顯示此連結</string>
   <string name="page_protected_autoconfirmed">此頁面已受半保護。</string>
@@ -265,4 +265,10 @@
   <string name="gallery_fair_use_license">合理使用</string>
   <string name="gallery_uploader_unknown">未知上傳者</string>
   <string name="edit_save_unknown_error">無法保存您的編輯：%s</string>
+  <string name="menu_show_tabs">顯示分頁</string>
+  <string name="menu_new_tab">新分頁</string>
+  <string name="button_close_tab">關閉分頁</string>
+  <string name="menu_open_link">開啟連結</string>
+  <string name="menu_open_in_new_tab">在新分頁開啟</string>
+  <string name="menu_save_page_popup">儲存以供日後使用</string>
 </resources>

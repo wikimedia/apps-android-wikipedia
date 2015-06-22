@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Kaydedilmiş sayfa yenileniyor…</string>
   <string name="delete_selected_saved_pages">Sil</string>
   <string name="toast_saved_page_deleted">Kaydedilen sayfa(lar) silindi</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Ara</string>
+  <string name="saved_pages_search_list_hint">Kaydedilen sayfaları ara</string>
   <string name="saved_pages_search_empty_message">Sorgunuzla eşleşen hiçbir sayfa bulunamadı.</string>
   <string name="nav_item_nearby">Yakınındakiler</string>
   <string name="menu_update_nearby">Yakınındakileri güncelle</string>
@@ -271,4 +271,8 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Adil kullanım</string>
   <string name="gallery_uploader_unknown">Yükleyen bilinmiyor</string>
   <string name="edit_save_unknown_error">Değişikliğiniz kaydedilemedi: %s</string>
+  <string name="menu_show_tabs">Sekmeleri göster</string>
+  <string name="menu_new_tab">Yeni sekme</string>
+  <string name="button_close_tab">Sekmeyi kapat</string>
+  <string name="menu_open_link">Bağlantıyı aç</string>
 </resources>

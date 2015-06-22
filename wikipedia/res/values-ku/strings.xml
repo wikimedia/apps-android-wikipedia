@@ -61,6 +61,7 @@
   <string name="login_password_hint">Şîfre</string>
   <string name="menu_login">Têkeve</string>
   <string name="login_activity_title">Têkeve Wîkîpediyayê</string>
+  <string name="login_error_wrong_username">Navê bikarhêner ne rast e</string>
   <string name="login_success_toast">Têketin serkevtî bû!</string>
   <string name="login_error_blocked">Ev bikarhêner hatiye astengkirin</string>
   <string name="login_error_unknown">Têketin biser neket :(</string>
@@ -118,6 +119,7 @@
   <string name="text_size_select">Mezinahiya tîpan</string>
   <string name="color_theme_dark">Tarî</string>
   <string name="search_did_you_mean">Mebesta te \"%s\" bû?</string>
+  <string name="search_recent_header">Lêgerînên dawî:</string>
   <string name="table_other">Zêdetir agahî</string>
   <string name="table_close">Bigre</string>
   <string name="dialog_close_description">Bigre</string>
@@ -126,9 +128,11 @@
   <string name="read_next_section">Ê li pey bixwine</string>
   <string name="gallery_menu_share">Parve bike</string>
   <string name="gallery_save_success">Wêne bi awayekî serkeftî hate tomarkirin.</string>
+  <string name="err_cannot_save_file">Dosye nikare bê tomarkirin</string>
   <string name="share_snippet_button">Wek wêne parve bike</string>
   <string name="share_normal_button">Wek nivîs parve bike</string>
   <string name="cc_logo">Lîsansa Creative Commonsê</string>
   <string name="gallery_fair_use_license">Bikaranîna dadmend</string>
   <string name="gallery_uploader_unknown">Barker nenas e</string>
+  <string name="menu_open_link">Girêdanê veke</string>
 </resources>

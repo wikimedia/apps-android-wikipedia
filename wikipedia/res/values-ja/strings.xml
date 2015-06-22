@@ -12,6 +12,8 @@
   <string name="nav_item_history">履歴</string>
   <string name="error_network_error">ネットワークに接続していません :(</string>
   <string name="search_network_error">ネットワークエラーです。タップしてやり直してください。</string>
+  <string name="generic_page_error">リクエストの処理中に問題が発生しました。</string>
+  <string name="status_code_unavailable">サーバーステータスコードが使用できません。</string>
   <string name="page_error_retry">再試行</string>
   <string name="menu_clear_all_history">履歴を消去</string>
   <string name="menu_clear_all_saved_pages">保存したページをすべて消去</string>
@@ -32,7 +34,7 @@
   <string name="toast_refresh_saved_page">保存したページを更新しています…</string>
   <string name="delete_selected_saved_pages">削除</string>
   <string name="toast_saved_page_deleted">保存したページを削除しました</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">検索</string>
+  <string name="saved_pages_search_list_hint">保存したページを検索</string>
   <string name="saved_pages_search_empty_message">キーワードに一致するページが見つかりません。</string>
   <string name="nav_item_nearby">付近のスポット</string>
   <string name="menu_update_nearby">付近のスポットを更新</string>
@@ -130,6 +132,7 @@
   <string name="create_account_next">次へ</string>
   <string name="create_account_button">アカウント作成</string>
   <string name="preferences_general_heading">全般</string>
+  <string name="wikipedia_app_faq">ウィキペディアアプリについてのFAQ</string>
   <string name="zero_charged_verbiage">ウィキペディアゼロはオフです</string>
   <string name="zero_charged_verbiage_extended">その他の記事の読み込みには料金が発生する場合があります。</string>
   <string name="zero_search_hint">ウィキペディアゼロを検索</string>
@@ -153,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">このアプリの改善に役立てるため、ウィキメディアがアプリの使用情報を収集することを許可する</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
-  <string name="history_search_list_hint" fuzzy="true">検索</string>
+  <string name="history_search_list_hint">検索履歴</string>
   <string name="history_search_empty_message">キーワードに一致するページが見つかりません。</string>
   <string name="error_can_not_process_link">このリンクを表示できませんでした。</string>
   <string name="page_protected_autoconfirmed">このページは半保護されています。</string>
@@ -271,4 +274,11 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="captcha_image">CAPTCHA画像</string>
   <string name="gallery_fair_use_license">フェアユース</string>
   <string name="gallery_uploader_unknown">不明なアップローダー</string>
+  <string name="edit_save_unknown_error">編集内容を保存できませんでした: %s</string>
+  <string name="menu_show_tabs">タブを表示</string>
+  <string name="menu_new_tab">新規タブ</string>
+  <string name="button_close_tab">タブを閉じる</string>
+  <string name="menu_open_link">リンクを開く</string>
+  <string name="menu_open_in_new_tab">新しいタブで開く</string>
+  <string name="menu_save_page_popup">後で保存</string>
 </resources>

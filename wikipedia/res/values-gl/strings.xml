@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Recargando a páxina gardada…</string>
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="toast_saved_page_deleted">Páxina(s) gardada(s) eliminada(s)</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Procurar</string>
+  <string name="saved_pages_search_list_hint">Procurar páxinas gardadas</string>
   <string name="saved_pages_search_empty_message">Non se atopou ningunha páxina que coincida coa túa consulta.</string>
   <string name="nav_item_nearby">Preto</string>
   <string name="menu_update_nearby">Actualizar preto</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recompile información acerca de como utiliza a aplicación para facela mellor</string>
   <string name="editing_error_spamblacklist">Detectáronse ligazóns a dominios bloqueados (%s). Elimíneas e inténteo de novo.</string>
-  <string name="history_search_list_hint" fuzzy="true">Procurar</string>
+  <string name="history_search_list_hint">Historial de procuras</string>
   <string name="history_search_empty_message">Non se atopou ningunha páxina que coincida coa súa consulta.</string>
   <string name="error_can_not_process_link">Non foi posible mostrar esta ligazón</string>
   <string name="page_protected_autoconfirmed">Esta páxina está semiprotexida.</string>
@@ -273,4 +273,10 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Uso lexítimo</string>
   <string name="gallery_uploader_unknown">Autor descoñecido</string>
   <string name="edit_save_unknown_error">Non se puido gardar a súa edición: %s</string>
+  <string name="menu_show_tabs">Amosar lapelas</string>
+  <string name="menu_new_tab">Nova lapela</string>
+  <string name="button_close_tab">Pechar lapela</string>
+  <string name="menu_open_link">Abrir ligazón</string>
+  <string name="menu_open_in_new_tab">Abrir a ligazón nunha nova lapela</string>
+  <string name="menu_save_page_popup">Gardar para máis tarde</string>
 </resources>

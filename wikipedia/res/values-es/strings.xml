@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Actualizando la página guardada…</string>
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Buscar</string>
+  <string name="saved_pages_search_list_hint">Buscar en páginas guardadas</string>
   <string name="saved_pages_search_empty_message">No se encontraron páginas que coincidan con tu consulta.</string>
   <string name="nav_item_nearby">Cercanos</string>
   <string name="menu_update_nearby">Actualizar cercanos</string>
@@ -155,7 +155,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
   <string name="editing_error_spamblacklist">Enlaces a dominios bloqueados (%s) detectados. Por favor elimínelos y vuelva a intentarlo.</string>
-  <string name="history_search_list_hint" fuzzy="true">Buscar</string>
+  <string name="history_search_list_hint">Buscar en el historial</string>
   <string name="history_search_empty_message">No se encontraron páginas que coincidan con tu consulta.</string>
   <string name="error_can_not_process_link">No se puede mostrar este enlace</string>
   <string name="page_protected_autoconfirmed">Esta página está semiprotegida.</string>
@@ -272,4 +272,10 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="gallery_fair_use_license">Uso legítimo</string>
   <string name="gallery_uploader_unknown">Cargador desconocido</string>
   <string name="edit_save_unknown_error">No se pudo guardar tu edición: %s</string>
+  <string name="menu_show_tabs">Mostrar pestañas</string>
+  <string name="menu_new_tab">Pestaña nueva</string>
+  <string name="button_close_tab">Cerrar pestaña</string>
+  <string name="menu_open_link">Abrir enlace</string>
+  <string name="menu_open_in_new_tab">Abrir en una pestaña nueva</string>
+  <string name="menu_save_page_popup">Guardar para después</string>
 </resources>

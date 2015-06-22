@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">저장된 문서를 새로 고치는 중…</string>
   <string name="delete_selected_saved_pages">삭제</string>
   <string name="toast_saved_page_deleted">저장된 문서가 삭제되었습니다</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">검색</string>
+  <string name="saved_pages_search_list_hint">저장된 문서 검색</string>
   <string name="saved_pages_search_empty_message">검색어와 일치하는 문서를 찾을 수 없습니다.</string>
   <string name="nav_item_nearby">근처</string>
   <string name="menu_update_nearby">근처 업데이트</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">사용 보고서 보내기</string>
   <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다</string>
   <string name="editing_error_spamblacklist">차단된 도메인 (%s)으로의 링크가 감지되었습니다. 그들을 제거하고 나서 다시 시도하세요.</string>
-  <string name="history_search_list_hint" fuzzy="true">검색</string>
+  <string name="history_search_list_hint">검색 기록</string>
   <string name="history_search_empty_message">검색어와 일치하는 문서를 찾을 수 없습니다.</string>
   <string name="error_can_not_process_link">이 링크를 보여줄 수 없습니다</string>
   <string name="page_protected_autoconfirmed">이 문서는 준보호되어 있습니다.</string>
@@ -270,4 +270,9 @@
   <string name="gallery_fair_use_license">공정 이용</string>
   <string name="gallery_uploader_unknown">업로더 모름</string>
   <string name="edit_save_unknown_error">%s 오류로 인해 편집을 저장하지 못했습니다</string>
+  <string name="menu_show_tabs">탭 보기</string>
+  <string name="menu_new_tab">새 탭</string>
+  <string name="button_close_tab">탭 닫기</string>
+  <string name="menu_open_link">링크 열기</string>
+  <string name="menu_open_in_new_tab">새 탭에 링크 열기</string>
 </resources>

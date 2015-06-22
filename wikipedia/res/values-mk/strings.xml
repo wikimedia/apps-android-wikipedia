@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Ја превчитувам зачуваната страница…</string>
   <string name="delete_selected_saved_pages">Избриши</string>
   <string name="toast_saved_page_deleted">Зачуваните страници се избришани</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Пребарај</string>
+  <string name="saved_pages_search_list_hint">Пребарај по зачуваните страници</string>
   <string name="saved_pages_search_empty_message">Не пронајдов страници што одговараат на бараното.</string>
   <string name="nav_item_nearby">Во близина</string>
   <string name="menu_update_nearby">Поднови „во близина“</string>
@@ -156,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите извршникот, за да може да го подобри</string>
   <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
-  <string name="history_search_list_hint" fuzzy="true">Пребарај</string>
+  <string name="history_search_list_hint">Историја на пребарувањето</string>
   <string name="history_search_empty_message">Не пронајдов страници што одговараат на бараното.</string>
   <string name="error_can_not_process_link">Не можам да ја прикажам оваа врска</string>
   <string name="page_protected_autoconfirmed">Оваа страница е полузаштитена.</string>
@@ -273,4 +273,10 @@
   <string name="gallery_fair_use_license">Праведна употреба</string>
   <string name="gallery_uploader_unknown">непознат подигач</string>
   <string name="edit_save_unknown_error">Не можев да го зачувам уредувањето: %s</string>
+  <string name="menu_show_tabs">Прикажи јазичиња</string>
+  <string name="menu_new_tab">Ново јазиче</string>
+  <string name="button_close_tab">Затвори јазиче</string>
+  <string name="menu_open_link">Отвори врска</string>
+  <string name="menu_open_in_new_tab">Отвори ново јазиче</string>
+  <string name="menu_save_page_popup">Зачувај за подоцна</string>
 </resources>

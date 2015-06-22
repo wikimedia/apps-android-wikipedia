@@ -228,4 +228,7 @@
   <string name="captcha_image">Obrazek captcha</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="edit_save_unknown_error">Nie udało się zapisać twojej edycji: %s</string>
+  <string name="menu_show_tabs">Pokaż karty</string>
+  <string name="button_close_tab">Zamknij kartę</string>
+  <string name="menu_open_in_new_tab">Otwórz w nowej karcie</string>
 </resources>

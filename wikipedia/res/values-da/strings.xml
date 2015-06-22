@@ -12,6 +12,8 @@
   <string name="nav_item_history">Historik</string>
   <string name="error_network_error">Der er ingen netværksforbindelse :(</string>
   <string name="search_network_error">Netværksfejl. Tryk for at prøve igen.</string>
+  <string name="generic_page_error">Der opstod et problem under behandlingen af din forespørgsel.</string>
+  <string name="status_code_unavailable">Serverens statuskode er ikke tilgængelig.</string>
   <string name="page_error_retry">Prøv igen</string>
   <string name="menu_clear_all_history">Ryd historik</string>
   <string name="menu_clear_all_saved_pages">Ryd gemte sider</string>
@@ -32,7 +34,7 @@
   <string name="toast_refresh_saved_page">Opdaterer gemt side…</string>
   <string name="delete_selected_saved_pages">Slet</string>
   <string name="toast_saved_page_deleted">Gemt(e) side(r) slettet</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Søg</string>
+  <string name="saved_pages_search_list_hint">Søg i gemte sider</string>
   <string name="saved_pages_search_empty_message">Ingen sider fundet der matcher din forespørgsel.</string>
   <string name="nav_item_nearby">I nærheden</string>
   <string name="menu_update_nearby">Opdater \"i nærheden\"</string>
@@ -54,6 +56,8 @@
   <string name="edit_save_action_license_anon">Ved at gemme, accepterer du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.da\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
   <string name="preference_title_language">Wikipediasprog</string>
   <string name="preference_languages_filter_hint">Søg</string>
+  <string name="preference_system_language_toggle">Anvend systemsproget</string>
+  <string name="preference_system_language_summary">Systemsprog</string>
   <string name="langlinks_filter_hint">Søg</string>
   <string name="menu_other_languages">Læs på andre sprog</string>
   <string name="langlinks_error_retry">Prøv igen</string>
@@ -86,6 +90,7 @@
   <string name="login_in_progress_dialog_message">Logger dig på…</string>
   <string name="login_error_wrong_password">Forkert adgangskode.</string>
   <string name="login_error_wrong_username">Forkert brugernavn</string>
+  <string name="login_error_illegal">Ugyldigt brugernavn</string>
   <string name="login_success_toast">Du er nu logget på!</string>
   <string name="login_error_blocked">Denne bruger er blevet blokeret</string>
   <string name="login_error_throttled">For mange forsøg med at logge på. Vent et par minutter og prøv igen.</string>
@@ -96,7 +101,7 @@
   <string name="preference_summary_notloggedin">Ikke logget på.</string>
   <string name="toast_logout_complete">Logget af</string>
   <string name="saved_pages_empty_title">Ingen gemte sider her!</string>
-  <string name="saved_pages_empty_message">Gemte sider er temmelig praktiske. Tænk på dem som bogmærker, som du kan læse, selv når du er offline.</string>
+  <string name="saved_pages_empty_message">Gemte sider er ret seje. Tænk på dem som bogmærker, som du kan læse, selv når du er offline.</string>
   <string name="history_empty_title">Ingen nye sider her.</string>
   <string name="history_empty_message">Du har sikkert slettet dem alle. Næste gang du går til en side, kan du komme tilbage til den her.</string>
   <string name="delete_selected_history">Slet</string>
@@ -127,6 +132,7 @@
   <string name="create_account_next">Næste</string>
   <string name="create_account_button">Opret konto</string>
   <string name="preferences_general_heading">Generelt</string>
+  <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Wikipedia Zero er slukket</string>
   <string name="zero_charged_verbiage_extended">Nedhentning af andre artikler kan medføre datagebyrer.</string>
   <string name="zero_search_hint">Søg i Wikipedia Zero</string>
@@ -150,7 +156,7 @@
   <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre app\'en bedre.</string>
   <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
-  <string name="history_search_list_hint" fuzzy="true">Søg</string>
+  <string name="history_search_list_hint">Søgehistorie</string>
   <string name="history_search_empty_message">Ingen sider fundet der matcher din forespørgsel.</string>
   <string name="error_can_not_process_link">Kunne ikke vise dette link</string>
   <string name="page_protected_autoconfirmed">Denne side er delvis beskyttet.</string>
@@ -216,24 +222,36 @@
   <string name="table_infobox">Hurtige fakta</string>
   <string name="table_other">Flere oplysninger</string>
   <string name="table_close">Luk</string>
-  <string name="app_store_description" fuzzy="true">Officiel Wikipedia App til Android. Wikipedia er en fri encyklopædi der indeholder mere end 32 millioner artikler på 280 sprog, og er den mest omfattende og udbredte referenceværk mennesker nogensinde har samlet. App\'en er blevet skrevet om fra bunden og er bedre end nogensinde før.
+  <string name="widget_name_featured_page">Udvalgt Wikipedia-side</string>
+  <string name="widget_title_featured_page">Dagens udvalgte side:</string>
+  <string name="widget_name_search">Wikipedia-søgning</string>
+  <string name="app_store_description">Officiel Wikipedia App til Android. Wikipedia er en fri encyklopædi der indeholder mere end 32 millioner artikler på 280 sprog, og er den mest omfattende og udbredte referenceværk mennesker nogensinde har samlet.
 
 Funktioner:
-   -Hastighed: Vores nye, native app gør at du kan gennemse og redigere Wikipedia hurtigere end nogensinde før.
-   -Redigering: Du kan redigere Wikipedia! Logget på eller logget af, vi takker for alle dine bidrag.
-   -Seneste sider: Vi giver dig din læsehistorik, så du kan trykke på så mange links som du ønsker uden nogensinde at fare vild.
-   -Gemte sider: Du kan gemme udvalgte sider til offlinelæsning og gennemse dem, selvom du ikke har en dataforbindelse.
-   -Del: Brug dine eksisterende sociale netværks apps til at dele summen af al menneskelig viden.
-   -Sprog support: Med app\'en kan du problemfrit skifte til at læse Wikipedia skrevet på ethvert sprog.
-   -Wikipedia Zero: Data gebyrer frafaldes for deltagende mobiloperatører.
+- Indledningsbilleder: oplev Wikipedia som aldrig før, med et fremtrædende indholdsrelevant billede øverst i artiklerne
+- Billedegalleri: tryk på et billede for fuldskærmsvisning i høj opløsning, med muligheder for at swipe til højre/venstre for at gennemse flere billeder
+- Beskrivelser fra Wikidata: når du søger, viser hvert søgeresultat nu en kort beskrivelse som hjælper med at kontekstualisere resultatet. Disse beskrivelser vises også i andre dele af appen, såsom i \"I nærheden\"-funktionen
+- Artikelforslag: rul ned til bunden af en artikel for at se forslag til hvad du kan læse efterfølgende
+- Gemte sider: gem udvalgte sider til offlinelæsning og gennemse dem, selvom du ikke har en dataforbindelse
+- I nærheden: lær mere om hvad der findes omkring dig ved at få vist links til artikler om ting nær din aktuelle placering
+- Sprogunderstøttelse: skift problemfrit mellem Wikipedia-artikler skrevet på ethvert sprog
+- Indholdsfortegnelse: swipe til venstre for at se indholdsfortegnelsen
+- Wikipedia Zero: data gebyrer frafaldes for deltagende mobiloperatører
 
-Kildekoden er fuldt ud open source. Hvis du har erfaring med Java og Android SDK, så kom og fork os! https://github.com/Wikimedia/apps-Android-Wikipedia</string>
+Send os dit feedback om appen! I menuen, tryk \"Mere\", derefter \"Om Wikipedia-appen\", derefter \"Send tilbagemelding om app\".
+
+Kildekoden er 100% open source. Hvis du har erfaring med Java og Android SDK ser vi frem til dine bidrag! https://github.com/wikimedia/apps-android-wikipedia
+
+Privatlivspolitik: http://wikimediafoundation.org/wiki/Privacy_policy
+
+Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Ny alpha opdatering tilgængelig</string>
   <string name="alpha_update_notification_text">Tryk for at hente ned</string>
   <string name="dialog_close_description">Luk</string>
   <string name="preference_title_show_images">Vis billeder</string>
   <string name="preference_summary_show_images">Aktivere eller deaktivere indlæsning af billeder på sider. Fravælg denne indstilling, hvis din internetforbindelse er langsom, eller hvis dine dataplan er begrænset.</string>
   <string name="read_more_section">Læs mere</string>
+  <string name="read_next_section">Læs efterfølgende</string>
   <string name="menu_gallery_visit_page">Gå til filside</string>
   <string name="gallery_error_draw_failed">Kunne ikke tegne billede.</string>
   <string name="license_title">Licenstekst for biblioteket %s</string>
@@ -241,10 +259,24 @@ Kildekoden er fuldt ud open source. Hvis du har erfaring med Java og Android SDK
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
   <string name="gallery_menu_save">Gem til enhed</string>
   <string name="gallery_save_error">Kunne ikke gemme billedet: %s</string>
+  <string name="gallery_save_error_mediastore">Importering af billede til mediesamlingen mislykkedes.</string>
   <string name="gallery_save_success">Billedet er gemt med succes.</string>
   <string name="gallery_error_video_failed">Kan ikke afspille video.</string>
+  <string name="err_cannot_save_file">Kan ikke gemme filen</string>
+  <string name="snippet_share_intro">«%1$s» på @Wikipedia: %2$s</string>
   <string name="expand_refs">Tryk for at udvide</string>
+  <string name="share_snippet_button">Del som billede</string>
   <string name="share_normal_button">Del som tekst</string>
   <string name="snippet_share_preview_image_desc">Forhåndsvis billede</string>
   <string name="cc_logo">Creative Commons-licens</string>
+  <string name="captcha_image">Captcha-billede</string>
+  <string name="gallery_fair_use_license">Fair use</string>
+  <string name="gallery_uploader_unknown">Uploader ukendt</string>
+  <string name="edit_save_unknown_error">Kunne ikke gemme din redigering: %s</string>
+  <string name="menu_show_tabs">Vis faner</string>
+  <string name="menu_new_tab">Ny fane</string>
+  <string name="button_close_tab">Luk fane</string>
+  <string name="menu_open_link">Åbn link</string>
+  <string name="menu_open_in_new_tab">Åbn i ny fane</string>
+  <string name="menu_save_page_popup">Gem til senere</string>
 </resources>
