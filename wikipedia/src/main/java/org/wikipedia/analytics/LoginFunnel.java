@@ -16,7 +16,6 @@ public class LoginFunnel extends Funnel {
     public static final String SOURCE_NAV = "navigation";
     public static final String SOURCE_EDIT = "edit";
     public static final String SOURCE_BLOCKED = "blocked";
-    public static final String SOURCE_ONBOARDING = "onboarding";
 
     private final String loginSessionToken;
 

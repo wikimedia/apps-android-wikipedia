@@ -155,9 +155,6 @@ See also:
   <string name="delete_selected_history">Menu item text for deleting the currently selected history entries
 {{Identical|Delete}}</string>
   <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags, if this fits the Wikipedia logo in your language.</string>
-  <string name="wp_tag_line">The Wikipedia slogan. The second line of https://commons.wikimedia.org/wiki/Wikimedia#mediaviewer/File:Wikipedia-logo-en.png. You may be able to find one under https://commons.wikimedia.org/wiki/Wikipedia/2.0.</string>
-  <string name="skip">A button or text link to trigger skipping something, like closing the current screen without doing anything.
-{{Identical|Skip}}</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
   <string name="create_account_password_hint">{{Identical|Password}}</string>
   <string name="login_create_account_link">Link text on Login screen to go to Create Account screen.

@@ -114,10 +114,6 @@
                   android:label="@string/activity_my_contributions_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                   android:exported="false"
-            />
-        <activity android:name=".onboarding.OnboardingActivity"
-                  android:theme="@style/NoTitle"
-                  android:exported="false"
                 />
         <activity android:name=".page.gallery.GalleryActivity"
                   android:theme="@style/NoTitle"

@@ -14,7 +14,6 @@
         <!-- big images we don't want to duplicate multiple times: -->
         <ignore path="res/drawable/lead_default.png" />
         <ignore path="res/drawable/lead_default_dark.png" />
-        <ignore path="res/drawable/wp_globe.png" />
         <ignore path="res/drawable/wp_wordmark.png" />
     </issue>
 </lint>

@@ -31,17 +31,6 @@
     <dimen name="drawer_drag_margin">16dp</dimen>
 
     <!--
-        Onboarding screen
-    -->
-    <dimen name="onboarding_wp_globe">144dp</dimen>
-    <!--
-        The next two are text sizes but since they need to correspond
-        to the logo image the dimensions are given in dp instead of sp.
-    -->
-    <dimen name="onboarding_wp_logo_text" tools:ignore="SpUsage">26dp</dimen>
-    <dimen name="onboarding_wp_logo_subtext" tools:ignore="SpUsage">13dp</dimen>
-
-    <!--
         ToC Intro
     -->
     <dimen name="toc_intro_image_size">48dp</dimen>

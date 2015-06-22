@@ -203,14 +203,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_exp_page_load, enabled);
     }
 
-    public static boolean isLoginOnboardingEnabled() {
-        return !getBoolean(R.string.preference_key_onboard, false);
-    }
-
-    public static void setLoginOnboardingEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_onboard, !enabled);
-    }
-
     public static boolean isShowZeroInterstitialEnabled() {
         return getBoolean(R.string.preference_key_zero_interstitial, true);
     }
