@@ -1,6 +1,7 @@
 package org.wikipedia;
 
 import android.net.Uri;
+import android.support.annotation.VisibleForTesting;
 import android.util.Log;
 
 import org.mediawiki.api.json.Api;
@@ -9,6 +10,9 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.NetworkUtils;
+import org.wikipedia.util.log.L;
+
+import java.util.concurrent.Executor;
 
 import java.util.Map;
 
@@ -20,6 +24,12 @@ public abstract class ApiTask<T> extends SaneAsyncTask<T> {
 
     public ApiTask(int concurrency, Api api) {
         super(concurrency);
+        this.api = api;
+    }
+
+    @VisibleForTesting
+    public ApiTask(Executor executor, Api api) {
+        super(executor);
         this.api = api;
     }
 
@@ -46,6 +56,7 @@ public abstract class ApiTask<T> extends SaneAsyncTask<T> {
      */
     @Override
     public void onCatch(Throwable caught) {
+        L.d(caught);
         if (Utils.throwableContainsSpecificType(caught, SSLException.class)
                 && WikipediaApp.getInstance().incSslFailCount() < 2) {
             WikipediaApp.getInstance().setSslFallback(true);

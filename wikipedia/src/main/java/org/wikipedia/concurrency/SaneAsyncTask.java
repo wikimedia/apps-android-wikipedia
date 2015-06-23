@@ -1,5 +1,7 @@
 package org.wikipedia.concurrency;
 
+import org.wikipedia.util.log.L;
+
 import java.util.concurrent.Executor;
 
 public abstract class SaneAsyncTask<T> {
@@ -93,6 +95,7 @@ public abstract class SaneAsyncTask<T> {
             try {
                 return performTask();
             } catch (Throwable t) {
+                L.d(t);
                 thrown = t;
                 return null;
             }

@@ -1,33 +1,43 @@
 package org.wikipedia.zero;
 
-import android.content.Context;
+import android.support.annotation.VisibleForTesting;
 
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
-import org.wikipedia.WikipediaApp;
+
+import java.util.concurrent.Executor;
 
 public class WikipediaZeroTask extends ApiTask<ZeroMessage> {
+    private String userAgent;
 
-    private Context ctx;
-
-    public WikipediaZeroTask(Api api, Context context) {
+    // TODO: should user agent be exposed from Api?
+    public WikipediaZeroTask(Api api, String userAgent) {
         super(SINGLE_THREAD, api);
-        this.ctx = context;
+        init(userAgent);
+    }
+
+    @VisibleForTesting
+    public WikipediaZeroTask(Executor executor, Api api, String userAgent) {
+        super(executor, api);
+        init(userAgent);
+    }
+
+    private void init(String userAgent) {
+        this.userAgent = userAgent;
     }
 
     @Override
     public RequestBuilder buildRequest(Api api) {
         return api.action("zeroconfig")
                 .param("type", "message")
-                .param("agent", ((WikipediaApp)ctx.getApplicationContext()).getUserAgent());
+                .param("agent", userAgent);
     }
 
     @Override
     public ZeroMessage processResult(ApiResult result) throws Throwable {
-
         try {
             JSONObject results = result.asObject();
             String msg = results.getString("message");
@@ -38,6 +48,4 @@ public class WikipediaZeroTask extends ApiTask<ZeroMessage> {
             return null;
         }
     }
-
-
 }
