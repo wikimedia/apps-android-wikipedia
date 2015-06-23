@@ -369,6 +369,10 @@ public final class Utils {
         }
     }
 
+    public static void showPrivacyPolicy(Context context) {
+        visitInExternalBrowser(context, Uri.parse(context.getString(R.string.privacy_policy_url)));
+    }
+
     /**
      * Utility method to detect whether an Email app is installed,
      * for conditionally enabling/disabling email links.

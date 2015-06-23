@@ -46,8 +46,22 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:padding="8dp"
                 android:text="@string/login_create_account_link"
-                style="?android:textAppearanceSmall"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="?attr/link_color"
                 />
+
+        <TextView
+            android:id="@+id/privacy_policy_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:padding="8dp"
+            android:text="@string/privacy_policy_description"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="?attr/link_color"
+            android:clickable="true"
+            android:onClick="showPrivacyPolicy"
+            />
+
     </LinearLayout>
 </ScrollView>

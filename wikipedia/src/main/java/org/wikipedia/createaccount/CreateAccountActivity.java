@@ -209,6 +209,10 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         outState.putParcelable("result", createAccountResult);
     }
 
+    public void showPrivacyPolicy(View v) {
+        Utils.showPrivacyPolicy(this);
+    }
+
     public void handleError(CreateAccountResult result) {
         String errorCode = result.getResult();
         switch (errorCode) {

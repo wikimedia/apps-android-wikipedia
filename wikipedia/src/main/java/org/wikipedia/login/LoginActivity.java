@@ -103,6 +103,10 @@ public class LoginActivity extends ThemedActionBarActivity {
         setResult(RESULT_LOGIN_FAIL);
     }
 
+    public void showPrivacyPolicy(View v) {
+        Utils.showPrivacyPolicy(this);
+    }
+
     private void logLoginStart() {
         if (loginSource.equals(LoginFunnel.SOURCE_EDIT)) {
             funnel.logStart(
