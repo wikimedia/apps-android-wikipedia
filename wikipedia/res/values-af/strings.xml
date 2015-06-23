@@ -158,7 +158,7 @@
   <string name="error_can_not_process_link">Kon nie hierdie skakel vertoon nie</string>
   <string name="page_protected_autoconfirmed">Hierdie blad is semi-beskerm.</string>
   <string name="page_protected_sysop">Hierdie blad is volledig beskerm.</string>
-  <string name="page_protected_other">Hierdie blad is beskerm tot die volgende vlakke: $1</string>
+  <string name="page_protected_other">Hierdie blad is beskerm tot die volgende vlakke: %s</string>
   <string name="page_protected_can_not_edit">U het nie die regte om hierdie blad te wysig nie</string>
   <string name="page_protected_can_not_edit_title">Hierdie blad is beskerm</string>
   <string name="more_item_preferences">Meer</string>
