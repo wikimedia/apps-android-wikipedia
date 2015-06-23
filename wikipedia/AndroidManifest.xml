@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.wikipedia"
     android:installLocation="auto">
     <!--
@@ -186,6 +187,28 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_featured_page" />
+        </receiver>
+
+        <!--
+        This is a receiver that receives an intent from the Play Store app upon first launch
+        after the app is installed, if the original link that led the user to the Play Store
+        for installing the app contained a "referrer" query parameter. This is why the receiver
+        needs to be exported.
+        Because the receiver is exported, it usually requires a permission associated with it,
+        to filter out the kinds of apps that can send us this intent. Otherwise, a Lint warning
+        shows up, notifying that a receiver is exported without a permission. However, since the
+        Play Store app is literally the only app that is expected to send this intent, we can
+        safely ignore this warning. Technically we could specify a permission such as
+        permission.INTERNET (which we assume the Play Store app has), but then we wouldn't be able
+        to test this intent using adb (am broadcast).
+        -->
+        <receiver
+            android:name="org.wikipedia.analytics.InstallReferrerReceiver"
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
         </receiver>
 
     </application>
