@@ -3,13 +3,16 @@ package org.wikipedia.settings;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.StringUtil;
+
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.v7.internal.view.ContextThemeWrapper;
 import android.view.MenuItem;
 
 /**
@@ -19,12 +22,38 @@ import android.view.MenuItem;
  * ActionBarActivity, and uses a PreferenceFragment, all of which are necessary for all the
  * components to render properly (specifically checkboxes).
  */
-public class SettingsActivityGB extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class SettingsActivityGB extends PreferenceActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         setTheme(WikipediaApp.getInstance().getCurrentTheme().getResourceId());
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
+
+        final Context context = this;
+        updateLanguagePrefSummary();
+
+        Preference languagePref = findPreference(getString(R.string.preference_key_language));
+        languagePref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(
+                        new ContextThemeWrapper(context,
+                            (WikipediaApp.getInstance().isCurrentThemeLight() ?  R.style.NoTitle : R.style.NoTitleWikiDark)));
+                langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        if (!findPreference(getString(R.string.preference_key_language)).getSummary()
+                                .equals(WikipediaApp.getInstance().getAppLanguageLocalizedName())) {
+                            findPreference(getString(R.string.preference_key_language)).setSummary(
+                                    StringUtil.emptyIfNull(WikipediaApp.getInstance().getAppLanguageLocalizedName()));
+                            setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED);
+                        }
+                    }
+                });
+                langPrefDialog.show();
+                return true;
+            }
+        });
 
         Preference logoutPref = findPreference(getString(R.string.preference_key_logout));
         if (!WikipediaApp.getInstance().getUserInfoStorage().isLoggedIn()) {
@@ -73,25 +102,8 @@ public class SettingsActivityGB extends PreferenceActivity implements SharedPref
         });
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        String languageKey = Prefs.getAppLanguageCodeKey();
-        if (key.equals(languageKey)) {
-            LanguagePreference pref = (LanguagePreference) findPreference(languageKey);
-            pref.setSummary(WikipediaApp.getInstance().getAppLanguageLocalizedName());
-            setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED);
-        }
+    private void updateLanguagePrefSummary() {
+        Preference languagePref = findPreference(getString(R.string.preference_key_language));
+        languagePref.setSummary(WikipediaApp.getInstance().getAppLanguageLocalizedName());
     }
 }

@@ -10,6 +10,8 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.settings.LanguagePreferenceDialog;
+
 import com.squareup.otto.Subscribe;
 
 import android.app.AlertDialog;
@@ -25,6 +27,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -40,6 +43,8 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     private SearchView searchView;
     private EditText searchEditText;
     private SearchFunnel funnel;
+    private Button langButton;
+
     public SearchFunnel getFunnel() {
         return funnel;
     }
@@ -278,9 +283,33 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     }
 
     private void setSearchViewEnabled(boolean enabled) {
+        LinearLayout enabledSearchBar = (LinearLayout) getActivity().findViewById(R.id.search_bar_enabled);
         View searchButton = getActivity().findViewById(R.id.main_search_bar);
+        langButton = (Button) getActivity().findViewById(R.id.search_lang_button);
+
         if (enabled) {
-            // set up the SearchView...
+            // set up the language picker
+            langButton.setText(app.getAppOrSystemLanguageCode());
+            formatLangButtonText();
+            langButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getActivity());
+                    langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            langButton.setText(app.getAppOrSystemLanguageCode());
+                            formatLangButtonText();
+                            if (!TextUtils.isEmpty(lastSearchedText)) {
+                                startSearch(lastSearchedText, true);
+                            }
+                        }
+                    });
+                    langPrefDialog.show();
+                }
+            });
+
+            // set up the SearchView
             if (searchView == null) {
                 searchView = (SearchView)getActivity().findViewById(R.id.main_search_view);
                 searchView.setOnQueryTextListener(searchQueryListener);
@@ -323,9 +352,9 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                 }
             }
             searchButton.setVisibility(View.GONE);
-            searchView.setVisibility(View.VISIBLE);
+            enabledSearchBar.setVisibility(View.VISIBLE);
         } else {
-            searchView.setVisibility(View.GONE);
+            enabledSearchBar.setVisibility(View.GONE);
             searchButton.setVisibility(View.VISIBLE);
         }
     }
@@ -419,5 +448,24 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         public void onCatch(Throwable caught) {
             Log.w("SaveRecentSearchTask", "Caught " + caught.getMessage(), caught);
         }
+    }
+
+    private void formatLangButtonText() {
+        final int langCodeStandardLength = 3;
+        final int langButtonTextMaxLength = 7;
+
+        // These values represent scaled pixels (sp)
+        final int langButtonTextSizeSmaller = 10;
+        final int langButtonTextSizeLarger = 12;
+
+        String langCode = app.getAppOrSystemLanguageCode();
+        if (langCode.length() > langCodeStandardLength) {
+            langButton.setTextSize(langButtonTextSizeSmaller);
+            if (langCode.length() > langButtonTextMaxLength) {
+                langButton.setText(langCode.substring(0, langButtonTextMaxLength));
+            }
+            return;
+        }
+        langButton.setTextSize(langButtonTextSizeLarger);
     }
 }

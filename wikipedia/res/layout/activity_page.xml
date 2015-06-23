@@ -106,21 +106,40 @@
                                     android:shadowRadius="2"
                                     android:layout_gravity="center_vertical"/>
                             </LinearLayout>
-                            <org.wikipedia.views.CabSearchView
-                                android:id="@+id/main_search_view"
+                            <LinearLayout
+                                android:id="@+id/search_bar_enabled"
                                 android:layout_width="match_parent"
                                 android:layout_height="36dp"
+                                android:orientation="horizontal"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="8dp"
-                                android:layout_marginEnd="8dp"
-                                android:textSize="16sp"
-                                android:visibility="gone"
-                                android:focusable="true"
-                                android:inputType="text"
-                                android:imeOptions="actionGo|flagNoExtractUi"
+                                android:layout_marginLeft="4dp"
+                                android:layout_marginRight="4dp"
                                 style="@style/AppTheme.SearchViewStyle"
-                                app:cabEnabled="false"
-                                />
+                                android:visibility="gone">
+                                <org.wikipedia.views.CabSearchView
+                                    android:id="@+id/main_search_view"
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:textSize="16sp"
+                                    android:focusable="true"
+                                    android:inputType="text"
+                                    android:imeOptions="actionGo|flagNoExtractUi"
+                                    app:cabEnabled="false" />
+                                <Button
+                                    android:id="@+id/search_lang_button"
+                                    android:layout_width="36dp"
+                                    android:layout_height="36dp"
+                                    android:gravity="center"
+                                    android:background="@drawable/lang_button_shape"
+                                    style="@style/AppTheme.ActionModeStyle"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
                         </FrameLayout>
                     </android.support.v7.widget.Toolbar>
                     <ProgressBar

@@ -7,9 +7,9 @@ import org.wikipedia.R;
 import org.wikipedia.ThemedActionBarActivity;
 
 public class SettingsActivity extends ThemedActionBarActivity {
+    public static final int ACTIVITY_REQUEST_SHOW_SETTINGS = 1;
     public static final int ACTIVITY_RESULT_LANGUAGE_CHANGED = 1;
     public static final int ACTIVITY_RESULT_LOGOUT = 2;
-    public static final int ACTIVITY_REQUEST_SHOW_SETTINGS = 1;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

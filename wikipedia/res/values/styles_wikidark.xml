@@ -39,4 +39,8 @@
         <item name="android:listSelector">@drawable/selectable_item_background</item>
     </style>
 
+    <style name="NoTitleWikiDark" parent="@style/Theme.WikiDark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>

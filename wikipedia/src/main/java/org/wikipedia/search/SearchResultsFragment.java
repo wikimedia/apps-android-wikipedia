@@ -156,7 +156,7 @@ public class SearchResultsFragment extends Fragment {
      *              too often.  If the search is forced, the network request is sent immediately.
      */
     public void startSearch(String term, boolean force) {
-        if (currentSearchTerm.equals(term)) {
+        if (!force && currentSearchTerm.equals(term)) {
             return;
         }
 

@@ -62,7 +62,6 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-
         <activity android:name="org.acra.CrashReportDialog"
                   android:launchMode="singleInstance"
                   android:excludeFromRecents="true"

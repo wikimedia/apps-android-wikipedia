@@ -1,12 +1,12 @@
 package org.wikipedia.settings;
 
 import android.content.Context;
-import android.preference.DialogPreference;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatDialog;
 import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +25,10 @@ import java.util.List;
 
 import static org.wikipedia.util.StringUtil.emptyIfNull;
 
-public class LanguagePreference extends DialogPreference {
+public class LanguagePreferenceDialog extends AppCompatDialog {
     private static final float LIST_DISABLED_ALPHA = .5f;
     private static final float LIST_ENABLED_ALPHA = 1;
 
-    private SwitchCompat systemLanguageSwitch;
     private EditText languagesFilter;
     private ListView languagesList;
 
@@ -39,35 +38,26 @@ public class LanguagePreference extends DialogPreference {
     @NonNull
     private final WikipediaApp app;
 
-    public LanguagePreference(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        setPersistent(false);
-        setDialogLayoutResource(R.layout.dialog_preference_languages);
+    public LanguagePreferenceDialog(Context context) {
+        super(context);
+        setContentView(R.layout.dialog_preference_languages);
 
         app = WikipediaApp.getInstance();
-
         languageCodes = app.getAppMruLanguageCodes();
-
-        updateSummary();
-
-        hideDialogButtons();
     }
 
     @Override
-    protected void onBindView(@NonNull View view) {
-        super.onBindView(view);
-        TextView textView = (TextView) view.findViewById(android.R.id.title);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        TextView textView = (TextView) findViewById(android.R.id.title);
         if (textView != null) {
             textView.setSingleLine(false);
         }
-    }
 
-    @Override
-    protected void onBindDialogView(@NonNull View view) {
-        super.onBindDialogView(view);
-        systemLanguageSwitch = (SwitchCompat) view.findViewById(R.id.system_language_switch);
-        languagesList = (ListView) view.findViewById(R.id.preference_languages_list);
-        languagesFilter = (EditText) view.findViewById(R.id.preference_languages_filter);
+        SwitchCompat systemLanguageSwitch = (SwitchCompat) findViewById(R.id.system_language_switch);
+        languagesList = (ListView) findViewById(R.id.preference_languages_list);
+        languagesFilter = (EditText) findViewById(R.id.preference_languages_filter);
 
         systemLanguageSwitch.setChecked(app.isSystemLanguageEnabled());
         setSystemLanguageEnabled(app.isSystemLanguageEnabled());
@@ -75,8 +65,9 @@ public class LanguagePreference extends DialogPreference {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setSystemLanguageEnabled(isChecked);
+                app.resetSite();
                 if (isChecked) {
-                    closeDialog();
+                    dismiss();
                 }
             }
         });
@@ -85,10 +76,11 @@ public class LanguagePreference extends DialogPreference {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String lang = (String) languagesList.getAdapter().getItem(i);
-                app.setAppLanguageCode(lang);
-                app.setMruLanguageCode(lang);
-                updateSummary();
-                closeDialog();
+                if (!lang.equals(app.getAppOrSystemLanguageCode())) {
+                    app.setAppLanguageCode(lang);
+                    app.setMruLanguageCode(lang);
+                }
+                dismiss();
             }
         });
 
@@ -115,10 +107,6 @@ public class LanguagePreference extends DialogPreference {
         });
     }
 
-    private void updateSummary() {
-        setSummary(app.getAppLanguageLocalizedName());
-    }
-
     private void setSystemLanguageEnabled(boolean enabled) {
         languagesFilter.setEnabled(!enabled);
         languagesList.setEnabled(!enabled);
@@ -129,15 +117,6 @@ public class LanguagePreference extends DialogPreference {
             languagesList.clearChoices();
             app.setSystemLanguageEnabled();
         }
-    }
-
-    private void hideDialogButtons() {
-        setPositiveButtonText(null);
-        setNegativeButtonText(null);
-    }
-
-    private void closeDialog() {
-        getDialog().dismiss();
     }
 
     private static final class LanguagesAdapter extends BaseAdapter {

@@ -2,10 +2,10 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/preferences_general_heading">
-        <org.wikipedia.settings.LanguagePreference
+        <org.wikipedia.settings.PreferenceMultiLine
                 android:key="@string/preference_key_language"
-                android:title="@string/preference_title_language"
-                />
+                android:title="@string/preference_title_language">
+        </org.wikipedia.settings.PreferenceMultiLine>
         <org.wikipedia.settings.CheckBoxPreferenceMultiLine
             android:key="@string/preference_key_eventlogging_opt_in"
             android:defaultValue="true"
