@@ -76,10 +76,6 @@ public class AppLanguageState {
                 : AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE;
     }
 
-    public Locale getAppLocale() {
-        return isSystemLanguageEnabled() ? Locale.getDefault() : new Locale(getAppLanguageCode());
-    }
-
     /** Note: returned codes may include languages offered by articles but not the app. */
     @NonNull
     public List<String> getMruLanguageCodes() {

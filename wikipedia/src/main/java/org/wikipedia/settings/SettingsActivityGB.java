@@ -22,7 +22,7 @@ import android.view.MenuItem;
 public class SettingsActivityGB extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     public void onCreate(Bundle savedInstanceState) {
-        setTheme(WikipediaApp.getInstance().getCurrentTheme());
+        setTheme(WikipediaApp.getInstance().getCurrentTheme().getResourceId());
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
 

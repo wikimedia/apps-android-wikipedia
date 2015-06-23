@@ -115,7 +115,7 @@ public class CaptchaHandler {
 
                         // for our Dark theme, show a "negative image" of the captcha!
                         final int maxColorVal = 255;
-                        if (WikipediaApp.getInstance().getCurrentTheme() == WikipediaApp.THEME_DARK) {
+                        if (WikipediaApp.getInstance().isCurrentThemeDark()) {
                             float[] colorMatrixNegative = {
                                     -1.0f, 0, 0, 0, maxColorVal, //red
                                     0, -1.0f, 0, 0, maxColorVal, //green

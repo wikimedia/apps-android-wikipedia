@@ -66,35 +66,18 @@ public class ThemeChooserDialog extends BottomDialog {
             }
         });
 
+        ThemeOnClickListener themeOnClickListener = new ThemeOnClickListener();
         buttonThemeLight = (Button) getDialogLayout().findViewById(R.id.buttonColorsLight);
-        buttonThemeLight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Only change the theme to light mode and log change if user is not on light mode
-                if (app.getCurrentTheme() != WikipediaApp.THEME_LIGHT) {
-                    funnel.logThemeChange(app.getCurrentTheme(), WikipediaApp.THEME_LIGHT);
-                    app.setCurrentTheme(WikipediaApp.THEME_LIGHT);
-                }
-            }
-        });
+        buttonThemeLight.setOnClickListener(themeOnClickListener);
 
         buttonThemeDark = (Button) getDialogLayout().findViewById(R.id.buttonColorsDark);
-        buttonThemeDark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Only change the theme to dark mode and log change if user is not on dark mode
-                if (app.getCurrentTheme() != WikipediaApp.THEME_DARK) {
-                    funnel.logThemeChange(app.getCurrentTheme(), WikipediaApp.THEME_DARK);
-                    app.setCurrentTheme(WikipediaApp.THEME_DARK);
-                }
-            }
-        });
+        buttonThemeDark.setOnClickListener(themeOnClickListener);
 
         fontChangeProgressBar = (ProgressBar) getDialogLayout().findViewById(R.id.font_change_progress_bar);
 
         updateButtonState();
 
-        if (app.getReleaseType() == WikipediaApp.RELEASE_ALPHA) {
+        if (app.isPreBetaRelease()) {
             ExperimentalPageLoadChooser.initExperimentalPageLoadChooser(context, getDialogLayout());
         }
     }
@@ -138,8 +121,27 @@ public class ThemeChooserDialog extends BottomDialog {
         }
 
         if (ApiUtil.hasHoneyComb()) {
-            buttonThemeLight.setActivated(app.getCurrentTheme() == WikipediaApp.THEME_LIGHT);
-            buttonThemeDark.setActivated(app.getCurrentTheme() == WikipediaApp.THEME_DARK);
+            buttonThemeLight.setActivated(app.isCurrentThemeLight());
+            buttonThemeDark.setActivated(app.isCurrentThemeDark());
+        }
+    }
+
+    private class ThemeOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            Theme theme = getThemeChoiceForButton(view);
+            if (app.getCurrentTheme() != theme) {
+                funnel.logThemeChange(app.getCurrentTheme(), theme);
+                app.setCurrentTheme(theme);
+            }
+        }
+
+        private Theme getThemeChoiceForButton(View view) {
+            return isButtonForLightTheme(view) ? Theme.LIGHT : Theme.DARK;
+        }
+
+        private boolean isButtonForLightTheme(View view) {
+            return view == buttonThemeLight;
         }
     }
 }

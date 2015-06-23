@@ -4,6 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.theme.Theme;
 
 public class AppearanceChangeFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppAppearanceSettings";
@@ -43,23 +44,11 @@ public class AppearanceChangeFunnel extends Funnel {
         );
     }
 
-    private String getThemeName(int theme) {
-        switch (theme) {
-            case WikipediaApp.THEME_DARK:
-                return "dark";
-            case WikipediaApp.THEME_LIGHT:
-                return "light";
-            default:
-                throw new RuntimeException("Unknown theme encountered!");
-        }
-    }
-
-    public void logThemeChange(int currentTheme, int newTheme) {
+    public void logThemeChange(Theme currentTheme, Theme newTheme) {
         log(
                 "action", "themeChange",
-                "currentValue", getThemeName(currentTheme),
-                "newValue", getThemeName(newTheme)
+                "currentValue", currentTheme.getFunnelName(),
+                "newValue", newTheme.getFunnelName()
         );
     }
-
 }

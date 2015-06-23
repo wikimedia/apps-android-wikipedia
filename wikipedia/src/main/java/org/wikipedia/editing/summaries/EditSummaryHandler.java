@@ -37,7 +37,7 @@ public class EditSummaryHandler {
         });
 
         if (!ApiUtil.hasHoneyComb()
-            && WikipediaApp.getInstance().getCurrentTheme() == WikipediaApp.THEME_DARK) {
+            && WikipediaApp.getInstance().isCurrentThemeDark()) {
             // explicitly set text hint color
             summaryEdit.setHintTextColor(activity.getResources()
                 .getColor(Utils.getThemedAttributeId(activity, R.attr.edit_text_color)));

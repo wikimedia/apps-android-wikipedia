@@ -1,6 +1,6 @@
 package org.wikipedia.page.linkpreview;
 
-import org.wikipedia.WikipediaApp;
+import java.util.Random;
 
 public final class LinkPreviewVersion {
 
@@ -18,9 +18,16 @@ public final class LinkPreviewVersion {
     // 2: Link preview prototype B
     // Return results 0, 1, or 2.  For result of 3, also return 0 (no preview).
     // (For building one-off APKs for testing specific prototypes, hard-code version to 1 or 2.)
-    public static int getVersion(WikipediaApp app) {
-        int mod = app.getABTestingID() % LINK_PREVIEW_TOGGLE_WEIGHT;
-        return (mod > 2) ? 0 : mod;
+    public static int generateVersion() {
+        int number = new Random().nextInt(LINK_PREVIEW_TOGGLE_WEIGHT);
+        switch (number) {
+            case 0:
+            case 1:
+            case 2:
+                return number;
+            default:
+                return 0;
+        }
     }
 
     private LinkPreviewVersion() {

@@ -50,7 +50,8 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
                 .param("ppprop", "mainpage|disambiguation")
                 .param("wbptterms", "description") // only interested in Wikidata description
                 .param("generator", "search")
-                .param("gsrsearch", isMoreLikeEnabled() ? ("morelike:" + searchTerm) : searchTerm)
+                .param("gsrsearch", WikipediaApp.getInstance().isMoreLikeSearchEnabled()
+                        ? ("morelike:" + searchTerm) : searchTerm)
                 .param("gsrnamespace", "0")
                 .param("gsrwhat", "text")
                 .param("gsrinfo", "")
@@ -69,7 +70,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
         }
 
         // TODO: remove once A/B testing is finished.
-        L.d("morelike=" + isMoreLikeEnabled());
+        L.d("morelike=" + WikipediaApp.getInstance().isMoreLikeSearchEnabled());
 
         return req;
     }
@@ -149,11 +150,6 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
             pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl, description, properties));
         }
         return new SearchResults(pageTitles, nextContinueOffset, null);
-    }
-
-    // TODO: remove once A/B testing is finished.
-    public static boolean isMoreLikeEnabled() {
-        return (WikipediaApp.getInstance().getABTestingID() & 1) == 1;
     }
 
     public final class FTContinueOffset extends SearchResults.ContinueOffset {
