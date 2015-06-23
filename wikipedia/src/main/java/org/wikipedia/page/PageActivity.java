@@ -15,12 +15,10 @@ import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
-import org.wikipedia.onboarding.OnboardingActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.search.SearchBarHideHandler;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ApiUtil;
@@ -272,10 +270,6 @@ public class PageActivity extends ThemedActionBarActivity {
 
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(this).run();
-
-        if (showOnboarding()) {
-            startActivity(new Intent(this, OnboardingActivity.class));
-        }
     }
 
     private class MainDrawerToggle extends ActionBarDrawerToggle {
@@ -376,18 +370,6 @@ public class PageActivity extends ThemedActionBarActivity {
 
     public void showToolbar() {
         ViewAnimations.ensureTranslationY(toolbarContainer, 0);
-    }
-
-    /**
-     * @return true if
-     * (1:) the app was launched from the launcher (and not another app, like the browser) AND
-     * (2:) none of the onboarding screen buttons had been clicked AND
-     * (3:) the user is not logged in
-     */
-    private boolean showOnboarding() {
-        return (getIntent() == null || Intent.ACTION_MAIN.equals(getIntent().getAction()))
-                && Prefs.isLoginOnboardingEnabled()
-                && !app.getUserInfoStorage().isLoggedIn();
     }
 
     private void handleIntent(Intent intent) {
