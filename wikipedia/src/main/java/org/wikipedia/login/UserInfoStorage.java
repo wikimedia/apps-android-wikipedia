@@ -12,7 +12,7 @@ public class UserInfoStorage {
     public void setUser(User user) {
         Prefs.setLoginUsername(user.getUsername());
         Prefs.setLoginPassword(user.getPassword());
-        Prefs.setUserId(user.getUserID());
+        Prefs.setLoginUserId(user.getUserID());
     }
 
     public User getUser() {
@@ -32,7 +32,7 @@ public class UserInfoStorage {
     public void clearUser() {
         Prefs.removeLoginUsername();
         Prefs.removeLoginPassword();
-        Prefs.removeUserId();
+        Prefs.removeLoginUserId();
         currentUser = null;
     }
 

@@ -119,19 +119,6 @@ public final class Prefs {
         return contains(R.string.preference_key_link_preview_version);
     }
 
-    @Nullable
-    public static String getLoginUsername() {
-        return getString(R.string.preference_key_login_username, null);
-    }
-
-    public static void setLoginUsername(@Nullable String username) {
-        setString(R.string.preference_key_login_username, username);
-    }
-
-    public static boolean hasLoginUsername() {
-        return contains(R.string.preference_key_login_username);
-    }
-
     public static void removeLoginUsername() {
         remove(R.string.preference_key_login_username);
     }
@@ -157,12 +144,25 @@ public final class Prefs {
         return getInt(R.string.preference_key_login_user_id, 0);
     }
 
-    public static void setUserId(int id) {
+    public static void setLoginUserId(int id) {
         setInt(R.string.preference_key_login_user_id, id);
     }
 
-    public static void removeUserId() {
+    public static void removeLoginUserId() {
         remove(R.string.preference_key_login_user_id);
+    }
+
+    @Nullable
+    public static String getLoginUsername() {
+        return getString(R.string.preference_key_login_username, null);
+    }
+
+    public static void setLoginUsername(@Nullable String username) {
+        setString(R.string.preference_key_login_username, username);
+    }
+
+    public static boolean hasLoginUsername() {
+        return contains(R.string.preference_key_login_username);
     }
 
     public static boolean isMoreLikeSearchEnabled() {
