@@ -604,7 +604,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         MenuItem tabsMenu = menu.findItem(R.id.menu_show_tabs);
 
         //TODO: enable when ready for production!
-        if (app.isProdRelease()) {
+        if (app.isProdRelease() && tabsMenu != null) {
             // remove the tabs button in production, for now.
             menu.removeItem(tabsMenu.getItemId());
         }
