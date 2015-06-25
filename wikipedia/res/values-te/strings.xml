@@ -106,8 +106,6 @@
 మీరు ఒక పేజీకి వెళ్ళండి మీరు ఇక్కడ నుండి తిరిగి పొందవచ్చు.</string>
   <string name="delete_selected_history">తొలగించు</string>
   <string name="wp_stylized">&lt;big&gt;వి&lt;/big&gt;కీపీడి&lt;big&gt;యా&lt;/big&gt;</string>
-  <string name="wp_tag_line">ఉచిత సర్వశాస్త్ర విద్యావిజ్ఞాన గ్రంధము</string>
-  <string name="skip">దాటండి</string>
   <string name="create_account_username_hint">వాడుకరి పేరు</string>
   <string name="create_account_password_hint">సంకేతపదం</string>
   <string name="login_create_account_link">మీకు ఖాతా లేదా ? వికీపీడియాలో చేరండి</string>

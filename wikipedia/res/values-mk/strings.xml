@@ -106,8 +106,6 @@
   <string name="history_empty_message">Веројатно сите сте ги избришале. Кога во иднина ќе отидете на некоја страница, ќе можете оттука да се вратите на неа.</string>
   <string name="delete_selected_history">Избриши</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
-  <string name="wp_tag_line">Слободната енциклопедија</string>
-  <string name="skip">Прескокни</string>
   <string name="create_account_username_hint">Корисничко име</string>
   <string name="create_account_password_hint">Лозинка</string>
   <string name="login_create_account_link">Немате сметка? Приклучете се на Википедија</string>

@@ -107,8 +107,6 @@
   <string name="history_empty_message">कदाचित् तानि सर्वाणि भवता/भवत्या अपाकृतानि । द्वितीयवारं यदा भवान्/भवती तत् पृष्ठं गच्छति, तदा इतः तत् पुनः प्राप्स्यति ।</string>
   <string name="delete_selected_history">अपाक्रियताम्</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
-  <string name="wp_tag_line">स्वतन्त्रविश्वकोशः</string>
-  <string name="skip">प्लवनम्</string>
   <string name="create_account_username_hint">प्रयोक्तृनाम</string>
   <string name="create_account_password_hint">कूटशब्दः</string>
   <string name="login_create_account_link">लेखा नास्ति ? विकिपीडिया-जाले सदस्यता प्राप्यताम्</string>

@@ -94,8 +94,6 @@
   <string name="history_empty_message" fuzzy="true">Mae eich hanes yn wag.</string>
   <string name="delete_selected_history">Dileu</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;ICIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Y Gwyddoniadur Rhydd</string>
-  <string name="skip">Neidio</string>
   <string name="create_account_username_hint">Enw defnyddiwr</string>
   <string name="create_account_password_hint">Cyfrinair</string>
   <string name="login_create_account_link">Heb gyfrif? Ymunwch â Wicipedia</string>

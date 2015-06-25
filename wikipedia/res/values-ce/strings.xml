@@ -61,8 +61,6 @@
   <string name="history_empty_message" fuzzy="true">Хьа истори еса ю.</string>
   <string name="delete_selected_history">ДӀаяккха</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕД&lt;big&gt;И&lt;/big&gt;</string>
-  <string name="wp_tag_line">Маьрша энциклопеди</string>
-  <string name="skip">Ӏадйита</string>
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
   <string name="create_account_password_hint">Пароль</string>
   <string name="login_create_account_link">Кхолла декъашхочун дӀаяздар</string>

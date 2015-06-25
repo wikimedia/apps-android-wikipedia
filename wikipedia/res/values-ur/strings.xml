@@ -105,8 +105,6 @@
   <string name="history_empty_message">آپ نے شاید ساری ہسٹری حذف کر دی ہے، اگلی مرتبہ آپ کوئی صفحہ کھولیں گے تو یہاں سے آپ اس پر واپس جاسکتے ہیں</string>
   <string name="delete_selected_history">حذف کریں</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپیڈ&lt;big&gt;یا&lt;/big&gt;</string>
-  <string name="wp_tag_line">آزاد دائرۃ المعارف</string>
-  <string name="skip">منسوخ</string>
   <string name="create_account_username_hint">صارف نام</string>
   <string name="create_account_password_hint">پاسورڈ</string>
   <string name="login_create_account_link">کھاتہ نہیں ہے؟ ویکیپیڈیا پر کھاتہ بنائیں</string>

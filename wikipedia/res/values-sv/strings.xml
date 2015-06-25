@@ -106,8 +106,6 @@
   <string name="history_empty_message">Du raderade förmodligen samtliga. Nästa gång du går till en sida kan du komma tillbaka till den härifrån.</string>
   <string name="delete_selected_history">Radera</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Den fria encyklopedin</string>
-  <string name="skip">Hoppa över</string>
   <string name="create_account_username_hint">Användarnamn</string>
   <string name="create_account_password_hint">Lösenord</string>
   <string name="login_create_account_link">Har du inget konto? Skapa ett</string>

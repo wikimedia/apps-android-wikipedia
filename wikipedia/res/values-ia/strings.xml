@@ -91,8 +91,6 @@
   <string name="saved_pages_empty_message">Le paginas salvate es phantastic. Considera las qual preferite que tu pote leger etiam quando tu es disconnectite.</string>
   <string name="history_empty_title">Sin paginas recente ci!</string>
   <string name="delete_selected_history">Deler</string>
-  <string name="wp_tag_line">Le Encyclopedia Libere</string>
-  <string name="skip">Saltar</string>
   <string name="create_account_username_hint">Nomine del usator</string>
   <string name="create_account_password_hint">Contrasigno</string>
   <string name="login_create_account_link">Non ha tu un conto? Que tu inscribe te a Wikipedia</string>

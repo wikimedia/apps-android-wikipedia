@@ -100,8 +100,6 @@
   <string name="history_empty_message">सम्भवतया आप उन सभी को हटा चुके हो। अगली बार जब आप उस पृष्ठ पर जायें तब उसे पुनः प्राप्त किया जा सकता है।</string>
   <string name="delete_selected_history">हटायें</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
-  <string name="wp_tag_line">मुक्त ज्ञानकोश</string>
-  <string name="skip">छोड़ें</string>
   <string name="create_account_username_hint">सदस्य नाम</string>
   <string name="create_account_password_hint">कूटशब्द (पासवर्ड)</string>
   <string name="login_create_account_link">क्या अभी तक खाता नहीं है? विकिपीडिया में शामिल हों</string>

@@ -106,8 +106,6 @@
   <string name="history_empty_message">Anda mungkin menghapus mereka semua. Lain kali Anda pergi ke halaman Anda dapat kembali ke sana dari sini.</string>
   <string name="delete_selected_history">Hapus</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Ensiklopedia Bebas</string>
-  <string name="skip">Lewati</string>
   <string name="create_account_username_hint">Nama pengguna</string>
   <string name="create_account_password_hint">Kata sandi</string>
   <string name="login_create_account_link">Belum punya akun? Bergabung dengan Wikipedia</string>

@@ -106,8 +106,6 @@
   <string name="history_empty_message">Tre eble vi forigis ĉiujn. Venontfoje kiam vi vizitu paĝon, vi povas rehavigi ĝin el ĉi tie.</string>
   <string name="delete_selected_history">Forigi</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDI&lt;big&gt;O&lt;/big&gt;</string>
-  <string name="wp_tag_line">La libera enciklopedio</string>
-  <string name="skip">Preterigi</string>
   <string name="create_account_username_hint">Uzantnomo</string>
   <string name="create_account_password_hint">Pasvorto</string>
   <string name="login_create_account_link">Ĉu vi ne havas konton? Aliĝu al Vikipedio</string>

@@ -74,8 +74,6 @@
   <string name="history_empty_title">अलीकडील पाने येथे नाहीत!</string>
   <string name="history_empty_message" fuzzy="true">आपला इतिहास साफ आहे</string>
   <string name="delete_selected_history">वगळा</string>
-  <string name="wp_tag_line">मुक्त ज्ञानकोश</string>
-  <string name="skip">पुढे जा</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
   <string name="create_account_password_hint">परवलीचा शब्द</string>
   <string name="login_create_account_link">आपले खाते नाही? विकिपीडियावर खाते तयार करा</string>

@@ -95,8 +95,6 @@
   <string name="toast_logout_complete">Saioa itxita</string>
   <string name="delete_selected_history">Ezabatu</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Entziklopedia askea</string>
-  <string name="skip">Utzi</string>
   <string name="create_account_username_hint">Erabiltzaile izena</string>
   <string name="create_account_password_hint">Pasahitza</string>
   <string name="login_create_account_link">Konturik ez duzu? Etorri Wikipediara</string>

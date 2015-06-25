@@ -106,8 +106,6 @@
   <string name="history_empty_message">Вірогідно, Ви їх усі видалили. Наступного разу, коли відвідаєте сторінку, Ви зможете повернутися до неї звідси.</string>
   <string name="delete_selected_history">Видалити</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЕДІ&lt;big&gt;Я&lt;/big&gt;</string>
-  <string name="wp_tag_line">Вільна енциклопедія</string>
-  <string name="skip">Пропустити</string>
   <string name="create_account_username_hint">Ім\'я користувача</string>
   <string name="create_account_password_hint">Пароль</string>
   <string name="login_create_account_link">Немає облікового запису? Приєднайтесь до Вікіпедії</string>

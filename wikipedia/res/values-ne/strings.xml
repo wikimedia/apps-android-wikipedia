@@ -72,8 +72,6 @@
   <string name="saved_pages_empty_title">संग्रह गरिएका पृष्ठहरू नभएको !</string>
   <string name="history_empty_title">यहाँ भर्खरैको कुनै पृष्ठ नरहेको !</string>
   <string name="delete_selected_history">हटाउने</string>
-  <string name="wp_tag_line">मुफ्ल ज्ञानकोष</string>
-  <string name="skip">छोड्नुहोस्</string>
   <string name="create_account_username_hint">प्रयोगकर्ता नाम</string>
   <string name="create_account_password_hint">पासवर्ड</string>
   <string name="login_create_account_link">खाता छैन ? विकिपिडियामा संलग्न हुनुहोस्</string>

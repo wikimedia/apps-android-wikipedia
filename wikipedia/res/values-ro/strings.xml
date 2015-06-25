@@ -106,8 +106,6 @@
   <string name="history_empty_message">Probabil că le-ați șters pe toate. Data viitoare când doriți să accesați o pagină, puteți reveni la ea pornind de aici.</string>
   <string name="delete_selected_history">Șterge</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Enciclopedia liberă</string>
-  <string name="skip">Omite</string>
   <string name="create_account_username_hint">Nume de utilizator</string>
   <string name="create_account_password_hint">Parolă</string>
   <string name="login_create_account_link">Nu aveți un cont? Alăturați-vă Wikipediei</string>

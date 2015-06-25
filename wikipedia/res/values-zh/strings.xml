@@ -106,8 +106,6 @@
   <string name="history_empty_message">您可能清空了它们。下次您前往一个页面时，可从这里返回它。</string>
   <string name="delete_selected_history">删除</string>
   <string name="wp_stylized">&lt;big&gt;维&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
-  <string name="wp_tag_line">自由的百科全书</string>
-  <string name="skip">跳过</string>
   <string name="create_account_username_hint">用户名</string>
   <string name="create_account_password_hint">密码</string>
   <string name="login_create_account_link">没有账户？加入维基百科</string>

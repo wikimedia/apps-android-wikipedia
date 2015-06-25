@@ -91,8 +91,6 @@
   <string name="history_empty_title">קיין לעצטיקע בלעטער נישט דא.</string>
   <string name="delete_selected_history">אויסמעקן</string>
   <string name="wp_stylized">&lt;big&gt;וו&lt;/big&gt;יקיפעדי&lt;big&gt;ע&lt;/big&gt;</string>
-  <string name="wp_tag_line">די פרײַע ענציקלאפעדיע</string>
-  <string name="skip">איבערהיפן</string>
   <string name="create_account_username_hint">באַניצער נאָמען</string>
   <string name="create_account_password_hint">פאַסווארט</string>
   <string name="login_create_account_link">איר האט נישט קיין קאנטע?טרעט ארײַן מיט וויקיפעדיע</string>

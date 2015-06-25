@@ -82,8 +82,6 @@
   <string name="saved_pages_empty_title">Hakuna kurasa zilizohifadhiwa hapa!</string>
   <string name="delete_selected_history">Futa</string>
   <string name="wp_stylized">big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Encyclopedia ya Bure</string>
-  <string name="skip">Ruka</string>
   <string name="create_account_username_hint">Jina la mtumiaji</string>
   <string name="create_account_password_hint">Neno la siri</string>
   <string name="login_create_account_link">Uko na akaunti? Jiunge na Wikipedia</string>

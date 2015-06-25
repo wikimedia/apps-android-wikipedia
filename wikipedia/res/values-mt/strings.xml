@@ -80,8 +80,6 @@
   <string name="preference_summary_logout">Oħroġ mill-kont tal-Wikipedija</string>
   <string name="delete_selected_history">Ħassar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">L-enċiklopedija ħielsa</string>
-  <string name="skip">Aqbeż</string>
   <string name="create_account_username_hint">Isem l-utent</string>
   <string name="create_account_password_hint">Password</string>
   <string name="login_create_account_link">M\'għandekx kont? Ingħaqad mal-Wikipedija</string>

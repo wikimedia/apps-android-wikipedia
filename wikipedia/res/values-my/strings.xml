@@ -84,8 +84,6 @@
   <string name="login_error_no_network">အင်တာနက် ချိတ်ဆက်မှု မရှိ</string>
   <string name="preference_title_logout">မှတ်တမ်းဖြင့် ထွက်ရန်</string>
   <string name="delete_selected_history">ဖျက်​ပါ​</string>
-  <string name="wp_tag_line">အခမဲ့ လွတ်လပ် စွယ်စုံကျမ်း</string>
-  <string name="skip">ကျော်ရန်</string>
   <string name="create_account_username_hint">အသုံးပြုသူအမည်</string>
   <string name="create_account_password_hint">စကားဝှက်</string>
   <string name="create_account_activity_title">အကောင့်လုပ်ရန်</string>

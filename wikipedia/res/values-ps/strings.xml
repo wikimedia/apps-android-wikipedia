@@ -58,8 +58,6 @@
   <string name="toast_logout_complete">ووتلۍ</string>
   <string name="delete_selected_history">ړنگول</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
-  <string name="wp_tag_line">يو وړيا پوهنغونډ</string>
-  <string name="skip">تېرېدل</string>
   <string name="create_account_username_hint">کارن-نوم</string>
   <string name="create_account_password_hint">پټنوم</string>
   <string name="login_create_account_link">گڼون نه لرې؟ ويکيپېډيا سره يوځای شه</string>

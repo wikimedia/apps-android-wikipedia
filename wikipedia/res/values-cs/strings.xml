@@ -98,8 +98,6 @@
   <string name="history_empty_message" fuzzy="true">Vaše historie je prázdná.</string>
   <string name="delete_selected_history">Smazat</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;E&lt;/big&gt;</string>
-  <string name="wp_tag_line">Otevřená encyklopedie</string>
-  <string name="skip">Přeskočit</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
   <string name="create_account_password_hint">Heslo</string>
   <string name="login_create_account_link">Nemáte účet? Přidejte se k Wikipedii</string>

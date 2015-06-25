@@ -106,8 +106,6 @@
   <string name="history_empty_message">Du har sikkert slettet dem alle. Næste gang du går til en side, kan du komme tilbage til den her.</string>
   <string name="delete_selected_history">Slet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Den frie encyklopædi</string>
-  <string name="skip">Spring over</string>
   <string name="create_account_username_hint">Brugernavn</string>
   <string name="create_account_password_hint">Adgangskode</string>
   <string name="login_create_account_link">Har du ikke en konto? Opret en</string>

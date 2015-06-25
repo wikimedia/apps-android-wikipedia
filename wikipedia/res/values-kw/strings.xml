@@ -100,8 +100,6 @@
   <string name="history_empty_message">Hwi a dhileas oll anedha martesen. An nessa termyn mayth ewgh dhe folen y hyllowgh dehweles dhedhi alemma.</string>
   <string name="delete_selected_history">Dilea</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDY&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">An godhoniador rydh</string>
-  <string name="skip">Skyppya</string>
   <string name="create_account_username_hint">Hanow devnydhyer</string>
   <string name="create_account_password_hint">Ger tremena</string>
   <string name="login_create_account_link">A nyns eus akont dhywgh? Junya Wikipedya</string>

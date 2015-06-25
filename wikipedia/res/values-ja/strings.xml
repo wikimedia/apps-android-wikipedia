@@ -106,8 +106,6 @@
   <string name="history_empty_message">すべて削除したのかもしれません。他のページに行った後にここへ戻ってみてください。</string>
   <string name="delete_selected_history">削除</string>
   <string name="wp_stylized">&lt;big&gt;ウィ&lt;/big&gt;キペディ&lt;big&gt;ア&lt;/big&gt;</string>
-  <string name="wp_tag_line">フリー百科事典</string>
-  <string name="skip">スキップする</string>
   <string name="create_account_username_hint">利用者名</string>
   <string name="create_account_password_hint">パスワード</string>
   <string name="login_create_account_link">アカウントをお持ちではない場合は、こちらからウィキペディアに参加してください</string>

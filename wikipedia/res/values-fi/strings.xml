@@ -106,8 +106,6 @@
   <string name="history_empty_message">Olet todennäköisesti poistanut ne kaikki. Seuraavalla kerralla kun menet sivulle, voit palata sinne tätä kautta.</string>
   <string name="delete_selected_history">Poista</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Vapaa tietosanakirja</string>
-  <string name="skip">Ohita</string>
   <string name="create_account_username_hint">Käyttäjätunnus</string>
   <string name="create_account_password_hint">Salasana</string>
   <string name="login_create_account_link">Eikö sinulla ole tunnusta? Liity Wikipediaan</string>

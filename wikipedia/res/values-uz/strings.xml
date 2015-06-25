@@ -87,8 +87,6 @@
   <string name="toast_logout_complete">Chiqildi</string>
   <string name="saved_pages_empty_title">Bu yerda saqlangan sahifalar yo‘q!</string>
   <string name="history_empty_title">Bu yerda so‘nggi sahifalar yo‘q!</string>
-  <string name="wp_tag_line">Tekin Ensiklopediya</string>
-  <string name="skip">Tashlab o‘tish</string>
   <string name="create_account_username_hint">Foydalanuvchi nomi</string>
   <string name="create_account_password_hint">Maxfiy soʻz</string>
   <string name="login_create_account_link">Hisob yozuvingiz yoʻqmi? Vikipediyaga qo‘shiling</string>

@@ -90,8 +90,6 @@
   <string name="preference_summary_notloggedin">પ્રવેશ કરેલ નથી.</string>
   <string name="toast_logout_complete">બહાર નીકળી ગયા</string>
   <string name="delete_selected_history">દૂર કરો</string>
-  <string name="wp_tag_line">મુક્ત જ્ઞાનકોશ</string>
-  <string name="skip">કુદાવો</string>
   <string name="create_account_username_hint">સભ્યનામ</string>
   <string name="create_account_password_hint">પાસવર્ડ</string>
   <string name="login_create_account_link">ખાતું નથી ? 

@@ -106,8 +106,6 @@
   <string name="history_empty_message">شما احتمالاً همه آنها را حذف کردید. دفعه بعد که به صفحه‌ای می‌روید می‌توانید از اینجا به آن صفحه برگردید.</string>
   <string name="delete_selected_history">حذف</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپدی&lt;big&gt;ا&lt;/big&gt;</string>
-  <string name="wp_tag_line">دانشنامه آزاد</string>
-  <string name="skip">رها کردن</string>
   <string name="create_account_username_hint">نام کاربری</string>
   <string name="create_account_password_hint">گذرواژه</string>
   <string name="login_create_account_link">ایجاد حساب کاربری</string>

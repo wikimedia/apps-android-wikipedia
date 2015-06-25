@@ -63,8 +63,6 @@
   <string name="preference_title_logout">Гарах</string>
   <string name="preference_summary_notloggedin">Нэвтрээгүй байна</string>
   <string name="toast_logout_complete">Гарлаа</string>
-  <string name="wp_tag_line">Нэвтэрхий Тайлбар Толь</string>
-  <string name="skip">Алгасах</string>
   <string name="create_account_username_hint">Хэрэглэгчийн нэр</string>
   <string name="create_account_password_hint">Нууц үг</string>
   <string name="login_create_account_link">Бүртгүүлж амжаагүй юу? Википедиад нэгдээрэй</string>

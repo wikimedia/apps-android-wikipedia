@@ -106,8 +106,6 @@
   <string name="history_empty_message">Vous les avez probablement toutes détruites. La prochaine fois que vous irez sur une page, vous pourrez y revenir en démarrant d’ici.</string>
   <string name="delete_selected_history">Supprimer</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">L’Encyclopédie libre</string>
-  <string name="skip">Passer</string>
   <string name="create_account_username_hint">Nom d’utilisateur</string>
   <string name="create_account_password_hint">Mot de passe</string>
   <string name="login_create_account_link">Vous n’avez pas de compte ? Rejoignez Wikipédia</string>

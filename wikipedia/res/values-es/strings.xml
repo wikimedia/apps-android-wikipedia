@@ -106,8 +106,6 @@
   <string name="history_empty_message">Probablemente borraste el historial. La próxima vez que vayas a una página puedes recuperarla desde aquí.</string>
   <string name="delete_selected_history">Borrar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">La enciclopedia libre</string>
-  <string name="skip">Omitir</string>
   <string name="create_account_username_hint">Nombre de usuario</string>
   <string name="create_account_password_hint">Contraseña</string>
   <string name="login_create_account_link">¿No tienes una cuenta? Únete a Wikipedia</string>

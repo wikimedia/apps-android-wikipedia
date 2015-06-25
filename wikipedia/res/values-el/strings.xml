@@ -96,8 +96,6 @@
   <string name="history_empty_message">Πιθανώς να τα διαγράψατε όλα. Την επόμενη φορά που θα μεταβείτε σε μια σελίδα, μπορείτε να επιστρέψετε σε αυτήν από εδώ.</string>
   <string name="delete_selected_history">Διαγραφή</string>
   <string name="wp_stylized">&lt;big&gt;Β&lt;/big&gt;ΙΚΙΠΑΙΔΕΙ&lt;big&gt;Α&lt;/big&gt;</string>
-  <string name="wp_tag_line">Η Ελεύθερη Εγκυκλοπαίδεια</string>
-  <string name="skip">Παράβλεψη</string>
   <string name="create_account_username_hint">Όνομα χρήστη</string>
   <string name="create_account_password_hint">Κωδικός</string>
   <string name="login_create_account_link">Δεν έχετε λογαριασμό; Γίνετε μέλος της Βικιπαίδειας</string>

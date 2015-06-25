@@ -97,8 +97,6 @@
   <string name="saved_pages_empty_message">A mentett lapok csodásak. Gondolj úgy rájuk, mint a könyvjelzőkre, amelyeket akkor is tudod olvasni, ha offline vagy.</string>
   <string name="delete_selected_history">Töröl</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">A Szabad Enciklopédia</string>
-  <string name="skip">Kihagy</string>
   <string name="create_account_username_hint">Felhasználónév</string>
   <string name="create_account_password_hint">Jelszó</string>
   <string name="login_create_account_link">Nincs még fiókod? Csatlakozz a Wikipédiához!</string>

@@ -106,8 +106,6 @@
   <string name="history_empty_message">Probablement les heu eliminades totes. La propera vegada que aneu a una pàgina podeu tornar-hi des d\'aquí.</string>
   <string name="delete_selected_history">Esborrar</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IQUIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">L\'enciclopèdia lliure</string>
-  <string name="skip">Omet</string>
   <string name="create_account_username_hint">Nom d\'usuari</string>
   <string name="create_account_password_hint">Contrasenya</string>
   <string name="login_create_account_link">No teniu un compte? Uniu-vos a la Viquipèdia</string>

@@ -98,8 +98,6 @@
   <string name="history_empty_message">Prawdopodobnie usunąłeś je wszystkie. Następnym razem gdy wejdziesz na stronę możesz się tam dostać z tąd.</string>
   <string name="delete_selected_history">Usuń</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Wolna encyklopedia</string>
-  <string name="skip">Pomiń</string>
   <string name="create_account_username_hint">Nazwa użytkownika</string>
   <string name="create_account_password_hint">Hasło</string>
   <string name="login_create_account_link">Nie masz jeszcze konta? Dołącz do Wikipedii</string>

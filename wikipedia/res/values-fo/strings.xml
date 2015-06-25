@@ -86,8 +86,6 @@
   <string name="history_empty_message" fuzzy="true">Títt søguyvirlit er tómt.</string>
   <string name="delete_selected_history">Sletta</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Hin frælsa alfrøðin</string>
-  <string name="skip">Loyp um</string>
   <string name="create_account_username_hint">Brúkaranavn</string>
   <string name="create_account_password_hint">Loyniorð</string>
   <string name="login_create_account_link">Hevur tú onga konto? Blív ein partur av Wikipeida</string>

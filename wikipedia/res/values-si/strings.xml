@@ -79,8 +79,6 @@
   <string name="history_empty_title">මෑත පිටු මෙහි නොමැත!</string>
   <string name="delete_selected_history">මකන්න</string>
   <string name="wp_stylized">&lt;big&gt;වි&lt;/big&gt;කිපීඩි&lt;big&gt;යා&lt;/big&gt;</string>
-  <string name="wp_tag_line">නිදහස් විශ්වකෝශය</string>
-  <string name="skip">මඟ හරින්න</string>
   <string name="create_account_username_hint">පරිශීලක නාමය</string>
   <string name="create_account_password_hint">මුරපදය</string>
   <string name="login_create_account_link">ගිණුමක් නොමැතිද? විකිපීඩියා වෙත එක්වන්න</string>

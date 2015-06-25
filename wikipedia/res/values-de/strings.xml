@@ -106,8 +106,6 @@
   <string name="history_empty_message">Du hast vermutlich alle Elemente gelöscht. Das nächste Mal, wenn du eine Seite besuchst, kannst du von hier auf sie zurückgehen.</string>
   <string name="delete_selected_history">Löschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Die freie Enzyklopädie</string>
-  <string name="skip">Überspringen</string>
   <string name="create_account_username_hint">Benutzername</string>
   <string name="create_account_password_hint">Passwort</string>
   <string name="login_create_account_link">Noch kein Benutzerkonto? Tritt der Wikipedia bei</string>

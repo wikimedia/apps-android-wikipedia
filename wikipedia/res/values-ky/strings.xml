@@ -96,8 +96,6 @@
   <string name="history_empty_message">Кыязы, сиз алардын баарын өчүргөн окшойсуз. Кийинки жолу баракка киргенде, бул жактан кайрылсаңыз болот</string>
   <string name="delete_selected_history">Өчүрүү</string>
   <string name="wp_stylized">&lt;big&gt;У&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
-  <string name="wp_tag_line">Ачык энциклопедия</string>
-  <string name="skip">Аттоо</string>
   <string name="create_account_username_hint">Колдонуучу аты</string>
   <string name="create_account_password_hint">Сырсөз</string>
   <string name="login_create_account_link">Катталган эмессизби? Уикипедияга кошулуңуз</string>

@@ -103,8 +103,6 @@
   <string name="history_empty_message">Dir hutt se wahrscheinlech all geläscht. Wann Dir déi nächste Kéier op eng Säit gitt da kënnt Dir vun hei aus op déi Säit zréckgoen.</string>
   <string name="delete_selected_history">Läschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Déi fräi Enzyklopedie</string>
-  <string name="skip">Iwwersprangen</string>
   <string name="create_account_username_hint">Benotzernumm</string>
   <string name="create_account_password_hint">Passwuert</string>
   <string name="login_create_account_link">Hutt Dir kee Benotzerkont? Da maacht mat bei Wikipedia</string>

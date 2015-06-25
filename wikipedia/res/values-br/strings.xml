@@ -101,8 +101,6 @@
   <string name="history_empty_message">Lamet ho peus pep tra moarvat. Ar wech kentañ ma\'z eot war ur bajenn e c\'hallot distreiñ warni ac\'halese.</string>
   <string name="delete_selected_history">Diverkañ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">An Holloueziadur digor</string>
-  <string name="skip">Lezel a-gostez</string>
   <string name="create_account_username_hint">Anv implijer</string>
   <string name="create_account_password_hint">Ger-tremen</string>
   <string name="login_create_account_link">N\'ho peus kont ebet ? Deuit da-gaout Wikipedia</string>

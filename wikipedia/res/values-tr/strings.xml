@@ -106,8 +106,6 @@
   <string name="history_empty_message">Muhtemelen hepsini sildiniz. Bir daha herhangi bir sayfaya gittiğinizde, buradan ona tekrar ulaşabilirsiniz.</string>
   <string name="delete_selected_history">Sil</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;İKİPED&lt;big&gt;İ&lt;/big&gt;</string>
-  <string name="wp_tag_line">Özgür Ansiklopedi</string>
-  <string name="skip">Atla</string>
   <string name="create_account_username_hint">Kullanıcı adı</string>
   <string name="create_account_password_hint">Şifre</string>
   <string name="login_create_account_link">Hesabınız yok mu? Vikipedi\'ye katılın</string>

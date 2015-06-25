@@ -106,8 +106,6 @@
   <string name="history_empty_message">U heeft ze vast allemaal verwijderd. De volgende keer als u een pagina bezoekt, kunt u hem hier terugvinden.</string>
   <string name="delete_selected_history">Verwijderen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">De vrije encyclopedie</string>
-  <string name="skip">Overslaan</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>
   <string name="create_account_password_hint">Wachtwoord</string>
   <string name="login_create_account_link">Nog niet geregistreerd? Word lid van Wikipedia</string>

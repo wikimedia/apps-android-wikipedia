@@ -66,8 +66,6 @@
   <string name="history_empty_message" fuzzy="true">Ваша историја је празна.</string>
   <string name="delete_selected_history">Брисање</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
-  <string name="wp_tag_line">Слободна енциклопедија</string>
-  <string name="skip">Прескочи</string>
   <string name="create_account_username_hint">Корисничко име</string>
   <string name="create_account_password_hint">Лозинка</string>
   <string name="login_create_account_link">Немате налог? Придружите се Википедији</string>

@@ -57,8 +57,6 @@
   <string name="toast_logout_complete">Baatee jirta</string>
   <string name="saved_pages_empty_title">Fuulli as olkaawwame hinjiru!</string>
   <string name="delete_selected_history">Balleessi</string>
-  <string name="wp_tag_line">Insaayikiloppiidiyaa Bilisaa</string>
-  <string name="skip">Bira darbi</string>
   <string name="create_account_username_hint">Maqaa fayyadamaa</string>
   <string name="create_account_password_hint">Iggitaa</string>
   <string name="login_create_account_link">Eenyummeessa hinqabdu? Amma galmaa\'i.</string>

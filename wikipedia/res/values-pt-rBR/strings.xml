@@ -106,8 +106,6 @@
   <string name="history_empty_message">Seu histórico está vazio. Na próxima vez que você buscar uma página, você pode acessar a mesma por aqui.</string>
   <string name="delete_selected_history">Apagar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">A Enciclopédia Livre</string>
-  <string name="skip">Pular</string>
   <string name="create_account_username_hint">Nome de Usuário</string>
   <string name="create_account_password_hint">Senha</string>
   <string name="login_create_account_link">Ainda não tem uma conta? Cria sua conta Wikipédia</string>

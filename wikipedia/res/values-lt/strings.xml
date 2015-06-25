@@ -84,8 +84,6 @@
   <string name="history_empty_message">Tikriausiai viską panaikinote. Kitą kartą, kai eisite į kurį nors puslapį, iš čia galėsite į jį sugrįžti.</string>
   <string name="delete_selected_history">Naikinti</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Laisvoji enciklopedija</string>
-  <string name="skip">Praleisti</string>
   <string name="create_account_username_hint">Naudotojo vardas</string>
   <string name="create_account_password_hint">Slaptažodis</string>
   <string name="login_create_account_link">Neturite paskyros? Prisijunkite prie Vikipedijos</string>

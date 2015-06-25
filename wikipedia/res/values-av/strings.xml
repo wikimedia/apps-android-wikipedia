@@ -67,7 +67,6 @@
   <string name="preference_summary_logout">Википедиялда бугеб дур аккаунталдасан къватӀиве лъугьине</string>
   <string name="preference_summary_notloggedin">Мун жаниве лъугьун гьечIо</string>
   <string name="toast_logout_complete">Сеанс лъугьана</string>
-  <string name="skip">Гъоркьо биччантезе</string>
   <string name="create_account_username_hint">ХӀалтӀизабулчиясул цӀар</string>
   <string name="create_account_password_hint">Пароль</string>
   <string name="create_account_login_link">Аккаунт батани жаниве лъугье</string>

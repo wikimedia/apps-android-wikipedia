@@ -103,8 +103,6 @@
   <string name="history_empty_message">Có lẽ bạn đã xóa toàn bộ. Lần sau xem một trang, trang sẽ xuất hiện tại đây để truy cập sau.</string>
   <string name="delete_selected_history">Xóa</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Bách khoa toàn thư mở</string>
-  <string name="skip">Bỏ qua</string>
   <string name="create_account_username_hint">Tên người dùng</string>
   <string name="create_account_password_hint">Mật khẩu</string>
   <string name="login_create_account_link">Chưa có tài khoản? Hãy tham gia Wikipedia</string>

@@ -106,8 +106,6 @@
   <string name="history_empty_message">כנראה מחקת את כולם. בפעם הבאה שיזדמן לך לקרוא דף, אפשר יהיה לחזור אליו מכאן.</string>
   <string name="delete_selected_history">מחיקה</string>
   <string name="wp_stylized">ויקיפדיה</string>
-  <string name="wp_tag_line">האנציקלופדיה החופשית</string>
-  <string name="skip">לדלג</string>
   <string name="create_account_username_hint">שם משתמש</string>
   <string name="create_account_password_hint">ססמה</string>
   <string name="login_create_account_link">אין לך חשבון? אנו מזמינים אותך להצטרף לוויקיפדיה</string>

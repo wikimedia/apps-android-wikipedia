@@ -96,8 +96,6 @@
   <string name="saved_pages_empty_message" fuzzy="true">താളുകളൊന്നും സേവ് ചെയ്തിട്ടില്ല.</string>
   <string name="history_empty_message" fuzzy="true">താങ്കളുടെ ഉപയോഗത്തിന്റെ നാൾവഴി ശൂന്യമാണ്.</string>
   <string name="delete_selected_history">മായ്ക്കുക</string>
-  <string name="wp_tag_line">സ്വതന്ത്ര വിജ്ഞാനകോശം</string>
-  <string name="skip">കടക്കുക</string>
   <string name="create_account_username_hint">ഉപയോക്തൃനാമം</string>
   <string name="create_account_password_hint">രഹസ്യവാക്ക്</string>
   <string name="login_create_account_link">അംഗത്വമില്ലേ? വിക്കിപീഡിയയിൽ ചേരുക</string>

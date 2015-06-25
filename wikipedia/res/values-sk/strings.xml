@@ -106,8 +106,6 @@
   <string name="history_empty_message">Vaša história je prázdna.</string>
   <string name="delete_selected_history">Vymazať</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="wp_tag_line">Slobodná encyklopédia</string>
-  <string name="skip">Preskočiť</string>
   <string name="create_account_username_hint">Používateľské meno</string>
   <string name="create_account_password_hint">Heslo</string>
   <string name="login_create_account_link">Ešte nemáte účet? Pripojte sa k Wikipédii.</string>

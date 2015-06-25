@@ -101,8 +101,6 @@
   <string name="history_empty_message">អ្នកប្រហែលជាបានលុបវាចោលអស់ហើយ។ លើកក្រោយពេលអ្នកចូលមើលទំព័រមួយ អ្នកអាចត្រឡប់ទៅកាន់ទំព័រនោះពីទីនេះ។</string>
   <string name="delete_selected_history">លុបចោល</string>
   <string name="wp_stylized">&lt;big&gt;វី&lt;/big&gt;គីភី&lt;big&gt;ឌា&lt;/big&gt;</string>
-  <string name="wp_tag_line">សព្វវចនាធិប្បាយសេរី</string>
-  <string name="skip">រំលង</string>
   <string name="create_account_username_hint">អត្តនាម</string>
   <string name="create_account_password_hint">ពាក្យ​សម្ងាត់</string>
   <string name="login_create_account_link">តើអ្នកមិនទាន់មានគណនីទេឬ? សូមចូលរួមជាមួយវិគីភីឌា</string>

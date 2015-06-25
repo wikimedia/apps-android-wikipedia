@@ -99,8 +99,6 @@
   <string name="toast_logout_complete">ลงชื่อออกแล้ว</string>
   <string name="saved_pages_empty_title">ไม่มีหน้าที่บันทึกที่นี่</string>
   <string name="wp_stylized">&lt;big&gt;วิ&lt;/big&gt;กิพีเดี&lt;big&gt;ย&lt;/big&gt;</string>
-  <string name="wp_tag_line">สารานุกรมเสรี</string>
-  <string name="skip">ข้าม</string>
   <string name="create_account_username_hint">ชื่อผู้ใช้</string>
   <string name="create_account_password_hint">รหัสผ่าน</string>
   <string name="login_create_account_link">ยังไม่มีบัญชีหรือ? มาร่วมเป็นส่วนหนึ่งกับเรา</string>

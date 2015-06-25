@@ -96,8 +96,6 @@
   <string name="history_empty_title">ბოლო გვერდები ვერ მოიძებნა!</string>
   <string name="delete_selected_history">წაშლა</string>
   <string name="wp_stylized">&lt;big&gt;ვ&lt;/big&gt;იკიპედი&lt;big&gt;ა&lt;/big&gt;</string>
-  <string name="wp_tag_line">თავისუფალი ენციკლოპედია</string>
-  <string name="skip">გამოტოვება</string>
   <string name="create_account_username_hint">მომხმარებლის სახელი</string>
   <string name="create_account_password_hint">პაროლი</string>
   <string name="login_create_account_link">არ გაქვს ანგარიში? შეუერთდი ვიკიპედიას</string>
