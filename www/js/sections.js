@@ -65,10 +65,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     issuesContainer.className = "issues_container";
     document.getElementById( "content" ).appendChild( issuesContainer );
 
-    var editButton = document.createElement( "a" );
-    editButton.setAttribute( 'data-id', payload.section.id );
-    editButton.setAttribute( 'data-action', "edit_section" );
-    editButton.className = "edit_section_button";
+    var editButton = buildEditSectionButton( payload.section.id );
 
     var content = document.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
@@ -135,6 +132,17 @@ function clearContents() {
     window.scrollTo( 0, 0 );
 }
 
+function buildEditSectionButton(id) {
+    var editButtonWrapper = document.createElement( "span" );
+    editButtonWrapper.className = "edit_section_button_wrapper";
+    var editButton = document.createElement( "a" );
+    editButton.setAttribute( 'data-id', id );
+    editButton.setAttribute( 'data-action', "edit_section" );
+    editButton.className = "edit_section_button";
+    editButtonWrapper.appendChild( editButton );
+    return editButtonWrapper;
+}
+
 function elementsForSection( section ) {
     var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
     heading.setAttribute( "dir", window.directionality );
@@ -143,11 +151,7 @@ function elementsForSection( section ) {
     heading.className = "section_heading";
     heading.setAttribute( 'data-id', section.id );
 
-    var editButton = document.createElement( "a" );
-    editButton.setAttribute( 'data-id', section.id );
-    editButton.setAttribute( 'data-action', "edit_section" );
-    editButton.className = "edit_section_button";
-    heading.appendChild( editButton );
+    heading.appendChild( buildEditSectionButton( section.id ) );
 
     var content = document.createElement( "div" );
     content.setAttribute( "dir", window.directionality );

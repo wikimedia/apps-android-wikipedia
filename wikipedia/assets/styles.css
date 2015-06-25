@@ -575,6 +575,8 @@ a.edit_section_button:active:before {
 }
 .content-rtl a.edit_section_button {
   float: left;
+}
+.content-rtl .edit_section_button_wrapper {
   /* Flip it! */
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
