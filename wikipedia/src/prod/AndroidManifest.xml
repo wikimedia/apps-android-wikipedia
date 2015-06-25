@@ -3,7 +3,7 @@
 
     <application>
         <meta-data
-            android:name="@string/preference_channel"
+            android:name="@string/preference_key_app_channel"
             android:value="Google Play"
             tools:replace="android:value" />
     </application>
