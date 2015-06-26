@@ -17,7 +17,7 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityUtil.requestFullUserOrientation(this);
-        setTheme(WikipediaApp.getInstance().getCurrentTheme());
+        setTheme(WikipediaApp.getInstance().getCurrentTheme().getResourceId());
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

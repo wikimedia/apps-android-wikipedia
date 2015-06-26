@@ -13,6 +13,7 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageCache;
+import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ApiUtil;
 
 import android.content.Intent;
@@ -92,7 +93,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // force the theme to dark...
-        setTheme(WikipediaApp.THEME_DARK);
+        setTheme(Theme.DARK.getResourceId());
         app = (WikipediaApp)getApplicationContext();
 
         // hide system bar

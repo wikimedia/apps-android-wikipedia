@@ -6,7 +6,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.page.linkpreview.LinkPreviewVersion;
 
 import java.util.UUID;
 
@@ -27,7 +26,7 @@ public class LinkPreviewFunnel extends Funnel {
         appInstallID = app.getAppInstallID();
         previewSessionToken = UUID.randomUUID().toString();
         this.title = title;
-        version = LinkPreviewVersion.getVersion(app);
+        version = app.getLinkPreviewVersion();
         startTime = SystemClock.uptimeMillis();
     }
 

@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
+import org.wikipedia.theme.Theme;
 
 import static org.wikipedia.settings.PrefsIoUtil.contains;
 import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
@@ -54,12 +55,11 @@ public final class Prefs {
         return getKey(R.string.preference_key_language);
     }
 
-    public static int getColorThemeResourceId() {
-        return getInt(R.string.preference_key_color_theme, R.style.Theme_WikiLight);
+    public static int getThemeId() {
+        return getInt(R.string.preference_key_color_theme, Theme.getFallback().getMarshallingId());
     }
 
-    public static void setColorThemeResourceId(int theme) {
-        // TODO: Is this safe? Are resource IDs guaranteed constant across app and tool versions?
+    public static void setThemeId(int theme) {
         setInt(R.string.preference_key_color_theme, theme);
     }
 
@@ -107,16 +107,16 @@ public final class Prefs {
         remove(getEditTokenForWikiKey(wiki));
     }
 
-    public static int getFeatureFlagId() {
-        return getInt(R.string.preference_key_feature_flag_id, 0);
+    public static int getLinkPreviewVersion() {
+        return getInt(R.string.preference_key_link_preview_version, 0);
     }
 
-    public static void setFeatureFlagId(int id) {
-        setInt(R.string.preference_key_feature_flag_id, id);
+    public static void setLinkPreviewVersion(int version) {
+        setInt(R.string.preference_key_link_preview_version, version);
     }
 
-    public static boolean hasFeatureFlagId() {
-        return contains(R.string.preference_key_feature_flag_id);
+    public static boolean hasLinkPreviewVersion() {
+        return contains(R.string.preference_key_link_preview_version);
     }
 
     @Nullable
@@ -163,6 +163,18 @@ public final class Prefs {
 
     public static void removeUserId() {
         remove(R.string.preference_key_login_user_id);
+    }
+
+    public static boolean isMoreLikeSearchEnabled() {
+        return getBoolean(R.string.preference_key_more_like_search_enabled, false);
+    }
+
+    public static void setMoreLikeSearchEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_more_like_search_enabled, enabled);
+    }
+
+    public static boolean hasMoreLikeSearch() {
+        return contains(R.string.preference_key_more_like_search_enabled);
     }
 
     @Nullable

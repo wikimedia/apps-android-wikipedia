@@ -23,4 +23,6 @@
     <string name="preference_key_login_username">username</string>
     <string name="preference_key_login_password">password</string>
     <string name="preference_key_login_user_id">userID</string>
+    <string name="preference_key_link_preview_version">linkPreviewVersion</string>
+    <string name="preference_key_more_like_search_enabled">moreLikeSearchEnabled</string>
 </resources>

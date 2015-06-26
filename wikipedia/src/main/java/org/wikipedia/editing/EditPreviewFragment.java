@@ -173,7 +173,7 @@ public class EditPreviewFragment extends Fragment {
             isWebViewSetup = true;
             bridge.injectStyleBundle(StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PREVIEW));
             Utils.setupDirectionality(parentActivity.getPageTitle().getSite().getLanguageCode(), Locale.getDefault().getLanguage(), bridge);
-            if (WikipediaApp.getInstance().getCurrentTheme() == WikipediaApp.THEME_DARK) {
+            if (WikipediaApp.getInstance().isCurrentThemeDark()) {
                 new NightModeHandler(bridge).turnOn(false);
             }
 

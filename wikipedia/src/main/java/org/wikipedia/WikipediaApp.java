@@ -35,6 +35,7 @@ import org.wikipedia.login.UserInfoStorage;
 import org.wikipedia.migration.PerformMigrationsTask;
 import org.wikipedia.networking.MccMncStateHandler;
 import org.wikipedia.page.PageCache;
+import org.wikipedia.page.linkpreview.LinkPreviewVersion;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagePersister;
 import org.wikipedia.savedpages.SavedPage;
@@ -42,12 +43,13 @@ import org.wikipedia.savedpages.SavedPagePersister;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.search.RecentSearchPersister;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Random;
 import java.util.UUID;
 
@@ -62,6 +64,7 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
         mailTo = "mobile-android-wikipedia-crashes@wikimedia.org")
 public class WikipediaApp extends Application {
     private static final String HTTPS_PROTOCOL = "https";
+    private static final int EVENT_LOG_TESTING_ID = new Random().nextInt(Integer.MAX_VALUE);
 
     private float screenDensity;
     public float getScreenDensity() {
@@ -88,9 +91,6 @@ public class WikipediaApp extends Application {
     public int incSslFailCount() {
         return ++sslFailCount;
     }
-
-    public static final int THEME_LIGHT = R.style.Theme_WikiLight;
-    public static final int THEME_DARK = R.style.Theme_WikiDark;
 
     public static final int FONT_SIZE_MULTIPLIER_MIN = -5;
     public static final int FONT_SIZE_MULTIPLIER_MAX = 8;
@@ -123,6 +123,16 @@ public class WikipediaApp extends Application {
         return releaseType == RELEASE_DEV;
     }
 
+    public boolean isPreBetaRelease() {
+        switch (getReleaseType()) {
+            case RELEASE_PROD:
+            case RELEASE_BETA:
+                return false;
+            default:
+                return true;
+        }
+    }
+
     private SessionFunnel sessionFunnel;
     public SessionFunnel getSessionFunnel() {
         return sessionFunnel;
@@ -134,7 +144,8 @@ public class WikipediaApp extends Application {
     private static WikipediaApp INSTANCE;
 
     private Bus bus;
-    private int currentTheme = 0;
+    @NonNull
+    private Theme currentTheme = Theme.getFallback();
 
     private WikipediaZeroHandler zeroHandler;
     public WikipediaZeroHandler getWikipediaZeroHandler() {
@@ -178,6 +189,7 @@ public class WikipediaApp extends Application {
         final Resources resources = getResources();
         ViewAnimations.init(resources);
         screenDensity = resources.getDisplayMetrics().density;
+        currentTheme = unmarshalCurrentTheme();
 
         appLanguageState = new AppLanguageState(this);
 
@@ -303,11 +315,6 @@ public class WikipediaApp extends Application {
     }
 
     @NonNull
-    public Locale getAppLocale() {
-        return appLanguageState.getAppLocale();
-    }
-
-    @NonNull
     public List<String> getMruLanguageCodes() {
         return appLanguageState.getMruLanguageCodes();
     }
@@ -418,36 +425,31 @@ public class WikipediaApp extends Application {
     }
 
     /**
-     * Get an integer-valued random ID for A/B testing of new features. This value will persist
-     * for the install lifetime of the app.
-     * @return Integer ID for A/B testing.
-     */
-    public int getABTestingID() {
-        return getFeatureFlagID();
-    }
-
-    /**
      * Get an integer-valued random ID for event log sampling. This value will persist for the
-     * install lifetime of the app.
+     * lifetime of the app.
      * @return Integer ID for event log sampling.
      */
+    @IntRange(from = 0)
     public int getEventLogSamplingID() {
-        return getFeatureFlagID();
+        return EVENT_LOG_TESTING_ID;
     }
 
-    @IntRange(from = 0)
-    private int getFeatureFlagID() {
-        int featureFlagID;
-        if (Prefs.hasFeatureFlagId()) {
-            featureFlagID = Prefs.getFeatureFlagId();
-        } else {
-            // generate a random number in the range [0, max-int)
-            featureFlagID = new Random().nextInt(Integer.MAX_VALUE);
-            Prefs.setFeatureFlagId(featureFlagID);
+    public int getLinkPreviewVersion() {
+        if (Prefs.hasLinkPreviewVersion()) {
+            return Prefs.getLinkPreviewVersion();
         }
-        // make sure the number is positive by taking away the sign bit
-        // (will only apply to previously-generated values that happened to be negative)
-        return featureFlagID & Integer.MAX_VALUE;
+        int version = LinkPreviewVersion.generateVersion();
+        Prefs.setLinkPreviewVersion(version);
+        return version;
+    }
+
+    public boolean isMoreLikeSearchEnabled() {
+        if (Prefs.hasMoreLikeSearch()) {
+            return Prefs.isMoreLikeSearchEnabled();
+        }
+        boolean enabled = new Random().nextInt(2) == 0;
+        Prefs.setMoreLikeSearchEnabled(enabled);
+        return enabled;
     }
 
     /**
@@ -455,28 +457,29 @@ public class WikipediaApp extends Application {
      * @return Theme that is currently selected, which is the actual theme ID that can
      * be passed to setTheme() when creating an activity.
      */
-    public int getCurrentTheme() {
-        if (currentTheme == 0) {
-            currentTheme = Prefs.getColorThemeResourceId();
-            if (currentTheme != THEME_LIGHT && currentTheme != THEME_DARK) {
-                // TODO: store something we can deserialize more reliably.
-                currentTheme = THEME_LIGHT;
-            }
-        }
+    @NonNull
+    public Theme getCurrentTheme() {
         return currentTheme;
+    }
+
+    public boolean isCurrentThemeLight() {
+        return getCurrentTheme().isLight();
+    }
+
+    public boolean isCurrentThemeDark() {
+        return getCurrentTheme().isDark();
     }
 
     /**
      * Sets the theme of the app. If the new theme is the same as the current theme, nothing happens.
      * Otherwise, an event is sent to notify of the theme change.
      */
-    public void setCurrentTheme(int newTheme) {
-        if (newTheme == currentTheme) {
-            return;
+    public void setCurrentTheme(@NonNull Theme theme) {
+        if (theme != currentTheme) {
+            currentTheme = theme;
+            Prefs.setThemeId(currentTheme.getMarshallingId());
+            bus.post(new ThemeChangeEvent());
         }
-        currentTheme = newTheme;
-        Prefs.setColorThemeResourceId(currentTheme);
-        bus.post(new ThemeChangeEvent());
     }
 
     /**
@@ -498,7 +501,7 @@ public class WikipediaApp extends Application {
      * @param d Drawable to be adjusted.
      */
     public void adjustDrawableToTheme(Drawable d) {
-        setDrawableTint(d, currentTheme == THEME_DARK ? Color.WHITE : 0);
+        setDrawableTint(d, isCurrentThemeDark() ? Color.WHITE : Color.TRANSPARENT);
     }
 
     /**
@@ -507,7 +510,7 @@ public class WikipediaApp extends Application {
      * @param d Drawable to be adjusted.
      */
     public void adjustLinkDrawableToTheme(Drawable d) {
-        setDrawableTint(d, getResources().getColor(currentTheme == THEME_DARK ? R.color.button_dark : R.color.button_light));
+        setDrawableTint(d, getColor(isCurrentThemeDark() ? R.color.button_dark : R.color.button_light));
     }
 
     public int getFontSizeMultiplier() {
@@ -568,6 +571,15 @@ public class WikipediaApp extends Application {
         return headers;
     }
 
+    private Theme unmarshalCurrentTheme() {
+        int id = Prefs.getThemeId();
+        Theme result = Theme.ofMarshallingId(id);
+        if (result == null) {
+            L.d("Theme id=" + id + " is invalid, using fallback.");
+            result = Theme.getFallback();
+        }
+        return result;
+    }
     private int calculateReleaseType() {
         if (BuildConfig.APPLICATION_ID.contains("beta")) {
             return RELEASE_BETA;
@@ -579,5 +591,10 @@ public class WikipediaApp extends Application {
             return RELEASE_DEV;
         }
         return RELEASE_PROD;
+    }
+
+
+    private int getColor(int id) {
+        return getResources().getColor(id);
     }
 }

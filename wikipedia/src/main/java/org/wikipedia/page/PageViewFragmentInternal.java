@@ -19,7 +19,6 @@ import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
-import org.wikipedia.page.linkpreview.LinkPreviewVersion;
 import org.wikipedia.page.snippet.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.page.tabs.TabsProvider;
@@ -290,7 +289,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         }
 
         // make sure styles get injected before the NightModeHandler and other handlers
-        if (app.getCurrentTheme() == WikipediaApp.THEME_DARK) {
+        if (app.isCurrentThemeDark()) {
             new NightModeHandler(bridge).turnOn(true);
         }
 
@@ -359,7 +358,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         if (referenceDialog != null && referenceDialog.isShowing()) {
             referenceDialog.dismiss();
         }
-        if (app.getReleaseType() == WikipediaApp.RELEASE_PROD || LinkPreviewVersion.getVersion(app) == 0) {
+        if (app.isProdRelease() || app.getLinkPreviewVersion() == 0) {
             HistoryEntry historyEntry = new HistoryEntry(title,
                     HistoryEntry.SOURCE_INTERNAL_LINK);
             ((PageActivity) getActivity()).displayNewPage(title, historyEntry);
@@ -367,7 +366,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         } else {
             // For version values 1 or 2, pass the value to the LinkPreviewDialog, which will use
             // the value to adjust its prototype layout.
-            LinkPreviewDialog dialog = LinkPreviewDialog.newInstance(title, LinkPreviewVersion.getVersion(app));
+            LinkPreviewDialog dialog = LinkPreviewDialog.newInstance(title, app.getLinkPreviewVersion());
             dialog.show(getActivity().getSupportFragmentManager(), "link_preview_dialog");
         }
     }

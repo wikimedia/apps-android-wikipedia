@@ -17,22 +17,22 @@ public class SuggestedPagesFunnel extends Funnel {
     private static final int READ_MORE_SOURCE_MORELIKE = 1;
 
     private final String appInstallID;
-    private boolean moreLikeEnabled;
+    private boolean moreLikeSearchEnabled;
 
-    public SuggestedPagesFunnel(WikipediaApp app, boolean moreLikeEnabled) {
+    public SuggestedPagesFunnel(WikipediaApp app, boolean moreLikeSearchEnabled) {
         super(app, SCHEMA_NAME, REV_ID);
 
         //Retrieve this app installation's unique ID, used to record unique users of features
         appInstallID = app.getAppInstallID();
 
-        this.moreLikeEnabled = moreLikeEnabled;
+        this.moreLikeSearchEnabled = moreLikeSearchEnabled;
     }
 
     @Override
     protected JSONObject preprocessData(JSONObject eventData) {
         try {
             eventData.put("appInstallID", appInstallID);
-            eventData.put("readMoreSource", moreLikeEnabled
+            eventData.put("readMoreSource", moreLikeSearchEnabled
                     ? READ_MORE_SOURCE_MORELIKE
                     : READ_MORE_SOURCE_FULL_TEXT);
         } catch (JSONException e) {
