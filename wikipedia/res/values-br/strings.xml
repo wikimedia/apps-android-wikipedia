@@ -12,6 +12,8 @@
   <string name="nav_item_history">Istor</string>
   <string name="error_network_error">N\'eus kevreadenn ebet ouzh ar rouedad :(</string>
   <string name="search_network_error">Fazi rouedad : pouezañ evit klask en-dro.</string>
+  <string name="generic_page_error">Ur gudenn zo beet pa\'z eo bet war-dro ho koulenn.</string>
+  <string name="status_code_unavailable">Ne c\'haller ket kaout kod stad ar servijer.</string>
   <string name="page_error_retry">Klask en-dro</string>
   <string name="menu_clear_all_history">Diverkañ an istor</string>
   <string name="menu_clear_all_saved_pages">Diverkañ ar pajennoù enrollet</string>
@@ -32,7 +34,7 @@
   <string name="toast_refresh_saved_page">O freskaat ar bajenn enrollet…</string>
   <string name="delete_selected_saved_pages">Dilemel</string>
   <string name="toast_saved_page_deleted">Pajenn(où) enrollet dilamet</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Klask</string>
+  <string name="saved_pages_search_list_hint">Klask ar pajennoù enrollet</string>
   <string name="saved_pages_search_empty_message">N\'eus bet kavet pajenn ebet hag a glot gant ho reked.</string>
   <string name="nav_item_nearby">Tostik</string>
   <string name="menu_update_nearby">Hizivaat an elfennoù nes</string>
@@ -54,6 +56,8 @@
   <string name="edit_save_action_license_anon">Pa\'z enrollit e tegemerit an &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
   <string name="preference_title_language">Yezh Wikipedia</string>
   <string name="preference_languages_filter_hint">Klask</string>
+  <string name="preference_system_language_toggle">Implijout yezh ar reizhiad</string>
+  <string name="preference_system_language_summary">Yezh ar reizhiad</string>
   <string name="langlinks_filter_hint">Klask</string>
   <string name="menu_other_languages">Lenn e yezhoù all</string>
   <string name="langlinks_error_retry">Klask en-dro</string>
@@ -86,6 +90,7 @@
   <string name="login_in_progress_dialog_message">O kevreañ ouzh…</string>
   <string name="login_error_wrong_password">Ger-tremen direizh</string>
   <string name="login_error_wrong_username">Anv implijer direizh</string>
+  <string name="login_error_illegal">Anv implijer direizh</string>
   <string name="login_success_toast">Kevreet oc\'h !</string>
   <string name="login_error_blocked">Prennet eo bet an implijer-mañ</string>
   <string name="login_error_throttled">Klasket re ho peus kevreañ. Gortozit ur pennadig ha klaskit en-dro !</string>
@@ -125,6 +130,7 @@
   <string name="create_account_next">War-lerc\'h</string>
   <string name="create_account_button">Krouiñ ur gont</string>
   <string name="preferences_general_heading">Hollek</string>
+  <string name="wikipedia_app_faq">Arload FAG Wikipedia</string>
   <string name="zero_charged_verbiage">Wikipedia Zero n\'a ket en-dro</string>
   <string name="zero_charged_verbiage_extended">Ma kargit pennadoù all e c\'hall bezañ mizoù da baeañ evit ar roadennoù.</string>
   <string name="zero_search_hint">Klask e Wikipedia Zero</string>
@@ -148,7 +154,7 @@
   <string name="preference_title_eventlogging_opt_in">Kas danevelloù implij</string>
   <string name="preference_summary_eventlogging_opt_in">Aotren Wikipedia da zastum titouroù diwar-benn an doare ma implijit an arload evit gwellaat anezhañ</string>
   <string name="editing_error_spamblacklist">Liammoù war-zu an domanioù stanket (%s). Lamit anezho ha klaskit en-dro, mar plij.</string>
-  <string name="history_search_list_hint" fuzzy="true">Klask</string>
+  <string name="history_search_list_hint">Klask er roll-istor</string>
   <string name="history_search_empty_message">N\'eus bet kavet pajenn ebet hag a glot gant ho reked.</string>
   <string name="error_can_not_process_link">N\'eus ket bet gallet diskwel al liamm-mañ</string>
   <string name="page_protected_autoconfirmed">Damwarezet eo bet ar bajenn-mañ.</string>
@@ -262,5 +268,11 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="captcha_image">Skeudenn captcha</string>
   <string name="gallery_fair_use_license">Implij reizh</string>
   <string name="gallery_uploader_unknown">Pellgarger dianav</string>
+  <string name="edit_save_unknown_error">Ne c\'haller ket enrollañ ho kemmadur : %s</string>
+  <string name="menu_show_tabs">Diskouez an ivinelloù</string>
+  <string name="menu_new_tab">Ivinell nevez</string>
+  <string name="button_close_tab">Serriñ an ivinell</string>
   <string name="menu_open_link">Digeriñ al liamm</string>
+  <string name="menu_open_in_new_tab">Digeriñ en un ivinell nevez</string>
+  <string name="menu_save_page_popup">Enrollañ diwezhatoc\'h</string>
 </resources>

@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Uppdaterar sparad sida…</string>
   <string name="delete_selected_saved_pages">Radera</string>
   <string name="toast_saved_page_deleted">Sparad(e) sida/sidor raderas</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Sök</string>
+  <string name="saved_pages_search_list_hint">Sök sparade sidor</string>
   <string name="saved_pages_search_empty_message">Inga sidor som matchade din sökning hittades.</string>
   <string name="nav_item_nearby">I närheten</string>
   <string name="menu_update_nearby">Uppdatera sidor i närheten</string>
@@ -154,7 +154,7 @@
   <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
-  <string name="history_search_list_hint" fuzzy="true">Sök</string>
+  <string name="history_search_list_hint">Sök historik</string>
   <string name="history_search_empty_message">Inga sidor som matchade din sökning hittades.</string>
   <string name="error_can_not_process_link">Denna länk kan inte visas</string>
   <string name="page_protected_autoconfirmed">Denna sida är halvskyddad.</string>
@@ -271,4 +271,10 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Okänd uppladdare</string>
   <string name="edit_save_unknown_error">Kunde inte spara din redigering: %s</string>
+  <string name="menu_show_tabs">Visa flikar</string>
+  <string name="menu_new_tab">Ny flik</string>
+  <string name="button_close_tab">Stäng flik</string>
+  <string name="menu_open_link">Öppna länk</string>
+  <string name="menu_open_in_new_tab">Öppna i ny flik</string>
+  <string name="menu_save_page_popup">Spara till senare</string>
 </resources>

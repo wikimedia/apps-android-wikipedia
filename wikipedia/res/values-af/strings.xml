@@ -130,11 +130,12 @@
   <string name="create_account_next">Volgende</string>
   <string name="create_account_button">Skep gebruiker</string>
   <string name="preferences_general_heading">Algemeen</string>
-  <string name="wikipedia_app_faq">Gereelde vrae oor Wikipedia App</string>
+  <string name="wikipedia_app_faq">Gewilde vrae oor Wikipedia Toep</string>
   <string name="zero_charged_verbiage">Wikipedia Zero is af</string>
   <string name="zero_charged_verbiage_extended">Laai van ander artikels mag data kostes veroorsaak.</string>
   <string name="zero_search_hint">Soek in Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Waarsku indien Wikipedia Zero verlaat word</string>
+  <string name="zero_warn_when_leaving_summary">Indien jou mobiele diensverskaffer data koste kwytskeld vir die Wikipedia toep deur \'n Wikipedia Zero vennootskap, deur hierdie opsie gestel te hou help dit om u in te lig wanneer u die Wikipedia toep verlaat en dit data kostes mag veroorsaak.</string>
   <string name="zero_webpage_title">Gereelde vrae oor Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">U verlaat Wikipedia Zero</string>
@@ -151,6 +152,8 @@
   <string name="user_contribs_more_action">Laai meer</string>
   <string name="activity_my_contributions_title">My Bydraes</string>
   <string name="preference_title_eventlogging_opt_in">Stuur gebruiksverslae</string>
+  <string name="preference_summary_eventlogging_opt_in">Laat Wikimedia toe om inligting in te samel oor hoe u die toep gebruik om sodoende die toep te verbeter</string>
+  <string name="editing_error_spamblacklist">Skakels na geblokkeerder domeins (%s) gevind. Verwyder dit en probeer weer.</string>
   <string name="history_search_list_hint">Soek geskiedenis</string>
   <string name="history_search_empty_message">Geen bladsye gevind wat by u soekterm pas nie.</string>
   <string name="error_can_not_process_link">Kon nie hierdie skakel vertoon nie</string>
@@ -161,7 +164,7 @@
   <string name="page_protected_can_not_edit_title">Hierdie blad is beskerm</string>
   <string name="more_item_preferences">Meer</string>
   <string name="more_activity_title">Meer</string>
-  <string name="about_description">Meer oor Wikipedia toep</string>
+  <string name="about_description">Aangaande Wikipedia toep</string>
   <string name="privacy_policy_description">Privaatheidsbeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaardes</string>
   <string name="about_libraries_heading">biblioteke gebruik</string>
@@ -170,6 +173,7 @@
   <string name="about_translators_translatewiki">Hierdie toep is vertaal deur vrywillge vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">\'n Produk van die &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Aangaande</string>
+  <string name="edit_abandon_confirm">Hierdie bladsy is gewysig. Is u seker u wil afsluit sonder om u wysigings te stoor?</string>
   <string name="user_blocked_from_editing_title">Geblokkeer</string>
   <string name="user_logged_in_blocked_from_editing">U gebruikernaam is geblok om wysigings op hierdie wiki te maak.</string>
   <string name="user_anon_blocked_from_editing">U IP-adres is geblok om wysigings te maak.</string>
@@ -194,6 +198,8 @@
   <string name="menu_refresh_saved_page">Herlaai blad</string>
   <string name="abusefilter_title_warn">Hierdie mag \'n nie-konstruktiewe wysiging wees. Is u seker u wil dit stoor?</string>
   <string name="abusefilter_title_disallow">U kan nie hierdie wysiging stoor nie. Gaan asseblief terug en verander dit.</string>
+  <string name="abusefilter_text_warn">\'n Outomatiese filter het hierdie wysiging as potensiëel onkonstruktief geïdentifiseer. Dit mag een of meer van die volgende bevat:&lt;br /&gt;&lt;br /&gt;· Tik van alles in hoofletters&lt;br /&gt;· Leegmaak van artikels of pespos&lt;br /&gt;· Irrelevante eksterne skakels&lt;br /&gt;· Herhalende karakter</string>
+  <string name="abusefilter_text_disallow">\'n Outomatiese filter het hierdie wysiging as potensiëel onkonstruktief, of potensiële vandalisme geïdentifiseer.&lt;br /&gt;&lt;br /&gt;Wikipedia is \'n ensiklopedie en slegs neutrale, noemenswaardige inhoud behoort hier.</string>
   <string name="dialog_page_issues">Bladprobleme</string>
   <string name="button_page_issues">Bladprobleme</string>
   <string name="menu_themechooser">Lettertipe en tema</string>
@@ -215,6 +221,26 @@
   <string name="widget_name_featured_page">Wikipedia voorbladartikel</string>
   <string name="widget_title_featured_page">Vandag se voorbladartikel</string>
   <string name="widget_name_search">Soek op Wikipedia</string>
+  <string name="app_store_description">Amptelike Wikipedia Toep vir Android. Wikipedia is die vrye ensiklopedie wat meer as 32 miljoen artikels bevat in 280 tale, en is die mees omvattende en wyd gebruikte naslaanwerk ooit saamgestel deur die mens.
+
+Kenmerke:
+- Lei beelde: ervaar Wikipedia soos nog nooit tevore met \'n prominente, kontekstueel-relevante beeld en beskrywing aan die bokant van artikels
+- Beeldgallery: kliek op \'n beeld toon die beeld volskerm in hoë resolusie, met opsies van sleep links / regs vir addisionele beelde
+- Beskrywings vanaf Wikidata: tydens soektogte, bevat elke resultaat nou \'n vinnige beskrywing wat help om die resultaat te kontekstualiseer. Hierdie beskrywings word ook getoon in ander gebiede van die toep, soos Naby
+- Artikel voorstelle: gaan na die onderkant van \'n artikel vir voorstelle oor wat jy volgende kan lees
+- Gestoorde bladsye: stoor gekose bladsye vir lees en blaai, selfs wanneer jy nie \'n data verbinding het nie
+- Naby: leer meer oor wat rondom u is met skakels na artikels oor dinge naby jou huidige ligging
+- Taalondersteuning: skakel moeiteloos na Wikipedia geskryf in enige taal
+- Inhoudsopgawe: sleep links op enige artikel om die inhoudsopgawe te vertoon, waarmee jy maklik na die artikel afdelings kan spring
+- Wikipedia Zero: data koste kwytgeskeld vir deelname mobiele diensverskaffers
+
+Stuur vir ons jou terugvoer oor die toep! In die kieslys, druk \"Meer\", dan \"Aangaande Wikipedia toep\", dan \"Stuur toep terugvoer\".
+
+Die kode is 100% oop-bron. As jy ondervinding met Java en die Android SDK, dan sien ons uit na jou bydraes! https://github.com/wikimedia/apps-android-wikipedia
+
+Privaatheidsbeleid: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Voorwaardes: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Nuwe alfa opdatering beskikbaar</string>
   <string name="alpha_update_notification_text">Kliek om af te laai</string>
   <string name="dialog_close_description">Sluit</string>

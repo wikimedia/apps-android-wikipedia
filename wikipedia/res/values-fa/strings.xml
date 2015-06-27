@@ -15,11 +15,11 @@
   <string name="generic_page_error">مشکلی برای اجرای درخواستتان وجود دارد.</string>
   <string name="status_code_unavailable">کد وضعیت سرور در دسترس نیست.</string>
   <string name="page_error_retry">تلاش مجدد</string>
-  <string name="menu_clear_all_history">پاک‌کردن تاریخچه</string>
+  <string name="menu_clear_all_history">پاک کردن تاریخچه</string>
   <string name="menu_clear_all_saved_pages">پاک کردن صفحه‌های ذخیره‌شده</string>
   <string name="page_does_not_exist_error">این صفحه وجود ندارد!</string>
   <string name="nav_item_today">امروز</string>
-  <string name="dialog_title_clear_history">پاک‌کردن تاریخچه جستجو؟</string>
+  <string name="dialog_title_clear_history">پاک کردن تاریخچه جستجو؟</string>
   <string name="nav_item_saved_pages">صفحه‌های ذخیره‌شده</string>
   <string name="menu_update_all_saved_pages">به‌روزرسانی صفحات ذخیره‌شده</string>
   <string name="menu_update_selected_saved_pages">به‌روزرسانی صفحه‌های ذخیره‌شده</string>
@@ -27,14 +27,14 @@
   <string name="menu_save_page">ذخیرهٔ  صفحه</string>
   <string name="menu_share_page">به‌اشتراک‌گذاشتن</string>
   <string name="share_via">اشتراک با</string>
-  <string name="dialog_title_clear_saved_pages">پاک‌کردن همهٔ صفحه‌های  ذخیره‌شده؟</string>
-  <string name="toast_saving_page">ذخیره‌کردن صفحه…</string>
-  <string name="toast_saved_page">صفحه ذخیره‌شده‌است</string>
+  <string name="dialog_title_clear_saved_pages">پاک کردن همهٔ صفحه‌های  ذخیره‌شده؟</string>
+  <string name="toast_saving_page">ذخیره کردن صفحه…</string>
+  <string name="toast_saved_page">صفحه ذخیره شده است</string>
   <string name="toast_saved_page_missing_images">نمی‌توان همه تصویرها را ذخیره نمود</string>
-  <string name="toast_refresh_saved_page">تازه‌کردن صفحه ذخیره‌شده</string>
+  <string name="toast_refresh_saved_page">تازه کردن صفحه ذخیره‌شده…</string>
   <string name="delete_selected_saved_pages">حذف</string>
   <string name="toast_saved_page_deleted">ذخیره صفحه(های) حذف‌شده</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">جستجو</string>
+  <string name="saved_pages_search_list_hint">جستجوی صفحه‌های ذخیره شده</string>
   <string name="saved_pages_search_empty_message">هیچ صفحه‌ای برای کوئری شما یافت نشد</string>
   <string name="nav_item_nearby">در نزدیکی</string>
   <string name="menu_update_nearby">به‌روزرسانی درنزدیکی</string>
@@ -87,13 +87,13 @@
   <string name="login_password_show_check">نمایش گذرواژه</string>
   <string name="menu_login">ورود به سامانه</string>
   <string name="login_activity_title">ورود به ویکیپدیا</string>
-  <string name="login_in_progress_dialog_message">در حال وارد شدن به سامانه …</string>
+  <string name="login_in_progress_dialog_message">در حال وارد شدن به سامانه…</string>
   <string name="login_error_wrong_password">گذرواژهٔ نادرست</string>
   <string name="login_error_wrong_username">نام کاربری نادرست</string>
   <string name="login_error_illegal">نام کاربری نادرست</string>
   <string name="login_success_toast">ورود موفق!</string>
-  <string name="login_error_blocked">این کاربر بسته شده‌است</string>
-  <string name="login_error_throttled">تلاش برای ورود به سامانه بیش از حد بوده‌است برای چند دقیقه صبر می‌کنید؟</string>
+  <string name="login_error_blocked">این کاربر بسته شده است</string>
+  <string name="login_error_throttled">تلاش برای ورود به سامانه بیش از حد بوده‌است. برای چند دقیقه صبر می‌کنید.</string>
   <string name="login_error_unknown">ورود ناموفق :(</string>
   <string name="login_error_no_network">هیچ اتصال شبکه</string>
   <string name="preference_title_logout">خروج از سامانه</string>
@@ -130,6 +130,7 @@
   <string name="create_account_next">بعدی</string>
   <string name="create_account_button">ایجاد حساب کاربری</string>
   <string name="preferences_general_heading">عمومی</string>
+  <string name="wikipedia_app_faq">پاسخ پرسش‌های رایج ویکی‌پدیا</string>
   <string name="zero_charged_verbiage">خاموش کردن ویکی‌پدیا صفر</string>
   <string name="zero_charged_verbiage_extended">بارگیری مقالات دیگر ممکن است برای شما هزینه داشته باشد.</string>
   <string name="zero_search_hint">جستجو در ویکی‌پدیا صفر</string>
@@ -153,7 +154,7 @@
   <string name="preference_title_eventlogging_opt_in">فرستادن گزارش‌های رفتارهای کاربری</string>
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
   <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه‌ای مسدودشده (%s) شناسایی شد. لطفاً آنها را حذف کنید و دوباره تلاش کنید.</string>
-  <string name="history_search_list_hint" fuzzy="true">جستجو</string>
+  <string name="history_search_list_hint">تاریخچهٔ جستجو</string>
   <string name="history_search_empty_message">هیچ صفحه‌ای برای درخواست شما یافت نشد</string>
   <string name="error_can_not_process_link">نمی‌توان این پیوند را نمایش داد</string>
   <string name="page_protected_autoconfirmed">این صفحه نیمه‌محفاظت شده است.</string>
@@ -270,4 +271,10 @@
   <string name="gallery_fair_use_license">استفادهٔ منصفانه</string>
   <string name="gallery_uploader_unknown">بارگذار ناشناس</string>
   <string name="edit_save_unknown_error">امکان دخیرهٔ ویرایش شما وجود ندارد: %s</string>
+  <string name="menu_show_tabs">نمایش برگه‌ها</string>
+  <string name="menu_new_tab">برگهٔ جدید</string>
+  <string name="button_close_tab">بستن برگه</string>
+  <string name="menu_open_link">باز کردن پیوند</string>
+  <string name="menu_open_in_new_tab">باز کردن در برگهٔ جدید</string>
+  <string name="menu_save_page_popup">ذخیره برای بعد</string>
 </resources>

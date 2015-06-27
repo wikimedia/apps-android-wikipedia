@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Ĝisdatigante konservitajn paĝojn</string>
   <string name="delete_selected_saved_pages">Forigi</string>
   <string name="toast_saved_page_deleted">Konservita(j) paĝo(j) forigita(j)</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Serĉi</string>
+  <string name="saved_pages_search_list_hint">Serĉi konservitajn paĝojn</string>
   <string name="saved_pages_search_empty_message">Neniu paĝo kongruas kun via serĉo.</string>
   <string name="nav_item_nearby">Ĉirkaŭe</string>
   <string name="menu_update_nearby">Ĝisdatigi ĉirkaŭaĵojn</string>

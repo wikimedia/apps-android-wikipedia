@@ -20,7 +20,7 @@
   <string name="toast_saving_page">مخ خوندي کېدو کې دی…</string>
   <string name="toast_refresh_saved_page">بياتاندېدنې او مخ خوندي کېدنې کې دی...</string>
   <string name="delete_selected_saved_pages">ړنگول</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">پلټل</string>
+  <string name="saved_pages_search_list_hint">خوندي مخونه پلټل</string>
   <string name="nav_item_nearby">نژدې</string>
   <string name="nearby_distance_in_kilometers">%.2f کيلومتر</string>
   <string name="nearby_view_on_map">په کښېدې ځای کتل</string>

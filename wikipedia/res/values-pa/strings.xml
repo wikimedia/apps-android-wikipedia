@@ -32,7 +32,7 @@
   <string name="toast_refresh_saved_page">ਸਾਂਭਿਆ ਵਰਕਾ ਮੁੜ-ਤਾਜ਼ਾ ਹੋ ਰਿਹਾ ਹੈ…</string>
   <string name="delete_selected_saved_pages">ਮਿਟਾਉ</string>
   <string name="toast_saved_page_deleted">ਸਾਂਭਿਆ ਵਰਕਾ(ਕੇ) ਮਿਟਾਇਆ ਗਿਆ</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">ਖੋਜ</string>
+  <string name="saved_pages_search_list_hint">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਖੋਜੋ</string>
   <string name="saved_pages_search_empty_message">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮੇਲ ਖਾਂਦਾ ਕੋਈ ਵਰਕਾ ਨਹੀਂ ਲੱਭਿਆ।</string>
   <string name="nav_item_nearby">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="menu_update_nearby">ਨੇੜੇ-ਤੇੜੇ ਅੱਪਡੇਟ ਕਰੋ</string>
@@ -47,12 +47,15 @@
   <string name="nearby_dialog_goto_settings">ਤੁਹਾਡੇ ਜੰਤਰ ਉੱਤੇ ਟਿਕਾਣਿਆਂ ਦੇ ਨਵੀਨੀਕਰਨ ਚੱਲ ਨਹੀਂ ਰਹੇ। ਕੀ ਤੁਸੀਂ ਟਿਕਾਣਾ ਨਵੀਨੀਕਰਨਾਂ ਨੂੰ ਚਾਲੂ ਕਰਨ ਵਾਸਤੇ ਆਪਣੇ ਜੰਤਰ ਦੀਆਂ ਸੈਟਿੰਗਾਂ \'ਤੇ ਜਾਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="nearby_set_metric">ਮੀਟਰ/ਕਿ.ਮੀ. ਵਿਖਾਉ</string>
   <string name="nearby_set_imperial">ਫੁੱਟ/ਮੀਲ ਵਿਖਾਉ</string>
+  <string name="nearby_view_on_map">ਨਕਸ਼ੇ ਉੱਤੇ ਜਗ੍ਹਾ ਵੇਖੋ</string>
   <string name="last_updated_text">ਆਖ਼ਰੀ ਵਾਰ ਨਵਿਆਇਆ %s</string>
   <string name="content_license_html">ਕੁਝ ਹੋਰ ਨਾ ਦੱਸੇ ਜਾਣ ਦੀ ਸੂਰਤ ਵਿੱਚ ਸਮੱਗਰੀ &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਹੇਠ ਮੌਜੂਦ ਹੈ</string>
   <string name="edit_save_action_license_logged_in">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ।</string>
   <string name="edit_save_action_license_anon">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ. ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
   <string name="preference_title_language">ਵਿਕੀਪੀਡੀਆ ਬੋਲੀ</string>
   <string name="preference_languages_filter_hint">ਖੋਜ</string>
+  <string name="preference_system_language_toggle">ਸਿਸਟਮ ਭਾਸ਼ਾ ਵਰਤੋ</string>
+  <string name="preference_system_language_summary">ਸਿਸਟਮ ਭਾਸ਼ਾ</string>
   <string name="langlinks_filter_hint">ਖੋਜੋ</string>
   <string name="menu_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="langlinks_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
@@ -83,6 +86,7 @@
   <string name="login_in_progress_dialog_message">ਦਾਖ਼ਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…</string>
   <string name="login_error_wrong_password">ਗ਼ਲਤ ਪਛਾਣ-ਸ਼ਬਦ</string>
   <string name="login_error_wrong_username">ਗ਼ਲਤ ਵਰਤੋਂਕਾਰ-ਨਾਂ</string>
+  <string name="login_error_illegal">ਗ਼ਲਤ ਵਰਤੋਂਕਾਰ ਨਾਂ</string>
   <string name="login_success_toast">ਦਾਖ਼ਲਾ ਕਾਮਯਾਬ!</string>
   <string name="login_error_blocked">ਇਸ ਵਰਤੋਂਕਾਰ \'ਤੇ ਰੋਕ ਲੱਗੀ ਹੋਈ ਹੈ</string>
   <string name="login_error_throttled">ਦਾਖ਼ਲ ਹੋਣ ਦੀਆਂ ਬਾਹਲੀਆਂ ਕੋਸ਼ਿਸ਼ਾਂ। ਕੁਝ ਮਿੰਟ ਉਡੀਕੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
@@ -122,6 +126,7 @@
   <string name="create_account_next">ਅਗਲਾ</string>
   <string name="create_account_button">ਖਾਤਾ ਬਣਾਉ</string>
   <string name="preferences_general_heading">ਆਮ</string>
+  <string name="wikipedia_app_faq">ਵਿਕੀਪੀਡੀਆ ਐਪ ਬਾਰੇ ਆਮ ਸਵਾਲ</string>
   <string name="zero_charged_verbiage">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਬੰਦ ਹੈ</string>
   <string name="zero_charged_verbiage_extended">ਹੋਰ ਲੇਖ ਲਿਆਉਣ \'ਤੇ ਸਮੱਗਰੀ ਦਾ ਖ਼ਰਚਾ ਪੈ ਸਕਦਾ ਹੈ।</string>
   <string name="zero_search_hint">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਭਾਲ਼ੋ</string>
@@ -144,7 +149,7 @@
   <string name="activity_my_contributions_title">ਮੇਰੇ ਯੋਗਦਾਨ</string>
   <string name="preference_title_eventlogging_opt_in">ਵਰਤੋਂ ਦੀਆਂ ਇਤਲਾਹਾਂ ਘੱਲੋ</string>
   <string name="preference_summary_eventlogging_opt_in">ਇਸ ਐਪ ਨੂੰ ਚੰਗੇਰੀ ਬਣਾਉਣ ਵਾਸਤੇ ਵਿਕੀਮੀਡੀਆ ਨੂੰ ਤੁਹਾਡੇ ਇਸ ਐਪ ਨੂੰ ਵਰਤਣ ਦੇ ਤਰੀਕੇ ਬਾਬਤ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਉ।</string>
-  <string name="history_search_list_hint" fuzzy="true">ਭਾਲ਼ੋ</string>
+  <string name="history_search_list_hint">ਅਤੀਤ ਖੋਜੋ</string>
   <string name="history_search_empty_message">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮੇਲ ਖਾਂਦਾ ਕੋਈ ਵਰਕਾ ਨਹੀਂ ਲੱਭਿਆ।</string>
   <string name="error_can_not_process_link">ਇਹ ਕੜੀ ਵਿਖਾਈ ਨਾ ਜਾ ਸਕੀ</string>
   <string name="page_protected_autoconfirmed">ਇਹ ਸਫ਼ਾ ਨੀਮ-ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
@@ -198,8 +203,14 @@
   <string name="color_theme_light">ਹਲਕੀ</string>
   <string name="color_theme_dark">ਗੂੜ੍ਹੀ</string>
   <string name="page_similar_titles">ਮਿਲਦੇ-ਜੁਲਦੇ ਸਫ਼ੇ</string>
+  <string name="search_recent_header">ਹਾਲੀਆ ਖੋਜਾਂ</string>
+  <string name="button_clear_all_recent_searches">ਹਾਲੀਆ ਖੋਜਾਂ ਮਿਟਾਓ</string>
   <string name="toc_hint">ਹਿੱਸਿਆਂ ਵਾਸਤੇ ਖੱਬੇ ਧੂਹੋ ਜਾਂ ਸਿਖਰ ਸੱਜੇ ਦਿੱਤਾ ਮੀਨੂੰ ਬਟਨ ਵਰਤੋ।</string>
   <string name="toc_know_it">ਸਮਝ ਆ ਗਿਆ</string>
+  <string name="table_infobox">ਵਿਸ਼ੇਸ਼ ਤੱਥ</string>
+  <string name="table_other">ਹੋਰ ਜਾਣਕਾਰੀ</string>
+  <string name="table_close">ਬੰਦ ਕਰੋ</string>
+  <string name="widget_name_search">ਵਿਕੀਪੀਡੀਆ ਖੋਜ</string>
   <string name="app_store_description" fuzzy="true">ਐਂਡਰਾਇਡ ਵਾਸਤੇ ਰਸਮੀ ਵਿਕੀਪੀਡੀਆ ਐਪ। ਵਿਕੀਪੀਡੀਆ ਮੁ਼ਫ਼ਤ ਗਿਆਨਕੋਸ਼ ਹੈ ਜਿਸ ਵਿੱਚ ੨੮੦ ਬੋਲੀਆਂ ਵਿੱਚ ੩.੨ ਕਰੋੜ ਤੋਂ ਵੱਧ ਲੇਖ ਮੌਜੂਦ ਹਨ, ਅਤੇ ਮਨੁੱਖਾਂ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਅੱਜ ਤੱਕ ਦਾ ਸਭ ਤੋਂ ਸਰਬੰਗੀ ਅਤੇ ਵਿਆਪਕ ਵਰਤੋਂ ਵਾਲ਼ਾ ਹਵਾਲਾ ਕਾਰਜ ਹੈ। ਇਹ ਐਪ ਮੁੜ ਨਵੇਂ ਸਿਰਿਓਂ ਲਿਖੀ ਗਈ ਹੈ ਅਤੇ ਹੁਣ ਤੱਕ ਦੇ ਸਭ ਤੋਂ ਚੰਗੇ ਤਰੀਕੇ ਨਾਲ਼।
 
 ਗੁਣ:

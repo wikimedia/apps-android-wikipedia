@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Gjenoppfrisker lagret side…</string>
   <string name="delete_selected_saved_pages">Fjern</string>
   <string name="toast_saved_page_deleted">Siden(e) ble fjernet</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Søk</string>
+  <string name="saved_pages_search_list_hint">Søk i lagrede sider</string>
   <string name="saved_pages_search_empty_message">Fant ingen sider som matchet spørringen din.</string>
   <string name="nav_item_nearby">I nærheten</string>
   <string name="menu_update_nearby">Oppdater «i nærheten»</string>
@@ -103,7 +103,7 @@
   <string name="saved_pages_empty_title">Ingen lagrede sider her!</string>
   <string name="saved_pages_empty_message">Lagrede sider er veldig praktisk. Tenk på dem som bokmerker som du også kan lese når du er offline.</string>
   <string name="history_empty_title">Ingen besøkte sider her!</string>
-  <string name="history_empty_message">Du har antakelig fjernet alle sammen. Neste gang du besøker en side kan du finne den igjen her etterpå.</string>
+  <string name="history_empty_message">Du har antakelig fjernet alle sammen. Neste gang du besøker en side så kan du finne den igjen her etterpå.</string>
   <string name="delete_selected_history">Fjern</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Brukernavn</string>
@@ -112,7 +112,7 @@
   <string name="create_account_login_link">Har du en konto allerede? Logg inn</string>
   <string name="create_account_activity_title">Opprett en konto</string>
   <string name="dialog_create_account_checking_progress">Verifiserer</string>
-  <string name="create_account_email_hint">E-post (valgfritt)</string>
+  <string name="create_account_email_hint">E-post (valgfri)</string>
   <string name="create_account_password_repeat_hint">Gjenta passord</string>
   <string name="create_account_passwords_mismatch_error">Passordene stemmer ikke overens</string>
   <string name="create_account_email_error">Ugyldig epostadresse</string>
@@ -130,6 +130,7 @@
   <string name="create_account_next">Neste</string>
   <string name="create_account_button">Opprett konto</string>
   <string name="preferences_general_heading">Generelt</string>
+  <string name="wikipedia_app_faq">Wikipedia-app OSS</string>
   <string name="zero_charged_verbiage">Wikipedia Zero er skrudd av</string>
   <string name="zero_charged_verbiage_extended">Lasting av artikler kan føre til at datakostnader påløper.</string>
   <string name="zero_search_hint">Søk i Wikipedia Zero</string>
@@ -153,7 +154,7 @@
   <string name="preference_title_eventlogging_opt_in">Send bruksrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillatt Wikimedia å samle informasjon om hvordan du bruker appen for å forbedre den</string>
   <string name="editing_error_spamblacklist">Lenker til blokkerte domener (%s) ble funnet. Vennligst fjern dem og prøv igjen.</string>
-  <string name="history_search_list_hint" fuzzy="true">Søk</string>
+  <string name="history_search_list_hint">Søkehistorikk</string>
   <string name="history_search_empty_message">Fant ingen sider som matchet søket ditt.</string>
   <string name="error_can_not_process_link">Kunne ikke vise denne lenken</string>
   <string name="page_protected_autoconfirmed">Denne siden er delvis beskyttet.</string>
@@ -222,7 +223,7 @@
   <string name="widget_name_featured_page">Utvalgt WIkipedia-side</string>
   <string name="widget_title_featured_page">Dagens utvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søk</string>
-  <string name="app_store_description">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som har blitt sammenstilt noensinne.
+  <string name="app_store_description">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som noensinne har blitt sammenstilt av mennesker.
 
 Funksjonalitet:
 - Ingressbilder: opplev Wikipedia som aldri før, med et fremtredende innholdsrelevant bilde øverst i artiklene
@@ -270,4 +271,10 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Ukjent opplaster</string>
   <string name="edit_save_unknown_error">Kunne ikke lagre din redigering: %s</string>
+  <string name="menu_show_tabs">Vis arkfaner</string>
+  <string name="menu_new_tab">Ny arkfane</string>
+  <string name="button_close_tab">Steng arkfane</string>
+  <string name="menu_open_link">Åpne lenke</string>
+  <string name="menu_open_in_new_tab">Åpne i ny arkfane</string>
+  <string name="menu_save_page_popup">Lagre til siden</string>
 </resources>

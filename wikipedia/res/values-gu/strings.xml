@@ -60,8 +60,8 @@
   <string name="menu_save_changes">ફેરફારો સાચવો</string>
   <string name="edit_section_error_retry">ફરી પ્રયત્ન કરો</string>
   <string name="dialog_saving_in_progress">સચવાઈ રહ્યું છે…</string>
-  <string name="edit_saved_successfully">સચવાયેલું સંપાદિત કરો !</string>
-  <string name="dialog_message_edit_failed">સંપાદન અસફળ !</string>
+  <string name="edit_saved_successfully">સચવાયેલું સંપાદિત કરો!</string>
+  <string name="dialog_message_edit_failed">સંપાદન અસફળ!</string>
   <string name="dialog_message_edit_failed_retry">ફરી પ્રયત્ન કરો</string>
   <string name="dialog_message_edit_failed_cancel">રદ કરો</string>
   <string name="dialog_message_leaving_edit_leave">બહાર નીકળો</string>
@@ -76,7 +76,7 @@
   <string name="login_password_hint">પાસવર્ડ</string>
   <string name="login_password_show_check">પાસવર્ડ દર્શાવો</string>
   <string name="menu_login">પ્રવેશ કરો</string>
-  <string name="login_activity_title">વિકિપીડિયા પર લોગઈન કરો</string>
+  <string name="login_activity_title">વિકિપીડિયા પર લોગીન કરો</string>
   <string name="login_in_progress_dialog_message">તમે લોગઈન થઈ રહ્યા છો...</string>
   <string name="login_error_wrong_password">અયોગ્ય પાસવર્ડ</string>
   <string name="login_error_wrong_username">અયોગ્ય સભ્યનામ</string>
@@ -130,8 +130,8 @@
   <string name="saved_pages_update_all_error_retry">ફરી પ્રયત્ન કરો</string>
   <string name="dialog_page_issues">પૃષ્ઠમાં ખરાબી</string>
   <string name="button_page_issues">પૃષ્ઠમાં ખરાબી</string>
-  <string name="text_size_select">ફોન્ટ નો આકાર</string>
-  <string name="color_theme_light">જમણે</string>
+  <string name="text_size_select">ફોન્ટનો આકાર</string>
+  <string name="color_theme_light">આછુ</string>
   <string name="toc_know_it">સમજ્યાં</string>
   <string name="table_close">બંધ કરો</string>
   <string name="dialog_close_description">બંધ કરો</string>
