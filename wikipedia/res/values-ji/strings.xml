@@ -32,9 +32,10 @@
   <string name="toast_refresh_saved_page">אקטואליזירן געשפייכלטן בלאט…</string>
   <string name="delete_selected_saved_pages">אויסמעקן</string>
   <string name="toast_saved_page_deleted">געשפייכלערטע בלעטער אויסגעמעקט</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">זוכן</string>
+  <string name="saved_pages_search_list_hint">זוכן געשפייכלערטע בלעטער</string>
   <string name="saved_pages_search_empty_message">קיין בלעטער נישט געטראפן וואס זענען צוגעפאסט צו אײַער פראגע.</string>
   <string name="nav_item_nearby">דערבײַ</string>
+  <string name="menu_update_nearby">דערהיינטיקן אין דער נאענט</string>
   <string name="nearby_empty_title">קיין בלעטער נישט דערבײ!</string>
   <string name="nearby_distance_in_meters">%d מ\'</string>
   <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
@@ -102,14 +103,19 @@
   <string name="create_account_passwords_mismatch_error">פאסווערטער שטימען נישט</string>
   <string name="create_account_email_error">אומגילטיקער ע־פאסט אדרעס</string>
   <string name="create_account_username_exists_error">באניצער־נאמען שוין אין באניץ</string>
+  <string name="create_account_ip_throttle_error">צופיל קאנטעס געשאפן פון דעם IP־אדרעס. פרובירט נאכאמאל שפעטער.</string>
   <string name="create_account_invalid_email_error">דעם ע־פאסט אדרעס וואס איר האט פארזארגט איז אומגילטיק.</string>
   <string name="create_account_password_too_short_error">דאס פאסווארט איר האט אײַנגעגעבן איז תו קורץ.</string>
+  <string name="create_account_password_name_match_error">אייערע באניצער־נאמען און פאסווארט דארפן זיין אנדערש איינס פון אנאנד.</string>
   <string name="create_account_generic_error">מען קען נישט באשאפֿן קאנטע</string>
   <string name="create_account_no_network">קיין נעצווערק פארבינדונג</string>
   <string name="create_account_next">נעקסט</string>
   <string name="create_account_button">שאַפֿן אַ קאנטע</string>
   <string name="preferences_general_heading">אַלגעמיין</string>
+  <string name="wikipedia_app_faq">וויקיפעדיע אפ שאלות ותשובות</string>
+  <string name="zero_charged_verbiage">וויקיפעדיע זערא איז אויס</string>
   <string name="zero_search_hint">זוכן וויקיפעדיע נול</string>
+  <string name="zero_webpage_title">וויקיפעדיע נול שאלות ותשובות</string>
   <string name="zero_wikipedia_zero_heading">וויקיפעדיע נול</string>
   <string name="zero_interstitial_title">פארלאזן וויקיפעדיע נול</string>
   <string name="zero_interstitial_continue">פֿארלאזן</string>
@@ -124,7 +130,7 @@
   <string name="activity_my_contributions_title">מײַנע בײַשטײַערונגען</string>
   <string name="preference_title_eventlogging_opt_in">שיקן ניצונג־באריכטן</string>
   <string name="preference_summary_eventlogging_opt_in">דערלויבן וויקימעדיע צו זאמלען אינפארמאציע וויאזוי איר ניצט דעם אפ כדי צו פארבעסערן דעם אפ</string>
-  <string name="history_search_list_hint" fuzzy="true">זוכן</string>
+  <string name="history_search_list_hint">זוכן היסטאריע</string>
   <string name="history_search_empty_message">קיין בלעטער נישט געטראפן וואס זענען צוגעפאסט צו אײַער פראגע.</string>
   <string name="error_can_not_process_link">נישט מעגלעך צו ווײַזן דעם לינק</string>
   <string name="page_protected_autoconfirmed">דער בלאט איז געווארן האלב געשיצט.</string>

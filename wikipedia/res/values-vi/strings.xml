@@ -13,6 +13,7 @@
   <string name="error_network_error">Không thể kết nối với mạng :(</string>
   <string name="search_network_error">Lỗi mạng. Chạm để thử lại.</string>
   <string name="generic_page_error">Có một vấn đề trong việc chuyển những yêu cầu của bạn.</string>
+  <string name="status_code_unavailable">Mã trạng thái của server không có sẵn.</string>
   <string name="page_error_retry">Thử lại</string>
   <string name="menu_clear_all_history">Xóa lịch sử</string>
   <string name="menu_clear_all_saved_pages">Xóa các trang đã lưu</string>
@@ -33,7 +34,7 @@
   <string name="toast_refresh_saved_page">Đang làm mới trang đã lưu…</string>
   <string name="delete_selected_saved_pages">Xóa</string>
   <string name="toast_saved_page_deleted">Đã xóa (các) trang đã lưu</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Tìm kiếm</string>
+  <string name="saved_pages_search_list_hint">Tìm kiếm các trang đã lưu</string>
   <string name="saved_pages_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
   <string name="nav_item_nearby">Lân cận</string>
   <string name="menu_update_nearby">Cập nhật danh sách lân cận</string>
@@ -55,6 +56,8 @@
   <string name="edit_save_action_license_anon">Với việc lưu trang, bạn chấp nhận &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt;. Các sửa đổi của  bạn sẽ ghi rõ địa chỉ IP của thiết bị của bạn. Bạn có thể &lt;a href=\"https://#login\"&gt;đăng nhập&lt;/a&gt; để bảo vệ quyền riêng tư của bạn một chút hơn.</string>
   <string name="preference_title_language">Ngôn ngữ Wikipedia</string>
   <string name="preference_languages_filter_hint">Tìm kiếm</string>
+  <string name="preference_system_language_toggle">Sử dụng ngôn ngữ hệ thống</string>
+  <string name="preference_system_language_summary">Ngôn ngữ hệ thống</string>
   <string name="langlinks_filter_hint">Tìm kiếm</string>
   <string name="menu_other_languages">Đọc trong ngôn ngữ khác</string>
   <string name="langlinks_error_retry">Thử lại</string>
@@ -127,6 +130,7 @@
   <string name="create_account_next">Tiếp</string>
   <string name="create_account_button">Mở Tài khoản</string>
   <string name="preferences_general_heading">Tổng quát</string>
+  <string name="wikipedia_app_faq">Câu hỏi thường hỏi về ứng dụng Wikipedia</string>
   <string name="zero_charged_verbiage">Wikipedia Miễn phí đang tắt</string>
   <string name="zero_charged_verbiage_extended">Có thể phải trả chi phí dữ liệu nếu tải thêm bài.</string>
   <string name="zero_search_hint">Tìm trong Wikipedia Miễn phí</string>
@@ -150,7 +154,7 @@
   <string name="preference_title_eventlogging_opt_in">Gửi báo cáo sử dụng</string>
   <string name="preference_summary_eventlogging_opt_in">Cho phép Wikimedia thu thập thông tin về cách bạn sử dụng ứng dụng để giúp cải thiện ứng dụng</string>
   <string name="editing_error_spamblacklist">Đã tìm thấy các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
-  <string name="history_search_list_hint" fuzzy="true">Tìm kiếm</string>
+  <string name="history_search_list_hint">Lịch sử tìm kiếm</string>
   <string name="history_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
   <string name="error_can_not_process_link">Không thể hiển thị liên kết này</string>
   <string name="page_protected_autoconfirmed">Trang này đã bị bán khóa.</string>
@@ -219,7 +223,7 @@
   <string name="widget_name_featured_page">Bài viết chọn lọc Wikipedia</string>
   <string name="widget_title_featured_page">Bài viết chọn lọc hôm nay:</string>
   <string name="widget_name_search">Tìm kiếm Wikipedia</string>
-  <string name="app_store_description" fuzzy="true">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở có hơn 32 triệu bài viết trong 280 ngôn ngữ. Nó là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên.
+  <string name="app_store_description">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở có hơn 32 triệu bài viết trong 280 ngôn ngữ. Nó là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên.
 
 Tính năng:
 - Hình đầu: Trải nghiệm Wikipedia một cách hoàn toàn mới với bức hình nổi bật, phù hợp được trình bày và miêu tả ngay vào đầu trang.
@@ -267,4 +271,10 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="gallery_fair_use_license">Sử dụng công bằng, minh bạch</string>
   <string name="gallery_uploader_unknown">Người tải lên không rõ.</string>
   <string name="edit_save_unknown_error">Không thể lưu lại phần hiệu chỉnh của bạn: %s</string>
+  <string name="menu_show_tabs">Hiển thị tab</string>
+  <string name="menu_new_tab">Tab mới</string>
+  <string name="button_close_tab">Đóng tab</string>
+  <string name="menu_open_link">Mở liên kết</string>
+  <string name="menu_open_in_new_tab">Mở trong thẻ mới</string>
+  <string name="menu_save_page_popup">Lưu sau</string>
 </resources>

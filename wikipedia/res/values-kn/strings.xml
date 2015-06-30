@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name_prod">ವಿಕಿಪೀಡಿಯ</string>
+  <string name="app_name_beta">ವಿಕಿಪೀಡಿಯ ಬೀಟಾ</string>
+  <string name="app_name_alpha">ವಿಕಿಪೀಡಿಯ ಆಲ್ಫಾ</string>
+  <string name="yes">ಹೌದು</string>
+  <string name="no">ಇಲ್ಲ</string>
+  <string name="acra_report_dialog_title">ವಿಕಿಪೀಡಿಯ ಕ್ರಿಯಾವೈಫಲ್ಯಗೊಂಡಿದೆ :(</string>
+  <string name="acra_report_dialog_text">ನಮಗೆ ಕ್ರಿಯಾವೈಫಲ್ಯ ವರದಿ ಕಳಿಸಿ</string>
+  <string name="search_hint">ವಿಕಿಪೀಡಿಯ ಹುಡುಕು</string>
+  <string name="nav_item_history">ಇತಿಹಾಸ</string>
+  <string name="error_network_error">ನೆಟವರ್ಕ್ ಸಂಪರ್ಕ ವಿಲ್ಲ :(</string>
+  <string name="search_network_error">Network error. ತಟ್ಟಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+  <string name="generic_page_error">ನಿಮ್ಮ ಬೇಡಿಕೆಯನ್ನು ನಿಭಾಯಿಸಲು ಸಮಸ್ಯೆಯೊಂದಿದೆ.</string>
+  <string name="status_code_unavailable">Server status code ಲಭ್ಯವಿಲ್ಲ.</string>
+  <string name="page_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
+  <string name="menu_clear_all_history">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಿ</string>
+  <string name="menu_clear_all_saved_pages">ಉಳಿಸಿದ ಎಲ್ಲ ಪುಟಗಳನ್ನು ಅಳಿಸಿ</string>
+  <string name="page_does_not_exist_error">ಈ ಪುಟವು ಆಸ್ಥಿತ್ವದಲ್ಲಿ ಇಲ್ಲ.</string>
+  <string name="nav_item_today">ಇಂದು</string>
+  <string name="dialog_title_clear_history">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಬೇಕೆ?</string>
+  <string name="nav_item_saved_pages">ಉಳಿಸಿದ ಪುಟಗಳು</string>
+  <string name="menu_update_all_saved_pages">ಉಳಿಸಿದ ಪುಟಗಳನ್ನು ನವೀಕರಿಸಿ.</string>
+  <string name="menu_update_selected_saved_pages">ಉಳಿಸಿದ ಪುಟಗಳನ್ನು ನವೀಕರಿಸಿ.</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">ಉಳಿಸಿದ ಎಲ್ಲಾ ಪುಟಗಳನ್ನು ನವೀಕರಿಸುವಿರಾ?</string>
+  <string name="menu_save_page">ಪುಟವನ್ನು ಉಳಿಸಿ</string>
+  <string name="menu_share_page">ಹಂಚು</string>
+  <string name="share_via">ಮೂಲಕ ಹಂಚು</string>
+  <string name="dialog_title_clear_saved_pages">ಉಳಿಸಿದ ಎಲ್ಲ ಪುಟಗಳನ್ನು ಅಳಿಸಬೇಕೆ?</string>
+  <string name="toast_saving_page">ಪುಟವನ್ನು ಉಳಿಸಲಾಗುತ್ತಿದೆ...</string>
+  <string name="toast_saved_page">ಪುಟವನ್ನು ಉಳಿಸಲಾಗಿದೆ</string>
+  <string name="toast_saved_page_missing_images">ಎಲ್ಲಾ ಚಿತ್ರಗಳನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ.</string>
+  <string name="toast_refresh_saved_page">ಉಳಿಸಿದ ಪುಟವನ್ನು ಮತ್ತೆ ತೆರೆಯಿರಿ.</string>
+  <string name="delete_selected_saved_pages">ಅಳಿಸು</string>
+  <string name="toast_saved_page_deleted">ಉಳಿಸಿದ ಪುಟ(ಗಳ)ನ್ನು ಅಳಿಸಲಾಗಿದೆ</string>
+  <string name="saved_pages_search_list_hint">ಉಳಿಸಲಾಗಿರುವ ಪುಟಗಳನ್ನು ಹುಡುಕಿ</string>
+  <string name="nav_item_nearby">ಹತ್ತಿರದ</string>
+  <string name="menu_update_nearby">ಹತ್ತಿರದ ಅಪ್ಡೇಟ್</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
+  <string name="nearby_distance_in_miles">%.2f mi</string>
+  <string name="nearby_no_network">ಯಾವೂದೇ ನಟ್ವಕ್೯ ಸ‍ಂಪಕ೯ವಿಲ್ಲ</string>
+  <string name="nearby_set_metric">ಪ್ರದಶ೯ನ ಮೀಟರ್/ಕಿಮೀ</string>
+  <string name="nearby_set_imperial">ತೋರಿಸು ಅಡಿ/ಮೈಲಿ</string>
+  <string name="last_updated_text">ಕೊನೆಯ ಪರಿಷ್ಕರಣೆ %1$s</string>
+  <string name="preference_title_language">ವಿಕಿಪೀಡಿಯಾ ಭಾಷೆ</string>
+  <string name="preference_languages_filter_hint">ಹುಡುಕು</string>
+  <string name="langlinks_filter_hint">ಹುಡುಕು</string>
+  <string name="menu_other_languages">ಇತರೆ ಭಾಷೆಗಳಲ್ಲಿ ಹೋದಿ</string>
+  <string name="langlinks_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
+  <string name="langlinks_activity_title">ಇತರೆ ಭಾಷೆಗಳು</string>
+  <string name="menu_save_changes">ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಿ</string>
+  <string name="edit_section_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
+  <string name="dialog_saving_in_progress">ಉಳಿಸಲಾಗುತ್ತಿದೆ....</string>
+  <string name="edit_saved_successfully">ಸಂಪಾದನೆಯನ್ನು ಉಳಿಸಲಾಗಿದೆ!</string>
+  <string name="dialog_message_edit_failed">ಸಂಪಾದನೆಯನ್ನು ಉಳಿಸಲಾಗಿಲ್ಲ!</string>
+  <string name="dialog_message_edit_failed_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
+  <string name="dialog_message_edit_failed_cancel">ರದ್ದುಮಾಡು</string>
+  <string name="dialog_message_leaving_edit_leave">ಬಿಡು</string>
+  <string name="dialog_message_leaving_edit_stay">ಇರು</string>
+  <string name="menu_show_toc">ಪರಿವಿಡಿ</string>
+  <string name="search_no_results_found">ಯಾವುದೇ ಫಲಿತಾಂಶಗಳಿಲ್ಲ</string>
+  <string name="nav_item_login">ಲಾಗ್ ಇನ್</string>
+  <string name="login_username_hint">ಬಳಕೆದಾರ ಹೆಸರು</string>
+  <string name="login_password_hint">ಪ್ರವೇಶಪದ</string>
+  <string name="login_password_show_check">ಪ್ರದೇಶಪದವನ್ನು ಪ್ರದರ್ಶಿಸು</string>
+  <string name="menu_login">ಲಾಗ್ ಇನ್</string>
+  <string name="login_activity_title">ವಿಕಿಪೀಡಿಯಾಕ್ಕೆ ಲಾಗಿನ್ ಆಗು</string>
+  <string name="login_in_progress_dialog_message">ನೀವು ಲಾಗ್-ಇನ್ ಆಗುತ್ತಿದ್ದೀರಿ...</string>
+  <string name="login_error_wrong_password">ಅಸಮರ್ಪಕ ಪ್ರವೇಶಪದ</string>
+  <string name="login_error_wrong_username">ಅಸಮರ್ಪಕ ಬಳಕೆದಾರ ಹೆಸರು</string>
+  <string name="login_error_illegal">ಅಮಾನ್ಯವಾದ ಬಳಕೆದಾರಹೆಸರು</string>
+  <string name="login_success_toast">ಲಾಗಿನ್ ಯಶಸ್ವಿ!</string>
+  <string name="login_error_blocked">ಈ ಬಳಕೆದಾರರನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</string>
+  <string name="login_error_unknown">ಲಾಗಿನ್ ಸಾಧ್ಯವಾಗಿಲ್ಲ!</string>
+  <string name="login_error_no_network">ಯಾವುದೇ ನೆಟ್ಟ೯ಕ್ ಸಂಪಕ೯ ಇಲ್ಲ</string>
+  <string name="preference_title_logout">ಲಾಗ್ ಔಟ್</string>
+  <string name="preference_summary_logout">ನಿಮ್ಮ ವಿಕಿಪೀಡಿಯ ಖಾತೆಯನ್ನು ಲಾಗ್ ಔಟ್ ಮಾಡಿ</string>
+  <string name="toast_logout_complete">ನಿರ್ಗಮನ</string>
+  <string name="saved_pages_empty_title">ಇಲ್ಲಿ ಯಾವುದೇ ಉಳಿಸಿದ ಪುಟಗಳು ಇಲ್ಲ</string>
+  <string name="saved_pages_empty_message" fuzzy="true">ಯಾವುದೇ ಓದುಗುರುತುಗಳಿಲ್ಲ</string>
+  <string name="history_empty_title">ಇಲ್ಲಿ ಯಾವುದೇ ಇತ್ತೀಚಿನ ಪುಟಗಳು ಇಲ್ಲ</string>
+  <string name="history_empty_message" fuzzy="true">ನಿಮ್ಮ ಇತಿಹಾಸಪುಟ ಖಾಲಿಯಾಗಿದೆ.</string>
+  <string name="create_account_username_hint">ಬಳಕೆದಾರ ಹೆಸರು</string>
+  <string name="create_account_password_hint">ಪ್ರವೇಶಪದ</string>
+  <string name="login_create_account_link" fuzzy="true">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
+  <string name="create_account_activity_title">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
+  <string name="dialog_create_account_checking_progress">ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ</string>
+  <string name="create_account_email_hint">ಮಿಂಚಂಚೆ(ಐಚ್ಛಿಕ)</string>
+  <string name="create_account_password_repeat_hint">ಪ್ರವೇಶಪದವನ್ನು ಪುನಃಸ್ಥಾಪಿಸಿ.</string>
+  <string name="create_account_passwords_mismatch_error">ಗುಪ್ತಪದಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ</string>
+  <string name="create_account_email_error">ಸಮರ್ಪಕ ಮಿಂಚಂಚೆ ವಿಳಾಸ</string>
+  <string name="create_account_username_exists_error">ಬಳಕೆದಾರ ಹೆಸರು ಈಗಾಗಲೇ ಉಪಯೋಗದಲ್ಲಿದೆ</string>
+  <string name="create_account_generic_error">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಗುತ್ತಿಲ್ಲ</string>
+  <string name="preferences_general_heading">ಸಾಮಾನ್ಯ</string>
+  <string name="zero_interstitial_continue" fuzzy="true">ಮುಂದುವರೆಸಿ</string>
+  <string name="zero_interstitial_cancel" fuzzy="true">ರದ್ದುಮಾಡು</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</string>
+  <string name="zero_learn_more_dismiss">ತೆಗೆದುಹಾಕು</string>
+  <string name="nav_item_random">ಹೀಗೇ ಒಂದು ಪುಟ</string>
+  <string name="create_account_account_created_toast">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಯಿತು!</string>
+  <string name="user_contribs_more_action">ಇನ್ನೂ ತೋರಿಸಿ</string>
+  <string name="activity_my_contributions_title">ನನ್ನ ಕಾಣಿಕೆಗಳು</string>
+  <string name="preference_title_eventlogging_opt_in">ಉಪಯೋಗ ವರದಿಗಳನ್ನು ಕಳುಹಿಸಿ</string>
+</resources>

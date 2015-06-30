@@ -269,4 +269,10 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">CAPTCHA-kuva</string>
   <string name="gallery_uploader_unknown">Tuntematon tallentaja</string>
   <string name="edit_save_unknown_error">Muokkaustasi ei voitu tallentaa: %s</string>
+  <string name="menu_show_tabs">Näytä välilehdet</string>
+  <string name="menu_new_tab">Uusi välilehti</string>
+  <string name="button_close_tab">Sulje välilehti</string>
+  <string name="menu_open_link">Avaa linkki</string>
+  <string name="menu_open_in_new_tab">Avaa uudessa välilehdessä</string>
+  <string name="menu_save_page_popup">Tallenna myöhemmäksi</string>
 </resources>
