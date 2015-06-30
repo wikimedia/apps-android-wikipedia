@@ -38,6 +38,7 @@ public class FetchUserContribsTask extends ApiTask<FetchUserContribsTask.UserCon
                 .param("list", "usercontribs")
                 .param("uclimit", String.valueOf(numberToFetch))
                 .param("ucuser", username)
+                .param("rawcontinue", "1")
                 .param("ucprop", "title|timestamp|comment|sizediff");
         if (queryContinue != null) {
             builder.param("ucstart", queryContinue);
