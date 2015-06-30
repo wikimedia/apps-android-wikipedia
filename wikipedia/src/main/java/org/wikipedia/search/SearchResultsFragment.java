@@ -226,7 +226,7 @@ public class SearchResultsFragment extends Fragment {
                 searchNetworkError.setVisibility(View.GONE);
                 displayResults(pageTitles);
 
-                // title search special:
+                // add titles to cache...
                 searchResultsCache.put(app.getAppOrSystemLanguageCode() + "-" + searchTerm, pageTitles);
                 curSearchTask = null;
 
@@ -302,6 +302,12 @@ public class SearchResultsFragment extends Fragment {
                     // Calculate total time taken to display results, in milliseconds
                     final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
                     searchFragment.getFunnel().searchResults(true, pageTitles.size(), timeToDisplay);
+                }
+
+                // append results to cache...
+                List<PageTitle> cachedTitles = searchResultsCache.get(app.getAppOrSystemLanguageCode() + "-" + searchTerm);
+                if (cachedTitles != null) {
+                    cachedTitles.addAll(pageTitles);
                 }
 
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
