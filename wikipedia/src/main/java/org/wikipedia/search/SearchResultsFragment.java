@@ -5,6 +5,8 @@ import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.util.ThrowableUtil;
+import org.wikipedia.views.WikiErrorView;
 
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
@@ -41,7 +43,7 @@ public class SearchResultsFragment extends Fragment {
     private View searchResultsDisplay;
     private View searchResultsContainer;
     private ListView searchResultsList;
-    private View searchNetworkError;
+    private WikiErrorView searchErrorView;
     private View searchNoResults;
     private TextView searchSuggestion;
 
@@ -116,11 +118,11 @@ public class SearchResultsFragment extends Fragment {
 
         searchNoResults = rootView.findViewById(R.id.search_results_empty);
 
-        searchNetworkError = rootView.findViewById(R.id.search_network_error);
-        searchNetworkError.setOnClickListener(new View.OnClickListener() {
+        searchErrorView = (WikiErrorView) rootView.findViewById(R.id.search_error_view);
+        searchErrorView.setRetryClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                searchNetworkError.setVisibility(View.GONE);
+                searchErrorView.setVisibility(View.GONE);
                 startSearch(currentSearchTerm, true);
             }
         });
@@ -223,7 +225,7 @@ public class SearchResultsFragment extends Fragment {
                 }
 
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
-                searchNetworkError.setVisibility(View.GONE);
+                searchErrorView.setVisibility(View.GONE);
                 if (!pageTitles.isEmpty()) {
                     displayResults(pageTitles);
                 }
@@ -265,7 +267,10 @@ public class SearchResultsFragment extends Fragment {
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
                 searchFragment.getFunnel().searchError(false, timeToDisplay);
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
-                searchNetworkError.setVisibility(View.VISIBLE);
+
+                searchErrorView.setVisibility(View.VISIBLE);
+                searchErrorView.setError(caught);
+
                 searchResultsContainer.setVisibility(View.GONE);
                 curSearchTask = null;
             }
@@ -313,7 +318,7 @@ public class SearchResultsFragment extends Fragment {
                 }
 
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
-                searchNetworkError.setVisibility(View.GONE);
+                searchErrorView.setVisibility(View.GONE);
                 displayResults(pageTitles);
 
                 // full text special:
@@ -331,7 +336,9 @@ public class SearchResultsFragment extends Fragment {
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
 
                 // since this is a follow-up search just toast
-                Toast.makeText(getActivity(), getString(R.string.error_network_error), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),
+                               ThrowableUtil.getAppError(getActivity(), caught).getError(),
+                               Toast.LENGTH_SHORT).show();
             }
         }.execute();
     }
@@ -347,7 +354,7 @@ public class SearchResultsFragment extends Fragment {
     private void clearResults() {
         searchResultsContainer.setVisibility(View.GONE);
         searchNoResults.setVisibility(View.GONE);
-        searchNetworkError.setVisibility(View.GONE);
+        searchErrorView.setVisibility(View.GONE);
         searchSuggestion.setVisibility(View.GONE);
 
         lastFullTextResults = null;

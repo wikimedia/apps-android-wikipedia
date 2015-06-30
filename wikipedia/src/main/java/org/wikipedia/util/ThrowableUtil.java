@@ -1,0 +1,103 @@
+package org.wikipedia.util;
+
+import org.wikipedia.R;
+import org.mediawiki.api.json.ApiException;
+import com.github.kevinsawicki.http.HttpRequest;
+import org.json.JSONException;
+import android.content.Context;
+import android.support.annotation.NonNull;
+import javax.net.ssl.SSLException;
+import java.net.UnknownHostException;
+import java.util.concurrent.TimeoutException;
+
+public final class ThrowableUtil {
+
+    // TODO: replace with Apache Commons Lang ExceptionUtils.
+    @NonNull
+    public static Throwable getInnermostThrowable(@NonNull Throwable e) {
+        Throwable t = e;
+        while (t.getCause() != null) {
+            t = t.getCause();
+        }
+        return t;
+    }
+
+    // TODO: replace with Apache Commons Lang ExceptionUtils.
+    public static boolean throwableContainsException(@NonNull Throwable e, Class<?> exClass) {
+        Throwable t = e;
+        while (t != null) {
+            if (t.getClass().equals(exClass)) {
+                return true;
+            }
+            t = t.getCause();
+        }
+        return false;
+    }
+
+    @NonNull
+    public static AppError getAppError(@NonNull Context context, @NonNull Throwable e) {
+        Throwable inner = ThrowableUtil.getInnermostThrowable(e);
+        AppError result;
+        // look at what kind of exception it is...
+        if (inner instanceof ApiException) {
+            // it's a well-formed error response from the server!
+            result = new AppError(context.getString(R.string.error_server_response),
+                                  getApiErrorMessage(context, (ApiException) inner));
+        } else if (isNetworkError(e)) {
+            // it's a network error...
+            result = new AppError(context.getString(R.string.error_network_error),
+                                  context.getString(R.string.format_error_server_message,
+                                      inner.getLocalizedMessage()));
+        } else if (ThrowableUtil.throwableContainsException(e, JSONException.class)) {
+            // it's a json exception
+            result = new AppError(context.getString(R.string.error_response_malformed),
+                                  inner.getLocalizedMessage());
+        } else {
+            // everything else has fallen through, so just treat it as an "unknown" error
+            result = new AppError(context.getString(R.string.error_unknown),
+                                  inner.getLocalizedMessage());
+        }
+        return result;
+    }
+
+    private static boolean isNetworkError(@NonNull Throwable e) {
+        return ThrowableUtil.throwableContainsException(e, HttpRequest.HttpRequestException.class)
+               || ThrowableUtil.throwableContainsException(e, UnknownHostException.class)
+               || ThrowableUtil.throwableContainsException(e, TimeoutException.class)
+               || ThrowableUtil.throwableContainsException(e, SSLException.class);
+    }
+
+    // TODO: migrate this to ApiException.toString()
+    @NonNull
+    private static String getApiErrorMessage(@NonNull Context c, @NonNull ApiException e) {
+        String text;
+        if (e.getInfo() != null) {
+            // if we have an actual message from the server, then prefer it
+            text = c.getString(R.string.format_error_server_message, e.getInfo());
+        } else if (e.getCode() != null) {
+            // otherwise, just show the error code
+            text = c.getString(R.string.format_error_server_code, e.getCode());
+        } else {
+            // if all else fails, show the message of the exception
+            text = e.getMessage();
+        }
+        return text;
+    }
+
+    public static class AppError {
+        private String error;
+        private String detail;
+        public AppError(String error, String detail) {
+            this.error = error;
+            this.detail = detail;
+        }
+        public String getError() {
+            return error;
+        }
+        public String getDetail() {
+            return detail;
+        }
+    }
+
+    private ThrowableUtil() { }
+}

@@ -13,7 +13,7 @@
 
     <string name="search_hint">Search Wikipedia</string>
     <string name="nav_item_history">History</string>
-    <string name="error_network_error">There is no network connection :(</string>
+    <string name="error_network_error">The network connection could not be established.</string>
     <string name="search_network_error">Network error. Tap to try again.</string>
     <string name="generic_page_error">There was a problem handling your request.</string>
     <string name="status_code_unavailable">Server status code unavailable.</string>
@@ -290,4 +290,9 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="tool_tip_share">After highlighting an interesting fact, try sharing it on your favorite networks!</string>
     <string name="page_view_in_browser">View in browser</string>
     <string name="tool_tip_toc_button">See the table of contents anytime by tapping this button, or sliding from the right edge of the screen.</string>
+    <string name="error_server_response">The server could not complete the request.</string>
+    <string name="error_response_malformed">Response from the server was not formatted correctly.</string>
+    <string name="error_unknown">An unknown error occurred.</string>
+    <string name="format_error_server_message">Message: \"%s\"</string>
+    <string name="format_error_server_code">Code: \"%s\"</string>
 </resources>
