@@ -26,20 +26,25 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
     private final int maxResults;
     private final FTContinueOffset continueOffset;
     private final int thumbSize;
+    private final boolean getMoreLike;
 
     public FullSearchArticlesTask(Api api, Site site, String searchTerm, int maxResults,
-                                  SearchResults.ContinueOffset continueOffset) {
-        this(api, site, searchTerm, maxResults, continueOffset, WikipediaApp.PREFERRED_THUMB_SIZE);
+                                  SearchResults.ContinueOffset continueOffset,
+                                  boolean getMoreLike) {
+        this(api, site, searchTerm, maxResults, continueOffset, getMoreLike,
+             WikipediaApp.PREFERRED_THUMB_SIZE);
     }
 
     public FullSearchArticlesTask(Api api, Site site, String searchTerm, int maxResults,
-                                  SearchResults.ContinueOffset continueOffset, int thumbSize) {
+                                  SearchResults.ContinueOffset continueOffset, boolean getMoreLike,
+                                  int thumbSize) {
         super(LOW_CONCURRENCY, api);
         this.site = site;
         this.searchTerm = searchTerm;
         this.maxResults = maxResults;
         this.continueOffset = (FTContinueOffset) continueOffset;
         this.thumbSize = thumbSize;
+        this.getMoreLike = getMoreLike;
     }
 
     @Override
@@ -50,8 +55,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
                 .param("ppprop", "mainpage|disambiguation")
                 .param("wbptterms", "description") // only interested in Wikidata description
                 .param("generator", "search")
-                .param("gsrsearch", WikipediaApp.getInstance().isMoreLikeSearchEnabled()
-                        ? ("morelike:" + searchTerm) : searchTerm)
+                .param("gsrsearch", getMoreLike ? ("morelike:" + searchTerm) : searchTerm)
                 .param("gsrnamespace", "0")
                 .param("gsrwhat", "text")
                 .param("gsrinfo", "")
@@ -70,7 +74,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
         }
 
         // TODO: remove once A/B testing is finished.
-        L.d("morelike=" + WikipediaApp.getInstance().isMoreLikeSearchEnabled());
+        L.d("morelike=" + getMoreLike);
 
         return req;
     }

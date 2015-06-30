@@ -283,7 +283,8 @@ public class SearchResultsFragment extends Fragment {
     private void doFullTextSearch(final String searchTerm, final SearchResults.ContinueOffset continueOffset) {
         // Use nanoTime to measure the time the search was started.
         final long startTime = System.nanoTime();
-        new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm, BATCH_SIZE, continueOffset) {
+        new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(),
+                                   searchTerm, BATCH_SIZE, continueOffset, false) {
             @Override
             public void onBeforeExecute() {
                 ((PageActivity)getActivity()).updateProgressBar(true, true, 0);

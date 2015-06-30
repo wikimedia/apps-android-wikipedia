@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.search.FullSearchArticlesTask;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
@@ -21,7 +22,8 @@ public class SuggestionsTask extends FullSearchArticlesTask {
     public SuggestionsTask(Api api, Site site, String title,
                            int numRequestItems, int maxResultItems,
                            int thumbSize, boolean requireThumbnail) {
-        super(api, site, title, numRequestItems, null, thumbSize);
+        super(api, site, title, numRequestItems, null,
+              WikipediaApp.getInstance().isMoreLikeSearchEnabled(), thumbSize);
         this.title = title;
         this.maxItems = maxResultItems;
         this.requireThumbnail = requireThumbnail;
