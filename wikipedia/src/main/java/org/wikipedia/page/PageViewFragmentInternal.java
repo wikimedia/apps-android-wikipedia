@@ -564,7 +564,10 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     }
 
     public void onActionModeShown(ActionMode mode) {
-        shareHandler.onTextSelected(mode);
+        // make sure we have a page loaded, since shareHandler makes references to it.
+        if (model.getPage() != null) {
+            shareHandler.onTextSelected(mode);
+        }
     }
 
 
