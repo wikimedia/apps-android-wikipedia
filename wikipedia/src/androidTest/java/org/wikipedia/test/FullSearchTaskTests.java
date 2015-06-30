@@ -32,7 +32,7 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
             @Override
             public void run() {
                 final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
-                new FullSearchArticlesTask(app.getAPIForSite(EN_SITE), EN_SITE, "test", BATCH_SIZE, null) {
+                new FullSearchArticlesTask(app.getAPIForSite(EN_SITE), EN_SITE, "test", BATCH_SIZE, null, false) {
                     @Override
                     public void onFinish(SearchResults results) {
                         assertNotNull(results);
@@ -82,7 +82,7 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
             @Override
             public void run() {
                 final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
-                new FullSearchArticlesTask(app.getAPIForSite(SITE), SITE, "jkfsdfpefdsfwoirpoik", BATCH_SIZE, null) { // total gibberish, should not exist on testwiki
+                new FullSearchArticlesTask(app.getAPIForSite(SITE), SITE, "jkfsdfpefdsfwoirpoik", BATCH_SIZE, null, false) { // total gibberish, should not exist on testwiki
                     @Override
                     public void onFinish(SearchResults results) {
                         assertNotNull(results);
