@@ -29,6 +29,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -102,8 +103,12 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private BottomContentInterface bottomContentHandler;
 
+    JsonPageLoadStrategy() {
+        backStack = new ArrayList<>();
+    }
+
     @Override
-    public void setBackStack(ArrayList<PageBackStackItem> backStack) {
+    public void setBackStack(@NonNull ArrayList<PageBackStackItem> backStack) {
         this.backStack = backStack;
     }
 
@@ -211,7 +216,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        // update the topmost entry in the backstack
+        // update the topmost entry in the back stack
         updateCurrentBackStackItem();
         outState.putParcelableArrayList("backStack", backStack);
     }
@@ -478,7 +483,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
      * Does NOT automatically load the next topmost page on the backstack.
      */
     private void popBackStack() {
-        if (backStack.size() == 0) {
+        if (backStack.isEmpty()) {
             return;
         }
         backStack.remove(backStack.size() - 1);
