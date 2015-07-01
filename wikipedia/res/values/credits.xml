@@ -25,6 +25,10 @@
         <!-- end of https://square.github.io/okhttp -->
         (<a href="file:///android_asset/licenses/OkHttp">license</a>),
 
+        <a href="https://github.com/ryanjohn1/onboarding/">Onboarding</a>
+        <!-- end of https://github.com/ryanjohn1/onboarding/ -->
+        (<a href="file:///android_asset/licenses/Onboarding">license</a>),
+
         <a href="https://square.github.io/otto/">Otto</a>
         <!-- end of http://square.github.io/otto -->
         (<a href="file:///android_asset/licenses/Otto">license</a>),

@@ -277,4 +277,13 @@
         style="?android:textAppearanceLarge"
         android:visibility="gone" />
 
+    <android.support.v4.widget.Space
+        android:id="@+id/fragment_page_tool_tip_select_text_target"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/fragment_page_tool_tip_select_text_target_offset"
+        android:layout_marginLeft="@dimen/fragment_page_tool_tip_select_text_target_offset"
+        android:layout_marginStart="@dimen/fragment_page_tool_tip_select_text_target_offset" />
+
 </FrameLayout>

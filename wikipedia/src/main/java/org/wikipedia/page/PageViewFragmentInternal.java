@@ -28,6 +28,7 @@ import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.NetworkUtils;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
@@ -41,6 +42,7 @@ import org.json.JSONObject;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -60,6 +62,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.appenguin.onboarding.ToolTip;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -571,6 +575,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     }
 
 
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PageActivity.ACTIVITY_REQUEST_EDIT_SECTION
@@ -582,6 +587,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         }
     }
 
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
             return;
@@ -589,6 +595,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         inflater.inflate(R.menu.menu_page_actions, menu);
     }
 
+    @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
         if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
@@ -750,6 +757,12 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
     public void onPageLoadComplete() {
         editHandler.setPage(model.getPage());
+
+        // TODO: implement select text onboarding logic.
+        //if (model.getPage().isArticle() && OnboardingStateMachine.isShowShareOnboardingEnabled())
+        //    showSelectTextOnboarding();
+        //}
+
         if (saveOnComplete) {
             saveOnComplete = false;
             savedPagesFunnel.logUpdate();
@@ -965,6 +978,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         tocHandler.setEnabled(true);
     }
 
+    @Override
     public boolean onBackPressed() {
         if (tocHandler != null && tocHandler.isVisible()) {
             tocHandler.hide();
@@ -990,5 +1004,11 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
     public LinkHandler getLinkHandler() {
         return linkHandler;
+    }
+
+    private void showSelectTextOnboarding() {
+        ToolTipUtil.showToolTip(getActivity(),
+                getView().findViewById(R.id.fragment_page_tool_tip_select_text_target),
+                R.layout.inflate_tool_tip_select_text, Color.BLACK, ToolTip.Position.RIGHT);
     }
 }

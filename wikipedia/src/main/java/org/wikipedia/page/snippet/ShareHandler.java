@@ -5,6 +5,10 @@ import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.annotation.IntegerRes;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.view.ActionMode;
 import android.util.Log;
@@ -13,6 +17,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.appenguin.onboarding.ToolTip;
+
+import org.wikipedia.drawable.ExposedPorterDuffColorFilterDrawableProperty;
 import org.wikipedia.page.ImageLicense;
 import org.wikipedia.page.ImageLicenseFetchTask;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -25,6 +32,8 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageViewFragmentInternal;
+import org.wikipedia.tooltip.ToolTipUtil;
+import org.wikipedia.util.ActivityUtil;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.ShareUtils;
 
@@ -32,6 +41,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
 
@@ -40,6 +50,11 @@ import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
  */
 public class ShareHandler {
     public static final String TAG = "ShareHandler";
+
+    @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.blue_progressive;
+    @ColorInt private static final int DEFAULT_ICON_COLOR = Color.WHITE;
+    private static final int SHARE_TOOL_TIP_DELAY_DURATION = 3;
+    private static final TimeUnit SHARE_TOOL_TIP_DELAY_UNIT = TimeUnit.SECONDS;
 
     private final PageActivity activity;
     private final CommunicationBridge bridge;
@@ -179,6 +194,11 @@ public class ShareHandler {
                                                       | MenuItemCompat.SHOW_AS_ACTION_WITH_TEXT);
         }
 
+        // TODO: implement share onboarding logic.
+        //if (OnboardingStateMachine.isShowShareOnboardingEnabled()) {
+        //    showShareOnboarding(shareItem);
+        //}
+
         // provide our own listener for the Share button...
         shareItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
@@ -230,8 +250,61 @@ public class ShareHandler {
 
     private void fixMenuItemTheme(MenuItem item) {
         if (item != null && item.getIcon() != null) {
-            WikipediaApp.getInstance().setDrawableTint(item.getIcon(), Color.WHITE);
+            WikipediaApp.getInstance().setDrawableTint(item.getIcon(), DEFAULT_ICON_COLOR);
         }
+    }
+
+    private void showShareOnboarding(MenuItem shareItem) {
+        startShareIconAnimation(shareItem);
+        postShowShareToolTip(shareItem);
+    }
+
+    private void postShowShareToolTip(MenuItem shareItem) {
+        // There doesn't seem to be good lifecycle event accessible at the time this called to
+        // ensure the tool tip is shown after CAB animation.
+
+        final View shareItemView = ActivityUtil.getMenuItemView(activity, shareItem);
+        int delay = getInteger(android.R.integer.config_longAnimTime);
+        shareItemView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showShareToolTip(shareItemView);
+            }
+        }, delay);
+    }
+
+    private void showShareToolTip(View shareItemView) {
+        ToolTipUtil.showToolTip(activity, shareItemView, R.layout.inflate_tool_tip_share,
+                getColor(SHARE_TOOL_TIP_COLOR), ToolTip.Position.CENTER);
+    }
+
+    private void startShareIconAnimation(MenuItem shareItem) {
+        startIconAnimation(shareItem.getIcon(), getColor(SHARE_TOOL_TIP_COLOR), DEFAULT_ICON_COLOR,
+                SHARE_TOOL_TIP_DELAY_UNIT, SHARE_TOOL_TIP_DELAY_DURATION);
+    }
+
+    private void startIconAnimation(Drawable icon,
+                                    @ColorInt int fromColor,
+                                    @ColorInt int toColor,
+                                    TimeUnit unit,
+                                    int duration) {
+        ExposedPorterDuffColorFilterDrawableProperty
+                .objectAnimator("iconColorFilter", icon, fromColor, toColor)
+                .setDuration(unit.toMillis(duration))
+                .start();
+    }
+
+    @ColorInt
+    private int getColor(@ColorRes int id) {
+        return getResources().getColor(id);
+    }
+
+    private int getInteger(@IntegerRes int id) {
+        return getResources().getInteger(id);
+    }
+
+    private Resources getResources() {
+        return activity.getResources();
     }
 }
 

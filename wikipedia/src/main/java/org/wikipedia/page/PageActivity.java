@@ -21,6 +21,7 @@ import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
+import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.log.L;
@@ -43,6 +44,7 @@ import android.net.Uri;
 import android.os.BadParcelableException;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -55,6 +57,7 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -302,7 +305,7 @@ public class PageActivity extends ThemedActionBarActivity {
                 searchFragment.closeSearch();
             }
             // also make sure we're not inside an action mode
-            if (currentActionMode != null) {
+            if (isCabOpen()) {
                 currentActionMode.finish();
             }
         }
@@ -347,6 +350,13 @@ public class PageActivity extends ThemedActionBarActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    // Note: this method is invoked even when in CAB mode.
+    @Override
+    public boolean dispatchKeyEvent(@NonNull KeyEvent event) {
+        return Utils.isBackKeyUp(event) && ToolTipUtil.dismissToolTip(this)
+                || super.dispatchKeyEvent(event);
     }
 
     @Override
@@ -617,9 +627,13 @@ public class PageActivity extends ThemedActionBarActivity {
         themeChooser.show();
     }
 
+    // Note: back button first handled in {@link #onOptionsItemSelected()};
     @Override
     public void onBackPressed() {
-        if (currentActionMode != null) {
+        if (ToolTipUtil.dismissToolTip(this)) {
+            return;
+        }
+        if (isCabOpen()) {
             currentActionMode.finish();
             return;
         }
@@ -852,8 +866,7 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
-        if (currentActionMode == null && !isAppInitiatedActionMode(mode)
-            && getCurPageFragment() != null) {
+        if (!isCabOpen() && !isAppInitiatedActionMode(mode) && getCurPageFragment() != null) {
             // Initiated by the system, likely in response to highlighting text in the WebView.
             getCurPageFragment().onActionModeShown(mode);
         }
@@ -875,6 +888,11 @@ public class PageActivity extends ThemedActionBarActivity {
         // ActionMode in non-WebView components (History, Saved Pages, or Find In Page) must call
         // setTag().
         return mode.getTag() != null;
+    }
+
+    /** @return True if the contextual action bar is open. */
+    private boolean isCabOpen() {
+        return currentActionMode != null;
     }
 
     private void registerBus() {

@@ -11,12 +11,14 @@ import android.content.pm.ResolveInfo;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Looper;
+import android.support.annotation.NonNull;
 import android.text.Html;
 import android.text.InputType;
 import android.text.format.DateUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
@@ -612,5 +614,10 @@ public final class Utils {
             setChannel(channel);
         }
         return channel;
+    }
+
+    public static boolean isBackKeyUp(@NonNull KeyEvent event) {
+        return event.getKeyCode() == KeyEvent.KEYCODE_BACK
+                && event.getAction() == KeyEvent.ACTION_UP;
     }
 }

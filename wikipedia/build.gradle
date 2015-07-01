@@ -108,6 +108,7 @@ dependencies {
     }
     compile 'de.keyboardsurfer.android.widget:crouton:1.8.5@aar'
     compile 'com.github.chrisbanes.photoview:library:1.2.3'
+    compile 'com.github.ryanjohn1:onboarding:1.0.3'
     compile 'com.jakewharton:disklrucache:2.0.2'
 
     testCompile 'junit:junit:4.12'

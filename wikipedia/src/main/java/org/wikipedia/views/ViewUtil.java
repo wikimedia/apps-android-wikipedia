@@ -3,8 +3,10 @@ package org.wikipedia.views;
 import android.annotation.TargetApi;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.view.View;
+import android.view.ViewManager;
 import android.view.animation.AlphaAnimation;
 
 import org.wikipedia.util.ApiUtil;
@@ -37,6 +39,13 @@ public final class ViewUtil {
         }
     }
 
-    private ViewUtil() {
+    public static boolean detach(@Nullable View view) {
+        if (view != null && view.getParent() instanceof ViewManager) {
+            ((ViewManager) view.getParent()).removeView(view);
+            return true;
+        }
+        return false;
     }
+
+    private ViewUtil() { }
 }

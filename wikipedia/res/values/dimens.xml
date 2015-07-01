@@ -3,6 +3,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="margin">8dp</dimen>
     <dimen name="corner_radius">4dp</dimen>
 
     <dimen name="corner_radius_smaller">2dp</dimen>
@@ -30,11 +31,12 @@
 
     <dimen name="drawer_drag_margin">16dp</dimen>
 
-    <!--
-        ToC Intro
-    -->
+    <!-- ToC intro -->
     <dimen name="toc_intro_image_size">48dp</dimen>
     <dimen name="toc_intro_image_marginTop">8dp</dimen>
     <dimen name="toc_intro_image_marginBottom">8dp</dimen>
 
+    <!-- Tool tips -->
+    <dimen name="fragment_page_tool_tip_select_text_target_offset">100dp</dimen>
+    <dimen name="tool_tip_max_width">250dp</dimen>
 </resources>
