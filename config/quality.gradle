@@ -13,3 +13,30 @@ task checkstyle(type: Checkstyle) {
 
     classpath = configurations.compile
 }
+
+// --- testAll tasks ---
+// These tasks execute both JVM JUnit and Android instrumentation tests (per variant).
+
+def addTestAllTask = { testAllName, jvmJUnitName, androidInstrumentationName ->
+    def testAllTask = task (testAllName) {
+        // Run JVM JUnit tests and Android instrumentation tests.
+        dependsOn ([jvmJUnitName, androidInstrumentationName])
+    }
+
+    // JVM JUnit tests execute quickest and should be attempted prior to Android instrumentation tests.
+    testAllTask.shouldRunAfter jvmJUnitName
+}
+
+// Add testAll tasks for each build variant.
+android.applicationVariants.all { variant ->
+    def variantName = variant.name.capitalize()
+    def testAllName = "testAll${variantName}"
+    def jvmJUnitName = "test${variantName}"
+    def androidInstrumentationName = "connectedAndroidTest${variantName}"
+
+    addTestAllTask(testAllName, jvmJUnitName, androidInstrumentationName)
+}
+
+// Add testAll task for all configurations.
+addTestAllTask('testAll', 'test', 'connectedAndroidTest')
+// --- /testAll ---
