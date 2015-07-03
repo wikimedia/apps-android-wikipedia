@@ -15,6 +15,8 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageCache;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.GradientUtil;
+import org.wikipedia.views.ViewUtil;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -101,14 +103,20 @@ public class GalleryActivity extends ThemedActionBarActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_gallery);
-
         final Toolbar toolbar = (Toolbar) findViewById(R.id.gallery_toolbar);
+        // give it a gradient background
+        ViewUtil.setBackgroundDrawable(toolbar, GradientUtil.getCubicGradient(
+                getResources().getColor(R.color.lead_gradient_start), Gravity.TOP));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
 
         toolbarContainer = (ViewGroup) findViewById(R.id.gallery_toolbar_container);
         infoContainer = (ViewGroup) findViewById(R.id.gallery_info_container);
+        // give it a gradient background
+        ViewUtil.setBackgroundDrawable(infoContainer, GradientUtil.getCubicGradient(
+                getResources().getColor(R.color.lead_gradient_start), Gravity.BOTTOM));
+
         progressBar = (ProgressBar) findViewById(R.id.gallery_progressbar);
 
         descriptionText = (TextView) findViewById(R.id.gallery_description_text);

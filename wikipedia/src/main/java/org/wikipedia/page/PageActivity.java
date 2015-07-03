@@ -22,7 +22,9 @@ import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.zero.ZeroMessage;
 
@@ -191,6 +193,10 @@ public class PageActivity extends ThemedActionBarActivity {
         getSupportActionBar().setTitle("");
 
         searchBarHideHandler = new SearchBarHideHandler(this, toolbarContainer);
+
+        // create a gradient for the toolbar
+        ViewUtil.setBackgroundDrawable(findViewById(R.id.main_toolbar_gradient), GradientUtil
+                .getCubicGradient(getResources().getColor(R.color.lead_gradient_start), Gravity.TOP));
 
         // TODO: remove this when we drop support for API 10
         boolean themeChanged = false;
@@ -570,7 +576,9 @@ public class PageActivity extends ThemedActionBarActivity {
                 }
                 //is the new title the same as what's already being displayed?
                 if (!frag.getCurrentTab().getBackStack().isEmpty()
-                    && frag.getCurrentTab().getBackStack().get(frag.getCurrentTab().getBackStack().size() - 1).getTitle().equals(title)) {
+                    && frag.getCurrentTab().getBackStack()
+                           .get(frag.getCurrentTab().getBackStack().size() - 1).getTitle()
+                           .equals(title)) {
                     //if we have a section to scroll to, then pass it to the fragment
                     if (!TextUtils.isEmpty(title.getFragment())) {
                         frag.scrollToSection(title.getFragment());

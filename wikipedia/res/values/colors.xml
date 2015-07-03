@@ -25,6 +25,7 @@
     <color name="actionbar_highlight">#ff808080</color>
     <color name="search_bar">#ff404040</color>
     <color name="search_text_hint">#ff808080</color>
+    <color name="lead_gradient_start">#b8000000</color>
 
     <!-- Make the main toolbar have its own unique color (but indistinguishable from
     actionbar_background). This is because we'll be setting its opacity programmatically

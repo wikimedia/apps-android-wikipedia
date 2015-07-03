@@ -19,8 +19,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/gallery_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:background="@drawable/gallery_toolbar_shape">
+            android:layout_height="80dp">
         </android.support.v7.widget.Toolbar>
         <ProgressBar
             android:id="@+id/gallery_progressbar"
@@ -38,8 +37,7 @@
         android:layout_gravity="bottom"
         android:orientation="vertical"
         android:paddingBottom="32dp"
-        android:paddingTop="64dp"
-        android:background="@drawable/lead_title_gradient">
+        android:paddingTop="64dp">
         <TextView
             android:id="@+id/gallery_description_text"
             android:layout_width="match_parent"

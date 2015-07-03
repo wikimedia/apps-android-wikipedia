@@ -4,10 +4,12 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.graphics.PointF;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -33,7 +35,9 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.GradientUtil;
 import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.ViewUtil;
 
 public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListener, ImageViewWithFace.OnImageLoadListener {
     private final Context context;
@@ -57,7 +61,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     /**
      * The height, in dp, that the gradient will extend above the page title.
      */
-    private static final int TITLE_GRADIENT_HEIGHT_DP = 48;
+    private static final int TITLE_GRADIENT_HEIGHT_DP = 64;
 
     /**
      * Maximum height of the page title text. If the text overflows this size, then the
@@ -98,6 +102,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     private View pageTitleContainer;
     private TextView pageTitleText;
     private TextView pageDescriptionText;
+    private Drawable pageTitleGradient;
 
     private int displayHeightDp;
     private int imageBaseYOffset = 0;
@@ -123,6 +128,9 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         pageTitleContainer = imageContainer.findViewById(R.id.page_title_container);
         pageTitleText = (TextView)imageContainer.findViewById(R.id.page_title_text);
         pageDescriptionText = (TextView)imageContainer.findViewById(R.id.page_description_text);
+
+        pageTitleGradient = GradientUtil.getCubicGradient(
+                parentFragment.getResources().getColor(R.color.lead_gradient_start), Gravity.BOTTOM);
 
         initDisplayDimensions();
 
@@ -492,7 +500,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             pageDescriptionText.setTextColor(context.getResources().getColor(R.color.lead_text_color));
             pageDescriptionText.setShadowLayer(2, 1, 1, context.getResources().getColor(R.color.lead_text_shadow));
             // set the title container background to be a gradient
-            pageTitleContainer.setBackgroundResource(R.drawable.lead_title_gradient);
+            ViewUtil.setBackgroundDrawable(pageTitleContainer, pageTitleGradient);
             // set the correct padding on the container
             pageTitleContainer.setPadding(0, (int) (TITLE_GRADIENT_HEIGHT_DP * displayDensity), 0, 0);
         }

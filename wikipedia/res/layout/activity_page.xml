@@ -46,12 +46,11 @@
         <FrameLayout
             android:id="@+id/main_toolbar_container"
             android:layout_width="match_parent"
-            android:layout_height="72dp">
+            android:layout_height="80dp">
             <LinearLayout
                 android:id="@+id/main_toolbar_gradient"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/toolbar_lead_gradient"
                 android:orientation="vertical">
             </LinearLayout>
             <LinearLayout

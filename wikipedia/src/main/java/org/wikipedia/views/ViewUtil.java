@@ -1,6 +1,7 @@
 package org.wikipedia.views;
 
 import android.annotation.TargetApi;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.view.ViewCompat;
 import android.view.View;
@@ -24,6 +25,16 @@ public final class ViewUtil {
         animation.setDuration(0);
         animation.setFillAfter(true);
         view.startAnimation(animation);
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    @SuppressWarnings("deprecation")
+    public static void setBackgroundDrawable(View view, Drawable drawable) {
+        if (ApiUtil.hasJellyBean()) {
+            view.setBackground(drawable);
+        } else {
+            view.setBackgroundDrawable(drawable);
+        }
     }
 
     private ViewUtil() {
