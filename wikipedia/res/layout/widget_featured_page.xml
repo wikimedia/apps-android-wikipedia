@@ -16,37 +16,33 @@
         android:src="@drawable/about_logo"
         android:contentDescription="@null"
         android:layout_gravity="center_vertical"/>
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:background="@drawable/widget_shape_inner">
-        <LinearLayout
+        android:gravity="center_vertical"
+        android:background="@drawable/widget_shape_inner"
+        android:orientation="vertical">
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/RtlAwareTextView"
-                android:layout_marginBottom="2dp"
-                android:text="@string/widget_title_featured_page"
-                android:ellipsize="end"
-                android:textColor="@color/widget_title_text"
-                />
-            <TextView
-                android:id="@+id/widget_content_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/RtlAwareTextView"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/widget_content_text"
-                android:maxLines="2"
-                android:ellipsize="end"
-                tools:text="Sample content"
-                />
-        </LinearLayout>
-    </FrameLayout>
+            style="@style/RtlAwareTextView"
+            android:layout_marginBottom="2dp"
+            android:text="@string/widget_title_featured_page"
+            android:ellipsize="end"
+            android:textColor="@color/widget_title_text"
+            />
+        <TextView
+            android:id="@+id/widget_content_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/RtlAwareTextView"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/widget_content_text"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="Sample content"
+            />
+    </LinearLayout>
 </LinearLayout>
