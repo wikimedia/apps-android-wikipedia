@@ -130,26 +130,31 @@
         <provider
                 android:authorities="${applicationId}.history"
                 android:name=".history.HistoryEntryContentProvider"
+                android:exported="false"
                 />
 
         <provider
                 android:authorities="${applicationId}.editsummaries"
                 android:name=".editing.summaries.EditSummaryContentProvider"
+                android:exported="false"
                 />
 
         <provider
                 android:authorities="${applicationId}.pageimages"
                 android:name=".pageimages.PageImageContentProvider"
+                android:exported="false"
                 />
 
         <provider
                 android:authorities="${applicationId}.recentsearches"
                 android:name=".search.RecentSearchContentProvider"
+                android:exported="false"
                 />
 
         <provider
                 android:authorities="${applicationId}.savedpages"
                 android:name=".savedpages.SavedPageContentProvider"
+                android:exported="false"
                 />
 
         <receiver
