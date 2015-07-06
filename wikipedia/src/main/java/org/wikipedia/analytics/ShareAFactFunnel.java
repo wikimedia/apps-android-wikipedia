@@ -5,12 +5,14 @@ import org.json.JSONObject;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.settings.Prefs;
 
 import java.util.UUID;
 
+// https://meta.wikimedia.org/wiki/Schema:MobileWikiAppShareAFact
 public class ShareAFactFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppShareAFact";
-    private static final int REV_ID = 11331974;
+    private static final int REV_ID = 12588711;
 
     /**
      * The length value of 99 is somewhat arbitrary right now. We need to restrict the
@@ -43,6 +45,8 @@ public class ShareAFactFunnel extends Funnel {
         try {
             eventData.put("appInstallID", appInstallID);
             eventData.put("shareSessionToken", sessionToken);
+            eventData.put("tutorialFeatureEnabled", Prefs.isFeatureSelectTextAndShareTutorialEnabled());
+            eventData.put("tutorialShown", calculateTutorialsShown());
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -97,5 +101,17 @@ public class ShareAFactFunnel extends Funnel {
     public enum ShareMode {
         image,
         text
+    }
+
+    private int calculateTutorialsShown() {
+        if (Prefs.isFeatureSelectTextAndShareTutorialEnabled()) {
+            if (!Prefs.isShareTutorialEnabled()) {
+                return 2;
+            }
+            if (!Prefs.isSelectTextTutorialEnabled()) {
+                return 1;
+            }
+        }
+        return 0;
     }
 }
