@@ -224,7 +224,9 @@ public class SearchResultsFragment extends Fragment {
 
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
                 searchNetworkError.setVisibility(View.GONE);
-                displayResults(pageTitles);
+                if (!pageTitles.isEmpty()) {
+                    displayResults(pageTitles);
+                }
 
                 // add titles to cache...
                 searchResultsCache.put(app.getAppOrSystemLanguageCode() + "-" + searchTerm, pageTitles);
