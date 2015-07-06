@@ -758,7 +758,9 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     public void onPageLoadComplete() {
         editHandler.setPage(model.getPage());
 
-        if (model.getPage().isArticle() && app.getOnboardingStateMachine().isSelectTextTutorialEnabled()) {
+        if (app.isFeatureSelectTextAndShareTutorialEnabled()
+                && model.getPage().isArticle()
+                && app.getOnboardingStateMachine().isSelectTextTutorialEnabled()) {
             showSelectTextOnboarding();
             app.getOnboardingStateMachine().setSelectTextTutorial();
         }

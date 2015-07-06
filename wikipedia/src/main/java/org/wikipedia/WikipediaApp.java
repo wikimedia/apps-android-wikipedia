@@ -454,6 +454,15 @@ public class WikipediaApp extends Application {
         return enabled;
     }
 
+    public boolean isFeatureSelectTextAndShareTutorialEnabled() {
+        if (Prefs.hasFeatureSelectTextAndShareTutorial()) {
+            return Prefs.isFeatureSelectTextAndShareTutorialEnabled();
+        }
+        boolean enabled = new Random().nextInt(2) == 0;
+        Prefs.setFeatureSelectTextAndShareTutorialEnabled(enabled);
+        return enabled;
+    }
+
     /**
      * Gets the currently-selected theme for the app.
      * @return Theme that is currently selected, which is the actual theme ID that can
