@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.theme.Theme;
 
 import static org.wikipedia.settings.PrefsIoUtil.contains;
@@ -51,10 +52,6 @@ public final class Prefs {
         setString(R.string.preference_key_language, code);
     }
 
-    public static String getAppLanguageCodeKey() {
-        return getKey(R.string.preference_key_language);
-    }
-
     public static int getThemeId() {
         return getInt(R.string.preference_key_color_theme, Theme.getFallback().getMarshallingId());
     }
@@ -83,6 +80,16 @@ public final class Prefs {
 
     public static void removeCookiesForDomain(@NonNull String domain) {
         remove(getCookiesForDomainKey(domain));
+    }
+
+    @NonNull
+    public static boolean isShowDeveloperSettingsEnabled() {
+        return getBoolean(R.string.preference_key_show_developer_settings,
+                WikipediaApp.getInstance().isDevRelease());
+    }
+
+    public static void setShowDeveloperSettingsEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_show_developer_settings, enabled);
     }
 
     @NonNull

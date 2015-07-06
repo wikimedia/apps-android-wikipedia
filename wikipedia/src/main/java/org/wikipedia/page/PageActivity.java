@@ -5,7 +5,7 @@ import org.wikipedia.BackPressedHandler;
 import org.wikipedia.NavDrawerFragment;
 import org.wikipedia.R;
 import org.wikipedia.Site;
-import org.wikipedia.ThemedActionBarActivity;
+import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;

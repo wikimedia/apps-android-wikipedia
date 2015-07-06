@@ -22,4 +22,16 @@
     <declare-styleable name="CabSearchView">
         <attr name="cabEnabled" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="EditTextAutoSummarizePreference">
+        <attr name="editTextAutoSummarizePreferenceStyle" format="reference" />
+        <attr name="autoSummarize" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="IntPreference">
+        <attr name="intPreferenceStyle" format="reference" />
+        <attr name="radix" format="integer" />
+        <attr name="summaryFormat" format="string" />
+    </declare-styleable>
+
 </resources>

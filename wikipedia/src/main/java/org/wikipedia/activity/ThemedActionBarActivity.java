@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.activity;
 
 import android.app.Activity;
 import android.os.Build;
@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.ActivityUtil;
 
 import java.lang.reflect.Field;

@@ -534,7 +534,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 adapter.notifyDataSetInvalidated();
                 return true;
             default:
-                throw new RuntimeException("Unknown menu item clicked!");
+                throw new RuntimeException("Unknown menu item clicked! item=" + item);
         }
     }
 

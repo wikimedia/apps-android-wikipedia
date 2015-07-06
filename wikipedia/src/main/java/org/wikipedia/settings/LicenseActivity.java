@@ -6,7 +6,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.ThemedActionBarActivity;
+import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 
 import java.io.IOException;

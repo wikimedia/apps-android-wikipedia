@@ -1,6 +1,7 @@
 package org.wikipedia.page.gallery;
 
 import android.annotation.TargetApi;
+import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
@@ -8,7 +9,7 @@ public class GalleryPagerTransformer implements ViewPager.PageTransformer {
     private static final float MIN_SCALE = 0.5f;
     private static final float ROTATION_DEGREES = 30.0f;
 
-    @TargetApi(11)
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void transformPage(View view, float position) {
         if (position < -1) { // [-Infinity,-1)
             // This page is way off-screen to the left.

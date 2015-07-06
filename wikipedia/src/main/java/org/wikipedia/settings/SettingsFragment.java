@@ -8,16 +8,55 @@ import org.wikipedia.util.StringUtil;
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.v7.internal.view.ContextThemeWrapper;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
-@TargetApi(11)
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class SettingsFragment extends PreferenceFragment {
-
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+
+        loadPreferences();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        invalidateOptionsMenu();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_settings, menu);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        prepareDeveloperSettingsMenuItem(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.developer_settings:
+                launchDeveloperSettingsActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void loadPreferences() {
         addPreferencesFromResource(R.xml.preferences);
 
         updateLanguagePrefSummary();
@@ -29,7 +68,7 @@ public class SettingsFragment extends PreferenceFragment {
                 LanguagePreferenceDialog langPrefDialog =
                         new LanguagePreferenceDialog(
                                 new ContextThemeWrapper(getActivity(),
-                                        (WikipediaApp.getInstance().isCurrentThemeLight() ?  R.style.NoTitle : R.style.NoTitleWikiDark)));
+                                        (WikipediaApp.getInstance().isCurrentThemeLight() ? R.style.NoTitle : R.style.NoTitleWikiDark)));
                 langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
@@ -56,7 +95,7 @@ public class SettingsFragment extends PreferenceFragment {
             public boolean onPreferenceClick(Preference preference) {
                 getActivity().setResult(SettingsActivity.ACTIVITY_RESULT_LOGOUT);
                 getActivity().finish();
-                return false;
+                return true;
             }
         });
 
@@ -64,6 +103,7 @@ public class SettingsFragment extends PreferenceFragment {
             overridePackageName();
         }
     }
+
 
     /**
      * Needed for beta release since the Gradle flavors applicationId changes don't get reflected
@@ -86,5 +126,17 @@ public class SettingsFragment extends PreferenceFragment {
     private void updateLanguagePrefSummary() {
         Preference languagePref = findPreference(getString(R.string.preference_key_language));
         languagePref.setSummary(WikipediaApp.getInstance().getAppLanguageLocalizedName());
+    }
+
+    private void launchDeveloperSettingsActivity() {
+        startActivity(DeveloperSettingsActivity.newIntent(getActivity()));
+    }
+
+    private void prepareDeveloperSettingsMenuItem(Menu menu) {
+        menu.findItem(R.id.developer_settings).setVisible(Prefs.isShowDeveloperSettingsEnabled());
+    }
+
+    private void invalidateOptionsMenu() {
+        getFragmentManager().invalidateOptionsMenu();
     }
 }

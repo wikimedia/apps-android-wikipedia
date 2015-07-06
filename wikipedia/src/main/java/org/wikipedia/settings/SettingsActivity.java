@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import org.wikipedia.R;
-import org.wikipedia.ThemedActionBarActivity;
+import org.wikipedia.activity.ThemedActionBarActivity;
 
 public class SettingsActivity extends ThemedActionBarActivity {
     public static final int ACTIVITY_REQUEST_SHOW_SETTINGS = 1;

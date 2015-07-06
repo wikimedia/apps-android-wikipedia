@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/preferences_developer_onboarding_heading">
+
+        <CheckBoxPreference
+            android:key="@string/preference_key_know_toc_drawer"
+            android:title="@string/preference_key_know_toc_drawer" />
+
+        <CheckBoxPreference
+            android:key="@string/preference_key_feature_select_text_and_share_tutorials_enabled"
+            android:title="@string/preference_key_feature_select_text_and_share_tutorials_enabled" />
+
+        <CheckBoxPreference
+            android:key="@string/preference_key_select_text_tutorial_enabled"
+            android:title="@string/preference_key_select_text_tutorial_enabled" />
+
+        <CheckBoxPreference
+            android:key="@string/preference_key_share_tutorial_enabled"
+            android:title="@string/preference_key_share_tutorial_enabled" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/preferences_developer_misc_heading">
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_reading_app_install_id"
+            android:title="@string/preference_key_reading_app_install_id"
+            android:inputType="textVisiblePassword" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_login_user_id"
+            android:title="@string/preference_key_login_user_id" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_language"
+            android:title="@string/preference_key_language"
+            android:inputType="textVisiblePassword" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_language_mru"
+            android:title="@string/preference_key_language_mru"
+            android:inputType="textVisiblePassword" />
+
+        <CheckBoxPreference
+            android:key="@string/preference_key_exp_page_load"
+            android:title="@string/preference_key_exp_page_load" />
+
+        <org.wikipedia.settings.CheckBoxPreferenceMultiLine
+            android:key="@string/preference_key_show_developer_settings"
+            android:title="@string/preference_key_show_developer_settings" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

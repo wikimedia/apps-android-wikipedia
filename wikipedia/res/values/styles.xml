@@ -1,5 +1,7 @@
 <resources>
     <style name="AppTheme" parent="Theme.WikiLight">
+        <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
+        <item name="intPreferenceStyle">@style/IntPreference</item>
     </style>
 
     <style name="NoTitle" parent="AppTheme">
@@ -114,4 +116,22 @@
     <style name="DialogSlideAnim" parent="@android:style/Theme.Dialog">
         <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
     </style>
+
+    <style name="EditTextAutoSummarizePreference">
+        <!-- parent="@android:style/Preference.DialogPreference.EditTextPreference" is not exposed. -->
+    </style>
+
+    <style name="IntPreference" parent="EditTextAutoSummarizePreference">
+        <item name="android:inputType">number</item>
+        <item name="android:maxLength">8</item>
+        <item name="android:gravity">right|end</item>
+    </style>
+
+    <style name="HexIntPreference" parent="IntPreference">
+        <item name="android:inputType">textVisiblePassword</item>
+        <item name="android:digits">0123456789abcdef</item>
+        <item name="radix">16</item>
+        <item name="summaryFormat">%08x</item>
+    </style>
+
 </resources>

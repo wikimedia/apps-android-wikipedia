@@ -1,5 +1,6 @@
 package org.wikipedia.settings;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.Html;
@@ -10,15 +11,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
-import org.wikipedia.ThemedActionBarActivity;
+import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.ApiUtil;
 
 public class AboutActivity extends ThemedActionBarActivity {
-
     private static final String KEY_SCROLL_X = "KEY_SCROLL_X";
     private static final String KEY_SCROLL_Y = "KEY_SCROLL_Y";
 
@@ -38,6 +40,10 @@ public class AboutActivity extends ThemedActionBarActivity {
                 + " Feedback\">"
                 + getString(R.string.send_feedback)
                 + "</a>"));
+
+        if (isDeveloperSettingsSupported()) {
+            findViewById(R.id.about_logo_image).setOnClickListener(new AboutLogoClickListener(this));
+        }
 
         //if there's no Email app, hide the Feedback link.
         if (!Utils.mailAppExists(this)) {
@@ -89,6 +95,58 @@ public class AboutActivity extends ThemedActionBarActivity {
                 TextView tv = (TextView) vg.getChildAt(i);
                 tv.setMovementMethod(LinkMovementMethod.getInstance());
             }
+        }
+    }
+
+    private boolean isDeveloperSettingsSupported() {
+        return ApiUtil.hasHoneyComb();
+    }
+
+    private static class AboutLogoClickListener implements View.OnClickListener {
+        private static final int SECRET_CLICK_LIMIT = 7;
+
+        private final Context mContext;
+        private int mSecretClickCount;
+
+        public AboutLogoClickListener(Context context) {
+            mContext = context;
+        }
+
+        @Override
+        public void onClick(View v) {
+            ++mSecretClickCount;
+            if (isSecretClickLimitMet()) {
+                if (Prefs.isShowDeveloperSettingsEnabled()) {
+                    showSettingAlreadyEnabledMessage();
+                } else {
+                    Prefs.setShowDeveloperSettingsEnabled(true);
+                    showSettingEnabledMessage();
+                }
+            }
+        }
+
+        private boolean isSecretClickLimitMet() {
+            return mSecretClickCount == SECRET_CLICK_LIMIT;
+        }
+
+        private void showSettingEnabledMessage() {
+            showMessage(R.string.show_developer_settings_enabled);
+        }
+
+        private void showSettingAlreadyEnabledMessage() {
+            showMessage(R.string.show_developer_settings_already_enabled);
+        }
+
+        private void showMessage(int id) {
+            showMessage(getString(id));
+        }
+
+        private void showMessage(String message) {
+            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
+        }
+
+        private String getString(int id) {
+            return mContext.getString(id);
         }
     }
 }
