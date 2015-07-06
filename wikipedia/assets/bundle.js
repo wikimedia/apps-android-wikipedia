@@ -425,6 +425,9 @@ bridge.registerListener( "getTextSelection", function( payload ) {
     if (text.length < 2) {
         text = getLeadParagraph();
     }
+    if (text.length > 250) {
+        text = text.substring(0, 249);
+    }
     bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : text } );
 });
 
