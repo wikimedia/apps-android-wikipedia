@@ -32,14 +32,18 @@
   <string name="toast_refresh_saved_page">சேமிக்கப்பட்ட பக்கம் புதுப்பிக்கிறது…</string>
   <string name="delete_selected_saved_pages">நீக்குக</string>
   <string name="toast_saved_page_deleted">சேமிக்கப்பட்ட பக்கங்கள் அழிக்கப்பட்டன</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">தேடுக</string>
+  <string name="saved_pages_search_list_hint">சேமித்த பக்கங்களில் தேடுக</string>
   <string name="saved_pages_search_empty_message">உங்கள் வினவலுடன் பொருந்தக்கூடிய எந்தவொரு பக்கமும் காணப்படவில்லை.</string>
   <string name="nav_item_nearby">அருகில்</string>
+  <string name="nearby_distance_in_meters">%d மீ</string>
   <string name="nearby_distance_in_kilometers">%.2f கி. மீ.</string>
   <string name="nearby_distance_in_feet">%d அடி</string>
   <string name="nearby_distance_in_miles">%.2f மைல்</string>
+  <string name="nearby_no_network">வலையமைப்பு இணைப்பு இல்லை.</string>
   <string name="nearby_server_error">அருகிலுள்ள இடங்களின் பட்டியலைப் பெற முடியவில்லை.</string>
+  <string name="nearby_dialog_goto_settings">உங்கள் கருவியில் இட இற்றைப்படுத்தல்கள் செயற்படுத்தப்படவில்லை. உங்கள் கருவியின் அமைப்புகளில் இட இற்றைப்படுத்தல்களைச் செயற்படுத்த விரும்புகின்றீர்களா?</string>
   <string name="nearby_set_metric">மீ/கிமீ காட்டுக</string>
+  <string name="nearby_view_on_map">இடத்தை வரைபடத்திற் பார்க்க</string>
   <string name="last_updated_text">இறுதியாக புதுப்பிக்கப்பட்டது %1$s</string>
   <string name="preference_title_language">விக்கப்பீடியா மொழி</string>
   <string name="preference_languages_filter_hint">தேடுக</string>
@@ -57,7 +61,7 @@
   <string name="dialog_message_edit_failed">தொகுப்பு சேமிக்கத் தவறிவிட்டது!</string>
   <string name="dialog_message_edit_failed_retry">மறு முயற்சி செய்</string>
   <string name="dialog_message_edit_failed_cancel">இரத்து செய்</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">\"தங்களின் மாற்றங்கள் இன்னும் சேமிக்கப்படவில்லை. தாங்கள் நிச்சயமாக இந்த பக்கத்தை விட்டு வெளியேற விரும்புகிறீர்களா?\"</string>
+  <string name="dialog_message_leaving_edit">தங்களின் மாற்றங்கள் இன்னும் சேமிக்கப்படவில்லை. தாங்கள் நிச்சயமாக இந்தப் பக்கத்தை விட்டு வெளியேற விரும்புகிறீர்களா?</string>
   <string name="dialog_message_leaving_edit_leave">விட்டுவிடவும்</string>
   <string name="menu_show_toc">உள்ளடக்க அட்டவணை</string>
   <string name="search_no_results_found">முடிவுகள் எதுவும் காணப்படவில்லை</string>

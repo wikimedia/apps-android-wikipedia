@@ -194,7 +194,7 @@
   <string name="error_network_error_try_again">دسترسی به شبکه مقدور نیست، لطفاً دوباره تلاش کنید.</string>
   <string name="saved_pages_update_all_error_retry">تلاش دوباره</string>
   <string name="saved_pages_update_all_error_message">خطا در به روز رسانی صفحات ذخیره شده</string>
-  <string name="saved_pages_progress_title">تازه‌کردن صفحه ذخیره‌شده</string>
+  <string name="saved_pages_progress_title">تازه کردن صفحه ذخیره‌شده</string>
   <string name="saved_pages_refresh_pages_complete">به‌روزرسانی انجام شد.</string>
   <string name="menu_page_saved">صفحه ذخیره شده</string>
   <string name="menu_refresh_saved_page">تازه کردن صفحه</string>

@@ -229,6 +229,7 @@
   <string name="gallery_share_error">Bild konnt net gedeelt ginn: %s</string>
   <string name="gallery_menu_save">Um Apparat späicheren</string>
   <string name="gallery_save_error">Bild konnt net gespspäichert ginn: %s</string>
+  <string name="gallery_save_error_mediastore">Bild konnt net an d\'Sammlung vun de Medien importéiert ginn</string>
   <string name="gallery_save_success">Bild gespäichert.</string>
   <string name="gallery_error_video_failed">De Video konnt net gespillt ginn.</string>
   <string name="err_cannot_save_file">Fichier kann net gespäichert ginn</string>

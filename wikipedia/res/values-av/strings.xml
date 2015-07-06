@@ -31,7 +31,7 @@
   <string name="toast_refresh_saved_page">ЦӀунараб гьумер цӀигьаби…</string>
   <string name="delete_selected_saved_pages">БацIцIине</string>
   <string name="toast_saved_page_deleted">ЦӀунун рукӀарал гьумерал рацӀцӀана</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">ЦIехезе</string>
+  <string name="saved_pages_search_list_hint">ЦӀунарал гьумераздалъун цIехей</string>
   <string name="last_updated_text">Ахирисеб цӀигьаби:%1$s</string>
   <string name="content_license_html">Жаниб бугеб жо &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; ихтияралда лъун бегьизе гьабуна (цоги жо хъван батӀичони)</string>
   <string name="preference_title_language">Википедиялъул мацӀал</string>
@@ -93,7 +93,7 @@
   <string name="create_account_account_created_toast">Аккаунт гьабуна!</string>
   <string name="user_contribs_more_action">ЦӀцӀикӀун цӀазе</string>
   <string name="activity_my_contributions_title">Дур хӀалтӀи</string>
-  <string name="history_search_list_hint" fuzzy="true">ЦIехезе</string>
+  <string name="history_search_list_hint">ЦIехеялъул тарих</string>
   <string name="more_item_preferences">Жеги</string>
   <string name="about_translators_heading">таржамачагӀи</string>
   <string name="about_activity_title">Программаялъул хIакъалъулъ</string>

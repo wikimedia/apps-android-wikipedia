@@ -12,32 +12,34 @@
   <string name="nav_item_history">చరిత్ర</string>
   <string name="error_network_error">జాల అనుసంధానం లేదు :(</string>
   <string name="search_network_error">నెట్‌వర్క్ లోపం. మళ్ళీ ప్రయత్నించడానికి తట్టండి.</string>
+  <string name="generic_page_error">మీ అభ్యర్ధనని ప్రక్రియంచటంలో ఏదో సమస్య వచ్చింది.</string>
+  <string name="status_code_unavailable">సర్వర్ స్టేటస్ కోడ్ అందుబాటులో లేదు.</string>
   <string name="page_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="menu_clear_all_history">చరిత్రను తుడిచివెయ్యి</string>
   <string name="menu_clear_all_saved_pages">భద్రపరిచిన పేజీలను తుడిచివేయి</string>
-  <string name="page_does_not_exist_error">ఈ పుట లేదు.</string>
+  <string name="page_does_not_exist_error">ఈ పేజి లేదు.</string>
   <string name="nav_item_today">ఈరోజు</string>
   <string name="dialog_title_clear_history">విహరణ చరిత్రను తుడిచివెయ్యాలా?</string>
-  <string name="nav_item_saved_pages">భద్రపరచబడిన పుటలు</string>
-  <string name="menu_update_all_saved_pages">భద్రపరచబడిన పుటల జాబితాను తాజాపరుచు</string>
+  <string name="nav_item_saved_pages">భద్రపరచబడిన పేజీలు</string>
+  <string name="menu_update_all_saved_pages">భద్రపరచబడిన పేజీలను తాజాపరుచు</string>
   <string name="menu_update_selected_saved_pages">భద్రపరచబడిన పుటల జాబితాను తాజాపరుచు</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">అన్ని భద్రపరచబడిన పుటలను తాజాపరుచాలా?</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">అన్ని భద్రపరచబడిన పేజీలను తాజాపరచాలా?</string>
   <string name="menu_save_page">పేజీని భద్రపరచు</string>
   <string name="menu_share_page">పంచుకోండి</string>
   <string name="share_via">ఈ విధానం ద్వారా పంచుకోండి</string>
   <string name="dialog_title_clear_saved_pages">భద్రపరచిన పేజీలన్నిటినీ తుడిచివెయ్యాలా?</string>
   <string name="toast_saving_page">పేజీని భద్రపరుస్తున్నాం...</string>
   <string name="toast_saved_page">పేజీ భద్రపరచబడింది</string>
-  <string name="toast_saved_page_missing_images">అన్ని బొమ్మలను భద్రపరచలేకపోయాము</string>
+  <string name="toast_saved_page_missing_images">అన్ని బొమ్మలనీ భద్రపరచలేకపోయాము</string>
   <string name="toast_refresh_saved_page">భద్రపరచబడిన పేజీని రిఫ్రెష్ చేస్తుంది...</string>
   <string name="delete_selected_saved_pages">తొలగించు</string>
   <string name="toast_saved_page_deleted">భద్రపరచబడిన పేజీ(లు) తొలిగించబడ్డాయి</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">వెతుకు</string>
+  <string name="saved_pages_search_list_hint">భద్రపరిచిన పేజీలను వెతుకు</string>
   <string name="saved_pages_search_empty_message">మీరడిగిన పోలికలు సరిపోయే పేజీ లేదు.</string>
   <string name="nav_item_nearby">దగ్గరలో</string>
   <string name="menu_update_nearby">\"దగ్గరలో\" సమాచారం తాజాపరచు</string>
   <string name="nearby_empty_title">దగ్గరలో ఏ పేజీలు లేవు!</string>
-  <string name="nearby_empty_message">మీర్క కొత్త ప్రదేశానికి వెళ్తే, దయచేసి ఈ పేజీని తాజాపరిచి మీ చుట్టూ ఉన్న విషయాల గురించి మరింత తెలుసుకోండి.</string>
+  <string name="nearby_empty_message">మీరు కొత్త ప్రదేశానికి వెళ్తే, మీ చుట్టూ ఉన్న విషయాల గురించి మరింత తెలుసుకోవటానికి ఈ పేజీని తాజాపరిచండి.</string>
   <string name="nearby_distance_in_meters">%d మీటర్లు</string>
   <string name="nearby_distance_in_kilometers">%.2f కిలోమీటర్లు</string>
   <string name="nearby_distance_in_feet">%d అడుగులు</string>
@@ -48,8 +50,9 @@
   <string name="nearby_set_imperial">అడుగులు/మైళ్ళుగా చూపించు</string>
   <string name="nearby_view_on_map">పటంలో స్థానం చూడండి</string>
   <string name="last_updated_text">%s కి ఆఖరుగా తాజాపరచబడింది</string>
-  <string name="content_license_html">విడిగా చెప్పందే పాఠ్యం &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కు అనుగుణంగా లభ్యం</string>
+  <string name="content_license_html">విడిగా చెప్పందే, పాఠ్యం &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కు అనుగుణంగా లభ్యం</string>
   <string name="edit_save_action_license_logged_in">భద్రపర్చడం ద్వారా &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;వాడుక షరతుల&lt;/a&gt;కు అనుగుణంగా ఉంటాననీ, నా రచనలన్నిటినీ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కింద విడుదల చేస్తున్నాననీ అంగీకరిస్తున్నాను.</string>
+  <string name="edit_save_action_license_anon">భద్రపరచటంతో, మీరు  &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;వాడుకా నిభందనల&lt;/a&gt;ని అంగీకరిస్తున్నారు, మరియు ఖండీతంగా మీ రచనలని &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ ద్వారా వదులుతున్నారు. సవరణలు మీ ఐపి చిరునామాకి ఆపాదించబడతాయి. మీరు &lt;a href=\"https://#login\"&gt;లాగిన్&lt;/a&gt; అయితే, మీకు ఎక్కువ గోప్యత ఉంటుంది.</string>
   <string name="preference_title_language">వికీపీడియా భాష</string>
   <string name="preference_languages_filter_hint">వెతుకు</string>
   <string name="preference_system_language_toggle">వ్యవస్థ భాషను వాడు</string>
@@ -57,7 +60,7 @@
   <string name="langlinks_filter_hint">వెతుకు</string>
   <string name="menu_other_languages">ఇతర భాషలలో చదవండి</string>
   <string name="langlinks_error_retry">మళ్ళీ ప్రయత్నించు</string>
-  <string name="langlinks_empty">ఈ పేజీ వేరే భాషలలో అందుబాటులో లేదు</string>
+  <string name="langlinks_empty">ఈ పేజీ వేరే భాషలలో అందుబాటులో లేదు.</string>
   <string name="langlinks_no_match">ఏ భాషలోనూ మీ ప్రశ్నకు సరిపోలిక దొరకలేదు.
 
 .</string>
@@ -65,45 +68,45 @@
   <string name="menu_save_changes">మార్పులను భద్రపరచు</string>
   <string name="edit_section_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="dialog_saving_in_progress">భద్రపరుస్తున్నాం...</string>
-  <string name="edit_saved_successfully">మార్పు భద్రమయ్యింది!</string>
-  <string name="dialog_message_edit_failed">మార్పు భద్రం కాలేదు!</string>
+  <string name="edit_saved_successfully">సవరణ భద్రపరచపడింది!</string>
+  <string name="dialog_message_edit_failed">సవరణ విఫలమయ్యింది!</string>
   <string name="dialog_message_edit_failed_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="dialog_message_edit_failed_cancel">రద్దుచేయి</string>
-  <string name="dialog_message_leaving_edit">మీ మార్పులు ఇంకా భద్రపరచబడ లేదు.  మీరు ఈ పుటను ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా ?</string>
+  <string name="dialog_message_leaving_edit">మీ మార్పులు ఇంకా భద్రపరచబడలేదు. మీరు ఈ పేజిని ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా?</string>
   <string name="dialog_message_leaving_edit_leave">వదిలివేయండి</string>
   <string name="dialog_message_leaving_edit_stay">ఉండండి</string>
   <string name="menu_show_toc">విషయ సూచిక</string>
   <string name="search_no_results_found">ఫలితాలేమీ దొరకలేదు</string>
-  <string name="edit_section_captcha_message">స్వయంచాలక స్పామ్ నకు వ్యతిరేకంగా రక్షించడానికి, దయచేసి ఈ క్రింద కనిపించే పదాలు నమోదు దయచేయండి</string>
+  <string name="edit_section_captcha_message">స్వయంచాలక స్పామ్ నుండి రక్షిణకి, దయచేసి ఈ క్రింద కనిపించే పదాలు నమోదుచేయండి</string>
   <string name="edit_section_captcha_hint">పైన నుండి పదాలు పునరావృతం చేయండి</string>
-  <string name="title_captcha">కాప్త్చను ఎంటర్ చెయ్యండి</string>
-  <string name="edit_section_captcha_reload">మళ్లీ లోడ్ చేయడానికి కాప్త్చను నొక్కండి</string>
-  <string name="edit_saved_page_refresh">ఈ భద్రపరచిన పుట గడువు ముగిసి ఉండవచ్చు, మరియు సవరణ ప్రారంభం చెయ్యడానికి రిఫ్రెష్ చేయాలి. మీరు పేజీ రిఫ్రెష్ చేయాలని అనుకుంటున్నారా ?</string>
+  <string name="title_captcha">కాప్చాని నమొదు చెయ్యండి</string>
+  <string name="edit_section_captcha_reload">మళ్లీ లోడ్ చేయడానికి కాప్చాని నొక్కండి</string>
+  <string name="edit_saved_page_refresh">ఈ భద్రపరచబడిన పేజి గడువు ముగిసి ఉండవచ్చు, సవరణ ప్రారంభం చెయ్యడానికి రిఫ్రెష్ చేయాలి. మీరు పేజీ రిఫ్రెష్ చేయాలని అనుకుంటున్నారా ?</string>
   <string name="nav_item_login">లాగినవండి</string>
   <string name="login_username_hint">వాడుకరి పేరు</string>
   <string name="login_password_hint">సంకేతపదం</string>
   <string name="login_password_show_check">సంకేతపదాన్ని చూపించు</string>
   <string name="menu_login">లాగినవండి</string>
   <string name="login_activity_title">వికీపీడియాలోకి లాగినవండి</string>
-  <string name="login_in_progress_dialog_message">మీరు లాగింగ్ ...</string>
+  <string name="login_in_progress_dialog_message">మిమల్ని లాగిన్ చేస్తున్నాము...</string>
   <string name="login_error_wrong_password">సంకేతపదం తప్పు</string>
   <string name="login_error_wrong_username">వాడుకరి పేరు తప్పు</string>
   <string name="login_error_illegal">చెల్లని వాడుకరి పేరు</string>
   <string name="login_success_toast">లాగిన్ విజయవంతం!</string>
   <string name="login_error_blocked">ఈ వాడుకరిని నిరోధించారు</string>
-  <string name="login_error_throttled">చాలా లాగిన్ ప్రయత్నాలు. కొన్ని నిమిషాలు వేచి మరియు మళ్ళీ ప్రయత్నించండి.</string>
+  <string name="login_error_throttled">చాలా లాగిన్ ప్రయత్నాలు. కొన్ని నిమిషాలు వేచి ఉండి మరియు మళ్ళీ ప్రయత్నించండి.</string>
   <string name="login_error_unknown">లాగిన్ విఫలమైంది :(</string>
   <string name="login_error_no_network">అంతర్జాల అనుసంధానం లేదు</string>
-  <string name="preference_title_logout">బయటకు వస్తారు</string>
-  <string name="preference_summary_logout">మీ వికీపీడియా ఖాతా నుండి బయటకు రండి</string>
-  <string name="preference_summary_notloggedin">లోనికి వచ్చేందుకు ప్రయత్నం చేయలేదు.</string>
+  <string name="preference_title_logout">నిష్క్రమించండి</string>
+  <string name="preference_summary_logout">మీ వికీపీడియా ఖాతా నుండి నిష్కామించండి</string>
+  <string name="preference_summary_notloggedin">లాగిన్‌ అయిలేరు</string>
   <string name="toast_logout_complete">బయటకు వచ్చేసారు</string>
-  <string name="saved_pages_empty_title">భద్రపరచబడిన పుటలు ఏమీ ఇక్కడ లేవు !</string>
-  <string name="saved_pages_empty_message">భద్రపరచిన పేజీలు అందంగా అద్భుతంగా ఉన్నాయి.
-మీరు వాటిలోనివి బుక్‌మార్క్లుగా ఆలోచించి, ఆఫ్‌లైన్లో ఉన్నప్పుడు కూడా చదువుకోవచ్చు.</string>
-  <string name="history_empty_title">కొత్త పుటలు ఇక్కడ ఏమీ లేవు !</string>
-  <string name="history_empty_message">మీరు బహుశా వాటిని అన్ని తొలగించి ఉంటారు. తదుపరి సమయం
-మీరు ఒక పేజీకి వెళ్ళండి మీరు ఇక్కడ నుండి తిరిగి పొందవచ్చు.</string>
+  <string name="saved_pages_empty_title">భద్రపరచబడిన పేజీలు ఏమీ ఇక్కడ లేవు !</string>
+  <string name="saved_pages_empty_message">భద్రపరచిన పేజీలు అందంగా, అద్భుతంగా ఉంటాయి.
+వాటిని ఆఫ్‌లైన్లో ఉన్నప్పుడు కూడా చదువుకోగలిగే బుక్‌మార్క్లులాగా అనుకోండి.</string>
+  <string name="history_empty_title">ఇటీవలి పేజీలు ఏమీ లేవు.</string>
+  <string name="history_empty_message">మీరు బహుశా వాటిని అన్నిటిని తొలగించి ఉంటారు. తదుపరి సమయం
+మీరు ఒక పేజీకి వెళ్ళినప్పుడు మీరు ఇక్కడ నుండి తిరిగి పొందవచ్చు.</string>
   <string name="delete_selected_history">తొలగించు</string>
   <string name="wp_stylized">&lt;big&gt;వి&lt;/big&gt;కీపీడి&lt;big&gt;యా&lt;/big&gt;</string>
   <string name="create_account_username_hint">వాడుకరి పేరు</string>
@@ -113,7 +116,7 @@
   <string name="create_account_activity_title">ఖాతా సృష్టించుకోండి</string>
   <string name="dialog_create_account_checking_progress">ధృవీకరిస్తోంది</string>
   <string name="create_account_email_hint">ఈమెయిలు (ఐచ్చికం)</string>
-  <string name="create_account_password_repeat_hint">భద్రతపదం పునరావృతం చేయండి</string>
+  <string name="create_account_password_repeat_hint">సంకేతపదాన్ని పునరావృతం చేయండి</string>
   <string name="create_account_passwords_mismatch_error">భద్రతపదాలు సరిపోలుట లేదు</string>
   <string name="create_account_email_error">చెల్లని ఈమెయిలు చిరునామా</string>
   <string name="create_account_username_exists_error">వాడుకరి పేరు ఇప్పటికే వాడుకలో ఉంది</string>
@@ -130,28 +133,53 @@
   <string name="create_account_next">తదుపరి</string>
   <string name="create_account_button">ఖాతా సృష్టించండి</string>
   <string name="preferences_general_heading">సాధారణం</string>
+  <string name="wikipedia_app_faq">వికీపీడియా సున్నా ఎఫ్ఎక్యూ</string>
   <string name="zero_charged_verbiage">వికీపీడియా ఆఫ్ ఉంది</string>
   <string name="zero_charged_verbiage_extended">ఇతర వ్యాసాలు డేటా లోడ్ వల్ల ఛార్జీలు బాధ ఉండవచ్చు.</string>
   <string name="zero_search_hint">వికీపీడియాలో వెతకండి</string>
   <string name="zero_warn_when_leaving">వికీపీడియాను వదలి వేస్తుంటే హెచ్చరించు</string>
+  <string name="zero_warn_when_leaving_summary">మీ మొబైల్ ఆపరేటర్ వికీపీడియా సున్నా భాగస్వామ్యం ద్వారా వికీపీడియా అనువర్తనానికి డేటా చార్జీలు రద్దు చేసినట్టయితే, ఈ అమర్పు ఎంచుకోటంవల్ల మీరు వికీపీడియా అనువర్తనం వదిలివెళ్తూ మీకు డేటా చార్జీలు ఎప్పుడు పడ్తుందో తెలుస్కోటానికి ఉపొయొగపడుతుంది.</string>
+  <string name="zero_webpage_title">వికీపీడియా సున్నా ఎఫ్ఎక్యూ</string>
+  <string name="zero_wikipedia_zero_heading">వికీపీడియా సున్న</string>
+  <string name="zero_interstitial_title">వికీపీడియా సున్న నుండి వదిలివెళ్తున్నారు</string>
+  <string name="zero_interstitial_leave_app">డేటా చార్జీలు ఉండవచ్చు. బయటి సైట్ కి కొనసాగుతారా?</string>
   <string name="zero_interstitial_continue">వదలివెళ్ళు</string>
   <string name="zero_interstitial_cancel">ఇక్కడే ఉండు</string>
+  <string name="zero_learn_more">ఈ వికీపీడియా అనువర్తనానికి డేటా చార్జీలు మాఫీ చేయబడ్డాయి.</string>
   <string name="zero_learn_more_learn_more">ఇంకా చదవండి</string>
   <string name="zero_learn_more_dismiss">రద్దు</string>
+  <string name="edit_preview_fetching_dialog_message">ప్రివ్యూ వస్తుంది...</string>
+  <string name="send_feedback">అనువర్తనం గురించి ఫిర్యాదులు/సలహాలు పంపించండి</string>
   <string name="nav_item_random">యాదృచ్చికం</string>
   <string name="create_account_account_created_toast">ఖాతా సృష్టించబడింది!</string>
   <string name="user_contribs_more_action">మరిన్ని చూపించు</string>
   <string name="activity_my_contributions_title">నా మార్పులూచేర్పులు</string>
-  <string name="history_search_list_hint" fuzzy="true">వెతుకు</string>
+  <string name="preference_title_eventlogging_opt_in">వాడుక నివేదికని పంపండి</string>
+  <string name="preference_summary_eventlogging_opt_in">ఈ అనువర్తనం మెరుగుపరచుటకు, మీరు ఈ అనువర్తనం ఎలా వాడుతున్నారో అన్న సమాచారం సేకరించటానికి వికీపీడియాకి అనుమతి ఇవ్వండి</string>
+  <string name="editing_error_spamblacklist">ఆమోదంకాని డోమైన్లకి (%s) లింక్లు కొనుగోనబడ్డాయి. దయచేసి వాటిని తొలగించి మళ్ళి ప్రయత్నించండి.</string>
+  <string name="history_search_list_hint">శోధన చరిత్ర</string>
+  <string name="history_search_empty_message">మీరడిగిన పోలికలు సరిపోయే పేజీ లేదు.</string>
+  <string name="error_can_not_process_link">ఈ లింకుని చూపించలేకపోతున్నాము</string>
+  <string name="page_protected_autoconfirmed">ఈ పేజి సగం-రక్షించబడింది.</string>
+  <string name="page_protected_sysop">ఈ పేజి పూర్తిగా రక్షించబడింది.</string>
+  <string name="page_protected_other">ఈ పేజి ఈ స్థాయిలలో రక్షించబడింది: %s</string>
   <string name="page_protected_can_not_edit">ఈ పేజీని సవరించడానికి మీకు హక్కు లేదు</string>
   <string name="page_protected_can_not_edit_title">ఈ పేజీ సంరక్షించబడింది</string>
   <string name="more_item_preferences">మరిన్ని</string>
   <string name="more_activity_title">మరిన్ని</string>
+  <string name="about_description">వికీపీడియా అనువర్తనం గురించి</string>
   <string name="privacy_policy_description">గోప్యతా విధానం</string>
   <string name="terms_of_use_description">వాడుక నియమాలు</string>
+  <string name="about_libraries_heading">ఉపోయగించబడిన లైబ్రరీలు</string>
   <string name="about_contributors_heading">సహాయకులు</string>
   <string name="about_translators_heading">అనువాదకులు</string>
+  <string name="about_translators_translatewiki">ఈ అనువర్తనం &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; వద్ద స్వచ్చంద అనువాదకారులచే అనువదించబడింది.</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; వారి ఉత్పత్తి</string>
   <string name="about_activity_title">గురించి</string>
+  <string name="edit_abandon_confirm">ఈ పేజి సవరించబడింది. మార్పులని భద్రపరచకుండా ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా?</string>
+  <string name="user_blocked_from_editing_title">నిరోధించబడింది</string>
+  <string name="user_logged_in_blocked_from_editing">ఈ వికీని సవరించకుండా మీ వాడుక ఖాతా నిరోధించబడింది.</string>
+  <string name="user_anon_blocked_from_editing">సవరించకుండా మీ ఐపి చిరునామా నిరోధించబడింది</string>
   <string name="edit_how_page_improved">మీరు పేజీని ఎలా మెరుగుపరచారు?</string>
   <string name="edit_next">తదుపరి</string>
   <string name="edit_done">భద్రపరచు</string>
@@ -166,11 +194,16 @@
   <string name="find_previous">మునుపటిది కనుగొను</string>
   <string name="error_network_error_try_again">అంతర్జాలం చేరుకోలేదు, దయచేసి మళ్ళీ ప్రయత్నించండి.</string>
   <string name="saved_pages_update_all_error_retry">పునఃప్రయత్నించండి</string>
-  <string name="saved_pages_update_all_error_message">లోపం నవీకరించడానికి పేజీలు భద్రపరచండి</string>
+  <string name="saved_pages_update_all_error_message">భద్రపరచబడిన పేజీలను నవీకరించటంలో సమస్య వచ్చింది.</string>
   <string name="saved_pages_progress_title">భద్రపరచబడిన పుటలను ఉపశాంతి నిచ్చేట్లు చేస్తుంది.</string>
   <string name="saved_pages_refresh_pages_complete">పూర్తి నవీకరణం</string>
-  <string name="menu_page_saved">పుట భద్రపరచ బడింది</string>
+  <string name="menu_page_saved">పేజి భద్రపరచబడింది</string>
   <string name="menu_refresh_saved_page">రిఫ్రెష్ పేజీ</string>
+  <string name="abusefilter_title_warn">ఇది అనిర్మాణాత్మక సవరణ అయ్యుండవచ్చు. ఖచ్చితంగా భద్రపరచాలనుకుంటున్నారా?</string>
+  <string name="abusefilter_title_disallow">ఈ సవరణని మీరు భద్రపరచలేరు. దయచేసి వెనెక్కి వెళ్లి మార్చండి.</string>
+  <string name="abusefilter_text_warn">ఒక స్వయంచాలకమైన ఫిల్టర్ మీ సవరణను అనిర్మాణాత్మకంగా ఉన్నట్టు గుర్తించింది. సవరణలో వీటిలో ఒకటి లేదా ఎక్కువ ఉండి ఉండవచ్చు: &lt;br /&gt;&lt;br /&gt;· అన్ని పెద్ద అక్షరాలలో టైపు చేయటం &lt;br /&gt;· వ్యాసాని ఖాళీ లేదా స్పామ్ చేయటం &lt;br /&gt;· అసందర్భోచిత బయటి లింకులు లేదా చిత్రాలు &lt;br /&gt;· పునరావృతమవుతున్న అక్షరాలు</string>
+  <string name="abusefilter_text_disallow">ఒక స్వయంచాలకమైన ఫిల్టర్ మీ సవరణను బహుశా అనిర్మాణాత్మకంగా లేదా విధ్వంసకారంగా ఉన్నట్టు గుర్తించింది.&lt;br /&gt;&lt;br /&gt;వికీపీడియా ఒక ఎన్సైక్లోపీడియా, అందులో నిష్పక్షపాతకమైన, ముఖ్యమైన విషయాలు మాత్రమే ఉండాలి.</string>
+  <string name="dialog_page_issues">పేజి సమస్యలు</string>
   <string name="button_page_issues">పుట విషయాలు</string>
   <string name="menu_themechooser">ఖతి మరియు అలంకారం</string>
   <string name="text_size_select">ఖతి పరిమాణం</string>
@@ -182,8 +215,10 @@
   <string name="search_recent_header">ఇటీవల వెతికినవి:</string>
   <string name="button_clear_all_recent_searches">ఇటీవలి వెతుకులాటలను తుడిచివేయి</string>
   <string name="clear_recent_searches_confirm">మీ వెతుకులాట చరిత్రను ఖచ్ఛితంగా తుడిచివేయాలనుకుంటున్నారా?</string>
+  <string name="toc_hint">విభాగాలు కోసం ఎడమకి స్వైప్ చేయండి, లేదా కుడి ఎగువున్న మెనూ బటన్ని వాడండి.</string>
   <string name="toc_know_it">అర్థమైంది</string>
   <string name="error_browser_not_found">జాల పుటను తెరవలేకున్నాము (విహారకం యాప్ కనపడలేదు).</string>
+  <string name="table_infobox">త్వరిత వాస్తవాలు</string>
   <string name="table_other">మరింత సమాచారం</string>
   <string name="table_close">మూయు</string>
   <string name="widget_name_featured_page">వికీపీడియా విశేష పేజీ</string>
@@ -193,12 +228,17 @@
   <string name="alpha_update_notification_text">దింపుకోవడానికి తాకండి</string>
   <string name="dialog_close_description">మూయు</string>
   <string name="preference_title_show_images">బొమ్మలు చూపించు</string>
+  <string name="preference_summary_show_images">పేజిలలో చిత్రాన్ని లోడ్ చేయండి లేదా చేయవద్దు. మీ డేటా కనెక్షన్ మెల్లగా కానీ పరిమితంగా కానీ ఉంటే ఈ అమర్పుని ఎంచుకోవద్దు.</string>
   <string name="read_more_section">మరింత చదువు</string>
   <string name="read_next_section">తదుపరి చదవండి</string>
   <string name="menu_gallery_visit_page">దస్త్ర పేజీకి వెళ్ళు</string>
   <string name="gallery_error_draw_failed">బొమ్మను పొందలేకపోతున్నాము.</string>
+  <string name="license_title">%s లైబ్రరీకి లైసెన్స్ వచనం</string>
   <string name="gallery_menu_share">పంచుకోండి</string>
+  <string name="gallery_share_error">చిత్రాన్ని భాగ్యపరచలేకపోయాము : %s</string>
   <string name="gallery_menu_save">పరికరానికి భద్రపరుచు</string>
+  <string name="gallery_save_error">చిత్రాన్ని భద్రపరచలేకపోయాము : %s</string>
+  <string name="gallery_save_error_mediastore">చిత్రాన్ని మీడియా సేకరణకి ఎగుమతి విఫలమైంది</string>
   <string name="gallery_save_success">బొమ్మ విజయవంతంగా భద్రపరచబడింది.</string>
   <string name="gallery_error_video_failed">దృశ్యకాన్ని ప్రదర్శించలేకపోతున్నాము.</string>
   <string name="err_cannot_save_file">ద్దస్త్రాన్ని భద్రపరచలేము</string>
@@ -211,10 +251,11 @@
   <string name="captcha_image">కాప్చా బొమ్మ</string>
   <string name="gallery_fair_use_license">సముచితోపయోగం</string>
   <string name="gallery_uploader_unknown">ఎక్కించినవారెవరో తెలీదు</string>
+  <string name="edit_save_unknown_error">మీ సవరణని భద్రపరచలేకపోయాము : %s</string>
   <string name="menu_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_new_tab">కొత్త ట్యాబు</string>
   <string name="button_close_tab">ట్యాబును మూసివేయి</string>
-  <string name="menu_open_link">లంకెను తెరువు</string>
+  <string name="menu_open_link">లంకను తెరువు</string>
   <string name="menu_open_in_new_tab">కొత్త ట్యాబులో తెరువు</string>
   <string name="menu_save_page_popup">తరువాతి కోసం భద్రపరుచు</string>
 </resources>

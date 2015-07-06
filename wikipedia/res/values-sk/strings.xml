@@ -130,6 +130,7 @@
   <string name="create_account_next">Ďalej</string>
   <string name="create_account_button">Vytvoriť účet</string>
   <string name="preferences_general_heading">Všeobecné</string>
+  <string name="wikipedia_app_faq">Aplikácia Wikipédia FAQ</string>
   <string name="zero_charged_verbiage">Wikipédia Zero je vypnutá</string>
   <string name="zero_charged_verbiage_extended">Načítaním daľších článkov môžu vzniknúť poplatky za prenos dát.</string>
   <string name="zero_search_hint">Hľadať vo Wikipédii Zero</string>

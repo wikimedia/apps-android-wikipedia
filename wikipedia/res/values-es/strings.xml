@@ -130,6 +130,7 @@
   <string name="create_account_next">Siguiente</string>
   <string name="create_account_button">Crear cuenta</string>
   <string name="preferences_general_heading">General</string>
+  <string name="wikipedia_app_faq">Preguntas frecuentes</string>
   <string name="zero_charged_verbiage">Wikipedia Zero está desactivado</string>
   <string name="zero_charged_verbiage_extended">Cargar otros artículos puede incurrir en cargos por datos.</string>
   <string name="zero_search_hint">Buscar en Wikipedia Zero</string>

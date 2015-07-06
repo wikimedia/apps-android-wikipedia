@@ -262,7 +262,7 @@
   <string name="captcha_image">驗證碼圖片</string>
   <string name="gallery_fair_use_license">合理使用</string>
   <string name="gallery_uploader_unknown">未知上傳者</string>
-  <string name="edit_save_unknown_error">無法保存您的編輯：%s</string>
+  <string name="edit_save_unknown_error">無法儲存您的編輯：%s</string>
   <string name="menu_show_tabs">顯示分頁</string>
   <string name="menu_new_tab">新分頁</string>
   <string name="button_close_tab">關閉分頁</string>
