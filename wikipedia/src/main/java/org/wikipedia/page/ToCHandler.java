@@ -7,7 +7,6 @@ import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -101,7 +100,7 @@ public class ToCHandler {
                 parentActivity.supportInvalidateOptionsMenu();
                 funnel.logOpen();
                 wasClicked = false;
-                if (Prefs.isTocTutorialEnabled()) {
+                if (WikipediaApp.getInstance().getOnboardingStateMachine().isTocTutorialEnabled()) {
                     showToCIntro(slidingPane);
                 }
             }
@@ -155,7 +154,7 @@ public class ToCHandler {
     }
 
     private void knowSwipe() {
-        Prefs.setTocTutorialEnabled(false);
+        WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
         if (knowToCContainer.isShown()) {
             ViewAnimations.crossFade(knowToCContainer, tocList);
         }
@@ -214,7 +213,7 @@ public class ToCHandler {
         });
 
         if (!page.isMainPage() && !firstPage) {
-            if (Prefs.isTocTutorialEnabled()) {
+            if (WikipediaApp.getInstance().getOnboardingStateMachine().isTocTutorialEnabled()) {
                 openedViaSwipe = false;
                 slidingPane.openDrawer(GravityCompat.END);
                 showToCIntro(slidingPane);

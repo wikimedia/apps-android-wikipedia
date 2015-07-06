@@ -34,6 +34,8 @@ import org.wikipedia.interlanguage.AppLanguageState;
 import org.wikipedia.login.UserInfoStorage;
 import org.wikipedia.migration.PerformMigrationsTask;
 import org.wikipedia.networking.MccMncStateHandler;
+import org.wikipedia.onboarding.OnboardingStateMachine;
+import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.PageCache;
 import org.wikipedia.page.linkpreview.LinkPreviewVersion;
 import org.wikipedia.pageimages.PageImage;
@@ -553,6 +555,10 @@ public class WikipediaApp extends Application {
 
     public void resetSite() {
         primarySite = null;
+    }
+
+    public OnboardingStateMachine getOnboardingStateMachine() {
+        return PrefsOnboardingStateMachine.getInstance();
     }
 
     private HashMap<String, String> buildCustomHeaders(String acceptLanguage) {

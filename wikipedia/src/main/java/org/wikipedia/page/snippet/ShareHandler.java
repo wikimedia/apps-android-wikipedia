@@ -194,10 +194,10 @@ public class ShareHandler {
                                                       | MenuItemCompat.SHOW_AS_ACTION_WITH_TEXT);
         }
 
-        // TODO: implement share onboarding logic.
-        //if (OnboardingStateMachine.isShowShareOnboardingEnabled()) {
-        //    showShareOnboarding(shareItem);
-        //}
+        if (WikipediaApp.getInstance().getOnboardingStateMachine().isShareTutorialEnabled()) {
+            showShareOnboarding(shareItem);
+            WikipediaApp.getInstance().getOnboardingStateMachine().setShareTutorial();
+        }
 
         // provide our own listener for the Share button...
         shareItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {

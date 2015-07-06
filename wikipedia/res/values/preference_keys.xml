@@ -17,6 +17,8 @@
     <string name="preference_key_color_theme">colorTheme</string>
     <string name="preference_key_app_channel">channel</string>
     <string name="preference_key_language_mru">languageMru</string>
+    <string name="preference_key_select_text_tutorial_enabled">selectTextTutorialEnabled</string>
+    <string name="preference_key_share_tutorial_enabled">shareTutorialEnabled</string>
     <string name="preference_key_know_toc_drawer">knowToC</string>
     <string name="preference_key_show_images">showImages</string>
     <string name="preference_key_exp_page_load">expPageLoad</string>

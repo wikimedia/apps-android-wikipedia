@@ -96,6 +96,10 @@ public class Page {
         return pageProperties.isMainPage();
     }
 
+    public boolean isArticle() {
+        return !isMainPage() && getTitle().getNamespace() == null;
+    }
+
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
         try {
