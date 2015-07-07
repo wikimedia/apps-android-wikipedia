@@ -1,39 +1,19 @@
 package org.wikipedia.analytics;
 
-import org.json.JSONException;
+import android.support.annotation.NonNull;
+
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
-
-import java.util.UUID;
 
 public class CreateAccountFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppCreateAccount";
     private static final int REVISION = 9135391;
 
-    private final String createAccountSessionToken;
     private final String requestSource;
 
     public CreateAccountFunnel(WikipediaApp app, String requestSource) {
         super(app, SCHEMA_NAME, REVISION);
         this.requestSource = requestSource;
-        createAccountSessionToken = UUID.randomUUID().toString();
-    }
-
-    protected void log(Object... params) {
-        // Create Account always hits the primarySite anyway.
-        super.log(getApp().getPrimarySite(), params);
-    }
-
-    @Override
-    protected JSONObject preprocessData(JSONObject eventData) {
-        try {
-            eventData.put("createAccountSessionToken", createAccountSessionToken);
-            eventData.put("source", requestSource);
-        } catch (JSONException e) {
-            // This isn't happening
-            throw new RuntimeException(e);
-        }
-        return eventData;
     }
 
     public void logStart(String loginSessionToken) {
@@ -66,5 +46,19 @@ public class CreateAccountFunnel extends Funnel {
         log(
                 "action", "success"
         );
+    }
+
+    @Override
+    protected JSONObject preprocessData(@NonNull JSONObject eventData) {
+        preprocessData(eventData, "source", requestSource);
+        return super.preprocessData(eventData);
+    }
+
+    @Override protected void preprocessAppInstallID(@NonNull JSONObject eventData) { }
+
+    @NonNull
+    @Override
+    protected String getSessionTokenField() {
+        return "createAccountSessionToken";
     }
 }

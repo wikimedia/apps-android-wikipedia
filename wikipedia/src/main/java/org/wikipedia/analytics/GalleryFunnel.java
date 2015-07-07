@@ -1,12 +1,11 @@
 package org.wikipedia.analytics;
 
-import org.json.JSONException;
+import android.support.annotation.NonNull;
+
 import org.json.JSONObject;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-
-import java.util.UUID;
 
 public class GalleryFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppMediaGallery";
@@ -14,35 +13,24 @@ public class GalleryFunnel extends TimedFunnel {
     private static final int SOURCE_LEAD_IMAGE = 0;
     private static final int SOURCE_NON_LEAD_IMAGE = 1;
 
-    private final String gallerySessionToken;
-    private final String appInstallID;
-    private final Site site;
     private final int source;
 
     public GalleryFunnel(WikipediaApp app, Site site, boolean fromLeadImage) {
-        super(app, SCHEMA_NAME, REV_ID);
+        super(app, SCHEMA_NAME, REV_ID, site);
 
-        //Retrieve this app installation's unique ID, used to record unique users of features
-        appInstallID = app.getAppInstallID();
-        gallerySessionToken = UUID.randomUUID().toString();
         this.source = fromLeadImage ? SOURCE_LEAD_IMAGE : SOURCE_NON_LEAD_IMAGE;
-        this.site = site;
     }
 
     @Override
-    protected JSONObject preprocessData(JSONObject eventData) {
-        try {
-            eventData.put("appInstallID", appInstallID);
-            eventData.put("gallerySessionToken", gallerySessionToken);
-            eventData.put("source", source);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+    protected JSONObject preprocessData(@NonNull JSONObject eventData) {
+        preprocessData(eventData, "source", source);
         return super.preprocessData(eventData);
     }
 
-    protected void log(Object... params) {
-        super.log(site, params);
+    @NonNull
+    @Override
+    protected String getSessionTokenField() {
+        return "gallerySessionToken";
     }
 
     private void logGalleryAction(String action, PageTitle currentPageTitle, String currentMediaTitle) {
@@ -76,5 +64,4 @@ public class GalleryFunnel extends TimedFunnel {
     public void logGallerySave(PageTitle currentPageTitle, String currentMediaTitle) {
         logGalleryAction("save", currentPageTitle, currentMediaTitle);
     }
-
 }

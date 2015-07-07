@@ -1,5 +1,8 @@
 package org.wikipedia.analytics;
 
+import android.support.annotation.NonNull;
+
+import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 
 public class ConnectionIssueFunnel extends Funnel {
@@ -10,10 +13,6 @@ public class ConnectionIssueFunnel extends Funnel {
         super(app, SCHEMA_NAME, REVISION);
     }
 
-    protected void log(Object... params) {
-        super.log(getApp().getPrimarySite(), params);
-    }
-
     public void logConnectionIssue(String failedEndpoint, String applicationContext) {
         log(
                 "failedEndpoint", failedEndpoint,
@@ -21,4 +20,6 @@ public class ConnectionIssueFunnel extends Funnel {
         );
     }
 
+    @Override protected void preprocessAppInstallID(@NonNull JSONObject eventData) { }
+    @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
 }

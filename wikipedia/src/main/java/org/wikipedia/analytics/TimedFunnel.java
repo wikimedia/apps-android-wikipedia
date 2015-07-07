@@ -1,7 +1,9 @@
 package org.wikipedia.analytics;
 
+import android.support.annotation.NonNull;
+
+import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.concurrent.TimeUnit;
 
@@ -9,17 +11,18 @@ public abstract class TimedFunnel extends Funnel {
     private final long startTime;
 
     public TimedFunnel(WikipediaApp app, String schemaName, int revision) {
-        super(app, schemaName, revision);
+        this(app, schemaName, revision, null);
+    }
+
+    public TimedFunnel(WikipediaApp app, String schemaName, int revision, Site site) {
+        super(app, schemaName, revision, site);
         startTime = System.currentTimeMillis();
     }
 
     @Override
-    protected JSONObject preprocessData(JSONObject eventData) {
-        try {
-            return super.preprocessData(eventData).put(getDurationFieldName(), getDurationSeconds());
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+    protected JSONObject preprocessData(@NonNull JSONObject eventData) {
+        preprocessData(eventData, getDurationFieldName(), getDurationSeconds());
+        return super.preprocessData(eventData);
     }
 
     /** Override me for deviant implementations. */

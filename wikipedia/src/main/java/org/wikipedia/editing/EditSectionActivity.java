@@ -218,7 +218,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                     funnel.logLoginAttempt();
                     Intent loginIntent = new Intent(EditSectionActivity.this, LoginActivity.class);
                     loginIntent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_EDIT);
-                    loginIntent.putExtra(LoginActivity.EDIT_SESSION_TOKEN, funnel.getEditSessionToken());
+                    loginIntent.putExtra(LoginActivity.EDIT_SESSION_TOKEN, funnel.getSessionToken());
                     startActivityForResult(loginIntent, LoginActivity.REQUEST_LOGIN);
                 } else {
                     Utils.handleExternalLink(EditSectionActivity.this, Uri.parse(url));

@@ -1,6 +1,7 @@
 package org.wikipedia.analytics;
 
-import org.json.JSONException;
+import android.support.annotation.NonNull;
+
 import org.json.JSONObject;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
@@ -10,30 +11,8 @@ public class AppearanceChangeFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppAppearanceSettings";
     private static final int REV_ID = 10375462;
 
-    private final String appInstallID;
-    private final Site site;
-
     public AppearanceChangeFunnel(WikipediaApp app, Site site) {
-        super(app, SCHEMA_NAME, REV_ID);
-
-        //Retrieve this app installation's unique ID, used to record unique users of features
-        appInstallID = app.getAppInstallID();
-
-        this.site = site;
-    }
-
-    @Override
-    protected JSONObject preprocessData(JSONObject eventData) {
-        try {
-            eventData.put("appInstallID", appInstallID);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        return eventData;
-    }
-
-    protected void log(Object... params) {
-        super.log(site, params);
+        super(app, SCHEMA_NAME, REV_ID, site);
     }
 
     public void logFontSizeChange(float currentFontSize, float newFontSize) {
@@ -51,4 +30,6 @@ public class AppearanceChangeFunnel extends Funnel {
                 "newValue", newTheme.getFunnelName()
         );
     }
+
+    @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
 }
