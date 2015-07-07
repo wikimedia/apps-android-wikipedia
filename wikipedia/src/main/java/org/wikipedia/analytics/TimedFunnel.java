@@ -7,14 +7,14 @@ import org.wikipedia.WikipediaApp;
 import org.json.JSONObject;
 import java.util.concurrent.TimeUnit;
 
-public abstract class TimedFunnel extends Funnel {
+/*package*/ abstract class TimedFunnel extends Funnel {
     private final long startTime;
 
-    public TimedFunnel(WikipediaApp app, String schemaName, int revision) {
+    /*package*/ TimedFunnel(WikipediaApp app, String schemaName, int revision) {
         this(app, schemaName, revision, null);
     }
 
-    public TimedFunnel(WikipediaApp app, String schemaName, int revision, Site site) {
+    /*package*/ TimedFunnel(WikipediaApp app, String schemaName, int revision, Site site) {
         super(app, schemaName, revision, site);
         startTime = System.currentTimeMillis();
     }

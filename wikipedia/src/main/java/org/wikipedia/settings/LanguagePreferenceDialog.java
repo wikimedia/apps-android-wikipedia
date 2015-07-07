@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.AppLanguageSelectFunnel;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
@@ -38,12 +39,16 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
     @NonNull
     private final WikipediaApp app;
 
-    public LanguagePreferenceDialog(Context context) {
+    @NonNull
+    private final AppLanguageSelectFunnel funnel;
+
+    public LanguagePreferenceDialog(Context context, boolean initiatedFromSearchBar) {
         super(context);
         setContentView(R.layout.dialog_preference_languages);
 
         app = WikipediaApp.getInstance();
         languageCodes = app.getAppMruLanguageCodes();
+        funnel = new AppLanguageSelectFunnel(initiatedFromSearchBar);
     }
 
     @Override
@@ -67,6 +72,7 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
                 setSystemLanguageEnabled(isChecked);
                 app.resetSite();
                 if (isChecked) {
+                    funnel.logSelect();
                     dismiss();
                 }
             }
@@ -79,6 +85,7 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
                 if (!lang.equals(app.getAppOrSystemLanguageCode())) {
                     app.setAppLanguageCode(lang);
                     app.setMruLanguageCode(lang);
+                    funnel.logSelect();
                 }
                 dismiss();
             }
@@ -105,6 +112,14 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
                 ((LanguagesAdapter) languagesList.getAdapter()).setFilterText(s.toString());
             }
         });
+
+        funnel.logStart();
+    }
+
+    @Override
+    public void cancel() {
+        funnel.logCancel();
+        super.cancel();
     }
 
     private void setSystemLanguageEnabled(boolean enabled) {

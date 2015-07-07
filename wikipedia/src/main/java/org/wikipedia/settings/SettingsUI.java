@@ -37,7 +37,7 @@ public class SettingsUI {
                         new ContextThemeWrapper(activity,
                                 (WikipediaApp.getInstance().isCurrentThemeLight()
                                         ? R.style.NoTitle
-                                        : R.style.NoTitleWikiDark)));
+                                        : R.style.NoTitleWikiDark)), false);
                 langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {

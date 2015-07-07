@@ -294,7 +294,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
             langButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getActivity());
+                    LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getActivity(), true);
                     langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                         @Override
                         public void onDismiss(DialogInterface dialog) {
