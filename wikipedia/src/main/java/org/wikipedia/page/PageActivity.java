@@ -175,7 +175,7 @@ public class PageActivity extends ThemedActionBarActivity {
         progressBar.setMax(PROGRESS_BAR_MAX_VALUE);
         updateProgressBar(false, true, 0);
 
-        findViewById(R.id.main_search_bar).setOnClickListener(new View.OnClickListener() {
+        searchHintText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 searchFragment.openSearch();

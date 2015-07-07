@@ -284,7 +284,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
     private void setSearchViewEnabled(boolean enabled) {
         LinearLayout enabledSearchBar = (LinearLayout) getActivity().findViewById(R.id.search_bar_enabled);
-        View searchButton = getActivity().findViewById(R.id.main_search_bar);
+        TextView searchButton = (TextView) getActivity().findViewById(R.id.main_search_bar_text);
         langButton = (Button) getActivity().findViewById(R.id.search_lang_button);
 
         if (enabled) {
@@ -319,8 +319,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                         .findViewById(android.support.v7.appcompat.R.id.search_src_text);
                 // make the text size be the same as the size of the search field
                 // placeholder in the main activity
-                searchEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX, ((TextView) getActivity()
-                        .findViewById(R.id.main_search_bar_text)).getTextSize());
+                searchEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX, searchButton.getTextSize());
                 // reset its background
                 searchEditText.setBackgroundColor(Color.TRANSPARENT);
                 // make the search frame match_parent
