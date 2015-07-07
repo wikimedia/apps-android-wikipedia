@@ -94,6 +94,7 @@ dependencies {
     // Debug with ./gradlew -q wikipedia:dependencies --configuration compile
 
     compile 'com.android.support:appcompat-v7:22.2.0' // includes support-v4
+    compile 'com.android.support:design:22.2.0'
     compile('org.mediawiki.api:json:1.3.1') {
         exclude group: 'org.json', module: 'json'
     }

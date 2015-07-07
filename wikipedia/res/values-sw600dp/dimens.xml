@@ -8,4 +8,6 @@
 
     <dimen name="textSize">16sp</dimen>
 
+    <dimen name="toc_button_layout_margin">24dp</dimen>
+
 </resources>

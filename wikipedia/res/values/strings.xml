@@ -224,8 +224,6 @@
     <string name="search_recent_header">Recent searches:</string>
     <string name="button_clear_all_recent_searches">Clear recent searches</string>
     <string name="clear_recent_searches_confirm">Are you sure you want to clear your search history?</string>
-    <string name="toc_hint">Swipe left for sections, or use the menu button on the top right.</string>
-    <string name="toc_know_it">Got it</string>
     <string name="error_browser_not_found">Could not open web page (no browser app found).</string>
     <string name="table_infobox">Quick facts</string>
     <string name="table_other">More information</string>
@@ -291,4 +289,5 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="tool_tip_select_text">Press and hold anywhere in the text to highlight it for copying and sharing.</string>
     <string name="tool_tip_share">After highlighting an interesting fact, try sharing it on your favorite networks!</string>
     <string name="page_view_in_browser">View in browser</string>
+    <string name="tool_tip_toc_button">See the table of contents anytime by tapping this button, or sliding from the right edge of the screen.</string>
 </resources>

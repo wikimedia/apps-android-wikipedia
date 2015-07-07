@@ -3,13 +3,14 @@ package org.wikipedia.page;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
-import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -25,13 +26,15 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.appenguin.onboarding.ToolTip;
+
 import java.util.ArrayList;
 
 public class ToCHandler {
     private static final int MAX_LEVELS = 3;
     private static final int INDENTATION_WIDTH_DP = 16;
     private static final int READ_MORE_SECTION_ID = -1;
-    private final View knowToCContainer;
     private final ListView tocList;
     private final ProgressBar tocProgress;
     private final CommunicationBridge bridge;
@@ -56,7 +59,6 @@ public class ToCHandler {
 
         this.tocList = (ListView) slidingPane.findViewById(R.id.page_toc_list);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
-        knowToCContainer = slidingPane.findViewById(R.id.know_toc_intro_container);
 
         bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {
             @Override
@@ -100,9 +102,6 @@ public class ToCHandler {
                 parentActivity.supportInvalidateOptionsMenu();
                 funnel.logOpen();
                 wasClicked = false;
-                if (WikipediaApp.getInstance().getOnboardingStateMachine().isTocTutorialEnabled()) {
-                    showToCIntro(slidingPane);
-                }
             }
 
             @Override
@@ -129,35 +128,6 @@ public class ToCHandler {
                 }
             }
         });
-    }
-
-    private void showToCIntro(WikiDrawerLayout slidingPane) {
-        if (openedViaSwipe) {
-            knowSwipe();
-        } else {
-            final View gotItButton = slidingPane.findViewById(R.id.know_toc_drawer_button);
-            if (!knowToCContainer.isShown()) {
-                ViewAnimations.crossFade(tocList, knowToCContainer, new Runnable() {
-                    @Override
-                    public void run() {
-                        ViewAnimations.fadeIn(gotItButton);
-                    }
-                });
-            }
-            gotItButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    knowSwipe();
-                }
-            });
-        }
-    }
-
-    private void knowSwipe() {
-        WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
-        if (knowToCContainer.isShown()) {
-            ViewAnimations.crossFade(knowToCContainer, tocList);
-        }
     }
 
     public void scrollToSection(String sectionAnchor) {
@@ -215,8 +185,7 @@ public class ToCHandler {
         if (!page.isMainPage() && !firstPage) {
             if (WikipediaApp.getInstance().getOnboardingStateMachine().isTocTutorialEnabled()) {
                 openedViaSwipe = false;
-                slidingPane.openDrawer(GravityCompat.END);
-                showToCIntro(slidingPane);
+                showTocOnboarding();
             }
         }
     }
@@ -296,5 +265,15 @@ public class ToCHandler {
             }
             return convertView;
         }
+    }
+
+    private void showTocOnboarding() {
+        View tocButton = parentActivity.findViewById(R.id.floating_toc_button);
+        ToolTipUtil.showToolTip(parentActivity,
+                                tocButton,
+                                R.layout.inflate_tool_tip_toc_button,
+                                parentActivity.getResources().getColor(R.color.tool_tip_default),
+                                ToolTip.Position.CENTER);
+        WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
     }
 }

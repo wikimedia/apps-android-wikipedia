@@ -8,11 +8,6 @@
         android:icon="@drawable/ic_tab_list"
         app:showAsAction="ifRoom"
         />
-    <item android:id="@+id/menu_toc"
-          android:title="@string/menu_show_toc"
-          android:icon="@drawable/ic_toc"
-          app:showAsAction="ifRoom"
-          />
     <item android:id="@+id/menu_other_languages"
           android:title="@string/menu_other_languages"
           android:enabled="false"

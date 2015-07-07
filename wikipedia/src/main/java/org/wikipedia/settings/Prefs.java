@@ -254,11 +254,11 @@ public final class Prefs {
     }
 
     public static boolean isTocTutorialEnabled() {
-        return !getBoolean(R.string.preference_key_know_toc_drawer, false);
+        return getBoolean(R.string.preference_key_toc_tutorial_enabled, true);
     }
 
     public static void setTocTutorialEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_know_toc_drawer, !enabled);
+        setBoolean(R.string.preference_key_toc_tutorial_enabled, enabled);
     }
 
     public static boolean isImageDownloadEnabled() {
