@@ -1,5 +1,7 @@
 package org.wikipedia.page.bottomcontent;
 
+import android.graphics.Paint;
+import android.net.Uri;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
@@ -56,6 +58,7 @@ public class BottomContentHandler implements BottomContentInterface,
     private View bottomContentContainer;
     private TextView pageLastUpdatedText;
     private TextView pageLicenseText;
+    private TextView pageExternalLink;
     private View readMoreContainer;
     private ListView readMoreList;
 
@@ -81,6 +84,15 @@ public class BottomContentHandler implements BottomContentInterface,
         pageLicenseText = (TextView)bottomContentContainer.findViewById(R.id.page_license_text);
         readMoreContainer = bottomContentContainer.findViewById(R.id.read_more_container);
         readMoreList = (ListView)bottomContentContainer.findViewById(R.id.read_more_list);
+
+        pageExternalLink = (TextView) bottomContentContainer.findViewById(R.id.page_external_link);
+        pageExternalLink.setPaintFlags(pageExternalLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        pageExternalLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.visitInExternalBrowser(activity, Uri.parse(pageTitle.getMobileUri()));
+            }
+        });
 
         // set up pass-through scroll functionality for the ListView
         readMoreList.setOnTouchListener(new View.OnTouchListener() {

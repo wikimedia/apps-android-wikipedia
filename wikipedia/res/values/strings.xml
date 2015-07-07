@@ -290,4 +290,5 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="menu_save_page_popup">Save for later</string>
     <string name="tool_tip_select_text">Press and hold anywhere in the text to highlight it for copying and sharing.</string>
     <string name="tool_tip_share">After highlighting an interesting fact, try sharing it on your favorite networks!</string>
+    <string name="page_view_in_browser">View in browser</string>
 </resources>

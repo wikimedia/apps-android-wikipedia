@@ -153,6 +153,16 @@
                         android:textIsSelectable="true"
                         android:textColorLink="?attr/link_color"
                         android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/page_external_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        style="?android:textAppearanceSmall"
+                        android:text="@string/page_view_in_browser"
+                        android:textColor="?attr/link_color"
+                        android:gravity="center"/>
                 </LinearLayout>
             </LinearLayout>
 
