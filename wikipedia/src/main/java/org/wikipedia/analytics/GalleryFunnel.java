@@ -8,21 +8,24 @@ import org.wikipedia.WikipediaApp;
 
 import java.util.UUID;
 
-public class GalleryFunnel extends Funnel {
+public class GalleryFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppMediaGallery";
-    private static final int REV_ID = 10923135;
+    private static final int REV_ID = 12588701;
+    private static final int SOURCE_LEAD_IMAGE = 0;
+    private static final int SOURCE_NON_LEAD_IMAGE = 1;
 
     private final String gallerySessionToken;
     private final String appInstallID;
     private final Site site;
+    private final int source;
 
-    public GalleryFunnel(WikipediaApp app, Site site) {
+    public GalleryFunnel(WikipediaApp app, Site site, boolean fromLeadImage) {
         super(app, SCHEMA_NAME, REV_ID);
 
         //Retrieve this app installation's unique ID, used to record unique users of features
         appInstallID = app.getAppInstallID();
         gallerySessionToken = UUID.randomUUID().toString();
-
+        this.source = fromLeadImage ? SOURCE_LEAD_IMAGE : SOURCE_NON_LEAD_IMAGE;
         this.site = site;
     }
 
@@ -31,10 +34,11 @@ public class GalleryFunnel extends Funnel {
         try {
             eventData.put("appInstallID", appInstallID);
             eventData.put("gallerySessionToken", gallerySessionToken);
+            eventData.put("source", source);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-        return eventData;
+        return super.preprocessData(eventData);
     }
 
     protected void log(Object... params) {

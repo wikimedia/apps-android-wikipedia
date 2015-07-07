@@ -545,7 +545,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                     String href = Utils.decodeURL(messagePayload.getString("href"));
                     if (href.startsWith("/wiki/")) {
                         PageTitle imageTitle = model.getTitle().getSite().titleForInternalLink(href);
-                        showImageGallery(imageTitle);
+                        showImageGallery(imageTitle, false);
                     } else {
                         linkHandler.onUrlClick(href);
                     }
@@ -559,7 +559,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
                     String href = Utils.decodeURL(messagePayload.getString("href"));
-                    showImageGallery(new PageTitle(href, model.getTitle().getSite()));
+                    showImageGallery(new PageTitle(href, model.getTitle().getSite()), false);
                 } catch (JSONException e) {
                     ACRA.getErrorReporter().handleException(e);
                 }
@@ -747,11 +747,12 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
      * Launch the image gallery activity, and start with the provided image.
      * @param imageTitle Image with which to begin the gallery.
      */
-    public void showImageGallery(PageTitle imageTitle) {
+    public void showImageGallery(PageTitle imageTitle, boolean fromLeadImage) {
         Intent galleryIntent = new Intent();
         galleryIntent.setClass(getActivity(), GalleryActivity.class);
         galleryIntent.putExtra(GalleryActivity.EXTRA_IMAGETITLE, imageTitle);
         galleryIntent.putExtra(GalleryActivity.EXTRA_PAGETITLE, model.getTitleOriginal());
+        galleryIntent.putExtra(GalleryActivity.EXTRA_FROM_LEAD_IMAGE, fromLeadImage);
         getActivity().startActivityForResult(galleryIntent, PageActivity.ACTIVITY_REQUEST_GALLERY);
     }
 

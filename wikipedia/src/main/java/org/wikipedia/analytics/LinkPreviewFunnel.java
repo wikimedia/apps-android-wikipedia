@@ -1,7 +1,5 @@
 package org.wikipedia.analytics;
 
-import android.os.SystemClock;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.page.PageTitle;
@@ -9,17 +7,15 @@ import org.wikipedia.WikipediaApp;
 
 import java.util.UUID;
 
-public class LinkPreviewFunnel extends Funnel {
+public class LinkPreviewFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLinkPreview";
     private static final int REV_ID = 12143205;
-    private static final int MILLISECONDS_PER_SECOND = 1000;
     public static final int DEFAULT_SAMPLE_RATE = 100;
 
     private final String previewSessionToken;
     private final PageTitle title;
     private final int version;
     private final String appInstallID;
-    private double startTime;
 
     public LinkPreviewFunnel(WikipediaApp app, PageTitle title) {
         super(app, SCHEMA_NAME, REV_ID);
@@ -27,7 +23,6 @@ public class LinkPreviewFunnel extends Funnel {
         previewSessionToken = UUID.randomUUID().toString();
         this.title = title;
         version = app.getLinkPreviewVersion();
-        startTime = SystemClock.uptimeMillis();
     }
 
     @Override
@@ -36,15 +31,11 @@ public class LinkPreviewFunnel extends Funnel {
             eventData.put("previewSessionToken", previewSessionToken);
             eventData.put("appInstallID", appInstallID);
             eventData.put("version", version);
-            if (eventData.getString("action").equals("navigate") || eventData.getString("action").equals("cancel")) {
-                int timeSpent = (int) Math.ceil((SystemClock.uptimeMillis() - startTime) / MILLISECONDS_PER_SECOND);
-                eventData.put("timeSpent", timeSpent);
-            }
         } catch (JSONException e) {
             // This never happens.
             throw new RuntimeException(e);
         }
-        return eventData;
+        return super.preprocessData(eventData);
     }
 
     protected void log(Object... params) {

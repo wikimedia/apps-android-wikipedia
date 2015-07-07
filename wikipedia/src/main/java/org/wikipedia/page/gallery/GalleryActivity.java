@@ -50,6 +50,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
     public static final String EXTRA_IMAGETITLE = "imageTitle";
+    public static final String EXTRA_FROM_LEAD_IMAGE = "fromLeadImage";
 
     private WikipediaApp app;
     private PageTitle pageTitle;
@@ -158,35 +159,10 @@ public class GalleryActivity extends ThemedActionBarActivity {
         galleryPager = (ViewPager) findViewById(R.id.gallery_item_pager);
         galleryAdapter = new GalleryItemAdapter(this);
         galleryPager.setAdapter(galleryAdapter);
-        galleryPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            private int currentPosition = -1;
-            @Override
-            public void onPageScrolled(int position, float positionOffset,
-                                       int positionOffsetPixels) {
-            }
-            @Override
-            public void onPageSelected(int position) {
-                // the pager has settled on a new position
-                layoutGalleryDescription();
-                galleryAdapter.notifyFragments(position);
-                if (currentPosition != -1 && getCurrentItem() != null) {
-                    if (position < currentPosition) {
-                        funnel.logGallerySwipeLeft(pageTitle, getCurrentItem().getName());
-                    } else if (position > currentPosition) {
-                        funnel.logGallerySwipeRight(pageTitle, getCurrentItem().getName());
-                    }
-                }
-                currentPosition = position;
-            }
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                if (state == ViewPager.SCROLL_STATE_IDLE) {
-                    galleryAdapter.purgeFragments(false);
-                }
-            }
-        });
+        galleryPager.setOnPageChangeListener(new GalleryPageChangeListener());
 
-        funnel = new GalleryFunnel(app, pageTitle.getSite());
+        funnel = new GalleryFunnel(app, pageTitle.getSite(),
+                                   getIntent().getBooleanExtra(EXTRA_FROM_LEAD_IMAGE, false));
 
         if (savedInstanceState == null) {
             if (initialImageTitle != null) {
@@ -240,7 +216,33 @@ public class GalleryActivity extends ThemedActionBarActivity {
                 cacheOnLoad = true;
             }
         });
+    }
 
+    private class GalleryPageChangeListener implements ViewPager.OnPageChangeListener {
+        private int currentPosition = -1;
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        }
+        @Override
+        public void onPageSelected(int position) {
+            // the pager has settled on a new position
+            layoutGalleryDescription();
+            galleryAdapter.notifyFragments(position);
+            if (currentPosition != -1 && getCurrentItem() != null) {
+                if (position < currentPosition) {
+                    funnel.logGallerySwipeLeft(pageTitle, getCurrentItem().getName());
+                } else if (position > currentPosition) {
+                    funnel.logGallerySwipeRight(pageTitle, getCurrentItem().getName());
+                }
+            }
+            currentPosition = position;
+        }
+        @Override
+        public void onPageScrollStateChanged(int state) {
+            if (state == ViewPager.SCROLL_STATE_IDLE) {
+                galleryAdapter.purgeFragments(false);
+            }
+        }
     }
 
     @Override

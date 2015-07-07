@@ -148,7 +148,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                         PageTitle imageTitle = new PageTitle("File:" + imageName,
                                                              parentFragment.getTitle()
                                                                            .getSite());
-                        parentFragment.showImageGallery(imageTitle);
+                        parentFragment.showImageGallery(imageTitle, true);
                     }
                     return true;
                 }
