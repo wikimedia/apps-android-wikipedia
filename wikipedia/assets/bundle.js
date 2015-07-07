@@ -517,11 +517,11 @@ function clearContents() {
 
 function buildEditSectionButton(id) {
     var editButtonWrapper = document.createElement( "span" );
-    editButtonWrapper.className = "edit_section_button_wrapper";
+    editButtonWrapper.className = "edit_section_button_wrapper android";
     var editButton = document.createElement( "a" );
     editButton.setAttribute( 'data-id', id );
     editButton.setAttribute( 'data-action', "edit_section" );
-    editButton.className = "edit_section_button";
+    editButton.className = "edit_section_button android";
     editButtonWrapper.appendChild( editButton );
     return editButtonWrapper;
 }
