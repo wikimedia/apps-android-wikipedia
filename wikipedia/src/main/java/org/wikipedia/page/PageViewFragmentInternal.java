@@ -11,6 +11,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.SavedPagesFunnel;
+import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleBundle;
 import org.wikipedia.editing.EditHandler;
@@ -45,6 +46,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -92,6 +94,9 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
      * savedInstanceState of the fragment.
      */
     private ArrayList<Tab> tabList;
+
+    @NonNull
+    private TabFunnel tabFunnel = new TabFunnel();
 
     /**
      * Whether to save the full page content as soon as it's loaded.
@@ -377,8 +382,15 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
     private TabsProvider.TabsProviderListener tabsProviderListener = new TabsProvider.TabsProviderListener() {
         @Override
+        public void onEnterTabView() {
+            tabFunnel = new TabFunnel();
+            tabFunnel.logEnterList(tabList.size());
+        }
+
+        @Override
         public void onCancelTabView() {
             tabsProvider.exitTabMode();
+            tabFunnel.logCancel(tabList.size());
         }
 
         @Override
@@ -393,6 +405,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 pageLoadStrategy.loadPageFromBackStack();
             }
             tabsProvider.exitTabMode();
+            tabFunnel.logSelect(tabList.size(), position);
         }
 
         @Override
@@ -401,11 +414,13 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             PageTitle newTitle = new PageTitle(MainPageNameData.valueFor(app.getAppLanguageCode()), app.getPrimarySite());
             HistoryEntry newEntry = new HistoryEntry(newTitle, HistoryEntry.SOURCE_INTERNAL_LINK);
             openInNewTab(newTitle, newEntry);
+            tabFunnel.logCreateNew(tabList.size());
         }
 
         @Override
         public void onCloseTabRequested(int position) {
             tabList.remove(position);
+            tabFunnel.logClose(tabList.size(), position);
             if (position < tabList.size()) {
                 // if it's not the topmost tab, then just delete it and update the tab list...
                 tabsProvider.invalidate();
@@ -415,6 +430,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 pageLoadStrategy.setBackStack(getCurrentTab().getBackStack());
                 pageLoadStrategy.loadPageFromBackStack();
             } else {
+                tabFunnel.logCancel(tabList.size());
                 // and if the last tab was closed, then finish the activity!
                 getActivity().finish();
             }
@@ -442,15 +458,9 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         tabsProvider.invalidate();
     }
 
-    public void openInNewTab(PageTitle title, HistoryEntry entry) {
-        // create a new tab
-        Tab tab = new Tab();
-        // make this tab current
-        tabList.add(tab);
-        pageLoadStrategy.setBackStack(tab.getBackStack());
-        // and... that should be it.
-        ((PageActivity) getActivity()).displayNewPage(title, entry);
-        tabsProvider.showAndHideTabs();
+    public void openInNewTabFromMenu(PageTitle title, HistoryEntry entry) {
+        openInNewTab(title, entry);
+        tabFunnel.logOpenInNew(tabList.size());
     }
 
     /**
@@ -517,6 +527,17 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
      */
     public void updateFontSize() {
         webView.getSettings().setDefaultFontSize((int) app.getFontSize(getActivity().getWindow()));
+    }
+
+    private void openInNewTab(PageTitle title, HistoryEntry entry) {
+        // create a new tab
+        Tab tab = new Tab();
+        // make this tab current
+        tabList.add(tab);
+        pageLoadStrategy.setBackStack(tab.getBackStack());
+        // and... that should be it.
+        ((PageActivity) getActivity()).displayNewPage(title, entry);
+        tabsProvider.showAndHideTabs();
     }
 
     private void setupMessageHandlers() {

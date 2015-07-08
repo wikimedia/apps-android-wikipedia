@@ -39,7 +39,7 @@ public class PageLongPressHandler {
                         activity.displayNewPage(title, entry);
                         return true;
                     case R.id.menu_open_in_new_tab:
-                        fragment.openInNewTab(title, entry);
+                        fragment.openInNewTabFromMenu(title, entry);
                         return true;
                     default:
                         break;

@@ -9,6 +9,8 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.ApiUtil;
 
 import com.squareup.picasso.Picasso;
+
+import android.support.annotation.NonNull;
 import android.support.v7.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -36,18 +38,24 @@ public class TabsProvider {
     private TabListAdapter tabListAdapter;
 
     private ActionMode tabActionMode;
+    // True when action mode is terminated by the side effect of creating a new tab or selecting an
+    // existing tab.
+    private boolean isActionModeDismissedIndirectly;
 
     private List<Tab> tabList;
 
     public interface TabsProviderListener {
+        void onEnterTabView();
         void onCancelTabView();
         void onTabSelected(int position);
         void onNewTabRequested();
         void onCloseTabRequested(int position);
     }
-    private TabsProviderListener providerListener;
+
+    @NonNull
+    private TabsProviderListener providerListener = new DefaultTabsProviderListener();
     public void setTabsProviderListener(TabsProviderListener listener) {
-        providerListener = listener;
+        providerListener = DefaultTabsProviderListener.defaultIfNull(listener);
     }
 
     public TabsProvider(PageActivity parentActivity, List<Tab> tabList) {
@@ -64,18 +72,15 @@ public class TabsProvider {
         tabContainerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (providerListener != null) {
-                    providerListener.onCancelTabView();
-                }
+                providerListener.onCancelTabView();
             }
         });
 
         tabListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (providerListener != null) {
-                    providerListener.onTabSelected(position);
-                }
+                isActionModeDismissedIndirectly = true;
+                providerListener.onTabSelected(position);
             }
         });
 
@@ -84,6 +89,7 @@ public class TabsProvider {
     public boolean onBackPressed() {
         if (tabActionMode != null) {
             exitTabMode();
+            providerListener.onCancelTabView();
             return true;
         }
         return false;
@@ -91,6 +97,7 @@ public class TabsProvider {
 
     public void enterTabMode() {
         enterTabMode(null);
+        providerListener.onEnterTabView();
     }
 
     private void enterTabMode(Runnable onTabModeEntered) {
@@ -103,10 +110,11 @@ public class TabsProvider {
             return;
         }
         parentActivity.startSupportActionMode(new TabActionModeCallback(onTabModeEntered));
+
     }
 
     private class TabActionModeCallback implements ActionMode.Callback {
-        private final String actionModeTag = "actionModeTabList";
+        private static final String TAB_ACTION_MODE_TAG = "actionModeTabList";
         private final Runnable onTabModeEntered;
 
         public TabActionModeCallback(Runnable onTabModeEntered) {
@@ -126,17 +134,12 @@ public class TabsProvider {
 
         @Override
         public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-            mode.setTag(actionModeTag);
+            mode.setTag(TAB_ACTION_MODE_TAG);
             // find the action mode base view, and give it an empty click listener,
             // otherwise click events within the empty area of the action mode will be passed
             // down to the view beneath it, which is the Search bar, and we don't want to
             // unintentionally initiate Search.
-            View v = parentActivity.findViewById(R.id.action_mode_bar);
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                }
-            });
+            parentActivity.findViewById(R.id.action_mode_bar).setClickable(true);
             return false;
         }
 
@@ -144,14 +147,11 @@ public class TabsProvider {
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menu_new_tab:
-                    if (providerListener != null) {
-                        providerListener.onNewTabRequested();
-                    }
+                    providerListener.onNewTabRequested();
                     return true;
                 default:
-                    break;
+                    return false;
             }
-            return false;
         }
 
         @Override
@@ -161,6 +161,10 @@ public class TabsProvider {
             hideTabList();
             tabActionMode = null;
             parentActivity.showToolbar();
+            if (!isActionModeDismissedIndirectly) {
+                providerListener.onCancelTabView();
+            }
+            isActionModeDismissedIndirectly = false;
         }
     }
 
@@ -178,6 +182,7 @@ public class TabsProvider {
                 tabContainerView.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        isActionModeDismissedIndirectly = true;
                         exitTabMode();
                     }
                 }, animDelay);
@@ -271,36 +276,39 @@ public class TabsProvider {
             final int position = holder.position;
             // if we're closing the last tab, don't do the animation...
             if (tabList.size() == 1) {
-                if (providerListener != null) {
-                    providerListener.onCloseTabRequested(position);
-                }
+                providerListener.onCloseTabRequested(position);
             } else {
                 Animation anim = AnimationUtils
                         .loadAnimation(parentActivity, R.anim.slide_out_right);
-                anim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
+                    anim.setAnimationListener(new Animation.AnimationListener() {
+                    @Override public void onAnimationStart(Animation animation) { }
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        if (providerListener != null) {
-                            providerListener.onCloseTabRequested(position);
-                        }
+                        providerListener.onCloseTabRequested(position);
                     }
 
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
+                    @Override public void onAnimationRepeat(Animation animation) { }
                 });
                 holder.container.startAnimation(anim);
             }
         }
     };
 
-    private class ViewHolder {
+
+    private static class DefaultTabsProviderListener implements TabsProviderListener {
+        public static TabsProviderListener defaultIfNull(TabsProviderListener listener) {
+            return listener == null ? new DefaultTabsProviderListener() : listener;
+        }
+
+        @Override public void onEnterTabView() { }
+        @Override public void onCancelTabView() { }
+        @Override public void onTabSelected(int position) { }
+        @Override public void onNewTabRequested() { }
+        @Override public void onCloseTabRequested(int position) { }
+    }
+
+    private static class ViewHolder {
         private View container;
         private TextView title;
         private ImageView thumbnail;
@@ -381,7 +389,5 @@ public class TabsProvider {
             }
             return convertView;
         }
-
     }
-
 }
