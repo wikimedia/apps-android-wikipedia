@@ -120,9 +120,11 @@
   <string name="create_account_next">ಮುಂದಿನ</string>
   <string name="create_account_button">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
   <string name="preferences_general_heading">ಸಾಮಾನ್ಯ</string>
+  <string name="zero_webpage_title">ವಿಕಿಪೀಡಿಯಾ ಜಿರೋ FAQ</string>
+  <string name="zero_wikipedia_zero_heading">ವಿಕಿಪೀಡಿಯಾ ಜಿರೋ</string>
   <string name="zero_interstitial_continue">ಬಿಡು</string>
   <string name="zero_interstitial_cancel" fuzzy="true">ರದ್ದುಮಾಡು</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</string>
+  <string name="zero_learn_more_learn_more">ಇನ್ನೂ ಓದಿ</string>
   <string name="zero_learn_more_dismiss">ತೆಗೆದುಹಾಕು</string>
   <string name="nav_item_random">ಹೀಗೇ ಒಂದು ಪುಟ</string>
   <string name="create_account_account_created_toast">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಯಿತು!</string>
@@ -130,4 +132,21 @@
   <string name="activity_my_contributions_title">ನನ್ನ ಕಾಣಿಕೆಗಳು</string>
   <string name="preference_title_eventlogging_opt_in">ಉಪಯೋಗ ವರದಿಗಳನ್ನು ಕಳುಹಿಸಿ</string>
   <string name="history_search_list_hint">ಇತಿಹಾಸ  ಹುಡುಕಿ</string>
+  <string name="about_activity_title">ನಮ್ಮ ಬಗ್ಗೆ</string>
+  <string name="user_blocked_from_editing_title">ನಿರ್ಬಂಧಿಸಿದ್ದರೆ</string>
+  <string name="edit_next">ಮುಂದೆ</string>
+  <string name="edit_done">ಉಳಿಸಿ</string>
+  <string name="edit_preview">ಮುನ್ನೋಟ</string>
+  <string name="edit_summary_tag_other">ಇತರೆ</string>
+  <string name="find_next">ಮುಂದಿನದನ್ನು ಹುಡುಕು</string>
+  <string name="find_previous">ಹಿಂದಿನದನ್ನು ಹುಡುಕು</string>
+  <string name="saved_pages_update_all_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸು</string>
+  <string name="saved_pages_progress_title">ಉಳಿಸಿದ ಪುಟವನ್ನು ಮತ್ತೆ ತೆರೆಯಿರಿ</string>
+  <string name="saved_pages_refresh_pages_complete">ಅಪ್ಡೇಟ್ ಸಂಪೂರ್ಣವಾಗಿದೆ</string>
+  <string name="menu_page_saved">ಪುಟ ಉಳಿಸಿದ</string>
+  <string name="dialog_close_description">ಮುಚ್ಚು</string>
+  <string name="preference_title_show_images">ಚಿತ್ರಗಳನ್ನು ತೋರಿಸಲು</string>
+  <string name="read_more_section">ಇನ್ನೂ ಓದಿ</string>
+  <string name="gallery_menu_share">ಹಂಚು</string>
+  <string name="menu_show_tabs">ಮೇಜನ್ನು ತೋರಿಸಿ</string>
 </resources>
