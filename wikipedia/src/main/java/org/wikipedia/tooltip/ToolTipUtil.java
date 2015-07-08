@@ -12,7 +12,7 @@ import com.appenguin.onboarding.ToolTip;
 import com.appenguin.onboarding.ToolTipView;
 
 import org.wikipedia.R;
-import org.wikipedia.util.ActivityUtil;
+import org.wikipedia.activity.ActivityUtil;
 
 public final class ToolTipUtil {
     private static final int TOOL_TIP_VIEW_ID = R.id.view_tool_tip_container;

@@ -1,4 +1,4 @@
-package org.wikipedia.util;
+package org.wikipedia.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -6,6 +6,8 @@ import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.view.MenuItem;
 import android.view.View;
+
+import org.wikipedia.util.ApiUtil;
 
 public final class ActivityUtil {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
@@ -21,6 +23,16 @@ public final class ActivityUtil {
 
     public static View getMenuItemView(Activity activity, MenuItem item) {
         return activity.findViewById(item.getItemId());
+    }
+
+    public static boolean defaultOnOptionsItemSelected(Activity activity, MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                activity.onBackPressed();
+                return true;
+            default:
+                return false;
+        }
     }
 
     private ActivityUtil() { }

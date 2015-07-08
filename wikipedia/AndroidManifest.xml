@@ -85,6 +85,11 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
             android:exported="false"
             />
+        <activity android:name=".settings.DeveloperSettingsActivityGB"
+            android:label="@string/developer_settings_activity_title"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+            android:exported="false"
+            />
         <activity android:name=".settings.AboutActivity"
                   android:label="@string/about_activity_title"
                   android:exported="false">

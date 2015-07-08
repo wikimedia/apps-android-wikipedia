@@ -33,7 +33,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.tooltip.ToolTipUtil;
-import org.wikipedia.util.ActivityUtil;
+import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.ShareUtils;
 

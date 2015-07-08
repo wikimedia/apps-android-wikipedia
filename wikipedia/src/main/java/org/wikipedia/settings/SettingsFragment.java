@@ -3,23 +3,29 @@ package org.wikipedia.settings;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import org.wikipedia.R;
+import org.wikipedia.util.ApiUtil;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class SettingsFragment extends PreferenceFragment {
+public class SettingsFragment extends PreferenceLoaderFragment {
+    public static SettingsFragment newInstance() {
+        return new SettingsFragment();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+    }
 
-        PreferenceHostCompat prefHost = new PreferenceHostCompat(this);
-        SettingsUI ui = new SettingsUI(getActivity(), prefHost);
-        ui.loadPreferences();
+    @Override
+    public void loadPreferences() {
+        SettingsPreferenceLoader preferenceLoader = new SettingsPreferenceLoader(this);
+        preferenceLoader.loadPreferences();
     }
 
     @Override
@@ -59,7 +65,12 @@ public class SettingsFragment extends PreferenceFragment {
         menu.findItem(R.id.developer_settings).setVisible(Prefs.isShowDeveloperSettingsEnabled());
     }
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     private void invalidateOptionsMenu() {
-        getFragmentManager().invalidateOptionsMenu();
+        if (ApiUtil.hasIceCreamSandwich()) {
+            getFragmentManager().invalidateOptionsMenu();
+        } else {
+            getActivity().invalidateOptionsMenu();
+        }
     }
 }

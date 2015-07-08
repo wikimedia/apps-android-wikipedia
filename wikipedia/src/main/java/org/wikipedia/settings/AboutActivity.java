@@ -18,7 +18,6 @@ import org.wikipedia.R;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.util.ApiUtil;
 
 public class AboutActivity extends ThemedActionBarActivity {
     private static final String KEY_SCROLL_X = "KEY_SCROLL_X";
@@ -41,9 +40,7 @@ public class AboutActivity extends ThemedActionBarActivity {
                 + getString(R.string.send_feedback)
                 + "</a>"));
 
-        if (isDeveloperSettingsSupported()) {
-            findViewById(R.id.about_logo_image).setOnClickListener(new AboutLogoClickListener(this));
-        }
+        findViewById(R.id.about_logo_image).setOnClickListener(new AboutLogoClickListener(this));
 
         //if there's no Email app, hide the Feedback link.
         if (!Utils.mailAppExists(this)) {
@@ -96,10 +93,6 @@ public class AboutActivity extends ThemedActionBarActivity {
                 tv.setMovementMethod(LinkMovementMethod.getInstance());
             }
         }
-    }
-
-    private boolean isDeveloperSettingsSupported() {
-        return ApiUtil.hasHoneyComb();
     }
 
     private static class AboutLogoClickListener implements View.OnClickListener {

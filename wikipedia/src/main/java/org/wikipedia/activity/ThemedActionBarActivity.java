@@ -9,7 +9,6 @@ import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.util.ActivityUtil;
 
 import java.lang.reflect.Field;
 

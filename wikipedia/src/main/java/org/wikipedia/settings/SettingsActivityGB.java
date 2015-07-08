@@ -1,11 +1,9 @@
 package org.wikipedia.settings;
 
-import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.support.annotation.NonNull;
+import android.view.Menu;
 import android.view.MenuItem;
 
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.R;
 
 /**
  * Settings activity that is specifically intended for API 10.
@@ -14,24 +12,43 @@ import org.wikipedia.WikipediaApp;
  * ActionBarActivity, and uses a PreferenceFragment, all of which are necessary for all the
  * components to render properly (specifically checkboxes).
  */
-public class SettingsActivityGB extends PreferenceActivity {
-
-    public void onCreate(Bundle savedInstanceState) {
-        setTheme(WikipediaApp.getInstance().getCurrentTheme().getResourceId());
-        super.onCreate(savedInstanceState);
-
-        PreferenceHostCompat prefHost = new PreferenceHostCompat(this);
-        SettingsUI ui = new SettingsUI(this, prefHost);
-        ui.loadPreferences();
+public class SettingsActivityGB extends LegacyPreferenceActivity {
+    @Override
+    public void loadPreferences() {
+        SettingsPreferenceLoader preferenceLoader = new SettingsPreferenceLoader(this);
+        preferenceLoader.loadPreferences();
     }
 
-    public boolean onMenuItemSelected(int featureId, @NonNull MenuItem item) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_settings, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        prepareDeveloperSettingsMenuItem(menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
+            case R.id.developer_settings:
+                launchDeveloperSettingsActivity();
                 return true;
             default:
-                throw new RuntimeException("WAT");
+                return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void launchDeveloperSettingsActivity() {
+        startActivity(DeveloperSettingsActivityGB.newIntent(this));
+    }
+
+    private void prepareDeveloperSettingsMenuItem(Menu menu) {
+        menu.findItem(R.id.developer_settings).setVisible(Prefs.isShowDeveloperSettingsEnabled());
     }
 }
