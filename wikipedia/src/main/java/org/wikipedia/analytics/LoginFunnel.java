@@ -1,10 +1,10 @@
 package org.wikipedia.analytics;
 
-import org.json.JSONException;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
-
-import java.util.UUID;
 
 /**
  * Schema: https://meta.wikimedia.org/wiki/Schema:MobileWikiAppLogin
@@ -17,31 +17,14 @@ public class LoginFunnel extends Funnel {
     public static final String SOURCE_EDIT = "edit";
     public static final String SOURCE_BLOCKED = "blocked";
 
-    private final String loginSessionToken;
-
     public LoginFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REVISION);
-        loginSessionToken = UUID.randomUUID().toString();
     }
 
-    public String getLoginSessionToken() {
-        return loginSessionToken;
-    }
-
-    protected void log(Object... params) {
-        // Login always hits the primarySite anyway.
-        super.log(getApp().getPrimarySite(), params);
-    }
-
+    @Nullable
     @Override
-    protected JSONObject preprocessData(JSONObject eventData) {
-        try {
-            eventData.put("loginSessionToken", loginSessionToken);
-        } catch (JSONException e) {
-            // This isn't happening
-            throw new RuntimeException(e);
-        }
-        return eventData;
+    public String getSessionToken() {
+        return super.getSessionToken();
     }
 
     public void logStart(String source) {
@@ -85,5 +68,13 @@ public class LoginFunnel extends Funnel {
         log(
                 "action", "success"
         );
+    }
+
+    @Override protected void preprocessAppInstallID(@NonNull JSONObject eventData) { }
+
+    @NonNull
+    @Override
+    protected String getSessionTokenField() {
+        return "loginSessionToken";
     }
 }

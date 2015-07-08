@@ -2,10 +2,10 @@ package org.wikipedia.analytics;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
-import org.json.JSONException;
 import org.json.JSONObject;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.text.format.DateUtils;
 import java.util.Date;
 
@@ -13,7 +13,6 @@ public class SessionFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppSessions";
     private static final int REVISION = 10375481;
     private static final int DEFAULT_SAMPLE_RATE = 0;
-    private WikipediaApp app;
 
     /**
      * Definition of a "session timeout", as agreed upon by the Apps and Analytics teams.
@@ -31,8 +30,7 @@ public class SessionFunnel extends Funnel {
     private static final String SESSION_PAGES_SAVED_PREF_NAME = "SESSION_PAGES_SAVED_PREF";
     private static final String SESSION_PAGES_BACK_PREF_NAME = "SESSION_PAGES_BACK_PREF";
 
-    private final String appInstallID;
-    private Date lastEventTime;
+    private final Date lastEventTime;
     private int pagesFromSearch;
     private int pagesFromRandom;
     private int pagesFromLanglink;
@@ -44,7 +42,6 @@ public class SessionFunnel extends Funnel {
 
     public SessionFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REVISION);
-        this.app = app;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(app);
 
@@ -58,9 +55,6 @@ public class SessionFunnel extends Funnel {
         pagesFromSaved = prefs.getInt(SESSION_PAGES_SAVED_PREF_NAME, 0);
         pagesFromBack = prefs.getInt(SESSION_PAGES_BACK_PREF_NAME, 0);
 
-        //Retrieve this app installation's unique ID, used to record unique users of features
-        appInstallID = app.getAppInstallID();
-
         touchSession();
     }
 
@@ -69,7 +63,7 @@ public class SessionFunnel extends Funnel {
      * so that we don't have to save its state every time a single parameter is modified.
      */
     public void persistSession() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(app);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApp());
         prefs.edit().putLong(SESSION_TIMESTAMP_PREF_NAME, lastEventTime.getTime())
              .putInt(SESSION_PAGES_SEARCH_PREF_NAME, pagesFromSearch)
              .putInt(SESSION_PAGES_RANDOM_PREF_NAME, pagesFromRandom)
@@ -81,22 +75,14 @@ public class SessionFunnel extends Funnel {
              .putInt(SESSION_PAGES_BACK_PREF_NAME, pagesFromBack).apply();
     }
 
+    @Override
     protected void log(Object... params) {
         // get our sampling rate from remote config
-        int sampleRate = WikipediaApp.getInstance().getRemoteConfig().getConfig().optInt("eventLogSampleRate", DEFAULT_SAMPLE_RATE);
-        super.log(app.getPrimarySite(), sampleRate, params);
+        int sampleRate = getApp().getRemoteConfig().getConfig().optInt("eventLogSampleRate", DEFAULT_SAMPLE_RATE);
+        super.log(sampleRate, params);
     }
 
-    @Override
-    protected JSONObject preprocessData(JSONObject eventData) {
-        try {
-            eventData.put("appInstallID", appInstallID);
-        } catch (JSONException e) {
-            // This isn't happening
-            throw new RuntimeException(e);
-        }
-        return eventData;
-    }
+    @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
 
     /**
      * Update the timestamp for the current session. If the last-updated time is older than the defined

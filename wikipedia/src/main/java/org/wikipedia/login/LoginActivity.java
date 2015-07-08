@@ -122,7 +122,7 @@ public class LoginActivity extends ThemedActionBarActivity {
     private void startCreateAccountActivity() {
         funnel.logCreateAccountAttempt();
         Intent intent = new Intent(this, CreateAccountActivity.class);
-        intent.putExtra(CreateAccountActivity.LOGIN_SESSION_TOKEN, funnel.getLoginSessionToken());
+        intent.putExtra(CreateAccountActivity.LOGIN_SESSION_TOKEN, funnel.getSessionToken());
         intent.putExtra(CreateAccountActivity.LOGIN_REQUEST_SOURCE, loginSource);
         startActivityForResult(intent, CreateAccountActivity.ACTION_CREATE_ACCOUNT);
     }

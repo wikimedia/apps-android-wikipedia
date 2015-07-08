@@ -1,13 +1,11 @@
 package org.wikipedia.analytics;
 
-import org.json.JSONException;
+import android.support.annotation.NonNull;
+
 import org.json.JSONObject;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
-
-import java.util.UUID;
 
 // https://meta.wikimedia.org/wiki/Schema:MobileWikiAppShareAFact
 public class ShareAFactFunnel extends Funnel {
@@ -20,41 +18,28 @@ public class ShareAFactFunnel extends Funnel {
      */
     private static final int MAX_LENGTH = 99;
 
-    private final String appInstallID;
-    private final String sessionToken;
-    private final Site site;
     private final String pageTitle;
     private final int pageId;
     private final long revisionId;
 
     public ShareAFactFunnel(WikipediaApp app, PageTitle pageTitle, int pageId, long revisionId) {
-        super(app, SCHEMA_NAME, REV_ID);
-        this.site = pageTitle.getSite();
+        super(app, SCHEMA_NAME, REV_ID, pageTitle.getSite());
         this.pageTitle = pageTitle.getDisplayText();
         this.pageId = pageId;
         this.revisionId = revisionId;
-
-        // Retrieve this app installation's unique ID, used to record unique users of features
-        appInstallID = app.getAppInstallID();
-
-        sessionToken = UUID.randomUUID().toString();
     }
 
     @Override
-    protected JSONObject preprocessData(JSONObject eventData) {
-        try {
-            eventData.put("appInstallID", appInstallID);
-            eventData.put("shareSessionToken", sessionToken);
-            eventData.put("tutorialFeatureEnabled", Prefs.isFeatureSelectTextAndShareTutorialEnabled());
-            eventData.put("tutorialShown", calculateTutorialsShown());
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        return eventData;
+    protected JSONObject preprocessData(@NonNull JSONObject eventData) {
+        preprocessData(eventData, "tutorialFeatureEnabled", Prefs.isFeatureSelectTextAndShareTutorialEnabled());
+        preprocessData(eventData, "tutorialShown", calculateTutorialsShown());
+        return super.preprocessData(eventData);
     }
 
-    protected void log(Object... params) {
-        super.log(site, params);
+    @NonNull
+    @Override
+    protected String getSessionTokenField() {
+        return "shareSessionToken";
     }
 
     private void logAction(String action, String text, ShareMode shareMode) {

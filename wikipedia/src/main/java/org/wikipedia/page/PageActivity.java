@@ -410,14 +410,14 @@ public class PageActivity extends ThemedActionBarActivity {
         } else if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
             // Log that the user tapped on the search widget
             // Instantiate the funnel anonymously to save on memory overhead
-            new WidgetsFunnel(app, app.getPrimarySite()).logSearchWidgetTap();
+            new WidgetsFunnel(app).logSearchWidgetTap();
             openSearch();
         } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
             displayMainPage();
 
             // Log that the user tapped on the featured article widget
             // Instantiate the funnel anonymously to save on memory overhead
-            new WidgetsFunnel(app, app.getPrimarySite()).logFeaturedArticleWidgetTap();
+            new WidgetsFunnel(app).logFeaturedArticleWidgetTap();
         } else {
             // Unrecognized Intent was handled, or the user opened the app by tapping on the icon.
             // Let us load the main page!

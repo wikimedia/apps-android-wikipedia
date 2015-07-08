@@ -1,53 +1,28 @@
 package org.wikipedia.analytics;
 
-import org.json.JSONException;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import org.json.JSONObject;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 
-import java.util.UUID;
-
 public class EditFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppEdit";
     private static final int REV_ID = 9003125;
 
-    private final String editSessionToken;
     private final PageTitle title;
 
     public EditFunnel(WikipediaApp app, PageTitle title) {
-        super(app, SCHEMA_NAME, REV_ID);
-        editSessionToken = UUID.randomUUID().toString();
+        super(app, SCHEMA_NAME, REV_ID, title.getSite());
         this.title = title;
     }
 
+    @Nullable
     @Override
-    protected JSONObject preprocessData(JSONObject eventData) {
-        try {
-            eventData.put("editSessionToken", editSessionToken);
-            if (getApp().getUserInfoStorage().isLoggedIn()) {
-                if (getApp().getUserInfoStorage().getUser().getUserID() == 0) {
-                    // Means we are logged in, but before we started counting UserID.
-                    // Send -1 to record these
-                    eventData.put("userID", -1);
-                } else {
-                    eventData.put("userID", getApp().getUserInfoStorage().getUser().getUserID());
-                }
-            }
-            eventData.put("pageNS", title.getNamespace());
-        } catch (JSONException e) {
-            // This never happens either
-            throw new RuntimeException(e);
-        }
-        return eventData;
-    }
-
-    public String getEditSessionToken() {
-        return editSessionToken;
-    }
-
-    protected void log(Object... params) {
-        super.log(title.getSite(), params);
+    public String getSessionToken() {
+        return super.getSessionToken();
     }
 
     public void logStart() {
@@ -67,14 +42,12 @@ public class EditFunnel extends Funnel {
                 "action", "saved",
                 "revID", revID
         );
-
     }
 
     public void logLoginAttempt() {
         log(
                 "action", "loginAttempt"
         );
-
     }
 
     public void logLoginSuccess() {
@@ -87,14 +60,12 @@ public class EditFunnel extends Funnel {
         log(
                 "action", "loginFailure"
         );
-
     }
 
     public void logCaptchaShown() {
         log(
                 "action", "captchaShown"
         );
-
     }
 
     public void logCaptchaFailure() {
@@ -109,7 +80,6 @@ public class EditFunnel extends Funnel {
                 "abuseFilterName", code
         );
     }
-
 
     public void logAbuseFilterWarningIgnore(String code) {
         log(
@@ -129,12 +99,6 @@ public class EditFunnel extends Funnel {
         log(
                 "action", "abuseFilterError",
                 "abuseFilterName", code
-        );
-    }
-
-    public void logSaveAnonExplicit() {
-        log(
-                "action", "saveAnonExplicit"
         );
     }
 
@@ -183,4 +147,26 @@ public class EditFunnel extends Funnel {
         );
     }
 
+    @Override
+    protected JSONObject preprocessData(@NonNull JSONObject eventData) {
+        if (getApp().getUserInfoStorage().isLoggedIn()) {
+            if (getApp().getUserInfoStorage().getUser().getUserID() == 0) {
+                // Means we are logged in, but before we started counting UserID.
+                // Send -1 to record these
+                preprocessData(eventData, "userID", -1);
+            } else {
+                preprocessData(eventData, "userID", getApp().getUserInfoStorage().getUser().getUserID());
+            }
+        }
+        preprocessData(eventData, "pageNS", title.getNamespace());
+        return super.preprocessData(eventData);
+    }
+
+    @Override protected void preprocessAppInstallID(@NonNull JSONObject eventData) { }
+
+    @NonNull
+    @Override
+    protected String getSessionTokenField() {
+        return "editSessionToken";
+    }
 }
