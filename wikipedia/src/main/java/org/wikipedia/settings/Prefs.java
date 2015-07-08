@@ -82,7 +82,6 @@ public final class Prefs {
         remove(getCookiesForDomainKey(domain));
     }
 
-    @NonNull
     public static boolean isShowDeveloperSettingsEnabled() {
         return getBoolean(R.string.preference_key_show_developer_settings,
                 WikipediaApp.getInstance().isDevRelease());
