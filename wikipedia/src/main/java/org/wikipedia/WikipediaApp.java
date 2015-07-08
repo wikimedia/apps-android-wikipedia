@@ -455,11 +455,16 @@ public class WikipediaApp extends Application {
     }
 
     public boolean isFeatureSelectTextAndShareTutorialEnabled() {
-        if (Prefs.hasFeatureSelectTextAndShareTutorial()) {
-            return Prefs.isFeatureSelectTextAndShareTutorialEnabled();
+        boolean enabled = false;
+        // Select text does not work on Gingerbread.
+        if (ApiUtil.hasHoneyComb()) {
+            if (Prefs.hasFeatureSelectTextAndShareTutorial()) {
+                enabled = Prefs.isFeatureSelectTextAndShareTutorialEnabled();
+            } else {
+                enabled = new Random().nextInt(2) == 0;
+                Prefs.setFeatureSelectTextAndShareTutorialEnabled(enabled);
+            }
         }
-        boolean enabled = new Random().nextInt(2) == 0;
-        Prefs.setFeatureSelectTextAndShareTutorialEnabled(enabled);
         return enabled;
     }
 
