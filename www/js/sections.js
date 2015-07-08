@@ -38,8 +38,8 @@ function getLeadParagraph() {
     return text;
 }
 
-// Returns any currently-highlighted text.
-// If no text is highlighted, returns the text of the first paragraph.
+// Returns currently highlighted text.
+// If fewer than two characters are highlighted, returns the text of the first paragraph.
 bridge.registerListener( "getTextSelection", function( payload ) {
     var text = window.getSelection().toString().trim();
     if (text.length < 2) {

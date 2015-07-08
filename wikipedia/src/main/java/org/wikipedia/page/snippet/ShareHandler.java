@@ -81,7 +81,7 @@ public class ShareHandler {
                 String text = messagePayload.optString("text", "");
                 if (purpose.equals("share")) {
                     createFunnel();
-                    shareSnippet(text, false);
+                    shareSnippet(text);
                     funnel.logShareTap(text);
                 }
             }
@@ -112,60 +112,52 @@ public class ShareHandler {
     }
 
     /** Call #setFunnel before #shareSnippet. */
-    private void shareSnippet(CharSequence input, final boolean preferUrl) {
+    private void shareSnippet(CharSequence input) {
         final PageViewFragmentInternal curPageFragment = activity.getCurPageFragment();
         if (curPageFragment == null) {
             return;
         }
 
         final String selectedText = sanitizeText(input.toString());
-        final int minTextSnippetLength = 2;
         final PageTitle title = curPageFragment.getTitle();
-        if (selectedText.length() >= minTextSnippetLength) {
-            final String introText = activity.getString(R.string.snippet_share_intro,
-                    title.getDisplayText(),
-                    title.getCanonicalUri() + "?wprov=sfia1");
-            // For wprov=sfia1: see https://www.mediawiki.org/wiki/Provenance;
-            // introText is only used for image share
+        final String introText = activity.getString(R.string.snippet_share_intro,
+                title.getDisplayText(),
+                title.getCanonicalUri() + "?wprov=sfia1"); // See https://wikitech.wikimedia.org/wiki/Provenance;
 
-            (new ImageLicenseFetchTask(WikipediaApp.getInstance().getAPIForSite(title.getSite()),
+        (new ImageLicenseFetchTask(WikipediaApp.getInstance().getAPIForSite(title.getSite()),
                     title.getSite(),
                     new PageTitle("File:" + curPageFragment.getPage().getPageProperties().getLeadImageName(), title.getSite())) {
-                @Override
-                public void onFinish(Map<PageTitle, ImageLicense> result) {
-                    if (result.size() > 0) {
-                        ImageLicense leadImageLicense = new ImageLicense("", "", "");
-                        if (result.values().toArray()[0] != null) {
-                            leadImageLicense = (ImageLicense) result.values().toArray()[0];
-                        }
-
-                        final SnippetImage snippetImage = new SnippetImage(activity,
-                                curPageFragment.getLeadImageBitmap(),
-                                curPageFragment.getLeadImageFocusY(),
-                                title.getDisplayText(),
-                                curPageFragment.getPage().isMainPage() ? "" : title.getDescription(),
-                                selectedText,
-                                leadImageLicense);
-
-                        final Bitmap snippetBitmap = snippetImage.drawBitmap();
-                        if (shareDialog != null) {
-                            shareDialog.dismiss();
-                        }
-                        shareDialog = new PreviewDialog(activity, snippetBitmap, title.getDisplayText(), introText,
-                                selectedText, preferUrl ? title.getCanonicalUri() : selectedText, funnel);
-                        shareDialog.show();
+            @Override
+            public void onFinish(Map<PageTitle, ImageLicense> result) {
+                if (result.size() > 0) {
+                    ImageLicense leadImageLicense = new ImageLicense("", "", "");
+                    if (result.values().toArray()[0] != null) {
+                        leadImageLicense = (ImageLicense) result.values().toArray()[0];
                     }
-                }
 
-                @Override
-                public void onCatch(Throwable caught) {
-                    Log.d(TAG, "Error fetching image license info for " + title.getDisplayText() + ": " + caught.getMessage(), caught);
+                    final SnippetImage snippetImage = new SnippetImage(activity,
+                            curPageFragment.getLeadImageBitmap(),
+                            curPageFragment.getLeadImageFocusY(),
+                            title.getDisplayText(),
+                            curPageFragment.getPage().isMainPage() ? "" : title.getDescription(),
+                            selectedText,
+                            leadImageLicense);
+
+                    final Bitmap snippetBitmap = snippetImage.drawBitmap();
+                    if (shareDialog != null) {
+                        shareDialog.dismiss();
+                    }
+                    shareDialog = new PreviewDialog(activity, snippetBitmap, title.getDisplayText(), introText,
+                            selectedText, funnel);
+                    shareDialog.show();
                 }
-            }).execute();
-        } else {
-            // only share the URL
-            ShareUtils.shareText(activity, title.getDisplayText(), title.getCanonicalUri());
-        }
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                Log.d(TAG, "Error fetching image license info for " + title.getDisplayText() + ": " + caught.getMessage(), caught);
+            }
+        }).execute();
     }
 
     private static String sanitizeText(String selectedText) {
@@ -318,7 +310,7 @@ class PreviewDialog extends BottomDialog {
 
     public PreviewDialog(final PageActivity activity, final Bitmap resultBitmap,
                          final String title, final String introText, final String selectedText,
-                         final String alternativeText, final ShareAFactFunnel funnel) {
+                         final ShareAFactFunnel funnel) {
         super(activity, R.layout.dialog_share_preview);
         ImageView previewImage = (ImageView) getDialogLayout().findViewById(R.id.preview_img);
         previewImage.setImageBitmap(resultBitmap);
@@ -335,8 +327,8 @@ class PreviewDialog extends BottomDialog {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ShareUtils.shareText(activity, title, alternativeText);
-                        funnel.logShareIntent(alternativeText, ShareMode.text);
+                        ShareUtils.shareText(activity, title, constructShareText(selectedText, introText));
+                        funnel.logShareIntent(selectedText, ShareMode.text);
                         completed = true;
                     }
                 });
@@ -345,9 +337,13 @@ class PreviewDialog extends BottomDialog {
             public void onDismiss(DialogInterface dialog) {
                 resultBitmap.recycle();
                 if (!completed) {
-                    funnel.logAbandoned(alternativeText);
+                    funnel.logAbandoned(title);
                 }
             }
         });
+    }
+
+    private String constructShareText(String selectedText, String introText) {
+        return selectedText + "\n\n" + introText;
     }
 }
