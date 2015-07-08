@@ -46,6 +46,15 @@
             android:title="@string/preference_key_language_mru"
             android:inputType="textVisiblePassword" />
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_link_preview_version"
+            android:title="@string/preference_key_link_preview_version" />
+
+        <CheckBoxPreference
+            android:key="@string/preference_key_more_like_search_enabled"
+            android:title="@string/preference_key_more_like_search_enabled" />
+
         <CheckBoxPreference
             android:key="@string/preference_key_exp_page_load"
             android:title="@string/preference_key_exp_page_load" />
