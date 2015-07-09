@@ -2,6 +2,7 @@
 
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <FrameLayout
+        <android.support.design.widget.CoordinatorLayout
             android:id="@+id/page_contents_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -166,7 +167,23 @@
                 </LinearLayout>
             </LinearLayout>
 
-        </FrameLayout>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/floating_toc_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/FloatingActionButton"
+                android:color="@color/toc_button"
+                android:layout_gravity="bottom|end"
+                android:src="@drawable/ic_toc"
+                android:contentDescription="@string/menu_show_toc"
+                app:fabSize="mini"
+                app:elevation="4sp"
+                app:borderWidth="0dp"
+                app:layout_anchor="@id/page_web_view"
+                app:layout_anchorGravity="bottom|right|end"
+                />
+
+        </android.support.design.widget.CoordinatorLayout>
 
         </org.wikipedia.views.SwipeRefreshLayoutWithScroll>
 
@@ -210,11 +227,6 @@
                             android:visibility="gone"
                             android:choiceMode="singleChoice"
                             />
-
-                    <include layout="@layout/group_toc_intro"
-                             android:id="@+id/know_toc_intro_container"
-                             android:visibility="gone"
-                        />
                 </LinearLayout>
 
             </LinearLayout>

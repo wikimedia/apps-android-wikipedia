@@ -30,6 +30,7 @@ import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.tooltip.ToolTipUtil;
+import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.NetworkUtils;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
@@ -40,11 +41,13 @@ import org.mediawiki.api.json.ApiException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -60,8 +63,11 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -120,6 +126,9 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private View pageDoesNotExistError;
     private WikiDrawerLayout tocDrawer;
 
+    private View tocButton;
+    private boolean isToCButtonFadedIn;
+
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
     private ReferenceDialog referenceDialog;
@@ -135,6 +144,54 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private ShareHandler shareHandler;
 
     private TabsProvider tabsProvider;
+
+    @NonNull
+    private final SwipeRefreshLayout.OnRefreshListener pageRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+            // don't refresh if it's still loading...
+            if (pageLoadStrategy.isLoading()) {
+                refreshView.setRefreshing(false);
+                return;
+            }
+            if (model.getCurEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+                // if it's a saved page, then refresh it and re-save!
+                refreshPage(true);
+            } else {
+                // otherwise, refresh the page normally
+                refreshPage(false);
+            }
+        }
+    };
+
+    @NonNull
+    private final View.OnClickListener tocButtonOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Utils.hideSoftKeyboard(getActivity());
+            setToCButtonFadedIn(true);
+            toggleToC(TOC_ACTION_TOGGLE);
+        }
+    };
+
+    @NonNull
+    private final View.OnTouchListener webViewTouchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    setToCButtonFadedIn(true);
+                    break;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    setToCButtonFadedIn(false);
+                    break;
+                default:
+                    break;
+            }
+            return false;
+        }
+    };
 
     public ObservableWebView getWebView() {
         return webView;
@@ -171,12 +228,15 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
+
         webView = (ObservableWebView) rootView.findViewById(R.id.page_web_view);
-        networkError = rootView.findViewById(R.id.page_error);
-        retryButton = rootView.findViewById(R.id.page_error_retry);
-        pageDoesNotExistError = rootView.findViewById(R.id.page_does_not_exist);
+        webView.setOnTouchListener(webViewTouchListener);
+
         tocDrawer = (WikiDrawerLayout) rootView.findViewById(R.id.page_toc_drawer);
         tocDrawer.setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
+
+        tocButton = rootView.findViewById(R.id.floating_toc_button);
+        tocButton.setOnClickListener(tocButtonOnClickListener);
 
         refreshView = (SwipeRefreshLayoutWithScroll) rootView
                 .findViewById(R.id.page_refresh_container);
@@ -186,23 +246,11 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         // if we want to give it a custom color:
         //refreshView.setProgressBackgroundColor(R.color.swipe_refresh_circle);
         refreshView.setScrollableChild(webView);
-        refreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                // don't refresh if it's still loading...
-                if (pageLoadStrategy.isLoading()) {
-                    refreshView.setRefreshing(false);
-                    return;
-                }
-                if (model.getCurEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
-                    // if it's a saved page, then refresh it and re-save!
-                    refreshPage(true);
-                } else {
-                    // otherwise, refresh the page normally
-                    refreshPage(false);
-                }
-            }
-        });
+        refreshView.setOnRefreshListener(pageRefreshListener);
+
+        networkError = rootView.findViewById(R.id.page_error);
+        retryButton = rootView.findViewById(R.id.page_error_retry);
+        pageDoesNotExistError = rootView.findViewById(R.id.page_does_not_exist);
 
         return rootView;
     }
@@ -494,6 +542,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                                boolean pushBackStack, int stagedScrollY) {
         // disable sliding of the ToC while sections are loading
         tocHandler.setEnabled(false);
+        setToCButtonFadedIn(true);
 
         networkError.setVisibility(View.GONE);
         pageDoesNotExistError.setVisibility(View.GONE);
@@ -669,10 +718,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         switch (item.getItemId()) {
             case R.id.homeAsUp:
                 // TODO SEARCH: add up navigation, see also http://developer.android.com/training/implementing-navigation/ancestral.html
-                return true;
-            case R.id.menu_toc:
-                Utils.hideSoftKeyboard(getActivity());
-                toggleToC(TOC_ACTION_TOGGLE);
                 return true;
             case R.id.menu_save_page:
                 // This means the user explicitly chose to save a new saved page
@@ -1000,6 +1045,16 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     public void setupToC(PageViewModel model, boolean isFirstPage) {
         tocHandler.setupToC(model.getPage(), model.getTitle().getSite(), isFirstPage);
         tocHandler.setEnabled(true);
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    private void setToCButtonFadedIn(boolean shouldFadeIn) {
+        if (!ApiUtil.hasHoneyComb() || shouldFadeIn == isToCButtonFadedIn) {
+            return;
+        }
+        Animation anim = AnimationUtils.loadAnimation(getActivity(), shouldFadeIn ? R.anim.fade_in_toc : R.anim.fade_out_toc);
+        tocButton.startAnimation(anim);
+        isToCButtonFadedIn = shouldFadeIn;
     }
 
     @Override

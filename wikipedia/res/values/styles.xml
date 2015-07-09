@@ -121,6 +121,14 @@
         <!-- parent="@android:style/Preference.DialogPreference.EditTextPreference" is not exposed. -->
     </style>
 
+    <!-- Default style for floating action buttons -->
+    <style name="FloatingActionButton">
+        <item name="android:layout_marginLeft">@dimen/floating_action_button_margin_left</item>
+        <item name="android:layout_marginTop">@dimen/floating_action_button_margin_top</item>
+        <item name="android:layout_marginRight">@dimen/floating_action_button_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/floating_action_button_margin_bottom</item>
+    </style>
+
     <style name="IntPreference" parent="EditTextAutoSummarizePreference">
         <item name="android:inputType">number</item>
         <item name="android:maxLength">8</item>

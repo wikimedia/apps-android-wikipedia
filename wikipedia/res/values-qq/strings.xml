@@ -317,8 +317,6 @@ Please test the URL to make sure it works</string>
   <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
   <string name="button_clear_all_recent_searches">Button hint for clearing search history;  visible when in search mode.</string>
   <string name="clear_recent_searches_confirm">Dialog message that asks if the user really wants to clear the search history.</string>
-  <string name="toc_hint">Instructions how to open the Table of Contents drawer. In left-to-right languages (most) this means to swipe left from the right edge. In right-to-left languages (Hebrew, Arabic, etc.) this means to swipe right from the left edge. \'\'\'In RTL languages\'\'\' please adjust the text to say right swipe instead of left swipe.</string>
-  <string name="toc_know_it">Button text to acknowledge instructions for opening Table of Contents drawer.</string>
   <string name="error_browser_not_found">Toast message shown when we try to open an external browser but none seems to be installed.</string>
   <string name="table_infobox">Text shown on the panel which, when tapped, displays the full infobox to the user, therefore exposing a set of information usually composed of factual and short statements.</string>
   <string name="table_other">{{Identical|More information}}</string>
@@ -380,4 +378,5 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="tool_tip_select_text">Very short advice on how to highlight text for copying to the clipboard or sharing.</string>
   <string name="tool_tip_share">Very short advice on sharing highlighted text on social networks.</string>
   <string name="page_view_in_browser">Text for a link that will open the current page in an external browser app on the device.</string>
+  <string name="tool_tip_toc_button">Advice on accessing the table of contents for a page. In left-to-right languages (most) this means to swipe left from the right edge. In right-to-left languages (Hebrew, Arabic, etc.) this means to swipe right from the left edge. \'\'\'In RTL languages\'\'\' please adjust the text to say right swipe instead of left swipe.</string>
 </resources>

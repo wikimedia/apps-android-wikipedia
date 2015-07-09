@@ -2,6 +2,7 @@ package org.wikipedia.page.bottomcontent;
 
 import android.graphics.Paint;
 import android.net.Uri;
+import android.support.design.widget.CoordinatorLayout;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
@@ -13,7 +14,6 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -160,7 +160,7 @@ public class BottomContentHandler implements BottomContentInterface,
         int contentHeight = (int)(webView.getContentHeight() * displayDensity);
         int bottomOffset = contentHeight - scrollY - webView.getHeight();
         int bottomHeight = bottomContentContainer.getHeight();
-        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) bottomContentContainer.getLayoutParams();
+        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) bottomContentContainer.getLayoutParams();
         if (bottomOffset > bottomHeight) {
             if (params.bottomMargin != -bottomHeight) {
                 params.bottomMargin = -bottomHeight;
