@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="AppTheme" parent="Theme.WikiLight">
         <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
@@ -70,7 +72,13 @@
         <item name="android:textAlignment">viewStart</item>
     </style>
 
-    <style name="button_progressive" parent="@android:style/TextAppearance.Large">
+    <style name="ToolTipTextView" parent="@style/RtlAwareTextView">
+        <item name="android:layoutDirection">locale</item>
+        <item name="android:maxWidth">@dimen/tool_tip_max_width</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="ButtonProgressive" parent="@android:style/TextAppearance.Large">
         <item name="android:textAllCaps">false</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -87,22 +95,22 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="button_secondary" parent="button_progressive">
+    <style name="ButtonSecondary" parent="ButtonProgressive">
         <item name="android:background">@drawable/button_selector_white</item>
         <item name="android:textColor">@color/green_complete_dark</item>
     </style>
 
-    <style name="button_blue_on_white" parent="button_progressive">
+    <style name="ButtonBlueOnWhite" parent="ButtonProgressive">
         <item name="android:background">@drawable/button_selector_white</item>
         <item name="android:textColor">@color/blue_progressive_dark</item>
         <item name="android:layout_marginTop">0dp</item>
     </style>
 
-    <style name="button_gray" parent="button_progressive">
+    <style name="ButtonGray" parent="ButtonProgressive">
         <item name="android:background">@drawable/button_selector_gray</item>
     </style>
 
-    <style name="text_heading_gray" parent="@android:style/TextAppearance.Medium">
+    <style name="TextHeadingGray" parent="@android:style/TextAppearance.Medium">
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/page_info_heading</item>
