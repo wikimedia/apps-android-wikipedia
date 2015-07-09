@@ -13,9 +13,19 @@ def computeVersionName(label) {
     return "2.0.${android.defaultConfig.versionCode}-${label}-${date}"
 }
 
+final JAVA_VERSION = JavaVersion.VERSION_1_7
+if (JavaVersion.current() != JAVA_VERSION) {
+    throw new IllegalStateException("Incorrect Java Development Kit version; expected "
+            + JAVA_VERSION + " but found " + JavaVersion.current())
+}
+
 android {
     compileSdkVersion 22
     buildToolsVersion '22.0.1'
+    compileOptions {
+        sourceCompatibility = JAVA_VERSION
+        targetCompatibility = JAVA_VERSION
+    }
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 10
@@ -88,7 +98,17 @@ android {
     }
 }
 
+def compileSubprojectOrModule = { String projectName,
+                                  String moduleName,
+                                  String excludeGroup = null,
+                                  String excludeModule = null ->
+    def dependency = project.findProject(projectName) ?: moduleName
+    project.dependencies.add('compile', dependency, {exclude group: excludeGroup, module: excludeModule })
+}
+
 dependencies {
+    compileSubprojectOrModule ':java-mwapi:json', 'org.mediawiki.api:json:1.3.2-SNAPSHOT', 'org.json', 'json'
+
     // To keep the Maven Central dependencies up-to-date
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q wikipedia:dependencies --configuration compile
@@ -96,9 +116,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0' // includes support-v4
     compile 'com.android.support:design:22.2.0'
     compile 'com.android.support:percent:22.2.0'
-    compile('org.mediawiki.api:json:1.3.2-SNAPSHOT') {
-        exclude group: 'org.json', module: 'json'
-    }
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'com.squareup:otto:1.3.6'

@@ -1,1 +1,19 @@
+def fileExists = {String filename ->
+    new File(filename).exists()
+}
+
+def hierarchyToFilename = { String hierarchy ->
+    return hierarchy ? hierarchy.substring(1).replaceAll(':', File.separator) : hierarchy
+}
+
+def includeExists = { String projectPath, String name ->
+    if (fileExists(hierarchyToFilename(projectPath))) {
+        include projectPath
+
+        // Replace a generic name like "lib".
+        project(projectPath).name = name
+    }
+}
+
 include ':wikipedia'
+includeExists ':java-mwapi:lib', 'json'
