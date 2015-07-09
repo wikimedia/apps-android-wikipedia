@@ -279,7 +279,7 @@ public class PageActivity extends ThemedActionBarActivity {
         }
 
         // Conditionally execute all recurring tasks
-        new RecurringTasksExecutor(this).run();
+        new RecurringTasksExecutor(app).run();
     }
 
     private class MainDrawerToggle extends ActionBarDrawerToggle {

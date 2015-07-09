@@ -59,6 +59,12 @@
             android:key="@string/preference_key_exp_page_load"
             android:title="@string/preference_key_exp_page_load" />
 
+        <!-- TODO: expose in wildcard preference. -->
+        <org.wikipedia.settings.LongPreference
+            style="@style/LongPreference"
+            android:key="dailyEventTask-lastrun"
+            android:title="dailyEventTask-lastrun" />
+
         <org.wikipedia.settings.CheckBoxPreferenceMultiLine
             android:key="@string/preference_key_show_developer_settings"
             android:title="@string/preference_key_show_developer_settings" />

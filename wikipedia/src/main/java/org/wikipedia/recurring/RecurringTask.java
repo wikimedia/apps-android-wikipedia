@@ -1,9 +1,8 @@
 package org.wikipedia.recurring;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
+
+import org.wikipedia.settings.Prefs;
 
 import java.util.Date;
 
@@ -18,14 +17,17 @@ import java.util.Date;
  * last run times are tracked automatically by the base class.
  */
 public abstract class RecurringTask {
-    private final Context context;
+    public void runIfNecessary() {
+        Date lastRunDate = getLastRunDate();
+        String lastExecutionLog = getName() + ". Last execution was " + lastRunDate + ".";
 
-    protected RecurringTask(Context context) {
-        this.context = context;
-    }
-
-    protected Context getContext() {
-        return context;
+        if (shouldRun(lastRunDate)) {
+            Log.d(getClass().getName(), "Executing recurring task, " + lastExecutionLog);
+            run(lastRunDate);
+            Prefs.setLastRunTime(getName(), getAbsoluteTime());
+        } else {
+            Log.d(getClass().getName(), "Skipping recurring task, " + lastExecutionLog);
+        }
     }
 
     protected abstract boolean shouldRun(Date lastRun);
@@ -34,17 +36,11 @@ public abstract class RecurringTask {
 
     protected abstract String getName();
 
-    public void runIfNecessary() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String prefKey = getName() + "-lastrun";
-        Date lastRunDate = new Date(prefs.getLong(prefKey, 0));
+    protected long getAbsoluteTime() {
+        return System.currentTimeMillis();
+    }
 
-        if (shouldRun(lastRunDate)) {
-            Log.d("Wikipedia", "Running task " + getName());
-            run(lastRunDate);
-            prefs.edit().putLong(prefKey, System.currentTimeMillis()).apply();
-        } else {
-            Log.d("Wikipedia", "Skipping task " + getName());
-        }
+    private Date getLastRunDate() {
+        return new Date(Prefs.getLastRunTime(getName()));
     }
 }

@@ -22,10 +22,12 @@
     <string name="preference_key_toc_tutorial_enabled">tocTutorialEnabled</string>
     <string name="preference_key_show_images">showImages</string>
     <string name="preference_key_exp_page_load">expPageLoad</string>
+    <string name="preference_key_daily_event_time_task_name">dailyEventTask</string>
     <string name="preference_key_login_username">username</string>
     <string name="preference_key_login_password">password</string>
     <string name="preference_key_login_user_id">userID</string>
     <string name="preference_key_link_preview_version">linkPreviewVersion</string>
     <string name="preference_key_more_like_search_enabled">moreLikeSearchEnabled</string>
     <string name="preference_key_show_developer_settings">showDeveloperSettings</string>
+    <string name="preference_key_last_run_time_format">%s-lastrun</string>
 </resources>

@@ -1,6 +1,6 @@
 package org.wikipedia;
 
-import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONObject;
@@ -16,8 +16,10 @@ public class RemoteConfigRefreshTask extends RecurringTask {
     // The 'l' suffix is needed because stupid Java overflows constants otherwise
     private static final long RUN_INTERVAL_MILLI = 24L * 60L * 60L * 1000L; // Once a day!
 
-    public RemoteConfigRefreshTask(Context context) {
-        super(context);
+    @NonNull private final WikipediaApp app;
+
+    public RemoteConfigRefreshTask(@NonNull WikipediaApp app) {
+        this.app = app;
     }
 
     @Override
@@ -30,7 +32,6 @@ public class RemoteConfigRefreshTask extends RecurringTask {
         new SaneAsyncTask<Boolean>(1) {
             @Override
             public Boolean performTask() throws Throwable {
-                WikipediaApp app = (WikipediaApp) getContext().getApplicationContext();
                 JSONObject config = new JSONObject(HttpRequest.get(REMOTE_CONFIG_URL).body());
                 app.getRemoteConfig().updateConfig(config);
                 Log.d("Wikipedia", config.toString());

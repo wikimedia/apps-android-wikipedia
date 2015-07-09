@@ -28,10 +28,14 @@
         <attr name="autoSummarize" format="boolean" />
     </declare-styleable>
 
-    <declare-styleable name="IntPreference">
-        <attr name="intPreferenceStyle" format="reference" />
+    <declare-styleable name="LongPreference">
+        <attr name="longPreferenceStyle" format="reference" />
         <attr name="radix" format="integer" />
         <attr name="summaryFormat" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="IntPreference">
+        <attr name="intPreferenceStyle" format="reference" />
     </declare-styleable>
 
 </resources>

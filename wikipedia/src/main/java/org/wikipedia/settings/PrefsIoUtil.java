@@ -22,6 +22,14 @@ import org.wikipedia.WikipediaApp;
         setString(getKey(keyResourceId), value);
     }
 
+    public static long getLong(int keyResourceId, long defaultValue) {
+        return getLong(getKey(keyResourceId), defaultValue);
+    }
+
+    public static void setLong(int keyResourceId, long value) {
+        setLong(getKey(keyResourceId), value);
+    }
+
     public static int getInt(int keyResourceId, int defaultValue) {
         return getInt(getKey(keyResourceId), defaultValue);
     }
@@ -45,6 +53,14 @@ import org.wikipedia.WikipediaApp;
 
     public static void setString(String key, @Nullable String value) {
         edit().putString(key, value).apply();
+    }
+
+    public static long getLong(String key, long defaultValue) {
+        return getPreferences().getLong(key, defaultValue);
+    }
+
+    public static void setLong(String key, long value) {
+        edit().putLong(key, value).apply();
     }
 
     public static int getInt(String key, int defaultValue) {

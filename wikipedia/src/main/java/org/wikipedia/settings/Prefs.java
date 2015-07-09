@@ -11,10 +11,12 @@ import static org.wikipedia.settings.PrefsIoUtil.contains;
 import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
 import static org.wikipedia.settings.PrefsIoUtil.getInt;
 import static org.wikipedia.settings.PrefsIoUtil.getKey;
+import static org.wikipedia.settings.PrefsIoUtil.getLong;
 import static org.wikipedia.settings.PrefsIoUtil.getString;
 import static org.wikipedia.settings.PrefsIoUtil.remove;
 import static org.wikipedia.settings.PrefsIoUtil.setBoolean;
 import static org.wikipedia.settings.PrefsIoUtil.setInt;
+import static org.wikipedia.settings.PrefsIoUtil.setLong;
 import static org.wikipedia.settings.PrefsIoUtil.setString;
 
 /** Shared preferences utility for convenient POJO access. */
@@ -221,6 +223,16 @@ public final class Prefs {
         setBoolean(R.string.preference_key_exp_page_load, enabled);
     }
 
+
+    @NonNull
+    public static long getLastRunTime(@NonNull String task) {
+        return getLong(getLastRunTimeKey(task), 0);
+    }
+
+    public static void setLastRunTime(@NonNull String task, long time) {
+        setLong(getLastRunTimeKey(task), time);
+    }
+
     public static boolean isShowZeroInterstitialEnabled() {
         return getBoolean(R.string.preference_key_zero_interstitial, true);
     }
@@ -267,6 +279,10 @@ public final class Prefs {
 
     private static String getCookiesForDomainKey(@NonNull String domain) {
         return getKey(R.string.preference_key_cookies_for_domain_format, domain);
+    }
+
+    private static String getLastRunTimeKey(@NonNull String task) {
+        return getKey(R.string.preference_key_last_run_time_format, task);
     }
 
     private static String getEditTokenForWikiKey(String wiki) {

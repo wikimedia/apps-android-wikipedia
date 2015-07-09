@@ -3,6 +3,7 @@
 
     <style name="AppTheme" parent="Theme.WikiLight">
         <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
+        <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
     </style>
 
@@ -125,10 +126,6 @@
         <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
     </style>
 
-    <style name="EditTextAutoSummarizePreference">
-        <!-- parent="@android:style/Preference.DialogPreference.EditTextPreference" is not exposed. -->
-    </style>
-
     <!-- Default style for floating action buttons -->
     <style name="FloatingActionButton">
         <item name="android:layout_marginLeft">@dimen/floating_action_button_margin_left</item>
@@ -137,10 +134,20 @@
         <item name="android:layout_marginBottom">@dimen/floating_action_button_margin_bottom</item>
     </style>
 
-    <style name="IntPreference" parent="EditTextAutoSummarizePreference">
+    <!-- Preferences -->
+
+    <style name="EditTextAutoSummarizePreference">
+        <!-- parent="@android:style/Preference.DialogPreference.EditTextPreference" is not exposed. -->
+    </style>
+
+    <style name="LongPreference" parent="EditTextAutoSummarizePreference">
         <item name="android:inputType">number</item>
-        <item name="android:maxLength">8</item>
+        <item name="android:maxLength">20</item>
         <item name="android:gravity">right|end</item>
+    </style>
+
+    <style name="IntPreference" parent="LongPreference">
+        <item name="android:maxLength">11</item>
     </style>
 
     <style name="HexIntPreference" parent="IntPreference">
@@ -148,6 +155,7 @@
         <item name="android:digits">0123456789abcdef</item>
         <item name="radix">16</item>
         <item name="summaryFormat">%08x</item>
+        <item name="android:maxLength">8</item>
     </style>
 
 </resources>
