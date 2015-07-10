@@ -1,8 +1,8 @@
 package org.wikipedia.analytics;
 
-import org.json.JSONException;
+import android.support.annotation.NonNull;
+
 import org.json.JSONObject;
-import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 
 public class InstallReferrerFunnel extends Funnel {
@@ -15,30 +15,8 @@ public class InstallReferrerFunnel extends Funnel {
     public static final String PARAM_CAMPAIGN_ID = "campaign_id";
     public static final String PARAM_CAMPAIGN_INSTALL_ID = "install_id";
 
-    private final String appInstallID;
-    private final Site site;
-
-    public InstallReferrerFunnel(WikipediaApp app, Site site) {
+    public InstallReferrerFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REV_ID);
-
-        //Retrieve this app installation's unique ID, used to record unique users of features
-        appInstallID = app.getAppInstallID();
-
-        this.site = site;
-    }
-
-    @Override
-    protected JSONObject preprocessData(JSONObject eventData) {
-        try {
-            eventData.put("appInstallID", appInstallID);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        return eventData;
-    }
-
-    protected void log(Object... params) {
-        super.log(site, params);
     }
 
     public void logInstall(String referrerUrl, String campaignID, String campaignInstallID) {
@@ -48,4 +26,6 @@ public class InstallReferrerFunnel extends Funnel {
                 PARAM_CAMPAIGN_INSTALL_ID, campaignInstallID
         );
     }
+
+    @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
 }

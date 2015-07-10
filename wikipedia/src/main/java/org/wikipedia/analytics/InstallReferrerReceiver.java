@@ -1,6 +1,5 @@
 package org.wikipedia.analytics;
 
-import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.log.L;
 import android.content.BroadcastReceiver;
@@ -37,8 +36,7 @@ public final class InstallReferrerReceiver extends BroadcastReceiver {
 
         // initialize the funnel with a dummy Site, since this is happening outside of
         // any kind of browsing or site interactions.
-        InstallReferrerFunnel funnel = new InstallReferrerFunnel(WikipediaApp.getInstance(),
-                                                                 Site.forLanguage("test"));
+        InstallReferrerFunnel funnel = new InstallReferrerFunnel(WikipediaApp.getInstance());
         // and send the event!
         funnel.logInstall(uri.getQueryParameter(InstallReferrerFunnel.PARAM_REFERRER_URL),
                           uri.getQueryParameter(InstallReferrerFunnel.PARAM_CAMPAIGN_ID),
