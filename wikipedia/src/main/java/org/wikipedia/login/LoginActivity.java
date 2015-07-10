@@ -14,6 +14,7 @@ import android.widget.Toast;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import org.wikipedia.*;
+import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.createaccount.CreateAccountActivity;
@@ -191,15 +192,14 @@ public class LoginActivity extends ThemedActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Utils.hideSoftKeyboard(LoginActivity.this);
-                finish();
-                break;
-            default:
-                throw new RuntimeException("Some menu item case is not handled");
-        }
-        return true;
+        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
+                || super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Utils.hideSoftKeyboard(this);
+        super.onBackPressed();
     }
 
     private void handleError(String result) {

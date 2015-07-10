@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 
@@ -38,13 +39,7 @@ public class LicenseActivity extends ThemedActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-            default:
-                throw new RuntimeException("Unclickable things have been clicked. The apocalypse is nearby");
-        }
-        return super.onOptionsItemSelected(item);
+        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
+                || super.onOptionsItemSelected(item);
     }
 }

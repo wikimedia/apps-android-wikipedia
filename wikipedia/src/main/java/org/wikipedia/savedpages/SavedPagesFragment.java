@@ -318,8 +318,6 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                return false;
             case R.id.menu_refresh_all_saved_pages:
                 promptToRefreshAll();
                 return true;
@@ -327,7 +325,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                 promptToDeleteAll();
                 return true;
             default:
-                throw new RuntimeException("Unknown menu item clicked! item=" + item);
+                return super.onOptionsItemSelected(item);
         }
     }
 
