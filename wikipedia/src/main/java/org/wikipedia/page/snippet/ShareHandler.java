@@ -51,7 +51,7 @@ import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
 public class ShareHandler {
     public static final String TAG = "ShareHandler";
 
-    @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.blue_progressive;
+    @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.blue_liberal;
     @ColorInt private static final int DEFAULT_ICON_COLOR = Color.WHITE;
     private static final int SHARE_TOOL_TIP_DELAY_DURATION = 3;
     private static final TimeUnit SHARE_TOOL_TIP_DELAY_UNIT = TimeUnit.SECONDS;

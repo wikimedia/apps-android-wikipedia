@@ -32,7 +32,6 @@
     <dimen name="drawer_drag_margin">16dp</dimen>
 
     <!-- Tool tips -->
-    <dimen name="fragment_page_tool_tip_select_text_target_offset">100dp</dimen>
     <dimen name="tool_tip_max_width">250dp</dimen>
 
     <!-- Floating action button -->

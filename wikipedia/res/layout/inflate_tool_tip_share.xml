@@ -20,7 +20,10 @@
         android:layout_alignRight="@id/view_tool_tip_share_tip"
         android:layout_alignStart="@id/view_tool_tip_share_tip"
         android:layout_alignEnd="@id/view_tool_tip_share_tip"
-        android:layout_margin="@dimen/margin">
+        android:layout_margin="@dimen/margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:gravity="center">
 
         <ImageView
             android:layout_width="0dp"

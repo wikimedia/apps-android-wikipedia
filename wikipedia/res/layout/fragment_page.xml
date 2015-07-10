@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout
+<android.support.percent.PercentFrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -302,9 +301,7 @@
         android:id="@+id/fragment_page_tool_tip_select_text_target"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/fragment_page_tool_tip_select_text_target_offset"
-        android:layout_marginLeft="@dimen/fragment_page_tool_tip_select_text_target_offset"
-        android:layout_marginStart="@dimen/fragment_page_tool_tip_select_text_target_offset" />
+        app:layout_marginTopPercent="88%"
+        app:layout_marginLeftPercent="70%" />
 
-</FrameLayout>
+</android.support.percent.PercentFrameLayout>

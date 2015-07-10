@@ -76,6 +76,7 @@ import com.appenguin.onboarding.ToolTip;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -824,18 +825,13 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     public void onPageLoadComplete() {
         editHandler.setPage(model.getPage());
 
-        if (app.isFeatureSelectTextAndShareTutorialEnabled()
-                && model.getPage().isArticle()
-                && app.getOnboardingStateMachine().isSelectTextTutorialEnabled()) {
-            showSelectTextOnboarding();
-            app.getOnboardingStateMachine().setSelectTextTutorial();
-        }
-
         if (saveOnComplete) {
             saveOnComplete = false;
             savedPagesFunnel.logUpdate();
             savePage();
         }
+
+        checkAndShowSelectTextOnboarding();
     }
 
     public PageTitle adjustPageTitleFromMobileview(PageTitle title, JSONObject mobileView)
@@ -1084,9 +1080,26 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         return linkHandler;
     }
 
+    private void checkAndShowSelectTextOnboarding() {
+        if (app.isFeatureSelectTextAndShareTutorialEnabled()
+        &&  model.getPage().isArticle()
+        &&  app.getOnboardingStateMachine().isSelectTextTutorialEnabled()) {
+            showSelectTextOnboarding();
+        }
+    }
+
     private void showSelectTextOnboarding() {
-        ToolTipUtil.showToolTip(getActivity(),
-                getView().findViewById(R.id.fragment_page_tool_tip_select_text_target),
-                R.layout.inflate_tool_tip_select_text, Color.BLACK, ToolTip.Position.RIGHT);
+        final View targetView = getView().findViewById(R.id.fragment_page_tool_tip_select_text_target);
+        targetView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (getActivity() != null) {
+                    ToolTipUtil.showToolTip(getActivity(),
+                            targetView, R.layout.inflate_tool_tip_select_text, Color.BLACK,
+                            ToolTip.Position.RIGHT);
+                    app.getOnboardingStateMachine().setSelectTextTutorial();
+                }
+            }
+        }, TimeUnit.SECONDS.toMillis(1));
     }
 }
