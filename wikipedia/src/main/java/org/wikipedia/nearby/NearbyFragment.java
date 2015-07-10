@@ -523,8 +523,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                return false;
             case R.id.menu_refresh_nearby:
                 setRefreshingState(true);
                 requestLocationUpdates();
@@ -534,7 +532,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 adapter.notifyDataSetInvalidated();
                 return true;
             default:
-                throw new RuntimeException("Unknown menu item clicked! item=" + item);
+                return super.onOptionsItemSelected(item);
         }
     }
 

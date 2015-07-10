@@ -1,5 +1,6 @@
 package org.wikipedia.page.gallery;
 
+import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -268,14 +269,8 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
+        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
+                || super.onOptionsItemSelected(item);
     }
 
     @Override

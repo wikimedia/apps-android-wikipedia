@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import org.wikipedia.*;
+import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
@@ -132,14 +133,14 @@ public class LangLinksActivity extends ThemedActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Utils.hideSoftKeyboard(LangLinksActivity.this);
-                finish();
-                return true;
-            default:
-                throw new RuntimeException("item=" + item);
-        }
+        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
+                || super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Utils.hideSoftKeyboard(this);
+        super.onBackPressed();
     }
 
     @Override

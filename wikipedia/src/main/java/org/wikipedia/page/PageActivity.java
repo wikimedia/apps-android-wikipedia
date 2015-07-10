@@ -5,6 +5,7 @@ import org.wikipedia.BackPressedHandler;
 import org.wikipedia.NavDrawerFragment;
 import org.wikipedia.R;
 import org.wikipedia.Site;
+import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
@@ -366,15 +367,9 @@ public class PageActivity extends ThemedActionBarActivity {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                break;
-        }
         // Handle other action bar items...
-        return super.onOptionsItemSelected(item);
+        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
+                || super.onOptionsItemSelected(item);
     }
 
     @Override

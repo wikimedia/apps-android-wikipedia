@@ -25,6 +25,7 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.*;
+import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.CreateAccountFunnel;
 import org.wikipedia.editing.CaptchaHandler;
@@ -328,14 +329,14 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Utils.hideSoftKeyboard(this);
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
+                || super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Utils.hideSoftKeyboard(this);
+        super.onBackPressed();
     }
 
     @Override

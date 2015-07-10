@@ -314,8 +314,6 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                return false;
             case R.id.menu_clear_all_history:
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setMessage(R.string.dialog_title_clear_history);
@@ -337,7 +335,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                 builder.create().show();
                 return true;
             default:
-                throw new RuntimeException("Unknown menu item clicked! item=" + item);
+                return super.onOptionsItemSelected(item);
         }
     }
 }

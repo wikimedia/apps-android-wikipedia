@@ -29,6 +29,7 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.activity.ThemedActionBarActivity;
@@ -493,14 +494,12 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
             case R.id.menu_save_section:
                 clickNextButton();
                 return true;
             default:
-                throw new RuntimeException("WAT");
+                return ActivityUtil.defaultOnOptionsItemSelected(this, item)
+                        || super.onOptionsItemSelected(item);
         }
     }
 
