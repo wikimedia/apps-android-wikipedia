@@ -28,6 +28,7 @@
     <color name="lead_gradient_start">#b8000000</color>
     <color name="toc_button">#71eeb8</color>
     <color name="tool_tip_default">@android:color/black</color>
+    <color name="delete_action">#955251</color>
 
     <!-- Make the main toolbar have its own unique color (but indistinguishable from
     actionbar_background). This is because we'll be setting its opacity programmatically
@@ -80,6 +81,5 @@
     <color name="widget_title_text">#ff606060</color>
     <color name="widget_content_text">#ff303030</color>
 
-    <!-- Copied for 2.3 -->
     <color name="holo_red_dark">#ffcc0000</color>
 </resources>
