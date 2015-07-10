@@ -171,7 +171,9 @@ public class LinkPreviewDialog extends DialogFragment implements DialogInterface
         HistoryEntry historyEntry = new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK);
         navigateSuccess = true;
         funnel.logNavigate();
-        getDialog().dismiss();
+        if (getDialog() != null) {
+            getDialog().dismiss();
+        }
         ((PageActivity) getActivity()).displayNewPage(pageTitle, historyEntry);
     }
 
