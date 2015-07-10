@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 
 import org.wikipedia.WikipediaApp;
 
@@ -14,36 +15,35 @@ import org.wikipedia.WikipediaApp;
  * resources as keys, and unifies SP access. */
 /*package*/ final class PrefsIoUtil {
     @Nullable
-    public static String getString(int keyResourceId, @Nullable String defaultValue) {
-        return getString(getKey(keyResourceId), defaultValue);
+    public static String getString(@StringRes int id, @Nullable String defaultValue) {
+        return getString(getKey(id), defaultValue);
     }
 
-    public static void setString(int keyResourceId, @Nullable String value) {
-        setString(getKey(keyResourceId), value);
+    public static void setString(@StringRes int id, @Nullable String value) {
+        setString(getKey(id), value);
     }
 
-    public static long getLong(int keyResourceId, long defaultValue) {
-        return getLong(getKey(keyResourceId), defaultValue);
+    public static long getLong(@StringRes int id, long defaultValue) {
+        return getLong(getKey(id), defaultValue);
     }
 
-    public static void setLong(int keyResourceId, long value) {
-        setLong(getKey(keyResourceId), value);
+    public static void setLong(@StringRes int id, long value) {
+        setLong(getKey(id), value);
     }
-
     public static int getInt(int keyResourceId, int defaultValue) {
         return getInt(getKey(keyResourceId), defaultValue);
     }
 
-    public static void setInt(int keyResourceId, int value) {
-        setInt(getKey(keyResourceId), value);
+    public static void setInt(@StringRes int id, int value) {
+        setInt(getKey(id), value);
     }
 
-    public static boolean getBoolean(int keyResourceId, boolean defaultValue) {
-        return getBoolean(getKey(keyResourceId), defaultValue);
+    public static boolean getBoolean(@StringRes int id, boolean defaultValue) {
+        return getBoolean(getKey(id), defaultValue);
     }
 
-    public static void setBoolean(int keyResourceId, boolean value) {
-        setBoolean(getKey(keyResourceId), value);
+    public static void setBoolean(@StringRes int id, boolean value) {
+        setBoolean(getKey(id), value);
     }
 
     @Nullable
@@ -79,16 +79,16 @@ import org.wikipedia.WikipediaApp;
         edit().putBoolean(key, value).apply();
     }
 
-    public static void remove(int keyResourceId) {
-        remove(getKey(keyResourceId));
+    public static void remove(@StringRes int id) {
+        remove(getKey(id));
     }
 
     public static void remove(String key) {
         edit().remove(key).apply();
     }
 
-    public static boolean contains(int keyResourceId) {
-        return getPreferences().contains(getKey(keyResourceId));
+    public static boolean contains(@StringRes int id) {
+        return getPreferences().contains(getKey(id));
     }
 
     public static boolean contains(String key) {
@@ -97,7 +97,7 @@ import org.wikipedia.WikipediaApp;
 
     /** @return Key String resource from preference_keys.xml. */
     @NonNull
-    public static String getKey(int id, Object... formatArgs) {
+    public static String getKey(@StringRes int id, Object... formatArgs) {
         return getResources().getString(id, formatArgs);
     }
 
