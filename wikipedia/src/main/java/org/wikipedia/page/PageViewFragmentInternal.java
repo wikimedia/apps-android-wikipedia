@@ -99,7 +99,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
      * Since the list consists of Parcelable objects, it can be saved and restored from the
      * savedInstanceState of the fragment.
      */
-    private ArrayList<Tab> tabList;
+    @NonNull
+    private ArrayList<Tab> tabList = new ArrayList<>();
 
     @NonNull
     private TabFunnel tabFunnel = new TabFunnel();
@@ -209,15 +210,11 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         return model.getCurEntry();
     }
 
-    public PageViewFragmentInternal() {
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getActivity().getApplicationContext();
         model = new PageViewModel();
-        tabList = new ArrayList<>();
         if (Prefs.isExperimentalPageLoadEnabled()) {
             pageLoadStrategy = new HtmlPageLoadStrategy();
         } else {
@@ -268,9 +265,11 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         connectionIssueFunnel = new ConnectionIssueFunnel(app);
 
         if (savedInstanceState != null) {
+            //noinspection ConstantConditions
             tabList = savedInstanceState.getParcelableArrayList(TAB_LIST_KEY);
-        } else if (tabList.size() == 0) {
-            // fresh launch, so initialize with a single tab
+        }
+
+        if (tabList.isEmpty()) {
             tabList.add(new Tab());
         }
 
