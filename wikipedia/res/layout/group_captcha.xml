@@ -43,18 +43,23 @@
             style="?android:textAppearanceSmall"
             android:gravity="center"
             />
-    <org.wikipedia.views.PlainPasteEditText
-            android:id="@+id/captcha_text"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            style="?android:textAppearanceMedium"
-            android:layout_gravity="center_horizontal"
-            android:hint="@string/edit_section_captcha_hint"
-            android:singleLine="true"
-            android:imeOptions="actionDone|flagNoExtractUi"
-            android:inputType="textVisiblePassword|textNoSuggestions"
-            />
+            android:layout_marginTop="8dp">
+            <org.wikipedia.views.PlainPasteEditText
+                    android:id="@+id/captcha_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    style="?android:textAppearanceMedium"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/edit_section_captcha_hint"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone|flagNoExtractUi"
+                    android:inputType="textVisiblePassword|textNoSuggestions"
+                    />
+        </android.support.design.widget.TextInputLayout>
     <Button
             android:id="@+id/captcha_submit_button"
             android:text="@string/create_account_button"

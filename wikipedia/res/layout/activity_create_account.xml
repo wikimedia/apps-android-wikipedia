@@ -16,35 +16,49 @@
                 android:orientation="vertical"
                 android:padding="16dp"
                 >
-            <org.wikipedia.views.PlainPasteEditText
-                    android:id="@+id/create_account_username"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/create_account_username_hint"
-                    android:singleLine="true"
-                    android:imeOptions="flagNoExtractUi"
-                    android:inputType="textVisiblePassword|textNoSuggestions"
-                    />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <org.wikipedia.views.PlainPasteEditText
+                        android:id="@+id/create_account_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/create_account_username_hint"
+                        android:singleLine="true"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textVisiblePassword|textNoSuggestions"
+                        />
+            </android.support.design.widget.TextInputLayout>
 
-            <org.wikipedia.views.PlainPasteEditText
-                    android:id="@+id/create_account_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/create_account_password_hint"
-                    android:singleLine="true"
-                    android:imeOptions="flagNoExtractUi"
-                    android:inputType="textPassword"
-                    />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+                <org.wikipedia.views.PlainPasteEditText
+                        android:id="@+id/create_account_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/create_account_password_hint"
+                        android:singleLine="true"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPassword"
+                        />
+            </android.support.design.widget.TextInputLayout>
 
-            <org.wikipedia.views.PlainPasteEditText
-                    android:id="@+id/create_account_password_repeat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/create_account_password_repeat_hint"
-                    android:singleLine="true"
-                    android:imeOptions="flagNoExtractUi"
-                    android:inputType="textPassword"
-                    />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+                <org.wikipedia.views.PlainPasteEditText
+                        android:id="@+id/create_account_password_repeat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/create_account_password_repeat_hint"
+                        android:singleLine="true"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPassword"
+                        />
+            </android.support.design.widget.TextInputLayout>
 
             <CheckBox
                     android:id="@+id/create_account_show_password"
@@ -53,15 +67,20 @@
                     android:layout_height="wrap_content"
                     />
 
-            <org.wikipedia.views.PlainPasteEditText
-                    android:id="@+id/create_account_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/create_account_email_hint"
-                    android:singleLine="true"
-                    android:imeOptions="actionDone|flagNoExtractUi"
-                    android:inputType="textEmailAddress"
-                    />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+                <org.wikipedia.views.PlainPasteEditText
+                        android:id="@+id/create_account_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/create_account_email_hint"
+                        android:singleLine="true"
+                        android:imeOptions="actionDone|flagNoExtractUi"
+                        android:inputType="textEmailAddress"
+                        />
+            </android.support.design.widget.TextInputLayout>
 
             <Button
                     android:id="@+id/create_account_submit_button"
