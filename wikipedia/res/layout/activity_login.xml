@@ -34,7 +34,7 @@
 
         <Button
                 android:id="@+id/login_button"
-                style="@style/button_progressive"
+                style="@style/ButtonProgressive"
                 android:text="@string/menu_login"
                 android:enabled="false"
                 />

@@ -66,7 +66,7 @@
             <Button
                     android:id="@+id/create_account_submit_button"
                     android:text="@string/create_account_next"
-                    style="@style/button_progressive"
+                    style="@style/ButtonProgressive"
                     android:enabled="false"
                     />
 

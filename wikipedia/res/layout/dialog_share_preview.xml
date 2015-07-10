@@ -27,13 +27,13 @@
 
         <Button
             android:id="@+id/share_as_image_button"
-            style="@style/button_blue_on_white"
+            style="@style/ButtonBlueOnWhite"
             android:layout_gravity="center_horizontal"
             android:text="@string/share_snippet_button" />
 
         <Button
             android:id="@+id/share_as_text_button"
-            style="@style/button_blue_on_white"
+            style="@style/ButtonBlueOnWhite"
             android:layout_gravity="center_horizontal"
             android:text="@string/share_normal_button" />
 

@@ -180,8 +180,7 @@
                 app:elevation="4sp"
                 app:borderWidth="0dp"
                 app:layout_anchor="@id/page_web_view"
-                app:layout_anchorGravity="bottom|right|end"
-                />
+                app:layout_anchorGravity="bottom|right|end" />
 
         </android.support.design.widget.CoordinatorLayout>
 

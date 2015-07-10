@@ -27,7 +27,7 @@
             android:paddingTop="8dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            style="@style/text_heading_gray"
+            style="@style/TextHeadingGray"
             android:background="@drawable/button_selector_transparent"
             android:text="@string/page_similar_titles" />
 
@@ -39,7 +39,7 @@
             android:paddingTop="8dp"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
-            style="@style/text_heading_gray"
+            style="@style/TextHeadingGray"
             android:text="|"
             tools:ignore="HardcodedText" />
 
@@ -51,7 +51,7 @@
             android:paddingTop="8dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            style="@style/text_heading_gray"
+            style="@style/TextHeadingGray"
             android:background="@drawable/button_selector_transparent"
             android:text="@string/dialog_page_issues" />
 

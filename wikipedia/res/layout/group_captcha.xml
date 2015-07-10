@@ -58,7 +58,7 @@
     <Button
             android:id="@+id/captcha_submit_button"
             android:text="@string/create_account_button"
-            style="@style/button_progressive"
+            style="@style/ButtonProgressive"
             android:enabled="false"
             android:visibility="gone"
             tools:visibility="visible"
