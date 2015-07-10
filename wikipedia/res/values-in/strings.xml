@@ -214,8 +214,6 @@
   <string name="search_recent_header">Pencarian terkini:</string>
   <string name="button_clear_all_recent_searches">Hapus pencarian terkini</string>
   <string name="clear_recent_searches_confirm">Apakah Anda yakin ingin menghapus riwayat penelusuran?</string>
-  <string name="toc_hint">Geser ke kiri untuk bagian, atau gunakan tombol menu di atas kanan</string>
-  <string name="toc_know_it">Mengerti</string>
   <string name="error_browser_not_found">Tidak dapat membuka halaman web (tidak ada peramban yang ditemukan)</string>
   <string name="table_infobox">Fakta cepat</string>
   <string name="table_other">Informasi lebih lanjut</string>

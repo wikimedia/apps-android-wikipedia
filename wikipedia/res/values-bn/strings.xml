@@ -210,7 +210,6 @@
   <string name="search_recent_header">সাম্প্রতিক অনুসন্ধান</string>
   <string name="button_clear_all_recent_searches">সাম্প্রতিক অনুসন্ধান গুলি মুছে ফেলুন</string>
   <string name="clear_recent_searches_confirm">আপনি কি নিশ্চিত যে আপনি আপনার অনুসান্ধান ইতিহাস মুছে ফেলতে ?</string>
-  <string name="toc_know_it">বুঝেছি</string>
   <string name="error_browser_not_found">ওয়েব পেজ টি খোলা যায়নি ( কোনও ব্রাউজার অ্যাপ্লিকেশান পাওয়া যায়নি )।</string>
   <string name="table_infobox">দ্রুত তথ্য</string>
   <string name="table_other">আরও তথ্য</string>

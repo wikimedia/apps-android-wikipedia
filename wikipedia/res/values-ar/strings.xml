@@ -211,8 +211,6 @@
   <string name="search_recent_header">أحدث عمليات البحث:</string>
   <string name="button_clear_all_recent_searches">حذف أحدث عمليات البحث</string>
   <string name="clear_recent_searches_confirm">هل أنت متأكد من حذف سجل البحث؟</string>
-  <string name="toc_hint">اسحب من اليسار للأقسام، أو استخدم زر القائمة في أعلى اليسار.</string>
-  <string name="toc_know_it">حسناً</string>
   <string name="error_browser_not_found">تعذّر فتح صفحة الويب (لا يتوفر متصفح).</string>
   <string name="table_infobox">معلومات سريعة</string>
   <string name="table_other">المزيد من المعلومات</string>

@@ -214,8 +214,6 @@
   <string name="search_recent_header">Recherches récentes :</string>
   <string name="button_clear_all_recent_searches">Effacer les recherches récentes</string>
   <string name="clear_recent_searches_confirm">Êtes-vous sûr de vouloir effacer votre historique de recherche ?</string>
-  <string name="toc_hint">Balayer vers la gauche pour les sections, ou utiliser le bouton de menu en haut à droite.</string>
-  <string name="toc_know_it">C’est bon !</string>
   <string name="error_browser_not_found">Impossible d’ouvrir la page web (aucune application de navigateur trouvée).</string>
   <string name="table_infobox">Faits en bref</string>
   <string name="table_other">Plus d’informations</string>

@@ -214,8 +214,6 @@
   <string name="search_recent_header">Letzte Suchanfragen:</string>
   <string name="button_clear_all_recent_searches">Letzte Suchanfragen löschen</string>
   <string name="clear_recent_searches_confirm">Bist du sicher, dass du deinen Suchverlauf löschen möchtest?</string>
-  <string name="toc_hint">Wische nach links für Abschnitte oder benutze rechts oben den Menü-Button.</string>
-  <string name="toc_know_it">Verstanden</string>
   <string name="error_browser_not_found">Webseite konnte nicht geöffnet werden (keine Browser-App gefunden).</string>
   <string name="table_infobox">Schnelle Fakten</string>
   <string name="table_other">Weitere Informationen</string>

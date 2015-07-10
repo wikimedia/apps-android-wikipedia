@@ -208,7 +208,6 @@
   <string name="search_did_you_mean">Mengt Dir \"%s\"?</string>
   <string name="search_recent_header">Rezent gesicht:</string>
   <string name="button_clear_all_recent_searches">Rezent Ufroen, fir ze sichen, läschen</string>
-  <string name="toc_know_it">Verstan</string>
   <string name="error_browser_not_found">Websäit konnt net opgemaach ginn (keng App fonnt).</string>
   <string name="table_infobox">Séier Fakten</string>
   <string name="table_other">Méi Informatiounen</string>

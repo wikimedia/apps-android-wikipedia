@@ -214,8 +214,6 @@
   <string name="search_recent_header">Скорешни пребарувања:</string>
   <string name="button_clear_all_recent_searches">Исчисти скорешни пребарувања</string>
   <string name="clear_recent_searches_confirm">Дали сте сигурни дека сакате да ја избришете историјата на пребарувања?</string>
-  <string name="toc_hint">Повлечете лево за поднасловите или послужете се со копчето во менито горе-десно.</string>
-  <string name="toc_know_it">Јасно</string>
   <string name="error_browser_not_found">Не можам да ја отворам страницата (не најдов прелистувачки извршник).</string>
   <string name="table_infobox">Накратко</string>
   <string name="table_other">Повеќе информации</string>

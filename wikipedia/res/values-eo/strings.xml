@@ -206,8 +206,6 @@
   <string name="search_recent_header">Lastaj serĉoj:</string>
   <string name="button_clear_all_recent_searches">Malplenigi lastaj serĉojn</string>
   <string name="clear_recent_searches_confirm">Ĉu vi certas ke vi volas malplenigi vian serĉ-historion?</string>
-  <string name="toc_hint">Ŝovu maldekstren por vidi la sekciojn, aŭ uzu la menuan butonon ĉe la supro-dekstro.</string>
-  <string name="toc_know_it">Komprenite</string>
   <string name="error_browser_not_found">Ne eblis malfermi la retpaĝon (Neniu retumila aplikaĵo estis trovita)</string>
   <string name="table_infobox">Rapidaj faktoj</string>
   <string name="table_other">Pliaj informoj</string>

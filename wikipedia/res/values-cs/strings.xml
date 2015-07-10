@@ -200,7 +200,6 @@
   <string name="search_recent_header">Nedávná hledání:</string>
   <string name="button_clear_all_recent_searches">Vymazat nedávná hledání</string>
   <string name="clear_recent_searches_confirm">Jste si jisti, že chcete vymazat historii hledání?</string>
-  <string name="toc_know_it">Chápu</string>
   <string name="error_browser_not_found">Nepodařilo se otevřít webovou stránku (nenalezena žádná aplikace prohlížeče).</string>
   <string name="table_infobox">Stručné informace</string>
   <string name="table_other">Více informací</string>

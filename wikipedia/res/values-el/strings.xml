@@ -199,8 +199,6 @@
   <string name="search_did_you_mean">Μήπως εννοείτε \"%s\";</string>
   <string name="search_recent_header">Πρόσφατες αναζητήσεις:</string>
   <string name="button_clear_all_recent_searches">Εκκαθάριση πρόσφατων αναζητήσεων</string>
-  <string name="toc_hint">Σύρετε προς τα αριστερά για ενότητες ή χρησιμοποιήστε το κουμπί \"μενού\" στην επάνω δεξιά γωνία.</string>
-  <string name="toc_know_it">Το κατάλαβα</string>
   <string name="table_other">Περισσότερες πληροφορίες</string>
   <string name="table_close">Κλείσιμο</string>
   <string name="app_store_description" fuzzy="true">Η επίσημη εφαρμογή της Βικιπαίδειας για το Android. Η Βικιπαίδεια είναι η δωρεάν εγκυκλοπαίδεια που περιλαμβάνει περισσότερα από 32 εκατομμύρια λήμματα σε 280 γλώσσες και είναι το πιο περιεκτικό και ευρύτερα χρησιμοποιημενο έργο αναφοράς στην ιστορία της ανθρώπινης δημιουργίας. Η εφαρμογή έχει επανασχεδιαστεί από την αρχή και είναι καλύτερη από ποτέ.

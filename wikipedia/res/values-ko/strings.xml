@@ -212,8 +212,6 @@
   <string name="search_recent_header">최근 검색:</string>
   <string name="button_clear_all_recent_searches">최근 검색 지우기</string>
   <string name="clear_recent_searches_confirm">검색 기록을 지우겠습니까?</string>
-  <string name="toc_hint">문단을 보려면 왼쪽으로 스와이프하거나, 위 오른쪽에 있는 메뉴 버튼을 사용하세요.</string>
-  <string name="toc_know_it">알았어요</string>
   <string name="error_browser_not_found">웹 페이지를 열 수 없습니다 (찾은 브라우저 앱이 없습니다).</string>
   <string name="table_infobox">빠른 사실</string>
   <string name="table_other">자세한 정보</string>

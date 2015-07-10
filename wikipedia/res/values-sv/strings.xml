@@ -214,8 +214,6 @@
   <string name="search_recent_header">Senaste sökningar:</string>
   <string name="button_clear_all_recent_searches">Rensa senaste sökningar</string>
   <string name="clear_recent_searches_confirm">Är du säker på att du vill rensa din sökhistorik?</string>
-  <string name="toc_hint">Svep åt vänster för avsnitt, eller använd menyknappen längst upp till höger.</string>
-  <string name="toc_know_it">Jag förstår</string>
   <string name="error_browser_not_found">Kunde inte öppna webbsidan (ingen webbläsarapp hittades).</string>
   <string name="table_infobox">Snabbfakta</string>
   <string name="table_other">Mer information</string>

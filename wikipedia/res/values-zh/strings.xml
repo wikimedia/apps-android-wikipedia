@@ -214,8 +214,6 @@
   <string name="search_recent_header">最近搜索：</string>
   <string name="button_clear_all_recent_searches">清除最近搜索</string>
   <string name="clear_recent_searches_confirm">您确认要清除您的搜索历史？</string>
-  <string name="toc_hint">向左滑动或使用右上角的菜单按钮查看段落。</string>
-  <string name="toc_know_it">明白了</string>
   <string name="error_browser_not_found">无法打开网页（未找到浏览器应用）。</string>
   <string name="table_infobox">快速预览</string>
   <string name="table_other">更多信息</string>

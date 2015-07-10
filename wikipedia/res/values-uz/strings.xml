@@ -175,7 +175,6 @@
   <string name="color_theme_dark">To\'q</string>
   <string name="page_similar_titles">O‘xshash sahifalar</string>
   <string name="search_recent_header">Oxirgi qidirishlar:</string>
-  <string name="toc_know_it">Tushunarli</string>
   <string name="alpha_update_notification_title">Yangi alfa versiya mavjud</string>
   <string name="alpha_update_notification_text">Koʻchirib olish uchun bosing</string>
 </resources>

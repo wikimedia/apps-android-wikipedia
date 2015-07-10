@@ -214,8 +214,6 @@
   <string name="search_recent_header">Последние поиски:</string>
   <string name="button_clear_all_recent_searches">Очистить список последних поисковых запросов</string>
   <string name="clear_recent_searches_confirm">Вы уверены, что хотите стереть историю поисковых запросов?</string>
-  <string name="toc_hint">Потяните влево для просмотра разделов или используйте кнопку меню в правом верхнем углу.</string>
-  <string name="toc_know_it">Понятно</string>
   <string name="error_browser_not_found">Не удалось открыть веб-страницу (приложение браузера не найдено).</string>
   <string name="table_infobox">Короткие факты</string>
   <string name="table_other">Дополнительная информация</string>

@@ -214,8 +214,6 @@
   <string name="search_recent_header">Недавні пошукові запити:</string>
   <string name="button_clear_all_recent_searches">Очистити історію пошуку</string>
   <string name="clear_recent_searches_confirm">Ви впевнені, що хочете стерти історію пошукових запитів?</string>
-  <string name="toc_hint">Проведіть ліворуч для розділів, або використовуйте кнопку меню зверху праворуч.</string>
-  <string name="toc_know_it">Зрозуміло</string>
   <string name="error_browser_not_found">Не вдалося відкрити веб-сторінку (веб-браузер не знайдено).</string>
   <string name="table_infobox">Швидкі факти</string>
   <string name="table_other">Більше інформації</string>

@@ -199,8 +199,6 @@
   <string name="search_recent_header">ការស្វែងរកថ្មីៗនេះ៖</string>
   <string name="button_clear_all_recent_searches">ជម្រះការស្វែងរកថ្មីៗនេះ</string>
   <string name="clear_recent_searches_confirm">តើអ្នកប្រកដហើយថាអ្នកចង់ជម្រះប្រវត្តិស្វែងរករបស់អ្នក?</string>
-  <string name="toc_hint">ឈូសទៅឆ្វេងដើម្បីមើលបញ្ជីចំណងជើង ឫក៏ប្រើប៊ូតុងបញ្ជីនៅផ្នែកលើខាងស្ដាំ។</string>
-  <string name="toc_know_it">យល់ហើយ</string>
   <string name="table_infobox">ទិន្នន័យបឋម</string>
   <string name="table_other">ព័ត៌មានបន្ថែម</string>
   <string name="table_close">បិទ</string>

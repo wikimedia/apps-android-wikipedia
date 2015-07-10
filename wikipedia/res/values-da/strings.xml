@@ -214,8 +214,6 @@
   <string name="search_recent_header">Seneste søgninger:</string>
   <string name="button_clear_all_recent_searches">Ryd seneste søgninger</string>
   <string name="clear_recent_searches_confirm">Er du sikker på du ønsker at slette din søgehistorik?</string>
-  <string name="toc_hint">Stryg til venstre for afsnit, eller brug menuknappen øverst til højre.</string>
-  <string name="toc_know_it">Forstået</string>
   <string name="error_browser_not_found">Kunne ikke åbne webside (ingen browser app fundet).</string>
   <string name="table_infobox">Hurtige fakta</string>
   <string name="table_other">Flere oplysninger</string>

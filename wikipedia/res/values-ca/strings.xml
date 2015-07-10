@@ -213,8 +213,6 @@
   <string name="search_recent_header">Cerques recents:</string>
   <string name="button_clear_all_recent_searches">Esborrar les cerques recents</string>
   <string name="clear_recent_searches_confirm">Segur que voleu esborrar l\'historial de cerca?</string>
-  <string name="toc_hint">Feu lliscar el dit cap a l\'esquerra per a les seccions, o utilitzeu el botó de menú a la part superior dreta.</string>
-  <string name="toc_know_it">Ho he entès</string>
   <string name="error_browser_not_found">No s\'ha pogut obrir la pàgina web (no s\'ha trobat cap aplicació del navegador)</string>
   <string name="table_infobox">Dades bàsiques</string>
   <string name="table_other">Més informació</string>

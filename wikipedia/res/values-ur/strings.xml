@@ -140,6 +140,5 @@
   <string name="zero_interstitial_title">زیرو ویکیپیڈیا کو چھوڑ رہے ہیں</string>
   <string name="zero_interstitial_continue">چھوڑیں</string>
   <string name="zero_interstitial_cancel">یہیں رہیں</string>
-  <string name="toc_hint" fuzzy="true">Swipe right for sections, or use the menu button on the top right.</string>
   <string name="err_cannot_save_file">ملف کو محفوظ نہیں کرسکتے</string>
 </resources>

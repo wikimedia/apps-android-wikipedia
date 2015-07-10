@@ -183,8 +183,6 @@
   <string name="search_recent_header">ბოლოს მოძიებულები</string>
   <string name="button_clear_all_recent_searches">ბოლოს მოძიებულების გასუფთავება</string>
   <string name="clear_recent_searches_confirm">დარწმუნებული ხართ, რომ გსურთ ძიების ისტორიის გასუფთავება?</string>
-  <string name="toc_hint">სექციების გამოსაჩენად გაუსვით მარცხნივ ან გამოიყენეთ ზედა მარჯვენა მხარეს არსებული მენიუს ღილაკი.</string>
-  <string name="toc_know_it">არის!</string>
   <string name="error_browser_not_found">ვებ-გვერდის გახსნა შეუძლებელია (ბრაუზერის აპლიკაცია ვერ მოიძებნა).</string>
   <string name="table_infobox">სწრაფი ფაქტები</string>
   <string name="table_other">მეტი ინფორმაცია</string>

@@ -212,8 +212,6 @@
   <string name="search_recent_header">Onlangse soektogte</string>
   <string name="button_clear_all_recent_searches">Verwyder onlangse soektogte</string>
   <string name="clear_recent_searches_confirm">Is u seker u wil u soekgeskiedenis skrap?</string>
-  <string name="toc_hint">Vee links vir seksies, of gebruik die opsieknop regs-bo.</string>
-  <string name="toc_know_it">Ek verstaan</string>
   <string name="error_browser_not_found">Kon nie webblad oopmaak nie (geen webblaaier toep gevind).</string>
   <string name="table_infobox">Vinnige feite</string>
   <string name="table_other">Meer inligting</string>

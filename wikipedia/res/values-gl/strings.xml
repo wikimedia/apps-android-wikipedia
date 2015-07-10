@@ -214,8 +214,6 @@
   <string name="search_recent_header">Buscas recentes:</string>
   <string name="button_clear_all_recent_searches">Limpar buscas recentes</string>
   <string name="clear_recent_searches_confirm">Está seguro de que desexa borrar o seu historial de buscas?</string>
-  <string name="toc_hint">Deslice para a esquerda para sección, ou use o botón de menú na esquina superior dereita.</string>
-  <string name="toc_know_it">Entendido</string>
   <string name="error_browser_not_found">Non se puido abrir a páxina web (non se atopou unha aplicación para navegar).</string>
   <string name="table_infobox">Datos rápidos</string>
   <string name="table_other">Máis información</string>

@@ -214,8 +214,6 @@
   <string name="search_recent_header">最近の検索：</string>
   <string name="button_clear_all_recent_searches">最近の検索を消去</string>
   <string name="clear_recent_searches_confirm">本当に検索履歴を消去しますか?</string>
-  <string name="toc_hint">左向きにスワイプで節見出しが出ます。右上にはメニューボタンがあります。</string>
-  <string name="toc_know_it">了解</string>
   <string name="error_browser_not_found">Webページを開くことができませんでした。(ブラウザーアプリが見つかりません)</string>
   <string name="table_infobox">基本データ</string>
   <string name="table_other">さらに見る</string>

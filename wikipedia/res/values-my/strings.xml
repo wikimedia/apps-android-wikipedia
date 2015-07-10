@@ -127,7 +127,6 @@
   <string name="text_size_select">စာလုံး အရွယ်အစား</string>
   <string name="color_theme_light">အလင်း</string>
   <string name="color_theme_dark">အမှောင်</string>
-  <string name="toc_know_it">ရပြီဟေ့</string>
   <string name="alpha_update_notification_title">စမ်းသပ်သုံးစွဲမှု အသစ်ရယူနိုင်ပါပြီ</string>
   <string name="alpha_update_notification_text">ထိနိုပ်ခြင်းဖြင့် ရယူပါ</string>
 </resources>

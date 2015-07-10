@@ -212,8 +212,6 @@
   <string name="search_recent_header">Mga kamakailang paghahanap:</string>
   <string name="button_clear_all_recent_searches">Burahin ang mga kamakailang paghahanap</string>
   <string name="clear_recent_searches_confirm">Tiyak ka bang nais mong burahin ang iyong kasaysayan ng paghahanap?</string>
-  <string name="toc_hint">I-swipe nang pakaliwa para sa mga seksyon, o gamitin ang boton ng menu sa bandang itaas pakanan.</string>
-  <string name="toc_know_it">Kuha</string>
   <string name="error_browser_not_found">Hindi mabuksan ang pahinang web (walang natagpuang browser na app)</string>
   <string name="table_infobox">Madaliang kabatiran</string>
   <string name="table_other">Higit pang kabatiran (impormasyon)</string>

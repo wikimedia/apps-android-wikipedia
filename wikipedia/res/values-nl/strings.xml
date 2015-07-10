@@ -214,8 +214,6 @@
   <string name="search_recent_header">Recente zoekopdrachten:</string>
   <string name="button_clear_all_recent_searches">Recente zoekopdrachten wissen</string>
   <string name="clear_recent_searches_confirm">Weet u zeker dat u uw zoekgeschiedenis wilt wissen?</string>
-  <string name="toc_hint">Veeg naar links voor secties, of gebruik de knop in de rechterbovenhoek.</string>
-  <string name="toc_know_it">Begrepen</string>
   <string name="error_browser_not_found">De webpagina kon niet geopend worden. Er is geen browser beschikbaar.</string>
   <string name="table_infobox">Snelle feiten</string>
   <string name="table_other">Meer informatie</string>

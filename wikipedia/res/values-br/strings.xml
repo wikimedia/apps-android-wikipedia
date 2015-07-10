@@ -214,8 +214,6 @@
   <string name="search_recent_header">Enklaskoù nevez :</string>
   <string name="button_clear_all_recent_searches">diverkañ an enklaskoù nevez</string>
   <string name="clear_recent_searches_confirm">Ha sur eo ho peus c\'hoant da ziverkañ roll-istor  hoc\'h enklaskoù ?</string>
-  <string name="toc_hint">Torchañ war-zu an tu kleiz evit ar rannskridoù, pe implijout bouton al lañser e krec\'h a-zehoù.</string>
-  <string name="toc_know_it">Mat eo</string>
   <string name="error_browser_not_found">Ne c\'haller ket digeriñ ar bajenn web (n\'eus bet kavet arload  merdeer)</string>
   <string name="table_infobox">Graet buan</string>
   <string name="table_other">Muioc\'h a ditouroù</string>

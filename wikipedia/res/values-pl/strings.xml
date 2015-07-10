@@ -202,7 +202,6 @@
   <string name="search_recent_header">Ostatnie wyszukiwania:</string>
   <string name="button_clear_all_recent_searches">Wyczyść listę ostatnich wyszukiwań</string>
   <string name="clear_recent_searches_confirm">Czy jesteś pewien, że chcesz usunąć historię wyszukiwań?</string>
-  <string name="toc_hint">Pociągnij palcem w lewo lub skorzystaj z przycisku menu w prawym górnym rogu.</string>
   <string name="error_browser_not_found">Nie udało się otworzyć strony internetowej (nie znaleziono przeglądarki).</string>
   <string name="table_infobox">Szybkie fakty</string>
   <string name="table_other">Więcej informacji</string>

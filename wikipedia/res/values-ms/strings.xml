@@ -213,8 +213,6 @@
   <string name="search_recent_header">Carian terkini:</string>
   <string name="button_clear_all_recent_searches">Padamkan carian terkini</string>
   <string name="clear_recent_searches_confirm">Betulkah anda ingin memadamkan sejarah carian anda?</string>
-  <string name="toc_hint">Leret ke kiri untuk bahagian, atau gunakan butang menu di kanan atas.</string>
-  <string name="toc_know_it">Saya faham</string>
   <string name="error_browser_not_found">Tidak dapat membuka laman web (tiada aplikasi pelayar ditemui).</string>
   <string name="table_infobox">Fakta segera</string>
   <string name="table_other">Maklumat lanjut</string>

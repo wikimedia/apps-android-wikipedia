@@ -112,8 +112,6 @@
   <string name="search_did_you_mean">آيا  \"%s\" مو مقصد و؟</string>
   <string name="search_recent_header">وروستنۍ پلټنې:</string>
   <string name="button_clear_all_recent_searches">وروستنۍ پلټنې سپينول</string>
-  <string name="toc_hint" fuzzy="true">Swipe right for sections, or use the menu button on the top right.</string>
-  <string name="toc_know_it">پوه شوم</string>
   <string name="table_other">نور مالومات</string>
   <string name="table_close">تړل</string>
   <string name="widget_name_featured_page">د ويکيپېډيا غوره مخ</string>

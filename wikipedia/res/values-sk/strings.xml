@@ -214,8 +214,6 @@
   <string name="search_recent_header">Nedávno hľadané výrazy:</string>
   <string name="button_clear_all_recent_searches">Vymazať nedávno hľadané výrazy</string>
   <string name="clear_recent_searches_confirm">Naozaj chcete vymazať vašu históriu vyhľadávania?</string>
-  <string name="toc_hint">Pre sekcie potiahnite prstom doľava alebo použite tlačidlo menu v pravom hornom rohu.</string>
-  <string name="toc_know_it">Rozumiem</string>
   <string name="error_browser_not_found">Nepodarilo sa otvoriť webovú stránku (nenašiel sa žiadny webový prehliadač).</string>
   <string name="table_infobox">Rýchle fakty</string>
   <string name="table_other">Viac informácií</string>

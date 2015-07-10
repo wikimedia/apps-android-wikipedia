@@ -214,8 +214,6 @@
   <string name="search_recent_header">חיפוש אחרונים:</string>
   <string name="button_clear_all_recent_searches">ניקוי החיפושים האחרונים</string>
   <string name="clear_recent_searches_confirm">האם באמת רצית לנקות את היסטוריית החיפוש שלך?</string>
-  <string name="toc_hint">יש להחליק ימינה בשביל ראשי הפרקים או להשתמש בכפתור התפריט בפינה השמאלית העליונה.</string>
-  <string name="toc_know_it">הבנתי</string>
   <string name="error_browser_not_found">לא ניתן לפתוח אתר אינטרנט (לא נמצא יישום דפדפן).</string>
   <string name="table_infobox">עובדות מהירות</string>
   <string name="table_other">מידע נוסף</string>

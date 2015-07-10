@@ -212,8 +212,6 @@
   <string name="search_recent_header">सद्यःकृतानि अन्वेषणानि :</string>
   <string name="button_clear_all_recent_searches">सद्यःकृतानि अन्वेषणानि अपाक्रियन्ताम्</string>
   <string name="clear_recent_searches_confirm">अन्वेषणेतिहासम् अपाकर्तुं निश्चयः अस्ति खलु ?</string>
-  <string name="toc_hint">अनुभागेभ्यः वामतः गच्छतु अथवा दक्षिणतः शीर्षे स्थितां विकल्पसूचिकायाः कुड्मलस्य उपयोगं करोतु ।</string>
-  <string name="toc_know_it">ज्ञातम्</string>
   <string name="error_browser_not_found">जालपृष्ठम् उद्घोटयितुं न शक्यते (गवेषकस्य अनुप्रयोगः न प्राप्तः)</string>
   <string name="table_infobox">त्वरिततथ्यानि</string>
   <string name="table_other">अधिकसूचना</string>
