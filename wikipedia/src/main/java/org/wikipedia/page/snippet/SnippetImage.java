@@ -96,7 +96,7 @@ public final class SnippetImage {
 
     private Bitmap drawBackground(Bitmap leadImageBitmap, float leadImageFocusY) {
         Bitmap resultBitmap;
-        if (leadImageBitmap != null) {
+        if (leadImageBitmap != null && license.hasLicenseInfo()) {
             // use lead image
             resultBitmap = scaleCropToFitFace(leadImageBitmap, WIDTH, HEIGHT, leadImageFocusY);
         } else {
@@ -229,9 +229,17 @@ public final class SnippetImage {
             left = right - SnippetImage.ICONS_WIDTH;
         }
 
-        Drawable d = context.getResources().getDrawable(leadImageBitmap == null ? R.drawable.ic_license_cc : license.getLicenseIcon());
+        Drawable d = context.getResources().getDrawable(shouldDefaultToCCLicense() ? R.drawable.ic_license_cc : license.getLicenseIcon());
         d.setBounds(left, top, right, bottom);
         d.draw(canvas);
+    }
+
+    /**
+     * Default to showing Creative Commons license icon for card as a whole if lead image is not present
+     * or will not be used due to a lack of licensing data.
+     */
+    private boolean shouldDefaultToCCLicense() {
+        return leadImageBitmap == null || !license.hasLicenseInfo();
     }
 
     private void drawWordmarkFromStaticImage(Canvas canvas, Context context) {
