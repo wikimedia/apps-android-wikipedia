@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/twitter_logo"
+            android:src="@drawable/twitter"
             android:scaleType="centerInside"
             android:contentDescription="@null" />
 
@@ -37,7 +37,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/facebook_logo"
+            android:src="@drawable/facebook"
             android:scaleType="centerInside"
             android:contentDescription="@null" />
 
@@ -45,7 +45,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/plus_logo"
+            android:src="@drawable/messaging"
             android:scaleType="centerInside"
             android:contentDescription="@null" />
 

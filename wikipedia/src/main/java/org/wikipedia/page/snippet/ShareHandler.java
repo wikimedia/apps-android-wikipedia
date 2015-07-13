@@ -20,7 +20,7 @@ import android.widget.ImageView;
 
 import com.appenguin.onboarding.ToolTip;
 
-import org.wikipedia.drawable.ExposedPorterDuffColorFilterDrawableProperty;
+import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.page.ImageLicense;
 import org.wikipedia.page.ImageLicenseFetchTask;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -42,7 +42,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
 
@@ -54,8 +53,6 @@ public class ShareHandler {
 
     @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.blue_liberal;
     @ColorInt private static final int DEFAULT_ICON_COLOR = Color.WHITE;
-    private static final int SHARE_TOOL_TIP_DELAY_DURATION = 3;
-    private static final TimeUnit SHARE_TOOL_TIP_DELAY_UNIT = TimeUnit.SECONDS;
 
     private final PageActivity activity;
     private final CommunicationBridge bridge;
@@ -245,11 +242,11 @@ public class ShareHandler {
     }
 
     private void showShareOnboarding(MenuItem shareItem) {
-        startShareIconAnimation(shareItem);
+        DrawableUtil.setTint(shareItem.getIcon(), getColor(SHARE_TOOL_TIP_COLOR));
         postShowShareToolTip(shareItem);
     }
 
-    private void postShowShareToolTip(MenuItem shareItem) {
+    private void postShowShareToolTip(final MenuItem shareItem) {
         // There doesn't seem to be good lifecycle event accessible at the time this called to
         // ensure the tool tip is shown after CAB animation.
 
@@ -258,30 +255,14 @@ public class ShareHandler {
         shareItemView.postDelayed(new Runnable() {
             @Override
             public void run() {
-                showShareToolTip(shareItemView);
+                showShareToolTip(shareItemView, shareItem.getIcon());
             }
         }, delay);
     }
 
-    private void showShareToolTip(View shareItemView) {
+    private void showShareToolTip(View shareItemView, Drawable icon) {
         ToolTipUtil.showToolTip(activity, shareItemView, R.layout.inflate_tool_tip_share,
                 getColor(SHARE_TOOL_TIP_COLOR), ToolTip.Position.CENTER);
-    }
-
-    private void startShareIconAnimation(MenuItem shareItem) {
-        startIconAnimation(shareItem.getIcon(), getColor(SHARE_TOOL_TIP_COLOR), DEFAULT_ICON_COLOR,
-                SHARE_TOOL_TIP_DELAY_UNIT, SHARE_TOOL_TIP_DELAY_DURATION);
-    }
-
-    private void startIconAnimation(Drawable icon,
-                                    @ColorInt int fromColor,
-                                    @ColorInt int toColor,
-                                    TimeUnit unit,
-                                    int duration) {
-        ExposedPorterDuffColorFilterDrawableProperty
-                .objectAnimator("iconColorFilter", icon, fromColor, toColor)
-                .setDuration(unit.toMillis(duration))
-                .start();
     }
 
     @ColorInt

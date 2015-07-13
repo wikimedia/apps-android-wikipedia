@@ -3,7 +3,6 @@ package org.wikipedia;
 import android.app.Application;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.IntRange;
@@ -22,6 +21,7 @@ import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.data.ContentPersister;
 import org.wikipedia.data.DBOpenHelper;
+import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
 import org.wikipedia.editing.summaries.EditSummaryPersister;
@@ -507,7 +507,7 @@ public class WikipediaApp extends Application {
         if (tintColor == 0) {
             d.clearColorFilter();
         } else {
-            d.setColorFilter(tintColor, PorterDuff.Mode.SRC_ATOP);
+            DrawableUtil.setTint(d, tintColor);
         }
     }
 
