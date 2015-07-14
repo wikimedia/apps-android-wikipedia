@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">O que você estava fazendo quando ocorreu o erro?</string>
   <string name="search_hint">Procurar na Wikipédia</string>
   <string name="nav_item_history">Histórico</string>
-  <string name="error_network_error">Não há conexão de rede :(</string>
+  <string name="error_network_error" fuzzy="true">Não há conexão de rede :(</string>
   <string name="search_network_error">Erro de conexão. Toque para tentar novamente.</string>
   <string name="generic_page_error">Ocorreu um problema ao lidar com o seu pedido.</string>
   <string name="status_code_unavailable">Código de status do servidor indisponível.</string>

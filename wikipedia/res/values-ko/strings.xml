@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">충돌이 일어났을 때 무엇을 하고 있었나요?</string>
   <string name="search_hint">위키백과 검색</string>
   <string name="nav_item_history">방문 기록</string>
-  <string name="error_network_error">네트워크 연결이 없습니다 :(</string>
+  <string name="error_network_error" fuzzy="true">네트워크 연결이 없습니다 :(</string>
   <string name="search_network_error">네트워크 오류입니다. 다시 시도하려면 누르세요.</string>
   <string name="generic_page_error">요청을 처리하는 동안 오류가 생겼습니다.</string>
   <string name="status_code_unavailable">서버 상태 코드를 사용할 수 없습니다.</string>

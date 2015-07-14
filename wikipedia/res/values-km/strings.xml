@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">តើអ្នកកំពុងធ្វើអ្វីនៅពេលដែលវាគាំង?</string>
   <string name="search_hint">ស្វែងរកនៅក្នុងវិគីភីឌា</string>
   <string name="nav_item_history">ប្រវត្តិ</string>
-  <string name="error_network_error">គ្មានបណ្ដាញតភ្ជាប់ទេ :(</string>
+  <string name="error_network_error" fuzzy="true">គ្មានបណ្ដាញតភ្ជាប់ទេ :(</string>
   <string name="search_network_error">បញ្ហាបណ្ដាញ។ សូមសាកល្បងចុចម្ដងទៀត។</string>
   <string name="page_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="menu_clear_all_history">ជម្រះ​ប្រវត្តិ</string>

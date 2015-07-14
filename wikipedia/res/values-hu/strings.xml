@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Mit csináltál, amikor az alkalmazás összeomlott?</string>
   <string name="search_hint">Keresés a Wikipédiában</string>
   <string name="nav_item_history">Előzmények</string>
-  <string name="error_network_error">Nincs hálózati kapcsolat :(</string>
+  <string name="error_network_error" fuzzy="true">Nincs hálózati kapcsolat :(</string>
   <string name="search_network_error">Hálózati hiba. Koppints az újrapróbálkozáshoz.</string>
   <string name="generic_page_error">Hiba történt a kérésed kezelése közben.</string>
   <string name="status_code_unavailable">Szerver státusz kód nem érhető el.</string>

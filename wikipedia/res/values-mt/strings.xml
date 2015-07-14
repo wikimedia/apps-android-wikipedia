@@ -8,7 +8,7 @@
   <string name="acra_report_dialog_title">Il-Wikipedija wafqet :(</string>
   <string name="search_hint">Fittex fuq il-Wikipedija</string>
   <string name="nav_item_history">Kronoloġija</string>
-  <string name="error_network_error">M\'hemm l-ebda konnessjoni man-netwerk :(</string>
+  <string name="error_network_error" fuzzy="true">M\'hemm l-ebda konnessjoni man-netwerk :(</string>
   <string name="search_network_error">Żball fin-netwerk. Agħfas biex terġa\' tipprova.</string>
   <string name="generic_page_error">Kien hemm problema fl-immaniġġjar tar-rikjesta tiegħek.</string>
   <string name="page_error_retry">Erġa\' pprova</string>

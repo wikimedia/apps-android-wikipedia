@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">క్రాష్ అయినప్పుడు మీరేం చేస్తున్నారు?</string>
   <string name="search_hint">వికీపీడియాలో వెతకండి</string>
   <string name="nav_item_history">చరిత్ర</string>
-  <string name="error_network_error">జాల అనుసంధానం లేదు :(</string>
+  <string name="error_network_error" fuzzy="true">జాల అనుసంధానం లేదు :(</string>
   <string name="search_network_error">నెట్‌వర్క్ లోపం. మళ్ళీ ప్రయత్నించడానికి తట్టండి.</string>
   <string name="generic_page_error">మీ అభ్యర్ధనని ప్రక్రియంచటంలో ఏదో సమస్య వచ్చింది.</string>
   <string name="status_code_unavailable">సర్వర్ స్టేటస్ కోడ్ అందుబాటులో లేదు.</string>
@@ -124,30 +124,30 @@
   <string name="create_account_open_proxy_error">ఖాతాలు సృష్టించకుండా ఈ ఐపీని నిరోధించారు.</string>
   <string name="create_account_noname_error">మీరు అందించిన వాడుకరి పేరు చెల్లనిది. మరొక పేరును అందించండి.</string>
   <string name="create_account_invalid_email_error">మీరు అందించిన ఈమెయిల్ చిరునామా చెల్లనిది</string>
-  <string name="create_account_password_too_short_error">మీరు అందించిన భద్రతపదం చాలా చిన్నది</string>
+  <string name="create_account_password_too_short_error">మీరు అందించిన సంకేతపదం మరీ చిన్నది.</string>
   <string name="create_account_blocked_anon_error">మీ ఐపి చిరునామా నిరోధించబడింది కావున మీరు ఒక ఖాతాను సృష్టించడానికి వీలు కాదు</string>
   <string name="create_account_blocked_error">మీ ఖాతా నిరోధించబడింది కనుక ఒక ఖాతాను సృష్టించడానికి వీలు కాదు.</string>
-  <string name="create_account_password_name_match_error">మీ వాడుకరి పేరు మరియు మీ భద్రతపదం రెండూ భిన్నంగా ఉన్నాయి.</string>
+  <string name="create_account_password_name_match_error">మీ వాడుకరి పేరు మరియు మీ భద్రతపదం రెండూ భిన్నంగా ఉండాలి.</string>
   <string name="create_account_generic_error">ఖాతాను సృష్టించలేకపోయాం</string>
   <string name="create_account_no_network">అంతర్జాల అనుసంధానం లేదు</string>
   <string name="create_account_next">తదుపరి</string>
   <string name="create_account_button">ఖాతా సృష్టించండి</string>
   <string name="preferences_general_heading">సాధారణం</string>
   <string name="wikipedia_app_faq">వికీపీడియా సున్నా ఎఫ్ఎక్యూ</string>
-  <string name="zero_charged_verbiage">వికీపీడియా ఆఫ్ ఉంది</string>
-  <string name="zero_charged_verbiage_extended">ఇతర వ్యాసాలు డేటా లోడ్ వల్ల ఛార్జీలు బాధ ఉండవచ్చు.</string>
-  <string name="zero_search_hint">వికీపీడియాలో వెతకండి</string>
-  <string name="zero_warn_when_leaving">వికీపీడియాను వదలి వేస్తుంటే హెచ్చరించు</string>
-  <string name="zero_warn_when_leaving_summary">మీ మొబైల్ ఆపరేటర్ వికీపీడియా సున్నా భాగస్వామ్యం ద్వారా వికీపీడియా అనువర్తనానికి డేటా చార్జీలు రద్దు చేసినట్టయితే, ఈ అమర్పు ఎంచుకోటంవల్ల మీరు వికీపీడియా అనువర్తనం వదిలివెళ్తూ మీకు డేటా చార్జీలు ఎప్పుడు పడ్తుందో తెలుస్కోటానికి ఉపొయొగపడుతుంది.</string>
+  <string name="zero_charged_verbiage">వికీపీడియా సున్నా ఆఫ్ చేయబడి ఉంది.</string>
+  <string name="zero_charged_verbiage_extended">ఇతర వ్యాసాలు లోడ్ చేయటంవల్ల డేటా ఛార్జీలు పడవచ్చు.</string>
+  <string name="zero_search_hint">వికీపీడియా సున్నాలో వెతకండి</string>
+  <string name="zero_warn_when_leaving">వికీపీడియా సున్నాను వదలివెళ్తుంటే హెచ్చరించు</string>
+  <string name="zero_warn_when_leaving_summary">మీ మొబైల్ ఆపరేటర్ వికీపీడియా సున్నా భాగస్వామ్యం ద్వారా వికీపీడియా అనువర్తనానికి డేటా చార్జీలు రద్దు చేసినట్టయితే, ఈ అమర్పు ఎంచుకోటంవల్ల మీరు వికీపీడియా అనువర్తనం వదిలివెళ్తూ మీకు డేటా చార్జీలు ఎప్పుడు పడతాయో తెలుస్కోటానికి ఉపొయొగపడుతుంది.</string>
   <string name="zero_webpage_title">వికీపీడియా సున్నా ఎఫ్ఎక్యూ</string>
-  <string name="zero_wikipedia_zero_heading">వికీపీడియా సున్న</string>
-  <string name="zero_interstitial_title">వికీపీడియా సున్న నుండి వదిలివెళ్తున్నారు</string>
+  <string name="zero_wikipedia_zero_heading">వికీపీడియా సున్నా</string>
+  <string name="zero_interstitial_title">వికీపీడియా సున్నా నుండి వదిలివెళ్తున్నారు</string>
   <string name="zero_interstitial_leave_app">డేటా చార్జీలు ఉండవచ్చు. బయటి సైట్ కి కొనసాగుతారా?</string>
   <string name="zero_interstitial_continue">వదలివెళ్ళు</string>
   <string name="zero_interstitial_cancel">ఇక్కడే ఉండు</string>
   <string name="zero_learn_more">ఈ వికీపీడియా అనువర్తనానికి డేటా చార్జీలు మాఫీ చేయబడ్డాయి.</string>
   <string name="zero_learn_more_learn_more">ఇంకా చదవండి</string>
-  <string name="zero_learn_more_dismiss">రద్దు</string>
+  <string name="zero_learn_more_dismiss">రద్దుచేయి</string>
   <string name="edit_preview_fetching_dialog_message">ప్రివ్యూ వస్తుంది...</string>
   <string name="send_feedback">అనువర్తనం గురించి ఫిర్యాదులు/సలహాలు పంపించండి</string>
   <string name="nav_item_random">యాదృచ్చికం</string>
@@ -188,7 +188,7 @@
   <string name="edit_summary_tag_grammar">వ్యాకరణం స్థిరం</string>
   <string name="edit_summary_tag_links">లింకులు చేర్చబడ్డాయి</string>
   <string name="edit_summary_tag_other">ఇతరము</string>
-  <string name="edit_summary_tag_other_hint">మీరు పేజీని ఇతర మార్గాలతో అభివృద్ధి చేశారు</string>
+  <string name="edit_summary_tag_other_hint">మీరు పేజీని ఇతర మార్గాలలో అభివృద్ధి చేశారు</string>
   <string name="find_in_page">పుటలో వెతకండి</string>
   <string name="find_next">తదుపరి కనుగొను</string>
   <string name="find_previous">మునుపటిది కనుగొను</string>
@@ -256,4 +256,6 @@
   <string name="menu_open_link">లంకను తెరువు</string>
   <string name="menu_open_in_new_tab">కొత్త ట్యాబులో తెరువు</string>
   <string name="menu_save_page_popup">తరువాతి కోసం భద్రపరుచు</string>
+  <string name="tool_tip_share">ఆసక్తికరమైన విషయాన్నీ హైలైట్ చేసిన తర్వాత మీకు ఇష్టమైన నెట్వర్క్లలకి పంచుకోండి.</string>
+  <string name="page_view_in_browser">విహారిణిలో తెరువు</string>
 </resources>

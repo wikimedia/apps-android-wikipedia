@@ -10,22 +10,31 @@
   <string name="acra_report_dialog_comment">کله چې تخنيکي ټکر رامېنځ ته شو، تاسې څه کول؟</string>
   <string name="search_hint">ويکيپېډيا پلټل</string>
   <string name="nav_item_history">پېښليک</string>
-  <string name="error_network_error">د گورت کومه اړيکتيا نشته :(</string>
+  <string name="error_network_error" fuzzy="true">د گورت کومه اړيکتيا نشته :(</string>
   <string name="page_error_retry">بياآزمويل</string>
   <string name="menu_clear_all_history">پېښليک پاکول</string>
+  <string name="page_does_not_exist_error">پدې نوم مخ نشته.</string>
   <string name="nav_item_today">نن</string>
   <string name="nav_item_saved_pages">خوندي مخونه</string>
   <string name="menu_save_page">مخ خوندي کول</string>
   <string name="menu_share_page">شريکول</string>
+  <string name="dialog_title_clear_saved_pages">ټول خوندي مخونه پاکول؟</string>
   <string name="toast_saving_page">مخ خوندي کېدو کې دی…</string>
+  <string name="toast_saved_page">مخ برياليتوب سره خوندي شو</string>
   <string name="toast_refresh_saved_page">بياتاندېدنې او مخ خوندي کېدنې کې دی...</string>
   <string name="delete_selected_saved_pages">ړنگول</string>
   <string name="saved_pages_search_list_hint">خوندي مخونه پلټل</string>
   <string name="nav_item_nearby">نژدې</string>
+  <string name="nearby_distance_in_meters">%d متر</string>
   <string name="nearby_distance_in_kilometers">%.2f کيلومتر</string>
+  <string name="nearby_distance_in_feet">%d گام</string>
+  <string name="nearby_distance_in_miles">%.2f ميله</string>
+  <string name="nearby_no_network">د جال اړيکتيا نشته</string>
   <string name="nearby_view_on_map">په کښېدې ځای کتل</string>
   <string name="preference_title_language">د ويکيپېډيا ژبه</string>
   <string name="preference_languages_filter_hint">پلټل</string>
+  <string name="preference_system_language_toggle">د غونډال ژبه کارول</string>
+  <string name="preference_system_language_summary">د غونډال ژبه</string>
   <string name="langlinks_filter_hint">پلټل</string>
   <string name="menu_other_languages">په نورو ژبو کې لوستل</string>
   <string name="langlinks_error_retry">بياآزمويل</string>
@@ -94,6 +103,7 @@
   <string name="about_contributors_heading">ونډه وال</string>
   <string name="about_translators_heading">ژباړنان</string>
   <string name="about_activity_title">په اړه</string>
+  <string name="user_blocked_from_editing_title">بنديز لگېدلی</string>
   <string name="edit_next">راتلونکی</string>
   <string name="edit_done">خوندي کول</string>
   <string name="edit_preview">مخليدنه</string>
@@ -103,6 +113,8 @@
   <string name="find_next">بل موندل</string>
   <string name="find_previous">پخوانی موندل</string>
   <string name="saved_pages_update_all_error_retry">بياآزمويل</string>
+  <string name="menu_page_saved">مخ خوندي شو</string>
+  <string name="menu_refresh_saved_page">مخ بياتاندول</string>
   <string name="dialog_page_issues">د مخ ستونزې</string>
   <string name="button_page_issues">د مخ ستونزې</string>
   <string name="text_size_select">د ليکبڼې کچه</string>
@@ -122,6 +134,7 @@
   <string name="read_more_section">نور لوستل</string>
   <string name="read_next_section">بل لوستل</string>
   <string name="menu_gallery_visit_page">د دوتنې مخ ته ورځه</string>
+  <string name="license_title">د %s کتابتون لپاره د منښتليک متن</string>
   <string name="gallery_menu_share">شريکول</string>
   <string name="gallery_save_success">انځور برياليتوب سره خوندي شو.</string>
   <string name="gallery_error_video_failed">ويډيو و نه غږول شوه.</string>
@@ -132,4 +145,5 @@
   <string name="snippet_share_preview_image_desc">انځور مخليدنه</string>
   <string name="cc_logo">کريټيف کامنز منښتليک</string>
   <string name="captcha_image">کېپچا انځور</string>
+  <string name="page_view_in_browser">په کتنمل کې کتل</string>
 </resources>

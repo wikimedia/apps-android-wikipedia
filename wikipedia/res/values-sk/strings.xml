@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Čo ste robili keď došlo k zlyhaniu?</string>
   <string name="search_hint">Hľadať</string>
   <string name="nav_item_history">História</string>
-  <string name="error_network_error">Nie ste pripojení na sieť :(</string>
+  <string name="error_network_error" fuzzy="true">Nie ste pripojení na sieť :(</string>
   <string name="search_network_error">Problém so sieťou. Ťuknutím to skúste znova.</string>
   <string name="generic_page_error">Pri spracovaní vašej žiadosti sa vyskytol problém.</string>
   <string name="status_code_unavailable">Status kód servera je nedostupný.</string>

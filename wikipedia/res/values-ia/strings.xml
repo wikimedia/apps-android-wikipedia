@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Que faceva tu quando le crash occurreva?</string>
   <string name="search_hint">Cercar in Wikipedia</string>
   <string name="nav_item_history">Historico</string>
-  <string name="error_network_error">Il non ha connexion con le rete :(</string>
+  <string name="error_network_error" fuzzy="true">Il non ha connexion con le rete :(</string>
   <string name="search_network_error">Error de rete. Tocca pro reprobar.</string>
   <string name="page_error_retry">Reprobar</string>
   <string name="menu_clear_all_history">Rader historico</string>

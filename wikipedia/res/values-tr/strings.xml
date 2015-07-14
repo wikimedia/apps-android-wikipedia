@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Kilitlenme olduğu zaman ne yapıyordunuz?</string>
   <string name="search_hint">Vikipedi\'de Ara</string>
   <string name="nav_item_history">Geçmiş</string>
-  <string name="error_network_error">Ağ bağlantısı yok :(</string>
+  <string name="error_network_error">Ağ bağlantısı kurulamadı.</string>
   <string name="search_network_error">Ağ hatası. Tekrar denemek için dokunun.</string>
   <string name="generic_page_error">Talebiniz gerçekleştirilirken bir sorun çıktı.</string>
   <string name="status_code_unavailable">Sunucu durum kodu kullanılamıyor.</string>
@@ -273,4 +273,11 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="menu_open_link">Bağlantıyı aç</string>
   <string name="menu_open_in_new_tab">Yeni sekmede aç</string>
   <string name="menu_save_page_popup">Sonrası için kaydet</string>
+  <string name="page_view_in_browser">Tarayıcıda görüntüle</string>
+  <string name="tool_tip_toc_button">İçindekiler tablosunu, bu düğmeye dokunarak veya ekranın sağ kenarından kaydırarak istediğiniz an görebilirsiniz.</string>
+  <string name="error_server_response">Sunucu isteği tamamlayamadı.</string>
+  <string name="error_response_malformed">Sunucudan gelen yanıt doğru biçimlendirilmişti.</string>
+  <string name="error_unknown">Bilinmeyen bir hata oluştu.</string>
+  <string name="format_error_server_message">Mesaj: \"%s\"</string>
+  <string name="format_error_server_code">Kod: \"%s\"</string>
 </resources>

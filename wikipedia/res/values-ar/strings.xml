@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">ماذا كنت تفعل عندما حدث العطل؟</string>
   <string name="search_hint">البحث في ويكيبيديا</string>
   <string name="nav_item_history">التاريخ</string>
-  <string name="error_network_error">لا يوجد اتصال بالشبكة :(</string>
+  <string name="error_network_error" fuzzy="true">لا يوجد اتصال بالشبكة :(</string>
   <string name="search_network_error">خطأ في الاتصال بالشبكة. اضغط لإعادة المحاولة.</string>
   <string name="generic_page_error">هناك مشكلة في معالجة طلبك.</string>
   <string name="page_error_retry">إعادة المحاولة</string>

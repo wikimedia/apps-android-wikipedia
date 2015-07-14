@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Zer egiten ari zinen hutsegitea gertatu zenean?</string>
   <string name="search_hint">Bilatu Wikipedian</string>
   <string name="nav_item_history">Historia</string>
-  <string name="error_network_error">Ezin izan da sarearekin konektatu :(</string>
+  <string name="error_network_error" fuzzy="true">Ezin izan da sarearekin konektatu :(</string>
   <string name="search_network_error">Errorea. Saiatu berriro.</string>
   <string name="generic_page_error">Arazo bat egon da zure eskaera kudeatzean.</string>
   <string name="status_code_unavailable">Zerbitzariaren egoera-kodea ez dago eskuragarri.</string>

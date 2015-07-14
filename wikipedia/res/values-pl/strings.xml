@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Co robiłeś, gdy zdarzyła się awaria?</string>
   <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="nav_item_history">Historia</string>
-  <string name="error_network_error">Nie ma połączenia z siecią :(</string>
+  <string name="error_network_error">Nie można nawiązać połączenia z siecią.</string>
   <string name="search_network_error">Błąd sieci. Kliknij, aby spróbować ponownie.</string>
   <string name="status_code_unavailable">Kod statusu serwera nie jest dostępny.</string>
   <string name="page_error_retry">Ponów próbę</string>
@@ -228,4 +228,10 @@
   <string name="menu_show_tabs">Pokaż karty</string>
   <string name="button_close_tab">Zamknij kartę</string>
   <string name="menu_open_in_new_tab">Otwórz w nowej karcie</string>
+  <string name="page_view_in_browser">Otwórz w przeglądarce</string>
+  <string name="error_server_response">Serwer nie mógł zakończyć żądania.</string>
+  <string name="error_response_malformed">Odpowiedzi z serwera nie została prawidłowo sformatowana.</string>
+  <string name="error_unknown">Wystąpił nieznany błąd.</string>
+  <string name="format_error_server_message">Komunikat: „%s”</string>
+  <string name="format_error_server_code">Kod: „%s”</string>
 </resources>

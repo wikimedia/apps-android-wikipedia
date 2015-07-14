@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">وقتی خروج از دسترس رخ داده چه کار می‌کردید؟</string>
   <string name="search_hint">جستجوی ویکی‌پدیا</string>
   <string name="nav_item_history">تاریخچه</string>
-  <string name="error_network_error">شبکه‌ای در دسترس نیست :(</string>
+  <string name="error_network_error" fuzzy="true">شبکه‌ای در دسترس نیست :(</string>
   <string name="search_network_error">خطای شبکه. برای تلاش مجدد با انگشت بر روی صفحه بزنید.</string>
   <string name="generic_page_error">مشکلی برای اجرای درخواستتان وجود دارد.</string>
   <string name="status_code_unavailable">کد وضعیت سرور در دسترس نیست.</string>

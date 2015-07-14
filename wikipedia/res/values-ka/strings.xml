@@ -9,7 +9,7 @@
   <string name="acra_report_dialog_comment">რას აკეთებდით, როდესაც შეცდომა დაფიქსირდა?</string>
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="nav_item_history">ისტორია</string>
-  <string name="error_network_error">ქსელთან კავშირი არ არის :(</string>
+  <string name="error_network_error" fuzzy="true">ქსელთან კავშირი არ არის :(</string>
   <string name="search_network_error">ქსელის შეცდომა. სცადეთ ახლიდან.</string>
   <string name="page_error_retry">გამეორება</string>
   <string name="menu_clear_all_history">ისტორიის გასუფთავება</string>

@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Ano ang iyong ginagawa noong nangyari ang pagkasira (crash)?</string>
   <string name="search_hint">Hanapin sa Wikipedia</string>
   <string name="nav_item_history">Kasaysayan</string>
-  <string name="error_network_error">Walang koneksyon sa talalambatan (network) :\'(</string>
+  <string name="error_network_error" fuzzy="true">Walang koneksyon sa talalambatan (network) :\'(</string>
   <string name="search_network_error">Kamalian sa kalambatan.  Mag-tap upang maisubok muli.</string>
   <string name="generic_page_error">May nangyaring suliranin sa paghawak ng iyong hiling.</string>
   <string name="status_code_unavailable">Kodigo ng estado ng serbidor ay wala.</string>

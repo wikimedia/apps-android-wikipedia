@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">ਜਦੋਂ ਕਰੈਸ਼ ਹੋਇਆ ਤਾਂ ਤੁਸੀਂ ਕੀ ਕਰ ਰਹੇ ਸੀ?</string>
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
   <string name="nav_item_history">ਅਤੀਤ</string>
-  <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ :(</string>
+  <string name="error_network_error" fuzzy="true">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ :(</string>
   <string name="search_network_error">ਨੈੱਟਵਰਕ \'ਚ ਦੋਸ਼। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਵਾਸਤੇ ਟਕੋਰੋ।</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>

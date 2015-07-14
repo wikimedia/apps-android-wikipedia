@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Hva gjorde du da kræsjet skjedde?</string>
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="nav_item_history">Logg</string>
-  <string name="error_network_error">Det er ingen nettverksforbindelse :(</string>
+  <string name="error_network_error" fuzzy="true">Det er ingen nettverksforbindelse :(</string>
   <string name="search_network_error">Nettverksfeil. Trykk for å prøve igjen.</string>
   <string name="generic_page_error">Et problem oppstod under behandlingen av din forespørsel.</string>
   <string name="status_code_unavailable">Tjenerens statuskode er utilgjengelig.</string>

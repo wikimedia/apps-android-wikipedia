@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">クラッシュした際に何をしていましたか?</string>
   <string name="search_hint">ウィキペディアを検索</string>
   <string name="nav_item_history">履歴</string>
-  <string name="error_network_error">ネットワークに接続していません :(</string>
+  <string name="error_network_error" fuzzy="true">ネットワークに接続していません :(</string>
   <string name="search_network_error">ネットワークエラーです。タップしてやり直してください。</string>
   <string name="generic_page_error">リクエストの処理中に問題が発生しました。</string>
   <string name="status_code_unavailable">サーバーステータスコードが使用できません。</string>
@@ -277,4 +277,5 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="menu_open_link">リンクを開く</string>
   <string name="menu_open_in_new_tab">新しいタブで開く</string>
   <string name="menu_save_page_popup">後で保存</string>
+  <string name="error_unknown">不明なエラーが発生しました。</string>
 </resources>

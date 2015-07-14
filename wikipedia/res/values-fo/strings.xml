@@ -9,7 +9,7 @@
   <string name="acra_report_dialog_comment">Hvat gjørdi tú, tá ið krasjið fór fram?</string>
   <string name="search_hint">Leita í Wikipedia</string>
   <string name="nav_item_history">Søga</string>
-  <string name="error_network_error">Tað er onki internet samband :(</string>
+  <string name="error_network_error" fuzzy="true">Tað er onki internet samband :(</string>
   <string name="search_network_error">Netverksfeilur. Trýst fyri at royna aftur.</string>
   <string name="page_error_retry">Royn aftur</string>
   <string name="menu_clear_all_history">Rudda søguyvirlitið</string>

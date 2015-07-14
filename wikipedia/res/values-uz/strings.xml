@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Halokat sodir bo\'lganda siz nima qilayatgan edingiz?</string>
   <string name="search_hint">Vikipediadan izlash</string>
   <string name="nav_item_history">Tarix</string>
-  <string name="error_network_error">Tarmoq aloqasi mavjud emas :(</string>
+  <string name="error_network_error" fuzzy="true">Tarmoq aloqasi mavjud emas :(</string>
   <string name="search_network_error">Tarmoqdagi xatolik. Yana harakat qilish uchun ushbuni bosing.</string>
   <string name="page_error_retry">Qayta urinib koʻrish</string>
   <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalash</string>

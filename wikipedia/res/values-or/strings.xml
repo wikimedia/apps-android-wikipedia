@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">ତ୍ରୁଟି ହେଲା ବେଳେ ଆପଣ କଣ କରୁଥିଲେ?</string>
   <string name="search_hint">ଉଇକିପିଡ଼ିଆରେ ଖୋଜନ୍ତୁ</string>
   <string name="nav_item_history">ଇତିହାସ</string>
-  <string name="error_network_error">ନେଟୱର୍କ ସହ ସଯୋଗ ହୋଇ ନାହିଁ :(</string>
+  <string name="error_network_error" fuzzy="true">ନେଟୱର୍କ ସହ ସଯୋଗ ହୋଇ ନାହିଁ :(</string>
   <string name="search_network_error">ନେଟୱର୍କରେ ତ୍ରୁଟି । ଆଉଥରେ ଦେଖିବା ପାଇଁ ଟ୍ୟାପ କରନ୍ତୁ ।</string>
   <string name="page_error_retry">ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ</string>
   <string name="menu_clear_all_history">ଇତିହାସ ଲିଭାନ୍ତୁ</string>

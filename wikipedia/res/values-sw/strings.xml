@@ -8,7 +8,7 @@
   <string name="acra_report_dialog_title">Wikipedia imeanguka :(</string>
   <string name="search_hint">Tafuta Wikipedia</string>
   <string name="nav_item_history">Historia</string>
-  <string name="error_network_error">Hakuna muunganisho kwa mtandao :(</string>
+  <string name="error_network_error" fuzzy="true">Hakuna muunganisho kwa mtandao :(</string>
   <string name="search_network_error">Hitilafu ya mtandao. Guza kujaribu tena.</string>
   <string name="generic_page_error">Kulikuwa na shida kuhudumia ombi lako.</string>
   <string name="status_code_unavailable">Kodi ya hali ya seva haipatikani.</string>

@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">คุณกำลังทำอะไรอยู่เมื่อข้อผิดพลาดเกิดขึ้น?</string>
   <string name="search_hint">ค้นหาในวิกิพีเดีย</string>
   <string name="nav_item_history">ประวัติ</string>
-  <string name="error_network_error">ไม่มีการเชื่อมต่อเครือข่าย</string>
+  <string name="error_network_error" fuzzy="true">ไม่มีการเชื่อมต่อเครือข่าย</string>
   <string name="search_network_error">เครือข่ายมีปัญหา แตะเพื่อลองอีกครั้ง</string>
   <string name="generic_page_error">มีปัญหาในการรับคำขอของคุณ</string>
   <string name="status_code_unavailable">ไม่มีรหัสสถานะการทำงานของเซิร์ฟเวอร์</string>

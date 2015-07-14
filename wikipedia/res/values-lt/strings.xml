@@ -8,7 +8,7 @@
   <string name="acra_report_dialog_title">Vikipedija užlūžo :(</string>
   <string name="search_hint">Paieška Vikipedijoje</string>
   <string name="nav_item_history">Istorija</string>
-  <string name="error_network_error">Nėra tinklo ryšio :(</string>
+  <string name="error_network_error" fuzzy="true">Nėra tinklo ryšio :(</string>
   <string name="search_network_error">Tinklo klaida. Bakstelėkite bandyti dar kartą.</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
   <string name="menu_clear_all_history">Valyti istoriją</string>

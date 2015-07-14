@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Que fasiatz quand lo fracàs s’es produsit ?</string>
   <string name="search_hint">Recercar dins Wikipèdia</string>
   <string name="nav_item_history">Istoric</string>
-  <string name="error_network_error">Pas de connexion a la ret :(</string>
+  <string name="error_network_error" fuzzy="true">Pas de connexion a la ret :(</string>
   <string name="search_network_error">Error de ret. Quichatz per tornar ensajar.</string>
   <string name="page_error_retry">Ensajar tornarmai</string>
   <string name="menu_clear_all_history">Voidar l\'istoric</string>

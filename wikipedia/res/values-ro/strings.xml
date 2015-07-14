@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Ce făceați când a survenit blocarea?</string>
   <string name="search_hint">Căutare în Wikipedia</string>
   <string name="nav_item_history">Istoric</string>
-  <string name="error_network_error">Nu există nicio conexiune la rețea :(</string>
+  <string name="error_network_error" fuzzy="true">Nu există nicio conexiune la rețea :(</string>
   <string name="search_network_error">Eroare de rețea. Atingeți pentru a reîncerca.</string>
   <string name="generic_page_error">A apărut o problemă la procesarea cererii dumneavoastră.</string>
   <string name="status_code_unavailable">Codul stării serverului nu este disponibil.</string>

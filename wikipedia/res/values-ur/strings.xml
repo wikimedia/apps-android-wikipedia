@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">آپ کیا کررہے تھے جب ویکیپیڈیا کام کرنا رک گیا؟</string>
   <string name="search_hint">ویکیپیڈیا میں تلاش</string>
   <string name="nav_item_history">تاریخچہ</string>
-  <string name="error_network_error">کوئی نیٹورک کنکشن نہیں ہے :(</string>
+  <string name="error_network_error" fuzzy="true">کوئی نیٹورک کنکشن نہیں ہے :(</string>
   <string name="search_network_error">نیٹورک ایرر، دوبارہ کوشش کے لیے طق کریں</string>
   <string name="generic_page_error">آپ کی درخواست ہینڈل کرنے میں کچھ مسائل تھے</string>
   <string name="status_code_unavailable">سرور سٹیٹس کوڈ کی عدم دستیابی</string>

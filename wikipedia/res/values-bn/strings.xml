@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">অ্যাপটি অকার্যকর হওয়ার সময় আপনি কি করছিলেন?</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="nav_item_history">ইতিহাস</string>
-  <string name="error_network_error">এখানে কোন নেটওয়ার্ক সংযোগ নেই :(</string>
+  <string name="error_network_error">নেটওয়ার্ক সংযোগ স্থাপন করা যায়নি।</string>
   <string name="search_network_error">নেটওয়ার্ক ত্রুটি। পুনরায় চেষ্টা করুন।</string>
   <string name="generic_page_error">আপনার অনুরোধ পরিচালনার সময় একটি ত্রুটি ঘটেছে।</string>
   <string name="status_code_unavailable">সার্ভারের অবস্থা কোড অনুপলব্ধ।</string>
@@ -232,4 +232,8 @@
   <string name="expand_refs">বিস্তারিত জানতে ক্লিক করুন</string>
   <string name="snippet_share_preview_image_desc">চিত্র প্রাকদর্শন</string>
   <string name="cc_logo">ক্রিয়েটিভ কমন্স লাইসেন্স</string>
+  <string name="error_server_response">সার্ভার অনুরোধটি সম্পূর্ণ করতে পারেনি।</string>
+  <string name="error_unknown">একটি অজানা ত্রুটি দেখা দিয়েছে।</string>
+  <string name="format_error_server_message">বার্তা: \"%s\"</string>
+  <string name="format_error_server_code">কোড: \"%s\"</string>
 </resources>

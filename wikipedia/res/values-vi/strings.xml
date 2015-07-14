@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Bạn đang làm gì khi xảy ra sự cố?</string>
   <string name="search_hint">Tìm trong Wikipedia</string>
   <string name="nav_item_history">Lịch sử</string>
-  <string name="error_network_error">Không thể kết nối với mạng :(</string>
+  <string name="error_network_error" fuzzy="true">Không thể kết nối với mạng :(</string>
   <string name="search_network_error">Lỗi mạng. Chạm để thử lại.</string>
   <string name="generic_page_error">Có một vấn đề trong việc chuyển những yêu cầu của bạn.</string>
   <string name="status_code_unavailable">Mã trạng thái của server không có sẵn.</string>

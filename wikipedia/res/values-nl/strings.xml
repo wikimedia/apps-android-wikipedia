@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Wat was u aan het doen toen de crash optrad?</string>
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="nav_item_history">Geschiedenis</string>
-  <string name="error_network_error">Er is geen netwerkverbinding :(</string>
+  <string name="error_network_error" fuzzy="true">Er is geen netwerkverbinding :(</string>
   <string name="search_network_error">Netwerkfout. Klik om het opnieuw te proberen.</string>
   <string name="generic_page_error">Er is een probleem opgetreden tijdens het afhandelen van uw verzoek.</string>
   <string name="status_code_unavailable">Serverstatuscode niet beschikbaar.</string>
@@ -275,4 +275,7 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="menu_open_link">Koppeling openen</string>
   <string name="menu_open_in_new_tab">In nieuw tabblad openen</string>
   <string name="menu_save_page_popup">Opslaan voor later</string>
+  <string name="tool_tip_select_text">Druk en houd vast op een willekeurige plaats in de tekst om deze te kopiëren en te kunnen delen.</string>
+  <string name="tool_tip_share">Na het selecteren van een interessant feit, kunt u het delen op uw favoriete netwerken!</string>
+  <string name="page_view_in_browser">In browser bekijken</string>
 </resources>

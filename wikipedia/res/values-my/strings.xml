@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">ပိတ်သွားသော အချိန်တွင် ဘာလုပ်နေခဲ့သလဲ?</string>
   <string name="search_hint">၀ီကီးပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
-  <string name="error_network_error">လတ်တစ်လော အင်တာနက်ချိတ်ဆက်မှု မရှိ :(</string>
+  <string name="error_network_error" fuzzy="true">လတ်တစ်လော အင်တာနက်ချိတ်ဆက်မှု မရှိ :(</string>
   <string name="search_network_error">ချိတ်ဆက်မှု ပြသာနာ ရှိသည်။ ပြန်ကြိုးစားကြည့်ပါ ။</string>
   <string name="page_error_retry">ပြန်လုပ်</string>
   <string name="menu_clear_all_history">မှတ်တမ်းအားရှင်းမည်</string>

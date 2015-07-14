@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Pandr\'esewgh ow kul pan dhroglammas Wikipedya?</string>
   <string name="search_hint">Hwilas yn Wikipedia</string>
   <string name="nav_item_history">Istori</string>
-  <string name="error_network_error">Nyns eus junyans rosweyth :(</string>
+  <string name="error_network_error" fuzzy="true">Nyns eus junyans rosweyth :(</string>
   <string name="search_network_error">Gwall rosweyth. Assayewgh arta.</string>
   <string name="page_error_retry">Assaya arta</string>
   <string name="menu_clear_all_history">Klerhe an istori</string>

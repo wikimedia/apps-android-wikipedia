@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Hvad lavede du, da nedbruddet skete?</string>
   <string name="search_hint">Søg i Wikipedia</string>
   <string name="nav_item_history">Historik</string>
-  <string name="error_network_error">Der er ingen netværksforbindelse :(</string>
+  <string name="error_network_error" fuzzy="true">Der er ingen netværksforbindelse :(</string>
   <string name="search_network_error">Netværksfejl. Tryk for at prøve igen.</string>
   <string name="generic_page_error">Der opstod et problem under behandlingen af din forespørgsel.</string>
   <string name="status_code_unavailable">Serverens statuskode er ikke tilgængelig.</string>

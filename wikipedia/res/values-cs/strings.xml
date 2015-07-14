@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Co jste dělali, když došlo k pádu?</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="nav_item_history">Historie</string>
-  <string name="error_network_error">Není k dispozici připojení k Internetu :(</string>
+  <string name="error_network_error" fuzzy="true">Není k dispozici připojení k Internetu :(</string>
   <string name="search_network_error">Chyba sítě. Klepnutím to zkusíte znovu.</string>
   <string name="generic_page_error">Při vyřizování Vaší žádosti se vyskytl problém.</string>
   <string name="status_code_unavailable">Kód pro status serveru není k dispozici.</string>

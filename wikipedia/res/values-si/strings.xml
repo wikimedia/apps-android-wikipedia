@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">ඔබ බිඳ වැටීම සිදු වන විට කරමින් සිටියේ කුමක් ද?</string>
   <string name="search_hint">විකිපීඩියාව ගවේෂණය කරන්න</string>
   <string name="nav_item_history">ඉතිහාසය</string>
-  <string name="error_network_error">ජාල සම්බන්ධතාවයක් නොමැත :(</string>
+  <string name="error_network_error" fuzzy="true">ජාල සම්බන්ධතාවයක් නොමැත :(</string>
   <string name="search_network_error">ජාල දෝෂයකි. නැවත උත්සහ කිරීමට ටැප් කරන්න.</string>
   <string name="page_error_retry">නැවත උත්සහ කරන්න</string>
   <string name="menu_clear_all_history">ඉතිහාසය ඉවත් කරන්න</string>

@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">ಕ್ರಾಶ್ ಆದಾಗ ನೀವು ಏನು ಮಾಡುತ್ತಿದ್ದಿರಿ?</string>
   <string name="search_hint">ವಿಕಿಪೀಡಿಯ ಹುಡುಕು</string>
   <string name="nav_item_history">ಇತಿಹಾಸ</string>
-  <string name="error_network_error">ನೆಟವರ್ಕ್ ಸಂಪರ್ಕ ವಿಲ್ಲ :(</string>
+  <string name="error_network_error" fuzzy="true">ನೆಟವರ್ಕ್ ಸಂಪರ್ಕ ವಿಲ್ಲ :(</string>
   <string name="search_network_error">Network error. ತಟ್ಟಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
   <string name="generic_page_error">ನಿಮ್ಮ ಬೇಡಿಕೆಯನ್ನು ನಿಭಾಯಿಸಲು ಸಮಸ್ಯೆಯೊಂದಿದೆ.</string>
   <string name="status_code_unavailable">Server status code ಲಭ್ಯವಿಲ್ಲ.</string>
@@ -123,7 +123,7 @@
   <string name="zero_webpage_title">ವಿಕಿಪೀಡಿಯಾ ಜಿರೋ FAQ</string>
   <string name="zero_wikipedia_zero_heading">ವಿಕಿಪೀಡಿಯಾ ಜಿರೋ</string>
   <string name="zero_interstitial_continue">ಬಿಡು</string>
-  <string name="zero_interstitial_cancel" fuzzy="true">ರದ್ದುಮಾಡು</string>
+  <string name="zero_interstitial_cancel">ಇಲ್ಲಿ ಉಳಿಯಿರಿ</string>
   <string name="zero_learn_more_learn_more">ಇನ್ನೂ ಓದಿ</string>
   <string name="zero_learn_more_dismiss">ತೆಗೆದುಹಾಕು</string>
   <string name="nav_item_random">ಹೀಗೇ ಒಂದು ಪುಟ</string>
@@ -132,6 +132,9 @@
   <string name="activity_my_contributions_title">ನನ್ನ ಕಾಣಿಕೆಗಳು</string>
   <string name="preference_title_eventlogging_opt_in">ಉಪಯೋಗ ವರದಿಗಳನ್ನು ಕಳುಹಿಸಿ</string>
   <string name="history_search_list_hint">ಇತಿಹಾಸ  ಹುಡುಕಿ</string>
+  <string name="more_item_preferences">ಹೆಚ್ಚು</string>
+  <string name="more_activity_title">ಹೆಚ್ಚು</string>
+  <string name="terms_of_use_description">ಬಳಕೆಯನ್ನು ನಿಬಂಧನೆಗಳು</string>
   <string name="about_activity_title">ನಮ್ಮ ಬಗ್ಗೆ</string>
   <string name="user_blocked_from_editing_title">ನಿರ್ಬಂಧಿಸಿದ್ದರೆ</string>
   <string name="edit_next">ಮುಂದೆ</string>

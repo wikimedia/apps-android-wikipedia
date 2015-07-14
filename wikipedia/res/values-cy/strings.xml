@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Beth oeddech yn ei wneud pan fethodd Wicipedia?</string>
   <string name="search_hint">Chwilio Wicipedia</string>
   <string name="nav_item_history">Hanes</string>
-  <string name="error_network_error">Ni ellir cysylltu gyda\'r rhwydwaith :(</string>
+  <string name="error_network_error" fuzzy="true">Ni ellir cysylltu gyda\'r rhwydwaith :(</string>
   <string name="search_network_error">Gwall yn y rhwydwaith. Ceisiwch eto.</string>
   <string name="page_error_retry">Ailgeisiwch</string>
   <string name="menu_clear_all_history">Clirio\'r hanes</string>

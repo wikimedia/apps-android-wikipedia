@@ -8,7 +8,7 @@
   <string name="acra_report_dialog_title">Wîkîpediya nikisî :(</string>
   <string name="search_hint">Li Wîkîpediyayê bigere</string>
   <string name="nav_item_history">Dîrok</string>
-  <string name="error_network_error">Xeta înternetê tune ye :(</string>
+  <string name="error_network_error" fuzzy="true">Xeta înternetê tune ye :(</string>
   <string name="page_error_retry">Dîsa hewl bide</string>
   <string name="menu_clear_all_history">Dîrokê paqij bike</string>
   <string name="menu_clear_all_saved_pages">Rûpelên tomarkirî jê bibe</string>

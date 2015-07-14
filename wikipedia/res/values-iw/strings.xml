@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">מה עשית בזמן הקריסה?</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="nav_item_history">היסטוריה</string>
-  <string name="error_network_error">אין גישה לרשת :(</string>
+  <string name="error_network_error">לא הצלחנו ליצור חיבור רשת.</string>
   <string name="search_network_error">שגיאת רשת. יש ללחוץ כדי לנסות שוב.</string>
   <string name="generic_page_error">הייתה בעיה בטיפול בבקשה שלך.</string>
   <string name="status_code_unavailable">קוד המצב מהשרת אינו זמין.</string>
@@ -275,4 +275,13 @@
   <string name="menu_open_link">פתיחת קישור</string>
   <string name="menu_open_in_new_tab">פתיחת קישור בלשונית חדשה</string>
   <string name="menu_save_page_popup">שמירה לאחר־כך</string>
+  <string name="tool_tip_select_text">יש ללחוץ ולהחזיק בכל מקום בטקסט כדי להאיר אותו להעתקה ושיתוף.</string>
+  <string name="tool_tip_share">אחרי שהארת עובדה מעניינת זה הזמן לנסות לשתף אותה ברשתות האהובות עליך!</string>
+  <string name="page_view_in_browser">להציג בדפדפן</string>
+  <string name="tool_tip_toc_button">ר\' את תוכן העניינים בכל זמן באמצעות לחיצה על הכפתור הזה או החלקה מהקצה הימני של המסך.</string>
+  <string name="error_server_response">השרת לא יכול להשלים את הבקשה.</string>
+  <string name="error_response_malformed">התשובה מהשרת לא מעוצבת נכון.</string>
+  <string name="error_unknown">אירעה שגיאה בלתי־ידועה.</string>
+  <string name="format_error_server_message">הודעה: \"%s\"</string>
+  <string name="format_error_server_code">קוד: \"%s\"</string>
 </resources>

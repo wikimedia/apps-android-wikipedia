@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Cosa stavi facendo quando si è verificato l\'arresto anomalo?</string>
   <string name="search_hint">Cerca su Wikipedia</string>
   <string name="nav_item_history">Cronologia</string>
-  <string name="error_network_error">Non c\'è alcuna connessione di rete :(</string>
+  <string name="error_network_error" fuzzy="true">Non c\'è alcuna connessione di rete :(</string>
   <string name="search_network_error">Errore di rete. Toccare per provare di nuovo.</string>
   <string name="generic_page_error">C\'è stato un problema nella gestione della tua richiesta.</string>
   <string name="status_code_unavailable">Codice di stato del server non disponibile.</string>
