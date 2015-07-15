@@ -268,6 +268,7 @@ public class BottomContentHandler implements BottomContentInterface,
                             + "</a>");
             pageLastUpdatedText.setText(Html.fromHtml(lastUpdatedHtml));
             pageLastUpdatedText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
+            pageLastUpdatedText.setVisibility(View.VISIBLE);
         }
     }
 
