@@ -4,10 +4,14 @@ apply plugin: 'checkstyle'
 
 check.dependsOn 'checkstyle'
 
+checkstyle {
+    configFile = file('../config/checkstyle.xml')
+}
+
 task checkstyle(type: Checkstyle) {
-    configFile file("${project.rootDir}/config/checkstyle.xml")
     source 'src/main/java'
     source 'src/androidTest/java'
+    source 'src/test/java'
     include '**/*.java'
     exclude '**/gen/**'
 

@@ -33,12 +33,12 @@ public class WikipediaZeroTaskTest {
     }
 
     @Test
-    public void testOnFinish_ineligible() throws Exception {
+    public void testOnFinishIneligible() throws Exception {
         testOnFinish("{}", null);
     }
 
     @Test
-    public void testOnFinish_eligible() throws Exception {
+    public void testOnFinishEligible() throws Exception {
         testOnFinish(TestFileUtil.readRawFile("wikipedia_zero_task_test_eligible.json"),
                 new ZeroMessage("Overstay your stay!", "#FFFFFF", "#00FFFF"));
     }

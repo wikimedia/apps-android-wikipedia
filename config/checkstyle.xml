@@ -48,7 +48,7 @@
     </module>
 
     <module name="SuppressionFilter">
-        <property name="file" value="suppressions.xml"/>
+        <property name="file" value="config/suppressions.xml"/>
     </module>
 
     <!-- Filter out Checkstyle warnings that have been suppressed with the @SuppressWarnings annotation -->
