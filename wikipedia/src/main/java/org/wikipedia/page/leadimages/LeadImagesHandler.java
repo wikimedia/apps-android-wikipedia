@@ -448,6 +448,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                     + DISABLED_OFFSET_DP;
             imageContainer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                     (int) ((titleContainerHeight) * displayDensity)));
+            // reset the background on the lead image, in case we previously set it to white.
+            image1.setBackgroundColor(Color.TRANSPARENT);
             // hide the lead image
             image1.setVisibility(View.GONE);
             image1.setImageDrawable(null);
