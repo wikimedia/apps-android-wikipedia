@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
@@ -270,15 +271,16 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                             // no longer attached to activity!
                             return;
                         }
-                        if (caught instanceof EditingException) {
-                            handleEditingException((EditingException) caught);
-                            return;
+                        if (caught instanceof ApiException) {
+                            // This is a fairly standard editing exception. Handle it appropriately.
+                            ApiException e = (ApiException) caught;
+                            handleEditingException(e.getCode());
+                        } else {
+                            // If it's not an API exception, we have no idea what's wrong.
+                            // Show the user a generic error message.
+                            Log.w("Wikipedia", "Caught " + caught.toString());
+                            showRetryDialog();
                         }
-                        if (!(caught instanceof ApiException)) {
-                            throw new RuntimeException(caught);
-                        }
-                        Log.d("Wikipedia", "Caught " + caught.toString());
-                        showRetryDialog();
                     }
 
                     @Override
@@ -363,9 +365,13 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         retryDialog.show();
     }
 
-    private void handleEditingException(EditingException ee) {
-        if (app.getUserInfoStorage().isLoggedIn() && (ee.getCode().equals("badtoken")
-                || ee.getCode().equals("assertuserfailed"))) {
+    /**
+     * Processes API error codes encountered during editing, and handles them as appropriate.
+     * @param code The API error code to handle.
+     */
+    private void handleEditingException(@Nullable String code) {
+        if (app.getUserInfoStorage().isLoggedIn() && ("badtoken".equals(code)
+                || "assertuserfailed".equals(code))) {
             // looks like our session expired.
             app.getEditTokenStorage().clearAllTokens();
             app.getCookieManager().clearAllCookies();
@@ -383,7 +389,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                     }
                 }
             }.execute();
-        } else if (ee.getCode().equals("blocked") || ee.getCode().equals("wikimedia-globalblocking-ipblocked")) {
+        } else if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
             // User is blocked, locally or globally
             // If they were anon, canedit does not catch this, so we can't show them the locked pencil
             // If they not anon, this means they were blocked in the interim between opening the edit
@@ -421,7 +427,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         } else {
             // an unknown error occurred, so just dismiss the progress dialog and show a message.
             progressDialog.dismiss();
-            Crouton.makeText(this, String.format(getString(R.string.edit_save_unknown_error), ee.getCode()), Style.ALERT).show();
+            Crouton.makeText(this, String.format(getString(R.string.edit_save_unknown_error), code), Style.ALERT).show();
         }
     }
 
