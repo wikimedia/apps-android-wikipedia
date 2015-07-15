@@ -1,8 +1,8 @@
 package org.wikipedia.editing;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;

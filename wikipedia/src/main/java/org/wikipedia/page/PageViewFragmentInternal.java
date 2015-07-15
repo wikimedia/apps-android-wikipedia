@@ -42,7 +42,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.annotation.TargetApi;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -52,6 +51,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.text.Html;
@@ -1094,8 +1094,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             public void run() {
                 if (getActivity() != null) {
                     ToolTipUtil.showToolTip(getActivity(),
-                            targetView, R.layout.inflate_tool_tip_select_text,
-                            ToolTip.Position.CENTER);
+                                            targetView, R.layout.inflate_tool_tip_select_text,
+                                            ToolTip.Position.CENTER);
                     app.getOnboardingStateMachine().setSelectTextTutorial();
                 }
             }
