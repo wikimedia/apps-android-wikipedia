@@ -272,7 +272,6 @@ public class ToCHandler {
         ToolTipUtil.showToolTip(parentActivity,
                                 tocButton,
                                 R.layout.inflate_tool_tip_toc_button,
-                                parentActivity.getResources().getColor(R.color.tool_tip_default),
                                 ToolTip.Position.CENTER);
         WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
     }

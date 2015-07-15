@@ -12,6 +12,7 @@ import com.appenguin.onboarding.ToolTip;
 import com.appenguin.onboarding.ToolTipView;
 
 import org.wikipedia.R;
+import org.wikipedia.Utils;
 import org.wikipedia.activity.ActivityUtil;
 
 public final class ToolTipUtil {
@@ -34,6 +35,14 @@ public final class ToolTipUtil {
         ToolTipContainerView toolTip = buildToolTip(targetView, contentLayout, color, position);
 
         addToolTip(activity, toolTip);
+    }
+
+    public static void showToolTip(Activity activity,
+                                   View targetView,
+                                   @LayoutRes int contentLayout,
+                                   ToolTip.Position position) {
+        int color = activity.getResources().getColor(Utils.getThemedAttributeId(activity, R.attr.tool_tip_default_color));
+        showToolTip(activity, targetView, contentLayout, color, position);
     }
 
     /** @return True if dismissed, false if not present. */

@@ -45,7 +45,6 @@ import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -1095,8 +1094,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             public void run() {
                 if (getActivity() != null) {
                     ToolTipUtil.showToolTip(getActivity(),
-                            targetView, R.layout.inflate_tool_tip_select_text, Color.BLACK,
-                            ToolTip.Position.RIGHT);
+                            targetView, R.layout.inflate_tool_tip_select_text,
+                            ToolTip.Position.CENTER);
                     app.getOnboardingStateMachine().setSelectTextTutorial();
                 }
             }

@@ -35,6 +35,7 @@
         <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
         <item name="tab_shadow_color">@color/tab_shadow_dark</item>
         <item name="toc_button_color">@color/toc_button_dark</item>
+        <item name="tool_tip_default_color">@color/tool_tip_default_dark</item>
     </style>
 
     <style name="DropDownListView.WikiDark" parent="@style/Widget.AppCompat.ListView.DropDown">
