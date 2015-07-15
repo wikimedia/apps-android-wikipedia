@@ -30,8 +30,9 @@ import org.wikipedia.WikipediaApp;
     public static void setLong(@StringRes int id, long value) {
         setLong(getKey(id), value);
     }
-    public static int getInt(int keyResourceId, int defaultValue) {
-        return getInt(getKey(keyResourceId), defaultValue);
+
+    public static int getInt(@StringRes int id, int defaultValue) {
+        return getInt(getKey(id), defaultValue);
     }
 
     public static void setInt(@StringRes int id, int value) {
