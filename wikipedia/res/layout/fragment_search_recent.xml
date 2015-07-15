@@ -39,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/FloatingActionButton"
+        app:fabSize="mini"
         app:backgroundTint="@color/delete_action"
         app:elevation="4sp"
         app:borderWidth="0dp"

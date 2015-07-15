@@ -171,13 +171,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/FloatingActionButton"
-                android:color="@color/toc_button"
                 android:layout_gravity="bottom|end"
                 android:src="@drawable/ic_toc"
                 android:contentDescription="@string/menu_show_toc"
                 app:fabSize="mini"
                 app:elevation="4sp"
                 app:borderWidth="0dp"
+                app:backgroundTint="?attr/toc_button_color"
                 app:layout_anchor="@id/page_web_view"
                 app:layout_anchorGravity="bottom|right|end" />
 

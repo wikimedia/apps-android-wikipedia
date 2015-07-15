@@ -18,6 +18,7 @@
     <attr name="tab_item_selector" format="reference"/>
     <attr name="tab_shadow_drawable" format="reference"/>
     <attr name="tab_shadow_color" format="reference"/>
+    <attr name="toc_button_color" format="reference"/>
 
     <declare-styleable name="CabSearchView">
         <attr name="cabEnabled" format="boolean" />

@@ -27,7 +27,6 @@
     <color name="search_bar">#ff404040</color>
     <color name="search_text_hint">#ff808080</color>
     <color name="lead_gradient_start">#b8000000</color>
-    <color name="toc_button">#71eeb8</color>
     <color name="tool_tip_default">@android:color/black</color>
     <color name="delete_action">#955251</color>
 
@@ -50,6 +49,7 @@
     <color name="subtle_gray_light">#fff0f0f0</color>
     <color name="list_separator_light">#ffcccccc</color>
     <color name="tab_shadow_light">#ffc0c0c0</color>
+    <color name="toc_button_light">#ff009688</color>
 
     <color name="link_dark">#ff2B6FB2</color>
     <color name="button_dark">#ff2B6FB2</color>
@@ -64,6 +64,7 @@
     <color name="subtle_gray_dark">#ff141414</color>
     <color name="list_separator_dark">#ff606060</color>
     <color name="tab_shadow_dark">#ff505050</color>
+    <color name="toc_button_dark">#ff005850</color>
 
     <color name="list_item_highlight">#a033b5e5</color>
     <color name="list_item_selected">#d033b5e5</color>
