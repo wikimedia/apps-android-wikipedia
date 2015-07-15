@@ -15,7 +15,7 @@
     <dimen name="defaultListItemSize">72dp</dimen>
 
     <!-- Default height of tab item images, which governs the size of tabs themselves -->
-    <dimen name="tabImageSize">32dp</dimen>
+    <dimen name="tabImageSize">48dp</dimen>
 
     <!-- Default width of the lead image to be downloaded -->
     <dimen name="leadImageWidth">640dp</dimen>

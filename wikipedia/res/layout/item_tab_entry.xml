@@ -14,9 +14,9 @@
         >
         <ImageView
             android:id="@+id/tab_item_thumbnail"
-            android:layout_height="32dp"
-            android:layout_width="32dp"
-            android:layout_margin="8dp"
+            android:layout_height="@dimen/tabImageSize"
+            android:layout_width="@dimen/tabImageSize"
+            android:layout_margin="4dp"
             android:layout_gravity="center_vertical"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_pageimage_placeholder"
@@ -40,8 +40,8 @@
             android:id="@+id/tab_item_close"
             android:layout_height="@dimen/tabImageSize"
             android:layout_width="@dimen/tabImageSize"
-            android:layout_margin="8dp"
-            android:padding="4dp"
+            android:layout_margin="4dp"
+            android:padding="12dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_close_gray"
             android:contentDescription="@string/button_close_tab"
