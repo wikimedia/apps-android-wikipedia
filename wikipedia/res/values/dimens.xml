@@ -34,6 +34,10 @@
     <!-- Tool tips -->
     <dimen name="tool_tip_max_width">250dp</dimen>
 
+    <!-- Share-a-fact image preview -->
+    <dimen name="share_image_width">320dp</dimen>
+    <dimen name="share_image_height">180dp</dimen>
+
     <!-- Floating action button -->
     <dimen name="floating_action_button_margin_left">0dp</dimen>
     <dimen name="floating_action_button_margin_top">0dp</dimen>
