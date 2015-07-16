@@ -4,9 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 
 public class RandomHandler {
@@ -67,8 +65,8 @@ public class RandomHandler {
                         if (title != null) {
                             randomListener.onRandomPageReceived(title);
                         } else {
-                            // Rather than close the menubar and lose the current page...
-                            Toast.makeText(app, app.getString(R.string.error_network_error), Toast.LENGTH_LONG).show();
+                            // Pass null page to the listener, so it shows a network error.
+                            randomListener.onRandomPageReceived(null);
                         }
                     }
 
@@ -80,7 +78,7 @@ public class RandomHandler {
                         setState(false);
                         Log.d("Wikipedia", "Random article ID retrieval failed");
                         curRandomArticleIdTask = null;
-                        Toast.makeText(app, app.getString(R.string.error_network_error), Toast.LENGTH_LONG).show();
+                        randomListener.onRandomPageReceived(null);
                     }
                 };
                 if (curRandomArticleIdTask != null) {

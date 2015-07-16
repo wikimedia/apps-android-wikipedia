@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -85,12 +86,17 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                 getView().findViewById(R.id.nav_item_random_progressbar),
                 new RandomHandler.RandomListener() {
                     @Override
-                    public void onRandomPageReceived(PageTitle title) {
+                    public void onRandomPageReceived(@Nullable PageTitle title) {
                         if (!isAdded()) {
                             return;
                         }
-                        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
-                        ((PageActivity)getActivity()).displayNewPage(title, historyEntry, true);
+                        if (title == null) {
+                            // There was an error fetching the random page. Show a network error.
+                            ((PageActivity) getActivity()).showNetworkError();
+                        } else {
+                            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
+                            ((PageActivity) getActivity()).displayNewPage(title, historyEntry, true);
+                        }
                     }
                 });
     }
