@@ -6,6 +6,7 @@ import org.wikipedia.search.FullSearchArticlesTask;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.wikipedia.search.SearchResults;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,10 +43,15 @@ public class SuggestionsTask extends FullSearchArticlesTask {
      * @return filtered results
      */
     public SearchResults filterResults(SearchResults searchResults) {
+        final boolean verbose = WikipediaApp.getInstance().isDevRelease();
         List<PageTitle> filteredResults = new ArrayList<>();
         List<PageTitle> results = searchResults.getPageTitles();
         for (int i = 0, count = 0; i < results.size() && count < maxItems; i++) {
             final PageTitle res = results.get(i);
+            if (verbose) {
+                L.v(res.getPrefixedText());
+            }
+
             if (!title.equalsIgnoreCase(res.getPrefixedText())
                     && (!requireThumbnail || res.getThumbUrl() != null)
                     && !(res.isMainPage() || res.isDisambiguationPage())) {
