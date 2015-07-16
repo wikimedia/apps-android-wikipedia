@@ -315,8 +315,7 @@ public class EditPreviewFragment extends Fragment {
                 }
                 progressDialog.dismiss();
 
-                if (!(caught instanceof EditingException
-                        || caught instanceof ApiException)) {
+                if (!(caught instanceof ApiException)) {
                     throw new RuntimeException(caught);
                 }
                 Log.d("Wikipedia", "Caught " + caught.toString());

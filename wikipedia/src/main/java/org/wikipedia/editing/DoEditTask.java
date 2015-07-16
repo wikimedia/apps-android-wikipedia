@@ -57,11 +57,6 @@ public class DoEditTask extends ApiTask<EditingResult> {
     @Override
     public EditingResult processResult(ApiResult result) throws Throwable {
         JSONObject resultJSON = result.asObject();
-
-        if (resultJSON.has("error")) {
-            JSONObject errorJSON = resultJSON.optJSONObject("error");
-            throw new EditingException(errorJSON.optString("code"), errorJSON.optString("info"));
-        }
         JSONObject edit = resultJSON.optJSONObject("edit");
         String status = edit.optString("result");
         if (status.equals("Success")) {
