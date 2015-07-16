@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.IntegerRes;
+import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.view.ActionMode;
 import android.util.Log;
@@ -127,30 +128,26 @@ public class ShareHandler {
         (new ImageLicenseFetchTask(WikipediaApp.getInstance().getAPIForSite(title.getSite()),
                     title.getSite(),
                     new PageTitle("File:" + curPageFragment.getPage().getPageProperties().getLeadImageName(), title.getSite())) {
+
             @Override
-            public void onFinish(Map<PageTitle, ImageLicense> result) {
-                if (result.size() > 0) {
-                    ImageLicense leadImageLicense = new ImageLicense("", "", "");
-                    if (result.values().toArray()[0] != null) {
-                        leadImageLicense = (ImageLicense) result.values().toArray()[0];
-                    }
+            public void onFinish(@NonNull Map<PageTitle, ImageLicense> result) {
+                ImageLicense leadImageLicense = (ImageLicense) result.values().toArray()[0];
 
-                    final SnippetImage snippetImage = new SnippetImage(activity,
-                            curPageFragment.getLeadImageBitmap(),
-                            curPageFragment.getLeadImageFocusY(),
-                            title.getDisplayText(),
-                            curPageFragment.getPage().isMainPage() ? "" : title.getDescription(),
-                            selectedText,
-                            leadImageLicense);
+                final SnippetImage snippetImage = new SnippetImage(activity,
+                        curPageFragment.getLeadImageBitmap(),
+                        curPageFragment.getLeadImageFocusY(),
+                        title.getDisplayText(),
+                        curPageFragment.getPage().isMainPage() ? "" : title.getDescription(),
+                        selectedText,
+                        leadImageLicense);
 
-                    final Bitmap snippetBitmap = snippetImage.drawBitmap();
-                    if (shareDialog != null) {
-                        shareDialog.dismiss();
-                    }
-                    shareDialog = new PreviewDialog(activity, snippetBitmap, title.getDisplayText(), introText,
-                            selectedText, funnel);
-                    shareDialog.show();
+                final Bitmap snippetBitmap = snippetImage.drawBitmap();
+                if (shareDialog != null) {
+                    shareDialog.dismiss();
                 }
+                shareDialog = new PreviewDialog(activity, snippetBitmap, title.getDisplayText(), introText,
+                        selectedText, funnel);
+                shareDialog.show();
             }
 
             @Override

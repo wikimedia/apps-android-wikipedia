@@ -65,4 +65,8 @@ public class ImageLicense {
         }
         return R.drawable.ic_license_cite;
     }
+
+    public boolean hasLicenseInfo() {
+        return !(license.isEmpty() && licenseShortName.isEmpty() && licenseUrl.isEmpty());
+    }
 }
