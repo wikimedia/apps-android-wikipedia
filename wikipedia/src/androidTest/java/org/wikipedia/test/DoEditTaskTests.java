@@ -9,7 +9,6 @@ import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.editing.DoEditTask;
 import org.wikipedia.editing.EditTokenStorage;
-import org.wikipedia.editing.EditingException;
 import org.wikipedia.editing.EditingResult;
 import org.wikipedia.editing.FetchSectionWikitextTask;
 import org.wikipedia.login.LoginResult;
@@ -65,9 +64,9 @@ public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
                     public void onCatch(Throwable caught) {
                         // borrowed mainly from EditSectionActivity:
                         final WikipediaApp app = WikipediaApp.getInstance();
-                        if (caught instanceof EditingException) {
-                            EditingException ee = (EditingException) caught;
-                            if (app.getUserInfoStorage().isLoggedIn() && ee.getCode().equals("badtoken")) {
+                        if (caught instanceof ApiException) {
+                            ApiException ee = (ApiException) caught;
+                            if (app.getUserInfoStorage().isLoggedIn() && "badtoken".equals(ee.getCode())) {
                                 // looks like our session expired.
                                 app.getEditTokenStorage().clearAllTokens();
                                 app.getCookieManager().clearAllCookies();
@@ -84,10 +83,8 @@ public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
                                         }
                                     }
                                 }.execute();
-                                return;
                             }
-                        }
-                        if (!(caught instanceof ApiException)) {
+                        } else {
                             throw new RuntimeException(caught);
                         }
                     }
