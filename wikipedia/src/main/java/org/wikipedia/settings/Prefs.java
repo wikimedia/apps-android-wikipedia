@@ -215,14 +215,21 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_eventlogging_opt_in, true);
     }
 
-    public static boolean isExperimentalPageLoadEnabled() {
-        return getBoolean(R.string.preference_key_exp_page_load, false);
+    public static boolean isExperimentalHtmlPageLoadEnabled() {
+        return getBoolean(R.string.preference_key_exp_html_page_load, false);
     }
 
-    public static void setExperimentalPageLoadEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_exp_page_load, enabled);
+    public static void setExperimentalHtmlPageLoadEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_exp_html_page_load, enabled);
     }
 
+    public static boolean isExperimentalJsonPageLoadEnabled() {
+        return getBoolean(R.string.preference_key_exp_json_page_load, false);
+    }
+
+    public static void setExperimentalJsonPageLoadEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_exp_json_page_load, enabled);
+    }
 
     @NonNull
     public static long getLastRunTime(@NonNull String task) {

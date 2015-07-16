@@ -21,7 +21,8 @@
     <string name="preference_key_feature_select_text_and_share_tutorials_enabled">featureSelectTextAndShareTutorialsEnabled</string>
     <string name="preference_key_toc_tutorial_enabled">tocTutorialEnabled</string>
     <string name="preference_key_show_images">showImages</string>
-    <string name="preference_key_exp_page_load">expPageLoad</string>
+    <string name="preference_key_exp_html_page_load">expHtmlPageLoad</string>
+    <string name="preference_key_exp_json_page_load">expJsonPageLoad</string>
     <string name="preference_key_daily_event_time_task_name">dailyEventTask</string>
     <string name="preference_key_login_username">username</string>
     <string name="preference_key_login_password">password</string>
