@@ -228,7 +228,7 @@
   <string name="menu_show_tabs">Pokaż karty</string>
   <string name="button_close_tab">Zamknij kartę</string>
   <string name="menu_open_in_new_tab">Otwórz w nowej karcie</string>
-  <string name="page_view_in_browser">Otwórz w przeglądarce</string>
+  <string name="page_view_in_browser" fuzzy="true">Otwórz w przeglądarce</string>
   <string name="error_server_response">Serwer nie mógł zakończyć żądania.</string>
   <string name="error_response_malformed">Odpowiedzi z serwera nie została prawidłowo sformatowana.</string>
   <string name="error_unknown">Wystąpił nieznany błąd.</string>

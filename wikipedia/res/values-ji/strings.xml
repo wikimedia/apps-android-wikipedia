@@ -8,7 +8,7 @@
   <string name="acra_report_dialog_title">וויקיפעדיע איז איינגעפאלן :(</string>
   <string name="search_hint">זוכן וויקיפעדיע</string>
   <string name="nav_item_history">היסטאריע</string>
-  <string name="error_network_error" fuzzy="true">נישט פאראן קיין נעצווערק פארבינדונג :(</string>
+  <string name="error_network_error">די נעצווערק פארבינדונג קען מען נישט צושטעלן.</string>
   <string name="search_network_error">נעצווערק פֿעלער. קלאַפט אן צו פרובירן נאכאַמאָל.</string>
   <string name="generic_page_error">ס\'איז געווען א פראבלעם מיט באהאנדלען אײַער בקשה.</string>
   <string name="status_code_unavailable">נישט פאראן סארווערס סטאטוס־קאד</string>
@@ -196,4 +196,5 @@
   <string name="cc_logo">קריעטיוו־קאמאנס ליצענץ</string>
   <string name="gallery_uploader_unknown">ארויפלאדיר אומבאקאנט</string>
   <string name="edit_save_unknown_error">נישט געווען מעגלעך אויפצוהיטן אייער רעדאקטירונג: %s</string>
+  <string name="format_error_server_code">קאד: \"%s\"</string>
 </resources>

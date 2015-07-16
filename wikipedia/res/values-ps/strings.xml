@@ -145,5 +145,5 @@
   <string name="snippet_share_preview_image_desc">انځور مخليدنه</string>
   <string name="cc_logo">کريټيف کامنز منښتليک</string>
   <string name="captcha_image">کېپچا انځور</string>
-  <string name="page_view_in_browser">په کتنمل کې کتل</string>
+  <string name="page_view_in_browser" fuzzy="true">په کتنمل کې کتل</string>
 </resources>

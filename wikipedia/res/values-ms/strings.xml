@@ -275,5 +275,5 @@ Syarat penggunaan: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="menu_save_page_popup">Simpan untuk kemudian</string>
   <string name="tool_tip_select_text">Tekan dan tahan di mana-mana saja pada teks untuk menyorotnya untuk disalin dan disebarkan.</string>
   <string name="tool_tip_share">Setelah menyoroti fakta menarik, cuba anda sebarkannya dalam rangkaian kegemaran anda.</string>
-  <string name="page_view_in_browser">Paparkan dalam pelayar</string>
+  <string name="page_view_in_browser" fuzzy="true">Paparkan dalam pelayar</string>
 </resources>

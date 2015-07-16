@@ -152,4 +152,6 @@
   <string name="read_more_section">ಇನ್ನೂ ಓದಿ</string>
   <string name="gallery_menu_share">ಹಂಚು</string>
   <string name="menu_show_tabs">ಮೇಜನ್ನು ತೋರಿಸಿ</string>
+  <string name="format_error_server_message">ಸಂದೇಶ: \"%s\"</string>
+  <string name="format_error_server_code">ಕೋಡ್: \"%s\"</string>
 </resources>

@@ -115,5 +115,6 @@
   <string name="menu_gallery_visit_page">Файлан агӀонг гӀо</string>
   <string name="gallery_error_draw_failed">Сурт гучудаккха цаделира</string>
   <string name="license_title">Лицензин йоза %s библиотекина</string>
+  <string name="gallery_error_video_failed">Видео йолаялита цаелира.</string>
   <string name="menu_open_link">Хьажорг схьаелла</string>
 </resources>

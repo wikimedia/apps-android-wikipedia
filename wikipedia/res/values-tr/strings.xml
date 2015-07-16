@@ -273,7 +273,7 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="menu_open_link">Bağlantıyı aç</string>
   <string name="menu_open_in_new_tab">Yeni sekmede aç</string>
   <string name="menu_save_page_popup">Sonrası için kaydet</string>
-  <string name="page_view_in_browser">Tarayıcıda görüntüle</string>
+  <string name="page_view_in_browser" fuzzy="true">Tarayıcıda görüntüle</string>
   <string name="tool_tip_toc_button">İçindekiler tablosunu, bu düğmeye dokunarak veya ekranın sağ kenarından kaydırarak istediğiniz an görebilirsiniz.</string>
   <string name="error_server_response">Sunucu isteği tamamlayamadı.</string>
   <string name="error_response_malformed">Sunucudan gelen yanıt doğru biçimlendirilmişti.</string>

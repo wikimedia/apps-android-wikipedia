@@ -275,7 +275,7 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="menu_open_link">Abrir ligação</string>
   <string name="menu_open_in_new_tab">Abrir num novo separador</string>
   <string name="menu_save_page_popup">Guardar para mais tarde</string>
-  <string name="page_view_in_browser">Abrir no navegador</string>
+  <string name="page_view_in_browser" fuzzy="true">Abrir no navegador</string>
   <string name="tool_tip_toc_button">Consulte a tabela de conteúdos a qualquer momento ao tocar neste botão, ou deslizando com o dedo a partir do canto superior direito do ecrã.</string>
   <string name="error_server_response">O servidor não conseguiu concluir o pedido.</string>
   <string name="error_unknown">Ocorreu um erro desconhecido.</string>

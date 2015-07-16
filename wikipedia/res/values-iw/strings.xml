@@ -277,7 +277,7 @@
   <string name="menu_save_page_popup">שמירה לאחר־כך</string>
   <string name="tool_tip_select_text">יש ללחוץ ולהחזיק בכל מקום בטקסט כדי להאיר אותו להעתקה ושיתוף.</string>
   <string name="tool_tip_share">אחרי שהארת עובדה מעניינת זה הזמן לנסות לשתף אותה ברשתות האהובות עליך!</string>
-  <string name="page_view_in_browser">להציג בדפדפן</string>
+  <string name="page_view_in_browser" fuzzy="true">להציג בדפדפן</string>
   <string name="tool_tip_toc_button">ר\' את תוכן העניינים בכל זמן באמצעות לחיצה על הכפתור הזה או החלקה מהקצה הימני של המסך.</string>
   <string name="error_server_response">השרת לא יכול להשלים את הבקשה.</string>
   <string name="error_response_malformed">התשובה מהשרת לא מעוצבת נכון.</string>

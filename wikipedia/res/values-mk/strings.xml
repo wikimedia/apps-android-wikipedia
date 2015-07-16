@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Што правевте кога се случи урнувањето?</string>
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="nav_item_history">Историја</string>
-  <string name="error_network_error" fuzzy="true">Не можам да се поврзам со мрежата :(</string>
+  <string name="error_network_error">Не можам да се поврзам со мрежата.</string>
   <string name="search_network_error">Мрежна грешка. Допрете за да се обиде повторно.</string>
   <string name="generic_page_error">Се јави проблем при работа со вашето барање.</string>
   <string name="status_code_unavailable">Кодот за статусот на опслужувачот е недостапен.</string>
@@ -277,5 +277,11 @@
   <string name="menu_save_page_popup">Зачувај за подоцна</string>
   <string name="tool_tip_select_text">Стиснете и држете било каде во текстот за да го подвлечете за копирање и споделување.</string>
   <string name="tool_tip_share">Откако ќе го подвлечете интересниот факт, споделете го на вашите омилени мрежи!</string>
-  <string name="page_view_in_browser">Погледај во прелистувач</string>
+  <string name="page_view_in_browser" fuzzy="true">Погледај во прелистувач</string>
+  <string name="tool_tip_toc_button">Прегледот на содржини можете да го видите во секое време, допирајќи го копчето или повлекувајќи од десниот раб на екранов.</string>
+  <string name="error_server_response">Опслужувачот не можеше да го исполни барањето.</string>
+  <string name="error_response_malformed">Одѕивот од опслужувачот не е исправно форматиран.</string>
+  <string name="error_unknown">Се појави непозната грешка.</string>
+  <string name="format_error_server_message">Порака: „%s“</string>
+  <string name="format_error_server_code">Код: „%s“</string>
 </resources>

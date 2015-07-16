@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Apa yang Anda lakukan ketika terjadi kesalahan?</string>
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="nav_item_history">Riwayat</string>
-  <string name="error_network_error" fuzzy="true">Tidak ada sambungan jaringan :(</string>
+  <string name="error_network_error">Sambungan jaringan tidak dapat ditentukan.</string>
   <string name="search_network_error">Kesalahan jaringan. Ketuk untuk mencoba lagi.</string>
   <string name="generic_page_error">Terjadi masalah saat menangani permintaan Anda.</string>
   <string name="status_code_unavailable">Kode status peladen tidak tersedia.</string>
@@ -277,5 +277,11 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="menu_save_page_popup">Simpan untuk nanti</string>
   <string name="tool_tip_select_text">Tekan dan tahan di mana saja di teks untuk menyorotnya untuk salin dan berbagi.</string>
   <string name="tool_tip_share">Setelah menyorot sebuah fakta yang menarik, coba membagikannya di jaringan kesukaan Anda!</string>
-  <string name="page_view_in_browser">Lihat di peramban</string>
+  <string name="page_view_in_browser" fuzzy="true">Lihat di peramban</string>
+  <string name="tool_tip_toc_button">Lihat daftar isi kapan saja dengan menekan tombol ini, atau geser dari tepi kanan layar.</string>
+  <string name="error_server_response">Peladen tidak dapat menyelesaikan permintaan.</string>
+  <string name="error_response_malformed">Respon dari server tidak diformat dengan benar.</string>
+  <string name="error_unknown">Terjadi sebuah kesalahan yang tidak diketahui.</string>
+  <string name="format_error_server_message">Pesan: \"%s\"</string>
+  <string name="format_error_server_code">Kode: \"%s\"</string>
 </resources>

@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Бузулуу болгондо эмне кылып жаттыңыз эле?</string>
   <string name="search_hint">Уикипедиядан издөө</string>
   <string name="nav_item_history">Тарых</string>
-  <string name="error_network_error" fuzzy="true">Тармакка туташуу жокко эсе :(</string>
+  <string name="error_network_error">Тармакка туташуу туруктуу эмес.</string>
   <string name="search_network_error">Тармак катасы. Кайра аракет кылуу үчүн дагы басыңыз.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="menu_clear_all_history">Тарыхты тазалоо</string>
