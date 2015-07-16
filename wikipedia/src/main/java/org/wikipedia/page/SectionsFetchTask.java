@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import android.content.Context;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.mediawiki.api.json.Api;
@@ -14,18 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SectionsFetchTask extends ApiTask<List<Section>> {
+    private final WikipediaApp app;
     private final PageTitle title;
     private final String sectionsRequested;
-    private final WikipediaApp app;
 
-    public SectionsFetchTask(Context context, PageTitle title, String sectionsRequested) {
+    public SectionsFetchTask(WikipediaApp app, PageTitle title, String sectionsRequested) {
         super(
                 SINGLE_THREAD,
-                ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
+                app.getAPIForSite(title.getSite())
         );
+        this.app = app;
         this.title = title;
         this.sectionsRequested = sectionsRequested;
-        this.app = (WikipediaApp)context.getApplicationContext();
     }
 
     @Override

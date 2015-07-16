@@ -74,7 +74,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
      * Sequence number to maintain synchronization when loading page content asynchronously
      * between the Java and Javascript layers, as well as between async tasks and the UI thread.
      */
-    private int pageSequenceNum;
+    private int currentSequenceNum;
 
     /**
      * The y-offset position to which the page will be scrolled once it's fully loaded
@@ -132,7 +132,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     public void onActivityCreated(Bundle savedInstanceState) {
         setupSpecificMessageHandlers();
 
-        pageSequenceNum = 0;
+        currentSequenceNum = 0;
 
         if (savedInstanceState != null) {
             ArrayList<PageBackStackItem> tmpBackStack
@@ -156,7 +156,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     return;
                 }
                 try {
-                    if (messagePayload.getInt("sequence") != pageSequenceNum) {
+                    if (messagePayload.getInt("sequence") != currentSequenceNum) {
                         return;
                     }
                     stagedScrollY = messagePayload.getInt("stagedScrollY");
@@ -173,7 +173,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     return;
                 }
                 try {
-                    if (messagePayload.getInt("sequence") != pageSequenceNum) {
+                    if (messagePayload.getInt("sequence") != currentSequenceNum) {
                         return;
                     }
                     displayNonLeadSection(messagePayload.getInt("index"));
@@ -189,7 +189,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     return;
                 }
                 try {
-                    if (messagePayload.getInt("sequence") != pageSequenceNum) {
+                    if (messagePayload.getInt("sequence") != currentSequenceNum) {
                         return;
                     }
                 } catch (JSONException e) {
@@ -242,7 +242,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
         // increment our sequence number, so that any async tasks that depend on the sequence
         // will invalidate themselves upon completion.
-        pageSequenceNum++;
+        currentSequenceNum++;
 
         // kick off an event to the WebView that will cause it to clear its contents,
         // and then report back to us when the clearing is complete, so that we can synchronize
@@ -252,7 +252,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         try {
             JSONObject wrapper = new JSONObject();
             // whatever we pass to this event will be passed back to us by the WebView!
-            wrapper.put("sequence", pageSequenceNum);
+            wrapper.put("sequence", currentSequenceNum);
             wrapper.put("tryFromCache", tryFromCache);
             wrapper.put("stagedScrollY", stagedScrollY);
             bridge.sendMessage("beginNewPage", wrapper);
@@ -272,10 +272,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 leadImagesHandler.hide();
                 bottomContentHandler.hide();
                 activity.getSearchBarHideHandler().setFadeEnabled(false);
-                new LeadSectionFetchTask(pageSequenceNum).execute();
+                new LeadSectionFetchTask(currentSequenceNum).execute();
                 break;
             case STATE_INITIAL_FETCH:
-                new RestSectionsFetchTask(pageSequenceNum).execute();
+                new RestSectionsFetchTask(currentSequenceNum).execute();
                 break;
             case STATE_COMPLETE_FETCH:
                 editHandler.setPage(model.getPage());
@@ -366,45 +366,49 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             loadSavedPage();
         } else if (tryFromCache) {
             //is this page in cache??
-            app.getPageCache()
-                    .get(model.getTitleOriginal(), pageSequenceNum, new PageCache.CacheGetListener() {
-                        @Override
-                        public void onGetComplete(Page page, int sequence) {
-                            if (sequence != pageSequenceNum) {
-                                return;
-                            }
-                            if (page != null) {
-                                Log.d(TAG, "Using page from cache: " + model.getTitleOriginal().getDisplayText());
-                                model.setPage(page);
-                                model.setTitle(page.getTitle());
-                                // load the current title's thumbnail from sqlite
-                                updateThumbnail(PageImage.PERSISTENCE_HELPER.getImageUrlForTitle(app, model.getTitle()));
-                                // Save history entry...
-                                new SaveHistoryTask(model.getCurEntry(), app).execute();
-                                // don't re-cache the page after loading.
-                                cacheOnComplete = false;
-                                state = STATE_COMPLETE_FETCH;
-                                setState(state);
-                                performActionForState(state);
-                            } else {
-                                // page isn't in cache, so fetch it from the network...
-                                loadPageFromNetwork();
-                            }
-                        }
-
-                        @Override
-                        public void onGetError(Throwable e, int sequence) {
-                            Log.e(TAG, "Failed to get page from cache.", e);
-                            if (sequence != pageSequenceNum) {
-                                return;
-                            }
-                            // something failed when loading it from cache, so fetch it from network...
-                            loadPageFromNetwork();
-                        }
-                    });
+            loadPageFromCache();
         } else {
             loadPageFromNetwork();
         }
+    }
+
+    private void loadPageFromCache() {
+        app.getPageCache()
+                .get(model.getTitleOriginal(), currentSequenceNum, new PageCache.CacheGetListener() {
+                    @Override
+                    public void onGetComplete(Page page, int sequence) {
+                        if (sequence != currentSequenceNum) {
+                            return;
+                        }
+                        if (page != null) {
+                            Log.d(TAG, "Using page from cache: " + model.getTitleOriginal().getDisplayText());
+                            model.setPage(page);
+                            model.setTitle(page.getTitle());
+                            // load the current title's thumbnail from sqlite
+                            updateThumbnail(PageImage.PERSISTENCE_HELPER.getImageUrlForTitle(app, model.getTitle()));
+                            // Save history entry...
+                            new SaveHistoryTask(model.getCurEntry(), app).execute();
+                            // don't re-cache the page after loading.
+                            cacheOnComplete = false;
+                            state = STATE_COMPLETE_FETCH;
+                            setState(state);
+                            performActionForState(state);
+                        } else {
+                            // page isn't in cache, so fetch it from the network...
+                            loadPageFromNetwork();
+                        }
+                    }
+
+                    @Override
+                    public void onGetError(Throwable e, int sequence) {
+                        Log.e(TAG, "Failed to get page from cache.", e);
+                        if (sequence != currentSequenceNum) {
+                            return;
+                        }
+                        // something failed when loading it from cache, so fetch it from network...
+                        loadPageFromNetwork();
+                    }
+                });
     }
 
     private void loadPageFromNetwork() {
@@ -536,7 +540,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             bridge.sendMessage("setMargins", marginPayload);
 
             JSONObject leadSectionPayload = new JSONObject();
-            leadSectionPayload.put("sequence", pageSequenceNum);
+            leadSectionPayload.put("sequence", currentSequenceNum);
             leadSectionPayload.put("title", page.getDisplayTitle());
             leadSectionPayload.put("section", page.getSections().get(0).toJSON());
             leadSectionPayload.put("string_page_similar_titles", activity.getString(R.string.page_similar_titles));
@@ -583,7 +587,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         try {
             final Page page = model.getPage();
             JSONObject wrapper = new JSONObject();
-            wrapper.put("sequence", pageSequenceNum);
+            wrapper.put("sequence", currentSequenceNum);
             if (index < page.getSections().size()) {
                 JSONObject section = page.getSections().get(index).toJSON();
                 wrapper.put("section", section);
@@ -610,9 +614,12 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
 
     private class LeadSectionFetchTask extends SectionsFetchTask {
-        public LeadSectionFetchTask(int sequenceNum) {
-            super(activity, model.getTitle(), "0");
-            this.sequenceNum = sequenceNum;
+        private final int startSequenceNum;
+        private PageProperties pageProperties;
+
+        public LeadSectionFetchTask(int startSequenceNum) {
+            super(app, model.getTitle(), "0");
+            this.startSequenceNum = startSequenceNum;
         }
 
         @Override
@@ -621,19 +628,16 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             builder.param("prop", builder.getParams().get("prop")
                     + "|thumb|image|id|revision|description|"
                     + Page.API_REQUEST_PROPS);
-            Resources res = activity.getResources();
+            Resources res = app.getResources();
             builder.param("thumbsize",
                     Integer.toString((int) (res.getDimension(R.dimen.leadImageWidth)
                             / res.getDisplayMetrics().density)));
             return builder;
         }
 
-        private final int sequenceNum;
-        private PageProperties pageProperties;
-
         @Override
         public List<Section> processResult(ApiResult result) throws Throwable {
-            if (sequenceNum != pageSequenceNum) {
+            if (startSequenceNum != currentSequenceNum) {
                 return super.processResult(result);
             }
             JSONObject mobileView = result.asObject().optJSONObject("mobileview");
@@ -646,7 +650,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
         @Override
         public void onFinish(List<Section> result) {
-            if (!fragment.isAdded() || sequenceNum != pageSequenceNum) {
+            if (!fragment.isAdded() || startSequenceNum != currentSequenceNum) {
                 return;
             }
 
@@ -697,21 +701,21 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
         @Override
         public void onCatch(Throwable caught) {
-            commonSectionFetchOnCatch(caught, sequenceNum);
+            commonSectionFetchOnCatch(caught, startSequenceNum);
         }
     }
 
     private class RestSectionsFetchTask extends SectionsFetchTask {
-        private final int sequenceNum;
+        private final int startSequenceNum;
 
-        public RestSectionsFetchTask(int sequenceNum) {
-            super(activity, model.getTitle(), "1-");
-            this.sequenceNum = sequenceNum;
+        public RestSectionsFetchTask(int startSequenceNum) {
+            super(app, model.getTitle(), "1-");
+            this.startSequenceNum = startSequenceNum;
         }
 
         @Override
         public void onFinish(List<Section> result) {
-            if (!fragment.isAdded() || sequenceNum != pageSequenceNum) {
+            if (!fragment.isAdded() || startSequenceNum != currentSequenceNum) {
                 return;
             }
 
@@ -726,12 +730,12 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
         @Override
         public void onCatch(Throwable caught) {
-            commonSectionFetchOnCatch(caught, sequenceNum);
+            commonSectionFetchOnCatch(caught, startSequenceNum);
         }
     }
 
-    private void commonSectionFetchOnCatch(Throwable caught, int sequenceNum) {
-        if (sequenceNum != pageSequenceNum) {
+    private void commonSectionFetchOnCatch(Throwable caught, int startSequenceNum) {
+        if (startSequenceNum != currentSequenceNum) {
             return;
         }
         fragment.commonSectionFetchOnCatch(caught);

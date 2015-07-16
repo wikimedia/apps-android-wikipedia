@@ -1,17 +1,5 @@
 package org.wikipedia.widgets;
 
-import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.Utils;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.page.Page;
-import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.Section;
-import org.wikipedia.page.SectionsFetchTask;
-import org.wikipedia.staticdata.MainPageNameData;
-
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -24,6 +12,18 @@ import android.text.TextUtils;
 import android.text.style.URLSpan;
 import android.util.Log;
 import android.widget.RemoteViews;
+
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.R;
+import org.wikipedia.Utils;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.Section;
+import org.wikipedia.page.SectionsFetchTask;
+import org.wikipedia.staticdata.MainPageNameData;
 
 import java.util.List;
 
@@ -38,7 +38,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
             Log.d(TAG, "updating widget...");
             final RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_featured_page);
 
-            (new FetchMainPageTask(context) {
+            (new FetchMainPageTask(WikipediaApp.getInstance()) {
                 @Override
                 public void onFinish(List<Section> result) {
                     if (result.size() == 0) {
@@ -93,9 +93,10 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
     }
 
     private class FetchMainPageTask extends SectionsFetchTask {
-        public FetchMainPageTask(Context context) {
-            super(context, new PageTitle(MainPageNameData.valueFor(WikipediaApp.getInstance().getAppOrSystemLanguageCode()),
-                    WikipediaApp.getInstance().getPrimarySite()), "all");
+        public FetchMainPageTask(WikipediaApp app) {
+            super(app,
+                    new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()),
+                            app.getPrimarySite()), "all");
         }
 
         @Override

@@ -903,7 +903,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         }
 
         FeedbackUtil.showMessage(getActivity(), R.string.toast_saving_page);
-        new SavePageTask(getActivity(), model.getTitle(), model.getPage()) {
+        new SavePageTask(app, model.getTitle(), model.getPage()) {
             @Override
             public void onFinish(Boolean success) {
                 if (!isAdded()) {
