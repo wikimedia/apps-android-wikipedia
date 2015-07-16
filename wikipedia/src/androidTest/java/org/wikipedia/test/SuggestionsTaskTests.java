@@ -21,7 +21,7 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
     private static final int TASK_COMPLETION_TIMEOUT = 200000;
     private static final int BATCH_SIZE = 3;
     private static final int THUMB_SIZE = 100;
-    private static final Site SITE = new Site("test.wikipedia.org");
+    private static final Site SITE = new Site("en.wikipedia.org"); // suggestions don't seem to work on testwiki
 
     private WikipediaApp app;
 
