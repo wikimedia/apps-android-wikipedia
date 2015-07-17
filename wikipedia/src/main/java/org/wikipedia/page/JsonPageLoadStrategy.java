@@ -552,9 +552,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             bridge.sendMessage("displayLeadSection", leadSectionPayload);
             Log.d(TAG, "Sent message 'displayLeadSection' for page: " + page.getDisplayTitle());
 
-            Utils.setupDirectionality(model.getTitle().getSite().getLanguageCode(),
-                    Locale.getDefault().getLanguage(), bridge);
-
             // Hide edit pencils if anon editing is disabled by remote killswitch or if this is a file page
             JSONObject miscPayload = new JSONObject();
             boolean isAnonEditingDisabled = app.getRemoteConfig().getConfig()
