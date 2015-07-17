@@ -1,9 +1,13 @@
+import java.util.regex.Matcher
+
 def fileExists = {String filename ->
     new File(filename).exists()
 }
 
 def hierarchyToFilename = { String hierarchy ->
-    return hierarchy ? hierarchy.substring(1).replaceAll(':', File.separator) : hierarchy
+    return hierarchy && hierarchy.length() > 0 ?
+            hierarchy.substring(1).replaceAll(':', Matcher.quoteReplacement(File.separator)) :
+            hierarchy
 }
 
 def includeExists = { String projectPath, String name ->
