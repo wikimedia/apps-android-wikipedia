@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">クラッシュした際に何をしていましたか?</string>
   <string name="search_hint">ウィキペディアを検索</string>
   <string name="nav_item_history">履歴</string>
-  <string name="error_network_error" fuzzy="true">ネットワークに接続していません :(</string>
+  <string name="error_network_error">ネットワーク接続が確立できませんでした。</string>
   <string name="search_network_error">ネットワークエラーです。タップしてやり直してください。</string>
   <string name="generic_page_error">リクエストの処理中に問題が発生しました。</string>
   <string name="status_code_unavailable">サーバーステータスコードが使用できません。</string>
@@ -277,5 +277,13 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="menu_open_link">リンクを開く</string>
   <string name="menu_open_in_new_tab">新しいタブで開く</string>
   <string name="menu_save_page_popup">後で保存</string>
+  <string name="tool_tip_select_text">コピーとシェアのためにテキストを選択するには、テキストのどこかを長押ししてください。</string>
+  <string name="tool_tip_share">面白いと思った部分を選択して、お好みのSNSでシェアしましょう！</string>
+  <string name="page_view_in_browser">ブラウザーで閲覧</string>
+  <string name="tool_tip_toc_button">このボタンをタップするか、画面右側からスライドすると、いつでも目次が呼び出せます。</string>
+  <string name="error_server_response">サーバーがリクエストを完了できませんでした。</string>
+  <string name="error_response_malformed">サーバーからのレスポンスが正しく整形されていませんでした。</string>
   <string name="error_unknown">不明なエラーが発生しました。</string>
+  <string name="format_error_server_message">メッセージ: \"%s\"</string>
+  <string name="format_error_server_code">コード: \"%s\"</string>
 </resources>

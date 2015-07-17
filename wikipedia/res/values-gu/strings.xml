@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">તમારા શું કરવાથી આ ક્ષતિ આવી ?</string>
   <string name="search_hint">વિકિપીડિયામાં શોધો</string>
   <string name="nav_item_history">ઇતિહાસ</string>
-  <string name="error_network_error" fuzzy="true">નેટવર્ક કનેક્શન નથી :(</string>
+  <string name="error_network_error">નેટવર્ક સાથે જોડાણ સ્થાપિત કરી શકાતું નથી.</string>
   <string name="search_network_error">નેટવર્ક ક્ષતિ. ફરી પ્રયત્ન કરવા ટૅપ કરો.</string>
   <string name="generic_page_error">તમારી વિનંતી સાથે કામ પાડવામાં કોઈ સમસ્યા છે.</string>
   <string name="status_code_unavailable">સર્વર સ્થિતિ કોડ ઉપલબ્ધ નથી.</string>
@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">સચવાયેલું પાનું તાજું થાય છે...</string>
   <string name="delete_selected_saved_pages">દૂર કરો</string>
   <string name="toast_saved_page_deleted">સચવાયેલું પાનું (પાના) હટાવાયું</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">શોધો</string>
+  <string name="saved_pages_search_list_hint">સંગ્રહેલ પાનાંઓમાં શોધો</string>
   <string name="saved_pages_search_empty_message">તમારી પૂછપરછ સાથે બંધબેસતું કોઈ પાનું મળ્યું નથી.</string>
   <string name="nav_item_nearby">નજીકના</string>
   <string name="nearby_empty_title">અહીં કોઈ નજીકના પાના નથી !</string>
@@ -51,6 +51,8 @@
   <string name="content_license_html">અન્ય કશું સૂચવાયું ન હોય ત્યાં સુધી વિગતો &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; હેઠળ ઉપલબ્ધ છે</string>
   <string name="preference_title_language">વિકિપીડિયા ભાષા</string>
   <string name="preference_languages_filter_hint">શોધ</string>
+  <string name="preference_system_language_toggle">સિસ્ટમ ભાષા વાપરો</string>
+  <string name="preference_system_language_summary">સિસ્ટમ ભાષા</string>
   <string name="langlinks_filter_hint">શોધ</string>
   <string name="menu_other_languages">અન્ય ભાષાઓમાં વાંચો</string>
   <string name="langlinks_error_retry">ફરી પ્રયત્ન કરો</string>
@@ -89,7 +91,10 @@
   <string name="preference_summary_logout">તમારા વિકિપીડિયા ખાતામાંથી બહાર આવી ગયા</string>
   <string name="preference_summary_notloggedin">પ્રવેશ કરેલ નથી.</string>
   <string name="toast_logout_complete">બહાર નીકળી ગયા</string>
+  <string name="saved_pages_empty_title">કોઇ પાનાં સંગ્રહેલ નથી!</string>
+  <string name="history_empty_title">અહીં તાજેતરનાં પાનાઓ નથી!</string>
   <string name="delete_selected_history">દૂર કરો</string>
+  <string name="wp_stylized">&lt;big&gt;વિ&lt;/big&gt;કિપીડિ&lt;big&gt;યા&lt;/big&gt;</string>
   <string name="create_account_username_hint">સભ્યનામ</string>
   <string name="create_account_password_hint">પાસવર્ડ</string>
   <string name="login_create_account_link">ખાતું નથી ? 
@@ -102,9 +107,13 @@
   <string name="create_account_passwords_mismatch_error">પાસવર્ડ મેચ થતો નથી</string>
   <string name="create_account_email_error">અયોગ્ય ઇમેલ સરનામું</string>
   <string name="create_account_username_exists_error">સભ્યનામ અગાઉથી જ વપરાશમાં છે</string>
+  <string name="create_account_generic_error">ખાતું બનાવી શકાયું નહી</string>
+  <string name="create_account_no_network">કોઇ નેટવર્ક જોડાણ નથી</string>
   <string name="create_account_next">આગળ</string>
   <string name="create_account_button">ખાતું બનાવો</string>
   <string name="preferences_general_heading">સામાન્ય</string>
+  <string name="zero_wikipedia_zero_heading">વિકિપીડિયા ઝીરો</string>
+  <string name="zero_interstitial_title">વિકિપીડિયા ઝીરોમાંથી બહાર નીકળી રહ્યા છો</string>
   <string name="zero_interstitial_continue">બહાર નીકળો</string>
   <string name="zero_interstitial_cancel">અહીં રહો</string>
   <string name="zero_learn_more_learn_more">વધુ વાંચો</string>
@@ -112,7 +121,7 @@
   <string name="nav_item_random">ગમે તે</string>
   <string name="create_account_account_created_toast">ખાતું ખોલવામાં આવ્યું!</string>
   <string name="activity_my_contributions_title">મારું યોગદાન</string>
-  <string name="history_search_list_hint" fuzzy="true">શોધો</string>
+  <string name="history_search_list_hint">ઇતિહાસ શોધો</string>
   <string name="history_search_empty_message">તમારી પૂછપરછ સાથે બંધબેસતું કોઈ પાનું મળ્યું નથી.</string>
   <string name="more_item_preferences">વધુ</string>
   <string name="more_activity_title">વધુ</string>
@@ -125,15 +134,25 @@
   <string name="edit_next">આગળ</string>
   <string name="edit_done">સાચવો</string>
   <string name="edit_preview">પૂર્વદર્શન</string>
+  <string name="edit_summary_tag_typo">જોડણી સુધારી</string>
+  <string name="edit_summary_tag_grammar">વ્યાકરણ સુધાર્યું</string>
+  <string name="edit_summary_tag_links">કડીઓ ઉમેરી</string>
   <string name="edit_summary_tag_other">અન્ય</string>
+  <string name="find_in_page">પાનામાં શોધો</string>
   <string name="find_next">આગળ શોધો</string>
   <string name="saved_pages_update_all_error_retry">ફરી પ્રયત્ન કરો</string>
   <string name="dialog_page_issues">પૃષ્ઠમાં ખરાબી</string>
   <string name="button_page_issues">પૃષ્ઠમાં ખરાબી</string>
   <string name="text_size_select">ફોન્ટનો આકાર</string>
+  <string name="color_theme_select">થીમ</string>
   <string name="color_theme_light">આછુ</string>
+  <string name="color_theme_dark">કાળું</string>
+  <string name="page_similar_titles">સમાન પાનાંઓ</string>
   <string name="table_close">બંધ કરો</string>
   <string name="dialog_close_description">બંધ કરો</string>
+  <string name="preference_title_show_images">ચિત્રો દર્શાવો</string>
   <string name="read_more_section">વધુ વાંચો</string>
   <string name="gallery_menu_share">વહેંચો</string>
+  <string name="share_snippet_button">ચિત્ર તરીકે વહેંચો</string>
+  <string name="share_normal_button">લખાણ તરીકે વહેંચો</string>
 </resources>

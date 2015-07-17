@@ -277,7 +277,7 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="menu_save_page_popup">Enregistrer pour plus tard</string>
   <string name="tool_tip_select_text">Cliquez et maintenez appuyé n’importe où dans le texte pour le surligner afin de le copier et le partager.</string>
   <string name="tool_tip_share">Après avoir surligné un fait intéressant, essayez de le partager sur vos réseaux favoris !</string>
-  <string name="page_view_in_browser" fuzzy="true">Afficher dans le navigateur</string>
+  <string name="page_view_in_browser">Afficher la page dans le navigateur</string>
   <string name="tool_tip_toc_button">Voir la table des matières à tout moment en appuyant sur ce bouton, ou glisser à partir du bord droit de l\'écran.</string>
   <string name="error_server_response">Le serveur n\'a pas pu satisfaire la demande.</string>
   <string name="error_response_malformed">La réponse du serveur n\'a pas été formatée correctement.</string>

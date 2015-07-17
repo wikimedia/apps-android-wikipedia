@@ -273,4 +273,5 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="menu_open_link">Digeriñ al liamm</string>
   <string name="menu_open_in_new_tab">Digeriñ en un ivinell nevez</string>
   <string name="menu_save_page_popup">Enrollañ diwezhatoc\'h</string>
+  <string name="page_view_in_browser">Gwelet ar bajenn er merdeer</string>
 </resources>

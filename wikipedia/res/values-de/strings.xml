@@ -277,7 +277,7 @@ Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use/de</str
   <string name="menu_save_page_popup">Für später speichern</string>
   <string name="tool_tip_select_text">Drücke und halte irgendwo im Text, um ihn hervorzuheben zum Kopieren und Teilen.</string>
   <string name="tool_tip_share">Versuche, eine interessante Tatsache nach dem Hervorheben auf deinen Lieblingsnetzwerken zu teilen!</string>
-  <string name="page_view_in_browser" fuzzy="true">Im Browser ansehen</string>
+  <string name="page_view_in_browser">Seite im Browser ansehen</string>
   <string name="tool_tip_toc_button">Sieh dir jederzeit das Inhaltsverzeichnis an durch das Tippen auf diesen Button oder wische von der rechten Bildschirmkante.</string>
   <string name="error_server_response">Der Server konnte die Anfrage nicht abschließen.</string>
   <string name="error_response_malformed">Die Antwort vom Server ist nicht korrekt formatiert.</string>
