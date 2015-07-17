@@ -5,10 +5,6 @@
         <!--  https://raw.githubusercontent.com/ACRA/acra/master/LICENSE -->
         (<a title="acra-title" name="acra-name" href="file:///android_asset/licenses/ACRA">license</a>),
 
-        <a href="https://github.com/keyboardsurfer/Crouton">Crouton</a>
-        <!-- https://raw.githubusercontent.com/keyboardsurfer/Crouton/master/LICENSE -->
-        (<a href="file:///android_asset/licenses/Crouton">license</a>),
-
         <a href="https://github.com/JakeWharton/DiskLruCache">DiskLruCache</a>
         <!-- https://github.com/JakeWharton/DiskLruCache/blob/master/LICENSE.txt -->
         (<a href="file:///android_asset/licenses/DiskLruCache">license</a>),

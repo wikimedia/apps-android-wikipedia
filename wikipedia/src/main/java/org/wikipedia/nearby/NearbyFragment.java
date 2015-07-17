@@ -6,13 +6,11 @@ import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
-import org.mediawiki.api.json.ApiException;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.FeedbackUtil;
 
 import com.squareup.picasso.Picasso;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -49,7 +47,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -336,18 +333,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                     if (!isAdded()) {
                         return;
                     }
-                    if (caught instanceof ApiException) {
-                        if (caught.getCause() instanceof UnknownHostException) {
-                            Crouton.makeText(getActivity(), R.string.nearby_no_network, Style.ALERT, nearbyContainer).show();
-                        } else {
-                            Crouton.makeText(getActivity(), R.string.error_network_error, Style.ALERT, nearbyContainer).show();
-                        }
-                    } else if (caught instanceof NearbyFetchException) {
-                        Log.e("Wikipedia", "Could not get list of nearby places: " + caught.toString());
-                        Crouton.makeText(getActivity(), R.string.nearby_server_error, Style.ALERT, nearbyContainer).show();
-                    } else {
-                        super.onCatch(caught);
-                    }
+                    FeedbackUtil.showError(getActivity(), caught);
                     setRefreshingState(false);
                 }
             }.execute();

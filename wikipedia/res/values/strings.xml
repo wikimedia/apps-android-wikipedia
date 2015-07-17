@@ -100,7 +100,7 @@
     <string name="login_error_wrong_password">Incorrect password</string>
     <string name="login_error_wrong_username">Incorrect username</string>
     <string name="login_error_illegal">Invalid username</string>
-    <string name="login_success_toast">Login Success!</string>
+    <string name="login_success_toast">Logged in successfully!</string>
     <string name="login_error_blocked">This user has been blocked</string>
     <string name="login_error_throttled"><![CDATA[Too many login attempts. Wait for a few minutes and try again.]]></string>
     <string name="login_error_unknown">Login failed :(</string>

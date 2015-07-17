@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
-import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
@@ -23,10 +23,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.squareup.otto.Bus;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
@@ -48,6 +45,7 @@ import org.wikipedia.login.User;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.FeedbackUtil;
 
 public class EditSectionActivity extends ThemedActionBarActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";
@@ -235,6 +233,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
                 updateEditLicenseText();
                 funnel.logLoginSuccess();
+                FeedbackUtil.showMessage(this, R.string.login_success_toast);
             } else {
                 funnel.logLoginFailure();
             }
@@ -273,8 +272,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                         }
                         if (caught instanceof ApiException) {
                             // This is a fairly standard editing exception. Handle it appropriately.
-                            ApiException e = (ApiException) caught;
-                            handleEditingException(e.getCode());
+                            handleEditingException((ApiException) caught);
                         } else {
                             // If it's not an API exception, we have no idea what's wrong.
                             // Show the user a generic error message.
@@ -297,7 +295,6 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                             Intent data = new Intent();
                             data.putExtra(EXTRA_SECTION_ID, sectionID);
                             setResult(EditHandler.RESULT_REFRESH_PAGE, data);
-                            Toast.makeText(EditSectionActivity.this, R.string.edit_saved_successfully, Toast.LENGTH_LONG).show();
                             Utils.hideSoftKeyboard(EditSectionActivity.this);
                             finish();
                         } else if (result instanceof CaptchaResult) {
@@ -314,11 +311,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                                 editPreviewFragment.hide();
                             }
                         } else if (result instanceof SpamBlacklistEditResult) {
-                            Crouton.makeText(
-                                    EditSectionActivity.this,
-                                    getString(R.string.editing_error_spamblacklist, ((SpamBlacklistEditResult) result).getDomain()),
-                                    Style.ALERT
-                            ).show();
+                            FeedbackUtil.showMessage(EditSectionActivity.this,
+                                    R.string.editing_error_spamblacklist);
                             progressDialog.dismiss();
                             editPreviewFragment.hide();
                         } else {
@@ -367,9 +361,10 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     /**
      * Processes API error codes encountered during editing, and handles them as appropriate.
-     * @param code The API error code to handle.
+     * @param e The ApiException to handle.
      */
-    private void handleEditingException(@Nullable String code) {
+    private void handleEditingException(@NonNull ApiException e) {
+        String code = e.getCode();
         if (app.getUserInfoStorage().isLoggedIn() && ("badtoken".equals(code)
                 || "assertuserfailed".equals(code))) {
             // looks like our session expired.
@@ -427,7 +422,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         } else {
             // an unknown error occurred, so just dismiss the progress dialog and show a message.
             progressDialog.dismiss();
-            Crouton.makeText(this, String.format(getString(R.string.edit_save_unknown_error), code), Style.ALERT).show();
+            FeedbackUtil.showError(this, e);
         }
     }
 
@@ -609,9 +604,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             } else {
                 message = getString(R.string.page_protected_other, pageProps.getEditProtectionStatus());
             }
-            Crouton.makeText(this,
-                    message,
-                    Style.INFO).show();
+            FeedbackUtil.showMessage(this, message);
         }
     }
 

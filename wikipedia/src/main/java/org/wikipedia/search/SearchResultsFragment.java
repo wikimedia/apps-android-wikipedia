@@ -5,7 +5,7 @@ import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.util.ThrowableUtil;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import com.squareup.picasso.Picasso;
@@ -22,7 +22,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -335,10 +334,8 @@ public class SearchResultsFragment extends Fragment {
                 searchFragment.getFunnel().searchError(true, timeToDisplay);
                 ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
 
-                // since this is a follow-up search just toast
-                Toast.makeText(getActivity(),
-                               ThrowableUtil.getAppError(getActivity(), caught).getError(),
-                               Toast.LENGTH_SHORT).show();
+                // since this is a follow-up search just show a message
+                FeedbackUtil.showError(getView(), caught);
             }
         }.execute();
     }

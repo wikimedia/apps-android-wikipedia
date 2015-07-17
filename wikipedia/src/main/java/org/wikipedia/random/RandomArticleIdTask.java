@@ -1,6 +1,5 @@
 package org.wikipedia.random;
 
-import android.content.Context;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
@@ -13,7 +12,7 @@ import org.wikipedia.Site;
 public class RandomArticleIdTask extends ApiTask<PageTitle> {
     private Site site;
 
-    public RandomArticleIdTask(Api api, Site site, Context context) {
+    public RandomArticleIdTask(Api api, Site site) {
         super(SINGLE_THREAD, api);
         this.site = site;
     }
@@ -29,13 +28,8 @@ public class RandomArticleIdTask extends ApiTask<PageTitle> {
 
     @Override
     public PageTitle processResult(ApiResult result) throws Throwable {
-        try {
-            JSONArray results = result.asObject().optJSONObject("query").optJSONArray("random");
-            JSONObject random = (JSONObject)results.get(0);
-
-            return new PageTitle(null, random.getString("title"), site);
-        } catch (Exception e) {
-            return null;
-        }
+        JSONArray results = result.asObject().optJSONObject("query").optJSONArray("random");
+        JSONObject random = (JSONObject)results.get(0);
+        return new PageTitle(null, random.getString("title"), site);
     }
 }

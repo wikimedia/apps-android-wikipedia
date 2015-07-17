@@ -16,6 +16,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageCache;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.views.ViewUtil;
 
@@ -40,8 +41,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -247,12 +246,6 @@ public class GalleryActivity extends ThemedActionBarActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Crouton.cancelAllCroutons();
-    }
-
-    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean("controlsShowing", controlsShowing);
@@ -390,7 +383,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             public void onCatch(Throwable caught) {
                 Log.e(TAG, "Failed to fetch gallery collection.", caught);
                 updateProgressBar(false, true, 0);
-                showError(getString(R.string.error_network_error));
+                FeedbackUtil.showError(GalleryActivity.this, caught);
             }
         }.execute();
     }
@@ -437,16 +430,6 @@ public class GalleryActivity extends ThemedActionBarActivity {
             // Sorry 2.3, you won't get custom transforms between pages.
             galleryPager.setPageTransformer(false, new GalleryPagerTransformer());
         }
-    }
-
-    /**
-     * Display an error message in the form of a Crouton.
-     * @param errorStr Error message to show.
-     */
-    public void showError(String errorStr) {
-        supportInvalidateOptionsMenu();
-        Crouton.makeText(GalleryActivity.this, errorStr, Style.ALERT, toolbarContainer)
-               .show();
     }
 
     private GalleryItem getCurrentItem() {

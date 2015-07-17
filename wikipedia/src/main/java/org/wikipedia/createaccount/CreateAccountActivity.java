@@ -3,6 +3,7 @@ package org.wikipedia.createaccount;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.KeyEvent;
@@ -11,7 +12,6 @@ import android.view.View.OnKeyListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
 import com.mobsandgeeks.saripaar.Rule;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
@@ -20,15 +20,16 @@ import com.mobsandgeeks.saripaar.annotation.Password;
 import com.mobsandgeeks.saripaar.annotation.Required;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
 import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.*;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.CreateAccountFunnel;
 import org.wikipedia.editing.CaptchaHandler;
+import static org.wikipedia.util.FeedbackUtil.showMessage;
+import static org.wikipedia.util.FeedbackUtil.showError;
 
 public class CreateAccountActivity extends ThemedActionBarActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;
@@ -215,43 +216,52 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         Utils.showPrivacyPolicy(this);
     }
 
-    public void handleError(CreateAccountResult result) {
-        String errorCode = result.getResult();
-        switch (errorCode) {
-            case "blocked":
-                if (app.getUserInfoStorage().isLoggedIn()) {
-                    Crouton.makeText(this, R.string.create_account_blocked_error, Style.ALERT).show();
-                } else {
-                    Crouton.makeText(this, R.string.create_account_blocked_anon_error, Style.ALERT).show();
-                }
-                break;
-            case "acct_creation_throttle_hit":
-                Crouton.makeText(this, R.string.create_account_ip_throttle_error, Style.ALERT).show();
-                break;
-            case "sorbs_create_account_reason":
-                Crouton.makeText(this, R.string.create_account_open_proxy_error, Style.ALERT).show();
-                break;
-            case "userexists":
-                //Request focus before displaying error message, so that it pops up on its own
-                usernameEdit.requestFocus();
-                Utils.setErrorPopup(usernameEdit, getString(R.string.create_account_username_exists_error));
-                break;
-            case "noname":
-                Crouton.makeText(this, R.string.create_account_noname_error, Style.ALERT).show();
-                break;
-            case "invalidemailaddress":
-                Crouton.makeText(this, R.string.create_account_invalid_email_error, Style.ALERT).show();
-                break;
-            case "passwordtooshort":
-                //FIXME: Find the value of $wgMinimalPasswordLength and tell the user the minimum pwd length
-                Crouton.makeText(this, R.string.create_account_password_too_short_error, Style.ALERT).show();
-                break;
-            case "password-name-match":
-                Crouton.makeText(this, R.string.create_account_password_name_match_error, Style.ALERT).show();
-                break;
-            default:
-                Crouton.makeText(this, R.string.create_account_generic_error, Style.ALERT).show();
-                break;
+    public void handleError(@NonNull Throwable e) {
+        if (e instanceof ApiException && ((ApiException) e).getCode() != null) {
+            String errorCode = ((ApiException) e).getCode();
+            funnel.logError(errorCode);
+            switch (errorCode) {
+                case "blocked":
+                    if (app.getUserInfoStorage().isLoggedIn()) {
+                        showMessage(this, R.string.create_account_blocked_error);
+                    } else {
+                        showMessage(this, R.string.create_account_blocked_anon_error);
+                    }
+                    break;
+                case "acct_creation_throttle_hit":
+                    showMessage(this, R.string.create_account_ip_throttle_error);
+                    break;
+                case "sorbs_create_account_reason":
+                    showMessage(this, R.string.create_account_open_proxy_error);
+                    break;
+                case "userexists":
+                    //Request focus before displaying error message, so that it pops up on its own
+                    usernameEdit.requestFocus();
+                    Utils.setErrorPopup(usernameEdit, getString(R.string.create_account_username_exists_error));
+                    break;
+                case "noname":
+                    showMessage(this, R.string.create_account_noname_error);
+                    break;
+                case "invalidemailaddress":
+                    showMessage(this, R.string.create_account_invalid_email_error);
+                    break;
+                case "passwordtooshort":
+                    //FIXME: Find the value of $wgMinimalPasswordLength and tell the user the minimum pwd length
+                    showMessage(this, R.string.create_account_password_too_short_error);
+                    break;
+                case "password-name-match":
+                    showMessage(this, R.string.create_account_password_name_match_error);
+                    break;
+                case "createaccount-hook-aborted":
+                    // show the actual message provided by the hook
+                    showMessage(this, ((ApiException) e).getInfo());
+                    break;
+                default:
+                    showMessage(this, R.string.create_account_generic_error);
+                    break;
+            }
+        } else {
+            showError(this, e);
         }
     }
 
@@ -282,7 +292,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                     return;
                 }
                 progressDialog.dismiss();
-                Crouton.makeText(CreateAccountActivity.this, R.string.create_account_no_network, Style.ALERT).show();
+                handleError(caught);
             }
 
             @Override
@@ -308,7 +318,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                     resultIntent.putExtra("username", ((CreateAccountSuccessResult) result).getUsername());
                     resultIntent.putExtra("password", passwordEdit.getText().toString());
                     setResult(RESULT_ACCOUNT_CREATED, resultIntent);
-                    Toast.makeText(CreateAccountActivity.this, R.string.create_account_account_created_toast, Toast.LENGTH_LONG).show();
                     finish();
                 } else {
                     progressDialog.dismiss();
@@ -318,9 +327,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                         // Eventually this should be fixed to have the new captcha info come back.
                         createAccountResult = null;
                         doCreateAccount();
-                    } else {
-                        funnel.logError(result.getResult());
-                        handleError(result);
                     }
                 }
             }

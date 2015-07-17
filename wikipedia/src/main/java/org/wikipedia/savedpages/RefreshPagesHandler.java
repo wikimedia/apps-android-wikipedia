@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
-import android.widget.Toast;
 import org.wikipedia.R;
 import org.wikipedia.page.Section;
 
@@ -86,7 +85,6 @@ public class RefreshPagesHandler {
                         Log.d("Wikipedia", "Count is " + savedPagesCompleted + " of " + savedPages.size());
                         if (savedPagesCompleted == savedPages.size()) {
                             progressDialog.dismiss();
-                            Toast.makeText(context, R.string.saved_pages_refresh_pages_complete, Toast.LENGTH_LONG).show();
                         }
                         Log.d("Wikipedia", "refreshing end: " + savedPage.getTitle().getDisplayText());
                     }

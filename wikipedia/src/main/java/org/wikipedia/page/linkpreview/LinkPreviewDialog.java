@@ -8,6 +8,7 @@ import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.FeedbackUtil;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -40,9 +41,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import java.util.Map;
-
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class LinkPreviewDialog extends DialogFragment implements DialogInterface.OnDismissListener {
     private static final String TAG = "LinkPreviewDialog";
@@ -144,7 +142,8 @@ public class LinkPreviewDialog extends DialogFragment implements DialogInterface
                 if (result.size() > 0) {
                     layoutPreview((LinkPreviewContents) result.values().toArray()[0]);
                 } else {
-                    abortWithError(getString(R.string.error_network_error));
+                    FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
+                    dismiss();
                 }
             }
             @Override
@@ -154,7 +153,8 @@ public class LinkPreviewDialog extends DialogFragment implements DialogInterface
                     return;
                 }
                 progressBar.setVisibility(View.GONE);
-                abortWithError(getString(R.string.error_network_error));
+                FeedbackUtil.showError(getActivity(), caught);
+                dismiss();
             }
         }.execute();
 
@@ -200,13 +200,6 @@ public class LinkPreviewDialog extends DialogFragment implements DialogInterface
 
         gestureDetector = new GestureDetectorCompat(dialog.getContext(), new PreviewGestureListener());
         return dialog;
-    }
-
-    private void abortWithError(String error) {
-        if (getActivity() != null && getActivity().getWindow().getDecorView() != null) {
-            Crouton.makeText(getActivity(), error, Style.ALERT).show();
-        }
-        dismiss();
     }
 
     private class PreviewGestureListener extends GestureDetector.SimpleOnGestureListener {

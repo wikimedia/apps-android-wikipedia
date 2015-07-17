@@ -12,13 +12,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.FeedbackUtil;
 
 public class CaptchaHandler {
     private final Activity activity;
@@ -69,7 +68,7 @@ public class CaptchaHandler {
                     @Override
                     public void onCatch(Throwable caught) {
                         cancelCaptcha();
-                        Crouton.makeText(activity, R.string.create_account_no_network, Style.ALERT).show();
+                        FeedbackUtil.showError(activity, caught);
                     }
 
                 }.execute();

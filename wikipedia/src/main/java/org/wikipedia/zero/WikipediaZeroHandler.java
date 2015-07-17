@@ -1,10 +1,13 @@
 package org.wikipedia.zero;
 
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.random.RandomArticleIdTask;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.OnHeaderCheckListener;
+
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -14,13 +17,26 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
 import java.net.URL;
 
 public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderCheckListener {
-
-    private WikipediaApp app;
     private static final boolean WIKIPEDIA_ZERO_DEV_MODE_ON = true;
+    /**
+     * Size of the text, in sp, of the Zero banner text.
+     */
+    private static final int BANNER_TEXT_SIZE = 20;
+    /**
+     * Height of the Zero banner, in pixels, that will pop up from the bottom of the screen.
+     */
+    private static final int BANNER_HEIGHT = (int) (192 * WikipediaApp.getInstance().getScreenDensity());
 
     public WikipediaZeroHandler(WikipediaApp app) {
         this.app = app;
@@ -31,6 +47,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
         }
     }
 
+    private WikipediaApp app;
     private boolean zeroEnabled = false;
     public boolean isZeroEnabled() {
         return zeroEnabled;
@@ -47,6 +64,20 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
     private RandomArticleIdTask curRandomArticleIdTask;
     private static final int MESSAGE_ZERO_RND = 1;
     private static final int MESSAGE_ZERO_CS = 2;
+
+    public static void showZeroBanner(@NonNull Activity activity, @NonNull String text,
+                                      @ColorInt int foreColor, @ColorInt int backColor) {
+        Snackbar snackbar = Snackbar.make(activity.findViewById(R.id.page_contents_container), text,
+                Snackbar.LENGTH_LONG);
+        ViewGroup rootView = (ViewGroup) snackbar.getView();
+        TextView textView = (TextView) rootView.findViewById(R.id.snackbar_text);
+        rootView.setBackgroundColor(backColor);
+        textView.setTextColor(foreColor);
+        textView.setTextSize(BANNER_TEXT_SIZE);
+        textView.setGravity(Gravity.CENTER_HORIZONTAL);
+        rootView.setMinimumHeight(BANNER_HEIGHT);
+        snackbar.show();
+    }
 
     @Override
     public void onHeaderCheck(final ApiResult result, final URL apiURL) {
@@ -97,7 +128,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
                 Handler wikipediaZeroRandomHandler = new Handler(new Handler.Callback() {
                     @Override
                     public boolean handleMessage(Message msg) {
-                        RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), context) {
+                        RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite()) {
                             @Override
                             public void onCatch(Throwable caught) {
                                 // oh snap

@@ -29,6 +29,7 @@ import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.tooltip.ToolTipUtil;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
@@ -63,7 +64,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.appenguin.onboarding.ToolTip;
 
@@ -640,7 +640,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         if (requestCode == PageActivity.ACTIVITY_REQUEST_EDIT_SECTION
             && resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             pageLoadStrategy.backFromEditing(data);
-
+            FeedbackUtil.showMessage(getActivity(), R.string.edit_saved_successfully);
             // and reload the page...
             displayNewPage(model.getTitleOriginal(), model.getCurEntry(), false, false);
         }
@@ -882,7 +882,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             return;
         }
 
-        Toast.makeText(getActivity(), R.string.toast_saving_page, Toast.LENGTH_SHORT).show();
+        FeedbackUtil.showMessage(getActivity(), R.string.toast_saving_page);
         new SavePageTask(getActivity(), model.getTitle(), model.getPage()) {
             @Override
             public void onFinish(Boolean success) {
@@ -894,9 +894,9 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 pageLoadStrategy.setSubState(SUBSTATE_PAGE_SAVED);
 
                 if (success) {
-                    Toast.makeText(getActivity(), R.string.toast_saved_page, Toast.LENGTH_LONG).show();
+                    FeedbackUtil.showMessage(getActivity(), R.string.toast_saved_page);
                 } else {
-                    Toast.makeText(getActivity(), R.string.toast_saved_page_missing_images, Toast.LENGTH_LONG).show();
+                    FeedbackUtil.showMessage(getActivity(), R.string.toast_saved_page_missing_images);
                 }
             }
         }.execute();
@@ -937,7 +937,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     public void refreshPage(boolean saveOnComplete) {
         this.saveOnComplete = saveOnComplete;
         if (saveOnComplete) {
-            Toast.makeText(getActivity(), R.string.toast_refresh_saved_page, Toast.LENGTH_LONG).show();
+            FeedbackUtil.showMessage(getActivity(), R.string.toast_refresh_saved_page);
         }
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
         displayNewPage(model.getTitle(), model.getCurEntry(), false, false);

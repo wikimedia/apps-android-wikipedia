@@ -10,17 +10,15 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
 import org.wikipedia.*;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.createaccount.CreateAccountActivity;
+import org.wikipedia.util.FeedbackUtil;
 
 public class LoginActivity extends ThemedActionBarActivity {
-    public static final int REQUEST_LOGIN = 1;
+    public static final int REQUEST_LOGIN = 100;
 
     public static final int RESULT_LOGIN_SUCCESS = 1;
     public static final int RESULT_LOGIN_FAIL = 2;
@@ -139,6 +137,8 @@ public class LoginActivity extends ThemedActionBarActivity {
                 usernameText.setText(data.getStringExtra("username"));
                 passwordText.setText(data.getStringExtra("password"));
                 funnel.logCreateAccountSuccess();
+                FeedbackUtil.showMessage(this,
+                        R.string.create_account_account_created_toast);
                 doLogin();
             } else {
                 funnel.logCreateAccountFailure();
@@ -163,7 +163,7 @@ public class LoginActivity extends ThemedActionBarActivity {
                     return;
                 }
                 progressDialog.dismiss();
-                Crouton.makeText(LoginActivity.this, R.string.login_error_no_network, Style.ALERT).show();
+                FeedbackUtil.showError(LoginActivity.this, caught);
             }
 
             @Override
@@ -176,7 +176,6 @@ public class LoginActivity extends ThemedActionBarActivity {
                 progressDialog.dismiss();
                 if (result.getCode().equals("Success")) {
                     funnel.logSuccess();
-                    Toast.makeText(LoginActivity.this, R.string.login_success_toast, Toast.LENGTH_LONG).show();
 
                     Utils.hideSoftKeyboard(LoginActivity.this);
                     setResult(RESULT_LOGIN_SUCCESS);
@@ -223,13 +222,13 @@ public class LoginActivity extends ThemedActionBarActivity {
                 Utils.setErrorPopup(usernameText, getString(R.string.login_error_illegal));
                 break;
             case "Blocked":
-                Crouton.makeText(this, R.string.login_error_blocked, Style.ALERT).show();
+                FeedbackUtil.showMessage(this, R.string.login_error_blocked);
                 break;
             case "Throttled":
-                Crouton.makeText(this, R.string.login_error_throttled, Style.ALERT).show();
+                FeedbackUtil.showMessage(this, R.string.login_error_throttled);
                 break;
             default:
-                Crouton.makeText(this, R.string.login_error_unknown, Style.ALERT).show();
+                FeedbackUtil.showMessage(this, R.string.login_error_unknown);
                 Log.d("Wikipedia", "Login failed with result " + result);
                 break;
         }
@@ -241,12 +240,6 @@ public class LoginActivity extends ThemedActionBarActivity {
             progressDialog.dismiss();
         }
         super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Crouton.cancelAllCroutons();
     }
 
     @Override

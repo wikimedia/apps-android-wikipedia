@@ -4,6 +4,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtils;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
@@ -23,7 +24,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 import android.widget.VideoView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -224,7 +224,7 @@ public class GalleryItemFragment extends Fragment {
                     loadMedia();
                 } else {
                     updateProgressBar(false, true, 0);
-                    parentActivity.showError(getString(R.string.error_network_error));
+                    FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
                 }
             }
             @Override
@@ -234,7 +234,7 @@ public class GalleryItemFragment extends Fragment {
                     return;
                 }
                 updateProgressBar(false, true, 0);
-                parentActivity.showError(getString(R.string.error_network_error));
+                FeedbackUtil.showError(getActivity(), caught);
             }
         }.execute();
     }
@@ -294,7 +294,8 @@ public class GalleryItemFragment extends Fragment {
                 @Override
                 public boolean onError(MediaPlayer mp, int what, int extra) {
                     updateProgressBar(false, true, 0);
-                    parentActivity.showError(getString(R.string.gallery_error_video_failed));
+                    FeedbackUtil.showMessage(getActivity(),
+                            R.string.gallery_error_video_failed);
                     videoView.setVisibility(View.GONE);
                     videoThumbnail.setVisibility(View.VISIBLE);
                     videoPlayButton.setVisibility(View.VISIBLE);
@@ -362,7 +363,7 @@ public class GalleryItemFragment extends Fragment {
                            return;
                        }
                        updateProgressBar(false, true, 0);
-                       parentActivity.showError(getString(R.string.gallery_error_draw_failed));
+                       FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
                    }
                });
     }
@@ -435,16 +436,14 @@ public class GalleryItemFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
-                Toast.makeText(parentActivity, getString(R.string.gallery_save_success),
-                        Toast.LENGTH_SHORT).show();
+                FeedbackUtil.showMessage(parentActivity, R.string.gallery_save_success);
             }
             @Override
             public void onCatch(Throwable caught) {
                 if (!isAdded()) {
                     return;
                 }
-                parentActivity.showError(String.format(getString(R.string.gallery_save_error),
-                                        caught.getLocalizedMessage()));
+                FeedbackUtil.showError(parentActivity, caught);
             }
         }.execute();
     }

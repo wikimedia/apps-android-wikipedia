@@ -46,9 +46,6 @@ public abstract class CreateAccountTask extends ApiTask<CreateAccountResult> {
 
     @Override
     public CreateAccountResult processResult(ApiResult result) throws Throwable {
-        if (result.asObject().has("error")) {
-            return new CreateAccountResult(result.asObject().optJSONObject("error").optString("code"));
-        }
         JSONObject ca = result.asObject().optJSONObject("createaccount");
         String apiResult = ca.optString("result");
         switch (apiResult) {

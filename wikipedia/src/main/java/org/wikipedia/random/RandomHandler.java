@@ -20,6 +20,7 @@ public class RandomHandler {
 
     public interface RandomListener {
         void onRandomPageReceived(PageTitle title);
+        void onRandomPageFailed(Throwable caught);
     }
 
     public RandomHandler(View menuItem, View icon, View progressBar, RandomListener listener) {
@@ -48,7 +49,7 @@ public class RandomHandler {
         Handler randomHandler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(Message msg) {
-                RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), app) {
+                RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite()) {
 
                     @Override
                     public void onBeforeExecute() {
@@ -62,12 +63,7 @@ public class RandomHandler {
                         }
                         setState(false);
                         Log.d("Wikipedia", "Random article title pulled: " + title);
-                        if (title != null) {
-                            randomListener.onRandomPageReceived(title);
-                        } else {
-                            // Pass null page to the listener, so it shows a network error.
-                            randomListener.onRandomPageReceived(null);
-                        }
+                        randomListener.onRandomPageReceived(title);
                     }
 
                     @Override
@@ -78,7 +74,7 @@ public class RandomHandler {
                         setState(false);
                         Log.d("Wikipedia", "Random article ID retrieval failed");
                         curRandomArticleIdTask = null;
-                        randomListener.onRandomPageReceived(null);
+                        randomListener.onRandomPageFailed(caught);
                     }
                 };
                 if (curRandomArticleIdTask != null) {

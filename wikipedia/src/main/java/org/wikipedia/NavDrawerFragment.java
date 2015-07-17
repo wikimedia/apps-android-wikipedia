@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
@@ -27,6 +26,7 @@ import org.wikipedia.savedpages.SavedPagesFragment;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.SettingsActivityGB;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 
 public class NavDrawerFragment extends Fragment implements View.OnClickListener {
@@ -90,15 +90,16 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                         if (!isAdded()) {
                             return;
                         }
-                        if (title == null) {
+                        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
+                        ((PageActivity) getActivity()).displayNewPage(title, historyEntry, true);
+                    }
 
-                            // TODO: show a SnackBar if we fail to fetch a random page.
-                            // (next patch, I promise)
-
-                        } else {
-                            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
-                            ((PageActivity) getActivity()).displayNewPage(title, historyEntry, true);
+                    @Override
+                    public void onRandomPageFailed(Throwable caught) {
+                        if (!isAdded()) {
+                            return;
                         }
+                        FeedbackUtil.showError(getView(), caught);
                     }
                 });
     }
@@ -173,7 +174,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
         app.getEditTokenStorage().clearAllTokens();
         app.getCookieManager().clearAllCookies();
         app.getUserInfoStorage().clearUser();
-        Toast.makeText(app, R.string.toast_logout_complete, Toast.LENGTH_LONG).show();
+        FeedbackUtil.showMessage(getActivity(), R.string.toast_logout_complete);
         if (doUpdate) {
             setupDynamicItems();
         }
@@ -206,7 +207,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
             case R.id.nav_item_login:
                 intent.setClass(this.getActivity(), LoginActivity.class);
                 intent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_NAV);
-                startActivity(intent);
+                startActivityForResult(intent, LoginActivity.REQUEST_LOGIN);
                 break;
             case R.id.nav_item_random:
                 randomHandler.doVisitRandomArticle();
@@ -246,6 +247,9 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
             } else if (resultCode == SettingsActivity.ACTIVITY_RESULT_LOGOUT) {
                 doLogout();
             }
+        } else if (requestCode == LoginActivity.REQUEST_LOGIN
+                   && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            FeedbackUtil.showMessage(getActivity(), R.string.login_success_toast);
         }
     }
 

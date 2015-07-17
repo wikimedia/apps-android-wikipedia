@@ -1,6 +1,6 @@
 package org.wikipedia.settings;
 
-import android.content.Context;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.Html;
@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
@@ -19,6 +18,7 @@ import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.FeedbackUtil;
 
 public class AboutActivity extends ThemedActionBarActivity {
     private static final String KEY_SCROLL_X = "KEY_SCROLL_X";
@@ -93,11 +93,11 @@ public class AboutActivity extends ThemedActionBarActivity {
     private static class AboutLogoClickListener implements View.OnClickListener {
         private static final int SECRET_CLICK_LIMIT = 7;
 
-        private final Context mContext;
+        private final Activity mActivity;
         private int mSecretClickCount;
 
-        public AboutLogoClickListener(Context context) {
-            mContext = context;
+        public AboutLogoClickListener(Activity activity) {
+            mActivity = activity;
         }
 
         @Override
@@ -118,23 +118,12 @@ public class AboutActivity extends ThemedActionBarActivity {
         }
 
         private void showSettingEnabledMessage() {
-            showMessage(R.string.show_developer_settings_enabled);
+            FeedbackUtil.showMessage(mActivity, R.string.show_developer_settings_enabled);
         }
 
         private void showSettingAlreadyEnabledMessage() {
-            showMessage(R.string.show_developer_settings_already_enabled);
-        }
-
-        private void showMessage(int id) {
-            showMessage(getString(id));
-        }
-
-        private void showMessage(String message) {
-            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
-        }
-
-        private String getString(int id) {
-            return mContext.getString(id);
+            FeedbackUtil.showMessage(mActivity,
+                    R.string.show_developer_settings_already_enabled);
         }
     }
 }

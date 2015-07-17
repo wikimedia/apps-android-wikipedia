@@ -28,12 +28,11 @@ import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiDrawerLayout;
+import org.wikipedia.zero.WikipediaZeroHandler;
 import org.wikipedia.zero.ZeroMessage;
 
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
 
 import android.app.SearchManager;
 import android.content.DialogInterface;
@@ -581,9 +580,9 @@ public class PageActivity extends ThemedActionBarActivity {
                 }
                 //is the new title the same as what's already being displayed?
                 if (!frag.getCurrentTab().getBackStack().isEmpty()
-                    && frag.getCurrentTab().getBackStack()
-                           .get(frag.getCurrentTab().getBackStack().size() - 1).getTitle()
-                           .equals(title)) {
+                        && frag.getCurrentTab().getBackStack()
+                        .get(frag.getCurrentTab().getBackStack().size() - 1).getTitle()
+                        .equals(title)) {
                     //if we have a section to scroll to, then pass it to the fragment
                     if (!TextUtils.isEmpty(title.getFragment())) {
                         frag.scrollToSection(title.getFragment());
@@ -709,18 +708,17 @@ public class PageActivity extends ThemedActionBarActivity {
             if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
                 String title = getString(R.string.zero_charged_verbiage);
                 String verbiage = getString(R.string.zero_charged_verbiage_extended);
-                makeWikipediaZeroCrouton(getResources().getColor(R.color.holo_red_dark),
-                                         getResources().getColor(android.R.color.white),
-                                         title);
+                WikipediaZeroHandler.showZeroBanner(PageActivity.this, title,
+                        getResources().getColor(android.R.color.white),
+                        getResources().getColor(R.color.holo_red_dark));
                 fragmentNavdrawer.setupDynamicItems();
                 showDialogAboutZero(null, title, verbiage);
             } else if ((!pausedStateOfZero || !pausedMessageOfZero.equals(latestCarrierMessage))
                        && latestWikipediaZeroDisposition) {
                 String title = latestCarrierMessage.getMsg();
-                int fg = latestCarrierMessage.getFg();
-                int bg = latestCarrierMessage.getBg();
                 String verbiage = getString(R.string.zero_learn_more);
-                makeWikipediaZeroCrouton(bg, fg, title);
+                WikipediaZeroHandler.showZeroBanner(PageActivity.this, title,
+                        latestCarrierMessage.getFg(), latestCarrierMessage.getBg());
                 fragmentNavdrawer.setupDynamicItems();
                 showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, title, verbiage);
             }
@@ -731,23 +729,6 @@ public class PageActivity extends ThemedActionBarActivity {
                             ? R.string.zero_search_hint
                             : R.string.search_hint));
         }
-    }
-
-    private void makeWikipediaZeroCrouton(int bgcolor, int fgcolor, String verbiage) {
-        final int zeroTextSize = 20;
-        final float croutonHeight = 192.0f;
-        Style style = new Style.Builder()
-                .setBackgroundColorValue(bgcolor)
-                .setGravity(Gravity.CENTER)
-                // .setTextAppearance-driven font size is not being honored, so we'll do it manually
-                // Text size in library is in sp
-                .setTextSize(zeroTextSize)
-                .setTextColorValue(fgcolor)
-                // Height size in library is in px
-                .setHeight((int) Math.floor(croutonHeight * WikipediaApp.getInstance().getScreenDensity()))
-                .build();
-
-        Crouton.makeText(this, verbiage, style, R.id.content_fragment_container).show();
     }
 
     private void showDialogAboutZero(final String prefsKey, String title, String message) {

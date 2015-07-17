@@ -28,7 +28,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -38,6 +37,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
 
@@ -134,7 +134,11 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                                 new DeleteSavedPageTask(getActivity(), page) {
                                     @Override
                                     public void onFinish(Boolean result) {
-                                        Toast.makeText(getActivity(), R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
+                                        if (!isAdded()) {
+                                            return;
+                                        }
+                                        FeedbackUtil.showMessage(getActivity(),
+                                                R.string.toast_saved_page_deleted);
                                     }
                                 }.execute();
                             }
@@ -351,8 +355,12 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                 new DeleteAllSavedPagesTask(getActivity()) {
                     @Override
                     public void onFinish(Void v) {
+                        if (!isAdded()) {
+                            return;
+                        }
                         entryFilter.setVisibility(View.GONE);
-                        Toast.makeText(getActivity(), R.string.toast_saved_page_deleted, Toast.LENGTH_SHORT).show();
+                        FeedbackUtil.showMessage(getActivity(),
+                                R.string.toast_saved_page_deleted);
                     }
                 }.execute();
             }
