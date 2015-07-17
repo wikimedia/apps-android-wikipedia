@@ -622,6 +622,13 @@ public class PageActivity extends ThemedActionBarActivity {
         themeChooser.show();
     }
 
+    public void showNetworkError() {
+        // Close the left nav, as sometimes it's left open.
+        drawerLayout.closeDrawers();
+        // Show a standardised network error.
+        getCurPageFragment().showNetworkError(null);
+    }
+
     // Note: back button first handled in {@link #onOptionsItemSelected()};
     @Override
     public void onBackPressed() {

@@ -911,7 +911,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         webView.setVisibility(View.INVISIBLE);
     }
 
-    private void showNetworkError(String statusCode) {
+    protected void showNetworkError(String statusCode) {
         TextView errorMessage = (TextView) networkError.findViewById(R.id.page_error_message);
         TextView statusCodeView = (TextView) networkError.findViewById(R.id.network_status_code);
         TextView statusMessageView = (TextView) networkError.findViewById(R.id.network_status_message);
