@@ -107,7 +107,7 @@ def compileSubprojectOrModule = { String projectName,
 }
 
 dependencies {
-    compileSubprojectOrModule ':java-mwapi:json', 'org.mediawiki.api:json:1.3.2-SNAPSHOT', 'org.json', 'json'
+    compileSubprojectOrModule ':java-mwapi:json', 'org.mediawiki.api:json:1.3.2', 'org.json', 'json'
 
     // To keep the Maven Central dependencies up-to-date
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
