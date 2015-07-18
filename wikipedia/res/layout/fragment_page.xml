@@ -233,71 +233,14 @@
 
         </FrameLayout>
     </org.wikipedia.views.WikiDrawerLayout>
-    <LinearLayout
+
+    <org.wikipedia.views.WikiErrorView
         android:id="@+id/page_error"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:orientation="vertical"
-        android:visibility="gone"
-        >
-
-        <TextView
-            android:id="@+id/page_error_message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="4dp"
-            android:text="@string/generic_page_error"
-            style="?android:textAppearanceLarge" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="4dp"
-            android:gravity="center"
-            >
-            <TextView
-                android:id="@+id/network_status_code"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="2dp"
-                android:layout_marginEnd="2dp"
-                style="?android:textAppearanceSmall"
-                />
-            <TextView
-                android:id="@+id/network_status_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:layout_marginStart="2dp"
-                style="?android:textAppearanceSmall"
-                />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/page_error_retry"
-            android:text="@string/page_error_retry"
-            android:layout_gravity="center"
-            android:layout_margin="18dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/page_does_not_exist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:text="@string/page_does_not_exist_error"
-        style="?android:textAppearanceLarge"
-        android:visibility="gone" />
+        android:visibility="gone"
+        />
 
     <android.support.v4.widget.Space
         android:id="@+id/fragment_page_tool_tip_select_text_target"

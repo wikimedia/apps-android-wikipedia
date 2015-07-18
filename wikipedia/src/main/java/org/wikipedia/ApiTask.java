@@ -10,6 +10,7 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.NetworkUtils;
+import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.concurrent.Executor;
@@ -57,7 +58,7 @@ public abstract class ApiTask<T> extends SaneAsyncTask<T> {
     @Override
     public void onCatch(Throwable caught) {
         L.d(caught);
-        if (Utils.throwableContainsSpecificType(caught, SSLException.class)
+        if (ThrowableUtil.throwableContainsException(caught, SSLException.class)
                 && WikipediaApp.getInstance().incSslFailCount() < 2) {
             WikipediaApp.getInstance().setSslFallback(true);
             if (!isCancelled()) {

@@ -3,7 +3,6 @@ package org.wikipedia.page;
 import android.content.Context;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
@@ -46,11 +45,6 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
 
     @Override
     public List<Section> processResult(ApiResult result) throws Throwable {
-        if (result.asObject().has("error")) {
-            JSONObject errorJSON = result.asObject().optJSONObject("error");
-            throw new SectionsFetchException(errorJSON.optString("code"), errorJSON.optString("info"));
-        }
-
         JSONArray sectionsJSON = result.asObject().optJSONObject("mobileview").optJSONArray("sections");
         ArrayList<Section> sections = new ArrayList<>();
 

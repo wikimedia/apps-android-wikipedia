@@ -6,7 +6,6 @@ import org.wikipedia.NightModeHandler;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
-import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
@@ -31,15 +30,14 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.ApiUtil;
-import org.wikipedia.util.NetworkUtils;
+import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiDrawerLayout;
 
-import org.mediawiki.api.json.ApiException;
-
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.views.WikiErrorView;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -73,11 +71,7 @@ import android.widget.Toast;
 import com.appenguin.onboarding.ToolTip;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.net.ssl.SSLException;
 
@@ -122,9 +116,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private SearchBarHideHandler searchBarHideHandler;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
-    private View networkError;
-    private View retryButton;
-    private View pageDoesNotExistError;
+    private WikiErrorView errorView;
     private WikiDrawerLayout tocDrawer;
 
     private View tocButton;
@@ -245,9 +237,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         refreshView.setScrollableChild(webView);
         refreshView.setOnRefreshListener(pageRefreshListener);
 
-        networkError = rootView.findViewById(R.id.page_error);
-        retryButton = rootView.findViewById(R.id.page_error_retry);
-        pageDoesNotExistError = rootView.findViewById(R.id.page_does_not_exist);
+        errorView = (WikiErrorView)rootView.findViewById(R.id.page_error);
 
         return rootView;
     }
@@ -349,17 +339,11 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             new NightModeHandler(bridge).turnOn(true);
         }
 
-        retryButton.setOnClickListener(new View.OnClickListener() {
+        errorView.setRetryClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                retryButton.setEnabled(false);
-                ViewAnimations.fadeOut(networkError, new Runnable() {
-                    @Override
-                    public void run() {
-                        displayNewPage(model.getTitleOriginal(), model.getCurEntry(), true, false);
-                        retryButton.setEnabled(true);
-                    }
-                });
+                errorView.setVisibility(View.GONE);
+                displayNewPage(model.getTitleOriginal(), model.getCurEntry(), true, false);
             }
         });
 
@@ -543,8 +527,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         tocHandler.setEnabled(false);
         setToCButtonFadedIn(true);
 
-        networkError.setVisibility(View.GONE);
-        pageDoesNotExistError.setVisibility(View.GONE);
+        errorView.setVisibility(View.GONE);
 
         model.setTitle(title);
         model.setTitleOriginal(title);
@@ -859,45 +842,21 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         ((PageActivity) getActivity()).updateProgressBar(false, true, 0);
         refreshView.setRefreshing(false);
 
-        if (caught instanceof SectionsFetchException) {
-            if (((SectionsFetchException) caught).getCode().equals("missingtitle")
-                    || ((SectionsFetchException) caught).getCode().equals("invalidtitle")) {
-                ViewAnimations.fadeIn(pageDoesNotExistError);
-            }
-        } else if (Utils.throwableContainsSpecificType(caught, SSLException.class)) {
-            if (WikipediaApp.getInstance().incSslFailCount() < 2) {
-                WikipediaApp.getInstance().setSslFallback(true);
-                showNetworkError(null);
-                try {
+        hidePageContent();
+        errorView.setError(caught);
+        errorView.setVisibility(View.VISIBLE);
+
+        if (ThrowableUtil.throwableContainsException(caught, SSLException.class)) {
+            try {
+                if (WikipediaApp.getInstance().incSslFailCount() < 2) {
+                    WikipediaApp.getInstance().setSslFallback(true);
                     connectionIssueFunnel.logConnectionIssue("mdot", "commonSectionFetchOnCatch");
-                } catch (Exception e) {
-                    // meh
-                }
-            } else {
-                showNetworkError(null);
-                try {
+                } else {
                     connectionIssueFunnel.logConnectionIssue("desktop", "commonSectionFetchOnCatch");
-                } catch (Exception e) {
-                    // again, meh
                 }
+            } catch (Exception e) {
+                // meh
             }
-        } else if (Utils.throwableContainsSpecificType(caught, JSONException.class)) {
-            // If the server returns an numeric response code rather than an API response, it will
-            // come as an integer rather than a JSON object or array, triggering a JSONException.
-            Log.d(TAG, "Caught JSONException. Message: " + caught.getMessage());
-            Pattern p = Pattern.compile(" \\d{3} ");
-            Matcher m = p.matcher(caught.getMessage());
-            if (m.find()) {
-                String statusCode = m.group(0).trim();
-                Log.d(TAG, "Found probable server response code " + statusCode);
-                showNetworkError(statusCode);
-            } else {
-                showNetworkError(null);
-            }
-        } else if (caught instanceof ApiException) {
-            showNetworkError(null);
-        } else {
-            throw new RuntimeException(caught);
         }
     }
 
@@ -909,36 +868,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         searchBarHideHandler.setFadeEnabled(false);
         pageLoadStrategy.onHidePageContent();
         webView.setVisibility(View.INVISIBLE);
-    }
-
-    protected void showNetworkError(String statusCode) {
-        TextView errorMessage = (TextView) networkError.findViewById(R.id.page_error_message);
-        TextView statusCodeView = (TextView) networkError.findViewById(R.id.network_status_code);
-        TextView statusMessageView = (TextView) networkError.findViewById(R.id.network_status_message);
-
-        if (!NetworkUtils.isNetworkConnectionPresent(app)) {
-            statusCodeView.setVisibility(View.GONE);
-            statusMessageView.setVisibility(View.GONE);
-            errorMessage.setText(R.string.error_network_error_try_again);
-        } else {
-            errorMessage.setText(R.string.generic_page_error);
-            statusCodeView.setVisibility(View.VISIBLE);
-            statusMessageView.setVisibility(View.VISIBLE);
-            List<String> allStatusCodes = new ArrayList<>();
-            allStatusCodes.addAll(Arrays.asList(app.getResources().getStringArray(R.array.status_codes)));
-            // check probable returned code against list of status codes and display code/message if valid
-            if (statusCode != null && allStatusCodes.contains(statusCode)) {
-                statusCodeView.setText(statusCode);
-                List<String> allStatusMessages = new ArrayList<>();
-                allStatusMessages.addAll(Arrays.asList(app.getResources().getStringArray(R.array.status_messages)));
-                statusMessageView.setText(allStatusMessages.get(allStatusCodes.indexOf(statusCode)));
-            } else {
-                statusMessageView.setText(R.string.status_code_unavailable);
-            }
-        }
-
-        hidePageContent();
-        ViewAnimations.fadeIn(networkError);
     }
 
     public void savePage() {

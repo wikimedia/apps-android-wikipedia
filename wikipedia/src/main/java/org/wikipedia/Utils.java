@@ -525,22 +525,6 @@ public final class Utils {
     }
 
     /**
-     *
-     * @param actual The exception object
-     * @param expected The class you're trying to find, usually tossed by ExceptionImpl.class, for example.
-     * @return boolean true if the Throwable type was found in the nested exception change, else false.
-     */
-    public static boolean throwableContainsSpecificType(Throwable actual, Class expected) {
-        if (actual == null) {
-            return false;
-        } else if (actual.getClass() == expected) {
-            return true;
-        } else {
-            return throwableContainsSpecificType(actual.getCause(), expected);
-        }
-    }
-
-    /**
      * Calculates the actual font size for the current device, based on an "sp" measurement.
      * @param window The window on which the font will be rendered.
      * @param fontSp Measurement in "sp" units of the font.

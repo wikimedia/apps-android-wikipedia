@@ -91,8 +91,10 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                             return;
                         }
                         if (title == null) {
-                            // There was an error fetching the random page. Show a network error.
-                            ((PageActivity) getActivity()).showNetworkError();
+
+                            // TODO: show a SnackBar if we fail to fetch a random page.
+                            // (next patch, I promise)
+
                         } else {
                             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
                             ((PageActivity) getActivity()).displayNewPage(title, historyEntry, true);

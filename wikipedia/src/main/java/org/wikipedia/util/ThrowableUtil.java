@@ -41,7 +41,7 @@ public final class ThrowableUtil {
         // look at what kind of exception it is...
         if (inner instanceof ApiException) {
             // it's a well-formed error response from the server!
-            result = new AppError(context.getString(R.string.error_server_response),
+            result = new AppError(getApiError(context, (ApiException) inner),
                                   getApiErrorMessage(context, (ApiException) inner));
         } else if (isNetworkError(e)) {
             // it's a network error...
@@ -65,6 +65,17 @@ public final class ThrowableUtil {
                || ThrowableUtil.throwableContainsException(e, UnknownHostException.class)
                || ThrowableUtil.throwableContainsException(e, TimeoutException.class)
                || ThrowableUtil.throwableContainsException(e, SSLException.class);
+    }
+
+    @NonNull
+    private static String getApiError(@NonNull Context context, @NonNull ApiException e) {
+        String text;
+        if ("missingtitle".equals(e.getCode()) || "invalidtitle".equals(e.getCode())) {
+            text = context.getResources().getString(R.string.page_does_not_exist_error);
+        } else {
+            text = context.getString(R.string.error_server_response);
+        }
+        return text;
     }
 
     // TODO: migrate this to ApiException.toString()
