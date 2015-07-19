@@ -180,7 +180,7 @@
                 app:elevation="4sp"
                 app:borderWidth="0dp"
                 app:backgroundTint="?attr/toc_button_color"
-                app:layout_anchor="@id/page_web_view"
+                app:layout_anchor="@id/bottom_content_container"
                 app:layout_anchorGravity="bottom|right|end" />
 
         </android.support.design.widget.CoordinatorLayout>

@@ -113,8 +113,8 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q wikipedia:dependencies --configuration compile
 
-    compile 'com.android.support:appcompat-v7:22.2.0' // includes support-v4
-    compile 'com.android.support:design:22.2.0'
+    compile 'com.android.support:appcompat-v7:22.2.1' // includes support-v4
+    compile 'com.android.support:design:22.2.1'
     compile 'com.android.support:percent:22.2.0'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
     compile 'com.squareup.okhttp:okhttp:2.4.0'
