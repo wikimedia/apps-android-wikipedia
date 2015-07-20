@@ -277,7 +277,7 @@
   <string name="menu_save_page_popup">ذخیره برای بعد</string>
   <string name="tool_tip_select_text">هر جایی از متن را برای پررنگ شدن و کپی و اشتراک می‌توانید با فشاردادن و نگه‌داشتن انتخاب کنید.</string>
   <string name="tool_tip_share">بعد از پررنگ کردن مطلب مورد نظرتان، می توانید آن را در شبکه مطلوبتان به اشتراک بگذارید.</string>
-  <string name="page_view_in_browser" fuzzy="true">دیدن در مرورگر</string>
+  <string name="page_view_in_browser">دیدن صفحه در مرورگر</string>
   <string name="tool_tip_toc_button">با فشردن این دکمه جدول محتویات را هر زمانی که خواستید مشاهده کنید یا از سمت راست پنجره برگ بزنید.</string>
   <string name="error_server_response">سرور امکان کامل کردن درخواست شما را ندارد.</string>
   <string name="error_response_malformed">پاسخ سرور به درستی تنظیم نشده‌است.</string>

@@ -76,9 +76,9 @@
   <string name="dialog_message_leaving_edit_stay">Permanecer</string>
   <string name="menu_show_toc">Tabla de contenidos</string>
   <string name="search_no_results_found">No se encontraron resultados</string>
-  <string name="edit_section_captcha_message">Para ayudar a proteger contra el spam automatizado, por favor introduce las palabras que aparecen abajo</string>
+  <string name="edit_section_captcha_message">Para ayudar a proteger contra el spam automatizado, escribe las palabras que aparecen abajo</string>
   <string name="edit_section_captcha_hint">Repetir las palabras de arriba</string>
-  <string name="title_captcha">Introducir captcha</string>
+  <string name="title_captcha">Escribe el CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toca el CAPTCHA para recargar</string>
   <string name="edit_saved_page_refresh">Está página guardada puede estar obsoleta, y debe ser actualizada para habilitar la edición. ¿Quieres actualizar la página?</string>
   <string name="nav_item_login">Acceder</string>

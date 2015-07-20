@@ -7,7 +7,7 @@
   <string name="no">नाही</string>
   <string name="search_hint">विकिपीडिया मध्ये शोधा</string>
   <string name="nav_item_history">इतिहास</string>
-  <string name="error_network_error" fuzzy="true">Network पर्यंत पोहचू शकत नाही :(</string>
+  <string name="error_network_error">नेटवर्क पर्यंत पोहचू शकत नाही :(</string>
   <string name="search_network_error">Network खराब आहे. पुन्हा प्रयत्न करण्यासाठी tap करा.</string>
   <string name="page_error_retry">पुन्हा प्रयत्न करा</string>
   <string name="menu_clear_all_history">इतिहास साफ करा</string>

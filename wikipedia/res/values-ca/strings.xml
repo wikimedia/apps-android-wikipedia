@@ -264,6 +264,9 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Fair use (ús raonable)</string>
   <string name="gallery_uploader_unknown">Carregador no conegut</string>
   <string name="edit_save_unknown_error">No s\'ha pogut desar l\'edició: %s</string>
+  <string name="tool_tip_select_text">Mantén premut qualsevol part del text per a ressaltar-lo per copiar i compartir.</string>
+  <string name="tool_tip_share">Després de destacar un fet interessant, proveu de compartir-lo en les vostres xarxes preferides!</string>
+  <string name="page_view_in_browser">Visualitza la pàgina en el navegador</string>
   <string name="tool_tip_toc_button">Mira la taula de continguts en qualsevol moment tocant aquest botó, o arrossegant des de la part dreta de la pantalla</string>
   <string name="error_server_response">El servidor no pot completar la petició.</string>
   <string name="error_response_malformed">La resposta del servidor no s\'ha formatat correctament.</string>

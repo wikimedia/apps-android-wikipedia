@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Bạn đang làm gì khi xảy ra sự cố?</string>
   <string name="search_hint">Tìm trong Wikipedia</string>
   <string name="nav_item_history">Lịch sử</string>
-  <string name="error_network_error" fuzzy="true">Không thể kết nối với mạng :(</string>
+  <string name="error_network_error">Không thể kết nối với mạng.</string>
   <string name="search_network_error">Lỗi mạng. Chạm để thử lại.</string>
   <string name="generic_page_error">Có một vấn đề trong việc chuyển những yêu cầu của bạn.</string>
   <string name="status_code_unavailable">Mã trạng thái của server không có sẵn.</string>
@@ -275,4 +275,13 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="menu_open_link">Mở liên kết</string>
   <string name="menu_open_in_new_tab">Mở trong thẻ mới</string>
   <string name="menu_save_page_popup">Lưu sau</string>
+  <string name="tool_tip_select_text">Nhấn và giữ tại bất kỳ đâu trong nội dung văn bản để đánh dấu sao chép và chia sẻ.</string>
+  <string name="tool_tip_share">Sau khi đã tô sáng một đoạn thú vị, hãy thử chia sẻ nó trên mạng xã hội ưa thích của bạn!</string>
+  <string name="page_view_in_browser">Xem trang trong trình duyệt</string>
+  <string name="tool_tip_toc_button">Xem mục lục bất cứ khi nào bằng cách nhấn vào nút này, hoặc trượt từ cạnh phải màn hình.</string>
+  <string name="error_server_response">Máy chủ không thể thực hiện yêu cầu.</string>
+  <string name="error_response_malformed">Phản hồi từ máy chủ không được định dạng đúng.</string>
+  <string name="error_unknown">Gặp lỗi lạ.</string>
+  <string name="format_error_server_message">Thông báo: \"%s\"</string>
+  <string name="format_error_server_code">Mã: \"%s\"</string>
 </resources>

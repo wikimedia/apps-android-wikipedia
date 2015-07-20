@@ -277,4 +277,6 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="menu_open_link">Apri il link</string>
   <string name="menu_open_in_new_tab">Apri un una nuova scheda</string>
   <string name="menu_save_page_popup">Salva dopo</string>
+  <string name="format_error_server_message">Messaggio: \"%s\"</string>
+  <string name="format_error_server_code">Codice: \"%s\"</string>
 </resources>

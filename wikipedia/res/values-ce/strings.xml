@@ -104,7 +104,7 @@
   <string name="menu_refresh_saved_page">Карлаяккха агӀо</string>
   <string name="dialog_page_issues">АгӀонгахь хаатарш</string>
   <string name="button_page_issues">АгӀонгахь хаатарш</string>
-  <string name="menu_themechooser">Кечяр а шрифт а хийцар</string>
+  <string name="menu_themechooser">Кечяр а, шрифт а хийцар</string>
   <string name="text_size_select">Шрифтан барам</string>
   <string name="color_theme_select">Кечяр</string>
   <string name="color_theme_light">Сирла</string>

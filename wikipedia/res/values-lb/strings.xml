@@ -250,6 +250,7 @@
   <string name="menu_open_in_new_tab">An engem neien Tab opmaachen</string>
   <string name="menu_save_page_popup">Fir spéider späicheren</string>
   <string name="page_view_in_browser">Säit am Browser weisen</string>
+  <string name="error_server_response">De Server konnt d\'Ufro net ausféieren.</string>
   <string name="error_response_malformed">D\'Äntwert vum Server war net richteg formatéiert.</string>
   <string name="error_unknown">En onbekannte Feeler ass geschitt.</string>
   <string name="format_error_server_message">Message: \"%s\"</string>
