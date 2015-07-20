@@ -76,10 +76,6 @@ public class ThemeChooserDialog extends BottomDialog {
         fontChangeProgressBar = (ProgressBar) getDialogLayout().findViewById(R.id.font_change_progress_bar);
 
         updateButtonState();
-
-        if (app.isPreBetaRelease()) {
-            ExperimentalPageLoadChooser.initExperimentalPageLoadChooser(context, getDialogLayout());
-        }
     }
 
     @Subscribe

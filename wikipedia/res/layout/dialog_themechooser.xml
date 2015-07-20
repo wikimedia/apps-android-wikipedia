@@ -111,14 +111,6 @@
                     />
         </LinearLayout>
 
-        <!-- TODO: remove once we are done with this experiment -->
-        <!--<include layout="@layout/experimental_page_load_switch"-->
-        <include layout="@layout/experimental_page_load"
-            android:id="@+id/experimental_page_load"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"/>
-
     </LinearLayout>
 
     <ProgressBar
