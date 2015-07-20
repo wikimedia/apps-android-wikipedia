@@ -117,14 +117,26 @@
                                     android:inputType="text"
                                     android:imeOptions="actionGo|flagNoExtractUi"
                                     app:cabEnabled="false" />
-                                <Button
-                                    android:id="@+id/search_lang_button"
-                                    android:layout_width="36dp"
-                                    android:layout_height="36dp"
-                                    android:gravity="center"
-                                    android:background="@drawable/lang_button_shape"
-                                    style="@style/AppTheme.ActionModeStyle"
-                                    android:textColor="@android:color/white" />
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="2dp"
+                                    android:paddingBottom="2dp"
+                                    android:paddingLeft="9dp"
+                                    android:paddingRight="9dp"
+                                    android:id="@+id/search_lang_button_container"
+                                    android:clickable="true">
+                                    <Button
+                                        android:id="@+id/search_lang_button"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginRight="7dp"
+                                        android:layout_marginEnd="7dp"
+                                        android:gravity="center"
+                                        android:background="@drawable/lang_button_shape"
+                                        style="@style/AppTheme.ActionModeStyle"
+                                        android:textColor="@android:color/white" />
+                                </FrameLayout>
                             </LinearLayout>
                         </FrameLayout>
                     </android.support.v7.widget.Toolbar>

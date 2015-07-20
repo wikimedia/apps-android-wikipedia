@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -44,6 +45,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     private EditText searchEditText;
     private SearchFunnel funnel;
     private Button langButton;
+    private FrameLayout langButtonContainer;
 
     public SearchFunnel getFunnel() {
         return funnel;
@@ -286,6 +288,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         LinearLayout enabledSearchBar = (LinearLayout) getActivity().findViewById(R.id.search_bar_enabled);
         TextView searchButton = (TextView) getActivity().findViewById(R.id.main_search_bar_text);
         langButton = (Button) getActivity().findViewById(R.id.search_lang_button);
+        langButtonContainer = (FrameLayout) getActivity().findViewById(R.id.search_lang_button_container);
 
         if (enabled) {
             // set up the language picker
@@ -293,19 +296,14 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
             formatLangButtonText();
             langButton.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getActivity(), true);
-                    langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialog) {
-                            langButton.setText(app.getAppOrSystemLanguageCode());
-                            formatLangButtonText();
-                            if (!TextUtils.isEmpty(lastSearchedText)) {
-                                startSearch(lastSearchedText, true);
-                            }
-                        }
-                    });
-                    langPrefDialog.show();
+                public void onClick(View v) {
+                    showLangPreferenceDialog();
+                }
+            });
+            langButtonContainer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showLangPreferenceDialog();
                 }
             });
 
@@ -454,8 +452,8 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         final int langButtonTextMaxLength = 7;
 
         // These values represent scaled pixels (sp)
-        final int langButtonTextSizeSmaller = 10;
-        final int langButtonTextSizeLarger = 12;
+        final int langButtonTextSizeSmaller = 11;
+        final int langButtonTextSizeLarger = 13;
 
         String langCode = app.getAppOrSystemLanguageCode();
         if (langCode.length() > langCodeStandardLength) {
@@ -466,5 +464,20 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
             return;
         }
         langButton.setTextSize(langButtonTextSizeLarger);
+    }
+
+    public void showLangPreferenceDialog() {
+        LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getActivity(), true);
+        langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                langButton.setText(app.getAppOrSystemLanguageCode());
+                formatLangButtonText();
+                if (!TextUtils.isEmpty(lastSearchedText)) {
+                    startSearch(lastSearchedText, true);
+                }
+            }
+        });
+        langPrefDialog.show();
     }
 }
