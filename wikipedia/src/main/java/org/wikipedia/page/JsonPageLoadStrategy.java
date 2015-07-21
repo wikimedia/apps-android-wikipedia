@@ -616,6 +616,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     private class LeadSectionFetchTask extends SectionsFetchTask {
         private final int startSequenceNum;
         private PageProperties pageProperties;
+        private String pagePropsResponseName = "mobileview";
 
         public LeadSectionFetchTask(int startSequenceNum) {
             super(app, model.getTitle(), "0");
@@ -628,10 +629,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             builder.param("prop", builder.getParams().get("prop")
                     + "|thumb|image|id|revision|description|"
                     + Page.API_REQUEST_PROPS);
-            Resources res = app.getResources();
-            builder.param("thumbsize",
-                    Integer.toString((int) (res.getDimension(R.dimen.leadImageWidth)
-                            / res.getDisplayMetrics().density)));
+            builder.param("thumbsize", Integer.toString(calculateLeadImageWidth()));
             return builder;
         }
 
@@ -640,10 +638,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             if (startSequenceNum != currentSequenceNum) {
                 return super.processResult(result);
             }
-            JSONObject mobileView = result.asObject().optJSONObject("mobileview");
-            if (mobileView != null) {
-                pageProperties = new PageProperties(mobileView);
-                model.setTitle(fragment.adjustPageTitleFromMobileview(model.getTitle(), mobileView));
+            JSONObject metadata = result.asObject().optJSONObject(pagePropsResponseName);
+            if (metadata != null) {
+                pageProperties = new PageProperties(metadata);
+                model.setTitle(fragment.adjustPageTitleFromMobileview(model.getTitle(), metadata));
             }
             return super.processResult(result);
         }
@@ -703,6 +701,11 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         public void onCatch(Throwable caught) {
             commonSectionFetchOnCatch(caught, startSequenceNum);
         }
+    }
+
+    private int calculateLeadImageWidth() {
+        Resources res = app.getResources();
+        return (int) (res.getDimension(R.dimen.leadImageWidth) / res.getDisplayMetrics().density);
     }
 
     private class RestSectionsFetchTask extends SectionsFetchTask {
