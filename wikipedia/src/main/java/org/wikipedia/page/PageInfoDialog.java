@@ -2,6 +2,8 @@ package org.wikipedia.page;
 
 import org.wikipedia.R;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.views.WikiListView;
+
 import android.graphics.Typeface;
 import android.view.View;
 import android.widget.Button;
@@ -17,13 +19,16 @@ class PageInfoDialog extends BottomDialog {
     private final ViewFlipper flipper;
     private final Button disambigHeading;
     private final Button issuesHeading;
+    private final PageActivity activity;
+    private final WikiListView disambigList;
 
     PageInfoDialog(final PageActivity activity, PageInfo pageInfo, int height) {
         super(activity, R.layout.dialog_page_info);
+        this.activity = activity;
 
         View parentView = getDialogLayout();
         flipper = (ViewFlipper) parentView.findViewById(R.id.page_info_flipper);
-        final ListView disambigList = (ListView) parentView.findViewById(R.id.disambig_list);
+        disambigList = (WikiListView) parentView.findViewById(R.id.disambig_list);
         ListView issuesList = (ListView) parentView.findViewById(R.id.page_issues_list);
         disambigHeading = (Button) parentView.findViewById(R.id.page_info_similar_titles_heading);
         issuesHeading = (Button) parentView.findViewById(R.id.page_info_page_issues_heading);
@@ -50,6 +55,8 @@ class PageInfoDialog extends BottomDialog {
                 activity.displayNewPage(title, historyEntry);
             }
         });
+        new PageLongPressHandler(getWindow(), disambigList, contextMenuListener,
+                HistoryEntry.SOURCE_INTERNAL_LINK);
 
         if (pageInfo.getDisambigs().length > 0) {
             disambigHeading.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +81,26 @@ class PageInfoDialog extends BottomDialog {
             separatorHeading.setVisibility(View.GONE);
         }
     }
+
+    private PageLongPressHandler.ContextMenuListener contextMenuListener
+            = new PageLongPressHandler.ContextMenuListener() {
+        @Override
+        public PageTitle getTitleForListPosition(int position) {
+            return ((DisambigResult) disambigList.getAdapter().getItem(position)).getTitle();
+        }
+
+        @Override
+        public void onOpenLink(PageTitle title, HistoryEntry entry) {
+            dismiss();
+            activity.displayNewPage(title, entry);
+        }
+
+        @Override
+        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
+            dismiss();
+            activity.displayNewPage(title, entry, true, false);
+        }
+    };
 
     void showDisambig() {
         if (flipper.getCurrentView() != flipper.getChildAt(0)) {

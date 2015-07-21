@@ -1,5 +1,7 @@
 package org.wikipedia.search;
 
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageLongPressHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
@@ -7,6 +9,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.WikiErrorView;
+import org.wikipedia.views.WikiListView;
 
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
@@ -20,7 +23,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.text.Collator;
@@ -41,7 +43,7 @@ public class SearchResultsFragment extends Fragment {
     private SearchArticlesFragment searchFragment;
     private View searchResultsDisplay;
     private View searchResultsContainer;
-    private ListView searchResultsList;
+    private WikiListView searchResultsList;
     private WikiErrorView searchErrorView;
     private View searchNoResults;
     private TextView searchSuggestion;
@@ -61,6 +63,23 @@ public class SearchResultsFragment extends Fragment {
      */
     private boolean fullSearchDisabled = false;
 
+    private PageLongPressHandler.ContextMenuListener contextMenuListener
+            = new PageLongPressHandler.ContextMenuListener() {
+        @Override
+        public PageTitle getTitleForListPosition(int position) {
+            return (PageTitle) searchResultsList.getAdapter().getItem(position);
+        }
+
+        @Override
+        public void onOpenLink(PageTitle title, HistoryEntry entry) {
+            searchFragment.navigateToTitle(title, false);
+        }
+
+        @Override
+        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
+            searchFragment.navigateToTitle(title, true);
+        }
+    };
 
     public SearchResultsFragment() {
     }
@@ -79,10 +98,10 @@ public class SearchResultsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search_results, container, false);
         searchResultsDisplay = rootView.findViewById(R.id.search_results_display);
-        searchFragment = (SearchArticlesFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.search_fragment);
+        searchFragment = (SearchArticlesFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.search_fragment);
 
         searchResultsContainer = rootView.findViewById(R.id.search_results_container);
-        searchResultsList = (ListView) rootView.findViewById(R.id.search_results_list);
+        searchResultsList = (WikiListView) rootView.findViewById(R.id.search_results_list);
 
         if (savedInstanceState != null) {
             ParcelableLruCache<List<PageTitle>> mySearchResultsCache = savedInstanceState.getParcelable(ARG_RESULTS_CACHE);
@@ -95,9 +114,12 @@ public class SearchResultsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle item = (PageTitle) searchResultsList.getAdapter().getItem(position);
-                searchFragment.navigateToTitle(item);
+                searchFragment.navigateToTitle(item, false);
             }
         });
+
+        new PageLongPressHandler(getActivity().getWindow(), searchResultsList, contextMenuListener,
+                HistoryEntry.SOURCE_SEARCH);
 
         SearchResultAdapter adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);

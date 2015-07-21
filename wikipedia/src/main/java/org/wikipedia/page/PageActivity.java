@@ -548,7 +548,7 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param entry HistoryEntry associated with this page.
      */
     public void displayNewPage(PageTitle title, HistoryEntry entry) {
-        displayNewPage(title, entry, false);
+        displayNewPage(title, entry, false, false);
     }
 
     /**
@@ -556,9 +556,11 @@ public class PageActivity extends ThemedActionBarActivity {
      * fragment manager. Useful for when this function is called from an AsyncTask result.
      * @param title Title of the page to load.
      * @param entry HistoryEntry associated with this page.
+     * @param inNewTab Whether to open this page in a new tab.
      * @param allowStateLoss Whether to allow state loss.
      */
-    public void displayNewPage(final PageTitle title, final HistoryEntry entry, boolean allowStateLoss) {
+    public void displayNewPage(final PageTitle title, final HistoryEntry entry,
+                               final boolean inNewTab, boolean allowStateLoss) {
         ACRA.getErrorReporter().putCustomData("api", title.getSite().getApiDomain());
         ACRA.getErrorReporter().putCustomData("title", title.toString());
 
@@ -590,7 +592,11 @@ public class PageActivity extends ThemedActionBarActivity {
                     return;
                 }
                 frag.closeFindInPage();
-                frag.displayNewPage(title, entry, false, true);
+                if (inNewTab) {
+                    frag.openInNewTabFromMenu(title, entry);
+                } else {
+                    frag.displayNewPage(title, entry, false, true);
+                }
                 app.getSessionFunnel().pageViewed(entry);
             }
         });
@@ -611,7 +617,7 @@ public class PageActivity extends ThemedActionBarActivity {
     public void displayMainPage(boolean allowStateLoss) {
         PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()), app.getPrimarySite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
-        displayNewPage(title, historyEntry, allowStateLoss);
+        displayNewPage(title, historyEntry, false, allowStateLoss);
     }
 
     public void showThemeChooser() {

@@ -91,7 +91,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                             return;
                         }
                         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
-                        ((PageActivity) getActivity()).displayNewPage(title, historyEntry, true);
+                        ((PageActivity) getActivity()).displayNewPage(title, historyEntry, false, true);
                     }
 
                     @Override

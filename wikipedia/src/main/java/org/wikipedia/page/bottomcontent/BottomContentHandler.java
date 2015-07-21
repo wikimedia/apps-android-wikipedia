@@ -16,13 +16,13 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.page.PageLongPressHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
@@ -38,6 +38,7 @@ import org.wikipedia.page.PageViewFragmentInternal;
 import org.wikipedia.page.SuggestionsTask;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.WikiListView;
 
 import java.util.List;
 
@@ -60,7 +61,7 @@ public class BottomContentHandler implements BottomContentInterface,
     private TextView pageLicenseText;
     private TextView pageExternalLink;
     private View readMoreContainer;
-    private ListView readMoreList;
+    private WikiListView readMoreList;
 
     private SuggestedPagesFunnel funnel;
     private SearchResults readMoreItems;
@@ -83,7 +84,7 @@ public class BottomContentHandler implements BottomContentInterface,
         pageLastUpdatedText = (TextView)bottomContentContainer.findViewById(R.id.page_last_updated_text);
         pageLicenseText = (TextView)bottomContentContainer.findViewById(R.id.page_license_text);
         readMoreContainer = bottomContentContainer.findViewById(R.id.read_more_container);
-        readMoreList = (ListView)bottomContentContainer.findViewById(R.id.read_more_list);
+        readMoreList = (WikiListView)bottomContentContainer.findViewById(R.id.read_more_list);
 
         pageExternalLink = (TextView) bottomContentContainer.findViewById(R.id.page_external_link);
         pageExternalLink.setPaintFlags(pageExternalLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -93,6 +94,9 @@ public class BottomContentHandler implements BottomContentInterface,
                 Utils.visitInExternalBrowser(activity, Uri.parse(pageTitle.getMobileUri()));
             }
         });
+
+        new PageLongPressHandler(activity.getWindow(), readMoreList, contextMenuListener,
+                HistoryEntry.SOURCE_INTERNAL_LINK);
 
         // set up pass-through scroll functionality for the ListView
         readMoreList.setOnTouchListener(new View.OnTouchListener() {
@@ -360,6 +364,28 @@ public class BottomContentHandler implements BottomContentInterface,
         });
         adapter.notifyDataSetChanged();
     }
+
+    private PageLongPressHandler.ContextMenuListener contextMenuListener
+            = new PageLongPressHandler.ContextMenuListener() {
+        private int lastPosition;
+        @Override
+        public PageTitle getTitleForListPosition(int position) {
+            lastPosition = position;
+            return (PageTitle) readMoreList.getAdapter().getItem(position);
+        }
+
+        @Override
+        public void onOpenLink(PageTitle title, HistoryEntry entry) {
+            activity.displayNewPage(title, entry);
+            funnel.logSuggestionClicked(pageTitle, readMoreItems.getPageTitles(), lastPosition);
+        }
+
+        @Override
+        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
+            activity.displayNewPage(title, entry, true, false);
+            funnel.logSuggestionClicked(pageTitle, readMoreItems.getPageTitles(), lastPosition);
+        }
+    };
 
     private final class ReadMoreAdapter extends BaseAdapter {
         private final LayoutInflater inflater;

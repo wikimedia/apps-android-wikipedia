@@ -200,9 +200,13 @@ public final class Utils {
      * @param activity The current activity
      */
     public static void hideSoftKeyboard(Activity activity) {
-        InputMethodManager keyboard = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        hideSoftKeyboard(activity.getWindow().getDecorView());
+    }
+
+    public static void hideSoftKeyboard(View view) {
+        InputMethodManager keyboard = (InputMethodManager)view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         // Not using getCurrentFocus as that sometimes is null, but the keyboard is still up.
-        keyboard.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
+        keyboard.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     /**
