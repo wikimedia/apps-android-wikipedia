@@ -2,7 +2,6 @@ package org.wikipedia.page;
 
 import org.acra.ACRA;
 import org.wikipedia.BackPressedHandler;
-import org.wikipedia.NavDrawerFragment;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.activity.ActivityUtil;
@@ -17,9 +16,11 @@ import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
+import org.wikipedia.random.RandomHandler;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.search.SearchBarHideHandler;
+import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.tooltip.ToolTipUtil;
@@ -29,12 +30,15 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.zero.WikipediaZeroHandler;
+import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.zero.ZeroMessage;
 
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
 import android.app.SearchManager;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -42,9 +46,12 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.BadParcelableException;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -55,69 +62,90 @@ import android.support.v7.widget.Toolbar;
 import android.support.v7.view.ActionMode;
 import android.text.Html;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PageActivity extends ThemedActionBarActivity {
+
     public enum TabPosition {
         CURRENT_TAB,
         NEW_TAB_BACKGROUND,
         NEW_TAB_FOREGROUND
     }
-    public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
-    public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
-    public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
-    public static final String EXTRA_SEARCH_FROM_WIDGET = "searchFromWidget";
-    public static final String EXTRA_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
-    private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
-    private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
-    private static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
-
-    private static final String KEY_LAST_FRAGMENT = "lastFragment";
-    private static final String KEY_LAST_FRAGMENT_ARGS = "lastFragmentArgs";
 
     public static final int ACTIVITY_REQUEST_LANGLINKS = 0;
     public static final int ACTIVITY_REQUEST_EDIT_SECTION = 1;
     public static final int ACTIVITY_REQUEST_GALLERY = 2;
 
+    public static final int PROGRESS_BAR_MAX_VALUE = 10000;
+
+    public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
+    public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
+    public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
+    public static final String EXTRA_SEARCH_FROM_WIDGET = "searchFromWidget";
+    public static final String EXTRA_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
+
+    private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
+    private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
+    private static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
+    private static final String KEY_LAST_FRAGMENT = "lastFragment";
+    private static final String KEY_LAST_FRAGMENT_ARGS = "lastFragmentArgs";
+
     private Bus bus;
     private EventBusMethods busMethods;
     private WikipediaApp app;
-
     private View fragmentContainerView;
+    private View tabsContainerView;
+    private WikiDrawerLayout drawerLayout;
+    private NavigationView navDrawer;
+    private Menu navMenu;
+    private SearchArticlesFragment searchFragment;
+    private TextView searchHintText;
+    private ProgressBar progressBar;
+    private View toolbarContainer;
+    private ActionMode currentActionMode;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private SearchBarHideHandler searchBarHideHandler;
+    private boolean pausedStateOfZero;
+    private ZeroMessage pausedMessageOfZero;
+    private ThemeChooserDialog themeChooser;
+    private RandomHandler randomHandler;
+    private NavDrawerHelper navDrawerHelper;
+
     public View getContentView() {
         return fragmentContainerView;
     }
 
-    private View tabsContainerView;
     public View getTabsContainerView() {
         return tabsContainerView;
     }
 
-    private WikiDrawerLayout drawerLayout;
-    private NavDrawerFragment fragmentNavdrawer;
-    private SearchArticlesFragment searchFragment;
-    private TextView searchHintText;
-
-    public static final int PROGRESS_BAR_MAX_VALUE = 10000;
-    private ProgressBar progressBar;
-
-    private View toolbarContainer;
-    private ActionMode currentActionMode;
-
-    private ActionBarDrawerToggle mDrawerToggle;
     public ActionBarDrawerToggle getDrawerToggle() {
         return mDrawerToggle;
     }
 
-    private SearchBarHideHandler searchBarHideHandler;
     public SearchBarHideHandler getSearchBarHideHandler() {
         return searchBarHideHandler;
+    }
+
+    public NavigationView getNavDrawer() {
+        return navDrawer;
+    }
+
+    public Menu getNavMenu() {
+        return navMenu;
+    }
+
+    public RandomHandler getRandomHandler() {
+        return randomHandler;
     }
 
     /**
@@ -147,11 +175,6 @@ public class PageActivity extends ThemedActionBarActivity {
         }
     }
 
-    private boolean pausedStateOfZero;
-    private ZeroMessage pausedMessageOfZero;
-
-    private ThemeChooserDialog themeChooser;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,18 +191,22 @@ public class PageActivity extends ThemedActionBarActivity {
         busMethods = new EventBusMethods();
         registerBus();
 
-        drawerLayout = (WikiDrawerLayout) findViewById(R.id.drawer_layout);
-        fragmentNavdrawer = (NavDrawerFragment) getSupportFragmentManager().findFragmentById(
-                R.id.navdrawer);
-        searchFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
-        searchHintText = (TextView) findViewById(R.id.main_search_bar_text);
-
         fragmentContainerView = findViewById(R.id.content_fragment_container);
         tabsContainerView = findViewById(R.id.tabs_container);
         progressBar = (ProgressBar)findViewById(R.id.main_progressbar);
         progressBar.setMax(PROGRESS_BAR_MAX_VALUE);
         updateProgressBar(false, true, 0);
 
+        drawerLayout = (WikiDrawerLayout) findViewById(R.id.drawer_layout);
+        navDrawer = (NavigationView) findViewById(R.id.navdrawer);
+        navMenu = navDrawer.getMenu();
+        navDrawerHelper = new NavDrawerHelper(this);
+        navDrawer.setNavigationItemSelectedListener(navDrawerHelper.getNewListener());
+
+        randomHandler = navDrawerHelper.getNewRandomHandler();
+
+        searchFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
+        searchHintText = (TextView) findViewById(R.id.main_search_bar_text);
         searchHintText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -328,7 +355,7 @@ public class PageActivity extends ThemedActionBarActivity {
                     getCurPageFragment().toggleToC(PageViewFragmentInternal.TOC_ACTION_HIDE);
                 }
                 //and make sure to update dynamic items and highlights
-                fragmentNavdrawer.setupDynamicItems();
+                navDrawerHelper.setupDynamicNavDrawerItems();
                 oncePerSlideLock = true;
             }
             // and make sure the Toolbar is showing
@@ -740,7 +767,7 @@ public class PageActivity extends ThemedActionBarActivity {
                 WikipediaZeroHandler.showZeroBanner(PageActivity.this, title,
                         getResources().getColor(android.R.color.white),
                         getResources().getColor(R.color.holo_red_dark));
-                fragmentNavdrawer.setupDynamicItems();
+                navDrawerHelper.setupDynamicNavDrawerItems();
                 showDialogAboutZero(null, title, verbiage);
             } else if ((!pausedStateOfZero || !pausedMessageOfZero.equals(latestCarrierMessage))
                        && latestWikipediaZeroDisposition) {
@@ -748,7 +775,7 @@ public class PageActivity extends ThemedActionBarActivity {
                 String verbiage = getString(R.string.zero_learn_more);
                 WikipediaZeroHandler.showZeroBanner(PageActivity.this, title,
                         latestCarrierMessage.getFg(), latestCarrierMessage.getBg());
-                fragmentNavdrawer.setupDynamicItems();
+                navDrawerHelper.setupDynamicNavDrawerItems();
                 showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, title, verbiage);
             }
             pausedStateOfZero = latestWikipediaZeroDisposition;
@@ -802,6 +829,7 @@ public class PageActivity extends ThemedActionBarActivity {
         if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
             bus.post(new WikipediaZeroStateChangeEvent());
         }
+        navDrawerHelper.setupDynamicNavDrawerItems();
     }
 
     @Override
@@ -832,23 +860,22 @@ public class PageActivity extends ThemedActionBarActivity {
         if (bus == null) {
             registerBus();
         }
-        if ((requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT)) {
-            fragmentContainerView.post(new Runnable() {
-                @Override
-                public void run() {
-                    handleIntent(data);
-                }
-            });
-        } else if ((requestCode == ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT)) {
-            fragmentContainerView.post(new Runnable() {
-                @Override
-                public void run() {
-                    handleIntent(data);
-                }
-            });
+        if (settingsActivityRequested(requestCode)) {
+            handleSettingsActivityResult(resultCode);
+        } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryFilePageSelected(requestCode, resultCode)) {
+            handleLangLinkOrFilePageResult(data);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    private void handleLangLinkOrFilePageResult(final Intent data) {
+        fragmentContainerView.post(new Runnable() {
+            @Override
+            public void run() {
+                handleIntent(data);
+            }
+        });
     }
 
     @Override
@@ -910,5 +937,69 @@ public class PageActivity extends ThemedActionBarActivity {
         bus.unregister(busMethods);
         bus = null;
         L.d("Unregistered bus.");
+    }
+
+    private void handleSettingsActivityResult(int resultCode) {
+        if (languageChanged(resultCode)) {
+            loadNewLanguageMainPage();
+        } else if (logoutSelected(resultCode)) {
+            logout();
+        }
+    }
+
+    private boolean settingsActivityRequested(int requestCode) {
+        return requestCode == SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS;
+    }
+
+    private boolean newArticleLanguageSelected(int requestCode, int resultCode) {
+        return requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT;
+    }
+
+    private boolean galleryFilePageSelected(int requestCode, int resultCode) {
+        return requestCode == ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT;
+    }
+
+    private boolean languageChanged(int resultCode) {
+        return resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
+    }
+
+    private boolean logoutSelected(int resultCode) {
+        return resultCode == SettingsActivity.ACTIVITY_RESULT_LOGOUT;
+    }
+
+    /**
+     * Reload the main page in the new language, after delaying for one second in order to:
+     * (1) Make sure that onStart in PageActivity gets called, thus registering the activity for the bus.
+     * (2) Ensure a smooth transition, which is very jarring without a delay.
+     */
+    private void loadNewLanguageMainPage() {
+        Handler uiThread = new Handler(Looper.getMainLooper());
+        uiThread.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                displayMainPageInForegroundTab();
+                updateFeaturedPageWidget();
+            }
+        }, DateUtils.SECOND_IN_MILLIS);
+    }
+
+    /**
+     * Update any instances of our Featured Page widget, since it will change with the currently selected language.
+     */
+    private void updateFeaturedPageWidget() {
+        Intent widgetIntent = new Intent(this, WidgetProviderFeaturedPage.class);
+        widgetIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(
+                new ComponentName(this, WidgetProviderFeaturedPage.class));
+        widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
+        sendBroadcast(widgetIntent);
+    }
+
+    private void logout() {
+        app.getEditTokenStorage().clearAllTokens();
+        app.getCookieManager().clearAllCookies();
+        app.getUserInfoStorage().clearUser();
+        Toast.makeText(app, R.string.toast_logout_complete, Toast.LENGTH_LONG).show(); //TODO: make this a snackbar
+        navDrawerHelper.setupDynamicNavDrawerItems();
     }
 }

@@ -165,12 +165,16 @@
     </FrameLayout>
 
     <!-- The navigation drawer -->
-    <fragment
-        android:layout_width="288dp"
-        android:layout_height="match_parent"
+    <android.support.design.widget.NavigationView
         android:id="@+id/navdrawer"
-        android:name="org.wikipedia.NavDrawerFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="start"
-        tools:layout="@layout/fragment_navdrawer"/>
+        android:background="@color/nav_background"
+        app:menu="@menu/menu_nav_drawer"
+        app:itemBackground="@drawable/nav_item_background"
+        app:itemTextColor="@color/nav_text"
+        app:itemIconTint="@color/nav_text"
+        app:headerLayout="@layout/inflate_header_nav_drawer"/>
 
 </org.wikipedia.views.WikiDrawerLayout>

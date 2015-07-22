@@ -3,7 +3,7 @@ package org.wikipedia.random;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.View;
+import android.view.MenuItem;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 
@@ -12,9 +12,7 @@ public class RandomHandler {
     private RandomArticleIdTask curRandomArticleIdTask;
     private static final int MESSAGE_RND = 1;
 
-    private View randomMenuItem;
-    private View randomIcon;
-    private View randomProgressBar;
+    private MenuItem randomMenuItem;
     private boolean isClosed;
     private RandomListener randomListener;
 
@@ -23,10 +21,8 @@ public class RandomHandler {
         void onRandomPageFailed(Throwable caught);
     }
 
-    public RandomHandler(View menuItem, View icon, View progressBar, RandomListener listener) {
+    public RandomHandler(MenuItem menuItem, RandomListener listener) {
         randomMenuItem = menuItem;
-        randomIcon = icon;
-        randomProgressBar = progressBar;
         randomListener = listener;
         this.app = WikipediaApp.getInstance();
         isClosed = false;
@@ -37,8 +33,6 @@ public class RandomHandler {
 
     private void setState(boolean busy) {
         randomMenuItem.setEnabled(!busy);
-        randomProgressBar.setVisibility(busy ? View.VISIBLE : View.GONE);
-        randomIcon.setVisibility(busy ? View.GONE : View.VISIBLE);
     }
 
     public void onStop() {

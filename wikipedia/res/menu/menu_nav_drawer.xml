@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools">
+    <item android:id="@+id/nav_item_login"
+        android:title="@string/nav_item_login"
+        android:icon="@drawable/face_sleep_white"
+        />
+    <item android:id="@+id/nav_item_username"
+        android:icon="@drawable/face_smile_white"
+        android:title=""
+        tools:title="Sample user name"
+        />
+    <item android:id="@+id/nav_item_today"
+        android:title="@string/nav_item_today"
+        android:icon="@drawable/ic_today"
+        android:checkable="true"
+        />
+    <item android:id="@+id/nav_item_history"
+        android:title="@string/nav_item_history"
+        android:icon="@drawable/clock_white"
+        android:checkable="true"
+        />
+    <item android:id="@+id/nav_item_saved_pages"
+        android:title="@string/nav_item_saved_pages"
+        android:icon="@drawable/bookmark_white"
+        android:checkable="true"
+        />
+    <item android:id="@+id/nav_item_nearby"
+        android:title="@string/nav_item_nearby"
+        android:icon="@drawable/ic_place_dark"
+        android:checkable="true"
+        />
+    <item android:id="@+id/nav_item_random"
+        android:title="@string/nav_item_random"
+        android:icon="@drawable/dice_white"
+        android:checkable="true"
+        />
+    <group android:id="@+id/group_zero">
+        <item android:id="@+id/nav_item_zero"
+            android:title=""
+            tools:title="W0 sample carrier message"
+            />
+    </group>
+    <group android:id="@+id/group_more">
+        <item android:id="@+id/nav_item_more"
+            android:title="@string/more_item_preferences"
+            android:icon="@drawable/gear_white" />
+    </group>
+</menu>
