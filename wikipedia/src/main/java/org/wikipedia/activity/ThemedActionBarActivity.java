@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
@@ -14,10 +15,12 @@ import java.lang.reflect.Field;
 
 public abstract class ThemedActionBarActivity extends AppCompatActivity {
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityUtil.requestFullUserOrientation(this);
+
         setTheme(WikipediaApp.getInstance().getCurrentTheme().getResourceId());
+        removeSplashBackground();
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -64,5 +67,9 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
             return true;
         }
         return super.onKeyUp(keyCode, event);
+    }
+
+    private void removeSplashBackground() {
+        getWindow().setBackgroundDrawable(null);
     }
 }

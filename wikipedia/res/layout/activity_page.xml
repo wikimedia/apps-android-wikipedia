@@ -38,7 +38,9 @@
         </FrameLayout>
 
         <!-- The search container -->
-        <fragment android:layout_width="match_parent" android:layout_height="match_parent"
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:id="@+id/search_fragment"
             android:name="org.wikipedia.search.SearchArticlesFragment"
             tools:layout="@layout/fragment_search"/>
@@ -160,7 +162,9 @@
     </FrameLayout>
 
     <!-- The navigation drawer -->
-    <fragment android:layout_width="288dp" android:layout_height="match_parent"
+    <fragment
+        android:layout_width="288dp"
+        android:layout_height="match_parent"
         android:id="@+id/navdrawer"
         android:name="org.wikipedia.NavDrawerFragment"
         android:layout_gravity="start"

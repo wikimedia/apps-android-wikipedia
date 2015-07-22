@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/actionbar_background" />
+    <item>
+        <!-- Use a bitmap element with centered gravity to prevent scaling. -->
+        <bitmap
+            android:src="@drawable/about_logo"
+            android:antialias="true"
+            android:gravity="center" />
+    </item>
+</layer-list>
