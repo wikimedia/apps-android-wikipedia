@@ -44,6 +44,7 @@
   <string name="nearby_distance_in_feet">%d oin</string>
   <string name="nearby_distance_in_miles">%.2f milia</string>
   <string name="nearby_no_network">Ez dago sareko konexiorik</string>
+  <string name="nearby_server_error">Ezin izan da lortu inguruko tokien zerrenda.</string>
   <string name="nearby_set_metric">Erakutsi metroak/km</string>
   <string name="nearby_set_imperial">Erakutsi oinak/miliak</string>
   <string name="nearby_view_on_map">Ikusi lekua mapan</string>
@@ -87,6 +88,7 @@
   <string name="login_error_illegal">Erabiltzaile izen baliogabea</string>
   <string name="login_success_toast">Saio hasiera egina!</string>
   <string name="login_error_blocked">Erabiltzaile hau blokeatua izan da</string>
+  <string name="login_error_throttled">Saioa hasteko saiakera gehiegi. Itxaron minutu batzuk eta saiatu berriro.</string>
   <string name="login_error_unknown">Ezin izan da saioa hasi :(</string>
   <string name="login_error_no_network">Ez dago sareko konexiorik</string>
   <string name="preference_title_logout">Saioa itxi</string>
@@ -105,6 +107,8 @@
   <string name="create_account_password_repeat_hint">Pasahitza errepikatu</string>
   <string name="create_account_passwords_mismatch_error">Pasahitzak ez datoz bat</string>
   <string name="create_account_email_error">E-posta helbide okerra</string>
+  <string name="create_account_password_too_short_error">Eman duzun pasahitza laburregia da.</string>
+  <string name="create_account_password_name_match_error">Zure lankide izena eta pasahitza desberdinak behar dute izan.</string>
   <string name="create_account_generic_error">Ezin izan da kontua sortu</string>
   <string name="create_account_no_network">Ez dago sareko konexiorik</string>
   <string name="create_account_next">Hurrengoa</string>
@@ -129,6 +133,8 @@
   <string name="history_search_list_hint">Bilatu historia</string>
   <string name="history_search_empty_message">Zure kontsultarekin bat egiten duen orririk ez da aurkitu.</string>
   <string name="error_can_not_process_link">Ezin izan da esteka erakutsi</string>
+  <string name="page_protected_autoconfirmed">Orri hau  erdi babestua dago.</string>
+  <string name="page_protected_sysop">Orri hau erabat babestua dago.</string>
   <string name="page_protected_can_not_edit_title">Orrialde hau babestuta dago</string>
   <string name="more_item_preferences">Gehiago</string>
   <string name="more_activity_title">Gehiago</string>
@@ -159,6 +165,7 @@
   <string name="menu_refresh_saved_page">Orrialdea eguneratu</string>
   <string name="menu_themechooser">Letra eta gaia</string>
   <string name="text_size_select">Letra-tamaina</string>
+  <string name="color_theme_select">Gaia</string>
   <string name="color_theme_light">Argia</string>
   <string name="color_theme_dark">Iluna</string>
   <string name="page_similar_titles">Antzeko orrialdeak</string>
@@ -193,4 +200,9 @@
   <string name="button_close_tab">Itxi fitxa</string>
   <string name="menu_open_link">Ireki lotura</string>
   <string name="menu_open_in_new_tab">Ireki fitxa berrian</string>
+  <string name="menu_save_page_popup">Geroago gorde</string>
+  <string name="page_view_in_browser">Orria nabigatzailean ikusi</string>
+  <string name="error_unknown">Ezezaguna den errorea gertatu da.</string>
+  <string name="format_error_server_message">Mezua:\'\'%s\'\'</string>
+  <string name="format_error_server_code">Kodea:\'\'%s\'\'</string>
 </resources>

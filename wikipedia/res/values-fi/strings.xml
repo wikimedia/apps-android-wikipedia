@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Mitä olit tekemässä kaatumishetkellä?</string>
   <string name="search_hint">Wikipedia-haku</string>
   <string name="nav_item_history">Historia</string>
-  <string name="error_network_error">Verkkoyhteyttä ei voitu muodostaa.</string>
+  <string name="error_network_error">Verkkoyhteyden muodostaminen epäonnistui.</string>
   <string name="search_network_error">Verkkovirhe. Yritä uudelleen.</string>
   <string name="generic_page_error">Pyyntöäsi käsiteltäessä ilmeni ongelma.</string>
   <string name="status_code_unavailable">Palvelimen tilakoodi ei ole saatavilla.</string>
@@ -275,7 +275,7 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="menu_save_page_popup">Tallenna myöhemmäksi</string>
   <string name="tool_tip_select_text">Paina ja pidä painettuna mitä tahansa tekstin osaa korostaaksesi sen kopioimista ja jakamista varten.</string>
   <string name="tool_tip_share">Korostettuasi mielenkiintoisen faktan, kokeile jakaa se suosikkiverkostoissasi!</string>
-  <string name="page_view_in_browser">Tarkastele sivua selaimessa</string>
+  <string name="page_view_in_browser">Näytä sivu selaimessa</string>
   <string name="tool_tip_toc_button">Tarkastele sisällysluetteloa milloin tahansa napauttamalla tätä painiketta tai pyyhkäisemällä näytön oikealta reunalta.</string>
   <string name="error_server_response">Palvelin ei pystynyt suorittamaan pyyntöä loppuun.</string>
   <string name="error_response_malformed">Palvelimen vastaus ei ollut oikein muotoiltu.</string>

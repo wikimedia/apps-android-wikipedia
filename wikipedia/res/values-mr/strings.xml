@@ -39,6 +39,8 @@
   <string name="nearby_distance_in_feet">%d फिट</string>
   <string name="nearby_distance_in_miles">%.2f माइल</string>
   <string name="nearby_no_network">नेटवर्क जोडलेले नाही</string>
+  <string name="nearby_set_imperial">फूट /मैल दाखवा</string>
+  <string name="nearby_view_on_map">नकाशावर ठिकाण बघा</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">शोधा</string>
   <string name="langlinks_filter_hint">शोधा</string>
@@ -54,6 +56,7 @@
   <string name="dialog_message_edit_failed_retry">पुन्हा प्रयत्न करा</string>
   <string name="dialog_message_edit_failed_cancel">रद्द करा</string>
   <string name="dialog_message_leaving_edit_leave">सोडा</string>
+  <string name="menu_show_toc">अनुक्रमणिका</string>
   <string name="search_no_results_found">परिणाम सापडले नाही</string>
   <string name="nav_item_login">सनोंद-प्रवेश करा</string>
   <string name="login_username_hint">सदस्यनाव</string>
@@ -64,6 +67,7 @@
   <string name="login_in_progress_dialog_message">तुमचा प्रवेश नोंदवत आहे…</string>
   <string name="login_error_wrong_password">चुकीचे पासवर्ड</string>
   <string name="login_error_wrong_username">चुकीचे सदस्यनाव</string>
+  <string name="login_error_illegal">चुकीचे नाव</string>
   <string name="login_success_toast">सनोंद प्रवेश यशस्वी!</string>
   <string name="login_error_unknown">सनोंद प्रवेश अयशस्वी :(</string>
   <string name="login_error_no_network">नेटवर्क जोडलेले नाही</string>
@@ -87,6 +91,8 @@
   <string name="create_account_username_exists_error">सदस्यनाम आधीपासूनच वापरात आहे</string>
   <string name="create_account_ip_throttle_error">या IP address वरून खूप सारे खाते उघडले गेले आहेत. थोड्या वेळाने पुन्हा प्रयंत्न करा.</string>
   <string name="create_account_open_proxy_error">या IP address वरून नवे खाते उघडणे स्तघीत केले गेले आहे.</string>
+  <string name="create_account_invalid_email_error">आपण दिलेला इमेल चुकीचा आहे.</string>
+  <string name="create_account_password_name_match_error">तुमचे नाव आणि पासवर्ड वेगवेगळे हवेत</string>
   <string name="create_account_generic_error">खाते उघडू शकत नाही</string>
   <string name="create_account_next">पुढे</string>
   <string name="create_account_button">खाते बनवा</string>

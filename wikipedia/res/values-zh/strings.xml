@@ -282,6 +282,6 @@
   <string name="error_server_response">服务器无法完成请求。</string>
   <string name="error_response_malformed">来自服务器的响应格式不正确。</string>
   <string name="error_unknown">出现未知错误。</string>
-  <string name="format_error_server_message">消息：“%s”</string>
+  <string name="format_error_server_message">消息： \"%s\"</string>
   <string name="format_error_server_code">代码：“%s”</string>
 </resources>

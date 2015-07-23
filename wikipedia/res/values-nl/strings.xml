@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Wat was u aan het doen toen de crash optrad?</string>
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="nav_item_history">Geschiedenis</string>
-  <string name="error_network_error" fuzzy="true">Er is geen netwerkverbinding :(</string>
+  <string name="error_network_error">Er is geen netwerkverbinding.</string>
   <string name="search_network_error">Netwerkfout. Klik om het opnieuw te proberen.</string>
   <string name="generic_page_error">Er is een probleem opgetreden tijdens het afhandelen van uw verzoek.</string>
   <string name="status_code_unavailable">Serverstatuscode niet beschikbaar.</string>
@@ -66,7 +66,7 @@
   <string name="langlinks_activity_title">Andere talen</string>
   <string name="menu_save_changes">Wijzigingen opslaan</string>
   <string name="edit_section_error_retry">Opnieuw proberen</string>
-  <string name="dialog_saving_in_progress">Aan het opslaan…</string>
+  <string name="dialog_saving_in_progress">Bezig met opslaan…</string>
   <string name="edit_saved_successfully">Bewerking opgeslagen!</string>
   <string name="dialog_message_edit_failed">Bewerking mislukt!</string>
   <string name="dialog_message_edit_failed_retry">Opnieuw proberen</string>
@@ -87,7 +87,7 @@
   <string name="login_password_show_check">Wachtwoord weergeven</string>
   <string name="menu_login">Aanmelden</string>
   <string name="login_activity_title">Aanmelden bij Wikipedia</string>
-  <string name="login_in_progress_dialog_message">Aan het aanmelden…</string>
+  <string name="login_in_progress_dialog_message">Bezig met aanmelden…</string>
   <string name="login_error_wrong_password">Het wachtwoord is onjuist</string>
   <string name="login_error_wrong_username">Onjuiste gebruikersnaam</string>
   <string name="login_error_illegal">Ongeldige gebruikersnaam</string>
@@ -145,7 +145,7 @@
   <string name="zero_learn_more">Er worden geen kosten in rekening gebracht voor het gegevensgebruik via deze Wikipedia-app.</string>
   <string name="zero_learn_more_learn_more">Meer lezen</string>
   <string name="zero_learn_more_dismiss">Sluiten</string>
-  <string name="edit_preview_fetching_dialog_message">Ophalen van voorbeeld…</string>
+  <string name="edit_preview_fetching_dialog_message">Voorbeeld aan het ophalen…</string>
   <string name="send_feedback">Terugkoppeling over app geven</string>
   <string name="nav_item_random">Willekeurig</string>
   <string name="create_account_account_created_toast">Gebruiker aangemaakt</string>
@@ -247,7 +247,7 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="preference_title_show_images">Afbeeldingen weergeven</string>
   <string name="preference_summary_show_images">Laden van afbeeldingen in pagina\'s in- of uitschakelen. Schakel deze instelling uit als uw internetverbinding langzaam is, of als u een beperkte hoeveelheid data kunt gebruiken.</string>
   <string name="read_more_section">Meer lezen</string>
-  <string name="read_next_section">Lees verder</string>
+  <string name="read_next_section">Verder lezen</string>
   <string name="menu_gallery_visit_page">Naar bestandspagina gaan</string>
   <string name="gallery_error_draw_failed">De afbeelding kon niet weergegeven worden.</string>
   <string name="license_title">Licentietekst voor de bibliotheek %s</string>
@@ -255,17 +255,17 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_share_error">Kon afbeelding niet delen: %s</string>
   <string name="gallery_menu_save">Opslaan op apparaat</string>
   <string name="gallery_save_error">Kon afbeelding niet opslaan: %s</string>
-  <string name="gallery_save_error_mediastore">Mislukt om de afbeelding te importeren naar media collectie</string>
+  <string name="gallery_save_error_mediastore">Het importeren van de afbeelding in de mediacollectie is mislukt</string>
   <string name="gallery_save_success">Afbeelding opgeslagen.</string>
-  <string name="gallery_error_video_failed">Kan de video niet afspelen.</string>
+  <string name="gallery_error_video_failed">De video kan niet afgespeeld worden.</string>
   <string name="err_cannot_save_file">Het bestand kan niet opgeslagen worden</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
   <string name="expand_refs">Aantikken om te vergroten</string>
   <string name="share_snippet_button">Als afbeelding delen</string>
   <string name="share_normal_button">Als tekst delen</string>
   <string name="snippet_share_preview_image_desc">Voorbeeldafbeelding</string>
-  <string name="cc_logo">Creative Commons-licentie</string>
-  <string name="captcha_image">Captcha afbeelding</string>
+  <string name="cc_logo">Creative Commonslicentie</string>
+  <string name="captcha_image">Captcha-afbeelding</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Uploader onbekend</string>
   <string name="edit_save_unknown_error">Uw bewerking kon niet opgeslagen worden: %s</string>
@@ -277,5 +277,11 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="menu_save_page_popup">Opslaan voor later</string>
   <string name="tool_tip_select_text">Druk en houd vast op een willekeurige plaats in de tekst om deze te kopiëren en te kunnen delen.</string>
   <string name="tool_tip_share">Na het selecteren van een interessant feit, kunt u het delen op uw favoriete netwerken!</string>
-  <string name="page_view_in_browser">Deze pagina in de browser weergeven</string>
+  <string name="page_view_in_browser">Pagina in de browser weergeven</string>
+  <string name="tool_tip_toc_button">U kunt op een willekeurig moment de inhoudsopgave bekijken door op deze knop de drukken of door op het scherm naar links te vegen.</string>
+  <string name="error_server_response">De server kon het verzoek niet voltooien.</string>
+  <string name="error_response_malformed">Het antwoord van de server had geen correcte opmaak.</string>
+  <string name="error_unknown">Er is een onbekende fout opgetreden.</string>
+  <string name="format_error_server_message">Bericht: \"%s\"</string>
+  <string name="format_error_server_code">Code: \"%s\"</string>
 </resources>
