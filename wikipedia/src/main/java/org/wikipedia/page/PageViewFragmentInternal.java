@@ -570,11 +570,11 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private void openInNewTab(PageTitle title, HistoryEntry entry) {
         // create a new tab
         Tab tab = new Tab();
-        // make this tab current
-        tabList.add(tab);
-        pageLoadStrategy.setBackStack(tab.getBackStack());
+        // put this tab behind the current tab
+        tabList.add(Math.max(0, tabList.size() - 1), tab);
+        // add the requested page to its backstack
+        tab.getBackStack().add(new PageBackStackItem(title, entry));
         // and... that should be it.
-        ((PageActivity) getActivity()).displayNewPage(title, entry);
         tabsProvider.showAndHideTabs();
     }
 
