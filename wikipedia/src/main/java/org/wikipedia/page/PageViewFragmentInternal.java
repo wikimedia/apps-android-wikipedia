@@ -29,7 +29,6 @@ import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.tooltip.ToolTipUtil;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
@@ -46,6 +45,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -60,11 +60,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -84,6 +81,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     public static final int SUBSTATE_NONE = 0;
     public static final int SUBSTATE_PAGE_SAVED = 1;
     public static final int SUBSTATE_SAVED_PAGE_LOADED = 2;
+
+    private static final int TOC_BUTTON_HIDE_DELAY = 2000;
 
     private PageLoadStrategy pageLoadStrategy = null;
     private PageViewModel model;
@@ -119,8 +118,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private WikiErrorView errorView;
     private WikiDrawerLayout tocDrawer;
 
-    private View tocButton;
-    private boolean isToCButtonFadedIn;
+    private FloatingActionButton tocButton;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -167,25 +165,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         }
     };
 
-    @NonNull
-    private final View.OnTouchListener webViewTouchListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_DOWN:
-                    setToCButtonFadedIn(true);
-                    break;
-                case MotionEvent.ACTION_UP:
-                case MotionEvent.ACTION_CANCEL:
-                    setToCButtonFadedIn(false);
-                    break;
-                default:
-                    break;
-            }
-            return false;
-        }
-    };
-
     public ObservableWebView getWebView() {
         return webView;
     }
@@ -219,12 +198,12 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
 
         webView = (ObservableWebView) rootView.findViewById(R.id.page_web_view);
-        webView.setOnTouchListener(webViewTouchListener);
+        initWebViewListeners();
 
         tocDrawer = (WikiDrawerLayout) rootView.findViewById(R.id.page_toc_drawer);
         tocDrawer.setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
 
-        tocButton = rootView.findViewById(R.id.floating_toc_button);
+        tocButton = (FloatingActionButton) rootView.findViewById(R.id.floating_toc_button);
         tocButton.setOnClickListener(tocButtonOnClickListener);
 
         refreshView = (SwipeRefreshLayoutWithScroll) rootView
@@ -363,25 +342,53 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         tabsProvider = new TabsProvider((PageActivity) getActivity(), tabList);
         tabsProvider.setTabsProviderListener(tabsProviderListener);
         longPressHandler = new PageLongPressHandler(this, (ViewGroup) ((PageActivity) getActivity()).getContentView());
-        if (!app.isProdRelease()) {
-            // TODO: enable when ready for production!
-            webView.addOnLongPressListener(new ObservableWebView.OnLongPressListener() {
-                @Override
-                public boolean onLongPress(float x, float y, final String linkTitle) {
-                    PageTitle newTitle = model.getTitleOriginal().getSite().titleForInternalLink(
-                            linkTitle);
-                    HistoryEntry newEntry = new HistoryEntry(newTitle,
-                                                             HistoryEntry.SOURCE_INTERNAL_LINK);
-                    longPressHandler.onLongPress((int) x, (int) y, newTitle, newEntry);
-                    return true;
-                }
-            });
-        }
 
         pageLoadStrategy.setup(model, this, refreshView, webView, bridge, searchBarHideHandler,
                                leadImagesHandler);
         pageLoadStrategy.setBackStack(getCurrentTab().getBackStack());
         pageLoadStrategy.onActivityCreated(savedInstanceState);
+    }
+
+    private void initWebViewListeners() {
+        webView.addOnUpOrCancelMotionEventListener(new ObservableWebView.OnUpOrCancelMotionEventListener() {
+            @Override
+            public void onUpOrCancelMotionEvent() {
+                // queue the button to be hidden when the user stops scrolling.
+                setToCButtonFadedIn(false);
+            }
+        });
+        webView.setOnFastScrollListener(new ObservableWebView.OnFastScrollListener() {
+            @Override
+            public void onFastScroll() {
+                // show the ToC button...
+                setToCButtonFadedIn(true);
+                // and immediately queue it to be hidden after a short delay, but only if we're
+                // not at the top of the page.
+                if (webView.getScrollY() > 0) {
+                    setToCButtonFadedIn(false);
+                }
+            }
+        });
+        webView.addOnScrollChangeListener(new ObservableWebView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChanged(int oldScrollY, int scrollY) {
+                if (scrollY <= 0) {
+                    // always show the ToC button when we're at the top of the page.
+                    setToCButtonFadedIn(true);
+                }
+            }
+        });
+        webView.addOnLongPressListener(new ObservableWebView.OnLongPressListener() {
+            @Override
+            public boolean onLongPress(float x, float y, final String linkTitle) {
+                PageTitle newTitle = model.getTitleOriginal().getSite().titleForInternalLink(
+                        linkTitle);
+                HistoryEntry newEntry = new HistoryEntry(newTitle,
+                        HistoryEntry.SOURCE_INTERNAL_LINK);
+                longPressHandler.onLongPress((int) x, (int) y, newTitle, newEntry);
+                return true;
+            }
+        });
     }
 
     private void handleInternalLink(PageTitle title) {
@@ -972,13 +979,20 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void setToCButtonFadedIn(boolean shouldFadeIn) {
-        if (!ApiUtil.hasHoneyComb() || shouldFadeIn == isToCButtonFadedIn) {
-            return;
+        tocButton.removeCallbacks(hideToCButtonRunnable);
+        if (shouldFadeIn) {
+            tocButton.show();
+        } else {
+            tocButton.postDelayed(hideToCButtonRunnable, TOC_BUTTON_HIDE_DELAY);
         }
-        Animation anim = AnimationUtils.loadAnimation(getActivity(), shouldFadeIn ? R.anim.fade_in_toc : R.anim.fade_out_toc);
-        tocButton.startAnimation(anim);
-        isToCButtonFadedIn = shouldFadeIn;
     }
+
+    private Runnable hideToCButtonRunnable = new Runnable() {
+        @Override
+        public void run() {
+            tocButton.hide();
+        }
+    };
 
     @Override
     public boolean onBackPressed() {

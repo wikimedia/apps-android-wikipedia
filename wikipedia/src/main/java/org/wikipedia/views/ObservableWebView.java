@@ -24,11 +24,34 @@ public class ObservableWebView extends WebView {
     private List<OnDownMotionEventListener> onDownMotionEventListeners;
     private List<OnUpOrCancelMotionEventListener> onUpOrCancelMotionEventListeners;
     private List<OnContentHeightChangedListener> onContentHeightChangedListeners;
+    private OnFastScrollListener onFastScrollListener;
 
     private int contentHeight = 0;
     private float touchStartX;
     private float touchStartY;
     private int touchSlop;
+
+    private long lastScrollTime;
+    private int totalAmountScrolled;
+
+    /**
+    * Threshold (in pixels) of continuous scrolling, to be considered "fast" scrolling.
+    */
+    private static final int FAST_SCROLL_THRESHOLD = (int) (1000 * WikipediaApp.getInstance().getScreenDensity());
+
+    /**
+    * Maximum single scroll amount (in pixels) to be considered a "human" scroll.
+    * Otherwise it's probably a programmatic scroll, which we won't count.
+    */
+    private static final int MAX_HUMAN_SCROLL = (int) (500 * WikipediaApp.getInstance().getScreenDensity());
+
+    /**
+     * Maximum amount of time that needs to elapse before the previous scroll amount
+     * is "forgotten." That is, if the user scrolls once, then scrolls again within this
+     * time, then the two scroll actions will be added together as one, and counted towards
+     * a possible "fast" scroll.
+     */
+    private static final int MAX_MILLIS_BETWEEN_SCROLLS = 500;
 
     public void addOnClickListener(OnClickListener onClickListener) {
         onClickListeners.add(onClickListener);
@@ -54,6 +77,10 @@ public class ObservableWebView extends WebView {
         onContentHeightChangedListeners.add(onContentHeightChangedListener);
     }
 
+    public void setOnFastScrollListener(OnFastScrollListener onFastScrollListener) {
+        this.onFastScrollListener = onFastScrollListener;
+    }
+
     public interface OnClickListener {
         boolean onClick(float x, float y);
     }
@@ -76,6 +103,10 @@ public class ObservableWebView extends WebView {
 
     public interface OnContentHeightChangedListener {
         void onContentHeightChanged(int contentHeight);
+    }
+
+    public interface OnFastScrollListener {
+        void onFastScroll();
     }
 
     public ObservableWebView(Context context) {
@@ -110,11 +141,22 @@ public class ObservableWebView extends WebView {
     }
 
     @Override
-    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
-        super.onScrollChanged(l, t, oldl, oldt);
+    protected void onScrollChanged(int left, int top, int oldLeft, int oldTop) {
+        super.onScrollChanged(left, top, oldLeft, oldTop);
         for (OnScrollChangeListener listener : onScrollChangeListeners) {
-            listener.onScrollChanged(oldt, t);
+            listener.onScrollChanged(oldTop, top);
         }
+        //make sure it's a human scroll
+        if (Math.abs(top - oldTop) > MAX_HUMAN_SCROLL) {
+            return;
+        }
+        totalAmountScrolled += (top - oldTop);
+        if (Math.abs(totalAmountScrolled) > FAST_SCROLL_THRESHOLD
+                && onFastScrollListener != null) {
+            onFastScrollListener.onFastScroll();
+            totalAmountScrolled = 0;
+        }
+        lastScrollTime = System.currentTimeMillis();
     }
 
     @Override
@@ -124,12 +166,15 @@ public class ObservableWebView extends WebView {
                 for (OnDownMotionEventListener listener : onDownMotionEventListeners) {
                     listener.onDownMotionEvent();
                 }
+                if (System.currentTimeMillis() - lastScrollTime > MAX_MILLIS_BETWEEN_SCROLLS) {
+                    totalAmountScrolled = 0;
+                }
                 touchStartX = event.getX();
                 touchStartY = event.getY();
                 break;
             case MotionEvent.ACTION_UP:
                 if (Math.abs(event.getX() - touchStartX) <= touchSlop
-                    && Math.abs(event.getY() - touchStartY) <= touchSlop) {
+                        && Math.abs(event.getY() - touchStartY) <= touchSlop) {
                     for (OnClickListener listener : onClickListeners) {
                         if (listener.onClick(event.getX(), event.getY())) {
                             return true;
