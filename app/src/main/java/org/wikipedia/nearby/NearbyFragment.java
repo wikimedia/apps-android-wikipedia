@@ -153,8 +153,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 NearbyPage nearbyPage = adapter.getItem(position);
                 PageTitle title = new PageTitle(nearbyPage.getTitle(), site, nearbyPage.getThumblUrl());
-                HistoryEntry newEntry = new HistoryEntry(title, HistoryEntry.SOURCE_NEARBY);
-                ((PageActivity) getActivity()).displayNewPage(title, newEntry);
+                ((PageActivity) getActivity()).showLinkPreview(title, HistoryEntry.SOURCE_NEARBY);
             }
         });
 

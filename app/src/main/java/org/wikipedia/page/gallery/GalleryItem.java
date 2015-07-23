@@ -13,7 +13,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class GalleryItem {
-    private static final String TAG = "GalleryItem";
 
     private final JSONObject json;
     public JSONObject toJSON() {
@@ -78,6 +77,7 @@ public class GalleryItem {
     public GalleryItem(JSONObject json) throws JSONException {
         this.json = json;
         this.name = json.getString("title");
+        this.metadata = new HashMap<>();
         JSONObject objinfo;
         if (json.has("imageinfo")) {
             objinfo = (JSONObject)json.getJSONArray("imageinfo").get(0);
@@ -96,17 +96,24 @@ public class GalleryItem {
                 }
             }
         } else {
-            throw new JSONException("Response did not contain required info.");
+            // In certain cases, the API returns a result with a valid "title", but no
+            // "imageinfo" or "videoinfo". In this case, we don't want to throw an exception, but
+            // instead just set everything to zero or null, so that this item will be filtered out
+            // when the GalleryCollection is constructed.
+            width = 0;
+            height = 0;
+            thumbUrl = null;
+            mimeType = "*/*";
+            return;
         }
         if (TextUtils.isEmpty(url)) {
             this.url = objinfo.optString("url", "");
         }
-        this.mimeType = objinfo.getString("mime");
-        this.thumbUrl = objinfo.optString("thumburl", "");
-        this.width = objinfo.getInt("width");
-        this.height = objinfo.getInt("height");
-        this.metadata = new HashMap<>();
-        this.license = new ImageLicense("", "", "");
+        mimeType = objinfo.getString("mime");
+        thumbUrl = objinfo.optString("thumburl", "");
+        width = objinfo.getInt("width");
+        height = objinfo.getInt("height");
+        license = new ImageLicense("", "", "");
         JSONObject extmetadata = objinfo.optJSONObject("extmetadata");
         if (extmetadata != null) {
             Iterator<String> keys = extmetadata.keys();

@@ -17,6 +17,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
+import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
@@ -695,6 +696,14 @@ public class PageActivity extends ThemedActionBarActivity {
         PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()), app.getPrimarySite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         displayNewPage(title, historyEntry, position, allowStateLoss, mustBeEmpty);
+    }
+
+    public void showLinkPreview(PageTitle title, int entrySource) {
+        final String linkPreviewFragmentTag = "link_preview_dialog";
+        if (getSupportFragmentManager().findFragmentByTag(linkPreviewFragmentTag) == null) {
+            LinkPreviewDialog dialog = LinkPreviewDialog.newInstance(title, entrySource);
+            dialog.show(getSupportFragmentManager(), linkPreviewFragmentTag);
+        }
     }
 
     public void showThemeChooser() {

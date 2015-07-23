@@ -1,17 +1,10 @@
 package org.wikipedia.page.linkpreview;
 
-import android.text.TextUtils;
-
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Utils;
-
-import java.text.BreakIterator;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 public class LinkPreviewContents {
 
@@ -20,20 +13,28 @@ public class LinkPreviewContents {
         return title;
     }
 
-    private final List<String> extract;
-    public List<String> getExtract() {
+    private final String leadImageName;
+    public String getLeadImageName() {
+        return leadImageName;
+    }
+
+    private final String extract;
+    public String getExtract() {
         return extract;
     }
 
     public LinkPreviewContents(JSONObject json, Site site) throws JSONException {
         title = new PageTitle(json.getString("title"), site);
-        extract = getSentences(json.getString("extract"), site);
+        // replace newlines in the extract with double newlines, so that they'll show up
+        // as paragraph breaks when displayed in a TextView.
+        extract = json.getString("extract").replace("\n", "\n\n");
         if (json.has("thumbnail")) {
             title.setThumbUrl(json.getJSONObject("thumbnail").optString("source"));
         }
         if (json.has("terms") && json.getJSONObject("terms").has("description")) {
             title.setDescription(Utils.capitalizeFirstChar(json.getJSONObject("terms").getJSONArray("description").optString(0)));
         }
+        leadImageName = json.has("pageimage") ? "File:" + json.optString("pageimage") : null;
     }
 
     /**
@@ -77,39 +78,4 @@ public class LinkPreviewContents {
         return (level == 0) ? outStr.toString() : text;
     }
 
-    /**
-     * Split a block of text into sentences, taking into account the language in which
-     * the text is assumed to be.
-     * @param text Text to be transformed into sentences.
-     * @param site Site that will provide the language of the given text.
-     * @return List of sentences.
-     */
-    public static List<String> getSentences(String text, Site site) {
-        List<String> sentenceList = new ArrayList<>();
-        BreakIterator iterator = BreakIterator.getSentenceInstance(new Locale(site.getLanguageCode()));
-        // feed the text into the iterator, with line breaks removed:
-        text = text.replaceAll("(\r|\n)", "");
-        iterator.setText(text);
-        int start = iterator.first();
-        int end = iterator.next();
-        while (end != BreakIterator.DONE) {
-            String sentence = text.substring(start, end).trim();
-            if (!TextUtils.isEmpty(sentence)) {
-                if (sentenceList.size() == 0) {
-                    // if it's the first sentence, then remove parentheses from it.
-                    sentenceList.add(removeParens(sentence));
-                } else {
-                    sentenceList.add(sentence);
-                }
-            }
-            start = end;
-            end = iterator.next();
-        }
-        // if we couldn't detect any sentences using the BreakIterator, then just return the
-        // original text as a single sentence.
-        if (sentenceList.size() == 0) {
-            sentenceList.add(text);
-        }
-        return sentenceList;
-    }
 }

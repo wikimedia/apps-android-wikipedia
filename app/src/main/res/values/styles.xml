@@ -130,6 +130,13 @@
         <item name="android:backgroundDimAmount">0</item>
         <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
     </style>
+    <style name="LinkPreviewDialog" parent="BottomDialog">
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:colorControlNormal">@android:color/white</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">@color/actionbar_highlight</item>
+        <item name="colorControlHighlight">@color/actionbar_highlight</item>
+    </style>
 
     <!-- Default style for floating action buttons -->
     <style name="FloatingActionButton">

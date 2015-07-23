@@ -36,6 +36,9 @@
         <item name="tab_shadow_color">@color/tab_shadow_dark</item>
         <item name="toc_button_color">@color/toc_button_dark</item>
         <item name="tool_tip_default_color">@color/tool_tip_default_dark</item>
+        <item name="link_preview_toolbar_color">@color/link_preview_toolbar_dark</item>
+        <item name="link_preview_background_color">@color/link_preview_background_dark</item>
+        <item name="link_preview_text_color">@color/link_preview_text_dark</item>
     </style>
 
     <style name="DropDownListView.Dark" parent="@style/Widget.AppCompat.ListView.DropDown">

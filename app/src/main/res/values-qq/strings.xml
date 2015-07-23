@@ -386,4 +386,5 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipbord for pasting later.</string>
 
+  <string name="button_continue_to_article">Button to continue to the full page from the current link preview.</string>
 </resources>

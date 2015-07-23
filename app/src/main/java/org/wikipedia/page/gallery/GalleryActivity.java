@@ -20,6 +20,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.views.ViewUtil;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -216,6 +217,20 @@ public class GalleryActivity extends ThemedActionBarActivity {
                 cacheOnLoad = true;
             }
         });
+    }
+
+    /**
+     * Launch the image gallery activity, and start with the provided image.
+     * @param imageTitle Image with which to begin the gallery.
+     */
+    public static void showGallery(Activity activity, PageTitle pageTitle, PageTitle imageTitle,
+                                   boolean fromLeadImage) {
+        Intent galleryIntent = new Intent();
+        galleryIntent.setClass(activity, GalleryActivity.class);
+        galleryIntent.putExtra(EXTRA_IMAGETITLE, imageTitle);
+        galleryIntent.putExtra(EXTRA_PAGETITLE, pageTitle);
+        galleryIntent.putExtra(EXTRA_FROM_LEAD_IMAGE, fromLeadImage);
+        activity.startActivityForResult(galleryIntent, PageActivity.ACTIVITY_REQUEST_GALLERY);
     }
 
     private class GalleryPageChangeListener implements ViewPager.OnPageChangeListener {

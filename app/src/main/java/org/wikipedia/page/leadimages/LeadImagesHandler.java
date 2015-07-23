@@ -32,6 +32,7 @@ import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageFragment;
+import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.GradientUtil;
@@ -146,7 +147,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                         PageTitle imageTitle = new PageTitle("File:" + imageName,
                                                              parentFragment.getTitle()
                                                                            .getSite());
-                        parentFragment.showImageGallery(imageTitle, true);
+                        GalleryActivity.showGallery(parentFragment.getActivity(),
+                                parentFragment.getTitleOriginal(), imageTitle, false);
                     }
                     return true;
                 }

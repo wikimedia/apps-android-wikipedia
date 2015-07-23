@@ -3,6 +3,7 @@ package org.wikipedia.page.linkpreview;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageQueryTask;
 import org.wikipedia.page.PageTitle;
 
@@ -16,17 +17,13 @@ public class PreviewFetchTask extends PageQueryTask<LinkPreviewContents> {
 
     @Override
     public void buildQueryParams(RequestBuilder builder) {
-        // instead of requesting a certain number of sentences from the server ("exsentences"),
-        // we'll request a certain number of characters ("exchars") and break the text into
-        // sentences ourselves, since we can do it locally with a BreakIterator using the
-        // appropriate locale (produces better results than what the server provides currently).
-        // TODO: implement better sentence parsing in our future web service.
         builder.param("prop", "extracts|pageimages|pageterms")
                .param("redirects", "true")
-               .param("exchars", "512")
+               //.param("exchars", "4096")
+               .param("exsentences", "4")
                .param("explaintext", "true")
-               .param("piprop", "thumbnail")
-               .param("pithumbsize", "640")
+               .param("piprop", "thumbnail|name")
+               .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
                .param("wbptterms", "description");
     }
 

@@ -107,7 +107,7 @@ public class WikipediaApp extends Application {
     public static final int RELEASE_DEV = 3;
     private final int releaseType;
 
-    public static final int PREFERRED_THUMB_SIZE = 96;
+    public static final int PREFERRED_THUMB_SIZE = 320;
 
     private AppLanguageState appLanguageState;
 
