@@ -1,7 +1,9 @@
 package org.wikipedia.page;
 
 import org.acra.ACRA;
+import org.wikipedia.ApiTask;
 import org.wikipedia.R;
+import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -10,6 +12,10 @@ import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
+import org.wikipedia.page.fetch.LeadSectionFetcher;
+import org.wikipedia.page.fetch.LeadSectionFetcherFactory;
+import org.wikipedia.page.fetch.RestSectionFetcher;
+import org.wikipedia.page.fetch.RestSectionFetcherFactory;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesTask;
@@ -612,38 +618,38 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         }
     }
 
+    private Api getAPIForSite(Site site) {
+        return WikipediaApp.getInstance().getAPIForSite(site);
+    }
 
-    private class LeadSectionFetchTask extends SectionsFetchTask {
+    private class LeadSectionFetchTask extends ApiTask<List<Section>> {
         private final int startSequenceNum;
         private PageProperties pageProperties;
-        private String pagePropsResponseName = "mobileview";
+        private LeadSectionFetcher sectionsFetcher;
 
         public LeadSectionFetchTask(int startSequenceNum) {
-            super(app, model.getTitle(), "0");
+            super(SINGLE_THREAD, getAPIForSite(model.getTitle().getSite()));
+            this.sectionsFetcher = LeadSectionFetcherFactory.create(app, model.getTitle());
             this.startSequenceNum = startSequenceNum;
         }
 
         @Override
         public RequestBuilder buildRequest(Api api) {
-            RequestBuilder builder = super.buildRequest(api);
-            builder.param("prop", builder.getParams().get("prop")
-                    + "|thumb|image|id|revision|description|"
-                    + Page.API_REQUEST_PROPS);
-            builder.param("thumbsize", Integer.toString(calculateLeadImageWidth()));
-            return builder;
+            return sectionsFetcher.buildRequest(api, calculateLeadImageWidth());
         }
 
         @Override
         public List<Section> processResult(ApiResult result) throws Throwable {
             if (startSequenceNum != currentSequenceNum) {
-                return super.processResult(result);
+                return sectionsFetcher.processResult(result);
             }
-            JSONObject metadata = result.asObject().optJSONObject(pagePropsResponseName);
+            JSONObject metadata
+                    = result.asObject().optJSONObject(sectionsFetcher.getPagePropsResponseName());
             if (metadata != null) {
                 pageProperties = new PageProperties(metadata);
                 model.setTitle(fragment.adjustPageTitleFromMobileview(model.getTitle(), metadata));
             }
-            return super.processResult(result);
+            return sectionsFetcher.processResult(result);
         }
 
         @Override
@@ -708,12 +714,24 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         return (int) (res.getDimension(R.dimen.leadImageWidth) / res.getDisplayMetrics().density);
     }
 
-    private class RestSectionsFetchTask extends SectionsFetchTask {
+    private class RestSectionsFetchTask extends ApiTask<List<Section>> {
         private final int startSequenceNum;
+        private RestSectionFetcher sectionsFetcher;
 
         public RestSectionsFetchTask(int startSequenceNum) {
-            super(app, model.getTitle(), "1-");
+            super(SINGLE_THREAD, getAPIForSite(model.getTitle().getSite()));
+            this.sectionsFetcher = RestSectionFetcherFactory.create(app, model.getTitle());
             this.startSequenceNum = startSequenceNum;
+        }
+
+        @Override
+        public RequestBuilder buildRequest(Api api) {
+            return sectionsFetcher.buildRequest(api);
+        }
+
+        @Override
+        public List<Section> processResult(ApiResult result) throws Throwable {
+            return sectionsFetcher.processResult(result);
         }
 
         @Override

@@ -22,7 +22,7 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
-import org.wikipedia.page.SectionsFetchTask;
+import org.wikipedia.page.fetch.OldSectionsFetchTask;
 import org.wikipedia.staticdata.MainPageNameData;
 
 import java.util.List;
@@ -92,7 +92,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         }
     }
 
-    private class FetchMainPageTask extends SectionsFetchTask {
+    private class FetchMainPageTask extends OldSectionsFetchTask {
         public FetchMainPageTask(WikipediaApp app) {
             super(app,
                     new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()),

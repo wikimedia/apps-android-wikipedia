@@ -223,7 +223,7 @@ public final class Prefs {
         setBoolean(R.string.preference_key_exp_html_page_load, enabled);
     }
 
-    public static boolean isExperimentalJsonPageLoadEnabled() {
+    public static boolean isRESTBaseJsonPageLoadEnabled() {
         return getBoolean(R.string.preference_key_exp_json_page_load, false);
     }
 

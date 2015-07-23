@@ -1,4 +1,4 @@
-package org.wikipedia.page;
+package org.wikipedia.page.fetch;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -6,23 +6,20 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.ApiTask;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.Section;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SectionsFetchTask extends ApiTask<List<Section>> {
-    private final WikipediaApp app;
+/** TODO: Using nodejs/RESTBase endpoints */
+public class SectionsFetcherRB implements Fetcher<List<Section>> {
     private final PageTitle title;
     private final String sectionsRequested;
+    private final boolean downloadImages;
 
-    public SectionsFetchTask(WikipediaApp app, PageTitle title, String sectionsRequested) {
-        super(
-                SINGLE_THREAD,
-                app.getAPIForSite(title.getSite())
-        );
-        this.app = app;
+    public SectionsFetcherRB(PageTitle title, String sectionsRequested, boolean downloadImages) {
+        this.downloadImages = downloadImages;
         this.title = title;
         this.sectionsRequested = sectionsRequested;
     }
@@ -36,7 +33,7 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
                 .param("sections", sectionsRequested)
                 .param("sectionprop", "toclevel|line|anchor")
                 .param("noheadings", "true");
-        if (!app.isImageDownloadEnabled()) {
+        if (!downloadImages) {
             builder.param("noimages", "true");
         }
         return builder;
@@ -56,5 +53,9 @@ public class SectionsFetchTask extends ApiTask<List<Section>> {
         }
 
         return sections;
+    }
+
+    public String getPagePropsResponseName() {
+        return "mobileview";
     }
 }
