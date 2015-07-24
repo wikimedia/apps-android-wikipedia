@@ -380,7 +380,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                 firstResult = searchResultsFragment.getFirstResult();
             }
             if (firstResult != null) {
-                navigateToTitle(firstResult);
+                navigateToTitle(firstResult, false);
                 closeSearch();
             }
             return true;
@@ -401,7 +401,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         }
     };
 
-    public void navigateToTitle(PageTitle title) {
+    public void navigateToTitle(PageTitle title, boolean inNewTab) {
         if (!isAdded()) {
             return;
         }
@@ -413,7 +413,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         // selected a page to navigate to.
         launchedFromWidget = false;
         closeSearch();
-        ((PageActivity)getActivity()).displayNewPage(title, historyEntry);
+        ((PageActivity)getActivity()).displayNewPage(title, historyEntry, inNewTab, false);
     }
 
     private void addRecentSearch(String title) {

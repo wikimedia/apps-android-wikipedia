@@ -342,7 +342,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
         tabsProvider = new TabsProvider((PageActivity) getActivity(), tabList);
         tabsProvider.setTabsProviderListener(tabsProviderListener);
-        longPressHandler = new PageLongPressHandler(this, (ViewGroup) ((PageActivity) getActivity()).getContentView());
+        longPressHandler = new PageLongPressHandler(getActivity().getWindow(), webView,
+                contextMenuListener);
 
         pageLoadStrategy.setup(model, this, refreshView, webView, bridge, searchBarHideHandler,
                                leadImagesHandler);
@@ -391,6 +392,24 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             }
         });
     }
+
+    private PageLongPressHandler.ContextMenuListener contextMenuListener
+            = new PageLongPressHandler.ContextMenuListener() {
+        @Override
+        public PageTitle getTitleForListPosition(int position) {
+            return null;
+        }
+
+        @Override
+        public void onOpenLink(PageTitle title, HistoryEntry entry) {
+            ((PageActivity) getActivity()).displayNewPage(title, entry);
+        }
+
+        @Override
+        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
+            ((PageActivity) getActivity()).displayNewPage(title, entry, true, false);
+        }
+    };
 
     private void handleInternalLink(PageTitle title) {
         if (!isAdded()) {

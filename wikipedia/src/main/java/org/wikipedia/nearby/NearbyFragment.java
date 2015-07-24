@@ -1,5 +1,6 @@
 package org.wikipedia.nearby;
 
+import org.wikipedia.page.PageLongPressHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -9,6 +10,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.views.WikiListView;
 
 import com.squareup.picasso.Picasso;
 import android.content.ActivityNotFoundException;
@@ -44,7 +46,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -71,7 +72,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     private static final int ONE_MILE = 5280;
 
     private ViewGroup nearbyContainer;
-    private ListView nearbyList;
+    private WikiListView nearbyList;
     private View nearbyEmptyContainer;
     private NearbyAdapter adapter;
     private SwipeRefreshLayout refreshView;
@@ -122,7 +123,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         View rootView = inflater.inflate(R.layout.fragment_nearby, container, false);
 
         nearbyContainer = (ViewGroup) rootView.findViewById(R.id.nearby_container);
-        nearbyList = (ListView) rootView.findViewById(R.id.nearby_list);
+        nearbyList = (WikiListView) rootView.findViewById(R.id.nearby_list);
         nearbyEmptyContainer = rootView.findViewById(R.id.nearby_empty_container);
         nearbyEmptyContainer.setVisibility(View.GONE);
         refreshView = (SwipeRefreshLayout) rootView.findViewById(R.id.nearby_refresh_container);
@@ -153,9 +154,11 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 NearbyPage nearbyPage = adapter.getItem(position);
                 PageTitle title = new PageTitle(nearbyPage.getTitle(), site, nearbyPage.getThumblUrl());
                 HistoryEntry newEntry = new HistoryEntry(title, HistoryEntry.SOURCE_NEARBY);
-                ((PageActivity)getActivity()).displayNewPage(title, newEntry);
+                ((PageActivity) getActivity()).displayNewPage(title, newEntry);
             }
         });
+        new PageLongPressHandler(getActivity().getWindow(), nearbyList, contextMenuListener,
+                HistoryEntry.SOURCE_NEARBY);
 
         // Acquire a reference to the system Location Manager
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
@@ -223,6 +226,25 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             }
         }
     }
+
+    private PageLongPressHandler.ContextMenuListener contextMenuListener
+            = new PageLongPressHandler.ContextMenuListener() {
+        @Override
+        public PageTitle getTitleForListPosition(int position) {
+            NearbyPage page = adapter.getItem(position);
+            return new PageTitle(page.getTitle(), site, page.getThumblUrl());
+        }
+
+        @Override
+        public void onOpenLink(PageTitle title, HistoryEntry entry) {
+            ((PageActivity)getActivity()).displayNewPage(title, entry, false, false);
+        }
+
+        @Override
+        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
+            ((PageActivity)getActivity()).displayNewPage(title, entry, true, false);
+        }
+    };
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

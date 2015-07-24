@@ -123,7 +123,10 @@
         <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
         <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
     </style>
-    <style name="DialogSlideAnim" parent="@android:style/Theme.Dialog">
+    <style name="BottomDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:backgroundDimAmount">0</item>
         <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
     </style>
 
