@@ -83,6 +83,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     public static final int SUBSTATE_SAVED_PAGE_LOADED = 2;
 
     private static final int TOC_BUTTON_HIDE_DELAY = 2000;
+    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * WikipediaApp.getInstance().getScreenDensity());
 
     private PageLoadStrategy pageLoadStrategy = null;
     private PageViewModel model;
@@ -208,7 +209,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
         refreshView = (SwipeRefreshLayoutWithScroll) rootView
                 .findViewById(R.id.page_refresh_container);
-        int swipeOffset = Utils.getActionBarSize(getActivity());
+        int swipeOffset = Utils.getActionBarSize(getActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
         refreshView.setProgressViewOffset(true, -swipeOffset, swipeOffset);
         refreshView.setSize(SwipeRefreshLayout.LARGE);
         // if we want to give it a custom color:
