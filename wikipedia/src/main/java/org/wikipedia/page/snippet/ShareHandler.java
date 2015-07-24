@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.IntegerRes;
@@ -251,16 +250,18 @@ public class ShareHandler {
         // ensure the tool tip is shown after CAB animation.
 
         final View shareItemView = ActivityUtil.getMenuItemView(activity, shareItem);
-        int delay = getInteger(android.R.integer.config_longAnimTime);
-        shareItemView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                showShareToolTip(shareItemView, shareItem.getIcon());
-            }
-        }, delay);
+        if (shareItemView != null) {
+            int delay = getInteger(android.R.integer.config_longAnimTime);
+            shareItemView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    showShareToolTip(shareItemView);
+                }
+            }, delay);
+        }
     }
 
-    private void showShareToolTip(View shareItemView, Drawable icon) {
+    private void showShareToolTip(View shareItemView) {
         ToolTipUtil.showToolTip(activity, shareItemView, R.layout.inflate_tool_tip_share,
                 getColor(SHARE_TOOL_TIP_COLOR), ToolTip.Position.CENTER);
     }
