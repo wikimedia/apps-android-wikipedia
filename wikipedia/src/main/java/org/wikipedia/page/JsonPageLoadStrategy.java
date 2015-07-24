@@ -596,7 +596,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     //if we have a section to scroll to (from our PageTitle):
                     wrapper.put("fragment", sectionTargetFromTitle);
                 }
-                Log.d(TAG, "Added request for section " + section.getString("line"));
             } else {
                 wrapper.put("noMore", true);
             }
