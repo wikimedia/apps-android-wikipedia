@@ -18,7 +18,7 @@ public class SuggestedPagesFunnel extends Funnel {
     private boolean moreLikeSearchEnabled;
 
     public SuggestedPagesFunnel(WikipediaApp app, boolean moreLikeSearchEnabled) {
-        super(app, SCHEMA_NAME, REV_ID);
+        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100);
 
         this.moreLikeSearchEnabled = moreLikeSearchEnabled;
     }

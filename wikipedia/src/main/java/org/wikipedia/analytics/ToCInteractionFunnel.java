@@ -9,17 +9,9 @@ import org.wikipedia.WikipediaApp;
 public class ToCInteractionFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppToCInteraction";
     private static final int REV_ID = 11014396;
-    private static final int DEFAULT_SAMPLE_RATE = 100;
 
     public ToCInteractionFunnel(WikipediaApp app, Site site) {
-        super(app, SCHEMA_NAME, REV_ID, site);
-    }
-
-    protected void log(Object... params) {
-        //get our sampling rate from remote config
-        int sampleRate = getApp().getRemoteConfig().getConfig()
-                                 .optInt("tocLogSampleRate", DEFAULT_SAMPLE_RATE);
-        super.log(sampleRate, params);
+        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100, site);
     }
 
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }

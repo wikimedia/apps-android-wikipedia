@@ -14,12 +14,19 @@ import java.util.UUID;
 /** Schemas for this abstract funnel are expected to have appInstallID and sessionToken fields. When
  * these fields are not present or differently named, preprocess* or get*Field should be overridden. */
 /*package*/ abstract class Funnel {
-    private static final int SAMPLE_LOG_ALL = 1;
+    protected static final int SAMPLE_LOG_1K = 1000;
+    protected static final int SAMPLE_LOG_100 = 100;
+    protected static final int SAMPLE_LOG_10 = 10;
+    protected static final int SAMPLE_LOG_ALL = 1;
+    protected static final int SAMPLE_LOG_DISABLE = 0;
+
     private static final String DEFAULT_APP_INSTALL_ID_KEY = "appInstallID";
     private static final String DEFAULT_SESSION_TOKEN_KEY = "sessionToken";
 
     private final String schemaName;
     private final int revision;
+    private final int sampleRate;
+    private final String sampleRateRemoteParamName;
     private final WikipediaApp app;
     @Nullable private final Site site;
 
@@ -31,14 +38,24 @@ import java.util.UUID;
     public static final String ANALYTICS_TAG = "Analytics";
 
     /*package*/ Funnel(WikipediaApp app, String schemaName, int revision) {
-        this(app, schemaName, revision, null);
+        this(app, schemaName, revision, SAMPLE_LOG_ALL);
     }
 
     /*package*/ Funnel(WikipediaApp app, String schemaName, int revision, @Nullable Site site) {
+        this(app, schemaName, revision, SAMPLE_LOG_ALL, site);
+    }
+
+    /*package*/ Funnel(WikipediaApp app, String schemaName, int revision, int sampleRate) {
+        this(app, schemaName, revision, sampleRate, null);
+    }
+
+    /*package*/ Funnel(WikipediaApp app, String schemaName, int revision, int sampleRate, @Nullable Site site) {
         this.app = app;
         this.schemaName = schemaName;
         this.revision = revision;
+        this.sampleRate = sampleRate;
         this.site = site;
+        sampleRateRemoteParamName = schemaName + "_rate";
     }
 
     protected WikipediaApp getApp() {
@@ -78,21 +95,12 @@ import java.util.UUID;
     }
 
     protected void log(Object... params) {
-        log(SAMPLE_LOG_ALL, params);
-    }
-
-    protected void log(Site site, Object... params) {
-        log(site, SAMPLE_LOG_ALL, params);
-    }
-
-    protected void log(int rate, Object... params) {
-        log(site, rate, params);
+        log(site, params);
     }
 
     /**
      * Logs an event.
      *
-     * @param rate          The sampling rate.
      * @param params        Actual data for the event. Considered to be an array
      *                      of alternating key and value items (for easier
      *                      use in subclass constructors).
@@ -116,13 +124,14 @@ import java.util.UUID;
      *                      The subclass methods should take more explicit parameters
      *                      depending on what they are logging.
      */
-    protected void log(@Nullable Site site, int rate, Object... params) {
+    protected void log(@Nullable Site site, Object... params) {
         if (!app.isEventLoggingEnabled()) {
             // Do not send events if the user opted out of EventLogging
             return;
         }
 
-        if (rate != 0) {
+        int rate = getSampleRate();
+        if (rate != SAMPLE_LOG_DISABLE) {
             boolean chosen = app.getEventLogSamplingID() % rate == 0 || app.isDevRelease();
 
             if (chosen) {
@@ -145,6 +154,15 @@ import java.util.UUID;
                 ).log();
             }
         }
+    }
+
+    /**
+     * @return Sampling rate for this funnel, as given by the remote config parameter for this
+     * funnel (the name of which is defined as "[schema name]_rate"), with a fallback to the
+     * hard-coded sampling rate passed into the constructor.
+     */
+    protected int getSampleRate() {
+        return app.getRemoteConfig().getConfig().optInt(sampleRateRemoteParamName, sampleRate);
     }
 
     /** @return The application installation identifier field used by {@link #preprocessAppInstallID}. */

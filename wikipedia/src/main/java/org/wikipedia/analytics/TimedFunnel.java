@@ -10,12 +10,12 @@ import java.util.concurrent.TimeUnit;
 /*package*/ abstract class TimedFunnel extends Funnel {
     private final long startTime;
 
-    /*package*/ TimedFunnel(WikipediaApp app, String schemaName, int revision) {
-        this(app, schemaName, revision, null);
+    /*package*/ TimedFunnel(WikipediaApp app, String schemaName, int revision, int sampleRate) {
+        this(app, schemaName, revision, sampleRate, null);
     }
 
-    /*package*/ TimedFunnel(WikipediaApp app, String schemaName, int revision, Site site) {
-        super(app, schemaName, revision, site);
+    /*package*/ TimedFunnel(WikipediaApp app, String schemaName, int revision, int sampleRate, Site site) {
+        super(app, schemaName, revision, sampleRate, site);
         startTime = System.currentTimeMillis();
     }
 

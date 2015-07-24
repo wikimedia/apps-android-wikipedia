@@ -12,7 +12,6 @@ import java.util.Date;
 public class SessionFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppSessions";
     private static final int REVISION = 10375481;
-    private static final int DEFAULT_SAMPLE_RATE = 0;
 
     /**
      * Definition of a "session timeout", as agreed upon by the Apps and Analytics teams.
@@ -41,7 +40,7 @@ public class SessionFunnel extends Funnel {
     private int pagesFromBack;
 
     public SessionFunnel(WikipediaApp app) {
-        super(app, SCHEMA_NAME, REVISION);
+        super(app, SCHEMA_NAME, REVISION, Funnel.SAMPLE_LOG_DISABLE);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(app);
 
@@ -73,13 +72,6 @@ public class SessionFunnel extends Funnel {
              .putInt(SESSION_PAGES_HISTORY_PREF_NAME, pagesFromHistory)
              .putInt(SESSION_PAGES_SAVED_PREF_NAME, pagesFromSaved)
              .putInt(SESSION_PAGES_BACK_PREF_NAME, pagesFromBack).apply();
-    }
-
-    @Override
-    protected void log(Object... params) {
-        // get our sampling rate from remote config
-        int sampleRate = getApp().getRemoteConfig().getConfig().optInt("eventLogSampleRate", DEFAULT_SAMPLE_RATE);
-        super.log(sampleRate, params);
     }
 
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }

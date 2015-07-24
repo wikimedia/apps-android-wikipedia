@@ -9,13 +9,15 @@ import org.wikipedia.WikipediaApp;
 public class LinkPreviewFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLinkPreview";
     private static final int REV_ID = 12143205;
-    private static final int DEFAULT_SAMPLE_RATE = 100;
 
     private final PageTitle title;
     private final int version;
 
     public LinkPreviewFunnel(WikipediaApp app, PageTitle title) {
-        super(app, SCHEMA_NAME, REV_ID);
+        // TODO: increase this sample rate when ready for production
+        // (we're keeping it low for now, while we gather as much engagement data as possible
+        // from the beta channel)
+        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_10);
         this.title = title;
         version = app.getLinkPreviewVersion();
     }
@@ -30,13 +32,6 @@ public class LinkPreviewFunnel extends TimedFunnel {
     @Override
     protected String getSessionTokenField() {
         return "previewSessionToken";
-    }
-
-    protected void log(Object... params) {
-        // get our sampling rate from remote config
-        int sampleRate = getApp().getRemoteConfig().getConfig()
-                .optInt("linkPreviewLogSampleRate", getApp().isProdRelease() ? DEFAULT_SAMPLE_RATE : 1);
-        super.log(title.getSite(), sampleRate, params);
     }
 
     public void logLinkClick() {

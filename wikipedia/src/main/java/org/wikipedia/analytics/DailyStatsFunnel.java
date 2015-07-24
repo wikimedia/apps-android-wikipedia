@@ -15,7 +15,7 @@ public class DailyStatsFunnel extends Funnel {
     private static final int SCHEMA_REVISION = 12637385;
 
     public DailyStatsFunnel(WikipediaApp app) {
-        super(app, SCHEMA_NAME, SCHEMA_REVISION);
+        super(app, SCHEMA_NAME, SCHEMA_REVISION, Funnel.SAMPLE_LOG_100);
     }
 
     public void log(Context context) {

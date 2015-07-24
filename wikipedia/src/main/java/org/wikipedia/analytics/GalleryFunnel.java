@@ -16,7 +16,7 @@ public class GalleryFunnel extends TimedFunnel {
     private final int source;
 
     public GalleryFunnel(WikipediaApp app, Site site, boolean fromLeadImage) {
-        super(app, SCHEMA_NAME, REV_ID, site);
+        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100, site);
 
         this.source = fromLeadImage ? SOURCE_LEAD_IMAGE : SOURCE_NON_LEAD_IMAGE;
     }

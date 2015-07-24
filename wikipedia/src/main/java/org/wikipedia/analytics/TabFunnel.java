@@ -13,7 +13,7 @@ public class TabFunnel extends Funnel {
     private static final int SCHEMA_REVISION = 12453651;
 
     public TabFunnel() {
-        super(WikipediaApp.getInstance(), SCHEMA_NAME, SCHEMA_REVISION);
+        super(WikipediaApp.getInstance(), SCHEMA_NAME, SCHEMA_REVISION, Funnel.SAMPLE_LOG_100);
     }
 
     public void logOpenInNew(int size) {
