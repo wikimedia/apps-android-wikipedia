@@ -1,8 +1,9 @@
 package org.wikipedia.test;
 
-import android.content.Context;
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
+
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.page.Section;
@@ -38,8 +39,8 @@ public class PageFetchTaskTests extends ActivityUnitTestCase<TestDummyActivity> 
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                final Context ctx = getInstrumentation().getTargetContext();
-                new SectionsFetchTask(ctx, new PageTitle(null, title, new Site("test.wikipedia.org")), "all") {
+                final WikipediaApp app = WikipediaApp.getInstance();
+                new SectionsFetchTask(app, new PageTitle(null, title, new Site("test.wikipedia.org")), "all") {
                     @Override
                     public void onFinish(List<Section> result) {
                         assertNotNull(result);

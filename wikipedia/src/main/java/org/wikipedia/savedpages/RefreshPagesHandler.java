@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.Section;
 
 import java.util.List;
@@ -63,7 +64,7 @@ public class RefreshPagesHandler {
         progressDialog.show();
         for (int i = 0; i < savedPages.size(); i++) {
             final SavedPage savedPage = savedPages.get(i);
-                new RefreshSavedPageTask(context, savedPage) {
+                new RefreshSavedPageTask(WikipediaApp.getInstance(), savedPage) {
                     @Override
                     public void onBeforeExecute() {
                         if (isRefreshCancelled) {

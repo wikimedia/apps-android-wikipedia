@@ -1,6 +1,5 @@
 package org.wikipedia.savedpages;
 
-import android.content.Context;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
@@ -20,9 +19,9 @@ public class SavePageTask extends SaneAsyncTask<Boolean> {
 
     private CountDownLatch imagesDownloadedLatch;
 
-    public SavePageTask(Context context, PageTitle title, Page page) {
+    public SavePageTask(WikipediaApp app, PageTitle title, Page page) {
         super(SINGLE_THREAD);
-        app = (WikipediaApp) context.getApplicationContext();
+        this.app = app;
         this.title = title;
         this.page = page;
     }

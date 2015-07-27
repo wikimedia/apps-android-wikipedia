@@ -1,6 +1,5 @@
 package org.wikipedia.savedpages;
 
-import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import org.json.JSONObject;
@@ -21,10 +20,10 @@ public class RefreshSavedPageTask extends SectionsFetchTask {
     private final SavedPage savedPage;
     private final WikipediaApp app;
 
-    public RefreshSavedPageTask(Context context, SavedPage savedPage) {
-        super(context, savedPage.getTitle(), "all");
+    public RefreshSavedPageTask(WikipediaApp app, SavedPage savedPage) {
+        super(app, savedPage.getTitle(), "all");
         this.savedPage = savedPage;
-        this.app = WikipediaApp.getInstance();
+        this.app = app;
     }
 
     @Override
