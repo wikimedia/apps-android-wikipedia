@@ -3,6 +3,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.hugo'
 apply from: '../config/quality.gradle'
 
+final boolean continuousIntegrationBuild = System.getenv('JENKINS_HOME') != null
+final boolean preDexEnabled = hasProperty('preDex') ?
+        Boolean.valueOf(preDex.toString()) :
+        !continuousIntegrationBuild
+if (!preDexEnabled) {
+    println 'Pre-dexing disabled.'
+}
+
 def getDate() {
     def date = new Date()
     def formattedDate = date.format('yyyy-MM-dd')
@@ -13,7 +21,7 @@ def computeVersionName(label) {
     return "2.0.${android.defaultConfig.versionCode}-${label}-${date}"
 }
 
-final JAVA_VERSION = JavaVersion.VERSION_1_7
+final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_7
 if (JavaVersion.current() != JAVA_VERSION) {
     throw new IllegalStateException("Incorrect Java Development Kit version; expected "
             + JAVA_VERSION + " but found " + JavaVersion.current())
@@ -25,6 +33,9 @@ android {
     compileOptions {
         sourceCompatibility = JAVA_VERSION
         targetCompatibility = JAVA_VERSION
+    }
+    dexOptions {
+        preDexLibraries = preDexEnabled
     }
     defaultConfig {
         applicationId 'org.wikipedia'
