@@ -9,6 +9,7 @@
     <color name="button_disabled">#BEBEBE</color>
     <color name="preview_header_background">#D0D0D0</color>
     <color name="blue_progressive">#347BFF</color>
+    <color name="blue_progressive_transparent">#88347BFF</color>
     <color name="blue_progressive_dark">#1A3D7F</color>
     <color name="blue_liberal">#3366bb</color>
     <color name="green_progressive">#ff42a078</color>

@@ -27,7 +27,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -44,7 +43,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     private SearchView searchView;
     private EditText searchEditText;
     private SearchFunnel funnel;
-    private Button langButton;
+    private TextView langButton;
     private FrameLayout langButtonContainer;
 
     public SearchFunnel getFunnel() {
@@ -287,19 +286,13 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     private void setSearchViewEnabled(boolean enabled) {
         LinearLayout enabledSearchBar = (LinearLayout) getActivity().findViewById(R.id.search_bar_enabled);
         TextView searchButton = (TextView) getActivity().findViewById(R.id.main_search_bar_text);
-        langButton = (Button) getActivity().findViewById(R.id.search_lang_button);
+        langButton = (TextView) getActivity().findViewById(R.id.search_lang_button);
         langButtonContainer = (FrameLayout) getActivity().findViewById(R.id.search_lang_button_container);
 
         if (enabled) {
             // set up the language picker
-            langButton.setText(app.getAppOrSystemLanguageCode());
+            langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase());
             formatLangButtonText();
-            langButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showLangPreferenceDialog();
-                }
-            });
             langButtonContainer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -454,14 +447,14 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         final int langButtonTextMaxLength = 7;
 
         // These values represent scaled pixels (sp)
-        final int langButtonTextSizeSmaller = 11;
+        final int langButtonTextSizeSmaller = 10;
         final int langButtonTextSizeLarger = 13;
 
         String langCode = app.getAppOrSystemLanguageCode();
         if (langCode.length() > langCodeStandardLength) {
             langButton.setTextSize(langButtonTextSizeSmaller);
             if (langCode.length() > langButtonTextMaxLength) {
-                langButton.setText(langCode.substring(0, langButtonTextMaxLength));
+                langButton.setText(langCode.substring(0, langButtonTextMaxLength).toUpperCase());
             }
             return;
         }
@@ -473,7 +466,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
-                langButton.setText(app.getAppOrSystemLanguageCode());
+                langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase());
                 formatLangButtonText();
                 if (!TextUtils.isEmpty(lastSearchedText)) {
                     startSearch(lastSearchedText, true);

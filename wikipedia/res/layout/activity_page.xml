@@ -126,15 +126,18 @@
                                     android:paddingBottom="2dp"
                                     android:paddingLeft="9dp"
                                     android:paddingRight="9dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_marginEnd="8dp"
                                     android:id="@+id/search_lang_button_container"
+                                    android:foreground="@drawable/lang_button_foreground"
                                     android:clickable="true">
-                                    <Button
+                                    <TextView
                                         android:id="@+id/search_lang_button"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
-                                        android:layout_marginRight="7dp"
-                                        android:layout_marginEnd="7dp"
                                         android:gravity="center"
+                                        android:clickable="false"
+                                        android:focusable="false"
                                         android:background="@drawable/lang_button_shape"
                                         style="@style/AppTheme.ActionModeStyle"
                                         android:textColor="@android:color/white" />
