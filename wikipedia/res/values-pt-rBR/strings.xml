@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">O que você estava fazendo quando ocorreu o erro?</string>
   <string name="search_hint">Procurar na Wikipédia</string>
   <string name="nav_item_history">Histórico</string>
-  <string name="error_network_error" fuzzy="true">Não há conexão de rede :(</string>
+  <string name="error_network_error">A conexão de rede não pode ser estabelecida</string>
   <string name="search_network_error">Erro de conexão. Toque para tentar novamente.</string>
   <string name="generic_page_error">Ocorreu um problema ao lidar com o seu pedido.</string>
   <string name="status_code_unavailable">Código de status do servidor indisponível.</string>
@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Atualizando páginas salvas…</string>
   <string name="delete_selected_saved_pages">Apagar</string>
   <string name="toast_saved_page_deleted">Página(s) salva(s) excluída(s)</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Pesquisar</string>
+  <string name="saved_pages_search_list_hint">Pesquisar páginas salvas</string>
   <string name="saved_pages_search_empty_message">Nenhuma página foi encontrada.</string>
   <string name="nav_item_nearby">Próximo</string>
   <string name="menu_update_nearby">Atualizar páginas próximas</string>
@@ -130,6 +130,7 @@
   <string name="create_account_next">Seguinte</string>
   <string name="create_account_button">Criar conta</string>
   <string name="preferences_general_heading">Geral</string>
+  <string name="wikipedia_app_faq">Perguntas frequentes do aplicativo da Wikipédia</string>
   <string name="zero_charged_verbiage">A Wikipédia Zero está desativada</string>
   <string name="zero_charged_verbiage_extended">O carregamento de outros artigos podem incorrer em cobrança de dados.</string>
   <string name="zero_search_hint">Pesquisar na Wikipédia Zero</string>
@@ -153,7 +154,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar relatórios de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recolha informações sobre o uso do aplicativo para aperfeiçoá-lo</string>
   <string name="editing_error_spamblacklist">Foram detectados links para páginas bloqueadas (%s). Por favor, remova-os e tente novamente.</string>
-  <string name="history_search_list_hint" fuzzy="true">Pesquisar</string>
+  <string name="history_search_list_hint">Histórico de pesquisa</string>
   <string name="history_search_empty_message">Nenhuma página correspondente com a sua pesquisa.</string>
   <string name="error_can_not_process_link">Não foi possível mostrar esse link</string>
   <string name="page_protected_autoconfirmed">Esta página foi semi-protegida</string>
@@ -268,4 +269,15 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Uploader desconhecido</string>
   <string name="edit_save_unknown_error">Não foi possível salvar sua edição: %s</string>
+  <string name="menu_show_tabs">Mostrar abas</string>
+  <string name="menu_new_tab">Nova aba</string>
+  <string name="button_close_tab">Fechar aba</string>
+  <string name="menu_open_link">Abrir link</string>
+  <string name="menu_open_in_new_tab">Abrir em uma nova aba</string>
+  <string name="menu_save_page_popup">Guardar para mais tarde</string>
+  <string name="tool_tip_select_text">Pressione e segure em qualquer lugar no texto para destacá-lo para copiar e compartilhar</string>
+  <string name="tool_tip_share">Após destacar um fato interessante, tente compartilhá-lo nas suas redes favoritas!</string>
+  <string name="page_view_in_browser">Ver no navegador</string>
+  <string name="tool_tip_toc_button">Consulte a tabela de conteúdos a qualquer momento ao tocar neste botão ou deslizando com o dedo a partir do canto superior direito da tela.</string>
+  <string name="error_server_response">O servidor não conseguiu concluir o pedido.</string>
 </resources>

@@ -46,6 +46,7 @@
   <string name="nearby_server_error">Yaqin atrofdagi joylar ro\'yxatini olib bo\'lmadi.</string>
   <string name="nearby_set_metric">Metr/kilometr birligida ko\'rsatish</string>
   <string name="nearby_set_imperial">Fut/milya birligida ko\'rsatish</string>
+  <string name="nearby_view_on_map">U erni xaritada ko\'rish</string>
   <string name="last_updated_text">%sda oxirgi bor yangilangan</string>
   <string name="preference_title_language">Vikipedia tili</string>
   <string name="preference_languages_filter_hint">Izlash</string>
@@ -63,6 +64,7 @@
   <string name="dialog_message_edit_failed_retry">Qayta urinib koʻrish</string>
   <string name="dialog_message_edit_failed_cancel">Bekor qilish</string>
   <string name="dialog_message_leaving_edit_leave">Chiqish</string>
+  <string name="dialog_message_leaving_edit_stay">Qolish</string>
   <string name="menu_show_toc">Mundarija</string>
   <string name="search_no_results_found">Natija topilmadi</string>
   <string name="edit_section_captcha_hint">Tepadagi so\'zlarni takrorlang</string>
@@ -87,6 +89,8 @@
   <string name="toast_logout_complete">Chiqildi</string>
   <string name="saved_pages_empty_title">Bu yerda saqlangan sahifalar yo‘q!</string>
   <string name="history_empty_title">Bu yerda so‘nggi sahifalar yo‘q!</string>
+  <string name="delete_selected_history">O‘chirish</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Foydalanuvchi nomi</string>
   <string name="create_account_password_hint">Maxfiy soʻz</string>
   <string name="login_create_account_link">Hisob yozuvingiz yoʻqmi? Vikipediyaga qo‘shiling</string>
@@ -120,13 +124,15 @@
   <string name="zero_interstitial_cancel">Shu yerda qolish</string>
   <string name="zero_learn_more_learn_more">Koʻproq bilib olish</string>
   <string name="zero_learn_more_dismiss">Yashirish</string>
+  <string name="edit_preview_fetching_dialog_message">
+Oldindan yoqimli ...</string>
   <string name="send_feedback">Dastur haqida fikr bildirish</string>
   <string name="nav_item_random">Tasodifiy</string>
   <string name="create_account_account_created_toast">Hisob yozuvi yaratildi!</string>
   <string name="user_contribs_more_action">Yana yuklash</string>
   <string name="activity_my_contributions_title">Hissam</string>
   <string name="preference_title_eventlogging_opt_in">Foydalanish haqida hisobotni joʻnatish</string>
-  <string name="history_search_list_hint" fuzzy="true">Qidiruv</string>
+  <string name="history_search_list_hint">Tarihida qidiruv</string>
   <string name="error_can_not_process_link">Havolani ochib bo\'lmadi</string>
   <string name="page_protected_autoconfirmed">Bu sahifa yarim himoyalangan.</string>
   <string name="page_protected_sysop">Bu sahifa toʻliq himoyalangan.</string>
@@ -175,6 +181,11 @@
   <string name="color_theme_dark">To\'q</string>
   <string name="page_similar_titles">O‘xshash sahifalar</string>
   <string name="search_recent_header">Oxirgi qidirishlar:</string>
+  <string name="table_close">Yopish</string>
   <string name="alpha_update_notification_title">Yangi alfa versiya mavjud</string>
   <string name="alpha_update_notification_text">Koʻchirib olish uchun bosing</string>
+  <string name="dialog_close_description">Yopish</string>
+  <string name="read_more_section">Koʻproq bilib olish</string>
+  <string name="gallery_menu_share">Bo\'lishish</string>
+  <string name="gallery_menu_save">Qurilmaga saqlash</string>
 </resources>

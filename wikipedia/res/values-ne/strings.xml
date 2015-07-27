@@ -85,9 +85,9 @@
   <string name="create_account_username_exists_error">प्रयोगकर्ताको नाम पहिला देखि नै प्रयोगमा रहेको</string>
   <string name="create_account_invalid_email_error">तपाईले उपलब्ध गराउनु भएको इमेल ठेगाना अवैध छ ।</string>
   <string name="create_account_password_too_short_error">तपाईले राख्नु भएको पासवर्ड ज्यादै सानो भयो ।</string>
-  <string name="create_account_blocked_anon_error">तपाईको आइपि ठेगाना प्रतिवन्धित गरिएको हुँदा तपाईले कुनै खाता खोल्न सक्नु हुन्छ ।</string>
-  <string name="create_account_blocked_error">तपाईको खाता प्रतिवन्धित गरिएकोले तपाईले खाता खोल्न सक्नु हुन्न ।</string>
-  <string name="create_account_password_name_match_error">तपाईको प्रयोगकर्ता नाम तथा तपाईको पासवर्ड फरक हुनु पर्नेछ ।</string>
+  <string name="create_account_blocked_anon_error">तपाईंको आइपि ठेगाना प्रतिवन्धित गरिएको हुँदा तपाईंले कुनै खाता खोल्न सक्नु हुन्छ ।</string>
+  <string name="create_account_blocked_error">तपाईंको खाता प्रतिवन्धित गरिएकोले तपाईंले खाता खोल्न सक्नु हुन्न ।</string>
+  <string name="create_account_password_name_match_error">तपाईंको प्रयोगकर्ता नाम तथा तपाईंको पासवर्ड फरक हुनु पर्नेछ ।</string>
   <string name="create_account_generic_error">खाता खोल्न सकिएन</string>
   <string name="create_account_no_network">नेटबर्क कनेक्सन नभएको</string>
   <string name="create_account_next">अर्को</string>

@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">S\'està actualitzant la pàgina desada…</string>
   <string name="delete_selected_saved_pages">Esborra</string>
   <string name="toast_saved_page_deleted">S\'han esborrat les pàgines desades</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Cercar</string>
+  <string name="saved_pages_search_list_hint">Cerca en les pàgines desades</string>
   <string name="saved_pages_search_empty_message">No s\'ha trobat cap pàgina que coincidís amb la vostra consulta.</string>
   <string name="nav_item_nearby">A prop</string>
   <string name="menu_update_nearby">Actualitzar els elements que són a prop</string>
@@ -130,6 +130,7 @@
   <string name="create_account_next">Següent</string>
   <string name="create_account_button">Crea un compte</string>
   <string name="preferences_general_heading">General</string>
+  <string name="wikipedia_app_faq">PMF de l\'app de la Viquipèdia</string>
   <string name="zero_charged_verbiage">Viquipèdia Zero està desactivada</string>
   <string name="zero_charged_verbiage_extended">Carregar altres articles pot implicar despeses per dades.</string>
   <string name="zero_search_hint">Cercar a Viquipèdia Zero</string>
@@ -153,7 +154,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
   <string name="editing_error_spamblacklist">Enllaços a dominis bloquejats (%s) detectats. Esborreu-los i torneu-ho a provar.</string>
-  <string name="history_search_list_hint" fuzzy="true">Cercar</string>
+  <string name="history_search_list_hint">Cerca a l\'historial</string>
   <string name="history_search_empty_message">No s’ha trobat cap pàgina que coincideixi amb la consulta.</string>
   <string name="error_can_not_process_link">No s\'ha pogut mostrar l\'enllaç</string>
   <string name="page_protected_autoconfirmed">La pàgina està semiprotegida.</string>
@@ -243,7 +244,7 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_summary_show_images">Activar o desactivar la càrrega d\'imatges a les pàgines. Desactiveu aquest paràmetre si teniu una connexió a Internet lenta o unes dades limitades.</string>
   <string name="read_more_section">Llegir més</string>
   <string name="read_next_section">Llegeix el següent</string>
-  <string name="menu_gallery_visit_page">Anar a la pàgina del fitxer</string>
+  <string name="menu_gallery_visit_page">Vés a la pàgina del fitxer</string>
   <string name="gallery_error_draw_failed">No s\'ha pogut carregar la imatge.</string>
   <string name="license_title">Text de la llicència per la biblioteca %s</string>
   <string name="gallery_menu_share">Comparteix</string>
@@ -264,6 +265,12 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Fair use (ús raonable)</string>
   <string name="gallery_uploader_unknown">Carregador no conegut</string>
   <string name="edit_save_unknown_error">No s\'ha pogut desar l\'edició: %s</string>
+  <string name="menu_show_tabs">Mostra les pestanyes</string>
+  <string name="menu_new_tab">Pestanya nova</string>
+  <string name="button_close_tab">Tanca la pestanya</string>
+  <string name="menu_open_link">Obre l\'enllaç</string>
+  <string name="menu_open_in_new_tab">Obre en una pestanya nova</string>
+  <string name="menu_save_page_popup">Desa-ho per a després</string>
   <string name="tool_tip_select_text">Mantén premut qualsevol part del text per a ressaltar-lo per copiar i compartir.</string>
   <string name="tool_tip_share">Després de destacar un fet interessant, proveu de compartir-lo en les vostres xarxes preferides!</string>
   <string name="page_view_in_browser">Visualitza la pàgina en el navegador</string>
