@@ -31,6 +31,12 @@ def addTestAllTask = { testAllName, jvmJUnitName, androidInstrumentationName ->
     testAllTask.shouldRunAfter jvmJUnitName
 }
 
+// Specify debug or release build type for connectedAndroidTest. Both cannot be used simultaneously.
+// Note: if both are specified, defaults to release.
+android.testBuildType project.gradle.startParameter.taskNames.find { it.contains('Release') } ?
+        'release' :
+        'debug'
+
 // Add testAll tasks for each build variant.
 android.applicationVariants.all { variant ->
     def variantName = variant.name.capitalize()
