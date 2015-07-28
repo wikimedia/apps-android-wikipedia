@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
@@ -156,18 +157,18 @@ public final class ShareUtils {
     }
 
     @Nullable
-    public static Intent createChooserIntent(Intent targetIntent,
-                                             CharSequence chooserTitle,
-                                             Context context) {
+    public static Intent createChooserIntent(@NonNull Intent targetIntent,
+                                             @Nullable CharSequence chooserTitle,
+                                             @NonNull Context context) {
         return createChooserIntent(targetIntent, chooserTitle, context, APP_PACKAGE_REGEX);
     }
 
     @Nullable
-    public static Intent createChooserIntent(Intent targetIntent,
-                                             CharSequence chooserTitle,
-                                             Context context,
+    public static Intent createChooserIntent(@NonNull Intent targetIntent,
+                                             @Nullable CharSequence chooserTitle,
+                                             @NonNull Context context,
                                              String packageNameBlacklistRegex) {
-        List<LabeledIntent> intents = queryIntents(context, targetIntent, packageNameBlacklistRegex);
+        List<Intent> intents = queryIntents(context, targetIntent, packageNameBlacklistRegex);
 
         if (intents.isEmpty()) {
             return null;
@@ -175,13 +176,13 @@ public final class ShareUtils {
 
         Intent bestIntent = intents.remove(0);
         return Intent.createChooser(bestIntent, chooserTitle)
-                .putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toArray(new Parcelable[0]));
+                .putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toArray(new Parcelable[intents.size()]));
     }
 
-    public static List<LabeledIntent> queryIntents(Context context,
-                                                   Intent targetIntent,
-                                                   String packageNameBlacklistRegex) {
-        List<LabeledIntent> intents = new ArrayList<>();
+    public static List<Intent> queryIntents(@NonNull Context context,
+                                            @NonNull Intent targetIntent,
+                                            String packageNameBlacklistRegex) {
+        List<Intent> intents = new ArrayList<>();
         for (ResolveInfo intentActivity : queryIntentActivities(targetIntent, context)) {
             if (!isIntentActivityBlacklisted(intentActivity, packageNameBlacklistRegex)) {
                 intents.add(buildLabeledIntent(targetIntent, intentActivity));
@@ -190,24 +191,26 @@ public final class ShareUtils {
         return intents;
     }
 
-    public static List<ResolveInfo> queryIntentActivities(Intent intent, Context context) {
+    public static List<ResolveInfo> queryIntentActivities(Intent intent, @NonNull Context context) {
         return context.getPackageManager().queryIntentActivities(intent, 0);
     }
 
-    private static boolean isIntentActivityBlacklisted(ResolveInfo intentActivity,
-                                                       String packageNameBlacklistRegex) {
+    private static boolean isIntentActivityBlacklisted(@Nullable ResolveInfo intentActivity,
+                                                       @Nullable String packageNameBlacklistRegex) {
         return intentActivity != null
                 && getPackageName(intentActivity).matches(emptyIfNull(packageNameBlacklistRegex));
     }
 
     private static LabeledIntent buildLabeledIntent(Intent intent, ResolveInfo intentActivity) {
-        LabeledIntent labeledIntent = new LabeledIntent(intent, getPackageName(intentActivity),
+
+        LabeledIntent labeledIntent = new LabeledIntent(intent, intentActivity.resolvePackageName,
                 intentActivity.labelRes, intentActivity.getIconResource());
+        labeledIntent.setPackage(getPackageName(intentActivity));
         labeledIntent.setClassName(getPackageName(intentActivity), intentActivity.activityInfo.name);
         return labeledIntent;
     }
 
-    private static String getPackageName(ResolveInfo intentActivity) {
+    private static String getPackageName(@NonNull ResolveInfo intentActivity) {
         return intentActivity.activityInfo.packageName;
     }
 }

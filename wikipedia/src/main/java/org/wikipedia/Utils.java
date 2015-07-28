@@ -361,11 +361,8 @@ public final class Utils {
      * @param uri URI to open in an external browser
      */
     public static void visitInExternalBrowser(final Context context, Uri uri) {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.setData(uri);
-
-        Intent chooserIntent = ShareUtils.createChooserIntent(intent, null, context);
+        Intent chooserIntent = ShareUtils.createChooserIntent(new Intent(Intent.ACTION_VIEW, uri),
+                null, context);
         if (chooserIntent == null) {
             // This means that there was no way to handle this link.
             // We will just show a toast now. FIXME: Make this more visible?
