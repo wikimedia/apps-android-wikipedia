@@ -11,6 +11,7 @@ import org.wikipedia.util.ApiUtil;
 import com.squareup.picasso.Picasso;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -100,13 +101,15 @@ public class TabsProvider {
         providerListener.onEnterTabView();
     }
 
-    private void enterTabMode(Runnable onTabModeEntered) {
+    private void enterTabMode(@Nullable Runnable onTabModeEntered) {
         if (tabActionMode != null) {
             // already inside action mode...
             // but make sure to update the list of tabs.
             tabListAdapter.notifyDataSetInvalidated();
             tabListView.smoothScrollToPosition(tabList.size() - 1);
-            onTabModeEntered.run();
+            if (onTabModeEntered != null) {
+                onTabModeEntered.run();
+            }
             return;
         }
         parentActivity.startSupportActionMode(new TabActionModeCallback(onTabModeEntered));
