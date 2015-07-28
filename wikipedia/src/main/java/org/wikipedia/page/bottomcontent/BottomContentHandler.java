@@ -382,7 +382,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
         @Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            activity.displayNewPage(title, entry, true, false);
+            activity.displayNewPage(title, entry, PageActivity.TabPosition.NEW_TAB_BACKGROUND, false);
             funnel.logSuggestionClicked(pageTitle, readMoreItems.getPageTitles(), lastPosition);
         }
     };

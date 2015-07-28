@@ -85,3 +85,17 @@
 # Our code:
 -keep class org.wikipedia.** {*;}
 -keep class org.mediawiki.api.json.** {*;}
+
+# --- Gson ---
+# https://github.com/google/gson/blob/master/examples/android-proguard-example/proguard.cfg
+
+# Gson uses generic type information stored in a class file when working with fields. Proguard
+# removes such information by default, so configure it to keep all of it.
+#-keepattributes Signature (already specified)
+
+# For using GSON @Expose annotation (already specified)
+#-keepattributes *Annotation*
+
+# Gson specific classes
+-keep class sun.misc.Unsafe { *; }
+# --- /Gson ---

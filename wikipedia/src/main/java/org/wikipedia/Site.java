@@ -41,10 +41,6 @@ public class Site implements Parcelable {
         return "/w/" + script;
     }
 
-    public String getResourceLoaderPath() {
-        return getScriptPath("load.php");
-    }
-
     public String getApiDomain() {
         return WikipediaApp.getInstance().getSslFallback() ? domain : urlToMobileSite(domain);
     }

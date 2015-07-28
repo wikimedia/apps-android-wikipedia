@@ -8,8 +8,9 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
 import android.content.Intent;
-import android.os.Bundle;
-import java.util.ArrayList;
+import android.support.annotation.NonNull;
+
+import java.util.List;
 
 /**
  * Defines interaction between PageViewFragmentInternal and an implementation that loads a page
@@ -21,9 +22,7 @@ public interface PageLoadStrategy {
                CommunicationBridge bridge, SearchBarHideHandler searchBarHideHandler,
                LeadImagesHandler leadImagesHandler);
 
-    void onActivityCreated(Bundle savedInstanceState);
-
-    void onSaveInstanceState(Bundle outState);
+    void onActivityCreated(@NonNull List<PageBackStackItem> backStack);
 
     void backFromEditing(Intent data);
 
@@ -41,7 +40,7 @@ public interface PageLoadStrategy {
 
     void setEditHandler(EditHandler editHandler);
 
-    void setBackStack(ArrayList<PageBackStackItem> backStack);
+    void setBackStack(@NonNull List<PageBackStackItem> backStack);
 
     void updateCurrentBackStackItem();
 

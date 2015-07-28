@@ -34,7 +34,6 @@ import org.mediawiki.api.json.RequestBuilder;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
@@ -74,7 +73,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
      * Since the list consists of Parcelable objects, it can be saved and restored from the
      * savedInstanceState of the fragment.
      */
-    private ArrayList<PageBackStackItem> backStack;
+    @NonNull private List<PageBackStackItem> backStack;
 
     /**
      * Sequence number to maintain synchronization when loading page content asynchronously
@@ -114,7 +113,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     @Override
-    public void setBackStack(@NonNull ArrayList<PageBackStackItem> backStack) {
+    public void setBackStack(@NonNull List<PageBackStackItem> backStack) {
         this.backStack = backStack;
     }
 
@@ -135,18 +134,12 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
+    public void onActivityCreated(@NonNull List<PageBackStackItem> backStack) {
         setupSpecificMessageHandlers();
 
         currentSequenceNum = 0;
 
-        if (savedInstanceState != null) {
-            ArrayList<PageBackStackItem> tmpBackStack
-                    = savedInstanceState.getParcelableArrayList("backStack");
-            if (tmpBackStack != null) { // avoid setting backStack to null
-                backStack = tmpBackStack;
-            }
-        }
+        this.backStack = backStack;
 
         // if we already have pages in the backstack (whether it's from savedInstanceState, or
         // from being stored in the activity's fragment backstack), then load the topmost page
@@ -218,13 +211,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         bottomContentHandler = new BottomContentHandler(fragment, bridge, webView,
                 fragment.getLinkHandler(),
                 (ViewGroup) fragment.getView().findViewById(R.id.bottom_content_container));
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        // update the topmost entry in the back stack
-        updateCurrentBackStackItem();
-        outState.putParcelableArrayList("backStack", backStack);
     }
 
     @Override

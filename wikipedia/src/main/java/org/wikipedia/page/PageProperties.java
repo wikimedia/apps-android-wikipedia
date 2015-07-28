@@ -248,7 +248,6 @@ public class PageProperties implements Parcelable {
                 json.put("image", imageObject);
             }
         } catch (JSONException e) {
-            // Goddamn it Java
             throw new RuntimeException(e);
         }
 

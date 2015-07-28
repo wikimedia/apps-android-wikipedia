@@ -5,7 +5,13 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.data.GsonMarshaller;
+import org.wikipedia.data.TabUnmarshaller;
+import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
+
+import java.util.Collections;
+import java.util.List;
 
 import static org.wikipedia.settings.PrefsIoUtil.contains;
 import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
@@ -191,6 +197,21 @@ public final class Prefs {
         setString(R.string.preference_key_remote_config, json);
     }
 
+    public static void setTabs(@NonNull List<Tab> tabs) {
+        setString(R.string.preference_key_tabs, GsonMarshaller.marshal(tabs));
+    }
+
+    @NonNull
+    public static List<Tab> getTabs() {
+        return hasTabs()
+                ? TabUnmarshaller.unmarshal(getString(R.string.preference_key_tabs, "{}"))
+                : Collections.<Tab>emptyList();
+    }
+
+    public static boolean hasTabs() {
+        return contains(R.string.preference_key_tabs);
+    }
+
     public static int getTextSizeMultiplier() {
         return getInt(R.string.preference_key_text_size_multiplier, 0);
     }
@@ -219,7 +240,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_exp_json_page_load, enabled);
     }
 
-    @NonNull
     public static long getLastRunTime(@NonNull String task) {
         return getLong(getLastRunTimeKey(task), 0);
     }

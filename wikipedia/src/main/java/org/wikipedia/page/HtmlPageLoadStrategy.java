@@ -14,7 +14,6 @@ import org.json.JSONObject;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebResourceRequest;
@@ -23,6 +22,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Our new page load strategy, which loads the page via webView#loadUrl.
@@ -93,7 +93,7 @@ public class HtmlPageLoadStrategy implements PageLoadStrategy {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
+    public void onActivityCreated(@NonNull List<PageBackStackItem> backStack) {
         setupSpecificMessageHandlers();
 
         webView.setWebViewClient(new WebViewClient() {
@@ -195,11 +195,6 @@ public class HtmlPageLoadStrategy implements PageLoadStrategy {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        // nothing to do here
-    }
-
-    @Override
     public void backFromEditing(Intent data) {
         // Retrieve section ID from intent, and find correct section, so we know where to scroll to
 //        sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
@@ -266,7 +261,7 @@ public class HtmlPageLoadStrategy implements PageLoadStrategy {
     }
 
     @Override
-    public void setBackStack(ArrayList<PageBackStackItem> backStack) {
+    public void setBackStack(@NonNull List<PageBackStackItem> backStack) {
         // TODO: implement switching of backstacks from multiple tabs.
     }
 

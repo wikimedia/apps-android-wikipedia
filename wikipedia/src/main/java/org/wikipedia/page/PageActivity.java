@@ -64,6 +64,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class PageActivity extends ThemedActionBarActivity {
+    public enum TabPosition {
+        CURRENT_TAB,
+        NEW_TAB_BACKGROUND,
+        NEW_TAB_FOREGROUND
+    }
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
@@ -246,7 +251,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
         if (languageChanged) {
             app.resetSite();
-            displayMainPage();
+            displayMainPageInForegroundTab();
         }
 
         // If we're coming back from a Theme change, we'll need to "restore" our state based on
@@ -269,7 +274,7 @@ public class PageActivity extends ThemedActionBarActivity {
                 //multiple various exceptions may be thrown in the above few lines, so just catch all.
                 Log.e("PageActivity", "Error while instantiating fragment.", e);
                 //don't let the user see a blank screen, so just request the main page...
-                displayMainPage();
+                displayMainPageInCurrentTab();
             }
         } else if (savedInstanceState == null) {
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
@@ -407,16 +412,11 @@ public class PageActivity extends ThemedActionBarActivity {
             new WidgetsFunnel(app).logSearchWidgetTap();
             openSearch();
         } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
-            displayMainPage();
-
             // Log that the user tapped on the featured article widget
             // Instantiate the funnel anonymously to save on memory overhead
             new WidgetsFunnel(app).logFeaturedArticleWidgetTap();
-        } else {
-            // Unrecognized Intent was handled, or the user opened the app by tapping on the icon.
-            // Let us load the main page!
-            displayMainPage();
         }
+        displayMainPageIfNoTabs();
     }
 
     private void handleShareIntent(Intent intent) {
@@ -461,10 +461,7 @@ public class PageActivity extends ThemedActionBarActivity {
      * @return True if currently searching, false otherwise.
      */
     public boolean isSearching() {
-        if (searchFragment == null) {
-            return false;
-        }
-        return searchFragment.isSearchActive();
+        return searchFragment != null && searchFragment.isSearchActive();
     }
 
     /**
@@ -548,7 +545,14 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param entry HistoryEntry associated with this page.
      */
     public void displayNewPage(PageTitle title, HistoryEntry entry) {
-        displayNewPage(title, entry, false, false);
+        displayNewPage(title, entry, TabPosition.CURRENT_TAB, false);
+    }
+
+    public void displayNewPage(PageTitle title,
+                               HistoryEntry entry,
+                               TabPosition position,
+                               boolean allowStateLoss) {
+        displayNewPage(title, entry, position, allowStateLoss, false);
     }
 
     /**
@@ -556,11 +560,16 @@ public class PageActivity extends ThemedActionBarActivity {
      * fragment manager. Useful for when this function is called from an AsyncTask result.
      * @param title Title of the page to load.
      * @param entry HistoryEntry associated with this page.
-     * @param inNewTab Whether to open this page in a new tab.
+     * @param position Whether to open this page in the current tab, a new background tab, or new
+     *                 foreground tab.
      * @param allowStateLoss Whether to allow state loss.
+     * @param mustBeEmpty If true, and a tab exists already, do nothing.
      */
-    public void displayNewPage(final PageTitle title, final HistoryEntry entry,
-                               final boolean inNewTab, boolean allowStateLoss) {
+    public void displayNewPage(final PageTitle title,
+                               final HistoryEntry entry,
+                               final TabPosition position,
+                               boolean allowStateLoss,
+                               final boolean mustBeEmpty) {
         ACRA.getErrorReporter().putCustomData("api", title.getSite().getApiDomain());
         ACRA.getErrorReporter().putCustomData("title", title.toString());
 
@@ -584,7 +593,7 @@ public class PageActivity extends ThemedActionBarActivity {
                 if (!frag.getCurrentTab().getBackStack().isEmpty()
                         && frag.getCurrentTab().getBackStack()
                         .get(frag.getCurrentTab().getBackStack().size() - 1).getTitle()
-                        .equals(title)) {
+                        .equals(title) || mustBeEmpty && !frag.getCurrentTab().getBackStack().isEmpty()) {
                     //if we have a section to scroll to, then pass it to the fragment
                     if (!TextUtils.isEmpty(title.getFragment())) {
                         frag.scrollToSection(title.getFragment());
@@ -592,32 +601,44 @@ public class PageActivity extends ThemedActionBarActivity {
                     return;
                 }
                 frag.closeFindInPage();
-                if (inNewTab) {
-                    frag.openInNewTabFromMenu(title, entry);
-                } else {
+                if (position == TabPosition.CURRENT_TAB) {
                     frag.displayNewPage(title, entry, false, true);
+                } else if (position == TabPosition.NEW_TAB_BACKGROUND) {
+                    frag.openInNewBackgroundTabFromMenu(title, entry);
+                } else {
+                    frag.openInNewForegroundTabFromMenu(title, entry);
                 }
                 app.getSessionFunnel().pageViewed(entry);
             }
         });
     }
 
-    /**
-     * Go directly to the Main Page of the current Wiki.
-     */
-    public void displayMainPage() {
-        displayMainPage(false);
+    public void displayMainPageInCurrentTab() {
+        displayMainPage(false, TabPosition.CURRENT_TAB, false);
+    }
+
+    public void displayMainPageInForegroundTab() {
+        displayMainPage(true, TabPosition.NEW_TAB_FOREGROUND, false);
+    }
+
+    public void displayMainPageIfNoTabs() {
+        displayMainPage(false, TabPosition.CURRENT_TAB, true);
     }
 
     /**
      * Go directly to the Main Page of the current Wiki, optionally allowing state loss of the
      * fragment manager. Useful for when this function is called from an AsyncTask result.
-     * @param allowStateLoss Whether to allow state loss.
+     * @param allowStateLoss Allows the {@link android.support.v4.app.FragmentManager} commit to be
+     *                       executed after an activity's state is saved.  This is dangerous because
+     *                       the commit can be lost if the activity needs to later be restored from
+     *                       its state, so this should only be used for cases where it is okay for
+     *                       the UI state to change unexpectedly on the user.
+     * @param mustBeEmpty If true, and a tab exists already, do nothing.
      */
-    public void displayMainPage(boolean allowStateLoss) {
+    public void displayMainPage(boolean allowStateLoss, TabPosition position, boolean mustBeEmpty) {
         PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()), app.getPrimarySite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
-        displayNewPage(title, historyEntry, false, allowStateLoss);
+        displayNewPage(title, historyEntry, position, allowStateLoss, mustBeEmpty);
     }
 
     public void showThemeChooser() {

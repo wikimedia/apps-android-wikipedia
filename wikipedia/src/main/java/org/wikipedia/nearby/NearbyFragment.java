@@ -237,12 +237,14 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
 
         @Override
         public void onOpenLink(PageTitle title, HistoryEntry entry) {
-            ((PageActivity)getActivity()).displayNewPage(title, entry, false, false);
+            ((PageActivity)getActivity()).displayNewPage(title, entry,
+                    PageActivity.TabPosition.CURRENT_TAB, false);
         }
 
         @Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            ((PageActivity)getActivity()).displayNewPage(title, entry, true, false);
+            ((PageActivity)getActivity()).displayNewPage(title, entry,
+                    PageActivity.TabPosition.NEW_TAB_BACKGROUND, false);
         }
     };
 

@@ -91,7 +91,8 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                             return;
                         }
                         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
-                        ((PageActivity) getActivity()).displayNewPage(title, historyEntry, false, true);
+                        ((PageActivity) getActivity()).displayNewPage(title, historyEntry,
+                                PageActivity.TabPosition.CURRENT_TAB, true);
                     }
 
                     @Override
@@ -185,7 +186,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
         Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.nav_item_today:
-                ((PageActivity)getActivity()).displayMainPage();
+                ((PageActivity)getActivity()).displayMainPageInCurrentTab();
                 break;
             case R.id.nav_item_history:
                 ((PageActivity)getActivity()).pushFragment(new HistoryFragment());
@@ -233,7 +234,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
                         if (!isAdded()) {
                             return;
                         }
-                        ((PageActivity)getActivity()).displayMainPage(true);
+                        ((PageActivity)getActivity()).displayMainPageInForegroundTab();
                         // and update any instances of our Featured Page widget, since it will
                         // change with the currently selected language.
                         Intent widgetIntent = new Intent(getActivity(), WidgetProviderFeaturedPage.class);

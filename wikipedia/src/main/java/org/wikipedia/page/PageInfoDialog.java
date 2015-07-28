@@ -98,7 +98,7 @@ class PageInfoDialog extends BottomDialog {
         @Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
             dismiss();
-            activity.displayNewPage(title, entry, true, false);
+            activity.displayNewPage(title, entry, PageActivity.TabPosition.NEW_TAB_BACKGROUND, false);
         }
     };
 

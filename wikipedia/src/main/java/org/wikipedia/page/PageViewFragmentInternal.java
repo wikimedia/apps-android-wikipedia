@@ -68,6 +68,7 @@ import android.widget.TextView;
 import com.appenguin.onboarding.ToolTip;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.SSLException;
@@ -75,9 +76,6 @@ import javax.net.ssl.SSLException;
 // TODO: USE ACRA.getErrorReporter().handleSilentException() if we move to automated crash reporting?
 
 public class PageViewFragmentInternal extends Fragment implements BackPressedHandler {
-    private static final String TAG = "PageViewFragment";
-    private static final String TAB_LIST_KEY = "tabList";
-
     public static final int SUBSTATE_NONE = 0;
     public static final int SUBSTATE_PAGE_SAVED = 1;
     public static final int SUBSTATE_SAVED_PAGE_LOADED = 2;
@@ -94,7 +92,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
      * savedInstanceState of the fragment.
      */
     @NonNull
-    private ArrayList<Tab> tabList = new ArrayList<>();
+    private final List<Tab> tabList = new ArrayList<>();
 
     @NonNull
     private TabFunnel tabFunnel = new TabFunnel();
@@ -192,6 +190,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         } else {
             pageLoadStrategy = new JsonPageLoadStrategy();
         }
+
+        initTabs();
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -233,15 +233,6 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
         connectionIssueFunnel = new ConnectionIssueFunnel(app);
-
-        if (savedInstanceState != null) {
-            //noinspection ConstantConditions
-            tabList = savedInstanceState.getParcelableArrayList(TAB_LIST_KEY);
-        }
-
-        if (tabList.isEmpty()) {
-            tabList.add(new Tab());
-        }
 
         updateFontSize();
 
@@ -346,9 +337,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 contextMenuListener);
 
         pageLoadStrategy.setup(model, this, refreshView, webView, bridge, searchBarHideHandler,
-                               leadImagesHandler);
-        pageLoadStrategy.setBackStack(getCurrentTab().getBackStack());
-        pageLoadStrategy.onActivityCreated(savedInstanceState);
+                leadImagesHandler);
+        pageLoadStrategy.onActivityCreated(getCurrentTab().getBackStack());
     }
 
     private void initWebViewListeners() {
@@ -407,7 +397,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
         @Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            ((PageActivity) getActivity()).displayNewPage(title, entry, true, false);
+            ((PageActivity) getActivity()).displayNewPage(title, entry,
+                    PageActivity.TabPosition.NEW_TAB_BACKGROUND, false);
         }
     };
 
@@ -471,7 +462,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             // just load the main page into a new tab...
             PageTitle newTitle = new PageTitle(MainPageNameData.valueFor(app.getAppLanguageCode()), app.getPrimarySite());
             HistoryEntry newEntry = new HistoryEntry(newTitle, HistoryEntry.SOURCE_INTERNAL_LINK);
-            openInNewTab(newTitle, newEntry);
+            openInNewBackgroundTab(newTitle, newEntry);
             tabFunnel.logCreateNew(tabList.size());
         }
 
@@ -496,10 +487,9 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     };
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        pageLoadStrategy.onSaveInstanceState(outState);
-        outState.putParcelableArrayList(TAB_LIST_KEY, tabList);
+    public void onPause() {
+        super.onPause();
+        Prefs.setTabs(tabList);
     }
 
     @Override
@@ -516,8 +506,19 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         tabsProvider.invalidate();
     }
 
-    public void openInNewTabFromMenu(PageTitle title, HistoryEntry entry) {
-        openInNewTab(title, entry);
+    public void openInNewBackgroundTabFromMenu(PageTitle title, HistoryEntry entry) {
+        openInNewTabFromMenu(title, entry, getBackgroundTabPosition());
+    }
+
+    public void openInNewForegroundTabFromMenu(PageTitle title, HistoryEntry entry) {
+        openInNewTabFromMenu(title, entry, getForegroundTabPosition());
+        displayNewPage(title, entry, false, false);
+    }
+
+    public void openInNewTabFromMenu(PageTitle title,
+                                     HistoryEntry entry,
+                                     int position) {
+        openInNewTab(title, entry, position);
         tabFunnel.logOpenInNew(tabList.size());
     }
 
@@ -587,15 +588,27 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         webView.getSettings().setDefaultFontSize((int) app.getFontSize(getActivity().getWindow()));
     }
 
-    private void openInNewTab(PageTitle title, HistoryEntry entry) {
+    private void openInNewBackgroundTab(PageTitle title, HistoryEntry entry) {
+        openInNewTab(title, entry, getBackgroundTabPosition());
+    }
+
+    private void openInNewTab(PageTitle title, HistoryEntry entry, int position) {
         // create a new tab
         Tab tab = new Tab();
         // put this tab behind the current tab
-        tabList.add(Math.max(0, tabList.size() - 1), tab);
+        tabList.add(position, tab);
         // add the requested page to its backstack
         tab.getBackStack().add(new PageBackStackItem(title, entry));
         // and... that should be it.
         tabsProvider.showAndHideTabs();
+    }
+
+    private int getBackgroundTabPosition() {
+        return Math.max(0, getForegroundTabPosition() - 1);
+    }
+
+    private int getForegroundTabPosition() {
+        return tabList.size();
     }
 
     private void setupMessageHandlers() {
@@ -1063,5 +1076,15 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 }
             }
         }, TimeUnit.SECONDS.toMillis(1));
+    }
+
+    private void initTabs() {
+        if (Prefs.hasTabs()) {
+            tabList.addAll(Prefs.getTabs());
+        }
+
+        if (tabList.isEmpty()) {
+            tabList.add(new Tab());
+        }
     }
 }
