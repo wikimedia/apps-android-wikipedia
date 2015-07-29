@@ -23,8 +23,7 @@ public class SuggestionsTask extends FullSearchArticlesTask {
     public SuggestionsTask(Api api, Site site, String title,
                            int numRequestItems, int maxResultItems,
                            int thumbSize, boolean requireThumbnail) {
-        super(api, site, title, numRequestItems, null,
-              WikipediaApp.getInstance().isMoreLikeSearchEnabled(), thumbSize);
+        super(api, site, title, numRequestItems, null, true, thumbSize);
         this.title = title;
         this.maxItems = maxResultItems;
         this.requireThumbnail = requireThumbnail;

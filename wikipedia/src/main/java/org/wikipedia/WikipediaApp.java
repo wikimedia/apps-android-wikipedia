@@ -445,15 +445,6 @@ public class WikipediaApp extends Application {
         return version;
     }
 
-    public boolean isMoreLikeSearchEnabled() {
-        if (Prefs.hasMoreLikeSearch()) {
-            return Prefs.isMoreLikeSearchEnabled();
-        }
-        boolean enabled = new Random().nextInt(2) == 0;
-        Prefs.setMoreLikeSearchEnabled(enabled);
-        return enabled;
-    }
-
     public boolean isFeatureSelectTextAndShareTutorialEnabled() {
         boolean enabled = false;
         // Select text does not work on Gingerbread.

@@ -173,18 +173,6 @@ public final class Prefs {
         return contains(R.string.preference_key_login_username);
     }
 
-    public static boolean isMoreLikeSearchEnabled() {
-        return getBoolean(R.string.preference_key_more_like_search_enabled, false);
-    }
-
-    public static void setMoreLikeSearchEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_more_like_search_enabled, enabled);
-    }
-
-    public static boolean hasMoreLikeSearch() {
-        return contains(R.string.preference_key_more_like_search_enabled);
-    }
-
     @Nullable
     public static String getMruLanguageCodeCsv() {
         return getString(R.string.preference_key_language_mru, null);

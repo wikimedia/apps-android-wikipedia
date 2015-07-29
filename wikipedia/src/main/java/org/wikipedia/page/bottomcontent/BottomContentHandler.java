@@ -347,7 +347,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
     public void setTitle(PageTitle newTitle) {
         pageTitle = newTitle;
-        funnel = new SuggestedPagesFunnel(app, WikipediaApp.getInstance().isMoreLikeSearchEnabled());
+        funnel = new SuggestedPagesFunnel(app, true);
     }
 
     private void setUpReadMoreSection(LayoutInflater layoutInflater, final SearchResults results) {

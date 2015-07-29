@@ -13,7 +13,6 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.page.PageProperties;
-import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -72,10 +71,6 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
         } else {
             req.param("continue", ""); // add empty continue to avoid the API warning
         }
-
-        // TODO: remove once A/B testing is finished.
-        L.d("morelike=" + getMoreLike);
-
         return req;
     }
 
