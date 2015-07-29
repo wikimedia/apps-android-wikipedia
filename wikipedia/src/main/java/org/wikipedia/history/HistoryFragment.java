@@ -221,7 +221,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        if (!isAdded()) {
+        if (!isAdded() || cursor == null) {
             return;
         }
 
