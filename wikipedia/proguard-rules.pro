@@ -83,8 +83,10 @@
 
 ###
 # Our code:
--keep class org.wikipedia.** {*;}
+-keep class org.wikipedia.** { <init>(...); *; }
+-keep enum org.wikipedia.** { <init>(...); *; }
 -keep class org.mediawiki.api.json.** {*;}
+-keep enum org.wikipedia.api.json.** { <init>(...); *; }
 
 # --- Gson ---
 # https://github.com/google/gson/blob/master/examples/android-proguard-example/proguard.cfg
