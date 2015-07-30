@@ -57,7 +57,7 @@
   <string name="login_in_progress_dialog_message">Пријављивање…</string>
   <string name="login_error_wrong_password">Неисправна лозинка</string>
   <string name="login_error_wrong_username">Корисничко име је погрешно</string>
-  <string name="login_success_toast">Успешно сте пријављени!</string>
+  <string name="login_success_toast" fuzzy="true">Успешно сте пријављени!</string>
   <string name="login_error_blocked">Корисник је блокиран</string>
   <string name="login_error_throttled">Превише пута сте покушали да се пријавите. Сачекајте неколико минута и покушајте поново.</string>
   <string name="login_error_unknown">Пријављивање није успело :(</string>

@@ -62,7 +62,7 @@
   <string name="login_in_progress_dialog_message">Sisselogimine…</string>
   <string name="login_error_wrong_password">Vale parool</string>
   <string name="login_error_wrong_username">Vale kasutajanimi</string>
-  <string name="login_success_toast">Sisselogimine õnnestus</string>
+  <string name="login_success_toast" fuzzy="true">Sisselogimine õnnestus</string>
   <string name="login_error_blocked">See kasutaja on blokeeritud</string>
   <string name="login_error_throttled">Liiga palju sisselogimiskatseid. Oota mõni minut ja proovi uuesti.</string>
   <string name="login_error_unknown">Sisselogimine ebaõnnestus :(</string>

@@ -84,7 +84,7 @@
   <string name="login_error_wrong_password">തെറ്റായ രഹസ്യവാക്ക്</string>
   <string name="login_error_wrong_username">തെറ്റായ ഉപയോക്തൃനാമം</string>
   <string name="login_error_illegal">അസാധുവായ ഉപയോക്തൃനാമം</string>
-  <string name="login_success_toast">പ്രവേശനം വിജയകരം!</string>
+  <string name="login_success_toast" fuzzy="true">പ്രവേശനം വിജയകരം!</string>
   <string name="login_error_blocked">ഈ ഉപയോക്താവ് തടയപ്പെട്ടിരിക്കുന്നു</string>
   <string name="login_error_throttled">പ്രവേശിക്കാനായി നിരവധി ശ്രമങ്ങൾ നടത്തിയിരിക്കുന്നു. ഏതാനം മിനിറ്റുകൾ കാത്തിരുന്ന ശേഷം വീണ്ടും ശ്രമിക്കുക.</string>
   <string name="login_error_unknown">പ്രവേശനം പരാജയപ്പെട്ടു :(</string>

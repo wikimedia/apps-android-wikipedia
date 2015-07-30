@@ -86,7 +86,7 @@
   <string name="login_error_wrong_password">ពាក្យ​សម្ងាត់​មិនត្រឹមត្រូវ</string>
   <string name="login_error_wrong_username">អត្តនាមមិនត្រឹមត្រូវ</string>
   <string name="login_error_illegal">អត្តនាមមិនមានប្រើ</string>
-  <string name="login_success_toast">កត់ឈ្មោះចូល​បាន​សម្រេច!</string>
+  <string name="login_success_toast" fuzzy="true">កត់ឈ្មោះចូល​បាន​សម្រេច!</string>
   <string name="login_error_blocked">អ្នក​ប្រើ​ប្រាស់ម្នាក់​នេះ​ត្រូវ​បាន​រាំងខ្ទប់ហើយ។</string>
   <string name="login_error_throttled">អ្នកបានព្យាយាមកត់ឈ្មោះចូលច្រើនដងពេកហើយ។ សូមរង់ចាំប៉ុន្មាននាទីសិន មុននឹងសាកល្បងម្ដងទៀត។</string>
   <string name="login_error_unknown">កត់ឈ្មោះចូលមិនបានសម្រេច :(</string>

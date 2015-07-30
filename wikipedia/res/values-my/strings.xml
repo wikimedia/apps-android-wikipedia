@@ -2,13 +2,13 @@
 <resources>
   <string name="app_name_prod">ဝီကီပီးဒီးယား</string>
   <string name="app_name_beta">ဝီကီပီးဒီးယား ဘီတာ</string>
-  <string name="app_name_alpha">၀ီကီပီးဒီးယား အယ်လ်ဖာ</string>
+  <string name="app_name_alpha">ဝီကီပီးဒီးယားအယ်လဖာ</string>
   <string name="yes">လုပ်မည်</string>
   <string name="no">မလုပ်ပါ</string>
-  <string name="acra_report_dialog_title">၀ီကီပီးဒီးယား ပိတ်သွားသည် :(</string>
+  <string name="acra_report_dialog_title">ဝီကီပီးဒီးယား ပိတ်သွားသည် :(</string>
   <string name="acra_report_dialog_text">ပျက်စီးမှု အစီရင်ခံစာ ပေးပို့မည်</string>
   <string name="acra_report_dialog_comment">ပိတ်သွားသော အချိန်တွင် ဘာလုပ်နေခဲ့သလဲ?</string>
-  <string name="search_hint">၀ီကီးပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
+  <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
   <string name="error_network_error" fuzzy="true">လတ်တစ်လော အင်တာနက်ချိတ်ဆက်မှု မရှိ :(</string>
   <string name="search_network_error">ချိတ်ဆက်မှု ပြသာနာ ရှိသည်။ ပြန်ကြိုးစားကြည့်ပါ ။</string>
@@ -77,15 +77,18 @@
   <string name="login_password_hint">စကားဝှက်</string>
   <string name="login_password_show_check">စကားဝှက်ကို ပြပါ။</string>
   <string name="menu_login">မှတ်တမ်းဖြင့် ဝင်ရန်</string>
+  <string name="login_activity_title">ဝီကီပီဒီးယားသို့ အကောင့်ဝင်ပါ</string>
   <string name="login_error_wrong_password">မှားယွင်းသော စကားဝှက်</string>
   <string name="login_error_wrong_username">မှားယွင်းသော အသုံးပြုသူအမည်</string>
-  <string name="login_success_toast">မှတ်တမ်းဖြင့် ဝင်​ခြင်း အောင်မြင်သည်။</string>
+  <string name="login_success_toast" fuzzy="true">မှတ်တမ်းဖြင့် ဝင်​ခြင်း အောင်မြင်သည်။</string>
   <string name="login_error_blocked">အသုံးပြုသူကို တားမြစ်ထားသည်။</string>
   <string name="login_error_no_network">အင်တာနက် ချိတ်ဆက်မှု မရှိ</string>
   <string name="preference_title_logout">မှတ်တမ်းဖြင့် ထွက်ရန်</string>
+  <string name="preference_summary_logout">ဝီကီပီဒီးယားအကောင့် ဝင်ထားတာ ထွက်ပါ</string>
   <string name="delete_selected_history">ဖျက်​ပါ​</string>
   <string name="create_account_username_hint">အသုံးပြုသူအမည်</string>
   <string name="create_account_password_hint">စကားဝှက်</string>
+  <string name="login_create_account_link">အကောင့် မရှိဘူးလား? ဝီကီပီဒီးယားနဲ့ ချိတ်ဆက်လိုက်ပါ</string>
   <string name="create_account_activity_title">အကောင့်လုပ်ရန်</string>
   <string name="dialog_create_account_checking_progress">စိစစ်နေသည်။</string>
   <string name="create_account_email_hint">အီးမေးလ် (ရှိပါက)</string>
@@ -98,14 +101,17 @@
   <string name="create_account_next">ရှေ့</string>
   <string name="create_account_button">အကောင့်လုပ်ရန်</string>
   <string name="preferences_general_heading">အထွေထွေ</string>
+  <string name="wikipedia_app_faq">ဝီကီပီဒီးယား App အမေးအဖြေကဏ္ဍ</string>
   <string name="zero_charged_verbiage">အခမဲ့ ဝီကီးပီးဒီးယားကို ပိတ်ပေးပါ။</string>
-  <string name="zero_search_hint">အခမဲ့ ဝီကီးပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
-  <string name="zero_warn_when_leaving">အခမဲ့ ဝီကီးပီးဒီးယားမှ ထွက်ခဲ့ပါက ပြောကြားရန်</string>
+  <string name="zero_search_hint">အခမဲ့ ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
+  <string name="zero_warn_when_leaving">အခမဲ့ ဝီကီပီးဒီးယားမှ ထွက်ခဲ့ပါက ပြောကြားရန်</string>
+  <string name="zero_warn_when_leaving_summary">သင့်ရဲ့ မိုဘိုင်းဝန်ဆောင်မှုကုမ္ပဏီမှ ဝီကီပီဒီးယား အခမဲ့စေရေး ပူးပေါင်းပါဝင်မှုကြောင့် အင်တာနက် သုံးစွဲခကောက်ခံခြင်း မပြုလျှင် ဒီနေရာမှာ အမှန်ခြစ်ခဲ့ပါက သင် ဝီကီးပီဒီယားအက်ပ်မှ ထွက်သွားတဲ့အချိန်မှာ အင်တာနက် သုံးစွဲခ ဆက်လက် ကောက်ခံနိုင်ကြောင်း သတိပေးခြင်းဖြင့် ကူညီနိုင်ပါသည်။</string>
   <string name="zero_webpage_title">အခမဲ့ ဝီကီးပီးဒီးယားနှင့် ပတ်သက်သော မေးခွန်းများ</string>
-  <string name="zero_wikipedia_zero_heading">အခမဲ့ ဝီကီးပီးဒီးယား</string>
+  <string name="zero_wikipedia_zero_heading">အခမဲ့ ဝီကီပီးဒီးယား</string>
   <string name="zero_interstitial_title">အခမဲ့ ဝီကီးပီးဒီးယားမှ ထွက်ခွာရန်</string>
   <string name="zero_interstitial_continue">ထွက်ခွာရန်</string>
   <string name="zero_interstitial_cancel">ဆက်နေမြဲ</string>
+  <string name="zero_learn_more">ဝီကီပီဒီးယားအက်ပ်အတွက် အင်တာနက်အသုံးပြုခကို ကောက်ခံခြင်း မရှိပါ။</string>
   <string name="zero_learn_more_learn_more">ဆက်ဖတ်ပါ</string>
   <string name="nav_item_random">ကျပန်း</string>
   <string name="create_account_account_created_toast">အကောင့်ဖန်တီးပြီးပါပြီ</string>
@@ -113,6 +119,7 @@
   <string name="activity_my_contributions_title">ကျွန်ုပ်၏ ပံ့ပိုးထားမှုများ</string>
   <string name="history_search_list_hint" fuzzy="true">ရှာ​ဖွေ​ရန်​</string>
   <string name="history_search_empty_message">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှမတွေ့ရှိပါ။</string>
+  <string name="about_description">ဝီကီပီဒီးယားအက်ပ် အကြောင်း</string>
   <string name="privacy_policy_description">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</string>
   <string name="about_contributors_heading">ပံ့ပိုးထားသူများ</string>
   <string name="about_translators_heading">ဘာသာပြန်သူများ</string>
@@ -127,6 +134,8 @@
   <string name="text_size_select">စာလုံး အရွယ်အစား</string>
   <string name="color_theme_light">အလင်း</string>
   <string name="color_theme_dark">အမှောင်</string>
+  <string name="widget_name_featured_page">ဝီကီပီဒီယား မျက်နှာဖုံးဆောင်းပါး</string>
+  <string name="widget_name_search">ဝီကီပီဒီးယားမှာ ရှာဖွေ</string>
   <string name="alpha_update_notification_title">စမ်းသပ်သုံးစွဲမှု အသစ်ရယူနိုင်ပါပြီ</string>
   <string name="alpha_update_notification_text">ထိနိုပ်ခြင်းဖြင့် ရယူပါ</string>
 </resources>

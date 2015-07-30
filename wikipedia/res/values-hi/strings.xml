@@ -85,7 +85,7 @@
   <string name="login_in_progress_dialog_message">आप्को प्रवेश कर रहे है</string>
   <string name="login_error_wrong_password">कुटशब्द गलत है</string>
   <string name="login_error_wrong_username">गलत उपयोगकर्ता नाम</string>
-  <string name="login_success_toast">भर्ती सफल्</string>
+  <string name="login_success_toast" fuzzy="true">भर्ती सफल्</string>
   <string name="login_error_blocked">यह सदस्य अवरोधित किया गया है।</string>
   <string name="login_error_throttled">बहुत अधिक लॉग-इन प्रयास। कुछ क्षण प्रतीक्षा के बाद पुनः प्रयास करें।</string>
   <string name="login_error_unknown">लॉग-इन असफल रहा :(</string>

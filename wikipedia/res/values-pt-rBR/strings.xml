@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Senha incorreta.</string>
   <string name="login_error_wrong_username">Nome de usuário incorreto</string>
   <string name="login_error_illegal">Nome de usuário inválido</string>
-  <string name="login_success_toast">Login bem sucedido!</string>
+  <string name="login_success_toast" fuzzy="true">Login bem sucedido!</string>
   <string name="login_error_blocked">Este usuário foi bloqueado</string>
   <string name="login_error_throttled">Muitas tentativas de iniciar a sessão. Aguarde alguns minutos e tente novamente.</string>
   <string name="login_error_unknown">Login falhou :(</string>

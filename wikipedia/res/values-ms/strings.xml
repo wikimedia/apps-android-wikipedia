@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Kata laluan tidak betul</string>
   <string name="login_error_wrong_username">Nama pengguna tidak betul</string>
   <string name="login_error_illegal">Nama pengguna tidak sah</string>
-  <string name="login_success_toast">Berjaya Log Masuk!</string>
+  <string name="login_success_toast" fuzzy="true">Berjaya Log Masuk!</string>
   <string name="login_error_blocked">Pengguna ini telah disekat</string>
   <string name="login_error_throttled">Terlalu banyak cubaab log masuk. Sila tunggu seketika, kemudian cuba lagi.</string>
   <string name="login_error_unknown">Log masuk gagal :(</string>

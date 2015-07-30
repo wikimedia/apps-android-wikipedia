@@ -78,7 +78,7 @@
   <string name="login_in_progress_dialog_message">Tu accesso es in corso…</string>
   <string name="login_error_wrong_password">Contrasigno incorrecte</string>
   <string name="login_error_wrong_username">Nomine del usator incorrecte</string>
-  <string name="login_success_toast">Session aperite!</string>
+  <string name="login_success_toast" fuzzy="true">Session aperite!</string>
   <string name="login_error_blocked">Iste usator ha essite serrate.</string>
   <string name="login_error_throttled">Assatis tentativas de accesso. Attender alique minutas e reprobar.</string>
   <string name="login_error_unknown">Session fallite :(</string>

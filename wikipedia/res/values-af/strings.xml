@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Verkeerde wagwoord</string>
   <string name="login_error_wrong_username">Verkeerde gebruikersnaam</string>
   <string name="login_error_illegal">Ongeldige gebruikersnaam</string>
-  <string name="login_success_toast">Suksesvolle Aanmelding!</string>
+  <string name="login_success_toast" fuzzy="true">Suksesvolle Aanmelding!</string>
   <string name="login_error_blocked">Hierdie gebruiker is geblok</string>
   <string name="login_error_throttled">Te veel aanmeldpogings. Wag \'n paar minute en probeer weer.</string>
   <string name="login_error_unknown">Aanmelding het misluk :(</string>

@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Forkert adgangskode.</string>
   <string name="login_error_wrong_username">Forkert brugernavn</string>
   <string name="login_error_illegal">Ugyldigt brugernavn</string>
-  <string name="login_success_toast">Du er nu logget på!</string>
+  <string name="login_success_toast" fuzzy="true">Du er nu logget på!</string>
   <string name="login_error_blocked">Denne bruger er blevet blokeret</string>
   <string name="login_error_throttled">For mange forsøg med at logge på. Vent et par minutter og prøv igen.</string>
   <string name="login_error_unknown">Det mislykkedes at logge på :(</string>

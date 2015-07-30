@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">گذرواژهٔ نادرست</string>
   <string name="login_error_wrong_username">نام کاربری نادرست</string>
   <string name="login_error_illegal">نام کاربری نادرست</string>
-  <string name="login_success_toast">ورود موفق!</string>
+  <string name="login_success_toast" fuzzy="true">ورود موفق!</string>
   <string name="login_error_blocked">این کاربر بسته شده است</string>
   <string name="login_error_throttled">تلاش برای ورود به سامانه بیش از حد بوده‌است. برای چند دقیقه صبر می‌کنید.</string>
   <string name="login_error_unknown">ورود ناموفق :(</string>

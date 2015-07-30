@@ -92,7 +92,7 @@
   <string name="login_error_wrong_password">సంకేతపదం తప్పు</string>
   <string name="login_error_wrong_username">వాడుకరి పేరు తప్పు</string>
   <string name="login_error_illegal">చెల్లని వాడుకరి పేరు</string>
-  <string name="login_success_toast">లాగిన్ విజయవంతం!</string>
+  <string name="login_success_toast" fuzzy="true">లాగిన్ విజయవంతం!</string>
   <string name="login_error_blocked">ఈ వాడుకరిని నిరోధించారు</string>
   <string name="login_error_throttled">చాలా లాగిన్ ప్రయత్నాలు. కొన్ని నిమిషాలు వేచి ఉండి మరియు మళ్ళీ ప్రయత్నించండి.</string>
   <string name="login_error_unknown">లాగిన్ విఫలమైంది :(</string>

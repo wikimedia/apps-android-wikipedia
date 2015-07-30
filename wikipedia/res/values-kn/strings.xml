@@ -83,7 +83,7 @@
   <string name="login_error_wrong_password">ಅಸಮರ್ಪಕ ಪ್ರವೇಶಪದ</string>
   <string name="login_error_wrong_username">ಅಸಮರ್ಪಕ ಬಳಕೆದಾರ ಹೆಸರು</string>
   <string name="login_error_illegal">ಅಮಾನ್ಯವಾದ ಬಳಕೆದಾರಹೆಸರು</string>
-  <string name="login_success_toast">ಲಾಗಿನ್ ಯಶಸ್ವಿ!</string>
+  <string name="login_success_toast" fuzzy="true">ಲಾಗಿನ್ ಯಶಸ್ವಿ!</string>
   <string name="login_error_blocked">ಈ ಬಳಕೆದಾರರನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</string>
   <string name="login_error_unknown">ಲಾಗಿನ್ ಸಾಧ್ಯವಾಗಿಲ್ಲ!</string>
   <string name="login_error_no_network">ಯಾವುದೇ ನೆಟ್ಟ೯ಕ್ ಸಂಪಕ೯ ಇಲ್ಲ</string>

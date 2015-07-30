@@ -68,7 +68,7 @@
   <string name="login_error_wrong_password">चुकीचे पासवर्ड</string>
   <string name="login_error_wrong_username">चुकीचे सदस्यनाव</string>
   <string name="login_error_illegal">चुकीचे नाव</string>
-  <string name="login_success_toast">सनोंद प्रवेश यशस्वी!</string>
+  <string name="login_success_toast" fuzzy="true">सनोंद प्रवेश यशस्वी!</string>
   <string name="login_error_unknown">सनोंद प्रवेश अयशस्वी :(</string>
   <string name="login_error_no_network">नेटवर्क जोडलेले नाही</string>
   <string name="preference_title_logout">सनोंद-निर्गम</string>

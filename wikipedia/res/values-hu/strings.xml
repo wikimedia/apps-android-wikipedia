@@ -84,7 +84,7 @@
   <string name="login_error_wrong_password">Hibás jelszó</string>
   <string name="login_error_wrong_username">Helytelen felhasználónév</string>
   <string name="login_error_illegal">Érvénytelen felhasználónév</string>
-  <string name="login_success_toast">Sikeres bejelentkezés!</string>
+  <string name="login_success_toast" fuzzy="true">Sikeres bejelentkezés!</string>
   <string name="login_error_blocked">Ez a felhasználó blokkolva van</string>
   <string name="login_error_throttled">Túl sok bejelentkezési kísérlet. Várj egy pár percet, és próbáld újra!</string>
   <string name="login_error_unknown">A bejelentkezés nem sikerült :(</string>

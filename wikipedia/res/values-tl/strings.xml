@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Hindi tamang hudyat</string>
   <string name="login_error_wrong_username">Di-tamang pangalan ng tagagamit</string>
   <string name="login_error_illegal">Hindi tanggap na pangalan ng tagagamit</string>
-  <string name="login_success_toast">Paglalagda ay tagumpay!</string>
+  <string name="login_success_toast" fuzzy="true">Paglalagda ay tagumpay!</string>
   <string name="login_error_blocked">Hinarang ang tagagamit na ito</string>
   <string name="login_error_throttled">Napakaraming tangka sa paglagda. Maghintay ng kaunting minuto at subukang muli.</string>
   <string name="login_error_unknown">Paglagda ay di-tagumpay :\'(</string>

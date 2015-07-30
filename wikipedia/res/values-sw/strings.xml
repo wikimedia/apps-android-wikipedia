@@ -74,7 +74,7 @@
   <string name="login_error_wrong_password">Neno la siri batili</string>
   <string name="login_error_wrong_username">Jina la mtumiaji batili</string>
   <string name="login_error_illegal">Jina la mtumiaji lisilo halali</string>
-  <string name="login_success_toast">Umefaulu kuingia</string>
+  <string name="login_success_toast" fuzzy="true">Umefaulu kuingia</string>
   <string name="login_error_blocked">Mtumiaji amefungiwa</string>
   <string name="login_error_no_network">Hakuna muunganisho katika mtandao</string>
   <string name="preference_title_logout">Toka</string>

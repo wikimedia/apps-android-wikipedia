@@ -76,7 +76,7 @@
   <string name="login_in_progress_dialog_message">Jūs jungiatės…</string>
   <string name="login_error_wrong_password">Neteisingas slaptažodis</string>
   <string name="login_error_wrong_username">Neteisingas naudotojo vardas</string>
-  <string name="login_success_toast">Sėkmingai prisijungėte!</string>
+  <string name="login_success_toast" fuzzy="true">Sėkmingai prisijungėte!</string>
   <string name="login_error_unknown">Prisijungti nepavyko :(</string>
   <string name="login_error_no_network">Nėra tinklo ryšio</string>
   <string name="preference_title_logout">Atsijungti</string>

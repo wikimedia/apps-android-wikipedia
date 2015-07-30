@@ -90,7 +90,7 @@
   <string name="login_error_wrong_password">غلط پاسورڈ</string>
   <string name="login_error_wrong_username">غکط صارف نام</string>
   <string name="login_error_illegal">غلط صارف نام</string>
-  <string name="login_success_toast">داخلہ کامیاب</string>
+  <string name="login_success_toast" fuzzy="true">داخلہ کامیاب</string>
   <string name="login_error_blocked">اس صارف پر پابندی لگی ہوئی ہے</string>
   <string name="login_error_throttled">بہت زیادہ لاگ ان ہونے کی کوششیں. کچھ دیر انتظار کریں اور دوبارہ کوشش کریں</string>
   <string name="login_error_unknown">لاگ ان میں ناکامی :(</string>

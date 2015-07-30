@@ -81,7 +81,7 @@
   <string name="login_in_progress_dialog_message">Yn eich logio i fewn…</string>
   <string name="login_error_wrong_password">Cyfrinair anghywir</string>
   <string name="login_error_wrong_username">Enw defnyddiwr anghywir</string>
-  <string name="login_success_toast">Llwyddodd y mewngofnodi!</string>
+  <string name="login_success_toast" fuzzy="true">Llwyddodd y mewngofnodi!</string>
   <string name="login_error_blocked">Mae\'r defnyddiwr hwn wedi\' i rwystro</string>
   <string name="login_error_throttled">Ceisiwyd mewngofnodi gormod o weithiau. Arhoswch am ychydig funudau a cheisio eto?</string>
   <string name="login_error_unknown">Methodd y mewngofnodi :(</string>

@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Het wachtwoord is onjuist</string>
   <string name="login_error_wrong_username">Onjuiste gebruikersnaam</string>
   <string name="login_error_illegal">Ongeldige gebruikersnaam</string>
-  <string name="login_success_toast">Aangemeld</string>
+  <string name="login_success_toast" fuzzy="true">Aangemeld</string>
   <string name="login_error_blocked">Deze gebruiker is geblokkeerd</string>
   <string name="login_error_throttled">Te veel aanmeldpogingen. Wacht een paar minuten en probeer het daarna opnieuw.</string>
   <string name="login_error_unknown">Aanmelden mislukt :(</string>

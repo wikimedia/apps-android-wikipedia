@@ -262,7 +262,7 @@
   <string name="gallery_uploader_unknown">未知上傳者</string>
   <string name="edit_save_unknown_error">無法儲存您的編輯：%s</string>
   <string name="menu_show_tabs">顯示分頁</string>
-  <string name="menu_new_tab">新分頁</string>
+  <string name="menu_new_tab">新增分頁</string>
   <string name="button_close_tab">關閉分頁</string>
   <string name="menu_open_link">開啟連結</string>
   <string name="menu_open_in_new_tab">在新分頁開啟</string>

@@ -80,7 +80,7 @@
   <string name="login_error_wrong_password">தவறான கடவுச்சொல்.</string>
   <string name="login_error_wrong_username">தவறான பயனர்பெயர்</string>
   <string name="login_error_illegal">செல்லுபடியாகாத பயனர் பெயர்</string>
-  <string name="login_success_toast">புகுபதிகை வெற்றி</string>
+  <string name="login_success_toast" fuzzy="true">புகுபதிகை வெற்றி</string>
   <string name="login_error_blocked">இந்த பயனர் தடை செய்யப்பட்டுள்ளார்</string>
   <string name="login_error_throttled">பல முறை உள்நுழைய முயற்சிக்கப்பட்டுள்ளது. சில நிமிடங்கள் காத்திருந்தப்பின் மீண்டும் முயற்சிக்கலாமே?</string>
   <string name="login_error_unknown">புகுபதிகை தோல்வியடைந்தது</string>

@@ -86,7 +86,7 @@
   <string name="login_error_wrong_password">Pasahitz okerra</string>
   <string name="login_error_wrong_username">Erabiltzaile izen okerra</string>
   <string name="login_error_illegal">Erabiltzaile izen baliogabea</string>
-  <string name="login_success_toast">Saio hasiera egina!</string>
+  <string name="login_success_toast" fuzzy="true">Saio hasiera egina!</string>
   <string name="login_error_blocked">Erabiltzaile hau blokeatua izan da</string>
   <string name="login_error_throttled">Saioa hasteko saiakera gehiegi. Itxaron minutu batzuk eta saiatu berriro.</string>
   <string name="login_error_unknown">Ezin izan da saioa hasi :(</string>

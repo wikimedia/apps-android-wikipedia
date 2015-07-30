@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Kata sandi salah</string>
   <string name="login_error_wrong_username">Nama pengguna salah</string>
   <string name="login_error_illegal">Nama pengguna tidak berlaku</string>
-  <string name="login_success_toast">Berhasil masuk log!</string>
+  <string name="login_success_toast">Login berhasil!</string>
   <string name="login_error_blocked">Pengguna ini telah diblokir</string>
   <string name="login_error_throttled">Terlalu banyak upaya masuk log. Tunggu beberapa menit dan coba lagi.</string>
   <string name="login_error_unknown">Masuk log gagal :(</string>

@@ -87,7 +87,7 @@
   <string name="login_error_wrong_password">ਗ਼ਲਤ ਪਛਾਣ-ਸ਼ਬਦ</string>
   <string name="login_error_wrong_username">ਗ਼ਲਤ ਵਰਤੋਂਕਾਰ-ਨਾਂ</string>
   <string name="login_error_illegal">ਗ਼ਲਤ ਵਰਤੋਂਕਾਰ ਨਾਂ</string>
-  <string name="login_success_toast">ਦਾਖ਼ਲਾ ਕਾਮਯਾਬ!</string>
+  <string name="login_success_toast" fuzzy="true">ਦਾਖ਼ਲਾ ਕਾਮਯਾਬ!</string>
   <string name="login_error_blocked">ਇਸ ਵਰਤੋਂਕਾਰ \'ਤੇ ਰੋਕ ਲੱਗੀ ਹੋਈ ਹੈ</string>
   <string name="login_error_throttled">ਦਾਖ਼ਲ ਹੋਣ ਦੀਆਂ ਬਾਹਲੀਆਂ ਕੋਸ਼ਿਸ਼ਾਂ। ਕੁਝ ਮਿੰਟ ਉਡੀਕੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
   <string name="login_error_unknown">ਦਾਖ਼ਲਾ ਫੇਲ੍ਹ :(</string>

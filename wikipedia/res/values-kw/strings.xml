@@ -85,7 +85,7 @@
   <string name="login_in_progress_dialog_message">Orth agas omgelmi…</string>
   <string name="login_error_wrong_password">Ger tremena kamm</string>
   <string name="login_error_wrong_username">Hanow devnydhyer kamm</string>
-  <string name="login_success_toast">Omgelmys!</string>
+  <string name="login_success_toast" fuzzy="true">Omgelmys!</string>
   <string name="login_error_blocked">Lettyes yw an devnydher ma</string>
   <string name="login_error_throttled">Re a assayow omgelmi. Gortewgh nebes mynysennow hag assayewgh arta.</string>
   <string name="login_error_unknown">Omgelmi a fyllis :(</string>

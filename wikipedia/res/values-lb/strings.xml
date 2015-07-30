@@ -89,7 +89,7 @@
   <string name="login_error_wrong_password">Falscht Passwuert</string>
   <string name="login_error_wrong_username">Falsche Benotzernumm</string>
   <string name="login_error_illegal">Ongëltege Benotzernumm</string>
-  <string name="login_success_toast">Dir sidd elo ageloggt!</string>
+  <string name="login_success_toast">Ageloggt mat Succès!</string>
   <string name="login_error_blocked">Dëse Benotzer gouf gespaart</string>
   <string name="login_error_throttled">Zedacks probéiert anzeloggen. Waart e puer Minutten a probéiert nach eng Kéier.</string>
   <string name="login_error_unknown">Aloggen huet net funktionéiert :(</string>

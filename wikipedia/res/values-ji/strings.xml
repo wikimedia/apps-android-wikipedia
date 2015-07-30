@@ -80,7 +80,7 @@
   <string name="login_error_wrong_password">פאלש פאסווארט</string>
   <string name="login_error_wrong_username">פאלשער באניצער־נאמען</string>
   <string name="login_error_illegal">אומגילטיקער באַניצער נאָמען</string>
-  <string name="login_success_toast">אריינלאגירט מיט הצלחה!</string>
+  <string name="login_success_toast" fuzzy="true">אריינלאגירט מיט הצלחה!</string>
   <string name="login_error_blocked">דער באניצער איז געווארן בלאקירט</string>
   <string name="login_error_unknown">ארײַנלאגירן אדורכגעפאלן :(</string>
   <string name="login_error_no_network">קיין נעצווערק פארבינדונג</string>

@@ -49,7 +49,7 @@
   <string name="login_error_wrong_password">Iggitaa dogoggoraa</string>
   <string name="login_error_wrong_username">Maqaa fayyadamaa dogoggoraa</string>
   <string name="login_error_illegal">Iggita fashalaa</string>
-  <string name="login_success_toast">Seenun milkaa\'e</string>
+  <string name="login_success_toast" fuzzy="true">Seenun milkaa\'e</string>
   <string name="login_error_unknown">Seenun fashale :(</string>
   <string name="preference_title_logout">Ba\'i</string>
   <string name="preference_summary_logout">Eenyummeessa Wiikippiidiyaa kee keessaa ba\'i</string>

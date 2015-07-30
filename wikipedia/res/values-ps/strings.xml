@@ -60,7 +60,7 @@
   <string name="login_error_wrong_password">ناسم پټنوم</string>
   <string name="login_error_wrong_username">ناسم کارن-نوم</string>
   <string name="login_error_illegal">ناسم کارن-نوم</string>
-  <string name="login_success_toast">غونډال کې بريالی ورننوتې!</string>
+  <string name="login_success_toast" fuzzy="true">غونډال کې بريالی ورننوتې!</string>
   <string name="login_error_blocked">په دې کارن بنديز لگېدلی</string>
   <string name="preference_title_logout">وتل</string>
   <string name="preference_summary_notloggedin">نه ياست ننوتي.</string>

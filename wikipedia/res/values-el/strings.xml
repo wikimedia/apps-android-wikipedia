@@ -81,7 +81,7 @@
   <string name="login_in_progress_dialog_message">Σύνδεση…</string>
   <string name="login_error_wrong_password">Λανθασμένος κωδικός πρόσβασης</string>
   <string name="login_error_wrong_username">Λανθασμένο όνομα χρήστη</string>
-  <string name="login_success_toast">Πετυχημένη σύνδεση!</string>
+  <string name="login_success_toast" fuzzy="true">Πετυχημένη σύνδεση!</string>
   <string name="login_error_blocked">Αυτός ο χρήστης έχει αποκλειστεί</string>
   <string name="login_error_throttled">Υπερβολικά πολλές προσπάθειες σύνδεσης. Περιμένετε λίγα λεπτά και προσπαθήστε ξανά.</string>
   <string name="login_error_unknown">Η σύνδεση απέτυχε :(</string>

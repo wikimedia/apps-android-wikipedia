@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Yanlış parola</string>
   <string name="login_error_wrong_username">Yanlış kullanıcı adı</string>
   <string name="login_error_illegal">Geçersiz kullanıcı adı</string>
-  <string name="login_success_toast">Oturum açma başarılı!</string>
+  <string name="login_success_toast" fuzzy="true">Oturum açma başarılı!</string>
   <string name="login_error_blocked">Bu kullanıcı engellendi</string>
   <string name="login_error_throttled">Çok fazla deneme yaptınız. Birkaç dakika bekleyip tekrar deneyin.</string>
   <string name="login_error_unknown">Oturum açma başarısız :(</string>

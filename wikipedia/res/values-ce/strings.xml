@@ -50,7 +50,7 @@
   <string name="login_in_progress_dialog_message">Системан чудахар…</string>
   <string name="login_error_wrong_password">Пароль нийса яц</string>
   <string name="login_error_wrong_username">Декъашхочун цӀе нийса яц</string>
-  <string name="login_success_toast">Хьан пароль кхиамца тӀеэца!</string>
+  <string name="login_success_toast" fuzzy="true">Хьан пароль кхиамца тӀеэца!</string>
   <string name="login_error_blocked">ХӀокху декъашхочун блоктоьхна ю</string>
   <string name="login_error_unknown">Чудаха цаделира :(</string>
   <string name="login_error_no_network">ЗӀе цахилар</string>

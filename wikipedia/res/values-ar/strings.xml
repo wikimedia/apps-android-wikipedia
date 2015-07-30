@@ -90,7 +90,7 @@
   <string name="login_error_wrong_password">كلمة السر غير صحيحة</string>
   <string name="login_error_wrong_username">اسم المستخدم غير صحيح</string>
   <string name="login_error_illegal">اسم المستخدم غير صالح</string>
-  <string name="login_success_toast">تم تسجيل الدخول بنجاح!</string>
+  <string name="login_success_toast" fuzzy="true">تم تسجيل الدخول بنجاح!</string>
   <string name="login_error_blocked">تم منع هذا المستخدم</string>
   <string name="login_error_throttled">لقد حاولت تسجيل الدخول مرات كثيرة. انتظر لبضع دقائق وحاول مرةً أخرى.</string>
   <string name="login_error_unknown">فشل تسجيل الدخول :(</string>

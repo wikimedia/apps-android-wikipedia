@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Mot de passe incorrect</string>
   <string name="login_error_wrong_username">Nom d’utilisateur incorrect</string>
   <string name="login_error_illegal">Nom d’utilisateur non valide</string>
-  <string name="login_success_toast">Connexion réussie !</string>
+  <string name="login_success_toast">Connecté avec succès!</string>
   <string name="login_error_blocked">Cet utilisateur a été bloqué</string>
   <string name="login_error_throttled">Trop de tentatives de connexion. Attendez quelques minutes pour réessayer !</string>
   <string name="login_error_unknown">Échec de la connexion :(</string>

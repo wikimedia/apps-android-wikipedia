@@ -83,7 +83,7 @@
   <string name="login_in_progress_dialog_message">შედიხართ სისტემაში…</string>
   <string name="login_error_wrong_password">არასწორი პაროლი</string>
   <string name="login_error_wrong_username">არასწორი მომხმარებლის სახელი</string>
-  <string name="login_success_toast">შესვლა წარმატებით განხორციელდა!</string>
+  <string name="login_success_toast" fuzzy="true">შესვლა წარმატებით განხორციელდა!</string>
   <string name="login_error_blocked">მომხმარებელი დაიბლოკა</string>
   <string name="login_error_throttled">თქვენ საკმაოდ ბევრჯერ სცადეთ შესვლა. მოიცადეთ რამდენიმე წუთი და სცადეთ ხელახლა.</string>
   <string name="login_error_unknown">შესვლა ვერ მოხერხდა :(</string>

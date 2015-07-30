@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Hva gjorde du da kræsjet skjedde?</string>
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="nav_item_history">Logg</string>
-  <string name="error_network_error" fuzzy="true">Det er ingen nettverksforbindelse :(</string>
+  <string name="error_network_error">Nettverksforbindelse kunne ikke opprettes.</string>
   <string name="search_network_error">Nettverksfeil. Trykk for å prøve igjen.</string>
   <string name="generic_page_error">Et problem oppstod under behandlingen av din forespørsel.</string>
   <string name="status_code_unavailable">Tjenerens statuskode er utilgjengelig.</string>
@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Feil passord</string>
   <string name="login_error_wrong_username">Feil brukernavn</string>
   <string name="login_error_illegal">Ugyldig brukernavn</string>
-  <string name="login_success_toast">Innlogging vellykket!</string>
+  <string name="login_success_toast">Innloggingen var vellykket!</string>
   <string name="login_error_blocked">Brukeren har blitt blokkert</string>
   <string name="login_error_throttled">For mange innloggingsforsøk. Vent et par minutter og prøv igjen.</string>
   <string name="login_error_unknown">Innlogging feilet :(</string>
@@ -188,7 +188,7 @@
   <string name="edit_summary_tag_links">La til lenker</string>
   <string name="edit_summary_tag_other">Annet</string>
   <string name="edit_summary_tag_other_hint">Andre måter du kan forbedre denne siden</string>
-  <string name="find_in_page">Søk på siden</string>
+  <string name="find_in_page">Søk i siden</string>
   <string name="find_next">Finn neste</string>
   <string name="find_previous">Finn forrige</string>
   <string name="error_network_error_try_again">Kunne ikke nå nettverket, vennligst prøv igjen.</string>
@@ -213,7 +213,7 @@
   <string name="search_did_you_mean">Mente du «%s»?</string>
   <string name="search_recent_header">Nylige søk:</string>
   <string name="button_clear_all_recent_searches">Tøm nylige søk</string>
-  <string name="clear_recent_searches_confirm">Er du sikker på at du vil tømme din søkehistorikk?</string>
+  <string name="clear_recent_searches_confirm">Er du sikker på at du vil tømme søkehistorikken din?</string>
   <string name="error_browser_not_found">Kunne ikke åpne nettside (ingen nettleser-app ble funnet).</string>
   <string name="table_infobox">Kjappe fakta</string>
   <string name="table_other">Mer informasjon</string>
@@ -275,4 +275,13 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="menu_open_link">Åpne lenke</string>
   <string name="menu_open_in_new_tab">Åpne i ny arkfane</string>
   <string name="menu_save_page_popup">Lagre til siden</string>
+  <string name="tool_tip_select_text">Trykk og hold hvor som helst i teksten for å markere for kopiering og deling.</string>
+  <string name="tool_tip_share">Når du har markert in interessant faktaopplysning, prøv gjerne å dele den på et av dine favorittnettverk.</string>
+  <string name="page_view_in_browser">Vis side i nettleser</string>
+  <string name="tool_tip_toc_button">Vis innholdsfortegnelsen ved å trykke på denne knappen, eller ved å dra den inn fra høyre skjermkant.</string>
+  <string name="error_server_response">Serveren kunne ikke fullføre forespørselen.</string>
+  <string name="error_response_malformed">Responsen fra serveren var ikke riktig formatert.</string>
+  <string name="error_unknown">Det oppsto en ukjent feil.</string>
+  <string name="format_error_server_message">Melding: «%s»</string>
+  <string name="format_error_server_code">Kode: «%s»</string>
 </resources>

@@ -270,7 +270,7 @@
   <string name="gallery_uploader_unknown">上传者未知</string>
   <string name="edit_save_unknown_error">无法保存您的编辑：%s</string>
   <string name="menu_show_tabs">显示标签页</string>
-  <string name="menu_new_tab">新标签页</string>
+  <string name="menu_new_tab">新建标签页</string>
   <string name="button_close_tab">关闭标签页</string>
   <string name="menu_open_link">打开链接</string>
   <string name="menu_open_in_new_tab">在新标签页打开链接</string>

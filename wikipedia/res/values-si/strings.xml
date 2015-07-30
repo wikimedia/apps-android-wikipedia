@@ -66,7 +66,7 @@
   <string name="login_in_progress_dialog_message">ඔබව ඇතුළු කරමින්...</string>
   <string name="login_error_wrong_password">වැරදි මුරපදය</string>
   <string name="login_error_wrong_username">වැරදි පරිශීලක නාමය</string>
-  <string name="login_success_toast">පිවිසුම සාර්ථකයි!</string>
+  <string name="login_success_toast" fuzzy="true">පිවිසුම සාර්ථකයි!</string>
   <string name="login_error_blocked">මෙම පරිශීලකයාව අවහිර කර තිබේ</string>
   <string name="login_error_throttled">බොහෝ වාරයක් පූරණයවීමට උතසාහ කර ඇත.මිනිත්තු කිහිපයකින් පසු නැවත උත්සාහ කරන්න.</string>
   <string name="login_error_unknown">පිවිසීම අසාර්ථකයි :(</string>

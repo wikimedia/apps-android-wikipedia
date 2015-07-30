@@ -265,6 +265,7 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="snippet_share_preview_image_desc">Esikatsele kuvaa</string>
   <string name="cc_logo">Creative Commons -lisenssi</string>
   <string name="captcha_image">CAPTCHA-kuva</string>
+  <string name="gallery_fair_use_license">Fair use -lisenssi</string>
   <string name="gallery_uploader_unknown">Tuntematon tallentaja</string>
   <string name="edit_save_unknown_error">Muokkaustasi ei voitu tallentaa: %s</string>
   <string name="menu_show_tabs">Näytä välilehdet</string>

@@ -60,7 +60,7 @@
   <string name="login_in_progress_dialog_message">Системалда жаниве лъугьи…</string>
   <string name="login_error_wrong_password">Мекъаб пароль</string>
   <string name="login_error_wrong_username">Мекъаб цӀар</string>
-  <string name="login_success_toast">Мун системалда лъана!</string>
+  <string name="login_success_toast" fuzzy="true">Мун системалда лъана!</string>
   <string name="login_error_unknown">Жаниве лъугьине кӀвечӀо :(</string>
   <string name="login_error_no_network">Связь гьечӀо</string>
   <string name="preference_title_logout">Къватlиве вачIизе</string>

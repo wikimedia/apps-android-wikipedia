@@ -83,7 +83,7 @@
   <string name="login_error_wrong_password">અયોગ્ય પાસવર્ડ</string>
   <string name="login_error_wrong_username">અયોગ્ય સભ્યનામ</string>
   <string name="login_error_illegal">અમાન્ય સભ્યનામ</string>
-  <string name="login_success_toast">પ્રવેશ સફળ!</string>
+  <string name="login_success_toast" fuzzy="true">પ્રવેશ સફળ!</string>
   <string name="login_error_blocked">આ સભ્યને પ્રતિબંધિત કરાયા છે</string>
   <string name="login_error_unknown">પ્રવેશ નિષ્ફળ :(</string>
   <string name="login_error_no_network">કોઇ નેટવર્ક જોડાણ નથી</string>

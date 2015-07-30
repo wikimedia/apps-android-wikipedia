@@ -73,7 +73,7 @@
   <string name="login_error_wrong_password">Skeivt loyniorð</string>
   <string name="login_error_wrong_username">Skeivt brúkaranavn</string>
   <string name="login_error_illegal">Ógyldugt brúkaranavn</string>
-  <string name="login_success_toast">Væleydnað innritan!</string>
+  <string name="login_success_toast" fuzzy="true">Væleydnað innritan!</string>
   <string name="login_error_blocked">Hesin brúkarin er sperraður</string>
   <string name="login_error_throttled">Ov nógvar royndir at rita inn. Bíða nakrir minuttir og royn so aftur.</string>
   <string name="login_error_unknown">Innritan miseydnaðist :(</string>

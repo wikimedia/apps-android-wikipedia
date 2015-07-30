@@ -65,7 +65,7 @@
   <string name="login_error_wrong_password">गलत पासवर्ड</string>
   <string name="login_error_wrong_username">गलत प्रयोगकर्ता नाम</string>
   <string name="login_error_illegal">अबैध प्रयोगकर्ता नाम</string>
-  <string name="login_success_toast">प्रवेश सफल!</string>
+  <string name="login_success_toast" fuzzy="true">प्रवेश सफल!</string>
   <string name="preference_title_logout">निर्गमन</string>
   <string name="preference_summary_notloggedin">प्रवेश (लग ईन) नगरिएको</string>
   <string name="toast_logout_complete">निर्गमन भयो</string>

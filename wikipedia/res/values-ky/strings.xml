@@ -81,7 +81,7 @@
   <string name="login_in_progress_dialog_message">Системге кирип жатасыз…</string>
   <string name="login_error_wrong_password">Сырсөзүңүз туура эмес</string>
   <string name="login_error_wrong_username">Колдонуучу атыңыз туура эмес</string>
-  <string name="login_success_toast">Сиз ийгиликтүү кирдиңиз!</string>
+  <string name="login_success_toast" fuzzy="true">Сиз ийгиликтүү кирдиңиз!</string>
   <string name="login_error_blocked">Бул колдонуучу бөгөттөлгөн</string>
   <string name="login_error_throttled">Кирүүгө өтө көп аракет жасадыңыз. Бир нече мүнөт күтө туруңуз жана кайрадан аракет кылып көрүңүз.</string>
   <string name="login_error_unknown">Кирүүгө мүмкүнчүлүк болбоду :(</string>

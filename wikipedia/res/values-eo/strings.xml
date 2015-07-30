@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Neĝusta pasvorto</string>
   <string name="login_error_wrong_username">Neĝusta uzantnomo</string>
   <string name="login_error_illegal">Nevalida uzantonomo</string>
-  <string name="login_success_toast">Ensalutado sukcesis</string>
+  <string name="login_success_toast" fuzzy="true">Ensalutado sukcesis</string>
   <string name="login_error_blocked">Ĉi tiu uzanto estis forbarita</string>
   <string name="login_error_throttled">Tro multaj ensalutaj provoj. Atendu kelkaj minutoj kaj reprovu tiam.</string>
   <string name="login_error_unknown">Ensalutado malsukcesis</string>

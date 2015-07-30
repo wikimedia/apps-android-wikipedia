@@ -76,7 +76,7 @@
   <string name="login_in_progress_dialog_message">Connexion en cors…</string>
   <string name="login_error_wrong_password">Senhal incorrècte</string>
   <string name="login_error_wrong_username">Nom d’utilizaire incorrècte</string>
-  <string name="login_success_toast">Connexion capitada !</string>
+  <string name="login_success_toast" fuzzy="true">Connexion capitada !</string>
   <string name="login_error_blocked">Aqueste utilizaire es estat blocat</string>
   <string name="login_error_unknown">Fracàs de la connexion :(</string>
   <string name="login_error_no_network">Pas de connexion a la ret</string>

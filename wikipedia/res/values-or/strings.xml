@@ -78,7 +78,7 @@
   <string name="login_in_progress_dialog_message">ଆପଣଙ୍କୁ ଲଗ ଇନ କରାଉଛି</string>
   <string name="login_error_wrong_password">ପାସୱାର୍ଡ଼ଟି ଭୁଲ</string>
   <string name="login_error_wrong_username">ସଭ୍ୟ ନାମଟି ଭୁଲ</string>
-  <string name="login_success_toast">ଲଗ ଇନ ହୋଇଗଲା!</string>
+  <string name="login_success_toast" fuzzy="true">ଲଗ ଇନ ହୋଇଗଲା!</string>
   <string name="login_error_blocked">ଏହି ସଭ୍ୟଙ୍କୁ ଅଟକାଯାଇଛି କିଳା ଯାଇଛି</string>
   <string name="login_error_throttled">ଖୁବ ଅଧିକଥର ଲଗ ଇନ କରିବା ପାଇଁ ଚେଷ୍ଟା କରିସାରିଛନ୍ତି । କିଛି ସମୟ ଛାଡ଼ି ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>
   <string name="login_error_unknown">ଲଗଇନ ହେଲାନାହିଁ :(</string>

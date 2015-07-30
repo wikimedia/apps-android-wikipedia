@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Ce făceați când a survenit blocarea?</string>
   <string name="search_hint">Căutare în Wikipedia</string>
   <string name="nav_item_history">Istoric</string>
-  <string name="error_network_error" fuzzy="true">Nu există nicio conexiune la rețea :(</string>
+  <string name="error_network_error">Nu se poate stabili conexiunea la rețea.</string>
   <string name="search_network_error">Eroare de rețea. Atingeți pentru a reîncerca.</string>
   <string name="generic_page_error">A apărut o problemă la procesarea cererii dumneavoastră.</string>
   <string name="status_code_unavailable">Codul stării serverului nu este disponibil.</string>
@@ -267,4 +267,13 @@ Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) c
   <string name="menu_open_link">Deschide legătura</string>
   <string name="menu_open_in_new_tab">Deschide în filă nouă</string>
   <string name="menu_save_page_popup">Salvează pentru mai târziu</string>
+  <string name="tool_tip_select_text">Apăsați și țineți apăsat oriunde pe text pentru a-l selecta și pentru a-l copia și distribui.</string>
+  <string name="tool_tip_share">După selectarea unei informații interesante, încercați s-o distribuiți pe rețelele de socializare preferate!</string>
+  <string name="page_view_in_browser">Vezi pagina cu navigatorul</string>
+  <string name="tool_tip_toc_button">Afișați cuprinsul oricând apăsând acest buton sau glisând din partea dreaptă a ecranului.</string>
+  <string name="error_server_response">Serverul nu a reușit să finalizeze cererea.</string>
+  <string name="error_response_malformed">Răspunsul de la server nu a fost formatat corect.</string>
+  <string name="error_unknown">A apărut o eroare necunoscută.</string>
+  <string name="format_error_server_message">Mesaj: „%s”</string>
+  <string name="format_error_server_code">Cod: „%s”</string>
 </resources>

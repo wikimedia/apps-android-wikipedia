@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Felaktigt lösenord</string>
   <string name="login_error_wrong_username">Felaktigt användarnamn</string>
   <string name="login_error_illegal">Ogiltigt användarnamn</string>
-  <string name="login_success_toast">Inloggningen lyckades!</string>
+  <string name="login_success_toast" fuzzy="true">Inloggningen lyckades!</string>
   <string name="login_error_blocked">Denna användare har blockerats</string>
   <string name="login_error_throttled">För många inloggningsförsök. Vänta några minuter och försök igen.</string>
   <string name="login_error_unknown">Inloggningen misslyckades :(</string>

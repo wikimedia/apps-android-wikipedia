@@ -92,7 +92,7 @@
   <string name="login_error_wrong_password">รหัสผ่านไม่ถูกต้อง</string>
   <string name="login_error_wrong_username">ชื่อผู้ใช้ไม่ถูกต้อง</string>
   <string name="login_error_illegal">ชื่อผู้ใช้ไม่ถูกต้อง</string>
-  <string name="login_success_toast">ล็อกอินสำเร็จ!</string>
+  <string name="login_success_toast" fuzzy="true">ล็อกอินสำเร็จ!</string>
   <string name="login_error_blocked">ผู้ใช้นี้ถูกบล็อก</string>
   <string name="login_error_throttled">การพยายามล็อกอินมากเกินไป ให้รอสักสองสามนาทีแล้วลองอีกครั้ง</string>
   <string name="login_error_unknown">ล็อกอินล้มเหลว :(</string>

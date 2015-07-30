@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Falsches Passwort</string>
   <string name="login_error_wrong_username">Falscher Benutzername</string>
   <string name="login_error_illegal">Ungültiger Benutzername</string>
-  <string name="login_success_toast">Anmeldung erfolgreich!</string>
+  <string name="login_success_toast">Erfolgreich angemeldet!</string>
   <string name="login_error_blocked">Dieser Benutzer wurde gesperrt</string>
   <string name="login_error_throttled">Es wurden zu viele Anmeldeversuche unternommen. Warte einige Minuten und versuche es erneut.</string>
   <string name="login_error_unknown">Anmeldung fehlgeschlagen :(</string>
