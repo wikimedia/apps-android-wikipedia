@@ -590,7 +590,8 @@ public class PageActivity extends ThemedActionBarActivity {
                     return;
                 }
                 //is the new title the same as what's already being displayed?
-                if (!frag.getCurrentTab().getBackStack().isEmpty()
+                if (position == TabPosition.CURRENT_TAB
+                        && !frag.getCurrentTab().getBackStack().isEmpty()
                         && frag.getCurrentTab().getBackStack()
                         .get(frag.getCurrentTab().getBackStack().size() - 1).getTitle()
                         .equals(title) || mustBeEmpty && !frag.getCurrentTab().getBackStack().isEmpty()) {

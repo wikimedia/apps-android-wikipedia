@@ -27,7 +27,6 @@ import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -460,9 +459,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         @Override
         public void onNewTabRequested() {
             // just load the main page into a new tab...
-            PageTitle newTitle = new PageTitle(MainPageNameData.valueFor(app.getAppLanguageCode()), app.getPrimarySite());
-            HistoryEntry newEntry = new HistoryEntry(newTitle, HistoryEntry.SOURCE_INTERNAL_LINK);
-            openInNewBackgroundTab(newTitle, newEntry);
+            ((PageActivity)getActivity()).displayMainPageInForegroundTab();
             tabFunnel.logCreateNew(tabList.size());
         }
 
@@ -595,7 +592,11 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     private void openInNewTab(PageTitle title, HistoryEntry entry, int position) {
         // create a new tab
         Tab tab = new Tab();
-        // put this tab behind the current tab
+        // if the requested position is at the top, then make its backstack current
+        if (position == getForegroundTabPosition()) {
+            pageLoadStrategy.setBackStack(tab.getBackStack());
+        }
+        // put this tab in the requested position
         tabList.add(position, tab);
         // add the requested page to its backstack
         tab.getBackStack().add(new PageBackStackItem(title, entry));
