@@ -120,6 +120,7 @@ public class PageActivity extends ThemedActionBarActivity {
     private ThemeChooserDialog themeChooser;
     private RandomHandler randomHandler;
     private NavDrawerHelper navDrawerHelper;
+    private boolean navItemSelected;
 
     public View getContentView() {
         return fragmentContainerView;
@@ -174,6 +175,14 @@ public class PageActivity extends ThemedActionBarActivity {
         } else {
             return null;
         }
+    }
+
+    public void setNavItemSelected(boolean wasSelected) {
+        navItemSelected = wasSelected;
+    }
+
+    private boolean wasNavItemSelected() {
+        return navItemSelected;
     }
 
     @Override
@@ -326,6 +335,10 @@ public class PageActivity extends ThemedActionBarActivity {
             super.onDrawerClosed(view);
             // if we want to change the title upon closing:
             //getSupportActionBar().setTitle("");
+            if (!wasNavItemSelected()) {
+                navDrawerHelper.getFunnel().logCancel();
+            }
+            setNavItemSelected(false);
         }
 
         @Override
@@ -341,6 +354,7 @@ public class PageActivity extends ThemedActionBarActivity {
             if (isCabOpen()) {
                 currentActionMode.finish();
             }
+            navDrawerHelper.getFunnel().logOpen();
         }
 
         private boolean oncePerSlideLock = false;

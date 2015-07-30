@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.analytics.NavMenuFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.login.LoginActivity;
@@ -34,8 +35,10 @@ public class NavDrawerHelper {
     private MenuItem usernameContainer;
     private MenuItem loginContainer;
     private MenuItem[] loggedInOnyActionViews = new MenuItem[NAV_DRAWER_ACTION_ITEMS_LOGGED_IN_ONLY.length];
+    private NavMenuFunnel funnel;
 
     public NavDrawerHelper(@NonNull PageActivity page) {
+        this.funnel = new NavMenuFunnel();
         this.page = page;
         page.getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
             @Override
@@ -43,6 +46,10 @@ public class NavDrawerHelper {
                 updateItemSelection(NavDrawerHelper.this.page.getTopFragment());
             }
         });
+    }
+
+    public NavMenuFunnel getFunnel() {
+        return funnel;
     }
 
     public void setupDynamicNavDrawerItems() {
@@ -66,30 +73,38 @@ public class NavDrawerHelper {
                 switch (menuItem.getItemId()) {
                     case R.id.nav_item_today:
                         page.displayMainPageInCurrentTab();
+                        funnel.logToday();
                         break;
                     case R.id.nav_item_history:
                         page.pushFragment(new HistoryFragment());
+                        funnel.logHistory();
                         break;
                     case R.id.nav_item_saved_pages:
                         page.pushFragment(new SavedPagesFragment());
+                        funnel.logSavedPages();
                         break;
                     case R.id.nav_item_nearby:
                         page.pushFragment(new NearbyFragment());
+                        funnel.logNearby();
                         break;
                     case R.id.nav_item_more:
                         launchSettingsActivity();
+                        funnel.logMore();
                         break;
                     case R.id.nav_item_login:
                         launchLoginActivity();
+                        funnel.logLogin();
                         break;
                     case R.id.nav_item_random:
                         page.getRandomHandler().doVisitRandomArticle();
+                        funnel.logRandom();
                         break;
                     default:
                         return false;
                 }
                 clearItemHighlighting();
                 menuItem.setChecked(true);
+                page.setNavItemSelected(true);
                 return true;
             }
         };
