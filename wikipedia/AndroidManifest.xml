@@ -45,7 +45,8 @@
 
         <activity android:name=".page.PageActivity"
                   android:theme="@style/NoTitle"
-                  android:windowSoftInputMode="stateHidden">
+                  android:windowSoftInputMode="stateHidden"
+                  android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

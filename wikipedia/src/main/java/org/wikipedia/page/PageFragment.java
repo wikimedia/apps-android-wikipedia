@@ -1036,16 +1036,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (pageLoadStrategy.onBackPressed()) {
             return true;
         }
-        if (tabList.size() > 1) {
-            // if we're at the end of the current tab's backstack, and we have additional
-            // tabs available, then pop the current tab, and load the topmost page in that tab.
-            tabList.remove(tabList.size() - 1);
-            pageLoadStrategy.setBackStack(getCurrentTab().getBackStack());
-            pageLoadStrategy.loadPageFromBackStack();
-            tabsProvider.enterTabMode();
+        if (tabsProvider.onBackPressed()) {
             return true;
         }
-        return tabsProvider.onBackPressed();
+        if (tabList.size() > 1) {
+            // if we're at the end of the current tab's backstack, then pop the current tab.
+            tabList.remove(tabList.size() - 1);
+        }
+        return false;
     }
 
     public LinkHandler getLinkHandler() {

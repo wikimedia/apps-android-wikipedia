@@ -415,21 +415,28 @@ public class PageActivity extends ThemedActionBarActivity {
         ViewAnimations.ensureTranslationY(toolbarContainer, 0);
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        handleIntent(intent);
+    }
+
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData() != null) {
             Site site = new Site(intent.getData().getAuthority());
             PageTitle title = site.titleForUri(intent.getData());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
-            displayNewPage(title, historyEntry);
+            displayPageInForegroundTab(title, historyEntry);
         } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
-            displayNewPage(title, historyEntry);
+            displayPageInForegroundTab(title, historyEntry);
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getPrimarySite());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-            displayNewPage(title, historyEntry);
+            displayPageInForegroundTab(title, historyEntry);
         } else if (Intent.ACTION_SEND.equals(intent.getAction())
                 && PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
             // Share menu.
@@ -648,6 +655,10 @@ public class PageActivity extends ThemedActionBarActivity {
         });
     }
 
+    public void displayPageInForegroundTab(PageTitle title, HistoryEntry entry) {
+        displayNewPage(title, entry, TabPosition.NEW_TAB_FOREGROUND, false);
+    }
+
     public void displayMainPageInCurrentTab() {
         displayMainPage(false, TabPosition.CURRENT_TAB, false);
     }
@@ -707,15 +718,11 @@ public class PageActivity extends ThemedActionBarActivity {
                 && ((BackPressedHandler) getTopFragment()).onBackPressed()) {
             return;
         }
-        if (!(getCurPageFragment() != null && getCurPageFragment().onBackPressed())) {
-
-            app.getSessionFunnel().backPressed();
-
-            if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
-                popFragment();
-            } else {
-                finish();
-            }
+        app.getSessionFunnel().backPressed();
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            popFragment();
+        } else {
+            finish();
         }
     }
 
