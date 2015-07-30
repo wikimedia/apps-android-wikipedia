@@ -415,8 +415,9 @@ public class PageActivity extends ThemedActionBarActivity {
             // Log that the user tapped on the featured article widget
             // Instantiate the funnel anonymously to save on memory overhead
             new WidgetsFunnel(app).logFeaturedArticleWidgetTap();
+        } else {
+            displayMainPageIfNoTabs();
         }
-        displayMainPageIfNoTabs();
     }
 
     private void handleShareIntent(Intent intent) {

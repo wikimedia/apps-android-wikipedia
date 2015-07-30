@@ -758,8 +758,8 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     @Override
     public boolean onBackPressed() {
-        if (backStack.size() > 1) {
-            popBackStack();
+        popBackStack();
+        if (!backStack.isEmpty()) {
             loadPageFromBackStack();
             return true;
         }
