@@ -250,7 +250,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        if (!isAdded()) {
+        if (!isAdded() || cursor == null) {
             return;
         }
 
