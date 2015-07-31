@@ -167,7 +167,7 @@ public class PageActivity extends ThemedActionBarActivity {
      * @return The PageViewFragment at the top of the backstack, or null if the current
      * top fragment is not a PageViewFragment.
      */
-    public PageViewFragmentInternal getCurPageFragment() {
+    @Nullable public PageViewFragmentInternal getCurPageFragment() {
         Fragment f = getTopFragment();
         if (f instanceof PageViewFragmentInternal) {
             return (PageViewFragmentInternal) f;
@@ -849,6 +849,10 @@ public class PageActivity extends ThemedActionBarActivity {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         saveState(outState);
+    }
+
+    public void updateNavDrawerSelection(Fragment fragment) {
+        navDrawerHelper.updateItemSelection(fragment);
     }
 
     private void saveState(Bundle outState) {

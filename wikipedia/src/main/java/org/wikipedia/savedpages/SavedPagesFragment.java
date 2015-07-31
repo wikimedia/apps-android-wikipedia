@@ -214,6 +214,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         super.onDestroyView();
     }
 
+    @Override
     public boolean onBackPressed() {
         if (actionMode != null) {
             actionMode.finish();

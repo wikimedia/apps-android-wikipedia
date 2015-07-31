@@ -1,21 +1,23 @@
 package org.wikipedia.page;
 
+import android.support.annotation.Nullable;
+
 import org.wikipedia.history.HistoryEntry;
 
 /**
  * Shared data between PageViewFragmentInternal and PageLoadStrategy
  */
 class PageViewModel {
-    private Page page;
+    @Nullable private Page page;
     private PageTitle title;
     private PageTitle titleOriginal;
     private HistoryEntry curEntry;
 
-    public Page getPage() {
+    @Nullable public Page getPage() {
         return page;
     }
 
-    public void setPage(Page page) {
+    public void setPage(@Nullable Page page) {
         this.page = page;
     }
 

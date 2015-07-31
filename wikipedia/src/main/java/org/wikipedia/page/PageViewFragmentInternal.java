@@ -45,6 +45,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -171,7 +172,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         return model.getTitle();
     }
 
-    public Page getPage() {
+    @Nullable public Page getPage() {
         return model.getPage();
     }
 
@@ -848,6 +849,8 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         }
 
         checkAndShowSelectTextOnboarding();
+
+        updateNavDrawerSelection();
     }
 
     public PageTitle adjustPageTitleFromMobileview(PageTitle title, JSONObject mobileView)
@@ -1070,6 +1073,13 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 }
             }
         }, TimeUnit.SECONDS.toMillis(1));
+    }
+
+    private void updateNavDrawerSelection() {
+        if (isAdded()) {
+            // TODO: define a Fragment host interface instead of assuming a cast is safe.
+            ((PageActivity) getActivity()).updateNavDrawerSelection(this);
+        }
     }
 
     private void initTabs() {

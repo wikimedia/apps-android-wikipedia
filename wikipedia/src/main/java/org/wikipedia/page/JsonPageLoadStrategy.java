@@ -385,6 +385,9 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                             state = STATE_COMPLETE_FETCH;
                             setState(state);
                             performActionForState(state);
+                            if (fragment.isAdded()) {
+                                fragment.onPageLoadComplete();
+                            }
                         } else {
                             // page isn't in cache, so fetch it from the network...
                             loadPageFromNetwork();

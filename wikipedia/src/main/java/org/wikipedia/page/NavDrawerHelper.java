@@ -1,9 +1,12 @@
 package org.wikipedia.page;
 
 import android.content.Intent;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.MenuItem;
 
 import org.wikipedia.R;
@@ -34,6 +37,12 @@ public class NavDrawerHelper {
 
     public NavDrawerHelper(@NonNull PageActivity page) {
         this.page = page;
+        page.getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                updateItemSelection(NavDrawerHelper.this.page.getTopFragment());
+            }
+        });
     }
 
     public void setupDynamicNavDrawerItems() {
@@ -100,6 +109,42 @@ public class NavDrawerHelper {
                         FeedbackUtil.showError(page.getContentView(), caught);
                     }
                 });
+    }
+
+    public void updateItemSelection(Fragment fragment) {
+        @IdRes Integer id = fragmentToMenuId(fragment);
+        if (id != null) {
+            setMenuItemSelection(id);
+        }
+    }
+
+    private void setMenuItemSelection(@IdRes int id) {
+        clearItemHighlighting();
+
+        // Special case: don't highlight today if it's not the main page.
+        if (id != R.id.nav_item_today || isMainPage()) {
+            MenuItem menuItem = page.getNavMenu().findItem(id);
+            menuItem.setChecked(true);
+        }
+    }
+
+    private boolean isMainPage() {
+        return page.getCurPageFragment() != null
+                && page.getCurPageFragment().getPage() != null
+                && page.getCurPageFragment().getPage().isMainPage();
+    }
+
+    @Nullable @IdRes private Integer fragmentToMenuId(Fragment fragment) {
+        if (fragment instanceof PageViewFragmentInternal) {
+            return R.id.nav_item_today;
+        } else if (fragment instanceof HistoryFragment) {
+            return R.id.nav_item_history;
+        } else if (fragment instanceof SavedPagesFragment) {
+            return R.id.nav_item_saved_pages;
+        } else if (fragment instanceof NearbyFragment) {
+            return R.id.nav_item_nearby;
+        }
+        return null;
     }
 
     /**
