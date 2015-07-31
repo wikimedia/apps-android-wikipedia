@@ -15,6 +15,7 @@ import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
+import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.recurring.RecurringTasksExecutor;
@@ -25,6 +26,7 @@ import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
@@ -71,7 +73,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class PageActivity extends ThemedActionBarActivity {
 
@@ -493,6 +494,10 @@ public class PageActivity extends ThemedActionBarActivity {
         return searchFragment != null && searchFragment.isSearchActive();
     }
 
+    public void closeNavDrawer() {
+        drawerLayout.closeDrawer(GravityCompat.START);
+    }
+
     /**
      * Reset our fragment structure to the default, which is simply one PageViewFragment
      * on the fragment stack.
@@ -522,7 +527,7 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param allowStateLoss Whether to allow state loss.
      */
     public void pushFragment(Fragment f, boolean allowStateLoss) {
-        drawerLayout.closeDrawer(GravityCompat.START);
+        closeNavDrawer();
         searchBarHideHandler.setForceNoFade(false);
         searchBarHideHandler.setFadeEnabled(false);
         // if the new fragment is the same class as the current topmost fragment,
@@ -603,7 +608,7 @@ public class PageActivity extends ThemedActionBarActivity {
         ACRA.getErrorReporter().putCustomData("title", title.toString());
 
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
+            closeNavDrawer();
         }
         if (title.isSpecial()) {
             Utils.visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
@@ -689,7 +694,7 @@ public class PageActivity extends ThemedActionBarActivity {
             return;
         }
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
+            closeNavDrawer();
             return;
         }
         if (searchFragment.onBackPressed()) {
@@ -863,6 +868,8 @@ public class PageActivity extends ThemedActionBarActivity {
         }
         if (settingsActivityRequested(requestCode)) {
             handleSettingsActivityResult(resultCode);
+        } else if (loginActivityRequested(requestCode)) {
+            handleLoginActivityResult(resultCode);
         } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryFilePageSelected(requestCode, resultCode)) {
             handleLangLinkOrFilePageResult(data);
         } else {
@@ -952,6 +959,16 @@ public class PageActivity extends ThemedActionBarActivity {
         return requestCode == SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS;
     }
 
+    private void handleLoginActivityResult(int resultCode) {
+        if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            FeedbackUtil.showMessage(this, R.string.login_success_toast);
+        }
+    }
+
+    private boolean loginActivityRequested(int requestCode) {
+        return requestCode == LoginActivity.REQUEST_LOGIN;
+    }
+
     private boolean newArticleLanguageSelected(int requestCode, int resultCode) {
         return requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT;
     }
@@ -1000,7 +1017,7 @@ public class PageActivity extends ThemedActionBarActivity {
         app.getEditTokenStorage().clearAllTokens();
         app.getCookieManager().clearAllCookies();
         app.getUserInfoStorage().clearUser();
-        Toast.makeText(app, R.string.toast_logout_complete, Toast.LENGTH_LONG).show(); //TODO: make this a snackbar
+        FeedbackUtil.showMessage(this, R.string.toast_logout_complete);
         navDrawerHelper.setupDynamicNavDrawerItems();
     }
 }

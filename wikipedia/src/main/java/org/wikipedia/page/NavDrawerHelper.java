@@ -143,12 +143,15 @@ public class NavDrawerHelper {
     }
 
     private void launchSettingsActivity() {
+        page.closeNavDrawer();
         page.startActivityForResult(new Intent().setClass(app, ApiUtil.hasHoneyComb() ? SettingsActivity.class : SettingsActivityGB.class),
                 SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
     }
 
     private void launchLoginActivity() {
-        page.startActivity(new Intent(app, LoginActivity.class)
-                .putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_NAV));
+        page.closeNavDrawer();
+        page.startActivityForResult(new Intent(app, LoginActivity.class)
+                .putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_NAV),
+                LoginActivity.REQUEST_LOGIN);
     }
 }
