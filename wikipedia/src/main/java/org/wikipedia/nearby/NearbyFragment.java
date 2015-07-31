@@ -127,7 +127,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         nearbyEmptyContainer = rootView.findViewById(R.id.nearby_empty_container);
         nearbyEmptyContainer.setVisibility(View.GONE);
         refreshView = (SwipeRefreshLayout) rootView.findViewById(R.id.nearby_refresh_container);
-        refreshView.setSize(SwipeRefreshLayout.LARGE);
         // if we want to give it a custom color:
         //refreshView.setProgressBackgroundColor(R.color.swipe_refresh_circle);
         refreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

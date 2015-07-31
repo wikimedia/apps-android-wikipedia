@@ -209,8 +209,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         refreshView = (SwipeRefreshLayoutWithScroll) rootView
                 .findViewById(R.id.page_refresh_container);
         int swipeOffset = Utils.getActionBarSize(getActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
-        refreshView.setProgressViewOffset(true, -swipeOffset, swipeOffset);
-        refreshView.setSize(SwipeRefreshLayout.LARGE);
+        refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
         // if we want to give it a custom color:
         //refreshView.setProgressBackgroundColor(R.color.swipe_refresh_circle);
         refreshView.setScrollableChild(webView);
