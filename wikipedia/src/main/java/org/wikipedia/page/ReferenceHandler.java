@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
 
 /**
- * Handles any reference links coming from a {@link PageViewFragment}
+ * Handles any reference links coming from a {@link PageFragment}
  */
 public abstract class ReferenceHandler implements CommunicationBridge.JSEventListener {
 

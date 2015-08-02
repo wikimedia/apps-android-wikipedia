@@ -167,10 +167,10 @@ public class PageActivity extends ThemedActionBarActivity {
      * @return The PageViewFragment at the top of the backstack, or null if the current
      * top fragment is not a PageViewFragment.
      */
-    @Nullable public PageViewFragmentInternal getCurPageFragment() {
+    @Nullable public PageFragment getCurPageFragment() {
         Fragment f = getTopFragment();
-        if (f instanceof PageViewFragmentInternal) {
-            return (PageViewFragmentInternal) f;
+        if (f instanceof PageFragment) {
+            return (PageFragment) f;
         } else {
             return null;
         }
@@ -353,7 +353,7 @@ public class PageActivity extends ThemedActionBarActivity {
                 Utils.hideSoftKeyboard(PageActivity.this);
                 //also make sure ToC is hidden
                 if (getCurPageFragment() != null) {
-                    getCurPageFragment().toggleToC(PageViewFragmentInternal.TOC_ACTION_HIDE);
+                    getCurPageFragment().toggleToC(PageFragment.TOC_ACTION_HIDE);
                 }
                 //and make sure to update dynamic items and highlights
                 navDrawerHelper.setupDynamicNavDrawerItems();
@@ -504,11 +504,11 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param allowStateLoss Whether to allow state loss.
      */
     private void resetFragments(boolean allowStateLoss) {
-        while (getTopFragment() != null && !(getTopFragment() instanceof PageViewFragmentInternal)) {
+        while (getTopFragment() != null && !(getTopFragment() instanceof PageFragment)) {
             getSupportFragmentManager().popBackStackImmediate();
         }
         if (getTopFragment() == null) {
-            pushFragment(new PageViewFragmentInternal(), allowStateLoss);
+            pushFragment(new PageFragment(), allowStateLoss);
         }
     }
 
@@ -619,7 +619,7 @@ public class PageActivity extends ThemedActionBarActivity {
         fragmentContainerView.post(new Runnable() {
             @Override
             public void run() {
-                PageViewFragmentInternal frag = getCurPageFragment();
+                PageFragment frag = getCurPageFragment();
                 if (frag == null) {
                     return;
                 }

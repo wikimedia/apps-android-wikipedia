@@ -13,11 +13,11 @@ import android.support.annotation.NonNull;
 import java.util.List;
 
 /**
- * Defines interaction between PageViewFragmentInternal and an implementation that loads a page
+ * Defines interaction between PageFragment and an implementation that loads a page
  * for viewing.
  */
 public interface PageLoadStrategy {
-    void setup(PageViewModel model, PageViewFragmentInternal fragment,
+    void setup(PageViewModel model, PageFragment fragment,
                SwipeRefreshLayoutWithScroll refreshView, ObservableWebView webView,
                CommunicationBridge bridge, SearchBarHideHandler searchBarHideHandler,
                LeadImagesHandler leadImagesHandler);

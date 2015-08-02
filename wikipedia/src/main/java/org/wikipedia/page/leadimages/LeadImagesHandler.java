@@ -32,7 +32,7 @@ import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.page.PageViewFragmentInternal;
+import org.wikipedia.page.PageFragment;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.GradientUtil;
@@ -41,7 +41,7 @@ import org.wikipedia.views.ViewUtil;
 
 public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListener, ImageViewWithFace.OnImageLoadListener {
     private final Context context;
-    private final PageViewFragmentInternal parentFragment;
+    private final PageFragment parentFragment;
     private final CommunicationBridge bridge;
     private final WebView webView;
 
@@ -114,7 +114,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         void onLayoutComplete();
     }
 
-    public LeadImagesHandler(final Context context, final PageViewFragmentInternal parentFragment,
+    public LeadImagesHandler(final Context context, final PageFragment parentFragment,
                              CommunicationBridge bridge, ObservableWebView webview,
                              ViewGroup hidingView) {
         this.context = context;

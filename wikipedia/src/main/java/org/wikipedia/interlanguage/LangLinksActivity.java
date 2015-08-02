@@ -179,7 +179,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                     ViewAnimations.crossFade(langLinksProgress, langLinksError);
                     // Not sure why this is required, but without it tapping retry hides langLinksError
                     // FIXME: INVESTIGATE WHY THIS HAPPENS!
-                    // Also happens in {@link PageViewFragment}
+                    // Also happens in {@link PageFragment}
                     langLinksError.setVisibility(View.VISIBLE);
                 }
 

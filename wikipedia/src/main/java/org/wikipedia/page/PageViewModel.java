@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import org.wikipedia.history.HistoryEntry;
 
 /**
- * Shared data between PageViewFragmentInternal and PageLoadStrategy
+ * Shared data between PageFragment and PageLoadStrategy
  */
 class PageViewModel {
     @Nullable private Page page;

@@ -581,7 +581,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                     ViewAnimations.crossFade(sectionProgress, sectionError);
                     // Not sure why this is required, but without it tapping retry hides langLinksError
                     // FIXME: INVESTIGATE WHY THIS HAPPENS!
-                    // Also happens in {@link PageViewFragment}
+                    // Also happens in {@link PageFragment}
                     sectionError.setVisibility(View.VISIBLE);
                 }
             }.execute();

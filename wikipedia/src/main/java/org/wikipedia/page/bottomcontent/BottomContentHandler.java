@@ -34,7 +34,7 @@ import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageViewFragmentInternal;
+import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.SuggestionsTask;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.views.ObservableWebView;
@@ -46,7 +46,7 @@ public class BottomContentHandler implements BottomContentInterface,
                                                 ObservableWebView.OnScrollChangeListener,
                                                 ObservableWebView.OnContentHeightChangedListener {
     private static final String TAG = "BottomContentHandler";
-    private final PageViewFragmentInternal parentFragment;
+    private final PageFragment parentFragment;
     private final CommunicationBridge bridge;
     private final WebView webView;
     private final LinkHandler linkHandler;
@@ -66,7 +66,7 @@ public class BottomContentHandler implements BottomContentInterface,
     private SuggestedPagesFunnel funnel;
     private SearchResults readMoreItems;
 
-    public BottomContentHandler(PageViewFragmentInternal parentFragment,
+    public BottomContentHandler(PageFragment parentFragment,
                                 CommunicationBridge bridge, ObservableWebView webview,
                                 LinkHandler linkHandler, ViewGroup hidingView) {
         this.parentFragment = parentFragment;

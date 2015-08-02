@@ -45,8 +45,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import static org.wikipedia.page.PageViewFragmentInternal.SUBSTATE_NONE;
-import static org.wikipedia.page.PageViewFragmentInternal.SUBSTATE_SAVED_PAGE_LOADED;
+import static org.wikipedia.page.PageFragment.SUBSTATE_NONE;
+import static org.wikipedia.page.PageFragment.SUBSTATE_SAVED_PAGE_LOADED;
 
 /**
  * Our old page load strategy, which uses the JSON MW API directly and loads a page in multiple steps:
@@ -96,7 +96,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     // copied fields
     private PageViewModel model;
-    private PageViewFragmentInternal fragment;
+    private PageFragment fragment;
     private CommunicationBridge bridge;
     private PageActivity activity;
     private ObservableWebView webView;
@@ -118,7 +118,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     @Override
-    public void setup(PageViewModel model, PageViewFragmentInternal fragment,
+    public void setup(PageViewModel model, PageFragment fragment,
                       SwipeRefreshLayoutWithScroll refreshView,
                       ObservableWebView webView, CommunicationBridge bridge,
                       SearchBarHideHandler searchBarHideHandler, LeadImagesHandler leadImagesHandler) {
@@ -420,7 +420,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             public void onFinish(Page result) {
                 // have we been unwittingly detached from our Activity?
                 if (!fragment.isAdded()) {
-                    Log.d("PageViewFragment", "Detached from activity, so stopping update.");
+                    Log.d("PageFragment", "Detached from activity, so stopping update.");
                     return;
                 }
 

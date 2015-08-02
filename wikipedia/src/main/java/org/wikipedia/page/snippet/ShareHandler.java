@@ -31,7 +31,7 @@ import org.wikipedia.page.BottomDialog;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageProperties;
-import org.wikipedia.page.PageViewFragmentInternal;
+import org.wikipedia.page.PageFragment;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.util.ApiUtil;
@@ -110,7 +110,7 @@ public class ShareHandler {
 
     /** Call #setFunnel before #shareSnippet. */
     private void shareSnippet(CharSequence input) {
-        final PageViewFragmentInternal curPageFragment = activity.getCurPageFragment();
+        final PageFragment curPageFragment = activity.getCurPageFragment();
         if (curPageFragment == null) {
             return;
         }

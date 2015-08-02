@@ -12,17 +12,17 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageViewFragmentInternal;
+import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {
     public static final int RESULT_REFRESH_PAGE = 1;
 
-    private final PageViewFragmentInternal fragment;
+    private final PageFragment fragment;
     private ProtectedEditAttemptFunnel funnel;
     private Page currentPage;
 
-    public EditHandler(PageViewFragmentInternal fragment, CommunicationBridge bridge) {
+    public EditHandler(PageFragment fragment, CommunicationBridge bridge) {
         this.fragment = fragment;
         bridge.addListener("editSectionClicked", this);
     }

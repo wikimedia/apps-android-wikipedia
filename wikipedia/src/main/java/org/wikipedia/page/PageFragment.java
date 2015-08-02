@@ -75,7 +75,7 @@ import javax.net.ssl.SSLException;
 
 // TODO: USE ACRA.getErrorReporter().handleSilentException() if we move to automated crash reporting?
 
-public class PageViewFragmentInternal extends Fragment implements BackPressedHandler {
+public class PageFragment extends Fragment implements BackPressedHandler {
     public static final int SUBSTATE_NONE = 0;
     public static final int SUBSTATE_PAGE_SAVED = 1;
     public static final int SUBSTATE_SAVED_PAGE_LOADED = 2;
@@ -274,7 +274,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             @Override
             protected void onReferenceClicked(String refHtml) {
                 if (!isAdded()) {
-                    Log.d("PageViewFragment",
+                    Log.d("PageFragment",
                           "Detached from activity, so stopping reference click.");
                     return;
                 }
@@ -917,7 +917,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             @Override
             public void onFinish(Boolean success) {
                 if (!isAdded()) {
-                    Log.d("PageViewFragment", "Detached from activity, no toast.");
+                    Log.d("PageFragment", "Detached from activity, no toast.");
                     return;
                 }
 
@@ -941,7 +941,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             public void onFinish(JSONObject result) {
                 // have we been unwittingly detached from our Activity?
                 if (!isAdded()) {
-                    Log.d("PageViewFragment", "Detached from activity, so stopping update.");
+                    Log.d("PageFragment", "Detached from activity, so stopping update.");
                     return;
                 }
 

@@ -135,7 +135,7 @@ public class NavDrawerHelper {
     }
 
     @Nullable @IdRes private Integer fragmentToMenuId(Fragment fragment) {
-        if (fragment instanceof PageViewFragmentInternal) {
+        if (fragment instanceof PageFragment) {
             return R.id.nav_item_today;
         } else if (fragment instanceof HistoryFragment) {
             return R.id.nav_item_history;

@@ -11,7 +11,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 
 /**
- * Handles any html links coming from a {@link org.wikipedia.page.PageViewFragment}
+ * Handles any html links coming from a {@link org.wikipedia.page.PageFragment}
  */
 public abstract class LinkHandler implements CommunicationBridge.JSEventListener, LinkMovementMethodExt.UrlHandler {
     private final Context context;

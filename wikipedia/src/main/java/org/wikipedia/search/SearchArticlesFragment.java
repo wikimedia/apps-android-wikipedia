@@ -105,7 +105,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
             @Override
             public void onClick(View view) {
                 // Give the root container view an empty click handler, so that click events won't
-                // get passed down to any underlying views (e.g. a PageViewFragment on top of which
+                // get passed down to any underlying views (e.g. a PageFragment on top of which
                 // this fragment is shown)
             }
         });

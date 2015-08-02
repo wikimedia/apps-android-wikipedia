@@ -62,7 +62,7 @@ public class HtmlPageLoadStrategy implements PageLoadStrategy {
 
     // copied fields
     private PageViewModel model;
-    private PageViewFragmentInternal fragment;
+    private PageFragment fragment;
     private CommunicationBridge bridge;
     private PageActivity activity;
     private ObservableWebView webView;
@@ -77,7 +77,7 @@ public class HtmlPageLoadStrategy implements PageLoadStrategy {
     private int subState;
 
     @Override
-    public void setup(PageViewModel model, PageViewFragmentInternal fragment,
+    public void setup(PageViewModel model, PageFragment fragment,
                       SwipeRefreshLayoutWithScroll refreshView, ObservableWebView webView,
                       CommunicationBridge bridge, SearchBarHideHandler searchBarHideHandler,
                       LeadImagesHandler leadImagesHandler) {
