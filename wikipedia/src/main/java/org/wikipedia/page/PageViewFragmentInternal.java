@@ -287,7 +287,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
             }
         };
 
-        new PageInfoHandler(((PageActivity) getActivity()), bridge) {
+        new PageInfoHandler(getPageActivity(), bridge) {
             @Override
             Site getSite() {
                 return model.getTitle().getSite();
@@ -320,17 +320,17 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         editHandler = new EditHandler(this, bridge);
         pageLoadStrategy.setEditHandler(editHandler);
 
-        tocHandler = new ToCHandler(((PageActivity) getActivity()), tocDrawer, bridge);
+        tocHandler = new ToCHandler(getPageActivity(), tocDrawer, bridge);
 
         imagesContainer = (ViewGroup) getView().findViewById(R.id.page_images_container);
         leadImagesHandler = new LeadImagesHandler(getActivity(), this, bridge, webView,
                                                   imagesContainer);
-        searchBarHideHandler = ((PageActivity) getActivity()).getSearchBarHideHandler();
+        searchBarHideHandler = getPageActivity().getSearchBarHideHandler();
         searchBarHideHandler.setScrollView(webView);
 
-        shareHandler = new ShareHandler((PageActivity) getActivity(), bridge);
+        shareHandler = new ShareHandler(getPageActivity(), bridge);
 
-        tabsProvider = new TabsProvider((PageActivity) getActivity(), tabList);
+        tabsProvider = new TabsProvider(getPageActivity(), tabList);
         tabsProvider.setTabsProviderListener(tabsProviderListener);
         longPressHandler = new PageLongPressHandler(getActivity().getWindow(), webView,
                 contextMenuListener);
@@ -391,12 +391,12 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
         @Override
         public void onOpenLink(PageTitle title, HistoryEntry entry) {
-            ((PageActivity) getActivity()).displayNewPage(title, entry);
+            getPageActivity().displayNewPage(title, entry);
         }
 
         @Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            ((PageActivity) getActivity()).displayNewPage(title, entry,
+            getPageActivity().displayNewPage(title, entry,
                     PageActivity.TabPosition.NEW_TAB_BACKGROUND, false);
         }
     };
@@ -418,7 +418,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         if (app.isProdRelease() || app.getLinkPreviewVersion() == 0) {
             HistoryEntry historyEntry = new HistoryEntry(title,
                     HistoryEntry.SOURCE_INTERNAL_LINK);
-            ((PageActivity) getActivity()).displayNewPage(title, historyEntry);
+            getPageActivity().displayNewPage(title, historyEntry);
             new LinkPreviewFunnel(app, title).logNavigate();
         } else {
             // For version values 1 or 2, pass the value to the LinkPreviewDialog, which will use
@@ -459,7 +459,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         @Override
         public void onNewTabRequested() {
             // just load the main page into a new tab...
-            ((PageActivity)getActivity()).displayMainPageInForegroundTab();
+            getPageActivity().displayMainPageInForegroundTab();
             tabFunnel.logCreateNew(tabList.size());
         }
 
@@ -559,7 +559,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         model.setCurEntry(entry);
         savedPagesFunnel = app.getFunnelManager().getSavedPagesFunnel(title.getSite());
 
-        ((PageActivity) getActivity()).updateProgressBar(true, true, 0);
+        getPageActivity().updateProgressBar(true, true, 0);
 
         pageLoadStrategy.onDisplayNewPage(pushBackStack, tryFromCache, stagedScrollY);
     }
@@ -682,7 +682,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
+        if (!isAdded() || getPageActivity().isSearching()) {
             return;
         }
         inflater.inflate(R.menu.menu_page_actions, menu);
@@ -691,7 +691,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
+        if (!isAdded() || getPageActivity().isSearching()) {
             return;
         }
         MenuItem savePageMenu = menu.findItem(R.id.menu_save_page);
@@ -761,7 +761,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
                 showFindInPage();
                 return true;
             case R.id.menu_themechooser:
-                ((PageActivity) getActivity()).showThemeChooser();
+                getPageActivity().showThemeChooser();
                 return true;
             case R.id.menu_show_tabs:
                 tabsProvider.enterTabMode();
@@ -772,7 +772,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
     }
 
     public void showFindInPage() {
-        final PageActivity pageActivity = ((PageActivity) getActivity());
+        final PageActivity pageActivity = getPageActivity();
         final FindInPageActionProvider findInPageActionProvider = new FindInPageActionProvider(pageActivity);
 
         pageActivity.startSupportActionMode(new ActionMode.Callback() {
@@ -876,7 +876,7 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         }
         // in any case, make sure the TOC drawer is closed
         tocDrawer.closeDrawers();
-        ((PageActivity) getActivity()).updateProgressBar(false, true, 0);
+        getPageActivity().updateProgressBar(false, true, 0);
         refreshView.setRefreshing(false);
 
         hidePageContent();
@@ -1090,5 +1090,10 @@ public class PageViewFragmentInternal extends Fragment implements BackPressedHan
         if (tabList.isEmpty()) {
             tabList.add(new Tab());
         }
+    }
+
+    // TODO: don't assume host is PageActivity. Use Fragment callbacks pattern.
+    private PageActivity getPageActivity() {
+        return (PageActivity) super.getActivity();
     }
 }
