@@ -17,6 +17,7 @@ gen-external-apklibs
 .idea
 out
 *.tmproj
+/captures
 
 # OS specific files
 *~
