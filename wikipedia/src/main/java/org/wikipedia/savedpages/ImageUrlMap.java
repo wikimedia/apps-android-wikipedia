@@ -1,6 +1,7 @@
 package org.wikipedia.savedpages;
 
 import android.graphics.drawable.Drawable;
+import android.support.annotation.VisibleForTesting;
 import android.text.Html;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -116,7 +117,8 @@ public final class ImageUrlMap {
          *
          * @param html the input HTML string
          */
-        void extractUrlsInSection(String html) {
+        @VisibleForTesting
+        public void extractUrlsInSection(String html) {
             Html.fromHtml(html, imageGetter, null);
         }
 
