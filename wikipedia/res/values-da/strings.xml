@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Hvad lavede du, da nedbruddet skete?</string>
   <string name="search_hint">Søg i Wikipedia</string>
   <string name="nav_item_history">Historik</string>
-  <string name="error_network_error" fuzzy="true">Der er ingen netværksforbindelse :(</string>
+  <string name="error_network_error">Netværksforbindelsen kunne ikke oprettes.</string>
   <string name="search_network_error">Netværksfejl. Tryk for at prøve igen.</string>
   <string name="generic_page_error">Der opstod et problem under behandlingen af din forespørgsel.</string>
   <string name="status_code_unavailable">Serverens statuskode er ikke tilgængelig.</string>
@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Forkert adgangskode.</string>
   <string name="login_error_wrong_username">Forkert brugernavn</string>
   <string name="login_error_illegal">Ugyldigt brugernavn</string>
-  <string name="login_success_toast" fuzzy="true">Du er nu logget på!</string>
+  <string name="login_success_toast">Du er nu logget på!</string>
   <string name="login_error_blocked">Denne bruger er blevet blokeret</string>
   <string name="login_error_throttled">For mange forsøg med at logge på. Vent et par minutter og prøv igen.</string>
   <string name="login_error_unknown">Det mislykkedes at logge på :(</string>
@@ -154,7 +154,7 @@
   <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre app\'en bedre.</string>
   <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
-  <string name="history_search_list_hint">Søgehistorie</string>
+  <string name="history_search_list_hint">Søg i historik</string>
   <string name="history_search_empty_message">Ingen sider fundet der matcher din forespørgsel.</string>
   <string name="error_can_not_process_link">Kunne ikke vise dette link</string>
   <string name="page_protected_autoconfirmed">Denne side er delvis beskyttet.</string>
@@ -275,4 +275,10 @@ Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="menu_open_link">Åbn link</string>
   <string name="menu_open_in_new_tab">Åbn i ny fane</string>
   <string name="menu_save_page_popup">Gem til senere</string>
+  <string name="page_view_in_browser">Få vist siden i browseren</string>
+  <string name="error_server_response">Serveren kunne ikke fuldføre anmodningen.</string>
+  <string name="error_response_malformed">Svar fra serveren blev ikke formateret korrekt.</string>
+  <string name="error_unknown">En ukendt fejl opstod.</string>
+  <string name="format_error_server_message">Besked: \"%s\"</string>
+  <string name="format_error_server_code">Kode: \"%s\"</string>
 </resources>

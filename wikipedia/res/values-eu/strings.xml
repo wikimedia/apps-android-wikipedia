@@ -86,7 +86,7 @@
   <string name="login_error_wrong_password">Pasahitz okerra</string>
   <string name="login_error_wrong_username">Erabiltzaile izen okerra</string>
   <string name="login_error_illegal">Erabiltzaile izen baliogabea</string>
-  <string name="login_success_toast" fuzzy="true">Saio hasiera egina!</string>
+  <string name="login_success_toast">Saio hasiera egina!</string>
   <string name="login_error_blocked">Erabiltzaile hau blokeatua izan da</string>
   <string name="login_error_throttled">Saioa hasteko saiakera gehiegi. Itxaron minutu batzuk eta saiatu berriro.</string>
   <string name="login_error_unknown">Ezin izan da saioa hasi :(</string>
@@ -107,7 +107,11 @@
   <string name="create_account_password_repeat_hint">Pasahitza errepikatu</string>
   <string name="create_account_passwords_mismatch_error">Pasahitzak ez datoz bat</string>
   <string name="create_account_email_error">E-posta helbide okerra</string>
+  <string name="create_account_username_exists_error">Lankide izena dagoeneko erabiltzen</string>
+  <string name="create_account_invalid_email_error">Eman duzun email helbidea ez da baliagarria.</string>
   <string name="create_account_password_too_short_error">Eman duzun pasahitza laburregia da.</string>
+  <string name="create_account_blocked_anon_error">Ezin duzu konturik sortu zure IP helbidea blokeatuta baitago.</string>
+  <string name="create_account_blocked_error">Ezin duzu kontu bat sortu zure kontua blokeatuta baitago.</string>
   <string name="create_account_password_name_match_error">Zure lankide izena eta pasahitza desberdinak behar dute izan.</string>
   <string name="create_account_generic_error">Ezin izan da kontua sortu</string>
   <string name="create_account_no_network">Ez dago sareko konexiorik</string>

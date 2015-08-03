@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name_prod">விக்கிப்பீடியா</string>
+  <string name="app_name_beta">விக்கிப்பீடியா பீட்டா</string>
+  <string name="app_name_alpha">விக்கிப்பீடியா ஆல்பா</string>
   <string name="yes">ஆம்</string>
   <string name="no">இல்லை</string>
   <string name="acra_report_dialog_title">விக்கிப்பீடியா செயலிழந்துவிட்டது :(</string>
@@ -8,7 +10,7 @@
   <string name="acra_report_dialog_comment">செயலிழப்பு நடந்த போது நீங்கள் என்ன செய்து கொண்டிருந்தீர்கள்?</string>
   <string name="search_hint">விக்கிப்பீடியாவில் தேடவும்</string>
   <string name="nav_item_history">வரலாறு</string>
-  <string name="error_network_error" fuzzy="true">வலைய இணைப்பு இல்லை :(</string>
+  <string name="error_network_error">வலைய இணைப்பு இல்லை :(</string>
   <string name="search_network_error">வலையத் தவறு. திரும்ப முயல தட்டவும்.</string>
   <string name="generic_page_error">தங்களின் வேண்டுகோளைக் கையாளுவதில் ஒரு சிக்கல் இருந்தது.</string>
   <string name="status_code_unavailable">வழங்கியின் நிலை குறியீடு கிடைக்கவில்லை</string>
@@ -35,6 +37,9 @@
   <string name="saved_pages_search_list_hint">சேமித்த பக்கங்களில் தேடுக</string>
   <string name="saved_pages_search_empty_message">உங்கள் வினவலுடன் பொருந்தக்கூடிய எந்தவொரு பக்கமும் காணப்படவில்லை.</string>
   <string name="nav_item_nearby">அருகில்</string>
+  <string name="menu_update_nearby">அருகிலுள்ளவற்றை புதுப்பி</string>
+  <string name="nearby_empty_title">அருகாமையில் பக்கங்கள் ஏதுமில்லை.</string>
+  <string name="nearby_empty_message">புதிய இடத்திற்குச் செல்லும் போது, அருகிலுள்ளவற்றைப் பற்றி அறிந்துகொள்ள இப்பக்கத்தினைப் புதுப்பிக்கவும்.</string>
   <string name="nearby_distance_in_meters">%d மீ</string>
   <string name="nearby_distance_in_kilometers">%.2f கி. மீ.</string>
   <string name="nearby_distance_in_feet">%d அடி</string>
@@ -43,6 +48,7 @@
   <string name="nearby_server_error">அருகிலுள்ள இடங்களின் பட்டியலைப் பெற முடியவில்லை.</string>
   <string name="nearby_dialog_goto_settings">உங்கள் கருவியில் இட இற்றைப்படுத்தல்கள் செயற்படுத்தப்படவில்லை. உங்கள் கருவியின் அமைப்புகளில் இட இற்றைப்படுத்தல்களைச் செயற்படுத்த விரும்புகின்றீர்களா?</string>
   <string name="nearby_set_metric">மீ/கிமீ காட்டுக</string>
+  <string name="nearby_set_imperial">அடி/மைல்களை காட்டு</string>
   <string name="nearby_view_on_map">இடத்தை வரைபடத்திற் பார்க்க</string>
   <string name="last_updated_text">இறுதியாக புதுப்பிக்கப்பட்டது %1$s</string>
   <string name="preference_title_language">விக்கப்பீடியா மொழி</string>
@@ -80,7 +86,7 @@
   <string name="login_error_wrong_password">தவறான கடவுச்சொல்.</string>
   <string name="login_error_wrong_username">தவறான பயனர்பெயர்</string>
   <string name="login_error_illegal">செல்லுபடியாகாத பயனர் பெயர்</string>
-  <string name="login_success_toast" fuzzy="true">புகுபதிகை வெற்றி</string>
+  <string name="login_success_toast">புகுபதிகை வெற்றி</string>
   <string name="login_error_blocked">இந்த பயனர் தடை செய்யப்பட்டுள்ளார்</string>
   <string name="login_error_throttled">பல முறை உள்நுழைய முயற்சிக்கப்பட்டுள்ளது. சில நிமிடங்கள் காத்திருந்தப்பின் மீண்டும் முயற்சிக்கலாமே?</string>
   <string name="login_error_unknown">புகுபதிகை தோல்வியடைந்தது</string>
@@ -131,7 +137,7 @@
   <string name="nav_item_random">ஏதோ ஒன்று</string>
   <string name="user_contribs_more_action">இன்னும் ஏற்று</string>
   <string name="activity_my_contributions_title">என் பங்களிப்புக்கள்</string>
-  <string name="history_search_list_hint" fuzzy="true">தேடுக</string>
+  <string name="history_search_list_hint">வரலாற்றைத் தேடுக</string>
   <string name="error_can_not_process_link">இந்த இணைப்பைக் காட்ட முடியவில்லை</string>
   <string name="page_protected_autoconfirmed">இந்த பக்கம் அரைப் பாதுகாக்கபட்டுள்ளது.</string>
   <string name="page_protected_sysop">இந்த பக்கம் முழுமையாகப் பாதுகாக்கப்பட்டுள்ளது.</string>
@@ -157,8 +163,36 @@
   <string name="edit_summary_tag_grammar">இலக்கணப் பிழைத்திருத்தம்</string>
   <string name="edit_summary_tag_other">பிற சுருக்கம்</string>
   <string name="menu_page_saved">பக்கம் சேமிக்கப்பட்டது</string>
+  <string name="dialog_page_issues">பக்க சிக்கல்கள்</string>
+  <string name="button_page_issues">பக்க சிக்கல்கள்</string>
+  <string name="menu_themechooser">எழுத்துரு மற்றும் பிற</string>
   <string name="text_size_select">எழுத்துரு அளவு</string>
+  <string name="color_theme_select">பின்புலத்தோற்றங்கள்</string>
+  <string name="color_theme_light">வெளிச்சம்</string>
   <string name="color_theme_dark">இருட்டான</string>
+  <string name="page_similar_titles">ஒத்த பக்கங்கள்</string>
   <string name="search_did_you_mean">தாங்கள் குறிப்பது \"%s\"?</string>
+  <string name="search_recent_header">அண்மைய தேடல்கள்</string>
+  <string name="button_clear_all_recent_searches">அண்மைய தேடல்களை அழிக்கவும்</string>
+  <string name="clear_recent_searches_confirm">வரலாற்றை அழிக்க சம்மதமா?</string>
+  <string name="error_browser_not_found">இப்பக்கத்தினை திறக்க இயலவில்லை (உலாவி செயலிகள் ஏதும் இல்லை).</string>
+  <string name="table_close">மூடுக</string>
+  <string name="widget_name_featured_page">விக்கிப்பீடியா சிறப்புப் பக்கம்</string>
+  <string name="widget_title_featured_page">இன்றைய சிறப்பு உள்ளடக்கம்</string>
+  <string name="widget_name_search">விக்கிப்பீடியா தேடல்</string>
+  <string name="dialog_close_description">மூடுக</string>
+  <string name="preference_title_show_images">படிமங்களை காட்டு</string>
+  <string name="read_more_section">மேலும் அறிக</string>
+  <string name="read_next_section">அடுத்ததை படிக்க</string>
+  <string name="menu_gallery_visit_page">கோப்பின் பக்கத்திற்கு செல்க</string>
+  <string name="gallery_error_draw_failed">படிமத்தை வரைய முடியவில்லை</string>
+  <string name="license_title">%s காப்புரிமை</string>
+  <string name="gallery_menu_share">பகிர்</string>
+  <string name="gallery_share_error">%s படிமத்தை பகிர இயலவில்லை</string>
+  <string name="gallery_menu_save">கைபேசியில் சேமி</string>
+  <string name="gallery_save_error">%s படிமத்தை சேமிக்க இயலவில்லை</string>
   <string name="edit_save_unknown_error">தங்களது தொகுப்புத் திருத்தத்தை சேமிக்க முடியவில்லை: %s</string>
+  <string name="error_unknown">இனம் தெரியாத ஒரு தவறு நிகழ்ந்துவிட்டது</string>
+  <string name="format_error_server_message">\"%s\" செயதி</string>
+  <string name="format_error_server_code">\"%s\" மூலம்</string>
 </resources>

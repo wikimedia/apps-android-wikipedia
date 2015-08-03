@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Неверный пароль</string>
   <string name="login_error_wrong_username">Неверное имя пользователя</string>
   <string name="login_error_illegal">Неправильное имя участника</string>
-  <string name="login_success_toast" fuzzy="true">Опознание прошло успешно!</string>
+  <string name="login_success_toast"/>
   <string name="login_error_blocked">Этот участник был заблокирован</string>
   <string name="login_error_throttled">Слишком много попыток входа. Подождите несколько минут и попробуйте ещё раз.</string>
   <string name="login_error_unknown">Не удалось войти :(</string>

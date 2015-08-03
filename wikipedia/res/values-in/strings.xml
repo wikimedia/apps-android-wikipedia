@@ -277,7 +277,7 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="menu_save_page_popup">Simpan untuk nanti</string>
   <string name="tool_tip_select_text">Tekan dan tahan di mana saja di teks untuk menyorotnya untuk salin dan berbagi.</string>
   <string name="tool_tip_share">Setelah menyorot sebuah fakta yang menarik, coba membagikannya di jaringan kesukaan Anda!</string>
-  <string name="page_view_in_browser" fuzzy="true">Lihat di peramban</string>
+  <string name="page_view_in_browser">Lihat halaman di peramban</string>
   <string name="tool_tip_toc_button">Lihat daftar isi kapan saja dengan menekan tombol ini, atau geser dari tepi kanan layar.</string>
   <string name="error_server_response">Peladen tidak dapat menyelesaikan permintaan.</string>
   <string name="error_response_malformed">Respon dari server tidak diformat dengan benar.</string>
