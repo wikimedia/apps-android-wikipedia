@@ -71,7 +71,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     private static final double METER_TO_FEET = 3.280839895;
     private static final int ONE_MILE = 5280;
 
-    private ViewGroup nearbyContainer;
     private WikiListView nearbyList;
     private View nearbyEmptyContainer;
     private NearbyAdapter adapter;
@@ -122,7 +121,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_nearby, container, false);
 
-        nearbyContainer = (ViewGroup) rootView.findViewById(R.id.nearby_container);
         nearbyList = (WikiListView) rootView.findViewById(R.id.nearby_list);
         nearbyEmptyContainer = rootView.findViewById(R.id.nearby_empty_container);
         nearbyEmptyContainer.setVisibility(View.GONE);
