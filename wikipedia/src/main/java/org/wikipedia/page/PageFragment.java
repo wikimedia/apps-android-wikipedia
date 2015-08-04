@@ -574,10 +574,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.getSettings().setDefaultFontSize((int) app.getFontSize(getActivity().getWindow()));
     }
 
-    private void openInNewBackgroundTab(PageTitle title, HistoryEntry entry) {
-        openInNewTab(title, entry, getBackgroundTabPosition());
-    }
-
     private void openInNewTab(PageTitle title, HistoryEntry entry, int position) {
         // create a new tab
         Tab tab = new Tab();
