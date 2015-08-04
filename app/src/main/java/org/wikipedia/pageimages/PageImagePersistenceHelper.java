@@ -11,26 +11,25 @@ import org.wikipedia.data.PersistenceHelper;
 
 public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
 
-    private static final int COL_INDEX_SITE = 1;
-    private static final int COL_INDEX_TITLE = 2;
-    private static final int COL_INDEX_IMAGE_NAME = 3;
+    private static final String COL_SITE = "site";
+    private static final String COL_TITLE = "title";
+    private static final String COL_IMAGE_NAME = "imageName";
 
     @Override
     public PageImage fromCursor(Cursor c) {
-        // Carefully, get them back by using position only
-        Site site = new Site(c.getString(COL_INDEX_SITE));
+        Site site = new Site(c.getString(c.getColumnIndex(COL_SITE)));
         // FIXME: Does not handle non mainspace pages
-        PageTitle title = new PageTitle(null, c.getString(COL_INDEX_TITLE), site);
-        String imageName = c.getString(COL_INDEX_IMAGE_NAME);
+        PageTitle title = new PageTitle(null, c.getString(c.getColumnIndex(COL_TITLE)), site);
+        String imageName = c.getString(c.getColumnIndex(COL_IMAGE_NAME));
         return new PageImage(title, imageName);
     }
 
     @Override
     protected ContentValues toContentValues(PageImage obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("site", obj.getTitle().getSite().getDomain());
-        contentValues.put("title", obj.getTitle().getPrefixedText());
-        contentValues.put("imageName", obj.getImageName());
+        contentValues.put(COL_SITE, obj.getTitle().getSite().getDomain());
+        contentValues.put(COL_TITLE, obj.getTitle().getPrefixedText());
+        contentValues.put(COL_IMAGE_NAME, obj.getImageName());
         return contentValues;
     }
 
@@ -40,7 +39,7 @@ public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
         String thumbnail = null;
         try {
             String searchStr = title.getPrefixedText().replace("'", "''");
-            String selection = getTableName() + ".title='" + searchStr + "'";
+            String selection = getTableName() + "." + COL_TITLE + "='" + searchStr + "'";
             c = app.getPersister(PageImage.class).select(
                     selection, new String[] {}, "");
             if (c.getCount() > 0) {
@@ -68,9 +67,9 @@ public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
             case 1:
                 return new Column[] {
                         new Column("_id", "integer primary key"),
-                        new Column("site", "string"),
-                        new Column("title", "string"),
-                        new Column("imageName", "string"),
+                        new Column(COL_SITE, "string"),
+                        new Column(COL_TITLE, "string"),
+                        new Column(COL_IMAGE_NAME, "string"),
                 };
             default:
                 return new Column[0];
@@ -79,7 +78,7 @@ public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
 
     @Override
     protected String getPrimaryKeySelection() {
-        return "site = ? AND title = ?";
+        return COL_SITE + " = ? AND " + COL_TITLE + " = ?";
     }
 
     @Override

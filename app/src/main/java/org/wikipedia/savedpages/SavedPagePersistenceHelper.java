@@ -13,27 +13,27 @@ public class SavedPagePersistenceHelper extends PersistenceHelper<SavedPage> {
     private static final int DB_VER_INTRODUCED = 4;
     private static final int DB_VER_NAMESPACE_ADDED = 6;
 
-    private static final int COL_INDEX_SITE = 1;
-    private static final int COL_INDEX_TITLE = 2;
-    private static final int COL_INDEX_NAMESPACE = 3;
-    private static final int COL_INDEX_TIME = 4;
+    private static final String COL_SITE = "site";
+    private static final String COL_TITLE = "title";
+    private static final String COL_NAMESPACE = "namespace";
+    private static final String COL_TIMESTAMP = "timestamp";
 
     @Override
     public SavedPage fromCursor(Cursor c) {
-        // Carefully, get them back by using position only
-        Site site = new Site(c.getString(COL_INDEX_SITE));
-        PageTitle title = new PageTitle(c.getString(COL_INDEX_NAMESPACE), c.getString(COL_INDEX_TITLE), site);
-        Date timestamp = new Date(c.getLong(COL_INDEX_TIME));
+        Site site = new Site(c.getString(c.getColumnIndex(COL_SITE)));
+        PageTitle title = new PageTitle(c.getString(c.getColumnIndex(COL_NAMESPACE)),
+                c.getString(c.getColumnIndex(COL_TITLE)), site);
+        Date timestamp = new Date(c.getLong(c.getColumnIndex(COL_TIMESTAMP)));
         return new SavedPage(title, timestamp);
     }
 
     @Override
     protected ContentValues toContentValues(SavedPage obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("title", obj.getTitle().getText());
-        contentValues.put("namespace", obj.getTitle().getNamespace());
-        contentValues.put("timestamp", obj.getTimestamp().getTime());
-        contentValues.put("site", obj.getTitle().getSite().getDomain());
+        contentValues.put(COL_SITE, obj.getTitle().getSite().getDomain());
+        contentValues.put(COL_TITLE, obj.getTitle().getText());
+        contentValues.put(COL_NAMESPACE, obj.getTitle().getNamespace());
+        contentValues.put(COL_TIMESTAMP, obj.getTimestamp().getTime());
         return contentValues;
     }
 
@@ -53,13 +53,13 @@ public class SavedPagePersistenceHelper extends PersistenceHelper<SavedPage> {
             case 1:
                 return new Column[] {
                         new Column("_id", "integer primary key"),
-                        new Column("site", "string"),
-                        new Column("title", "string"),
-                        new Column("timestamp", "integer")
+                        new Column(COL_SITE, "string"),
+                        new Column(COL_TITLE, "string"),
+                        new Column(COL_TIMESTAMP, "integer")
                 };
             case DB_VER_NAMESPACE_ADDED:
                 return new Column[] {
-                        new Column("namespace", "string")
+                        new Column(COL_NAMESPACE, "string")
                 };
             default:
                 return new Column[0];
@@ -68,7 +68,7 @@ public class SavedPagePersistenceHelper extends PersistenceHelper<SavedPage> {
 
     @Override
     protected String getPrimaryKeySelection() {
-        return "site = ? AND title = ?";
+        return COL_SITE + " = ? AND " + COL_TITLE + " = ?";
     }
 
     @Override

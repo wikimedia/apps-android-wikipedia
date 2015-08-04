@@ -7,19 +7,24 @@ import org.wikipedia.data.PersistenceHelper;
 import java.util.Date;
 
 public class EditSummaryPersistenceHelper extends PersistenceHelper<EditSummary> {
+
+    private static final int DB_VER_INTRODUCED = 2;
+
+    private static final String COL_SUMMARY = "summary";
+    private static final String COL_LAST_USED = "lastUsed";
+
     @Override
     public EditSummary fromCursor(Cursor c) {
-        // Carefully, get them back by using position only
-        String summary = c.getString(1);
-        Date lastUsed = new Date(c.getLong(2));
+        String summary = c.getString(c.getColumnIndex(COL_SUMMARY));
+        Date lastUsed = new Date(c.getLong(c.getColumnIndex(COL_LAST_USED)));
         return new EditSummary(summary, lastUsed);
     }
 
     @Override
     protected ContentValues toContentValues(EditSummary obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("summary", obj.getSummary());
-        contentValues.put("lastUsed", obj.getLastUsed().getTime());
+        contentValues.put(COL_SUMMARY, obj.getSummary());
+        contentValues.put(COL_LAST_USED, obj.getLastUsed().getTime());
         return contentValues;
     }
 
@@ -30,17 +35,17 @@ public class EditSummaryPersistenceHelper extends PersistenceHelper<EditSummary>
 
     @Override
     protected int getDBVersionIntroducedAt() {
-        return 2;
+        return DB_VER_INTRODUCED;
     }
 
     @Override
     public Column[] getColumnsAdded(int version) {
         switch (version) {
-            case 2:
+            case DB_VER_INTRODUCED:
                 return new Column[] {
                         new Column("_id", "integer primary key"),
-                        new Column("summary", "string"),
-                        new Column("lastUsed", "integer")
+                        new Column(COL_SUMMARY, "string"),
+                        new Column(COL_LAST_USED, "integer")
                 };
             default:
                 return new Column[0];
@@ -49,7 +54,7 @@ public class EditSummaryPersistenceHelper extends PersistenceHelper<EditSummary>
 
     @Override
     protected String getPrimaryKeySelection() {
-        return "summary = ?";
+        return COL_SUMMARY + " = ?";
     }
 
     @Override

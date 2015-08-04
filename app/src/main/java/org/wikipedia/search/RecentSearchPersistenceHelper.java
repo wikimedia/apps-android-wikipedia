@@ -10,22 +10,21 @@ public class RecentSearchPersistenceHelper extends PersistenceHelper<RecentSearc
 
     private static final int DB_VER_INTRODUCED = 5;
 
-    private static final int COL_INDEX_TEXT = 1;
-    private static final int COL_INDEX_TIMESTAMP = 2;
+    private static final String COL_TEXT = "text";
+    private static final String COL_TIMESTAMP = "timestamp";
 
     @Override
     public RecentSearch fromCursor(Cursor c) {
-        // Carefully, get them back by using position only
-        String title = c.getString(COL_INDEX_TEXT);
-        Date timestamp = new Date(c.getLong(COL_INDEX_TIMESTAMP));
+        String title = c.getString(c.getColumnIndex(COL_TEXT));
+        Date timestamp = new Date(c.getLong(c.getColumnIndex(COL_TIMESTAMP)));
         return new RecentSearch(title, timestamp);
     }
 
     @Override
     protected ContentValues toContentValues(RecentSearch obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("text", obj.getText());
-        contentValues.put("timestamp", obj.getTimestamp().getTime());
+        contentValues.put(COL_TEXT, obj.getText());
+        contentValues.put(COL_TIMESTAMP, obj.getTimestamp().getTime());
         return contentValues;
     }
 
@@ -45,8 +44,8 @@ public class RecentSearchPersistenceHelper extends PersistenceHelper<RecentSearc
             case DB_VER_INTRODUCED:
                 return new Column[] {
                         new Column("_id", "integer primary key"),
-                        new Column("text", "string"),
-                        new Column("timestamp", "integer"),
+                        new Column(COL_TEXT, "string"),
+                        new Column(COL_TIMESTAMP, "integer"),
                 };
             default:
                 return new Column[0];
@@ -55,7 +54,7 @@ public class RecentSearchPersistenceHelper extends PersistenceHelper<RecentSearc
 
     @Override
     protected String getPrimaryKeySelection() {
-        return "text = ?";
+        return COL_TEXT + " = ?";
     }
 
     @Override
