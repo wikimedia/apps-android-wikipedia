@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import org.wikipedia.*;
@@ -82,6 +83,10 @@ public class LoginActivity extends ThemedActionBarActivity {
                 startCreateAccountActivity();
             }
         });
+
+        // Set up the "Show password" check box
+        CheckBox showPasswordCheck = (CheckBox) findViewById(R.id.login_show_password);
+        Utils.setupShowPasswordCheck(showPasswordCheck, passwordText);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
