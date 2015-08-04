@@ -57,5 +57,5 @@ def bump(file_path):
 
 
 if __name__ == '__main__':
-    bump('wikipedia/build.gradle')
+    bump('app/build.gradle')
     print('BUMP NOTICE! Run git review with bumped version and +2 if appropriate,')

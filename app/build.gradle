@@ -83,25 +83,6 @@ android {
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
         }
     }
-    sourceSets {
-        // Still using old Maven archetype based directory structure and
-        // not the new standard Gradle one
-        main {
-            manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src/main/java']
-            res.srcDirs = ['res']
-            assets.srcDirs = ['assets']
-        }
-
-        // Move the build types to build-types/<type>
-        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
-        // This moves them out of them default location under src/<type>/... which would
-        // conflict with src/ being used by the main source set.
-        // Adding new build types or product flavors should be accompanied
-        // by a similar customization.
-        debug.setRoot('build-types/debug')
-        release.setRoot('build-types/release')
-    }
     // while we still have lint errors; remove once those are fixed
     lintOptions {
         disable 'MissingTranslation'
@@ -122,7 +103,7 @@ dependencies {
 
     // To keep the Maven Central dependencies up-to-date
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
-    // Debug with ./gradlew -q wikipedia:dependencies --configuration compile
+    // Debug with ./gradlew -q app:dependencies --configuration compile
 
     compile 'com.android.support:appcompat-v7:22.2.1' // includes support-v4
     compile 'com.android.support:design:22.2.1'

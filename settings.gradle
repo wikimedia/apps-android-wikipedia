@@ -19,5 +19,5 @@ def includeExists = { String projectPath, String name ->
     }
 }
 
-include ':wikipedia'
+include ':app'
 includeExists ':java-mwapi:lib', 'json'

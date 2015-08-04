@@ -97,7 +97,7 @@ def copy_artifacts(flavor):
 
 
 def get_original_apk_file_name(flavor):
-    return 'wikipedia/build/outputs/apk/wikipedia-%s-release.apk' % flavor
+    return 'app/build/outputs/apk/app-%s-release.apk' % flavor
 
 
 def get_android_home():
@@ -109,7 +109,7 @@ def get_android_home():
 
 
 def grep_from_build_file(property_name, regex):
-    build_gradle_file_name = 'wikipedia/build.gradle'
+    build_gradle_file_name = 'app/build.gradle'
     with open(build_gradle_file_name, "r") as build_file:
         for line in build_file:
             found = re.search(regex, line)
@@ -150,7 +150,7 @@ def copy_proguard_mapping(flavor, version_name):
     folder_path = 'releases'
     sh.mkdir("-p", folder_path)
     output_file = '%s/wikipedia-%s.mapping.tar.gz' % (folder_path, version_name)
-    input_file = 'wikipedia/build/outputs/mapping/%s/release/mapping.txt' % flavor
+    input_file = 'app/build/outputs/mapping/%s/release/mapping.txt' % flavor
     sh.tar('czf', output_file, input_file)
     print ' proguard mapping: %s' % output_file
 

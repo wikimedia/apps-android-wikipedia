@@ -74,13 +74,13 @@ module.exports = function ( grunt ) {
             main: {
                 files: [
                     // App files
-                    {src: ["bundle.js", "index.html"], dest: "../wikipedia/assets/"},
+                    {src: ["bundle.js", "index.html"], dest: "../app/src/main/assets/"},
 
                     // Test files
-                    {src: ["bundle-test.js", "tests/index.html"], dest: "../wikipedia/assets/"},
+                    {src: ["bundle-test.js", "tests/index.html"], dest: "../app/src/main/assets/"},
 
                     // Preview files
-                    { src: ["preview.js", "preview.html"], dest: "../wikipedia/assets/" },
+                    { src: ["preview.js", "preview.html"], dest: "../app/src/main/assets/" },
                 ]
             }
         },

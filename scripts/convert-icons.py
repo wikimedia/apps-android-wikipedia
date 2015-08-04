@@ -13,7 +13,7 @@ DENSITIES = {
     "xxxhdpi": 4
 }
 
-OUTPUT_PATH_PREFIX = os.path.abspath(os.path.join(os.path.dirname(__file__), "../wikipedia/res/"))
+OUTPUT_PATH_PREFIX = os.path.abspath(os.path.join(os.path.dirname(__file__), "../app/src/main/res/"))
 
 
 class ImagesBatch(object):
