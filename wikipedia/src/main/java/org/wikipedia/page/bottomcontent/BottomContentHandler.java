@@ -95,8 +95,8 @@ public class BottomContentHandler implements BottomContentInterface,
             }
         });
 
-        new PageLongPressHandler(activity.getWindow(), readMoreList, contextMenuListener,
-                HistoryEntry.SOURCE_INTERNAL_LINK);
+        new PageLongPressHandler(activity, readMoreList, HistoryEntry.SOURCE_INTERNAL_LINK,
+                contextMenuListener);
 
         // set up pass-through scroll functionality for the ListView
         readMoreList.setOnTouchListener(new View.OnTouchListener() {
@@ -365,8 +365,8 @@ public class BottomContentHandler implements BottomContentInterface,
         adapter.notifyDataSetChanged();
     }
 
-    private PageLongPressHandler.ContextMenuListener contextMenuListener
-            = new PageLongPressHandler.ContextMenuListener() {
+    private PageLongPressHandler.ListViewContextMenuListener contextMenuListener
+            = new PageLongPressHandler.ListViewContextMenuListener() {
         private int lastPosition;
         @Override
         public PageTitle getTitleForListPosition(int position) {

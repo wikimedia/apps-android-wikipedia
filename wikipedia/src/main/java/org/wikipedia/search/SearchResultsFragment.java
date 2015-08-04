@@ -63,8 +63,8 @@ public class SearchResultsFragment extends Fragment {
      */
     private boolean fullSearchDisabled = false;
 
-    private PageLongPressHandler.ContextMenuListener contextMenuListener
-            = new PageLongPressHandler.ContextMenuListener() {
+    private PageLongPressHandler.ListViewContextMenuListener contextMenuListener
+            = new PageLongPressHandler.ListViewContextMenuListener() {
         @Override
         public PageTitle getTitleForListPosition(int position) {
             return (PageTitle) searchResultsList.getAdapter().getItem(position);
@@ -118,8 +118,8 @@ public class SearchResultsFragment extends Fragment {
             }
         });
 
-        new PageLongPressHandler(getActivity().getWindow(), searchResultsList, contextMenuListener,
-                HistoryEntry.SOURCE_SEARCH);
+        new PageLongPressHandler(getActivity(), searchResultsList, HistoryEntry.SOURCE_SEARCH,
+                contextMenuListener);
 
         SearchResultAdapter adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);

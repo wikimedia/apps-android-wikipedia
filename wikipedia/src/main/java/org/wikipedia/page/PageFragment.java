@@ -332,8 +332,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         tabsProvider = new TabsProvider(getPageActivity(), tabList);
         tabsProvider.setTabsProviderListener(tabsProviderListener);
-        longPressHandler = new PageLongPressHandler(getActivity().getWindow(), webView,
-                contextMenuListener);
+        longPressHandler = new PageLongPressHandler(getActivity(), webView,
+                HistoryEntry.SOURCE_INTERNAL_LINK, contextMenuListener);
 
         pageLoadStrategy.setup(model, this, refreshView, webView, bridge, searchBarHideHandler,
                 leadImagesHandler);
@@ -369,24 +369,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
             }
         });
-        webView.addOnLongPressListener(new ObservableWebView.OnLongPressListener() {
-            @Override
-            public boolean onLongPress(float x, float y, final String linkTitle) {
-                PageTitle newTitle = model.getTitleOriginal().getSite().titleForInternalLink(
-                        linkTitle);
-                HistoryEntry newEntry = new HistoryEntry(newTitle,
-                        HistoryEntry.SOURCE_INTERNAL_LINK);
-                longPressHandler.onLongPress((int) x, (int) y, newTitle, newEntry);
-                return true;
-            }
-        });
     }
 
-    private PageLongPressHandler.ContextMenuListener contextMenuListener
-            = new PageLongPressHandler.ContextMenuListener() {
+    private PageLongPressHandler.WebViewContextMenuListener contextMenuListener
+            = new PageLongPressHandler.WebViewContextMenuListener() {
         @Override
-        public PageTitle getTitleForListPosition(int position) {
-            return null;
+        public Site getSite() {
+            return model.getTitleOriginal().getSite();
         }
 
         @Override

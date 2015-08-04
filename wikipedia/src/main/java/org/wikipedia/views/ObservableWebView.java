@@ -2,10 +2,8 @@ package org.wikipedia.views;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.view.ContextMenu;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.webkit.WebView;
@@ -19,7 +17,6 @@ public class ObservableWebView extends WebView {
     private static final WebViewInvalidateEvent INVALIDATE_EVENT = new WebViewInvalidateEvent();
 
     private List<OnClickListener> onClickListeners;
-    private List<OnLongPressListener> onLongPressListeners;
     private List<OnScrollChangeListener> onScrollChangeListeners;
     private List<OnDownMotionEventListener> onDownMotionEventListeners;
     private List<OnUpOrCancelMotionEventListener> onUpOrCancelMotionEventListeners;
@@ -57,10 +54,6 @@ public class ObservableWebView extends WebView {
         onClickListeners.add(onClickListener);
     }
 
-    public void addOnLongPressListener(OnLongPressListener onLongPressListener) {
-        onLongPressListeners.add(onLongPressListener);
-    }
-
     public void addOnScrollChangeListener(OnScrollChangeListener onScrollChangeListener) {
         onScrollChangeListeners.add(onScrollChangeListener);
     }
@@ -83,10 +76,6 @@ public class ObservableWebView extends WebView {
 
     public interface OnClickListener {
         boolean onClick(float x, float y);
-    }
-
-    public interface OnLongPressListener {
-        boolean onLongPress(float x, float y, String linkTitle);
     }
 
     public interface OnScrollChangeListener {
@@ -132,7 +121,6 @@ public class ObservableWebView extends WebView {
 
     private void init() {
         onClickListeners = new ArrayList<>();
-        onLongPressListeners = new ArrayList<>();
         onScrollChangeListeners = new ArrayList<>();
         onDownMotionEventListeners = new ArrayList<>();
         onUpOrCancelMotionEventListeners = new ArrayList<>();
@@ -206,22 +194,5 @@ public class ObservableWebView extends WebView {
             }
         }
         WikipediaApp.getInstance().getBus().post(INVALIDATE_EVENT);
-    }
-
-    @Override
-    protected void onCreateContextMenu(ContextMenu menu) {
-        super.onCreateContextMenu(menu);
-        HitTestResult result = getHitTestResult();
-        if (result.getType() == HitTestResult.SRC_ANCHOR_TYPE) {
-            Uri uri = Uri.parse(result.getExtra());
-            final String authority = uri.getAuthority();
-            if ("wikipedia.org".equals(authority)) {
-                for (OnLongPressListener listener : onLongPressListeners) {
-                    if (listener.onLongPress(touchStartX, touchStartY, uri.getPath())) {
-                        break;
-                    }
-                }
-            }
-        }
     }
 }

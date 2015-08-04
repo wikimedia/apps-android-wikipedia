@@ -55,8 +55,8 @@ class PageInfoDialog extends BottomDialog {
                 activity.displayNewPage(title, historyEntry);
             }
         });
-        new PageLongPressHandler(getWindow(), disambigList, contextMenuListener,
-                HistoryEntry.SOURCE_INTERNAL_LINK);
+        new PageLongPressHandler(getContext(), disambigList,
+                HistoryEntry.SOURCE_INTERNAL_LINK, contextMenuListener);
 
         if (pageInfo.getDisambigs().length > 0) {
             disambigHeading.setOnClickListener(new View.OnClickListener() {
@@ -82,8 +82,8 @@ class PageInfoDialog extends BottomDialog {
         }
     }
 
-    private PageLongPressHandler.ContextMenuListener contextMenuListener
-            = new PageLongPressHandler.ContextMenuListener() {
+    private PageLongPressHandler.ListViewContextMenuListener contextMenuListener
+            = new PageLongPressHandler.ListViewContextMenuListener() {
         @Override
         public PageTitle getTitleForListPosition(int position) {
             return ((DisambigResult) disambigList.getAdapter().getItem(position)).getTitle();

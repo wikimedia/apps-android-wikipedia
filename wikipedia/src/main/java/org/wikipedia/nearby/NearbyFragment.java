@@ -156,8 +156,8 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 ((PageActivity) getActivity()).displayNewPage(title, newEntry);
             }
         });
-        new PageLongPressHandler(getActivity().getWindow(), nearbyList, contextMenuListener,
-                HistoryEntry.SOURCE_NEARBY);
+        new PageLongPressHandler(getActivity(), nearbyList, HistoryEntry.SOURCE_NEARBY,
+                contextMenuListener);
 
         // Acquire a reference to the system Location Manager
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
@@ -226,8 +226,8 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         }
     }
 
-    private PageLongPressHandler.ContextMenuListener contextMenuListener
-            = new PageLongPressHandler.ContextMenuListener() {
+    private PageLongPressHandler.ListViewContextMenuListener contextMenuListener
+            = new PageLongPressHandler.ListViewContextMenuListener() {
         @Override
         public PageTitle getTitleForListPosition(int position) {
             NearbyPage page = adapter.getItem(position);
