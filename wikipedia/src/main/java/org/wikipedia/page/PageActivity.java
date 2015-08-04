@@ -445,7 +445,7 @@ public class PageActivity extends ThemedActionBarActivity {
         } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
-            displayPageInForegroundTab(title, historyEntry);
+            displayNewPage(title, historyEntry);
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getPrimarySite());
