@@ -40,9 +40,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import static org.wikipedia.page.PageFragment.SUBSTATE_NONE;
-import static org.wikipedia.page.PageFragment.SUBSTATE_SAVED_PAGE_LOADED;
-
 /**
  * Our old page load strategy, which uses the JSON MW API directly and loads a page in multiple steps:
  * First it loads the lead section (sections=0).
@@ -62,7 +59,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     public static final int STATE_COMPLETE_FETCH = 3;
 
     private int state = STATE_NO_FETCH;
-    private int subState = SUBSTATE_NONE;
 
     /**
      * List of lightweight history items to serve as the backstack for this fragment.
@@ -227,7 +223,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         }
 
         state = STATE_NO_FETCH;
-        subState = SUBSTATE_NONE;
 
         // increment our sequence number, so that any async tasks that depend on the sequence
         // will invalidate themselves upon completion.
@@ -290,15 +285,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     private void setState(int state) {
-        setState(state, SUBSTATE_NONE);
-    }
-
-    private void setState(int state, int subState) {
         if (!fragment.isAdded()) {
             return;
         }
         this.state = state;
-        this.subState = subState;
         activity.supportInvalidateOptionsMenu();
 
         // FIXME: Move this out into a PageComplete event of sorts
@@ -323,16 +313,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     @Override
-    public void setSubState(int subState) {
-        this.subState = subState;
-    }
-
-    @Override
-    public int getSubState() {
-        return subState;
-    }
-
-    @Override
     public boolean isLoading() {
         return state != STATE_COMPLETE_FETCH;
     }
@@ -350,11 +330,12 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         bottomContentHandler.hide();
         bottomContentHandler.setTitle(model.getTitle());
 
-        if (model.getCurEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
+        // Before attempting to load saved page upon return from SavedPagesFragment, check to ensure it wasn't just deleted!
+        // TODO: Fix possible race condition when navigating from history fragment
+        if (model.getCurEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE && fragment.isPageSaved()) {
             state = STATE_NO_FETCH;
             loadSavedPage();
         } else if (tryFromCache) {
-            //is this page in cache??
             loadPageFromCache();
         } else {
             loadPageFromNetwork();
@@ -443,7 +424,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                         displayLeadSection();
                         displayNonLeadSectionForSavedPage(1);
 
-                        setState(STATE_COMPLETE_FETCH, SUBSTATE_SAVED_PAGE_LOADED);
+                        setState(STATE_COMPLETE_FETCH);
                     }
                 });
             }

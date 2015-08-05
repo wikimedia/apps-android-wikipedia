@@ -74,7 +74,6 @@ public class HtmlPageLoadStrategy implements PageLoadStrategy {
 //    private BottomContentInterface bottomContentHandler;
 
     private boolean isLoading;
-    private int subState;
 
     @Override
     public void setup(PageViewModel model, PageFragment fragment,
@@ -223,16 +222,6 @@ public class HtmlPageLoadStrategy implements PageLoadStrategy {
     @Override
     public void onDisplayNewPage(boolean pushBackStack, boolean tryFromCache, int stagedScrollY) {
         webView.loadUrl(getServiceUrlFor(model.getTitle()));
-    }
-
-    @Override
-    public void setSubState(int subState) {
-        this.subState = subState;
-    }
-
-    @Override
-    public int getSubState() {
-        return subState;
     }
 
     @Override
