@@ -376,6 +376,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                             Log.d(TAG, "Using page from cache: " + model.getTitleOriginal().getDisplayText());
                             model.setPage(page);
                             model.setTitle(page.getTitle());
+                            // Update our history entry, in case the Title was changed (i.e. normalized)
+                            final HistoryEntry curEntry = model.getCurEntry();
+                            model.setCurEntry(
+                                    new HistoryEntry(model.getTitle(), curEntry.getSource()));
                             // load the current title's thumbnail from sqlite
                             updateThumbnail(PageImage.PERSISTENCE_HELPER.getImageUrlForTitle(app, model.getTitle()));
                             // Save history entry...
