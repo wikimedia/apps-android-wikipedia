@@ -167,13 +167,16 @@ public class ShareHandler {
         webViewActionMode = mode;
         Menu menu = mode.getMenu();
 
+        // Hide "select all" and "web search" menu items (but leave them enabled)
+        hideSystemMenuItems(menu, "select_all", "web_search");
+
         // Find the "share" context menu item from the WebView's action mode.
         MenuItem shareItem = getSystemMenuItemByName(menu, "share");
 
         // if we were unable to find the Share button, then inject our own!
         if (shareItem == null) {
-            shareItem = mode.getMenu().add(Menu.NONE, Menu.NONE, Menu.NONE,
-                                           activity.getString(R.string.menu_share_page));
+            shareItem = menu.add(Menu.NONE, Menu.NONE, Menu.NONE,
+                    activity.getString(R.string.menu_share_page));
             shareItem.setIcon(R.drawable.ic_share_dark);
             MenuItemCompat.setShowAsAction(shareItem, MenuItemCompat.SHOW_AS_ACTION_ALWAYS
                                                       | MenuItemCompat.SHOW_AS_ACTION_WITH_TEXT);
@@ -202,6 +205,20 @@ public class ShareHandler {
 
         createFunnel();
         funnel.logHighlight();
+    }
+
+    /**
+     * Hide desired items from a system-controlled context menu.
+     * @param menu Menu on which to hide buttons.
+     * @param itemNames List of menu item resource names.
+     */
+    private void hideSystemMenuItems(Menu menu, String... itemNames) {
+        for (String itemName : itemNames) {
+            MenuItem item = getSystemMenuItemByName(menu, itemName);
+            if (item != null) {
+                item.setVisible(false);
+            }
+        }
     }
 
     /**
