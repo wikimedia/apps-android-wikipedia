@@ -1,6 +1,7 @@
 package org.wikipedia.search;
 
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageActivityLongPressHandler;
 import org.wikipedia.page.PageLongPressHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.ParcelableLruCache;
@@ -15,6 +16,7 @@ import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -63,27 +65,6 @@ public class SearchResultsFragment extends Fragment {
      */
     private boolean fullSearchDisabled = false;
 
-    private PageLongPressHandler.ListViewContextMenuListener contextMenuListener
-            = new PageLongPressHandler.ListViewContextMenuListener() {
-        @Override
-        public PageTitle getTitleForListPosition(int position) {
-            return (PageTitle) searchResultsList.getAdapter().getItem(position);
-        }
-
-        @Override
-        public void onOpenLink(PageTitle title, HistoryEntry entry) {
-            searchFragment.navigateToTitle(title, false);
-        }
-
-        @Override
-        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            searchFragment.navigateToTitle(title, true);
-        }
-    };
-
-    public SearchResultsFragment() {
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,9 +99,6 @@ public class SearchResultsFragment extends Fragment {
             }
         });
 
-        new PageLongPressHandler(getActivity(), searchResultsList, HistoryEntry.SOURCE_SEARCH,
-                contextMenuListener);
-
         SearchResultAdapter adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
@@ -151,6 +129,14 @@ public class SearchResultsFragment extends Fragment {
         searchHandler = new Handler(new SearchHandlerCallback());
 
         return rootView;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        PageLongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(getPageActivity());
+        new PageLongPressHandler(getActivity(), searchResultsList, HistoryEntry.SOURCE_SEARCH,
+                contextMenuListener);
     }
 
     @Override
@@ -228,7 +214,7 @@ public class SearchResultsFragment extends Fragment {
         TitleSearchTask searchTask = new TitleSearchTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm) {
             @Override
             public void onBeforeExecute() {
-                ((PageActivity)getActivity()).updateProgressBar(true, true, 0);
+                getPageActivity().updateProgressBar(true, true, 0);
             }
 
             @Override
@@ -245,7 +231,7 @@ public class SearchResultsFragment extends Fragment {
                     searchFragment.getFunnel().searchResults(false, pageTitles.size(), timeToDisplay);
                 }
 
-                ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
+                getPageActivity().updateProgressBar(false, true, 0);
                 searchErrorView.setVisibility(View.GONE);
                 if (!pageTitles.isEmpty()) {
                     displayResults(pageTitles);
@@ -287,7 +273,7 @@ public class SearchResultsFragment extends Fragment {
                 // Calculate total time taken to display results, in milliseconds
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
                 searchFragment.getFunnel().searchError(false, timeToDisplay);
-                ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
+                getPageActivity().updateProgressBar(false, true, 0);
 
                 searchErrorView.setVisibility(View.VISIBLE);
                 searchErrorView.setError(caught);
@@ -315,7 +301,7 @@ public class SearchResultsFragment extends Fragment {
                                    searchTerm, BATCH_SIZE, continueOffset, false) {
             @Override
             public void onBeforeExecute() {
-                ((PageActivity)getActivity()).updateProgressBar(true, true, 0);
+                getPageActivity().updateProgressBar(true, true, 0);
             }
 
             @Override
@@ -338,7 +324,7 @@ public class SearchResultsFragment extends Fragment {
                     cachedTitles.addAll(pageTitles);
                 }
 
-                ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
+                getPageActivity().updateProgressBar(false, true, 0);
                 searchErrorView.setVisibility(View.GONE);
                 displayResults(pageTitles);
 
@@ -354,7 +340,7 @@ public class SearchResultsFragment extends Fragment {
                 // Calculate total time taken to display results, in milliseconds
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
                 searchFragment.getFunnel().searchError(true, timeToDisplay);
-                ((PageActivity)getActivity()).updateProgressBar(false, true, 0);
+                getPageActivity().updateProgressBar(false, true, 0);
 
                 // since this is a follow-up search just show a message
                 FeedbackUtil.showError(getView(), caught);
@@ -382,6 +368,11 @@ public class SearchResultsFragment extends Fragment {
         ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetChanged();
     }
 
+    // TODO: don't assume host is PageActivity. Use Fragment callbacks pattern.
+    private PageActivity getPageActivity() {
+        return (PageActivity) getActivity();
+    }
+
     /**
      * Displays results passed to it as search suggestions.
      *
@@ -405,6 +396,28 @@ public class SearchResultsFragment extends Fragment {
 
         ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetChanged();
     }
+
+    private class LongPressHandler extends PageActivityLongPressHandler
+            implements PageLongPressHandler.ListViewContextMenuListener {
+        public LongPressHandler(@NonNull PageActivity activity) {
+            super(activity);
+        }
+
+        @Override
+        public PageTitle getTitleForListPosition(int position) {
+            return (PageTitle) searchResultsList.getAdapter().getItem(position);
+        }
+
+        @Override
+        public void onOpenLink(PageTitle title, HistoryEntry entry) {
+            searchFragment.navigateToTitle(title, false);
+        }
+
+        @Override
+        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
+            searchFragment.navigateToTitle(title, true);
+        }
+    };
 
     private final class SearchResultAdapter extends BaseAdapter {
         private final LayoutInflater inflater;

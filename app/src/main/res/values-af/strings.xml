@@ -24,16 +24,16 @@
   <string name="menu_update_all_saved_pages">Opdateer gestoorde bladsye</string>
   <string name="menu_update_selected_saved_pages">Opdateer gestoorde bladsye</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Opdateer alle gestoorde bladsye?</string>
-  <string name="menu_save_page">Stoor bladsy</string>
-  <string name="menu_share_page">Deel</string>
+  <string name="menu_page_save">Stoor bladsy</string>
+  <string name="menu_page_share">Deel</string>
   <string name="share_via">Deel deur</string>
   <string name="dialog_title_clear_saved_pages">Verwyder alle gestoorde bladsye?</string>
-  <string name="toast_saving_page">Besig om blad te stoor...</string>
-  <string name="toast_saved_page">Blad suksesvol gestoor</string>
-  <string name="toast_saved_page_missing_images">Kon nie alle beelde stoor nie</string>
-  <string name="toast_refresh_saved_page">Herlaai gestoorde blad...</string>
+  <string name="snackbar_saving_page">Besig om blad te stoor...</string>
+  <string name="snackbar_saved_page_format">Blad suksesvol gestoor</string>
+  <string name="snackbar_saved_page_missing_images">Kon nie alle beelde stoor nie</string>
+  <string name="snackbar_refresh_saved_page">Herlaai gestoorde blad...</string>
   <string name="delete_selected_saved_pages">Skrap</string>
-  <string name="toast_saved_page_deleted">Gestoorde blad(sye) geskrap</string>
+  <string name="snackbar_saved_page_deleted">Gestoorde blad(sye) geskrap</string>
   <string name="saved_pages_search_list_hint">Soek gestoorde bladsye</string>
   <string name="saved_pages_search_empty_message">Geen bladsye gevind wat by u soekterm pas nie.</string>
   <string name="nav_item_nearby">Naby</string>
@@ -59,7 +59,7 @@
   <string name="preference_system_language_toggle">Gebruik stelseltaal</string>
   <string name="preference_system_language_summary">Stelseltaal</string>
   <string name="langlinks_filter_hint">Soek</string>
-  <string name="menu_other_languages">Lees in ander tale</string>
+  <string name="menu_page_other_languages">Lees in ander tale</string>
   <string name="langlinks_error_retry">Probeer weer</string>
   <string name="langlinks_empty">Hierdie bladsy is nie beskikbaar in ander tale nie.</string>
   <string name="langlinks_no_match">Geen tale gevind wat u soekterm pas nie.</string>
@@ -186,7 +186,7 @@
   <string name="edit_summary_tag_links">Skakels bygevoeg</string>
   <string name="edit_summary_tag_other">Ander</string>
   <string name="edit_summary_tag_other_hint">Ander maniere waarop u die blad verbeter het</string>
-  <string name="find_in_page">Soek in blad</string>
+  <string name="menu_page_find_in_page">Soek in blad</string>
   <string name="find_next">Vind volgende</string>
   <string name="find_previous">Vind vorige</string>
   <string name="error_network_error_try_again">Kon nie netwerk bereik, probeer asseblief weer.</string>
@@ -202,7 +202,7 @@
   <string name="abusefilter_text_disallow">\'n Outomatiese filter het hierdie wysiging as potensiëel onkonstruktief, of potensiële vandalisme geïdentifiseer.&lt;br /&gt;&lt;br /&gt;Wikipedia is \'n ensiklopedie en slegs neutrale, noemenswaardige inhoud behoort hier.</string>
   <string name="dialog_page_issues">Bladprobleme</string>
   <string name="button_page_issues">Bladprobleme</string>
-  <string name="menu_themechooser">Lettertipe en tema</string>
+  <string name="menu_page_font_and_theme">Lettertipe en tema</string>
   <string name="text_size_select">Lettergrootte</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Lig</string>
@@ -267,12 +267,9 @@ Voorwaardes: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Billike gebruik</string>
   <string name="gallery_uploader_unknown">Oplaaier onbekend</string>
   <string name="edit_save_unknown_error">Kon nie u wysiging stoor nie: %s</string>
-  <string name="menu_show_tabs">Vertoon oortjies</string>
+  <string name="menu_page_show_tabs">Vertoon oortjies</string>
   <string name="menu_new_tab">Nuwe oortjie</string>
   <string name="button_close_tab">Maak oortjie toe</string>
-  <string name="menu_open_link">Maak skakel oop</string>
-  <string name="menu_open_in_new_tab">Open in nuwe oortjie</string>
-  <string name="menu_save_page_popup">Stoor vir later</string>
   <string name="format_error_server_message" fuzzy="true">Boodskap: \"%s\"</string>
   <string name="format_error_server_code" fuzzy="true">Kode:\"%s\"</string>
 </resources>

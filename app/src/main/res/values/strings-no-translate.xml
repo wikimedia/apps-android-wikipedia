@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- URLs -->
+    <string name="zero_webpage_url">https://m.wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
+
+    <!-- Search -->
+    <string name="intent_share_search_label">@string/search_hint</string>
+
+    <!-- Long press menu -->
+    <string name="menu_long_press_share_page">@string/menu_page_share</string>
+    <string name="menu_long_press_save_page">@string/menu_page_save</string>
+</resources>

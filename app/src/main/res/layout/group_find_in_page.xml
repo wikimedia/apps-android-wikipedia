@@ -14,7 +14,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:hint="@string/find_in_page"
+            android:hint="@string/menu_page_find_in_page"
             android:layout_gravity="center_vertical"
             android:singleLine="true"
             android:imeOptions="actionDone|flagNoExtractUi"

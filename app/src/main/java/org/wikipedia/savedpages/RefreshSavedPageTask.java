@@ -9,6 +9,7 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
 import org.wikipedia.page.fetch.OldSectionsFetchTask;
 
@@ -17,12 +18,12 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 public class RefreshSavedPageTask extends OldSectionsFetchTask {
-    private final SavedPage savedPage;
+    private final PageTitle title;
     private final WikipediaApp app;
 
-    public RefreshSavedPageTask(WikipediaApp app, SavedPage savedPage) {
-        super(app, savedPage.getTitle(), "all");
-        this.savedPage = savedPage;
+    public RefreshSavedPageTask(WikipediaApp app, PageTitle title) {
+        super(app, title, "all");
+        this.title = title;
         this.app = app;
     }
 
@@ -39,7 +40,7 @@ public class RefreshSavedPageTask extends OldSectionsFetchTask {
         if (mobileView != null) {
             PageProperties pageProperties = new PageProperties(mobileView);
             List<Section> sections = super.processResult(result);
-            final Page page = new Page(savedPage.getTitle(), (ArrayList<Section>) sections, pageProperties);
+            final Page page = new Page(title, (ArrayList<Section>) sections, pageProperties);
             final CountDownLatch savePagesLatch = new CountDownLatch(1);
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override

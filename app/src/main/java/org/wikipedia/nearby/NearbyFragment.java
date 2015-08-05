@@ -1,5 +1,6 @@
 package org.wikipedia.nearby;
 
+import org.wikipedia.page.PageActivityLongPressHandler;
 import org.wikipedia.page.PageLongPressHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
@@ -30,6 +31,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
@@ -135,6 +137,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 refreshView.setRefreshing(false);
             }
         });
+
         return rootView;
     }
 
@@ -154,6 +157,8 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 ((PageActivity) getActivity()).displayNewPage(title, newEntry);
             }
         });
+
+        PageLongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler((PageActivity) getActivity());
         new PageLongPressHandler(getActivity(), nearbyList, HistoryEntry.SOURCE_NEARBY,
                 contextMenuListener);
 
@@ -223,27 +228,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             }
         }
     }
-
-    private PageLongPressHandler.ListViewContextMenuListener contextMenuListener
-            = new PageLongPressHandler.ListViewContextMenuListener() {
-        @Override
-        public PageTitle getTitleForListPosition(int position) {
-            NearbyPage page = adapter.getItem(position);
-            return new PageTitle(page.getTitle(), site, page.getThumblUrl());
-        }
-
-        @Override
-        public void onOpenLink(PageTitle title, HistoryEntry entry) {
-            ((PageActivity)getActivity()).displayNewPage(title, entry,
-                    PageActivity.TabPosition.CURRENT_TAB, false);
-        }
-
-        @Override
-        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            ((PageActivity)getActivity()).displayNewPage(title, entry,
-                    PageActivity.TabPosition.NEW_TAB_BACKGROUND, false);
-        }
-    };
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -755,4 +739,17 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             view.setAzimuth(-azimuth);
         }
     }
+
+    private class LongPressHandler extends PageActivityLongPressHandler
+            implements PageLongPressHandler.ListViewContextMenuListener {
+        public LongPressHandler(@NonNull PageActivity activity) {
+            super(activity);
+        }
+
+        @Override
+        public PageTitle getTitleForListPosition(int position) {
+            NearbyPage page = adapter.getItem(position);
+            return new PageTitle(page.getTitle(), site, page.getThumblUrl());
+        }
+    };
 }

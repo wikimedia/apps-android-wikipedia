@@ -324,6 +324,8 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     private class MainDrawerToggle extends ActionBarDrawerToggle {
+        private boolean oncePerSlideLock = false;
+
         public MainDrawerToggle(android.app.Activity activity,
                                 android.support.v4.widget.DrawerLayout drawerLayout,
                                 int openDrawerContentDescRes, int closeDrawerContentDescRes) {
@@ -356,8 +358,6 @@ public class PageActivity extends ThemedActionBarActivity {
             }
             navDrawerHelper.getFunnel().logOpen();
         }
-
-        private boolean oncePerSlideLock = false;
 
         @Override
         public void onDrawerSlide(View drawerView, float slideOffset) {
@@ -681,10 +681,6 @@ public class PageActivity extends ThemedActionBarActivity {
         displayMainPage(true, TabPosition.NEW_TAB_FOREGROUND, false);
     }
 
-    public void displayMainPageIfNoTabs() {
-        displayMainPage(false, TabPosition.CURRENT_TAB, true);
-    }
-
     /**
      * Go directly to the Main Page of the current Wiki, optionally allowing state loss of the
      * fragment manager. Useful for when this function is called from an AsyncTask result.
@@ -738,6 +734,16 @@ public class PageActivity extends ThemedActionBarActivity {
         } else {
             finish();
         }
+    }
+
+    /*package*/ void showPageSavedMessage(@NonNull String title, boolean success) {
+        FeedbackUtil.showMessage(this, getString(success
+                ? R.string.snackbar_saved_page_format
+                : R.string.snackbar_saved_page_missing_images, title));
+    }
+
+    private void displayMainPageIfNoTabs() {
+        displayMainPage(false, TabPosition.CURRENT_TAB, true);
     }
 
     private class EventBusMethods {

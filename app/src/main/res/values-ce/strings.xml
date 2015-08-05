@@ -12,13 +12,13 @@
   <string name="nav_item_today">Тахана</string>
   <string name="dialog_title_clear_history" fuzzy="true">ДӀацӀане истори?</string>
   <string name="nav_item_saved_pages">Ӏалашйина агӀонаш</string>
-  <string name="menu_save_page" fuzzy="true">Ӏалашйе агӀо</string>
-  <string name="menu_share_page">Екха</string>
+  <string name="menu_page_save" fuzzy="true">Ӏалашйе агӀо</string>
+  <string name="menu_page_share">Екха</string>
   <string name="dialog_title_clear_saved_pages" fuzzy="true">ДӀацӀане Ӏалашйина агӀонаш?</string>
-  <string name="toast_saving_page">АгӀо Ӏалашяр…</string>
-  <string name="toast_saved_page" fuzzy="true">Ӏалашйина агӀонаш</string>
+  <string name="snackbar_saving_page">АгӀо Ӏалашяр…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Ӏалашйина агӀонаш</string>
   <string name="delete_selected_saved_pages">ДӀаяккха</string>
-  <string name="toast_saved_page_deleted" fuzzy="true">Ӏалашйина агӀонаш дӀаяьхна</string>
+  <string name="snackbar_saved_page_deleted" fuzzy="true">Ӏалашйина агӀонаш дӀаяьхна</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Лахар</string>
   <string name="saved_pages_search_empty_message">Хьан дехарца агӀонаш цакарий</string>
   <string name="nav_item_nearby">Уллехь</string>
@@ -29,7 +29,7 @@
   <string name="preference_title_language" fuzzy="true">Мотт</string>
   <string name="preference_languages_filter_hint">Лахар</string>
   <string name="langlinks_filter_hint">Лахар</string>
-  <string name="menu_other_languages" fuzzy="true">Кхин меттанаш</string>
+  <string name="menu_page_other_languages" fuzzy="true">Кхин меттанаш</string>
   <string name="langlinks_error_retry">ЮхагӀорта</string>
   <string name="langlinks_no_match">Хьан дехарца меттанаш цакарий</string>
   <string name="langlinks_activity_title">Кхин меттанаш</string>
@@ -104,7 +104,7 @@
   <string name="menu_refresh_saved_page">Карлаяккха агӀо</string>
   <string name="dialog_page_issues">АгӀонгахь хаатарш</string>
   <string name="button_page_issues">АгӀонгахь хаатарш</string>
-  <string name="menu_themechooser">Кечяр а, шрифт а хийцар</string>
+  <string name="menu_page_font_and_theme">Кечяр а, шрифт а хийцар</string>
   <string name="text_size_select">Шрифтан барам</string>
   <string name="color_theme_select">Кечяр</string>
   <string name="color_theme_light">Сирла</string>
@@ -116,5 +116,4 @@
   <string name="gallery_error_draw_failed">Сурт гучудаккха цаделира</string>
   <string name="license_title">Лицензин йоза %s библиотекина</string>
   <string name="gallery_error_video_failed">Видео йолаялита цаелира.</string>
-  <string name="menu_open_link">Хьажорг схьаелла</string>
 </resources>

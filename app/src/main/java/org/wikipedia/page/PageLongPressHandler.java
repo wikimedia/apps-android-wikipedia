@@ -69,21 +69,32 @@ public class PageLongPressHandler implements View.OnCreateContextMenuListener,
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_open_link:
+            case R.id.menu_long_press_open_page:
                 contextMenuListener.onOpenLink(title, entry);
                 return true;
-            case R.id.menu_open_in_new_tab:
+            case R.id.menu_long_press_open_in_new_tab:
                 contextMenuListener.onOpenInNewTab(title, entry);
                 return true;
+            case R.id.menu_long_press_copy_page:
+                contextMenuListener.onCopyLink(title);
+                return true;
+            case R.id.menu_long_press_share_page:
+                contextMenuListener.onShareLink(title);
+                return true;
+            case R.id.menu_long_press_save_page:
+                contextMenuListener.onSavePage(title);
+                return true;
             default:
-                break;
+            return false;
         }
-        return false;
     }
 
     public interface ContextMenuListener {
         void onOpenLink(PageTitle title, HistoryEntry entry);
         void onOpenInNewTab(PageTitle title, HistoryEntry entry);
+        void onCopyLink(PageTitle title);
+        void onShareLink(PageTitle title);
+        void onSavePage(PageTitle title);
     }
 
     public interface ListViewContextMenuListener extends ContextMenuListener {

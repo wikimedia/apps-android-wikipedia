@@ -21,16 +21,16 @@
   <string name="menu_update_all_saved_pages">Dagfør goymdar síður</string>
   <string name="menu_update_selected_saved_pages">Dagfør goymdar síður</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Dagføra allar goymdar síður?</string>
-  <string name="menu_save_page">Goym síðu</string>
-  <string name="menu_share_page">Deil</string>
+  <string name="menu_page_save">Goym síðu</string>
+  <string name="menu_page_share">Deil</string>
   <string name="share_via">Deil via</string>
   <string name="dialog_title_clear_saved_pages">Rudda burt allar goymdar síður?</string>
-  <string name="toast_saving_page">Goymir síðuna…</string>
-  <string name="toast_saved_page">Tað eydnaðist at goyma síðuna</string>
-  <string name="toast_saved_page_missing_images">Tað bar ikki til at goyma allar myndir</string>
-  <string name="toast_refresh_saved_page">Uppfrískar goymdar síður…</string>
+  <string name="snackbar_saving_page">Goymir síðuna…</string>
+  <string name="snackbar_saved_page_format">Tað eydnaðist at goyma síðuna</string>
+  <string name="snackbar_saved_page_missing_images">Tað bar ikki til at goyma allar myndir</string>
+  <string name="snackbar_refresh_saved_page">Uppfrískar goymdar síður…</string>
   <string name="delete_selected_saved_pages">Sletta</string>
-  <string name="toast_saved_page_deleted">Goymd(ar) síða(ur) slettað(ar)</string>
+  <string name="snackbar_saved_page_deleted">Goymd(ar) síða(ur) slettað(ar)</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Leita</string>
   <string name="saved_pages_search_empty_message">Fann ongar síður ið svaraðu til tín fyrispurning.</string>
   <string name="nav_item_nearby">Nærindis</string>
@@ -45,7 +45,7 @@
   <string name="preference_title_language">Wikipediamál</string>
   <string name="preference_languages_filter_hint">Leita</string>
   <string name="langlinks_filter_hint">Leita</string>
-  <string name="menu_other_languages">Les á øðrum málum</string>
+  <string name="menu_page_other_languages">Les á øðrum málum</string>
   <string name="langlinks_error_retry">Royn aftur</string>
   <string name="langlinks_empty">Henda síðan er ikki tøk á øðrum málum.</string>
   <string name="langlinks_activity_title">Onnur mál</string>

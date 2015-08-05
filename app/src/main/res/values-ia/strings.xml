@@ -22,16 +22,16 @@
   <string name="menu_update_all_saved_pages">Actualisar paginas salveguardate</string>
   <string name="menu_update_selected_saved_pages">Actualisar paginas salveguardate</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Actualisar tote le paginas salveguardate?</string>
-  <string name="menu_save_page">Salveguardar pagina</string>
-  <string name="menu_share_page">Divider</string>
+  <string name="menu_page_save">Salveguardar pagina</string>
+  <string name="menu_page_share">Divider</string>
   <string name="share_via">Divider via</string>
   <string name="dialog_title_clear_saved_pages">Rader tote le paginas salveguardate?</string>
-  <string name="toast_saving_page">Io es salvante le pagina</string>
-  <string name="toast_saved_page">Pagina salveguardate correctemente</string>
-  <string name="toast_saved_page_missing_images">Il non esseva possibile salveguardar tote le imagines</string>
-  <string name="toast_refresh_saved_page">Ajornamento del pagina salvate...</string>
+  <string name="snackbar_saving_page">Io es salvante le pagina</string>
+  <string name="snackbar_saved_page_format">Pagina salveguardate correctemente</string>
+  <string name="snackbar_saved_page_missing_images">Il non esseva possibile salveguardar tote le imagines</string>
+  <string name="snackbar_refresh_saved_page">Ajornamento del pagina salvate...</string>
   <string name="delete_selected_saved_pages">Deler</string>
-  <string name="toast_saved_page_deleted">Pagina(s) salveguardate delite</string>
+  <string name="snackbar_saved_page_deleted">Pagina(s) salveguardate delite</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Cercar</string>
   <string name="saved_pages_search_empty_message">Necun pagina trovate que corresponde a tu recerca</string>
   <string name="nav_item_nearby">A proximitate</string>
@@ -51,7 +51,7 @@
   <string name="preference_title_language">Lingua de Wikipedia</string>
   <string name="preference_languages_filter_hint">Cercar</string>
   <string name="langlinks_filter_hint">Cercar</string>
-  <string name="menu_other_languages">Leger in altere linguas</string>
+  <string name="menu_page_other_languages">Leger in altere linguas</string>
   <string name="langlinks_error_retry">Reprobar</string>
   <string name="langlinks_empty">Iste pagina non es disponibile in altere linguas</string>
   <string name="langlinks_no_match">Necun pagina trovate que corresponde a tu recerca</string>
@@ -146,7 +146,7 @@
   <string name="edit_summary_tag_links">Ligamines addite</string>
   <string name="edit_summary_tag_other">Alteres</string>
   <string name="edit_summary_tag_other_hint">Altere manieras per le qual tu ha meliorate iste pagina</string>
-  <string name="find_in_page">Cerca in le pagina</string>
+  <string name="menu_page_find_in_page">Cerca in le pagina</string>
   <string name="find_next">Cercar sequente</string>
   <string name="find_previous">Cargar precedente</string>
   <string name="error_network_error_try_again">Impossibile trovar le rete, reprobar.</string>

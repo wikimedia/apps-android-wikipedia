@@ -2,6 +2,7 @@ package org.wikipedia.page.bottomcontent;
 
 import android.graphics.Paint;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.text.Html;
 import android.text.TextUtils;
@@ -22,6 +23,7 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.page.PageActivityLongPressHandler;
 import org.wikipedia.page.PageLongPressHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
@@ -94,7 +96,7 @@ public class BottomContentHandler implements BottomContentInterface,
                 Utils.visitInExternalBrowser(activity, Uri.parse(pageTitle.getMobileUri()));
             }
         });
-
+        PageLongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(activity);
         new PageLongPressHandler(activity, readMoreList, HistoryEntry.SOURCE_INTERNAL_LINK,
                 contextMenuListener);
 
@@ -365,9 +367,13 @@ public class BottomContentHandler implements BottomContentInterface,
         adapter.notifyDataSetChanged();
     }
 
-    private PageLongPressHandler.ListViewContextMenuListener contextMenuListener
-            = new PageLongPressHandler.ListViewContextMenuListener() {
+    private class LongPressHandler extends PageActivityLongPressHandler
+            implements PageLongPressHandler.ListViewContextMenuListener {
         private int lastPosition;
+        public LongPressHandler(@NonNull PageActivity activity) {
+            super(activity);
+        }
+
         @Override
         public PageTitle getTitleForListPosition(int position) {
             lastPosition = position;
@@ -376,16 +382,16 @@ public class BottomContentHandler implements BottomContentInterface,
 
         @Override
         public void onOpenLink(PageTitle title, HistoryEntry entry) {
-            activity.displayNewPage(title, entry);
+            super.onOpenLink(title, entry);
             funnel.logSuggestionClicked(pageTitle, readMoreItems.getPageTitles(), lastPosition);
         }
 
         @Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            activity.displayNewPage(title, entry, PageActivity.TabPosition.NEW_TAB_BACKGROUND, false);
+            super.onOpenInNewTab(title, entry);
             funnel.logSuggestionClicked(pageTitle, readMoreItems.getPageTitles(), lastPosition);
         }
-    };
+    }
 
     private final class ReadMoreAdapter extends BaseAdapter {
         private final LayoutInflater inflater;

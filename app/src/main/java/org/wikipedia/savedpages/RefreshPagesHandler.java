@@ -64,7 +64,7 @@ public class RefreshPagesHandler {
         progressDialog.show();
         for (int i = 0; i < savedPages.size(); i++) {
             final SavedPage savedPage = savedPages.get(i);
-                new RefreshSavedPageTask(WikipediaApp.getInstance(), savedPage) {
+                new RefreshSavedPageTask(WikipediaApp.getInstance(), savedPage.getTitle()) {
                     @Override
                     public void onBeforeExecute() {
                         if (isRefreshCancelled) {

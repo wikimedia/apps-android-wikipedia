@@ -80,6 +80,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public static final int SUBSTATE_PAGE_SAVED = 1;
     public static final int SUBSTATE_SAVED_PAGE_LOADED = 2;
 
+    public static final int TOC_ACTION_SHOW = 0;
+    public static final int TOC_ACTION_HIDE = 1;
+    public static final int TOC_ACTION_TOGGLE = 2;
+
     private static final int TOC_BUTTON_HIDE_DELAY = 2000;
     private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * WikipediaApp.getInstance().getScreenDensity());
 
@@ -124,7 +128,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ReferenceDialog referenceDialog;
     private EditHandler editHandler;
     private ActionMode findInPageActionMode;
-    private PageLongPressHandler longPressHandler;
 
     private WikipediaApp app;
 
@@ -332,8 +335,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         tabsProvider = new TabsProvider(getPageActivity(), tabList);
         tabsProvider.setTabsProviderListener(tabsProviderListener);
-        longPressHandler = new PageLongPressHandler(getActivity(), webView,
-                HistoryEntry.SOURCE_INTERNAL_LINK, contextMenuListener);
+
+        PageLongPressHandler.WebViewContextMenuListener contextMenuListener = new LongPressHandler(getPageActivity());
+        new PageLongPressHandler(getActivity(), webView, HistoryEntry.SOURCE_INTERNAL_LINK,
+                contextMenuListener);
 
         pageLoadStrategy.setup(model, this, refreshView, webView, bridge, searchBarHideHandler,
                 leadImagesHandler);
@@ -370,25 +375,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
         });
     }
-
-    private PageLongPressHandler.WebViewContextMenuListener contextMenuListener
-            = new PageLongPressHandler.WebViewContextMenuListener() {
-        @Override
-        public Site getSite() {
-            return model.getTitleOriginal().getSite();
-        }
-
-        @Override
-        public void onOpenLink(PageTitle title, HistoryEntry entry) {
-            getPageActivity().displayNewPage(title, entry);
-        }
-
-        @Override
-        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            getPageActivity().displayNewPage(title, entry,
-                    PageActivity.TabPosition.NEW_TAB_BACKGROUND, false);
-        }
-    };
 
     private void handleInternalLink(PageTitle title) {
         if (!isAdded()) {
@@ -679,15 +665,15 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!isAdded() || getPageActivity().isSearching()) {
             return;
         }
-        MenuItem savePageItem = menu.findItem(R.id.menu_save_page);
+        MenuItem savePageItem = menu.findItem(R.id.menu_page_save);
         if (savePageItem == null) {
             return;
         }
 
-        MenuItem shareItem = menu.findItem(R.id.menu_share_page);
-        MenuItem otherLangItem = menu.findItem(R.id.menu_other_languages);
-        MenuItem findInPageItem = menu.findItem(R.id.menu_find_in_page);
-        MenuItem themeChooserItem = menu.findItem(R.id.menu_themechooser);
+        MenuItem shareItem = menu.findItem(R.id.menu_page_share);
+        MenuItem otherLangItem = menu.findItem(R.id.menu_page_other_languages);
+        MenuItem findInPageItem = menu.findItem(R.id.menu_page_find_in_page);
+        MenuItem themeChooserItem = menu.findItem(R.id.menu_page_font_and_theme);
 
         if (pageLoadStrategy.isLoading()) {
             savePageItem.setEnabled(false);
@@ -706,11 +692,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             int subState = pageLoadStrategy.getSubState();
             if (subState == SUBSTATE_PAGE_SAVED) {
                 savePageItem.setEnabled(false);
-                savePageItem.setTitle(WikipediaApp.getInstance().getString(R.string.menu_page_saved));
+                savePageItem.setTitle(getString(R.string.menu_page_saved));
             } else if (subState == SUBSTATE_SAVED_PAGE_LOADED) {
-                savePageItem.setTitle(WikipediaApp.getInstance().getString(R.string.menu_refresh_saved_page));
+                savePageItem.setTitle(getString(R.string.menu_refresh_saved_page));
             } else {
-                savePageItem.setTitle(WikipediaApp.getInstance().getString(R.string.menu_save_page));
+                savePageItem.setTitle(getString(R.string.menu_page_save));
             }
         }
     }
@@ -720,7 +706,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             case R.id.homeAsUp:
                 // TODO SEARCH: add up navigation, see also http://developer.android.com/training/implementing-navigation/ancestral.html
                 return true;
-            case R.id.menu_save_page:
+            case R.id.menu_page_save:
                 // This means the user explicitly chose to save a new saved page
                 app.getFunnelManager().getSavedPagesFunnel(model.getTitle().getSite()).logSaveNew();
                 if (model.getCurEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
@@ -730,10 +716,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     savePage();
                 }
                 return true;
-            case R.id.menu_share_page:
+            case R.id.menu_page_share:
                 shareHandler.shareWithoutSelection();
                 return true;
-            case R.id.menu_other_languages:
+            case R.id.menu_page_other_languages:
                 Intent langIntent = new Intent();
                 langIntent.setClass(getActivity(), LangLinksActivity.class);
                 langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
@@ -741,13 +727,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 getActivity().startActivityForResult(langIntent,
                                                      PageActivity.ACTIVITY_REQUEST_LANGLINKS);
                 return true;
-            case R.id.menu_find_in_page:
+            case R.id.menu_page_find_in_page:
                 showFindInPage();
                 return true;
-            case R.id.menu_themechooser:
+            case R.id.menu_page_font_and_theme:
                 getPageActivity().showThemeChooser();
                 return true;
-            case R.id.menu_show_tabs:
+            case R.id.menu_page_show_tabs:
                 tabsProvider.enterTabMode();
                 return true;
             default:
@@ -765,7 +751,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 findInPageActionMode = mode;
-                MenuItem menuItem = menu.add(R.string.find_in_page);
+                MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
                 MenuItemCompat.setActionProvider(menuItem, findInPageActionProvider);
                 return true;
             }
@@ -896,22 +882,20 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             return;
         }
 
-        FeedbackUtil.showMessage(getActivity(), R.string.toast_saving_page);
+        FeedbackUtil.showMessage(getActivity(), R.string.snackbar_saving_page);
         new SavePageTask(app, model.getTitle(), model.getPage()) {
             @Override
             public void onFinish(Boolean success) {
                 if (!isAdded()) {
-                    Log.d("PageFragment", "Detached from activity, no toast.");
+                    Log.d("PageFragment", "Detached from activity, no snackbar.");
                     return;
                 }
 
-                pageLoadStrategy.setSubState(SUBSTATE_PAGE_SAVED);
-
                 if (success) {
-                    FeedbackUtil.showMessage(getActivity(), R.string.toast_saved_page);
-                } else {
-                    FeedbackUtil.showMessage(getActivity(), R.string.toast_saved_page_missing_images);
+                    pageLoadStrategy.setSubState(SUBSTATE_PAGE_SAVED);
                 }
+
+                getPageActivity().showPageSavedMessage(model.getTitle().getDisplayText(), success);
             }
         }.execute();
     }
@@ -951,15 +935,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void refreshPage(boolean saveOnComplete) {
         this.saveOnComplete = saveOnComplete;
         if (saveOnComplete) {
-            FeedbackUtil.showMessage(getActivity(), R.string.toast_refresh_saved_page);
+            FeedbackUtil.showMessage(getActivity(), R.string.snackbar_refresh_saved_page);
         }
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
         displayNewPage(model.getTitle(), model.getCurEntry(), false, false);
     }
-
-    public static final int TOC_ACTION_SHOW = 0;
-    public static final int TOC_ACTION_HIDE = 1;
-    public static final int TOC_ACTION_TOGGLE = 2;
 
     private ToCHandler tocHandler;
     public void toggleToC(int action) {
@@ -1076,6 +1056,18 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     // TODO: don't assume host is PageActivity. Use Fragment callbacks pattern.
     private PageActivity getPageActivity() {
-        return (PageActivity) super.getActivity();
+        return (PageActivity) getActivity();
+    }
+
+    private class LongPressHandler extends PageActivityLongPressHandler
+            implements PageLongPressHandler.WebViewContextMenuListener {
+        public LongPressHandler(@NonNull PageActivity activity) {
+            super(activity);
+        }
+
+        @Override
+        public Site getSite() {
+            return model.getTitleOriginal().getSite();
+        }
     }
 }

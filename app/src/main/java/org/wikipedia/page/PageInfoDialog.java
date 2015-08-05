@@ -5,6 +5,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.WikiListView;
 
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.AdapterView;
@@ -15,16 +16,14 @@ import android.widget.ViewFlipper;
 /**
  * A dialog to host page issues and disambig information.
  */
-class PageInfoDialog extends BottomDialog {
+/*package*/ class PageInfoDialog extends BottomDialog {
     private final ViewFlipper flipper;
     private final Button disambigHeading;
     private final Button issuesHeading;
-    private final PageActivity activity;
     private final WikiListView disambigList;
 
-    PageInfoDialog(final PageActivity activity, PageInfo pageInfo, int height) {
+    /*package*/ PageInfoDialog(final PageActivity activity, PageInfo pageInfo, int height) {
         super(activity, R.layout.dialog_page_info);
-        this.activity = activity;
 
         View parentView = getDialogLayout();
         flipper = (ViewFlipper) parentView.findViewById(R.id.page_info_flipper);
@@ -55,8 +54,9 @@ class PageInfoDialog extends BottomDialog {
                 activity.displayNewPage(title, historyEntry);
             }
         });
-        new PageLongPressHandler(getContext(), disambigList,
-                HistoryEntry.SOURCE_INTERNAL_LINK, contextMenuListener);
+        PageLongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(activity);
+        new PageLongPressHandler(getContext(), disambigList, HistoryEntry.SOURCE_INTERNAL_LINK,
+                contextMenuListener);
 
         if (pageInfo.getDisambigs().length > 0) {
             disambigHeading.setOnClickListener(new View.OnClickListener() {
@@ -82,27 +82,7 @@ class PageInfoDialog extends BottomDialog {
         }
     }
 
-    private PageLongPressHandler.ListViewContextMenuListener contextMenuListener
-            = new PageLongPressHandler.ListViewContextMenuListener() {
-        @Override
-        public PageTitle getTitleForListPosition(int position) {
-            return ((DisambigResult) disambigList.getAdapter().getItem(position)).getTitle();
-        }
-
-        @Override
-        public void onOpenLink(PageTitle title, HistoryEntry entry) {
-            dismiss();
-            activity.displayNewPage(title, entry);
-        }
-
-        @Override
-        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            dismiss();
-            activity.displayNewPage(title, entry, PageActivity.TabPosition.NEW_TAB_BACKGROUND, false);
-        }
-    };
-
-    void showDisambig() {
+    /*package*/ void showDisambig() {
         if (flipper.getCurrentView() != flipper.getChildAt(0)) {
             flipper.setInAnimation(getContext(), R.anim.slide_in_left);
             flipper.setOutAnimation(getContext(), R.anim.slide_out_right);
@@ -115,7 +95,7 @@ class PageInfoDialog extends BottomDialog {
         issuesHeading.setEnabled(true);
     }
 
-    void showIssues() {
+    /*package*/ void showIssues() {
         if (flipper.getCurrentView() != flipper.getChildAt(1)) {
             flipper.setInAnimation(getContext(), R.anim.slide_in_right);
             flipper.setOutAnimation(getContext(), R.anim.slide_out_left);
@@ -126,5 +106,47 @@ class PageInfoDialog extends BottomDialog {
         disambigHeading.setEnabled(true);
         issuesHeading.setTypeface(null, Typeface.BOLD);
         issuesHeading.setEnabled(false);
+    }
+
+    private class LongPressHandler extends PageActivityLongPressHandler
+            implements PageLongPressHandler.ListViewContextMenuListener {
+        public LongPressHandler(@NonNull PageActivity activity) {
+            super(activity);
+        }
+
+        @Override
+        public PageTitle getTitleForListPosition(int position) {
+            return ((DisambigResult) disambigList.getAdapter().getItem(position)).getTitle();
+        }
+
+        @Override
+        public void onOpenLink(PageTitle title, HistoryEntry entry) {
+            super.onOpenLink(title, entry);
+            dismiss();
+        }
+
+        @Override
+        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
+            super.onOpenInNewTab(title, entry);
+            dismiss();
+        }
+
+        @Override
+        public void onCopyLink(PageTitle title) {
+            super.onCopyLink(title);
+            dismiss();
+        }
+
+        @Override
+        public void onShareLink(PageTitle title) {
+            super.onShareLink(title);
+            dismiss();
+        }
+
+        @Override
+        public void onSavePage(PageTitle title) {
+            super.onSavePage(title);
+            dismiss();
+        }
     }
 }
