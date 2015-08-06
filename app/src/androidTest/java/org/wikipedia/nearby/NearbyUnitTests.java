@@ -1,10 +1,11 @@
 package org.wikipedia.nearby;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import junit.framework.TestCase;
 import org.json.JSONObject;
 import android.location.Location;
+import android.support.annotation.StringRes;
+import android.test.AndroidTestCase;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -13,7 +14,7 @@ import java.util.List;
 /**
  * Unit tests for Nearby related classes. Probably should refactor this into a model class.
  */
-public class NearbyUnitTests extends TestCase {
+public class NearbyUnitTests extends AndroidTestCase {
     // can't seem to suppress the checkstyle warnings for MagicNumbers. Oh well.
     private static final int THREE = 3;
     private static final int FOUR = 4;
@@ -136,10 +137,13 @@ public class NearbyUnitTests extends TestCase {
 
         final int distance = getDistance(otherLocation);
         if (distance < ONE_KM) {
-            return WikipediaApp.getInstance().getString(R.string.nearby_distance_in_meters, distance);
+            return getString(R.string.nearby_distance_in_meters, distance);
         } else {
-            return WikipediaApp.getInstance().getString(R.string.nearby_distance_in_kilometers, distance / ONE_KM_D);
+            return getString(R.string.nearby_distance_in_kilometers, distance / ONE_KM_D);
         }
     }
 
+    private String getString(@StringRes int id, Object... formatArgs) {
+        return getContext().getString(id, formatArgs);
+    }
 }
