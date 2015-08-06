@@ -3,12 +3,20 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.hugo'
 apply from: '../config/quality.gradle'
 
+import com.android.ddmlib.DdmPreferences
+
+final int ADB_TIMEOUT = 5 * 60 * 1000
 final boolean continuousIntegrationBuild = System.getenv('JENKINS_HOME') != null
 final boolean preDexEnabled = hasProperty('preDex') ?
         Boolean.valueOf(preDex.toString()) :
         !continuousIntegrationBuild
 if (!preDexEnabled) {
     println 'Pre-dexing disabled.'
+}
+
+if (continuousIntegrationBuild) {
+    DdmPreferences.setTimeOut(ADB_TIMEOUT)
+    println "Device timeout is ${DdmPreferences.getTimeOut()}ms"
 }
 
 def getDate() {
