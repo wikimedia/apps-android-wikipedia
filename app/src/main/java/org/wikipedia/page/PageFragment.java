@@ -679,39 +679,38 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!isAdded() || getPageActivity().isSearching()) {
             return;
         }
-        MenuItem savePageMenu = menu.findItem(R.id.menu_save_page);
-        if (savePageMenu == null) {
+        MenuItem savePageItem = menu.findItem(R.id.menu_save_page);
+        if (savePageItem == null) {
             return;
         }
 
-        MenuItem shareMenu = menu.findItem(R.id.menu_share_page);
-        MenuItem otherLangMenu = menu.findItem(R.id.menu_other_languages);
-        MenuItem findInPageMenu = menu.findItem(R.id.menu_find_in_page);
-        MenuItem themeChooserMenu = menu.findItem(R.id.menu_themechooser);
-        MenuItem tabsMenu = menu.findItem(R.id.menu_show_tabs);
+        MenuItem shareItem = menu.findItem(R.id.menu_share_page);
+        MenuItem otherLangItem = menu.findItem(R.id.menu_other_languages);
+        MenuItem findInPageItem = menu.findItem(R.id.menu_find_in_page);
+        MenuItem themeChooserItem = menu.findItem(R.id.menu_themechooser);
 
         if (pageLoadStrategy.isLoading()) {
-            savePageMenu.setEnabled(false);
-            shareMenu.setEnabled(false);
-            otherLangMenu.setEnabled(false);
-            findInPageMenu.setEnabled(false);
-            themeChooserMenu.setEnabled(false);
+            savePageItem.setEnabled(false);
+            shareItem.setEnabled(false);
+            otherLangItem.setEnabled(false);
+            findInPageItem.setEnabled(false);
+            themeChooserItem.setEnabled(false);
         } else {
-            savePageMenu.setEnabled(true);
-            shareMenu.setEnabled(true);
+            savePageItem.setEnabled(true);
+            shareItem.setEnabled(true);
             // Only display "Read in other languages" if the article is in other languages
-            otherLangMenu.setVisible(model.getPage() != null && model.getPage().getPageProperties().getLanguageCount() != 0);
-            otherLangMenu.setEnabled(true);
-            findInPageMenu.setEnabled(true);
-            themeChooserMenu.setEnabled(true);
+            otherLangItem.setVisible(model.getPage() != null && model.getPage().getPageProperties().getLanguageCount() != 0);
+            otherLangItem.setEnabled(true);
+            findInPageItem.setEnabled(true);
+            themeChooserItem.setEnabled(true);
             int subState = pageLoadStrategy.getSubState();
             if (subState == SUBSTATE_PAGE_SAVED) {
-                savePageMenu.setEnabled(false);
-                savePageMenu.setTitle(WikipediaApp.getInstance().getString(R.string.menu_page_saved));
+                savePageItem.setEnabled(false);
+                savePageItem.setTitle(WikipediaApp.getInstance().getString(R.string.menu_page_saved));
             } else if (subState == SUBSTATE_SAVED_PAGE_LOADED) {
-                savePageMenu.setTitle(WikipediaApp.getInstance().getString(R.string.menu_refresh_saved_page));
+                savePageItem.setTitle(WikipediaApp.getInstance().getString(R.string.menu_refresh_saved_page));
             } else {
-                savePageMenu.setTitle(WikipediaApp.getInstance().getString(R.string.menu_save_page));
+                savePageItem.setTitle(WikipediaApp.getInstance().getString(R.string.menu_save_page));
             }
         }
     }
