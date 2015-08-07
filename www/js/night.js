@@ -3,25 +3,36 @@ var bridge = require("./bridge");
 var loader = require("./loader");
 var util = require("./util");
 
-function invertColorProperty( el, propertyName ) {
+function parseRgbValues( el, propertyName ) {
 	var property = el.style[propertyName];
-	console.log( JSON.stringify( parseCSSColor ) );
 	var bits = parseCSSColor( property );
 	if ( bits === null ) {
-		// We couldn't parse the color, nevermind
 		return;
 	}
-	var r = parseInt( bits[0] ), g = parseInt( bits[1] ), b = parseInt( bits[2] );
-	el.style[propertyName] = 'rgb(' + (255 - r) + ', ' + (255 - g) + ', ' + (255 - b ) + ')';
+	return [ parseInt( bits[0] ), parseInt( bits[1] ), parseInt( bits[2] )];
+}
+
+function invertColorProperty( el, propertyName ) {
+	var rgb = parseRgbValues( el, propertyName );
+	if ( rgb ) {
+		el.style[propertyName] = 'rgb(' + (255 - rgb[0]) + ', ' + (255 - rgb[1]) + ', ' + (255 - rgb[2]) + ')';
+	}
+}
+
+function halveRgbValues( el, propertyName ) {
+	var rgb = parseRgbValues( el, propertyName );
+	if ( rgb ) {
+		el.style[propertyName] = 'rgb(' + Math.floor(rgb[0] / 2) + ', ' + Math.floor(rgb[1] / 2) + ', ' + Math.floor(rgb[2] / 2) + ')';
+	}
 }
 
 var invertProperties = [ 'color', 'background-color', 'border-color' ];
 function invertOneElement( el ) {
-	var shouldStrip = util.hasAncestor( el, 'TABLE' );
+	var isInTable = util.hasAncestor( el, 'TABLE' );
 	for ( var i = 0; i < invertProperties.length; i++ ) {
 		if ( el.style[invertProperties[i]] ) {
-			if ( shouldStrip ) {
-				el.style[invertProperties[i]] = 'inherit';
+			if ( isInTable ) {
+				halveRgbValues( el, invertProperties[i] );
 			} else {
 				invertColorProperty( el, invertProperties[i] );
 			}
