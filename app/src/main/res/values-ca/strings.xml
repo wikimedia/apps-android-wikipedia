@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Contrasenya incorrecta</string>
   <string name="login_error_wrong_username">Nom d\'usuari incorrecte</string>
   <string name="login_error_illegal">Nom d\'usuari no vàlid</string>
-  <string name="login_success_toast" fuzzy="true">S\'ha iniciat sessió correctament!</string>
+  <string name="login_success_toast">S\'ha iniciat la sessió correctament!</string>
   <string name="login_error_blocked">Aquest usuari ha estat bloquejat</string>
   <string name="login_error_throttled">Massa intents. Espereu uns minuts i torneu-ho a intentar.</string>
   <string name="login_error_unknown">Ha fallat l\'inici de sessió :(</string>

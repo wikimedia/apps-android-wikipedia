@@ -7,10 +7,10 @@
   <string name="no">Nej</string>
   <string name="acra_report_dialog_title">Wikipedia gik ned :(</string>
   <string name="acra_report_dialog_text">Send os en nedbrudsrapport</string>
-  <string name="acra_report_dialog_comment">Hvad lavede du, da nedbruddet skete?</string>
+  <string name="acra_report_dialog_comment">Hvad lavede du, da appen gik ned?</string>
   <string name="search_hint">Søg i Wikipedia</string>
   <string name="nav_item_history">Historik</string>
-  <string name="error_network_error">Netværksforbindelsen kunne ikke oprettes.</string>
+  <string name="error_network_error">Netværksforbindelsen kunne ikke etableres.</string>
   <string name="search_network_error">Netværksfejl. Tryk for at prøve igen.</string>
   <string name="generic_page_error">Der opstod et problem under behandlingen af din forespørgsel.</string>
   <string name="status_code_unavailable">Serverens statuskode er ikke tilgængelig.</string>
@@ -19,7 +19,7 @@
   <string name="menu_clear_all_saved_pages">Ryd gemte sider</string>
   <string name="page_does_not_exist_error">Denne side findes ikke.</string>
   <string name="nav_item_today">I dag</string>
-  <string name="dialog_title_clear_history">Ryd browserhistorikken?</string>
+  <string name="dialog_title_clear_history">Vil du rydde browserhistorikken?</string>
   <string name="nav_item_saved_pages">Gemte sider</string>
   <string name="menu_update_all_saved_pages">Opdater gemte sider</string>
   <string name="menu_update_selected_saved_pages">Opdater gemte sider</string>
@@ -34,7 +34,7 @@
   <string name="toast_refresh_saved_page">Opdaterer gemt side…</string>
   <string name="delete_selected_saved_pages">Slet</string>
   <string name="toast_saved_page_deleted">Gemt(e) side(r) slettet</string>
-  <string name="saved_pages_search_list_hint">Søg i gemte sider</string>
+  <string name="saved_pages_search_list_hint">Søg i Gemte sider</string>
   <string name="saved_pages_search_empty_message">Ingen sider fundet der matcher din forespørgsel.</string>
   <string name="nav_item_nearby">I nærheden</string>
   <string name="menu_update_nearby">Opdater \"i nærheden\"</string>
@@ -70,7 +70,7 @@
   <string name="edit_saved_successfully">Redigering gemt!</string>
   <string name="dialog_message_edit_failed">Redigering mislykkedes!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igen</string>
-  <string name="dialog_message_edit_failed_cancel">Annullér</string>
+  <string name="dialog_message_edit_failed_cancel">Annuller</string>
   <string name="dialog_message_leaving_edit">Dine ændringer er ikke blevet gemt endnu. Er du sikker på at du vil forlade denne side?</string>
   <string name="dialog_message_leaving_edit_leave">Forlad</string>
   <string name="dialog_message_leaving_edit_stay">Bliv</string>
@@ -88,13 +88,13 @@
   <string name="menu_login">Log på</string>
   <string name="login_activity_title">Log på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Logger dig på…</string>
-  <string name="login_error_wrong_password">Forkert adgangskode.</string>
+  <string name="login_error_wrong_password">Forkert adgangskode</string>
   <string name="login_error_wrong_username">Forkert brugernavn</string>
   <string name="login_error_illegal">Ugyldigt brugernavn</string>
   <string name="login_success_toast">Du er nu logget på!</string>
-  <string name="login_error_blocked">Denne bruger er blevet blokeret</string>
+  <string name="login_error_blocked">Brugeren er blevet blokeret</string>
   <string name="login_error_throttled">For mange forsøg med at logge på. Vent et par minutter og prøv igen.</string>
-  <string name="login_error_unknown">Det mislykkedes at logge på :(</string>
+  <string name="login_error_unknown">Login mislykkedes :(</string>
   <string name="login_error_no_network">Ingen netværksforbindelse</string>
   <string name="preference_title_logout">Log af</string>
   <string name="preference_summary_logout">Log ud af din Wikipedia-konto</string>
@@ -134,7 +134,7 @@
   <string name="zero_charged_verbiage">Wikipedia Zero er slukket</string>
   <string name="zero_charged_verbiage_extended">Nedhentning af andre artikler kan medføre datagebyrer.</string>
   <string name="zero_search_hint">Søg i Wikipedia Zero</string>
-  <string name="zero_warn_when_leaving">Advar hvis jeg forlader Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving">Advar mig når jeg forlader Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Hvis din mobiloperatør frafalder dataadgangsgebyrer for Wikipedia app via et Wikipedia Zero partnerskab, lader denne indstilling dig vide, når du forlader Wikipedia app og kunne blive opkrævet gebyrer.</string>
   <string name="zero_webpage_title">Ofte stillede spørgsmål om Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
@@ -146,13 +146,13 @@
   <string name="zero_learn_more_learn_more">Læs mere</string>
   <string name="zero_learn_more_dismiss">Skjul</string>
   <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning…</string>
-  <string name="send_feedback">Send tilbagemelding om app</string>
+  <string name="send_feedback">Send feedback</string>
   <string name="nav_item_random">Tilfældig</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
   <string name="user_contribs_more_action">Indlæs mere</string>
   <string name="activity_my_contributions_title">Mine bidrag</string>
   <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
-  <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre app\'en bedre.</string>
+  <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre den bedre.</string>
   <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
   <string name="history_search_list_hint">Søg i historik</string>
   <string name="history_search_empty_message">Ingen sider fundet der matcher din forespørgsel.</string>
@@ -183,7 +183,7 @@
   <string name="edit_next">Næste</string>
   <string name="edit_done">Gem</string>
   <string name="edit_preview">Forhåndsvis</string>
-  <string name="edit_summary_tag_typo">Rettet slåfejl</string>
+  <string name="edit_summary_tag_typo">Rettet stavefejl</string>
   <string name="edit_summary_tag_grammar">Rettet grammatik</string>
   <string name="edit_summary_tag_links">Tilføjet links</string>
   <string name="edit_summary_tag_other">Andet</string>
@@ -277,8 +277,8 @@ Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="menu_save_page_popup">Gem til senere</string>
   <string name="page_view_in_browser">Få vist siden i browseren</string>
   <string name="error_server_response">Serveren kunne ikke fuldføre anmodningen.</string>
-  <string name="error_response_malformed">Svar fra serveren blev ikke formateret korrekt.</string>
-  <string name="error_unknown">En ukendt fejl opstod.</string>
+  <string name="error_response_malformed">Svaret fra serveren er ikke formateret korrekt.</string>
+  <string name="error_unknown">Der opstod en ukendt fejl.</string>
   <string name="format_error_server_message">Besked: \"%s\"</string>
   <string name="format_error_server_code">Kode: \"%s\"</string>
 </resources>

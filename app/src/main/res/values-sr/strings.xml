@@ -48,10 +48,12 @@
   <string name="nearby_view_on_map">Погледај место на мапи</string>
   <string name="last_updated_text">Последње ажурирање %s</string>
   <string name="content_license_html">Садржај је доступан под лиценцом &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; осим ако је другачије наведено</string>
+  <string name="edit_save_action_license_logged_in">Чувањем измена прихватате &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;услове коришћења&lt;/a&gt; и неопозиво прихватате да се ваш допринос објави под лиценцом &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Чувањем измена прихватате &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;услове коришћења&lt;/a&gt; и неопозиво прихватате да се ваш допринос објави под лиценцом &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Измене ће бити приписане ИП адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете више приватности.</string>
   <string name="preference_title_language">Језик Википедије</string>
   <string name="preference_languages_filter_hint">Претрага</string>
-  <string name="preference_system_language_toggle">Користи језик система</string>
-  <string name="preference_system_language_summary">Језик система</string>
+  <string name="preference_system_language_toggle">Користи језик уређаја</string>
+  <string name="preference_system_language_summary">Језик уређаја</string>
   <string name="langlinks_filter_hint">Претрага</string>
   <string name="menu_other_languages">Други језици</string>
   <string name="langlinks_error_retry">Пробај опет</string>
@@ -66,8 +68,10 @@
   <string name="dialog_message_edit_failed_cancel">Откажи</string>
   <string name="dialog_message_leaving_edit">Ваше измене нису сачуване. Да ли сигурно желите да напустите ову страницу?</string>
   <string name="dialog_message_leaving_edit_leave">Напусти</string>
+  <string name="dialog_message_leaving_edit_stay">Остани</string>
   <string name="menu_show_toc">Табела садржаја</string>
   <string name="search_no_results_found">Нема резултата</string>
+  <string name="edit_section_captcha_message">Ради заштите од спема молимо вас унесите речи приказане испод.</string>
   <string name="nav_item_login">Пријави ме</string>
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
@@ -112,14 +116,16 @@
   <string name="create_account_generic_error">Не могу да отворим налог</string>
   <string name="create_account_no_network">Нема мрежне везе</string>
   <string name="create_account_next">Следеће</string>
-  <string name="create_account_button">Отварање налога</string>
+  <string name="create_account_button">Отвори налог</string>
   <string name="preferences_general_heading">Опште</string>
   <string name="zero_charged_verbiage">Wikipedia Zero искључена</string>
   <string name="zero_search_hint">Претражи Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving">Упозори ме ако напуштам Wikipedia Zero</string>
   <string name="zero_interstitial_continue">Напусти</string>
   <string name="zero_interstitial_cancel">Остани овде</string>
   <string name="zero_learn_more_learn_more">Прочитај више</string>
   <string name="zero_learn_more_dismiss">Одбаци</string>
+  <string name="edit_preview_fetching_dialog_message">Учитавам претпреглед…</string>
   <string name="send_feedback">Пошаљи повратне информације</string>
   <string name="nav_item_random">Насумице</string>
   <string name="create_account_account_created_toast">Ваш налог је отворен!</string>
@@ -129,6 +135,7 @@
   <string name="history_search_list_hint">Претражи историју</string>
   <string name="page_protected_autoconfirmed">Ова страница је полузаштићена.</string>
   <string name="page_protected_sysop">Ова страница је потпуно заштићена.</string>
+  <string name="page_protected_can_not_edit">Немате овлашћења да уређујете ову страницу</string>
   <string name="page_protected_can_not_edit_title">Ова страница је заштићена</string>
   <string name="more_item_preferences">Више</string>
   <string name="more_activity_title">Више</string>
@@ -139,8 +146,10 @@
   <string name="about_translators_translatewiki">Ову апликацију су превели волонтери сајта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Производ &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Задужбине Викимедије&lt;/a&gt;</string>
   <string name="about_activity_title">О апликацији</string>
+  <string name="edit_abandon_confirm">Страница је измењена. Да ли сигурно желите да је напустите?</string>
   <string name="user_blocked_from_editing_title">Блокиран</string>
   <string name="user_logged_in_blocked_from_editing">Ваш налог је блокиран на овом викију.</string>
+  <string name="user_anon_blocked_from_editing">Вашој ИП адреси је онемогућено уређивање.</string>
   <string name="edit_how_page_improved">Како сте унапредили страницу?</string>
   <string name="edit_next">Следеће</string>
   <string name="edit_done">Сачувај</string>
@@ -175,7 +184,7 @@
   <string name="table_other">Више информација</string>
   <string name="table_close">Затвори</string>
   <string name="dialog_close_description">Затвори</string>
-  <string name="preference_title_show_images">Покажи слике</string>
+  <string name="preference_title_show_images">Прикажи слике</string>
   <string name="read_more_section">Прочитајте више</string>
   <string name="menu_gallery_visit_page">Иди на страницу датотеке</string>
   <string name="gallery_menu_share">Дели</string>
@@ -190,6 +199,7 @@
   <string name="menu_show_tabs">Прикажи језичке</string>
   <string name="menu_new_tab">Нови језичак</string>
   <string name="button_close_tab">Затвори језичак</string>
+  <string name="menu_open_link">Отвори везу</string>
   <string name="menu_open_in_new_tab">Отвори у новом језичку</string>
   <string name="menu_save_page_popup">Сачувај за касније</string>
   <string name="page_view_in_browser">Види страницу у веб прегледачу</string>

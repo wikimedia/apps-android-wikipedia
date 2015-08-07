@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">Погрешна лозинка</string>
   <string name="login_error_wrong_username">Погрешнно корисничко име</string>
   <string name="login_error_illegal">Неправилно корисничко име</string>
-  <string name="login_success_toast" fuzzy="true">Најавата успеа!</string>
+  <string name="login_success_toast">Најавата успеа!</string>
   <string name="login_error_blocked">Овој корисник е блокиран</string>
   <string name="login_error_throttled">Премногу обиди за најава. Почекајте неколку минути и обидете се повторно.</string>
   <string name="login_error_unknown">Најавата не успеа :(</string>
@@ -277,7 +277,7 @@
   <string name="menu_save_page_popup">Зачувај за подоцна</string>
   <string name="tool_tip_select_text">Стиснете и држете било каде во текстот за да го подвлечете за копирање и споделување.</string>
   <string name="tool_tip_share">Откако ќе го подвлечете интересниот факт, споделете го на вашите омилени мрежи!</string>
-  <string name="page_view_in_browser" fuzzy="true">Погледај во прелистувач</string>
+  <string name="page_view_in_browser">Погледај во прелистувач</string>
   <string name="tool_tip_toc_button">Прегледот на содржини можете да го видите во секое време, допирајќи го копчето или повлекувајќи од десниот раб на екранов.</string>
   <string name="error_server_response">Опслужувачот не можеше да го исполни барањето.</string>
   <string name="error_response_malformed">Одѕивот од опслужувачот не е исправно форматиран.</string>

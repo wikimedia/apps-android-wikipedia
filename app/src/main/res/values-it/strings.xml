@@ -280,6 +280,7 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="tool_tip_select_text">Premere e tenere premuto in qualsiasi punto del testo per evidenziarlo per la copia e la condivisione.</string>
   <string name="tool_tip_share">Dopo aver evidenziato un dato interessante, prova a condividerlo sul tuo network preferito!</string>
   <string name="page_view_in_browser">Visualizzare la pagina nel browser</string>
+  <string name="tool_tip_toc_button">Guarda il menù dei contenuti premendo questo tasto, o scorri dal lato destro dello schermo.</string>
   <string name="error_server_response">Il server non è riuscito a completare la richiesta.</string>
   <string name="error_response_malformed">Risposta dal server non formattata correttamente.</string>
   <string name="error_unknown">Si è verificato un errore sconosciuto.</string>

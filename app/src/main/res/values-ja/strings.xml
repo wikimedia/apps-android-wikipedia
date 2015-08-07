@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">パスワードが違います</string>
   <string name="login_error_wrong_username">利用者名が正しくありません</string>
   <string name="login_error_illegal">無効な利用者名です</string>
-  <string name="login_success_toast" fuzzy="true">ログインしました!</string>
+  <string name="login_success_toast">ログインに成功!</string>
   <string name="login_error_blocked">この利用者はブロックされています</string>
   <string name="login_error_throttled">ログイン失敗が多すぎます。しばらくしてからもう一度やり直してください。</string>
   <string name="login_error_unknown">ログイン失敗</string>

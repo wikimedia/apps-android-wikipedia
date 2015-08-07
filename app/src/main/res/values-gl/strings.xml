@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">O contrasinal é incorrecto</string>
   <string name="login_error_wrong_username">O nome de usuario é incorrecto</string>
   <string name="login_error_illegal">Nome de usuario non válido</string>
-  <string name="login_success_toast" fuzzy="true">Accedeu correctamente!</string>
+  <string name="login_success_toast">Accedeu correctamente!</string>
   <string name="login_error_blocked">Este usuario está bloqueado</string>
   <string name="login_error_throttled">Demasiados intentos de inicio de sesión. Espere uns minutos e volva intentalo.</string>
   <string name="login_error_unknown">Erro durante o inicio de sesión :(</string>
@@ -277,7 +277,7 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="menu_save_page_popup">Gardar para máis tarde</string>
   <string name="tool_tip_select_text">Prema e manteña en calquera parte do texto para resaltalo e así copialo e compartilo.</string>
   <string name="tool_tip_share">Despois de resaltar unha información interesante, probe a compartila nas súas redes favoritas!</string>
-  <string name="page_view_in_browser" fuzzy="true">Mostrar no navegador</string>
+  <string name="page_view_in_browser">Ver a páxina no navegador</string>
   <string name="tool_tip_toc_button">Consulte a táboa de contidos en calquera momento premendo neste botón ou deslizando o dedo desde a parte dereita da pantalla.</string>
   <string name="error_server_response">O servidor non puido completar a petición.</string>
   <string name="error_response_malformed">A resposta do servidor non estaba formatada correctamente.</string>

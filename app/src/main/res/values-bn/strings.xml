@@ -91,7 +91,7 @@
   <string name="login_error_wrong_password">ভুল পাসওয়ার্ড</string>
   <string name="login_error_wrong_username">ভুল ব্যবহারকারী নাম</string>
   <string name="login_error_illegal">অগ্রহণযোগ্য ব্যবহারকারী নাম</string>
-  <string name="login_success_toast" fuzzy="true">প্রবেশ সফল!</string>
+  <string name="login_success_toast">প্রবেশ করা সফল!</string>
   <string name="login_error_blocked">এই ব্যবহারকারীকে ব্লক করা হয়েছে</string>
   <string name="login_error_throttled">অনেকবার প্রবেশের চেষ্টা করা হয়েছে। কয়েক মিনিট অপেক্ষা করে আবার চেষ্টা করুন।</string>
   <string name="login_error_unknown">প্রবেশ ব্যর্থ :(</string>
