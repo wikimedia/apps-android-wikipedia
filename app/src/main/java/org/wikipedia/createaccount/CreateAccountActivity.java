@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.KeyEvent;
@@ -28,6 +29,8 @@ import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.CreateAccountFunnel;
 import org.wikipedia.editing.CaptchaHandler;
+import org.wikipedia.util.FeedbackUtil;
+
 import static org.wikipedia.util.FeedbackUtil.showMessage;
 import static org.wikipedia.util.FeedbackUtil.showError;
 
@@ -254,7 +257,8 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                     break;
                 case "createaccount-hook-aborted":
                     // show the actual message provided by the hook
-                    showMessage(this, ((ApiException) e).getInfo());
+                    showMessage(this, Html.fromHtml(((ApiException) e).getInfo()),
+                            FeedbackUtil.LENGTH_DEFAULT);
                     break;
                 default:
                     showMessage(this, R.string.create_account_generic_error);
