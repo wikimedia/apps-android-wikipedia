@@ -30,6 +30,7 @@
             android:layout_height="match_parent"
             android:contentDescription="@null"
             android:src="@drawable/ic_pageimage_placeholder"
+            android:background="@color/window_background_light"
             android:scaleType="centerCrop" />
 
         <LinearLayout
