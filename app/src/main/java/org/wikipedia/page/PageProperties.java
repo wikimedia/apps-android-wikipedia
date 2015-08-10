@@ -7,12 +7,10 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.WikipediaApp;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
 
 /**
  * Immutable class that contains metadata associated with a PageTitle.
@@ -28,7 +26,6 @@ public class PageProperties implements Parcelable {
     private final boolean isDisambiguationPage;
     private final String leadImageUrl;
     private final String leadImageName;
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
 
     /**
      * True if the user who first requested this page can edit this page
@@ -59,10 +56,10 @@ public class PageProperties implements Parcelable {
         JSONObject image = json.optJSONObject("image");
         leadImageName = image != null ? image.optString("file") : null;
         lastModified = new Date();
-        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         String lastModifiedText = json.optString("lastmodified");
         try {
-            lastModified.setTime(sdf.parse(lastModifiedText).getTime());
+            lastModified.setTime(WikipediaApp.getInstance().getSimpleDateFormat()
+                    .parse(lastModifiedText).getTime());
         } catch (ParseException e) {
             Log.d("PageProperties", "Failed to parse date: " + lastModifiedText);
         }
@@ -145,7 +142,6 @@ public class PageProperties implements Parcelable {
     private PageProperties(Parcel in) {
         pageId = in.readInt();
         revisionId = in.readLong();
-        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
         editProtectionStatus = in.readString();
@@ -218,7 +214,8 @@ public class PageProperties implements Parcelable {
         try {
             json.put("id", pageId);
             json.put("revision", revisionId);
-            json.put("lastmodified", sdf.format(getLastModified()));
+            json.put("lastmodified", WikipediaApp.getInstance().getSimpleDateFormat()
+                    .format(getLastModified()));
             json.put("displaytitle", displayTitleText);
             if (editProtectionStatus == null) {
                 json.put("protection", new JSONArray());
