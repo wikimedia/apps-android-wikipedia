@@ -50,9 +50,12 @@ import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
+import java.util.TimeZone;
 import java.util.UUID;
 
 import static org.wikipedia.util.StringUtil.emptyIfNull;
@@ -566,6 +569,12 @@ public class WikipediaApp extends Application {
         return PrefsOnboardingStateMachine.getInstance();
     }
 
+    public SimpleDateFormat getSimpleDateFormat() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
+        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return simpleDateFormat;
+    }
+
     private HashMap<String, String> buildCustomHeaders(String acceptLanguage) {
         // https://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
         HashMap<String, String> headers = new HashMap<>();
@@ -603,7 +612,6 @@ public class WikipediaApp extends Application {
         }
         return RELEASE_PROD;
     }
-
 
     private int getColor(int id) {
         return getResources().getColor(id);
