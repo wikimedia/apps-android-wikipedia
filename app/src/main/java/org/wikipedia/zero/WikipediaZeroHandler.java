@@ -6,6 +6,7 @@ import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.random.RandomArticleIdTask;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.OnHeaderCheckListener;
+import org.wikipedia.util.FeedbackUtil;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -67,8 +68,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
 
     public static void showZeroBanner(@NonNull Activity activity, @NonNull String text,
                                       @ColorInt int foreColor, @ColorInt int backColor) {
-        Snackbar snackbar = Snackbar.make(activity.findViewById(R.id.page_contents_container), text,
-                Snackbar.LENGTH_LONG);
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(activity.findViewById(R.id.page_contents_container), text, FeedbackUtil.LENGTH_DEFAULT);
         ViewGroup rootView = (ViewGroup) snackbar.getView();
         TextView textView = (TextView) rootView.findViewById(R.id.snackbar_text);
         rootView.setBackgroundColor(backColor);

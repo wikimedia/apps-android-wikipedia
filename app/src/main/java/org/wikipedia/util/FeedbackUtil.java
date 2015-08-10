@@ -3,31 +3,47 @@ package org.wikipedia.util;
 import android.app.Activity;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.page.PageActivity;
 
+import java.util.concurrent.TimeUnit;
+
 public final class FeedbackUtil {
+    public static final int LENGTH_DEFAULT = (int) TimeUnit.SECONDS.toMillis(5);
+    private static final int SNACKBAR_MAX_LINES = 5;
+
+    public static Snackbar makeSnackbar(View view, CharSequence text, int duration) {
+        Snackbar snackbar = Snackbar.make(view, text, duration);
+        TextView textView = (TextView) snackbar.getView().findViewById(R.id.snackbar_text);
+        textView.setMaxLines(SNACKBAR_MAX_LINES);
+        return snackbar;
+    }
 
     public static void showError(View containerView, Throwable e) {
         ThrowableUtil.AppError error = ThrowableUtil.getAppError(containerView.getContext(), e);
-        Snackbar.make(containerView, error.getError(), Snackbar.LENGTH_LONG).show();
+        makeSnackbar(containerView, error.getError(), LENGTH_DEFAULT).show();
     }
 
-    private static void showMessage(View containerView, CharSequence text) {
-        Snackbar.make(containerView, text, Snackbar.LENGTH_LONG).show();
-    }
-
-    private static void showMessage(View containerView, int resId) {
-        showMessage(containerView, containerView.getResources().getString(resId));
+    private static void showMessage(View containerView, CharSequence text, int duration) {
+        makeSnackbar(containerView, text, duration).show();
     }
 
     public static void showMessage(Activity activity, int resId) {
-        showMessage(findBestView(activity), activity.getString(resId));
+        showMessage(activity, activity.getString(resId), Snackbar.LENGTH_LONG);
     }
 
     public static void showMessage(Activity activity, CharSequence text) {
-        showMessage(findBestView(activity), text);
+        showMessage(findBestView(activity), text, Snackbar.LENGTH_LONG);
+    }
+
+    public static void showMessage(Activity activity, int resId, int duration) {
+        showMessage(activity, activity.getString(resId), duration);
+    }
+
+    public static void showMessage(Activity activity, CharSequence text, int duration) {
+        showMessage(findBestView(activity), text, duration);
     }
 
     public static void showError(Activity activity, Throwable e) {
