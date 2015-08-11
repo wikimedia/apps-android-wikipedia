@@ -5,10 +5,18 @@ apply from: '../config/quality.gradle'
 
 import com.android.ddmlib.DdmPreferences
 
-final int ADB_TIMEOUT = 5 * 60 * 1000
+import java.util.concurrent.TimeUnit
+
+// Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
+final File PROD_PROPS_FILE = new File(System.getProperty('user.home'), '.sign/signing.properties')
+final File REPO_PROPS_FILE = new File('repo.properties')
+final Properties PROD_PROPS = loadProperties(PROD_PROPS_FILE)
+final Properties REPO_PROPS = loadProperties(REPO_PROPS_FILE)
+
+final int ADB_TIMEOUT = TimeUnit.MINUTES.toMillis(5)
 final boolean continuousIntegrationBuild = System.getenv('JENKINS_HOME') != null
-final boolean preDexEnabled = hasProperty('preDex') ?
-        Boolean.valueOf(preDex.toString()) :
+final boolean preDexEnabled = hasProperty('pre.dex') ?
+        Boolean.valueOf(getProperty('pre.dex').toString()) :
         !continuousIntegrationBuild
 if (!preDexEnabled) {
     println 'Pre-dexing disabled.'
@@ -52,43 +60,57 @@ android {
         versionCode 108
         testApplicationId 'org.wikipedia.test'
     }
+
     signingConfigs {
-        release
+        prod {
+            setSigningConfigKey(prod, PROD_PROPS)
+        }
+        debug {
+            setSigningConfigKey(debug, REPO_PROPS)
+        }
     }
+
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
         }
     }
+
     productFlavors {
         dev {
             versionName computeVersionName("dev")
             applicationId 'org.wikipedia.dev'
+            signingConfig signingConfigs.debug
         }
         prod {
             versionName computeVersionName("r")
+            signingConfig signingConfigs.prod
         }
         releasesprod {
             versionName computeVersionName("releasesprod")
+            signingConfig signingConfigs.prod
         }
         alpha {
             versionName computeVersionName("alpha")
             applicationId 'org.wikipedia.alpha'
+            signingConfig signingConfigs.debug
         }
         beta {
             versionName computeVersionName("beta")
             applicationId 'org.wikipedia.beta'
+            signingConfig signingConfigs.prod
         }
         amazon {
             versionName computeVersionName("amazon")
+            signingConfig signingConfigs.prod
         }
         custom {
             versionName computeVersionName(customChannel)
             applicationId getProperty('customApplicationId')
             // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
+            signingConfig signingConfigs.prod
         }
     }
     // while we still have lint errors; remove once those are fixed
@@ -136,25 +158,23 @@ dependencies {
     testCompile 'com.squareup.okhttp:mockwebserver:2.4.0'
 }
 
-// The next block is for setting the release signing config from a file outside the git repo
-// To make release builds work:
-// Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
-def Properties props = new Properties()
-def propFile = new File(System.getProperty('user.home'), '.sign/signing.properties')
-if (propFile.canRead()) {
-    props.load(new FileInputStream(propFile))
-
-    if (props != null && props.containsKey('STORE_FILE') && props.containsKey('STORE_PASSWORD') &&
-            props.containsKey('KEY_ALIAS') && props.containsKey('KEY_PASSWORD')) {
-        android.signingConfigs.release.storeFile = file(props['STORE_FILE'])
-        android.signingConfigs.release.storePassword = props['STORE_PASSWORD']
-        android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
-        android.signingConfigs.release.keyPassword = props['KEY_PASSWORD']
-    } else {
-        System.err.println propFile.toString() + ' found but some entries are missing'
-        android.buildTypes.release.signingConfig = null
+private setSigningConfigKey(config, Properties props) {
+    if (props) {
+        config.storeFile = props['keystore'] == null ? null : file(props['keystore'])
+        config.storePassword = props['store.pass']
+        config.keyAlias = props['key.alias']
+        config.keyPassword = props['key.pass']
     }
-} else {
-    System.err.println propFile.toString() + ' not found'
-    android.buildTypes.release.signingConfig = null
+    return config
+}
+
+private @Nullable Properties loadProperties(File file) {
+    Properties props = null
+    if (file.canRead()) {
+        props = new Properties()
+        props.load(new FileInputStream(file))
+    } else {
+        System.err.println "\"${file}\" not found"
+    }
+    return props
 }
