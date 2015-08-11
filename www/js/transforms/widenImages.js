@@ -1,4 +1,5 @@
-var util = require("./util");
+var transformer = require("../transformer");
+var utilities = require("../utilities");
 
 var maxStretchRatioAllowedBeforeRequestingHigherResolution = 1.3;
 
@@ -28,7 +29,7 @@ function shouldWidenImage(image) {
         image.hasAttribute('srcset') &&
         !image.hasAttribute('hasOverflowXContainer') &&
         image.parentNode.className === "image" &&
-        !util.isNestedInTable(image)
+        !utilities.isNestedInTable(image)
         ) {
         return true;
     } else {
@@ -46,7 +47,7 @@ function makeRoomForImageWidening(image) {
 }
 
 function getStretchRatio(image) {
-    var widthControllingDiv = util.firstDivAncestor(image);
+    var widthControllingDiv = utilities.firstDivAncestor(image);
     if (widthControllingDiv) {
         return (widthControllingDiv.offsetWidth / image.naturalWidth);
     }
@@ -57,7 +58,7 @@ function useHigherResolutionImageSrcFromSrcsetIfNecessary(image) {
     if (image.getAttribute('srcset')) {
         var stretchRatio = getStretchRatio(image);
         if (stretchRatio > maxStretchRatioAllowedBeforeRequestingHigherResolution) {
-            var srcsetDict = util.getDictionaryFromSrcset(image.getAttribute('srcset'));
+            var srcsetDict = utilities.getDictionaryFromSrcset(image.getAttribute('srcset'));
             /*
             Grab the highest res url from srcset - avoids the complexity of parsing urls
             to retrieve variants - which can get tricky - canonicals have different paths
@@ -96,6 +97,11 @@ function maybeWidenImage() {
     }
 }
 
-module.exports = {
-    maybeWidenImage: maybeWidenImage
-};
+transformer.register( "widenImages", function( content ) {
+    var images = content.querySelectorAll( 'img' );
+    for ( var i = 0; i < images.length; i++ ) {
+        // Load event used so images w/o style or inline width/height
+        // attributes can still have their size determined reliably.
+        images[i].addEventListener('load', maybeWidenImage, false);
+    }
+} );

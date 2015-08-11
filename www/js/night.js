@@ -1,6 +1,6 @@
 var bridge = require("./bridge");
 var loader = require("./loader");
-var util = require("./util");
+var util = require("./utilities");
 
 function setImageBackgroundsForDarkMode( content ) {
 	var allImgs = content.querySelectorAll( 'img' );

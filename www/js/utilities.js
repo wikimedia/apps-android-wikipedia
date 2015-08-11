@@ -82,32 +82,6 @@ function isNestedInTable(el) {
     return false;
 }
 
-function shouldAddImageOverflowXContainer(image) {
-    if ((image.width > document.getElementById('content').offsetWidth) && !isNestedInTable(image)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function addImageOverflowXContainer(image, ancestor) {
-    image.setAttribute('hasOverflowXContainer', 'true'); // So "widenImages" transform knows instantly not to widen this one.
-    var div = document.createElement( 'div' );
-    div.className = 'image_overflow_x_container';
-    ancestor.parentElement.insertBefore( div, ancestor );
-    div.appendChild(ancestor);
-}
-
-function maybeAddImageOverflowXContainer() {
-    var image = this;
-    if (shouldAddImageOverflowXContainer(image)) {
-        var ancestor = firstAncestorWithMultipleChildren(image);
-        if (ancestor) {
-            addImageOverflowXContainer(image, ancestor);
-        }
-    }
-}
-
 module.exports = {
     hasAncestor: hasAncestor,
     ancestorContainsClass: ancestorContainsClass,
@@ -115,5 +89,5 @@ module.exports = {
     getDictionaryFromSrcset: getDictionaryFromSrcset,
     firstDivAncestor: firstDivAncestor,
     isNestedInTable: isNestedInTable,
-    maybeAddImageOverflowXContainer: maybeAddImageOverflowXContainer
+    firstAncestorWithMultipleChildren: firstAncestorWithMultipleChildren
 };

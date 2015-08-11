@@ -1,5 +1,5 @@
 var bridge = require('./bridge');
-var util = require('./util');
+var util = require('./utilities');
 
 function ActionsHandler() {
 }

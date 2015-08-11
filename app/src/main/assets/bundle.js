@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var bridge = require('./bridge');
-var util = require('./util');
+var util = require('./utilities');
 
 function ActionsHandler() {
 }
@@ -120,7 +120,7 @@ function collectIssues( sourceNode ) {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./util":13}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":24}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -181,7 +181,7 @@ transformer.register( 'displayDisambigLink', function( content ) {
     return content;
 } );
 
-},{"./transformer":11}],4:[function(require,module,exports){
+},{"./transformer":12}],4:[function(require,module,exports){
 var actions = require('./actions');
 var bridge = require('./bridge');
 
@@ -215,7 +215,7 @@ transformer.register( 'displayIssuesLink', function( content ) {
     return content;
 } );
 
-},{"./transformer":11}],6:[function(require,module,exports){
+},{"./transformer":12}],6:[function(require,module,exports){
 var bridge = require( "./bridge" );
 
 function addStyleLink( href ) {
@@ -289,7 +289,7 @@ bridge.registerListener( "setPageProtected", function( payload ) {
 },{"./bridge":2}],8:[function(require,module,exports){
 var bridge = require("./bridge");
 var loader = require("./loader");
-var util = require("./util");
+var util = require("./utilities");
 
 function setImageBackgroundsForDarkMode( content ) {
 	var allImgs = content.querySelectorAll( 'img' );
@@ -342,7 +342,16 @@ module.exports = {
 	setImageBackgroundsForDarkMode: setImageBackgroundsForDarkMode
 };
 
-},{"./bridge":2,"./loader":6,"./util":13}],9:[function(require,module,exports){
+},{"./bridge":2,"./loader":6,"./utilities":24}],9:[function(require,module,exports){
+var bridge = require("./bridge");
+
+bridge.registerListener( "displayPreviewHTML", function( payload ) {
+    var content = document.getElementById( "content" );
+    content.setAttribute( "dir", window.directionality );
+    content.innerHTML = payload.html;
+} );
+
+},{"./bridge":2}],10:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -358,7 +367,7 @@ bridge.registerListener( "setDirectionality", function( payload ) {
     html.classList.add( "ui-" + payload.uiDirection );
 } );
 
-},{"./bridge":2}],10:[function(require,module,exports){
+},{"./bridge":2}],11:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 
@@ -450,20 +459,26 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     // dimension measurements for items.
     document.getElementById( "content" ).appendChild( content );
 
-    content = transformer.transform( "leadSection", content );
-    content = transformer.transform( "section", content );
-    content = transformer.transform( "hideIPA", content );
+    transformer.transform( "moveFirstGoodParagraphUp" );
+    transformer.transform( "invertNightModeElements", content );
+    transformer.transform( "hideRedLinks", content );
+    transformer.transform( "setNonGbDivWidth", content );
+    transformer.transform( "setMathFormulaImageMaxWidth", content );
+    transformer.transform( "anchorPopUpMediaTransforms", content );
+    transformer.transform( "hideTables", content );
+    transformer.transform( "hideIPA", content );
+
     if (!window.isMainPage) {
-        content = transformer.transform( "hideTables", content );
-        content = transformer.transform( "addImageOverflowXContainers", content );
-        content = transformer.transform( "widenImages", content );
+        transformer.transform( "hideTables", content );
+        transformer.transform( "addImageOverflowXContainers", content );
+        transformer.transform( "widenImages", content );
     }
 
     // insert the edit pencil
     content.insertBefore( editButton, content.firstChild );
 
-    content = transformer.transform("displayDisambigLink", content);
-    content = transformer.transform("displayIssuesLink", content);
+    transformer.transform("displayDisambigLink", content);
+    transformer.transform("displayIssuesLink", content);
 
     //if there were no page issues, then hide the container
     if (!issuesContainer.hasChildNodes()) {
@@ -521,13 +536,17 @@ function elementsForSection( section ) {
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
-    content = transformer.transform( "section", content );
-    content = transformer.transform( "hideTables", content );
-    content = transformer.transform( "hideIPA", content );
-    content = transformer.transform( "hideRefs", content );
+    transformer.transform( "invertNightModeElements", content );
+    transformer.transform( "hideRedLinks", content );
+    transformer.transform( "setNonGbDivWidth", content );
+    transformer.transform( "setMathFormulaImageMaxWidth", content );
+    transformer.transform( "anchorPopUpMediaTransforms", content );
+    transformer.transform( "hideTables", content );
+    transformer.transform( "hideIPA", content );
+    transformer.transform( "hideRefs", content );
     if (!window.isMainPage) {
-        content = transformer.transform( "addImageOverflowXContainers", content );
-        content = transformer.transform( "widenImages", content );
+        transformer.transform( "addImageOverflowXContainers", content );
+        transformer.transform( "widenImages", content );
     }
 
     return [ heading, content ];
@@ -611,7 +630,7 @@ bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-},{"./bridge":2,"./transformer":11}],11:[function(require,module,exports){
+},{"./bridge":2,"./transformer":12}],12:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -630,112 +649,84 @@ Transformer.prototype.transform = function( transform, element ) {
     for ( var i = 0; i < functions.length; i++ ) {
         element = functions[i](element);
     }
-    return element;
 };
 
 module.exports = new Transformer();
 
-},{}],12:[function(require,module,exports){
-var transformer = require("./transformer");
-var night = require("./night");
-var bridge = require("./bridge");
-var widenImages = require("./widenImages");
-var util = require("./util");
+},{}],13:[function(require,module,exports){
+var transformer = require("../transformer");
+var utilities = require("../utilities");
 
-// Takes a block of text, and removes any text within parentheses, but only
-// until the end of the first sentence.
-// Based on Extensions:Popups - ext.popups.renderer.article.js
-function removeParensFromText( string ) {
-    var ch;
-    var newString = '';
-    var level = 0;
-    var i = 0;
-    for( ; i < string.length; i++ ) {
-        ch = string.charAt( i );
-        if ( ch === ')' && level === 0  ) {
-            // abort if we have an imbalance of parentheses
-            return string;
-        }
-        if ( ch === '(' ) {
-            level++;
-            continue;
-        } else if ( ch === ')' ) {
-            level--;
-            continue;
-        }
-        if ( level === 0 ) {
-            // Remove leading spaces before parentheses
-            if ( ch === ' ' && (i < string.length - 1) && string.charAt( i + 1 ) === '(' ) {
-                continue;
-            }
-            newString += ch;
-            if ( ch === '.' ) {
-                // stop at the end of the first sentence
-                break;
-            }
-        }
+function shouldAddImageOverflowXContainer(image) {
+    if ((image.width > document.getElementById('content').offsetWidth) && !utilities.isNestedInTable(image)) {
+        return true;
+    } else {
+        return false;
     }
-    // fill in the rest of the string
-    if ( i + 1 < string.length ) {
-        newString += string.substring( i + 1, string.length );
-    }
-    // if we had an imbalance of parentheses, then return the original string,
-    // instead of the transformed one.
-    return ( level === 0 ) ? newString : string;
 }
 
-// Move the first non-empty paragraph of text to the top of the section.
-// This will have the effect of shifting the infobox and/or any images at the top of the page
-// below the first paragraph, allowing the user to start reading the page right away.
-transformer.register( "leadSection", function( leadContent ) {
-    if (window.isMainPage) {
-        // don't do anything if this is the main page, since many wikis
-        // arrange the main page in a series of tables.
-        return leadContent;
-    }
-    var block_0 = document.getElementById( "content_block_0" );
-    if (!block_0) {
-        return leadContent;
-    }
+function addImageOverflowXContainer(image, ancestor) {
+    image.setAttribute('hasOverflowXContainer', 'true'); // So "widenImages" transform knows instantly not to widen this one.
+    var div = document.createElement( 'div' );
+    div.className = 'image_overflow_x_container';
+    ancestor.parentElement.insertBefore( div, ancestor );
+    div.appendChild(ancestor);
+}
 
-    var allPs = block_0.getElementsByTagName( "p" );
-    if (!allPs) {
-        return leadContent;
-    }
-
-    for ( var i = 0; i < allPs.length; i++ ) {
-        var p = allPs[i];
-        // Narrow down to first P which is direct child of content_block_0 DIV.
-        // (Don't want to yank P from somewhere in the middle of a table!)
-        if (p.parentNode !== block_0) {
-            continue;
+function maybeAddImageOverflowXContainer() {
+    var image = this;
+    if (shouldAddImageOverflowXContainer(image)) {
+        var ancestor = utilities.firstAncestorWithMultipleChildren(image);
+        if (ancestor) {
+            addImageOverflowXContainer(image, ancestor);
         }
-        // Ensure the P being pulled up has at least a couple lines of text.
-        // Otherwise silly things like a empty P or P which only contains a
-        // BR tag will get pulled up (see articles on "Chemical Reaction" and
-        // "Hawaii").
-        // Trick for quickly determining element height:
-        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement.offsetHeight
-        // http://stackoverflow.com/a/1343350/135557
-        var minHeight = 24;
-        if (p.offsetHeight < minHeight){
-            continue;
-        }
-
-        // Move the P!
-        block_0.insertBefore(p.parentNode.removeChild(p), block_0.firstChild);
-
-        // Transform the first sentence of the first paragraph.
-        // (but only for non-production, and only on enwiki)
-        if ( window.isBeta && window.siteLanguage.indexOf( "en" ) > -1 ) {
-            p.innerHTML = removeParensFromText(p.innerHTML);
-        }
-
-        // But only move one P!
-        break;
     }
-    return leadContent;
+}
+
+transformer.register( "addImageOverflowXContainers", function( content ) {
+    // Wrap wide images in a <div style="overflow-x:auto">...</div> so they can scroll
+    // side to side if needed without causing the entire section to scroll side to side.
+    var images = content.getElementsByTagName('img');
+    for (var i = 0; i < images.length; ++i) {
+        // Load event used so images w/o style or inline width/height
+        // attributes can still have their size determined reliably.
+        images[i].addEventListener('load', maybeAddImageOverflowXContainer, false);
+    }
 } );
+},{"../transformer":12,"../utilities":24}],14:[function(require,module,exports){
+var transformer = require("../transformer");
+
+transformer.register( "anchorPopUpMediaTransforms", function( content ) {
+    // look for video thumbnail containers (divs that have class "PopUpMediaTransform"),
+    // and enclose them in an anchor that will lead to the correct click handler...
+	var mediaDivs = content.querySelectorAll( 'div.PopUpMediaTransform' );
+	for ( var i = 0; i < mediaDivs.length; i++ ) {
+		var mediaDiv = mediaDivs[i];
+		var imgTags = mediaDiv.querySelectorAll( 'img' );
+		if (imgTags.length === 0) {
+		    continue;
+		}
+		// the first img element is the video thumbnail, and its 'alt' attribute is
+		// the file name of the video!
+		if (!imgTags[0].getAttribute( 'alt' )) {
+		    continue;
+		}
+		// also, we should hide the "Play media" link that appears under the thumbnail,
+		// since we don't need it.
+		var aTags = mediaDiv.querySelectorAll( 'a' );
+		if (aTags.length > 0) {
+		    aTags[0].parentNode.removeChild(aTags[0]);
+		}
+		var containerLink = document.createElement( 'a' );
+        containerLink.setAttribute( 'href', imgTags[0].getAttribute( 'alt' ) );
+        containerLink.classList.add( 'app_media' );
+        mediaDiv.parentNode.insertBefore(containerLink, mediaDiv);
+        mediaDiv.parentNode.removeChild(mediaDiv);
+        containerLink.appendChild(imgTags[0]);
+	}
+} );
+},{"../transformer":12}],15:[function(require,module,exports){
+var transformer = require("../transformer");
 
 /*
 Tries to get an array of table header (TH) contents from a given table.
@@ -872,52 +863,10 @@ transformer.register( "hideTables", function( content ) {
         collapsedDiv.onclick = tableCollapseClickHandler;
         bottomDiv.onclick = tableCollapseClickHandler;
     }
-    return content;
 } );
-
-transformer.register( "hideRefs", function( content ) {
-    var refLists = content.querySelectorAll( "div.reflist" );
-    for (var i = 0; i < refLists.length; i++) {
-        var caption = "<strong class='app_table_collapsed_caption'>" + window.string_expand_refs + "</strong>";
-
-        //create the container div that will contain both the original table
-        //and the collapsed version.
-        var containerDiv = document.createElement( 'div' );
-        containerDiv.className = 'app_table_container';
-        refLists[i].parentNode.insertBefore(containerDiv, refLists[i]);
-        refLists[i].parentNode.removeChild(refLists[i]);
-
-        //create the collapsed div
-        var collapsedDiv = document.createElement( 'div' );
-        collapsedDiv.classList.add('app_table_collapsed_container');
-        collapsedDiv.classList.add('app_table_collapsed_open');
-        collapsedDiv.innerHTML = caption;
-
-        //create the bottom collapsed div
-        var bottomDiv = document.createElement( 'div' );
-        bottomDiv.classList.add('app_table_collapsed_bottom');
-        bottomDiv.classList.add('app_table_collapse_icon');
-        bottomDiv.innerHTML = window.string_table_close;
-
-        //add our stuff to the container
-        containerDiv.appendChild(collapsedDiv);
-        containerDiv.appendChild(refLists[i]);
-        containerDiv.appendChild(bottomDiv);
-
-        //give it just a little padding
-        refLists[i].style.padding = "4px";
-
-        //set initial visibility
-        refLists[i].style.display = 'none';
-        collapsedDiv.style.display = 'block';
-        bottomDiv.style.display = 'none';
-
-        //assign click handler to the collapsed divs
-        collapsedDiv.onclick = tableCollapseClickHandler;
-        bottomDiv.onclick = tableCollapseClickHandler;
-    }
-    return content;
-} );
+},{"../transformer":12}],16:[function(require,module,exports){
+var transformer = require("../transformer");
+var bridge = require("../bridge");
 
 /*
 OnClick handler function for IPA spans.
@@ -963,17 +912,11 @@ transformer.register( "hideIPA", function( content ) {
         //and assign the click handler to it
         containerSpan.onclick = ipaClickHandler;
     }
-    return content;
 } );
+},{"../bridge":2,"../transformer":12}],17:[function(require,module,exports){
+var transformer = require("../transformer");
 
-transformer.register( "section", function( content ) {
-	if ( window.isNightMode ) {
-		night.setImageBackgroundsForDarkMode( content );
-	}
-	return content;
-} );
-
-transformer.register( "section", function( content ) {
+transformer.register( "hideRedLinks", function( content ) {
 	var redLinks = content.querySelectorAll( 'a.new' );
 	for ( var i = 0; i < redLinks.length; i++ ) {
 		var redLink = redLinks[i];
@@ -982,13 +925,182 @@ transformer.register( "section", function( content ) {
 		replacementSpan.setAttribute( 'class', redLink.getAttribute( 'class' ) );
 		redLink.parentNode.replaceChild( replacementSpan, redLink );
 	}
-	return content;
 } );
+},{"../transformer":12}],18:[function(require,module,exports){
+var transformer = require("../transformer");
+var collapseTables = require("./collapseTables");
 
-transformer.register( "section", function( content ) {
+transformer.register( "hideRefs", function( content ) {
+    var refLists = content.querySelectorAll( "div.reflist" );
+    for (var i = 0; i < refLists.length; i++) {
+        var caption = "<strong class='app_table_collapsed_caption'>" + window.string_expand_refs + "</strong>";
+
+        //create the container div that will contain both the original table
+        //and the collapsed version.
+        var containerDiv = document.createElement( 'div' );
+        containerDiv.className = 'app_table_container';
+        refLists[i].parentNode.insertBefore(containerDiv, refLists[i]);
+        refLists[i].parentNode.removeChild(refLists[i]);
+
+        //create the collapsed div
+        var collapsedDiv = document.createElement( 'div' );
+        collapsedDiv.classList.add('app_table_collapsed_container');
+        collapsedDiv.classList.add('app_table_collapsed_open');
+        collapsedDiv.innerHTML = caption;
+
+        //create the bottom collapsed div
+        var bottomDiv = document.createElement( 'div' );
+        bottomDiv.classList.add('app_table_collapsed_bottom');
+        bottomDiv.classList.add('app_table_collapse_icon');
+        bottomDiv.innerHTML = window.string_table_close;
+
+        //add our stuff to the container
+        containerDiv.appendChild(collapsedDiv);
+        containerDiv.appendChild(refLists[i]);
+        containerDiv.appendChild(bottomDiv);
+
+        //give it just a little padding
+        refLists[i].style.padding = "4px";
+
+        //set initial visibility
+        refLists[i].style.display = 'none';
+        collapsedDiv.style.display = 'block';
+        bottomDiv.style.display = 'none';
+
+        //assign click handler to the collapsed divs
+        collapsedDiv.onclick = collapseTables.tableCollapseClickHandler;
+        bottomDiv.onclick = collapseTables.tableCollapseClickHandler;
+    }
+} );
+},{"../transformer":12,"./collapseTables":15}],19:[function(require,module,exports){
+var transformer = require("../transformer");
+var night = require("../night");
+
+transformer.register( "invertNightModeElements", function( content ) {
+	if ( window.isNightMode ) {
+		night.setImageBackgroundsForDarkMode ( content );
+	}
+} );
+},{"../night":8,"../transformer":12}],20:[function(require,module,exports){
+var transformer = require("../transformer");
+
+// Takes a block of text, and removes any text within parentheses, but only
+// until the end of the first sentence.
+// Based on Extensions:Popups - ext.popups.renderer.article.js
+function removeParensFromText( string ) {
+    var ch;
+    var newString = '';
+    var level = 0;
+    var i = 0;
+    for( ; i < string.length; i++ ) {
+        ch = string.charAt( i );
+        if ( ch === ')' && level === 0  ) {
+            // abort if we have an imbalance of parentheses
+            return string;
+        }
+        if ( ch === '(' ) {
+            level++;
+            continue;
+        } else if ( ch === ')' ) {
+            level--;
+            continue;
+        }
+        if ( level === 0 ) {
+            // Remove leading spaces before parentheses
+            if ( ch === ' ' && (i < string.length - 1) && string.charAt( i + 1 ) === '(' ) {
+                continue;
+            }
+            newString += ch;
+            if ( ch === '.' ) {
+                // stop at the end of the first sentence
+                break;
+            }
+        }
+    }
+    // fill in the rest of the string
+    if ( i + 1 < string.length ) {
+        newString += string.substring( i + 1, string.length );
+    }
+    // if we had an imbalance of parentheses, then return the original string,
+    // instead of the transformed one.
+    return ( level === 0 ) ? newString : string;
+}
+
+// Move the first non-empty paragraph of text to the top of the section.
+// This will have the effect of shifting the infobox and/or any images at the top of the page
+// below the first paragraph, allowing the user to start reading the page right away.
+transformer.register( "moveFirstGoodParagraphUp", function() {
+    if (window.isMainPage) {
+        // don't do anything if this is the main page, since many wikis
+        // arrange the main page in a series of tables.
+        return;
+    }
+    var block_0 = document.getElementById( "content_block_0" );
+    if (!block_0) {
+        return;
+    }
+
+    var allPs = block_0.getElementsByTagName( "p" );
+    if (!allPs) {
+        return;
+    }
+
+    for ( var i = 0; i < allPs.length; i++ ) {
+        var p = allPs[i];
+        // Narrow down to first P which is direct child of content_block_0 DIV.
+        // (Don't want to yank P from somewhere in the middle of a table!)
+        if (p.parentNode !== block_0) {
+            continue;
+        }
+        // Ensure the P being pulled up has at least a couple lines of text.
+        // Otherwise silly things like a empty P or P which only contains a
+        // BR tag will get pulled up (see articles on "Chemical Reaction" and
+        // "Hawaii").
+        // Trick for quickly determining element height:
+        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement.offsetHeight
+        // http://stackoverflow.com/a/1343350/135557
+        var minHeight = 24;
+        if (p.offsetHeight < minHeight){
+            continue;
+        }
+
+        // Move the P!
+        block_0.insertBefore(p.parentNode.removeChild(p), block_0.firstChild);
+
+        // Transform the first sentence of the first paragraph.
+        // (but only for non-production, and only on enwiki)
+        if ( window.isBeta && window.siteLanguage.indexOf( "en" ) > -1 ) {
+            p.innerHTML = removeParensFromText(p.innerHTML);
+        }
+
+        // But only move one P!
+        break;
+    }
+} );
+},{"../transformer":12}],21:[function(require,module,exports){
+var transformer = require("../transformer");
+
+transformer.register( "setMathFormulaImageMaxWidth", function( content ) {
+    // Prevent horizontally scrollable pages by checking for math formula images (which are
+    // often quite wide), and explicitly setting their maximum width to fit the viewport.
+    var allImgs = content.querySelectorAll( 'img' );
+    for ( var i = 0; i < allImgs.length; i++ ) {
+        var imgItem = allImgs[i];
+        // is the image a math formula?
+        for ( var c = 0; c < imgItem.classList.length; c++ ) {
+            if (imgItem.classList[c].indexOf("math") > -1) {
+                imgItem.style.maxWidth = "100%";
+            }
+        }
+    }
+} );
+},{"../transformer":12}],22:[function(require,module,exports){
+var transformer = require("../transformer");
+
+transformer.register( "setNonGbDivWidth", function( content ) {
     if (window.apiLevel < 11) {
         //don't do anything for GB
-        return content;
+        return;
     }
     var allDivs = content.querySelectorAll( 'div' );
     var contentWrapper = document.getElementById( "content" );
@@ -1003,79 +1115,116 @@ transformer.register( "section", function( content ) {
             }
         }
     }
-    return content;
 } );
+},{"../transformer":12}],23:[function(require,module,exports){
+var transformer = require("../transformer");
+var utilities = require("../utilities");
 
-transformer.register( "section", function( content ) {
-    // Prevent horizontally scrollable pages by checking for math formula images (which are
-    // often quite wide), and explicitly setting their maximum width to fit the viewport.
-    var allImgs = content.querySelectorAll( 'img' );
-    for ( var i = 0; i < allImgs.length; i++ ) {
-        var imgItem = allImgs[i];
-        // is the image a math formula?
-        for ( var c = 0; c < imgItem.classList.length; c++ ) {
-            if (imgItem.classList[c].indexOf("math") > -1) {
-                imgItem.style.maxWidth = "100%";
+var maxStretchRatioAllowedBeforeRequestingHigherResolution = 1.3;
+
+// If enabled, widened images will have thin red dashed border and
+// and widened images for which a higher resolution version was
+// requested will have thick red dashed border.
+var enableDebugBorders = false;
+
+function widenAncestors (el) {
+    while ((el = el.parentElement) && !el.classList.contains('content_block')) {
+        // Only widen if there was a width setting. Keeps changes minimal.
+        if (el.style.width) {
+            el.style.width = '100%';
+        }
+        if (el.style.maxWidth) {
+            el.style.maxWidth = '100%';
+        }
+        if (el.style.float) {
+            el.style.float = 'none';
+        }
+    }
+}
+
+function shouldWidenImage(image) {
+    if (
+        image.width >= 64 &&
+        image.hasAttribute('srcset') &&
+        !image.hasAttribute('hasOverflowXContainer') &&
+        image.parentNode.className === "image" &&
+        !utilities.isNestedInTable(image)
+        ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function makeRoomForImageWidening(image) {
+    // Expand containment so css wideImageOverride width percentages can take effect.
+    widenAncestors (image);
+
+    // Remove width and height attributes so wideImageOverride width percentages can take effect.
+    image.removeAttribute("width");
+    image.removeAttribute("height");
+}
+
+function getStretchRatio(image) {
+    var widthControllingDiv = utilities.firstDivAncestor(image);
+    if (widthControllingDiv) {
+        return (widthControllingDiv.offsetWidth / image.naturalWidth);
+    }
+    return 1.0;
+}
+
+function useHigherResolutionImageSrcFromSrcsetIfNecessary(image) {
+    if (image.getAttribute('srcset')) {
+        var stretchRatio = getStretchRatio(image);
+        if (stretchRatio > maxStretchRatioAllowedBeforeRequestingHigherResolution) {
+            var srcsetDict = utilities.getDictionaryFromSrcset(image.getAttribute('srcset'));
+            /*
+            Grab the highest res url from srcset - avoids the complexity of parsing urls
+            to retrieve variants - which can get tricky - canonicals have different paths
+            than size variants
+            */
+            var largestSrcsetDictKey = Object.keys(srcsetDict).reduce(function(a, b) {
+              return a > b ? a : b;
+            });
+
+            image.src = srcsetDict[largestSrcsetDictKey];
+
+            if (enableDebugBorders) {
+                image.style.borderWidth = '10px';
             }
         }
     }
-    return content;
-} );
+}
 
-transformer.register( "section", function( content ) {
-    // look for video thumbnail containers (divs that have class "PopUpMediaTransform"),
-    // and enclose them in an anchor that will lead to the correct click handler...
-	var mediaDivs = content.querySelectorAll( 'div.PopUpMediaTransform' );
-	for ( var i = 0; i < mediaDivs.length; i++ ) {
-		var mediaDiv = mediaDivs[i];
-		var imgTags = mediaDiv.querySelectorAll( 'img' );
-		if (imgTags.length === 0) {
-		    continue;
-		}
-		// the first img element is the video thumbnail, and its 'alt' attribute is
-		// the file name of the video!
-		if (!imgTags[0].getAttribute( 'alt' )) {
-		    continue;
-		}
-		// also, we should hide the "Play media" link that appears under the thumbnail,
-		// since we don't need it.
-		var aTags = mediaDiv.querySelectorAll( 'a' );
-		if (aTags.length > 0) {
-		    aTags[0].parentNode.removeChild(aTags[0]);
-		}
-		var containerLink = document.createElement( 'a' );
-        containerLink.setAttribute( 'href', imgTags[0].getAttribute( 'alt' ) );
-        containerLink.classList.add( 'app_media' );
-        mediaDiv.parentNode.insertBefore(containerLink, mediaDiv);
-        mediaDiv.parentNode.removeChild(mediaDiv);
-        containerLink.appendChild(imgTags[0]);
-	}
-	return content;
-} );
+function widenImage(image) {
+    makeRoomForImageWidening (image);
+    image.classList.add("wideImageOverride");
+
+    if (enableDebugBorders) {
+        image.style.borderStyle = 'dashed';
+        image.style.borderWidth = '1px';
+        image.style.borderColor = '#f00';
+    }
+
+    useHigherResolutionImageSrcFromSrcsetIfNecessary(image);
+}
+
+function maybeWidenImage() {
+    var image = this;
+    if (shouldWidenImage(image)) {
+        widenImage(image);
+    }
+}
 
 transformer.register( "widenImages", function( content ) {
     var images = content.querySelectorAll( 'img' );
     for ( var i = 0; i < images.length; i++ ) {
         // Load event used so images w/o style or inline width/height
         // attributes can still have their size determined reliably.
-        images[i].addEventListener('load', widenImages.maybeWidenImage, false);
+        images[i].addEventListener('load', maybeWidenImage, false);
     }
-    return content;
 } );
-
-transformer.register( "addImageOverflowXContainers", function( content ) {
-    // Wrap wide images in a <div style="overflow-x:auto">...</div> so they can scroll
-    // side to side if needed without causing the entire section to scroll side to side.
-    var images = content.getElementsByTagName('img');
-    for (var i = 0; i < images.length; ++i) {
-        // Load event used so images w/o style or inline width/height
-        // attributes can still have their size determined reliably.
-        images[i].addEventListener('load', util.maybeAddImageOverflowXContainer, false);
-    }
-    return content;
-} );
-
-},{"./bridge":2,"./night":8,"./transformer":11,"./util":13,"./widenImages":14}],13:[function(require,module,exports){
+},{"../transformer":12,"../utilities":24}],24:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
     if (el !== null && el.tagName === tagName) {
@@ -1160,32 +1309,6 @@ function isNestedInTable(el) {
     return false;
 }
 
-function shouldAddImageOverflowXContainer(image) {
-    if ((image.width > document.getElementById('content').offsetWidth) && !isNestedInTable(image)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function addImageOverflowXContainer(image, ancestor) {
-    image.setAttribute('hasOverflowXContainer', 'true'); // So "widenImages" transform knows instantly not to widen this one.
-    var div = document.createElement( 'div' );
-    div.className = 'image_overflow_x_container';
-    ancestor.parentElement.insertBefore( div, ancestor );
-    div.appendChild(ancestor);
-}
-
-function maybeAddImageOverflowXContainer() {
-    var image = this;
-    if (shouldAddImageOverflowXContainer(image)) {
-        var ancestor = firstAncestorWithMultipleChildren(image);
-        if (ancestor) {
-            addImageOverflowXContainer(image, ancestor);
-        }
-    }
-}
-
 module.exports = {
     hasAncestor: hasAncestor,
     ancestorContainsClass: ancestorContainsClass,
@@ -1193,112 +1316,10 @@ module.exports = {
     getDictionaryFromSrcset: getDictionaryFromSrcset,
     firstDivAncestor: firstDivAncestor,
     isNestedInTable: isNestedInTable,
-    maybeAddImageOverflowXContainer: maybeAddImageOverflowXContainer
+    firstAncestorWithMultipleChildren: firstAncestorWithMultipleChildren
 };
 
-},{}],14:[function(require,module,exports){
-var util = require("./util");
-
-var maxStretchRatioAllowedBeforeRequestingHigherResolution = 1.3;
-
-// If enabled, widened images will have thin red dashed border and
-// and widened images for which a higher resolution version was
-// requested will have thick red dashed border.
-var enableDebugBorders = false;
-
-function widenAncestors (el) {
-    while ((el = el.parentElement) && !el.classList.contains('content_block')) {
-        // Only widen if there was a width setting. Keeps changes minimal.
-        if (el.style.width) {
-            el.style.width = '100%';
-        }
-        if (el.style.maxWidth) {
-            el.style.maxWidth = '100%';
-        }
-        if (el.style.float) {
-            el.style.float = 'none';
-        }
-    }
-}
-
-function shouldWidenImage(image) {
-    if (
-        image.width >= 64 &&
-        image.hasAttribute('srcset') &&
-        !image.hasAttribute('hasOverflowXContainer') &&
-        image.parentNode.className === "image" &&
-        !util.isNestedInTable(image)
-        ) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function makeRoomForImageWidening(image) {
-    // Expand containment so css wideImageOverride width percentages can take effect.
-    widenAncestors (image);
-
-    // Remove width and height attributes so wideImageOverride width percentages can take effect.
-    image.removeAttribute("width");
-    image.removeAttribute("height");
-}
-
-function getStretchRatio(image) {
-    var widthControllingDiv = util.firstDivAncestor(image);
-    if (widthControllingDiv) {
-        return (widthControllingDiv.offsetWidth / image.naturalWidth);
-    }
-    return 1.0;
-}
-
-function useHigherResolutionImageSrcFromSrcsetIfNecessary(image) {
-    if (image.getAttribute('srcset')) {
-        var stretchRatio = getStretchRatio(image);
-        if (stretchRatio > maxStretchRatioAllowedBeforeRequestingHigherResolution) {
-            var srcsetDict = util.getDictionaryFromSrcset(image.getAttribute('srcset'));
-            /*
-            Grab the highest res url from srcset - avoids the complexity of parsing urls
-            to retrieve variants - which can get tricky - canonicals have different paths
-            than size variants
-            */
-            var largestSrcsetDictKey = Object.keys(srcsetDict).reduce(function(a, b) {
-              return a > b ? a : b;
-            });
-
-            image.src = srcsetDict[largestSrcsetDictKey];
-
-            if (enableDebugBorders) {
-                image.style.borderWidth = '10px';
-            }
-        }
-    }
-}
-
-function widenImage(image) {
-    makeRoomForImageWidening (image);
-    image.classList.add("wideImageOverride");
-
-    if (enableDebugBorders) {
-        image.style.borderStyle = 'dashed';
-        image.style.borderWidth = '1px';
-        image.style.borderColor = '#f00';
-    }
-
-    useHigherResolutionImageSrcFromSrcsetIfNecessary(image);
-}
-
-function maybeWidenImage() {
-    var image = this;
-    if (shouldWidenImage(image)) {
-        widenImage(image);
-    }
-}
-
-module.exports = {
-    maybeWidenImage: maybeWidenImage
-};
-},{"./util":13}],15:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills
@@ -1375,206 +1396,16 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}],16:[function(require,module,exports){
-// (c) Dean McNamee <dean@gmail.com>, 2012.
-//
-// https://github.com/deanm/css-color-parser-js
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to
-// deal in the Software without restriction, including without limitation the
-// rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-// sell copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-// IN THE SOFTWARE.
+},{}],26:[function(require,module,exports){
+var bridge = require("../js/bridge");
+bridge.registerListener( "injectScript", function( payload ) {
+    require(payload.src);
+});
+},{"../js/bridge":2}],27:[function(require,module,exports){
+var bridge = require("../js/bridge");
+console.log("Something!");
+bridge.registerListener( "ping", function( payload ) {
+    bridge.sendMessage( "pong", payload );
+});
 
-// http://www.w3.org/TR/css3-color/
-var kCSSColorTable = {
-  "transparent": [0,0,0,0], "aliceblue": [240,248,255,1],
-  "antiquewhite": [250,235,215,1], "aqua": [0,255,255,1],
-  "aquamarine": [127,255,212,1], "azure": [240,255,255,1],
-  "beige": [245,245,220,1], "bisque": [255,228,196,1],
-  "black": [0,0,0,1], "blanchedalmond": [255,235,205,1],
-  "blue": [0,0,255,1], "blueviolet": [138,43,226,1],
-  "brown": [165,42,42,1], "burlywood": [222,184,135,1],
-  "cadetblue": [95,158,160,1], "chartreuse": [127,255,0,1],
-  "chocolate": [210,105,30,1], "coral": [255,127,80,1],
-  "cornflowerblue": [100,149,237,1], "cornsilk": [255,248,220,1],
-  "crimson": [220,20,60,1], "cyan": [0,255,255,1],
-  "darkblue": [0,0,139,1], "darkcyan": [0,139,139,1],
-  "darkgoldenrod": [184,134,11,1], "darkgray": [169,169,169,1],
-  "darkgreen": [0,100,0,1], "darkgrey": [169,169,169,1],
-  "darkkhaki": [189,183,107,1], "darkmagenta": [139,0,139,1],
-  "darkolivegreen": [85,107,47,1], "darkorange": [255,140,0,1],
-  "darkorchid": [153,50,204,1], "darkred": [139,0,0,1],
-  "darksalmon": [233,150,122,1], "darkseagreen": [143,188,143,1],
-  "darkslateblue": [72,61,139,1], "darkslategray": [47,79,79,1],
-  "darkslategrey": [47,79,79,1], "darkturquoise": [0,206,209,1],
-  "darkviolet": [148,0,211,1], "deeppink": [255,20,147,1],
-  "deepskyblue": [0,191,255,1], "dimgray": [105,105,105,1],
-  "dimgrey": [105,105,105,1], "dodgerblue": [30,144,255,1],
-  "firebrick": [178,34,34,1], "floralwhite": [255,250,240,1],
-  "forestgreen": [34,139,34,1], "fuchsia": [255,0,255,1],
-  "gainsboro": [220,220,220,1], "ghostwhite": [248,248,255,1],
-  "gold": [255,215,0,1], "goldenrod": [218,165,32,1],
-  "gray": [128,128,128,1], "green": [0,128,0,1],
-  "greenyellow": [173,255,47,1], "grey": [128,128,128,1],
-  "honeydew": [240,255,240,1], "hotpink": [255,105,180,1],
-  "indianred": [205,92,92,1], "indigo": [75,0,130,1],
-  "ivory": [255,255,240,1], "khaki": [240,230,140,1],
-  "lavender": [230,230,250,1], "lavenderblush": [255,240,245,1],
-  "lawngreen": [124,252,0,1], "lemonchiffon": [255,250,205,1],
-  "lightblue": [173,216,230,1], "lightcoral": [240,128,128,1],
-  "lightcyan": [224,255,255,1], "lightgoldenrodyellow": [250,250,210,1],
-  "lightgray": [211,211,211,1], "lightgreen": [144,238,144,1],
-  "lightgrey": [211,211,211,1], "lightpink": [255,182,193,1],
-  "lightsalmon": [255,160,122,1], "lightseagreen": [32,178,170,1],
-  "lightskyblue": [135,206,250,1], "lightslategray": [119,136,153,1],
-  "lightslategrey": [119,136,153,1], "lightsteelblue": [176,196,222,1],
-  "lightyellow": [255,255,224,1], "lime": [0,255,0,1],
-  "limegreen": [50,205,50,1], "linen": [250,240,230,1],
-  "magenta": [255,0,255,1], "maroon": [128,0,0,1],
-  "mediumaquamarine": [102,205,170,1], "mediumblue": [0,0,205,1],
-  "mediumorchid": [186,85,211,1], "mediumpurple": [147,112,219,1],
-  "mediumseagreen": [60,179,113,1], "mediumslateblue": [123,104,238,1],
-  "mediumspringgreen": [0,250,154,1], "mediumturquoise": [72,209,204,1],
-  "mediumvioletred": [199,21,133,1], "midnightblue": [25,25,112,1],
-  "mintcream": [245,255,250,1], "mistyrose": [255,228,225,1],
-  "moccasin": [255,228,181,1], "navajowhite": [255,222,173,1],
-  "navy": [0,0,128,1], "oldlace": [253,245,230,1],
-  "olive": [128,128,0,1], "olivedrab": [107,142,35,1],
-  "orange": [255,165,0,1], "orangered": [255,69,0,1],
-  "orchid": [218,112,214,1], "palegoldenrod": [238,232,170,1],
-  "palegreen": [152,251,152,1], "paleturquoise": [175,238,238,1],
-  "palevioletred": [219,112,147,1], "papayawhip": [255,239,213,1],
-  "peachpuff": [255,218,185,1], "peru": [205,133,63,1],
-  "pink": [255,192,203,1], "plum": [221,160,221,1],
-  "powderblue": [176,224,230,1], "purple": [128,0,128,1],
-  "red": [255,0,0,1], "rosybrown": [188,143,143,1],
-  "royalblue": [65,105,225,1], "saddlebrown": [139,69,19,1],
-  "salmon": [250,128,114,1], "sandybrown": [244,164,96,1],
-  "seagreen": [46,139,87,1], "seashell": [255,245,238,1],
-  "sienna": [160,82,45,1], "silver": [192,192,192,1],
-  "skyblue": [135,206,235,1], "slateblue": [106,90,205,1],
-  "slategray": [112,128,144,1], "slategrey": [112,128,144,1],
-  "snow": [255,250,250,1], "springgreen": [0,255,127,1],
-  "steelblue": [70,130,180,1], "tan": [210,180,140,1],
-  "teal": [0,128,128,1], "thistle": [216,191,216,1],
-  "tomato": [255,99,71,1], "turquoise": [64,224,208,1],
-  "violet": [238,130,238,1], "wheat": [245,222,179,1],
-  "white": [255,255,255,1], "whitesmoke": [245,245,245,1],
-  "yellow": [255,255,0,1], "yellowgreen": [154,205,50,1]}
-
-function clamp_css_byte(i) {  // Clamp to integer 0 .. 255.
-  i = Math.round(i);  // Seems to be what Chrome does (vs truncation).
-  return i < 0 ? 0 : i > 255 ? 255 : i;
-}
-
-function clamp_css_float(f) {  // Clamp to float 0.0 .. 1.0.
-  return f < 0 ? 0 : f > 1 ? 1 : f;
-}
-
-function parse_css_int(str) {  // int or percentage.
-  if (str[str.length - 1] === '%')
-    return clamp_css_byte(parseFloat(str) / 100 * 255);
-  return clamp_css_byte(parseInt(str));
-}
-
-function parse_css_float(str) {  // float or percentage.
-  if (str[str.length - 1] === '%')
-    return clamp_css_float(parseFloat(str) / 100);
-  return clamp_css_float(parseFloat(str));
-}
-
-function css_hue_to_rgb(m1, m2, h) {
-  if (h < 0) h += 1;
-  else if (h > 1) h -= 1;
-
-  if (h * 6 < 1) return m1 + (m2 - m1) * h * 6;
-  if (h * 2 < 1) return m2;
-  if (h * 3 < 2) return m1 + (m2 - m1) * (2/3 - h) * 6;
-  return m1;
-}
-
-function parseCSSColor(css_str) {
-  // Remove all whitespace, not compliant, but should just be more accepting.
-  var str = css_str.replace(/ /g, '').toLowerCase();
-
-  // Color keywords (and transparent) lookup.
-  if (str in kCSSColorTable) return kCSSColorTable[str].slice();  // dup.
-
-  // #abc and #abc123 syntax.
-  if (str[0] === '#') {
-    if (str.length === 4) {
-      var iv = parseInt(str.substr(1), 16);  // TODO(deanm): Stricter parsing.
-      if (!(iv >= 0 && iv <= 0xfff)) return null;  // Covers NaN.
-      return [((iv & 0xf00) >> 4) | ((iv & 0xf00) >> 8),
-              (iv & 0xf0) | ((iv & 0xf0) >> 4),
-              (iv & 0xf) | ((iv & 0xf) << 4),
-              1];
-    } else if (str.length === 7) {
-      var iv = parseInt(str.substr(1), 16);  // TODO(deanm): Stricter parsing.
-      if (!(iv >= 0 && iv <= 0xffffff)) return null;  // Covers NaN.
-      return [(iv & 0xff0000) >> 16,
-              (iv & 0xff00) >> 8,
-              iv & 0xff,
-              1];
-    }
-
-    return null;
-  }
-
-  var op = str.indexOf('('), ep = str.indexOf(')');
-  if (op !== -1 && ep + 1 === str.length) {
-    var fname = str.substr(0, op);
-    var params = str.substr(op+1, ep-(op+1)).split(',');
-    var alpha = 1;  // To allow case fallthrough.
-    switch (fname) {
-      case 'rgba':
-        if (params.length !== 4) return null;
-        alpha = parse_css_float(params.pop());
-        // Fall through.
-      case 'rgb':
-        if (params.length !== 3) return null;
-        return [parse_css_int(params[0]),
-                parse_css_int(params[1]),
-                parse_css_int(params[2]),
-                alpha];
-      case 'hsla':
-        if (params.length !== 4) return null;
-        alpha = parse_css_float(params.pop());
-        // Fall through.
-      case 'hsl':
-        if (params.length !== 3) return null;
-        var h = (((parseFloat(params[0]) % 360) + 360) % 360) / 360;  // 0 .. 1
-        // NOTE(deanm): According to the CSS spec s/l should only be
-        // percentages, but we don't bother and let float or percentage.
-        var s = parse_css_float(params[1]);
-        var l = parse_css_float(params[2]);
-        var m2 = l <= 0.5 ? l * (s + 1) : l + s - l * s;
-        var m1 = l * 2 - m2;
-        return [clamp_css_byte(css_hue_to_rgb(m1, m2, h+1/3) * 255),
-                clamp_css_byte(css_hue_to_rgb(m1, m2, h) * 255),
-                clamp_css_byte(css_hue_to_rgb(m1, m2, h-1/3) * 255),
-                alpha];
-      default:
-        return null;
-    }
-  }
-
-  return null;
-}
-
-try { module.exports = parseCSSColor } catch(e) { }
-
-},{}]},{},[6,16,7,8,11,12,2,1,4,5,3,10,9,13,14,15])
+},{"../js/bridge":2}]},{},[2,7,24,12,13,14,15,16,17,18,19,20,21,22,23,1,3,4,5,6,8,9,10,11,25,26,27])

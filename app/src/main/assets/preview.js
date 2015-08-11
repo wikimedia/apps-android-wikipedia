@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var bridge = require('./bridge');
-var util = require('./util');
+var util = require('./utilities');
 
 function ActionsHandler() {
 }
@@ -120,7 +120,7 @@ function collectIssues( sourceNode ) {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./util":7}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":7}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -183,7 +183,7 @@ module.exports = {
 },{"./bridge":2}],4:[function(require,module,exports){
 var bridge = require("./bridge");
 var loader = require("./loader");
-var util = require("./util");
+var util = require("./utilities");
 
 function setImageBackgroundsForDarkMode( content ) {
 	var allImgs = content.querySelectorAll( 'img' );
@@ -236,7 +236,7 @@ module.exports = {
 	setImageBackgroundsForDarkMode: setImageBackgroundsForDarkMode
 };
 
-},{"./bridge":2,"./loader":3,"./util":7}],5:[function(require,module,exports){
+},{"./bridge":2,"./loader":3,"./utilities":7}],5:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "displayPreviewHTML", function( payload ) {
@@ -346,32 +346,6 @@ function isNestedInTable(el) {
     return false;
 }
 
-function shouldAddImageOverflowXContainer(image) {
-    if ((image.width > document.getElementById('content').offsetWidth) && !isNestedInTable(image)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function addImageOverflowXContainer(image, ancestor) {
-    image.setAttribute('hasOverflowXContainer', 'true'); // So "widenImages" transform knows instantly not to widen this one.
-    var div = document.createElement( 'div' );
-    div.className = 'image_overflow_x_container';
-    ancestor.parentElement.insertBefore( div, ancestor );
-    div.appendChild(ancestor);
-}
-
-function maybeAddImageOverflowXContainer() {
-    var image = this;
-    if (shouldAddImageOverflowXContainer(image)) {
-        var ancestor = firstAncestorWithMultipleChildren(image);
-        if (ancestor) {
-            addImageOverflowXContainer(image, ancestor);
-        }
-    }
-}
-
 module.exports = {
     hasAncestor: hasAncestor,
     ancestorContainsClass: ancestorContainsClass,
@@ -379,7 +353,7 @@ module.exports = {
     getDictionaryFromSrcset: getDictionaryFromSrcset,
     firstDivAncestor: firstDivAncestor,
     isNestedInTable: isNestedInTable,
-    maybeAddImageOverflowXContainer: maybeAddImageOverflowXContainer
+    firstAncestorWithMultipleChildren: firstAncestorWithMultipleChildren
 };
 
 },{}],8:[function(require,module,exports){
@@ -459,4 +433,4 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}]},{},[3,2,4,1,5,6,7,8])
+},{}]},{},[3,2,4,1,5,6,8])
