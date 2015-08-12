@@ -13,7 +13,6 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
-import android.text.InputType;
 import android.text.format.DateUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -22,9 +21,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -222,22 +218,6 @@ public final class Utils {
     public static void showSoftKeyboard(Activity activity, View view) {
         InputMethodManager keyboard = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         keyboard.showSoftInput(view, InputMethodManager.SHOW_FORCED);
-    }
-
-    public static void setupShowPasswordCheck(final CheckBox check, final EditText edit) {
-        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                // EditText loses the cursor position when you change the InputType
-                int curPos = edit.getSelectionStart();
-                if (isChecked) {
-                    edit.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                } else {
-                    edit.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                }
-                edit.setSelection(curPos);
-            }
-        });
     }
 
     /**

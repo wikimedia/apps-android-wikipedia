@@ -11,7 +11,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import com.mobsandgeeks.saripaar.Rule;
 import com.mobsandgeeks.saripaar.Validator;
@@ -30,6 +29,7 @@ import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.CreateAccountFunnel;
 import org.wikipedia.editing.CaptchaHandler;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.views.PasswordTextInput;
 
 import static org.wikipedia.util.FeedbackUtil.showMessage;
 import static org.wikipedia.util.FeedbackUtil.showError;
@@ -53,8 +53,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     @Email(order = 5, messageResId = R.string.create_account_email_error)
     private EditText emailEdit;
 
-    private CheckBox showPasswordCheck;
-
     private Button createAccountButton;
     private Button createAccountButtonCaptcha;
 
@@ -77,14 +75,14 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         setContentView(R.layout.activity_create_account);
 
         usernameEdit = (EditText) findViewById(R.id.create_account_username);
-        passwordEdit = (EditText) findViewById(R.id.create_account_password);
         passwordRepeatEdit = (EditText) findViewById(R.id.create_account_password_repeat);
         emailEdit = (EditText) findViewById(R.id.create_account_email);
-        showPasswordCheck = (CheckBox) findViewById(R.id.create_account_show_password);
         createAccountButton = (Button) findViewById(R.id.create_account_submit_button);
         createAccountButtonCaptcha = (Button) findViewById(R.id.captcha_submit_button);
         EditText captchaText = (EditText) findViewById(R.id.captcha_text);
         View primaryContainer = findViewById(R.id.create_account_primary_container);
+        PasswordTextInput passwordInput = (PasswordTextInput) findViewById(R.id.create_account_password_input);
+        passwordEdit = passwordInput.getEditText();
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);
@@ -146,11 +144,10 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             }
         });
 
-        Utils.setupShowPasswordCheck(showPasswordCheck, passwordEdit);
-        showPasswordCheck.setOnClickListener(new View.OnClickListener() {
+        passwordInput.setOnShowPasswordListener(new PasswordTextInput.OnShowPasswordListener() {
             @Override
-            public void onClick(View view) {
-                if (showPasswordCheck.isChecked()) {
+            public void onShowPasswordChecked(boolean checked) {
+                if (checked) {
                     ViewAnimations.slideOutRight(passwordRepeatEdit, new AnimatorListenerAdapter() {
                         @Override
                         public void onAnimationEnd(Animator animation) {

@@ -30,20 +30,11 @@
                         />
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <org.wikipedia.views.PasswordTextInput
+                android:id="@+id/create_account_password_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
-                <org.wikipedia.views.PlainPasteEditText
-                        android:id="@+id/create_account_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/create_account_password_hint"
-                        android:singleLine="true"
-                        android:imeOptions="flagNoExtractUi"
-                        android:inputType="textPassword"
-                        />
-            </android.support.design.widget.TextInputLayout>
+                android:layout_marginTop="8dp"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -59,13 +50,6 @@
                         android:inputType="textPassword"
                         />
             </android.support.design.widget.TextInputLayout>
-
-            <CheckBox
-                    android:id="@+id/create_account_show_password"
-                    android:text="@string/login_password_show_check"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"

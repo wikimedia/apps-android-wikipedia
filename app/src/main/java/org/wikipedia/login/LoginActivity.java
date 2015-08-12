@@ -8,7 +8,6 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import org.wikipedia.*;
@@ -17,6 +16,7 @@ import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.createaccount.CreateAccountActivity;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.views.PasswordTextInput;
 
 public class LoginActivity extends ThemedActionBarActivity {
     public static final int REQUEST_LOGIN = 100;
@@ -47,7 +47,7 @@ public class LoginActivity extends ThemedActionBarActivity {
         setContentView(R.layout.activity_login);
 
         usernameText = (EditText) findViewById(R.id.login_username_text);
-        passwordText = (EditText) findViewById(R.id.login_password_text);
+        passwordText = ((PasswordTextInput) findViewById(R.id.login_password_input)).getEditText();
         View createAccountLink = findViewById(R.id.login_create_account_link);
 
         // Don't allow user to attempt login until they've put in a username and password
@@ -83,10 +83,6 @@ public class LoginActivity extends ThemedActionBarActivity {
                 startCreateAccountActivity();
             }
         });
-
-        // Set up the "Show password" check box
-        CheckBox showPasswordCheck = (CheckBox) findViewById(R.id.login_show_password);
-        Utils.setupShowPasswordCheck(showPasswordCheck, passwordText);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
