@@ -30,7 +30,7 @@
             android:src="@drawable/ic_delete_grey"
             android:scaleType="centerInside"
             android:contentDescription="@string/button_clear_all_recent_searches"
-            android:background="@drawable/selectable_item_background"/>
+            android:background="?attr/actionBarItemBackground"/>
 
     </FrameLayout>
 
