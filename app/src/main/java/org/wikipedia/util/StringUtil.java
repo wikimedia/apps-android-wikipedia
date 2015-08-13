@@ -4,7 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 // TODO: Replace with Apache Commons Lang StringUtils.
@@ -54,6 +56,13 @@ public final class StringUtil {
     public static List<String> delimiterStringToList(@NonNull String delimitedString,
                                                      @NonNull String delimiter) {
         return Arrays.asList(TextUtils.split(delimitedString, delimiter));
+    }
+
+    @NonNull
+    public static String[] removeNulls(@NonNull String[] args) {
+        List<String> list = new ArrayList<>(Arrays.asList(args));
+        list.removeAll(Collections.singleton(null));
+        return list.toArray(new String[list.size()]);
     }
 
     private StringUtil() { }

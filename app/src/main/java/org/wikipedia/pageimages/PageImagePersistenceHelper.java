@@ -11,15 +11,23 @@ import org.wikipedia.data.PersistenceHelper;
 
 public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
 
+    private static final int DB_VER_NAMESPACE_ADDED = 7;
+
     private static final String COL_SITE = "site";
+    private static final String COL_NAMESPACE = "namespace";
     private static final String COL_TITLE = "title";
     private static final String COL_IMAGE_NAME = "imageName";
+
+    public static final String[] SELECTION_KEYS = {
+            COL_SITE,
+            COL_NAMESPACE,
+            COL_TITLE
+    };
 
     @Override
     public PageImage fromCursor(Cursor c) {
         Site site = new Site(c.getString(c.getColumnIndex(COL_SITE)));
-        // FIXME: Does not handle non mainspace pages
-        PageTitle title = new PageTitle(null, c.getString(c.getColumnIndex(COL_TITLE)), site);
+        PageTitle title = new PageTitle(c.getString(c.getColumnIndex(COL_NAMESPACE)), c.getString(c.getColumnIndex(COL_TITLE)), site);
         String imageName = c.getString(c.getColumnIndex(COL_IMAGE_NAME));
         return new PageImage(title, imageName);
     }
@@ -28,6 +36,7 @@ public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
     protected ContentValues toContentValues(PageImage obj) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_SITE, obj.getTitle().getSite().getDomain());
+        contentValues.put(COL_NAMESPACE, obj.getTitle().getNamespace());
         contentValues.put(COL_TITLE, obj.getTitle().getPrefixedText());
         contentValues.put(COL_IMAGE_NAME, obj.getImageName());
         return contentValues;
@@ -71,21 +80,26 @@ public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
                         new Column(COL_TITLE, "string"),
                         new Column(COL_IMAGE_NAME, "string"),
                 };
+            case DB_VER_NAMESPACE_ADDED:
+                return new Column[] {
+                        new Column(COL_NAMESPACE, "string")
+                };
             default:
                 return new Column[0];
         }
     }
 
     @Override
-    protected String getPrimaryKeySelection() {
-        return COL_SITE + " = ? AND " + COL_TITLE + " = ?";
+    protected String getPrimaryKeySelection(PageImage obj, String[] selectionArgs) {
+        return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 
     @Override
-    protected String[] getPrimaryKeySelectionArgs(PageImage obj) {
+    protected String[] getUnfilteredPrimaryKeySelectionArgs(PageImage obj) {
         return new String[] {
                 obj.getTitle().getSite().getDomain(),
-                obj.getTitle().getPrefixedText()
+                obj.getTitle().getNamespace(),
+                obj.getTitle().getText()
         };
     }
 }

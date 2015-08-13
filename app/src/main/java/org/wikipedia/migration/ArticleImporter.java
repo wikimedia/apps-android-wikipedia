@@ -26,7 +26,7 @@ public class ArticleImporter {
             SavedPage savedPage = new SavedPage(title);
             SavedPagesFunnel funnel = app.getFunnelManager().getSavedPagesFunnel(title.getSite());
             funnel.logImport();
-            persister.upsert(savedPage);
+            persister.upsert(savedPage, SavedPage.PERSISTENCE_HELPER.SELECTION_KEYS);
         }
     }
 

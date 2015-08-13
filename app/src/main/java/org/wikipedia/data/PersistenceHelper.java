@@ -10,6 +10,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static org.wikipedia.util.StringUtil.removeNulls;
+
 public abstract class PersistenceHelper<T> {
 
     public static class Column{
@@ -43,8 +45,41 @@ public abstract class PersistenceHelper<T> {
 
     public abstract Column[] getColumnsAdded(int version);
 
-    protected abstract String getPrimaryKeySelection();
-    protected abstract String[] getPrimaryKeySelectionArgs(T obj);
+    /**
+     * Get the db query string to be passed to the content provider where selecting for a null
+     * value (including, notably, the main namespace) may be necessary.
+     * @param obj The object on which the formatting of the string depends.
+     * @return A SQL WHERE clause formatted for the content provider.
+     */
+    protected String getPrimaryKeySelection(T obj, String[] selectionKeys) {
+        String primaryKeySelection = "";
+        String[] args = getUnfilteredPrimaryKeySelectionArgs(obj);
+        for (int i = 0; i < args.length; i++) {
+            primaryKeySelection += (selectionKeys[i] + (args[i] == null ? " IS NULL" : " = ?"));
+            if (i < (args.length - 1)) {
+                primaryKeySelection += " AND ";
+            }
+        }
+        return primaryKeySelection;
+    }
+
+    /**
+     * Get the selection arguments to be bound to the db query string.
+     * @param obj The object from which selection args are derived.
+     * @return The array of selection arguments with null values removed.  (Null arguments are
+     * replaced with "IS NULL" in getPrimaryKeySelection(T obj, String[] selectionKeys).)
+     */
+    protected String[] getPrimaryKeySelectionArgs(T obj) {
+        return removeNulls(getUnfilteredPrimaryKeySelectionArgs(obj));
+    }
+
+    /**
+     * Override to provide full list of selection arguments, including those which may have null
+     * values, for use in constructing the SQL query string.
+     * @param obj Object from which selection args are to be derived.
+     * @return Array of selection arguments (including null values).
+     */
+    protected abstract String[] getUnfilteredPrimaryKeySelectionArgs(T obj);
 
     protected int getDBVersionIntroducedAt() {
         return 1;

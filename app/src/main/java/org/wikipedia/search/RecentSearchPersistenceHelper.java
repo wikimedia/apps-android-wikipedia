@@ -13,6 +13,10 @@ public class RecentSearchPersistenceHelper extends PersistenceHelper<RecentSearc
     private static final String COL_TEXT = "text";
     private static final String COL_TIMESTAMP = "timestamp";
 
+    public static final String[] SELECTION_KEYS = {
+            COL_TEXT
+    };
+
     @Override
     public RecentSearch fromCursor(Cursor c) {
         String title = c.getString(c.getColumnIndex(COL_TEXT));
@@ -53,12 +57,12 @@ public class RecentSearchPersistenceHelper extends PersistenceHelper<RecentSearc
     }
 
     @Override
-    protected String getPrimaryKeySelection() {
-        return COL_TEXT + " = ?";
+    protected String getPrimaryKeySelection(RecentSearch obj, String[] selectionArgs) {
+        return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 
     @Override
-    protected String[] getPrimaryKeySelectionArgs(RecentSearch obj) {
+    protected String[] getUnfilteredPrimaryKeySelectionArgs(RecentSearch obj) {
         return new String[] {
                 obj.getText(),
         };

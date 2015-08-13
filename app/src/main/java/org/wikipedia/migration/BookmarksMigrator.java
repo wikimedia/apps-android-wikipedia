@@ -55,7 +55,7 @@ public class BookmarksMigrator {
             PageTitle title = new PageTitle(cur.getString(COL_INDEX_TITLE), site);
             Date timestamp = new Date(cur.getLong(COL_INDEX_TIME));
             SavedPage page = new SavedPage(title, timestamp);
-            app.getPersister(SavedPage.class).upsert(page);
+            app.getPersister(SavedPage.class).upsert(page, SavedPage.PERSISTENCE_HELPER.SELECTION_KEYS);
             Log.d("Wikipedia", "Migrated " + title.getDisplayText());
             rowsFound += 1;
             cur.moveToNext();

@@ -50,12 +50,12 @@ public abstract class ContentPersister<T> {
         }
     }
 
-    public void delete(T obj) {
+    public void delete(T obj, String[] selectionArgs) {
         Uri uri = persistenceHelper.getBaseContentURI();
         try {
             client.delete(
                     uri,
-                    persistenceHelper.getPrimaryKeySelection(),
+                    persistenceHelper.getPrimaryKeySelection(obj, selectionArgs),
                     persistenceHelper.getPrimaryKeySelectionArgs(obj)
             );
         } catch (RemoteException e) {
@@ -63,13 +63,13 @@ public abstract class ContentPersister<T> {
         }
     }
 
-    public void upsert(T obj) {
+    public void upsert(T obj, String[] selectionArgs) {
         Uri uri = persistenceHelper.getBaseContentURI();
         try {
             int rowsUpdated = client.update(
                     uri,
                     persistenceHelper.toContentValues(obj),
-                    persistenceHelper.getPrimaryKeySelection(),
+                    persistenceHelper.getPrimaryKeySelection(obj, selectionArgs),
                     persistenceHelper.getPrimaryKeySelectionArgs(obj)
             );
             if (rowsUpdated == 0) {
@@ -80,10 +80,5 @@ public abstract class ContentPersister<T> {
             throw new RuntimeException(e);
         }
 
-    }
-
-
-    public void cleanup() {
-        this.client.release();
     }
 }

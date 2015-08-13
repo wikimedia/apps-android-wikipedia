@@ -2,6 +2,7 @@ package org.wikipedia.history;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.data.PersistenceHelper;
@@ -17,6 +18,12 @@ public class HistoryEntryPersistenceHelper extends PersistenceHelper<HistoryEntr
     private static final String COL_NAMESPACE = "namespace";
     private static final String COL_TIMESTAMP = "timestamp";
     private static final String COL_SOURCE = "source";
+
+    public static final String[] SELECTION_KEYS = {
+            COL_SITE,
+            COL_NAMESPACE,
+            COL_TITLE
+    };
 
     @Override
     public HistoryEntry fromCursor(Cursor c) {
@@ -65,15 +72,16 @@ public class HistoryEntryPersistenceHelper extends PersistenceHelper<HistoryEntr
     }
 
     @Override
-    protected String getPrimaryKeySelection() {
-        return COL_SITE + " = ? AND " + COL_TITLE + " = ?";
+    protected String getPrimaryKeySelection(HistoryEntry obj, String[] selectionArgs) {
+        return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 
     @Override
-    protected String[] getPrimaryKeySelectionArgs(HistoryEntry obj) {
+    protected String[] getUnfilteredPrimaryKeySelectionArgs(HistoryEntry obj) {
         return new String[] {
-            obj.getTitle().getSite().getDomain(),
-            obj.getTitle().getPrefixedText()
+                obj.getTitle().getSite().getDomain(),
+                obj.getTitle().getNamespace(),
+                obj.getTitle().getText()
         };
     }
 }

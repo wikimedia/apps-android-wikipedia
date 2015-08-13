@@ -13,6 +13,10 @@ public class EditSummaryPersistenceHelper extends PersistenceHelper<EditSummary>
     private static final String COL_SUMMARY = "summary";
     private static final String COL_LAST_USED = "lastUsed";
 
+    public static final String[] SELECTION_KEYS = {
+            COL_SUMMARY
+    };
+
     @Override
     public EditSummary fromCursor(Cursor c) {
         String summary = c.getString(c.getColumnIndex(COL_SUMMARY));
@@ -53,12 +57,12 @@ public class EditSummaryPersistenceHelper extends PersistenceHelper<EditSummary>
     }
 
     @Override
-    protected String getPrimaryKeySelection() {
-        return COL_SUMMARY + " = ?";
+    protected String getPrimaryKeySelection(EditSummary obj, String[] selectionArgs) {
+        return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 
     @Override
-    protected String[] getPrimaryKeySelectionArgs(EditSummary obj) {
+    protected String[] getUnfilteredPrimaryKeySelectionArgs(EditSummary obj) {
         return new String[] {
                 obj.getSummary()
         };

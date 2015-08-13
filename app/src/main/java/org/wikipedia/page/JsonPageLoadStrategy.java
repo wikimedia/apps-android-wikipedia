@@ -10,6 +10,7 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.editing.EditHandler;
 import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.history.SaveHistoryTask;
 import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.fetch.LeadSectionFetcher;
@@ -683,7 +684,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 public void onFinish(Map<PageTitle, String> result) {
                     if (result.containsKey(model.getTitle())) {
                         PageImage pi = new PageImage(model.getTitle(), result.get(model.getTitle()));
-                        app.getPersister(PageImage.class).upsert(pi);
+                        app.getPersister(PageImage.class).upsert(pi, PageImage.PERSISTENCE_HELPER.SELECTION_KEYS);
                         updateThumbnail(result.get(model.getTitle()));
                     }
                 }

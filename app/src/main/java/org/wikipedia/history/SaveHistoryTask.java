@@ -1,16 +1,15 @@
-package org.wikipedia.page;
+package org.wikipedia.history;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.data.ContentPersister;
-import org.wikipedia.history.HistoryEntry;
 
 import android.util.Log;
 
 /**
  * Save the history entry for the specified page.
  */
-class SaveHistoryTask extends SaneAsyncTask<Void> {
+public class SaveHistoryTask extends SaneAsyncTask<Void> {
     private final HistoryEntry entry;
     private final WikipediaApp app;
 
@@ -28,7 +27,7 @@ class SaveHistoryTask extends SaneAsyncTask<Void> {
         // that all previous instances will be deleted, and then only the most recent instance
         // will be placed at the top.
         final ContentPersister persister = app.getPersister(HistoryEntry.class);
-        persister.delete(entry);
+        persister.delete(entry, HistoryEntry.PERSISTENCE_HELPER.SELECTION_KEYS);
         persister.persist(entry);
         return null;
     }
