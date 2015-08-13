@@ -40,6 +40,7 @@ import org.wikipedia.views.WikiErrorView;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -468,6 +469,19 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void onResume() {
         super.onResume();
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("");
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // if the screen orientation changes, then re-layout the lead image container
+        leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
+            @Override
+            public void onLayoutComplete() {
+                // when it's finished laying out, make sure the toolbar is shown appropriately.
+                searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+            }
+        });
     }
 
     public Tab getCurrentTab() {

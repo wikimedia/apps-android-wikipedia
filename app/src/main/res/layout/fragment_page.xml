@@ -56,7 +56,7 @@
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
                         android:contentDescription="@null"/>
-                    <FrameLayout
+                    <LinearLayout
                         android:id="@+id/page_title_container"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -70,7 +70,6 @@
                             android:textIsSelectable="true"
                             android:fontFamily="serif"
                             android:paddingTop="16dp"
-                            android:paddingBottom="16dp"
                             android:paddingRight="@dimen/activity_horizontal_margin"
                             android:paddingLeft="@dimen/activity_horizontal_margin"/>
                         <TextView
@@ -86,7 +85,7 @@
                             android:paddingBottom="16dp"
                             android:paddingRight="@dimen/activity_horizontal_margin"
                             android:paddingLeft="@dimen/activity_horizontal_margin"/>
-                    </FrameLayout>
+                    </LinearLayout>
                 </FrameLayout>
             </LinearLayout>
 
