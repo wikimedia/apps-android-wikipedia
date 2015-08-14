@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 import org.wikipedia.R;
 
 public enum Theme {
-    LIGHT(0, "light", R.style.Theme_WikiLight),
-    DARK(1, "dark", R.style.Theme_WikiDark);
+    LIGHT(0, "light", R.style.Theme_Light),
+    DARK(1, "dark", R.style.Theme_Dark);
 
     private final int marshallingId;
     private final String funnelName;

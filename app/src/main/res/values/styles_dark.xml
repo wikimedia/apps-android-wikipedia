@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.WikiDark" parent="Theme.AppCompat">
+    <style name="Theme.Dark" parent="Theme.AppCompat">
         <item name="windowActionModeOverlay">true</item>
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowStyle</item>
         <item name="actionOverflowButtonStyle">@style/AppTheme.OverflowStyle</item>
@@ -14,7 +14,7 @@
         <item name="android:autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="android:panelBackground">@color/background_floating_material_dark</item>
         <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
-        <item name="android:dropDownListViewStyle">@style/DropDownListView.WikiDark</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Dark</item>
         <item name="android:windowBackground">@color/window_background_dark</item>
         <item name="window_background_color">@color/window_background_dark</item>
         <item name="page_background_color">@color/page_background_dark</item>
@@ -38,11 +38,11 @@
         <item name="tool_tip_default_color">@color/tool_tip_default_dark</item>
     </style>
 
-    <style name="DropDownListView.WikiDark" parent="@style/Widget.AppCompat.ListView.DropDown">
+    <style name="DropDownListView.Dark" parent="@style/Widget.AppCompat.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_item_background</item>
     </style>
 
-    <style name="NoTitleWikiDark" parent="@style/Theme.WikiDark">
+    <style name="NoTitleDark" parent="@style/Theme.Dark">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

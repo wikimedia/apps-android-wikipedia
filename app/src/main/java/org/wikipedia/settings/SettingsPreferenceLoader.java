@@ -48,7 +48,7 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
                         new ContextThemeWrapper(activity,
                                 (WikipediaApp.getInstance().isCurrentThemeLight()
                                         ? R.style.NoTitle
-                                        : R.style.NoTitleWikiDark)), false);
+                                        : R.style.NoTitleDark)), false);
                 langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
