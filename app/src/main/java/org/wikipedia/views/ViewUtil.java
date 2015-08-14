@@ -47,5 +47,10 @@ public final class ViewUtil {
         return false;
     }
 
+    public static void setBottomPaddingDp(View view, int padding) {
+        view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), view.getPaddingRight(),
+                (int) (padding * view.getContext().getResources().getDisplayMetrics().density));
+    }
+
     private ViewUtil() { }
 }

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.Nullable;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -106,7 +107,6 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
     private int imageBaseYOffset = 0;
     private float faceYOffsetNormalized = 0f;
     private float displayDensity;
-    private Animation pageTitleAnimation;
 
     public interface OnLeadImageLayoutListener {
         void onLayoutComplete();
@@ -351,11 +351,6 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             }
         }
 
-        // cancel any pending animations...
-        if (pageTitleAnimation != null) {
-            pageTitleAnimation.cancel();
-        }
-
         // set the page title text, and honor any HTML formatting in the title
         pageTitleText.setText(Html.fromHtml(parentFragment.getPage().getDisplayTitle()));
         // hide the description text...
@@ -452,16 +447,14 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             image1.setVisibility(View.GONE);
             image1.setImageDrawable(null);
             imagePlaceholder.setVisibility(View.GONE);
-            pageTitleText.setVisibility(View.VISIBLE);
+            pageTitleText.setVisibility(View.INVISIBLE);
             pageDescriptionText.setVisibility(View.INVISIBLE);
             // set the color of the title
             pageTitleText.setTextColor(context.getResources()
                     .getColor(Utils.getThemedAttributeId(parentFragment.getActivity(),
-                                                         R.attr.lead_disabled_text_color)));
+                            R.attr.lead_disabled_text_color)));
             // remove bottom padding from the description
-            pageDescriptionText.setPadding(pageDescriptionText.getPaddingLeft(),
-                                           pageDescriptionText.getPaddingTop(),
-                                           pageDescriptionText.getPaddingRight(), 0);
+            ViewUtil.setBottomPaddingDp(pageDescriptionText, 0);
             // and give it no drop shadow
             pageTitleText.setShadowLayer(0, 0, 0, 0);
             // do the same for the description...
@@ -483,15 +476,13 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             // prepare the lead image to be populated
             image1.setVisibility(View.INVISIBLE);
             imagePlaceholder.setVisibility(View.VISIBLE);
-            pageTitleText.setVisibility(View.VISIBLE);
+            pageTitleText.setVisibility(View.INVISIBLE);
             pageDescriptionText.setVisibility(View.INVISIBLE);
             // set the color of the title
             pageTitleText.setTextColor(context.getResources().getColor(R.color.lead_text_color));
-            final int bottomPadding = (int) (16 * displayDensity);
             // give default padding to the description
-            pageDescriptionText.setPadding(pageDescriptionText.getPaddingLeft(),
-                    pageDescriptionText.getPaddingTop(), pageDescriptionText.getPaddingRight(),
-                    bottomPadding);
+            final int bottomPadding = 16;
+            ViewUtil.setBottomPaddingDp(pageDescriptionText, bottomPadding);
             // and give it a nice drop shadow!
             pageTitleText.setShadowLayer(2, 1, 1, context.getResources().getColor(R.color.lead_text_shadow));
             // do the same for the description...
@@ -506,15 +497,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             // for API >10, decrease line spacing and boost bottom padding to account for it.
             // (in API 10, decreased line spacing cuts off the bottom of the text)
             final float lineSpacing = 0.8f;
-            final int lineSpacePadding = (int)(10 * displayDensity);
             pageTitleText.setLineSpacing(0, lineSpacing);
-            // however, if it's Lollipop or greater, then don't boost the bottom padding of the
-            // title text, since it now correctly does it automatically.
-            if (!ApiUtil.hasLollipop()) {
-                pageTitleText.setPadding(pageTitleText.getPaddingLeft(),
-                        pageTitleText.getPaddingTop(), pageTitleText.getPaddingRight(),
-                        lineSpacePadding);
-            }
+
         }
         // pad the webview contents, to account for the lead image view height that we've
         // ended up with
@@ -546,11 +530,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         if (!isMainPage) {
             // make everything visible!
             imageContainer.setVisibility(View.VISIBLE);
-
-            // kick off loading of the WikiData description, if we have one
-            if (!TextUtils.isEmpty(parentFragment.getTitle().getDescription())) {
-                layoutWikiDataDescription(parentFragment.getTitle().getDescription());
-            }
+            // kick off loading of the WikiData description
+            layoutWikiDataDescription(parentFragment.getTitle().getDescription());
         }
     }
 
@@ -559,7 +540,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * into place, along with the page title.
      * @param description WikiData description to be shown.
      */
-    private void layoutWikiDataDescription(String description) {
+    private void layoutWikiDataDescription(@Nullable final String description) {
         // set the text of the description...
         pageDescriptionText.setText(description);
         // and wait for it to lay out, so that we know the height of the description text.
@@ -569,9 +550,24 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 if (!parentFragment.isAdded()) {
                     return;
                 }
-                // only show the description if it's two lines or less
-                pageDescriptionText.setVisibility(pageDescriptionText.getLineCount() > 2
-                        ? View.GONE : View.VISIBLE);
+                // only show the description if it's two lines or less, and nonempty,
+                // and adjust title padding based on whether the description is shown
+                int bottomPadding = 0;
+                if (TextUtils.isEmpty(description) || pageDescriptionText.getLineCount() > 2) {
+                    final int blankPadding = 16;
+                    bottomPadding += blankPadding;
+                    pageDescriptionText.setVisibility(View.GONE);
+                } else {
+                    pageDescriptionText.setVisibility(View.VISIBLE);
+                }
+                if (ApiUtil.hasHoneyComb() && !ApiUtil.hasLollipop()) {
+                    // boost the title padding a bit more, because these API versions don't
+                    // automatically apply correct padding when line spacing is decreased.
+                    final int extraPadding = 10;
+                    bottomPadding += extraPadding;
+                }
+                ViewUtil.setBottomPaddingDp(pageTitleText, bottomPadding);
+                pageTitleText.setVisibility(View.VISIBLE);
             }
         });
     }
