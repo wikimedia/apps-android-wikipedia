@@ -11,16 +11,16 @@
           android:title="@string/menu_long_press_open_in_new_tab"
           app:showAsAction="ifRoom" />
 
-    <item android:id="@+id/menu_long_press_copy_page"
-          android:title="@string/menu_long_press_copy_page"
-          app:showAsAction="ifRoom" />
+    <item android:id="@+id/menu_long_press_save_page"
+        android:title="@string/menu_long_press_save_page"
+        app:showAsAction="ifRoom" />
 
     <item android:id="@+id/menu_long_press_share_page"
-          android:title="@string/menu_long_press_share_page"
-          app:showAsAction="ifRoom" />
+        android:title="@string/menu_long_press_share_page"
+        app:showAsAction="ifRoom" />
 
-    <item android:id="@+id/menu_long_press_save_page"
-          android:title="@string/menu_long_press_save_page"
+    <item android:id="@+id/menu_long_press_copy_page"
+          android:title="@string/menu_long_press_copy_page"
           app:showAsAction="ifRoom" />
 
 </menu>
