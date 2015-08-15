@@ -6,10 +6,10 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -67,13 +67,6 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
             if (firstVisibleItem == 0) {
                 dismiss();
             }
-        }
-    };
-
-    private View.OnClickListener dismissOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            dismiss();
         }
     };
 
@@ -138,10 +131,6 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
         dialogPeekHeight = height;
     }
 
-    public View setOverlayLayout(@LayoutRes int layout) {
-        return getActivity().getLayoutInflater().inflate(layout, rootView);
-    }
-
     private int getDialogWidth() {
         return Math.min(getResources().getDisplayMetrics().widthPixels,
                 (int) getResources().getDimension(R.dimen.swipeableDialogMaxWidth));
@@ -151,7 +140,15 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
         View view = new View(getActivity());
         view.setLayoutParams(new ListView.LayoutParams(width, height));
         view.setClickable(true);
-        view.setOnClickListener(dismissOnClickListener);
+        view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    dismiss();
+                }
+                return true;
+            }
+        });
         return view;
     }
 

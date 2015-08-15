@@ -11,25 +11,20 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
 public class GalleryThumbnailScrollView extends RecyclerView {
     @NonNull private final Context mContext;
+    @NonNull private final Animation mPressAnimation;
+    @NonNull private final Animation mReleaseAnimation;
     @Nullable private GalleryViewListener mListener;
-
-    private final OnClickListener mItemClickListener = new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (mListener != null) {
-                GalleryItem item = (GalleryItem) v.getTag();
-                mListener.onGalleryItemClicked(item.getName());
-            }
-        }
-    };
 
     public GalleryThumbnailScrollView(Context context) {
         this(context, null);
@@ -43,6 +38,9 @@ public class GalleryThumbnailScrollView extends RecyclerView {
         super(context, attrs, defStyle);
         this.mContext = context;
         setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+
+        mPressAnimation = AnimationUtils.loadAnimation(context, R.anim.thumbnail_item_press);
+        mReleaseAnimation = AnimationUtils.loadAnimation(context, R.anim.thumbnail_item_release);
     }
 
     public interface GalleryViewListener {
@@ -57,7 +55,7 @@ public class GalleryThumbnailScrollView extends RecyclerView {
         setAdapter(new GalleryViewAdapter(collection));
     }
 
-    private class GalleryItemHolder extends ViewHolder {
+    private class GalleryItemHolder extends ViewHolder implements OnClickListener, OnTouchListener {
         private final ImageView mImageView;
         private GalleryItem mGalleryItem;
 
@@ -68,8 +66,8 @@ public class GalleryThumbnailScrollView extends RecyclerView {
 
         public void bindItem(GalleryItem item) {
             mGalleryItem = item;
-            mImageView.setOnClickListener(mItemClickListener);
-            mImageView.setTag(mGalleryItem);
+            mImageView.setOnClickListener(this);
+            mImageView.setOnTouchListener(this);
             if (WikipediaApp.getInstance().isImageDownloadEnabled()
                     && !TextUtils.isEmpty(mGalleryItem.getThumbUrl())) {
                 Picasso.with(mContext)
@@ -78,6 +76,29 @@ public class GalleryThumbnailScrollView extends RecyclerView {
                         .error(R.drawable.checkerboard)
                         .into(mImageView);
             }
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (mListener != null) {
+                mListener.onGalleryItemClicked(mGalleryItem.getName());
+            }
+        }
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    v.startAnimation(mPressAnimation);
+                    break;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    v.startAnimation(mReleaseAnimation);
+                    break;
+                default:
+                    break;
+            }
+            return false;
         }
     }
 

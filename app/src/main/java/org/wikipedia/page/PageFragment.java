@@ -8,6 +8,7 @@ import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
+import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.SavedPagesFunnel;
 import org.wikipedia.analytics.TabFunnel;
@@ -624,7 +625,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     if (href.startsWith("/wiki/")) {
                         PageTitle imageTitle = model.getTitle().getSite().titleForInternalLink(href);
                         GalleryActivity.showGallery(getActivity(), model.getTitleOriginal(),
-                                imageTitle, false);
+                                imageTitle, GalleryFunnel.SOURCE_NON_LEAD_IMAGE);
                     } else {
                         linkHandler.onUrlClick(href);
                     }
@@ -639,7 +640,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 try {
                     String href = Utils.decodeURL(messagePayload.getString("href"));
                     GalleryActivity.showGallery(getActivity(), model.getTitleOriginal(),
-                            new PageTitle(href, model.getTitle().getSite()), false);
+                            new PageTitle(href, model.getTitle().getSite()),
+                            GalleryFunnel.SOURCE_NON_LEAD_IMAGE);
                 } catch (JSONException e) {
                     ACRA.getErrorReporter().handleException(e);
                 }

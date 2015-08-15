@@ -51,7 +51,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
     public static final String EXTRA_IMAGETITLE = "imageTitle";
-    public static final String EXTRA_FROM_LEAD_IMAGE = "fromLeadImage";
+    public static final String EXTRA_SOURCE = "source";
 
     private WikipediaApp app;
     private PageTitle pageTitle;
@@ -163,7 +163,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         galleryPager.setOnPageChangeListener(new GalleryPageChangeListener());
 
         funnel = new GalleryFunnel(app, pageTitle.getSite(),
-                                   getIntent().getBooleanExtra(EXTRA_FROM_LEAD_IMAGE, false));
+                                   getIntent().getIntExtra(EXTRA_SOURCE, 0));
 
         if (savedInstanceState == null) {
             if (initialImageTitle != null) {
@@ -224,12 +224,12 @@ public class GalleryActivity extends ThemedActionBarActivity {
      * @param imageTitle Image with which to begin the gallery.
      */
     public static void showGallery(Activity activity, PageTitle pageTitle, PageTitle imageTitle,
-                                   boolean fromLeadImage) {
+                                   int source) {
         Intent galleryIntent = new Intent();
         galleryIntent.setClass(activity, GalleryActivity.class);
         galleryIntent.putExtra(EXTRA_IMAGETITLE, imageTitle);
         galleryIntent.putExtra(EXTRA_PAGETITLE, pageTitle);
-        galleryIntent.putExtra(EXTRA_FROM_LEAD_IMAGE, fromLeadImage);
+        galleryIntent.putExtra(EXTRA_SOURCE, source);
         activity.startActivityForResult(galleryIntent, PageActivity.ACTIVITY_REQUEST_GALLERY);
     }
 
