@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_save_page"
+    <item android:id="@+id/menu_link_preview_save_page"
         android:title="@string/menu_link_preview_save_page"
           />
-    <item android:id="@+id/menu_share_page"
+    <item android:id="@+id/menu_link_preview_share_page"
         android:title="@string/menu_link_preview_share_page"
         />
-    <item android:id="@+id/menu_copy_url"
+    <item android:id="@+id/menu_link_preview_copy_link"
         android:title="@string/menu_link_preview_copy_link"
         />
 </menu>
