@@ -97,10 +97,6 @@ public class ShareHandler {
         }
     }
 
-    public void shareWithoutSelection() {
-        requestTextSelection();
-    }
-
     public void onDestroy() {
         if (shareDialog != null) {
             shareDialog.dismiss();
