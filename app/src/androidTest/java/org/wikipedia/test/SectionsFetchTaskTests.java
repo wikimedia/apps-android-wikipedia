@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-public class PageFetchTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
+public class SectionsFetchTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;
 
-    public PageFetchTaskTests() {
+    public SectionsFetchTaskTests() {
         super(TestDummyActivity.class);
     }
 

@@ -48,6 +48,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -168,6 +169,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             toggleToC(TOC_ACTION_TOGGLE);
         }
     };
+
+    @Nullable
+    private PageLoadCallbacks pageLoadCallbacks;
 
     public ObservableWebView getWebView() {
         return webView;
@@ -826,6 +830,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         checkAndShowSelectTextOnboarding();
 
         updateNavDrawerSelection();
+
+        if (pageLoadCallbacks != null) {
+            pageLoadCallbacks.onLoadComplete();
+        }
     }
 
     public PageTitle adjustPageTitleFromMobileview(PageTitle title, JSONObject mobileView)
@@ -1062,6 +1070,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     // TODO: don't assume host is PageActivity. Use Fragment callbacks pattern.
     private PageActivity getPageActivity() {
         return (PageActivity) getActivity();
+    }
+
+    @VisibleForTesting
+    public void setPageLoadCallbacks(@Nullable PageLoadCallbacks pageLoadCallbacks) {
+        this.pageLoadCallbacks = pageLoadCallbacks;
     }
 
     private class LongPressHandler extends PageActivityLongPressHandler
