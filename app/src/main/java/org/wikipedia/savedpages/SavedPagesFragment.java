@@ -138,7 +138,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                                             return;
                                         }
                                         FeedbackUtil.showMessage(getActivity(),
-                                                R.string.snackbar_saved_page_deleted);
+                                                R.string.toast_saved_page_deleted);
                                     }
                                 }.execute();
                             }
@@ -361,7 +361,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                         }
                         entryFilter.setVisibility(View.GONE);
                         FeedbackUtil.showMessage(getActivity(),
-                                R.string.snackbar_saved_page_deleted);
+                                R.string.toast_saved_page_deleted);
                     }
                 }.execute();
             }

@@ -711,7 +711,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             } else if (subState == SUBSTATE_SAVED_PAGE_LOADED) {
                 savePageItem.setTitle(getString(R.string.menu_refresh_saved_page));
             } else {
-                savePageItem.setTitle(getString(R.string.menu_page_save));
+                savePageItem.setTitle(getString(R.string.menu_save_page));
             }
         }
     }
@@ -766,7 +766,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 findInPageActionMode = mode;
-                MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
+                MenuItem menuItem = menu.add(R.string.find_in_page);
                 MenuItemCompat.setActionProvider(menuItem, findInPageActionProvider);
                 return true;
             }
@@ -884,7 +884,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             return;
         }
 
-        FeedbackUtil.showMessage(getActivity(), R.string.snackbar_saving_page);
+        FeedbackUtil.showMessage(getActivity(), R.string.toast_saving_page);
         new SavePageTask(app, model.getTitle(), model.getPage()) {
             @Override
             public void onFinish(Boolean success) {
@@ -937,7 +937,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void refreshPage(boolean saveOnComplete) {
         this.saveOnComplete = saveOnComplete;
         if (saveOnComplete) {
-            FeedbackUtil.showMessage(getActivity(), R.string.snackbar_refresh_saved_page);
+            FeedbackUtil.showMessage(getActivity(), R.string.toast_refresh_saved_page);
         }
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
         displayNewPage(model.getTitle(), model.getCurEntry(), false, false);

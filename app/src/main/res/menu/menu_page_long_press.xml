@@ -4,11 +4,11 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/menu_long_press_open_page"
-          android:title="@string/menu_long_press_open_page"
+          android:title="@string/menu_open_link"
           app:showAsAction="ifRoom" />
 
     <item android:id="@+id/menu_long_press_open_in_new_tab"
-          android:title="@string/menu_long_press_open_in_new_tab"
+          android:title="@string/menu_open_in_new_tab"
           app:showAsAction="ifRoom" />
 
     <item android:id="@+id/menu_long_press_save_page"

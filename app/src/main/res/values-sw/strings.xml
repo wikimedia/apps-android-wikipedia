@@ -22,15 +22,15 @@
   <string name="menu_update_all_saved_pages">Sasisha kurasa zilizohifadhgiwa</string>
   <string name="menu_update_selected_saved_pages">Sasisha kurasa zilizohifadhiwa</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Panguza kurasa zote zilizohifadhiwa?</string>
-  <string name="menu_page_save">Hifadhi ukurasa</string>
-  <string name="menu_page_share">Gawa</string>
+  <string name="menu_save_page">Hifadhi ukurasa</string>
+  <string name="menu_share_page">Gawa</string>
   <string name="share_via">Shiriki kupitia</string>
   <string name="dialog_title_clear_saved_pages">Panguza kurasa zote zilizohifadhiwa?</string>
-  <string name="snackbar_saving_page">Inahifadhi ukurasa...</string>
-  <string name="snackbar_saved_page_format">Ukurasa umehifadhiwa</string>
-  <string name="snackbar_saved_page_missing_images">Haingehifadhi picha zote</string>
+  <string name="toast_saving_page">Inahifadhi ukurasa...</string>
+  <string name="toast_saved_page">Ukurasa umehifadhiwa</string>
+  <string name="toast_saved_page_missing_images">Haingehifadhi picha zote</string>
   <string name="delete_selected_saved_pages">Futa</string>
-  <string name="snackbar_saved_page_deleted">Ukurasa uliohifadhiwa umefutwa</string>
+  <string name="toast_saved_page_deleted">Ukurasa uliohifadhiwa umefutwa</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Tafuta</string>
   <string name="nav_item_nearby">Karibu</string>
   <string name="menu_update_nearby">Sasisha hapa karibu</string>
@@ -48,7 +48,7 @@
   <string name="preference_title_language">Lugha ya Wikipedia</string>
   <string name="preference_languages_filter_hint">Tafuta</string>
   <string name="langlinks_filter_hint">Tafuta</string>
-  <string name="menu_page_other_languages">Soma katika lugha zingine</string>
+  <string name="menu_other_languages">Soma katika lugha zingine</string>
   <string name="langlinks_error_retry">Jaribu tena</string>
   <string name="langlinks_empty">Ukurasa huu haupatikani katika lugha zingine.</string>
   <string name="langlinks_activity_title">Lugha zingine</string>
@@ -138,7 +138,7 @@
   <string name="edit_summary_tag_links">Nimeongeza viungo</string>
   <string name="edit_summary_tag_other">Nyingine</string>
   <string name="edit_summary_tag_other_hint">Njia zingine ulizoboresha ukurasa</string>
-  <string name="menu_page_find_in_page">Tafuta katika ukurasa</string>
+  <string name="find_in_page">Tafuta katika ukurasa</string>
   <string name="find_next">Tafuta ifuatayo</string>
   <string name="find_previous">Tafuta iliyotangulia</string>
   <string name="saved_pages_update_all_error_retry">Jaribu tena</string>

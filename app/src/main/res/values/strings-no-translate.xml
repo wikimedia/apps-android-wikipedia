@@ -7,12 +7,12 @@
     <string name="intent_share_search_label">@string/search_hint</string>
 
     <!-- Long press menu -->
-    <string name="menu_long_press_share_page">@string/menu_page_share</string>
-    <string name="menu_long_press_save_page">@string/menu_page_save</string>
+    <string name="menu_long_press_share_page">@string/menu_share_page</string>
+    <string name="menu_long_press_save_page">@string/menu_save_page</string>
 
     <!-- Link preview menu -->
     <string name="menu_link_preview_copy_link">@string/menu_long_press_copy_page</string>
-    <string name="menu_link_preview_share_page">@string/menu_page_share</string>
-    <string name="menu_link_preview_save_page">@string/menu_page_save</string>
+    <string name="menu_link_preview_share_page">@string/menu_share_page</string>
+    <string name="menu_link_preview_save_page">@string/menu_save_page</string>
 
 </resources>

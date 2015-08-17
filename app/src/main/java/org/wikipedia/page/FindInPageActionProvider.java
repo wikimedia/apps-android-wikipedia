@@ -60,7 +60,7 @@ public class FindInPageActionProvider extends ActionProvider {
         findInPageMatch = (TextView) view.findViewById(R.id.find_in_page_match);
 
         SearchView searchView = (SearchView) view.findViewById(R.id.find_in_page_input);
-        searchView.setQueryHint(parentActivity.getString(R.string.menu_page_find_in_page));
+        searchView.setQueryHint(parentActivity.getString(R.string.find_in_page));
         searchView.setFocusable(true);
         searchView.requestFocusFromTouch();
         searchView.setOnQueryTextListener(searchQueryListener);
