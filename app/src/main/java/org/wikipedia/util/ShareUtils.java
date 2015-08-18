@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import org.wikipedia.R;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.page.PageTitle;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -46,6 +47,10 @@ public final class ShareUtils {
         } else {
             context.startActivity(chooserIntent);
         }
+    }
+
+    public static void shareText(final Context context, final PageTitle title) {
+        shareText(context, title.getDisplayText(), title.getCanonicalUri());
     }
 
     /**

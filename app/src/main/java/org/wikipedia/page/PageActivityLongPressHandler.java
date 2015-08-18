@@ -37,16 +37,12 @@ public abstract class PageActivityLongPressHandler implements PageLongPressHandl
 
     @Override
     public void onShareLink(PageTitle title) {
-        shareLink(title.getDisplayText(), title.getCanonicalUri());
+        ShareUtils.shareText(activity, title);
     }
 
     @Override
     public void onSavePage(PageTitle title) {
         spawnSavePageTask(title);
-    }
-
-    private void shareLink(String title, String url) {
-        ShareUtils.shareText(activity, title, url);
     }
 
     private void copyLink(String url) {

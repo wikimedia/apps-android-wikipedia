@@ -28,6 +28,7 @@ import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ShareUtils;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
@@ -732,7 +733,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
                 return true;
             case R.id.menu_page_share:
-                shareHandler.shareWithoutSelection();
+                ShareUtils.shareText(getActivity(), model.getTitle());
                 return true;
             case R.id.menu_page_other_languages:
                 Intent langIntent = new Intent();
