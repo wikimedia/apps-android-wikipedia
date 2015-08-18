@@ -13,6 +13,7 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
+import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -350,6 +351,11 @@ public final class Utils {
         } else {
             context.startActivity(chooserIntent);
         }
+    }
+
+    public static boolean isValidPageLink(Uri uri) {
+        return ("wikipedia.org".equals(uri.getAuthority()) && !TextUtils.isEmpty(uri.getPath())
+                && uri.getPath().startsWith("/wiki"));
     }
 
     public static void showPrivacyPolicy(Context context) {
