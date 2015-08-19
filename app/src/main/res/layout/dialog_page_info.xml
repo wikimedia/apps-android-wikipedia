@@ -28,7 +28,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             style="@style/TextHeadingGray"
-            android:background="@drawable/button_selector_transparent"
+            android:background="?attr/selectableItemBackground"
             android:text="@string/page_similar_titles" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             style="@style/TextHeadingGray"
-            android:background="@drawable/button_selector_transparent"
+            android:background="?attr/selectableItemBackground"
             android:text="@string/dialog_page_issues" />
 
         <View
@@ -70,7 +70,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center"
             android:src="@drawable/ic_close_gray"
-            android:background="@drawable/button_selector_transparent"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/dialog_close_description" />
     </LinearLayout>
 

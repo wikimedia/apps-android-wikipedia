@@ -46,7 +46,7 @@
             android:src="@drawable/ic_close_gray"
             android:contentDescription="@string/button_close_tab"
             android:clickable="true"
-            android:background="@drawable/button_selector_transparent"
+            android:background="?attr/selectableItemBackgroundBorderless"
             />
     </LinearLayout>
     <View
