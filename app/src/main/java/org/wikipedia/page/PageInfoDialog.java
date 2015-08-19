@@ -2,7 +2,6 @@ package org.wikipedia.page;
 
 import org.wikipedia.R;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.views.WikiListView;
 
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
@@ -20,14 +19,14 @@ import android.widget.ViewFlipper;
     private final ViewFlipper flipper;
     private final Button disambigHeading;
     private final Button issuesHeading;
-    private final WikiListView disambigList;
+    private final ListView disambigList;
 
     /*package*/ PageInfoDialog(final PageActivity activity, PageInfo pageInfo, int height) {
         super(activity, R.layout.dialog_page_info);
 
         View parentView = getDialogLayout();
         flipper = (ViewFlipper) parentView.findViewById(R.id.page_info_flipper);
-        disambigList = (WikiListView) parentView.findViewById(R.id.disambig_list);
+        disambigList = (ListView) parentView.findViewById(R.id.disambig_list);
         ListView issuesList = (ListView) parentView.findViewById(R.id.page_issues_list);
         disambigHeading = (Button) parentView.findViewById(R.id.page_info_similar_titles_heading);
         issuesHeading = (Button) parentView.findViewById(R.id.page_info_page_issues_heading);

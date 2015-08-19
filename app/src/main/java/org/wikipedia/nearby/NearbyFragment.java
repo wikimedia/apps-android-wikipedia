@@ -11,7 +11,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.views.WikiListView;
 
 import com.squareup.picasso.Picasso;
 import android.content.ActivityNotFoundException;
@@ -48,6 +47,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -73,7 +73,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     private static final double METER_TO_FEET = 3.280839895;
     private static final int ONE_MILE = 5280;
 
-    private WikiListView nearbyList;
+    private ListView nearbyList;
     private View nearbyEmptyContainer;
     private NearbyAdapter adapter;
     private SwipeRefreshLayout refreshView;
@@ -123,7 +123,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_nearby, container, false);
 
-        nearbyList = (WikiListView) rootView.findViewById(R.id.nearby_list);
+        nearbyList = (ListView) rootView.findViewById(R.id.nearby_list);
         nearbyEmptyContainer = rootView.findViewById(R.id.nearby_empty_container);
         nearbyEmptyContainer.setVisibility(View.GONE);
         refreshView = (SwipeRefreshLayout) rootView.findViewById(R.id.nearby_refresh_container);

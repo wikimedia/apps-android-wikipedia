@@ -84,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         >
-        <org.wikipedia.views.WikiListView
+        <ListView
             android:id="@+id/disambig_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

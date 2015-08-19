@@ -114,7 +114,7 @@
                         android:fontFamily="serif"
                         android:textSize="24sp"
                         android:text="@string/read_more_section"/>
-                    <org.wikipedia.views.WikiListView
+                    <ListView
                         android:id="@+id/read_more_list"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"/>

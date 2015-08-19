@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -40,7 +41,6 @@ import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.SuggestionsTask;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.views.ObservableWebView;
-import org.wikipedia.views.WikiListView;
 
 import java.util.List;
 
@@ -63,7 +63,7 @@ public class BottomContentHandler implements BottomContentInterface,
     private TextView pageLicenseText;
     private TextView pageExternalLink;
     private View readMoreContainer;
-    private WikiListView readMoreList;
+    private ListView readMoreList;
 
     private SuggestedPagesFunnel funnel;
     private SearchResults readMoreItems;
@@ -86,7 +86,7 @@ public class BottomContentHandler implements BottomContentInterface,
         pageLastUpdatedText = (TextView)bottomContentContainer.findViewById(R.id.page_last_updated_text);
         pageLicenseText = (TextView)bottomContentContainer.findViewById(R.id.page_license_text);
         readMoreContainer = bottomContentContainer.findViewById(R.id.read_more_container);
-        readMoreList = (WikiListView)bottomContentContainer.findViewById(R.id.read_more_list);
+        readMoreList = (ListView)bottomContentContainer.findViewById(R.id.read_more_list);
 
         pageExternalLink = (TextView) bottomContentContainer.findViewById(R.id.page_external_link);
         pageExternalLink.setPaintFlags(pageExternalLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);

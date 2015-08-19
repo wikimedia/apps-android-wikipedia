@@ -51,7 +51,7 @@
         android:id="@+id/nearby_refresh_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <org.wikipedia.views.WikiListView
+        <ListView
             android:id="@+id/nearby_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

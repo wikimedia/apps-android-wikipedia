@@ -10,7 +10,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.WikiErrorView;
-import org.wikipedia.views.WikiListView;
 
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
@@ -25,6 +24,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.text.Collator;
@@ -45,7 +45,7 @@ public class SearchResultsFragment extends Fragment {
     private SearchArticlesFragment searchFragment;
     private View searchResultsDisplay;
     private View searchResultsContainer;
-    private WikiListView searchResultsList;
+    private ListView searchResultsList;
     private WikiErrorView searchErrorView;
     private View searchNoResults;
     private TextView searchSuggestion;
@@ -82,7 +82,7 @@ public class SearchResultsFragment extends Fragment {
         searchFragment = (SearchArticlesFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.search_fragment);
 
         searchResultsContainer = rootView.findViewById(R.id.search_results_container);
-        searchResultsList = (WikiListView) rootView.findViewById(R.id.search_results_list);
+        searchResultsList = (ListView) rootView.findViewById(R.id.search_results_list);
 
         if (savedInstanceState != null) {
             ParcelableLruCache<List<PageTitle>> mySearchResultsCache = savedInstanceState.getParcelable(ARG_RESULTS_CACHE);
