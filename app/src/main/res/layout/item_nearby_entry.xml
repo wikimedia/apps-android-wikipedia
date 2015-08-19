@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="@drawable/selectable_item_background">
+    android:orientation="horizontal">
 
     <org.wikipedia.nearby.NearbyCompassView
         android:id="@+id/nearby_thumbnail"

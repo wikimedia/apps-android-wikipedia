@@ -247,7 +247,9 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-            return getActivity().getLayoutInflater().inflate(R.layout.item_page_list_entry, viewGroup, false);
+            View view = getActivity().getLayoutInflater().inflate(R.layout.item_page_list_entry, viewGroup, false);
+            view.setBackgroundResource(R.drawable.selectable_item_background);
+            return view;
         }
 
         private String getDateString(Date date) {

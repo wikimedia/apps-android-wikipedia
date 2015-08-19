@@ -14,7 +14,6 @@
         <item name="android:autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="android:panelBackground">@color/background_floating_material_light</item>
         <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
-        <item name="android:dropDownListViewStyle">@style/DropDownListView.Light</item>
         <item name="android:windowBackground">@color/window_background_light</item>
         <item name="window_background_color">@color/window_background_light</item>
         <item name="page_background_color">@color/page_background_light</item>
@@ -39,10 +38,6 @@
         <item name="link_preview_toolbar_color">@color/link_preview_toolbar_light</item>
         <item name="link_preview_background_color">@color/link_preview_background_light</item>
         <item name="link_preview_text_color">@color/link_preview_text_light</item>
-    </style>
-
-    <style name="DropDownListView.Light" parent="@style/Widget.AppCompat.Light.ListView.DropDown">
-        <item name="android:listSelector">@drawable/selectable_item_background</item>
     </style>
 
 </resources>

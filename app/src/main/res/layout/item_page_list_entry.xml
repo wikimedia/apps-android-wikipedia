@@ -5,8 +5,7 @@
     android:id="@+id/page_list_item_container"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/selectable_item_background">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/page_list_header_text"
