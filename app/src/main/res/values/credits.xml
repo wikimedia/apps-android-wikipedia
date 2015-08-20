@@ -37,6 +37,10 @@
         <!-- end of http://square.github.io/picasso -->
         (<a href="file:///android_asset/licenses/Picasso">license</a>),
 
+        <a href="https://square.github.io/retrofit/">Retrofit</a>
+        <!-- end of http://square.github.io/retrofit/ -->
+        (<a href="file:///android_asset/licenses/Retrofit">license</a>),
+
         <a href="https://github.com/ragunathjawahar/android-saripaar">Saripaar</a>
         <!-- end of https://github.com/ragunathjawahar/android-saripaar/blob/master/README.md -->
         (<a href="file:///android_asset/licenses/Saripaar">license</a>)

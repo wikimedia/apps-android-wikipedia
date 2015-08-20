@@ -50,6 +50,8 @@ import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
+import retrofit.RequestInterceptor;
+
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -244,6 +246,9 @@ public class WikipediaApp extends Application {
 
     private HashMap<String, Api> apis = new HashMap<>();
     private MccMncStateHandler mccMncStateHandler = new MccMncStateHandler();
+    public MccMncStateHandler getMccMncStateHandler() {
+        return mccMncStateHandler;
+    }
     public Api getAPIForSite(Site site) {
         String acceptLanguage = getAcceptLanguage(site);
         HashMap<String, String> customHeaders = buildCustomHeaders(acceptLanguage);
@@ -575,6 +580,19 @@ public class WikipediaApp extends Application {
         return simpleDateFormat;
     }
 
+    /** For Retrofit requests. Keep in sync with #buildCustomHeaders */
+    public void injectCustomHeaders(RequestInterceptor.RequestFacade request, Site site) {
+        request.addHeader("User-Agent", getUserAgent());
+
+        // Add the app install ID to the header, but only if the user has not opted out of logging
+        if (isEventLoggingEnabled()) {
+            request.addHeader("X-WMF-UUID", getAppInstallID());
+        }
+
+        request.addHeader("Accept-Language", getAcceptLanguage(site));
+    }
+
+    /** For java-mwapi API requests. */
     private HashMap<String, String> buildCustomHeaders(String acceptLanguage) {
         // https://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
         HashMap<String, String> headers = new HashMap<>();

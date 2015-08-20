@@ -81,12 +81,12 @@
 
 #-dontwarn android.support.**
 
-###
-# Our code:
--keep class org.wikipedia.** { <init>(...); *; }
--keep enum org.wikipedia.** { <init>(...); *; }
--keep class org.mediawiki.api.json.** {*;}
--keep enum org.wikipedia.api.json.** { <init>(...); *; }
+# --- Retrofit ---
+# https://github.com/square/retrofit/issues/117
+-dontwarn retrofit.**
+-keep class retrofit.** { *; }
+#-keepattributes Signature (already specified)
+-keepattributes Exceptions
 
 # --- Gson ---
 # https://github.com/google/gson/blob/master/examples/android-proguard-example/proguard.cfg
@@ -101,3 +101,11 @@
 # Gson specific classes
 -keep class sun.misc.Unsafe { *; }
 # --- /Gson ---
+
+###
+# Our code:
+-keep class org.wikipedia.** { <init>(...); *; }
+-keep enum org.wikipedia.** { <init>(...); *; }
+-keep class org.mediawiki.api.json.** {*;}
+-keep enum org.wikipedia.api.json.** { <init>(...); *; }
+

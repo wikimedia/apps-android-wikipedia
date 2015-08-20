@@ -5,12 +5,12 @@ import android.support.annotation.NonNull;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.savedpages.RefreshSavedPageTask;
+import org.wikipedia.server.PageService;
+import org.wikipedia.server.PageServiceFactory;
+import org.wikipedia.savedpages.SaveOtherPageCallback;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtils;
-
-import java.util.List;
 
 public abstract class PageActivityLongPressHandler implements PageLongPressHandler.ContextMenuListener {
     @NonNull private final PageActivity activity;
@@ -42,7 +42,7 @@ public abstract class PageActivityLongPressHandler implements PageLongPressHandl
 
     @Override
     public void onSavePage(PageTitle title) {
-        spawnSavePageTask(title);
+        saveOtherPage(title);
     }
 
     private void copyLink(String url) {
@@ -53,23 +53,25 @@ public abstract class PageActivityLongPressHandler implements PageLongPressHandl
         FeedbackUtil.showMessage(activity, R.string.address_copied);
     }
 
-    private void spawnSavePageTask(@NonNull final PageTitle title) {
-        new RefreshSavedPageTask(WikipediaApp.getInstance(), title) {
-            @Override
-            public void onFinish(List<Section> result) {
-                super.onFinish(result);
+    private void saveOtherPage(@NonNull final PageTitle title) {
+        getApiService(title).pageCombo(title.getPrefixedText(),
+                !WikipediaApp.getInstance().isImageDownloadEnabled(),
+                new SaveOtherPageCallback(title) {
+                    @Override
+                    protected void onComplete() {
+                        if (!activity.isDestroyed()) {
+                            activity.showPageSavedMessage(title.getDisplayText(), true);
+                        }
+                    }
 
-                if (!activity.isDestroyed()) {
-                    activity.showPageSavedMessage(title.getDisplayText(), true);
-                }
-            }
+                    @Override
+                    protected void onError() {
+                        FeedbackUtil.showMessage(activity, R.string.error_network_error_try_again);
+                    }
+                });
+    }
 
-            @Override
-            public void onCatch(Throwable caught) {
-                if (!activity.isDestroyed()) {
-                    FeedbackUtil.showError(activity, caught);
-                }
-            }
-        }.execute();
+    private PageService getApiService(PageTitle title) {
+        return PageServiceFactory.create(title.getSite());
     }
 }

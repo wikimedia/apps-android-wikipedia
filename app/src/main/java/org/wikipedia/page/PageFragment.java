@@ -845,23 +845,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    public PageTitle adjustPageTitleFromMobileview(PageTitle title, JSONObject mobileView)
-            throws JSONException {
-        if (mobileView.has("redirected")) {
-            // Handle redirects properly.
-            title = new PageTitle(mobileView.optString("redirected"), title.getSite(),
-                    title.getThumbUrl());
-        } else if (mobileView.has("normalizedtitle")) {
-            // We care about the normalized title only if we were not redirected
-            title = new PageTitle(mobileView.optString("normalizedtitle"), title.getSite(),
-                    title.getThumbUrl());
-        }
-        if (mobileView.has("description")) {
-            title.setDescription(Utils.capitalizeFirstChar(mobileView.getString("description")));
-        }
-        return title;
-    }
-
     public void commonSectionFetchOnCatch(Throwable caught) {
         if (!isAdded()) {
             return;

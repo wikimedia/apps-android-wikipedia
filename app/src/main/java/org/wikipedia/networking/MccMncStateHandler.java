@@ -1,43 +1,69 @@
 package org.wikipedia.networking;
 
-import android.content.Context;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.NetworkUtils;
 
+import retrofit.RequestInterceptor;
+
 import java.util.HashMap;
 
 public class MccMncStateHandler {
     private boolean mccMncSent = false;
-    private WikipediaApp app;
 
     /**
      * Enriches request to have a header with the MCC-MNC (mobile operator code) if
      * cellular data connection is the active one and it hasn't already been sent
      * and the user isn't currently opted out of event logging.
      * http://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
-     * @param ctx Application context
-     * @param site Currently active site
-     * @param customHeaders Hashmap of custom headers
+     *
+     * @param ctx application context
+     * @param site currently active site
+     * @param customHeaders HashMap of custom headers
      * @return
      */
-    public Api makeApiWithMccMncHeaderEnrichment(Context ctx, Site site, HashMap<String, String> customHeaders) {
-        if (this.app == null) {
-            this.app = (WikipediaApp)ctx;
-        }
-        // Forget about it if it was already sent or user opted out of logging or the API server isn't a mobile Wikipedia.
-        if (this.mccMncSent
-            || !app.isEventLoggingEnabled()
-            || !(site.getApiDomain().contains(".m.wikipedia.org"))) {
-            return null;
-        }
-        String mccMnc = NetworkUtils.getMccMnc(ctx);
-        if (mccMnc != null) {
-            customHeaders.put("X-MCCMNC", mccMnc);
-            this.mccMncSent = true;
-            return new Api(site.getApiDomain(), customHeaders);
+    public Api makeApiWithMccMncHeaderEnrichment(WikipediaApp app, Site site,
+                                                 HashMap<String, String> customHeaders) {
+        if (shouldSendHeader(app, site.getApiDomain())) {
+            String mccMnc = NetworkUtils.getMccMnc(app);
+            if (mccMnc != null) {
+                customHeaders.put("X-MCCMNC", mccMnc);
+                this.mccMncSent = true;
+                return new Api(site.getApiDomain(), customHeaders);
+            }
         }
         return null;
+    }
+
+    /**
+     * Enriches request to have a header with the MCC-MNC (mobile operator code) if
+     * cellular data connection is the active one and it hasn't already been sent
+     * and the user isn't currently opted out of event logging.
+     * http://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
+     *
+     * This is the equivalent of #makeApiWithMccMncHeaderEnrichment for Retrofit
+     *
+     * @param ctx Application context
+     * @param domain currently active API domain
+     * @param request Retrofit request
+     */
+    public void injectMccMncHeader(WikipediaApp app, String domain,
+                                   RequestInterceptor.RequestFacade request) {
+        if (shouldSendHeader(app, domain)) {
+            String mccMnc = NetworkUtils.getMccMnc(app);
+            if (mccMnc != null) {
+                request.addHeader("X-MCCMNC", mccMnc);
+                this.mccMncSent = true;
+            }
+        }
+    }
+
+    private boolean shouldSendHeader(WikipediaApp app, String domain) {
+        // Skip if it was already sent or user opted out of logging
+        // or the API server isn't a mobile Wikipedia.
+        return !this.mccMncSent
+                && app.isEventLoggingEnabled()
+                && domain.contains(".m.wikipedia.org");
     }
 }

@@ -17,9 +17,7 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
     private final OkHttpClient client;
 
     public OkHttpConnectionFactory(Context context) {
-        client = new OkHttpClient();
-        client.setCookieHandler(((WikipediaApp)context.getApplicationContext()).getCookieManager());
-        client.setCache(new Cache(context.getCacheDir(), HTTP_CACHE_SIZE));
+        client = createClient(context);
     }
 
     public HttpURLConnection create(URL url) throws IOException {
@@ -30,5 +28,12 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
     public HttpURLConnection create(URL url, Proxy proxy) throws IOException {
         throw new UnsupportedOperationException(
                 "Per-connection proxy is not supported. Use OkHttpClient's setProxy instead.");
+    }
+
+    public static OkHttpClient createClient(Context context) {
+        OkHttpClient client = new OkHttpClient();
+        client.setCookieHandler(((WikipediaApp)context.getApplicationContext()).getCookieManager());
+        client.setCache(new Cache(context.getCacheDir(), HTTP_CACHE_SIZE));
+        return client;
     }
 }

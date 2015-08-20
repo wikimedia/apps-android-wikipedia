@@ -21,6 +21,6 @@ public class SectionTests extends AndroidTestCase {
     public void testJSONSerialization() throws Exception {
         Section parentSection = new Section(1, 1, null, null, "Hi there!");
 
-        assertEquals(parentSection, new Section(parentSection.toJSON()));
+        assertEquals(parentSection, Section.fromJson(parentSection.toJSON()));
     }
 }

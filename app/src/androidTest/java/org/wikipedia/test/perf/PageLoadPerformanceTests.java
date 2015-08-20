@@ -1,11 +1,9 @@
 package org.wikipedia.test.perf;
 
-import org.wikipedia.Site;
-import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageLoadCallbacks;
-import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.PageLoadTests;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
@@ -18,8 +16,7 @@ import java.util.concurrent.TimeUnit;
  */
 @LargeTest
 public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<PageActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = 30000;
-    private static final Site SITE = new Site("test.wikipedia.org");
+    private static final int TASK_COMPLETION_TIMEOUT = (int) TimeUnit.SECONDS.toMillis(30);
     private static final int NUM_RUNS = 1; //50;
     private PageActivity activity;
     private CountDownLatch completionLatch;
@@ -46,15 +43,15 @@ public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<P
     }
 
     public void testLoadPages() throws Throwable {
-        testLoadPage("Test_page_for_app_testing/Section1");
-        testLoadPage("A_long_page");
-        testLoadPage("Barack_Obama"); // much longer than previous pages, has a lead image
+        loadPageMultipleTimes("Test_page_for_app_testing/Section1");
+        loadPageMultipleTimes("A_long_page");
+        loadPageMultipleTimes("Barack_Obama"); // much longer than previous pages, has a lead image
 
         measurement.analyzeAll();
     }
 
-    private void testLoadPage(String myTitle) throws Throwable {
-        title = myTitle;
+    private void loadPageMultipleTimes(String title) throws Throwable {
+        this.title = title;
         for (int i = 0; i < NUM_RUNS; i++) {
             loadPageUi();
         }
@@ -69,17 +66,9 @@ public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<P
                 fragment.setPageLoadCallbacks(callback);
 
                 measurement.start(title);
-                loadPage();
+                PageLoadTests.loadPage(fragment, title);
             }
         });
         assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
-    }
-
-    private void loadPage() {
-        PageTitle pageTitle = new PageTitle(null, title, SITE);
-        fragment.displayNewPage(pageTitle,
-                new HistoryEntry(pageTitle, HistoryEntry.SOURCE_RANDOM),
-                false,
-                false);
     }
 }

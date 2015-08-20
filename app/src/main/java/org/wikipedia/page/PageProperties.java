@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.server.mwapi.MwPageLead;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -32,6 +33,33 @@ public class PageProperties implements Parcelable {
      * FIXME: This is not a true page property, since it depends on current user.
      */
     private final boolean canEdit;
+
+    /**
+     * Side note: Should later be moved out of this class but I like the similarities with
+     * PageProperties(JSONObject).
+     */
+    public PageProperties(MwPageLead.Mobileview mv) {
+        pageId = mv.getId();
+        revisionId = mv.getRevision();
+        displayTitleText = mv.getDisplayTitle();
+        editProtectionStatus = mv.getProtection().getFirstAllowedEditorRole();
+        languageCount = mv.getLanguageCount();
+        leadImageUrl = mv.getThumb() != null ? mv.getThumb().getUrl() : null;
+        leadImageName = mv.getImage() != null ? mv.getImage().getFile() : null;
+        lastModified = new Date();
+        String lastModifiedText = mv.getLastModified();
+        try {
+            lastModified.setTime(WikipediaApp.getInstance().getSimpleDateFormat()
+                    .parse(lastModifiedText).getTime());
+        } catch (ParseException e) {
+            Log.d("PageProperties", "Failed to parse date: " + lastModifiedText);
+        }
+        // assume formatversion=2 is used so we get real booleans from the API
+        canEdit = mv.isEditable();
+
+        isMainPage = mv.isMainPage();
+        isDisambiguationPage = mv.isDisambiguation();
+    }
 
     /**
      * Create a new PageProperties object.

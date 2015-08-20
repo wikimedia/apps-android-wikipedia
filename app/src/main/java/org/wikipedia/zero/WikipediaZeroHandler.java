@@ -8,6 +8,9 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.OnHeaderCheckListener;
 import org.wikipedia.util.FeedbackUtil;
 
+import retrofit.client.Header;
+import retrofit.client.Response;
+
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -26,7 +29,9 @@ import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderCheckListener {
     private static final boolean WIKIPEDIA_ZERO_DEV_MODE_ON = true;
@@ -79,6 +84,9 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
         snackbar.show();
     }
 
+    /** For MW API responses */
+    // Note: keep in sync with next method. This one will go away when we've retrofitted all
+    // API calls.
     @Override
     public void onHeaderCheck(final ApiResult result, final URL apiURL) {
         if (!WIKIPEDIA_ZERO_DEV_MODE_ON || acquiringCarrierMessage) {
@@ -88,22 +96,63 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
             @Override
             public void run() {
                 if (hostSupportsZeroHeaders(apiURL.getHost())) {
-                    boolean responseZeroState = result.getHeaders().containsKey("X-CS");
-                    if (responseZeroState) {
+                    boolean hasZeroHeader = result.getHeaders().containsKey("X-CS");
+                    if (hasZeroHeader) {
                         String xcs = result.getHeaders().get("X-CS").get(0);
                         if (!xcs.equals(carrierString)) {
                             identifyZeroCarrier(xcs);
                         }
                     } else if (zeroEnabled) {
-                        carrierString = "";
-                        carrierMessage = null;
-                        zeroEnabled = false;
-                        app.getBus().post(new WikipediaZeroStateChangeEvent());
+                        zeroOff();
                     }
                 }
             }
         });
     }
+
+    /** For Retrofit responses */
+    public void onHeaderCheck(final Response response) {
+        if (!WIKIPEDIA_ZERO_DEV_MODE_ON || acquiringCarrierMessage) {
+            return;
+        }
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (hostSupportsZeroHeaders(new URL(response.getUrl()).getHost())) {
+                        String xcs = getHeader(response, "X-CS");
+                        if (xcs != null) {
+                            if (!xcs.equals(carrierString)) {
+                                identifyZeroCarrier(xcs);
+                            }
+                        } else if (zeroEnabled) {
+                            zeroOff();
+                        }
+                    }
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException("interesting response", e);
+                }
+            }
+        });
+    }
+
+    private void zeroOff() {
+        carrierString = "";
+        carrierMessage = null;
+        zeroEnabled = false;
+        app.getBus().post(new WikipediaZeroStateChangeEvent());
+    }
+
+    private String getHeader(Response response, String key) {
+        List<Header> headers = response.getHeaders();
+        for (Header header: headers) {
+            if (key.equalsIgnoreCase(header.getName())) {
+                return header.getValue();
+            }
+        }
+        return null;
+    }
+
 
     public void onReceive(final Context context, Intent intent) {
         ConnectivityManager conn = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
