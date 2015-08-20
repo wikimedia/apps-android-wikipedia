@@ -298,5 +298,5 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="format_error_server_message">Message: \"%s\"</string>
     <string name="format_error_server_code">Code: \"%s\"</string>
     <string name="address_copied">Address copied to clipboard.</string>
-    <string name="button_continue_to_article">Continue to page</string>
+    <string name="button_continue_to_article">Continue to article</string>
 </resources>

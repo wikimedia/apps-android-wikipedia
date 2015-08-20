@@ -40,6 +40,8 @@
     <dimen name="linkPreviewImageSize">112dp</dimen>
     <!-- Default height with which the Link Preview peeks out from the bottom -->
     <dimen name="linkPreviewPeekHeight">320dp</dimen>
+    <item type="dimen" format="float" name="linkPreviewThumbPressScale">1.03</item>
+    <item type="dimen" format="float" name="linkPreviewThumbPressOverScale">1.05</item>
 
     <!-- Share-a-fact image preview -->
     <dimen name="share_image_width">320dp</dimen>

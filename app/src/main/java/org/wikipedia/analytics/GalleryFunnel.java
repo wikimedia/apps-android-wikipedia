@@ -8,17 +8,18 @@ import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 
 public class GalleryFunnel extends TimedFunnel {
+    public static final int SOURCE_LEAD_IMAGE = 0;
+    public static final int SOURCE_NON_LEAD_IMAGE = 1;
+    public static final int SOURCE_LINK_PREVIEW = 2;
+
     private static final String SCHEMA_NAME = "MobileWikiAppMediaGallery";
     private static final int REV_ID = 12588701;
-    private static final int SOURCE_LEAD_IMAGE = 0;
-    private static final int SOURCE_NON_LEAD_IMAGE = 1;
 
     private final int source;
 
-    public GalleryFunnel(WikipediaApp app, Site site, boolean fromLeadImage) {
+    public GalleryFunnel(WikipediaApp app, Site site, int source) {
         super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100, site);
-
-        this.source = fromLeadImage ? SOURCE_LEAD_IMAGE : SOURCE_NON_LEAD_IMAGE;
+        this.source = source;
     }
 
     @Override

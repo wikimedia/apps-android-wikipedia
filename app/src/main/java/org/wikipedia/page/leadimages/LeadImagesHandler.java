@@ -25,6 +25,7 @@ import com.squareup.picasso.Target;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
@@ -148,7 +149,8 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                                                              parentFragment.getTitle()
                                                                            .getSite());
                         GalleryActivity.showGallery(parentFragment.getActivity(),
-                                parentFragment.getTitleOriginal(), imageTitle, false);
+                                parentFragment.getTitleOriginal(), imageTitle,
+                                GalleryFunnel.SOURCE_LEAD_IMAGE);
                     }
                     return true;
                 }

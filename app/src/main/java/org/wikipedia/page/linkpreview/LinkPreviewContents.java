@@ -1,12 +1,20 @@
 package org.wikipedia.page.linkpreview;
 
+import android.text.TextUtils;
+
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Utils;
 
+import java.text.BreakIterator;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 public class LinkPreviewContents {
+    private static final int EXTRACT_MAX_SENTENCES = 2;
 
     private final PageTitle title;
     public PageTitle getTitle() {
@@ -25,9 +33,7 @@ public class LinkPreviewContents {
 
     public LinkPreviewContents(JSONObject json, Site site) throws JSONException {
         title = new PageTitle(json.getString("title"), site);
-        // replace newlines in the extract with double newlines, so that they'll show up
-        // as paragraph breaks when displayed in a TextView.
-        extract = json.getString("extract").replace("\n", "\n\n");
+        extract = makeStringFromSentences(getSentences(removeParens(json.optString("extract")), site), EXTRACT_MAX_SENTENCES);
         if (json.has("thumbnail")) {
             title.setThumbUrl(json.getJSONObject("thumbnail").optString("source"));
         }
@@ -78,4 +84,36 @@ public class LinkPreviewContents {
         return (level == 0) ? outStr.toString() : text;
     }
 
+    /**
+     * Split a block of text into sentences, taking into account the language in which
+     * the text is assumed to be.
+     * @param text Text to be transformed into sentences.
+     * @param site Site that will provide the language of the given text.
+     * @return List of sentences.
+     */
+    public static List<String> getSentences(String text, Site site) {
+        List<String> sentenceList = new ArrayList<>();
+        BreakIterator iterator = BreakIterator.getSentenceInstance(new Locale(site.getLanguageCode()));
+        // feed the text into the iterator, with line breaks removed:
+        text = text.replaceAll("(\r|\n)", " ");
+        iterator.setText(text);
+        for (int start = iterator.first(), end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator.next()) {
+            String sentence = text.substring(start, end).trim();
+            if (TextUtils.isGraphic(sentence)) {
+                // if it's the first sentence, then remove parentheses from it.
+                String formattedSentence = sentenceList.isEmpty() ? removeParens(sentence) : sentence;
+                sentenceList.add(formattedSentence);
+            }
+        }
+        // if we couldn't detect any sentences using the BreakIterator, then just return the
+        // original text as a single sentence.
+        if (sentenceList.isEmpty()) {
+            sentenceList.add(text);
+        }
+        return sentenceList;
+    }
+
+    private String makeStringFromSentences(List<String> sentences, int maxSentences) {
+        return TextUtils.join(" ", sentences.subList(0, Math.min(maxSentences, sentences.size())));
+    }
 }
