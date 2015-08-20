@@ -599,6 +599,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 } else if (sectionTargetFromTitle != null) {
                     //if we have a section to scroll to (from our PageTitle):
                     wrapper.put("fragment", sectionTargetFromTitle);
+                } else if (model.getTitle().getFragment() != null) {
+                    // It's possible, that the link was a redirect and the new title has a fragment
+                    // scroll to it, if there was no fragment so far
+                    wrapper.put("fragment", model.getTitle().getFragment());
                 }
             } else {
                 wrapper.put("noMore", true);
