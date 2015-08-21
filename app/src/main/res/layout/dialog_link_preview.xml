@@ -36,7 +36,6 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
                     style="@style/RtlAwareTextView"
                     android:textColor="?attr/link_preview_text_color"
                     android:paddingLeft="16dp"
@@ -47,7 +46,7 @@
                     android:lineSpacingMultiplier="0.9"
                     android:maxLines="2"
                     android:ellipsize="end"
-                    tools:text="Lorem ipsum"/>
+                    tools:text="Lorem ipsum" />
                 <ImageView
                     android:id="@+id/link_preview_overflow_button"
                     android:layout_width="48dp"

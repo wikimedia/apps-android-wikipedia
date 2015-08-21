@@ -93,8 +93,8 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         rootView.findViewById(R.id.link_preview_toolbar).setOnClickListener(goToPageListener);
         TextView titleText = (TextView) rootView.findViewById(R.id.link_preview_title);
         titleText.setText(pageTitle.getDisplayText());
-        if (!ApiUtil.hasHoneyComb()) {
-            // for GB, reset line spacing to 1, since it doesn't handle <1 very well.
+        if (!ApiUtil.hasKitKat()) {
+            // for oldish devices, reset line spacing to 1, since it truncates the descenders.
             titleText.setLineSpacing(0, 1.0f);
         } else if (!ApiUtil.hasLollipop()) {
             // for <5.0, give the title a bit more bottom padding, since these versions
