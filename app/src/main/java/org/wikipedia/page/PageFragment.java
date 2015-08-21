@@ -9,6 +9,7 @@ import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.SavedPagesFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -395,7 +396,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (referenceDialog != null && referenceDialog.isShowing()) {
             referenceDialog.dismiss();
         }
-        getPageActivity().showLinkPreview(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+        if (!app.isProdRelease() && app.getLinkPreviewVersion() == 0) {
+            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+            getPageActivity().displayNewPage(title, historyEntry);
+            new LinkPreviewFunnel(app, title).logNavigate();
+        } else {
+            getPageActivity().showLinkPreview(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+        }
     }
 
     private TabsProvider.TabsProviderListener tabsProviderListener = new TabsProvider.TabsProviderListener() {

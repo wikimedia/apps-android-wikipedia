@@ -36,6 +36,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
                     style="@style/RtlAwareTextView"
                     android:textColor="?attr/link_preview_text_color"
                     android:paddingLeft="16dp"
