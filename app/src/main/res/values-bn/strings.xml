@@ -24,18 +24,24 @@
   <string name="menu_update_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
   <string name="menu_update_selected_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
   <string name="dialog_prompt_refresh_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করবেন?</string>
-  <string name="menu_save_page">পাতা সংরক্ষণ করুন</string>
-  <string name="menu_share_page">শেয়ার</string>
   <string name="share_via">শেয়ার</string>
   <string name="dialog_title_clear_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার?</string>
   <string name="toast_saving_page">পাতা সংরক্ষণ হচ্ছে…</string>
-  <string name="toast_saved_page">পাতা সফলভাবে সংরক্ষিত হয়েছে</string>
+  <string name="toast_saved_page" fuzzy="true">পাতা সফলভাবে সংরক্ষিত হয়েছে</string>
   <string name="toast_saved_page_missing_images">সকল চিত্র সংরক্ষণ সম্ভব হয়নি</string>
   <string name="toast_refresh_saved_page">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে…</string>
   <string name="delete_selected_saved_pages">অপসারণ</string>
   <string name="toast_saved_page_deleted">সংরক্ষিত পাতা(সমূহ) অপসারণ করা হয়েছে</string>
   <string name="saved_pages_search_list_hint">সংরক্ষিত পাতা অনুসন্ধান</string>
   <string name="saved_pages_search_empty_message">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো পাতা নেই।</string>
+  <string name="menu_show_tabs">ট্যাবসমূহ দেখান</string>
+  <string name="menu_other_languages">অন্য ভাষায় পড়ুন</string>
+  <string name="menu_save_page">পাতা সংরক্ষণ করুন</string>
+  <string name="menu_share_page" fuzzy="true">শেয়ার</string>
+  <string name="find_in_page">এই পাতায় অনুসন্ধান</string>
+  <string name="menu_themechooser">ফন্ট ও থিম</string>
+  <string name="menu_open_link" fuzzy="true">লিঙ্ক খুলুন</string>
+  <string name="menu_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
   <string name="nav_item_nearby">কাছাকাছি</string>
   <string name="menu_update_nearby">কাছাকাছি হালনাগাদ করুন</string>
   <string name="nearby_empty_title">এখানে কাছাকাছি কোন পাতা নেই</string>
@@ -59,7 +65,6 @@
   <string name="preference_system_language_toggle">সিস্টেমের ভাষা ব্যবহার করুন</string>
   <string name="preference_system_language_summary">সিস্টেমের ভাষা</string>
   <string name="langlinks_filter_hint">অনুসন্ধান</string>
-  <string name="menu_other_languages">অন্য ভাষায় পড়ুন</string>
   <string name="langlinks_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়</string>
   <string name="langlinks_no_match">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো ভাষা নেই।</string>
@@ -187,7 +192,6 @@
   <string name="edit_summary_tag_links">লিংক সংযোজন</string>
   <string name="edit_summary_tag_other">অন্যান্য</string>
   <string name="edit_summary_tag_other_hint">অন্যান্য যে পদ্ধতিতে আপনি পাতাটির মান উন্নয়ন করেছেন</string>
-  <string name="find_in_page">এই পাতায় অনুসন্ধান</string>
   <string name="find_next">পরবর্তী অনুসন্ধান</string>
   <string name="find_previous">পূর্বেরটি অনুসন্ধান</string>
   <string name="error_network_error_try_again">নেটওয়ার্ক ত্রুটি, পুনরায় চেষ্টা করুন।</string>
@@ -203,7 +207,6 @@
   <string name="abusefilter_text_disallow">একটি স্বয়ংক্রিয় ফিল্টার এই সম্পাদনা সম্ভাব্য অ-গঠনমূলক বা ধ্বংসপ্রবণতার প্রচেষ্টা হিসাবে চিহ্নিত করেছে।&lt;br /&gt;&lt;br /&gt;উইকিপিডিয়া একটি বিশ্বকোষ এবং শুধুমাত্র নিরপেক্ষ, উল্লেখযোগ্য বিষয়বস্তু এখানে অন্তর্ভুক্ত হবে।</string>
   <string name="dialog_page_issues">পাতার সমস্যা</string>
   <string name="button_page_issues">পাতার সমস্যা</string>
-  <string name="menu_themechooser">ফন্ট ও থিম</string>
   <string name="text_size_select">ফন্টের আকার</string>
   <string name="color_theme_select">থিম</string>
   <string name="color_theme_light">উজ্জ্বল</string>
@@ -248,7 +251,6 @@
   <string name="gallery_fair_use_license">বৈধ ব্যবহার</string>
   <string name="gallery_uploader_unknown">আপলোডকারী অজানা</string>
   <string name="edit_save_unknown_error">আপনার সম্পাদনা সংরক্ষণ করা যায়নি: %s</string>
-  <string name="menu_show_tabs">ট্যাবসমূহ দেখান</string>
   <string name="menu_new_tab">নতুন ট্যাব</string>
   <string name="button_close_tab">ট্যাব বন্ধ করুন</string>
   <string name="tool_tip_select_text">অনুলিপি তৈরি বা ভাগ করার জন্য এটি আলোকপাতের জন্য লেখার যেকোন জায়গায় চাপ দিয়ে ধরে রাখুন।</string>

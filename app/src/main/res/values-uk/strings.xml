@@ -24,18 +24,25 @@
   <string name="menu_update_all_saved_pages">Оновити збережені сторінки</string>
   <string name="menu_update_selected_saved_pages">Оновити збережені сторінки</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Оновити усі збережені сторінки?</string>
-  <string name="menu_save_page">Зберегти сторінку</string>
-  <string name="menu_share_page">Поділитися</string>
   <string name="share_via">Поділитися через</string>
   <string name="dialog_title_clear_saved_pages">Очистити всі збережені сторінки?</string>
   <string name="toast_saving_page">Збереження сторінки…</string>
-  <string name="toast_saved_page">Сторінку успішно збережено</string>
+  <string name="toast_saved_page">\"%s\" збережено для читання в автономному режимі</string>
   <string name="toast_saved_page_missing_images">Не вдалося зберегти всі зображення</string>
   <string name="toast_refresh_saved_page">Перезавантаження збереженої сторінки…</string>
   <string name="delete_selected_saved_pages">Вилучити</string>
   <string name="toast_saved_page_deleted">Збережені сторінки видалені</string>
   <string name="saved_pages_search_list_hint">Пошук в збережених сторінках</string>
   <string name="saved_pages_search_empty_message">Нема сторінок, що відповідають вашому запиту.</string>
+  <string name="menu_show_tabs">Показати вкладки</string>
+  <string name="menu_other_languages">Читати іншими мовами</string>
+  <string name="menu_save_page">Зберегти сторінку</string>
+  <string name="menu_share_page">Поділитися посиланням</string>
+  <string name="find_in_page">Знайти на сторінці</string>
+  <string name="menu_themechooser">Змінити шрифт і тему</string>
+  <string name="menu_open_link">Відкрити</string>
+  <string name="menu_open_in_new_tab">Відкрити у новій вкладці</string>
+  <string name="menu_long_press_copy_page">Копіювати адресу посилання</string>
   <string name="nav_item_nearby">Неподалік</string>
   <string name="menu_update_nearby">Оновлення неподалік</string>
   <string name="nearby_empty_title">Тут немає суміжних сторінок!</string>
@@ -59,7 +66,6 @@
   <string name="preference_system_language_toggle">Використовувати системну мову</string>
   <string name="preference_system_language_summary">Системна мова</string>
   <string name="langlinks_filter_hint">Пошук</string>
-  <string name="menu_other_languages">Читати іншими мовами</string>
   <string name="langlinks_error_retry">Повторити</string>
   <string name="langlinks_empty">Ця сторінка не доступна на інших мовах</string>
   <string name="langlinks_no_match">Нема мов, що відповідають вашому запиту.</string>
@@ -91,7 +97,7 @@
   <string name="login_error_wrong_password">Невірний пароль.</string>
   <string name="login_error_wrong_username">Неправильне ім\'я користувача</string>
   <string name="login_error_illegal">Неправильне ім\'я користувача</string>
-  <string name="login_success_toast" fuzzy="true">Ви успішно увійшли!</string>
+  <string name="login_success_toast">Ви успішно ввійшли!</string>
   <string name="login_error_blocked">Цей користувач був заблокований</string>
   <string name="login_error_throttled">Забагато спроб входу. Зачекайте кілька хвилин і спробуйте ще раз?</string>
   <string name="login_error_unknown">Увійти не вдалося :(</string>
@@ -188,7 +194,6 @@
   <string name="edit_summary_tag_links">Додано посилання</string>
   <string name="edit_summary_tag_other">Інше</string>
   <string name="edit_summary_tag_other_hint">Інші аспекти, в яких Ви поліпшили сторінку</string>
-  <string name="find_in_page">Знайти на сторінці</string>
   <string name="find_next">Знайти наступне</string>
   <string name="find_previous">Знайти попереднє</string>
   <string name="error_network_error_try_again">Не вдалося з\'єднатися з мережею, будь-ласка, спробуйте знову.</string>
@@ -204,7 +209,6 @@
   <string name="abusefilter_text_disallow">Автоматизований фільтр визначив це редагування як потенційно неконструктивне або потенційний вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедія — це енциклопедія, і розміщений у ній може бути тільки нейтральний і значимий вміст.</string>
   <string name="dialog_page_issues">Питання по сторінці</string>
   <string name="button_page_issues">Питання по сторінці</string>
-  <string name="menu_themechooser">Змінити шрифт і тему</string>
   <string name="text_size_select">Розмір шрифту</string>
   <string name="color_theme_select">Тема</string>
   <string name="color_theme_light">Світла</string>
@@ -279,7 +283,8 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Добросовісне використання</string>
   <string name="gallery_uploader_unknown">Завантаживший невідомий</string>
   <string name="edit_save_unknown_error">Не вдалося зберегти ваше редагування: %s</string>
-  <string name="menu_show_tabs">Показати вкладки</string>
   <string name="menu_new_tab">Нова вкладка</string>
   <string name="button_close_tab">Закрити вкладку</string>
+  <string name="address_copied">Адресу скопійовано до буферу обміну.</string>
+  <string name="button_continue_to_article" fuzzy="true">Продовження на сторінці</string>
 </resources>

@@ -16,14 +16,16 @@
   <string name="page_does_not_exist_error">پدې نوم مخ نشته.</string>
   <string name="nav_item_today">نن</string>
   <string name="nav_item_saved_pages">خوندي مخونه</string>
-  <string name="menu_save_page">مخ خوندي کول</string>
-  <string name="menu_share_page">شريکول</string>
   <string name="dialog_title_clear_saved_pages">ټول خوندي مخونه پاکول؟</string>
   <string name="toast_saving_page">مخ خوندي کېدو کې دی…</string>
-  <string name="toast_saved_page">مخ برياليتوب سره خوندي شو</string>
+  <string name="toast_saved_page" fuzzy="true">مخ برياليتوب سره خوندي شو</string>
   <string name="toast_refresh_saved_page">بياتاندېدنې او مخ خوندي کېدنې کې دی...</string>
   <string name="delete_selected_saved_pages">ړنگول</string>
   <string name="saved_pages_search_list_hint">خوندي مخونه پلټل</string>
+  <string name="menu_other_languages">په نورو ژبو کې لوستل</string>
+  <string name="menu_save_page">مخ خوندي کول</string>
+  <string name="menu_share_page" fuzzy="true">شريکول</string>
+  <string name="find_in_page">په مخ کې موندل</string>
   <string name="nav_item_nearby">نژدې</string>
   <string name="nearby_distance_in_meters">%d متر</string>
   <string name="nearby_distance_in_kilometers">%.2f کيلومتر</string>
@@ -36,7 +38,6 @@
   <string name="preference_system_language_toggle">د غونډال ژبه کارول</string>
   <string name="preference_system_language_summary">د غونډال ژبه</string>
   <string name="langlinks_filter_hint">پلټل</string>
-  <string name="menu_other_languages">په نورو ژبو کې لوستل</string>
   <string name="langlinks_error_retry">بياآزمويل</string>
   <string name="langlinks_empty">دا مخ په نورو ژبو کې نشته.</string>
   <string name="langlinks_activity_title">نورې ژبې</string>
@@ -109,7 +110,6 @@
   <string name="edit_preview">مخليدنه</string>
   <string name="edit_summary_tag_links">تړنې ورگډې کړې</string>
   <string name="edit_summary_tag_other">بل</string>
-  <string name="find_in_page">په مخ کې موندل</string>
   <string name="find_next">بل موندل</string>
   <string name="find_previous">پخوانی موندل</string>
   <string name="saved_pages_update_all_error_retry">بياآزمويل</string>

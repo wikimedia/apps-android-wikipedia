@@ -22,18 +22,21 @@
   <string name="menu_update_all_saved_pages">បន្ទាន់សម័យទំព័រដែលបានរក្សាទុក</string>
   <string name="menu_update_selected_saved_pages">បន្ទាន់សម័យទំព័រដែលបានរក្សាទុក</string>
   <string name="dialog_prompt_refresh_all_saved_pages">បន្ទាន់សម័យទំព័រដែលបានរក្សាទុកទាំងអស់ឬ?</string>
-  <string name="menu_save_page">រក្សា​ទុក​ទំព័រ</string>
-  <string name="menu_share_page">ចែក​រំលែក</string>
   <string name="share_via">ចែក​រំលែក​តាម…</string>
   <string name="dialog_title_clear_saved_pages">ជម្រះទំព័រ​ដែល​បាន​រក្សា​ទុកទាំងអស់ឬ?</string>
   <string name="toast_saving_page">កំពុង​រក្សា​ទុក​ទំព័រ...</string>
-  <string name="toast_saved_page">បាន​រក្សា​ទំព័របានសម្រេច</string>
+  <string name="toast_saved_page" fuzzy="true">បាន​រក្សា​ទំព័របានសម្រេច</string>
   <string name="toast_saved_page_missing_images">មិនអាចរក្សាទុករូបភាពទាំងអស់</string>
   <string name="toast_refresh_saved_page">កំពុងផ្ទុកទំព័រដែលបានរក្សាទុកជាថ្មី…</string>
   <string name="delete_selected_saved_pages">លុប</string>
   <string name="toast_saved_page_deleted">បាន​លុប​ទំព័រ​ដែល​បាន​រក្សា​ទុក</string>
   <string name="saved_pages_search_list_hint">ស្វែងរកទំព័រដែលបានរក្សាទុក</string>
   <string name="saved_pages_search_empty_message">រកមិនឃើញទំព័រត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
+  <string name="menu_other_languages">អានជាភាសា​ដទៃ​ទៀត</string>
+  <string name="menu_save_page">រក្សា​ទុក​ទំព័រ</string>
+  <string name="menu_share_page" fuzzy="true">ចែក​រំលែក</string>
+  <string name="find_in_page">ស្វែងរកក្នុងទំព័រ</string>
+  <string name="menu_themechooser">ប្រភេទអក្សរនិងរចនាបថ</string>
   <string name="nav_item_nearby">ជិតខាង</string>
   <string name="menu_update_nearby">បន្ទាន់សម័យទំព័រជិតខាង</string>
   <string name="nearby_empty_title">គ្មានទំព័រជិតខាងនៅទីនេះទេ!</string>
@@ -55,7 +58,6 @@
   <string name="preference_system_language_toggle">ប្រើភាសារបស់ប្រព័ន្ធ</string>
   <string name="preference_system_language_summary">ភាសារបស់ប្រព័ន្ធ</string>
   <string name="langlinks_filter_hint">ស្វែងរក</string>
-  <string name="menu_other_languages">អានជាភាសា​ដទៃ​ទៀត</string>
   <string name="langlinks_error_retry">ព្យាយាម​ម្ដង​ទៀត</string>
   <string name="langlinks_empty">ទំព័រ​នេះ​មិនអាចអានជា​ភាសាដទៃ​ទៀត​ទេ។</string>
   <string name="langlinks_no_match">រកមិនឃើញភាសាត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
@@ -175,7 +177,6 @@
   <string name="edit_summary_tag_links">បានដាក់តំណភ្ជាប់</string>
   <string name="edit_summary_tag_other">ផ្សេងទៀត</string>
   <string name="edit_summary_tag_other_hint">របៀបផ្សេងទៀតដែលអ្នកបានកែលម្អទំព័រនេះ</string>
-  <string name="find_in_page">ស្វែងរកក្នុងទំព័រ</string>
   <string name="find_next">ស្វែងរក​បន្ទាប់</string>
   <string name="find_previous">ស្វែងរក​មុន</string>
   <string name="error_network_error_try_again">មិនអាចភ្ចាប់ទៅបណ្ដាញ។ សូមសាកល្បងម្ដងទៀត។</string>
@@ -189,7 +190,6 @@
   <string name="abusefilter_title_disallow">អ្នកមិនអាចរក្សាទុកកំណែប្រែនេះទេ។ សូមត្រឡប់ក្រោយហើយកែប្រែវាម្ដងទៀត។</string>
   <string name="dialog_page_issues">បញ្ហារបស់ទំព័រ</string>
   <string name="button_page_issues">បញ្ហារបស់ទំព័រ</string>
-  <string name="menu_themechooser">ប្រភេទអក្សរនិងរចនាបថ</string>
   <string name="text_size_select">ទំហំអក្សរ</string>
   <string name="color_theme_select">រចនាបថ</string>
   <string name="color_theme_light">ភ្លឺ</string>

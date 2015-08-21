@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">క్రాష్ అయినప్పుడు మీరేం చేస్తున్నారు?</string>
   <string name="search_hint">వికీపీడియాలో వెతకండి</string>
   <string name="nav_item_history">చరిత్ర</string>
-  <string name="error_network_error" fuzzy="true">జాల అనుసంధానం లేదు :(</string>
+  <string name="error_network_error">ఇంటర్నెట్ తో అనుసందానం ఏర్పరచలేకపోయాము.</string>
   <string name="search_network_error">నెట్‌వర్క్ లోపం. మళ్ళీ ప్రయత్నించడానికి తట్టండి.</string>
   <string name="generic_page_error">మీ అభ్యర్ధనని ప్రక్రియంచటంలో ఏదో సమస్య వచ్చింది.</string>
   <string name="status_code_unavailable">సర్వర్ స్టేటస్ కోడ్ అందుబాటులో లేదు.</string>
@@ -24,18 +24,24 @@
   <string name="menu_update_all_saved_pages">భద్రపరచబడిన పేజీలను తాజాపరుచు</string>
   <string name="menu_update_selected_saved_pages">భద్రపరచబడిన పుటల జాబితాను తాజాపరుచు</string>
   <string name="dialog_prompt_refresh_all_saved_pages">అన్ని భద్రపరచబడిన పేజీలను తాజాపరచాలా?</string>
-  <string name="menu_save_page">పేజీని భద్రపరచు</string>
-  <string name="menu_share_page">పంచుకోండి</string>
   <string name="share_via">ఈ విధానం ద్వారా పంచుకోండి</string>
   <string name="dialog_title_clear_saved_pages">భద్రపరచిన పేజీలన్నిటినీ తుడిచివెయ్యాలా?</string>
   <string name="toast_saving_page">పేజీని భద్రపరుస్తున్నాం...</string>
-  <string name="toast_saved_page">పేజీ భద్రపరచబడింది</string>
+  <string name="toast_saved_page" fuzzy="true">పేజీ భద్రపరచబడింది</string>
   <string name="toast_saved_page_missing_images">అన్ని బొమ్మలనీ భద్రపరచలేకపోయాము</string>
   <string name="toast_refresh_saved_page">భద్రపరచబడిన పేజీని రిఫ్రెష్ చేస్తుంది...</string>
   <string name="delete_selected_saved_pages">తొలగించు</string>
   <string name="toast_saved_page_deleted">భద్రపరచబడిన పేజీ(లు) తొలిగించబడ్డాయి</string>
   <string name="saved_pages_search_list_hint">భద్రపరిచిన పేజీలను వెతుకు</string>
   <string name="saved_pages_search_empty_message">మీరడిగిన పోలికలు సరిపోయే పేజీ లేదు.</string>
+  <string name="menu_show_tabs">ట్యాబులను చూపించు</string>
+  <string name="menu_other_languages">ఇతర భాషలలో చదవండి</string>
+  <string name="menu_save_page">పేజీని భద్రపరచు</string>
+  <string name="menu_share_page" fuzzy="true">పంచుకోండి</string>
+  <string name="find_in_page">పుటలో వెతకండి</string>
+  <string name="menu_themechooser">ఖతి మరియు అలంకారం</string>
+  <string name="menu_open_link" fuzzy="true">లంకను తెరువు</string>
+  <string name="menu_open_in_new_tab">కొత్త ట్యాబులో తెరువు</string>
   <string name="nav_item_nearby">దగ్గరలో</string>
   <string name="menu_update_nearby">\"దగ్గరలో\" సమాచారం తాజాపరచు</string>
   <string name="nearby_empty_title">దగ్గరలో ఏ పేజీలు లేవు!</string>
@@ -46,6 +52,7 @@
   <string name="nearby_distance_in_miles">%.2f మైళ్ళు</string>
   <string name="nearby_no_network">జాలానుసంధానం లేదు</string>
   <string name="nearby_server_error">దగ్గరలో ఉన్న ప్రదేశాల జాబితా పొందలేము.</string>
+  <string name="nearby_dialog_goto_settings">ప్రదేశగుర్తింపు సేవ మీ పరికరంలో అన్ చేసి లేదు. మీ పరికర అమర్పులకి వెళ్లి ప్రదేశగుర్తింపు సేవని ఆన్ చేయాలని అనుకుంటున్నారా?</string>
   <string name="nearby_set_metric">మీటర్లు/కిలోమీటర్లుగా చూపించు</string>
   <string name="nearby_set_imperial">అడుగులు/మైళ్ళుగా చూపించు</string>
   <string name="nearby_view_on_map">పటంలో స్థానం చూడండి</string>
@@ -58,7 +65,6 @@
   <string name="preference_system_language_toggle">వ్యవస్థ భాషను వాడు</string>
   <string name="preference_system_language_summary">వ్యవస్థ భాష</string>
   <string name="langlinks_filter_hint">వెతుకు</string>
-  <string name="menu_other_languages">ఇతర భాషలలో చదవండి</string>
   <string name="langlinks_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="langlinks_empty">ఈ పేజీ వేరే భాషలలో అందుబాటులో లేదు.</string>
   <string name="langlinks_no_match">ఏ భాషలోనూ మీ ప్రశ్నకు సరిపోలిక దొరకలేదు.
@@ -189,7 +195,6 @@
   <string name="edit_summary_tag_links">లింకులు చేర్చబడ్డాయి</string>
   <string name="edit_summary_tag_other">ఇతరము</string>
   <string name="edit_summary_tag_other_hint">మీరు పేజీని ఇతర మార్గాలలో అభివృద్ధి చేశారు</string>
-  <string name="find_in_page">పుటలో వెతకండి</string>
   <string name="find_next">తదుపరి కనుగొను</string>
   <string name="find_previous">మునుపటిది కనుగొను</string>
   <string name="error_network_error_try_again">అంతర్జాలం చేరుకోలేదు, దయచేసి మళ్ళీ ప్రయత్నించండి.</string>
@@ -205,7 +210,6 @@
   <string name="abusefilter_text_disallow">ఒక స్వయంచాలకమైన ఫిల్టర్ మీ సవరణను బహుశా అనిర్మాణాత్మకంగా లేదా విధ్వంసకారంగా ఉన్నట్టు గుర్తించింది.&lt;br /&gt;&lt;br /&gt;వికీపీడియా ఒక ఎన్సైక్లోపీడియా, అందులో నిష్పక్షపాతకమైన, ముఖ్యమైన విషయాలు మాత్రమే ఉండాలి.</string>
   <string name="dialog_page_issues">పేజి సమస్యలు</string>
   <string name="button_page_issues">పుట విషయాలు</string>
-  <string name="menu_themechooser">ఖతి మరియు అలంకారం</string>
   <string name="text_size_select">ఖతి పరిమాణం</string>
   <string name="color_theme_select">నేపథ్యం</string>
   <string name="color_theme_light">తేలికైన</string>
@@ -250,9 +254,15 @@
   <string name="gallery_fair_use_license">సముచితోపయోగం</string>
   <string name="gallery_uploader_unknown">ఎక్కించినవారెవరో తెలీదు</string>
   <string name="edit_save_unknown_error">మీ సవరణని భద్రపరచలేకపోయాము : %s</string>
-  <string name="menu_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_new_tab">కొత్త ట్యాబు</string>
   <string name="button_close_tab">ట్యాబును మూసివేయి</string>
+  <string name="tool_tip_select_text">ఏ వచనాన్నైనా కాపీ చేయాటానికి లేదా పంచుకోవటానికి దాన్ని తాకివుంచండి.</string>
   <string name="tool_tip_share">ఆసక్తికరమైన విషయాన్నీ హైలైట్ చేసిన తర్వాత మీకు ఇష్టమైన నెట్వర్క్లలకి పంచుకోండి.</string>
   <string name="page_view_in_browser">విహారిణిలో తెరువు</string>
+  <string name="tool_tip_toc_button">విషయసూచికను చూడటానికి ఈ బటన్ని నొక్కండి లేదా స్క్రీన్ కుడి అంచు నుండి పక్కకు లాగండి.</string>
+  <string name="error_server_response">సర్వర్ మీ అభ్యర్ధనను పూర్తిచేయలేకపోయింది.</string>
+  <string name="error_response_malformed">సర్వర్ నుండి వచ్చిన స్పందన సరైన రీతిలో లేదు.</string>
+  <string name="error_unknown">ఏదో తెలియని లోపం సంభవించింది.</string>
+  <string name="format_error_server_message">సందేశం: \"%s\"</string>
+  <string name="format_error_server_code">కోడ్: \"%s\"</string>
 </resources>

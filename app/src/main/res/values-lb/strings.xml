@@ -13,6 +13,7 @@
   <string name="error_network_error">DVerbindung mam Reseau konnt net opgebaut ginn.</string>
   <string name="search_network_error">Feeler vum Reseau. Tippt fir nach eng Kéier ze probéieren.</string>
   <string name="generic_page_error">Et gouf e Problem beim Verschaffe vun Ärer Ufro.</string>
+  <string name="status_code_unavailable">Statuscode vum Server net disponibel.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
   <string name="menu_clear_all_history">Historique läschen</string>
   <string name="menu_clear_all_saved_pages">Gespäichert Säite läschen</string>
@@ -23,18 +24,23 @@
   <string name="menu_update_all_saved_pages">Gespäichert Säiten aktualiséieren</string>
   <string name="menu_update_selected_saved_pages">Gespäichert Säiten aktualiséieren</string>
   <string name="dialog_prompt_refresh_all_saved_pages">All gespäichert Säite aktualiséieren?</string>
-  <string name="menu_save_page">Säit späicheren</string>
-  <string name="menu_share_page">Deelen</string>
   <string name="share_via">Deelen iwwer</string>
   <string name="dialog_title_clear_saved_pages">All gespäichert Säite läschen?</string>
   <string name="toast_saving_page">Säit späicheren…</string>
-  <string name="toast_saved_page">Säit gespäichert</string>
+  <string name="toast_saved_page">\"%s\" gespäichert fir offline ze liesen</string>
   <string name="toast_saved_page_missing_images">Net all Biller konnte gespäichert ginn</string>
   <string name="toast_refresh_saved_page">Gespäichert Säit gëtt aktualiséiert…</string>
   <string name="delete_selected_saved_pages">Läschen</string>
   <string name="toast_saved_page_deleted">Gespäichert Säit(e) geläscht</string>
   <string name="saved_pages_search_list_hint">Op gespäicherte Säite sichen</string>
   <string name="saved_pages_search_empty_message">Keng Säite fonnt déi Ärer Ufro entspriechen.</string>
+  <string name="menu_show_tabs">Tabs weisen</string>
+  <string name="menu_other_languages">An anere Sprooche liesen</string>
+  <string name="menu_save_page">Säit späicheren</string>
+  <string name="menu_share_page" fuzzy="true">Deelen</string>
+  <string name="find_in_page">Op der Säit sichen</string>
+  <string name="menu_open_link">Opmaachen</string>
+  <string name="menu_open_in_new_tab">An engem neien Tab opmaachen</string>
   <string name="nav_item_nearby">Nobäi</string>
   <string name="menu_update_nearby">Aktualisatioun vun \'nobäi\'</string>
   <string name="nearby_empty_title">Keng Säiten hei nobäi!</string>
@@ -57,7 +63,6 @@
   <string name="preference_system_language_toggle">Benotzt d\'Systemsprooch</string>
   <string name="preference_system_language_summary">Systemsprooch</string>
   <string name="langlinks_filter_hint">Sichen</string>
-  <string name="menu_other_languages">An anere Sprooche liesen</string>
   <string name="langlinks_error_retry">Nach eng Kéier probéieren</string>
   <string name="langlinks_empty">Dës Säit ass net an anere Sproochen disponibel</string>
   <string name="langlinks_no_match">Keng Sprooche fonnt déi Ärer Ufro passen.</string>
@@ -185,7 +190,6 @@
   <string name="edit_summary_tag_links">Dobäigesat Linken</string>
   <string name="edit_summary_tag_other">Anerer</string>
   <string name="edit_summary_tag_other_hint">Aner Manéier wéi Dir d\'Säit verbessert hutt</string>
-  <string name="find_in_page">Op der Säit sichen</string>
   <string name="find_next">Den nächste fannen</string>
   <string name="find_previous">Vireg fannen</string>
   <string name="error_network_error_try_again">De Reseau konnt net erreecht ginn, probéiert w.e.g. nach eng Kéier.</string>
@@ -243,7 +247,6 @@
   <string name="gallery_fair_use_license">Fair Use</string>
   <string name="gallery_uploader_unknown">Eroplueder onbekannt</string>
   <string name="edit_save_unknown_error">Är Ännerung konnt net gespäichert ginn: %s</string>
-  <string name="menu_show_tabs">Tabs weisen</string>
   <string name="menu_new_tab">Neien Tab</string>
   <string name="button_close_tab">Tab zoumaachen</string>
   <string name="page_view_in_browser">Säit am Browser weisen</string>
@@ -252,4 +255,5 @@
   <string name="error_unknown">En onbekannte Feeler ass geschitt.</string>
   <string name="format_error_server_message">Message: \"%s\"</string>
   <string name="format_error_server_code">Code: \"%s\"</string>
+  <string name="button_continue_to_article">Virun op den Artikel</string>
 </resources>

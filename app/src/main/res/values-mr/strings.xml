@@ -18,18 +18,21 @@
   <string name="menu_update_all_saved_pages">साठवलेली पाने अद्ययावत करा</string>
   <string name="menu_update_selected_saved_pages">साठवलेली पाने अद्ययावत करा</string>
   <string name="dialog_prompt_refresh_all_saved_pages">साठवलेली सर्व पाने अद्ययावत करु?</string>
-  <string name="menu_save_page">जतन करा</string>
-  <string name="menu_share_page">वाटप करा</string>
   <string name="share_via">याद्वारे वाटप करा</string>
   <string name="dialog_title_clear_saved_pages">साठवलेलीली पाने काढून टाकायची का?</string>
   <string name="toast_saving_page">पान जतन होत आहे…</string>
-  <string name="toast_saved_page">पान यशस्वीपणे जतन झाले</string>
+  <string name="toast_saved_page" fuzzy="true">पान यशस्वीपणे जतन झाले</string>
   <string name="toast_saved_page_missing_images">सर्व चित्रे जतन होऊ शकले नाही</string>
   <string name="toast_refresh_saved_page">साठवलेले पान अद्ययावत होत आहे…</string>
   <string name="delete_selected_saved_pages">वगळा</string>
   <string name="toast_saved_page_deleted">साठवलेले पान(ने) वगळली</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">शोध</string>
   <string name="saved_pages_search_empty_message">याच्याशी जुळणारे पान सापडत नाही.</string>
+  <string name="menu_other_languages">इतर भाषांत वाचा</string>
+  <string name="menu_save_page">जतन करा</string>
+  <string name="menu_share_page" fuzzy="true">वाटप करा</string>
+  <string name="find_in_page">पाना मध्ये शोधा</string>
+  <string name="menu_themechooser">टंक आणि देखावा</string>
   <string name="nav_item_nearby">जवळपास</string>
   <string name="menu_update_nearby">जवळपास अद्ययावत</string>
   <string name="nearby_empty_title">जवळपासची पाने नाहीत!</string>
@@ -44,7 +47,6 @@
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">शोधा</string>
   <string name="langlinks_filter_hint">शोधा</string>
-  <string name="menu_other_languages">इतर भाषांत वाचा</string>
   <string name="langlinks_error_retry">पुन्हा प्रयत्न करा</string>
   <string name="langlinks_empty">हे पान इतर भाषांमध्ये उपलब्ध नाही आहे</string>
   <string name="langlinks_activity_title">इतर भाषा</string>
@@ -132,7 +134,6 @@
   <string name="edit_summary_tag_grammar">व्याकरण ठिकठाक केले</string>
   <string name="edit_summary_tag_links">दुवे जोडले</string>
   <string name="edit_summary_tag_other">इतर</string>
-  <string name="find_in_page">पाना मध्ये शोधा</string>
   <string name="find_next">पुढील शोधा</string>
   <string name="find_previous">मागील शोधा</string>
   <string name="error_network_error_try_again">नेटवर्कपर्यंत पोहोचू शकत नाही, पुन्हा प्रयत्न करा.</string>
@@ -144,7 +145,6 @@
   <string name="menu_refresh_saved_page">पान अद्ययावत करा</string>
   <string name="dialog_page_issues">पानाची समस्या</string>
   <string name="button_page_issues">पानाच्या समस्या</string>
-  <string name="menu_themechooser">टंक आणि देखावा</string>
   <string name="text_size_select">टंकाचा आकार</string>
   <string name="color_theme_select">देखावा</string>
   <string name="color_theme_light">फिकट</string>

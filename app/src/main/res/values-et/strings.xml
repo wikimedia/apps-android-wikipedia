@@ -20,22 +20,23 @@
   <string name="menu_update_all_saved_pages">Uuenda salvestatud leheküljed</string>
   <string name="menu_update_selected_saved_pages">Uuenda salvestatud leheküljed</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Uuenda kõik salvestatud leheküljed?</string>
-  <string name="menu_save_page">Salvesta lehekülg</string>
-  <string name="menu_share_page">Jaga</string>
   <string name="share_via">Vali jagamisviis:</string>
   <string name="dialog_title_clear_saved_pages">Tühjenda kõik salvestatud leheküljed?</string>
   <string name="toast_saving_page">Lehe salvestamine…</string>
-  <string name="toast_saved_page">Leht edukalt salvestatud!</string>
+  <string name="toast_saved_page" fuzzy="true">Leht edukalt salvestatud!</string>
   <string name="toast_saved_page_missing_images">Kõiki pilte ei olnud võimalik salvestada!</string>
   <string name="toast_refresh_saved_page">Salvestatud lehe uuendamine…</string>
   <string name="delete_selected_saved_pages">Kustuta</string>
   <string name="toast_saved_page_deleted">Salvestatud leht/lehed kustutatud</string>
+  <string name="menu_other_languages">Loe teistes keeltes</string>
+  <string name="menu_save_page">Salvesta lehekülg</string>
+  <string name="menu_share_page" fuzzy="true">Jaga</string>
+  <string name="find_in_page">Otsi lehelt</string>
   <string name="last_updated_text">Viimati uuendatud %s</string>
   <string name="content_license_html">Sisu on kasutatav vastavalt litsentsile &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, kui ei ole märgitud teisiti.</string>
   <string name="preference_title_language">Vikipeedia keel</string>
   <string name="preference_languages_filter_hint">Otsi</string>
   <string name="langlinks_filter_hint">Otsi</string>
-  <string name="menu_other_languages">Loe teistes keeltes</string>
   <string name="langlinks_error_retry">Proovi uuesti</string>
   <string name="langlinks_empty">See lehekülg ei ole teistes keeltes saadaval</string>
   <string name="langlinks_activity_title">Teised keeled</string>
@@ -142,7 +143,6 @@
   <string name="edit_summary_tag_links">Lisatud lingid</string>
   <string name="edit_summary_tag_other">Muu</string>
   <string name="edit_summary_tag_other_hint">Muud viisid, kuidas lehekülge muutsid</string>
-  <string name="find_in_page">Otsi lehelt</string>
   <string name="find_next">Otsi järgmine</string>
   <string name="find_previous">Otsi eelmine</string>
   <string name="error_network_error_try_again">Ei õnnestunud võrku ühenduda, proovi uuesti.</string>

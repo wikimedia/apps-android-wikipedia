@@ -23,17 +23,23 @@
   <string name="menu_update_all_saved_pages">Ажирирај сачуване странице</string>
   <string name="menu_update_selected_saved_pages">Ажурирај сачуване странице</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Ажирирај све сачуване странице?</string>
-  <string name="menu_save_page">Сачувај страницу</string>
-  <string name="menu_share_page">Дели</string>
   <string name="share_via">Делите преко</string>
   <string name="dialog_title_clear_saved_pages">Очистити све сачуване странице?</string>
   <string name="toast_saving_page">Чување странице…</string>
-  <string name="toast_saved_page">Страница успешно сачувана</string>
+  <string name="toast_saved_page" fuzzy="true">Страница успешно сачувана</string>
   <string name="toast_saved_page_missing_images">Не могу да сачувам све слике</string>
   <string name="toast_refresh_saved_page">Освежавам сачуване странице...</string>
   <string name="delete_selected_saved_pages">Обриши</string>
   <string name="toast_saved_page_deleted">Сачуване странице обрисане</string>
   <string name="saved_pages_search_list_hint">Претрага сачуваних страница</string>
+  <string name="menu_show_tabs">Прикажи језичке</string>
+  <string name="menu_other_languages">Други језици</string>
+  <string name="menu_save_page">Сачувај страницу</string>
+  <string name="menu_share_page" fuzzy="true">Дели</string>
+  <string name="find_in_page">Пронађи на страници</string>
+  <string name="menu_themechooser">Фонт и тема</string>
+  <string name="menu_open_link" fuzzy="true">Отвори везу</string>
+  <string name="menu_open_in_new_tab">Отвори у новом језичку</string>
   <string name="nav_item_nearby">У близини</string>
   <string name="nearby_empty_title">Нема ништа у близини!</string>
   <string name="nearby_distance_in_meters">%d м</string>
@@ -55,7 +61,6 @@
   <string name="preference_system_language_toggle">Користи језик уређаја</string>
   <string name="preference_system_language_summary">Језик уређаја</string>
   <string name="langlinks_filter_hint">Претрага</string>
-  <string name="menu_other_languages">Други језици</string>
   <string name="langlinks_error_retry">Пробај опет</string>
   <string name="langlinks_empty">Ова страница није доступан на другим језицима.</string>
   <string name="langlinks_activity_title">Други језици</string>
@@ -158,7 +163,6 @@
   <string name="edit_summary_tag_grammar">Поправљена граматика</string>
   <string name="edit_summary_tag_links">Додане везе</string>
   <string name="edit_summary_tag_other">Друго</string>
-  <string name="find_in_page">Пронађи на страници</string>
   <string name="find_next">Пронађи следеће</string>
   <string name="find_previous">Пронађи претходно</string>
   <string name="saved_pages_update_all_error_retry">Покушај поново</string>
@@ -169,7 +173,6 @@
   <string name="menu_refresh_saved_page">Освежи страницу</string>
   <string name="dialog_page_issues">Недостаци странице</string>
   <string name="button_page_issues">Недостаци странице</string>
-  <string name="menu_themechooser">Фонт и тема</string>
   <string name="text_size_select">Величина фонта</string>
   <string name="color_theme_select">Тема</string>
   <string name="color_theme_light">Светло</string>
@@ -196,7 +199,6 @@
   <string name="share_snippet_button">Подели као слику</string>
   <string name="share_normal_button">Подели као текст</string>
   <string name="gallery_fair_use_license">Поштена употреба</string>
-  <string name="menu_show_tabs">Прикажи језичке</string>
   <string name="menu_new_tab">Нови језичак</string>
   <string name="button_close_tab">Затвори језичак</string>
   <string name="page_view_in_browser">Види страницу у веб прегледачу</string>

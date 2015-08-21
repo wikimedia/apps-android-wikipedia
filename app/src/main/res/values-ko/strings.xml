@@ -24,18 +24,24 @@
   <string name="menu_update_all_saved_pages">저장된 문서 업데이트</string>
   <string name="menu_update_selected_saved_pages">저장된 문서 업데이트</string>
   <string name="dialog_prompt_refresh_all_saved_pages">모든 저장된 문서를 업데이트할까요?</string>
-  <string name="menu_save_page">문서 저장</string>
-  <string name="menu_share_page">공유</string>
   <string name="share_via">다음을 통해 공유</string>
   <string name="dialog_title_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
   <string name="toast_saving_page">문서를 저장하는 중…</string>
-  <string name="toast_saved_page">문서를 성공적으로 저장했습니다</string>
+  <string name="toast_saved_page" fuzzy="true">문서를 성공적으로 저장했습니다</string>
   <string name="toast_saved_page_missing_images">모든 그림을 저장할 수 없습니다</string>
   <string name="toast_refresh_saved_page">저장된 문서를 새로 고치는 중…</string>
   <string name="delete_selected_saved_pages">삭제</string>
   <string name="toast_saved_page_deleted">저장된 문서가 삭제되었습니다</string>
   <string name="saved_pages_search_list_hint">저장된 문서 검색</string>
   <string name="saved_pages_search_empty_message">검색어와 일치하는 문서를 찾을 수 없습니다.</string>
+  <string name="menu_show_tabs">탭 보기</string>
+  <string name="menu_other_languages">다른 언어로 읽기</string>
+  <string name="menu_save_page">문서 저장</string>
+  <string name="menu_share_page" fuzzy="true">공유</string>
+  <string name="find_in_page">문서에서 찾기</string>
+  <string name="menu_themechooser">글자와 테마</string>
+  <string name="menu_open_link" fuzzy="true">링크 열기</string>
+  <string name="menu_open_in_new_tab">새 탭에 링크 열기</string>
   <string name="nav_item_nearby">근처</string>
   <string name="menu_update_nearby">근처 업데이트</string>
   <string name="nearby_empty_title">여기 근처에 문서가 없습니다!</string>
@@ -59,7 +65,6 @@
   <string name="preference_system_language_toggle">시스템 언어 사용하기</string>
   <string name="preference_system_language_summary">시스템 언어</string>
   <string name="langlinks_filter_hint">검색</string>
-  <string name="menu_other_languages">다른 언어로 읽기</string>
   <string name="langlinks_error_retry">다시 시도</string>
   <string name="langlinks_empty">이 문서는 다른 언어로 읽을 수 없습니다.</string>
   <string name="langlinks_no_match">검색어와 일치하는 언어를 찾을 수 없습니다.</string>
@@ -91,7 +96,7 @@
   <string name="login_error_wrong_password">비밀번호가 잘못되었습니다</string>
   <string name="login_error_wrong_username">사용자 이름이 잘못되었습니다</string>
   <string name="login_error_illegal">잘못된 사용자 이름</string>
-  <string name="login_success_toast" fuzzy="true">로그인 성공!</string>
+  <string name="login_success_toast">성공적으로 로그인했습니다!</string>
   <string name="login_error_blocked">이 사용자는 차단되었습니다</string>
   <string name="login_error_throttled">로그인 시도가 너무 많습니다. 잠시 기다리고 나서 다시 시도하세요.</string>
   <string name="login_error_unknown">로그인 실패 :(</string>
@@ -186,7 +191,6 @@
   <string name="edit_summary_tag_links">링크를 추가</string>
   <string name="edit_summary_tag_other">기타</string>
   <string name="edit_summary_tag_other_hint">문서를 개선하는 다른 방법</string>
-  <string name="find_in_page">문서에서 찾기</string>
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
   <string name="error_network_error_try_again">네트워크에 도달할 수 없습니다, 다시 시도하세요.</string>
@@ -202,7 +206,6 @@
   <string name="abusefilter_text_disallow">자동화된 필터가 이 편집을 잠재적으로 비생산적이나, 잠재적으로 훼손한 것으로 식별합니다.&lt;br /&gt;&lt;br /&gt;위키백과는 백과사전이자 중립적이며, 주목할만한 내용만이 여기에 들어갑니다.</string>
   <string name="dialog_page_issues">문서 문제</string>
   <string name="button_page_issues">문서 문제</string>
-  <string name="menu_themechooser">글자와 테마</string>
   <string name="text_size_select">글자 크기</string>
   <string name="color_theme_select">테마</string>
   <string name="color_theme_light">밝음</string>
@@ -266,7 +269,11 @@
   <string name="gallery_fair_use_license">공정 이용</string>
   <string name="gallery_uploader_unknown">업로더 모름</string>
   <string name="edit_save_unknown_error">%s 오류로 인해 편집을 저장하지 못했습니다</string>
-  <string name="menu_show_tabs">탭 보기</string>
   <string name="menu_new_tab">새 탭</string>
   <string name="button_close_tab">탭 닫기</string>
+  <string name="page_view_in_browser">브라우저에서 페이지 보기</string>
+  <string name="error_server_response">서버가 요청을 완료할 수 없습니다.</string>
+  <string name="error_unknown">알 수 없는 오류가 발생했습니다.</string>
+  <string name="format_error_server_message">메시지: \"%s\"</string>
+  <string name="format_error_server_code">코드: \"%s\"</string>
 </resources>

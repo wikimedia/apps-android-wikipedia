@@ -23,18 +23,24 @@
   <string name="menu_update_all_saved_pages">تحديث الصفحات المحفوظة</string>
   <string name="menu_update_selected_saved_pages">تحديث الصفحات المحفوظة</string>
   <string name="dialog_prompt_refresh_all_saved_pages">تحديث كل الصفحات المحفوظة؟</string>
-  <string name="menu_save_page">حفظ الصفحة</string>
-  <string name="menu_share_page">مشاركة</string>
   <string name="share_via">مشاركة عبر</string>
   <string name="dialog_title_clear_saved_pages">مسح كل الصفحات المحفوظة؟</string>
   <string name="toast_saving_page">جارٍ حفظ الصفحة…</string>
-  <string name="toast_saved_page">تم حفظ الصفحة بنجاح</string>
+  <string name="toast_saved_page" fuzzy="true">تم حفظ الصفحة بنجاح</string>
   <string name="toast_saved_page_missing_images">تعذّر حفظ جميع الصور</string>
   <string name="toast_refresh_saved_page">جارٍ تحديث الصفحة المحفوظة</string>
   <string name="delete_selected_saved_pages">حذف</string>
   <string name="toast_saved_page_deleted">حُذفت الصفحة/الصفحات المحفوظة</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">بحث</string>
   <string name="saved_pages_search_empty_message">لم يتم العثور على صفحات مطابقة لبحثك.</string>
+  <string name="menu_show_tabs">أظهر الألسنة</string>
+  <string name="menu_other_languages">اقرأ بلغات أخرى</string>
+  <string name="menu_save_page">حفظ الصفحة</string>
+  <string name="menu_share_page" fuzzy="true">مشاركة</string>
+  <string name="find_in_page">البحث في الصفحة</string>
+  <string name="menu_themechooser">الخط والمظهر</string>
+  <string name="menu_open_link" fuzzy="true">افتح الوصلة</string>
+  <string name="menu_open_in_new_tab">افتح في لسان جديد</string>
   <string name="nav_item_nearby">بالقرب من هنا</string>
   <string name="menu_update_nearby">تحديث</string>
   <string name="nearby_empty_title">لا يوجد صفحات بالقرب من هنا!</string>
@@ -58,7 +64,6 @@
   <string name="preference_system_language_toggle">استخدم لغة النظام</string>
   <string name="preference_system_language_summary">لغة النظام</string>
   <string name="langlinks_filter_hint">بحث</string>
-  <string name="menu_other_languages">اقرأ بلغات أخرى</string>
   <string name="langlinks_error_retry">إعادة المحاولة</string>
   <string name="langlinks_empty">هذه الصفحة غير متوفرة بلغات أخرى</string>
   <string name="langlinks_no_match">لا تتوفر لغات مطابقة لبحثك.</string>
@@ -185,7 +190,6 @@
   <string name="edit_summary_tag_links">تمت إضافة روابط</string>
   <string name="edit_summary_tag_other">أخرى</string>
   <string name="edit_summary_tag_other_hint">طرق أخرى استخدمتها لتحسين الصفحة</string>
-  <string name="find_in_page">البحث في الصفحة</string>
   <string name="find_next">البحث عن التالي</string>
   <string name="find_previous">البحث عن السابق</string>
   <string name="error_network_error_try_again">تعذر الوصول للشبكة، الرجاء المحاولة لاحقاً.</string>
@@ -201,7 +205,6 @@
   <string name="abusefilter_text_disallow">قام مرشحٌ تلقائيٌ بالتعرف على هذا التعديل على أنه قد يكون غير بناءٍ، أو تخريب محتمل.&lt;br /&gt;&lt;br /&gt;ويكيبيديا موسوعة ومحايدة فقط، ولا تقبل سوى بالمحتوى الذي يُحقق الملحوظية.</string>
   <string name="dialog_page_issues">مشاكل في مضمون الصفحة</string>
   <string name="button_page_issues">مشاكل في مضمون الصفحة</string>
-  <string name="menu_themechooser">الخط والمظهر</string>
   <string name="text_size_select">حجم الخط</string>
   <string name="color_theme_select">المظهر</string>
   <string name="color_theme_light">فاتح</string>
@@ -258,7 +261,6 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="gallery_fair_use_license">استخدام عادل</string>
   <string name="gallery_uploader_unknown">الرافع غير معروف</string>
   <string name="edit_save_unknown_error">لم يتمكن من حفظ تعديلك: %s</string>
-  <string name="menu_show_tabs">أظهر الألسنة</string>
   <string name="menu_new_tab">لسان جديد</string>
   <string name="button_close_tab">أغلق اللسان</string>
 </resources>

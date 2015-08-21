@@ -22,18 +22,21 @@
   <string name="menu_update_all_saved_pages">Saqlangan sahifalarni yangilash</string>
   <string name="menu_update_selected_saved_pages">Saqlangan sahifalarni yangilash</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Barcha saqlangan sahifalarni yangilamoqchimisiz?</string>
-  <string name="menu_save_page">Sahifani saqlash</string>
-  <string name="menu_share_page">Bo\'lishish</string>
   <string name="share_via">Orqali bo\'lishish</string>
   <string name="dialog_title_clear_saved_pages">Barcha saqlangan sahifalarni o‘chirishni xoxlaysizmi?</string>
   <string name="toast_saving_page">Sahifa saqlanyapti…</string>
-  <string name="toast_saved_page">Sahifa samarili saqlandi</string>
+  <string name="toast_saved_page" fuzzy="true">Sahifa samarili saqlandi</string>
   <string name="toast_saved_page_missing_images">Barcha rasmlarni saqlab bo\'lmadi</string>
   <string name="toast_refresh_saved_page">Saqlangan sahifa yangilanyapti…</string>
   <string name="delete_selected_saved_pages">O\'chirish</string>
   <string name="toast_saved_page_deleted">Saqlangan sahifa(lar) o\'chirildi</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Qidirish</string>
   <string name="saved_pages_search_empty_message">So\'rovingizga mos sahifa topilmadi.</string>
+  <string name="menu_other_languages">Boshqa tillarda o\'qish</string>
+  <string name="menu_save_page">Sahifani saqlash</string>
+  <string name="menu_share_page" fuzzy="true">Bo\'lishish</string>
+  <string name="find_in_page">Sahifadan topish</string>
+  <string name="menu_themechooser">Shrift va mavzu</string>
   <string name="nav_item_nearby">Yaqin atrofda</string>
   <string name="menu_update_nearby">Yaqin atrofni yangilash</string>
   <string name="nearby_empty_title">Yaqin atrof bilan bog‘liq sahifalar topilmadi!</string>
@@ -51,7 +54,6 @@
   <string name="preference_title_language">Vikipedia tili</string>
   <string name="preference_languages_filter_hint">Izlash</string>
   <string name="langlinks_filter_hint">Izlash</string>
-  <string name="menu_other_languages">Boshqa tillarda o\'qish</string>
   <string name="langlinks_error_retry">Qayta urinib koʻrish</string>
   <string name="langlinks_empty">Bu sahifa boshqa tillarda mavjud emas.</string>
   <string name="langlinks_no_match">So\'rovingizga mos til topilmadi.</string>
@@ -162,7 +164,6 @@ Oldindan yoqimli ...</string>
   <string name="edit_summary_tag_grammar">Grammatikani tuzatdim</string>
   <string name="edit_summary_tag_links">Havola(lar) qoʻshildi</string>
   <string name="edit_summary_tag_other">Boshqa</string>
-  <string name="find_in_page">Sahifadan topish</string>
   <string name="find_next">Keyingisini topish</string>
   <string name="find_previous">Oldingisini topish</string>
   <string name="error_network_error_try_again">Tarmoqqa ulanib bo‘lmadi, iltimos, qaytadan urinib ko‘ring.</string>
@@ -174,7 +175,6 @@ Oldindan yoqimli ...</string>
   <string name="menu_refresh_saved_page">Sahifani yangilash</string>
   <string name="dialog_page_issues">Sahifa muammolari</string>
   <string name="button_page_issues">Sahifa muammolari</string>
-  <string name="menu_themechooser">Shrift va mavzu</string>
   <string name="text_size_select">Shrift o‘lchami</string>
   <string name="color_theme_select">Mavzu</string>
   <string name="color_theme_light">Och rang</string>

@@ -13,12 +13,12 @@
   <string name="menu_clear_all_history">Seenaa balleessi</string>
   <string name="nav_item_today">Har\'a</string>
   <string name="nav_item_saved_pages">Fuula olkaayi</string>
-  <string name="menu_save_page">Fuula olkaayi</string>
-  <string name="menu_share_page">Hiri</string>
   <string name="toast_saving_page">Fuulaa olkaawaa jira...</string>
   <string name="toast_saved_page_missing_images">Suura hunda olkaawuu hindandeenye</string>
   <string name="delete_selected_saved_pages">Haqi</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Barbaadi</string>
+  <string name="menu_save_page">Fuula olkaayi</string>
+  <string name="menu_share_page" fuzzy="true">Hiri</string>
   <string name="nav_item_nearby">Dhihoo</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>

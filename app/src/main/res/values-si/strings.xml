@@ -22,14 +22,15 @@
   <string name="menu_update_all_saved_pages">සුරක්ෂිත පිටු යාවත්කාලීන කරන්න</string>
   <string name="menu_update_selected_saved_pages">සුරක්ෂිත පිටු යාවත්කාලීන කරන්න</string>
   <string name="dialog_prompt_refresh_all_saved_pages">සියලුම සුරක්ෂිත පිටු යාවත්කාලීන කරනවද?</string>
-  <string name="menu_save_page">පිටුව සුරකින්න</string>
-  <string name="menu_share_page">හුවමාරු කරන්න</string>
   <string name="share_via">මගින් හුවමාරු කරන්න</string>
   <string name="dialog_title_clear_saved_pages">සියලුම සුරක්ෂිත පිටු හිස් කරනවද?</string>
   <string name="toast_saving_page">පිටුව සුරකිමින්...</string>
-  <string name="toast_saved_page"> පිටුව සාර්ථකව සුරකින ලදී</string>
+  <string name="toast_saved_page" fuzzy="true"> පිටුව සාර්ථකව සුරකින ලදී</string>
   <string name="delete_selected_saved_pages">මකන්න</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">සොයන්න</string>
+  <string name="menu_other_languages">වෙනත් භාෂාවලින් කියවන්න</string>
+  <string name="menu_save_page">පිටුව සුරකින්න</string>
+  <string name="menu_share_page" fuzzy="true">හුවමාරු කරන්න</string>
   <string name="nav_item_nearby">අවට</string>
   <string name="menu_update_nearby">අවට යාවත්කාලීන කරන්න</string>
   <string name="nearby_distance_in_meters">%d මී.</string>
@@ -41,7 +42,6 @@
   <string name="preference_title_language">විකිපීඩියා භාෂාව</string>
   <string name="preference_languages_filter_hint">සොයන්න</string>
   <string name="langlinks_filter_hint">සොයන්න</string>
-  <string name="menu_other_languages">වෙනත් භාෂාවලින් කියවන්න</string>
   <string name="langlinks_error_retry">නැවත උත්සහ කරන්න</string>
   <string name="langlinks_empty">මෙම පිටුව වෙනත් භාෂාවලින් ලබාගත නොහැක</string>
   <string name="langlinks_activity_title">වෙනත් භාෂාවන්</string>

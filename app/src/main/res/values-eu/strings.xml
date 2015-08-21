@@ -24,18 +24,25 @@
   <string name="menu_update_all_saved_pages">Gordetako orrialdeak eguneratu</string>
   <string name="menu_update_selected_saved_pages">Gordetako orrialdeak eguneratu</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Gordetako orrialde guztiak eguneratu?</string>
-  <string name="menu_save_page">Gorde orrialdea</string>
-  <string name="menu_share_page">Partekatu</string>
   <string name="share_via">Partekatu honela</string>
   <string name="dialog_title_clear_saved_pages">Gordetako orrialde guztiak garbitu?</string>
   <string name="toast_saving_page">Orrialdea gordetzen…</string>
-  <string name="toast_saved_page">Orria ondo gordea</string>
+  <string name="toast_saved_page" fuzzy="true">Orria ondo gordea</string>
   <string name="toast_saved_page_missing_images">Ezin izan dira irudi guztiak gorde</string>
   <string name="toast_refresh_saved_page">Gordetako orria eguneratzen...</string>
   <string name="delete_selected_saved_pages">Ezabatu</string>
   <string name="toast_saved_page_deleted">Gordetako orrialdea(k) ezabatu d(ir)a</string>
   <string name="saved_pages_search_list_hint">Bilatu gordetako orriak</string>
   <string name="saved_pages_search_empty_message">Zure kontsultarekin bat egiten duen orririk ez da aurkitu.</string>
+  <string name="menu_show_tabs">Fitxak erakutsi</string>
+  <string name="menu_other_languages">Irakurri beste hizkuntzetan</string>
+  <string name="menu_save_page">Gorde orrialdea</string>
+  <string name="menu_share_page">Partekatu lotura</string>
+  <string name="find_in_page">Aurkitu orrialdean</string>
+  <string name="menu_themechooser">Letra eta gaia</string>
+  <string name="menu_open_link">Ireki</string>
+  <string name="menu_open_in_new_tab">Ireki fitxa berrian</string>
+  <string name="menu_long_press_copy_page">Kopiatu loturaren helbidea</string>
   <string name="nav_item_nearby">Gertukoak</string>
   <string name="menu_update_nearby">Gaurkotu gertukoak</string>
   <string name="nearby_empty_title">Ez dauge gertuko orririk hemen!</string>
@@ -55,7 +62,6 @@
   <string name="preference_system_language_toggle">Erabili sistemako hizkuntza</string>
   <string name="preference_system_language_summary">Sistemako hizkuntza</string>
   <string name="langlinks_filter_hint">Bilatu</string>
-  <string name="menu_other_languages">Irakurri beste hizkuntzetan</string>
   <string name="langlinks_error_retry">Saiatu berriro</string>
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>
   <string name="langlinks_no_match">Zure kontsultarekin bat egiten duen hizkuntzarik ez da aurkitu.</string>
@@ -108,6 +114,7 @@
   <string name="create_account_passwords_mismatch_error">Pasahitzak ez datoz bat</string>
   <string name="create_account_email_error">E-posta helbide okerra</string>
   <string name="create_account_username_exists_error">Lankide izena dagoeneko erabiltzen</string>
+  <string name="create_account_noname_error">Sartu duzun erabiltzaile izenak ez du balio. Saiatu beste batekin mesedez.</string>
   <string name="create_account_invalid_email_error">Eman duzun email helbidea ez da baliagarria.</string>
   <string name="create_account_password_too_short_error">Eman duzun pasahitza laburregia da.</string>
   <string name="create_account_blocked_anon_error">Ezin duzu konturik sortu zure IP helbidea blokeatuta baitago.</string>
@@ -145,6 +152,7 @@
   <string name="about_description">Wikipediaren aplikazioari buruz</string>
   <string name="privacy_policy_description">Pribatutasun politika</string>
   <string name="terms_of_use_description">Erabilera-baldintzak</string>
+  <string name="about_libraries_heading">erabilitako liburutegiak</string>
   <string name="about_contributors_heading">ekarleak</string>
   <string name="about_translators_heading">itzultzaileak</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Fundazioaren&lt;/a&gt; produktua</string>
@@ -160,14 +168,14 @@
   <string name="edit_summary_tag_grammar">Gramatika zuzenketa</string>
   <string name="edit_summary_tag_links">Gehitutako loturak</string>
   <string name="edit_summary_tag_other">Bestelakoa</string>
-  <string name="find_in_page">Aurkitu orrialdean</string>
   <string name="find_next">Aurkitu hurrengoa</string>
   <string name="find_previous">Aurkitu aurrekoa</string>
   <string name="saved_pages_update_all_error_retry">Saiatu berriro</string>
   <string name="saved_pages_refresh_pages_complete">Igoera amaitua</string>
   <string name="menu_page_saved">Orrialdea gordeta</string>
   <string name="menu_refresh_saved_page">Orrialdea eguneratu</string>
-  <string name="menu_themechooser">Letra eta gaia</string>
+  <string name="dialog_page_issues">Orriaren arazoak</string>
+  <string name="button_page_issues">Orriaren arazoak</string>
   <string name="text_size_select">Letra-tamaina</string>
   <string name="color_theme_select">Gaia</string>
   <string name="color_theme_light">Argia</string>
@@ -199,7 +207,6 @@
   <string name="cc_logo">Creative Commons lizentzia</string>
   <string name="captcha_image">Captcha irudia</string>
   <string name="edit_save_unknown_error">Ezin izan da zure aldaketa gorde: %s</string>
-  <string name="menu_show_tabs">Fitxak erakutsi</string>
   <string name="menu_new_tab">Fitxa berria</string>
   <string name="button_close_tab">Itxi fitxa</string>
   <string name="page_view_in_browser">Orria nabigatzailean ikusi</string>

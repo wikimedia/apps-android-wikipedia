@@ -24,18 +24,20 @@
   <string name="menu_update_all_saved_pages">சேமிக்கப்பட்ட பக்கங்களை இற்றைப்படுத்து</string>
   <string name="menu_update_selected_saved_pages">சேமிக்கப்பட்ட பக்கங்களை இற்றைப்படுத்து</string>
   <string name="dialog_prompt_refresh_all_saved_pages">சேமிக்கப்பட்ட அனைத்து பக்கங்களையும் இற்றைப்படுத்தவா?</string>
-  <string name="menu_save_page">பக்கத்தைச் சேமி</string>
-  <string name="menu_share_page">பகிர்</string>
   <string name="share_via">இதன் வழியாக பகிரவும்…</string>
   <string name="dialog_title_clear_saved_pages">சேமிக்கப்பட்ட அனைத்து பக்கங்களையும் நீக்கவா?</string>
   <string name="toast_saving_page">பக்கம் சேமிக்கப்படுகின்றது…</string>
-  <string name="toast_saved_page">பக்கம் வெற்றிகரமாக சேமிக்கப்பட்டது</string>
+  <string name="toast_saved_page" fuzzy="true">பக்கம் வெற்றிகரமாக சேமிக்கப்பட்டது</string>
   <string name="toast_saved_page_missing_images">அனைத்துப் படிமங்களையும் சேமிக்க முடியவில்லை</string>
   <string name="toast_refresh_saved_page">சேமிக்கப்பட்ட பக்கம் புதுப்பிக்கிறது…</string>
   <string name="delete_selected_saved_pages">நீக்குக</string>
   <string name="toast_saved_page_deleted">சேமிக்கப்பட்ட பக்கங்கள் அழிக்கப்பட்டன</string>
   <string name="saved_pages_search_list_hint">சேமித்த பக்கங்களில் தேடுக</string>
   <string name="saved_pages_search_empty_message">உங்கள் வினவலுடன் பொருந்தக்கூடிய எந்தவொரு பக்கமும் காணப்படவில்லை.</string>
+  <string name="menu_other_languages">மற்ற மொழிகளில் படிக்க</string>
+  <string name="menu_save_page">பக்கத்தைச் சேமி</string>
+  <string name="menu_share_page" fuzzy="true">பகிர்</string>
+  <string name="menu_themechooser">எழுத்துரு மற்றும் பிற</string>
   <string name="nav_item_nearby">அருகில்</string>
   <string name="menu_update_nearby">அருகிலுள்ளவற்றை புதுப்பி</string>
   <string name="nearby_empty_title">அருகாமையில் பக்கங்கள் ஏதுமில்லை.</string>
@@ -56,7 +58,6 @@
   <string name="preference_system_language_toggle">முறைமை மொழியைப் பயன்படுத்துக</string>
   <string name="preference_system_language_summary">முறைமை மொழி</string>
   <string name="langlinks_filter_hint">தேடுக</string>
-  <string name="menu_other_languages">மற்ற மொழிகளில் படிக்க</string>
   <string name="langlinks_error_retry">மறு முயற்சி செய்</string>
   <string name="langlinks_empty">பிற மொழிகளில் இந்த கட்டுரை இல்லை</string>
   <string name="langlinks_activity_title">மற்ற மொழிகளில்</string>
@@ -165,7 +166,6 @@
   <string name="menu_page_saved">பக்கம் சேமிக்கப்பட்டது</string>
   <string name="dialog_page_issues">பக்க சிக்கல்கள்</string>
   <string name="button_page_issues">பக்க சிக்கல்கள்</string>
-  <string name="menu_themechooser">எழுத்துரு மற்றும் பிற</string>
   <string name="text_size_select">எழுத்துரு அளவு</string>
   <string name="color_theme_select">பின்புலத்தோற்றங்கள்</string>
   <string name="color_theme_light">வெளிச்சம்</string>

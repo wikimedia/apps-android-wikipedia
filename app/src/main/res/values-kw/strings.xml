@@ -22,18 +22,21 @@
   <string name="menu_update_all_saved_pages">Nowedhi folennow gwithys</string>
   <string name="menu_update_selected_saved_pages">Nowedhi folennow gwithys</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Nowedhi pub folen gwithys?</string>
-  <string name="menu_save_page">Gwitha an folen</string>
-  <string name="menu_share_page">Kevranna</string>
   <string name="share_via">Kevranna dre</string>
   <string name="dialog_title_clear_saved_pages">Klerhe pub folen gwithys?</string>
   <string name="toast_saving_page">Ow kwitha an folen…</string>
-  <string name="toast_saved_page">Gwithys yn sewen</string>
+  <string name="toast_saved_page" fuzzy="true">Gwithys yn sewen</string>
   <string name="toast_saved_page_missing_images">Ny ylles gwitha pub imach</string>
   <string name="toast_refresh_saved_page">Ow daskarga an folen withys…</string>
   <string name="delete_selected_saved_pages">Dilea</string>
   <string name="toast_saved_page_deleted">Diles re beu an folen(now) gwithys</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Hwilas</string>
   <string name="saved_pages_search_empty_message">Ny veu kevys folen vyth.</string>
+  <string name="menu_other_languages">Redya yn yethow erel</string>
+  <string name="menu_save_page">Gwitha an folen</string>
+  <string name="menu_share_page" fuzzy="true">Kevranna</string>
+  <string name="find_in_page">Hwilas y\'n folen</string>
+  <string name="menu_themechooser">Font ha thema</string>
   <string name="nav_item_nearby">Yn ogas</string>
   <string name="menu_update_nearby">Nowedhi an re ogas</string>
   <string name="nearby_empty_title">Nyns eus folennow ogas omma!</string>
@@ -54,7 +57,6 @@
   <string name="preference_title_language">Yeth Wikipedya</string>
   <string name="preference_languages_filter_hint">Hwilas</string>
   <string name="langlinks_filter_hint">Hwilas</string>
-  <string name="menu_other_languages">Redya yn yethow erel</string>
   <string name="langlinks_error_retry">Assaya arta</string>
   <string name="langlinks_empty">Nyns yw kavadow an folen ma yn yethow erel.</string>
   <string name="langlinks_no_match">Ny veu kevys yeth vyth.</string>
@@ -178,7 +180,6 @@
   <string name="edit_summary_tag_links">Kevrennow keworrys</string>
   <string name="edit_summary_tag_other">Aral</string>
   <string name="edit_summary_tag_other_hint">Fordhow erel may hwellhasowgh an folen</string>
-  <string name="find_in_page">Hwilas y\'n folen</string>
   <string name="find_next">Kavos an nessa</string>
   <string name="find_previous">Kavos an kyns</string>
   <string name="error_network_error_try_again">Ny ylles drehedhes an rosweyth, gwrewgh assaya arta.</string>
@@ -190,7 +191,6 @@
   <string name="menu_refresh_saved_page">Daskarga an folen</string>
   <string name="abusefilter_title_warn">Hemm a alsa bos chanj didhrehevus. Owgh hwi sur bos hwans dhywgh y witha?</string>
   <string name="abusefilter_title_disallow">Ny yllowgh gwitha an chanj ma. Gwrewgh dehweles hag y janjya.</string>
-  <string name="menu_themechooser">Font ha thema</string>
   <string name="text_size_select">Myns an font</string>
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Skav</string>

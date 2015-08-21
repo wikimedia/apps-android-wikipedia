@@ -24,18 +24,21 @@
   <string name="menu_update_all_saved_pages">ปรับปรุงหน้าที่บันทึกไว้</string>
   <string name="menu_update_selected_saved_pages">ปรับปรุงหน้าที่บันทึกไว้</string>
   <string name="dialog_prompt_refresh_all_saved_pages">ปรับปรุงหน้าที่บันทึกไว้หรือไม่</string>
-  <string name="menu_save_page">บันทึกหน้า</string>
-  <string name="menu_share_page">แบ่งปัน</string>
   <string name="share_via">แบ่งปันผ่าน</string>
   <string name="dialog_title_clear_saved_pages">ลบหน้าที่บันทึกไว้ทั้งหมดหรือไม่</string>
   <string name="toast_saving_page">กำลังบันทึก...</string>
-  <string name="toast_saved_page">บันทึกหน้าเสร็จสิ้น</string>
+  <string name="toast_saved_page" fuzzy="true">บันทึกหน้าเสร็จสิ้น</string>
   <string name="toast_saved_page_missing_images">ไม่สามารถบันทึกรูปภาพทั้งหมด</string>
   <string name="toast_refresh_saved_page">กำลังรีเฟรชหน้าที่บันทึก...</string>
   <string name="delete_selected_saved_pages">ลบ</string>
   <string name="toast_saved_page_deleted">ลบหน้าที่บันทึกเรียบร้อย</string>
   <string name="saved_pages_search_list_hint">ค้นหาหน้าที่บันทึกไว้</string>
   <string name="saved_pages_search_empty_message">ไม่พบหน้าที่ตรงกับคำค้นหาของคุณ</string>
+  <string name="menu_show_tabs">แสดงแท็บ</string>
+  <string name="menu_other_languages">อ่านในภาษาอื่น</string>
+  <string name="menu_save_page">บันทึกหน้า</string>
+  <string name="menu_share_page" fuzzy="true">แบ่งปัน</string>
+  <string name="find_in_page">ค้นหาในหน้า</string>
   <string name="nav_item_nearby">ใกล้เคียง</string>
   <string name="menu_update_nearby">อัปเดตหน้าที่ใกล้เคียง</string>
   <string name="nearby_empty_title">ไม่มีหน้าที่ใกล้เคียงกับที่นี่</string>
@@ -60,7 +63,6 @@
   <string name="preference_system_language_toggle">ใช้ภาษาของระบบ</string>
   <string name="preference_system_language_summary">ภาษาของระบบ</string>
   <string name="langlinks_filter_hint">ค้นหา</string>
-  <string name="menu_other_languages">อ่านในภาษาอื่น</string>
   <string name="langlinks_error_retry">ลองใหม่</string>
   <string name="langlinks_empty">หน้านี้ไม่มีในภาษาอื่น</string>
   <string name="langlinks_no_match">ไม่พบภาษาที่ตรงกับคำค้นหาของคุณ</string>
@@ -127,7 +129,6 @@
   <string name="edit_summary_tag_grammar">แก้ไขไวยากรณ์</string>
   <string name="edit_summary_tag_links">เพิ่มลิงก์</string>
   <string name="edit_summary_tag_other">อื่น ๆ</string>
-  <string name="find_in_page">ค้นหาในหน้า</string>
   <string name="find_next">ค้นหาถัดไป</string>
   <string name="find_previous">ค้นหาก่อนหน้า</string>
   <string name="saved_pages_update_all_error_retry">ลองใหม่</string>
@@ -147,7 +148,6 @@
   <string name="expand_refs">แตะเพื่อขยาย</string>
   <string name="share_snippet_button">แบ่งปันเป็นรูปภาพ</string>
   <string name="share_normal_button">แบ่งปันเป็นข้อความ</string>
-  <string name="menu_show_tabs">แสดงแท็บ</string>
   <string name="menu_new_tab">เปิดแท็บใหม่</string>
   <string name="button_close_tab">ปิดแท็บ</string>
 </resources>

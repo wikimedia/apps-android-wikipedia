@@ -24,18 +24,21 @@
   <string name="menu_update_all_saved_pages">Ĝisdatigi konservitajn paĝojn</string>
   <string name="menu_update_selected_saved_pages">Ĝisdatigi konservitajn paĝojn</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Ĉu ĝisdatigi ĉiujn konservitajn paĝojn?</string>
-  <string name="menu_save_page">Konservi paĝon</string>
-  <string name="menu_share_page">Kundividi</string>
   <string name="share_via">Kundividi per</string>
   <string name="dialog_title_clear_saved_pages">Ĉu Malplenigi ĉiujn konservitajn paĝojn?</string>
   <string name="toast_saving_page">Konservante paĝon…</string>
-  <string name="toast_saved_page">Paĝo sukcese konservita</string>
+  <string name="toast_saved_page" fuzzy="true">Paĝo sukcese konservita</string>
   <string name="toast_saved_page_missing_images">Ne eblas konservi ĉiuj bildojn</string>
   <string name="toast_refresh_saved_page">Ĝisdatigante konservitajn paĝojn</string>
   <string name="delete_selected_saved_pages">Forigi</string>
   <string name="toast_saved_page_deleted">Konservita(j) paĝo(j) forigita(j)</string>
   <string name="saved_pages_search_list_hint">Serĉi konservitajn paĝojn</string>
   <string name="saved_pages_search_empty_message">Neniu paĝo kongruas kun via serĉo.</string>
+  <string name="menu_other_languages">Legi en alia lingvo</string>
+  <string name="menu_save_page">Konservi paĝon</string>
+  <string name="menu_share_page" fuzzy="true">Kundividi</string>
+  <string name="find_in_page">Trovi en la paĝo</string>
+  <string name="menu_themechooser">Fonto kaj etoso</string>
   <string name="nav_item_nearby">Ĉirkaŭe</string>
   <string name="menu_update_nearby">Ĝisdatigi ĉirkaŭaĵojn</string>
   <string name="nearby_empty_title">Neniu paĝo ĉirkaŭ ĉi tie!</string>
@@ -59,7 +62,6 @@
   <string name="preference_system_language_toggle">Uzi sisteman lingvon</string>
   <string name="preference_system_language_summary">Sistema lingvo</string>
   <string name="langlinks_filter_hint">Serĉi</string>
-  <string name="menu_other_languages">Legi en alia lingvo</string>
   <string name="langlinks_error_retry">Reprovi</string>
   <string name="langlinks_empty">Ĉi tiu paĝo ne disponeblas en aliaj lingvoj</string>
   <string name="langlinks_no_match">Neniu lingvo kongruas kun via serĉo.</string>
@@ -182,7 +184,6 @@
   <string name="edit_summary_tag_links">Aldonis ligilojn</string>
   <string name="edit_summary_tag_other">Alia</string>
   <string name="edit_summary_tag_other_hint">Aliaj manieroj en kiuj vi plibonigis la paĝon</string>
-  <string name="find_in_page">Trovi en la paĝo</string>
   <string name="find_next">Trovi sekvan</string>
   <string name="find_previous">Trovi antaŭan</string>
   <string name="error_network_error_try_again">Ne eblis konektiĝi al la reto, bonvole reprovu.</string>
@@ -196,7 +197,6 @@
   <string name="abusefilter_title_disallow">Vi ne povas konservi ĉi tiun modifon. Bonvole iru reen kaj ŝanĝu ĝin.</string>
   <string name="dialog_page_issues">Paĝaj problemoj</string>
   <string name="button_page_issues">Paĝaj problemoj</string>
-  <string name="menu_themechooser">Fonto kaj etoso</string>
   <string name="text_size_select">Tipara grandeco</string>
   <string name="color_theme_select">Etoso</string>
   <string name="color_theme_light">Hela</string>

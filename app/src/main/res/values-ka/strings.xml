@@ -21,18 +21,21 @@
   <string name="menu_update_all_saved_pages">განაახლეთ შენახული გვერდები</string>
   <string name="menu_update_selected_saved_pages">განაახლეთ შენახული გვერდები</string>
   <string name="dialog_prompt_refresh_all_saved_pages">განახლდეს ყველა შენახული გვერდი?</string>
-  <string name="menu_save_page">შენახული გვერდები</string>
-  <string name="menu_share_page">გაზიარება</string>
   <string name="share_via">გაზიარების სახე</string>
   <string name="dialog_title_clear_saved_pages">გასუფთავდეს ყველა შენახული გვერდი?</string>
   <string name="toast_saving_page">გვერდის შენახვა…</string>
-  <string name="toast_saved_page">გვერდის წარმატებით შეინახა</string>
+  <string name="toast_saved_page" fuzzy="true">გვერდის წარმატებით შეინახა</string>
   <string name="toast_saved_page_missing_images">შეუძლებელია ყველა სურათის შენახვა</string>
   <string name="toast_refresh_saved_page">შენახული გვერდების გამოცოცხლება…</string>
   <string name="delete_selected_saved_pages">წაშლა</string>
   <string name="toast_saved_page_deleted">შენახული გვერდ(ებ)ი წაიშალა</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">ძებნა</string>
   <string name="saved_pages_search_empty_message">თქვენს მოთხოვნას არცერთი გვერდი არ დაემთხვა.</string>
+  <string name="menu_other_languages">წაიკითხეთ სხვა ენებზე</string>
+  <string name="menu_save_page">შენახული გვერდები</string>
+  <string name="menu_share_page" fuzzy="true">გაზიარება</string>
+  <string name="find_in_page">გვერდში ძიება</string>
+  <string name="menu_themechooser">ფონტი და თემა</string>
   <string name="nav_item_nearby">სიახლოვეს</string>
   <string name="menu_update_nearby">განაახლე ახლომდებარე</string>
   <string name="nearby_empty_title">ახლომდებარე გვერდები ვერ მოიძებნა!</string>
@@ -54,7 +57,6 @@
   <string name="preference_title_language">ვიკიპედიის ენები</string>
   <string name="preference_languages_filter_hint">ძიება</string>
   <string name="langlinks_filter_hint">ძიება</string>
-  <string name="menu_other_languages">წაიკითხეთ სხვა ენებზე</string>
   <string name="langlinks_error_retry">გამეორება</string>
   <string name="langlinks_empty">ეს გვერდი მიუწვდომელია სხვა ენებზე</string>
   <string name="langlinks_no_match">თქვენს მოთხოვნაზე არც ერთი ენა არ მოიძებნა.</string>
@@ -162,7 +164,6 @@
   <string name="edit_summary_tag_grammar">გრამატიკის შესწორება</string>
   <string name="edit_summary_tag_links">დამატებული ბმულები</string>
   <string name="edit_summary_tag_other">სხვა</string>
-  <string name="find_in_page">გვერდში ძიება</string>
   <string name="find_next">შემდეგის მოძიება</string>
   <string name="find_previous">წინას მოძიება</string>
   <string name="error_network_error_try_again">ქსელთან დაკავშირება ვერ მოხერხდა, სცადეთ ხელახლა.</string>
@@ -173,7 +174,6 @@
   <string name="menu_page_saved">გვერდი შენახულია</string>
   <string name="menu_refresh_saved_page">გვერდის გადატვირთვა</string>
   <string name="abusefilter_title_disallow">ამ ცვლილების შენახვა არ შეგიძლიათ. დაბრუნდით უკან და შეცვალეთ.</string>
-  <string name="menu_themechooser">ფონტი და თემა</string>
   <string name="text_size_select">შრიფტის ზომა</string>
   <string name="color_theme_select">თემა</string>
   <string name="color_theme_light">ნათელი</string>

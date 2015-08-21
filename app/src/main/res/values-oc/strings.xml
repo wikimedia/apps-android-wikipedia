@@ -22,18 +22,21 @@
   <string name="menu_update_all_saved_pages">Metre a jorn las paginas enregistradas</string>
   <string name="menu_update_selected_saved_pages">Metre a jorn las paginas enregistradas</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Escafar totas las paginas enregistradas ?</string>
-  <string name="menu_save_page">Enregistrar la pagina</string>
-  <string name="menu_share_page">Partejar</string>
   <string name="share_via">Partejar via</string>
   <string name="dialog_title_clear_saved_pages">Escafar totas las paginas enregistradas ?</string>
   <string name="toast_saving_page">Enregistrament de la pagina…</string>
-  <string name="toast_saved_page">Pagina enregistrada corrèctament</string>
+  <string name="toast_saved_page" fuzzy="true">Pagina enregistrada corrèctament</string>
   <string name="toast_saved_page_missing_images">Impossible d’enregistrar totes los imatges</string>
   <string name="toast_refresh_saved_page">Refrescament de la pagina enregistrada…</string>
   <string name="delete_selected_saved_pages">Suprimir</string>
   <string name="toast_saved_page_deleted">Pagina(s) enregistrada(s) suprimida(s)</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Recercar</string>
   <string name="saved_pages_search_empty_message">Cap de pagina pas trobada que corresponda a vòstra requèsta.</string>
+  <string name="menu_other_languages">Legir dins d’autras lengas</string>
+  <string name="menu_save_page">Enregistrar la pagina</string>
+  <string name="menu_share_page" fuzzy="true">Partejar</string>
+  <string name="find_in_page">Recercar dins la pagina</string>
+  <string name="menu_themechooser">Modificar la poliça e lo tèma</string>
   <string name="nav_item_nearby">A proximitat</string>
   <string name="menu_update_nearby">Metre a jorn los elements a proximitat</string>
   <string name="nearby_empty_title">Pas cap de pagina a proximitat aicí !</string>
@@ -51,7 +54,6 @@
   <string name="preference_title_language">Lenga de Wikipèdia</string>
   <string name="preference_languages_filter_hint">Recercar</string>
   <string name="langlinks_filter_hint">Recercar</string>
-  <string name="menu_other_languages">Legir dins d’autras lengas</string>
   <string name="langlinks_error_retry">Tornar ensajar</string>
   <string name="langlinks_activity_title">Autras lengas</string>
   <string name="menu_save_changes">Enregistrar las modificacions</string>
@@ -147,7 +149,6 @@
   <string name="edit_summary_tag_grammar">Fauta de gramatica corregida</string>
   <string name="edit_summary_tag_links">Ligams aponduts</string>
   <string name="edit_summary_tag_other">Autre</string>
-  <string name="find_in_page">Recercar dins la pagina</string>
   <string name="find_next">Recercar lo seguent</string>
   <string name="find_previous">Recercar lo precedent</string>
   <string name="saved_pages_update_all_error_retry">Ensajar tornarmai</string>
@@ -156,7 +157,6 @@
   <string name="menu_refresh_saved_page">Refrescar la pagina</string>
   <string name="dialog_page_issues">Discussions sus la pagina</string>
   <string name="button_page_issues">Questions sus la pagina</string>
-  <string name="menu_themechooser">Modificar la poliça e lo tèma</string>
   <string name="text_size_select">Talha de poliça</string>
   <string name="color_theme_select">Tèma</string>
   <string name="color_theme_light">Clar</string>

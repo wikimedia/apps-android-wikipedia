@@ -21,14 +21,16 @@
   <string name="menu_update_all_saved_pages">Aġġorna l-paġni ssejvjati</string>
   <string name="menu_update_selected_saved_pages">Aġġorna l-paġni ssejvjati</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Trid taġġorna l-paġna kollha salvati?</string>
-  <string name="menu_save_page">Issejvja l-paġna</string>
-  <string name="menu_share_page">Aqsam</string>
   <string name="share_via">Aqsam permezz...</string>
   <string name="dialog_title_clear_saved_pages">Trid tħassar il-paġna kollha salvati?</string>
   <string name="toast_saved_page_missing_images">Ma kienx possibbli li l-istampi kollha jiġu ssejvjati.</string>
   <string name="delete_selected_saved_pages">Ħassar</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Fittex</string>
   <string name="saved_pages_search_empty_message">L-ebda paġna ma qablet mar-rikjesta tiegħek.</string>
+  <string name="menu_other_languages">Aqra f\'lingwa oħra</string>
+  <string name="menu_save_page">Issejvja l-paġna</string>
+  <string name="menu_share_page" fuzzy="true">Aqsam</string>
+  <string name="find_in_page">Sib fil-paġna</string>
   <string name="nav_item_nearby">Fil-qrib</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -47,7 +49,6 @@
   <string name="preference_system_language_toggle">Uża l-lingwa tas-sistema</string>
   <string name="preference_system_language_summary">Lingwa tas-sistema</string>
   <string name="langlinks_filter_hint">Fittex</string>
-  <string name="menu_other_languages">Aqra f\'lingwa oħra</string>
   <string name="langlinks_error_retry">Erġa\' pprova</string>
   <string name="langlinks_empty">Din il-paġna hija disponibbli f\'lingwi oħrajn.</string>
   <string name="langlinks_no_match">L-ebda lingwa ma taqbel mar-rikjesta tiegħek.</string>
@@ -143,7 +144,6 @@
   <string name="edit_summary_tag_links">Ħoloq miżjuda</string>
   <string name="edit_summary_tag_other">Oħrajn</string>
   <string name="edit_summary_tag_other_hint">Modi oħra kif inti tejjibt il-paġna</string>
-  <string name="find_in_page">Sib fil-paġna</string>
   <string name="find_next">Sib li jmiss</string>
   <string name="find_previous">Sib ta\' qabel</string>
   <string name="error_network_error_try_again">In-netwerk ma setax jintlaħaq. Jekk jogħġbok erġa\' pprova.</string>
