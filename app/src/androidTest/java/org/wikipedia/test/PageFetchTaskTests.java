@@ -7,7 +7,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.page.Section;
-import org.wikipedia.page.fetch.OldSectionsFetchTask;
+import org.wikipedia.page.SectionsFetchTask;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -40,7 +40,7 @@ public class PageFetchTaskTests extends ActivityUnitTestCase<TestDummyActivity> 
             @Override
             public void run() {
                 final WikipediaApp app = WikipediaApp.getInstance();
-                new OldSectionsFetchTask(app, new PageTitle(null, title, new Site("test.wikipedia.org")), "all") {
+                new SectionsFetchTask(app, new PageTitle(null, title, new Site("test.wikipedia.org")), "all") {
                     @Override
                     public void onFinish(List<Section> result) {
                         assertNotNull(result);

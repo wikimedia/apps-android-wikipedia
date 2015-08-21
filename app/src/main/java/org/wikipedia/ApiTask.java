@@ -8,7 +8,6 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.page.fetch.Fetcher;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.NetworkUtils;
 import org.wikipedia.util.ThrowableUtil;
@@ -20,7 +19,7 @@ import java.util.Map;
 
 import javax.net.ssl.SSLException;
 
-public abstract class ApiTask<T> extends SaneAsyncTask<T> implements Fetcher<T> {
+public abstract class ApiTask<T> extends SaneAsyncTask<T> {
     private static final boolean VERBOSE = WikipediaApp.getInstance().isDevRelease();
     private final Api api;
 
@@ -74,6 +73,10 @@ public abstract class ApiTask<T> extends SaneAsyncTask<T> implements Fetcher<T> 
     protected ApiResult makeRequest(RequestBuilder builder) throws ApiException {
         return builder.get();
     }
+
+    public abstract RequestBuilder buildRequest(Api api);
+    public abstract T processResult(ApiResult result) throws Throwable;
+
 
     private String buildUrl(String url, Map<String, String> params) {
         Uri.Builder builder = new Uri.Builder().encodedPath(url);

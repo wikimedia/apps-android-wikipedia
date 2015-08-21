@@ -11,13 +11,13 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
-import org.wikipedia.page.fetch.OldSectionsFetchTask;
+import org.wikipedia.page.SectionsFetchTask;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
-public class RefreshSavedPageTask extends OldSectionsFetchTask {
+public class RefreshSavedPageTask extends SectionsFetchTask {
     private final PageTitle title;
     private final WikipediaApp app;
 
