@@ -24,18 +24,24 @@
   <string name="menu_update_all_saved_pages">保存したページを更新</string>
   <string name="menu_update_selected_saved_pages">保存したページを更新</string>
   <string name="dialog_prompt_refresh_all_saved_pages">保存したページをすべて更新しますか?</string>
-  <string name="menu_save_page">ページを保存</string>
-  <string name="menu_share_page">シェア</string>
   <string name="share_via">シェアする</string>
   <string name="dialog_title_clear_saved_pages">保存したページをすべて消去しますか?</string>
   <string name="toast_saving_page">ページを保存中…</string>
-  <string name="toast_saved_page">ページを保存しました</string>
+  <string name="toast_saved_page" fuzzy="true">ページを保存しました</string>
   <string name="toast_saved_page_missing_images">一部の画像を保存できませんでした</string>
   <string name="toast_refresh_saved_page">保存したページを更新しています…</string>
   <string name="delete_selected_saved_pages">削除</string>
   <string name="toast_saved_page_deleted">保存したページを削除しました</string>
   <string name="saved_pages_search_list_hint">保存したページを検索</string>
   <string name="saved_pages_search_empty_message">キーワードに一致するページが見つかりません。</string>
+  <string name="menu_show_tabs">タブを表示</string>
+  <string name="menu_other_languages">他の言語で読む</string>
+  <string name="menu_save_page">ページを保存</string>
+  <string name="menu_share_page" fuzzy="true">シェア</string>
+  <string name="find_in_page">ページ内検索</string>
+  <string name="menu_themechooser">フォントとテーマ</string>
+  <string name="menu_open_link" fuzzy="true">リンクを開く</string>
+  <string name="menu_open_in_new_tab">新しいタブで開く</string>
   <string name="nav_item_nearby">付近のスポット</string>
   <string name="menu_update_nearby">付近のスポットを更新</string>
   <string name="nearby_empty_title">付近のスポットについてのページがありません!</string>
@@ -59,7 +65,6 @@
   <string name="preference_system_language_toggle">使用するシステム言語</string>
   <string name="preference_system_language_summary">サイトの言語</string>
   <string name="langlinks_filter_hint">検索</string>
-  <string name="menu_other_languages">他の言語で読む</string>
   <string name="langlinks_error_retry">再試行</string>
   <string name="langlinks_empty">このページの他の言語版はありません。</string>
   <string name="langlinks_no_match">入力したキーワードに一致する言語が見つかりません。</string>
@@ -188,7 +193,6 @@
   <string name="edit_summary_tag_links">リンクを追加</string>
   <string name="edit_summary_tag_other">その他</string>
   <string name="edit_summary_tag_other_hint">ページのその他の改善</string>
-  <string name="find_in_page">ページ内検索</string>
   <string name="find_next">次を検索</string>
   <string name="find_previous">前を検索</string>
   <string name="error_network_error_try_again">ネットワークに接続できませんでした。やり直してください</string>
@@ -204,7 +208,6 @@
   <string name="abusefilter_text_disallow">自動フィルターによって、この編集が建設的でないか、荒らしである可能性があると判断されました。&lt;br /&gt;&lt;br /&gt;ウィキペディアは百科事典であり、中立的で特筆性のあるコンテンツのみを記載する必要があります。</string>
   <string name="dialog_page_issues">ページの問題</string>
   <string name="button_page_issues">ページの問題点</string>
-  <string name="menu_themechooser">フォントとテーマ</string>
   <string name="text_size_select">フォントサイズ</string>
   <string name="color_theme_select">テーマ</string>
   <string name="color_theme_light">明るめ</string>
@@ -271,7 +274,6 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="gallery_fair_use_license">フェアユース</string>
   <string name="gallery_uploader_unknown">不明なアップローダー</string>
   <string name="edit_save_unknown_error">編集内容を保存できませんでした: %s</string>
-  <string name="menu_show_tabs">タブを表示</string>
   <string name="menu_new_tab">新規タブ</string>
   <string name="button_close_tab">タブを閉じる</string>
   <string name="tool_tip_select_text">コピーとシェアのためにテキストを選択するには、テキストのどこかを長押ししてください。</string>

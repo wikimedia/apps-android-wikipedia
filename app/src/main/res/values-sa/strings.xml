@@ -24,18 +24,21 @@
   <string name="menu_update_all_saved_pages">रक्षितानि पृष्ठानि नवीक्रियन्ताम्</string>
   <string name="menu_update_selected_saved_pages">रक्षितानि पृष्ठानि नवीक्रियन्ताम्</string>
   <string name="dialog_prompt_refresh_all_saved_pages">सर्वाणि रक्षितानि पृष्ठानि अपाकर्त्तव्यानि वा?</string>
-  <string name="menu_save_page">पृष्ठं रक्ष्यताम्</string>
-  <string name="menu_share_page">वितरतु</string>
   <string name="share_via">द्वारा वितरतु</string>
   <string name="dialog_title_clear_saved_pages">सर्वाणि रक्षितानि पृष्ठानि अपाकर्त्तव्यानि वा?</string>
   <string name="toast_saving_page">पृष्ठं रक्षति...</string>
-  <string name="toast_saved_page">पृष्ठरक्षणं सफल्यभवत्</string>
+  <string name="toast_saved_page" fuzzy="true">पृष्ठरक्षणं सफल्यभवत्</string>
   <string name="toast_saved_page_missing_images">सर्वाणि चित्राणि रक्षितुं न शक्तवान्</string>
   <string name="toast_refresh_saved_page">रक्षितपृष्ठानां प्रत्यवस्थापनम्...</string>
   <string name="delete_selected_saved_pages">अपाक्रियताम्</string>
   <string name="toast_saved_page_deleted">रक्षितपृष्ठानि अपाकृतानि</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">अन्विष्यताम्</string>
   <string name="saved_pages_search_empty_message">भवता/भवत्या इष्टं पृष्ठं न प्राप्तम् ।</string>
+  <string name="menu_other_languages">अन्यभाषाभिः पठ्यताम्</string>
+  <string name="menu_save_page">पृष्ठं रक्ष्यताम्</string>
+  <string name="menu_share_page" fuzzy="true">वितरतु</string>
+  <string name="find_in_page">पृष्ठम् अन्विष्यताम्</string>
+  <string name="menu_themechooser">वर्णः, प्रसङ्गश्च</string>
   <string name="nav_item_nearby">निकटे</string>
   <string name="menu_update_nearby">निकटवर्ति नवीक्रियताम्</string>
   <string name="nearby_empty_title">निकटवर्तिपृष्ठं न विद्यते !</string>
@@ -60,7 +63,6 @@
   <string name="preference_system_language_toggle">संविधाभाषा उपयुज्यताम्</string>
   <string name="preference_system_language_summary">संविधाभाषा</string>
   <string name="langlinks_filter_hint">अन्विष्यताम्</string>
-  <string name="menu_other_languages">अन्यभाषाभिः पठ्यताम्</string>
   <string name="langlinks_error_retry">पुनःप्रयासः</string>
   <string name="langlinks_empty">अन्यभाषासु पृष्ठमिदं न विद्यते ।</string>
   <string name="langlinks_no_match">भवता/भवत्या इष्टं पृष्ठं न प्राप्तम् ।</string>
@@ -186,7 +188,6 @@
   <string name="edit_summary_tag_links">परिसन्धिः योजितः</string>
   <string name="edit_summary_tag_other">अन्यत्</string>
   <string name="edit_summary_tag_other_hint">अन्यरीत्या पृष्ठं व्यशोधयत्</string>
-  <string name="find_in_page">पृष्ठम् अन्विष्यताम्</string>
   <string name="find_next">अग्रिमम् अन्विष्यताम्</string>
   <string name="find_previous">पूर्वतनम् अन्विष्यताम्</string>
   <string name="error_network_error_try_again">सञ्जालपर्यन्तं प्राप्तुं न शक्यते, कृपया पुनः प्रयतताम् ।</string>
@@ -202,7 +203,6 @@
   <string name="abusefilter_text_disallow">स्वचालितशोधन्या भवतः/भवत्याः सम्पादनम् अरचनात्मकम् उत नाशकत्वं परिगण्यते । &lt;br /&gt;&lt;br /&gt; विकिपीडिया-जालम् विश्वकोशः वर्तते । सः निष्पक्षं, प्रसिद्धं च विषयं धरते ।</string>
   <string name="dialog_page_issues">पृष्ठस्य समस्याः</string>
   <string name="button_page_issues">पृष्ठस्य समस्याः</string>
-  <string name="menu_themechooser">वर्णः, प्रसङ्गश्च</string>
   <string name="text_size_select">वर्ण(font)मानम्</string>
   <string name="color_theme_select">प्रसङ्गः (Theme)</string>
   <string name="color_theme_light">शुभ्रम्</string>

@@ -24,18 +24,20 @@
   <string name="menu_update_all_saved_pages">Mentett lapok frissítése</string>
   <string name="menu_update_selected_saved_pages">Mentett lapok frissítése</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Valamennyi elmentett lap frissítése?</string>
-  <string name="menu_save_page">Lap mentése</string>
-  <string name="menu_share_page">Megosztás</string>
   <string name="share_via">Megosztás ezzel:</string>
   <string name="dialog_title_clear_saved_pages">Törlöd az összes mentett lapot?</string>
   <string name="toast_saving_page">Oldal mentése…</string>
-  <string name="toast_saved_page">A lap mentése sikeres</string>
+  <string name="toast_saved_page" fuzzy="true">A lap mentése sikeres</string>
   <string name="toast_saved_page_missing_images">Nem sikerült az összes kép mentése</string>
   <string name="toast_refresh_saved_page">Mentett lapok frissítése…</string>
   <string name="delete_selected_saved_pages">Törlés</string>
   <string name="toast_saved_page_deleted">Mentett oldal(ak) törölve</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Keresés</string>
   <string name="saved_pages_search_empty_message">Nem található a kérésnek megfelelő lap.</string>
+  <string name="menu_other_languages">Olvasás más nyelven</string>
+  <string name="menu_save_page">Lap mentése</string>
+  <string name="menu_share_page" fuzzy="true">Megosztás</string>
+  <string name="menu_themechooser">Betűtípus és téma</string>
   <string name="nav_item_nearby">Közeli</string>
   <string name="menu_update_nearby">Közeliek frissítése</string>
   <string name="nearby_empty_title">Nincsenek közeli lapok!</string>
@@ -56,7 +58,6 @@
   <string name="preference_system_language_toggle">Rendszer nyelv használata</string>
   <string name="preference_system_language_summary">Rendszer nyelv</string>
   <string name="langlinks_filter_hint">Keresés</string>
-  <string name="menu_other_languages">Olvasás más nyelven</string>
   <string name="langlinks_error_retry">Újra</string>
   <string name="langlinks_empty">Ez a lap nem érhető el más nyelveken</string>
   <string name="langlinks_activity_title">További nyelvek</string>
@@ -173,7 +174,6 @@
   <string name="saved_pages_update_all_error_message">Hiba a mentett lapok frissítése során</string>
   <string name="menu_page_saved">Lap elmentve</string>
   <string name="menu_refresh_saved_page">Lap frissítése</string>
-  <string name="menu_themechooser">Betűtípus és téma</string>
   <string name="color_theme_select">Téma</string>
   <string name="color_theme_light">Világos</string>
   <string name="color_theme_dark">Sötét</string>

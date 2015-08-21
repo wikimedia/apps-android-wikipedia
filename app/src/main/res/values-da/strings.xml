@@ -24,18 +24,24 @@
   <string name="menu_update_all_saved_pages">Opdater gemte sider</string>
   <string name="menu_update_selected_saved_pages">Opdater gemte sider</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Opdater alle gemte sider?</string>
-  <string name="menu_save_page">Gem side</string>
-  <string name="menu_share_page">Del</string>
   <string name="share_via">Del via</string>
   <string name="dialog_title_clear_saved_pages">Ryd alle gemte sider?</string>
   <string name="toast_saving_page">Gemmer side…</string>
-  <string name="toast_saved_page">Siden er gemt</string>
+  <string name="toast_saved_page" fuzzy="true">Siden er gemt</string>
   <string name="toast_saved_page_missing_images">Kunne ikke gemme alle billeder</string>
   <string name="toast_refresh_saved_page">Opdaterer gemt side…</string>
   <string name="delete_selected_saved_pages">Slet</string>
   <string name="toast_saved_page_deleted">Gemt(e) side(r) slettet</string>
   <string name="saved_pages_search_list_hint">Søg i Gemte sider</string>
   <string name="saved_pages_search_empty_message">Ingen sider fundet der matcher din forespørgsel.</string>
+  <string name="menu_show_tabs">Vis faner</string>
+  <string name="menu_other_languages">Læs på andre sprog</string>
+  <string name="menu_save_page">Gem side</string>
+  <string name="menu_share_page" fuzzy="true">Del</string>
+  <string name="find_in_page">Søg på siden</string>
+  <string name="menu_themechooser">Skrifttype og tema</string>
+  <string name="menu_open_link" fuzzy="true">Åbn link</string>
+  <string name="menu_open_in_new_tab">Åbn i ny fane</string>
   <string name="nav_item_nearby">I nærheden</string>
   <string name="menu_update_nearby">Opdater \"i nærheden\"</string>
   <string name="nearby_empty_title">Ingen sider i nærheden her!</string>
@@ -59,7 +65,6 @@
   <string name="preference_system_language_toggle">Anvend systemsproget</string>
   <string name="preference_system_language_summary">Systemsprog</string>
   <string name="langlinks_filter_hint">Søg</string>
-  <string name="menu_other_languages">Læs på andre sprog</string>
   <string name="langlinks_error_retry">Prøv igen</string>
   <string name="langlinks_empty">Denne side er ikke tilgængelig på andre sprog</string>
   <string name="langlinks_no_match">Ingen fundne sprog der passer til din forespørgsel.</string>
@@ -188,7 +193,6 @@
   <string name="edit_summary_tag_links">Tilføjet links</string>
   <string name="edit_summary_tag_other">Andet</string>
   <string name="edit_summary_tag_other_hint">Andre måder du forbedrede siden</string>
-  <string name="find_in_page">Søg på siden</string>
   <string name="find_next">Find næste</string>
   <string name="find_previous">Find forrige</string>
   <string name="error_network_error_try_again">Kunne ikke få forbindelse til netværket, prøv igen.</string>
@@ -204,7 +208,6 @@
   <string name="abusefilter_text_disallow">Et automatisk filter har identificeret denne redigering som potentielt ukonstruktiv, eller potentielt hærværk.&lt;br /&gt;&lt;br /&gt;Wikipedia er en encyklopædi, og kun neutralt og relevant indhold hører til her.</string>
   <string name="dialog_page_issues">Problemer med siden</string>
   <string name="button_page_issues">Problemer med siden</string>
-  <string name="menu_themechooser">Skrifttype og tema</string>
   <string name="text_size_select">Skriftstørrelse</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Lys</string>
@@ -269,7 +272,6 @@ Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Uploader ukendt</string>
   <string name="edit_save_unknown_error">Kunne ikke gemme din redigering: %s</string>
-  <string name="menu_show_tabs">Vis faner</string>
   <string name="menu_new_tab">Ny fane</string>
   <string name="button_close_tab">Luk fane</string>
   <string name="page_view_in_browser">Få vist siden i browseren</string>

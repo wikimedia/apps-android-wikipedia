@@ -24,18 +24,24 @@
   <string name="menu_update_all_saved_pages">Atualizar páginas guardadas</string>
   <string name="menu_update_selected_saved_pages">Atualizar páginas guardadas</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Atualizar todas as páginas guardadas?</string>
-  <string name="menu_save_page">Guardar página</string>
-  <string name="menu_share_page">Partilhar</string>
   <string name="share_via">Partilhar via</string>
   <string name="dialog_title_clear_saved_pages">Limpar todas as páginas guardadas?</string>
   <string name="toast_saving_page">A guardar página…</string>
-  <string name="toast_saved_page">Página guardada com êxito</string>
+  <string name="toast_saved_page" fuzzy="true">Página guardada com êxito</string>
   <string name="toast_saved_page_missing_images">Não foi possível salvar todas as imagens</string>
   <string name="toast_refresh_saved_page">A recarregar página guardada…</string>
   <string name="delete_selected_saved_pages">Eliminar</string>
   <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
   <string name="saved_pages_search_list_hint">Pesquisar nas páginas guardadas</string>
   <string name="saved_pages_search_empty_message">Nenhuma página correspondente com a sua pesquisa.</string>
+  <string name="menu_show_tabs">Mostrar separadores</string>
+  <string name="menu_other_languages">Ler noutros idiomas</string>
+  <string name="menu_save_page">Guardar página</string>
+  <string name="menu_share_page" fuzzy="true">Partilhar</string>
+  <string name="find_in_page">Localizar na página</string>
+  <string name="menu_themechooser">Alterar o tipo de letra e tema</string>
+  <string name="menu_open_link" fuzzy="true">Abrir ligação</string>
+  <string name="menu_open_in_new_tab">Abrir num novo separador</string>
   <string name="nav_item_nearby">Nas redondezas</string>
   <string name="menu_update_nearby">Atualizar páginas nas redondezas</string>
   <string name="nearby_empty_title">Sem páginas nas redondezas</string>
@@ -59,7 +65,6 @@
   <string name="preference_system_language_toggle">Usar idioma do sistema</string>
   <string name="preference_system_language_summary">Idioma do sistema</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
-  <string name="menu_other_languages">Ler noutros idiomas</string>
   <string name="langlinks_error_retry">Tentar novamente</string>
   <string name="langlinks_empty">Esta página não está disponível noutros idiomas.</string>
   <string name="langlinks_no_match">Nenhum idioma correspondente com a sua pesquisa.</string>
@@ -188,7 +193,6 @@
   <string name="edit_summary_tag_links">Ligações adicionadas</string>
   <string name="edit_summary_tag_other">Outro</string>
   <string name="edit_summary_tag_other_hint">Outras maneiras de como melhorou a página</string>
-  <string name="find_in_page">Localizar na página</string>
   <string name="find_next">Localizar próxima</string>
   <string name="find_previous">Localizar anteriores</string>
   <string name="error_network_error_try_again">Não foi possível aceder à rede, tente novamente por favor.</string>
@@ -204,7 +208,6 @@
   <string name="abusefilter_text_disallow">Um filtro automático identificou esta edição como não sendo construtiva ou um potencial vandalismo.&lt;br /&gt;&lt;br /&gt;A Wikipédia é uma enciclopédia neutra, logo o conteúdo notável pertence aqui.</string>
   <string name="dialog_page_issues">Problemas da página</string>
   <string name="button_page_issues">Problemas da página</string>
-  <string name="menu_themechooser">Alterar o tipo de letra e tema</string>
   <string name="text_size_select">Tamanho da fonte</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
@@ -269,7 +272,6 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Carregador desconhecido</string>
   <string name="edit_save_unknown_error">Não foi possível gravar a sua edição: %s</string>
-  <string name="menu_show_tabs">Mostrar separadores</string>
   <string name="menu_new_tab">Novo separador</string>
   <string name="button_close_tab">Fechar separador</string>
   <string name="page_view_in_browser">Abrir página no navegador</string>

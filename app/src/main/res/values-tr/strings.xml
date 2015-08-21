@@ -24,18 +24,24 @@
   <string name="menu_update_all_saved_pages">Kaydedilen sayfaları güncelle</string>
   <string name="menu_update_selected_saved_pages">Kaydedilen sayfaları güncelle</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Kaydedilen tüm sayfalar güncellensin mi?</string>
-  <string name="menu_save_page">Sayfayı kaydet</string>
-  <string name="menu_share_page">Paylaş</string>
   <string name="share_via">Şununla paylaş:</string>
   <string name="dialog_title_clear_saved_pages">Tüm kaydedilen sayfalar silinsin mi?</string>
   <string name="toast_saving_page">Sayfa kaydediliyor…</string>
-  <string name="toast_saved_page">Sayfa başarıyla kaydedildi</string>
+  <string name="toast_saved_page" fuzzy="true">Sayfa başarıyla kaydedildi</string>
   <string name="toast_saved_page_missing_images">Görüntülerin tamamı kaydedilemedi</string>
   <string name="toast_refresh_saved_page">Kaydedilmiş sayfa yenileniyor…</string>
   <string name="delete_selected_saved_pages">Sil</string>
   <string name="toast_saved_page_deleted">Kaydedilen sayfa(lar) silindi</string>
   <string name="saved_pages_search_list_hint">Kaydedilen sayfaları ara</string>
   <string name="saved_pages_search_empty_message">Sorgunuzla eşleşen hiçbir sayfa bulunamadı.</string>
+  <string name="menu_show_tabs">Sekmeleri göster</string>
+  <string name="menu_other_languages">Başka dilde oku</string>
+  <string name="menu_save_page">Sayfayı kaydet</string>
+  <string name="menu_share_page" fuzzy="true">Paylaş</string>
+  <string name="find_in_page">Bu sayfada bul</string>
+  <string name="menu_themechooser">Yazı tipi ve tema değiştir</string>
+  <string name="menu_open_link" fuzzy="true">Bağlantıyı aç</string>
+  <string name="menu_open_in_new_tab">Yeni sekmede aç</string>
   <string name="nav_item_nearby">Yakınındakiler</string>
   <string name="menu_update_nearby">Yakınındakileri güncelle</string>
   <string name="nearby_empty_title">Yakınında sayfa yok!</string>
@@ -59,7 +65,6 @@
   <string name="preference_system_language_toggle">Sistem dilini kullan</string>
   <string name="preference_system_language_summary">Sistem dili</string>
   <string name="langlinks_filter_hint">Ara</string>
-  <string name="menu_other_languages">Başka dilde oku</string>
   <string name="langlinks_error_retry">Tekrar dene</string>
   <string name="langlinks_empty">Bu sayfa diğer dillerde bulunmamaktadır</string>
   <string name="langlinks_no_match">Sorgunuzla eşleşen bir dil bulunamadı.</string>
@@ -91,7 +96,7 @@
   <string name="login_error_wrong_password">Yanlış parola</string>
   <string name="login_error_wrong_username">Yanlış kullanıcı adı</string>
   <string name="login_error_illegal">Geçersiz kullanıcı adı</string>
-  <string name="login_success_toast" fuzzy="true">Oturum açma başarılı!</string>
+  <string name="login_success_toast">Başarıyla oturum açıldı!</string>
   <string name="login_error_blocked">Bu kullanıcı engellendi</string>
   <string name="login_error_throttled">Çok fazla deneme yaptınız. Birkaç dakika bekleyip tekrar deneyin.</string>
   <string name="login_error_unknown">Oturum açma başarısız :(</string>
@@ -188,7 +193,6 @@
   <string name="edit_summary_tag_links">Bağlantı eklendi</string>
   <string name="edit_summary_tag_other">Diğer</string>
   <string name="edit_summary_tag_other_hint">Sayfayı geliştirdiğiniz diğer yönler</string>
-  <string name="find_in_page">Bu sayfada bul</string>
   <string name="find_next">Sonrakini bul</string>
   <string name="find_previous">Öncekini bul</string>
   <string name="error_network_error_try_again">Ağa erişilemiyor; lütfen tekrar deneyin.</string>
@@ -204,7 +208,6 @@
   <string name="abusefilter_text_disallow">Bir otomatik süzgeç, bu değişikliği potansiyel yapıcı olmayan veya muhtemel vandalizm olarak tanımlamıştır.&lt;br /&gt;&lt;br /&gt; Vikipedi bir ansiklopedidir ve sadece kayda değer, tarafsız içerikler burada yer alabilir.</string>
   <string name="dialog_page_issues">Sayfa sorunları</string>
   <string name="button_page_issues">Sayfa sorunları</string>
-  <string name="menu_themechooser">Yazı tipi ve tema değiştir</string>
   <string name="text_size_select">Yazı tipi boyutu</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Açık</string>
@@ -267,7 +270,6 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Adil kullanım</string>
   <string name="gallery_uploader_unknown">Yükleyen bilinmiyor</string>
   <string name="edit_save_unknown_error">Değişikliğiniz kaydedilemedi: %s</string>
-  <string name="menu_show_tabs">Sekmeleri göster</string>
   <string name="menu_new_tab">Yeni sekme</string>
   <string name="button_close_tab">Sekmeyi kapat</string>
   <string name="page_view_in_browser" fuzzy="true">Tarayıcıda görüntüle</string>

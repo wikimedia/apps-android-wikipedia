@@ -24,18 +24,24 @@
   <string name="menu_update_all_saved_pages">Halaman terbaru yang disimpan</string>
   <string name="menu_update_selected_saved_pages">Halaman terbaru yang disimpan</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Perbarui semua halaman tersimpan?</string>
-  <string name="menu_save_page">Simpan halaman</string>
-  <string name="menu_share_page">Bagikan</string>
   <string name="share_via">Berbagi melalui</string>
   <string name="dialog_title_clear_saved_pages">Hapus semua halaman tersimpan?</string>
   <string name="toast_saving_page">Menyimpan halaman…</string>
-  <string name="toast_saved_page">Penyimpanan halaman berhasil</string>
+  <string name="toast_saved_page" fuzzy="true">Penyimpanan halaman berhasil</string>
   <string name="toast_saved_page_missing_images">Tidak dapat menyelamatkan semua gambar</string>
   <string name="toast_refresh_saved_page">Menyegarkan halaman disimpan…</string>
   <string name="delete_selected_saved_pages">Hapus</string>
   <string name="toast_saved_page_deleted">Halaman yang disimpan terhapus</string>
   <string name="saved_pages_search_list_hint">Cari halaman tersimpan</string>
   <string name="saved_pages_search_empty_message">Tidak ada halaman yang cocok dengan \'%s\'</string>
+  <string name="menu_show_tabs">Tampilkan tab</string>
+  <string name="menu_other_languages">Baca dalam bahasa lain</string>
+  <string name="menu_save_page">Simpan halaman</string>
+  <string name="menu_share_page" fuzzy="true">Bagikan</string>
+  <string name="find_in_page">Cari di halaman</string>
+  <string name="menu_themechooser">Huruf dan tema</string>
+  <string name="menu_open_link" fuzzy="true">Buka pranala</string>
+  <string name="menu_open_in_new_tab">Buka di tab baru</string>
   <string name="nav_item_nearby">Sekitar</string>
   <string name="menu_update_nearby">Perbarui sekitar</string>
   <string name="nearby_empty_title">Tidak ada halaman terdekat di sini!</string>
@@ -59,7 +65,6 @@
   <string name="preference_system_language_toggle">Gunakan bahasa sistem</string>
   <string name="preference_system_language_summary">Bahasa sistem</string>
   <string name="langlinks_filter_hint">Cari</string>
-  <string name="menu_other_languages">Baca dalam bahasa lain</string>
   <string name="langlinks_error_retry">Coba lagi</string>
   <string name="langlinks_empty">Halaman ini tidak tersedia dalam bahasa lain</string>
   <string name="langlinks_no_match">Tidak ada bahasa yang ditemukan yang cocok dengan permintaan Anda.</string>
@@ -188,7 +193,6 @@
   <string name="edit_summary_tag_links">Penambahan pranala</string>
   <string name="edit_summary_tag_other">Lainnya</string>
   <string name="edit_summary_tag_other_hint">Cara lain Anda menyempurnakan halaman</string>
-  <string name="find_in_page">Cari di halaman</string>
   <string name="find_next">Cari berikutnya</string>
   <string name="find_previous">Cari sebelumnya</string>
   <string name="error_network_error_try_again">Tidak dapat mencapai jaringan, harap coba lagi.</string>
@@ -204,7 +208,6 @@
   <string name="abusefilter_text_disallow">Penyaring otomatis telah mengidentifikasi suntingan ini sebagai berpotensi tidak konstruktif, atau berpotensi vandalisme.&lt;br /&gt;&lt;br /&gt;Wikipedia adalah merupakan ensiklopedia dan selalu netral, konten penting berada di sini.</string>
   <string name="dialog_page_issues">Tag pada halaman</string>
   <string name="button_page_issues">Tag pada halaman</string>
-  <string name="menu_themechooser">Huruf dan tema</string>
   <string name="text_size_select">Ukuran huruf</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Terang</string>
@@ -269,7 +272,6 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_fair_use_license">Penggunaan wajar</string>
   <string name="gallery_uploader_unknown">Pengunggah tidak diketahui</string>
   <string name="edit_save_unknown_error">Tidak dapat menyimpan suntingan Anda: %s</string>
-  <string name="menu_show_tabs">Tampilkan tab</string>
   <string name="menu_new_tab">Tab baru</string>
   <string name="button_close_tab">Tutup tab</string>
   <string name="tool_tip_select_text">Tekan dan tahan di mana saja di teks untuk menyorotnya untuk salin dan berbagi.</string>

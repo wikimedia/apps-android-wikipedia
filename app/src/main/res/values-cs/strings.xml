@@ -24,18 +24,21 @@
   <string name="menu_update_all_saved_pages">Aktualizovat uložené stránky</string>
   <string name="menu_update_selected_saved_pages">Aktualizovat uložené stránky</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Aktualizovat všechny uložené stránky?</string>
-  <string name="menu_save_page">Uložit stránku</string>
-  <string name="menu_share_page">Sdílet</string>
   <string name="share_via">Sdílet přes</string>
   <string name="dialog_title_clear_saved_pages">Vymazat všechny uložené stránky?</string>
   <string name="toast_saving_page">Ukládání stránky…</string>
-  <string name="toast_saved_page">Stránka úspěšně uložena</string>
+  <string name="toast_saved_page" fuzzy="true">Stránka úspěšně uložena</string>
   <string name="toast_saved_page_missing_images">Nepodařilo se uložit všechny obrázky</string>
   <string name="toast_refresh_saved_page">Aktualizace uložené stránky…</string>
   <string name="delete_selected_saved_pages">Vymazat</string>
   <string name="toast_saved_page_deleted">Uložené stránky vymazány</string>
   <string name="saved_pages_search_list_hint">Hledat uložené stránky</string>
   <string name="saved_pages_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
+  <string name="menu_other_languages">Číst v jiných jazycích</string>
+  <string name="menu_save_page">Uložit stránku</string>
+  <string name="menu_share_page" fuzzy="true">Sdílet</string>
+  <string name="find_in_page">Najít na stránce</string>
+  <string name="menu_themechooser">Změnit písmo a vzhled</string>
   <string name="nav_item_nearby">Poblíž</string>
   <string name="menu_update_nearby">Aktualizovat „poblíž“</string>
   <string name="nearby_empty_title">Žádné stránky poblíž!</string>
@@ -53,7 +56,6 @@
   <string name="preference_title_language">Jazyk Wikipedie</string>
   <string name="preference_languages_filter_hint">Hledat</string>
   <string name="langlinks_filter_hint">Hledat</string>
-  <string name="menu_other_languages">Číst v jiných jazycích</string>
   <string name="langlinks_error_retry">Zkusit znovu</string>
   <string name="langlinks_empty">Tato stránka není k dispozici v jiných jazycích</string>
   <string name="langlinks_activity_title">Jiné jazyky</string>
@@ -178,7 +180,6 @@
   <string name="edit_summary_tag_links">Přidány odkazy</string>
   <string name="edit_summary_tag_other">Jinak</string>
   <string name="edit_summary_tag_other_hint">Jiný způsob, jakým jste vylepšili stránku</string>
-  <string name="find_in_page">Najít na stránce</string>
   <string name="find_next">Najít další</string>
   <string name="find_previous">Najít předchozí</string>
   <string name="error_network_error_try_again">Nepodařilo se připojit k síti, zkuste to znovu.</string>
@@ -190,7 +191,6 @@
   <string name="menu_refresh_saved_page">Obnovit stránku</string>
   <string name="abusefilter_title_warn">Může se jednat o nekonstruktivní editaci. Jste si jisti, že ji chcete uložit?</string>
   <string name="abusefilter_title_disallow">Tuto editaci nemůžete uložit. Prosím, vraťte se zpět a změnte ji.</string>
-  <string name="menu_themechooser">Změnit písmo a vzhled</string>
   <string name="text_size_select">Velikost písma</string>
   <string name="color_theme_select">Vzhled</string>
   <string name="color_theme_light">Světlý</string>

@@ -24,18 +24,24 @@
   <string name="menu_update_all_saved_pages">Aggiorna pagine salvate</string>
   <string name="menu_update_selected_saved_pages">Aggiorna pagine salvate</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Aggiornare tutte le pagine salvate?</string>
-  <string name="menu_save_page">Salva la pagina</string>
-  <string name="menu_share_page">Condividi</string>
   <string name="share_via">Condividi tramite…</string>
   <string name="dialog_title_clear_saved_pages">Cancellare tutte le pagine salvate?</string>
   <string name="toast_saving_page">Sto salvando la pagina…</string>
-  <string name="toast_saved_page">Pagina salvata correttamente</string>
+  <string name="toast_saved_page" fuzzy="true">Pagina salvata correttamente</string>
   <string name="toast_saved_page_missing_images">Non è stato possibile salvare tutte le immagini</string>
   <string name="toast_refresh_saved_page">Aggiornamento pagina salvata…</string>
   <string name="delete_selected_saved_pages">Cancella</string>
   <string name="toast_saved_page_deleted">Pagine salvate cancellate</string>
   <string name="saved_pages_search_list_hint">Cerca pagine salvate</string>
   <string name="saved_pages_search_empty_message">Nessuna pagina trovata che corrisponda alla richiesta.</string>
+  <string name="menu_show_tabs">Mostra schede</string>
+  <string name="menu_other_languages">Leggi in altre lingue</string>
+  <string name="menu_save_page">Salva la pagina</string>
+  <string name="menu_share_page" fuzzy="true">Condividi</string>
+  <string name="find_in_page">Trova nella pagina</string>
+  <string name="menu_themechooser">Carattere e tema</string>
+  <string name="menu_open_link" fuzzy="true">Apri il link</string>
+  <string name="menu_open_in_new_tab">Apri in una nuova scheda</string>
   <string name="nav_item_nearby">Nelle vicinanze</string>
   <string name="menu_update_nearby">Aggiorna nelle vicinanze</string>
   <string name="nearby_empty_title">Nessuna pagina nelle vicinanze qui!</string>
@@ -59,7 +65,6 @@
   <string name="preference_system_language_toggle">Usa lingua del sistema</string>
   <string name="preference_system_language_summary">Lingua di sistema</string>
   <string name="langlinks_filter_hint">Cerca</string>
-  <string name="menu_other_languages">Leggi in altre lingue</string>
   <string name="langlinks_error_retry">Riprova</string>
   <string name="langlinks_empty">Questa pagina non è disponibile in altre lingue</string>
   <string name="langlinks_no_match">Nessuna lingua trovata che corrisponda alla richiesta.</string>
@@ -77,7 +82,7 @@
   <string name="menu_show_toc">Sommario</string>
   <string name="search_no_results_found">Nessun risultato</string>
   <string name="edit_section_captcha_message">Per aiutare a combattere lo spam automatico, inseririsci per favore le parole che compaiono sotto</string>
-  <string name="edit_section_captcha_hint">Ripeti le parole in alto</string>
+  <string name="edit_section_captcha_hint">Ripeti le parole dall\'alto</string>
   <string name="title_captcha">Inserisci il captcha</string>
   <string name="edit_section_captcha_reload">Toccare il CAPTCHA per ricaricare</string>
   <string name="edit_saved_page_refresh">Questa pagina salvata potrebbe essere obsoleta, e bisogna ricaricarla per abilitarne la modifica. Vuoi ricaricare la pagina?</string>
@@ -91,7 +96,7 @@
   <string name="login_error_wrong_password">Password non corretta</string>
   <string name="login_error_wrong_username">Nome utente non corretto</string>
   <string name="login_error_illegal">Nome utente non valido</string>
-  <string name="login_success_toast" fuzzy="true">Accesso effettuato!</string>
+  <string name="login_success_toast">Accesso eseguito con successo!</string>
   <string name="login_error_blocked">Questo utente è stato bloccato</string>
   <string name="login_error_throttled">Troppi tentativi di accesso. Attendere qualche minuto e riprovare.</string>
   <string name="login_error_unknown">Accesso non riuscito :(</string>
@@ -122,7 +127,7 @@
   <string name="create_account_noname_error">Il nome utente che hai fornito non è valido. Indica un altro nome utente.</string>
   <string name="create_account_invalid_email_error">L\'indirizzo email che hai fornito non è valido.</string>
   <string name="create_account_password_too_short_error">La password che hai fornito è troppo breve.</string>
-  <string name="create_account_blocked_anon_error">Non puoi creare un\'utenza perché il tuo IP è bloccato.</string>
+  <string name="create_account_blocked_anon_error">Non puoi creare un\'utenza perché il tuo indirizzo IP è bloccato.</string>
   <string name="create_account_blocked_error">Non puoi creare un\'utenza perché il tuo account è bloccato.</string>
   <string name="create_account_password_name_match_error">Il tuo nome utente e la password devono essere diversi.</string>
   <string name="create_account_generic_error">Impossibile creare l\'account</string>
@@ -188,7 +193,6 @@
   <string name="edit_summary_tag_links">Aggiunti collegamenti</string>
   <string name="edit_summary_tag_other">Altro</string>
   <string name="edit_summary_tag_other_hint">Altri modi nei quali hai migliorato la pagina</string>
-  <string name="find_in_page">Trova nella pagina</string>
   <string name="find_next">Trova successivo</string>
   <string name="find_previous">Trova precedente</string>
   <string name="error_network_error_try_again">Impossibile raggiungere la rete, si prega di provare nuovamente.</string>
@@ -204,7 +208,6 @@
   <string name="abusefilter_text_disallow">Un filtro automatico ha identificato questa modifica come potenzialmente inconcludente, o potenziale vandalismo.&lt;br /&gt;&lt;br /&gt;Wikipedia è un\'enciclopedia e devono esserci solo contenuti neutrali e degni di nota.</string>
   <string name="dialog_page_issues">Problemi con la pagina</string>
   <string name="button_page_issues">Problemi con la pagina</string>
-  <string name="menu_themechooser">Cambia carattere e tema</string>
   <string name="text_size_select">Dimensione carattere</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Chiaro</string>
@@ -214,7 +217,7 @@
   <string name="search_recent_header">Ricerche recenti:</string>
   <string name="button_clear_all_recent_searches">Pulisci le ricerche recenti</string>
   <string name="clear_recent_searches_confirm">Sei sicuro di voler cancellare la tua cronologia di ricerca?</string>
-  <string name="error_browser_not_found">Impossibile aprire la pagina web (nessun app browser trovato).</string>
+  <string name="error_browser_not_found">Impossibile aprire la pagina web (nessun browser trovato).</string>
   <string name="table_infobox">Fatti in breve</string>
   <string name="table_other">Ulteriori informazioni</string>
   <string name="table_close">Chiudi</string>
@@ -254,7 +257,7 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_error_draw_failed">Impossibile rendere l\'immagine.</string>
   <string name="license_title">Testo di licenza per la libreria %s</string>
   <string name="gallery_menu_share">Condividi</string>
-  <string name="gallery_share_error">Impossibile condividere immagine: %s</string>
+  <string name="gallery_share_error">Impossibile condividere l\'immagine: %s</string>
   <string name="gallery_menu_save">Salva sul dispositivo</string>
   <string name="gallery_save_error">Impossibile salvare l\'immagine: %s</string>
   <string name="gallery_save_error_mediastore">Errore durante l\'importazione dell\'immagine nella galleria di file multimediali</string>
@@ -271,12 +274,11 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_fair_use_license">Utilizzo onesto</string>
   <string name="gallery_uploader_unknown">Uploader sconosciuto</string>
   <string name="edit_save_unknown_error">Non è possibile salvare la modifica: %s</string>
-  <string name="menu_show_tabs">Mostra schede</string>
   <string name="menu_new_tab">Nuova scheda</string>
   <string name="button_close_tab">Chiudi scheda</string>
   <string name="tool_tip_select_text">Premere e tenere premuto in qualsiasi punto del testo per evidenziarlo per la copia e la condivisione.</string>
   <string name="tool_tip_share">Dopo aver evidenziato un dato interessante, prova a condividerlo sul tuo network preferito!</string>
-  <string name="page_view_in_browser">Visualizzare la pagina nel browser</string>
+  <string name="page_view_in_browser">Visualizza la pagina nel browser</string>
   <string name="tool_tip_toc_button">Guarda il menù dei contenuti premendo questo tasto, o scorri dal lato destro dello schermo.</string>
   <string name="error_server_response">Il server non è riuscito a completare la richiesta.</string>
   <string name="error_response_malformed">Risposta dal server non formattata correttamente.</string>

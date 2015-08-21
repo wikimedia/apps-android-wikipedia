@@ -22,18 +22,21 @@
   <string name="menu_update_all_saved_pages">Сакталган барактарды жаңылоо</string>
   <string name="menu_update_selected_saved_pages">Сакталган барактарды жаңылоо</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Бардык сакталган барактарды жаңылоо керекпи?</string>
-  <string name="menu_save_page">Баракты сактоо</string>
-  <string name="menu_share_page">Бөлүшүү</string>
   <string name="share_via">аркылуу бөлүшүү</string>
   <string name="dialog_title_clear_saved_pages">Бардык сакталган барактарды өчүрүү керекпи?</string>
   <string name="toast_saving_page">Барак сакталууда…</string>
-  <string name="toast_saved_page">Барак ийгиликтүү сакталды</string>
+  <string name="toast_saved_page" fuzzy="true">Барак ийгиликтүү сакталды</string>
   <string name="toast_saved_page_missing_images">Бардык сүрөттөрдү сактоого мүмкүнчүлүк болбоду</string>
   <string name="toast_refresh_saved_page">Сакталган барак жаңыланууда…</string>
   <string name="delete_selected_saved_pages">Өчүрүү</string>
   <string name="toast_saved_page_deleted">Сакталган барак(тар) өчүрүлдү</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Издөө</string>
   <string name="saved_pages_search_empty_message">Сиздин издегениңизге төп барактар табылган жок</string>
+  <string name="menu_other_languages">Башка тилдерде окуу</string>
+  <string name="menu_save_page">Баракты сактоо</string>
+  <string name="menu_share_page" fuzzy="true">Бөлүшүү</string>
+  <string name="find_in_page">Бул барактан табуу</string>
+  <string name="menu_themechooser">Жазуу түрүн жана жасалганы өзгөртүү</string>
   <string name="nav_item_nearby">Жакынкы</string>
   <string name="menu_update_nearby">Жакынкы жерлерди жаңылоо</string>
   <string name="nearby_empty_title">Жакынкы жерлердеги объекттер жөнүндө барактар жок!</string>
@@ -53,7 +56,6 @@
   <string name="preference_title_language">Уикипедия тили</string>
   <string name="preference_languages_filter_hint">Издөө</string>
   <string name="langlinks_filter_hint">Издөө</string>
-  <string name="menu_other_languages">Башка тилдерде окуу</string>
   <string name="langlinks_error_retry">Кайра аракет кылуу</string>
   <string name="langlinks_empty">Бул барак башка тилдерде жеткиликтүү эмес.</string>
   <string name="langlinks_no_match">Сиздин сурооңузга төп тил табылбады.</string>
@@ -176,7 +178,6 @@
   <string name="edit_summary_tag_links">Шилтемелер кошулду</string>
   <string name="edit_summary_tag_other">Башка</string>
   <string name="edit_summary_tag_other_hint">Бул баракты жакшыртууңуздун башка ыкмалары</string>
-  <string name="find_in_page">Бул барактан табуу</string>
   <string name="find_next">Ушуну табуу</string>
   <string name="find_previous">Мурункуну табуу</string>
   <string name="error_network_error_try_again">Тармак жеткиликсиз, кайра аракет кылып көрүңүз.</string>
@@ -190,7 +191,6 @@
   <string name="abusefilter_title_disallow">Сиз бул оңдоону сактай албайсыз. Сураныч, артка кайтыңыз жана аны өзгөртүңүз.</string>
   <string name="dialog_page_issues">Барак боюнча суроолор</string>
   <string name="button_page_issues">Барак боюнча суроолор</string>
-  <string name="menu_themechooser">Жазуу түрүн жана жасалганы өзгөртүү</string>
   <string name="text_size_select">Жазуу түрүнүн өлчөмү</string>
   <string name="color_theme_select">Жасалга</string>
   <string name="color_theme_light">Ачык</string>

@@ -24,18 +24,25 @@
   <string name="menu_update_all_saved_pages">עדכון הדפים השמורים</string>
   <string name="menu_update_selected_saved_pages">עדכון הדפים השמורים</string>
   <string name="dialog_prompt_refresh_all_saved_pages">לעדכן את כל הדפים השמורים?</string>
-  <string name="menu_save_page">שמירת דף</string>
-  <string name="menu_share_page">שיתוף</string>
   <string name="share_via">שיתוף דרך</string>
   <string name="dialog_title_clear_saved_pages">לנקות את כל הדפים השמורים?</string>
   <string name="toast_saving_page">שמירת דף…</string>
-  <string name="toast_saved_page">הדף נשמר בהצלחה</string>
+  <string name="toast_saved_page">הדף \"%s\" נשמר בהצלחה</string>
   <string name="toast_saved_page_missing_images">לא היה אפשר לשמור את כל התמונות</string>
   <string name="toast_refresh_saved_page">רענון הדף השמור…</string>
   <string name="delete_selected_saved_pages">מחיקה</string>
   <string name="toast_saved_page_deleted">הדפים השמורים נמחקו</string>
   <string name="saved_pages_search_list_hint">חיפוש דפים שמורים</string>
   <string name="saved_pages_search_empty_message">לא נמצאו דפים התואמים לשאילתה שלך.</string>
+  <string name="menu_show_tabs">הצגת לשוניות</string>
+  <string name="menu_other_languages">לקרוא בשפות אחרות</string>
+  <string name="menu_save_page">שמירת דף</string>
+  <string name="menu_share_page">שיתוף קישור</string>
+  <string name="find_in_page">חיפוש בדף</string>
+  <string name="menu_themechooser">לשנות גופן ועיצוב</string>
+  <string name="menu_open_link">פתיחה</string>
+  <string name="menu_open_in_new_tab">פתיחת קישור בלשונית חדשה</string>
+  <string name="menu_long_press_copy_page">העתקת כתובת הקישור</string>
   <string name="nav_item_nearby">בסביבה</string>
   <string name="menu_update_nearby">עדכון בסביבה</string>
   <string name="nearby_empty_title">אין דפים על דברים כאן בסביבה!</string>
@@ -59,7 +66,6 @@
   <string name="preference_system_language_toggle">להשתמש בשפת המערכת</string>
   <string name="preference_system_language_summary">שפת המערכת</string>
   <string name="langlinks_filter_hint">חיפוש</string>
-  <string name="menu_other_languages">לקרוא בשפות אחרות</string>
   <string name="langlinks_error_retry">לנסות שוב</string>
   <string name="langlinks_empty">הדף הזה אינו זמין בשפות אחרות</string>
   <string name="langlinks_no_match">לא נמצאות שפות התואמות לשאילתה שלך.</string>
@@ -188,7 +194,6 @@
   <string name="edit_summary_tag_links">הוספתי קישורים</string>
   <string name="edit_summary_tag_other">אחר</string>
   <string name="edit_summary_tag_other_hint">איך עוד שיפרת את הדף</string>
-  <string name="find_in_page">חיפוש בדף</string>
   <string name="find_next">חיפוש הבא</string>
   <string name="find_previous">חיפוש הקודם</string>
   <string name="error_network_error_try_again">לא הייתה גישה לרשת, נא לנסות שוב.</string>
@@ -204,7 +209,6 @@
   <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך מתאים לכאן.</string>
   <string name="dialog_page_issues">בעיות בדף</string>
   <string name="button_page_issues">בעיות בדף</string>
-  <string name="menu_themechooser">לשנות גופן ועיצוב</string>
   <string name="text_size_select">גודל גופן</string>
   <string name="color_theme_select">עיצוב</string>
   <string name="color_theme_light">בהיר</string>
@@ -269,16 +273,17 @@
   <string name="gallery_fair_use_license">שימוש הוגן</string>
   <string name="gallery_uploader_unknown">המעלה אינו ידוע</string>
   <string name="edit_save_unknown_error">לא היה אפשר לשמור את העריכה שלך: %s</string>
-  <string name="menu_show_tabs">הצגת לשוניות</string>
   <string name="menu_new_tab">הלשונית הבאה</string>
   <string name="button_close_tab">סגירת לשונית</string>
   <string name="tool_tip_select_text">יש ללחוץ ולהחזיק בכל מקום בטקסט כדי להאיר אותו להעתקה ושיתוף.</string>
   <string name="tool_tip_share">אחרי שהארת עובדה מעניינת זה הזמן לנסות לשתף אותה ברשתות האהובות עליך!</string>
   <string name="page_view_in_browser">להציג את הדף בדפדפן</string>
-  <string name="tool_tip_toc_button">ר\' את תוכן העניינים בכל זמן באמצעות לחיצה על הכפתור הזה או החלקה מהקצה הימני של המסך.</string>
+  <string name="tool_tip_toc_button">ר\' את תוכן העניינים בכל זמן באמצעות לחיצה על הכפתור הזה או החלקה מהקצה השמאלי של המסך.</string>
   <string name="error_server_response">השרת לא יכול להשלים את הבקשה.</string>
   <string name="error_response_malformed">התשובה מהשרת לא מעוצבת נכון.</string>
   <string name="error_unknown">אירעה שגיאה בלתי־ידועה.</string>
   <string name="format_error_server_message">הודעה: \"%s\"</string>
   <string name="format_error_server_code">קוד: \"%s\"</string>
+  <string name="address_copied">הכתובת הועתקה ללוח.</string>
+  <string name="button_continue_to_article" fuzzy="true">להמשיך לדף</string>
 </resources>

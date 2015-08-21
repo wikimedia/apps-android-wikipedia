@@ -20,18 +20,20 @@
   <string name="menu_update_all_saved_pages">Atnaujinti įrašytus puslapius</string>
   <string name="menu_update_selected_saved_pages">Atnaujinti įrašytus puslapius</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Atnaujinti visus įrašytus puslapius?</string>
-  <string name="menu_save_page">Įrašyti puslapį</string>
-  <string name="menu_share_page">Dalintis</string>
   <string name="share_via">Dalintis per</string>
   <string name="dialog_title_clear_saved_pages">Valyti visus įrašytus puslapius?</string>
   <string name="toast_saving_page">Puslapis įrašomas…</string>
-  <string name="toast_saved_page">Puslapis sėkmingai įrašytas</string>
+  <string name="toast_saved_page" fuzzy="true">Puslapis sėkmingai įrašytas</string>
   <string name="toast_saved_page_missing_images">Nepavyko įrašyti visų paveikslėlių</string>
   <string name="toast_refresh_saved_page">Atnaujinamas įrašytas puslapis…</string>
   <string name="delete_selected_saved_pages">Naikinti</string>
   <string name="toast_saved_page_deleted">Įrašyti puslapiai panaikinti</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Paieška</string>
   <string name="saved_pages_search_empty_message">Nerasta puslapių, atitinkančių Jūsų užklausą.</string>
+  <string name="menu_other_languages">Skaityti kitomis kalbomis</string>
+  <string name="menu_save_page">Įrašyti puslapį</string>
+  <string name="menu_share_page" fuzzy="true">Dalintis</string>
+  <string name="find_in_page">Rasti puslapyje</string>
   <string name="nav_item_nearby">Šalia</string>
   <string name="menu_update_nearby">Atnaujinti tai, kas šalia</string>
   <string name="nearby_empty_title">Nėra puslapių šalia!</string>
@@ -50,7 +52,6 @@
   <string name="preference_title_language">Vikipedijos kalba</string>
   <string name="preference_languages_filter_hint">Ieškoti</string>
   <string name="langlinks_filter_hint">Ieškoti</string>
-  <string name="menu_other_languages">Skaityti kitomis kalbomis</string>
   <string name="langlinks_error_retry">Bandyti dar kartą</string>
   <string name="langlinks_empty">Šis puslapis nėra išverstas į kitas kalbas.</string>
   <string name="langlinks_activity_title">Kitos kalbos</string>
@@ -134,7 +135,6 @@
   <string name="edit_next">Kitas</string>
   <string name="edit_done">Įrašyti</string>
   <string name="edit_preview">Peržiūra</string>
-  <string name="find_in_page">Rasti puslapyje</string>
   <string name="find_next">Rasti kitą</string>
   <string name="find_previous">Rasti ankstesnį</string>
   <string name="error_network_error_try_again">Nepavyko pasiekti tinklo, prašome bandyti dar kartą.</string>

@@ -24,18 +24,20 @@
   <string name="menu_update_all_saved_pages">સાચવેલા પાનાંઓ અદ્યતન કરો</string>
   <string name="menu_update_selected_saved_pages">સાચવેલા પાનાંઓ અદ્યતન કરો</string>
   <string name="dialog_prompt_refresh_all_saved_pages">બધા સાચવેલા પાનાંઓ અદ્યતન કરવા છે ?</string>
-  <string name="menu_save_page">પાનું સાચવો</string>
-  <string name="menu_share_page">વહેંચો</string>
   <string name="share_via">આના માધ્યમથી વહેંચો</string>
   <string name="dialog_title_clear_saved_pages">બધા સાચવેલા પાનાં કાઢી નાખવા છે ?</string>
   <string name="toast_saving_page">પાનું સચવાય છે...</string>
-  <string name="toast_saved_page">પાનું સફળતાપૂર્વક સચવાયું</string>
+  <string name="toast_saved_page" fuzzy="true">પાનું સફળતાપૂર્વક સચવાયું</string>
   <string name="toast_saved_page_missing_images">બધાં ચિત્રો સચવાયા નહીં</string>
   <string name="toast_refresh_saved_page">સચવાયેલું પાનું તાજું થાય છે...</string>
   <string name="delete_selected_saved_pages">દૂર કરો</string>
   <string name="toast_saved_page_deleted">સચવાયેલું પાનું (પાના) હટાવાયું</string>
   <string name="saved_pages_search_list_hint">સંગ્રહેલ પાનાંઓમાં શોધો</string>
   <string name="saved_pages_search_empty_message">તમારી પૂછપરછ સાથે બંધબેસતું કોઈ પાનું મળ્યું નથી.</string>
+  <string name="menu_other_languages">અન્ય ભાષાઓમાં વાંચો</string>
+  <string name="menu_save_page">પાનું સાચવો</string>
+  <string name="menu_share_page" fuzzy="true">વહેંચો</string>
+  <string name="find_in_page">પાનામાં શોધો</string>
   <string name="nav_item_nearby">નજીકના</string>
   <string name="nearby_empty_title">અહીં કોઈ નજીકના પાના નથી !</string>
   <string name="nearby_distance_in_meters">%d મી.</string>
@@ -54,7 +56,6 @@
   <string name="preference_system_language_toggle">સિસ્ટમ ભાષા વાપરો</string>
   <string name="preference_system_language_summary">સિસ્ટમ ભાષા</string>
   <string name="langlinks_filter_hint">શોધ</string>
-  <string name="menu_other_languages">અન્ય ભાષાઓમાં વાંચો</string>
   <string name="langlinks_error_retry">ફરી પ્રયત્ન કરો</string>
   <string name="langlinks_empty">આ પાનું અન્ય ભાષાઓમાં ઉપલબ્ધ નથી.</string>
   <string name="langlinks_no_match">તમારી પૃચ્છાને અનુકૂળ કોઈ ભાષા મળી નથી.</string>
@@ -138,7 +139,6 @@
   <string name="edit_summary_tag_grammar">વ્યાકરણ સુધાર્યું</string>
   <string name="edit_summary_tag_links">કડીઓ ઉમેરી</string>
   <string name="edit_summary_tag_other">અન્ય</string>
-  <string name="find_in_page">પાનામાં શોધો</string>
   <string name="find_next">આગળ શોધો</string>
   <string name="saved_pages_update_all_error_retry">ફરી પ્રયત્ન કરો</string>
   <string name="dialog_page_issues">પૃષ્ઠમાં ખરાબી</string>

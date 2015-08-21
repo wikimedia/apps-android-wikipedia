@@ -22,18 +22,21 @@
   <string name="menu_update_all_saved_pages">ਸਾਂਭੇ ਹੋਏ ਵਰਕਿਆਂ ਨੂੰ ਅੱਡੇਟ ਕਰ ਦਿਉ</string>
   <string name="menu_update_selected_saved_pages">ਸਾਂਭੇ ਹੋਏ ਵਰਕਿਆਂ ਨੂੰ ਅੱਪਡੇਟ ਕਰ ਦਿਉ</string>
   <string name="dialog_prompt_refresh_all_saved_pages">ਕੀ ਸਭ ਸੰਭਾਲੇ ਵਰਕੇ ਅੱਪਡੇਟ ਕਰਨੇ ਹਨ?</string>
-  <string name="menu_save_page">ਵਰਕਾ ਸੰਭਾਲੋ</string>
-  <string name="menu_share_page">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="share_via">ਸਾਂਝੀਕਰਨ</string>
   <string name="dialog_title_clear_saved_pages">ਕੀ ਸੱਭ ਸੰਭਾਲੇ ਗਏ ਵਰਕੇ ਸਾਫ ਕਰਨੇ ਹਨ?</string>
   <string name="toast_saving_page">… ਵਰਕਾ ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ</string>
-  <string name="toast_saved_page">ਵਰਕਾ ਸਫਲਤਾਪੂਰਵਕ ਸੰਭਾਲਿਆ ਗਿਆ</string>
+  <string name="toast_saved_page" fuzzy="true">ਵਰਕਾ ਸਫਲਤਾਪੂਰਵਕ ਸੰਭਾਲਿਆ ਗਿਆ</string>
   <string name="toast_saved_page_missing_images">ਸਾਰੀਆਂ ਤਸਵੀਰਾਂ ਸੰਭਾਲੀਆਂ ਨਹੀਂ ਗਈਆਂ</string>
   <string name="toast_refresh_saved_page">ਸਾਂਭਿਆ ਵਰਕਾ ਮੁੜ-ਤਾਜ਼ਾ ਹੋ ਰਿਹਾ ਹੈ…</string>
   <string name="delete_selected_saved_pages">ਮਿਟਾਉ</string>
   <string name="toast_saved_page_deleted">ਸਾਂਭਿਆ ਵਰਕਾ(ਕੇ) ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="saved_pages_search_list_hint">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਖੋਜੋ</string>
   <string name="saved_pages_search_empty_message">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮੇਲ ਖਾਂਦਾ ਕੋਈ ਵਰਕਾ ਨਹੀਂ ਲੱਭਿਆ।</string>
+  <string name="menu_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
+  <string name="menu_save_page">ਵਰਕਾ ਸੰਭਾਲੋ</string>
+  <string name="menu_share_page" fuzzy="true">ਸਾਂਝਾ ਕਰੋ</string>
+  <string name="find_in_page">ਸਫ਼ੇ \'ਚ ਲੱਭੋ</string>
+  <string name="menu_themechooser">ਅੱਖਰ-ਬਨਾਵਟ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="nav_item_nearby">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="menu_update_nearby">ਨੇੜੇ-ਤੇੜੇ ਅੱਪਡੇਟ ਕਰੋ</string>
   <string name="nearby_empty_title">ਇੱਥੇ ਨੇੜੇ-ਤੇੜੇ ਦੇ ਕੋਈ ਸਫ਼ੇ ਨਹੀਂ!</string>
@@ -57,7 +60,6 @@
   <string name="preference_system_language_toggle">ਸਿਸਟਮ ਭਾਸ਼ਾ ਵਰਤੋ</string>
   <string name="preference_system_language_summary">ਸਿਸਟਮ ਭਾਸ਼ਾ</string>
   <string name="langlinks_filter_hint">ਖੋਜੋ</string>
-  <string name="menu_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="langlinks_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="langlinks_empty">ਇਹ ਵਰਕਾ ਹੋਰਨਾਂ ਬੋਲੀਆਂ ਵਿੱਚ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।</string>
   <string name="langlinks_no_match">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮਿਲਦੀਆਂ ਕੋਈ ਬੋਲੀਆਂ ਨਹੀਂ ਲੱਭੀਆਂ।</string>
@@ -183,7 +185,6 @@
   <string name="edit_summary_tag_links">ਕੜੀਆਂ ਜੋੜੀਆਂ</string>
   <string name="edit_summary_tag_other">ਹੋਰ</string>
   <string name="edit_summary_tag_other_hint">ਹੋਰ ਤਰੀਕੇ ਜਿਹਨਾਂ ਨਾਲ਼ ਤੁਸੀਂ ਸਫ਼ੇ ਨੂੰ ਸੁਧਾਰਿਆ</string>
-  <string name="find_in_page">ਸਫ਼ੇ \'ਚ ਲੱਭੋ</string>
   <string name="find_next">ਅੱਗੇ ਲੱਭੋ</string>
   <string name="find_previous">ਪਿੱਛੇ ਲੱਭੋ</string>
   <string name="error_network_error_try_again">ਨੈੱਟਵਰਕ ਤੱਕ ਪਹੁੰਚ ਨਾ ਹੋ ਸਕੀ, ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
@@ -197,7 +198,6 @@
   <string name="abusefilter_title_disallow">ਤੁਸੀਂ ਇਹ ਸੋਧ ਨਹੀਂ ਸਾਂਭ ਸਕਦੇ। ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਪਿੱਛੇ ਜਾਉ ਅਤੇ ਇਹਨੂੰ ਬਦਲੋ।</string>
   <string name="dialog_page_issues">ਸਫ਼ੇ ਦੇ ਮੁੱਦੇ</string>
   <string name="button_page_issues">ਸਫ਼ੇ ਦੇ ਮੁੱਦੇ</string>
-  <string name="menu_themechooser">ਅੱਖਰ-ਬਨਾਵਟ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="text_size_select">ਅੱਖਰਾਂ ਦਾ ਅਕਾਰ</string>
   <string name="color_theme_select">ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="color_theme_light">ਹਲਕੀ</string>

@@ -21,23 +21,24 @@
   <string name="menu_update_all_saved_pages">ЦӀунарал гьумерал цӀигьаризе</string>
   <string name="menu_update_selected_saved_pages">ЦӀунарал гьумерал цӀигьаризе</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Киналго цӀунарал гьумерал цӀигьарилищ?</string>
-  <string name="menu_save_page">Хъвай-хъвай цӀунизе</string>
-  <string name="menu_share_page">Рехсезе</string>
   <string name="share_via">Сундалъун рехселе?</string>
   <string name="dialog_title_clear_saved_pages">Киналго цӀунарал гьумерал рацӀцӀилищ?</string>
   <string name="toast_saving_page">Гьумер цӀуни…</string>
-  <string name="toast_saved_page">Гьумер цӀунана</string>
+  <string name="toast_saved_page" fuzzy="true">Гьумер цӀунана</string>
   <string name="toast_saved_page_missing_images">Киналго суртал цӀунизе кӀвечӀо</string>
   <string name="toast_refresh_saved_page">ЦӀунараб гьумер цӀигьаби…</string>
   <string name="delete_selected_saved_pages">БацIцIине</string>
   <string name="toast_saved_page_deleted">ЦӀунун рукӀарал гьумерал рацӀцӀана</string>
   <string name="saved_pages_search_list_hint">ЦӀунарал гьумераздалъун цIехей</string>
+  <string name="menu_other_languages">Цоги мацӀалда цӀализе</string>
+  <string name="menu_save_page">Хъвай-хъвай цӀунизе</string>
+  <string name="menu_share_page" fuzzy="true">Рехсезе</string>
+  <string name="find_in_page">Гьумералда батизе</string>
   <string name="last_updated_text">Ахирисеб цӀигьаби:%1$s</string>
   <string name="content_license_html">Жаниб бугеб жо &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; ихтияралда лъун бегьизе гьабуна (цоги жо хъван батӀичони)</string>
   <string name="preference_title_language">Википедиялъул мацӀал</string>
   <string name="preference_languages_filter_hint">ЦIехезе</string>
   <string name="langlinks_filter_hint">ЦIехезе</string>
-  <string name="menu_other_languages">Цоги мацӀалда цӀализе</string>
   <string name="langlinks_error_retry">Такрар гьабизе</string>
   <string name="langlinks_empty">Гьаб гьумер цоги мацӀалда гьечӀо</string>
   <string name="langlinks_activity_title">Цоги мацӀазда</string>
@@ -101,7 +102,6 @@
   <string name="edit_done">ЦIунизе</string>
   <string name="edit_preview">Цебесеб</string>
   <string name="edit_summary_tag_other">Цоги</string>
-  <string name="find_in_page">Гьумералда батизе</string>
   <string name="menu_page_saved">Гьумер цIунана</string>
   <string name="menu_refresh_saved_page">Гьумер цIигьабизе</string>
 </resources>

@@ -24,18 +24,25 @@
   <string name="menu_update_all_saved_pages">Поднови зачувани страници</string>
   <string name="menu_update_selected_saved_pages">Поднови зачувани страници</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Да ги подновам сите зачувани страници?</string>
-  <string name="menu_save_page">Зачувај страница</string>
-  <string name="menu_share_page">Сподели</string>
   <string name="share_via">Сподели преку</string>
   <string name="dialog_title_clear_saved_pages">Да ги исчистам сите зачувани страници?</string>
   <string name="toast_saving_page">Ја зачувувам страницата…</string>
-  <string name="toast_saved_page">Страницата е успешно зачувана</string>
+  <string name="toast_saved_page">Страницата „%s“ е зачувана за вонмрежно читање</string>
   <string name="toast_saved_page_missing_images">Не можев да ги зачувам сите слики</string>
   <string name="toast_refresh_saved_page">Ја превчитувам зачуваната страница…</string>
   <string name="delete_selected_saved_pages">Избриши</string>
   <string name="toast_saved_page_deleted">Зачуваните страници се избришани</string>
   <string name="saved_pages_search_list_hint">Пребарај по зачуваните страници</string>
   <string name="saved_pages_search_empty_message">Не пронајдов страници што одговараат на бараното.</string>
+  <string name="menu_show_tabs">Прикажи јазичиња</string>
+  <string name="menu_other_languages">Прочитајте на други јазици</string>
+  <string name="menu_save_page">Зачувај страница</string>
+  <string name="menu_share_page">Сподели врска</string>
+  <string name="find_in_page">Најди на страницата</string>
+  <string name="menu_themechooser">Смени фонт и изглед</string>
+  <string name="menu_open_link">Отвори</string>
+  <string name="menu_open_in_new_tab">Отвори ново јазиче</string>
+  <string name="menu_long_press_copy_page">Копирај ја адресата на врската</string>
   <string name="nav_item_nearby">Во близина</string>
   <string name="menu_update_nearby">Поднови „во близина“</string>
   <string name="nearby_empty_title">Тука нема страници во близина!</string>
@@ -59,7 +66,6 @@
   <string name="preference_system_language_toggle">Користи го системскиот јазик</string>
   <string name="preference_system_language_summary">Системски јазик</string>
   <string name="langlinks_filter_hint">Пребарај</string>
-  <string name="menu_other_languages">Прочитајте на други јазици</string>
   <string name="langlinks_error_retry">Повтори</string>
   <string name="langlinks_empty">Страницава не е достапна на други јазици</string>
   <string name="langlinks_no_match">Не пронајдов јазици што одговараат на бараното.</string>
@@ -188,7 +194,6 @@
   <string name="edit_summary_tag_links">Додадени врски</string>
   <string name="edit_summary_tag_other">Друго</string>
   <string name="edit_summary_tag_other_hint">Други начини на кои ја подобривте страницата</string>
-  <string name="find_in_page">Најди на страницата</string>
   <string name="find_next">Најди следно</string>
   <string name="find_previous">Најди претходно</string>
   <string name="error_network_error_try_again">Не можам да ја добијам мрежата. Обидете се повторно.</string>
@@ -204,7 +209,6 @@
   <string name="abusefilter_text_disallow">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно или потенцијално вандалистичко. &lt;br /&gt;&lt;br /&gt;Википедија е енциклопедија —  тука припаѓа само неутрална и значајна содржина.</string>
   <string name="dialog_page_issues">Проблеми со страницата</string>
   <string name="button_page_issues">Проблеми со страницата</string>
-  <string name="menu_themechooser">Смени фонт и изглед</string>
   <string name="text_size_select">Големина на фонтот</string>
   <string name="color_theme_select">Изглед</string>
   <string name="color_theme_light">Светол</string>
@@ -269,7 +273,6 @@
   <string name="gallery_fair_use_license">Праведна употреба</string>
   <string name="gallery_uploader_unknown">непознат подигач</string>
   <string name="edit_save_unknown_error">Не можев да го зачувам уредувањето: %s</string>
-  <string name="menu_show_tabs">Прикажи јазичиња</string>
   <string name="menu_new_tab">Ново јазиче</string>
   <string name="button_close_tab">Затвори јазиче</string>
   <string name="tool_tip_select_text">Стиснете и држете било каде во текстот за да го подвлечете за копирање и споделување.</string>
@@ -281,4 +284,6 @@
   <string name="error_unknown">Се појави непозната грешка.</string>
   <string name="format_error_server_message">Порака: „%s“</string>
   <string name="format_error_server_code">Код: „%s“</string>
+  <string name="address_copied">Адресата е ставена во меѓускладот</string>
+  <string name="button_continue_to_article" fuzzy="true">Продолжи кон страницата</string>
 </resources>

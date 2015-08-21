@@ -21,14 +21,17 @@
   <string name="menu_update_all_saved_pages">संग्रहित पृष्ठहरूलाई अद्यावधिक गर्ने</string>
   <string name="menu_update_selected_saved_pages">संग्रहित पृष्ठहरूलाई अद्यावधिक गर्ने</string>
   <string name="dialog_prompt_refresh_all_saved_pages">सम्पूर्ण संग्रहित पृष्ठहरूलाई अद्यावधिक गर्ने</string>
-  <string name="menu_save_page">संग्रहित पृष्ठहरू</string>
-  <string name="menu_share_page">बाड्ने</string>
   <string name="dialog_title_clear_saved_pages">संग्रह गरिएका सम्पूर्ण पृष्ठहरू मेटाउने ?</string>
   <string name="toast_saving_page">पृष्ठ रक्षण गरिदै</string>
-  <string name="toast_saved_page">पृष्ठलाई स्वतः रक्षण गर्ने</string>
+  <string name="toast_saved_page" fuzzy="true">पृष्ठलाई स्वतः रक्षण गर्ने</string>
   <string name="delete_selected_saved_pages">मेट्ने</string>
   <string name="toast_saved_page_deleted">संग्रह भएका पृष्ठहरू मेटाइयो</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">खोज्ने</string>
+  <string name="menu_other_languages">अन्य भाषाहरूमा पढ्ने</string>
+  <string name="menu_save_page">संग्रहित पृष्ठहरू</string>
+  <string name="menu_share_page" fuzzy="true">बाड्ने</string>
+  <string name="find_in_page">पृष्ठमा खोज्ने</string>
+  <string name="menu_themechooser">फन्ट तथा विषयसार</string>
   <string name="nav_item_nearby">नजिकै</string>
   <string name="menu_update_nearby">नजिकै अद्यावधिक भएको</string>
   <string name="nearby_distance_in_meters">%d मीटर</string>
@@ -41,7 +44,6 @@
   <string name="preference_languages_filter_hint">खोज</string>
   <string name="preference_system_language_summary">प्रणाली भाषाहरू</string>
   <string name="langlinks_filter_hint">खोज</string>
-  <string name="menu_other_languages">अन्य भाषाहरूमा पढ्ने</string>
   <string name="langlinks_error_retry">पुन: प्रयास गर्नुहोस्</string>
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>
   <string name="menu_save_changes">परिवर्तनहरू सङ्ग्रह गर्ने</string>
@@ -83,8 +85,8 @@
   <string name="create_account_passwords_mismatch_error">पासवर्डहरू मिलेन</string>
   <string name="create_account_email_error">अवैध इमेल ठेगाना</string>
   <string name="create_account_username_exists_error">प्रयोगकर्ताको नाम पहिला देखि नै प्रयोगमा रहेको</string>
-  <string name="create_account_invalid_email_error">तपाईले उपलब्ध गराउनु भएको इमेल ठेगाना अवैध छ ।</string>
-  <string name="create_account_password_too_short_error">तपाईले राख्नु भएको पासवर्ड ज्यादै सानो भयो ।</string>
+  <string name="create_account_invalid_email_error">तपाईंले उपलब्ध गराउनु भएको इमेल ठेगाना अवैध छ ।</string>
+  <string name="create_account_password_too_short_error">तपाईंले राख्नु भएको पासवर्ड ज्यादै सानो भयो ।</string>
   <string name="create_account_blocked_anon_error">तपाईंको आइपि ठेगाना प्रतिवन्धित गरिएको हुँदा तपाईंले कुनै खाता खोल्न सक्नु हुन्छ ।</string>
   <string name="create_account_blocked_error">तपाईंको खाता प्रतिवन्धित गरिएकोले तपाईंले खाता खोल्न सक्नु हुन्न ।</string>
   <string name="create_account_password_name_match_error">तपाईंको प्रयोगकर्ता नाम तथा तपाईंको पासवर्ड फरक हुनु पर्नेछ ।</string>
@@ -135,8 +137,7 @@
   <string name="edit_summary_tag_grammar">व्याकरण ठीक बनाइयो</string>
   <string name="edit_summary_tag_links">लिङ्क थप भयो</string>
   <string name="edit_summary_tag_other">अन्य</string>
-  <string name="edit_summary_tag_other_hint">तपाईले पृष्ठ सुधार गर्ने अन्य तरिकाहरू</string>
-  <string name="find_in_page">पृष्ठमा खोज्ने</string>
+  <string name="edit_summary_tag_other_hint">तपाईंले पृष्ठ सुधार गर्ने अन्य तरिकाहरू</string>
   <string name="find_next">अर्को खोज्ने</string>
   <string name="find_previous">पछिल्लो खोज्ने</string>
   <string name="saved_pages_update_all_error_retry">पुन: प्रयास गर्ने</string>
@@ -144,7 +145,6 @@
   <string name="menu_page_saved">पृष्ठ संग्रह गरियो</string>
   <string name="dialog_page_issues">पृष्ठका मुद्दाहरू</string>
   <string name="button_page_issues">पृष्ठका मुद्दाहरू</string>
-  <string name="menu_themechooser">फन्ट तथा विषयसार</string>
   <string name="text_size_select">फन्ट आकार</string>
   <string name="color_theme_select">विषयसार</string>
   <string name="color_theme_light">हल्का रंग</string>
