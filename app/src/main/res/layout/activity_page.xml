@@ -86,6 +86,7 @@
                                 android:textSize="@dimen/searchTextSize"
                                 android:singleLine="true"
                                 android:ellipsize="end"
+                                android:background="?attr/selectableItemBackgroundBorderless"
                                 android:shadowColor="@color/lead_text_shadow"
                                 android:shadowDx="1"
                                 android:shadowDy="1"
