@@ -26,8 +26,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -161,9 +159,6 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     @Override
     public void onStart() {
         super.onStart();
-        Animation anim = AnimationUtils.loadAnimation(getActivity(),
-                R.anim.link_preview_background_activity_enter);
-        getPageActivity().getContentView().startAnimation(anim);
         overflowMenuHandler = new LongPressHandler(getPageActivity());
     }
 
@@ -172,11 +167,6 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         super.onDismiss(dialogInterface);
         if (!navigateSuccess) {
             funnel.logCancel();
-        }
-        if (getActivity() != null) {
-            Animation anim = AnimationUtils.loadAnimation(getActivity(),
-                    R.anim.link_preview_background_activity_exit);
-            getPageActivity().getContentView().startAnimation(anim);
         }
     }
 

@@ -9,22 +9,18 @@ import org.wikipedia.WikipediaApp;
 public class LinkPreviewFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLinkPreview";
     private static final int REV_ID = 12143205;
+    private static final int LINK_PREVIEW_VERSION = 3;
 
     private final PageTitle title;
-    private final int version;
 
     public LinkPreviewFunnel(WikipediaApp app, PageTitle title) {
-        // TODO: increase this sample rate when ready for production
-        // (we're keeping it low for now, while we gather as much engagement data as possible
-        // from the beta channel)
-        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_10);
+        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100);
         this.title = title;
-        version = app.getLinkPreviewVersion();
     }
 
     @Override
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
-        preprocessData(eventData, "version", version);
+        preprocessData(eventData, "version", LINK_PREVIEW_VERSION);
         return super.preprocessData(eventData);
     }
 

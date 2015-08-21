@@ -37,7 +37,6 @@ import org.wikipedia.networking.MccMncStateHandler;
 import org.wikipedia.onboarding.OnboardingStateMachine;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.PageCache;
-import org.wikipedia.page.linkpreview.LinkPreviewVersion;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagePersister;
 import org.wikipedia.savedpages.SavedPage;
@@ -437,15 +436,6 @@ public class WikipediaApp extends Application {
     @IntRange(from = 0)
     public int getEventLogSamplingID() {
         return EVENT_LOG_TESTING_ID;
-    }
-
-    public int getLinkPreviewVersion() {
-        if (Prefs.hasLinkPreviewVersion()) {
-            return Prefs.getLinkPreviewVersion();
-        }
-        int version = LinkPreviewVersion.generateVersion();
-        Prefs.setLinkPreviewVersion(version);
-        return version;
     }
 
     public boolean isFeatureSelectTextAndShareTutorialEnabled() {
