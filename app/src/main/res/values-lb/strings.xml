@@ -37,10 +37,11 @@
   <string name="menu_show_tabs">Tabs weisen</string>
   <string name="menu_other_languages">An anere Sprooche liesen</string>
   <string name="menu_save_page">Säit späicheren</string>
-  <string name="menu_share_page" fuzzy="true">Deelen</string>
+  <string name="menu_share_page">Link deelen</string>
   <string name="find_in_page">Op der Säit sichen</string>
   <string name="menu_open_link">Opmaachen</string>
   <string name="menu_open_in_new_tab">An engem neien Tab opmaachen</string>
+  <string name="menu_long_press_copy_page">Adress vum Link kopéieren</string>
   <string name="nav_item_nearby">Nobäi</string>
   <string name="menu_update_nearby">Aktualisatioun vun \'nobäi\'</string>
   <string name="nearby_empty_title">Keng Säiten hei nobäi!</string>

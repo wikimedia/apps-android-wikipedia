@@ -27,7 +27,7 @@
   <string name="share_via">Udostępnij przez</string>
   <string name="dialog_title_clear_saved_pages">Wyczyścić zapisane strony?</string>
   <string name="toast_saving_page">Zapisywanie strony…</string>
-  <string name="toast_saved_page" fuzzy="true">Strona została zapisana</string>
+  <string name="toast_saved_page">\"%s\" został zapisany do czytania w trybie offline</string>
   <string name="toast_saved_page_missing_images">Nie można zapisać wszystkich obrazów</string>
   <string name="toast_refresh_saved_page">Odświeżanie zapisanych stron…</string>
   <string name="delete_selected_saved_pages">Usuń</string>
@@ -37,11 +37,12 @@
   <string name="menu_show_tabs">Pokaż karty</string>
   <string name="menu_other_languages">Czytaj w innych językach</string>
   <string name="menu_save_page">Zapisz stronę</string>
-  <string name="menu_share_page" fuzzy="true">Udostępnij</string>
+  <string name="menu_share_page">Podziel się linkiem</string>
   <string name="find_in_page">Znajdź na stronie</string>
   <string name="menu_themechooser">Zmień czcionkę i skórkę</string>
-  <string name="menu_open_link" fuzzy="true">Otwórz link</string>
+  <string name="menu_open_link">Otwórz</string>
   <string name="menu_open_in_new_tab">Otwórz w nowej karcie</string>
+  <string name="menu_long_press_copy_page">Skopiuj adres linka</string>
   <string name="nav_item_nearby">W pobliżu</string>
   <string name="menu_update_nearby">Aktualizuj miejsca w okolicy</string>
   <string name="nearby_empty_title">Nie ma stron o obiektach znajdujących się w pobliżu!</string>
@@ -263,4 +264,6 @@
   <string name="error_unknown">Wystąpił nieznany błąd.</string>
   <string name="format_error_server_message">Komunikat: „%s”</string>
   <string name="format_error_server_code">Kod: „%s”</string>
+  <string name="address_copied">Adres skopiowany do schowka.</string>
+  <string name="button_continue_to_article">Do artykułu</string>
 </resources>

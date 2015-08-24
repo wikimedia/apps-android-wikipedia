@@ -27,7 +27,7 @@
   <string name="share_via">Поделиться через</string>
   <string name="dialog_title_clear_saved_pages">Очистить все сохранённые страницы?</string>
   <string name="toast_saving_page">Сохранение страницы…</string>
-  <string name="toast_saved_page" fuzzy="true">Страница успешно сохранена</string>
+  <string name="toast_saved_page">\"%s\" сохранена для чтения оффлайн</string>
   <string name="toast_saved_page_missing_images">Не удалось сохранить все изображения</string>
   <string name="toast_refresh_saved_page">Обновление сохранённой страницы…</string>
   <string name="delete_selected_saved_pages">Удалить</string>
@@ -37,11 +37,12 @@
   <string name="menu_show_tabs">Показать вкладки</string>
   <string name="menu_other_languages">Читать на других языках</string>
   <string name="menu_save_page">Сохранить страницу</string>
-  <string name="menu_share_page" fuzzy="true">Поделиться</string>
+  <string name="menu_share_page">Поделиться ссылкой</string>
   <string name="find_in_page">Найти на странице</string>
   <string name="menu_themechooser">Изменение шрифта и оформления</string>
-  <string name="menu_open_link" fuzzy="true">Открыть ссылку</string>
+  <string name="menu_open_link">Открыть</string>
   <string name="menu_open_in_new_tab">Открыть в новой вкладке</string>
+  <string name="menu_long_press_copy_page">Скопировать адрес ссылки</string>
   <string name="nav_item_nearby">Поблизости</string>
   <string name="menu_update_nearby">Обновление мест поблизости</string>
   <string name="nearby_empty_title">Нет страниц об объектах поблизости!</string>
@@ -284,4 +285,6 @@
   <string name="error_unknown">Произошла неизвестная ошибка.</string>
   <string name="format_error_server_message">Сообщение: «%s»</string>
   <string name="format_error_server_code">Код: «%s»</string>
+  <string name="address_copied">Адрес скопирован в буфер обмена.</string>
+  <string name="button_continue_to_article">К статье</string>
 </resources>

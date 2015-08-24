@@ -12,6 +12,8 @@
   <string name="nav_item_history">Historico</string>
   <string name="error_network_error" fuzzy="true">Il non ha connexion con le rete :(</string>
   <string name="search_network_error">Error de rete. Tocca pro reprobar.</string>
+  <string name="generic_page_error">Il ha essite un problema in tu requesta.</string>
+  <string name="status_code_unavailable">Codice de status del serve indisponibile.</string>
   <string name="page_error_retry">Reprobar</string>
   <string name="menu_clear_all_history">Rader historico</string>
   <string name="menu_clear_all_saved_pages">Rader paginas salveguardate</string>
@@ -25,21 +27,30 @@
   <string name="share_via">Divider via</string>
   <string name="dialog_title_clear_saved_pages">Rader tote le paginas salveguardate?</string>
   <string name="toast_saving_page">Io es salvante le pagina</string>
-  <string name="toast_saved_page" fuzzy="true">Pagina salveguardate correctemente</string>
+  <string name="toast_saved_page">\"%s\" salvate pro le lectura foras linea.</string>
   <string name="toast_saved_page_missing_images">Il non esseva possibile salveguardar tote le imagines</string>
   <string name="toast_refresh_saved_page">Ajornamento del pagina salvate...</string>
   <string name="delete_selected_saved_pages">Deler</string>
   <string name="toast_saved_page_deleted">Pagina(s) salveguardate delite</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Cercar</string>
+  <string name="saved_pages_search_list_hint">Cercar paginas salvate</string>
   <string name="saved_pages_search_empty_message">Necun pagina trovate que corresponde a tu recerca</string>
+  <string name="menu_show_tabs">Monstrar tabellas</string>
   <string name="menu_other_languages">Leger in altere linguas</string>
   <string name="menu_save_page">Salveguardar pagina</string>
-  <string name="menu_share_page" fuzzy="true">Divider</string>
+  <string name="menu_share_page">Condivider le ligamine</string>
   <string name="find_in_page">Cerca in le pagina</string>
+  <string name="menu_themechooser">Characteres e themas</string>
+  <string name="menu_open_link">Aperte</string>
+  <string name="menu_open_in_new_tab">Aperir in un nove scheda</string>
+  <string name="menu_long_press_copy_page">Copiar le adresse del ligamine</string>
   <string name="nav_item_nearby">A proximitate</string>
   <string name="menu_update_nearby">Actualisar a proximitate</string>
   <string name="nearby_empty_title">Sin paginas a proximitate ci!</string>
   <string name="nearby_empty_message">Quando tu te displacia a un nove position, proba a actualisar iste pagina pro saper plus sur lo que es circa te</string>
+  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_distance_in_feet">%d ft</string>
+  <string name="nearby_distance_in_miles">%.2f m</string>
   <string name="nearby_no_network">Sin connexion de rete</string>
   <string name="nearby_server_error">Il non esseva possibile obtener le lista de locos a proximitate</string>
   <string name="nearby_dialog_goto_settings">Le ajornamentos de ubication non es habilitate su tu dispositivo. Vole tu ir in le preparationes de tu dispositivo pro habilitar le ajornamentos de ubication?</string>
@@ -52,6 +63,8 @@
   <string name="edit_save_action_license_anon">By saving, you agree to the &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. If you &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, you will have more privacy.</string>
   <string name="preference_title_language">Lingua de Wikipedia</string>
   <string name="preference_languages_filter_hint">Cercar</string>
+  <string name="preference_system_language_toggle">Usar le lingua del systema</string>
+  <string name="preference_system_language_summary">Lingua del systema</string>
   <string name="langlinks_filter_hint">Cercar</string>
   <string name="langlinks_error_retry">Reprobar</string>
   <string name="langlinks_empty">Iste pagina non es disponibile in altere linguas</string>
@@ -69,6 +82,8 @@
   <string name="dialog_message_leaving_edit_stay">Restar</string>
   <string name="menu_show_toc">Tabula de contento</string>
   <string name="search_no_results_found">Nulle resultato trovate</string>
+  <string name="edit_section_captcha_message">Pro adjutar a proteger del spam automatic, per favor insere le parolas que compare infra</string>
+  <string name="edit_section_captcha_hint">Ripete le parolas ex le alto</string>
   <string name="title_captcha">Inserer le captcha</string>
   <string name="nav_item_login">Aperir session</string>
   <string name="login_username_hint">Nomine del usator</string>
@@ -141,9 +156,12 @@
   <string name="about_translators_heading">traductores</string>
   <string name="about_activity_title">A proposito</string>
   <string name="user_blocked_from_editing_title">Blocate</string>
+  <string name="edit_how_page_improved">Como ha tu ameliorate le pagina?</string>
   <string name="edit_next">Sequente</string>
   <string name="edit_done">Salveguardar</string>
   <string name="edit_preview">Previsualisation</string>
+  <string name="edit_summary_tag_typo">Error dactylographic correcte</string>
+  <string name="edit_summary_tag_grammar">Grammatica correcte</string>
   <string name="edit_summary_tag_links">Ligamines addite</string>
   <string name="edit_summary_tag_other">Alteres</string>
   <string name="edit_summary_tag_other_hint">Altere manieras per le qual tu ha meliorate iste pagina</string>
@@ -156,9 +174,27 @@
   <string name="saved_pages_refresh_pages_complete">Ajornamento complete</string>
   <string name="menu_page_saved">Pagina salvate</string>
   <string name="menu_refresh_saved_page">Refrescar le pagina</string>
+  <string name="abusefilter_title_warn">salvar lo?</string>
+  <string name="abusefilter_title_disallow">Tu non pote salvar iste modifica. Per favor retorna e cambia la.</string>
+  <string name="dialog_page_issues">Problemas con le pagina</string>
+  <string name="button_page_issues">Problemas con le pagina</string>
+  <string name="text_size_select">Dimension del characteres</string>
+  <string name="color_theme_select">Themas</string>
+  <string name="color_theme_light">Luce</string>
+  <string name="color_theme_dark">Tenebras</string>
   <string name="page_similar_titles">Paginas simile</string>
+  <string name="search_did_you_mean">Forsan cercava tu: \"%s\"?</string>
+  <string name="search_recent_header">Recercas recente:</string>
+  <string name="button_clear_all_recent_searches">Clarar el recercas recente</string>
+  <string name="clear_recent_searches_confirm">Desira tu vermente cancellar tu historia del recercas?</string>
+  <string name="error_browser_not_found">Impossibile aperir le pagina web (nulle navigator trovate).</string>
+  <string name="table_infobox">Factos in breve</string>
+  <string name="table_other">Plus de informationes</string>
   <string name="table_close">Clauder</string>
+  <string name="widget_name_featured_page">Pagina de Wikipedia in prime plan</string>
+  <string name="widget_title_featured_page">Pagina hodierne in prime plan:</string>
   <string name="dialog_close_description">Clauder</string>
+  <string name="preference_title_show_images">Monstrar imagines</string>
   <string name="read_more_section">Leger plus</string>
   <string name="menu_gallery_visit_page">Visitar le pagina del file</string>
   <string name="gallery_error_draw_failed">Non poteva monstrar le imagine.</string>
@@ -167,4 +203,13 @@
   <string name="gallery_menu_save">Salveguardar in apparato</string>
   <string name="gallery_save_error">Non poteva salveguardar imagine: %s</string>
   <string name="gallery_save_success">Imagine salveguardate correctemente.</string>
+  <string name="err_cannot_save_file">Impossibile salvar le file</string>
+  <string name="snippet_share_intro">\"%1$s\" sur @Wikipedia: %2$s</string>
+  <string name="expand_refs">Tocca pro expander</string>
+  <string name="share_snippet_button">Condivider como imagine</string>
+  <string name="share_normal_button">Condivider como texto</string>
+  <string name="snippet_share_preview_image_desc">Vista preliminar</string>
+  <string name="cc_logo">Licentia Creative Commons</string>
+  <string name="captcha_image">Imagine captcha</string>
+  <string name="page_view_in_browser">Vider le pagina in le navigator</string>
 </resources>
