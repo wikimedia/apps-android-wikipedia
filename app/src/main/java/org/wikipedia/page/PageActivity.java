@@ -626,6 +626,10 @@ public class PageActivity extends ThemedActionBarActivity {
                                final TabPosition position,
                                boolean allowStateLoss,
                                final boolean mustBeEmpty) {
+
+        // Close the link preview, if one is open.
+        hideLinkPreview();
+
         ACRA.getErrorReporter().putCustomData("api", title.getSite().getApiDomain());
         ACRA.getErrorReporter().putCustomData("title", title.toString());
 
@@ -701,8 +705,19 @@ public class PageActivity extends ThemedActionBarActivity {
     public void showLinkPreview(PageTitle title, int entrySource) {
         final String linkPreviewFragmentTag = "link_preview_dialog";
         if (getSupportFragmentManager().findFragmentByTag(linkPreviewFragmentTag) == null) {
-            LinkPreviewDialog dialog = LinkPreviewDialog.newInstance(title, entrySource);
-            dialog.show(getSupportFragmentManager(), linkPreviewFragmentTag);
+            LinkPreviewDialog linkPreview = LinkPreviewDialog.newInstance(title, entrySource);
+            linkPreview.show(getSupportFragmentManager(), linkPreviewFragmentTag);
+        }
+    }
+
+    /**
+     * Dismiss the current link preview, if one is open.
+     */
+    private void hideLinkPreview() {
+        final String linkPreviewFragmentTag = "link_preview_dialog";
+        LinkPreviewDialog linkPreview = (LinkPreviewDialog) getSupportFragmentManager().findFragmentByTag(linkPreviewFragmentTag);
+        if (linkPreview != null) {
+            linkPreview.dismiss();
         }
     }
 
