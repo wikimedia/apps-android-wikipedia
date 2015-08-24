@@ -100,6 +100,7 @@ public class PageActivity extends ThemedActionBarActivity {
     private static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
     private static final String KEY_LAST_FRAGMENT = "lastFragment";
     private static final String KEY_LAST_FRAGMENT_ARGS = "lastFragmentArgs";
+    private static final String LINK_PREVIEW_FRAGMENT_TAG = "link_preview_dialog";
 
     private Bus bus;
     private EventBusMethods busMethods;
@@ -703,10 +704,9 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     public void showLinkPreview(PageTitle title, int entrySource) {
-        final String linkPreviewFragmentTag = "link_preview_dialog";
-        if (getSupportFragmentManager().findFragmentByTag(linkPreviewFragmentTag) == null) {
+        if (getSupportFragmentManager().findFragmentByTag(LINK_PREVIEW_FRAGMENT_TAG) == null) {
             LinkPreviewDialog linkPreview = LinkPreviewDialog.newInstance(title, entrySource);
-            linkPreview.show(getSupportFragmentManager(), linkPreviewFragmentTag);
+            linkPreview.show(getSupportFragmentManager(), LINK_PREVIEW_FRAGMENT_TAG);
         }
     }
 
@@ -714,8 +714,7 @@ public class PageActivity extends ThemedActionBarActivity {
      * Dismiss the current link preview, if one is open.
      */
     private void hideLinkPreview() {
-        final String linkPreviewFragmentTag = "link_preview_dialog";
-        LinkPreviewDialog linkPreview = (LinkPreviewDialog) getSupportFragmentManager().findFragmentByTag(linkPreviewFragmentTag);
+        LinkPreviewDialog linkPreview = (LinkPreviewDialog) getSupportFragmentManager().findFragmentByTag(LINK_PREVIEW_FRAGMENT_TAG);
         if (linkPreview != null) {
             linkPreview.dismiss();
         }
