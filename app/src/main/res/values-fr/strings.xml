@@ -285,5 +285,5 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="format_error_server_message">Message : \"%s\"</string>
   <string name="format_error_server_code">Code : \"%s\"</string>
   <string name="address_copied">Adresse copiée dans le presse-papier.</string>
-  <string name="button_continue_to_article" fuzzy="true">Continuer à la page</string>
+  <string name="button_continue_to_article">Continuer vers l\'article</string>
 </resources>

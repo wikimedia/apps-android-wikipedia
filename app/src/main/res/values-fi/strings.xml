@@ -27,7 +27,7 @@
   <string name="share_via">Jaa palvelulla</string>
   <string name="dialog_title_clear_saved_pages">Tyhjennetäänkö kaikki tallennetut sivut?</string>
   <string name="toast_saving_page">Tallennetaan sivua…</string>
-  <string name="toast_saved_page" fuzzy="true">Sivu tallennettiin onnistuneesti</string>
+  <string name="toast_saved_page">\"%s\" tallennettiin offline-lukemista varten</string>
   <string name="toast_saved_page_missing_images">Joidenkin kuvien tallennus ei onnistunut</string>
   <string name="toast_refresh_saved_page">Päivitetään tallennettua sivua..</string>
   <string name="delete_selected_saved_pages">Poista</string>
@@ -37,11 +37,12 @@
   <string name="menu_show_tabs">Näytä välilehdet</string>
   <string name="menu_other_languages">Muilla kielillä</string>
   <string name="menu_save_page">Tallenna sivu</string>
-  <string name="menu_share_page" fuzzy="true">Jaa</string>
+  <string name="menu_share_page">Jaa linkki</string>
   <string name="find_in_page">Etsi sivulta</string>
   <string name="menu_themechooser">Muuta kirjaisintyyppiä ja teemaa</string>
-  <string name="menu_open_link" fuzzy="true">Avaa linkki</string>
+  <string name="menu_open_link">Avaa</string>
   <string name="menu_open_in_new_tab">Avaa uudessa välilehdessä</string>
+  <string name="menu_long_press_copy_page">Kopioi linkin osoite</string>
   <string name="nav_item_nearby">Lähistöllä</string>
   <string name="menu_update_nearby">Päivitä \"Lähistöllä\"</string>
   <string name="nearby_empty_title">Lähistöllä olevia sivuja ei ole!</string>
@@ -282,4 +283,6 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="error_unknown">Tapahtui tuntematon virhe.</string>
   <string name="format_error_server_message">Viesti: \"%s\"</string>
   <string name="format_error_server_code">Koodi: \"%s\"</string>
+  <string name="address_copied">Osoite kopioitu leikepöydälle.</string>
+  <string name="button_continue_to_article">Jatka artikkeliin</string>
 </resources>

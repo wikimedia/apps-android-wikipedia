@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Що ви робили, коли трапився збій?</string>
   <string name="search_hint">Пошук по Вікіпедії</string>
   <string name="nav_item_history">Історія</string>
-  <string name="error_network_error" fuzzy="true">Відсутнє підключення до мережі :(</string>
+  <string name="error_network_error">Не вдалося встановити підключення до мережі.</string>
   <string name="search_network_error">Помилка мережі. Натисніть, щоб спробувати знову.</string>
   <string name="generic_page_error">Виникла проблема обробки Вашого запиту.</string>
   <string name="status_code_unavailable">Код статусу сервера  недоступний.</string>
@@ -285,6 +285,15 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="edit_save_unknown_error">Не вдалося зберегти ваше редагування: %s</string>
   <string name="menu_new_tab">Нова вкладка</string>
   <string name="button_close_tab">Закрити вкладку</string>
+  <string name="tool_tip_select_text">Натисніть і утримуйте на будь-якому місці в тексті, щоб виділити його для копіювання та обміну.</string>
+  <string name="tool_tip_share">Після виділення цікавого факту, спробуйте поділитися ним у Ваших улюблених мережах!</string>
+  <string name="page_view_in_browser">Переглянути сторінку в браузері</string>
+  <string name="tool_tip_toc_button">Дивіться зміст будь-коли, натиснувши цю кнопку або провівши пальцем від правого краю екрану.</string>
+  <string name="error_server_response">Сервер не зміг виконати запит.</string>
+  <string name="error_response_malformed">Відповідь сервера була відформатована неправильно.</string>
+  <string name="error_unknown">Сталася невідома помилка.</string>
+  <string name="format_error_server_message">Повідомлення: «%s»</string>
+  <string name="format_error_server_code">Код: «%s»</string>
   <string name="address_copied">Адресу скопійовано до буферу обміну.</string>
-  <string name="button_continue_to_article" fuzzy="true">Продовження на сторінці</string>
+  <string name="button_continue_to_article">Продовження на сторінці</string>
 </resources>

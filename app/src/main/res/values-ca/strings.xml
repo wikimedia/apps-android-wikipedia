@@ -27,7 +27,7 @@
   <string name="share_via">Comparteix mitjançant…</string>
   <string name="dialog_title_clear_saved_pages">Esborrar totes les pàgines desades?</string>
   <string name="toast_saving_page">S\'està desant la pàgina…</string>
-  <string name="toast_saved_page" fuzzy="true">Pàgina desada correctament</string>
+  <string name="toast_saved_page">«%s» desada per a lectura fora de línia</string>
   <string name="toast_saved_page_missing_images">No s\'han pogut desar totes les imatges</string>
   <string name="toast_refresh_saved_page">S\'està actualitzant la pàgina desada…</string>
   <string name="delete_selected_saved_pages">Esborra</string>
@@ -37,11 +37,12 @@
   <string name="menu_show_tabs">Mostra les pestanyes</string>
   <string name="menu_other_languages">Llegir-ho en altres idiomes</string>
   <string name="menu_save_page">Desa la pàgina</string>
-  <string name="menu_share_page" fuzzy="true">Comparteix</string>
+  <string name="menu_share_page">Comparteix l\'enllaç</string>
   <string name="find_in_page">Cercar en la pàgina</string>
   <string name="menu_themechooser">Tipus de lletra i tema</string>
-  <string name="menu_open_link" fuzzy="true">Obre l\'enllaç</string>
+  <string name="menu_open_link">Obre</string>
   <string name="menu_open_in_new_tab">Obre en una pestanya nova</string>
+  <string name="menu_long_press_copy_page">Copia l\'adreça de l\'enllaç</string>
   <string name="nav_item_nearby">A prop</string>
   <string name="menu_update_nearby">Actualitzar els elements que són a prop</string>
   <string name="nearby_empty_title">Cap pàgina propera des d\'aquí!</string>
@@ -279,4 +280,6 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="error_unknown">S\'ha produït un error desconegut</string>
   <string name="format_error_server_message">Missatge \"%s\"</string>
   <string name="format_error_server_code">Codi \"%s\"</string>
+  <string name="address_copied">Adreça copiada al porta-retalls.</string>
+  <string name="button_continue_to_article">Continua a l\'article</string>
 </resources>

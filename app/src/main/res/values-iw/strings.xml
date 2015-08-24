@@ -285,5 +285,5 @@
   <string name="format_error_server_message">הודעה: \"%s\"</string>
   <string name="format_error_server_code">קוד: \"%s\"</string>
   <string name="address_copied">הכתובת הועתקה ללוח.</string>
-  <string name="button_continue_to_article" fuzzy="true">להמשיך לדף</string>
+  <string name="button_continue_to_article">להמשיך לערך</string>
 </resources>
