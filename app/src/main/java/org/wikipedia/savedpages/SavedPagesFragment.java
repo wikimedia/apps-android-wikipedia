@@ -40,6 +40,7 @@ import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SavedPagesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, BackPressedHandler {
     // make sure this number is unique among other fragments that use a loader
@@ -318,8 +319,10 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
             return;
         }
-        menu.findItem(R.id.menu_clear_all_saved_pages).setEnabled(savedPagesList.getCount() > 0);
-        menu.findItem(R.id.menu_refresh_all_saved_pages).setEnabled(savedPagesList.getCount() > 0);
+        for (int id : Arrays.asList(R.id.menu_clear_all_saved_pages, R.id.menu_refresh_all_saved_pages)) {
+            boolean enabled = savedPagesList.getCount() > 0;
+            menu.findItem(id).setEnabled(enabled).setVisible(enabled);
+        }
     }
 
     @Override
