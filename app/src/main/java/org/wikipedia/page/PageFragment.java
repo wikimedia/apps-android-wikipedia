@@ -446,6 +446,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onCloseTabRequested(int position) {
+            if (!app.isDevRelease() && (position < 0 || position >= tabList.size())) {
+                // According to T109998, the position may possibly be out-of-bounds, but we can't
+                // reproduce it. We'll handle this case, but only for non-dev builds, so that we
+                // can investigate the issue further if we happen upon it ourselves.
+                return;
+            }
             tabList.remove(position);
             tabFunnel.logClose(tabList.size(), position);
             if (position < tabList.size()) {
