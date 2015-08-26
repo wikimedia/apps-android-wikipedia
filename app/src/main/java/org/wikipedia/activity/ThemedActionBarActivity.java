@@ -10,10 +10,13 @@ import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.ApiUtil;
 
 import java.lang.reflect.Field;
 
 public abstract class ThemedActionBarActivity extends AppCompatActivity {
+    private boolean mDestroyed;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,20 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         forceOverflowMenuIcon(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mDestroyed = true;
+    }
+
+    @Override
+    public boolean isDestroyed() {
+        if (ApiUtil.hasJellyBeanMr1()) {
+            return super.isDestroyed();
+        }
+        return mDestroyed;
     }
 
     /**

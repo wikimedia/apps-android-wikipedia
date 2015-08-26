@@ -627,6 +627,9 @@ public class PageActivity extends ThemedActionBarActivity {
                                final TabPosition position,
                                boolean allowStateLoss,
                                final boolean mustBeEmpty) {
+        if (isDestroyed()) {
+            return;
+        }
 
         // Close the link preview, if one is open.
         hideLinkPreview();
