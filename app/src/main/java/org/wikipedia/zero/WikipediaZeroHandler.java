@@ -68,7 +68,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
 
     public static void showZeroBanner(@NonNull Activity activity, @NonNull String text,
                                       @ColorInt int foreColor, @ColorInt int backColor) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(activity.findViewById(R.id.page_contents_container), text, FeedbackUtil.LENGTH_DEFAULT);
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(activity.getWindow().getDecorView(), text, FeedbackUtil.LENGTH_DEFAULT);
         ViewGroup rootView = (ViewGroup) snackbar.getView();
         TextView textView = (TextView) rootView.findViewById(R.id.snackbar_text);
         rootView.setBackgroundColor(backColor);
