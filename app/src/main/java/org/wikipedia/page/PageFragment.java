@@ -485,14 +485,17 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        // if the screen orientation changes, then re-layout the lead image container
-        leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
-            @Override
-            public void onLayoutComplete() {
-                // when it's finished laying out, make sure the toolbar is shown appropriately.
-                searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-            }
-        });
+        // if the screen orientation changes, then re-layout the lead image container,
+        // but only if we've finished fetching the page.
+        if (!pageLoadStrategy.isLoading()) {
+            leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
+                @Override
+                public void onLayoutComplete() {
+                    // when it's finished laying out, make sure the toolbar is shown appropriately.
+                    searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+                }
+            });
+        }
     }
 
     public Tab getCurrentTab() {
