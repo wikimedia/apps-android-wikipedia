@@ -59,8 +59,15 @@ public abstract class PageActivityLongPressHandler implements PageLongPressHandl
             public void onFinish(List<Section> result) {
                 super.onFinish(result);
 
-                if (!activity.isFinishing()) {
+                if (!activity.isDestroyed()) {
                     activity.showPageSavedMessage(title.getDisplayText(), true);
+                }
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                if (!activity.isDestroyed()) {
+                    FeedbackUtil.showError(activity, caught);
                 }
             }
         }.execute();
