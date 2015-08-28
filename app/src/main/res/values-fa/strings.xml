@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">به‌روزرسانی همه صفحه‌های ذخیره‌شده</string>
   <string name="share_via">اشتراک با</string>
   <string name="dialog_title_clear_saved_pages">پاک کردن همهٔ صفحه‌های  ذخیره‌شده؟</string>
-  <string name="toast_saving_page">ذخیره کردن صفحه…</string>
-  <string name="toast_saved_page" fuzzy="true">صفحه ذخیره شده است</string>
-  <string name="toast_saved_page_missing_images">نمی‌توان همه تصویرها را ذخیره نمود</string>
-  <string name="toast_refresh_saved_page">تازه کردن صفحه ذخیره‌شده…</string>
+  <string name="snackbar_saving_page">ذخیره کردن صفحه…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">صفحه ذخیره شده است</string>
+  <string name="snackbar_saved_page_missing_images">نمی‌توان همه تصویرها را ذخیره نمود</string>
+  <string name="snackbar_refresh_saved_page">تازه کردن صفحه ذخیره‌شده…</string>
   <string name="delete_selected_saved_pages">حذف</string>
-  <string name="toast_saved_page_deleted">ذخیره صفحه(های) حذف‌شده</string>
+  <string name="snackbar_saved_page_deleted">ذخیره صفحه(های) حذف‌شده</string>
   <string name="saved_pages_search_list_hint">جستجوی صفحه‌های ذخیره شده</string>
   <string name="saved_pages_search_empty_message">هیچ صفحه‌ای برای کوئری شما یافت نشد</string>
-  <string name="menu_show_tabs">نمایش برگه‌ها</string>
-  <string name="menu_other_languages">به زبان‌های دیگر مطالعه کنید.</string>
-  <string name="menu_save_page">ذخیرهٔ  صفحه</string>
-  <string name="menu_share_page" fuzzy="true">به‌اشتراک‌گذاشتن</string>
-  <string name="find_in_page">در صفحه پیدا کنید</string>
-  <string name="menu_themechooser">تغییر فونت و پوسته</string>
-  <string name="menu_open_link" fuzzy="true">باز کردن پیوند</string>
-  <string name="menu_open_in_new_tab">باز کردن در برگهٔ جدید</string>
+  <string name="menu_page_show_tabs">نمایش برگه‌ها</string>
+  <string name="menu_page_other_languages">به زبان‌های دیگر مطالعه کنید.</string>
+  <string name="menu_page_save">ذخیرهٔ  صفحه</string>
+  <string name="menu_page_share" fuzzy="true">به‌اشتراک‌گذاشتن</string>
+  <string name="menu_page_find_in_page">در صفحه پیدا کنید</string>
+  <string name="menu_page_font_and_theme">تغییر فونت و پوسته</string>
+  <string name="menu_long_press_open_page" fuzzy="true">باز کردن پیوند</string>
+  <string name="menu_long_press_open_in_new_tab">باز کردن در برگهٔ جدید</string>
   <string name="nav_item_nearby">در نزدیکی</string>
   <string name="menu_update_nearby">به‌روزرسانی درنزدیکی</string>
   <string name="nearby_empty_title">صفحه‌ای در نزدیکی یافت نشد!</string>

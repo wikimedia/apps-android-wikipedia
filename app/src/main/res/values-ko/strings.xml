@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">모든 저장된 문서를 업데이트할까요?</string>
   <string name="share_via">다음을 통해 공유</string>
   <string name="dialog_title_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
-  <string name="toast_saving_page">문서를 저장하는 중…</string>
-  <string name="toast_saved_page" fuzzy="true">문서를 성공적으로 저장했습니다</string>
-  <string name="toast_saved_page_missing_images">모든 그림을 저장할 수 없습니다</string>
-  <string name="toast_refresh_saved_page">저장된 문서를 새로 고치는 중…</string>
+  <string name="snackbar_saving_page">문서를 저장하는 중…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">문서를 성공적으로 저장했습니다</string>
+  <string name="snackbar_saved_page_missing_images">모든 그림을 저장할 수 없습니다</string>
+  <string name="snackbar_refresh_saved_page">저장된 문서를 새로 고치는 중…</string>
   <string name="delete_selected_saved_pages">삭제</string>
-  <string name="toast_saved_page_deleted">저장된 문서가 삭제되었습니다</string>
+  <string name="snackbar_saved_page_deleted">저장된 문서가 삭제되었습니다</string>
   <string name="saved_pages_search_list_hint">저장된 문서 검색</string>
   <string name="saved_pages_search_empty_message">검색어와 일치하는 문서를 찾을 수 없습니다.</string>
-  <string name="menu_show_tabs">탭 보기</string>
-  <string name="menu_other_languages">다른 언어로 읽기</string>
-  <string name="menu_save_page">문서 저장</string>
-  <string name="menu_share_page" fuzzy="true">공유</string>
-  <string name="find_in_page">문서에서 찾기</string>
-  <string name="menu_themechooser">글자와 테마</string>
-  <string name="menu_open_link" fuzzy="true">링크 열기</string>
-  <string name="menu_open_in_new_tab">새 탭에 링크 열기</string>
+  <string name="menu_page_show_tabs">탭 보기</string>
+  <string name="menu_page_other_languages">다른 언어로 읽기</string>
+  <string name="menu_page_save">문서 저장</string>
+  <string name="menu_page_share" fuzzy="true">공유</string>
+  <string name="menu_page_find_in_page">문서에서 찾기</string>
+  <string name="menu_page_font_and_theme">글자와 테마</string>
+  <string name="menu_long_press_open_page" fuzzy="true">링크 열기</string>
+  <string name="menu_long_press_open_in_new_tab">새 탭에 링크 열기</string>
   <string name="nav_item_nearby">근처</string>
   <string name="menu_update_nearby">근처 업데이트</string>
   <string name="nearby_empty_title">여기 근처에 문서가 없습니다!</string>

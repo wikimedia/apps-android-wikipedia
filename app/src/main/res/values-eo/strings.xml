@@ -26,19 +26,19 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Ĉu ĝisdatigi ĉiujn konservitajn paĝojn?</string>
   <string name="share_via">Kundividi per</string>
   <string name="dialog_title_clear_saved_pages">Ĉu Malplenigi ĉiujn konservitajn paĝojn?</string>
-  <string name="toast_saving_page">Konservante paĝon…</string>
-  <string name="toast_saved_page" fuzzy="true">Paĝo sukcese konservita</string>
-  <string name="toast_saved_page_missing_images">Ne eblas konservi ĉiuj bildojn</string>
-  <string name="toast_refresh_saved_page">Ĝisdatigante konservitajn paĝojn</string>
+  <string name="snackbar_saving_page">Konservante paĝon…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Paĝo sukcese konservita</string>
+  <string name="snackbar_saved_page_missing_images">Ne eblas konservi ĉiuj bildojn</string>
+  <string name="snackbar_refresh_saved_page">Ĝisdatigante konservitajn paĝojn</string>
   <string name="delete_selected_saved_pages">Forigi</string>
-  <string name="toast_saved_page_deleted">Konservita(j) paĝo(j) forigita(j)</string>
+  <string name="snackbar_saved_page_deleted">Konservita(j) paĝo(j) forigita(j)</string>
   <string name="saved_pages_search_list_hint">Serĉi konservitajn paĝojn</string>
   <string name="saved_pages_search_empty_message">Neniu paĝo kongruas kun via serĉo.</string>
-  <string name="menu_other_languages">Legi en alia lingvo</string>
-  <string name="menu_save_page">Konservi paĝon</string>
-  <string name="menu_share_page" fuzzy="true">Kundividi</string>
-  <string name="find_in_page">Trovi en la paĝo</string>
-  <string name="menu_themechooser">Fonto kaj etoso</string>
+  <string name="menu_page_other_languages">Legi en alia lingvo</string>
+  <string name="menu_page_save">Konservi paĝon</string>
+  <string name="menu_page_share" fuzzy="true">Kundividi</string>
+  <string name="menu_page_find_in_page">Trovi en la paĝo</string>
+  <string name="menu_page_font_and_theme">Fonto kaj etoso</string>
   <string name="nav_item_nearby">Ĉirkaŭe</string>
   <string name="menu_update_nearby">Ĝisdatigi ĉirkaŭaĵojn</string>
   <string name="nearby_empty_title">Neniu paĝo ĉirkaŭ ĉi tie!</string>

@@ -41,34 +41,34 @@ The Share list contains the following menu items (localized):
 * Mail
 * Message</string>
   <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your saved pages</string>
-  <string name="toast_saving_page">Small toast (popup) message saying that a page is being saved for offline reading</string>
-  <string name="toast_saved_page">Small toast (popup) message saying that a page has been saved for offline reading.
+  <string name="snackbar_saving_page">Small toast (popup) message saying that a page is being saved for offline reading</string>
+  <string name="snackbar_saved_page_format">Small toast (popup) message saying that a page has been saved for offline reading.
 
 See also:
 * {{msg-wm|Wikipedia-android-strings-toast saved page missing images}}</string>
-  <string name="toast_saved_page_missing_images">Small toast (popup) message saying that not all images of a saved page could be saved.
+  <string name="snackbar_saved_page_missing_images">Small toast (popup) message saying that not all images of a saved page could be saved.
 
 See also:
 * {{msg-wm|Wikipedia-android-strings-toast saved page}}</string>
-  <string name="toast_refresh_saved_page">Small toast (popup) message saying that a saved page is being refreshed</string>
+  <string name="snackbar_refresh_saved_page">Small toast (popup) message saying that a saved page is being refreshed</string>
   <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected saved pages
 {{Identical|Delete}}</string>
-  <string name="toast_saved_page_deleted">Small toast (popup) message saying that the selected saved pages have been deleted</string>
+  <string name="snackbar_saved_page_deleted">Small toast (popup) message saying that the selected saved pages have been deleted</string>
   <string name="saved_pages_search_list_hint">Hint for textbox that searches list of items in saved pages as user types.
       {{Identical|Search}}</string>
   <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query.</string>
-  <string name="menu_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
-  <string name="menu_other_languages">Menu item for showing list of languages in which this article is available.
+  <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
+  <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.
 {{Identical|Otherlanguages}}</string>
-  <string name="menu_save_page">Menu item for saving a page for later reading.
+  <string name="menu_page_save">Menu item for saving a page for later reading.
 {{Identical|Save page}}</string>
-  <string name="menu_share_page">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.
+  <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.
 {{Identical|Share}}</string>
-  <string name="find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
-  <string name="menu_themechooser">Menu item for choosing text size and color scheme</string>
-  <string name="menu_open_link">Menu item for opening a link in the current tab.
+  <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
+  <string name="menu_page_font_and_theme">Menu item for choosing text size and color scheme</string>
+  <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.
 {{Identical|Open}}</string>
-  <string name="menu_open_in_new_tab">Menu item for opening a link in a new tab.</string>
+  <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipbord for pasting later.</string>
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature
 {{Identical|Nearby}}</string>

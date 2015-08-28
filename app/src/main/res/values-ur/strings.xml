@@ -26,17 +26,17 @@
   <string name="dialog_prompt_refresh_all_saved_pages">تمام محفوظ صفحات کی تجدید کریں؟</string>
   <string name="share_via">شیئر بذریعہ</string>
   <string name="dialog_title_clear_saved_pages">تمام محفوظ صفحات حذف کریں؟</string>
-  <string name="toast_saving_page">صفحہ محفوظ کررہا ہے...</string>
-  <string name="toast_saved_page">\"%s\"  صفحہ آفلائن پڑھنے کے لیے محفوظ ہوگیا</string>
-  <string name="toast_saved_page_missing_images">صفحے میں موجود تمام تصاویر محفوظ نہیں ہوسکیں</string>
-  <string name="toast_refresh_saved_page">محفوظ صفحہ تازہ کررہا ہے...</string>
+  <string name="snackbar_saving_page">صفحہ محفوظ کررہا ہے...</string>
+  <string name="snackbar_saved_page_format">\"%s\"  صفحہ آفلائن پڑھنے کے لیے محفوظ ہوگیا</string>
+  <string name="snackbar_saved_page_missing_images">صفحے میں موجود تمام تصاویر محفوظ نہیں ہوسکیں</string>
+  <string name="snackbar_refresh_saved_page">محفوظ صفحہ تازہ کررہا ہے...</string>
   <string name="delete_selected_saved_pages">حذف کریں</string>
-  <string name="toast_saved_page_deleted">محفوظ صفحہ/صفحات حذف ہوگیا/ہوگئے</string>
+  <string name="snackbar_saved_page_deleted">محفوظ صفحہ/صفحات حذف ہوگیا/ہوگئے</string>
   <string name="saved_pages_search_list_hint">محفوظ صفحات تلاش کریں</string>
   <string name="saved_pages_search_empty_message">مطلوبہ تلاش کے نتائج نہیں ملے.</string>
-  <string name="menu_other_languages">دوسری زبان میں مطالعہ کریں</string>
-  <string name="menu_save_page">صفحہ محفوظ کریں</string>
-  <string name="menu_share_page" fuzzy="true">شیئر کریں</string>
+  <string name="menu_page_other_languages">دوسری زبان میں مطالعہ کریں</string>
+  <string name="menu_page_save">صفحہ محفوظ کریں</string>
+  <string name="menu_page_share" fuzzy="true">شیئر کریں</string>
   <string name="nav_item_nearby">قریبی</string>
   <string name="menu_update_nearby">تجدید قریبی</string>
   <string name="nearby_empty_title">کوئی قریبی صفحہ نہیں ہے!</string>

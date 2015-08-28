@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Oppdater alle lagrede sider?</string>
   <string name="share_via">Del via</string>
   <string name="dialog_title_clear_saved_pages">Fjern alle lagrede sider?</string>
-  <string name="toast_saving_page">Lagrer side…</string>
-  <string name="toast_saved_page" fuzzy="true">Siden ble lagret</string>
-  <string name="toast_saved_page_missing_images">Kunne ikke lagre alle bilder</string>
-  <string name="toast_refresh_saved_page">Gjenoppfrisker lagret side…</string>
+  <string name="snackbar_saving_page">Lagrer side…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Siden ble lagret</string>
+  <string name="snackbar_saved_page_missing_images">Kunne ikke lagre alle bilder</string>
+  <string name="snackbar_refresh_saved_page">Gjenoppfrisker lagret side…</string>
   <string name="delete_selected_saved_pages">Fjern</string>
-  <string name="toast_saved_page_deleted">Siden(e) ble fjernet</string>
+  <string name="snackbar_saved_page_deleted">Siden(e) ble fjernet</string>
   <string name="saved_pages_search_list_hint">Søk i lagrede sider</string>
   <string name="saved_pages_search_empty_message">Fant ingen sider som matchet spørringen din.</string>
-  <string name="menu_show_tabs">Vis arkfaner</string>
-  <string name="menu_other_languages">Les på andre språk</string>
-  <string name="menu_save_page">Lagre side</string>
-  <string name="menu_share_page" fuzzy="true">Del</string>
-  <string name="find_in_page">Søk i siden</string>
-  <string name="menu_themechooser">Skrift og utseende</string>
-  <string name="menu_open_link" fuzzy="true">Åpne lenke</string>
-  <string name="menu_open_in_new_tab">Åpne i ny arkfane</string>
+  <string name="menu_page_show_tabs">Vis arkfaner</string>
+  <string name="menu_page_other_languages">Les på andre språk</string>
+  <string name="menu_page_save">Lagre side</string>
+  <string name="menu_page_share" fuzzy="true">Del</string>
+  <string name="menu_page_find_in_page">Søk i siden</string>
+  <string name="menu_page_font_and_theme">Skrift og utseende</string>
+  <string name="menu_long_press_open_page" fuzzy="true">Åpne lenke</string>
+  <string name="menu_long_press_open_in_new_tab">Åpne i ny arkfane</string>
   <string name="nav_item_nearby">I nærheten</string>
   <string name="menu_update_nearby">Oppdater «i nærheten»</string>
   <string name="nearby_empty_title">Ingen sider i nærheten!</string>

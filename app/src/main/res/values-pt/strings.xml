@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Atualizar todas as páginas guardadas?</string>
   <string name="share_via">Partilhar via</string>
   <string name="dialog_title_clear_saved_pages">Limpar todas as páginas guardadas?</string>
-  <string name="toast_saving_page">A guardar página…</string>
-  <string name="toast_saved_page" fuzzy="true">Página guardada com êxito</string>
-  <string name="toast_saved_page_missing_images">Não foi possível salvar todas as imagens</string>
-  <string name="toast_refresh_saved_page">A recarregar página guardada…</string>
+  <string name="snackbar_saving_page">A guardar página…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Página guardada com êxito</string>
+  <string name="snackbar_saved_page_missing_images">Não foi possível salvar todas as imagens</string>
+  <string name="snackbar_refresh_saved_page">A recarregar página guardada…</string>
   <string name="delete_selected_saved_pages">Eliminar</string>
-  <string name="toast_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
+  <string name="snackbar_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
   <string name="saved_pages_search_list_hint">Pesquisar nas páginas guardadas</string>
   <string name="saved_pages_search_empty_message">Nenhuma página correspondente com a sua pesquisa.</string>
-  <string name="menu_show_tabs">Mostrar separadores</string>
-  <string name="menu_other_languages">Ler noutros idiomas</string>
-  <string name="menu_save_page">Guardar página</string>
-  <string name="menu_share_page" fuzzy="true">Partilhar</string>
-  <string name="find_in_page">Localizar na página</string>
-  <string name="menu_themechooser">Alterar o tipo de letra e tema</string>
-  <string name="menu_open_link">Abrir</string>
-  <string name="menu_open_in_new_tab">Abrir num novo separador</string>
+  <string name="menu_page_show_tabs">Mostrar separadores</string>
+  <string name="menu_page_other_languages">Ler noutros idiomas</string>
+  <string name="menu_page_save">Guardar página</string>
+  <string name="menu_page_share" fuzzy="true">Partilhar</string>
+  <string name="menu_page_find_in_page">Localizar na página</string>
+  <string name="menu_page_font_and_theme">Alterar o tipo de letra e tema</string>
+  <string name="menu_long_press_open_page">Abrir</string>
+  <string name="menu_long_press_open_in_new_tab">Abrir num novo separador</string>
   <string name="nav_item_nearby">Nas redondezas</string>
   <string name="menu_update_nearby">Atualizar páginas nas redondezas</string>
   <string name="nearby_empty_title">Sem páginas nas redondezas</string>

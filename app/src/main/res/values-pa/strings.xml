@@ -24,19 +24,19 @@
   <string name="dialog_prompt_refresh_all_saved_pages">ਕੀ ਸਭ ਸੰਭਾਲੇ ਵਰਕੇ ਅੱਪਡੇਟ ਕਰਨੇ ਹਨ?</string>
   <string name="share_via">ਸਾਂਝੀਕਰਨ</string>
   <string name="dialog_title_clear_saved_pages">ਕੀ ਸੱਭ ਸੰਭਾਲੇ ਗਏ ਵਰਕੇ ਸਾਫ ਕਰਨੇ ਹਨ?</string>
-  <string name="toast_saving_page">… ਵਰਕਾ ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ</string>
-  <string name="toast_saved_page" fuzzy="true">ਵਰਕਾ ਸਫਲਤਾਪੂਰਵਕ ਸੰਭਾਲਿਆ ਗਿਆ</string>
-  <string name="toast_saved_page_missing_images">ਸਾਰੀਆਂ ਤਸਵੀਰਾਂ ਸੰਭਾਲੀਆਂ ਨਹੀਂ ਗਈਆਂ</string>
-  <string name="toast_refresh_saved_page">ਸਾਂਭਿਆ ਵਰਕਾ ਮੁੜ-ਤਾਜ਼ਾ ਹੋ ਰਿਹਾ ਹੈ…</string>
+  <string name="snackbar_saving_page">… ਵਰਕਾ ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">ਵਰਕਾ ਸਫਲਤਾਪੂਰਵਕ ਸੰਭਾਲਿਆ ਗਿਆ</string>
+  <string name="snackbar_saved_page_missing_images">ਸਾਰੀਆਂ ਤਸਵੀਰਾਂ ਸੰਭਾਲੀਆਂ ਨਹੀਂ ਗਈਆਂ</string>
+  <string name="snackbar_refresh_saved_page">ਸਾਂਭਿਆ ਵਰਕਾ ਮੁੜ-ਤਾਜ਼ਾ ਹੋ ਰਿਹਾ ਹੈ…</string>
   <string name="delete_selected_saved_pages">ਮਿਟਾਉ</string>
-  <string name="toast_saved_page_deleted">ਸਾਂਭਿਆ ਵਰਕਾ(ਕੇ) ਮਿਟਾਇਆ ਗਿਆ</string>
+  <string name="snackbar_saved_page_deleted">ਸਾਂਭਿਆ ਵਰਕਾ(ਕੇ) ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="saved_pages_search_list_hint">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਖੋਜੋ</string>
   <string name="saved_pages_search_empty_message">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮੇਲ ਖਾਂਦਾ ਕੋਈ ਵਰਕਾ ਨਹੀਂ ਲੱਭਿਆ।</string>
-  <string name="menu_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
-  <string name="menu_save_page">ਵਰਕਾ ਸੰਭਾਲੋ</string>
-  <string name="menu_share_page" fuzzy="true">ਸਾਂਝਾ ਕਰੋ</string>
-  <string name="find_in_page">ਸਫ਼ੇ \'ਚ ਲੱਭੋ</string>
-  <string name="menu_themechooser">ਅੱਖਰ-ਬਨਾਵਟ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
+  <string name="menu_page_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
+  <string name="menu_page_save">ਵਰਕਾ ਸੰਭਾਲੋ</string>
+  <string name="menu_page_share" fuzzy="true">ਸਾਂਝਾ ਕਰੋ</string>
+  <string name="menu_page_find_in_page">ਸਫ਼ੇ \'ਚ ਲੱਭੋ</string>
+  <string name="menu_page_font_and_theme">ਅੱਖਰ-ਬਨਾਵਟ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="nav_item_nearby">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="menu_update_nearby">ਨੇੜੇ-ਤੇੜੇ ਅੱਪਡੇਟ ਕਰੋ</string>
   <string name="nearby_empty_title">ਇੱਥੇ ਨੇੜੇ-ਤੇੜੇ ਦੇ ਕੋਈ ਸਫ਼ੇ ਨਹੀਂ!</string>

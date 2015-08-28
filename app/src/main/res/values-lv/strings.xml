@@ -19,12 +19,12 @@
   <string name="nav_item_saved_pages">Saglabātās lapas</string>
   <string name="share_via">Dalīties, izmantojot</string>
   <string name="dialog_title_clear_saved_pages" fuzzy="true">Notīrīt grāmatzīmes</string>
-  <string name="toast_saving_page">Saglabā lapu...</string>
+  <string name="snackbar_saving_page">Saglabā lapu...</string>
   <string name="delete_selected_saved_pages">Dzēst</string>
-  <string name="menu_other_languages">Lasīt citās valodās</string>
-  <string name="menu_save_page">Saglabāt lapu</string>
-  <string name="menu_share_page">Dalīties ar saiti</string>
-  <string name="menu_open_link">Atvērt</string>
+  <string name="menu_page_other_languages">Lasīt citās valodās</string>
+  <string name="menu_page_save">Saglabāt lapu</string>
+  <string name="menu_page_share">Dalīties ar saiti</string>
+  <string name="menu_long_press_open_page">Atvērt</string>
   <string name="menu_long_press_copy_page">Kopēt saites adresi</string>
   <string name="nav_item_nearby">Tuvumā</string>
   <string name="nearby_distance_in_meters">%d m</string>

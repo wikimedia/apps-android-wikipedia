@@ -24,16 +24,16 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Panguza kurasa zote zilizohifadhiwa?</string>
   <string name="share_via">Shiriki kupitia</string>
   <string name="dialog_title_clear_saved_pages">Panguza kurasa zote zilizohifadhiwa?</string>
-  <string name="toast_saving_page">Inahifadhi ukurasa...</string>
-  <string name="toast_saved_page" fuzzy="true">Ukurasa umehifadhiwa</string>
-  <string name="toast_saved_page_missing_images">Haingehifadhi picha zote</string>
+  <string name="snackbar_saving_page">Inahifadhi ukurasa...</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Ukurasa umehifadhiwa</string>
+  <string name="snackbar_saved_page_missing_images">Haingehifadhi picha zote</string>
   <string name="delete_selected_saved_pages">Futa</string>
-  <string name="toast_saved_page_deleted">Ukurasa uliohifadhiwa umefutwa</string>
+  <string name="snackbar_saved_page_deleted">Ukurasa uliohifadhiwa umefutwa</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Tafuta</string>
-  <string name="menu_other_languages">Soma katika lugha zingine</string>
-  <string name="menu_save_page">Hifadhi ukurasa</string>
-  <string name="menu_share_page" fuzzy="true">Gawa</string>
-  <string name="find_in_page">Tafuta katika ukurasa</string>
+  <string name="menu_page_other_languages">Soma katika lugha zingine</string>
+  <string name="menu_page_save">Hifadhi ukurasa</string>
+  <string name="menu_page_share" fuzzy="true">Gawa</string>
+  <string name="menu_page_find_in_page">Tafuta katika ukurasa</string>
   <string name="nav_item_nearby">Karibu</string>
   <string name="menu_update_nearby">Sasisha hapa karibu</string>
   <string name="nearby_empty_title">Hakuna kurasa za hapa karibu hapa!</string>

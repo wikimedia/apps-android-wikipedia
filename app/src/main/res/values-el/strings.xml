@@ -24,19 +24,19 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Να ενημερωθούν όλες οι αποθηκευμένες σελίδες;</string>
   <string name="share_via">Μοιραστείτε μέσω</string>
   <string name="dialog_title_clear_saved_pages">Να διαγραφούν όλες οι αποθηκευμένες σελίδες;</string>
-  <string name="toast_saving_page">Η σελίδα αποθηκεύεται…</string>
-  <string name="toast_saved_page" fuzzy="true">Η σελίδα αποθηκεύτηκε επιτυχώς</string>
-  <string name="toast_saved_page_missing_images">Δεν στάθηκε δυνατόν να αποθηκευθούν όλες οι εικόνες</string>
-  <string name="toast_refresh_saved_page">Ανανεώνοντας αποθηκευμένη σελίδα…</string>
+  <string name="snackbar_saving_page">Η σελίδα αποθηκεύεται…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Η σελίδα αποθηκεύτηκε επιτυχώς</string>
+  <string name="snackbar_saved_page_missing_images">Δεν στάθηκε δυνατόν να αποθηκευθούν όλες οι εικόνες</string>
+  <string name="snackbar_refresh_saved_page">Ανανεώνοντας αποθηκευμένη σελίδα…</string>
   <string name="delete_selected_saved_pages">Διαγραφή</string>
-  <string name="toast_saved_page_deleted">Αποθηκευμένη(ες) σελίδα(ες) διαγράφτηκε(καν)</string>
+  <string name="snackbar_saved_page_deleted">Αποθηκευμένη(ες) σελίδα(ες) διαγράφτηκε(καν)</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Αναζήτηση</string>
   <string name="saved_pages_search_empty_message">Δεν βρέθηκαν σελίδες να αντιστοιχούν στο ερώτημά σας.</string>
-  <string name="menu_other_languages">Διαβάστε σε άλλες γλώσσες</string>
-  <string name="menu_save_page">Αποθήκευση σελίδας</string>
-  <string name="menu_share_page" fuzzy="true">Μοιραστείτε</string>
-  <string name="find_in_page">Βρείτε στην σελίδα</string>
-  <string name="menu_themechooser">Γραμματοσειρά και θέμα</string>
+  <string name="menu_page_other_languages">Διαβάστε σε άλλες γλώσσες</string>
+  <string name="menu_page_save">Αποθήκευση σελίδας</string>
+  <string name="menu_page_share" fuzzy="true">Μοιραστείτε</string>
+  <string name="menu_page_find_in_page">Βρείτε στην σελίδα</string>
+  <string name="menu_page_font_and_theme">Γραμματοσειρά και θέμα</string>
   <string name="nav_item_nearby">Κοντινά</string>
   <string name="menu_update_nearby">Ενημέρωση κοντινών</string>
   <string name="nearby_empty_title">Δεν υπάρχουν κοντινές σελίδες εδώ!</string>

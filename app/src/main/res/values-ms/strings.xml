@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Kemaskinikan semua laman tersimpan?</string>
   <string name="share_via">Sebarkan melalui</string>
   <string name="dialog_title_clear_saved_pages">Padamkan semua laman tersimpan?</string>
-  <string name="toast_saving_page">Menyimpan laman…</string>
-  <string name="toast_saved_page" fuzzy="true">Laman disimpan</string>
-  <string name="toast_saved_page_missing_images">Semua gambar tidak dapat disimpan</string>
-  <string name="toast_refresh_saved_page">Memuat semula laman tersimpan…</string>
+  <string name="snackbar_saving_page">Menyimpan laman…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Laman disimpan</string>
+  <string name="snackbar_saved_page_missing_images">Semua gambar tidak dapat disimpan</string>
+  <string name="snackbar_refresh_saved_page">Memuat semula laman tersimpan…</string>
   <string name="delete_selected_saved_pages">Hapuskan</string>
-  <string name="toast_saved_page_deleted">Laman tersimpan dihapuskan</string>
+  <string name="snackbar_saved_page_deleted">Laman tersimpan dihapuskan</string>
   <string name="saved_pages_search_list_hint">Cari laman tersimpan</string>
   <string name="saved_pages_search_empty_message">Tiada laman yang padan dengan pertanyaan anda.</string>
-  <string name="menu_show_tabs">Paparkan tab</string>
-  <string name="menu_other_languages">Baca dalam bahasa lain</string>
-  <string name="menu_save_page">Simpan laman</string>
-  <string name="menu_share_page" fuzzy="true">Sebarkan</string>
-  <string name="find_in_page">Cari dalam laman</string>
-  <string name="menu_themechooser">Tukar fon dan tema</string>
-  <string name="menu_open_link" fuzzy="true">Buka pautan</string>
-  <string name="menu_open_in_new_tab">Buka dalam tab baru</string>
+  <string name="menu_page_show_tabs">Paparkan tab</string>
+  <string name="menu_page_other_languages">Baca dalam bahasa lain</string>
+  <string name="menu_page_save">Simpan laman</string>
+  <string name="menu_page_share" fuzzy="true">Sebarkan</string>
+  <string name="menu_page_find_in_page">Cari dalam laman</string>
+  <string name="menu_page_font_and_theme">Tukar fon dan tema</string>
+  <string name="menu_long_press_open_page" fuzzy="true">Buka pautan</string>
+  <string name="menu_long_press_open_in_new_tab">Buka dalam tab baru</string>
   <string name="nav_item_nearby">Berdekatan</string>
   <string name="menu_update_nearby">Kemaskini laman berdekatan</string>
   <string name="nearby_empty_title">Tiada laman berdekatan di sini!</string>

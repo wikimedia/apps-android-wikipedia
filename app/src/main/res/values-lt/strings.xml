@@ -22,18 +22,18 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Atnaujinti visus įrašytus puslapius?</string>
   <string name="share_via">Dalintis per</string>
   <string name="dialog_title_clear_saved_pages">Valyti visus įrašytus puslapius?</string>
-  <string name="toast_saving_page">Puslapis įrašomas…</string>
-  <string name="toast_saved_page" fuzzy="true">Puslapis sėkmingai įrašytas</string>
-  <string name="toast_saved_page_missing_images">Nepavyko įrašyti visų paveikslėlių</string>
-  <string name="toast_refresh_saved_page">Atnaujinamas įrašytas puslapis…</string>
+  <string name="snackbar_saving_page">Puslapis įrašomas…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Puslapis sėkmingai įrašytas</string>
+  <string name="snackbar_saved_page_missing_images">Nepavyko įrašyti visų paveikslėlių</string>
+  <string name="snackbar_refresh_saved_page">Atnaujinamas įrašytas puslapis…</string>
   <string name="delete_selected_saved_pages">Naikinti</string>
-  <string name="toast_saved_page_deleted">Įrašyti puslapiai panaikinti</string>
+  <string name="snackbar_saved_page_deleted">Įrašyti puslapiai panaikinti</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Paieška</string>
   <string name="saved_pages_search_empty_message">Nerasta puslapių, atitinkančių Jūsų užklausą.</string>
-  <string name="menu_other_languages">Skaityti kitomis kalbomis</string>
-  <string name="menu_save_page">Įrašyti puslapį</string>
-  <string name="menu_share_page" fuzzy="true">Dalintis</string>
-  <string name="find_in_page">Rasti puslapyje</string>
+  <string name="menu_page_other_languages">Skaityti kitomis kalbomis</string>
+  <string name="menu_page_save">Įrašyti puslapį</string>
+  <string name="menu_page_share" fuzzy="true">Dalintis</string>
+  <string name="menu_page_find_in_page">Rasti puslapyje</string>
   <string name="nav_item_nearby">Šalia</string>
   <string name="menu_update_nearby">Atnaujinti tai, kas šalia</string>
   <string name="nearby_empty_title">Nėra puslapių šalia!</string>

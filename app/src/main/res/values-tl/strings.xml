@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Isasapanahon ang lahat ng mga naitalang pahina?</string>
   <string name="share_via">Ibahagi sa pamamagitan ng</string>
   <string name="dialog_title_clear_saved_pages">Hawiin ang lahat ng naitalang mga pahina?</string>
-  <string name="toast_saving_page">Itinatala ang pahina...</string>
-  <string name="toast_saved_page" fuzzy="true">Matagumpay na naitala ang pahina</string>
-  <string name="toast_saved_page_missing_images">Hindi maitatala ang lahat ng mga larawan</string>
-  <string name="toast_refresh_saved_page">Pinapanariwang-muli (refresh) ang naitalang pahina...</string>
+  <string name="snackbar_saving_page">Itinatala ang pahina...</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Matagumpay na naitala ang pahina</string>
+  <string name="snackbar_saved_page_missing_images">Hindi maitatala ang lahat ng mga larawan</string>
+  <string name="snackbar_refresh_saved_page">Pinapanariwang-muli (refresh) ang naitalang pahina...</string>
   <string name="delete_selected_saved_pages">Burahin</string>
-  <string name="toast_saved_page_deleted">Naitalang (mga) pahina nabura na</string>
+  <string name="snackbar_saved_page_deleted">Naitalang (mga) pahina nabura na</string>
   <string name="saved_pages_search_list_hint">Hanapin ang naitalang mga pahina</string>
   <string name="saved_pages_search_empty_message">Walang nahanap na mga pahina na tumutugma sa iyong tanong.</string>
-  <string name="menu_show_tabs">Ipakita ang mga talahanayan (tabs)</string>
-  <string name="menu_other_languages">Basahin sa ibang wika</string>
-  <string name="menu_save_page">Itala ang pahina</string>
-  <string name="menu_share_page" fuzzy="true">Ibahagi</string>
-  <string name="find_in_page">Hanapin sa pahina</string>
-  <string name="menu_themechooser">Font at tema</string>
-  <string name="menu_open_link" fuzzy="true">Buksan ang kawing (link)</string>
-  <string name="menu_open_in_new_tab">Buksan sa bagong talahanayan (tab)</string>
+  <string name="menu_page_show_tabs">Ipakita ang mga talahanayan (tabs)</string>
+  <string name="menu_page_other_languages">Basahin sa ibang wika</string>
+  <string name="menu_page_save">Itala ang pahina</string>
+  <string name="menu_page_share" fuzzy="true">Ibahagi</string>
+  <string name="menu_page_find_in_page">Hanapin sa pahina</string>
+  <string name="menu_page_font_and_theme">Font at tema</string>
+  <string name="menu_long_press_open_page" fuzzy="true">Buksan ang kawing (link)</string>
+  <string name="menu_long_press_open_in_new_tab">Buksan sa bagong talahanayan (tab)</string>
   <string name="nav_item_nearby">Kalapit</string>
   <string name="menu_update_nearby">I-update ang kalapit</string>
   <string name="nearby_empty_title">Walang kalapit na pahina rito!</string>

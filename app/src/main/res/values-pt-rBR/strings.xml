@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Atualizar todas as páginas salvas?</string>
   <string name="share_via">Compartilhar via…</string>
   <string name="dialog_title_clear_saved_pages">Limpar todas as páginas salvas?</string>
-  <string name="toast_saving_page">Salvando página…</string>
-  <string name="toast_saved_page" fuzzy="true">Página salva com sucesso</string>
-  <string name="toast_saved_page_missing_images">Não foi possível salvar todas as imagens</string>
-  <string name="toast_refresh_saved_page">Atualizando páginas salvas…</string>
+  <string name="snackbar_saving_page">Salvando página…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Página salva com sucesso</string>
+  <string name="snackbar_saved_page_missing_images">Não foi possível salvar todas as imagens</string>
+  <string name="snackbar_refresh_saved_page">Atualizando páginas salvas…</string>
   <string name="delete_selected_saved_pages">Apagar</string>
-  <string name="toast_saved_page_deleted">Página(s) salva(s) excluída(s)</string>
+  <string name="snackbar_saved_page_deleted">Página(s) salva(s) excluída(s)</string>
   <string name="saved_pages_search_list_hint">Pesquisar páginas salvas</string>
   <string name="saved_pages_search_empty_message">Nenhuma página foi encontrada.</string>
-  <string name="menu_show_tabs">Mostrar abas</string>
-  <string name="menu_other_languages">Ler em outros idiomas</string>
-  <string name="menu_save_page">Salvar página</string>
-  <string name="menu_share_page" fuzzy="true">Compartilhar</string>
-  <string name="find_in_page">Encontrar na página</string>
-  <string name="menu_themechooser">Alterar o tamanho e cor da fonte</string>
-  <string name="menu_open_link">Abrir</string>
-  <string name="menu_open_in_new_tab">Abrir em uma nova aba</string>
+  <string name="menu_page_show_tabs">Mostrar abas</string>
+  <string name="menu_page_other_languages">Ler em outros idiomas</string>
+  <string name="menu_page_save">Salvar página</string>
+  <string name="menu_page_share" fuzzy="true">Compartilhar</string>
+  <string name="menu_page_find_in_page">Encontrar na página</string>
+  <string name="menu_page_font_and_theme">Alterar o tamanho e cor da fonte</string>
+  <string name="menu_long_press_open_page">Abrir</string>
+  <string name="menu_long_press_open_in_new_tab">Abrir em uma nova aba</string>
   <string name="nav_item_nearby">Próximo</string>
   <string name="menu_update_nearby">Atualizar páginas próximas</string>
   <string name="nearby_empty_title">Sem páginas por perto!</string>

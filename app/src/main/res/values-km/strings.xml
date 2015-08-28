@@ -24,19 +24,19 @@
   <string name="dialog_prompt_refresh_all_saved_pages">បន្ទាន់សម័យទំព័រដែលបានរក្សាទុកទាំងអស់ឬ?</string>
   <string name="share_via">ចែក​រំលែក​តាម…</string>
   <string name="dialog_title_clear_saved_pages">ជម្រះទំព័រ​ដែល​បាន​រក្សា​ទុកទាំងអស់ឬ?</string>
-  <string name="toast_saving_page">កំពុង​រក្សា​ទុក​ទំព័រ...</string>
-  <string name="toast_saved_page" fuzzy="true">បាន​រក្សា​ទំព័របានសម្រេច</string>
-  <string name="toast_saved_page_missing_images">មិនអាចរក្សាទុករូបភាពទាំងអស់</string>
-  <string name="toast_refresh_saved_page">កំពុងផ្ទុកទំព័រដែលបានរក្សាទុកជាថ្មី…</string>
+  <string name="snackbar_saving_page">កំពុង​រក្សា​ទុក​ទំព័រ...</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">បាន​រក្សា​ទំព័របានសម្រេច</string>
+  <string name="snackbar_saved_page_missing_images">មិនអាចរក្សាទុករូបភាពទាំងអស់</string>
+  <string name="snackbar_refresh_saved_page">កំពុងផ្ទុកទំព័រដែលបានរក្សាទុកជាថ្មី…</string>
   <string name="delete_selected_saved_pages">លុប</string>
-  <string name="toast_saved_page_deleted">បាន​លុប​ទំព័រ​ដែល​បាន​រក្សា​ទុក</string>
+  <string name="snackbar_saved_page_deleted">បាន​លុប​ទំព័រ​ដែល​បាន​រក្សា​ទុក</string>
   <string name="saved_pages_search_list_hint">ស្វែងរកទំព័រដែលបានរក្សាទុក</string>
   <string name="saved_pages_search_empty_message">រកមិនឃើញទំព័រត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
-  <string name="menu_other_languages">អានជាភាសា​ដទៃ​ទៀត</string>
-  <string name="menu_save_page">រក្សា​ទុក​ទំព័រ</string>
-  <string name="menu_share_page" fuzzy="true">ចែក​រំលែក</string>
-  <string name="find_in_page">ស្វែងរកក្នុងទំព័រ</string>
-  <string name="menu_themechooser">ប្រភេទអក្សរនិងរចនាបថ</string>
+  <string name="menu_page_other_languages">អានជាភាសា​ដទៃ​ទៀត</string>
+  <string name="menu_page_save">រក្សា​ទុក​ទំព័រ</string>
+  <string name="menu_page_share" fuzzy="true">ចែក​រំលែក</string>
+  <string name="menu_page_find_in_page">ស្វែងរកក្នុងទំព័រ</string>
+  <string name="menu_page_font_and_theme">ប្រភេទអក្សរនិងរចនាបថ</string>
   <string name="nav_item_nearby">ជិតខាង</string>
   <string name="menu_update_nearby">បន្ទាន់សម័យទំព័រជិតខាង</string>
   <string name="nearby_empty_title">គ្មានទំព័រជិតខាងនៅទីនេះទេ!</string>

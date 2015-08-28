@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করবেন?</string>
   <string name="share_via">শেয়ার</string>
   <string name="dialog_title_clear_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার?</string>
-  <string name="toast_saving_page">পাতা সংরক্ষণ হচ্ছে…</string>
-  <string name="toast_saved_page" fuzzy="true">পাতা সফলভাবে সংরক্ষিত হয়েছে</string>
-  <string name="toast_saved_page_missing_images">সকল চিত্র সংরক্ষণ সম্ভব হয়নি</string>
-  <string name="toast_refresh_saved_page">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে…</string>
+  <string name="snackbar_saving_page">পাতা সংরক্ষণ হচ্ছে…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">পাতা সফলভাবে সংরক্ষিত হয়েছে</string>
+  <string name="snackbar_saved_page_missing_images">সকল চিত্র সংরক্ষণ সম্ভব হয়নি</string>
+  <string name="snackbar_refresh_saved_page">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে…</string>
   <string name="delete_selected_saved_pages">অপসারণ</string>
-  <string name="toast_saved_page_deleted">সংরক্ষিত পাতা(সমূহ) অপসারণ করা হয়েছে</string>
+  <string name="snackbar_saved_page_deleted">সংরক্ষিত পাতা(সমূহ) অপসারণ করা হয়েছে</string>
   <string name="saved_pages_search_list_hint">সংরক্ষিত পাতা অনুসন্ধান</string>
   <string name="saved_pages_search_empty_message">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো পাতা নেই।</string>
-  <string name="menu_show_tabs">ট্যাবসমূহ দেখান</string>
-  <string name="menu_other_languages">অন্য ভাষায় পড়ুন</string>
-  <string name="menu_save_page">পাতা সংরক্ষণ করুন</string>
-  <string name="menu_share_page" fuzzy="true">শেয়ার</string>
-  <string name="find_in_page">এই পাতায় অনুসন্ধান</string>
-  <string name="menu_themechooser">ফন্ট ও থিম</string>
-  <string name="menu_open_link" fuzzy="true">লিঙ্ক খুলুন</string>
-  <string name="menu_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
+  <string name="menu_page_show_tabs">ট্যাবসমূহ দেখান</string>
+  <string name="menu_page_other_languages">অন্য ভাষায় পড়ুন</string>
+  <string name="menu_page_save">পাতা সংরক্ষণ করুন</string>
+  <string name="menu_page_share" fuzzy="true">শেয়ার</string>
+  <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
+  <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
+  <string name="menu_long_press_open_page" fuzzy="true">লিঙ্ক খুলুন</string>
+  <string name="menu_long_press_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
   <string name="nav_item_nearby">কাছাকাছি</string>
   <string name="menu_update_nearby">কাছাকাছি হালনাগাদ করুন</string>
   <string name="nearby_empty_title">এখানে কাছাকাছি কোন পাতা নেই</string>

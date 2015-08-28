@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Aggiornare tutte le pagine salvate?</string>
   <string name="share_via">Condividi tramite…</string>
   <string name="dialog_title_clear_saved_pages">Cancellare tutte le pagine salvate?</string>
-  <string name="toast_saving_page">Sto salvando la pagina…</string>
-  <string name="toast_saved_page" fuzzy="true">Pagina salvata correttamente</string>
-  <string name="toast_saved_page_missing_images">Non è stato possibile salvare tutte le immagini</string>
-  <string name="toast_refresh_saved_page">Aggiornamento pagina salvata…</string>
+  <string name="snackbar_saving_page">Sto salvando la pagina…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Pagina salvata correttamente</string>
+  <string name="snackbar_saved_page_missing_images">Non è stato possibile salvare tutte le immagini</string>
+  <string name="snackbar_refresh_saved_page">Aggiornamento pagina salvata…</string>
   <string name="delete_selected_saved_pages">Cancella</string>
-  <string name="toast_saved_page_deleted">Pagine salvate cancellate</string>
+  <string name="snackbar_saved_page_deleted">Pagine salvate cancellate</string>
   <string name="saved_pages_search_list_hint">Cerca pagine salvate</string>
   <string name="saved_pages_search_empty_message">Nessuna pagina trovata che corrisponda alla richiesta.</string>
-  <string name="menu_show_tabs">Mostra schede</string>
-  <string name="menu_other_languages">Leggi in altre lingue</string>
-  <string name="menu_save_page">Salva la pagina</string>
-  <string name="menu_share_page" fuzzy="true">Condividi</string>
-  <string name="find_in_page">Trova nella pagina</string>
-  <string name="menu_themechooser">Carattere e tema</string>
-  <string name="menu_open_link">Apri</string>
-  <string name="menu_open_in_new_tab">Apri in una nuova scheda</string>
+  <string name="menu_page_show_tabs">Mostra schede</string>
+  <string name="menu_page_other_languages">Leggi in altre lingue</string>
+  <string name="menu_page_save">Salva la pagina</string>
+  <string name="menu_page_share" fuzzy="true">Condividi</string>
+  <string name="menu_page_find_in_page">Trova nella pagina</string>
+  <string name="menu_page_font_and_theme">Carattere e tema</string>
+  <string name="menu_long_press_open_page">Apri</string>
+  <string name="menu_long_press_open_in_new_tab">Apri in una nuova scheda</string>
   <string name="nav_item_nearby">Nelle vicinanze</string>
   <string name="menu_update_nearby">Aggiorna nelle vicinanze</string>
   <string name="nearby_empty_title">Nessuna pagina nelle vicinanze qui!</string>

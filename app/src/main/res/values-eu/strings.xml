@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Gordetako orrialde guztiak eguneratu?</string>
   <string name="share_via">Partekatu honela</string>
   <string name="dialog_title_clear_saved_pages">Gordetako orrialde guztiak garbitu?</string>
-  <string name="toast_saving_page">Orrialdea gordetzen…</string>
-  <string name="toast_saved_page" fuzzy="true">Orria ondo gordea</string>
-  <string name="toast_saved_page_missing_images">Ezin izan dira irudi guztiak gorde</string>
-  <string name="toast_refresh_saved_page">Gordetako orria eguneratzen...</string>
+  <string name="snackbar_saving_page">Orrialdea gordetzen…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Orria ondo gordea</string>
+  <string name="snackbar_saved_page_missing_images">Ezin izan dira irudi guztiak gorde</string>
+  <string name="snackbar_refresh_saved_page">Gordetako orria eguneratzen...</string>
   <string name="delete_selected_saved_pages">Ezabatu</string>
-  <string name="toast_saved_page_deleted">Gordetako orrialdea(k) ezabatu d(ir)a</string>
+  <string name="snackbar_saved_page_deleted">Gordetako orrialdea(k) ezabatu d(ir)a</string>
   <string name="saved_pages_search_list_hint">Bilatu gordetako orriak</string>
   <string name="saved_pages_search_empty_message">Zure kontsultarekin bat egiten duen orririk ez da aurkitu.</string>
-  <string name="menu_show_tabs">Fitxak erakutsi</string>
-  <string name="menu_other_languages">Irakurri beste hizkuntzetan</string>
-  <string name="menu_save_page">Gorde orrialdea</string>
-  <string name="menu_share_page">Partekatu lotura</string>
-  <string name="find_in_page">Aurkitu orrialdean</string>
-  <string name="menu_themechooser">Letra eta gaia</string>
-  <string name="menu_open_link">Ireki</string>
-  <string name="menu_open_in_new_tab">Ireki fitxa berrian</string>
+  <string name="menu_page_show_tabs">Fitxak erakutsi</string>
+  <string name="menu_page_other_languages">Irakurri beste hizkuntzetan</string>
+  <string name="menu_page_save">Gorde orrialdea</string>
+  <string name="menu_page_share">Partekatu lotura</string>
+  <string name="menu_page_find_in_page">Aurkitu orrialdean</string>
+  <string name="menu_page_font_and_theme">Letra eta gaia</string>
+  <string name="menu_long_press_open_page">Ireki</string>
+  <string name="menu_long_press_open_in_new_tab">Ireki fitxa berrian</string>
   <string name="menu_long_press_copy_page">Kopiatu loturaren helbidea</string>
   <string name="nav_item_nearby">Gertukoak</string>
   <string name="menu_update_nearby">Gaurkotu gertukoak</string>

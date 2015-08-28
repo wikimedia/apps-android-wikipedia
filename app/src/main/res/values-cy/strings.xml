@@ -24,18 +24,18 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Diweddarwch pob tudalen sydd wedi\'u harbed?</string>
   <string name="share_via">Rhannu drwy</string>
   <string name="dialog_title_clear_saved_pages">Clirio\'r holl dudalennau a gadwyd?</string>
-  <string name="toast_saving_page">Wrthi\'n rhoi\'r dudalen ar gadw…</string>
-  <string name="toast_saved_page" fuzzy="true">Cadwyd y dudalen yn llwyddiannus</string>
-  <string name="toast_saved_page_missing_images">Methwyd arbed pob delwedd</string>
-  <string name="toast_refresh_saved_page">Wrthi\'n adnewyddu\'r dudalen a arbedwyd</string>
+  <string name="snackbar_saving_page">Wrthi\'n rhoi\'r dudalen ar gadw…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Cadwyd y dudalen yn llwyddiannus</string>
+  <string name="snackbar_saved_page_missing_images">Methwyd arbed pob delwedd</string>
+  <string name="snackbar_refresh_saved_page">Wrthi\'n adnewyddu\'r dudalen a arbedwyd</string>
   <string name="delete_selected_saved_pages">Dileu</string>
-  <string name="toast_saved_page_deleted">Diddymwyd y dudalen/au a ddilewyd</string>
+  <string name="snackbar_saved_page_deleted">Diddymwyd y dudalen/au a ddilewyd</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Chwilio</string>
   <string name="saved_pages_search_empty_message">Ni chafwyd hyn i\'r dudalen y chwiliwch amdani</string>
-  <string name="menu_other_languages">Darllen mewn ieithoedd eraill</string>
-  <string name="menu_save_page">Cadw\'r dudalen</string>
-  <string name="menu_share_page" fuzzy="true">Rhannwch</string>
-  <string name="find_in_page">Chwilio yn y dudalen</string>
+  <string name="menu_page_other_languages">Darllen mewn ieithoedd eraill</string>
+  <string name="menu_page_save">Cadw\'r dudalen</string>
+  <string name="menu_page_share" fuzzy="true">Rhannwch</string>
+  <string name="menu_page_find_in_page">Chwilio yn y dudalen</string>
   <string name="nav_item_nearby">Gerllaw</string>
   <string name="menu_update_nearby">Diweddarwch y tudalenau sydd gerllaw</string>
   <string name="nearby_empty_title">Nid oes tudalennau cyfagos yma!</string>

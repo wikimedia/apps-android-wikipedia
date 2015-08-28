@@ -764,8 +764,8 @@ public class PageActivity extends ThemedActionBarActivity {
 
     /*package*/ void showPageSavedMessage(@NonNull String title, boolean success) {
         FeedbackUtil.showMessage(this, getString(success
-                ? R.string.toast_saved_page
-                : R.string.toast_saved_page_missing_images, title));
+                ? R.string.snackbar_saved_page_format
+                : R.string.snackbar_saved_page_missing_images, title));
     }
 
     private void displayMainPageIfNoTabs() {

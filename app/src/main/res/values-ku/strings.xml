@@ -20,17 +20,17 @@
   <string name="menu_update_selected_saved_pages">Rûpelên tomarkirî rojane bike</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Bila hemû rûpelên tomarkirî bên rojanekirin?</string>
   <string name="share_via">Bi awayê $ parve bike</string>
-  <string name="toast_saving_page">Rûpel tê tomarkirin...</string>
-  <string name="toast_saved_page" fuzzy="true">Rûpel bi awayekî serkeftî hate tomarkirin</string>
-  <string name="toast_saved_page_missing_images">Hemû wêne nikaribûn bên tomarkirin</string>
-  <string name="toast_refresh_saved_page">Rûpelên tomarkirî tên nûkirin...</string>
+  <string name="snackbar_saving_page">Rûpel tê tomarkirin...</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Rûpel bi awayekî serkeftî hate tomarkirin</string>
+  <string name="snackbar_saved_page_missing_images">Hemû wêne nikaribûn bên tomarkirin</string>
+  <string name="snackbar_refresh_saved_page">Rûpelên tomarkirî tên nûkirin...</string>
   <string name="delete_selected_saved_pages">Jê bibe</string>
-  <string name="toast_saved_page_deleted">Rûpela(ên) hate(in) jêbirin</string>
+  <string name="snackbar_saved_page_deleted">Rûpela(ên) hate(in) jêbirin</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Lêgerîn</string>
-  <string name="menu_other_languages">Di zimanên din de bixwîne</string>
-  <string name="menu_save_page">Rûpelê tomar bike</string>
-  <string name="menu_share_page" fuzzy="true">Parve bike</string>
-  <string name="menu_open_link" fuzzy="true">Girêdanê veke</string>
+  <string name="menu_page_other_languages">Di zimanên din de bixwîne</string>
+  <string name="menu_page_save">Rûpelê tomar bike</string>
+  <string name="menu_page_share" fuzzy="true">Parve bike</string>
+  <string name="menu_long_press_open_page" fuzzy="true">Girêdanê veke</string>
   <string name="nearby_distance_in_meters">%d metre</string>
   <string name="nearby_distance_in_kilometers">%.2f kîlometre</string>
   <string name="nearby_distance_in_feet">%d fît</string>

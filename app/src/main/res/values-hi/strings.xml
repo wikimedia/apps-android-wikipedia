@@ -24,18 +24,18 @@
   <string name="dialog_prompt_refresh_all_saved_pages">सभी सरंक्षित पृष्ठों को अद्यतन करें?</string>
   <string name="share_via">के माध्यम से साझा करें</string>
   <string name="dialog_title_clear_saved_pages">सभी सरंक्षित पृष्ठ साफ करें</string>
-  <string name="toast_saving_page">पृष्ठ सहेजा जा रहा है…</string>
-  <string name="toast_saved_page" fuzzy="true">पृष्ठ सफलतापूर्वक सहेजा गया</string>
-  <string name="toast_saved_page_missing_images">सभी चित्र सहेजे नहीं गये</string>
-  <string name="toast_refresh_saved_page">सहेजे गये पृष्ठ को पुनः ताज़ा कर रहे हैं…</string>
+  <string name="snackbar_saving_page">पृष्ठ सहेजा जा रहा है…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">पृष्ठ सफलतापूर्वक सहेजा गया</string>
+  <string name="snackbar_saved_page_missing_images">सभी चित्र सहेजे नहीं गये</string>
+  <string name="snackbar_refresh_saved_page">सहेजे गये पृष्ठ को पुनः ताज़ा कर रहे हैं…</string>
   <string name="delete_selected_saved_pages">मिटाएँ</string>
-  <string name="toast_saved_page_deleted">सहेजे गया (गये) पृष्ठ हटाये</string>
+  <string name="snackbar_saved_page_deleted">सहेजे गया (गये) पृष्ठ हटाये</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">खोज</string>
   <string name="saved_pages_search_empty_message">आपकी आवश्यकता से मिलता कोई पृष्ठ नहीं पाया गया।</string>
-  <string name="menu_other_languages">अन्य भाषा में पढ़ें</string>
-  <string name="menu_save_page">पृष्ठ सहेजें</string>
-  <string name="menu_share_page" fuzzy="true">साझा करें</string>
-  <string name="find_in_page">पृष्ठ में ढूंढें</string>
+  <string name="menu_page_other_languages">अन्य भाषा में पढ़ें</string>
+  <string name="menu_page_save">पृष्ठ सहेजें</string>
+  <string name="menu_page_share" fuzzy="true">साझा करें</string>
+  <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
   <string name="nav_item_nearby">निकट</string>
   <string name="menu_update_nearby">\"निकट\" रिफ़्रेश करें</string>
   <string name="nearby_empty_title">कोई निकट पृष्ठ नहीं!</string>

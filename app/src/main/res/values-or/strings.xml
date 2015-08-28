@@ -24,17 +24,17 @@
   <string name="dialog_prompt_refresh_all_saved_pages">ସବୁ ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକୁ ଅପଡେଟ କରିବେ କି ?</string>
   <string name="share_via">କାହା ଦ୍ୱାରା ଜଣାଇବେ:</string>
   <string name="dialog_title_clear_saved_pages">ସାଇତା ପୃଷ୍ଠାସମୂହ ଲିଭାଇବେ?</string>
-  <string name="toast_saving_page">ପୃଷ୍ଠାଟିକୁ ସାଇତା ଯାଉଛି...</string>
-  <string name="toast_saved_page" fuzzy="true">ପୃଷ୍ଠାଟି ସଫଳତା ପୁର୍ବକ ସାଇତା ଗଲା ।</string>
-  <string name="toast_saved_page_missing_images">ସବୁ ଛବି ସାଇତା ଯାଇ ପାରିଲା ନାହିଁ</string>
-  <string name="toast_refresh_saved_page">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକ ଅଦ୍ଯତନ କରାଯାଊଛି ।</string>
+  <string name="snackbar_saving_page">ପୃଷ୍ଠାଟିକୁ ସାଇତା ଯାଉଛି...</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">ପୃଷ୍ଠାଟି ସଫଳତା ପୁର୍ବକ ସାଇତା ଗଲା ।</string>
+  <string name="snackbar_saved_page_missing_images">ସବୁ ଛବି ସାଇତା ଯାଇ ପାରିଲା ନାହିଁ</string>
+  <string name="snackbar_refresh_saved_page">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକ ଅଦ୍ଯତନ କରାଯାଊଛି ।</string>
   <string name="delete_selected_saved_pages">ଲିଭାନ୍ତୁ</string>
-  <string name="toast_saved_page_deleted">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକ ଲିଭାଗଲା</string>
+  <string name="snackbar_saved_page_deleted">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକ ଲିଭାଗଲା</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">ଖୋଜିବେ</string>
   <string name="saved_pages_search_empty_message">ଆପଣ ଖୋଜୁଥିବା ପୃଷ୍ଠା ମିଳିଲା ନାହିଁ ।</string>
-  <string name="menu_other_languages">ଅନ୍ୟ ଭାଷାରେ ପଢିବେ</string>
-  <string name="menu_save_page">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
-  <string name="menu_share_page" fuzzy="true">ବାଣ୍ଟିବେ</string>
+  <string name="menu_page_other_languages">ଅନ୍ୟ ଭାଷାରେ ପଢିବେ</string>
+  <string name="menu_page_save">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
+  <string name="menu_page_share" fuzzy="true">ବାଣ୍ଟିବେ</string>
   <string name="nav_item_nearby">ପାଖାପାଖି</string>
   <string name="menu_update_nearby">ପାଖାପାଖିଗୁଡିକୁ ଅପଡେଟ କରିବେ</string>
   <string name="nearby_distance_in_meters">%d ମି</string>

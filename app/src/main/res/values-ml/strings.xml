@@ -25,18 +25,18 @@
   <string name="dialog_prompt_refresh_all_saved_pages">സേവ് ചെയ്ത എല്ലാ താളുകളും പുതുക്കണോ?</string>
   <string name="share_via">ഇതുവഴി പങ്ക് വെയ്ക്കുക</string>
   <string name="dialog_title_clear_saved_pages">സേവ് ചെയ്ത എല്ലാ താളുകളും ഒഴിവാക്കണോ?</string>
-  <string name="toast_saving_page">താൾ സേവ് ചെയ്യുന്നു…</string>
-  <string name="toast_saved_page" fuzzy="true">താൾ സേവ് ചെയ്തു</string>
-  <string name="toast_saved_page_missing_images">എല്ലാ ചിത്രങ്ങളും സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല</string>
-  <string name="toast_refresh_saved_page">സേവ് ചെയ്ത് താൾ പുതുക്കുന്നു…</string>
+  <string name="snackbar_saving_page">താൾ സേവ് ചെയ്യുന്നു…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">താൾ സേവ് ചെയ്തു</string>
+  <string name="snackbar_saved_page_missing_images">എല്ലാ ചിത്രങ്ങളും സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല</string>
+  <string name="snackbar_refresh_saved_page">സേവ് ചെയ്ത് താൾ പുതുക്കുന്നു…</string>
   <string name="delete_selected_saved_pages">മായ്ക്കുക</string>
-  <string name="toast_saved_page_deleted">സേവ് ചെയ്ത താൾ (താളുകൾ) മായ്ച്ചു</string>
+  <string name="snackbar_saved_page_deleted">സേവ് ചെയ്ത താൾ (താളുകൾ) മായ്ച്ചു</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">തിരയുക</string>
   <string name="saved_pages_search_empty_message">താങ്കൾ തിരഞ്ഞതിനോടു യോജിക്കുന്ന താളുകളൊന്നും കണ്ടെത്താനായില്ല</string>
-  <string name="menu_other_languages">മറ്റു ഭാഷകളിൽ വായിക്കുക</string>
-  <string name="menu_save_page">താൾ സേവ് ചെയ്യുക</string>
-  <string name="menu_share_page" fuzzy="true">പങ്ക് വെയ്ക്കുക</string>
-  <string name="find_in_page">താളിൽ കണ്ടെത്തുക</string>
+  <string name="menu_page_other_languages">മറ്റു ഭാഷകളിൽ വായിക്കുക</string>
+  <string name="menu_page_save">താൾ സേവ് ചെയ്യുക</string>
+  <string name="menu_page_share" fuzzy="true">പങ്ക് വെയ്ക്കുക</string>
+  <string name="menu_page_find_in_page">താളിൽ കണ്ടെത്തുക</string>
   <string name="nav_item_nearby">സമീപസ്ഥം</string>
   <string name="menu_update_nearby">സമീപസ്ഥമുള്ളവ പുതുക്കുക</string>
   <string name="nearby_empty_title">സമീപസ്ഥ കാര്യങ്ങളെക്കുറിച്ച് താളുകളൊന്നുമില്ല!</string>

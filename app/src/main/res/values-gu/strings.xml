@@ -26,18 +26,18 @@
   <string name="dialog_prompt_refresh_all_saved_pages">બધા સાચવેલા પાનાંઓ અદ્યતન કરવા છે ?</string>
   <string name="share_via">આના માધ્યમથી વહેંચો</string>
   <string name="dialog_title_clear_saved_pages">બધા સાચવેલા પાનાં કાઢી નાખવા છે ?</string>
-  <string name="toast_saving_page">પાનું સચવાય છે...</string>
-  <string name="toast_saved_page" fuzzy="true">પાનું સફળતાપૂર્વક સચવાયું</string>
-  <string name="toast_saved_page_missing_images">બધાં ચિત્રો સચવાયા નહીં</string>
-  <string name="toast_refresh_saved_page">સચવાયેલું પાનું તાજું થાય છે...</string>
+  <string name="snackbar_saving_page">પાનું સચવાય છે...</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">પાનું સફળતાપૂર્વક સચવાયું</string>
+  <string name="snackbar_saved_page_missing_images">બધાં ચિત્રો સચવાયા નહીં</string>
+  <string name="snackbar_refresh_saved_page">સચવાયેલું પાનું તાજું થાય છે...</string>
   <string name="delete_selected_saved_pages">દૂર કરો</string>
-  <string name="toast_saved_page_deleted">સચવાયેલું પાનું (પાના) હટાવાયું</string>
+  <string name="snackbar_saved_page_deleted">સચવાયેલું પાનું (પાના) હટાવાયું</string>
   <string name="saved_pages_search_list_hint">સંગ્રહેલ પાનાંઓમાં શોધો</string>
   <string name="saved_pages_search_empty_message">તમારી પૂછપરછ સાથે બંધબેસતું કોઈ પાનું મળ્યું નથી.</string>
-  <string name="menu_other_languages">અન્ય ભાષાઓમાં વાંચો</string>
-  <string name="menu_save_page">પાનું સાચવો</string>
-  <string name="menu_share_page" fuzzy="true">વહેંચો</string>
-  <string name="find_in_page">પાનામાં શોધો</string>
+  <string name="menu_page_other_languages">અન્ય ભાષાઓમાં વાંચો</string>
+  <string name="menu_page_save">પાનું સાચવો</string>
+  <string name="menu_page_share" fuzzy="true">વહેંચો</string>
+  <string name="menu_page_find_in_page">પાનામાં શોધો</string>
   <string name="nav_item_nearby">નજીકના</string>
   <string name="nearby_empty_title">અહીં કોઈ નજીકના પાના નથી !</string>
   <string name="nearby_distance_in_meters">%d મી.</string>

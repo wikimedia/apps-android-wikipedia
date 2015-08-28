@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Perbarui semua halaman tersimpan?</string>
   <string name="share_via">Berbagi melalui</string>
   <string name="dialog_title_clear_saved_pages">Hapus semua halaman tersimpan?</string>
-  <string name="toast_saving_page">Menyimpan halaman…</string>
-  <string name="toast_saved_page" fuzzy="true">Penyimpanan halaman berhasil</string>
-  <string name="toast_saved_page_missing_images">Tidak dapat menyelamatkan semua gambar</string>
-  <string name="toast_refresh_saved_page">Menyegarkan halaman disimpan…</string>
+  <string name="snackbar_saving_page">Menyimpan halaman…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Penyimpanan halaman berhasil</string>
+  <string name="snackbar_saved_page_missing_images">Tidak dapat menyelamatkan semua gambar</string>
+  <string name="snackbar_refresh_saved_page">Menyegarkan halaman disimpan…</string>
   <string name="delete_selected_saved_pages">Hapus</string>
-  <string name="toast_saved_page_deleted">Halaman yang disimpan terhapus</string>
+  <string name="snackbar_saved_page_deleted">Halaman yang disimpan terhapus</string>
   <string name="saved_pages_search_list_hint">Cari halaman tersimpan</string>
   <string name="saved_pages_search_empty_message">Tidak ada halaman yang cocok dengan \'%s\'</string>
-  <string name="menu_show_tabs">Tampilkan tab</string>
-  <string name="menu_other_languages">Baca dalam bahasa lain</string>
-  <string name="menu_save_page">Simpan halaman</string>
-  <string name="menu_share_page" fuzzy="true">Bagikan</string>
-  <string name="find_in_page">Cari di halaman</string>
-  <string name="menu_themechooser">Huruf dan tema</string>
-  <string name="menu_open_link" fuzzy="true">Buka pranala</string>
-  <string name="menu_open_in_new_tab">Buka di tab baru</string>
+  <string name="menu_page_show_tabs">Tampilkan tab</string>
+  <string name="menu_page_other_languages">Baca dalam bahasa lain</string>
+  <string name="menu_page_save">Simpan halaman</string>
+  <string name="menu_page_share" fuzzy="true">Bagikan</string>
+  <string name="menu_page_find_in_page">Cari di halaman</string>
+  <string name="menu_page_font_and_theme">Huruf dan tema</string>
+  <string name="menu_long_press_open_page" fuzzy="true">Buka pranala</string>
+  <string name="menu_long_press_open_in_new_tab">Buka di tab baru</string>
   <string name="nav_item_nearby">Sekitar</string>
   <string name="menu_update_nearby">Perbarui sekitar</string>
   <string name="nearby_empty_title">Tidak ada halaman terdekat di sini!</string>

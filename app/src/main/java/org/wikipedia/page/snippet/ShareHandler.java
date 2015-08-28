@@ -172,7 +172,7 @@ public class ShareHandler {
         // if we were unable to find the Share button, then inject our own!
         if (shareItem == null) {
             shareItem = menu.add(Menu.NONE, Menu.NONE, Menu.NONE,
-                    activity.getString(R.string.menu_share_page));
+                    activity.getString(R.string.menu_page_share));
             shareItem.setIcon(R.drawable.ic_share_dark);
             MenuItemCompat.setShowAsAction(shareItem, MenuItemCompat.SHOW_AS_ACTION_ALWAYS
                                                       | MenuItemCompat.SHOW_AS_ACTION_WITH_TEXT);

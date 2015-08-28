@@ -24,17 +24,17 @@
   <string name="dialog_prompt_refresh_all_saved_pages">သိမ်းထားသော စာမျက်နှာအားလုံး ပြောင်းလဲမလား?</string>
   <string name="share_via">မှမျှဝေ</string>
   <string name="dialog_title_clear_saved_pages">သိမ်းထားသော စာမျက်နှာများ အား ရှင်းမည်</string>
-  <string name="toast_saving_page">စာမျက်နှာအားသိမ်းနေသည်…</string>
-  <string name="toast_saved_page" fuzzy="true">စာမျက်နှာအား အောင်မြင်စွာ သိမ်းပြီး</string>
-  <string name="toast_saved_page_missing_images">ပုံများအားလုံးအား မသိမ်းနိုင်ပါ</string>
-  <string name="toast_refresh_saved_page">သိမ်းထားသော စာမျက်နှာမှ အသစ်ဆွဲကြည့်နေသည်…</string>
+  <string name="snackbar_saving_page">စာမျက်နှာအားသိမ်းနေသည်…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">စာမျက်နှာအား အောင်မြင်စွာ သိမ်းပြီး</string>
+  <string name="snackbar_saved_page_missing_images">ပုံများအားလုံးအား မသိမ်းနိုင်ပါ</string>
+  <string name="snackbar_refresh_saved_page">သိမ်းထားသော စာမျက်နှာမှ အသစ်ဆွဲကြည့်နေသည်…</string>
   <string name="delete_selected_saved_pages">ဖျက်</string>
-  <string name="toast_saved_page_deleted">သိမ်းဆည်း စာမျက်နှာ(များ) ဖျက်ပြီး</string>
+  <string name="snackbar_saved_page_deleted">သိမ်းဆည်း စာမျက်နှာ(များ) ဖျက်ပြီး</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">ရှာဖွေ</string>
   <string name="saved_pages_search_empty_message">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှမတွေ့ရှိ</string>
-  <string name="menu_other_languages">အခြားဘာသာစကားဖြင့် ဖတ်ရန်</string>
-  <string name="menu_save_page">စာမျက်နှာကိုသိမ်း</string>
-  <string name="menu_share_page" fuzzy="true">မျှဝေ</string>
+  <string name="menu_page_other_languages">အခြားဘာသာစကားဖြင့် ဖတ်ရန်</string>
+  <string name="menu_page_save">စာမျက်နှာကိုသိမ်း</string>
+  <string name="menu_page_share" fuzzy="true">မျှဝေ</string>
   <string name="nav_item_nearby">အနီးအနား</string>
   <string name="menu_update_nearby">အနီးအနားအား အသစ်ရယူ</string>
   <string name="nearby_empty_title">အနီးအနားတွင် စာမျက်နှာများမရှိ!</string>

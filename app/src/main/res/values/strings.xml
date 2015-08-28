@@ -31,26 +31,26 @@
     <string name="dialog_prompt_refresh_all_saved_pages">Update all saved pages?</string>
     <string name="share_via">Share via</string>
     <string name="dialog_title_clear_saved_pages">Clear all saved pages?</string>
-    <string name="toast_saving_page">Saving page…</string>
-    <string name="toast_saved_page">"%s" saved for offline reading</string>
-    <string name="toast_saved_page_missing_images">Could not save all images</string>
-    <string name="toast_refresh_saved_page">Refreshing saved page…</string>
+    <string name="snackbar_saving_page">Saving page…</string>
+    <string name="snackbar_saved_page_format">"%s" saved for offline reading</string>
+    <string name="snackbar_saved_page_missing_images">Could not save all images</string>
+    <string name="snackbar_refresh_saved_page">Refreshing saved page…</string>
     <string name="delete_selected_saved_pages">Delete</string>
-    <string name="toast_saved_page_deleted">Saved page(s) deleted</string>
+    <string name="snackbar_saved_page_deleted">Saved page(s) deleted</string>
     <string name="saved_pages_search_list_hint">Search saved pages</string>
     <string name="saved_pages_search_empty_message">No pages found matching your query.</string>
 
     <!-- Page toolbar menu -->
-    <string name="menu_show_tabs">Show tabs</string>
-    <string name="menu_other_languages">Read in other languages</string>
-    <string name="menu_save_page">Save page</string>
-    <string name="menu_share_page">Share link</string>
-    <string name="find_in_page">Find in page</string>
-    <string name="menu_themechooser">Font and theme</string>
+    <string name="menu_page_show_tabs">Show tabs</string>
+    <string name="menu_page_other_languages">Read in other languages</string>
+    <string name="menu_page_save">Save page</string>
+    <string name="menu_page_share">Share link</string>
+    <string name="menu_page_find_in_page">Find in page</string>
+    <string name="menu_page_font_and_theme">Font and theme</string>
 
     <!-- Long press menu -->
-    <string name="menu_open_link">Open</string>
-    <string name="menu_open_in_new_tab">Open in new tab</string>
+    <string name="menu_long_press_open_page">Open</string>
+    <string name="menu_long_press_open_in_new_tab">Open in new tab</string>
     <string name="menu_long_press_copy_page">Copy link address</string>
 
     <!-- Nearby -->

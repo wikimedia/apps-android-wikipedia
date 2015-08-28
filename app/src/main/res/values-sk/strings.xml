@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Aktualizovať všetky uložené stránky?</string>
   <string name="share_via">Zdieľať cez</string>
   <string name="dialog_title_clear_saved_pages">Vymazať všetky uložené stránky?</string>
-  <string name="toast_saving_page">Ukladám stránku…</string>
-  <string name="toast_saved_page" fuzzy="true">Stránka bola úspešne uložená</string>
-  <string name="toast_saved_page_missing_images">Nepodarilo sa uložiť všetky obrázky</string>
-  <string name="toast_refresh_saved_page">Aktualizujem uloženú stránku…</string>
+  <string name="snackbar_saving_page">Ukladám stránku…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Stránka bola úspešne uložená</string>
+  <string name="snackbar_saved_page_missing_images">Nepodarilo sa uložiť všetky obrázky</string>
+  <string name="snackbar_refresh_saved_page">Aktualizujem uloženú stránku…</string>
   <string name="delete_selected_saved_pages">Zmazať</string>
-  <string name="toast_saved_page_deleted">Uložené stránky boli odstránené</string>
+  <string name="snackbar_saved_page_deleted">Uložené stránky boli odstránené</string>
   <string name="saved_pages_search_list_hint">Hľadať v uložených stránkach</string>
   <string name="saved_pages_search_empty_message">Nenašli sa žiadne stránky zodpovedajúce týmto kritériám.</string>
-  <string name="menu_show_tabs">Zobraziť karty</string>
-  <string name="menu_other_languages">V iných jazykoch</string>
-  <string name="menu_save_page">Uložiť stránku</string>
-  <string name="menu_share_page" fuzzy="true">Zdieľať</string>
-  <string name="find_in_page">Nájsť na stránke</string>
-  <string name="menu_themechooser">Zmeniť písmo a vzhľad</string>
-  <string name="menu_open_link" fuzzy="true">Otvoriť odkaz</string>
-  <string name="menu_open_in_new_tab">Otvoriť na novej karte</string>
+  <string name="menu_page_show_tabs">Zobraziť karty</string>
+  <string name="menu_page_other_languages">V iných jazykoch</string>
+  <string name="menu_page_save">Uložiť stránku</string>
+  <string name="menu_page_share" fuzzy="true">Zdieľať</string>
+  <string name="menu_page_find_in_page">Nájsť na stránke</string>
+  <string name="menu_page_font_and_theme">Zmeniť písmo a vzhľad</string>
+  <string name="menu_long_press_open_page" fuzzy="true">Otvoriť odkaz</string>
+  <string name="menu_long_press_open_in_new_tab">Otvoriť na novej karte</string>
   <string name="nav_item_nearby">V okolí</string>
   <string name="menu_update_nearby">Aktualizovať okolie</string>
   <string name="nearby_empty_title">V okolí sa nenašli žiadne stránky!</string>

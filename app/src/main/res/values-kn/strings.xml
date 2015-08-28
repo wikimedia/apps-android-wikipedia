@@ -26,18 +26,18 @@
   <string name="dialog_prompt_refresh_all_saved_pages">ಉಳಿಸಿದ ಎಲ್ಲಾ ಪುಟಗಳನ್ನು ನವೀಕರಿಸುವಿರಾ?</string>
   <string name="share_via">ಮೂಲಕ ಹಂಚು</string>
   <string name="dialog_title_clear_saved_pages">ಉಳಿಸಿದ ಎಲ್ಲ ಪುಟಗಳನ್ನು ಅಳಿಸಬೇಕೆ?</string>
-  <string name="toast_saving_page">ಪುಟವನ್ನು ಉಳಿಸಲಾಗುತ್ತಿದೆ...</string>
-  <string name="toast_saved_page" fuzzy="true">ಪುಟವನ್ನು ಉಳಿಸಲಾಗಿದೆ</string>
-  <string name="toast_saved_page_missing_images">ಎಲ್ಲಾ ಚಿತ್ರಗಳನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ.</string>
-  <string name="toast_refresh_saved_page">ಉಳಿಸಿದ ಪುಟವನ್ನು ಮತ್ತೆ ತೆರೆಯಿರಿ.</string>
+  <string name="snackbar_saving_page">ಪುಟವನ್ನು ಉಳಿಸಲಾಗುತ್ತಿದೆ...</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">ಪುಟವನ್ನು ಉಳಿಸಲಾಗಿದೆ</string>
+  <string name="snackbar_saved_page_missing_images">ಎಲ್ಲಾ ಚಿತ್ರಗಳನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ.</string>
+  <string name="snackbar_refresh_saved_page">ಉಳಿಸಿದ ಪುಟವನ್ನು ಮತ್ತೆ ತೆರೆಯಿರಿ.</string>
   <string name="delete_selected_saved_pages">ಅಳಿಸು</string>
-  <string name="toast_saved_page_deleted">ಉಳಿಸಿದ ಪುಟ(ಗಳ)ನ್ನು ಅಳಿಸಲಾಗಿದೆ</string>
+  <string name="snackbar_saved_page_deleted">ಉಳಿಸಿದ ಪುಟ(ಗಳ)ನ್ನು ಅಳಿಸಲಾಗಿದೆ</string>
   <string name="saved_pages_search_list_hint">ಉಳಿಸಲಾಗಿರುವ ಪುಟಗಳನ್ನು ಹುಡುಕಿ</string>
   <string name="saved_pages_search_empty_message">ನಿಮ್ಮ ಪ್ರಶ್ನೆಗೆ ಸರಿಹೊಂದುವ ಯಾವ ಪುಟಗಳೂ ಕಂಡುಬಂದಿಲ್ಲ .</string>
-  <string name="menu_show_tabs">ಮೇಜನ್ನು ತೋರಿಸಿ</string>
-  <string name="menu_other_languages">ಇತರೆ ಭಾಷೆಗಳಲ್ಲಿ ಹೋದಿ</string>
-  <string name="menu_save_page">ಪುಟವನ್ನು ಉಳಿಸಿ</string>
-  <string name="menu_share_page" fuzzy="true">ಹಂಚು</string>
+  <string name="menu_page_show_tabs">ಮೇಜನ್ನು ತೋರಿಸಿ</string>
+  <string name="menu_page_other_languages">ಇತರೆ ಭಾಷೆಗಳಲ್ಲಿ ಹೋದಿ</string>
+  <string name="menu_page_save">ಪುಟವನ್ನು ಉಳಿಸಿ</string>
+  <string name="menu_page_share" fuzzy="true">ಹಂಚು</string>
   <string name="nav_item_nearby">ಹತ್ತಿರದ</string>
   <string name="menu_update_nearby">ಹತ್ತಿರದ ಅಪ್ಡೇಟ್</string>
   <string name="nearby_empty_title">ಯಾವುದೇ ಇತ್ತೀಚಿನ ಪುಟಗಳು ಇಲ್ಲ!</string>

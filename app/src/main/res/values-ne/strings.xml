@@ -22,16 +22,16 @@
   <string name="menu_update_selected_saved_pages">संग्रहित पृष्ठहरूलाई अद्यावधिक गर्ने</string>
   <string name="dialog_prompt_refresh_all_saved_pages">सम्पूर्ण संग्रहित पृष्ठहरूलाई अद्यावधिक गर्ने</string>
   <string name="dialog_title_clear_saved_pages">संग्रह गरिएका सम्पूर्ण पृष्ठहरू मेटाउने ?</string>
-  <string name="toast_saving_page">पृष्ठ रक्षण गरिदै</string>
-  <string name="toast_saved_page" fuzzy="true">पृष्ठलाई स्वतः रक्षण गर्ने</string>
+  <string name="snackbar_saving_page">पृष्ठ रक्षण गरिदै</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">पृष्ठलाई स्वतः रक्षण गर्ने</string>
   <string name="delete_selected_saved_pages">मेट्ने</string>
-  <string name="toast_saved_page_deleted">संग्रह भएका पृष्ठहरू मेटाइयो</string>
+  <string name="snackbar_saved_page_deleted">संग्रह भएका पृष्ठहरू मेटाइयो</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">खोज्ने</string>
-  <string name="menu_other_languages">अन्य भाषाहरूमा पढ्ने</string>
-  <string name="menu_save_page">संग्रहित पृष्ठहरू</string>
-  <string name="menu_share_page" fuzzy="true">बाड्ने</string>
-  <string name="find_in_page">पृष्ठमा खोज्ने</string>
-  <string name="menu_themechooser">फन्ट तथा विषयसार</string>
+  <string name="menu_page_other_languages">अन्य भाषाहरूमा पढ्ने</string>
+  <string name="menu_page_save">संग्रहित पृष्ठहरू</string>
+  <string name="menu_page_share" fuzzy="true">बाड्ने</string>
+  <string name="menu_page_find_in_page">पृष्ठमा खोज्ने</string>
+  <string name="menu_page_font_and_theme">फन्ट तथा विषयसार</string>
   <string name="nav_item_nearby">नजिकै</string>
   <string name="menu_update_nearby">नजिकै अद्यावधिक भएको</string>
   <string name="nearby_distance_in_meters">%d मीटर</string>

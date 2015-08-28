@@ -4,35 +4,35 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/menu_page_show_tabs"
-        android:title="@string/menu_show_tabs"
+        android:title="@string/menu_page_show_tabs"
         android:icon="@drawable/ic_tab_list"
         app:showAsAction="ifRoom"
         />
     <item android:id="@+id/menu_page_other_languages"
-          android:title="@string/menu_other_languages"
+          android:title="@string/menu_page_other_languages"
           android:enabled="false"
           app:showAsAction="never"
           />
     <item android:id="@+id/menu_page_save"
           android:icon="@android:drawable/ic_menu_save"
-          android:title="@string/menu_save_page"
+          android:title="@string/menu_page_save"
           app:showAsAction="never"
           android:enabled="false"
           />
     <item android:id="@+id/menu_page_share"
           android:icon="@android:drawable/ic_menu_share"
-          android:title="@string/menu_share_page"
+          android:title="@string/menu_page_share"
           app:showAsAction="never"
           android:enabled="false"
             />
     <item android:id="@+id/menu_page_find_in_page"
           android:icon="@android:drawable/ic_menu_search"
-          android:title="@string/find_in_page"
+          android:title="@string/menu_page_find_in_page"
           app:showAsAction="never"
           android:enabled="false"
             />
     <item android:id="@+id/menu_page_font_and_theme"
-          android:title="@string/menu_themechooser"
+          android:title="@string/menu_page_font_and_theme"
           app:showAsAction="never"
           android:enabled="false"
             />

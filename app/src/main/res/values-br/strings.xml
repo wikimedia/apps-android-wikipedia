@@ -26,22 +26,22 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Hizivaat an holl bajennoù enrollet ?</string>
   <string name="share_via">Rannañ dre</string>
   <string name="dialog_title_clear_saved_pages">Diverkañ an holl bajennoù enrollet ?</string>
-  <string name="toast_saving_page">Oc\'h enrollañ ar bajenn…</string>
-  <string name="toast_saved_page" fuzzy="true">Pajenn enrollet</string>
-  <string name="toast_saved_page_missing_images">N\'eus ket bet gallet enrollañ an holl skeudennoù</string>
-  <string name="toast_refresh_saved_page">O freskaat ar bajenn enrollet…</string>
+  <string name="snackbar_saving_page">Oc\'h enrollañ ar bajenn…</string>
+  <string name="snackbar_saved_page_format" fuzzy="true">Pajenn enrollet</string>
+  <string name="snackbar_saved_page_missing_images">N\'eus ket bet gallet enrollañ an holl skeudennoù</string>
+  <string name="snackbar_refresh_saved_page">O freskaat ar bajenn enrollet…</string>
   <string name="delete_selected_saved_pages">Dilemel</string>
-  <string name="toast_saved_page_deleted">Pajenn(où) enrollet dilamet</string>
+  <string name="snackbar_saved_page_deleted">Pajenn(où) enrollet dilamet</string>
   <string name="saved_pages_search_list_hint">Klask ar pajennoù enrollet</string>
   <string name="saved_pages_search_empty_message">N\'eus bet kavet pajenn ebet hag a glot gant ho reked.</string>
-  <string name="menu_show_tabs">Diskouez an ivinelloù</string>
-  <string name="menu_other_languages">Lenn e yezhoù all</string>
-  <string name="menu_save_page">Enrollañ ar bajenn</string>
-  <string name="menu_share_page" fuzzy="true">Rannañ</string>
-  <string name="find_in_page">Klask er bajenn</string>
-  <string name="menu_themechooser">Font ha tem</string>
-  <string name="menu_open_link" fuzzy="true">Digeriñ al liamm</string>
-  <string name="menu_open_in_new_tab">Digeriñ en un ivinell nevez</string>
+  <string name="menu_page_show_tabs">Diskouez an ivinelloù</string>
+  <string name="menu_page_other_languages">Lenn e yezhoù all</string>
+  <string name="menu_page_save">Enrollañ ar bajenn</string>
+  <string name="menu_page_share" fuzzy="true">Rannañ</string>
+  <string name="menu_page_find_in_page">Klask er bajenn</string>
+  <string name="menu_page_font_and_theme">Font ha tem</string>
+  <string name="menu_long_press_open_page" fuzzy="true">Digeriñ al liamm</string>
+  <string name="menu_long_press_open_in_new_tab">Digeriñ en un ivinell nevez</string>
   <string name="nav_item_nearby">Tostik</string>
   <string name="menu_update_nearby">Hizivaat an elfennoù nes</string>
   <string name="nearby_empty_title">Pajenn dost ebet amañ !</string>
