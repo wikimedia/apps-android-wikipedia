@@ -27,7 +27,7 @@
   <string name="share_via">Dela via</string>
   <string name="dialog_title_clear_saved_pages">Rensa alla sparade sidor?</string>
   <string name="toast_saving_page">Sparar sida…</string>
-  <string name="toast_saved_page" fuzzy="true">Sidan har sparats</string>
+  <string name="toast_saved_page">\"%s\" sparades för läsning offline</string>
   <string name="toast_saved_page_missing_images">Kunde inte spara alla bilder</string>
   <string name="toast_refresh_saved_page">Uppdaterar sparad sida…</string>
   <string name="delete_selected_saved_pages">Radera</string>
@@ -37,11 +37,12 @@
   <string name="menu_show_tabs">Visa flikar</string>
   <string name="menu_other_languages">Läs på andra språk</string>
   <string name="menu_save_page">Spara sidan</string>
-  <string name="menu_share_page" fuzzy="true">Dela</string>
+  <string name="menu_share_page">Dela länk</string>
   <string name="find_in_page">Sök på sidan</string>
   <string name="menu_themechooser">Ändra teckensnitt och tema</string>
-  <string name="menu_open_link" fuzzy="true">Öppna länk</string>
+  <string name="menu_open_link">Öppna</string>
   <string name="menu_open_in_new_tab">Öppna i ny flik</string>
+  <string name="menu_long_press_copy_page">Kopiera länkadress</string>
   <string name="nav_item_nearby">I närheten</string>
   <string name="menu_update_nearby">Uppdatera sidor i närheten</string>
   <string name="nearby_empty_title">Inga närliggande sidor här!</string>
@@ -283,4 +284,6 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="error_unknown">Ett okänt fel uppstod.</string>
   <string name="format_error_server_message">Meddelande: \"%s\"</string>
   <string name="format_error_server_code">Kod: \"%s\"</string>
+  <string name="address_copied">Adressen kopierades till urklipp.</string>
+  <string name="button_continue_to_article">Fortsätt till artikeln</string>
 </resources>

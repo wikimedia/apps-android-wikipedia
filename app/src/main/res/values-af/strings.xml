@@ -27,7 +27,7 @@
   <string name="share_via">Deel deur</string>
   <string name="dialog_title_clear_saved_pages">Verwyder alle gestoorde bladsye?</string>
   <string name="toast_saving_page">Besig om blad te stoor...</string>
-  <string name="toast_saved_page" fuzzy="true">Blad suksesvol gestoor</string>
+  <string name="toast_saved_page">\"%s\" suksesvol gestoor vir aflyn lees</string>
   <string name="toast_saved_page_missing_images">Kon nie alle beelde stoor nie</string>
   <string name="toast_refresh_saved_page">Herlaai gestoorde blad...</string>
   <string name="delete_selected_saved_pages">Skrap</string>
@@ -37,11 +37,12 @@
   <string name="menu_show_tabs">Vertoon oortjies</string>
   <string name="menu_other_languages">Lees in ander tale</string>
   <string name="menu_save_page">Stoor bladsy</string>
-  <string name="menu_share_page" fuzzy="true">Deel</string>
+  <string name="menu_share_page">Deel skakel</string>
   <string name="find_in_page">Soek in blad</string>
   <string name="menu_themechooser">Lettertipe en tema</string>
-  <string name="menu_open_link" fuzzy="true">Maak skakel oop</string>
+  <string name="menu_open_link">Maak oop</string>
   <string name="menu_open_in_new_tab">Open in nuwe oortjie</string>
+  <string name="menu_long_press_copy_page">Kopieer skakelligging</string>
   <string name="nav_item_nearby">Naby</string>
   <string name="menu_update_nearby">Opdateer naby</string>
   <string name="nearby_empty_title">Geen nabye bladsye hier!</string>
@@ -96,7 +97,7 @@
   <string name="login_error_wrong_password">Verkeerde wagwoord</string>
   <string name="login_error_wrong_username">Verkeerde gebruikersnaam</string>
   <string name="login_error_illegal">Ongeldige gebruikersnaam</string>
-  <string name="login_success_toast" fuzzy="true">Suksesvolle Aanmelding!</string>
+  <string name="login_success_toast">Suksesvolle Aanmelding!</string>
   <string name="login_error_blocked">Hierdie gebruiker is geblok</string>
   <string name="login_error_throttled">Te veel aanmeldpogings. Wag \'n paar minute en probeer weer.</string>
   <string name="login_error_unknown">Aanmelding het misluk :(</string>
@@ -272,6 +273,15 @@ Voorwaardes: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="edit_save_unknown_error">Kon nie u wysiging stoor nie: %s</string>
   <string name="menu_new_tab">Nuwe oortjie</string>
   <string name="button_close_tab">Maak oortjie toe</string>
-  <string name="format_error_server_message" fuzzy="true">Boodskap: \"%s\"</string>
-  <string name="format_error_server_code" fuzzy="true">Kode:\"%s\"</string>
+  <string name="tool_tip_select_text">Druk en hou enige plek in die teks om dit te kopiëer en te deel.</string>
+  <string name="tool_tip_share">Na u \'n interessante feit uitgelig het, probeer dit deel op u gunstelling netwerke!</string>
+  <string name="page_view_in_browser">Bekyk blad in blaaier</string>
+  <string name="tool_tip_toc_button">Sien die inhoudsopgawe enige tyd deur hierdie knop te druk, of om dit van die regter rand van die skerm te sleep.</string>
+  <string name="error_server_response">Die bediener kon nie die versoek voltooi nie.</string>
+  <string name="error_response_malformed">Antwoord van die bediener was nie reg geformateer nie.</string>
+  <string name="error_unknown">\'n Onbekende fout het voorgekom.</string>
+  <string name="format_error_server_message">Boodskap: \"%s\"</string>
+  <string name="format_error_server_code">Kode: \"%s\"</string>
+  <string name="address_copied">Adres gekopiëer na knipbord.</string>
+  <string name="button_continue_to_article">Gaan voort na artikel</string>
 </resources>

@@ -225,6 +225,15 @@
   <string name="widget_name_featured_page">Artykuł na medal</string>
   <string name="widget_title_featured_page">Dzisiejszy artykuł na medal</string>
   <string name="widget_name_search">Wyszukaj w Wikipedii</string>
+  <string name="app_store_description">Oficjalna aplikacja \"Wikipedia\" pod Androida. Wikipedia — wolna encyklopedia, zawierająca ponad 32 milionów artykułów w 280 językach. Jest najbardziej kompletną i powszechnie używaną encyklopedią, którą ludzie kiedykolwiek stworzyli.
+
+Prześlij nam swoją opinię na temat aplikacji! W menu kliknij \"Zaawansowane\", a następnie \"informacje o aplikacji \"Wikipedia\"\" i \"Wyślij opinię na temat aplikacji\".
+
+Kod źródłowy jest w 100 % otwarty. Jeśli masz doświadczenie w pracy z Java i Android SDK, czekamy na twoją pomoc! https://github.com/wikimedia/apps-android-wikipedia
+
+Polityka prywatności: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Dostępna jest nowa aktualizacja alfa</string>
   <string name="alpha_update_notification_text">Kliknij, aby pobrać.</string>
   <string name="dialog_close_description">Zamknij</string>

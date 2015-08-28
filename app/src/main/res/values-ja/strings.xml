@@ -27,7 +27,7 @@
   <string name="share_via">シェアする</string>
   <string name="dialog_title_clear_saved_pages">保存したページをすべて消去しますか?</string>
   <string name="toast_saving_page">ページを保存中…</string>
-  <string name="toast_saved_page" fuzzy="true">ページを保存しました</string>
+  <string name="toast_saved_page">オフラインでの読みのため、\"%s\" ページを保存しました</string>
   <string name="toast_saved_page_missing_images">一部の画像を保存できませんでした</string>
   <string name="toast_refresh_saved_page">保存したページを更新しています…</string>
   <string name="delete_selected_saved_pages">削除</string>
@@ -37,10 +37,10 @@
   <string name="menu_show_tabs">タブを表示</string>
   <string name="menu_other_languages">他の言語で読む</string>
   <string name="menu_save_page">ページを保存</string>
-  <string name="menu_share_page" fuzzy="true">シェア</string>
+  <string name="menu_share_page">リンクをシェア</string>
   <string name="find_in_page">ページ内検索</string>
   <string name="menu_themechooser">フォントとテーマ</string>
-  <string name="menu_open_link" fuzzy="true">リンクを開く</string>
+  <string name="menu_open_link">開く</string>
   <string name="menu_open_in_new_tab">新しいタブで開く</string>
   <string name="nav_item_nearby">付近のスポット</string>
   <string name="menu_update_nearby">付近のスポットを更新</string>

@@ -228,19 +228,19 @@
   <string name="app_store_description">Aplicația oficială a Wikipediei pentru Android. Wikipedia este enciclopedia liberă, care conține peste 32 de milioane de articole în 280 de limbi, fiind cea mai cuprinzătoare și larg utilizată lucrare de referință elaborată vreodată de omenire.
 
 Caracteristici:
-   - Imagini de deschidere: experimentați Wikipedia mai bine ca niciodată cu o imagine și o descriere relevante, afișate proeminent, la începutul articolelor
-   - Galerie de imagini: apăsând pe o imagine vă este afișată imaginea pe tot ecranul, la rezoluție maximă. Trăgând stânga-dreapta, veți putea naviga prin alte imagini
-   - Descrieri de la Wikidata: când căutați, fiecare rezultat conține acum o scurtă descriere care vă ajută să puneți rezultatul în context. Aceste descrieri sunt prezentate și în alte locuri ale aplicației, ca de exemplu În apropiere
-   - Sugestii de articole: derulați până la sfârșitul unui articol pentru a vedea sugestii despre ce ați putea citi în continuare
-   - Pagini salvate: Salvați anumite pagini pentru lecturare off-line și să le răsfoiți chiar și atunci când nu aveți o conexiune de date.
-   - În apropiere: aflați mai multe despre ceea ce se află în jurul dvs. obținând legături către articole despre locuri aflate în apropierea locației curente
-   - Suport lingvistic: schimbați cu ușurință limba în care citiți Wikipedia.
-   - Cuprins: trageți la stânga pe orice articole pentru a afișa cuprinsul, ceea ce vă permite să săriți printre secțiuni
+   - Imagini de deschidere: experimentați Wikipedia mai bine ca niciodată cu o imagine și o descriere relevante, afișate proeminent, la începutul articolelor.
+   - Galerie de imagini: apăsând pe o imagine vă este afișată imaginea pe tot ecranul, la rezoluție maximă. Trăgând stânga-dreapta, veți putea naviga prin setul de imagini.
+   - Descrieri de la Wikidata: când căutați, fiecare rezultat conține acum o scurtă descriere care vă ajută să puneți rezultatul în context. Aceste descrieri sunt prezentate și în alte locuri ale aplicației, ca de exemplu funcția În apropiere.
+   - Sugestii de articole: derulați până la sfârșitul unui articol pentru a vedea sugestii despre ce ați putea citi în continuare.
+   - Pagini salvate: Salvați anumite pagini pentru lecturare off-line și răsfoiți-le chiar și atunci când nu aveți o conexiune de date.
+   - În apropiere: Aflați mai multe despre ceea ce se află în jurul dumneavoastră obținând legături către articolele referitoare la obiectivele din vecinătate.
+   - Suport lingvistic: Schimbați cu ușurință limba în care citiți Wikipedia.
+   - Cuprins: Trageți către stânga în orice articol pentru a afișa cuprinsul, lucru ce vă permite să săriți printre capitole.
    - Wikipedia Zero: Taxarea traficului de date este suspendată pentru operatorii de telefonie mobilă participanți.
 
-Trimiteți-ne părerea dvs. despre aplicație! În meniu, apăsați pe \"Mai mult\", apoi \"Despre aplicația Wikipedia\", apoi \"Trimiteți feedback\".
+Trimiteți-ne părerea dumnevoastră despre aplicație! În meniu, apăsați pe „Mai multe”, apoi „Despre aplicația Wikipedia”, apoi „Trimiteți o părere despre aplicație”.
 
-Codul este 100% cu sursă deschisă. Dacă sunteți familiarizat(ă) cu Java și kitul de dezvoltare al Androidului, de-abia așteptăm contribuțiile dumneavoastră! https://github.com/wikimedia/apps-android-wikipedia
+Codul este 100% cu sursă deschisă. Dacă sunteți familiarizat(ă) cu Java și kitul de dezvoltare al Androidului, așteptăm cu nerăbdare contribuțiile dumneavoastră! https://github.com/wikimedia/apps-android-wikipedia
 
 Politica datelor private: https://m.wikimediafoundation.org/wiki/Privacy_policy
 

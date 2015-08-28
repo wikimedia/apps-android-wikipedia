@@ -40,7 +40,7 @@
   <string name="menu_share_page" fuzzy="true">Compartilhar</string>
   <string name="find_in_page">Encontrar na página</string>
   <string name="menu_themechooser">Alterar o tamanho e cor da fonte</string>
-  <string name="menu_open_link" fuzzy="true">Abrir link</string>
+  <string name="menu_open_link">Abrir</string>
   <string name="menu_open_in_new_tab">Abrir em uma nova aba</string>
   <string name="nav_item_nearby">Próximo</string>
   <string name="menu_update_nearby">Atualizar páginas próximas</string>

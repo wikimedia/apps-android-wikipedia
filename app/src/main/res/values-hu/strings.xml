@@ -27,17 +27,22 @@
   <string name="share_via">Megosztás ezzel:</string>
   <string name="dialog_title_clear_saved_pages">Törlöd az összes mentett lapot?</string>
   <string name="toast_saving_page">Oldal mentése…</string>
-  <string name="toast_saved_page" fuzzy="true">A lap mentése sikeres</string>
+  <string name="toast_saved_page">„%s” elmentve offline olvasásra</string>
   <string name="toast_saved_page_missing_images">Nem sikerült az összes kép mentése</string>
   <string name="toast_refresh_saved_page">Mentett lapok frissítése…</string>
   <string name="delete_selected_saved_pages">Törlés</string>
   <string name="toast_saved_page_deleted">Mentett oldal(ak) törölve</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Keresés</string>
+  <string name="saved_pages_search_list_hint">Mentett lapok keresése</string>
   <string name="saved_pages_search_empty_message">Nem található a kérésnek megfelelő lap.</string>
+  <string name="menu_show_tabs">Fülek megjelenítése</string>
   <string name="menu_other_languages">Olvasás más nyelven</string>
   <string name="menu_save_page">Lap mentése</string>
-  <string name="menu_share_page" fuzzy="true">Megosztás</string>
+  <string name="menu_share_page">Link megosztása</string>
+  <string name="find_in_page">Keresés a lapon</string>
   <string name="menu_themechooser">Betűtípus és téma</string>
+  <string name="menu_open_link">Megnyitás</string>
+  <string name="menu_open_in_new_tab">Megnyitás új fülön</string>
+  <string name="menu_long_press_copy_page">Hivatkozás címének másolása</string>
   <string name="nav_item_nearby">Közeli</string>
   <string name="menu_update_nearby">Közeliek frissítése</string>
   <string name="nearby_empty_title">Nincsenek közeli lapok!</string>
@@ -53,6 +58,7 @@
   <string name="nearby_view_on_map">Helyek megtekintése térképen</string>
   <string name="last_updated_text">Utoljára frissítve: %s</string>
   <string name="content_license_html">A tartalom a &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt elérhető, ha nincs másképp feltüntetve</string>
+  <string name="edit_save_action_license_logged_in">A mentéssel elfogadod a &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
   <string name="preference_title_language">Wikipédia-nyelv</string>
   <string name="preference_languages_filter_hint">Keresés</string>
   <string name="preference_system_language_toggle">Rendszer nyelv használata</string>
@@ -74,7 +80,9 @@
   <string name="menu_show_toc">Tartalomjegyzék</string>
   <string name="search_no_results_found">Nincs találat</string>
   <string name="edit_section_captcha_message">Automatikus spam kivédése érdekében írd be az alább megjelenő szót</string>
+  <string name="edit_section_captcha_hint">Ismételd meg a fenti szavakat</string>
   <string name="title_captcha">Add meg a CAPTCHA-t</string>
+  <string name="edit_section_captcha_reload">Érintsd meg a CAPTCHA-t az újratöltéshez</string>
   <string name="nav_item_login">Bejelentkezés</string>
   <string name="login_username_hint">Felhasználónév</string>
   <string name="login_password_hint">Jelszó</string>
@@ -85,7 +93,7 @@
   <string name="login_error_wrong_password">Hibás jelszó</string>
   <string name="login_error_wrong_username">Helytelen felhasználónév</string>
   <string name="login_error_illegal">Érvénytelen felhasználónév</string>
-  <string name="login_success_toast" fuzzy="true">Sikeres bejelentkezés!</string>
+  <string name="login_success_toast">Sikeresen bejelentkezve!</string>
   <string name="login_error_blocked">Ez a felhasználó blokkolva van</string>
   <string name="login_error_throttled">Túl sok bejelentkezési kísérlet. Várj egy pár percet, és próbáld újra!</string>
   <string name="login_error_unknown">A bejelentkezés nem sikerült :(</string>
