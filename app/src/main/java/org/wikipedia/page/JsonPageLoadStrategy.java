@@ -55,6 +55,7 @@ import static org.wikipedia.page.PageFragment.SUBSTATE_SAVED_PAGE_LOADED;
  */
 public class JsonPageLoadStrategy implements PageLoadStrategy {
     private static final String TAG = "JsonPageLoad";
+    private static final String BRIDGE_PAYLOAD_SAVED_PAGE = "savedPage";
 
     public static final int STATE_NO_FETCH = 1;
     public static final int STATE_INITIAL_FETCH = 2;
@@ -170,7 +171,8 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     if (messagePayload.getInt("sequence") != currentSequenceNum) {
                         return;
                     }
-                    displayNonLeadSection(messagePayload.getInt("index"));
+                    displayNonLeadSection(messagePayload.getInt("index"),
+                            messagePayload.optBoolean(BRIDGE_PAYLOAD_SAVED_PAGE, false));
                 } catch (JSONException e) {
                     ACRA.getErrorReporter().handleException(e);
                 }
@@ -277,7 +279,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                         // when the lead image layout is complete, load the lead section and
                         // the other sections into the webview.
                         displayLeadSection();
-                        displayNonLeadSection(1);
+                        displayNonLeadSectionForUnsavedPage(1);
                     }
                 });
                 break;
@@ -439,11 +441,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                         // when the lead image is laid out, load the lead section and the rest
                         // of the sections into the webview.
                         displayLeadSection();
-                        displayNonLeadSection(1);
-
-                        // rewrite the image URLs in the webview, so that they're loaded from
-                        // local storage.
-                        fragment.readUrlMappings();
+                        displayNonLeadSectionForSavedPage(1);
 
                         setState(STATE_COMPLETE_FETCH, SUBSTATE_SAVED_PAGE_LOADED);
                     }
@@ -573,7 +571,15 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         activity.updateProgressBar(true, true, 0);
     }
 
-    private void displayNonLeadSection(int index) {
+    private void displayNonLeadSectionForUnsavedPage(int index) {
+        displayNonLeadSection(index, false);
+    }
+
+    private void displayNonLeadSectionForSavedPage(int index) {
+        displayNonLeadSection(index, true);
+    }
+
+    private void displayNonLeadSection(int index, boolean savedPage) {
         activity.updateProgressBar(true, false,
                 PageActivity.PROGRESS_BAR_MAX_VALUE / model.getPage()
                         .getSections().size() * index);
@@ -582,7 +588,9 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             final Page page = model.getPage();
             JSONObject wrapper = new JSONObject();
             wrapper.put("sequence", currentSequenceNum);
-            if (index < page.getSections().size()) {
+            wrapper.put(BRIDGE_PAYLOAD_SAVED_PAGE, savedPage);
+            boolean lastSection = index == page.getSections().size();
+            if (!lastSection) {
                 JSONObject section = page.getSections().get(index).toJSON();
                 wrapper.put("section", section);
                 wrapper.put("index", index);
@@ -605,6 +613,12 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             wrapper.put("scrollY",
                     (int) (stagedScrollY / activity.getResources().getDisplayMetrics().density));
             bridge.sendMessage("displaySection", wrapper);
+
+            if (savedPage && lastSection) {
+                // rewrite the image URLs in the webview, so that they're loaded from
+                // local storage after all the sections have been loaded.
+                fragment.readUrlMappings();
+            }
         } catch (JSONException e) {
             ACRA.getErrorReporter().handleException(e);
         }
@@ -723,7 +737,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             ArrayList<Section> newSections = (ArrayList<Section>) model.getPage().getSections().clone();
             newSections.addAll(result);
             model.setPage(new Page(model.getTitle(), newSections, model.getPage().getPageProperties()));
-            displayNonLeadSection(1);
+            displayNonLeadSectionForUnsavedPage(1);
             setState(STATE_COMPLETE_FETCH);
 
             fragment.onPageLoadComplete();

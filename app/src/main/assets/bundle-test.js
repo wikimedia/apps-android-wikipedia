@@ -80,6 +80,7 @@ function replaceImageSrc( payload ) {
         var img = images[i];
         img.setAttribute( "src", payload.newURL );
         img.setAttribute( "data-old-src", payload.originalURL );
+        img.removeAttribute( "srcset" );
     }
 }
 bridge.registerListener( "replaceImageSrc", replaceImageSrc );
