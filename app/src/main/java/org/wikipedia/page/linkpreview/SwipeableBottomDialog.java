@@ -50,7 +50,6 @@ import java.util.List;
  */
 public abstract class SwipeableBottomDialog extends DialogFragment {
     private final List<View> dialogViews = new ArrayList<>();
-    private ViewGroup rootView;
     private ListView dialogListView;
     private int dialogPeekHeight;
 
@@ -76,7 +75,7 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
         int displayWidth = getDialogWidth();
         int displayHeight = inflater.getContext().getResources().getDisplayMetrics().heightPixels;
 
-        rootView = (ViewGroup) inflater.inflate(R.layout.dialog_bottom_swipe, container);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.dialog_bottom_swipe, container);
 
         dialogViews.add(makeSpaceView(displayWidth, 1));
         dialogViews.add(makeSpaceView(displayWidth, dialogPeekHeight));

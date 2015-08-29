@@ -44,7 +44,6 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     private EditText searchEditText;
     private SearchFunnel funnel;
     private TextView langButton;
-    private FrameLayout langButtonContainer;
 
     public SearchFunnel getFunnel() {
         return funnel;
@@ -287,7 +286,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         LinearLayout enabledSearchBar = (LinearLayout) getActivity().findViewById(R.id.search_bar_enabled);
         TextView searchButton = (TextView) getActivity().findViewById(R.id.main_search_bar_text);
         langButton = (TextView) getActivity().findViewById(R.id.search_lang_button);
-        langButtonContainer = (FrameLayout) getActivity().findViewById(R.id.search_lang_button_container);
+        FrameLayout langButtonContainer = (FrameLayout) getActivity().findViewById(R.id.search_lang_button_container);
 
         if (enabled) {
             // set up the language picker
