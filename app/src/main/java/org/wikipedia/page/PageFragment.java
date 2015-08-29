@@ -403,7 +403,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!app.isProdRelease() && app.getLinkPreviewVersion() == 0) {
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
             getPageActivity().displayNewPage(title, historyEntry);
-            new LinkPreviewFunnel(app, title).logNavigate();
+            new LinkPreviewFunnel(app).logNavigate();
         } else {
             getPageActivity().showLinkPreview(title, HistoryEntry.SOURCE_INTERNAL_LINK);
         }

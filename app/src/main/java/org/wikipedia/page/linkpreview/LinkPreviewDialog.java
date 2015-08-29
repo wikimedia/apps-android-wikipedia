@@ -136,7 +136,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         // and kick off the task to load all the things...
         new LinkPreviewFetchTask(app.getAPIForSite(pageTitle.getSite()), pageTitle).execute();
 
-        funnel = new LinkPreviewFunnel(app, pageTitle);
+        funnel = new LinkPreviewFunnel(app);
         funnel.logLinkClick();
 
         return rootView;

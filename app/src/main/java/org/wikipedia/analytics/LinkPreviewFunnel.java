@@ -3,7 +3,6 @@ package org.wikipedia.analytics;
 import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 
 public class LinkPreviewFunnel extends TimedFunnel {
@@ -12,11 +11,8 @@ public class LinkPreviewFunnel extends TimedFunnel {
     private static final int PROD_LINK_PREVIEW_VERSION = 3;
     private final int version;
 
-    private final PageTitle title;
-
-    public LinkPreviewFunnel(WikipediaApp app, PageTitle title) {
+    public LinkPreviewFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REV_ID, app.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
-        this.title = title;
         version = app.isProdRelease() ? PROD_LINK_PREVIEW_VERSION : app.getLinkPreviewVersion();
     }
 
